@@ -1,0 +1,51 @@
+= Introduction
+
+== BPI-R1
+
+CAUTION: The Banana Pi R1 is a router based Banana Pi running on the same SoC as the M1 Classic Pi.
+  The R1 is a open hardware router that can run on a variety of open source operating systems including OpenWrt, Android, and Bananian. The R1 has slim router form factor with a bay for 2.5" HDDs. It also has 4 Gigabit LAN ports, 1 Gigabit WAN, and 300Mbs wireless N capabilities.
+
+Get more information:link:/en/Banana_Pi_BPI-R1[Banana Pi BPI-R1]
+
+== Key Features
+
+* Dual-core 1.0GHz CPU
+* 1 GB DDR3 memeory
+* Mali-400 MP2 with Open GL ES 2.0/1.1
+* 4x Gigabit LAN 1x Gigabit WAN
+
+= Development
+
+== Basic Development
+
+=== Prepare to develop
+
+[source, html, subs="verbatim, attributes"]
+....
+* Prepare 16G/above TF card, USB-Serial interface, Ubuntu System
+* Using your USB-Serial Connect debug console on R1
+....
+
+image::/r1_debug_console.png[r1_debug_console.png]
+image::/r1_dc_in.png[r1_dc_in.png]
+
+=== Load your first image on R1
+
+. You could download latest image from our forum
+ 
+. Install bpi-tools on your Ubuntu. If you can't access this URL or any other problems, please go to bpi-tools repo and install this tools manually.
+.. 
+* ``
+  apt-get install pv
+  ``
+* ``
+  curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
+	``
+
+. After you download the image, insert your TF card into your Ubuntu
+
+*	```bash
+	Execute "bpi-copy xxx.img /dev/sdx" to install image on your TF card
+	```
+  
+. After step 3, then you can insert your TF card into R1, and press power button setup R1
