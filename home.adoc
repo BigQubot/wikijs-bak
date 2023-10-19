@@ -72,55 +72,61 @@ Banana PI SBC and Router source code on github : https://github.com/bpi-sinovoip
 STEAM education product source code on github : https://github.com/BPI-STEAM
 
 == Products
-=== Banana Pi single board computer : link:{https://wiki.banana-pi.org/Banana_Pi_Series_Comparison}[Banana Pi Series Comparison]
+=== Banana Pi Single Board Computer : link:{https://wiki.banana-pi.org/Banana_Pi_Series_Comparison}[Banana Pi Series Comparison]
 
 |=====
-2+| Banana Pi single board computer : link:{https://wiki.banana-pi.org/Banana_Pi_Series_Comparison}[Banana Pi Series Comparison]
-| link:/en/Banana_Pi_BPI-M1[Banana Pi BPI-M1] [Allwinner A20] | 
+2+| Banana Pi Single Board Computer(SBC)
+| link:/en/BPI-M1/BananaPi_BPI-M1[Banana Pi BPI-M1] [Allwinner A20] | link:/en/BPI-F2/BananaPi_BPI-F2[Banana Pi BPI-F2] [Freescale IMX6 industrial-grade]
 
-| link:/en/Banana_Pi_BPI-M1_Plus[Banana Pi BPI-M1_Plus] [Allwinner A20] | 
+| link:/en/BPI-M1_Plus/BananaPi_BPI-M1_Plus[Banana Pi BPI-M1_Plus] [Allwinner A20] | link:/en/BPI-F2S/BananaPi_BPI-F2S[Banana Pi BPI-F2S] [SunPlus SP7021 industrial-grade]
 
-|    [Allwinner H2+/H3] |  
+| link:/en/BPI-M2_Zero/BananaPi_BPI-M2_Zero[Banana Pi BPI-M2_Zero] [Allwinner H2+/H3] | link:/en/BPI-F2P/BananaPi_BPI-F2P[Banana Pi BPI-F2P] [SunPlus SP7021 industrial control gateway board]
 
-|    [Allwinner H2+/H3] | 
+| link:/en/BPI-P2_Zero/BananaPi_BPI-P2_Zero[Banana Pi BPI-P2 Zero] [Allwinner H2+/H3] | link:/en/BPI-M4/BananaPi_BPI-M4[Banana Pi BPI-M4] [Realtek RTD1395]
 
-|    [Allwinner H2+/H3] |  
+| link:/en/BPI-M2_Plus/BananaPi_BPI-M2_Plus[Banana Pi BPI-M2 Plus] [Allwinner H2+/H3] | link:/en/BPI-M5/BananaPi_BPI-M5[Banana Pi BPI-M5] [Amlogic S905X3] 
 
-|    [Allwinner A33/R16] | 
+| link:/en/BPI-M2_Magic/BananaPi_BPI-M2_Magic[Banana Pi BPI-M2 Magic] [Allwinner A33/R16] | link:/en/BPI-M2_Pro/BananaPi_BPI-M2_Pro[Banana Pi BPI-M2 Pro] [Amlogic S905X3]
 
-|    [Allwinner R40/V40/A40i] |  
+| link:/en/BPI-M2_Berry/BananaPi_BPI-M2_Berry[Banana Pi BPI-M2 Berry] [Allwinner R40/V40/A40i] | link:/en/BPI-M2_Super/BananaPi_BPI-M2_Super[Banana Pi BPI-M2 Super] [Amlogic A311D&S922X]
 
-|    [Allwinner R40/V40/A40i] | 
+| link:/en/BPI-M2_Ultra/BananaPi_BPI-M2_Ultra[Banana Pi BPI-M2 Ultra] [Allwinner R40/V40/A40i] | link:/en/BPI-P2_Pro/BananaPi_BPI-P2_Pro[Banana Pi BPI-P2 Pro] [Rockchip RK3308]
 
-|    [Allwinner A64] |  
+| link:/en/BPI-M64/BananaPi_BPI-M64[Banana Pi BPI-M64] [Allwinner A64] | link:/en/BPI-M4_Berry/Getting_Started_BPI-M4_Berry[Banana Pi BPI-M4 Berry] [Allwinner H618]
 
-|    [Allwinner A83T] | 
-
-|     | link:/en/BPI-M4B/Getting_Started_BPI-M4_Berry[Getting_Started_BPI-M4_Berry] 
-
-|     | 
-
-|     |  
+| link:/en/BPI-M3/BananaPi_BPI-M3[Banana Pi BPI-M3] [Allwinner A83T] | 
 |=====
 
-=== Banana pi smart router: link:{https://wiki.banana-pi.org/Banana_Pi_router_Comparison}[Banana Pi router Comparison]
+=== Banana Pi Smart Router: link:{https://wiki.banana-pi.org/Banana_Pi_router_Comparison}[Banana Pi router Comparison]
 
 |=====
-2+| Banana pi smart router: link:{https://wiki.banana-pi.org/Banana_Pi_router_Comparison}[Banana Pi router Comparison]
-| link:/en/Banana_Pi_BPI-R1[Banana_Pi_BPI-R1] [Allwinner A20] |
+2+| Banana Pi Smart Router
+| link:/en/BPI-R1/BananaPi_BPI-R1[Banana Pi BPI-R1] [Allwinner A20] | link:/en/BPI-R2_Pro/BananaPi_BPI-R2_Pro[Banana Pi BPI-R2 Pro] [Rockchip RK3568]
+
+| link:/en/BPI-R2/BananaPi_BPI-R2[Banana Pi BPI-R2] [MTK MT7623N] | link:/en/BPI-R64/BananaPi_BPI-R64[Banana Pi BPI-R64] [MTK MT7622]
+
+| link:/en/BPI-R64/BananaPi_BPI-R64[Banana Pi BPI-R64] [MTK MT7622] | link:/en/BPI-R3/BananaPi_BPI-R3[Banana Pi BPI-R3] [MTK MT7986(Filogic 830)]
+
+| link:/en/BPI-W2/BananaPi_BPI-W2[Banana Pi BPI-W2] [Realtek 1296] | link:/en/BPI-R3_Mini/BananaPi_BPI-R3_Mini[Banana Pi BPI-R3 Mini] [MTK MT7986(Filogic 830)]
+
+| link:/en/BPI-W3/BananaPi_BPI-W3[Banana Pi BPI-W3] [Rockchip RK3588] | link:/en/BPI-R4/BananaPi_BPI-R4[Banana Pi BPI-R4] [MTK MT7988(Filogic 880)]
 |=====
 
-=== Banana Pi Core board and development Kit
+=== Banana Pi Compute Module and Development Kit
 
 |=====
-2+| Banana Pi Core board and development Kit
-|   |
+2+| Banana Pi Compute Module and Development Kit
+| link:/en/BPI-CM2/BananaPi_BPI-CM2[Banana Pi BPI-CM2] [Rockchip RK3568] | 
+
+| link:/en/BPI-CM4/BananaPi_BPI-CM4[Banana Pi BPI-CM4] [Amlogic A311D] | 
+
+| link:/en/BPI-CM5/BananaPi_BPI-CM5[Banana Pi BPI-CM5] [Amlogic A311D2] | 
 |=====
 
-=== Banana Pi ComputeModule Base Board
+=== Banana Pi Compute Module Base Board
 
 |=====
-|   |
+| link:/en/BPI-CM4IO/BananaPi_BPI-CM4IO[Banana Pi BPI-CM4IO] | 
 |=====
 
 === Banana Pi AI design
