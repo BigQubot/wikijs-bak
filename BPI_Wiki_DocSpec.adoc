@@ -13,3 +13,20 @@ TIP: link:{https://docs.asciidoctor.org/}[Asciidoctor Docs]
 TIP: link:{https://meniny.cn/docs/asciidoc/full.html}[AsciiDoc User Guide]
 
 TIP: link:{https://meniny.cn/docs/asciidoc/}[AsciiDoc 指引]
+
+= About Doc Path
+
+WARNING: Pay strict attention to the document storage path 
+
+```
+/en/BPI-xx/BananaPi_BPI-xx[Banana Pi BPI-xx]
+/en/BPI-xx/GettingStarted_BPI-xx[Getting Started BPI-xx]
+```
+
+= About Picture Path
+
+WARNING: Pay strict attention to the Picture storage path 
+
+```
+image::/bpi-xxxx.png[bpi-xxxx.png]
+```
