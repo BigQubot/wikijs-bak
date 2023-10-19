@@ -1,0 +1,115 @@
+= Introduction
+
+The Banana Pi M1 is our first product in our goal of creating an open source devlopment board community. With a Banana Pi, we want you to explore and experience the world of DIY projects and portable computing. We welcome all companies, DIYers, and tech loving people within our community! Together, we can make a difference, we can discover our passions, inspire others, and build a practical project.
+
+TIP: More Infomation: link:/en/BPI-M1/BananaPi_BPI-M1[BananaPi_BPI-M1]
+
+== Key Features
+
+- Allwinner A20 Dual-core 1.0GHz CPU
+- Mali-400 MP2 with Open GL ES 2.0/1.1.
+- 1 GB DDR3 memory.
+- 1x SATA interface.
+- 1x Gigabit LAN
+- 1x USB otg and 2x USB 2.0
+- 1X MIC
+- AV vide out
+- HDMI out
+- IR
+- CSI camera interface
+- DSI display interface
+- 26 PIN GPIO
+
+= Development For Armbian
+== Basic requirements
+
+x86_64 or aarch64 machine with at least 2GB of memory and ~35GB of disk space for a virtual machine, container or bare metal installation Ubuntu Jammy 22.04.x amd64 or aarch64 for native building or any Docker capable amd64 / aarch64 Linux for containerised
+
+```bash
+apt-get -y install git
+ git clone https://github.com/armbian/build
+ cd build
+ ./compile.sh
+```
+
+== Latest images
+
+link:{https://www.armbian.com/bananapi/}[https://www.armbian.com/bananapi/]
+
+= Development For Android
+== Load your first image on M1
+
+. You could download latest image from our forum.
+. Put your TF card into a TF-USB adapter, and then plug adapter in your Windows PC usb interface.
+. Prepare your image, and download image burning tools PhoenixCard.exe.
+. Use "PhoenixCard.exe" to burn android image to TF card.
+
+image::/picture/m3_android_burning.png[m3_android_burning.png]
+
+Download PhoenixCard: link:{https://pan.baidu.com/s/1-fjvPqtG_zewVzqnXf1AHw?pwd=eid9}[Download Link]
+
+== How to buld M1 Bsp code
+
+```
+Prepare a PC which runs ubuntu
+Install Docker-ce on your PC，https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce
+After install Docker, execute "docker pull sinovoip/bpi-build-android:a20_01", to pull image
+Then you pulled image, execute "docker run --privileged -d -p 2223:22 -v /media:/media sinovoip/bpi-build-android:a20_01" 
+"ssh -p 2223 root@127.0.0.1 #default passwd is root"
+Execute "git clone https://github.com/BPI-SINOVOIP/BPI-M1-bsp.git" on your ubuntu terminal
+Execute "./build.sh" to build M1 bsp code
+After built, open a new terminal, execute "docker cp xxxxx(your container id):xxxxx(your project path) xxxxx(your pc path)"
+```
+
+image::/picture/docker_operate.png[docker_operate.png]
+
+= Development For Linux
+== Load the linux image on M1
+
+. Download the latest image from the forum.
+. Put the TF card into a card reader and plug it to your PC USB interface.
+. Download the flashing tools "BalenaEtcher" and start it.
+. Click "Flash from file" to select your image file.(.img or .zip)
+. Click "Select target" to choose your USB device.
+. Start to flash and wait for a moment.
+
+image::/picture/etcher.jpg[etcher.jpg]
+
+Let's get start to develop on BPI-M1, see amazing things happen.
+
+== Basic Development
+=== Prepare to develop
+
+* Prepare 8G/above TF card, USB-Serial interface, PC with Ubuntu System
+* Using your USB-Serial Connect debug console on M1
+
+image::/picture/debug_console_wire.png[debug_console_wire.png]
+
+image::/picture/m1_uart_pins.png[m1_uart_pins.png]
+
+image::/picture/m1_console_interface.png[m1_console_interface.png]
+
+=== Load your first image on M1
+
+. You could download latest image from our forum 
+. Install bpi-tools on your system. If you can't access this URL or any other problems, please go to bpi-tools repo and install this tools manually.
+*	``
+  apt-get install pv
+  ``
+* ``
+	curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
+ ``
+. After you download the image, insert your TF card into your Ubuntu
+* ``
+	Execute "bpi-copy xxx.img /dev/sdx" to install image on your TF card.
+	``
+. After step 3, then you can insert your TF card into M1, and press power button setup M1
+
+=== Update your image
+
+. execute “bpi-tools”, to update your bpi tools;
+. execute “bpi-update -c bpi-m1.conf”, to download new driver to update your image
+. execute “file *.tgz”, to check download files’ type is compressed data
+. execute “bpi-bootsel”, you will see the bootloader path, “/usr/lib/u-boot/bananapi/u-boot-2018.01/u-boot-2018.01-bpi-m1-8k.img.gz”
+. execute “bpi-bootsel /usr/lib/u-boot/bananapi/u-boot-2018.01/u-boot-2018.01-bpi-m1-8k.img.gz”, to update your bootloader
+. reboot
