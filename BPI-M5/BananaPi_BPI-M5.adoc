@@ -1,3 +1,231 @@
-== header
+= BPI-M5 Introduction
 
-content
+Replace here with a brief introduction about the board and attach a product promotion picture
+
+image::/picture/banana_pi_bpi-m5.jpg[banana_pi_bpi-m5.jpg]
+
+= Key Features
+
+- Amlogic S905X3 64-bit Quad core Cortex-A55 (2.0xxGHz)
+- Mali-G31 GPU
+- 4GB LPDDR4
+- 16GB eMMC flash
+- 4 USB 3.0
+- 1 GbE ethernet
+- HDMI output
+
+
+== Getting Start
+
+link:/en/BPI-M5/GettingStarted_BPI-M5[Getting Started BPI-M5]
+
+= Hardware
+== Hardware Interface
+
+image::/picture/banana_pi_bpi-m5_interface1.jpg[banana_pi_bpi-m5_interface1.jpg]
+
+== Hardware Spec
+
+[option="header",cols="1,3"]
+|=====
+2+| **HardWare Specification of Banana Pi M5**
+| CPU           | xxxx
+| GPU           | xxxx
+| Memory        | xxxx
+| Flash         | xxxx
+| Network       | xxxx
+| WIFI&BT       | xxxx
+| Video Input   | xxxx
+| Video Outputs | xxxx
+| Audio Outputs | xxxx
+| Power         | xxxx
+| USB 2.0 ports | xxxx
+| GPIO          | xxxx
+| LED           | xxxx
+| Storage       | xxxx
+|=====
+
+== GPIO Pin Define
+
+=== BPI-M5 40PIN GPIO (CON2)
+
+[option="header",cols="1,1,1"]
+|=====
+3+| **40 PIN GPIO of Banana pi BPI-M1**
+| CSI GPIO Pin | Pin Name | GPIO
+| CON1-P01 | VCC-3V3          |            
+| CON1-P02 | VCC5V            |            
+| CON1-P03 | GPIOX_17         | I2C_M2_SDA
+| CON1-P04 | VCC5V            |           
+| CON1-P05 | GPIOX_18         | I2C_M2_SCL
+| CON1-P06 | GND              |           
+| CON1-P07 | GPIOX_5 SDIO_CMD |           
+| CON1-P08 | GPIOX_12         | UART_A_TX 
+| CON1-P09 | GND              |           
+| CON1-P10 | GPIOX_13         | UART_A_RX 
+| CON1-P11 | GPIOX_3 SDIO_D3  |           
+| CON1-P12 | GPIOAO_8         | TDMB_SCLK 
+| CON1-P13 | GPIOX_4 SDIO_CLK |           
+| CON1-P14 | GND              |           
+| CON1-P15 | GPIOX_7 PWM_F    |           
+| CON1-P16 | GPIOX_0 SDIO_D0  |           
+| CON1-P17 | VCC-3V3          |           
+| CON1-P18 | GPIOX_1 SDIO_D1  |           
+| CON1-P19 | GPIOX_8 PCM_DIN  |           
+| CON1-P20 | GND              |           
+| CONx P21 | xxxx         | xxxx 
+| CONx P22 | xxxx         | xxxx 
+| CONx P23 | xxxx         | xxxx 
+| CONx P24 | xxxx         | xxxx 
+| CONx P25 | xxxx         | xxxx 
+| CONx P26 | xxxx         | xxxx 
+| CONx P27 | xxxx         | xxxx 
+| CONx P28 | xxxx         | xxxx 
+| CONx P29 | xxxx         | xxxx 
+| CONx P30 | xxxx         | xxxx 
+| CONx P31 | xxxx         | xxxx 
+| CONx P32 | xxxx         | xxxx 
+| CONx P33 | xxxx         | xxxx 
+| CONx P34 | xxxx         | xxxx 
+| CONx P35 | xxxx         | xxxx 
+| CONx P36 | xxxx         | xxxx 
+| CONx P37 | xxxx         | xxxx 
+| CONx P38 | xxxx         | xxxx 
+| CONx P39 | xxxx         | xxxx
+| CONx P40 | xxxx         | xxxx
+|=====
+
+=== BPI-M5 Debug UART
+
+|=====
+|CONx-P1  | GND
+|CONx-P2  | UART0-RX
+|CONx-P3  | UART0-TX
+|=====
+
+= Development
+== Source Code
+
+=== BPI-M5 runs wiringpi gpio
+
+https://github.com/BPI-SINOVOIP/amlogic-wiringPi
+
+=== Android
+
+TIP: Android 9 source code
+
+https://github.com/BPI-SINOVOIP/BPI-S905X3-Android9
+
+link:https://wiki.banana-pi.org/Getting_Started_with_BPI-M5#Build_Android_Source_Code[How to build the Android Source Code]
+
+TIP: BPI-M5/M2 PRO Android9 source code
+
+Baidu Cloud: https://pan.baidu.com/s/1TmmR_075b49lPSt1Phq0ag?pwd=8888 (pincode: 8888)
+
+Google Drive: https://drive.google.com/drive/folders/1RuvazYcr46HKMvNBxSqQftdyWa0tK9f7?usp=share_link
+
+== Resources
+
+- 
+
+
+= System Image
+== Android
+
+NOTE: 2023-03-01 release, tablet variant image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+== Linux
+
+=== Ubuntu
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+=== Debian
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+=== CentOS
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+== Third part image
+
+=== Raspbian
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+=== CoreELEC
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+=== EmuELEC
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+=== CoreELEC
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+=== CoreELEC
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+=== CoreELEC
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+= FAQ
+
+https://wiki.banana-pi.org/How_to_install_Ubuntu_Server_20.04_to_M5_EMMC
+
+
+
+= Easy to buy
+
+WARNING: SINOVOIP Aliexpress shop: https://www.aliexpress.us/item/3256801685527943.html
+
+WARNING: Bipai Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M1/1101951077_40000003418620.html
+
+WARNING: Taobao Shop: https://shop108780008.taobao.com/category-1694930629.htm
+
+WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
