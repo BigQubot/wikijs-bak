@@ -1,0 +1,64 @@
+= Introduction
+
+Banana Pi BPI-M6 is a new generation single board computer design , use Synaptics VS680 quad-core Cortex-A73 (2.1GHz) and One Cortex-M3 processor,Imagination GE9920 GPU.and NPU Up to 6 .75Tops. Onboard 4GB LPDDR4 memory and 16GB EMMC storage, and supports 4 USB 3.0 interface, a gigabit network port.onboard 1 HDMI-rx port and 1 Hdmi-tx port.
+
+TIP: More Infomation: link:/en/BPI-M6/BananaPi_BPI-M6[Banana Pi BPI-M6]
+
+== specifications
+
+- Synaptics VideoSmart VS680 quad-core Cortex-A73 (2.1GHz) and One Cortex-M3 processor
+- Imagination GE9920 GPU
+- NPU for AI up to 6 .75Tops
+- System Memory – 4GB LPDDR4
+- Storage – 16GB eMMC flash
+- Video Output – 1 HDMIin and 1 HDMIout
+- Connectivity – Gigabit Ethernet
+- USB – 4x USB 3.0 ports via VL817 hub controller, 1x USB-C port (for power only)
+- Expansion – 40-pin
+- Debugging – 3-pin debug header
+- Misc – Reset, Power, and U-boot button; power and activity LED’s
+- Power Supply – 5V @3A via USB Type-C port
+- M.2 Key E(PCIe + MIPI CSI)
+
+
+= Development
+== Prepare
+
+. Prepare a usb-serial cable, a 5V/3A adaptor type-c power supply. The serial cable is used for console debug and type-c cable is used for android image download.
+. Prepare a SDcard at least 8GB for linux development, android only support emmc boot.
+
+== Android
+=== Prepare
+
+. Download and install the SenarySocSystemTool for android image download via USB type-c on M6, only support windows.
+. Download the latest android image, and confirm that the md5 checksum is correct.
+
+Download SenarySocSystemTool: link:{https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FSenarySocSystemToolSetupV1.3.2.1.zip}[Download Link]
+
+=== Install Image with Usb Burning Tool
+
+. Open SenarySocSystemTool.exe, click Browse, and select the eMMCimg folder where the image is located.
++
+image::/picture/m6_android_install_1.png[m6_android_install_1.png]
+
+. Press the USB button next to type-c and connect to the computer using the type-c cable.
++
+image::/picture/m6_android_install_2.png[m6_android_install_2.png]
+
+. Click to start burning, and then wait for the burning to complete.
++
+image::/picture/m6_android_install_3.png[m6_android_install_3.png]
+. After Burning successfull, press the RST key, Unplug the usb and connect to power supply adaptor to startup.
++
+image::/picture/m6_android_install_4.png[m6_android_install_4.png]
+. If you want to erase eMMC, you can repeat the above steps, but you need to click on Erase eMMC instead of starting the burn.
+
+
+== Linux
+=== Prepare
+
+
+
+=== Install Image with xxx
+
+
