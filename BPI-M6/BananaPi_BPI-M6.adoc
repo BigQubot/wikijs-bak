@@ -1,0 +1,84 @@
+= BPI-M6 Introduction
+
+Banana Pi BPI-M6 is the next generation single board computer from Banana Pi in 2022,It is powered by Synaptics VS680 quad-core Cortex-A73 (2.1GHz) and One Cortex-M3 processor,Imagination GE9920 GPU.and NPU Up to 6 .75Tops. Onboard 4GB LPDDR4 memory and 16GB EMMC storage, and supports 4 USB 3.0 interface, a gigabit network port.onboard 1 HDMI-rx port and 1 Hdmi-tx port.
+
+== About VideoSmart VS680
+
+VideoSmart™ VS680 solution, an industry-first edge computing SoC that combines a CPU, NPU, and GPU. This new multimodal platform with integrated neural network accelerator is purpose built with perceptive intelligence for applications including smart displays, smart cameras, set-top-boxes and media streamers.The Synaptics VideoSmart VS680 is a multimedia powerhouse that combines a Qdeo 4K-video engine, an audio processor capable of far-field keyword detection and voice recognition, and a proprietary SyNap deep-learning accelerator (DLA). it also integrates a higher-performance Imagination PowerVR Series9 GPU. Another new feature is an ISP with HDR capabilities that can handle two 4K cameras. Previous VideoSmart products target the streaming-video set-top-box (STB) market, but the VS680 aims for a broader range of smart-home devices. It s well suited to the Facebook Portal and other smart displays, which enable video calling. The audio processor can drive a smart speaker or sound bar, but when coupled with the DLA, it handles on-device voice-UI functions in addition to providing the front end to a cloud-based digital assistant. The DLA works with the dual ISP to run neural networks on video streams from front and rear cameras, enabling face ID, object recognition, and security monitoring, among other tasks. The Qdeo engine can drive two displays, allowing the device to power a 1080p touchscreen panel in an STB while simultaneously streaming to a 4K TV.
+
+= Key Features
+
+- Synaptics VideoSmart VS680 quad-core Cortex-A73 (2.1GHz) and One Cortex-M3 processor
+- Imagination GE9920 GPU
+- NPU for AI up to 6 .75Tops
+- 4GB LPDDR4
+- 16GB eMMC flash
+- M.2 Key E(PCIe + MIPI CSI)
+- 4 USB 3.0
+- 1 GbE ethernet
+- 1 HDMIin and 1 HDMIout
+
+== Getting Start
+
+link:/en/BPI-M6/GettingStarted_BPI-M6[Getting Started BPI-M6]
+
+= Hardware
+== Hardware Interface
+
+image::/picture/banana_pi_bpi-m6_interface.jpg[banana_pi_bpi-m6_interface.jpg]
+
+== Hardware Spec
+
+[option="header",cols="1,5"]
+|=====
+2+| **HardWare Specification of Banana Pi M6**
+| CPU             | Synaptics VS680 quad-core Cortex-A73 (2.1GHz) and One Cortex-M3 processor
+| GPU             | Imagination GE9920 GPU
+| NPU for AI      | Up to 6 .75Tops
+| Memory          | 4 GB LPDDR4
+| Storage         | MicroSD slot with support for up to 256GB expansion and 16G eMMC flash with support for up to 64GB
+| Network         | 10/100/1000 Mbit/s Ethernet ,Optional WiFi USB dongle
+| Video           | 1 x HDMI 2.1 (up to 4K@60Hz with HDR, CEC, EDID) out, and 1 HDMI in Port
+| Audio Output(s) | 1 x HDMI digital output
+| Display         | MIPI DSI interface
+| M.2 interface   | M.2 Key E(PCIe + MIPI CSI)
+| USB ports       | USB 3.0 PORT (x4) 
+| GPIO            | 40 Pin Header : GPIO (x28) and Power (+5V, +3.3V and GND). GPIO pins can be used for UART, I2C, SPI or PWM
+| Switches        | SPI boot and U-boot
+| LED             | Power Status and Activity status
+| Power Source    | 5 volt @3A TYPE C
+| Size & Weight   | 92x60mm, 48g
+| OS              | Android and Linux
+|=====
+
+== GPIO Pin Define
+
+=== BPI-M6 40PIN GPIO
+
+= Development
+== Source Code
+
+= System Image
+== Android
+
+NOTE: 2023-08-30 release aosp_dolphin_tablet-syna-image-lpddr4x
+
+Baidu Cloud: https://pan.baidu.com/s/1unEibD-NI8-Ti5le2E6d7g?pwd=8888 (pincode:8888)
+
+Google Drive: https://drive.google.com/file/d/1egPBOusdlNGJDdp5muAjiv2MvMya0F-H/view?usp=sharing
+
+== Linux
+
+= FAQ
+
+
+
+= Easy to buy
+
+WARNING: SINOVOIP Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M1/1100417230_40000003426518.html
+
+WARNING: Bipai Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M1/1101951077_40000003418620.html
+
+WARNING: Taobao Shop: https://shop108780008.taobao.com/category-1694930629.htm
+
+WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
