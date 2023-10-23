@@ -80,3 +80,92 @@ sudo bpi-copy xxx-bpi-m4-berry-xxx.img.zip /dev/sdX
 . Use an HDMI cable to connect the monitor and BPI-M4 Berry, switch the monitor input interface to the corresponding HDMI interface, power on, and wait a moment to see the desktop.
 +
 image::/picture/bpi_m4_berry_ubuntu_1.jpg[bpi_m4_berry_ubuntu_1.jpg]
+
+=== Debug UART
+. Prepare a 3.3v USB to TTL module.
+. Use the USB to TTL module to connect the PC USB port and the Debug UART port on the board.
+. Open a serial terminal software on the PC, such as link:https://mobaxterm.mobatek.net/[mobaxterm] or link:https://www.putty.org/[putty].
+. Taking mobaxterm as an example, after setting the serial port number and 115200 baud rate, you can open the BPI-M4 Berry UART terminal.
+
+image::/picture/bpi_m4_berry_mobaxterm_1.jpg[bpi_m4_berry_mobaxterm_1.jpg]
+image::/picture/bpi_m4_berry_mobaxterm_2.jpg[bpi_m4_berry_mobaxterm_2.jpg]
+
+=== SSH
+. Prepare a network cable and a router.
+. Use a network cable to connect the LAN port of the router to the BPI-M4 Berry, and also connect the PC to another LAN port.
+. Check the IP address of BPI-M4 Berry on the router management interface, or use the following command on the BPI-M4 Berry UART terminal to check the IP address.
++
+```bash
+   ifconfig
+
+   eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST> mtu 1500
+         inet 192.168.3.10 netmask 255.255.255.0 broadcast 192.168.3.255
+         inet6 fe80::3e1f:688f:81ab:d8b7 prefixlen 64 scopeid 0x20<link>
+         ether 02:00:54:a0:d6:a6 txqueuelen 1000 (Ethernet)
+         RX packets 553 bytes 92549 (92.5 KB)
+         RX errors 0 dropped 0 overruns 0 frame 0
+         TX packets 329 bytes 26023 (26.0 KB)
+         TX errors 0 dropped 0 overruns 0 carrier 0 collisions 0
+         device interrupt 42
+```
+
+. Open an SSH terminal software on the PC, such as link:https://mobaxterm.mobatek.net/[mobaxterm] or link:https://www.putty.org/[putty].
+. Taking mobaxterm as an example, fill in the obtained IP address, such as `192.168.3.10` above, in the IP address column and 22 in the Port port.
++
+image::/picture/bpi_m4_berry_mobaxterm_3.jpg[bpi_m4_berry_mobaxterm_3.jpg]
+
+. Open the SSH terminal and enter the login username/password: `pi/bananapi` or `root/bananapi`. There will be no prompt when entering the password. Please enter it normally and press Enter when finished.
++
+image::/picture/bpi_m4_berry_mobaxterm_4.jpg[bpi_m4_berry_mobaxterm_4.jpg]
+
+=== NoMachine Remote Desktop
+. Make sure BPI-M4 Berry is connected to the Internet and use the following command to download the nomachine DEB installation package in the system.
+
+   wget https://download.nomachine.com/download/8.9/Arm/nomachine_8.9.1_1_arm64.deb
+
+. Or open link:https://downloads.nomachine.com/download/?id=117&distro=ARM[NoMachine for ARM - arm64 download page] in a PC browser, download the DEB installation package, and then copy it to BPI-M4 Berry user directory through SSH or USB disk.
+
+. After the download is completed, install it through the following command. Note that the file name is based on the actual downloaded file name.
+
+   sudo dpkg -i nomachine_8.9.1_1_arm64.deb
+
+. PC side also needs to download and install NoMachine. link:https://download.nomachine.com[NoMachine download page] Select the installation package suitable for the PC operating system, download it locally and complete the installation.
+
+. Pay attention to keeping the PC and BPI-M4 Berry in the same LAN. You can try SSH connection first to ensure normal communication within the LAN.
+
+. Open NoMachine on the PC, click the Add button, enter the IP address of BPI-M4 Berry in the Host bar in the window after the jump, and then click the Add button.
++
+image::/picture/bpi_m4_berry_nomachine_1.jpg[bpi_m4_berry_nomachine_1.jpg]
+
+. Click the recognized port icon, enter the username/password in the new window that pops up, and then click the OK button.
++
+image::/picture/bpi_m4_berry_nomachine_2.jpg[bpi_m4_berry_nomachine_2.jpg]
++
+image::/picture/bpi_m4_berry_nomachine_3.jpg[bpi_m4_berry_nomachine_3.jpg]
+
+. After completing the subsequent settings, you can see the desktop.
++
+image::/picture/bpi_m4_berry_nomachine_4.jpg[bpi_m4_berry_nomachine_4.jpg]
+
+
+IMPORTANT: TIP: If no device is connected to the HDMI interface, the NoMachine remote desktop will display a black screen. It is recommended to keep the HDMI connection or connect an HDMI decoy device.
+
+=== WiFi
+Use the nmcli command to scan WiFi hotspots, connect to hotspots, and create AP hotspots.
+```bash
+nmcli device #List devices
+nmcli device wifi list # List available wifi access points, list can be omitted
+nmcli device wifi connect [SSID] password [PASSWORD] # Connect to the hotspot mySSID. After the connection is successful, the configuration file will be automatically generated. If you want to connect again in the future, you can use the nmcli connection up [SSID] command.
+nmcli device disconnect [device name] # Disconnect wifi, use the wifi device name displayed in the nmcli device command
+nmcli device wifi hotspot con-name [NAME] ifname [device name] ssid [SSID] password [PASSWORD] # Create AP hotspot
+
+nmcli connection show #List network connection configuration
+nmcli connection down [NAME] # Activate a connection
+nmcli connection up [NAME] # Deactivate a connection
+nmcli connection delete [SSID] #Delete a configuration and no longer save information and automatically connect
+
+nmcli radio wifi off # Turn off wifi
+nmcli radio wifi on # Turn on wifi
+```
+* link:https://developer-old.gnome.org/NetworkManager/unstable/nmcli.html[nmcli command reference document]
+* link:https://developer-old.gnome.org/NetworkManager/unstable/nmcli-examples.html[nmcli command reference examples]
