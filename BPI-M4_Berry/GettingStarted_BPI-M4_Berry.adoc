@@ -126,7 +126,7 @@ image::/picture/bpi_m4_berry_mobaxterm_4.jpg[bpi_m4_berry_mobaxterm_4.jpg]
 . Or open link:https://downloads.nomachine.com/download/?id=117&distro=ARM[NoMachine for ARM - arm64 download page] in a PC browser, download the DEB installation package, and then copy it to BPI-M4 Berry user directory through SSH or USB disk.
 
 . After the download is completed, install it through the following command. Note that the file name is based on the actual downloaded file name.
-
++
 ```bash
 sudo dpkg -i nomachine_8.9.1_1_arm64.deb
 ```
