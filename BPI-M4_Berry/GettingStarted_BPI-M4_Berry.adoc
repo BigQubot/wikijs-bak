@@ -155,8 +155,12 @@ Use the nmcli command to scan WiFi hotspots, connect to hotspots, and create AP 
 ```bash
 nmcli device #List devices
 nmcli device wifi list # List available wifi access points, list can be omitted
-nmcli device wifi connect [SSID] password [PASSWORD] # Connect to the hotspot mySSID. After the connection is successful, the configuration file will be automatically generated. If you want to connect again in the future, you can use the nmcli connection up [SSID] command.
+nmcli device wifi connect [SSID] password [PASSWORD] # Connect to the hotspot mySSID. 
+#After the connection is successful, the configuration file will be automatically generated. 
+#If you want to connect again in the future, you can use the nmcli connection up [SSID] command.
+
 nmcli device disconnect [device name] # Disconnect wifi, use the wifi device name displayed in the nmcli device command
+
 nmcli device wifi hotspot con-name [NAME] ifname [device name] ssid [SSID] password [PASSWORD] # Create AP hotspot
 
 nmcli connection show #List network connection configuration
