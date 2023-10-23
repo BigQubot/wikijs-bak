@@ -52,47 +52,47 @@ image::/picture/banana_pi_bpi-m5_interface1.jpg[banana_pi_bpi-m5_interface1.jpg]
 [option="header",cols="1,1,1"]
 |=====
 3+| **40 PIN GPIO of Banana pi BPI-M1**
-| CSI GPIO Pin | Pin Name | GPIO
+| CSI GPIO Pin | Pin Name | GPIO 
 | CON1-P01 | VCC-3V3          |            
 | CON1-P02 | VCC5V            |            
-| CON1-P03 | GPIOX_17         | I2C_M2_SDA
-| CON1-P04 | VCC5V            |           
-| CON1-P05 | GPIOX_18         | I2C_M2_SCL
-| CON1-P06 | GND              |           
-| CON1-P07 | GPIOX_5 SDIO_CMD |           
-| CON1-P08 | GPIOX_12         | UART_A_TX 
-| CON1-P09 | GND              |           
-| CON1-P10 | GPIOX_13         | UART_A_RX 
-| CON1-P11 | GPIOX_3 SDIO_D3  |           
-| CON1-P12 | GPIOAO_8         | TDMB_SCLK 
-| CON1-P13 | GPIOX_4 SDIO_CLK |           
-| CON1-P14 | GND              |           
-| CON1-P15 | GPIOX_7 PWM_F    |           
-| CON1-P16 | GPIOX_0 SDIO_D0  |           
-| CON1-P17 | VCC-3V3          |           
-| CON1-P18 | GPIOX_1 SDIO_D1  |           
-| CON1-P19 | GPIOX_8 PCM_DIN  |           
-| CON1-P20 | GND              |           
-| CON1-P21 | GPIOX_9 PCM_DOUT |           
-| CON1-P22 | GPIOX_2 SDIO_D2  |           
-| CON1-P23 | GPIOX_11         | PCM_CLK   
-| CON1-P24 | GPIOX_10         | PCM_SYNC  
-| CON1-P25 | GND              |           
-| CON1-P26 | GPIOX_16         | PWM_E     
-| CON1-P27 | GPIOA_14         | I2C_M3_SDA
-| CON1-P28 | GPIOA_15         | I2C_M3_SCL
-| CON1-P29 | GPIOX_14         | UART_A_CTS
-| CON1-P30 | GND              |           
-| CON1-P31 | GPIOX_15         | UART_A_RTS
-| CON1-P32 | GPIOX_19         | PWM_B     
-| CON1-P33 | GPIOX_6 PWM_A    |           
-| CON1-P34 | GND              |           
-| CON1-P35 | GPIOAO_7         | TDMB_FS   
-| CON1-P36 | GPIOH_5 SPDIF_IN |           
-| CON1-P37 | GPIOAO_9         | I2S_MCLK  
-| CON1-P38 | GPIOAO_10        | TDMB_DIN  
-| CON1-P39 | GND              |           
-| CON1-P40 | GPIOAO_4         | TDMB_DOUT 
+| CON1-P03 | GPIOX_17         | I2C_M2_SDA 
+| CON1-P04 | VCC5V            |            
+| CON1-P05 | GPIOX_18         | I2C_M2_SCL 
+| CON1-P06 | GND              |            
+| CON1-P07 | GPIOX_5 SDIO_CMD |            
+| CON1-P08 | GPIOX_12         | UART_A_TX  
+| CON1-P09 | GND              |            
+| CON1-P10 | GPIOX_13         | UART_A_RX  
+| CON1-P11 | GPIOX_3 SDIO_D3  |            
+| CON1-P12 | GPIOAO_8         | TDMB_SCLK  
+| CON1-P13 | GPIOX_4 SDIO_CLK |            
+| CON1-P14 | GND              |            
+| CON1-P15 | GPIOX_7 PWM_F    |            
+| CON1-P16 | GPIOX_0 SDIO_D0  |            
+| CON1-P17 | VCC-3V3          |            
+| CON1-P18 | GPIOX_1 SDIO_D1  |            
+| CON1-P19 | GPIOX_8 PCM_DIN  |            
+| CON1-P20 | GND              |            
+| CON1-P21 | GPIOX_9 PCM_DOUT |            
+| CON1-P22 | GPIOX_2 SDIO_D2  |            
+| CON1-P23 | GPIOX_11         | PCM_CLK    
+| CON1-P24 | GPIOX_10         | PCM_SYNC   
+| CON1-P25 | GND              |            
+| CON1-P26 | GPIOX_16         | PWM_E      
+| CON1-P27 | GPIOA_14         | I2C_M3_SDA 
+| CON1-P28 | GPIOA_15         | I2C_M3_SCL 
+| CON1-P29 | GPIOX_14         | UART_A_CTS 
+| CON1-P30 | GND              |            
+| CON1-P31 | GPIOX_15         | UART_A_RTS 
+| CON1-P32 | GPIOX_19         | PWM_B      
+| CON1-P33 | GPIOX_6 PWM_A    |            
+| CON1-P34 | GND              |            
+| CON1-P35 | GPIOAO_7         | TDMB_FS    
+| CON1-P36 | GPIOH_5 SPDIF_IN |            
+| CON1-P37 | GPIOAO_9         | I2S_MCLK   
+| CON1-P38 | GPIOAO_10        | TDMB_DIN   
+| CON1-P39 | GND              |            
+| CON1-P40 | GPIOAO_4         | TDMB_DOUT  
 |=====
 
 === BPI-M5 Debug UART
