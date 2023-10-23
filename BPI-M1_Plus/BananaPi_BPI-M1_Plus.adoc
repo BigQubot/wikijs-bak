@@ -2,7 +2,7 @@
 
 Banana Pi BPI-M1 Plus upgrade is an open-source single-board computer that adds more connectivity to the classic board. It features the same high performance AllWinner A20 dual-core SoC at 1GHz, 1GB of DDR3 SDRAM, Gigabit Ethernet, SATA, USB, and HDMI connections found in classic BPI-M1+ ; but the Banana Pi M1+ features onboard WiFi g/b/n. The board supports all classic projects and even more because of the onboard WIFi chip. Like its sibling, it can run operating systems including Android, Lubuntu, Ubuntu, Debian, and Raspbian.
 
-image::/a_bpi-m1.jpg[bpi-m1.jpg]
+image::/picture/a_bpi-m1+.jpg[a_bpi-m1+.jpg]
 
 The Banana Pi M1+ is our upgraded M1 board. We feel like the onboard WiFi adds a lot more features to the board and makes it more convient for users to set up their linx desktop or router projects. Banana Pi is an open platform device, it is for anyone who wants to play and build with developer technology instead of simply using consumer technology. Backed by our community, starting a project and building servers is fun and rewarding. With a Banana Pi, we want you to explore and experience the world of DIY projects and portable computing. We welcome all companies, DIYers, and tech loving people within our community! Together, we can make a difference, we can discover our passions, inspire others, and build a practical project.
 
@@ -26,14 +26,14 @@ The Banana Pi M1+ is our upgraded M1 board. We feel like the onboard WiFi adds a
 
 == Getting Start
 
-link:/https://newwiki.banana-pi.org/en/QuickStartBananaPiSBC[Quick Start Banana pi SBC]
+link:en/QuickStartBananaPiSBC[Quick Start Banana pi SBC]
 
 link:/en/BPI-M1_Plus/GettingStarted_BPI-M1_Plus[Getting Started BPI-M1_Plus]
 
 = Hardware
 == Hardware Interface
 
-image::/bpi-m1_interface.jpg[bpi-m1_interface.jpg]
+image::/picture/bpi-m1_plus_interface_.jpg[bpi-m1_plus_interface_.jpg]
 
 == Hardware Spec
 
@@ -58,11 +58,11 @@ image::/bpi-m1_interface.jpg[bpi-m1_interface.jpg]
 
 == GPIO Pin Define
 
-=== BPI-xx 40PIN GPIO
+=== BPI-M1 Plus 40PIN GPIO
 
-xxxx
+Banana Pi BPI-M1+ has a 40-pin GPIO header . Following is the Banana Pi GPIO Pinout:
 
-image::/picture/bpi-m1_26_pin.png[bpi-m1_26_pin.png]
+image::/picture/gpio_define.png[gpio_define.png]
 
 [option="header",cols="1,1,1"]
 |=====
