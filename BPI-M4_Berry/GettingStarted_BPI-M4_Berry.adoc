@@ -241,3 +241,177 @@ sudo hwclock -r #View hardware clock
 ```
 
 * link:https://chrony-project.org/documentation.html[Chrony reference documentation]
+
+=== View hardware temperature
+Enter the following command to view the temperature data returned by the sensor built into the chip on the BPI-M4 Berry board.
+```bash
+sensors
+```
+
+=== Modify HDMI output resolution
+When using the Ubuntu desktop operating system, you can find the Displays column in Settings and modify the resolution.
+
+image::/picture/bpi_m4_berry_ubuntu_2.jpg[bpi_m4_berry_ubuntu_2.jpg]
+
+=== Use USB disk
+. Prepare a USB disk that has been partitioned normally and insert it into the USB interface of BPI-M4 Berry.
+. In the Ubuntu desktop version, you can see that the USB flash drive has been recognized and can be opened in the file manager, or partition management can be performed through the GParted tool.
++
+image::/picture/bpi_m4_berry_ubuntu_3.jpg[bpi_m4_berry_ubuntu_3.jpg]
+
+. In the terminal, mount the USB disk to the local directory:
+```bash
+mkdir mnt #Create a separate directory in the ~/user directory for mounting for easy management
+cat /proc/partitions | grep "sd*" #List partitions starting with sd
+sudo mount /dev/sda1 ~/mnt/ #Mount /dev/sda1 to ~/mnt/
+ls ~/mnt/ #After mounting, you can list the files in the USB disk
+sudo umount -v /dev/sda1 #umount, then you can remove the USB disk
+```
+
+=== Use Audio Devices
+Prepare an audio file and copy it to the BPI-M4 Berry Ubuntu desktop system through a USB flash drive or SSH.
+
+==== HDMI audio
+. Prepare a monitor with HDMI audio input function, turn on the relevant functions in the monitor settings, and use an HDMI cable to connect the monitor.
+. Set the output device to HDMI Audio in the Sound column of the settings.
++
+image::/picture/bpi_m4_berry_ubuntu_4.jpg[bpi_m4_berry_ubuntu_4.jpg]
+
+. Play audio.
++
+image::/picture/bpi_m4_berry_ubuntu_5.jpg[bpi_m4_berry_ubuntu_5.jpg]
+
+==== 3.5mm audio jack
+. Prepare a headset or other audio device that uses a 3.5mm plug, insert the plug into the 3.5mm jack of BPI-M4 Berry.
+. Set the output device to Audio Codec in the Sound column of the settings.
++
+image::/picture/bpi_m4_berry_ubuntu_6.jpg[bpi_m4_berry_ubuntu_6.jpg]
+. Play audio.
+
+=== Use Bluetooth
+. Open settings in the Ubuntu desktop and connect a Bluetooth device, such as a Bluetooth mouse or keyboard, in the Bluetooth bar.
++
+image::/picture/bpi_m4_berry_ubuntu_7.jpg[bpi_m4_berry_ubuntu_7.jpg]
+
+. The method to connect the Bluetooth device through the command line in the terminal is as follows:
+
+```bash
+pi@bpi-m4berry:~$ sudo bluetoothctl #Open the Bluetooth device management tool
+[sudo] password for pi:
+Agent registered
+[CHG] Controller 2C:C3:E6:AC:D5:D8 Pairable: yes
+[bluetooth]# power on #Start the Bluetooth function, power off to turn it off
+Changing power on succeeded
+[bluetooth]# discoverable on #Allow this device to be discovered
+Changing discoverable on succeeded
+[CHG] Controller 2C:C3:E6:AC:D5:D8 Discoverable: yes
+[bluetooth]# pairable on #Allow device pairing
+Changing pairable on succeeded
+[bluetooth]# scan on #Start scanning
+Discovery started
+[CHG] Controller 2C:C3:E6:AC:D5:D8 Discovering: yes
+[NEW] Device D4:C4:85:A5:C6:B1 Logitech Pebble #The MAC address and device name of a Bluetooth mouse
+[CHG] Device D4:C4:85:A5:C6:B1 TxPower: 4
+[bluetooth]# pair D4:C4:85:A5:C6:B1 #Pair the MAC address of the Bluetooth device you want to connect to
+Attempting to pair with D4:C4:85:A5:C6:B1
+[CHG] Device D4:C4:85:A5:C6:B1 Connected: yes
+[DEL] Device A4:C1:38:9B:F6:FD SLPO20N20200059
+[CHG] Device D4:C4:85:A5:C6:B1 UUIDs: 00001800-0000-1000-8000-00805f9b34fb
+[CHG] Device D4:C4:85:A5:C6:B1 UUIDs: 00001801-0000-1000-8000-00805f9b34fb
+[CHG] Device D4:C4:85:A5:C6:B1 UUIDs: 0000180a-0000-1000-8000-00805f9b34fb
+[CHG] Device D4:C4:85:A5:C6:B1 UUIDs: 0000180f-0000-1000-8000-00805f9b34fb
+[CHG] Device D4:C4:85:A5:C6:B1 UUIDs: 00001812-0000-1000-8000-00805f9b34fb
+[CHG] Device D4:C4:85:A5:C6:B1 UUIDs: 00010000-0000-1000-8000-011f2000046d
+[CHG] Device D4:C4:85:A5:C6:B1 ServicesResolved: yes
+[CHG] Device D4:C4:85:A5:C6:B1 Paired: yes
+Pairing successful #pairing successfully
+[CHG] Device D4:C4:85:A5:C6:B1 Modalias: usb:v046DpB021d0007
+[bluetooth]# exit #Exit the Bluetooth device management tool
+pi@bpi-m4berry:~$
+```
+
+* link:https://wiki.archlinux.org/title/bluetooth[archlinux bluetooth reference document]
+
+=== Use IR Receiver
+. You need to prepare an infrared remote control using NEC format.
+. Enter the following command in the terminal to start receiving infrared signals.
+
+```bash
+sudo ir-keytable -c -p NEC -t
+
+Old keytable cleared
+Protocols changed to nec
+Testing events. Please, press CTRL-C to abort.
+258.553895: lirc protocol(nec): scancode = 0x45
+258.553926: event type EV_MSC(0x04): scancode = 0x45
+258.553926: event type EV_SYN(0x00).
+260.667648: lirc protocol(nec): scancode = 0x46
+260.667671: event type EV_MSC(0x04): scancode = 0x46
+260.667671: event type EV_SYN(0x00).
+260.719552: lirc protocol(nec): scancode = 0x46 repeat
+260.719568: event type EV_MSC(0x04): scancode = 0x46
+260.719568: event type EV_SYN(0x00).
+273.263728: lirc protocol(nec): scancode = 0x47
+273.263753: event type EV_MSC(0x04): scancode = 0x47
+273.263753: event type EV_SYN(0x00).
+273.315591: lirc protocol(nec): scancode = 0x47 repeat
+273.315608: event type EV_MSC(0x04): scancode = 0x47
+273.315608: event type EV_SYN(0x00).
+```
+
+For other commands and specific application methods, please see  link:https://manpages.ubuntu.com/manpages/focal/en/man1/ir-keytable.1.html[ir-keytable reference document].
+
+=== Transfer files
+
+==== scp
+
+scp (secure copy) command in Linux system is used to copy file(s) between servers in a secure way. 
+
+The SCP command or secure copy allows the secure transferring of files between the local host and the remote host or between two remote hosts. 
+
+It uses the same authentication and security as it is used in the Secure Shell (SSH) protocol.
+
+You can copy files from a Windows terminal to a Linux system on the same LAN. Just make sure the Open SSH client is turned on and can be viewed in Settings > Applications > Optional Features.
+
+If you want to copy files from Windows systems to Linux systems, you also need to enable the Open SSH server.
+
+image::/picture/bpi_m4_berry_mobaxterm_6.jpg[bpi_m4_berry_mobaxterm_6.jpg]
+
+The scp command format is:
+
+```bash
+scp [optionals] file_source file_target
+```
+
+. `optionals` is an optional parameter, such as -r, which can be used to copy the entire directory recursively.
+
+. file_source The file or directory to be copied.
+
+. file_target will copy the past path and rename it if a specific file name is entered at the end.
+
+Take copying local files from a Windows system to a Linux system as an example. In the Windows terminal, enter:
+```cmd
+PS D:\temp\temp_4> scp ".\hello.txt" pi@192.168.3.12:"/home/pi/Downloads/"
+```
+
+You can also copy files in the Linux system to the local computer in the Windows terminal:
+
+```
+PS D:\temp\temp_4> scp pi@192.168.3.12:"/home/pi/Downloads/hello.txt" "D:\temp\temp_4"
+```
+
+. Where pi@192.168.3.12 is the user name in the Linux system and the IP address of the BPI-M4 Berry in the LAN.
+. Where `:"/home/pi/Downloads/hello.txt"` is the file path in the Linux system.
+. Where `"D:\temp\temp_4"` is the path in Windows system.
+
+* link:https://www.geeksforgeeks.org/scp-command-in-linux-with-examples/[scp reference document]
+
+==== mobaxterm
+Files can be managed through a graphical interface using mobaxterm or other similar software.
+
+* link:https://mobaxterm.mobatek.net/download.html[mobaxterm download]
+* link:https://download.mobatek.net/mobaxterm-on-linux.html[mobaxterm-linux preview version]
+
+As shown in the figure below, after establishing an SSH connection in mobaxterm, a file management window will appear on the left side of the interface, which supports copying and pasting by dragging and dropping files.
+
+image::/picture/bpi_m4_berry_mobaxterm_7.jpg[bpi_m4_berry_mobaxterm_7.jpg]
