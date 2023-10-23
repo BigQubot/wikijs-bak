@@ -204,7 +204,7 @@ MD5 : 328706256bec238df50f9bd6ab8dfd1b
 WARNING: Issue: if HDMI doesn't display, please try "ctrl + alt + F1" to change terminal then "ctrl + alt + F7" change to desktop display.
 
 === Debian
-
+====
 NOTE: 2019-08-13 update,Debian 10 buster desktop(32bit),kernel 4.9.
 
 Release ntoes: http://forum.banana-pi.org/t/bpi-m4-bpi-w2-debian10-buster-desktop-new-demo-image-20190813/9712
@@ -221,6 +221,7 @@ WARNING: Issue: if HDMI doesn’t display, please try “ctrl + alt + F1” to c
 
 WARNING: SW2: switch to 0，if insert SD, SD start；if doesn’t insert SD，EMMC start.
 
+====
 ====
 
 NOTE: 2019-08-06 update,Debian 10 Buster Lite Demo Image,kernel 4.9.
