@@ -1,6 +1,6 @@
 = BPI-M5 Introduction
 
-Replace here with a brief introduction about the board and attach a product promotion picture
+Banana Pi BPI-M5 is the next generation single board computer from Banana Pi in 2020. It is powered by Amlogic S905X3 quad-core Cortex-A55 (2.0 XXGHz) processor.Onboard 4GB LPDDR4 memory and 16GB EMMC storage, and supports 4 USB 3.0 interface, a gigabit network port.
 
 image::/picture/banana_pi_bpi-m5.jpg[banana_pi_bpi-m5.jpg]
 
@@ -150,13 +150,13 @@ Linux BSP source code: https://github.com/BPI-SINOVOIP/BPI-M5-bsp
 == Resources
 
 - Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the 
-link:{https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA}[new link bpi-image Files ]
+link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files ]
 - All banana pi 
-link:{https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA}[docement(SCH file,DXF file,and doc)]
-- link:{https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/files/?p=%2FDocuments%2FBPI-M5%2FBPI-M5-SCH-V10-Release.pdf}[BPI-M5 schematic diagram]
-- link:{https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/files/?p=%2FDocuments%2FBPI-M5%2FBPI-M5-PCB-V10-DXF.rar}[BPI-M5 PCB DXF file]
-- link:{https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/files/?p=%2FDocuments%2FBPI-M5%2FS905X3_Public_Datasheet_Hardkernel.pdf}[Amlogic S905x3 datasheet]
-- link:{https://wiki.banana-pi.org/Product_certification}[Banana Pi BPI-M5 CE,FCC,RoHS Certification]
+link:https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA[docement(SCH file,DXF file,and doc)]
+- link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/files/?p=%2FDocuments%2FBPI-M5%2FBPI-M5-SCH-V10-Release.pdf[BPI-M5 schematic diagram]
+- link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/files/?p=%2FDocuments%2FBPI-M5%2FBPI-M5-PCB-V10-DXF.rar[BPI-M5 PCB DXF file]
+- link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/files/?p=%2FDocuments%2FBPI-M5%2FS905X3_Public_Datasheet_Hardkernel.pdf[Amlogic S905x3 datasheet]
+- link:https://wiki.banana-pi.org/Product_certification[Banana Pi BPI-M5 CE,FCC,RoHS Certification]
 - Install OpenGapps on Bananapi BPI-M5 Android 9.0: https://www.youtube.com/watch?v=fXOKmWfpqF8
 - BANANA Pi BPI-M5 REVIEW & BENCHMARKS: https://bret.dk/banana-pi-m5-review/
 - BANANA Pi M5 VS RASPBERRY Pi 4 BENCHMARKS : https://bret.dk/banana-pi-m5-vs-raspberry-pi-4/
@@ -250,7 +250,7 @@ https://forum.banana-pi.org/t/emuelec-for-bpi-m5/12095
 
 === CoreELEC
 
-NOTE: link:{https://coreelec.org/}[CoreELEC] official support Bananapi M5 and M2Pro since 19.2-Matrix_rc1
+NOTE: link:https://coreelec.org/[CoreELEC] official support Bananapi M5 and M2Pro since 19.2-Matrix_rc1
 
 Download: https://coreelec.org/#download
 
@@ -297,7 +297,7 @@ Install Guide: https://ubuntu.com/core/docs/uc20/install
 
 === Archlinux
 
-NOTE: Archlinux xfce and minimal demo image, kernel 4.9, image build refer to link:{https://archdroid.org/}[Archdroid]
+NOTE: Archlinux xfce and minimal demo image, kernel 4.9, image build refer to link:https://archdroid.org/[Archdroid]
 
 NOTE: login: alarm/alarm, or root/root
 
