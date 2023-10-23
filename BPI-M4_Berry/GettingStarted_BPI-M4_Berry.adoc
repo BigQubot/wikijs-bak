@@ -164,8 +164,8 @@ nmcli device disconnect [device name] # Disconnect wifi, use the wifi device nam
 nmcli device wifi hotspot con-name [NAME] ifname [device name] ssid [SSID] password [PASSWORD] # Create AP hotspot
 
 nmcli connection show #List network connection configuration
-nmcli connection down [NAME] # Activate a connection
-nmcli connection up [NAME] # Deactivate a connection
+nmcli connection down [NAME] # Deactivate a connection
+nmcli connection up [NAME] # Activate a connection
 nmcli connection delete [SSID] #Delete a configuration and no longer save information and automatically connect
 
 nmcli radio wifi off # Turn off wifi
@@ -173,3 +173,71 @@ nmcli radio wifi on # Turn on wifi
 ```
 * link:https://developer-old.gnome.org/NetworkManager/unstable/nmcli.html[nmcli command reference document]
 * link:https://developer-old.gnome.org/NetworkManager/unstable/nmcli-examples.html[nmcli command reference examples]
+
+=== Set static IP, DNS
+. To set a static IP, you need to maintain the connection first. If you want to set an Ethernet static IP, you must first maintain the Ethernet connection; if you want to set a wireless network static IP, you must first maintain a connection to a WIFI.
+. If the upper-level router has assigned the IP address you want to set to other devices, please change it to an idle IP, or ask other devices to give up the IP.
+. Use the nmcli connection show command to display all connections, for example:
++
+```bash
+pi@bpi-m4berry:~$ nmcli connection show
+NAME UUID TYPE DEVICE
+TP-LINK_5G_7747 e4a49726-adf1-44d7-a621-0e3af96cc390 wifi wlx2cc3e6acd5d7
+Wired connection 1 612eda94-55dc-3c85-b05e-f16c41775b4e ethernet --
+```
+
+. Use the nmcli connection show [NAME] command to display all the properties of a specific connection, such as:
++
+```bash
+nmcli connection show TP-LINK_5G_7747 #If you want to see Ethernet, change to Wired connection 1
+
+#Only list three common items
+ipv4.dns: 192.168.3.1 #The default is the gateway address
+ipv4.addresses: 192.168.3.10/24 #The default is the IP address assigned by the router DHCP
+ipv4.gateway: 192.168.3.1 #Gateway address, the default is the IP address of the router
+```
+
+. Set static IP:
++
+```bash
+nmcli connection modify TP-LINK_5G_7747 ipv4.addresses 192.168.3.2
+```
+. Set DNS:
++
+```bash
+nmcli connection modify TP-LINK_5G_7747 ipv4.dns 8.8.8.8 #Google DNS
+```
+. Reset:
++
+```bash
+reboot
+```
+. After restarting, check whether the modification is successful:
++
+```bash
+ifconfig
+nmcli connection show TP-LINK_5G_7747
+```
+
+=== Network time synchronization
+Chrony is an open source free Network Time Protocol NTP client and server software. It allows the computer to keep the system clock synchronized with the clock server (NTP), thus allowing your computer to maintain accurate time. Chrony can also be used as a server software to provide time synchronization services for other computers.
+
+```bash
+timedatectl set-ntp false #Disable NTP-based network time synchronization
+
+sudo apt install chrony #Install chrony
+systemctl start chrony #Start chrony
+systemctl enable chrony
+systemctl status chrony
+systemctl restart chrony #Restart service
+
+timedatectl status #View time synchronization status
+timedatectl list-timezones #View time zone list
+timedatectl set-timezone Asia/Shanghai #Modify time zone
+timedatectl set-ntp true #Enable NTP network time synchronization
+
+date #View time
+sudo hwclock -r #View hardware clock
+```
+
+* link:https://chrony-project.org/documentation.html[Chrony reference documentation]
