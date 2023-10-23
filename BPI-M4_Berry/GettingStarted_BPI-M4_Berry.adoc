@@ -23,6 +23,11 @@ TIP: More Infomation: link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry[Banana Pi BPI-
 = Development
 == Prepare
 
+
+
+== Linux
+=== Prepare
+
 . Linux image support SDcard or EMMC bootup, but you should read the [Boot_Sequence boot sequence] at first.
 
 . It’s recommended to use A1 rated cards, 8GB at least.
@@ -37,29 +42,39 @@ TIP: More Infomation: link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry[Banana Pi BPI-
 
 . The wiki guide is only for ubuntu/debian images.
 
+=== Install Image to SDcard
+
+. Install Image with Balena Etcher on Windows, Linux and MacOS.
+  
+ link:https://balena.io/etcher[Balena Etcher] an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
+
+:[[File:m2s_linux_flash.png]]
+
+. Install Image with Balena Cli on Windows, Linux and MacOS.
+[https://github.com/balena-io/balena-cli Balena CLI] is a Command Line Interface for balenaCloud or openBalena. It can be used to flash linux image. Download the installer or standalone package from [https://github.com/balena-io/balena-cli/releases balena-io] and [https://github.com/balena-io/balena-cli/blob/master/INSTALL.md install] it correctly to your PC, then you can use the "[https://docs.balena.io/reference/balena-cli/#local-flash-image local flash]" command option of balena to flash a linux image to sdcard or usb drive.
+
+```bash
+sudo balena local flash path/to/xxx-bpi-m4-berry-xxx.img.zip
+sudo balena local flash path/to/xxx-bpi-m4-berry-xxx.img.zip --drive /dev/disk2
+sudo balena local flash path/to/xxx-bpi-m4-berry-xxx.img.zip --drive /dev/disk2 --yes
+```
+
+. Install Image with dd command on Linux, umount SDcard device /dev/sdX partition if mounted automatically. Actually bpi-copy is the same as this dd command.
+  sudo apt-get install pv unzip
+  sudo unzip -p xxx-bpi-m4-berry-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxfer
+
+. Install image with bpi-tools on Linux, plug SDcard to Linux PC and run
+  sudo apt-get install pv unzip
+  sudo bpi-copy xxx-bpi-m4-berry-xxx.img.zip /dev/sdX
+
+=== Install Image with xxx
+
+. xxx
+. xxx
+. xxx
+. xxx
+
 == Android
-=== Prepare
-
-. xxx
-. xxx
-. xxx
-. xxx
-
-=== Install Image with xxx
-
-. xxx
-. xxx
-. xxx
-. xxx
-
-=== Install Image with xxx
-
-. xxx
-. xxx
-. xxx
-. xxx
-
-== Linux
 === Prepare
 
 . xxx
