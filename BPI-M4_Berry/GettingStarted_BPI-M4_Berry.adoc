@@ -45,10 +45,9 @@ TIP: More Infomation: link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry[Banana Pi BPI-
 === Install Image to SDcard
 
 . Install Image with Balena Etcher on Windows, Linux and MacOS.
-  
- link:https://balena.io/etcher[Balena Etcher] an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
+  * link:https://balena.io/etcher[Balena Etcher] an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
 
-:[[File:m2s_linux_flash.png]]
+  * image::/picture/m2s_linux_flash.png[m2s_linux_flash.png]
 
 . Install Image with Balena Cli on Windows, Linux and MacOS.
 [https://github.com/balena-io/balena-cli Balena CLI] is a Command Line Interface for balenaCloud or openBalena. It can be used to flash linux image. Download the installer or standalone package from [https://github.com/balena-io/balena-cli/releases balena-io] and [https://github.com/balena-io/balena-cli/blob/master/INSTALL.md install] it correctly to your PC, then you can use the "[https://docs.balena.io/reference/balena-cli/#local-flash-image local flash]" command option of balena to flash a linux image to sdcard or usb drive.
