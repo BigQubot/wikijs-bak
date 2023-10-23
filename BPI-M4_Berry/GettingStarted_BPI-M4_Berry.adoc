@@ -127,7 +127,9 @@ image::/picture/bpi_m4_berry_mobaxterm_4.jpg[bpi_m4_berry_mobaxterm_4.jpg]
 
 . After the download is completed, install it through the following command. Note that the file name is based on the actual downloaded file name.
 
-   sudo dpkg -i nomachine_8.9.1_1_arm64.deb
+```bash
+sudo dpkg -i nomachine_8.9.1_1_arm64.deb
+```
 
 . PC side also needs to download and install NoMachine. link:https://download.nomachine.com[NoMachine download page] Select the installation package suitable for the PC operating system, download it locally and complete the installation.
 
@@ -152,6 +154,7 @@ IMPORTANT: TIP: If no device is connected to the HDMI interface, the NoMachine r
 
 === WiFi
 Use the nmcli command to scan WiFi hotspots, connect to hotspots, and create AP hotspots.
+
 ```bash
 nmcli device #List devices
 nmcli device wifi list # List available wifi access points, list can be omitted
@@ -171,6 +174,7 @@ nmcli connection delete [SSID] #Delete a configuration and no longer save inform
 nmcli radio wifi off # Turn off wifi
 nmcli radio wifi on # Turn on wifi
 ```
+
 * link:https://developer-old.gnome.org/NetworkManager/unstable/nmcli.html[nmcli command reference document]
 * link:https://developer-old.gnome.org/NetworkManager/unstable/nmcli-examples.html[nmcli command reference examples]
 
