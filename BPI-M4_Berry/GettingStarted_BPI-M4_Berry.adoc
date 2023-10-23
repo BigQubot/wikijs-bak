@@ -61,14 +61,14 @@ sudo balena local flash path/to/xxx-bpi-m4-berry-xxx.img.zip --drive /dev/disk2 
 
 . Install Image with dd command on Linux, umount SDcard device /dev/sdX partition if mounted automatically. Actually bpi-copy is the same as this dd command.
 +
-```bash
+```sh
 sudo apt-get install pv unzip
 sudo unzip -p xxx-bpi-m4-berry-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxfer
 ```
 
 . Install image with bpi-tools on Linux, plug SDcard to Linux PC and run
 +
-```bash
+```sh
 sudo apt-get install pv unzip
 sudo bpi-copy xxx-bpi-m4-berry-xxx.img.zip /dev/sdX
 ```
