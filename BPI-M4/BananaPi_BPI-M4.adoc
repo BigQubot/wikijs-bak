@@ -1,6 +1,6 @@
 = BPI-M4 Introduction
 
-Banana Pi BPI-M4 use link:https://drive.google.com/file/d/1Jt8qUwEjLinMqURMftC3db0Xg9MIWIhu/view?usp=sharing[Realtek RTD1395] chp design ,it is a 64-bit quad-core A53 mini single board computer. It features 1 GB/2GB of RAM and 8 GB eMMC. It also has onboard WiFi for b/g/n/ac and BT 4.2. On the ports side, the BPI-M4 has 4 USB 2.0 ports, 1 USB TYPE C port, 1 HDMI port, 1 audio jack. support M.2 Key E PCIE 2.0 interface.
+Banana Pi BPI-M4 use Realtek RTD1395 chp design ,it is a 64-bit quad-core A53 mini single board computer. It features 1 GB/2GB of RAM and 8 GB eMMC. It also has onboard WiFi for b/g/n/ac and BT 4.2. On the ports side, the BPI-M4 has 4 USB 2.0 ports, 1 USB TYPE C port, 1 HDMI port, 1 audio jack. support M.2 Key E PCIE 2.0 interface.
 
 image::/a_bpi-m1.jpg[bpi-m1.jpg]
 
@@ -120,9 +120,9 @@ TIP: Supports Banana Pi BPI-M4 (RTD1395) (Kernel 4.9.119)
 Source code on github: https://github.com/BPI-SINOVOIP/BPI-M4-bsp
 
 == Resources
-TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:{https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA}[new link bpi-image Files]
+TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
 
-TIP: All banana pi link:{https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing}[docement(SCH file,DXF file,and doc)]
+TIP: All banana pi link:https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[docement(SCH file,DXF file,and doc)]
 
 TIP: BPI-M4 schematic diagram:
 
@@ -163,9 +163,9 @@ All image link: https://drive.google.com/drive/folders/1xBxYgKM40GrBa-qfgPDD-cRr
 
 NOTE: 2020-10-20 update, Android 8.1 with kernel 4.9.119.
 
-link:{https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/?p=%2FImages%2FBPI-M4%2Fandroid8&mode=list}[Download Android 8.1 image]
+link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/?p=%2FImages%2FBPI-M4%2Fandroid8&mode=list[Download Android 8.1 image]
 
-link:{https://wiki.banana-pi.org/Getting_Started_with_M4#Install_Android}[How to install the Android 8.1 image]
+link:https://wiki.banana-pi.org/Getting_Started_with_M4#Install_Android[How to install the Android 8.1 image]
 
 WARNING: IMPORTANT: Note: BPI-M4 Android8 image is only support 2GB ddr board because 1GB ddr is not stable and smooth for Android8
 
