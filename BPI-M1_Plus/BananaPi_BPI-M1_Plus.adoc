@@ -296,6 +296,21 @@ Google driver: https://drive.google.com/file/d/1FhbaO6pDBu5jSPYq1ghd7YKG-KvFy33Q
 
 Release ntoes: http://forum.banana-pi.org/t/bpi-m1-m1-r1-new-image-debian-10-buster-mate-desktop-with-grub-support-boot-2019-07-kernel-5-1-1/9916
 
+== OpenWRT
+=== Officeal OpenWRT
+NOTE: BPI-M1/BPI-M1+/BPI-R1 use A20 chip,so easy to run openwrt
+wiki : https://wiki.openwrt.org/toh/lamobo/r1
+
+NOTE: Openwrt support for allwinner : https://wiki.openwrt.org/doc/hardware/soc/soc.allwinner.sunxi?s[]=banana&s[]=pi
+
+NOTE: Image download : https://downloads.openwrt.org/chaos_calmer/15.05/sunxi/generic/uboot-sunxi-Lamobo_R1/
+
+NOTE: Opwrt for Allwinner Soc : https://wiki.openwrt.org/doc/hardware/soc/soc.allwinner.sunxi?s[]=banana&s[]=pi
+
+=== BPI BSP for OpenWRT
+NOTE: How to build OpenWRT image from github : https://bananapi.gitbooks.io/bpi-m1/content/en/howtobuildopenwrtimagefromgithub.html
+
+== Third part image
 === Armbian
 
 NOTE: Armbian_23.02.0-trunk_Bananapim1plus_jammy_edge_6.1.11_xfce_desktop.img.xz
@@ -318,9 +333,53 @@ NOTE: Armbian Xenial and Armbian Jessie
 
 Image lownload link: https://www.armbian.com/banana-pi-plus/
 
+=== FreeBSD
+NOTE: FreeBSD on Allwinner (sunxi) systems for banana pi
 
-== Third part image
+Banana pi as the official partner of Allwinner , must banana pi product use Allwinner chip design . such as A20/A31S/H3/H2+/A64/A83T , and FreeBSD have support many Allwinner . so easy to use on banana pi board.
 
+- Allwinner A20 (sun7i), a dual-core Cortex-A7 BPI-M1/BPI-M1+/BPI-R1
+- Allwinner A31 and A31s (sun6i), a quad-core Cortex-A7 BPI-M2
+- Allwinner A64 (sun50i), a quad-core Cortex-A53 BPI-M64
+- Allwinner A83T (sun8i), an octa-core Cortex-A7 BPI-M3
+- Allwinner H3 (sun8i), a quad-core Cortex-A7 BPI-M2+/BPI-M2+ EDU/
+
+https://wiki.freebsd.org/FreeBSD/arm/Allwinner
+
+=== OpenSuse
+NOTE: Image and how to : https://bananapi.gitbooks.io/bpi-m1/content/en/opensuse.html
+
+=== OpenMediaVault
+NOTE: Image and how to : https://bananapi.gitbooks.io/bpi-m1/content/en/openmediavault.html
+
+=== Arch Linux
+NOTE: Image and how to : https://bananapi.gitbooks.io/bpi-m1/content/en/arch_linux.html
+
+=== Gentoo Linux
+NOTE: Image and how to : https://bananapi.gitbooks.io/bpi-m1/content/en/gentoolinux.html
+
+=== RaspBSD
+NOTE: Image and how to : https://bananapi.gitbooks.io/bpi-m1/content/en/raspbsdonbpi-m1.html
+
+=== CentOS
+NOTE: Image and how to : https://bananapi.gitbooks.io/bpi-m1/content/en/centos7linuxforbpi.html
+
+=== DietPi
+NOTE: Image and how to : https://bananapi.gitbooks.io/bpi-m1/content/en/dietpi.html
+
+=== FreeBSD/NetBSD
+NOTE: Image and how to : https://bananapi.gitbooks.io/bpi-m1/content/en/freebsdnetbsd.html
+
+=== Lakka TV
+- Banana Pi M2+ with H3 chip
+- Banana Pi M3 with A83T chip
+- BPI-M1 and BPI-M1+ use A20 chip
+- More about this : https://bananapi.gitbooks.io/bpi-m3/content/en/lakkatv.html
+
+http://mirror.lakka.tv/nightly/
+
+=== Simplenas
+NOTE: Simplenas image : https://simplenas.com/download/other/banana-pi-m1
 
 = FAQ
 
