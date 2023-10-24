@@ -45,9 +45,9 @@ Open PowerShell in the Windows system, and open the corresponding
 terminal in other operating systems, and enter the following command to
 install mpremote.
 
-....
+```
 pip install mpremote
-....
+```
 
 == Install the mpbridge tool
 
@@ -57,9 +57,9 @@ efficiency.
 
 Enter the following command in Terminal to install mpbridge.
 
-....
+```
 pip install mpbridge
-....
+```
 
 == Install Visual Studio Code
 
