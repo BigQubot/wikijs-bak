@@ -4,7 +4,7 @@ The Banana Pi M2 Zero is an ultra compact single board computer which measures o
 
 As Allwinner H2+ chip is EOL, so BPI-M2 Zero will use H3 chip defaults. but image for H2+ also support H3, so all image is same. support H2+ and H3 chip.
 
-
+image::/picture/banana_pi_bpi-m2_zero.jpg[banana_pi_bpi-m2_zero.jpg]
 
 = Key Features
 
@@ -21,7 +21,7 @@ link:/en/BPI-M2_Zero/GettingStarted_BPI-M2_Zero[Getting Started BPI-M2_Zero]
 = Hardware
 == Hardware Interface
 
-image::/bpi-m1_interface.jpg[bpi-m1_interface.jpg]
+image::/picture/bpi-m2_zero_interface.png[bpi-m2_zero_interface.png]
 
 == Hardware Spec
 
@@ -216,6 +216,30 @@ NOTE: Banana Pi M2 Zero Armbian O.S. Install and Setup Tutorial : https://www.yo
 NOTE: BANANA PI BPI-M2-ZERO BENCHMARKS & REVIEW : https://bret.dk/banana-pi-bpi-m2-zero-benchmarks-review/
 
 NOTE: Configuracion y uso de GPIO BPI-M2 Zero 1.5.2 : https://forum.banana-pi.org/t/configuracion-y-uso-de-gpio-bpi-m2-zero-1-5-2/15113
+
+== Basic Development
+=== how to use zero 10/100 Ethernet
+BPI-M2 zero not RJ45 interface ,but it support 100M network with PIN define.
+
+image::/picture/rj45_pin.jpg[rj45_pin.jpg]
+
+PIN define:
+
+image::/picture/zero-ephy-pcb.jpg[zero-ephy-pcb.jpg]
+
+Schematic diagram:
+
+image::/picture/zero-ephy-sch.png[zero-ephy-sch.png]
+
+Test
+
+image::/picture/zero_eth_test.jpg[zero_eth_test.jpg]
+
+=== Zero power with GPIO 5V input
+
+BPI-M2 Zero 40 PIN GPIO have support 5V input , so you can use 5V input PIN to power zero board .
+
+image::/picture/zero_gpio_5v.jpg[zero_gpio_5v.jpg]
 
 = System Image
 CAUTION: Note: all image support H2+ and H3 chip on board for BPI-M2 Zero
