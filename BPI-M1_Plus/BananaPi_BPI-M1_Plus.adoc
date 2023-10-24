@@ -212,7 +212,7 @@ The LVDS Connector is a 40-pin FPC connector which can connect external LCD pane
 
 === BPI-M5 Debug UART
 
-- The jumper J11header CON4 is the UART interface.For developers of Banana Pi, this is an easy way to get the UART console output to check the system status and log message.
+The jumper J11header CON4 is the UART interface.For developers of Banana Pi, this is an easy way to get the UART console output to check the system status and log message.
 
 [option="header",cols="1,1,1"]
 |=====
