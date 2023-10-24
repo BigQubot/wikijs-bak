@@ -8,7 +8,7 @@ BPI-M2+ series run Android,Debian linux,Ubuntu linux, Raspberry Pi image and oth
 
 Banana Pi BPI-M2+ not support sata port, so you need use USB for hardisk.
 
-image::/a_bpi-m1.jpg[bpi-m1.jpg]
+image::/picture/banana_pi_bpi-m2+.jpg[banana_pi_bpi-m2+.jpg]
 
 == Key Features
 
@@ -27,7 +27,7 @@ link:/en/BPI-M2_Plus/GettingStarted_BPI-M2_Plus[Getting Started BPI-M2_Plus]
 = Hardware
 == Hardware Interface
 
-image::/bpi-m1_interface.jpg[bpi-m1_interface.jpg]
+image::/picture/bpi-m2plus_800.jpg[bpi-m2plus_800.jpg]
 
 == Hardware Spec
 
@@ -146,13 +146,18 @@ BPI-M2+ V1.2 hardware version add PMU Voltage regulation design
 
 How to check BPI-M2+ V1.2 hardware version:
 
+image::/picture/v1.2_hardware_2.jpg[v1.2_hardware_2.jpg]
+
 BPi-M2+ V1.2 modification
 
 . PL0 Instead the drop-down 10K，As a hardware version identification（V1.1 is pull up）
 . PL1 Change to voltage regulation GPIO
 
+image::/picture/v1.2_hardware_3.png[v1.2_hardware_3.png]
+
 voltage regulation schematic diagram:
 
+image::/picture/v1.2_hardware_4.png[v1.2_hardware_4.png]
 
 = Development
 == Source Code
@@ -322,6 +327,14 @@ Md5 : f979f1a68d759e804e0a90654f4577f1
 
 Forum pthread : http://forum.banana-pi.org/t/bananapi-bpi-m2p-h3-new-demo-images-release-with-kernel-4-4-2018-11-09/7210
 
+=== OpenSUSE
+
+NOTE: OpenSUSE have official support Banana Pi BPI-M2+
+
+image::/picture/opensuse_m2+.png[opensuse_m2+.png]
+
+Image download : http://download.opensuse.org/ports/armv7hl/factory/images/
+
 == Third part image
 
 === Raspbian
@@ -405,6 +418,53 @@ Baidu download : https://pan.baidu.com/s/1OaBRKHPGqjgat0mntHyYxg
 
 Discuss on forum : http://forum.banana-pi.org/t/bpi-m2-new-image-2018-07-12-armbian-5-51-debin-bananapi-m2-build-by-bpi-2018-07-12/6265
 
+=== Openelec Kodi
+NOTE: Openelec Kodi 16.0 (xbmc)
+
+File name: http: OpenELEC-H3.arm-7.0-devel-20161026220508-r23113-g64b34b3-bpim2p.img.gz
+
+Download link: http://down.nu/images/2016-10-26
+
+Baidu cloud: http://pan.baidu.com/s/1mhMTEnI
+
+Forum pthread: http://forum.banana-pi.org/t/openelec-kodi-16-0-xbmc-on-the-banana-pi-bpi-m2-project/1600
+
+=== FreeBSD
+NOTE: FreeBSD on Allwinner (sunxi) systems for banana pi
+
+Banana pi as the official partner of Allwinner , must banana pi product use Allwinner chip design . such as A20/A31S/H3/H2+/A64/A83T , and FreeBSD have support many Allwinner . so easy to use on banana pi board.
+
+- Allwinner A20 (sun7i), a dual-core Cortex-A7 BPI-M1/BPI-M1+/BPI-R1
+- Allwinner A31 and A31s (sun6i), a quad-core Cortex-A7 BPI-M2
+- Allwinner A64 (sun50i), a quad-core Cortex-A53 BPI-M64
+- Allwinner A83T (sun8i), an octa-core Cortex-A7 BPI-M3
+- Allwinner H3 (sun8i), a quad-core Cortex-A7 BPI-M2+/BPI-M2+ EDU/
+
+https://wiki.freebsd.org/FreeBSD/arm/Allwinner
+
+=== Lakka TV
+
+- Banana Pi M2+ with H3 chip
+- Banana Pi M3 with A83T chip
+- BPI-M1 and BPI-M1+ use A20 chip
+
+more about this : https://bananapi.gitbooks.io/bpi-m3/content/en/lakkatv.html
+http://mirror.lakka.tv/nightly/
+
+=== Dietpi
+
+NOTE: Dietpi have official support BPI-M2+ : http://forum.banana-pi.org/t/dietpi-have-official-support-bpi-m2/1882
+
+=== RetroPie
+
+NOTE: RetroPie for Banana Pi BPI-M2+/M2 Zero v.1.2.1 beta
+
+Image download link: http://www.nintendont.it/download/nintendont-retropie-banana-pi-m2-plus-v-1-1-0-beta/
+
+Forum pthread : http://forum.banana-pi.org/t/bpi-m2-zero-new-image-retropie-for-banana-pi-m2-zero-v-1-2-1-beta/4889
+
+=== Retrorangepi
+NOTE: Retrorangepi support BPI-M2+ BPI-M2 Zero : http://retrorangepi.download/download/index2.html
 
 = FAQ
 
