@@ -157,6 +157,27 @@ image::/picture/bpi-centi-s3-v0.2_dimensions.jpg[bpi-centi-s3-v0.2_dimensions.jp
 |===
 
 = Resources
+== Firmware
+
+Based on :
+
+* link:https://github.com/espressif/esp-idf/tree/v4.4.3[esp-idf 4.4.3 ]
+
+* link:https://github.com/micropython/micropython[micropython]
+
+* link:https://github.com/russhughes/st7789s3_esp_lcd[russhughes/st7789s3_esp_lcd]
+
+NOTE: link:https://github.com/BPI-STEAM/BPI-Centi-S3-Doc/tree/main/micropython_st7789s3_firmware[GitHub: BPI-Centi-S3 micropython+st7789s3 firmware]
+
+== Example code
+
+NOTE: link:https://github.com/BPI-STEAM/BPI-Centi-S3-Doc/tree/main/micropython_example[GitHub: BPI-Centi-S3 MicroPython example]
+
+== Schematic
+
+NOTE: link:https://github.com/BPI-STEAM/BPI-Centi-S3-Doc/blob/main/sch/BPI-Centi-S3-V0.2-SCH-20230317.pdf[GitHub: BPI-Centi-S3 Schematic PDF]
+
+
 
 = FAQ
 
