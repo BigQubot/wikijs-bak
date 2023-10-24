@@ -25,7 +25,7 @@ It is recommended to use a version above python 3.7.
 Be sure to check Add Python 3.x to PATH when you start the installation,
 so that you can avoid adding it to PATH manually.
 
-image:../assets/images/Micropython_operating_env_2.png[../assets/images/Micropython_operating_env_2]
+image::/picture/bpi_centi_s3_micropython_operating_env_2.png[bpi_centi_s3_micropython_operating_env_2.png]
 
 Follow the installation prompts step by step to complete the
 installation smoothly.
@@ -80,13 +80,15 @@ which may already be the tool you are most familiar with one of them.
 https://code.visualstudio.com/[Visual Studio Code official website
 address]
 
-VScode documentation that may need to be referred to: *
-https://code.visualstudio.com/docs[Visual Studio Code Official
-Documentation] *
-https://code.visualstudio.com/docs/setup/setup-overview[Basic
-installation&#44; setup] *
-https://code.visualstudio.com/docs/getstarted/locales[Set Display
-Language] * https://code.visualstudio.com/docs/terminal/basics[Use the
+VScode documentation that may need to be referred to: 
+
+* https://code.visualstudio.com/docs[Visual Studio Code Official
+Documentation] 
+* https://code.visualstudio.com/docs/setup/setup-overview[Basic
+installation&#44; setup] 
+* https://code.visualstudio.com/docs/getstarted/locales[Set Display
+Language] 
+* https://code.visualstudio.com/docs/terminal/basics[Use the
 integrated terminal]
 
 All in Web people, minimalists, try https://vscode.dev/[VScode on the
