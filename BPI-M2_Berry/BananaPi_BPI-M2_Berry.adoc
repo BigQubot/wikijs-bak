@@ -29,79 +29,88 @@ image::/bpi-m1_interface.jpg[bpi-m1_interface.jpg]
 
 == Hardware Spec
 
-[option="header",cols="1,3"]
+[option="header",cols="1,5"]
 |=====
-2+| **HardWare Specification of Banana Pi M2+(Plus)**
-| CPU           | xxxx
-| GPU           | xxxx
-| Memory        | xxxx
-| Flash         | xxxx
-| Network       | xxxx
-| WIFI&BT       | xxxx
-| Video Input   | xxxx
-| Video Outputs | xxxx
-| Audio Outputs | xxxx
-| Power         | xxxx
-| USB 2.0 ports | xxxx
-| GPIO          | xxxx
-| LED           | xxxx
-| Storage       | xxxx
+2+| **HardWare Specification of Banana Pi M2_Berry**
+| Soc              | Allwinner A40i/R40/V40
+| CPU              | quad-core cortex -A7,the most power efficient CPU core ARM's ever development
+| GPU              | dual-core MALI-400 MP2 and runs at 500MHz, capable of 1.1 Gpixel/s throughput. Graphics capabilities are slightly higher than the original Xbox’s level of performance. The GPU provides OpenGL ES 2.0, hardware-accelerated OpenVG, 1080p45 H.264 high-profile encode and decode. 
+| SDRAM            | 1GB DDR3 with 733MHz\(shared with GPU\)
+| SATA             | suppoort SATA interface
+| GPIO             | 40 Pins Header, 28×GPIO, some of which can be used for specific functions including UART, I2C, SPI, PWM, I2S.
+| On board Network | 10/100/1000Mbps Ethernet \(Realtek RTL8211E/D\)
+| Wifi Module      | WiFi 802.11 b/g/n \(AP 6212 module on board\)
+| Bluetooth        | BT4.0 
+| On board Storage | MicroSD \(TF\) card,No eMMC onboard
+| Display          | 4-lane MIPI DSI display,or RGB panel or LVDS panel,TV-out on HDMI V1.4
+| Video            | Multi-format FHD video decoding, including Mpeg1/2, Mpeg4, H.263, H.264, etc H.264 decode up to 1080P60,support video encodeing: High-deinition\(HD\)H.264 video encoder is up to 1080P@45fps 
+| Audio outputs    | HDMI, analog audio \(via 3.5 mm TRRS jack\), I2S audio \(also potentially for audio input\) 
+| Camera           | A CSI input connector Camera: Supports 8-bit YUV422 CMOS sensor interface,Supports CCIR656 protocol for NTSC and PAL,Supports 5M pixel camera sensor ,Supports video capture solution up to 1080p@30fps
+| USB              | 4 USB 2.0 host, 1 USB 2.0 OTG 
+| Buttons          | Reset button, Power button, U-boot button 
+| Leds             | Power status Led and RJ45 Led
+| IR               | No onboard IR receiver
+| DC Power         | 5V/2A with micro USB port
+| Battery          | No 3.7V lithium battery power support                   | Sizes	          | 85mmX56mm,same size as raspberry pi 3
+| Weight	         | 40g 
 |=====
 
 == GPIO Pin Define
 
-=== BPI-xx 40PIN GPIO
+=== BPI-M2 Berry 40PIN GPIO
 
-xxxx
-
-image::/picture/bpi-m1_26_pin.png[bpi-m1_26_pin.png]
-
-[option="header",cols="2,1,1"]
+[option="header",cols="1,1,1,1"]
 |=====
-3+| **40 PIN GPIO of Banana pi BPI-M1**
-| CSI GPIO Pin | Pin Name | GPIO
-| CONx P01 | xxxx         | xxxx
-| CONx P02 | xxxx         | xxxx
-| CONx P03 | xxxx         | xxxx
-| CONx P04 | xxxx         | xxxx
-| CONx P05 | xxxx         | xxxx
-| CONx P06 | xxxx         | xxxx
-| CONx P07 | xxxx         | xxxx
-| CONx P08 | xxxx         | xxxx
-| CONx P09 | xxxx         | xxxx
-| CONx P10 | xxxx         | xxxx
-| CONx P11 | xxxx         | xxxx
-| CONx P12 | xxxx         | xxxx
-| CONx P13 | xxxx         | xxxx
-| CONx P14 | xxxx         | xxxx 
-| CONx P15 | xxxx         | xxxx 
-| CONx P16 | xxxx         | xxxx 
-| CONx P17 | xxxx         | xxxx 
-| CONx P18 | xxxx         | xxxx 
-| CONx P19 | xxxx         | xxxx 
-| CONx P20 | xxxx         | xxxx 
-| CONx P21 | xxxx         | xxxx 
-| CONx P22 | xxxx         | xxxx 
-| CONx P23 | xxxx         | xxxx 
-| CONx P24 | xxxx         | xxxx 
-| CONx P25 | xxxx         | xxxx 
-| CONx P26 | xxxx         | xxxx 
-| CONx P27 | xxxx         | xxxx 
-| CONx P28 | xxxx         | xxxx 
-| CONx P29 | xxxx         | xxxx 
-| CONx P30 | xxxx         | xxxx 
-| CONx P31 | xxxx         | xxxx 
-| CONx P32 | xxxx         | xxxx 
-| CONx P33 | xxxx         | xxxx 
-| CONx P34 | xxxx         | xxxx 
-| CONx P35 | xxxx         | xxxx 
-| CONx P36 | xxxx         | xxxx 
-| CONx P37 | xxxx         | xxxx 
-| CONx P38 | xxxx         | xxxx 
-| CONx P39 | xxxx         | xxxx
-| CONx P40 | xxxx         | xxxx
+4+| **40 PIN GPIO of Banana pi BPI-M2 Berry**
+|GPIO Pin Name | Default Function | Function2：GPIO | Function3
+| CON1-P01 | VCC-3V3    |      |            
+| CON1-P02 | DCIN       |      |            
+| CON1-P03 | TWI2-SDA   | PB21 | PWM5       
+| CON1-P04 | DCIN       |      |            
+| CON1-P05 | TWI2-SCK   | PB20 | PWM4       
+| CON1-P06 | GND        |      |            
+| CON1-P07 | PB3        | PB3  | PWM1       
+| CON1-P08 | UART2-TX   | PI18 | SPI1\_MOSI 
+| CON1-P09 | GND        |      |            
+| CON1-P10 | UART2-RX   | PI19 | SPI1\_MISO 
+| CON1-P11 | UART7-TX   | PI20 |            
+| CON1-P12 | UART2-CTS  | PI17 | SPI1\_CLK  
+| CON1-P13 | UART7-RX   | PI21 | PWM3       
+| CON1-P14 | GND        |      |            
+| CON1-P15 | PH25       | PH25 | CSI1-FIELD 
+| CON1-P16 | UART2-RTS  | PI16 | SPI1\_CS0  
+| CON1-P17 | VCC-3V3    |      |            
+| CON1-P18 | PH26       | PH26 | CSI1-HSYNC 
+| CON1-P19 | SPI0\_MOSI | PC0  |            
+| CON1-P20 | GND        |      |            
+| CON1-P21 | SPI0\_MISO | PC1  |            
+| CON1-P22 | PH27       | PH27 | CSI1-VSYNC 
+| CON1-P23 | SPI0\_CLK  | PC2  |            
+| CON1-P24 | SPI0\_CS   | PC23 |            
+| CON1-P25 | GND        |      |            
+| CON1-P26 | PH24       | PH24 | CSI1-PCLK  
+| CON1-P27 | TWI3-SDA   | PI1  |            
+| CON1-P28 | TWI3-SCK   | PI0  |            
+| CON1-P29 | PH0        | PH0  | CSI1-D0    
+| CON1-P30 | GND        |      |            
+| CON1-P31 | PH1        | PH1  | CSI1-D1    
+| CON1-P32 | PD20       | PD20 | CSI1-MCLK  
+| CON1-P33 | PH2        | PH2  | CSI1-D2    
+| CON1-P34 | GND        |      |            
+| CON1-P35 | PH3        | PH3  | CSI1-D3    
+| CON1-P36 | UART5-RX   | PH7  | CSI1-D7    
+| CON1-P37 | UART4-TX   | PH4  | CSI1-D4    
+| CON1-P38 | UART5-TX   | PH6  | CSI1-D6    
+| ON1-P39  | GND        |      |            
+| CON1-P40 | UART4-RX   | PH5  | CSI1-D5 
 |=====
 
+=== CSI Camera Connector specification
+
+[option="header",cols="1,1,1"]
+|=====
+3+| **CSI Camera connector GPIO of Banana pi BPI-M2 Berry**
+|=====
 === BPI-M5 Debug UART
 
 |=====
@@ -113,58 +122,145 @@ image::/picture/bpi-m1_26_pin.png[bpi-m1_26_pin.png]
 = Development
 == Source Code
 
-=== Linux BSP Source Code
-
-TIP: Linux BSP source code
-
-xxxxxxxxxx
-
-xxxxxxxxxx
-
-=== Android
-
-TIP: Linux BSP source code
-
-xxxxxxxxxx
-
-xxxxxxxxxx
-
 == Resources
+
+TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
+
+TIP: All banana pi link:https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[docement(SCH file,DXF file,and doc)]
+
+TIP: Schematics: link:https://drive.google.com/drive/folders/0B4PAo2nW2KfnflVqbjJGTFlFTTd1b1o1OUxDNk5ackVDM0RNUjBpZ0FQU19SbDk1MngzZWM?resourcekey=0-ZRCiv304nGzvq-w7lwnpjg&usp=sharing[google driver]
+
+TIP: Dimensional diagram link:https://drive.google.com/file/d/0B4PAo2nW2Kfnci1xaHd5eWtseEU/view?usp=sharing[BPI-M2 Berry dxf file]
+
+TIP: Allwinner R40/V40 datasheet
+
+- link:https://drive.google.com/file/d/0B4PAo2nW2KfneE54VzVOdHpITzA/view?usp=sharing[Allwinner V40 datasheet]
+
+- link:https://drive.google.com/file/d/0B4PAo2nW2KfnbVp2TmRMYUdPUGM/view?usp=sharing[Allwinner R40 datasheet]
+
+- link:https://github.com/tinalinux/docs/blob/r40-v1.y/Allwinner/_R40/_User/_Manual/_V1.0.pdf[Allwinner R40 User Manual v1.0]
+
+- link:https://drive.google.com/file/d/0B4PAo2nW2KfnM2pnT19zZW5qOTA/view?usp=sharing[Axp221s PMU datasheet]
+
+TIP: Banana pi BPI-M2 Berry link:https://bananapi.gitbooks.io/bpi-m2-ultra-open-source-single-board-computer/content/bpi-m2-berry-cefcc-rohs-certification.html[CE,FCC,RoHS]
+
+TIP: BPI-M2 Ultra/Berry Touch work : https://forum.banana-pi.org/t/discuss-bpi-m2-ultra-touch-doesnt-work/15980
 
 = System Image
 == Android
 
-NOTE: 20xx-xx-xx release, xxxxxxx image
+NOTE: 2017-08-25 update,HDMI-Version,LCD5-Version LCD7-Version
 
-xxxxxxxxxx
+Google Drive : https://drive.google.com/drive/folders/0B_YnvHgh2rwjNFRpVFlhcW56LUk?resourcekey=0-95UrcQ-bb0Bh-RDtLRp-0w
 
-xxxxxxxxxx
+Forum pthread : http://forum.banana-pi.org/t/bpi-m2-ultra-bpi-m2-berry-new-image-android-6-0-version-v1-2017-08-25/3731
 
 == Linux
 
 === Ubuntu
 
-NOTE: 20xx-xx-xx release, xxxxxxx image
+NOTE: 2022-04-16 Banana Pi new image: Ubuntu 16.04 with Allwinner BSP, use MPV play 1080P video,Allwinner BSP kernel 3.4 , BPI-M2 Ultra/Berry use kernel 3.10
 
-xxxxxxxxxx
+Google driver: https://drive.google.com/drive/folders/1DEO7JdMfDhHynC83K7JMxgnNxf1gV82S
 
-xxxxxxxxxx
+Discuss on forum: https://forum.banana-pi.org/t/banana-pi-new-image-ubuntu-16-04-with-allwinner-bsp-use-mpv-play-1080p-video/13272
+
+NOTE: 2020-04-19 update, kernel 3.10.108
+
+Ubuntu 16.04 mate desktop link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/?p=%2FImages%2FBPI-M2U%2FUbuntu16.04&mode=list[Download]
+
+Ubuntu 16.04 server link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/?p=%2FImages%2FBPI-M2U%2FUbuntu16.04&mode=list[Download]
+
+NOTE: 2019-05-13 update,Ubuntu 16.04 ,kernel 3.10.108
+
+Features Map: http://wiki.banana-pi.org/M2U/Berry_Image_Map#Ubuntu_16.04
+=====
+NOTE: Desktop image
+
+Google Drive : https://drive.google.com/file/d/1Q8MGksdugAsMhy4slj50Rp9P0eeDUQFo/view?usp=sharing
+
+Baidu Drive : https://pan.baidu.com/s/1Aap1emViG6Vh2ejVHPtZhg?pwd=xfd5 PinCode: xfd5
+
+MD5 : cde8fd1165b54c633bcc5288e8447c2b
+=====
+=====
+NOTE: Server image
+
+Google Drive : https://drive.google.com/open?id=1vcuIpQ7O2SFB3cZ4UemOqR2hQkxHy3RF
+
+Baidu Drive : https://pan.baidu.com/s/18Cp7zeuHxa82z5OU_tV_oQ PinCode：qat4
+
+MD5 : 07981887a7a21f5cda72ab8a1e37a834
+=====
+Forum pthread : http://forum.banana-pi.org/t/bpi-m2u-berry-new-image-release-ubuntu-16-04-raspbian-9-4-debian-9-4-2019-05-13/9225
+
+NOTE: 2018-01-04 update BPI-M2 Ultra/Berry Ubuntu 16.04 image
+
+Google Drive : https://drive.google.com/file/d/1G4Ggkne63ofD51Yt2c-x5-qy9h7BgY4_/view?usp=sharing
+
+Baidu cloud : https://pan.baidu.com/s/1cFHYGY1
+
+MD5: a61e6f66a5ea2288fff0c3acff12d633
+
+NOTE: 2017-11-13 update
+
+Google Drive : https://drive.google.com/file/d/19PI9yuL9iFa4bU6dh7ym3tcCHhjAh-cM/view?usp=sharing
+
+Baidu cloud : http://pan.baidu.com/s/1nvccOlz
+
+MD5: 4655b896a3c4e1958a15bb8ca45ac4fe
+
+Forum pthread : http://forum.banana-pi.org/t/bpi-m2-ultra-bpi-m2-berry-new-image-2017-11-13-ubuntu-16-04-mate-desktop-beta2-bpi-m2u-sd-emmc-img/4182
 
 === Debian
 
-NOTE: 20xx-xx-xx release, xxxxxxx image
+NOTE: 2020-04-19 update, kernel 3.10.108
 
-xxxxxxxxxx
+Debian 9 stretch mate desktop link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/?p=%2FImages%2FBPI-M2U%2FDebian9&mode=list[Download]
 
-xxxxxxxxxx
+Debian 9 stretch lite link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/?p=%2FImages%2FBPI-M2U%2FDebian9&mode=list[Download]
 
-=== CentOS
+NOTE: 2019-05-13 update , Debian 9 ,kernel 3.10.108
+Features Map: http://wiki.banana-pi.org/M2U/Berry_Image_Map#Debian_9
+=====
+NOTE: Desktop images 
 
-NOTE: 20xx-xx-xx release, xxxxxxx image
+Baidu Drive : https://pan.baidu.com/s/1ZqDZT4dOQNyvsu0nT4oMTg PinCode: kshd
 
-xxxxxxxxxx
+MD5 : 7e5d848f804bc5ffb8854a93d7488694
 
-xxxxxxxxxx
+=====
+
+=====
+
+NOTE: Server images
+
+Google Drive : https://drive.google.com/open?id=1aoB8mGwSveNztB-EO_fBKLOr-GdzcMNV
+
+Baidu Drive : https://pan.baidu.com/s/1V0djGvUR7QJFMeAgZV86zg PinCode: e0t6
+
+MD5 : b7314d444dc13a40e1dd7b1602436f40
+
+=====
+Forum pthread : http://forum.banana-pi.org/t/bpi-m2u-berry-new-image-release-ubuntu-16-04-raspbian-9-4-debian-9-4-2019-05-13/9225
+
+NOTE: 2017-11-13 update debian-9-stretch-mate-desktop
+
+Google Drive : https://drive.google.com/file/d/0B_YnvHgh2rwjeTh4TmlnMGl5X3M/view?usp=sharing
+
+Baidu cloud : http://pan.baidu.com/s/1c1LvS1y
+
+MD5: 0a1fad281c24902148b16276a79bac12
+
+NOTE: 2017-11-13 update debian-9-stretch-lite
+
+Google Drive: https://drive.google.com/file/d/0B_YnvHgh2rwjOWg1OW9heWZsYm8/view?usp=sharing
+
+Baidu cloud: http://pan.baidu.com/s/1c3zxCy
+
+MD5: cff677aa94ca5345fc6e26379cfe4e95
+
+Forum pthread : http://forum.banana-pi.org/t/bpi-m2-ultra-bpi-m2-berry-new-image-2017-08-28-debian-sd-emmc-img/3745/2
 
 == Third part image
 
