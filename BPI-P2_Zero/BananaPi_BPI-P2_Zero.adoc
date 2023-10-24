@@ -1,0 +1,322 @@
+= BPI-xx Introduction
+
+Banana Pi BPI-P2 Zero is an ultra compact single board computer measures only 65mm*52.5mm. It uses quad-core Cortex A7 allwinner H3/H2+ processor(Option : H5), with 512MB RAM memory.8G eMMC flash,100M LAN,add PoE function support , It's ideal for light-weight systems with some space-limited applications. Like other members of Banana Pi, it supports both linux and android operating system.
+
+Banana Pi BPI-P2 Maker, base on BPI-P2 ZERO, without 8GB eMMC/ Wifi & Bluetooth/40PIN GPIO, all other functions are same as BPI-P2 ZERO.
+
+image::/a_bpi-m1.jpg[bpi-m1.jpg]
+
+= Key Features
+
+- CPU: Allwinner H3/H2+, Quad-core Cortex-A7.
+- 512MB DDR 3 SDRAM.
+- WiFi (AP6212/K016) & BT onboard.
+- Mini HDMI.
+- 40 PIN GPIO,includes UART, SPI, I2C, IO etc
+- 100M LAN
+- IEEE 802.3af PoE standard PoE module support
+- 8G eMMC flash onboard.
+
+== Getting Start
+
+link:/en/BPI-P2_Zero/GettingStarted_BPI-P2_Zero[Getting Started BPI-P2_Zero]
+
+= Hardware
+BPI-P2 Zero, just 3 change on BPI-M2 Zero . other hadware design same as BPI-M2 Zero.so all software is same .
+
+. Add 8G eMMC flash support onboard, easy to do IoT gateway.
+. BPI-P2 Zero with 100M LAN interface ,BPI-M2 Zero with PIN define for 100M lan , use way is same.
+. PoE function support on board.
+
+== Hardware Interface
+
+image::/bpi-m1_interface.jpg[bpi-m1_interface.jpg]
+
+== Hardware Spec
+
+[option="header",cols="1,3"]
+|=====
+2+| **HardWare Specification of Banana Pi P2 Zero**
+| Module                | Banana Pi BPI-P2 Zero 
+| CPU                   | Allwinner H3/H2+ Quad-core Cortex-A7 H265/HEVC
+| GPU                   | Mali400MP2 GPU @600MHz,Supports OpenGL ES 2.0
+| Memory \(SDRAM\)      | 512M DDR3(shared with GPU)
+| Onboard Storage       | TF card \(Max. 64GB\) 
+| Onboard Network       | 100M LAN 
+| PoE power             | PoE function support
+| Onboard flash         | 8G eMMC 
+| Onboard WIFI          | K016/SDIO AP6212（option AP6181、AP6335）
+| Video decoding        | 1080p@60fps,H.264 Video encoding 1080p@30fps,H.264
+| Video input           | A CSI input connector Camera 
+| Video Outputs         | mini HDMI 1.4,1080P@30fps, DHCP 
+| Audio Output          | Mini HDMI 
+| Power Source          | Micro USB with 5V/2A or PoE power
+| USB 2.0 Ports         | one USB 2.0 OTG
+| Buttons               | Power Button, Reset Button  
+| Low-level peripherals | 40 Pins Header,compatible with Raspberry Pi 3 
+| uart GPIO\(1x3\) pin  | UART, ground 
+| LED                   | Power led & Status led 
+| IR                    | N/A                                               
+| Supported OS	        | android linux	
+| Product size	        | 65mm X 52.5mm
+| Weight                |	30g
+|=====
+
+== GPIO Pin Define
+
+=== BPI-P2 Zero 40PIN GPIO
+
+[option="header",cols="1,1,1,1"]
+|=====
+4+| **40 PIN GPIO of Banana pi BPI-P2 Zero**
+| GPIO Pin Name	| Default Function	| Function2：GPIO	| Function3
+| CON2-P01 | VCC-3V3     |             |           
+| CON2-P02 | VCC-5V      |             |           
+| CON2-P03 | TWI0-SDA    | PA12-EINT12 |           
+| CON2-P04 | VCC-5V      |             |           
+| CON2-P05 | TWI0-SCK    | PA11-EINT11 |           
+| CON2-P06 | GND         |             |           
+| CON2-P07 | PWM1        | PA6-EINT6   |           
+| CON2-P08 | UART3-TX    | PA13-EINT13 | SPI1-CS   
+| CON2-P09 | GND         |             |           
+| CON2-P10 | UART3-RX    | PA14-EINT14 | SPI1-CLK  
+| CON2-P11 | UART2-RX    | PA1-EINT1   |           
+| CON2-P12 | UART3-CTS   | PA16-EINT16 | SPI1-MISO 
+| CON2-P13 | UART2-TX    | PA0-EINT0   |           
+| CON2-P14 | GND         |             |           
+| CON2-P15 | UART2-CTS   | PA3-EINT3   |           
+| CON2-P16 | UART3-RTS   | PA15-EINT15 | SPI1-MOSI 
+| CON2-P17 | VCC-3V3     |             |           
+| CON2-P18 | PC4         | PC4         |           
+| CON2-P19 | SPI0-MOSI   | PC0         |           
+| CON2-P20 | GND         |             |           
+| CON2-P21 | SPI0-MISO   | PC1         |           
+| CON2-P22 | UART2-RTS   | PA2-EINT2   |           
+| CON2-P23 | SPI0-CLK    | PC2         |           
+| CON2-P24 | SPI0-CS     | PC3         |           
+| CON2-P25 | GND         |             |           
+| CON2-P26 | PC7         | PC7         |           
+| CON2-P27 | TWI1-SDA    | PA19-EINT19 |           
+| CON2-P28 | TWI1-SCK    | PA18-EINT18 |           
+| CON2-P29 | PA7-EINT7   | PA7-EINT7   |           
+| CON2-P30 | GND         |             |           
+| CON2-P31 | PA8-EINT8   | PA8-EINT8   |           
+| CON2-P32 | PL2-S-EINT2 | PL2-S-EINT2 |           
+| CON2-P33 | PA9-EINT9   | PA9-EINT9   |           
+| CON2-P34 | GND         |             |           
+| CON2-P35 | PA10-EINT10 | PA10-EINT10 |           
+| CON2-P36 | PL4-S-EINT4 | PL4-S-EINT4 |           
+| CON2-P37 | PA17-EINT17 | PA17-EINT17 | SPDIF-OUT 
+| CON2-P38 | PA21-EINT21 | PA21-EINT21 |           
+| CON2-P39 | GND         |             |           
+| CON2-P40 | PA20-EINT20 | PA20-EINT20 |           
+|=====
+
+=== CSI Camera Connector specification
+
+The CSI Camera Connector is a 24-pin FPC connector which can connect external camera module with proper signal pin mappings. The pin definitions of the CSI interface are shown as below. This is marked on the Banana Pi board as “CSI″.
+
+[option="header",cols="1,1,1"]
+|=====
+3+| **24 PIN CSI Camera connector of Banana pi BPI-P2 Zero**
+|CSI Pin Name	| Default Function	| Function2：GPIO
+| CN3-P01 | NC         |      
+| CN3-P02 | GND        |      
+| CN3-P03 | CSI0-SDA   | PE13 
+| CN3-P04 | CSI0-AVDD  |      
+| CN3-P05 | CSI0-SCK   | PE12 
+| CN3-P06 | CSI0-Reset | PE14 
+| CN3-P07 | CSI0-VSYNC | PE3  
+| CN3-P08 | CSI0-PWDN  | PE15 
+| CN3-P09 | CSI0-HSYNC | PE2  
+| CN3-P10 | CSI0-DVDD  |      
+| CN3-P11 | CSI0-DOVDD |      
+| CN3-P12 | CSI0-D7    | PE11 
+| CN3-P13 | CSI0-MCLK  | PE1  
+| CN3-P14 | CSI0-D6    | PE10 
+| CN3-P15 | GND        |      
+| CN3-P16 | CSI0-D5    | PE9  
+| CN3-P17 | CSI0-PCLK  | PE0  
+| CN3-P18 | CSI0-D4    | PE8  
+| CN3-P19 | CSI0-D0    | PE4  
+| CN3-P20 | CSI0-D3    | PE7  
+| CN3-P21	| CSI0-D1	   | PE5
+| CN3-P22	| CSI0-D2	   | PE6
+| CN3-P23	| GND	       |    
+| CN3-P24	| CSI0-DOVDD |
+|=====
+=== BPI-P2 Zero Debug UART
+
+|=====
+| CON3 P03	| UART0-TXD	| PA4
+| CON3 P02	| UART0-RXD	| PA5
+| CON3 P01	| GND	      |     
+|=====
+
+== PoE support
+We deign a IEEE 802.3af PoE module for BPI-P2 Zero ,easy to support PoE function,more spec ,please check BPI-9600 PoE module spec.
+
+link:https://wiki.banana-pi.org/BPI-9600_IEEE_802.3af_PoE_module[BPI-9600 IEEE 802.3af PoE module]
+
+= Development
+== Source Code
+
+=== Linux 
+
+TIP: Kernel 4.4 source code : https://github.com/BPI-SINOVOIP/BPI-M2P-bsp-4.4
+
+TIP: Kernel 3.4 source code : https://github.com/BPI-SINOVOIP/BPI-M2Z-bsp
+
+=== Android
+
+TIP: Android 4.4 source code
+
+Download link: https://drive.google.com/open?id=0B_YnvHgh2rwjdWNEQzg1UDl1bUE
+
+Forum pthread: http://forum.banana-pi.org/t/bpi-m2-android-4-4-source-code-download-link/3159
+
+== Resources
+
+TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
+
+TIP: All banana pi link:https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[docement(SCH file,DXF file,and doc)]
+
+TIP: Allwinner documents :
+
+Allwinner H3 chip doc baidu link: https://pan.baidu.com/s/1qTULll2CR02d0Hw9itq1rw
+
+Allwinner H2+ chip doc baidu link: https://pan.baidu.com/s/1TGMYr3rhizfhlg5hl6hLyg
+
+TIP: BPI-P2 Zero schematic diagram : https://drive.google.com/drive/folders/0B4PAo2nW2KfnflVqbjJGTFlFTTd1b1o1OUxDNk5ackVDM0RNUjBpZ0FQU19SbDk1MngzZWM?resourcekey=0-ZRCiv304nGzvq-w7lwnpjg&usp=sharing
+
+TIP: BPI-P2 zero CE,FCC,RoHS Certification : http://forum.banana-pi.org/t/banana-pi-bpi-p2-zero-ce-fcc-rohs-certification/9788
+
+TIP: BPI-P2 Zero IEEE 802.3af PoE function test: https://www.youtube.com/watch?v=RCrDmhjxfCU&feature=youtu.be
+
+TIP: BPI-P2 Zero DXF file: https://drive.google.com/file/d/1NBenPRf6Pngsio930PKuzj6IqyUK5qyr/view?usp=sharing
+
+TIP: Magazinmehatronika BPI-P2 zero and maker review: https://www.magazinmehatronika.com/banana-pi-bpi-p2-recenzija/
+
+= System Image
+== Android
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+== Linux
+
+=== Ubuntu
+
+NOTE: 2020-04-28 update, Ubuntu 16.04 Mate Desktop ,Ubuntu 16.04 Server ,kernel 4.4
+
+Google driver: https://drive.google.com/drive/folders/1uRE8BppgDjK2TXH5kUIJ1_YrbAAW3HKF
+
+Baidu cloud ： https://pan.baidu.com/s/1pJfJbhIcU52uaR4mkWc-4A Pincode：5e3E
+
+Discuss on forum: http://forum.banana-pi.org/t/banana-pi-bpi-m2-zero-new-image-2020-04-28-debian-rasbian-ubuntu/11068
+
+NOTE: 2019-4-30 update BPI-M2 Zero & BPI-P2 Zero Ubuntu Server 16.04
+
+Features Map: http://wiki.banana-pi.org/M2Z_Image_Map#Kernel_3.4
+
+Google Drive : https://drive.google.com/open?id=1nTrali0w7GgcGatu-jxyJR-sF06rMN39
+
+Baidu Drive : https://pan.baidu.com/s/100LiQcD7V2_AJ3EmYN8p0g ( PinCode: q379 )
+
+Md5 : f8aa74511677a0543d2af65115d7d0d0
+
+Forum pthread: http://forum.banana-pi.org/t/bananapi-bpi-m2z-bpi-p2-zero-h2-new-images-reapbian9-4-ubuntu16-04-release-2019-04-30/9166
+
+NOTE: 2018-4-30 update BPI-M2 Zero & P2Zero Ubuntu Desktop 16.04
+
+Features Map: http://wiki.banana-pi.org/M2Z_Image_Map#Kernel_3.4
+
+Google Drive : https://drive.google.com/open?id=14_qm7Nk3FIycIC95ghVyeFz2xEbKjuSx
+
+Baidu Drive : https://pan.baidu.com/s/1LZmkxRnszlhfdLD0Ngg18g ( PinCode: dqe1 )
+
+Md5 : 25daaac1e678a5cc98259a82ea5ce53c
+
+Forum pthread: http://forum.banana-pi.org/t/bananapi-bpi-m2z-bpi-p2-zero-h2-new-images-reapbian9-4-ubuntu16-04-release-2019-04-30/9166
+
+NOTE: 2018-08-17 update Ubuntu image V1.0 release This release is for BPI-P2 Zero board which is based on Allwinner H2+, We have one demo image release，Ubuntu 16.04 is based on kernel 3.4.
+
+Features Map : http://wiki.banana-pi.org/P2Z_Image_Map
+
+Google Drive : https://drive.google.com/open?id=1izY4ib2roA4I9s4psbXqZq5sBXLkCgBE
+
+Baidu Drive : https://pan.baidu.com/s/1-pAplB8_j_W5mUsYsinavg
+
+Forum pthread : http://forum.banana-pi.org/t/bananapi-bpi-p2-zero-h2-with-poe-ubuntu-image-release-2018-08-17/6533
+
+=== Debian
+
+NOTE: 2020-04-28 update, Debian 9, kernel 4.4
+
+Google driver: https://drive.google.com/drive/folders/1uRE8BppgDjK2TXH5kUIJ1_YrbAAW3HKF
+
+Baidu cloud ： https://pan.baidu.com/s/1pJfJbhIcU52uaR4mkWc-4A Pincode：5e3E
+
+Discuss on forum: http://forum.banana-pi.org/t/banana-pi-bpi-m2-zero-new-image-2020-04-28-debian-rasbian-ubuntu/11068
+
+== Third part image
+
+=== Raspbian
+
+NOTE: 2020-04-28 update,Rasbian Stretch, kernel 4.4
+
+Google driver: https://drive.google.com/drive/folders/1uRE8BppgDjK2TXH5kUIJ1_YrbAAW3HKF
+
+Baidu cloud ： https://pan.baidu.com/s/1pJfJbhIcU52uaR4mkWc-4A Pincode：5e3E
+
+Discuss on forum: http://forum.banana-pi.org/t/banana-pi-bpi-m2-zero-new-image-2020-04-28-debian-rasbian-ubuntu/11068
+
+=== Armbian
+
+NOTE: 2023-07-06 Armbian_kernel6.1.24, support emmc, usb wifi, emac
+
+Google Drive: https://drive.google.com/drive/folders/1Y2RUA11B8zANc7aozdXcAJ782F5c4Pdv?usp=drive_link
+
+Baidu Cloud: https://pan.baidu.com/s/1il64jearOr7xh25YcqOkxw?pwd=8888 (pincode: 8888)
+
+NOTE: 2022-10-12 Armbian_22.11.0-trunk_Bananapip2zero_jammy_edge_5.19.6_xfce_desktop.img
+
+Google Drive:
+https://drive.google.com/file/d/1vP_047mfuAhSjBkZvb3w-iTGktd_BZbu/view?usp=sharing
+
+Baidu Cloud: https://pan.baidu.com/s/1uhbUMYeplPybxTn_Cybpvw?pwd=8888 (pincode: 8888)
+
+Discuss on Forum: https://forum.banana-pi.org/t/bananapi-bpi-p2-zero-new-image-release-armbian-jammy/14026
+
+NOTE: 2022-10-12 Armbian_22.11.0-trunk_Bananapip2zero_bullseye_edge_5.19.6_xfce_desktop.img
+
+Google Drive: https://drive.google.com/file/d/1YSaM1ob80EPcNoeVKYPjtCeMItBlTMET/view?usp=sharing
+
+Baidu Cloud: https://pan.baidu.com/s/1CrZQhN3BR6bx7uMTZYVeMQ?pwd=8888 (pincode: 8888)
+
+Discuss on Forum: https://forum.banana-pi.org/t/bananapi-bpi-p2-zero-new-image-release-armbian-bullseye/14025
+
+NOTE: 2022-09-27-Armbian_22.11.0-trunk_jammy_edge_lubuntu_5.19.6-qt5-swap-bpi-P2z-M2Z-10804MB
+
+Google Drive:  https://drive.google.com/file/d/1_rsQthyCU4HaN8tcGsPMvzt6dMwaRI-A/view?usp=sharing
+
+Baidu Cloud: https://pan.baidu.com/s/1RKJzzpMOHnFW0nj8I-NJIA?pwd=rk22 (pincode: rk22)
+
+MD5: f4dfbe234c21a6038f50f699780d4e03
+
+= FAQ
+
+
+
+= Easy to buy
+
+WARNING: SINOVOIP Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-P2-Zero/1100417230_40000003593412.html
+
+WARNING: Bipai Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-P2-Zero/1101951077_40000003551096.html
+
+WARNING: Taobao Shop: https://shop108780008.taobao.com/category-1694930632.htm
+
+WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
