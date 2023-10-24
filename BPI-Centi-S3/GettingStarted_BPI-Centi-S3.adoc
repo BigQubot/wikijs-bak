@@ -1,9 +1,7 @@
-= Getting Started
-
 We compiled this Getting Started Guide to help you get started with this
 BPI-Centi-S3 development board quickly.
 
-== First Thing
+= First Thing
 
 Use a USB-C cable with power and data functions to connect the
 BPI-Centi-S3 development board to your computer.
@@ -15,7 +13,7 @@ BPI-Centi-S3 has been programmed with MicroPython 1.19.1 firmware and
 integrated ST7789 C module driver when it leaves the factory. It is
 recommended for beginners to use MicroPython to develop and learn.
 
-== Use MicroPython to get started quickly
+= Use MicroPython to get started quickly
 
 . See link:./MicroPython/environment.md[Install and configure the
 environment], install Python 3, mpremote tool, mpbridge tool, VScode
