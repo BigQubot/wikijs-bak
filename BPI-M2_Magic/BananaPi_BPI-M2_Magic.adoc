@@ -1,0 +1,308 @@
+= BPI-M2 Magic Introduction
+
+Banana PI BPI-M2 Magic (BPi-M2M) is an efficient quad core solution designed for internet-of-things applications,Use allwinner R16 chip design ,also can use Allwinner A33 chip on board, which outperforms competitors in terms of its system performance, scalability, and energy-efficiency; it can be used for home entertainment, home automation, and high wireless performance and so on.
+
+image::/picture/bpi-m2m.png[bpi-m2m.png]
+
+BPI-M2 Magic integrate four ARM Cortex-A7 CPU cores and Mali400MP2 graphics architecture, It also includes a variety of peripherals, BPI-M2 Magic with 512M DDR3，including 4 lane-MIPI DSI, LVDS, USB2.0 OTG/HOST,802.11 b/g/n wifi & BT4.0 onboard.
+
+IMPORTANT: BPI-M2 Magic not HDMI interface. 
+
+IMPORTANT: Not support RJ45 interface
+
+BPI-M2 Magic can run with Android smoothly, it also can run Debian, Ubuntu linux, Raspberry Pi image and others OS. It can easily run with the game it support 1080P high definition video output, the GPIO compatible with Raspberry Pi B+ and can run the ROM Image
+
+Allwinner R16 chip and A33 chip is PIN to PIN compatibility, so BPI-M2 Magic just replace R16 ,A33 chip onboard, easy to DIY new product.
+
+== Key Features
+
+- Allwinner R16/A33 Quad Core ARM Cortex A7 CPU.
+- 512MB DDR3 SDRAM.
+- WiFi (AP6212) & Bluetooth onboard.
+- 8G eMMC flash
+- CSI camera interface
+- DSI display interface
+
+== Getting Start
+
+link:/en/BPI-M2_Magic/GettingStarted_BPI-M2_Magic[Getting Started BPI-M2_Magic]
+
+= Hardware
+== Hardware Interface
+
+image::/picture/bpi-m2_magic_interface.jpg[bpi-m2_magic_interface.jpg]
+
+== Hardware Spec
+
+[option="header",cols="1,3"]
+|=====
+2+| **HardWare Specification of Banana Pi M2 Magic**
+| CPU             | Allwinner R16 ARM Cortex-A7 Quad-Core
+| GPU             | PowerVR SGX544MP1 Comply with OpenGL ES 2.0 OpenCL 1x, DX9_3
+| Memory          | 512MB LPDDR3 (shared with GPU)
+| Storage         | On Board 8GB eMMC Flash, Micro SD-Card slot
+| Network         | Wi-Fi 802.11 b/g/n (AP6212) + Bluetooth BT4.0
+| Video Input(s)  | A CSI input connector allows for the connection of a designed camera module
+| Video Output(s) | MIPI Display Serial Interface (DSI) for raw LCD Panel
+| Audio Input(s)  | On board microphone
+| Audio Output(s) | 3.5mm jack
+| USB ports       | USB 2.0 PORT (x1), USB OTG (x1)
+| Remote          | Not IR Receiver 
+| GPIO            | 40 Pin Header : GPIO (x28) and Power (+5V, +3.3V and GND). Some of I/O Pin can be used for specific functions as UART, I2C, SPI or PWM
+| Switches        | Reset, Power and U-boot
+| LED             | Power Status and 8P8C 
+| Power Source    | 5 volt @2A via DC Power and/or Micro USB (OTG) 
+| Size & Weight   | 51x51mm, 48g 
+| OS              | Android and Linux 
+|=====
+
+== GPIO Pin Define
+
+=== BPI-M2 Magic 40PIN GPIO
+
+[option="header",cols="1,1,1"]
+|=====
+3+|**40 PIN GPIO of Banana pi BPI-M2 Magic**
+| CSI GPIO Pin | Pin Name | GPIO
+| CON1-P01 | VCC-3V3        |      
+| CON1-P02 | DCIN           |      
+| CON1-P03 | TWI1-SDA       | PH5  
+| CON1-P04 | DCIN           |      
+| CON1-P05 | TWI1-SCK       | PH4  
+| CON1-P06 | GND            |      
+| CON1-P07 | PWM1           | PH1  
+| CON1-P08 | UART2-TX       | PB0  
+| CON1-P09 | GND            |      
+| CON1-P10 | UART2-RX       | PB1  
+| CON1-P11 | UART3_TX       | PH6  
+| CON1-P12 | AP-PCM-CLK-CTS | PG11 
+| CON1-P13 | UART3_RX       | PH7  
+| CON1-P14 | GND            |      
+| CON1-P15 | LVDS_V1N       | PD21 
+| CON1-P16 | UART2-RTS      | PB2  
+| CON1-P17 | VCC-3V3        |      
+| CON1-P18 | UART2-CTS      | PB3  
+| CON1-P19 | SPI0_MOSI      | PC0  
+| CON1-P20 | GND            |      
+| CON1-P21 | SPI0_MISO   | PC1         
+| CON1-P22 | LVDS_V1P    | PD20        
+| CON1-P23 | SPI0_CLK    | PC2         
+| CON1-P24 | SPI0_CS     | PC3         
+| CON1-P25 | GND         |             
+| CON1-P26 | LVDS_VCN    | PD25        
+| CON1-P27 | LVDS_V0N    | PD19        
+| CON1-P28 | LVDS_VCP    | PD24        
+| CON1-P29 | LVDS_V0P    | PD18        
+| CON1-P30 | GND         |             
+| CON1-P31 | LVDS_V2N    | PD23        
+| CON1-P32 | LVDS_V2P    | PD22        
+| CON1-P33 | LVDS_V3N    | PD27        
+| CON1-P34 | GND         |             
+| CON1-P35 | AP-PCM-SYNC | PG10        
+| CON1-P36 | LVDS_V3P    | PD26        
+| CON1-P37 | PL11-EINT11 | PL11-EINT11 
+| CON1-P38 | AP_PCM_DIN  | PG13        
+| CON1-P39 | GND         |             
+| CON1-P40 | AP-PCM-DOUT | PG12        
+|=====
+
+=== CSI Camera Connector specification
+
+[option="header",cols="1,1,1"]
+|=====
+3+|**CSI Camera pin define of Banana pi BPI-M2 Magic**
+| CSI GPIO Pin | Pin Name | GPIO
+| CN3-P01 | NC         |      
+| CN3-P02 | GND        |      
+| CN3-P03 | CSI0-SDA   | PE13 
+| CN3-P04 | CSI0-AVDD  |      
+| CN3-P05 | CSI0-SCK   | PE12 
+| CN3-P06 | CSI0-Reset | PE14 
+| CN3-P07 | CSI0-VSYNC | PE3  
+| CN3-P08 | CSI0-PWDN  | PE15 
+| CN3-P09 | CSI0-HSYNC | PE2  
+| CN3-P10 | CSI0-DVDD  |      
+| CN3-P11 |            |      
+| CN3-P12 | CSI0-D7    | PE11 
+| CN3-P13 | CSI0-MCLK  | PE1  
+| CN3-P14 | CSI0-D6    | PE10 
+| CN3-P15 | GND        |      
+| CN3-P16 | CSI0-D5    | PE9  
+| CN3-P17 | CSI0-PCLK  | PE0  
+| CN3-P18 | CSI0-D4    | PE8  
+| CN3-P19 | CSI0-D0    | PE4  
+| CN3-P20 | CSI0-D3    | PE7  
+| CN3-P21	| CSI0-D1	   | PE5
+| CN3-P22	| CSI0-D2	   | PE6
+| CN3-P23	| GND	       |    
+| CN3-P24	| CSI0-AFVCC |     
+|=====
+
+=== MIPI DSI \(Display Serial Interface\)
+
+[option="header",cols="1,1,1"]
+|=====
+3+|**MIPI DSI PIN define of Banana pi BPI-M2 Magic**
+| CSI GPIO Pin | Pin Name | GPIO
+| CN2-P01 | DSI-D0N    |     
+| CN2-P02 | DSI-D0P    |     
+| CN2-P03 | DSI-D1N    |     
+| CN2-P04 | DSI-D1P    |     
+| CN2-P05 | DSI-CKN    |     
+| CN2-P06 | DSI-CKP    |     
+| CN2-P07 | DSI-D2N    |     
+| CN2-P08 | DSI-D2P    |     
+| CN2-P09 | DSI-D3N    |     
+| CN2-P10 | DSI-D3P    |     
+| CN2-P11 | NC         |     
+| CN2-P12 | NC         |     
+| CN2-P13 | TP-SDA     | PH3 
+| CN2-P14 | TP-SCK     | PH2 
+| CN2-P15 | TP-INT     | PB5 
+| CN2-P16 | TP-RST     | PB6 
+| CN2-P17 | LCD-BL-EN  | PL4 
+| CN2-P18 | LCD-RST    | PL5 
+| CN2-P19 | LCD-PWR-EN | PB7 
+| CN2-P20 | LCD-PWM    | PH0 
+| CN2-P21	| GND	       |    
+| CN2-P22	| GND	       |     
+| CN2-P23	| PS	       |    
+| CN2-P24	| PS         |    
+|=====
+=== BPI-M2 Magic Debug UART
+
+|=====
+| CON3-P1	| GND
+| CON3-P2	| UART0-RX
+| CON3-P3	| UART0-TX
+|=====
+
+= Development
+== Source Code
+
+=== Android 6.0 source code
+TIP: google driver : https://drive.google.com/file/d/1FhHAVjNWTi8Uq-LNMn0liqcHS4cSN5xY/view?usp=drivesdk
+
+== Resources
+
+TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
+
+TIP: All banana pi link:https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[docement(SCH file,DXF file,and doc)]
+
+TIP: Allwinner R16 chip Datasheet-V1.4 (1): https://drive.google.com/file/d/0B4PAo2nW2KfnVW9FSUpPX2FLcU0/view?usp=sharing
+
+TIP: Allwinner_R16_User_Manual_V1.2： https://drive.google.com/file/d/0B4PAo2nW2KfnUjZUNVdyN1RkVlE/view?usp=sharing
+
+TIP: SCH : link:https://drive.google.com/drive/folders/0B4PAo2nW2KfnflVqbjJGTFlFTTd1b1o1OUxDNk5ackVDM0RNUjBpZ0FQU19SbDk1MngzZWM?resourcekey=0-ZRCiv304nGzvq-w7lwnpjg&usp=sharing[google driver]
+
+TIP: AXP223 Datasheet V1.0_en : https://drive.google.com/file/d/0B4PAo2nW2KfnckxWZFBBMUNWSUk/view?usp=sharing
+
+TIP: BPI-M2 Magic DXF file public : https://drive.google.com/file/d/0B4PAo2nW2KfnalhDRG5EclU1dHM/view?usp=sharing
+
+= System Image
+== Android
+=== Android 6.0 LCD7-Version
+NOTE: 2019-08-06 update ,BPI-M2 Magic Android 6 new image release ,This release is for banana pi M2m board with BPI 7" panel, and it is based on Android 6.0 Operation system with kernel 3.4.
+
+Fetures Map: http://wiki.banana-pi.org/M2M_Image_Map#Kernel_3.4
+
+Google Drive : https://drive.google.com/open?id=1QH9v37XCpOAxFJLaazsSzzFyFj2LdPtg
+
+Baidu Drive : https://pan.baidu.com/s/1xO9jZQsNXoTAmdpDFBiwYg （PinCode：alyr)
+
+MD5 : 90e2f11480b54ba6fa5b630770913a85
+
+NOTE: BPI-M2M_Anodroid _V1
+
+Baidu Drive: https://pan.baidu.com/s/1qY8zAmo
+
+Forum thread:
+http://forum.banana-pi.org/t/bpi-m2-magic-new-image-android-6-0-version-v1-2017-10-24/4077
+
+== Linux
+
+=== Ubuntu
+
+NOTE: 2021-03-24 release, Ubuntu Mate Desktop 16.04 with kernel 3.4.39
+
+Download: link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FImages%2FBPI-M2M%2FUbuntu16.04%2F2021-03-24-ubuntu-16.04-mate-desktop-bpi-m2m-sd-emmc.img.zip[2021-03-24-ubuntu-16.04-mate-desktop-bpi-m2m-sd-emmc.img.zip]
+
+MD5: 393407f3433acf69eabc19e8730f63f0
+
+NOTE: 2021-03-24 release, Ubuntu Server 16.04 with kernel 3.4.39
+
+Download: link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FImages%2FBPI-M2M%2FUbuntu16.04%2F2021-03-24-ubuntu-16.04-server-bpi-m2m-sd-emmc.img.zip[2021-03-24-ubuntu-16.04-server-bpi-m2m-sd-emmc.img.zip]
+
+MD5: 80f6bef4628eef0da8c5800819cc1cfd
+
+NOTE: 2019-05-11 update This release is for banana pi M2 Magic board which is based on R16, and it is based on Ubuntu 16.04 Operation system with kernel 3.4.
+
+BPI-M2M Ubuntu Server 16.04 Features Map : http://wiki.banana-pi.org/M2M_Image_Map
+=====
+NOTE: LCD7 SD & Emmc version images:
+
+Google Drive : https://drive.google.com/file/d/1jrW7BKWblRyYYpgB6SEMnRWoGjREVexe/view
+
+Baidu Drive : https://pan.baidu.com/s/1QIXnZHg7MS9pR7pRXvZu1w （PinCode:n20l）
+
+MD5 : 9dcd344f0a6433bc649301930599d45b
+=====
+=====
+NOTE: CD7 Emmc version image:
+
+WARNING: Notes : Because sd pins and uart0 pins are the same, so we have to use uart2 as debug console before, and I release this image is just in order to release uart2 to use and set uart0 as debug console.
+
+How to burn image：you just need to use m2m boot from a sd image, then use sd image to install this emmc image on emmc.
+
+Google Drive : https://drive.google.com/open?id=1vJqO2O47Ekq9diny7kZQKBQLXylCGuTG
+
+Baidu Drive : https://pan.baidu.com/s/1xE5tpw0DqNAV2mqKg_TbpQ (PinCode：awpy)
+
+MD5 : 9f576cfaeb0329648b14b541ff2f5dd4
+
+=====
+
+Forum pthread: http://forum.banana-pi.org/t/bpi-m2m-r16-new-image-release-ubuntu-server-16-04-2019-05-09/9205
+
+NOTE: Unbutu 16.04 2018-08-25 Image Link: This release is for banana pi M2 Magic board which is based on R16, and it is based on Ubuntu 16.04 Operation system with kernel 3.4.
+
+BPI-M2M Ubuntu 16.04 Features Map: http://wiki.banana-pi.org/M2M_Image_Map
+
+LCD 7’-Version Google Drive : https://drive.google.com/open?id=14LH4NGAyfeCXhnKlzc75-K6p2gmO5RrM
+
+LCD 7’-Version Baidu Drive : https://pan.baidu.com/s/17jiGC4fCSTfVKPWUgh-VXA
+
+Forum pthread: http://forum.banana-pi.org/t/bpi-m2m-r16-new-image-release-ubuntu-16-04-2018-08-25/6596
+
+NOTE: Unbutu 16.04 2018-01-04 Image Link
+
+Baidu Drive: https://pan.baidu.com/s/1kVKjxOF
+
+Google Drive: https://drive.google.com/file/d/1GKwVO03Z5VHOaodVVyboLC-F7r_qyk7e/view?usp=sharing2
+
+MD5: df72548c26cd42b8138f334f5b383f31
+
+NOTE: Unbutu 16.04 2017-10-23 Image Link
+
+Baidu Drive: http://pan.baidu.com/s/1hsGhxWS
+
+Google Drive: https://drive.google.com/file/d/0B_YnvHgh2rwjU2xWQ3otX0JZb1E/view?usp=sharing
+
+MD5: 23cd3f0891d8ad274984eea3f4981eab
+
+=== Tina Linux
+NOTE: 2017-11-15 update : tina astar m2magic
+
+More about Tina Linux link:https://wiki.banana-pi.org/Tina_Linux[Tina Linux]
+
+Google downlad : https://drive.google.com/open?id=13iVMJJVY6i8GJjMjoAyk62IDW83MagDX
+
+Forum pthread: http://forum.banana-pi.org/t/bpi-m2-magic-new-image-2017-11-15-tina-astar-m2magic-card0-burn-by-phoenixcard/4184
+
+= FAQ
+
+
+
+= Easy to buy
+
+WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
