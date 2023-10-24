@@ -152,26 +152,73 @@ The jumper CON3 is the UART interface. For developers of Banana Pi, this is an e
 = Development
 == Source Code
 
-=== Linux BSP Source Code
+=== Linux 
 
-TIP: Linux BSP source code
+TIP: Kernel 4.4 source code : https://github.com/BPI-SINOVOIP/BPI-M2P-bsp-4.4
 
-xxxxxxxxxx
+TIP: Kernel 3.4 source code : https://github.com/BPI-SINOVOIP/BPI-M2Z-bsp
 
-xxxxxxxxxx
+TIP: BPI-M2 Zero Mainline linux kernel 4.19.0 (experimental) :
+https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal#whats-new-with-this-image-v5-experimental
+
+TIP: BPI-M2 zero Ubuntu 19.10 Eoan Ermine Mainline Kernel 5.3.5 :
+https://github.com/avafinger/bananapi-zero-ubuntu-base-minimal
+
+TIP: Banana Pi M2 Zero GPIO with Python :
+https://github.com/rlatn1234/pyGPIO2
+
+TIP: Imagenes Ubuntu estables para Banana Pi M2 Zero:
+
+https://github.com/TuryRx/Banana-pi-m2-zero-GPIO
+
+Duscuss on forum : https://forum.banana-pi.org/t/gpio-imagenes-ubuntu-banana-pi-bpi-m2-zero/13247
 
 === Android
 
-TIP: Linux BSP source code
+TIP: Android 4.4 source code
 
-xxxxxxxxxx
+Download link: https://drive.google.com/open?id=0B_YnvHgh2rwjdWNEQzg1UDl1bUE
 
-xxxxxxxxxx
+Forum thread: http://forum.banana-pi.org/t/bpi-m2-android-4-4-source-code-download-link/3159
 
 == Resources
 
+NOTE: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
+
+NOTE: All banana pi link:https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[docement(SCH file,DXF file,and doc)]
+
+NOTE: Schematic diagram :  https://drive.google.com/drive/folders/0B4PAo2nW2KfnflVqbjJGTFlFTTd1b1o1OUxDNk5ackVDM0RNUjBpZ0FQU19SbDk1MngzZWM?resourcekey=0-ZRCiv304nGzvq-w7lwnpjg&usp=sharing
+
+NOTE: DXF file : https://drive.google.com/file/d/0B4PAo2nW2KfnZGcycVk2bWhmWjA/view?usp=sharing&resourcekey=0-zvIaAuL9V8RA9dXB9OoRIg
+
+NOTE: CE FCC RoHS : link:http://forum.banana-pi.org/t/bpi-m2-zero-ce-fcc-rohs-certification/4613[BPI-M2 zero CE,FCC,RoHS]
+
+NOTE: Allwinner documents :
+
+Allwinner H3 chip doc baidu link : https://pan.baidu.com/s/1qTULll2CR02d0Hw9itq1rw
+
+Allwinner H2+ chip doc baidu link : https://pan.baidu.com/s/1TGMYr3rhizfhlg5hl6hLyg
+
+NOTE: Banana Pi M2 Zero - Review and compare to RPI Zero : https://www.youtube.com/watch?v=CaXi1qbOvYk
+
+NOTE: Banana Pi M2 Zero - Unboxing, Caratteristiche e Test (CPU, Gimp, WiFi, USB, Burntest) : https://www.youtube.com/watch?v=rioWNzPXBnM
+
+NOTE: A Review of the Banana Pi M2 Zero Running openHAB : https://community.openhab.org/t/a-review-of-the-banana-pi-m2-zero-running-openhab/37652
+
+NOTE: Banana Pi BPI-M2 Zero with OpenCV : https://bluexmas.tistory.com/category/OS/Banana%20Pi%20%EF%BC%8FBPI-Bit?page=2
+
+NOTE: Banana Pi M2 Zero: Low-Cost, Quad Core SBC : https://www.youtube.com/watch?v=51OMXTElStM&feature=youtu.be
+
+NOTE: NO COMPRES RASPBERRY PI ZERO - BANANA PI M2 ZERO LA DESTRUYE! RETRORANGE PI : https://www.youtube.com/watch?v=2N2QwWeuehM
+
+NOTE: Banana Pi M2 Zero Armbian O.S. Install and Setup Tutorial : https://www.youtube.com/watch?v=A4PflbMusSQ&t=8s
+
+NOTE: BANANA PI BPI-M2-ZERO BENCHMARKS & REVIEW : https://bret.dk/banana-pi-bpi-m2-zero-benchmarks-review/
+
+NOTE: Configuracion y uso de GPIO BPI-M2 Zero 1.5.2 : https://forum.banana-pi.org/t/configuracion-y-uso-de-gpio-bpi-m2-zero-1-5-2/15113
+
 = System Image
-Note: all image support H2+ and H3 chip on board for BPI-M2 Zero
+CAUTION: Note: all image support H2+ and H3 chip on board for BPI-M2 Zero
 
 == Android
 
@@ -217,6 +264,16 @@ NOTE: 2022-09-07 Armbian_22.11.0-trunk_Bananapim2zero_jammy_edge_5.19.6_xfce_des
 Google Drive: https://drive.google.com/file/d/195JJWvdDGhNdGvmq80rNVXv6kOYwiLHg/view?usp=sharing
 
 Baidu Cloud: https://pan.baidu.com/s/14YXrCPnsqwF41-8kInAyrA?pwd=md7e (pincode: md7e)
+
+====
+====
+NOTE: 2020-04-28 update, Ubuntu 16.04 Mate Desktop, Ubuntu 16.04 Server, kernel 4.4
+
+Google Driver: https://drive.google.com/drive/folders/1uRE8BppgDjK2TXH5kUIJ1_YrbAAW3HKF
+
+Baidu Cloud ： https://pan.baidu.com/s/1pJfJbhIcU52uaR4mkWc-4A Pincode：5e3E
+
+Discuss on forum: http://forum.banana-pi.org/t/banana-pi-bpi-m2-zero-new-image-2020-04-28-debian-rasbian-ubuntu/11068
 
 ====
 ====
@@ -266,7 +323,7 @@ NOTE: 2018-07-09 update
 
 Google Drive: https://drive.google.com/file/d/19WUVZGEeUaIXe5vPtGpsENvS61fPYmEi/view
 
-baidu Drive: https://pan.baidu.com/s/1dg7okBYBkt_1U3saVqOMUw
+Baidu Drive: https://pan.baidu.com/s/1dg7okBYBkt_1U3saVqOMUw
 
 Release ntoes: http://forum.banana-pi.org/t/bananapi-bpi-m2z-h2-new-image-raspbian-ubuntu-release-2018-07-09/6221
 
@@ -276,30 +333,52 @@ NOTE: 2017-11-13 update
 
 Google Drive: https://drive.google.com/file/d/1Q4NxmO33RYtmECZ8BobW6DXzGWkvCs9F/view?usp=sharing
 
-baidu Drive: http://pan.baidu.com/s/1gfvRUk7
+Baidu Drive: http://pan.baidu.com/s/1gfvRUk7
 
 Release ntoes: http://forum.banana-pi.org/t/bpi-m2-zero-new-image-2017-11-13-ubuntu-16-04-mate-desktop-beta-bpi-m2z-sd-emmc-img/4172
 
 ====
+=== Debian
+====
+NOTE: 2020-04-28 update, Debian 9, kernel 4.4
+
+Google Driver: https://drive.google.com/drive/folders/1uRE8BppgDjK2TXH5kUIJ1_YrbAAW3HKF
+
+Baidu Cloud ： https://pan.baidu.com/s/1pJfJbhIcU52uaR4mkWc-4A Pincode：5e3E
+
+Discuss on forum: http://forum.banana-pi.org/t/banana-pi-bpi-m2-zero-new-image-2020-04-28-debian-rasbian-ubuntu/11068
+
+====
+
 === Arch Linux
 ====
 NOTE: Banana Pi BPI-M2 Zero Instalacion y Configuracion de Arch Linux
 
 https://github.com/TuryRx/Banana-pi-m2-zero-Arch-Linux
 
-discuss on forum : https://forum.banana-pi.org/t/instalacion-y-configuracion-de-arch-linux-en-bpi-m2-zero/13192
+Discuss on forum : https://forum.banana-pi.org/t/instalacion-y-configuracion-de-arch-linux-en-bpi-m2-zero/13192
 ====
 == Third part image
 
 === Raspbian
 ====
+NOTE: 2020-04-28 update, Rasbian Stretch, kernel 4.4
+
+Google Driver: https://drive.google.com/drive/folders/1uRE8BppgDjK2TXH5kUIJ1_YrbAAW3HKF
+
+Baidu Cloud ： https://pan.baidu.com/s/1pJfJbhIcU52uaR4mkWc-4A Pincode：5e3E
+
+Discuss on forum: http://forum.banana-pi.org/t/banana-pi-bpi-m2-zero-new-image-2020-04-28-debian-rasbian-ubuntu/11068
+
+====
+====
 NOTE: 2020-04-10 update Raspbian Stretch, kernel 4.4
 
-google driver: https://drive.google.com/file/d/1Xk86WchdJemKb4ltCX0AB9wRj5NJcZL1/view
+Google driver: https://drive.google.com/file/d/1Xk86WchdJemKb4ltCX0AB9wRj5NJcZL1/view
 
-baidu cloud: https://pan.baidu.com/s/1eKs85jMW3PS8pdX4jukLUQ pincode：6W2M
+Baidu cloud: https://pan.baidu.com/s/1eKs85jMW3PS8pdX4jukLUQ pincode：6W2M
 
-fourm: http://forum.banana-pi.org/t/banana-pi-bpi-m2-zero-new-image-2020-04-10-raspbian-jessie-ap6212-bpi-m2z-sd-emmc-image/10978
+Fourm: http://forum.banana-pi.org/t/banana-pi-bpi-m2-zero-new-image-2020-04-10-raspbian-jessie-ap6212-bpi-m2z-sd-emmc-image/10978
 
 ====
 ====
@@ -309,7 +388,7 @@ Google Drive : https://drive.google.com/open?id=14tsP-ctECFxFBsF7Lmuv_C-Bm7Xppl7
 
 Baidu Drive : https://pan.baidu.com/s/1gmg-qX235t5kpL1N9uHy5A ( pincode: 146j )
 
-forum: http://forum.banana-pi.org/t/bananapi-bpi-m2z-bpi-p2-zero-h2-new-images-reapbian9-4-ubuntu16-04-release-2019-04-30/9166
+Forum: http://forum.banana-pi.org/t/bananapi-bpi-m2z-bpi-p2-zero-h2-new-images-reapbian9-4-ubuntu16-04-release-2019-04-30/9166
 
 ====
 ====
@@ -317,9 +396,9 @@ NOTE: 2018-07-09 update Raspbian Stretch, kernel 3.4
 
 Google Drive: https://drive.google.com/file/d/1XMVCWCWoWmhzL-c89rkqzZVE_k7xYCvd/view
 
-baidu Drive: https://pan.baidu.com/s/1ahXv3Hl7Dst7uBwz60pcrg
+Baidu Drive: https://pan.baidu.com/s/1ahXv3Hl7Dst7uBwz60pcrg
 
-forum: http://forum.banana-pi.org/t/bananapi-bpi-m2z-h2-new-image-raspbian-ubuntu-release-2018-07-09/6221
+Forum: http://forum.banana-pi.org/t/bananapi-bpi-m2z-h2-new-image-raspbian-ubuntu-release-2018-07-09/6221
 
 ====
 === Armbian
