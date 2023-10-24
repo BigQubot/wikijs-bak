@@ -263,36 +263,6 @@ MD5 : a59f2e6a298237a08bb523b53372d937
 
 ====
 
-=== Raspbian
-====
-NOTE: 2020-05-18 update, Raspbian Stretch,Kernel 4.9.119
-
-Google Drive: https://drive.google.com/drive/folders/19xi4l9xX34r1EY3TGjs1guxnvt2qUIsr?usp=share_link
-
-Download image: https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/?p=%2FImages%2FBPI-M4%2Flinux&mode=list
-
-====
-
-====
-
-NOTE: 2019-6-19 update,Raspbian 9.8 stretch & AArch64 Linux Mate & AArch Linux Lite Operation system with kernel 4.9.119.
-
-Release ntoes: http://forum.banana-pi.org/t/bpi-m4-bpi-w2-demo-image-release-raspbian-9-8-stretch-aarch64-linux-mate-aarch64-linux-lite-2019-06-19/9370
-
-Fetures Map: http://wiki.banana-pi.org/M4_Image_Map#Raspbian_9.8_stretch
-
-Google Drive : https://drive.google.com/open?id=15cypBk4NKL0X8uD3Mffc__Sx05j39xCW
-
-Baidu Drive : https://pan.baidu.com/s/1gwD5ok9XLLQa0InU_-b7EA (pincode：uuqn)
-
-MD5 : a397a9c4d078c2841f0c243c573dc9a8
-
-WARNING: Issue: if HDMI doesn't display, please try "ctrl + alt + F1" to change terminal then "ctrl + alt + F7" change to desktop display.
-
-WARNING: SW2: switch to 0，if insert SD, SD start；if doesn't insert SD，EMMC start.
-
-====
-
 === AArch Linux
 ====
 NOTE: 2019-6-19 update,AArch64 Linux Mate ,AArch linux liteOperation,kernel 4.9.119.
@@ -316,6 +286,37 @@ Google Drive : https://drive.google.com/open?id=17V49oBoJZ18MKjSHD_LKjf1Z7qEokYn
 Baidu Drive : https://pan.baidu.com/s/1WivDWZHu_GnWOxhVOjoqIQ (pincode：uhcg)
 
 MD5 : 53bb6f8d00f8708dab96bc865eaddc5e
+
+WARNING: Issue: if HDMI doesn't display, please try "ctrl + alt + F1" to change terminal then "ctrl + alt + F7" change to desktop display.
+
+WARNING: SW2: switch to 0，if insert SD, SD start；if doesn't insert SD，EMMC start.
+
+====
+== Third part image
+
+=== Raspbian
+====
+NOTE: 2020-05-18 update, Raspbian Stretch,Kernel 4.9.119
+
+Google Drive: https://drive.google.com/drive/folders/19xi4l9xX34r1EY3TGjs1guxnvt2qUIsr?usp=share_link
+
+Download image: https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/?p=%2FImages%2FBPI-M4%2Flinux&mode=list
+
+====
+
+====
+
+NOTE: 2019-6-19 update,Raspbian 9.8 stretch & AArch64 Linux Mate & AArch Linux Lite Operation system with kernel 4.9.119.
+
+Release ntoes: http://forum.banana-pi.org/t/bpi-m4-bpi-w2-demo-image-release-raspbian-9-8-stretch-aarch64-linux-mate-aarch64-linux-lite-2019-06-19/9370
+
+Fetures Map: http://wiki.banana-pi.org/M4_Image_Map#Raspbian_9.8_stretch
+
+Google Drive : https://drive.google.com/open?id=15cypBk4NKL0X8uD3Mffc__Sx05j39xCW
+
+Baidu Drive : https://pan.baidu.com/s/1gwD5ok9XLLQa0InU_-b7EA (pincode：uuqn)
+
+MD5 : a397a9c4d078c2841f0c243c573dc9a8
 
 WARNING: Issue: if HDMI doesn't display, please try "ctrl + alt + F1" to change terminal then "ctrl + alt + F7" change to desktop display.
 
