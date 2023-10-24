@@ -7,7 +7,7 @@ image::/picture/banana_pi_bpi-m4.jpg[banana_pi_bpi-m4.jpg]
 === Realtek RTD1395
 The RTD1395 is equipped with a high-performance quad-core CPU,ARM cortex-A53,with 512K L2 cache embedded. the RTD1395 also integrates and efficient ARM Mali-470 Graphic Processing Unit(GPU) to accelerate 2D and 3D graphics processing. For acceleration of this OSD and 2K user interface,the built-in Streaming Engine of the RTD1395 provides commonly used drawing functions.the CPU is dedicated to applications ,while most of the functions of the RTD1395 is dedicated to manipulating,decoding video streams in vaious formats.e.g. decoding 4K2K H.265,Full HD MPEG1/2/4/H.264/H.264 MVC,AVC/VC-1,VP8,VP9,AVS,AVS plus,HD JPEG,etc. Video DSP can also handle encoding of up to Full HD with H.264 format.Video decoding and encoding can run simultaneously.
 
-= Key Features
+== Key Features
 
 - Realtek RTD1395 ARM Cortex-A53 Quad-Core 64 Bit
 - Mali 470 MP4 GPU OpenGL ES 1.1/2.0 H.264 H.265,2K4K
