@@ -1,19 +1,16 @@
-== How to use VScode + mpbridge tool
 
-____
-link:./environment.html#install-visual-studio-code[Install Visual Studio
+> link:./environment.html#install-visual-studio-code[Install Visual Studio
 Code], link:./environment.html#install-the-mpbridge-tool[Install the
 mpbridge tool] needs to be done first.
-____
 
-=== Python Extensions
+== Python Extensions
 
 Search `python` in the extension item to install Python extension
 support.
 
 image::/picture/bpi_centi_s3_vscode_mpbridge_1.png[]
 
-=== Open folder
+== Open folder
 
 Click `Open Folder` in the file explorer item to open a folder, or
 create a new blank folder.
@@ -22,14 +19,14 @@ It is especially recommended for novices to start with a blank folder.
 
 image::/picture/bpi_centi_s3_vscode_mpbridge_2.png[../assets/images/vscode_mpbridge_2]
 
-=== open terminal
+== open terminal
 
 Click the `Terminal` item, click the `New Terminal` item, and a new
 terminal window will open, which usually appears in the lower box.
 
 image::/picture/bpi_centi_s3_vscode_mpbridge_3.png[../assets/images/vscode_mpbridge_3]
 
-=== mpbridge list serial port numbers
+== mpbridge list serial port numbers
 
 First make sure your MicroPython development board has a serial data
 connection to your computer.
@@ -53,7 +50,7 @@ the number list once by connecting the device, and check the number list
 once by unplugging the device to find the only item that changes, which
 is the serial number of your MicroPython development board. port number.
 
-=== mpbridge connects to the development board
+== mpbridge connects to the development board
 
 Enter the following command in the terminal, modify the serial port
 number at the end to the number determined in the previous step, and hit
@@ -99,7 +96,7 @@ using the `Ctrl + X` shortcut.
 
 image::/picture/bpi_centi_s3_vscode_mpbridge_7.png[../assets/images/vscode_mpbridge_7]
 
-=== Modify or add new files
+== Modify or add new files
 
 If you modify the code in a file or add a file in the local folder
 before exiting the REPL, the mpbridge tool will automatically check the
@@ -113,7 +110,7 @@ This is also done when starting the command in the terminal.
 
 image::/picture/bpi_centi_s3_vscode_mpbridge_11.png[../assets/images/vscode_mpbridge_11]
 
-=== Delete Files
+== Delete Files
 
 ```
 mpbridge dev --auto-reset hard COM6
