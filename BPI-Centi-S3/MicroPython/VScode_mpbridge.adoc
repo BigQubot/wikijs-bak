@@ -1,7 +1,5 @@
 
-> link:./environment.html#install-visual-studio-code[Install Visual Studio
-Code], link:./environment.html#install-the-mpbridge-tool[Install the
-mpbridge tool] needs to be done first.
+> Visual Studio Code and mpbridge tool needs to be Installed first，see link:./environment[Install and configure the environment].
 
 == Python Extensions
 
@@ -17,14 +15,14 @@ create a new blank folder.
 
 It is especially recommended for novices to start with a blank folder.
 
-image::/picture/bpi_centi_s3_vscode_mpbridge_2.png[../assets/images/vscode_mpbridge_2]
+image::/picture/bpi_centi_s3_vscode_mpbridge_2.png[]
 
 == open terminal
 
 Click the `Terminal` item, click the `New Terminal` item, and a new
 terminal window will open, which usually appears in the lower box.
 
-image::/picture/bpi_centi_s3_vscode_mpbridge_3.png[../assets/images/vscode_mpbridge_3]
+image::/picture/bpi_centi_s3_vscode_mpbridge_3.png[]
 
 == mpbridge list serial port numbers
 
@@ -39,7 +37,7 @@ serial port numbers on the computer will be listed.
 mpbridge list
 ```
 
-image::/picture/bpi_centi_s3_vscode_mpbridge_4.png[../assets/images/vscode_mpbridge_4]
+image::/picture/bpi_centi_s3_vscode_mpbridge_4.png[]
 
 If there is only one serial device connected to your computer, and it is
 your MicroPython development board, then the serial port number is that
@@ -62,7 +60,7 @@ this folder.
 mpbridge dev --auto-reset hard COM6
 ```
 
-image::/picture/bpi_centi_s3_vscode_mpbridge_5.png[../assets/images/vscode_mpbridge_5]
+image::/picture/bpi_centi_s3_vscode_mpbridge_5.png[]
 
 When the files are copied, the terminal will display:
 
@@ -89,12 +87,12 @@ If you want to use soft reset then:
 mpbridge --auto-reset soft COM6
 ```
 
-image::/picture/bpi_centi_s3_vscode_mpbridge_6.png[../assets/images/vscode_mpbridge_6]
+image::/picture/bpi_centi_s3_vscode_mpbridge_6.png[]
 
 Once you are in the REPL, you can exit the REPL at any time by simply
 using the `Ctrl + X` shortcut.
 
-image::/picture/bpi_centi_s3_vscode_mpbridge_7.png[../assets/images/vscode_mpbridge_7]
+image::/picture/bpi_centi_s3_vscode_mpbridge_7.png[]
 
 == Modify or add new files
 
@@ -128,11 +126,11 @@ first. Then click the Enter key, the mpbridge tool will automatically
 execute `Clean Sync`, delete the file with the same name in the
 development board, and finally enter the REPL.
 
-image::/picture/bpi_centi_s3_vscode_mpbridge_8.png[../assets/images/vscode_mpbridge_8]
+image::/picture/bpi_centi_s3_vscode_mpbridge_8.png[]
 
-image::/picture/bpi_centi_s3_vscode_mpbridge_9.png[../assets/images/vscode_mpbridge_9]
+image::/picture/bpi_centi_s3_vscode_mpbridge_9.png[]
 
-image::/picture/bpi_centi_s3_vscode_mpbridge_10.png[../assets/images/vscode_mpbridge_10]
+image::/picture/bpi_centi_s3_vscode_mpbridge_10.png[]
 
 If you only want to temporarily delete the files on the development
 board and need to keep the files locally on the computer, please
