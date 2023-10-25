@@ -110,13 +110,87 @@ image::/bpi-m1_interface.jpg[bpi-m1_interface.jpg]
 [option="header",cols="1,1,1"]
 |=====
 3+| **CSI Camera connector GPIO of Banana pi BPI-M2 Berry**
+| DSI Pin Name	| Default Function	| Function2：GPIO
+| CN5-P01 | NC         |      
+| CN5-P02 | GND        |      
+| CN5-P03 | CSI0-SDA   | PI3  
+| CN5-P04 | CSI0-AVDD  |      
+| CN5-P05 | CSI0-SCK   | PI2  
+| CN5-P06 | CSI0-Reset | PI7  
+| CN5-P07 | CSI0-VSYNC | PE3  
+| CN5-P08 | CSI0-PWDN  | PI6  
+| CN5-P09 | CSI0-HSYNC | PE2  
+| CN5-P10 | CSI0-DVDD  |      
+| CN5-P11 | CSI0-DOVDD |      
+| CN5-P12 | CSI0-D7    | PE11 
+| CN5-P13 | CSI0-MCLK  | PE1  
+| CN5-P14 | CSI0-D6    | PE10 
+| CN5-P15 | GND        |      
+| CN5-P16 | CSI0-D5    | PE9  
+| CN5-P17 | CSI0-PCLK  | PE0  
+| CN5-P18 | CSI0-D4    | PE8  
+| CN5-P19 | CSI0-D0    | PE4  
+| CN5-P20 | CSI0-D3    | PE7  
+| CN5-P21 | CSI0-D1    | PE5  
+| CN5-P22 | CSI0-D2    | PE6  
+| CN5-P23 | GND        |      
+| CN5-P24 | CSI0-AFVCC |      
 |=====
-=== BPI-M5 Debug UART
+
+=== Display specification
+
+[option="header",cols="1,1,1"]
+|=====
+3+| **DSI GPIO of Banana pi BPI-M2 Berry**
+| DSI Pin Name	| Default Function	| Function2：GPIO
+| CN6-P01 | VCC-3V3  |      
+| CN6-P02 | IPSOUT   |      
+| CN6-P03 | VCC-3V3  |      
+| CN6-P04 | IPSOUT   |      
+| CN6-P05 | GND      |      
+| CN6-P06 | IPSOUT   |      
+| CN6-P07 | GND      |      
+| CN6-P08 | IPSOUT   |      
+| CN6-P09 | NC       |      
+| CN6-P10 | GND      |      
+| CN6-P11 | NC       |      
+| CN6-P12 | DSI-D0N  |      
+| CN6-P13 | NC       |      
+| CN6-P14 | DSI-D0P  |      
+| CN6-P15 | NC       |      
+| CN6-P16 | GND      |      
+| CN6-P17 | TWI0-SDA | PB19 
+| CN6-P18 | DSI-D1N  |      
+| CN6-P19 | TWI0-SCK | PB18 
+| CN6-P20 | DSI-D1P  |      
+| CN6-P21 | CTP-INT    | PI10 
+| CN6-P22 | GND        |      
+| CN6-P23 | CTP-RST    | PI11 
+| CN6-P24 | DSI-CKN    |      
+| CN6-P25 | GND        |      
+| CN6-P26 | DSI-CKP    |      
+| CN6-P27 | LCD-BL-EN  | PH16 
+| CN6-P28 | GND        |      
+| CN6-P29 | LCD-RST    | PH17 
+| CN6-P30 | DSI-D2N    |      
+| CN6-P31 | LCD-PWR-EN | PH18 
+| CN6-P32 | DSI-D2P    |      
+| CN6-P33 | GND        |      
+| CN6-P34 | GND        |      
+| CN6-P35 | LCD-PWM    | PB2  
+| CN6-P36 | DSI-D3N    |      
+| CN6-P37 | GND        |      
+| CN6-P38 | DSI-D3P    |      
+| CN6-P39 | NC         |      
+| CN6-P40 | GND        |      
+|=====
+
+=== BPI-M2 Berry Debug UART
 
 |=====
-|CONx-P1  | GND
-|CONx-P2  | UART0-RX
-|CONx-P3  | UART0-TX
+| CON2 P03	| UART0-TXD	
+| CON2 P02	| UART0-RXD	
+| CON2 P01	| GND
 |=====
 
 = Development
@@ -221,6 +295,7 @@ Debian 9 stretch mate desktop link:https://download.banana-pi.dev/d/3ebbfa04265d
 Debian 9 stretch lite link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/?p=%2FImages%2FBPI-M2U%2FDebian9&mode=list[Download]
 
 NOTE: 2019-05-13 update , Debian 9 ,kernel 3.10.108
+
 Features Map: http://wiki.banana-pi.org/M2U/Berry_Image_Map#Debian_9
 =====
 NOTE: Desktop images 
@@ -266,35 +341,98 @@ Forum pthread : http://forum.banana-pi.org/t/bpi-m2-ultra-bpi-m2-berry-new-image
 
 === Raspbian
 
-NOTE: 20xx-xx-xx release, xxxxxxx image
+NOTE: 2020-04-19 update, kernel 3.10.108
 
-xxxxxxxxxx
+Google Drive: https://drive.google.com/drive/folders/0B_YnvHgh2rwjR0JsaUltalFXanc?resourcekey=0-sP6nS_7yziua5nmCfFQmAw&usp=share_link
 
-xxxxxxxxxx
+NOTE: 2019-05-13 update,Raspbian 9,Desktop, kernel 3.10.108
+
+BPI-M2U Raspbian 9 Features Map: http://wiki.banana-pi.org/M2U/Berry_Image_Map#Raspbian_9.4
+
+Google Drive : https://drive.google.com/file/d/146--P5XiX9F_Dn8JzC3gRApGBQUUcEzH/view?usp=sharing
+
+Baidu Drive : https://pan.baidu.com/s/1ngowiaK1q20MbQMQzXabDw?pwd=8888 (PinCode: 8888)
+
+MD5 : f7ee24ff15654724e2c7ec3bf72c8506
+
+Forum pthread : http://forum.banana-pi.org/t/bpi-m2u-berry-new-image-release-ubuntu-16-04-raspbian-9-4-debian-9-4-2019-05-13/9225
+
+NOTE: 2018-05-24 update Raspbian jessie 8.0 V1.1
+
+Google Drive : https://drive.google.com/file/d/0B_YnvHgh2rwjRGlUMUdqZk5ETDg/view?usp=sharing
+
+Baidu cloud : https://pan.baidu.com/s/1UnMPtGBNp3-8KHDZPhVOUg
+
+Forum pthread : http://forum.banana-pi.org/t/banana-pi-bpi-m2u-berry-new-image-release-raspbian-jessie-8-0-2018-5-24/5812
+
+NOTE: 2017-05-25 update raspbian jessie
+
+Google Drive : https://drive.google.com/file/d/0B_YnvHgh2rwjRGlUMUdqZk5ETDg/view?usp=sharing
+Baidu cloud : https://pan.baidu.com/s/1civq4e
+
+MD5: 60e19ea9138d6841fa6852ece4727b0a
+
+Forum pthread : http://forum.banana-pi.org/t/banana-pi-bpi-m2-ultra-bpi-m2-berry-new-image-2017-05-25-raspbian-jessie-preview3-bpi-m2u-sd-emmc-img/3306
 
 === Armbian
 
-NOTE: 20xx-xx-xx release, xxxxxxx image
+NOTE: 2023-07 BPI-M2 Berry Armbian_23.08.0 wiringpi
 
-xxxxxxxxxx
+Google Drive: https://drive.google.com/file/d/1RaZcDPDp6a5otU8rrbGKhBKFVJ-As426/view?usp=drivesdk
 
-xxxxxxxxxx
+Baidu Cloud: https://pan.baidu.com/s/1tOa_BymrKNXYTHciInmkXg?pwd=8888
 
-=== EmuELEC
+NOTE: 2023-07 BPI-M2 Berry Armbian_23.08.0
 
-NOTE: 20xx-xx-xx release, xxxxxxx image
+Google Drive: https://drive.google.com/drive/folders/1DBvBi5RsPWYvgw7j2Gwq8JyOoDg-TXJw?usp=sharing
 
-xxxxxxxxxx
+Baidu Cloud: https://pan.baidu.com/s/1qZqTYBfM2oK03RARcTEqng?pwd=8888 (pincode: 8888)
 
-xxxxxxxxxx
+NOTE: 2023-07 BPI-M2 Berry Armbian_23.05.0
 
-=== CoreELEC
+Google Drive: https://drive.google.com/drive/folders/1mzcyy11sJyg0ZrDzdKj4JVjo9qrDjRyb?usp=sharing
 
-NOTE: 20xx-xx-xx release, xxxxxxx image
+Baidu Cloud: https://pan.baidu.com/s/1XYg5KjoAaxewIpv9NT-gcA?pwd=8888 (pincode: 8888)
 
-xxxxxxxxxx
+NOTE: Armbian_23.02.0-trunk_Bananapim2ultra_jammy_edge_6.1.11_xfce_desktop.img
 
-xxxxxxxxxx
+Google Drive: https://drive.google.com/drive/folders/1VpvVkYMqgmSnmfKXQSrEY2B6wRa-cggL?usp=share_link
+
+Baidu Cloud: https://pan.baidu.com/s/1hkkl22uVjvRct1V7N4OK2w?pwd=8888
+
+Disucss on forum: https://forum.banana-pi.org/t/banana-pi-bpi-m2-berry-new-armbian-image/15140
+
+NOTE: 2022-12-06 Armbian_22.11.0-trunk_Banana Pi BPI-M2 Berry_bullseye_edge_6.0.9.img.xz
+
+Google Drive: https://drive.google.com/file/d/1vyK13DB2Z1OMjGE9Wd1XHYIMFPZ8UuZI/view?usp=share_link
+
+Baidu Cloud: https://pan.baidu.com/s/1GMUZGZcWWXPKRSW1X5fRKw?pwd=8888 (pincode: 8888)
+
+Discuss on forum: https://forum.banana-pi.org/t/bananapi-bpi-m2-berry-new-image-release-armbian-bullseye/14451
+
+NOTE: Armbain have support BPI-M2 Ultra/BPI-M2 Berry，Armbian Bionic btea and Armbian Stretch beta version
+
+Image download ： https://www.armbian.com/bananapi-m2u/
+
+Boot logs : http://ix.io/1kVQ
+
+Forum pthread : http://forum.banana-pi.org/t/armbian-bionic-and-stretch/6573
+
+=== Tina IoT Linux
+NOTE: BPI-M2 Ultra / BPI-M2 Berry support Allwinner TinaLinux .
+
+More please see : link:https://wiki.banana-pi.org/Tina_Linux[Tina Linux]
+
+=== RPiTC v3 1.12
+
+NOTE: 2017-11-28 updtae, RPiTC v3 1.12 for Banana Pi (BPI-M2U/BPI-M2B/BPI-M2P/BPI-M3/BPI-M64/BPI-R2): link:http://forum.banana-pi.org/t/rpitc-v3-1-12-for-banana-pi-bpi-m2u-bpi-m2b-bpi-m2p-bpi-m3-bpi-m64-bpi-r2/4292[download link]
+
+=== Others
+
+NOTE: Kali linux,crux linux,archlinux,centos linux for BPI-M2 Ultra & BPI-M2 Berry : link:http://forum.banana-pi.org/t/bpi-m2-ultra-bpi-m2-berry-new-image-2017-8-28-kali-linux-crux-linux-archlinux-centos-linux-image/3750[kali linux,crux linux,archlinux,centos linux 2017-08-25]
+
+Download: http://forum.banana-pi.org/c/Banana-pi-BPI-M2-Ultra/M2Uimage
+
 
 = FAQ
 
