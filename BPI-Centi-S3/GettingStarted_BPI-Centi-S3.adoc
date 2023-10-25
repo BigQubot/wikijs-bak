@@ -62,12 +62,27 @@ firmware to be erased or damaged, see
 link:./MicroPython/Burn_firmware.md[Burn firmware].
 
 === MicroPython example
+
+NOTE:  link:https://github.com/BPI-STEAM/BPI-Centi-S3-Doc/tree/main/micropython_example[Code on GitHub]，please discuss it on GitHub issue
+
 . link:./MicroPython/lcd_init[LCD init]
 . link:./MicroPython/Display_jpg_images[Display jpg images]
 . link:./MicroPython/Display_text[Display text characters]
 . link:./MicroPython/Make_semi-transparent_rectangular_text_box[Make semi-transparent rectangular text box]
 . link:./MicroPython/Refres_textbox_on_jpg[Refresh textbox on jpg]
 . link:./MicroPython/Display_multiple_vector_fonts[Display multiple vector fonts]
+
+
+==== TODO
+
+* [x] LCD init
+* [x] Display jpg
+* [x] Display text
+* [ ] Rotary encoder
+* [ ] Buzzer
+* [ ] WS2812 LED
+* [ ] WiFi
+* [ ] ESP NOW
 
 == Use Arduino to get started quickly
 
