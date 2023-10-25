@@ -8,7 +8,7 @@ https://github.com/russhughes/st7789s3_esp_lcd[russhughes/st7789s3_esp_lcd], The
 
 Thanks to russhughes for the open source, you can check the compilation method and all API interfaces in his GitHub README.
 
-## Initialize, light up the screen
+== Initialize, light up the screen
 
 video::YANtoaNBQw4[youtube]
 
@@ -53,7 +53,7 @@ Use mpbridge to synchronize files to the development board.
 
 When the synchronization is complete, the BPI-Centi-S3 screen will be full-screen red.
 
-## Separate configuration files
+== Separate configuration files
 
 We can place the code for initializing and configuring ST7789 in a python script file, and then import and use it anywhere else, including in the REPL, which can enhance code reusability.
 
