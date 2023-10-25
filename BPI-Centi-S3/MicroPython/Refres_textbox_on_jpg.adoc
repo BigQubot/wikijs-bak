@@ -21,7 +21,8 @@ Copy bytes() or bytearray() content to the screen internal memory, x, y, width, 
 image::/picture/bpi_centi_s3_pic_6.jpg[bpi_centi_s3_pic_6.jpg]
 
 Based on link:./Make_semi-transparent_rectangular_text_box[Make semi-transparent rectangular text box] , rewrite the text_rect method as a class and add an erase method, in which you use the jpg_decode method to store the semi-transparent text box background, then use the blit_buffer method to overwrite the semi-transparent text box, achieving partial refresh.
-vga1_bold_16x32image::/picture/bpi_centi_s3_refres_textbox_on_jpg.jpg[bpi_centi_s3_refres_textbox_on_jpg.jpg]
+
+image::/picture/bpi_centi_s3_refres_textbox_on_jpg.jpg[bpi_centi_s3_refres_textbox_on_jpg.jpg]
 
 > https://github.com/BPI-STEAM/BPI-Centi-S3-Doc/tree/main/micropython_example/06_textbox_partial_refresh[Download the example from this GitHub link]
 
@@ -29,7 +30,7 @@ vga1_bold_16x32image::/picture/bpi_centi_s3_refres_textbox_on_jpg.jpg[bpi_centi_
 """ BPI-Centi-S3 170x320 ST7789 display """
 
 import st7789
-import 
+import vga1_bold_16x32
 import tft_config
 import gc
 import time
