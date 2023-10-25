@@ -1,0 +1,153 @@
+TIP: link:../GettingStarted_BPI-Centi-S3[Back to Getting Started BPI-Centi-S3]
+
+video::qnfZCrlbGss[youtube]
+
+## fill_rect method
+`fill_rect(x, y, width, height {, color, alpha})`
+
+Fill rectangle `width` by `height` starting at `x`, `y` with `color` optionally `alpha` blended with the background. `color` defaults to BLACK,`alpha` defaults to 255.
+
+> https://github.com/BPI-STEAM/BPI-Centi-S3-Doc/tree/main/micropython_example/05_semi-transparent_rectangular_text_box[Download the example from this GitHub link]
+
+## Display a semi-transparent rectangle over the image
+
+image::/picture/bpi_centi_s3_pic_5.jpg[bpi_centi_s3_pic_5.jpg]
+
+
+We can display a semi-transparent black rectangle on top of this image.
+
+image::/picture/bpi_centi_s3_semi-transparent_rectangular_text_box_1.jpg[bpi_centi_s3_semi-transparent_rectangular_text_box_1.jpg]
+
+```py
+""" BPI-Centi-S3 170x320 ST7789 display """
+
+import st7789
+import tft_config
+import gc
+
+def main():
+    try:
+        tft = tft_config.config(rotation=1)
+        tft.init()
+        gc.collect()
+        tft.jpg('pic_5.jpg', 0, 0)
+        tft.fill_rect(20, int(170/2-32), 320-20-20, 32, st7789.BLACK, 60)
+        tft.show()
+        gc.collect()
+
+    except BaseException as err:
+        err_type = err.__class__.__name__
+        print('Err type:', err_type)
+        from sys import print_exception
+        print_exception(err)
+
+    finally:
+        tft.deinit()
+        print("tft deinit")
+
+
+main()
+```
+
+## Display text in a semi-transparent rectangle
+
+image::/picture/bpi_centi_s3_semi-transparent_rectangular_text_box_2.jpg[bpi_centi_s3_semi-transparent_rectangular_text_box_2.jpg]
+
+```py
+""" BPI-Centi-S3 170x320 ST7789 display """
+
+import st7789
+import tft_config
+import gc
+import time
+import vga1_bold_16x32
+
+fg = st7789.WHITE
+bg = st7789.TRANSPARENT
+text_x = 20
+text_y = int(170/2-32)
+rect_width = 320-20-20
+rect_height = 32
+
+def main():
+    try:
+        tft = tft_config.config(rotation=1)
+        tft.init()
+        gc.collect()
+        tft.jpg('pic_5.jpg', 0, 0)
+        tft.fill_rect(text_x, text_y, rect_width, rect_height, st7789.BLACK, 60)
+        tft.text(vga1_bold_16x32, "Hello World!", text_x, text_y, fg, bg, 255)
+        tft.show()
+        gc.collect()
+
+    except BaseException as err:
+        err_type = err.__class__.__name__
+        print('Err type:', err_type)
+        from sys import print_exception
+        print_exception(err)
+
+    finally:
+        tft.deinit()
+        print("tft deinit")
+
+
+main()
+
+```
+
+## Create a semi-transparent text box based on the character length
+
+image::/picture/bpi_centi_s3_semi-transparent_rectangular_text_box_3.jpg[bpi_centi_s3_semi-transparent_rectangular_text_box_3.jpg]
+
+```py
+""" BPI-Centi-S3 170x320 ST7789 display """
+
+import st7789
+import tft_config
+import gc
+import time
+import vga1_bold_16x32
+
+fg = st7789.WHITE
+bg = st7789.TRANSPARENT
+text_x = 20
+text_y = int(170/2-32)
+
+
+def text_rect(tft, font, font_size, text: str, text_coord,
+              fg=st7789.WHITE, bg=st7789.BLACK, alpha_text=255, alpha_rect=255):
+    rect_width = font_size[0] * len(text)
+    rect_height = font_size[1]
+    tft.fill_rect(text_coord[0], text_coord[1],
+                  rect_width, rect_height, bg, alpha_rect)
+    tft.text(font, text, text_coord[0], text_coord[1],
+             fg, st7789.TRANSPARENT, alpha_text)
+
+
+def main():
+    try:
+        tft = tft_config.config(rotation=1)
+        tft.init()
+        gc.collect()
+        tft.jpg('pic_5.jpg', 0, 0)
+        text_rect(tft, vga1_bold_16x32, (16, 32), "Hello World!", (text_x, text_y),
+                  fg=st7789.WHITE, bg=st7789.BLACK, alpha_text=80, alpha_rect=60)
+        text_rect(tft, vga1_bold_16x32, (16, 32), "It's MicroPython!", (text_x, text_y+32),
+                  fg=st7789.WHITE, bg=st7789.BLACK, alpha_text=255, alpha_rect=60)
+        tft.show()
+        gc.collect()
+
+    except BaseException as err:
+        err_type = err.__class__.__name__
+        print('Err type:', err_type)
+        from sys import print_exception
+        print_exception(err)
+
+    finally:
+        tft.deinit()
+        print("tft deinit")
+
+
+main()
+
+```
