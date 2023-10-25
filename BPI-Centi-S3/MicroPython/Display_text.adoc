@@ -22,7 +22,7 @@ The BPI-Centi-S3  factory firmware contains two bitmap font files.
 
 They come from https://github.com/russhughes/st7789s3_esp_lcd/tree/main/fonts/bitmap.
 
-From this I selected these two most commonly used, using [MPY-CROSS Tool] (https://pypi.org/project/mpy- cross/) to transform them into a `.mpy` format to reduce the volume of files.
+From this I selected these two most commonly used, using  https://pypi.org/project/mpy-cross/[MPY-CROSS Tool] to transform them into a `.mpy` format to reduce the volume of files.
 
 ## download font file
 
