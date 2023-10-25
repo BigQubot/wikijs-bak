@@ -1,0 +1,23 @@
+image::/picture/mircopython.png[mircopython.png]
+
+https://micropython.org/[MicroPython] is a lean and efficient implementation of the Python 3 programming language that includes a small subset of the Python standard library and is optimised to run on microcontrollers and in constrained environments.
+
+Crowdfunded and open sourced in 2013 by https://dpgeorge.net/[Damien P. George].
+
+The most obvious difference between it and the use of C programs to develop microcontrollers is that there is no need for lengthy compilation when verifying code.
+
+Using serial communication software, enter commands through the REPL(read-eval-print-loop) to control the microcontroller, just like Python's REPL.
+
+It is also possible to use some tools to upload a python script file to run inside the microcontroller.
+
+Its implementation of Python3 includes the _thread library that supports multithreading and the asyncio library for writing concurrent code.
+
+MicroPython aims to be as compatible with normal Python as possible to allow you to transfer code with ease from the desktop to a microcontroller or embedded system.
+
+At the same time it also has some libraries specific for microcontrollers in order to take full advantage of the hardware features inside the microcontroller chip, such as timers, hardware interrupts, WiFi, etc., depending on the specific hardware.
+
+While having the above features, it is compact enough to fit and run within just 256k of code space and 16k of RAM.
+
+If you know Python you already know MicroPython.
+
+On the other hand, the more you learn about MicroPython the better you become at Python.
