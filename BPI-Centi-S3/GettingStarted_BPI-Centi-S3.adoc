@@ -60,7 +60,12 @@ firmware to be erased or damaged, see
 link:./MicroPython/Burn_firmware.md[Burn firmware].
 
 === MicroPython example
-
+. link:MicroPython/lcd_init[LCD init]
+. link:MicroPython/Display_jpg_images[Display jpg images]
+. link:MicroPython/Display_text[Display text characters]
+. link:MicroPython/Make_semi-transparent_rectangular_text_box[Make semi-transparent rectangular text box]
+. link:MicroPython/Refres_textbox_on_jpg[Refresh textbox on jpg]
+. link:MicroPython/Display_multiple_vector_fonts[Display multiple vector fonts]
 
 == Use Arduino to get started quickly
 
