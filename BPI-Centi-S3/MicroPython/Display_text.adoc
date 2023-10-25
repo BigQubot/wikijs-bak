@@ -1,10 +1,6 @@
+video::MAvLjCMQ93s[youtube]
 
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/MAvLjCMQ93s?si=auUGEEG4a_E2GK_j" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-video::MAvLjCMQ93s[Youtube]
-
-### text method
+## text method
 
 `text(font, s, x, y {, fg, bg, alpha})`
 
@@ -14,9 +10,9 @@ The optional arguments `fg` and `bg` can set the foreground and background color
 
 `alpha` defaults to 255. 
 
-See the [README.md](https://github.com/russhughes/st7789s3_esp_lcd/tree/main/fonts/bitmap) in the `fonts/bitmap` directory for example fonts.
+See the https://github.com/russhughes/st7789s3_esp_lcd/tree/main/fonts/bitmap[README.md] in the `fonts/bitmap` directory for example fonts.
 
-### bitmap font
+## bitmap font
 
 The BPI-Centi-S3  factory firmware contains two bitmap font files.
 
@@ -28,15 +24,15 @@ They come from https://github.com/russhughes/st7789s3_esp_lcd/tree/main/fonts/bi
 
 From this I selected these two most commonly used, using [MPY-CROSS Tool] (https://pypi.org/project/mpy- cross/) to transform them into a `.mpy` format to reduce the volume of files.
 
-### download font file
+## download font file
 
 If you mistakenly delete the font file or erase the Flash, you need to download the font file again. You can download it from the previous text link, or you can download the fonts in the link below to the font of the `.mpy` format, including the example below.
 
-[From here to download fonts and examples] (https://github.com/bpi-team/bpi-s3-doc/micropython_example/04_display_text)
+NOTE: https://github.com/bpi-team/bpi-s3-doc/micropython_example/04_display_text[From here to download fonts and examples]
 
-### Display text
+## Display text
 
-![](../assets/images/Display_text_1.jpg)
+image::/picture/bpi_centi_s3_display_text_1.jpg[bpi_centi_s3_display_text_1.jpg]
 
 ```py
 """ BPI-Centi-S3 170x320 ST7789 display """
@@ -87,9 +83,9 @@ main()
 
 ```
 
-### Use a transparent background and Alpha channel to make shadow fonts
+## Use a transparent background and Alpha channel to make shadow fonts
 
-![](../assets/images/Display_text_2.jpg)
+image::/picture/bpi_centi_s3_display_text_2.jpg[bpi_centi_s3_display_text_2.jpg]
 
 The reasonable use of `st7789.TRANSPARENT` as the background color of the text can make the background of the text not change.
 
