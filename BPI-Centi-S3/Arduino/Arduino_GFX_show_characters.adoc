@@ -1,6 +1,6 @@
 This is the most basic routine of the Arduino GFX library, which displays `Hello World!` characters on the screen, and displays them in random colors, coordinates, and sizes.
 
-[GitHub Source code](https://github.com/BPI-STEAM/BPI-Centi-S3-Doc/blob/main/arduino_example/01_show_characters_helloworld/HelloWorld.ino)
+> https://github.com/BPI-STEAM/BPI-Centi-S3-Doc/blob/main/arduino_example/01_show_characters_helloworld/HelloWorld.ino[GitHub Source code]
 
 ```c
 #include <Arduino_GFX_Library.h>
