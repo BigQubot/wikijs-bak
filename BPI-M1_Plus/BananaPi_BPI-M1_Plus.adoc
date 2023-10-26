@@ -66,8 +66,8 @@ image::/picture/gpio_define.png[gpio_define.png]
 
 [option="header",cols="1,1,1"]
 |=====
-3+| **40 PIN GPIO of Banana pi BPI-M1**
-| CSI GPIO Pin | Pin Name | GPIO
+3+| **40 PIN GPIO of Banana pi BPI-M1+(Plus)**
+| GPIO Pin Name	| Default Function	| Function2：GPIO
 | CON3-P01 | VCC-3V3    |      
 | CON3-P02 | VCC-DC     |      
 | CON3-P03 | TWI2-SDA   | PB21 
