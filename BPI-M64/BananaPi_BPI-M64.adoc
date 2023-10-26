@@ -581,7 +581,14 @@ xxxxxxxxxx
 
 = FAQ
 
+WARNING:  How-to use ubuntu system to support lcd7**?
 
+. "vi /media/pi/BPI-BOOT/bananapi/bpi-m64/linux/lcd7/uEnv.txt"
+. If you use HC070TG lcd7 screen, change "touch=gt9xxnew_ts" But if you use S070WV20 lcd7 screen, you don't need to change.
+. "bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m64/u-boot-with-dtb-bpi-m64-lcd7-8k.img.gz"
+. reboot
+
+For more operation details please see Wiki: http://wiki.banana-pi.org/Getting_Started_with_M64
 
 = Easy to buy
 
