@@ -86,4 +86,7 @@ NOTE:  link:https://github.com/BPI-STEAM/BPI-Centi-S3-Doc/tree/main/micropython_
 
 == Use Arduino to get started quickly
 
-
+. link:./Arduino/Environment[Install and configure the environment]
+. link:./Arduino/Arduino_upload[Connect, Upload]
+. link:./Arduino/Arduino_GFX_Install[Install Arduino GFX library]
+. link:./Arduino/Arduino_GFX_show_characters[Arduino GFX, show characters]
