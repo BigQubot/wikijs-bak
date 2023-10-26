@@ -110,7 +110,7 @@ image::/picture/bpi-m2_berry.jpg[bpi-m2_berry.jpg]
 [option="header",cols="1,1,1"]
 |=====
 3+| **CSI Camera connector GPIO of Banana pi BPI-M2 Berry**
-| DSI Pin Name	| Default Function	| Function2：GPIO
+| CSI Pin Name	| Default Function	| Function2：GPIO
 | CN5-P01 | NC         |      
 | CN5-P02 | GND        |      
 | CN5-P03 | CSI0-SDA   | PI3  
