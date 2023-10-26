@@ -143,7 +143,7 @@ image::/picture/bpi-m2_magic_interface.jpg[bpi-m2_magic_interface.jpg]
 [option="header",cols="1,1,1"]
 |=====
 3+|**MIPI DSI PIN define of Banana pi BPI-M2 Magic**
-| CSI GPIO Pin | Pin Name | GPIO
+| DSI GPIO Pin | Pin Name | GPIO
 | CN2-P01 | DSI-D0N    |     
 | CN2-P02 | DSI-D0P    |     
 | CN2-P03 | DSI-D1N    |     
