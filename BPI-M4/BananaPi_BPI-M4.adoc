@@ -56,7 +56,7 @@ image::/picture/banana_pi_bpi-m4_interface.jpg[banana_pi_bpi-m4_interface.jpg]
 [option="header",cols="1,1,1"]
 |=====
 3+| **40 PIN GPIO of Banana pi BPI-M4**
-| CSI GPIO Pin | Pin Name | GPIO
+| GPIO Pin Name | Default Function	| Function2：GPIO
 | CON1-P01 | VCC-3V3   |        
 | CON1-P02 | DCIN      |        
 | CON1-P03 | I2C1_SDA  | GPIO-17
@@ -100,8 +100,6 @@ image::/picture/banana_pi_bpi-m4_interface.jpg[banana_pi_bpi-m4_interface.jpg]
 |=====
 
 === BPI-M4 Debug UART
-UART specification:
-
 The header CON2 is the UART interface. For developers of Banana Pi, this is an easy way to get the UART console output to check the system status and log message.
 |=====
 |CON2-P1	| GND	
