@@ -238,17 +238,16 @@ MD5: 80f6bef4628eef0da8c5800819cc1cfd
 NOTE: 2019-05-11 update This release is for banana pi M2 Magic board which is based on R16, and it is based on Ubuntu 16.04 Operation system with kernel 3.4.
 
 BPI-M2M Ubuntu Server 16.04 Features Map : http://wiki.banana-pi.org/M2M_Image_Map
-=====
-NOTE: LCD7 SD & Emmc version images:
+
+**LCD7 SD & Emmc version images:**
 
 Google Drive : https://drive.google.com/file/d/1jrW7BKWblRyYYpgB6SEMnRWoGjREVexe/view
 
 Baidu Drive : https://pan.baidu.com/s/1QIXnZHg7MS9pR7pRXvZu1w （PinCode:n20l）
 
 MD5 : 9dcd344f0a6433bc649301930599d45b
-=====
-=====
-NOTE: CD7 Emmc version image:
+
+**CD7 Emmc version image:**
 
 WARNING: Notes : Because sd pins and uart0 pins are the same, so we have to use uart2 as debug console before, and I release this image is just in order to release uart2 to use and set uart0 as debug console.
 
@@ -259,8 +258,6 @@ Google Drive : https://drive.google.com/open?id=1vJqO2O47Ekq9diny7kZQKBQLXylCGuT
 Baidu Drive : https://pan.baidu.com/s/1xE5tpw0DqNAV2mqKg_TbpQ (PinCode：awpy)
 
 MD5 : 9f576cfaeb0329648b14b541ff2f5dd4
-
-=====
 
 Forum pthread: http://forum.banana-pi.org/t/bpi-m2m-r16-new-image-release-ubuntu-server-16-04-2019-05-09/9205
 
