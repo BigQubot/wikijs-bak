@@ -59,12 +59,12 @@ image::/bpi-m1_interface.jpg[bpi-m1_interface.jpg]
 |=====
 4+| **40 PIN GPIO of Banana pi BPI-M64**
 | GPIO Pin Name	| Default Function	| Function2：GPIO	| Function3
-| CON2-P01 | VCC-3V3   | 　    |        
+| CON2-P01 | VCC-3V3   |      |        
 | CON2-P02 | VCC-5V    |      | 　 　      
 | CON2-P03 | TWI1-SDA  | PH3  | 　        
 | CON2-P04 | VCC-5V    |      | 　        
 | CON2-P05 | TWI1-SCK  | PH2  |          
-| CON2-P06 | GND       | 　    | 　        
+| CON2-P06 | GND       |      | 　        
 | CON2-P07 | PH6       | PH6  | 　        
 | CON2-P08 | UART2-TX  | PB0  | 　        
 | CON2-P09 | GND       |      | 　 　      
@@ -87,12 +87,12 @@ image::/bpi-m1_interface.jpg[bpi-m1_interface.jpg]
 | CON2-P26 | PC2       | PC2  |          
 | CON2-P27 | PC4       | PC4  |          
 | CON2-P28 | PC3       | PC3  |          
-| CON2-P29 | PC7       | PC7 　|          
-| CON2-P30 | GND       | 　    | 　        
+| CON2-P29 | PC7       | PC7  |          
+| CON2-P30 | GND       |      |        
 | CON2-P31 | PCM0-BCLK | PB5  |          
 | CON2-P32 | PCM0-DIN  | PB7  | 　        
 | CON2-P33 | PCM0-SYNC | PB4  |          
-| CON2-P34 | GND       | 　    | 　        
+| CON2-P34 | GND       |      |        
 | CON2-P35 | PCM0-DOUT | PB6  |          
 | CON2-P36 | PL9       | PL9  | 　        
 | CON2-P37 | PL12      | PL12 | 　        
@@ -101,43 +101,384 @@ image::/bpi-m1_interface.jpg[bpi-m1_interface.jpg]
 | CON2-P40 | PL8       | PL8  |       
 |=====
 
-=== BPI-M5 Debug UART
+=== CSI Camera Connector specification
+
+[option="header",cols="1,1,1"]
+|=====
+3+| **CSI camer PIN define of Banana pi BPI-M64**
+| CSI Pin Name	| Default Function	| Function2：GPIO
+| CN5-P01 | NC         | 　    
+| CN5-P02 | GND        | 　    
+| CN5-P03 | CSI0-SDA   | PE13 
+| CN5-P04 | CSI0-AVDD  | 　    
+| CN5-P05 | CSI0-SCK   | PE12 
+| CN5-P06 | CSI0-Reset | PE16 
+| CN5-P07 | CSI0-VSYNC |      
+| CN5-P08 | CSI0-PWDN  | PE17 
+| CN5-P09 | CSI0-HSYNC | PE2  
+| CN5-P10 | CSI0-DVDD  | 　    
+| CN5-P11 | CSI0-DOVDD | 　    
+| CN5-P12 | CSI0-D7    | PE11 
+| CN5-P13 | CSI0-MCLK  | PE1  
+| CN5-P14 | CSI0-D6    | PE10 
+| CN5-P15 | GND        | 　    
+| CN5-P16 | CSI0-D5    | PE9  
+| CN5-P17 | CSI0-PCLK  | PE0  
+| CN5-P18 | CSI0-D4    | PE8  
+| CN5-P19 | CSI0-D0    | PE4  
+| CN5-P20 | CSI0-D3    | PE7  
+| CN5-P21	| CSI0-D1	   | PE5
+| CN5-P22	| CSI0-D2	   | PE6
+| CN5-P23	| GND	       | 
+| CN5-P24	| CSI0-AFVCC |    
+|=====
+
+=== MIPI DSI (Display Serial Interface)
+
+[option="header",cols="1,1,1"]
+|=====
+3+| **MIPI DSI display PIN define of Banana pi BPI-M64**
+| DSI Pin Name	| Default Function	| Function2：GPIO
+| CN6-P01 | VCC       | 　   
+| CN6-P02 | IPSOUT    | 　   
+| CN6-P03 | VCC       | 　   
+| CN6-P04 | IPSOUT    | 　   
+| CN6-P05 | GND       | 　   
+| CN6-P06 | IPSOUT    | 　   
+| CN6-P07 | GND       |     
+| CN6-P08 | IPSOUT    | 　   
+| CN6-P09 | NC        | 　   
+| CN6-P10 | GND       |     
+| CN6-P11 | NC        |     
+| CN6-P12 | DSI-D0N   |     
+| CN6-P13 | NC        | 　   
+| CN6-P14 | DSI-D0P   |     
+| CN6-P15 | NC        | 　   
+| CN6-P16 | GND       |     
+| CN6-P17 | TWI0-SDA  | PH1 
+| CN6-P18 | DSI-D1N   |     
+| CN6-P19 | TWI0-SCK  | PH0 
+| CN6-P20 | DSI-D1P   |     
+| CN6-P21 | CTP-INT   | PH4  
+| CN6-P22 | GND       | 　    
+| CN6-P23 | CTP-RST   | PH8  
+| CN6-P24 | DSI-CKN   |      
+| CN6-P25 | GND       |      
+| CN6-P26 | DSI-CKP   | 　    
+| CN6-P27 | LCD-BL-EN | PD5  
+| CN6-P28 | GND       |      
+| CN6-P29 | LCD-RST   | PD6  
+| CN6-P30 | DSI-D2N   | 　    
+| CN6-P31 | LCD-PWR-EN| PD7  
+| CN6-P32 | DSI-D2P   | 　    
+| CN6-P33 | GND       |      
+| CN6-P34 | GND       | 　    
+| CN6-P35 | LCD-PWM   | PL10 
+| CN6-P36 | DSI-D3N   |      
+| CN6-P37 | GND       |      
+| CN6-P38 | DSI-D3P   | 　    
+| CN6-P39 | NC        |      
+| CN6-P40 | GND       |      
+|=====
+
+=== BPI-M64 Debug UART
 
 |=====
-|CONx-P1  | GND
-|CONx-P2  | UART0-RX
-|CONx-P3  | UART0-TX
+| CON2 P03	| UART0-TXD	| PB8
+| CON2 P02	| UART0-RXD	| PB9
+| CON2 P01	| GND	      |    
 |=====
 
 = Development
 == Source Code
 
-=== Linux BSP Source Code
+=== Linux
 
-TIP: Linux BSP source code
+TIP: BPI-M64 (allwnner A64) Linux 4.4 source code: https://github.com/BPI-SINOVOIP/BPI-M64-bsp-4.4
 
-xxxxxxxxxx
+Forum pthread: http://forum.banana-pi.org/t/banana-pi-bpi-m64-allwnner-a64-linux-4-4-source-code-public-on-github/6706
 
-xxxxxxxxxx
+TIP: BPI-M64 Linux kernel 3.4 BSP code: https://github.com/BPI-SINOVOIP/BPI-M64-bsp
 
 === Android
 
-TIP: Linux BSP source code
+TIP: BPI-M64 Android 7 source code
 
-xxxxxxxxxx
+Download link : https://github.com/BPI-SINOVOIP/BPI-A64-Android7
 
-xxxxxxxxxx
+TIP: BPI-M64 Android 6.0.1 source code
+
+Download link : https://drive.google.com/open?id=0B_YnvHgh2rwjdTRVRVFaSHd2cnc
+
+=== Win 10 IoT
+TIP: BPI-M64 Win10 IoT source code: https://bananapi.gitbooks.io/bpi-m64/content/en/sourcecodeongithub.html
+
+=== Robot Operating System (ROS)
+TIP: BPI-M64 Robot Operating System (ROS)
+
+Github: https://github.com/techping/BPI-robot-1
+
+Discuss on forum: http://forum.banana-pi.org/t/discuss-robot-operating-system-ros-on-banana-pi/10967
 
 == Resources
 
+TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
+
+TIP: All banana pi link:https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[docement(SCH file,DXF file,and doc)]
+
+TIP: Schematic diagram:
+
+Google driver :link:https://drive.google.com/drive/folders/0B4PAo2nW2KfnflVqbjJGTFlFTTd1b1o1OUxDNk5ackVDM0RNUjBpZ0FQU19SbDk1MngzZWM?resourcekey=0-ZRCiv304nGzvq-w7lwnpjg&usp=sharing[google driver]
+
+Baidu cloud : http://pan.baidu.com/s/1kVRpcYb
+
+TIP: DXF file google download link: https://drive.google.com/file/d/0B4PAo2nW2KfnajlEY0xsdjNxY3c/view?usp=sharing
+
+TIP: Allwinner A64 chip datasheet: https://drive.google.com/file/d/0B4PAo2nW2KfnSW9lQnZ0d1RoVW8/view?usp=sharing
+
+TIP: Allwinner A64 user’s manual (720 pages): https://drive.google.com/file/d/0B4PAo2nW2KfnNHk4dkFJZEdqYXc/view?usp=sharing
+
+TIP: AXP803 Datasheet V1.0.pdf : https://drive.google.com/file/d/1nRbP1T02KlNZBbTJx4BHW5wVWvQPmDxC/view?usp=sharing
+
+TIP: A64 chip linux-sunxi wiki: http://linux-sunxi.org/A64
+
+TIP: BPI-M64 linux-sunxi wiki: https://linux-sunxi.org/Banana_Pi_M64
+
+TIP: Recording: burning the linux image to EMMC on M64 for the first time: https://forum.banana-pi.org/t/recording-burning-the-linux-image-to-emmc-on-m64-for-the-first-time/15477
+
+TIP: Other document about allwinner A64 chip: http://bundie.neterra.net:8080/a64/
+
+TIP: Battery interface spec ： https://drive.google.com/file/d/0B4PAo2nW2KfnSmVuVDhQc0NLdG8/view?usp=sharing
+
+TIP: BPI-M64 quality guarantee:
+
+BPI-M64 BT Lab test : https://bananapi.gitbooks.io/bpi-m64/content/en/bpi-m64bt40labtest.html
+
+BPI-M64 WIFI Lab test : https://bananapi.gitbooks.io/bpi-m64/content/en/bpi-m264wifilabtest.html
+
+BPI-M64 Validation test : https://bananapi.gitbooks.io/bpi-m64/content/en/bpi-m64validationtestreport.html
+
+CE FCC RoHS : http://forum.banana-pi.org/t/bpi-m64-ce-fcc-rohs-certification/2747
+
+== Basic Development
+=== Win 10 IoT
+
+TIP: Banana pi BPI-M64 IOT certifying pass by Microsoft: windows 10 iot core
+
+TIP: BPI-M64 for Win10 IoT : https://catalog.azureiotsolutions.com/details?title=Allwinner_Banana_Pi_BPI_M64&source=all-devices-page
+
+TIP: Link: https://azure.microsoft.com/en-us/documentation/articles/iot-hub-tested-configurations/
+
+TIP: Get start: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-iot-core-banana-pi-bpi-m64-csharp.md
+
+**test on BPI-M64**
+
+TIP: Discuss on forum: http://forum.banana-pi.org/t/banana-pi-bpi-m64-iot-certifying-pass-by-microsoft-windows-10-iot-core/2090
+
+=== Windows 10 IoT Core for BPI-M64 Release Note
+
+TIP: The Unified Extensible Firmware Interface (UEFI]) is a specification that defines a software interface between an operating system and platform firmware. UEFI replaces the Basic Input/Output System (BIOS) firmware interface originally present in all IBM PC-compatible personal computers AllWinner UEFI Firmware Release Notes
+
+TIP: This document describes how to build AllWinner UEFI Firmware and bring a AllWinner dev board up with it. The AllWinner UEFI Firmware, as the major boot system for AllWinner-Windows platform, is based on the EDK2 framework which is open-source and with some AllWinner platform software packages injected.
+
+TIP: Some updates:
+
+. Update the OS version to build v.10.0.15063.0 \(Creators Update\)
+. New page style of Device Portal, visit https://deviceipaddr:8080 to check it
+. Built-in Cortana assistant, need to be enabled in settings page in default app and Device Portal
+. Support on-screen keyboard, need to be enabled in Device Portal
+. Enable 100M Ethernet and fix some bugs
+. Support built-in UART bus in A64 SoC\(not built in the ffu, later provide driver binary and deployment helper\)
+. Support built-in IR module in A64 SoC\(not built in the ffu, later provide source code and dev doc for developers in community\)
+
+TIP: Known Issues:
+
+. Kernel debug is enabled by default. This will slow the bring-up process. If a kernel debug is not necessary for you, visit Device Portal and navigate to Processes->Run Command page
+. run this command to disable : Bcdedit /store C:\EFIESP\EFI\Microsoft\boot\BCD /set {default} debug off
+. An PnP bug in audio device may cause a blue screen when acting software shutdown
+. Ethernet device may not start with problem code 12 at the first time to bring up
+
+TIP: And another bomb! I uploaded core driver binaries and packaging toolchains on GitHub!
+
+Here is the repo address: https://github.com/Leeway213/BSP-aw1689
+
+And also some driver source code here with A64 datasheet in readme: https://github.com/Leeway213/driver-samples
+
+Welcome makers developers and anyone-elsers to post your feedback.
+
+=== Microsoft Azure IoT
+TIP: We have test BPI-M64 with Microsoft Azure IoT with aarch64 Ubuntu 18.04 Linux
+
+Microsoft Azure IoT Edge using DPS with TPM 2.0 SLB9670 : https://www.youtube.com/watch?v=k9_GSQgKlqk&feature=youtu.be
+
+Microsoft Azure IoT Edge using DPS with TPM 2.0 ST33 i2c : https://www.youtube.com/watch?v=2MrO1-esjwI&feature=youtu.be
+
+== Amazon AWS Greengrass
+
+TIP: Banana Pi BPI-M64 passed Amazon AWS Greengrass: https://devices.amazonaws.com/detail/a3G0h000000OvPoEAK/Banana-Pi-BPI-M64
+
 = System Image
 == Android
+====
+NOTE: 2020-07-10 update, Android 7.1, base on kernel 3.10
 
-NOTE: 20xx-xx-xx release, xxxxxxx image
+Download Android 7.1 image
 
-xxxxxxxxxx
+====
+====
+NOTE: 2018-10-24 update Android 6.0 & 7.0 & 8.1, based on kernel 3.10.
 
-xxxxxxxxxx
+=====
+
+NOTE: M64 Android 6.0 HDMI & LCD7
+
+Features Map: http://wiki.banana-pi.org/M64_Image_Map#Android_6.0
+
+======
+NOTE: HDMI Version Image Links
+
+Google Drive : https://drive.google.com/open?id=1Em7ZXVvbJI7wMXy_TM4VNwHo6Oa-vVBc
+
+Baidu Drive : https://pan.baidu.com/s/1ZginIvO3LVakqokIZAX1Xw
+
+======
+======
+NOTE: LCD7 Version Image Links
+
+Google Drive : https://drive.google.com/open?id=1Tts1krZyzwz9mL90j1ilTzVrJm6hh_J4
+
+Baidu Drive : https://pan.baidu.com/s/1oKMx_Ml5K1Jv7-qeS-NMsQ
+
+=====
+=====
+NOTE: M64 Android 7.0 HDMI & LCD7
+
+Features Map: http://wiki.banana-pi.org/M64_Image_Map#Android_7.0
+
+======
+NOTE: HDMI Version Image Links：
+
+Google Drive : https://drive.google.com/open?id=1mvKyK6KuPixs-jLD0FocIaV465bJ1Eig
+
+Baidu Drive : https://pan.baidu.com/s/15b32TXdh6752c-GBnR-Zeg
+
+======
+======
+NOTE: LCD7 Version Image Links:
+
+Google Drive : https://drive.google.com/open?id=16Ffc5xiZgD7JYgrMtCGaOYLCuZdQGcnY
+
+Baidu Drive : https://pan.baidu.com/s/1a9RYKSTRhCO-UzFfIoGCtQ
+
+=====
+====
+
+====
+NOTE: 2018-10-24 update Android 6.0 & 7.0 & 8.1, based on kernel 3.10.
+
+=====
+
+NOTE: M64 Android 6.0 HDMI & LCD7
+
+Features Map: http://wiki.banana-pi.org/M64_Image_Map#Android_6.0
+
+
+**HDMI Version Image Links**
+
+Google Drive : https://drive.google.com/open?id=1Em7ZXVvbJI7wMXy_TM4VNwHo6Oa-vVBc
+
+Baidu Drive : https://pan.baidu.com/s/1ZginIvO3LVakqokIZAX1Xw
+
+**LCD7 Version Image Links**
+
+Google Drive : https://drive.google.com/open?id=1Tts1krZyzwz9mL90j1ilTzVrJm6hh_J4
+
+Baidu Drive : https://pan.baidu.com/s/1oKMx_Ml5K1Jv7-qeS-NMsQ
+
+=====
+=====
+NOTE: M64 Android 7.0 HDMI & LCD7
+
+Features Map: http://wiki.banana-pi.org/M64_Image_Map#Android_7.0
+
+
+**HDMI Version Image Links：**
+
+Google Drive : https://drive.google.com/open?id=1mvKyK6KuPixs-jLD0FocIaV465bJ1Eig
+
+Baidu Drive : https://pan.baidu.com/s/15b32TXdh6752c-GBnR-Zeg
+
+**LCD7 Version Image Links:**
+
+Google Drive : https://drive.google.com/open?id=16Ffc5xiZgD7JYgrMtCGaOYLCuZdQGcnY
+
+Baidu Drive : https://pan.baidu.com/s/1a9RYKSTRhCO-UzFfIoGCtQ
+
+====
+
+
+
+
+
+
+
+
+
+
+
+
+====
+NOTE: BPI-M64 Android 8.1 HDMI & LCD7
+
+Features Map: http://wiki.banana-pi.org/M64_Image_Map#Android_8.1
+
+**HDMI Version Image Links:**
+
+Google Drive : https://drive.google.com/open?id=1UBaH9CNbmC9-n3jGImrFIAPZ8aZhqMJz
+
+Baidu Drive : https://pan.baidu.com/s/1lz57HrqNHx6f_Q6nk0oZvA
+
+**LCD7 Version Image Links:**
+
+Google Drive : https://drive.google.com/open?id=1wktuCcvolfozMFkLmugfZtGziHDj-1EM
+
+Baidu Drive : https://pan.baidu.com/s/1MteYqyBp8LeECjcDteCTZQ
+
+Forum pthread: http://forum.banana-pi.org/t/banana-pi-bpi-m64-new-images-android-6-0-7-0-8-1-release-2018-10-24/7107
+
+====
+
+NOTE: 2018-9-17 update android 6.0
+
+Features Map :http://wiki.banana-pi.org/M64_Image_Map#Android_6.0
+
+HDMI Version Image Links：
+Google Drive : https://drive.google.com/open?id=19ExJ9Ztfy3UgK9NZ4SiaVZAMozgyCJl7
+Baidu Drive : https://pan.baidu.com/s/1s_orgiEI7JU_hUgjnpd25w
+LCD7 Version Image Links:
+Google Drive : https://drive.google.com/open?id=1gWD_IT0P4NvdeqtK5I4MnJjwzsP7SXJc
+Baidu Drive : https://pan.baidu.com/s/1K0HYPiQe6nGvAS5bAAFHow
+Forum pthread :　http://forum.banana-pi.org/t/banana-pi-bpi-m64-new-images-release-2018-09-18/6796
+2018-08-17 update,android 8.1
+This release is for banana pi M64 board which is based on Allwinner A64, We have two images release，Android 8.1 is based on kernel 4.9
+BPI-M64 Android 8.1 Features Map:http://wiki.banana-pi.org/M64_Image_Map#Android_8.1
+HDMI-LCD-Version:
+Google Drive : https://drive.google.com/open?id=11XjvTAbPw57R6H5kL27GVXry4xu18dVs
+Baidu Drive : https://pan.baidu.com/s/1PQgJCUo6cY3wWxJ7rZrk-A
+Forum pthread:http://forum.banana-pi.org/t/bananapi-bpi-m64-a64-new-image-android-8-1-ubuntu-release-2018-08-17/6531
+2018-05-20 update ,android 7.0
+hdmi-Version and Lcd 5.0 version
+baidu cloud : https://pan.baidu.com/s/1O3PsI73WmFFvhxMmzEscIQ
+2017-05-11 update ,android 6.0
+HDMI-Version
+Google Drive:https://drive.google.com/open?id=0B_YnvHgh2rwjcF9USm1MWWtxSXc
+Baidu Cloud:https://pan.baidu.com/s/1bHWhlW
+MD5: f85281213b9c5b88008a487dd1b6963c
+LCD-Version
+Google Drive:https://drive.google.com/open?id=0B_YnvHgh2rwjdHpFbHJMQWtsbFk
+Baidu Cloud:https://pan.baidu.com/s/1kVJVPGV
+MD5:be27e4eced96d3de81d46e512fd978eb
+forum pthread:http://forum.banana-pi.org/t/bpi-m64-new-image-android-6-0-version-v3/3240/4
 
 == Linux
 
