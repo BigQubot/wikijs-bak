@@ -1,0 +1,500 @@
+= BPI-M3 Introduction
+
+Banana Pi M3 is a super charged single board computer with an Octa-core processor and 2GB of RAM. Along side the elite processing unit, it features Gigabit Ethernet, 2 USB, SATA, WiFi, Bluetooth, and HDMI connection. It can run on a variety of operating systems including Android, Lubuntu, Ubuntu, Debian, and Raspbian.
+
+Being a brother of the power hungry M2, the M3 does not want to rest while his brother goes to acquire two more cores. The M3 secretly mastered the powerful art of Octa-core to best even the M2. Unlike his careless brother, the M3 did not lose his SATA port.
+
+Banana Pi is an open platform device, it is for anyone who wants to play and build with developer technology instead of simply using consumer technology. Backed by our community, starting a project and building servers is fun and rewarding. We welcome all companies, DIYers, and tech loving people within our community! Together, we can make a difference, we can discover our passions, inspire others, and build a practical project.
+
+image::/picture/bpi-m3_960x360.jpg[bpi-m3_960x360.jpg]
+
+== Key Features
+
+- Allwinner A83T Octa-core 1.8GHz Powerful CPU.
+- 2 GB LPDDR3 memory.
+- 8 GB eMMC storage.
+- HDMI out
+- IR control
+- WiFi & Bluetooth onboard.
+- MIPI DSI ingerface
+- CSI camera interface
+
+== Getting Start
+
+link:/en/BPI-M3/GettingStarted_BPI-M3[Getting Started BPI-M3]
+
+= Hardware
+== Hardware Interface
+
+image::/picture/m3-hdw-label.jpg[m3-hdw-label.jpg]
+
+== Hardware Spec
+
+[option="header",cols="1,4"]
+|=====
+2+| **HardWare Specification of Banana Pi M3**
+| CPU             | Allwinner A83T ARM Cortex-A7 Octa-Core 1.8 GHz, 512KB L1 cache and 1MB L2 cache
+| GPU             | PowerVR SGX544MP1 Comply with OpenGL ES 2.0 OpenCL 1x, DX9_3
+| Memory          | 2 GB LPDDR3 (shared with GPU)
+| Storage         | On Board 8GB eMMC Flash, Micro SD-Card slot, SATA 2.0 Port (USB-to-SATA bridge)
+| Network         | 10/100/1000 Mbit/s Ethernet (Realtek RTL8211E/D) + Wi-Fi 802.11 b/g/n (AP6212) + Bluetooth BT4.0
+| Video Input(s)  | A CSI input connector allows for the connection of a designed camera module
+| Video Output(s) | HDMI 1.4 (Type A Full), MIPI Display Serial Interface (DSI) for raw LCD Panel
+| Audio Input(s)  | On board microphone
+| Audio Output(s) | 3.5mm jack and HDMI
+| USB ports       | USB 2.0 PORT (x2), USB OTG (x1)
+| Remote          | IR Receiver (x1)
+| GPIO            | 40 Pin Header : GPIO (x28) and Power (+5V, +3.3V and GND). Some of I/O Pin can be used for specific functions as UART, I2C, SPI or PWM 
+| Switches        | Reset, Power and U-boot
+| LED             | Power Status and 8P8C
+| Power Source    | 5 volt @2A via DC Power and/or Micro USB (OTG)
+| Size & Weight   | 92x60mm, 48g
+| OS              | Android and Linux 
+|=====
+
+== GPIO Pin Define
+
+=== BPI-M3 40PIN GPIO
+
+[option="header",cols="1,1,1,1"]
+|=====
+4+| **40 PIN GPIO of Banana pi BPI-M3**
+| GPIO Pin Name	| Default Function | Function2：GPIO	| Function3
+| CON1-P01 | VCC-3V3   |               |   
+| CON1-P02 | DCIN      |               |   
+| CON1-P03 | TWI2-SDA  | PH5-EINT5     |   
+| CON1-P04 | DCIN      |               | 　 
+| CON1-P05 | TWI2-SCK  | PH4-EINT4     |   
+| CON1-P06 | GND       |               |   
+| CON1-P07 | S-PWM     | PL10-S-EINT10 |   
+| CON1-P08 | UART2-TX  | PB0-EINT0     |   
+| CON1-P09 | GND       |               |   
+| CON1-P10 | UART2-RX  | PB1-EINT1     |   
+| CON1-P11 | PC4 PC4   |               |   
+| CON1-P12 | UART2-CTS | PB3-EINT3     |   
+| CON1-P13 | PC7       | PC7           |   
+| CON1-P14 | GND       |               |   
+| CON1-P15 | PC17      | PC17          |   
+| CON1-P16 | UART2-RTS | PB2-EINT2     |   
+| CON1-P17 | VCC-3V3   |               |   
+| CON1-P18 | PL8-ENT8  | PL8-S-ENT8    |   
+| CON1-P19 | SPI0_MOSI | PC0           |   
+| CON1-P20 | GND       |               |   
+| CON1-P21 | SPI0_MISO | PC1           |           
+| CON1-P22 | PL9-EINT9 | PL9-S-EINT9   |           
+| CON1-P23 | SPI0_CLK  | PC2           |           
+| CON1-P24 | SPI0_CS   | PC3           |           
+| CON1-P25 | GND       |               |           
+| CON1-P26 | PH10-ENT10| PH10-ENT10    |           
+| CON1-P27 | TWI1-SDA  | PH3-EINT3     |           
+| CON1-P28 | TWI1-SCK  | PH2-EINT2     |           
+| CON1-P29 | PC18      | PC18          |           
+| CON1-P30 | GND       |               |           
+| CON1-P31 | I2S1-BCLK | PG10-EINT10   | UART3-TX  
+| CON1-P32 | I2S1-DIN  | PG13-EINT13   | UART3-CTS 
+| CON1-P33 | I2S1-LRCK | PG11-EINT11   | UART3-RX  
+| CON1-P34 | GND       |               |           
+| CON1-P35 | I2S1-DOUT | PG12-EINT12   | UART3-RTS 
+| CON1-P36 | PE5       | PE5           |           
+| CON1-P37 | PE4       | PE4           |           
+| CON1-P38 | OWA-DOUT  | PE18          |           
+| CON1-P39 | GND       |               |           
+| CON1-P40 | PE19      | PE19          |       
+|=====
+
+=== CSI Camera Connector specification
+
+[option="header",cols="1,1,1"]
+|=====
+3+| **CSI camera GPIO of Banana pi BPI-M3**
+| CSI Pin Name | Default Function	| Function2：GPIO
+| CN7-P01 | IPSOUT     |      
+| CN7-P02 | AFVCC      |      
+| CN7-P03 | IPSOUT     |      
+| CN7-P04 | IOVDD      |      
+| CN7-P05 | GND        |      
+| CN7-P06 | GND        |      
+| CN7-P07 | CSI2-D3N   |      
+| CN7-P08 | AVDD-CSI   |      
+| CN7-P09 | CSI2-D3P   |      
+| CN7-P10 | DVDD-CSI-R |      
+| CN7-P11 | GND        |      
+| CN7-P12 | NC         |      
+| CN7-P13 | CSI2-D2N   |      
+| CN7-P14 | CSI-RST-R  | PE16 
+| CN7-P15 | CSI2-D2P   |      
+| CN7-P16 | CSI-STBY-R | PE17 
+| CN7-P17 | GND        |      
+| CN7-P18 | CSI-PCLK   | PE0  
+| CN7-P19 | CSI2-CKN   |      
+| CN7-P20 | CSI-MCLK   | PE1  
+| CN7-P21 | CSI2-CKP   |      
+| CN7-P22 | CSI-HSYNC  | PE2  
+| CN7-P23 | GND        |      
+| CN7-P24 | CSI-VSYNC  | PE3  
+| CN7-P25 | CSI2-D1N   |      
+| CN7-P26 | CSI-D9     | PE13 
+| CN7-P27 | CSI2-D1P   |      
+| CN7-P28 | CSI-D8     | PE12 
+| CN7-P29 | GND        |      
+| CN7-P30 | CSI-D7     | PE11 
+| CN7-P31 | CSI2-D0N   |      
+| CN7-P32 | CSI-D6     | PE10 
+| CN7-P33 | CSI2-D0P   |      
+| CN7-P34 | CSI-D5     | PE9  
+| CN7-P35 | GND        |      
+| CN7-P36 | CSI-D4     | PE8  
+| CN7-P37 | CSI-SCK    | PE14 
+| CN7-P38 | CSI-D3     | PE7  
+| CN7-P39 | CSI-SDA    | PE15 
+| CN7-P40 | CSI-D2     | PE6  
+|=====
+
+=== Display specification
+
+[option="header",cols="1,1,1"]
+|=====
+3+| **MIPI DSI PIN define of Banana pi BPI-M3**
+| CSI Pin Name | Default Function	| Function2：GPIO
+| CN6-P01 | VCC-MIPI |           
+| CN6-P02 | IPSOUT   |           
+| CN6-P03 | VCC-MIPI |           
+| CN6-P04 | IPSOUT   |           
+| CN6-P05 | GND      |           
+| CN6-P06 | IPSOUT   |           
+| CN6-P07 | GND      |           
+| CN6-P08 | IPSOUT   |           
+| CN6-P09 | NC       |           
+| CN6-P10 | GND      |           
+| CN6-P11 | NC       |           
+| CN6-P12 | DSI-D0N  |           
+| CN6-P13 | NC       |           
+| CN6-P14 | DSI-D0P  |           
+| CN6-P15 | NC       |           
+| CN6-P16 | GND      |           
+| CN6-P17 | TWI0-SDA | PH1-EINT1 
+| CN6-P18 | DSI-D1N  |           
+| CN6-P19 | TWI0-SCK | PH0-EINT0 
+| CN6-P20 | DSI-D1P  |           
+| CN6-P21 | TP-INT     | PL7-S-EINT7 
+| CN6-P22 | GND        |             
+| CN6-P23 | TP-RST     | PL6-S-EINT6 
+| CN6-P24 | DSI-CKN    |             
+| CN6-P25 | GND        |             
+| CN6-P26 | DSI-CKP    |             
+| CN6-P27 | LCD-BL-EN  | PD29        
+| CN6-P28 | GND        |             
+| CN6-P29 | LCD-RST    | PD26        
+| CN6-P30 | DSI-D2N    |             
+| CN6-P31 | LCD-PWR-EN | PD27        
+| CN6-P32 | DSI-D2P    |             
+| CN6-P33 | GND        |             
+| CN6-P34 | GND        |             
+| CN6-P35 | LCD-PWM    | PD28        
+| CN6-P36 | DSI-D3N    |             
+| CN6-P37 | GND        |             
+| CN6-P38 | DSI-D3P    |             
+| CN6-P39 | AP-RESET#  |             
+| CN6-P40 | GND        |             
+|=====
+
+=== BPI-M3 Debug UART
+
+|=====
+| CON2 P03 | UART0-TXD | PB9
+| CON2 P02 | UART0-RXD | PB10
+| CON2 P01 | GND	     |     
+|=====
+
+= Development
+== Source Code
+
+=== Linux 
+
+TIP: BPI-M3 Linux BSP code : https://github.com/BPI-SINOVOIP/BPI-M3-bsp
+
+=== Android
+
+TIP: BPI-M3 android 5.1 source code ： https://drive.google.com/open?id=0B\_YnvHgh2rwjaGhIeUE0eERTZU0
+
+== Resources
+
+TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
+
+TIP: All banana pi link:https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[docement(SCH file,DXF file,and doc)]
+
+TIP: BPI-M3 schematic diagram :link:https://drive.google.com/drive/folders/0B4PAo2nW2KfnflVqbjJGTFlFTTd1b1o1OUxDNk5ackVDM0RNUjBpZ0FQU19SbDk1MngzZWM?resourcekey=0-ZRCiv304nGzvq-w7lwnpjg&usp=sharing[google driver]
+
+TIP: BPI-M3 DXF file : https://drive.google.com/file/d/0B4PAo2nW2KfnNm54VjBlUXhXekU/view
+
+TIP: BPI-M3 3D design file : https://drive.google.com/file/d/0B4PAo2nW2KfnYXVGWXBURDFSeTA/view
+
+TIP: A83T chip Datasheet V1.4 : https://drive.google.com/file/d/0B4PAo2nW2KfnM2VqeTR3SXpGdVE/view?usp=sharing
+
+TIP: Allwinner A83T chip User_Manual V1.5.1 : https://drive.google.com/file/d/0B4PAo2nW2KfnRjlQaU9uR0J0elE/view?usp=sharing
+
+TIP: android 5.0 development document（chinese）: https://drive.google.com/file/d/0B4PAo2nW2KfnekpvMnlNZ2p6NWs/view?usp=sharing
+
+TIP: allwinner chip online datasheet and documents : http://dl.linux-sunxi.org/
+
+TIP: linux-sunxi wiki : http://linux-sunxi.org/Banana_Pi_M3
+
+TIP: BPI-M3 quality guarantee
+
+- BPI-M3 WIFI Lab test report : https://bananapi.gitbooks.io/bpi-m3/content/en/bpi-m3wifilabtest.html
+
+- BPI-M3 Validation test report : https://bananapi.gitbooks.io/bpi-m3/content/en/bpi-m3validationtest.html
+
+- BPI-M3 CE,FCC RoHS Certification : http://forum.banana-pi.org/t/bpi-m3-ce-fcc-rohs-certification/984
+
+== Basic Development
+
+link:https://bananapi.gitbooks.io/bpi-m3/content/en/howtosetupdockerenvtobuildgithubsourcecod.html[How to setup docker env. to build github source code]
+
+link:https://bananapi.gitbooks.io/bpi-m3/content/en/howtocompilebpi-m3-bspkernelonbpi-m3.html[How to compile BPI-M3-bsp kernel on BPI-M3]
+
+link:https://bananapi.gitbooks.io/bpi-m3/content/en/bpi-m3crosscompileteach.html[BPI-M3 BSP Cross Compile teach]
+
+link:https://bananapi.gitbooks.io/bpi-m3/content/en/bpi-m3fixrootmydeviceissueforsecurityalert.html[BPI-M3 fix rootmydevice issue for Security Alert]
+
+== Software
+=== Linux 
+
+TIP: How to burn Linux image to eMMC : https://bananapi.gitbooks.io/bpi-m3/content/en/howtoburnlinuximagetoemmc.html
+
+TIP: GPU for kernel 3.4 : https://bananapi.gitbooks.io/bpi-m3/content/en/gpuforkernel34.html
+
+TIP: How to rotate display screen : https://bananapi.gitbooks.io/bpi-m3/content/en/howtorotatedisplayscreen.html
+
+TIP: How to use fatload uEnv.txt & script.bin & kernel uImage : https://bananapi.gitbooks.io/bpi-m3/content/en/howtousefatloaduenvtxtscriptbinkernel_ui.html
+
+=== Android
+
+TIP: How to burn android image to eMMC under windows ：
+https://bananapi.gitbook.io/bpi-m3/zh/how_to_burn_android_image_to_emmc
+
+TIP: BPI-M3 How to control GPIO on Android : https://bananapi.gitbook.io/bpi-m3/zh/howtosetupdockerenvtobuildgithubsourcecod
+
+= System Image
+== Android
+
+NOTE: 2018-06-05 update
+
+**HDMI-Version**
+
+Google Drive : https://drive.google.com/open?id=1mLXOAH_LPT-uqtwWvgvJXw4Vo95tFr_z
+
+Baidu Cloud : https://pan.baidu.com/s/1byqwqzz9SOIWHYfOabXKNw
+
+**LCD-Version**
+
+Google Drive : https://drive.google.com/open?id=1DAxQIws0eAVPAm0riH5HXc8M36SH_-sC
+
+Baidu Cloud : https://pan.baidu.com/s/19l7a6Z75FuZb_f9Ls0fN5w
+
+NOTE: 2017-05-11 update
+
+**HDMI-Version**
+
+Google Drive : https://drive.google.com/open?id=0B_YnvHgh2rwjcXkxczlmOWxWV00
+
+Baidu Cloud : https://pan.baidu.com/s/1pKF3Ggj
+
+MD5: d7b7abf3443a49fb0f178ccf2f6e82d0
+
+**LCD-Version**
+
+Google Drive : https://drive.google.com/open?id=0B_YnvHgh2rwjSkM5NHFWYVdlakk
+
+Baidu Cloud : https://pan.baidu.com/s/1mi2YOeG
+
+MD5: b27dd45ac5fd1fd3b02db8ffd92c2871
+
+Forum pthread : http://forum.banana-pi.org/t/bpi-m3-new-image-android-5-1-version-v5-2017-05-11/3241
+
+== Linux
+
+=== Ubuntu
+
+NOTE: 2021-08-03 release, Ubuntu Mate Desktop 16.04 with kernel 3.4.39
+
+Download: link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FImages%2FBPI-M3%2FUbuntu16.04%2F2021-08-03-ubuntu-16.04-mate-desktop-bpi-m3-sd-emmc.img.zip[2021-08-03-ubuntu-16.04-mate-desktop-bpi-m3-sd-emmc.img.zip]
+
+MD5: 4cd6cfb9ed3a2d382dbc32bb478ac149
+
+NOTE: 2021-08-03 release, Ubuntu Server 16.04 with kernel 3.4.39
+
+Download: link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FImages%2FBPI-M3%2FUbuntu16.04%2F2021-08-03-ubuntu-16.04-server-bpi-m3-sd-emmc.img.zip[2021-08-03-ubuntu-16.04-server-bpi-m3-sd-emmc.img.zip]
+
+MD5: ea5abe3fd6988931df85a2376808501a
+
+NOTE: 2018-07-18 BPI-M3 Ubuntu 16.04 Mate Desktop (new eMMC)
+
+Features Map : http://wiki.banana-pi.org/M3_Image_Map#Ubuntu_16.04
+
+Google Drive : https://drive.google.com/open?id=1DlOrt08yUY9hAETiUXBiyoyPFHrOxtvq
+
+Baidu Drive : https://pan.baidu.com/s/1ND5QqoBevzM2TykwqZCkAA
+
+Forum pthread: http://forum.banana-pi.org/t/bananapi-bpi-m3-new-image-new-emmc-ubuntu16-04-debian9-release-2018-07-18/6294
+
+NOTE: 2018-07-18 M3 Ubuntu Server (new eMMC)
+
+Features Map : http://wiki.banana-pi.org/M3_Image_Map#Ubuntu_Lite
+
+Google Drive : https://drive.google.com/open?id=1Yyd2BepHjyhgXhSmnFh_0Az6YoXPEI3J
+
+Baidu Drive : https://pan.baidu.com/s/10vSo0AmIiMrVLNPkQ63leQ
+
+Forum pthread: http://forum.banana-pi.org/t/bananapi-bpi-m3-new-image-new-emmc-ubuntu16-04-debian9-release-2018-07-18/6294
+
+NOTE: 2018-05-31 update ubuntu 16.04 mate desktop
+
+HDMI verison baidu cloud : https://pan.baidu.com/s/1UDktbDgGtXpbqIZn_TI1Tg
+
+NOTE: 2017-07-13 update ubuntu 16.04 mate desktop
+
+**HDMI version **
+
+Google Drive: https://drive.google.com/file/d/0B_YnvHgh2rwjRThoaHliWVVyZGM/view?usp=sharing
+
+Baidu cloud : http://pan.baidu.com/s/1nu6hJs9
+
+Forum pthread: http://forum.banana-pi.org/t/banana-pi-bpi-m3-new-image-ubuntu-16-04-mate-desktop-beta-bpi-m3-ov8865-sd-emmc-2017-07-13/3542
+
+**LCD 7 verison**
+
+Google Drive: https://drive.google.com/file/d/0B_YnvHgh2rwjVldzUENFQXpiTHc/view?usp=sharing
+
+Baidu cloud : http://pan.baidu.com/s/1o8Uc4Y2
+
+Forum pthread : http://forum.banana-pi.org/t/banana-pi-bpi-m3-new-image-ubuntu-16-04-mate-desktop-beta-bpi-m3-lcd7-ov8865-sd-emmc-img-2017-7-13/3543
+
+**LCD 5 Version**
+
+Google Drive: https://drive.google.com/file/d/0B_YnvHgh2rwjUlpIVjB6LVVmMGc/view?usp=sharing
+
+Baidu cloud : http://pan.baidu.com/s/1hsIJygG
+
+Forum thread: http://forum.banana-pi.org/t/banana-pi-bpi-m3-new-image-ubuntu-16-04-mate-desktop-beta-bpi-m3-lcd5-ov8865-sd-emmc-img-2017-7-13/3544
+
+=== Debian
+
+NOTE: 2018-07-18 BPI-M3 Debian Jessie 9 (new eMMC)
+
+Features Map : http://wiki.banana-pi.org/M3_Image_Map#Debian_Jessie_9
+
+Google Drive : https://drive.google.com/open?id=1M997Uf-RVqdFKJkXMjgY0w3fHyiOq4iG
+
+Baidu Drive : https://pan.baidu.com/s/1yQYG1iOEIrJADV_j-qvdwQ
+
+Forum pthread : http://forum.banana-pi.org/t/bananapi-bpi-m3-new-image-new-emmc-ubuntu16-04-debian9-release-2018-07-18/6294
+
+== Third part image
+
+=== Raspbian
+
+NOTE: 2021-08-03 release, Raspbian Stretch with kernel 3.4.39
+
+Download: link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FImages%2FBPI-M3%2FRaspbian%2F2021-08-03-raspbian-stretch-bpi-m3-sd-emmc.img.zip[2021-08-03-raspbian-stretch-bpi-m3-sd-emmc.img.zip]
+
+MD5: a9890cedbd779a29ff551a7fc5e1eae6
+
+NOTE: 2018-5-28 update : Raspbian 8.0 V1.1
+
+Google Drive: https://drive.google.com/open?id=1DSZru8UQRikI6pImLZIt1DmySVozy0FA
+
+Baidu cloud : https://pan.baidu.com/s/1Pz_6btHxj6F9w_6aw90Dww
+
+Forum thread:
+http://forum.banana-pi.org/t/banana-pi-bpi-m3-new-image-release-raspbian-jessie-8-0-2018-5-28-v1-1/5847
+
+=== Armbian
+
+NOTE: Armbian_23.02.0-trunk_Bananapim3_jammy_edge_6.1.11_xfce_desktop.img
+
+Google Drive: https://drive.google.com/file/d/1zKjbj9iwoCgbaPCImjQ44P4zLBHAB7di/view?usp=sharing
+
+NOTE: Armbian_23.02.0-trunk_Bananapim3_bullseye_edge_6.1.0_xfce_desktop.img
+
+Baidu Cloud: https://pan.baidu.com/s/1hkkl22uVjvRct1V7N4OK2w?pwd=8888
+
+Google Drive: https://drive.google.com/drive/folders/1VpvVkYMqgmSnmfKXQSrEY2B6wRa-cggL?usp=share_link
+
+Discuss on forum: https://forum.banana-pi.org/t/banana-pi-bpi-m3-new-armbian-image/15138
+
+NOTE: 2022-12-06 Armbian_22.11.0-trunk_Bananapim3_bullseye_edge_6.0.9.img.xz
+
+Google Drive: https://drive.google.com/file/d/1Cr0KY0oVqSly-DOipgd_x_a4gQ0oPxm7/view?usp=share_link
+
+Baidu Cloud: https://pan.baidu.com/s/18M5Tsc91z57NUzBm4rcqlg?pwd=8888 (pincode: 8888)
+
+Discuss on forum: https://forum.banana-pi.org/t/bananapi-bpi-m3-new-image-release-armbian-bullseye/14450
+
+NOTE: 2022-09-07 Armbian_22.11.0-trunk_Bananapim3_jammy_edge_5.19.6_xfce_desktop.img
+
+Google Drive: https://drive.google.com/file/d/1iq0gCOAIHjE7bgxeccNPtFp9iK0AtzRM/view?usp=sharing
+
+Baidu Cloud: https://pan.baidu.com/s/1FjNBqpJ0Kv83EpiKt9sZmw?pwd=mtk5 (pincode: mtk5)
+
+NOTE: 2022-09-07 Armbian_22.11.0-trunk_Bananapim3_bullseye_edge_5.19.6_xfce_desktop.img
+
+Google Drive: https://drive.google.com/file/d/1vrM4WLq74O4FEOAmBjUwJGbzZptq3hYi/view?usp=sharing
+
+Baidu Cloud: https://pan.baidu.com/s/1w00wkfX15G6D60W2WH52ug?pwd=awza (pincode: awza)
+
+NOTE: Armbian with 4.17.y for M3
+
+Test build: http://ix.io/1fUK
+
+Broken: wired, wireless network, Bluetooth, ...
+
+Works: serial console, 8 cores, DVFS, USB, SATA, HDMI, DRM video driver, ...
+
+Image: https://forum.armbian.com/topic/474-banana-pi-m3/?do=findComment&comment=57400
+
+Forum pthread: http://forum.banana-pi.org/t/armbian-with-4-17-y-for-m3/6174
+
+=== FreeBSD
+
+NOTE: FreeBSD on Allwinner (sunxi) systems for banana pi
+
+Banana pi as the official partner of Allwinner , must banana pi product use Allwinner chip design . such as A20/A31S/H3/H2+/A64/A83T , and FreeBSD have support many Allwinner . so easy to use on banana pi board.
+
+- Allwinner A20 (sun7i), a dual-core Cortex-A7 BPI-M1/BPI-M1+/BPI-R1
+- Allwinner A31 and A31s (sun6i), a quad-core Cortex-A7 BPI-M2
+- Allwinner A64 (sun50i), a quad-core Cortex-A53 BPI-M64
+- Allwinner A83T (sun8i), an octa-core Cortex-A7 BPI-M3
+- Allwinner H3 (sun8i), a quad-core Cortex-A7 BPI-M2+/BPI-M2+ EDU/
+
+https://wiki.freebsd.org/FreeBSD/arm/Allwinner
+
+=== Simplenas
+
+NOTE: Simplenas image : https://simplenas.com/download/other/banana-m3
+
+=== Lakka TV
+
+- Banana Pi M2+ with H3 chip
+- Banana Pi M3 with A83T chip
+- BPI-M1 and BPI-M1+ use A20 chip
+- more about this : https://bananapi.gitbooks.io/bpi-m3/content/en/lakkatv.html
+
+http://mirror.lakka.tv/nightly/
+
+=== Others image
+
+http://forum.banana-pi.org/c/bpi-m3/M2image
+
+= FAQ
+
+
+
+= Easy to buy
+WARNING: SINOVOIP Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M3/1100417230_40000003593419.html
+
+WARNING: Bipai Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M3/1101951077_40000003551100.html
+
+WARNING: Taobao Shop: https://shop108780008.taobao.com/category-1694930638.htm
+
+WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
