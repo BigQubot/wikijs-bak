@@ -426,7 +426,41 @@ https://www.nano-editor.org/[GNU nano] is a text editor for Unix-like computing 
 
 It is easier to use than https://www.vim.org/[vim] and is suitable for beginners.
 
+Usually you can complete editing, save, and exit the editor in this order:
 
+. `nano [file path]`
+. edit file
+. Ctrl+O	Offer to write file ("Save as")
+. edit file path or name, then press Enter
+. Ctrl+X  Exit nano
 
-=== Set startup logo
+* https://www.nano-editor.org/dist/latest/cheatsheet.html[nano's shortcuts]
+* https://www.nano-editor.org/dist/latest/nano.html[Documentation]
 
+=== Set boot logo
+
+==== on/off boot logo
+
+. `sudo nano "/boot/bananapiEnv.txt"`,rewrite `bootlogo=true` as `bootlogo=false`.
++
+image::/picture/bpi_m4_berry_mobaxterm_8.jpg[bpi_m4_berry_mobaxterm_8.jpg]
+
+. Press keyboard shortcuts Ctrl+O to write file.
++
+image::/picture/bpi_m4_berry_mobaxterm_9.jpg[bpi_m4_berry_mobaxterm_9.jpg]
+
+. No need to change path, Press Enter to save it.
++
+image::/picture/bpi_m4_berry_mobaxterm_10.jpg[bpi_m4_berry_mobaxterm_10.jpg]
+
+. Press keyboard shortcuts Ctrl+X exit nano.
++
+image::/picture/bpi_m4_berry_mobaxterm_11.jpg[bpi_m4_berry_mobaxterm_11.jpg]
+
+. `reboot` , the startup logo would not display.
+
+==== Replace boot logo
+
+. `sudo nano "/boot/bananapiEnv.txt"`,rewrite `bootlogo=false` as `bootlogo=true`.
+
+. 
