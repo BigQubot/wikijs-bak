@@ -464,3 +464,5 @@ image::/picture/bpi_m4_berry_mobaxterm_11.jpg[bpi_m4_berry_mobaxterm_11.jpg]
 . `sudo nano "/boot/bananapiEnv.txt"`,rewrite `bootlogo=false` as `bootlogo=true`.
 
 . The storage path of the boot logo file is: `/usr/share/plymouth/themes/bananapi/watermark.png`.
+
+. 
