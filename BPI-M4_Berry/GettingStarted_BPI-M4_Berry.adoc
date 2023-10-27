@@ -465,4 +465,24 @@ image::/picture/bpi_m4_berry_mobaxterm_11.jpg[bpi_m4_berry_mobaxterm_11.jpg]
 
 . The storage path of the boot logo file is: `/usr/share/plymouth/themes/bananapi/watermark.png`.
 
-. 
+. Prepare a `png` image, preferably a pattern with a transparent layer, and rename it to `watermark.png`.
++
+
+
+. Copy it to the `/home/pi/watermark.png` path using any method you like.
+
+. Copy it to the target path with root privileges.
++
+```
+sudo cp "/home/pi/watermark.png" "/usr/share/plymouth/themes/bananapi/watermark.png"
+```
+
+. Use this command to apply the changes and wait for tens of seconds for it to complete the build.
++
+```
+sudo update-initramfs -u
+```
+
+. `reboot`, you will see that boot logo has changed to the image you replaced.
++
+image::/picture/bpi_m4_berry_ubuntu_8.jpg[bpi_m4_berry_ubuntu_8.jpg]
