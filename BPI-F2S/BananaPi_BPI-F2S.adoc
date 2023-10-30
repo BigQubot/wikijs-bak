@@ -1,4 +1,4 @@
-= BPI-F2 Introduction
+= BPI-F2S Introduction
 
 Banana Pi BPI-F2S is the first board with Banana Pi team and link:https://www.sunplus.com/[SunPlus], this is a industrial-grade board. use Plus1(sp7021) design. this is a industrial-grade board. we also design a Xilinx Artix-7 FPGA extend board.
 
@@ -46,7 +46,7 @@ WARNING: Note : 40 PIN GPIO compitable Raspberry Pi
 
 [option="header",cols="1,4"]
 |=====
-2+| **HardWare Specification of Banana Pi M2+(Plus)**
+2+| **HardWare Specification of Banana Pi F2S**
 | SoC |Sunplus SP7021 “Plus1” with a quad-core Cortex-A7 processor @ 1.0 GHz, one Arm A926 microprocessor, an 8051 core to handle I/Os, and 128MB or 512MB DDR3 DRAM.
 | Storage | 8GB eMMC flash, microSD card slot
 | Video Output | HDMI 1.4 output
