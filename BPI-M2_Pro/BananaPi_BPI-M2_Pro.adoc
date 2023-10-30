@@ -1,0 +1,215 @@
+= BPI-xx Introduction
+
+Banana Pi BPI-M2 Pro is the next generation single board computer from Banana Pi in 2021. It is powered by Amlogic S905X3 quad-core Cortex-A55 (2.0 XXGHz) processor.Onboard 2GB LPDDR4 memory and 16GB EMMC storage, and supports 2 USB 3.0 interface, a gigabit network port. RT8821CU wifi&BT onboard. 1 HDMI output
+
+BPI-M2 Pro same size as Banana Pi BPI-M2+ , and interface is also same .So can use BPI-M2+ case.
+
+image::/a_bpi-m1.jpg[bpi-m1.jpg]
+
+== Key Features
+
+- Amlogic S905X3 64-bit Quad core Cortex-A55 (2.0xxGHz)
+- Mali-G31 GPU
+- 2GB LPDDR4
+- 16GB eMMC flash
+- 2 USB 3.0
+- RTL8821CU WiFi&BT 4.2 onboard
+- 1 GbE ethernet
+- HDMI output
+
+== Getting Start
+
+link:/en/BPI-M2_Pro/GettingStarted_BPI-M2_Pro[Getting Started BPI-M2_Pro]
+
+= Hardware
+== Hardware Interface
+
+image::/bpi-m1_interface.jpg[bpi-m1_interface.jpg]
+
+== Hardware Spec
+
+[option="header",cols="1,3"]
+|=====
+2+| **HardWare Specification of Banana Pi M2 Pro**
+| CPU             | Amlogic S905X3 64-bit Quad-Core Cortex-A55 (2.0xxGHz)
+| GPU             | Mali-G31 MP2 GPU with 4 x Execution Engines (650Mhz)
+| Memory          | 2 GB LPDDR4
+| Storage         | MicroSD slot with support for up to 256GB expansion and 16G eMMC flash with support for up to 64GB         
+| Network         | 10/100/1000 Mbit/s Ethernet
+| Wifi&BT         | Dual-band 802.11 b/g/n/ac WiFi 5 1×1 and Bluetooth 4.2 via Realtek RTL8821CU
+| Video Output(s) | 1 x HDMI 2.1 (up to 4K@60Hz with HDR, CEC, EDID) 
+| Audio Output(s) | 1 x HDMI digital output 
+| USB ports       | 2x USB 3.0 host ports, 1x micro USB OTG port
+| GPIO            | 40 Pin Header : GPIO (x28) and Power (+5V, +3.3V and GND). GPIO pins can be used for UART, I2C, SPI or PWM 
+| Switches        | Reset, Power and U-boot
+| LED             | Power Status and Activity status
+| Power Source    | 5 volt @3A / 5 volt @2A via DC port 
+| Size & Weight   | 65mm×65mm, 58g
+| OS              | Android and Linux
+|=====
+
+== GPIO Pin Define
+
+=== BPI-xx 40PIN GPIO
+
+xxxx
+
+image::/picture/bpi-m1_26_pin.png[bpi-m1_26_pin.png]
+
+[option="header",cols="2,1,1"]
+|=====
+3+| **40 PIN GPIO of Banana pi BPI-M1**
+| CSI GPIO Pin | Pin Name | GPIO
+| CONx P01 | xxxx         | xxxx
+| CONx P02 | xxxx         | xxxx
+| CONx P03 | xxxx         | xxxx
+| CONx P04 | xxxx         | xxxx
+| CONx P05 | xxxx         | xxxx
+| CONx P06 | xxxx         | xxxx
+| CONx P07 | xxxx         | xxxx
+| CONx P08 | xxxx         | xxxx
+| CONx P09 | xxxx         | xxxx
+| CONx P10 | xxxx         | xxxx
+| CONx P11 | xxxx         | xxxx
+| CONx P12 | xxxx         | xxxx
+| CONx P13 | xxxx         | xxxx
+| CONx P14 | xxxx         | xxxx 
+| CONx P15 | xxxx         | xxxx 
+| CONx P16 | xxxx         | xxxx 
+| CONx P17 | xxxx         | xxxx 
+| CONx P18 | xxxx         | xxxx 
+| CONx P19 | xxxx         | xxxx 
+| CONx P20 | xxxx         | xxxx 
+| CONx P21 | xxxx         | xxxx 
+| CONx P22 | xxxx         | xxxx 
+| CONx P23 | xxxx         | xxxx 
+| CONx P24 | xxxx         | xxxx 
+| CONx P25 | xxxx         | xxxx 
+| CONx P26 | xxxx         | xxxx 
+| CONx P27 | xxxx         | xxxx 
+| CONx P28 | xxxx         | xxxx 
+| CONx P29 | xxxx         | xxxx 
+| CONx P30 | xxxx         | xxxx 
+| CONx P31 | xxxx         | xxxx 
+| CONx P32 | xxxx         | xxxx 
+| CONx P33 | xxxx         | xxxx 
+| CONx P34 | xxxx         | xxxx 
+| CONx P35 | xxxx         | xxxx 
+| CONx P36 | xxxx         | xxxx 
+| CONx P37 | xxxx         | xxxx 
+| CONx P38 | xxxx         | xxxx 
+| CONx P39 | xxxx         | xxxx
+| CONx P40 | xxxx         | xxxx
+|=====
+
+=== BPI-M5 Debug UART
+
+|=====
+|CONx-P1  | GND
+|CONx-P2  | UART0-RX
+|CONx-P3  | UART0-TX
+|=====
+
+= Development
+== Source Code
+
+=== Linux BSP Source Code
+
+TIP: Linux BSP source code
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+=== Android
+
+TIP: Linux BSP source code
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+== Resources
+
+= System Image
+== Android
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+== Linux
+
+=== Ubuntu
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+=== Debian
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+=== CentOS
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+== Third part image
+
+=== Raspbian
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+=== Armbian
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+=== EmuELEC
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+=== CoreELEC
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+= FAQ
+
+
+
+= Easy to buy
+
+WARNING: SINOVOIP Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M1/1100417230_40000003426518.html
+
+WARNING: Bipai Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M1/1101951077_40000003418620.html
+
+WARNING: Taobao Shop: https://shop108780008.taobao.com/category-1694930629.htm
+
+WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
