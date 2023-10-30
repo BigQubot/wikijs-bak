@@ -30,7 +30,7 @@ link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super[Getting Started BPI-M2_Super]
 = Hardware
 == Hardware Interface
 
-image::/bpi-m1_interface.jpg[bpi-m1_interface.jpg]
+image::/picture/bpi-m2s_s922x_new.jpg[bpi-m2s_s922x_new.jpg]
 
 == Hardware Spec
 
@@ -212,6 +212,18 @@ Baidu Cloud: https://pan.baidu.com/s/1i6VMpHsCEL6Nwxu282epLA?pwd=8888 (pincode: 
 Google Drive: https://drive.google.com/file/d/176LPTjQgcXXNNibSbRRXKqTYxZHQqLDu/view?usp=sharing
 
 TIP: Amlogic A311D datasheet: https://drive.google.com/file/d/1SRAY_RDxKhw819uyo9H13zNN2wlG6LDq/view?usp=sharing
+
+== PoE Wifi&BT
+
+image::/picture/banana_pi_bpi-m2s_with_poe_wifi_bt.jpg[banana_pi_bpi-m2s_with_poe_wifi_bt.jpg]
+
+BPI-M5 rtl8822cs WiFi&BT board,SDIO interface, 802.11 a/b/g/n/ac 2T2R WiFi and Bluectooch 5.0
+
+- discuss on forum : https://forum.banana-pi.org/t/bpi-m5-rtl8822cs-wifi-bt-board-sdio-interface-802-11-a-b-g-n-ac-2t2r-wifi-and-bluectooch-5-0/11846
+
+PoE support RT9600-5V PoE module
+
+link:https://wiki.banana-pi.org/BPI-9600_IEEE_802.3af_PoE_module[BPI-9600 IEEE 802.3af PoE module]
 
 = System Image
 == Android
