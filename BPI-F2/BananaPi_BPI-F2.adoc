@@ -6,7 +6,7 @@ image::/picture/bpi-f2.jpg[bpi-f2.jpg]
 
 == Key Features
 
-- freescale IMX6 Industrial solutions.
+- Freescale IMX6 Industrial solutions.
 - 2G DDR3 and 8G eMMC flash
 - CAN bus function support
 - Mini PCIE interface
@@ -23,13 +23,13 @@ image::/picture/bpi-f2_interface.jfif[bpi-f2_interface.jfif]
 [option="header",cols="1,3"]
 |=====
 2+| **HardWare Specification of Banana Pi F2**
-| Soc              | freescale IMX6
+| Soc              | Freescale IMX6
 | CPU              | ARM Cortex-A9 MPCore 4xCPU processor(with TrustZone)
 | GPU              | OpenGL ES 2.0 3D graphics accelerator with forshaders,2D graphics accelerator,and didicated OpenVG 1.1 accelerator 
 | SDRAM            | 2G DDR3
 | PCIE             | 1 mini PCIE interface 
 | CAN bus          | 1 CAN bus interface
-| SATA             | support 1*SATA interface
+| SATA             | Support 1*SATA interface
 | GPIO             | 40 Pins Header, 28×GPIO, some of which can be used for specific functions including UART, I2C, SPI, PWM, I2S.      
 | On board Network | 10/100/1000 Mbit/s Ethernet 
 | Wifi Module      | N/A
