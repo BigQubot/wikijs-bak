@@ -111,17 +111,17 @@ image::/picture/bpi-f2s_with_fpga_4.jpg[bpi-f2s_with_fpga_4.jpg]
 
 . BPI-F2S sunplus board
 . FPGA baord: Xilinx Artix-7 XC7A100T,32 MByte QSPI Flash memory,power by single 3.3v
-. teaching sheet board : 4 digit 7 segment digital tube teaching,DIP8 socket for SPI flash IP authentication,8 LED lights are used for teaching
-. debug tooling
+. Teaching sheet board : 4 digit 7 segment digital tube teaching,DIP8 socket for SPI flash IP authentication,8 LED lights are used for teaching
+. Debug tooling
 . 12v/2A adapter
 
 === FPGA kit documents
 
-TIP: online development doc: https://sunplus-tibbo.atlassian.net/wiki/spaces/doc/pages/470777857/SP7021+Plus+Xilinx+FPGA+SOC+Platform+UserGuide
+TIP: Online development doc: https://sunplus-tibbo.atlassian.net/wiki/spaces/doc/pages/470777857/SP7021+Plus+Xilinx+FPGA+SOC+Platform+UserGuide
 
 TIP: Sunplus official website for BPI-F2S FPGA development Kit: http://www.cqplus1.com/zlxz
 
-TIP: function demo : https://www.youtube.com/watch?v=602gQo_Qcrs
+TIP: Function demo : https://www.youtube.com/watch?v=602gQo_Qcrs
 
 === FPGA Module with Xilinx Artix-7 100T (Variant 2D), 2 x 50 Pin, 1.8V only supply
 
@@ -144,7 +144,7 @@ Trenz HyperBus enabled reference designs are typically bundled with a FREE evalu
 - 7.3 x 3.5 cm form factor
 - JTAG/UART connector
 - One user LED
-- optional HyperRAM (8 bis 32 MByte) or HyperFlash
+- Optional HyperRAM (8 bis 32 MByte) or HyperFlash
 - HyperRAM from Cypress : http://www.cypress.com/products/hyperram-memory
 - HyperFlash from Cypress： http://www.cypress.com/products/hyperflash-nor-flash-memory
  
@@ -225,6 +225,6 @@ Discuss on forum : http://forum.banana-pi.org/t/bpi-f2s-new-image-mozilla-iot-rp
 
 WARNING: Aliexpress online shop: https://pt.aliexpress.com/store/group/Banana-PI-F2S-Board/302756_517091763.html?spm=a2g03.12010612.0.0.6124277eh17sp6
 
-WARNING: Taobao shop ： https://item.taobao.com/item.htm?ft=t&id=610642319814
+WARNING: Taobao shop : https://item.taobao.com/item.htm?ft=t&id=610642319814
 
 WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
