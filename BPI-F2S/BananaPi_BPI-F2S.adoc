@@ -1,0 +1,228 @@
+= BPI-xx Introduction
+
+Banana Pi BPI-F2S is the first board with Banana Pi team and link:https://www.sunplus.com/[SunPlus], this is a industrial-grade board. use Plus1(sp7021) design. this is a industrial-grade board. we also design a Xilinx Artix-7 FPGA extend board.
+
+image::/a_bpi-m1.jpg[bpi-m1.jpg]
+
+=== about SunPlus SP7021
+
+SunPlus sp7021 is a revolutionary SoC that has the power of a Linux-grade chip and the integration simplicity of a microcontroller.it with ARM Cortex-A7 Quad core,ARM926 real-time core,8051 low-power core
+
+Conceived by Sunplus Technology in collaboration with Tibbo Technology, PLUS1 takes all the sophisticated elements typically found in modern industrial-grade embedded Linux chips, adds a plethora of features targeting IoT and industrial control applications, and delivers the resulting design in a simple microcontroller-like package that needs few external components, simplifies the schematic diagram, and reduces the PCB complexity.
+
+SP7021 is a SoC solution of industrial control. It meets customers’full demand on function but with low cost so that will improve customers’ competitiveness in the market. SP7021 provides rich GPIOs, storage and USB interface. And it provides MIPI CSI interface for video input and HDMI interface for video output. It also provides FPGA interface for function extension. SP7021 also has 4 Ethernet ports providing customers a high competitive solution.
+
+== Key Features
+
+- Easy-to-use LQFP package.
+- Quad-core 1GHz Cortex-A7 CPU, plus A926 and 8051 cores.
+- Single 3.3V power*.
+- Integrated 128MB or 512MB DDR3 DRAM.
+- Eight 8-bit 5V-tolerant IO ports, plus one high-current port.
+- Flexible Peripheral Multiplexing (PinMux).
+- Dual PinMuxable Ethernet MACs.
+- Four PinMuxable Enhanced UARTs, plus one console UART.
+- Industrial operating temperature range: -40C ~ +85C.
+- Low EMI simplifies certification.
+- Modern, Yocto-based Linux distribution.
+- 10-year supply guarantee.
+- Robust ready-to-run modern Linux distribution available
+- And much more...
+
+== Application direction
+
+- IoT/Industrial Internet control
+- Smart Audio
+- Smart Payment system
+- FPGA education and development
+- Vehicular networking technology and applications
+
+= Hardware
+== Hardware Interface
+
+image::/bpi-m1_interface.jpg[bpi-m1_interface.jpg]
+
+WARNING: Note : 40 PIN GPIO compitable Raspberry Pi
+
+== Hardware Spec
+
+[option="header",cols="1,4"]
+|=====
+2+| **HardWare Specification of Banana Pi M2+(Plus)**
+| SoC |Sunplus SP7021 “Plus1” with a quad-core Cortex-A7 processor @ 1.0 GHz, one Arm A926 microprocessor, an 8051 core to handle I/Os, and 128MB or 512MB DDR3 DRAM.
+| Storage | 8GB eMMC flash, microSD card slot
+| Video Output | HDMI 1.4 output
+| Camera I/F | MIPI CSI connector
+| Connectivity | 2x 10/100M Ethernet
+| USB | 2x USB 2.0 host ports, 1x micro USB port
+| Expansion | 40-pin GPIO header compatible with Raspberry Pi header
+
+2x 50-pin FPGA interface for Trenz Electronic TE0725LP-01-100-2D Artix 7 FPGA board
+
+Unpopulated, undocumented 50-pin header that’s appears to be routed to one of the headers for the optional FPGA board
+| Debugging | 3-pin header for UART console, 10-pin JTAG header, SWD ICE port
+| Security | TPM 2.0 via ST33TPH2EI2C secure element
+| Misc | Power switch, reset button, boot selection dip switch
+| Power Supply | 12VDC via power barrel jack
+| Dimensions | 135x80mm
+| Temperature Range | -40C ~ +85°C
+|=====
+
+= Development
+== Source Code
+
+=== Linux
+
+TIP: Sunpuls github for Linux kernel 4.19 and 5.4 source code: https://github.com/sunplus-plus1
+
+TIP: BPI-F2S BPS code with kernel 5.4.35 : https://github.com/BPI-SINOVOIP/BPI-F2S-bsp
+
+== Resources
+
+TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
+
+TIP: All banana pi link:https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[docement(SCH file,DXF file,and doc)]
+
+TIP: Banana Pi BPI-F2S schematic diagram: link:https://drive.google.com/drive/folders/0B4PAo2nW2KfnflVqbjJGTFlFTTd1b1o1OUxDNk5ackVDM0RNUjBpZ0FQU19SbDk1MngzZWM?resourcekey=0-ZRCiv304nGzvq-w7lwnpjg&usp=sharing[google driver]
+
+TIP: BPI-F2S DXF file : https://drive.google.com/file/d/1HMPTBYWvK_kk6KkvVHY3KDnwYe_noMZW/view?usp=sharing
+
+TIP: Sunpulus wiki page documents(english): https://sunplus-tibbo.atlassian.net/wiki/spaces/doc/overview
+
+TIP: PLUS1 SP7021 Datasheet : https://drive.google.com/file/d/1MWFwgHMteMKVxgzyK5ClU9LOyh-M8xPA/view?usp=sharing
+
+TIP: SP7021 Released Document : https://sunplus-tibbo.atlassian.net/wiki/spaces/doc/overview
+
+TIP: Banana Pi BPI-F2P Sunplus SP7021 industrial control board PoE function test: https://www.youtube.com/watch?v=YQ5rVYHLHQI
+
+TIP: link:https://www.youtube.com/watch?v=eoSP7cO2ki4&feature=youtu.be[Banana Pi BPI-F2S setup & run fedora 31 (u-boot-2019.04 + kernel 4.19.37)]
+
+TIP: FPGA TRM-TE0725LP-01_usermanual: https://drive.google.com/file/d/1yKsbKSc2VSZgkFH_Oezm_75lD5un8MMT/view?usp=sharing
+
+TIP: Xilinx AI Platform tutorials: https://github.com/Xilinx/Edge-AI-Platform-Tutorials
+
+TIP: Xilinx edge AI platform : https://www.xilinx.com/products/design-tools/ai-inference/edge-ai-platform.html
+
+== SOC education and training practice suite
+
+SunPlus SP7021 development suite is a set of development platform with high integration of single chip based on sunplus 7021 SOC.With high performance, low Characteristics of power consumption;Embedded Linux Embed system, suitable for voice image processing, communication, portable industrial control equipment and other applications.With high performance processor, especially suitable for AI artificial intelligence, machine vision and other applications requiring strong computing power;Expandable FPGA module, can Layout, small board area, easy to field test application
+
+=== Kit include
+
+. BPI-F2S sunplus board
+. FPGA baord: Xilinx Artix-7 XC7A100T,32 MByte QSPI Flash memory,power by single 3.3v
+. teaching sheet board : 4 digit 7 segment digital tube teaching,DIP8 socket for SPI flash IP authentication,8 LED lights are used for teaching
+. debug tooling
+. 12v/2A adapter
+
+=== FPGA kit documents
+
+TIP: online development doc: https://sunplus-tibbo.atlassian.net/wiki/spaces/doc/pages/470777857/SP7021+Plus+Xilinx+FPGA+SOC+Platform+UserGuide
+
+TIP: Sunplus official website for BPI-F2S FPGA development Kit: http://www.cqplus1.com/zlxz
+
+TIP: function demo : https://www.youtube.com/watch?v=602gQo_Qcrs
+
+=== FPGA Module with Xilinx Artix-7 100T (Variant 2D), 2 x 50 Pin, 1.8V only supply
+
+Now with the Trenz Electronic TE0725LP-01-100-2D is a low cost small-sized FPGA module integrating a Xilinx Artix-7 (15T-100T) and 32 MByte Flash memory for configuration and operation. The 2 x 50 pin headers with a 2.54 mm standard pitch are perfect for breadboard or low cost dual layer PCB.
+
+Trenz HyperBus enabled reference designs are typically bundled with a FREE evaluation edition of the commercially proven, low-cost, low-circuit area, high performance, HyperBus Memory Controller (HBMC) IP supplied by Synaptic Laboratories Ltd. Synaptic Labs HBMC IP is commercially proven in both Intel and Xilinx projects, and was selected by Intel. This FREE HBMC IP evaluation license never expires, and no customer registration or NIC ID is required. You can check for and obtain the latest version of the FREE evaluation HBMC IP from S/Labs website for Xilinx and Intel.
+
+==== Key Features
+
+- Xilinx Artix-7 XC7A100T-2CSG324C/XC7A100T-2CSG324I
+- Commercial temperature grade (industrial on request)
+- 32 MByte Flash memory
+- 2 x 50 pin headers with 2.54 mm pitch, ideal for breadboard use
+- 1.8 V single supply with on board voltage regulators
+- 95 I/O's (42 + 42 + 3 + 8)
+- 25 MHz system clock (100 MHz can be customized on request)
+- I2C EEPROM
+- 7.3 x 3.5 cm form factor
+- JTAG/UART connector
+- One user LED
+- optional HyperRAM (8 bis 32 MByte) or HyperFlash
+- HyperRAM from Cypress : http://www.cypress.com/products/hyperram-memory
+- HyperFlash from Cypress： http://www.cypress.com/products/hyperflash-nor-flash-memory
+ 
+= System Image
+== Linux
+
+=== Ubuntu
+
+NOTE: 2019-12-25 update :ubuntu mate 18.04 desktop 2019-12-25 base on kernel 4.19.37
+
+Google link: https://drive.google.com/file/d/1_TJzJPMm89Fb9Fji1PddMPas-EEO-IGw/view
+
+Discuss on forum: http://forum.banana-pi.org/t/bpi-f2s-new-image-ubuntu-mate-18-04-desktop-2019-12-25/10454
+
+=== Debian
+
+NOTE: Debian-10-buste-bpi-f2s-sd-emmc 2019-11-26 kernel 4.19
+
+Google download link: https://drive.google.com/file/d/1MpjDeUk4H-EXzaxpuywgbgRaM8YXoXjI/view
+
+Discuss on forum: http://forum.banana-pi.org/t/bpi-f2s-new-image-debian-10-buste-bpi-f2s-sd-emmc-2019-11-26/10270
+
+=== CentOS
+
+NOTE: CentOS userland armv7hl-RaspberryPi KDE 1908 sda 2019-12-25 base on kernel 4.19.37
+
+Google link: https://drive.google.com/file/d/1Is-BS7lvCUrRBkO7wCjn4q51eI7Yof-l/view
+
+Password: root/centos
+
+Discuss on forum: http://forum.banana-pi.org/t/bpi-f2s-new-image-centos-userland-armv7hl-raspberrypi-kde-1908-sda-2019-12-25/10452
+
+=== Kail Linux
+
+NOTE: 2019-12-25 update:Kail Linux 2019.4 nexmon 2019-12-25 base on kernel 4.19.37
+
+Google link: https://drive.google.com/file/d/19G49t288CKKLGokI-jQOs9h7rtsxGBGo/view?usp=drivesdk
+
+Password: root/toor
+
+Discuss on forum: http://forum.banana-pi.org/t/bpi-f2s-new-image-kail-linux-2019-4-nexmon-2019-12-25/10453
+
+=== Yocto Linux
+
+NOTE: This code is support by Tibbo/SunPlus
+
+Github link: https://github.com/tibbotech/yocto_layers
+
+== Third part image
+
+=== Fedora-Mate
+
+NOTE: Banana Pi BPI-F2S setup & run fedora 31 (u-boot-2019.04 + kernel 4.19.37)
+
+Google download : https://drive.google.com/open?id=1ATHmvKvYoBpM3uyQ2xK4pvKahlgCGHnq
+
+Discuss on forum: http://forum.banana-pi.org/t/bpi-f2s-new-image-fedora-mate-armhfp-31-1-9-sda-raw-xz-bpi-f2s-sd-emmc-img-2019-11-15/10206
+
+Boot logfile: https://github.com/BPI-SINOVOIP/BPI-files/blob/master/others/logfile/bpi-f2s/20191114/2019-11-14-Fedora-Mate-armhfp-31-1.9-sda.raw.xz-bpi-f2s-sd-emmc.img.txt
+
+Readme: https://github.com/BPI-SINOVOIP/BPI-files/blob/master/others/logfile/bpi-f2s/20191114/readme.txt
+
+=== Mozilla IoT gateway
+
+NOTE: Mozilla IoT rpi gateway 0.10.0 2019-12-25 base on kernel 4.19.37
+
+Google link: https://drive.google.com/file/d/1wPDeqQpKce-I81fQ638HE_ogl-MDkOOB/view?usp=drivesdk
+
+Mozilla gateway getting started guide: https://iot.mozilla.org/docs/gateway-getting-started-guide.html
+
+Discuss on forum : http://forum.banana-pi.org/t/bpi-f2s-new-image-mozilla-iot-rpi-gateway-0-10-0-2019-12-25/10455
+
+= FAQ
+
+
+
+= Easy to buy
+
+WARNING: Aliexpress online shop: https://pt.aliexpress.com/store/group/Banana-PI-F2S-Board/302756_517091763.html?spm=a2g03.12010612.0.0.6124277eh17sp6
+
+WARNING: Taobao shop ： https://item.taobao.com/item.htm?ft=t&id=610642319814
+
+WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
