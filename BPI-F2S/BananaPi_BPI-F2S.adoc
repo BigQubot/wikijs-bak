@@ -1,8 +1,6 @@
-= BPI-xx Introduction
+= BPI-F2 Introduction
 
 Banana Pi BPI-F2S is the first board with Banana Pi team and link:https://www.sunplus.com/[SunPlus], this is a industrial-grade board. use Plus1(sp7021) design. this is a industrial-grade board. we also design a Xilinx Artix-7 FPGA extend board.
-
-image::/a_bpi-m1.jpg[bpi-m1.jpg]
 
 === about SunPlus SP7021
 
@@ -40,7 +38,7 @@ SP7021 is a SoC solution of industrial control. It meets customers’full demand
 = Hardware
 == Hardware Interface
 
-image::/bpi-m1_interface.jpg[bpi-m1_interface.jpg]
+image::/picture/banana_pi_bpi-f2s_6.jfif[banana_pi_bpi-f2s_6.jfif]
 
 WARNING: Note : 40 PIN GPIO compitable Raspberry Pi
 
@@ -107,6 +105,8 @@ TIP: Xilinx edge AI platform : https://www.xilinx.com/products/design-tools/ai-i
 
 SunPlus SP7021 development suite is a set of development platform with high integration of single chip based on sunplus 7021 SOC.With high performance, low Characteristics of power consumption;Embedded Linux Embed system, suitable for voice image processing, communication, portable industrial control equipment and other applications.With high performance processor, especially suitable for AI artificial intelligence, machine vision and other applications requiring strong computing power;Expandable FPGA module, can Layout, small board area, easy to field test application
 
+image::/picture/bpi-f2s_with_fpga_4.jpg[bpi-f2s_with_fpga_4.jpg]
+
 === Kit include
 
 . BPI-F2S sunplus board
@@ -124,6 +124,8 @@ TIP: Sunplus official website for BPI-F2S FPGA development Kit: http://www.cqplu
 TIP: function demo : https://www.youtube.com/watch?v=602gQo_Qcrs
 
 === FPGA Module with Xilinx Artix-7 100T (Variant 2D), 2 x 50 Pin, 1.8V only supply
+
+image::/picture/xilinx_artix-7_fpga_9.jpg[xilinx_artix-7_fpga_9.jpg]
 
 Now with the Trenz Electronic TE0725LP-01-100-2D is a low cost small-sized FPGA module integrating a Xilinx Artix-7 (15T-100T) and 32 MByte Flash memory for configuration and operation. The 2 x 50 pin headers with a 2.54 mm standard pitch are perfect for breadboard or low cost dual layer PCB.
 
