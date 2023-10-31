@@ -1,5 +1,7 @@
 = BPI-P2 Pro Introduction
 
+image::/picture/banana_pi_bpi-p2_pro_banner_1.jpg[banana_pi_bpi-p2_pro_banner_1.jpg]
+
 Banana Pi BPI-P2 pro（Armsom Pro） is a development board based on RK3308B-S chip. With a high-performance 4-core ARM Cortex-A35 processor, 512M RAM(16bit DDR2/DDR3/DDR3L/LPDDR2). and 8G eMMC onboard ,support PoE function.The chip has a wealth of interfaces, such as I2S,PCM,TDM, I2C,UART,SPDIF,HDMI ARC, etc., to meet the application of different products. RK3308 has a rich voice interface, its own eight ADC interface, multi-channel I2S and multi-channel PDM interface. This not only provides customers with a wealth of interface choices, but also can reduce the hardware design difficulty and hardware design cost of products.
 
 Banana Pi BPI-P2 Pro has 512MB DDR3 memory size, operating system and storage can use SD card or emmc. BPI-P2 Pro is available as an onboard storage version with 1Gb/2Gb/4Gb/8Gb NAND flash
@@ -31,7 +33,7 @@ link:/en/BPI-P2_Pro/GettingStarted_BPI-P2_Pro[Getting Started BPI-P2_Pro]
 = Hardware
 == Hardware Interface
 
-image::/bpi-m1_interface.jpg[bpi-m1_interface.jpg]
+image::/picture/banana_pi_bpi-p2_pro.jpg[banana_pi_bpi-p2_pro.jpg]
 
 == Hardware Spec
 
