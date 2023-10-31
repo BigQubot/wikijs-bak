@@ -1,0 +1,54 @@
+= Introduction
+
+Banana Pi BPI-CM2 is a computer module with Rockchip RK3568 Quad-core ARM Cortex-A55 CPU, Mali-G52 1-Core-2EE GPU,2GB LPDDR4/LPDDR4x ,16G eMMC flash (Max 128G),Designed with Board to Board connectors for enhanced stability same as Raspberry Pi CM4 , which means that it should work with carrier boards designed for the Raspberry Pi CM4.
+
+Rockchip RK3568 provides a wealth of interface resources. In addition to the board-to-board connectors compatible with the Raspberry PI, other interfaces are also drawn from the board-to-board interface, so that you can design your own base board and use of the rich interface resources of the RK3568.
+
+== Rockchip RK3568
+
+RK3568 has built-in MICRO-research NPU of Rockchip, 0.8Tops computing power and integrated high performance AI accelerator RKNN NPU. Rockchip also provides developers with an easy-to-use model transformation tool, RKNN-Toolkit, which supports one-click transformation of Caffe/TensorFlow/TF-Lite/ONNX/PyTorch/Keras/Darknet mainstream architecture models.
+
+RK3568 has rich interface expansion capabilities. Supports a variety of peripheral high-speed interfaces, supporting four USB2.0 ports, 4xUSB2.0 HOST+ 1xUSB3.0 HOST+ 1xusB3.0 OTG. Support gigabit Ethernet *2, multi-camera support, support MIPI CSI 4Lanes, can be divided into 2x2Lanes two groups of independent use support 16bit DVP interface, support BT1120 input, support VC mode. RK3568 has a complete display interface, support HDMI 2.0 output support dual channel MIPI DSI, dual channel LVDS, can drive 2.5K LCD screen, can directly drive ink screen, support eDp. RK3568 has plenty of peripherals, supporting 10x UART, 6x I2C, 16x PWM, 4x SPI, 8xSARADC and MINI PCIE.
+
+Rockchip RK3568 chip is a high-range general-purpose SoC, made in 22nm process technology, integrated 4-core ARM architecture A55 processor and Mali G52 2EE graphics processor, supporting 4K decoding and 1080P encoding. RK3568 supports various types of peripheral interfaces such as SATA/PCIE/USB3.0, it has a built-in independent NPU, and can be used for lightweight AI applications. RK3568 supports both Android 11 and Linux systems, and targets at industrial customization markets such as IoT gateways, NVR storage, industrial control panels, industrial equipment, industrial control boxes, karaoke, cloud terminals, and vehicle control center.
+
+== Application direction
+
+* Maker DIY 
+* Internet service gateway
+* robot control
+* Industrial control and industrial automation gateway
+* NAS device
+* Network and communication applications
+
+== Key Features
+
+* Rockchip RK3568 Quad-core ARM Cortex-A55 CPU
+* Mali-G52 1-Core-2EE GPU
+* 2GB LPDDR4/LPDDR4x (Max 8G)
+* 16G eMMC flash (Max 128G)
+* support Android and Linux system.
+* Size: 55x40mm
+
+== Getting Start
+
+link:/en/BPI-CM2/GettingStarted_BPI-CM2[Getting Started BPI-CM2]
+
+= Hardware
+== Hardware Interface
+
+image::/picture/banana_pi_bpi-cm2_interface.jpg[banana_pi_bpi-cm2_interface.jpg]
+
+== Hardware Spec
+
+== GPIO Pin Define
+
+= Development
+== Source Code
+
+== Resources
+*  https://www.cnx-software.com/2020/12/16/rockchip-rk3566-and-rk3568-datasheets-and-features-comparison/[Rockchip RK3566 and RK3568 datasheets and features comparison]
+
+=Easy to buy sample=
+
+* OEM&ODM please contact : judyhuang@banana-pi.com
