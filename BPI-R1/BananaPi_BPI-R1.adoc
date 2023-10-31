@@ -93,7 +93,7 @@ Today,we are introducing a new solution to modify the resolution of HDMI, no oth
 
 . install compile sunxi-tools depended-upon packages
 +
-```
+```sh
 sudo apt-get install libusb-1.0-0-dev
 ```
 +
