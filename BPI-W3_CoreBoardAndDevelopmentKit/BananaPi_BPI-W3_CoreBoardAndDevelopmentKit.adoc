@@ -1,0 +1,63 @@
+= BPI-W3 Core board and development Kit Introduction
+
+Banana Pi BPI-W3 adopts Rockchip RK3588 design, adopts core board + baseboard development board suite, supports 8G memory,32G eMMC storage, supports 32G maximum memory and 128G maximum EMMC storage, can be convenient for all kinds of development and flexible base plate customization quickly mass production of products.
+
+== Rockchip RK3588 chip
+
+RK3588 is a new generation of flagship high-end processor launched by SWMC. It adopts 8nm process design and is equipped with eight-core CPU of quad core A76+ quad core A55, Arm high-performance GPU, and built-in NPU with 6T computing power. Have strong visual processing ability, can support structure light, TOF and other fast face unlock schemes; Support rich display interface, up to 8K display processing capacity; With strong expansibility, support PCI 3.0, SATA3.0, double TypeC/USB3.1 and other high-speed interfaces, can do AI computing power, image data processing and other expansion. Apply to ARMPC, high-end tablet, edge computing server, VIRTUAL reality, NVR, 8K TV, etc.The most important is pCI-E and SATA USB3.1 these IO are complete.
+
+= Hardware
+== Hardware Interface
+
+image::/picture/bpi-rk3588_board_core_3.jpg[bpi-rk3588_board_core_3.jpg]
+
+== Hardware Spec
+
+[option="header",cols="1,5"]
+|=====
+2+| **HardWare Specification of BPI-RK3588 Gold finger interface core board**
+| SoC                   | RockChip RK3588                                                                                                                                                             
+| CPU                   | quad ARM Cortex-A76 and quad Cortex-A55 consists of an eight-core CPU processor                                                                                             
+| GPU                   | ARM Mali-G610 MP4,support OpenGL ES 1.1/2.0/3.2，OpenCL 2.2，Vulkan 1.1 Embedded high-performance 2D acceleration hardware                                                    
+| NPU                   | 6Tops@INT8 ，                                                                                                                                                                
+| Video decode          | Caffe/TensorFlow/TFLite/ONNX PyTorch/Keras/Darknet mainstream architecture model of a key transformation VPU support 8 k 60 FPS h. 265 / AVS2 Profile0 / VP9 video decoding 
+| Video encode          | Supports 8K 30FPS H.265/H.264 video encoding                                                                                                                                
+| RAM                   | support 2GB / 4GB / 8GB LPDDR4C                                                                                                                                             
+| eMMC flash            | support 32GB / 64GB / 128GB eMMC                                                                                                                                            
+| System                | Android 12.0 ,Linux support                                                                                                                                                 
+| Power                 | current and voltage 12V/2A                                                                                                                                                  
+| operating temperature | 0℃ ～ 80℃（Measurement can reach -20 degrees to 85 degrees）
+|=====
+
+
+== Development Kit
+
+The core board gold hand pin interface led to the RK3588 all IO definition, can support RK3588 all definition interface, can be easily modified to support the application you want, flexible customization.
+
+image::/picture/bpi-rk3588_board_kit_5.jpg[bpi-rk3588_board_kit_5.jpg]
+
+= Development
+== Source Code
+
+Baidu Cloud: https://pan.baidu.com/s/1BdAXvAlvI_WIehImVnn17w?pwd=8888 (pincode:8888)
+
+Google Drive: https://drive.google.com/drive/folders/1yP3XfO1NkheHoMP4eVUZFT3NgRNhFenf?usp=sharing
+
+= System Image
+
+== Android
+
+Baidu Cloud: https://pan.baidu.com/s/102sfax4wXw8xrVW52I0YWA?pwd=8888 (pincode:8888)
+
+Google Drive: https://drive.google.com/file/d/109hW_plszGcCAGadwFRLKrja8eEiry4w/view?usp=sharing
+
+== Linux
+=== Debian
+
+Baidu Cloud: https://pan.baidu.com/s/1YsT-ceLLjqbjaLr9x-xlzQ?pwd=8888 （pincode:8888)
+
+Google Drive: https://drive.google.com/file/d/1rtF1T8eHGq_jwLd7Zcx8FCPTnLvuxjZZ/view?usp=sharing
+
+= OEM&ODM
+
+WARNING: please contact judyhuang@banana-pi.com
