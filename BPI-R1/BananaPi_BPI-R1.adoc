@@ -258,29 +258,30 @@ Press Ctrl + x ， Y ，Enter save and exit edit:
 
 . use fex2bin change fex to bin
 +
-====
+----
 fex2bin ./script.fex ./script.bin
 
-====
+----
 +
 copy script.bin to /boot
 +
-====
+----
 
 sudo cp ./script.bin /boot/bananapi/
 
-====
-
+----
++
 . reboot and make a try
 +
   sudo reboot
 +
 another easy way: just edit uEnv.txt file to change it:
-
- bootargs=enforcing=1 console=ttyS0,115200 console=tty1 root=/dev/mmcblk0p2 rootwait init=/init vmalloc=384M ion_c
- ma_list="120m,176m,512m" loglevel=8 bootmenutimeout=10 datadev=mmcblk0p2 disp.screen0_output_type=3 disp.screen0_o
- utput_mode=10 disp.screen1_output_type=3 disp.screen1_output_mode=10
-
++
+----
+bootargs=enforcing=1 console=ttyS0,115200 console=tty1 root=/dev/mmcblk0p2 rootwait init=/init vmalloc=384M ion_
+ma_list="120m,176m,512m" loglevel=8 bootmenutimeout=10 datadev=mmcblk0p2 disp.screen0_output_type=3 disp.screen0_o
+utput_mode=10 disp.screen1_output_type=3 disp.screen1_output_mode=10
+----
 
 = System Image
 == Android
