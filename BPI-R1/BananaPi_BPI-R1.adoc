@@ -93,52 +93,40 @@ Today,we are introducing a new solution to modify the resolution of HDMI, no oth
 
 . install compile sunxi-tools depended-upon packages
 +
-====
+```
 sudo apt-get install libusb-1.0-0-dev
-
-====
+```
 +
 . get sunxi-tools new code from github:
 +
-====
-
+```
 git clone https://github.com/linux-sunxi/sunxi-tools.git
-
-====
+```
 +
 . compile sunxi-tools
 +
-====
-
+```
 cd sunxi-tools
-
 make
-
-====
+```
 +
 . backup script.bin
 +
-====
+```
 sudo cp /boot/bananapi/script.bin /boot/bananapi/script.bak
-
-====
+```
 +
 . copy script.bin to current dir
 +
-====
-
+```
 cp /boot/bananapi/script.bin ./
-
-====
+```
 +
 . use bin2fex change bin to fex
-
 +
-====
-
+```
 bin2fex ./script.bin ./script.fex
-
-====
+```
 +
 . edit script.fex file:
 +
@@ -146,130 +134,77 @@ nano script.fex
 +
 see this below:
 +
-====
+```
 [disp_init]
-
 disp_init_enable = 1
-
 disp_mode = 0
-
 screen0_output_type = 3
-
 screen0_output_mode = 5
-
 screen1_output_type = 2
-
 screen1_output_mode = 11
-
 fb0_framebuffer_num = 2
-
 fb0_format = 10
-
 fb0_pixel_sequence = 0
-
 fb0_scaler_mode_enable = 1
-
 fb1_framebuffer_num = 2
-
 fb1_format = 10
-
 fb1_pixel_sequence = 0
-
 fb1_scaler_mode_enable = 0
-
 lcd0_backlight = 197
-
 lcd1_backlight = 197
-
 lcd0_bright = 50
-
 lcd0_contrast = 50
-
 lcd0_saturation = 57
-
 lcd0_hue = 50
-
 lcd1_bright = 50
-
 lcd1_contrast = 50
-
 lcd1_saturation = 57
-
 lcd1_hue = 50 
-
 just change screen0_output_mode = 5, note , other not do any change.
-====
+```
 +
 A20 support as below: HDMI/TV mode numbers:
 +
-====
+```
 0 480i
-
 1 576i
-
 2 480p
-
 3 576p
-
 4 720p 50Hz
-
 5 720p 60Hz
-
 6 1080i 50 Hz
-
 7 1080i 60 Hz
-
 8 1080p 24 Hz
-
 9 1080p 50 Hz
-
 10 1080p 60 Hz
-
 11 PAL
-
 12 PAL SVIDEO
-
 14 NTSC
-
 15 NTSC SVIDEO
-
 17 PAL_M
-
 18 PAL_M SVIDEO
-
 20 PAL_NC
-
 21 PAL_NC SVIDEO
-
 23 1080p 24 Hz 3D
-
 24 720p 50 Hz 3D
-
 25 720p 60 Hz 3D
-
 26 1360x768 60 Hz
-
 27 1280x1024 60 Hz
-
 Press Ctrl + x ， Y ，Enter save and exit edit:
-
-====
+```
 +
 
 . use fex2bin change fex to bin
 +
-----
+```
 fex2bin ./script.fex ./script.bin
-
-----
+```
 +
 copy script.bin to /boot
 +
-----
-
+```
 sudo cp ./script.bin /boot/bananapi/
-
-----
+```
 +
 . reboot and make a try
 +
