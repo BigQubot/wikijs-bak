@@ -66,41 +66,6 @@ Unpopulated, undocumented 50-pin header that’s appears to be routed to one of 
 | Temperature Range | -40C ~ +85°C
 |=====
 
-= Development
-== Source Code
-
-=== Linux
-
-TIP: Sunpuls github for Linux kernel 4.19 and 5.4 source code: https://github.com/sunplus-plus1
-
-TIP: BPI-F2S BPS code with kernel 5.4.35 : https://github.com/BPI-SINOVOIP/BPI-F2S-bsp
-
-== Resources
-
-TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
-
-TIP: All banana pi link:https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[docement(SCH file,DXF file,and doc)]
-
-TIP: Banana Pi BPI-F2S schematic diagram: link:https://drive.google.com/drive/folders/0B4PAo2nW2KfnflVqbjJGTFlFTTd1b1o1OUxDNk5ackVDM0RNUjBpZ0FQU19SbDk1MngzZWM?resourcekey=0-ZRCiv304nGzvq-w7lwnpjg&usp=sharing[google driver]
-
-TIP: BPI-F2S DXF file : https://drive.google.com/file/d/1HMPTBYWvK_kk6KkvVHY3KDnwYe_noMZW/view?usp=sharing
-
-TIP: Sunpulus wiki page documents(english): https://sunplus-tibbo.atlassian.net/wiki/spaces/doc/overview
-
-TIP: PLUS1 SP7021 Datasheet : https://drive.google.com/file/d/1MWFwgHMteMKVxgzyK5ClU9LOyh-M8xPA/view?usp=sharing
-
-TIP: SP7021 Released Document : https://sunplus-tibbo.atlassian.net/wiki/spaces/doc/overview
-
-TIP: Banana Pi BPI-F2P Sunplus SP7021 industrial control board PoE function test: https://www.youtube.com/watch?v=YQ5rVYHLHQI
-
-TIP: link:https://www.youtube.com/watch?v=eoSP7cO2ki4&feature=youtu.be[Banana Pi BPI-F2S setup & run fedora 31 (u-boot-2019.04 + kernel 4.19.37)]
-
-TIP: FPGA TRM-TE0725LP-01_usermanual: https://drive.google.com/file/d/1yKsbKSc2VSZgkFH_Oezm_75lD5un8MMT/view?usp=sharing
-
-TIP: Xilinx AI Platform tutorials: https://github.com/Xilinx/Edge-AI-Platform-Tutorials
-
-TIP: Xilinx edge AI platform : https://www.xilinx.com/products/design-tools/ai-inference/edge-ai-platform.html
-
 == SOC education and training practice suite
 
 SunPlus SP7021 development suite is a set of development platform with high integration of single chip based on sunplus 7021 SOC.With high performance, low Characteristics of power consumption;Embedded Linux Embed system, suitable for voice image processing, communication, portable industrial control equipment and other applications.With high performance processor, especially suitable for AI artificial intelligence, machine vision and other applications requiring strong computing power;Expandable FPGA module, can Layout, small board area, easy to field test application
@@ -148,6 +113,42 @@ Trenz HyperBus enabled reference designs are typically bundled with a FREE evalu
 - HyperRAM from Cypress : http://www.cypress.com/products/hyperram-memory
 - HyperFlash from Cypress： http://www.cypress.com/products/hyperflash-nor-flash-memory
  
+= Development
+== Source Code
+
+=== Linux
+
+TIP: Sunpuls github for Linux kernel 4.19 and 5.4 source code: https://github.com/sunplus-plus1
+
+TIP: BPI-F2S BPS code with kernel 5.4.35 : https://github.com/BPI-SINOVOIP/BPI-F2S-bsp
+
+== Resources
+
+TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
+
+TIP: All banana pi link:https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[docement(SCH file,DXF file,and doc)]
+
+TIP: Banana Pi BPI-F2S schematic diagram: link:https://drive.google.com/drive/folders/0B4PAo2nW2KfnflVqbjJGTFlFTTd1b1o1OUxDNk5ackVDM0RNUjBpZ0FQU19SbDk1MngzZWM?resourcekey=0-ZRCiv304nGzvq-w7lwnpjg&usp=sharing[google driver]
+
+TIP: BPI-F2S DXF file : https://drive.google.com/file/d/1HMPTBYWvK_kk6KkvVHY3KDnwYe_noMZW/view?usp=sharing
+
+TIP: Sunpulus wiki page documents(english): https://sunplus-tibbo.atlassian.net/wiki/spaces/doc/overview
+
+TIP: PLUS1 SP7021 Datasheet : https://drive.google.com/file/d/1MWFwgHMteMKVxgzyK5ClU9LOyh-M8xPA/view?usp=sharing
+
+TIP: SP7021 Released Document : https://sunplus-tibbo.atlassian.net/wiki/spaces/doc/overview
+
+TIP: Banana Pi BPI-F2P Sunplus SP7021 industrial control board PoE function test: https://www.youtube.com/watch?v=YQ5rVYHLHQI
+
+TIP: link:https://www.youtube.com/watch?v=eoSP7cO2ki4&feature=youtu.be[Banana Pi BPI-F2S setup & run fedora 31 (u-boot-2019.04 + kernel 4.19.37)]
+
+TIP: FPGA TRM-TE0725LP-01_usermanual: https://drive.google.com/file/d/1yKsbKSc2VSZgkFH_Oezm_75lD5un8MMT/view?usp=sharing
+
+TIP: Xilinx AI Platform tutorials: https://github.com/Xilinx/Edge-AI-Platform-Tutorials
+
+TIP: Xilinx edge AI platform : https://www.xilinx.com/products/design-tools/ai-inference/edge-ai-platform.html
+
+
 = System Image
 == Linux
 
