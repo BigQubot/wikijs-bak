@@ -76,6 +76,26 @@ PoE function support
 | Temperature Range | -40C ~ +85°C
 |=====
 
+== Wifi & BT support via expansion board
+=== SDIO interface Wifi&BT
+
+- WiFi&BT board, 802.11 a/b/g/n/ac 2T2R WiFi and Bluectooch 5.0, support BPI-M5 and BPI-F2P
+
+- Discuss on forum : http://forum.banana-pi.org/t/bpi-m5-wifi-bt-board-sdio-interface-802-11-a-b-g-n-ac-2t2r-wifi-and-bluectooch-5-0/11846
+
+=== Standard USB interface Wifi&BT
+
+- Banana Pi Wifi&BT 4.2 expansion Board, standard USB interface, so support all open source boards via USB port.IEEE 802.11b/g/n/ac(1T1R) USB WLANAnd BT Module
+
+image::/picture/usb_wifi_bt_board_3.jpg[usb_wifi_bt_board_3.jpg]
+
+- discuss on forum : http://forum.banana-pi.org/t/banana-pi-wifi-bt-4-2-expansion-board-standard-usb-interface/12162
+
+== BPI-F2P-SUB baord
+
+We also design a expansion board for BPI-F2P , it support 2 SATA interface and 4G module support interface
+
+image::/picture/bpi-f2p-sub_4.jpg[bpi-f2p-sub_4.jpg]
 
 = Development
 == Source Code
@@ -108,26 +128,6 @@ TIP: Banana Pi BPI-F2P Sunplus SP7021 industrial control board PoE function test
 
 TIP: link:https://www.youtube.com/watch?v=eoSP7cO2ki4&feature=youtu.be[Banana Pi BPI-F2S setup & run fedora 31 (u-boot-2019.04 + kernel 4.19.37)]
 
-== Wifi & BT support via expansion board
-=== SDIO interface Wifi&BT
-
-- WiFi&BT board, 802.11 a/b/g/n/ac 2T2R WiFi and Bluectooch 5.0, support BPI-M5 and BPI-F2P
-
-- Discuss on forum : http://forum.banana-pi.org/t/bpi-m5-wifi-bt-board-sdio-interface-802-11-a-b-g-n-ac-2t2r-wifi-and-bluectooch-5-0/11846
-
-=== Standard USB interface Wifi&BT
-
-- Banana Pi Wifi&BT 4.2 expansion Board, standard USB interface, so support all open source boards via USB port.IEEE 802.11b/g/n/ac(1T1R) USB WLANAnd BT Module
-
-image::/picture/usb_wifi_bt_board_3.jpg[usb_wifi_bt_board_3.jpg]
-
-- discuss on forum : http://forum.banana-pi.org/t/banana-pi-wifi-bt-4-2-expansion-board-standard-usb-interface/12162
-
-== BPI-F2P-SUB baord
-
-We also design a expansion board for BPI-F2P , it support 2 SATA interface and 4G module support interface
-
-image::/picture/bpi-f2p-sub_4.jpg[bpi-f2p-sub_4.jpg]
 
 = System Image
 
