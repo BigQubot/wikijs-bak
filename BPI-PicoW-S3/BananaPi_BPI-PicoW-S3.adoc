@@ -13,3 +13,17 @@ image::/picture/bpi-picow-s3_banner.png[bpi-picow-s3_banner.png]
 * GPIO, ADC, TOUCH, PWM, I2C, SPI, RMT, I2S, UART, LCD, CAMERA, USB, JTAG
 * microUSB
 * Neopixel LED
+
+== Espressif ESP32-S3
+
+Esp32-S3 is an MCU chip that integrates 2.4 GHz Wi-Fi and Bluetooth 5 (LE) and supports Long Range mode. The ESP32-S3 runs on an Xtensa® 32-bit LX7 dual-core processor with a high frequency of 240 MHz, 512 KB built-in SRAM (TCM), 45 programmable GPIO pins, and a rich communication interface. Esp32-s3 supports larger capacity of high-speed Octal SPI flash and off-chip RAM, and supports user-configured data caching and instruction caching.
+
+What follows is a description of the most important features of ESP32-S3.
+
+* Wi-Fi + Bluetooth 5 (LE) Wireless Connectivity: ESP32-S3 supports a 2.4 GHz Wi-Fi (802.11 b/g/n) with 40 MHz of bandwidth support. The Bluetooth Low Energy subsystem supports long range through Coded PHY and advertisement extension. It also supports higher transmission speed and data throughput, with 2 Mbps PHY. Both Wi-Fi and BLE have superior RF performance that is maintained even at high temperatures.
+
+* AI Acceleration Support: ESP32-S3 has additional support for vector instructions in the MCU, which provides acceleration for neural network computing and signal processing workloads. The software libraries for the above-mentioned optimized functions will become available very soon, in the form of updates to ESP-DSP and ESP-NN.
+
+* Rich IO interfaces: ESP32-S3 has 45 programmable GPIOs and common peripheral interfaces such as SPI, I2S, I2C, PWM, RMT, ADC, UART, SD/MMC host controller and TWAITM controller. Fourteen of the GPIOs can be configured as capacitive touch inputs for HMI interaction. In addition, ESP32-S3 is equipped with an ultra-low power coprocessor (ULP) and supports multiple low-power modes, making it widely applicable to various low-power application scenarios.
+
+* Security mechanism: ESP32-S3 provides comprehensive security mechanism and protection measures for iot devices to prevent all kinds of malicious attacks and threats. It supports Flash encryption based on AES-XTS algorithm, secure startup based on RSA algorithm, digital signature and HMAC. Esp32-s3 also includes a new "World Controller" module, which provides two non-interfering execution environments to implement a trusted execution environment or permission separation mechanism.
