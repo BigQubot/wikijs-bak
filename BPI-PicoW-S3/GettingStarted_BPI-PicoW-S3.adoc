@@ -1,2 +1,54 @@
 We compiled this Getting Started Guide to help you get started with this
 BPI-PicoW-S3 development board quickly.
+
+== First Thing
+
+Use a USB-C cable with power and data functions to connect the
+BPI-Centi-S3 development board to your computer.
+
+A `CIRCUITPY` disk will reappear on the computer file management page.
+
+> BPI-PicoW-S3 is pre-installed with tinyUF2 and **CircuitPython** firmware out of box. It is recommended to use CircuitPython to quickly get started with the BPI-PicoW-S3 development board as it is considered to be the most beginners friendly platform.
+
+== Code with CircuitPython
+
+image::/picture/circuitpython_repo_header_logo.jpg[circuitpython_repo_header_logo.jpg]
+
+. link:./CircuitPython/config_mu-editor[Configure usage environment (Mu editor)] , then you can refer to the use case below and start programming.
+. If you want to update the firmware, see link:./CircuitPython/update_circuitpython[How to update CircuitPython firmware].
+. If an unexpected problem occurs that prevents normal startup, or the flash is erased, see link:./CircuitPython/flash_tinyuf2[How to upload tinyUF2 firmware].
+
+=== Use case
+
+. link:./CircuitPython/REPL_simple_to_use[REPL simple to use]
+. link:./CircuitPython/Edit_code_py[Edit code.py to make the RGB LED blink]
+. link:./CircuitPython/pins_output[Make pins output high or low level, control the LED]
+. link:./CircuitPython/PWM_output[PWM output, control LED brightness]
+. link:./CircuitPython/PWM_controlled_servo[PWM controlled servo]
+. link:./CircuitPython/ADC_input[ADC input, use a dual-axis joystick]
+. link:./CircuitPython/Using_incremental_rotary_encoders[Using incremental rotary encoders]
+. link:./CircuitPython/Download_and_install_the_CircuitPython_library[Download and install the CircuitPython library to drive the ssd1306 oled display module]
+. link:./CircuitPython/OLED_real-time_display_dual-axis_joystick[OLED real-time animation display of dual-axis joystick position]
+
+
+=== Supported by the adafruit/circuitpython GitHub repository
+
+https://github.com/adafruit/circuitpython/pull/7031
+
+'''Supported by the adafruit/tinyuf2 GitHub repository'''
+
+https://github.com/adafruit/tinyuf2/pull/250
+
+'''Reference Resources''' :
+
+* [https://learn.adafruit.com/welcome-to-circuitpython Adafruit: Welcome To CircuitPython]
+
+* [https://learn.adafruit.com/getting-started-with-web-workflow-using-the-code-editor/overview Adafruit:CircuitPython Web Workflow Code Editor Quick Start]
+
+* [https://circuitpython.readthedocs.io/ Adafruit:CircuitPython Docs]
+
+* [https://github.com/todbot/circuitpython-tricks GitHub:CircuitPython-tricks]
+
+* [https://forum.banana-pi.org/t/bpi-pico-s3-getting-started-code-circuitpython-with-mu-editor/13969 BPI-Pico-S3 Getting Started, Code CircuitPython with Mu Editor]
+
+
