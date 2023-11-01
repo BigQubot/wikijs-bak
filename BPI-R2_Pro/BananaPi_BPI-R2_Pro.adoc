@@ -1,8 +1,8 @@
-= BPI-xx Introduction
+= BPI-R2 Pro Introduction
 
 Banana Pi BPI-R2 Pro is the next generation smart router developement board from Banana Pi in 2021. It is powered by Rockchip RK 3568 processor.Onboard 2GB LPDDR4 memory and 16GB eMMC storage, and supports 2 USB 3.0 interface, 5 gigabit network port. M.2 key-E and mini PCIe interface, 2 mipi DSI interface(one can change to LVDS by software), 1 CSI camera interface,1 HDMI output.
 
-
+image::/picture/banana_pi_bpi-r2_pro_ban_.jpg[banana_pi_bpi-r2_pro_ban_.jpg]
 
 BPI-R2 Pro same size as Banana Pi BPI-R2 , and interface is also same .so can use BPI-R2 case.
 
@@ -38,7 +38,7 @@ link:/en/BPI-R2_Pro/GettingStarted_BPI-R2_Pro[Getting Started BPI-R2_Pro]
 = Hardware
 == Hardware Interface
 
-image::/bpi-m1_interface.jpg[bpi-m1_interface.jpg]
+image::/picture/banana_pi_bpi-r2_pro_int_750.jpg[banana_pi_bpi-r2_pro_int_750.jpg]
 
 == Hardware Spec
 
@@ -283,7 +283,7 @@ Running on android11 system, connecting with 2x dsi panel + 1x eDP panel: https:
 == Custom production
 RK3568 custom board, industrial control board
 
-
+image::/picture/rk3568_industrial_control_development_board_interface.jpg[rk3568_industrial_control_development_board_interface.jpg]
 
 = Development
 == Source Code
@@ -411,10 +411,8 @@ Baidu : https://pan.baidu.com/s/19B6AYrHfbIFgRytTpW8Mbg?pwd=6me6 Pincode: 6me6
 
 = Easy to buy
 
-WARNING: SINOVOIP Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M1/1100417230_40000003426518.html
+WARNING: Aliexpress shop : https://www.aliexpress.com/item/1005004224551525.html?spm=a2g0o.store_pc_newArrival.8148356.1.2d8330d9Jco2ZH
 
-WARNING: Bipai Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M1/1101951077_40000003418620.html
+WARNING: Taobao shop : https://item.taobao.com/item.htm?spm=a2oq0.12575281.0.0.282d1debCwvgH0&ft=t&id=673191560298
 
-WARNING: Taobao Shop: https://shop108780008.taobao.com/category-1694930629.htm
-
-WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
+WARNING: BPI-R2 Pro RK3568 OEM&ODM : judyhuang@banana-pi.com
