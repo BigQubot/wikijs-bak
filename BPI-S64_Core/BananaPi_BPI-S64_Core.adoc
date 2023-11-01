@@ -4,3 +4,65 @@ Banana Pi BPI-S64 core use Actions SOC S700 design. S700 chip with ARM Cortex-A5
 
 BPI-S64 core modules are small enough to fit all kinds of hardware.In addition,S64 core also provides I/O boards with GPIO ports, as well as USB, MicroUSB, CSI, DSI, HDMI, and MicroSD and other many interfaces.
 
+== Key Features
+
+* CPU:  Actions SOC S700，ARM Cortex-A53 Quad-Core CPU
+* GPU：Mali450 MP4 GPU ,OpenGL ES2.0/1.1 OpenVG 1.1 EGL 1.5
+* 2GB LPDDR3
+* 8GB eMMC flash onboard
+
+= Hardware
+
+== Hardware interface
+
+=== BPI-S64 core board
+
+image::/picture/bpi-s64_core_interface.jpg[bpi-s64_core_interface.jpg]
+
+=== BPI-S64 core Kit with expansion development board
+
+image::/picture/bpi-s64_interface.jpg[bpi-s64_interface.jpg]
+
+== Hardware Spec
+
+[options="header",cols="1,6"]
+|=====
+2+| **HardWare  Specification of Banana pi BPI-S64 core**
+| CPU       | Actions SOC S700，ARM Cortex-A53 Quad-Core CPU,Mali450 MP4 GPU
+| Memory    | 2GB LPDDR3                                                   
+| Storage   | 8GB eMMC                                                     
+| interface | SODIMM-DDR3，204 PIN , all S700 GPIO support                  
+| size      | 67.5 x 30 mm                                                 
+|=====
+
+[options="header",cols="1,10"]
+|=====
+2+| **HardWare  Specification of Banana pi BPI-S64 core kit**
+| CPU                   | Actions SOC S700，ARM Cortex-A53 Quad-Core CPU,Mali450 MP4 GPU                                                                   
+| GPU                   | Mali450 MP4 GPU ,OpenGL ES2.0/1.1 OpenVG 1.1 EGL 1.5                                                                            
+| Memory                | 2GB LPDDR3                                                                                                                      
+| Storage               | 8GB eMMC                                                                                                                        
+| Power                 | 5V @ 2A via DC power                                                                                                            
+| Low-level peripherals | 26 Pins Header, 28×GPIO, some of which can be used for specific functions including UART, I2C, SPI, PWM, I2S.                   
+| Onboard Network       | 1 x 10/100/1000Mbps Ethernet                                                                                                    
+| Wifi/Bluetooth        | AP6212 WiFi and BT 4.0                                                                                                          
+| On board Storage      | MicroSD \(TF\) card; 8G eMMC;SIM card slot                                                                                      
+| Display               | HDMI \(Type A\) output with HDCP 1.4, resolutions up 1920x1200； MIPI DP ;LVDS                                                   
+| Video decoder/encode  | support Real-time vide decode of most popular vide formats ,such as MPEG-4,H.264,H.265. support video encoder for baseline H.264
+| Audio                 | support two audio device HDMI and headphone, also support Audio In/Out with PIN define. support 1 MIC in                        
+| HDMI Out/In           | 1* HDMI 1.4                                                                                                                     
+| Audio outputs/Inputs  | HDMI, I2S audio,Audio micro out                                                                                                 
+| 4G                    | USB standard 4G LTE interface                                                                                                   
+| USB 3.0               | 1x USB 3.0 host                                                                                                                 
+| USB 2.0               | 1x USB 2.0 OTG, 1 x USB port                                                                                                    
+| Display               | 1* Mini DP ,1* LVDS lcd,                                                                                                        
+| Camera                | 1 x DVP camera interface ,1 x MIPI interface                                                                                    
+| RTC battery           | RTC battery power interface                                                                                                     
+| battery               | 3.7V battery interface.                                                                                                         
+| Buttons               | Reset button, Power button, ADC button                                                                                          
+| Leds                  | Red, Green, Blue                                                                                                                
+| Other                 | IR reciever                                                                                                                     
+| Sizes                 |                                                                                                                                 
+| Power                 | DC 5V/2A                                                                                                                        
+| Weight                | 150g                                             
+|=====
