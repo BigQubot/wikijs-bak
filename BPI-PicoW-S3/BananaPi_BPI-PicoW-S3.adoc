@@ -2,4 +2,14 @@
 
 The Banana Pi BPI-PicoW-S3 is a series of low-powered microcontrollers designed for IoT development and Maker DIY board.same size as Raspberry Pi Pico board,It supports 2.4 GHz Wi-Fi and Bluetooth® LE dual-mode wireless communication, the peripheral is compatible with low-power hardware design, and the power consumption is only 10uA in deep sleep mode.In terms of programming, the PicoW-S3 supports ESP-IDF, Arduino, micropython and other methods.
 
+image::/picture/bpi-picow-s3_banner.png[bpi-picow-s3_banner.png]
 
+== Key Features
+
+* ESP32-S3, Xtensa® 32 bit LX7
+* In-packge PSRAM 2MB, Extereal FLASH 8MB
+* Ultra-low power 10uA
+* 2.4G WIFI, Bluetooth 5, Bluetooth mesh
+* GPIO, ADC, TOUCH, PWM, I2C, SPI, RMT, I2S, UART, LCD, CAMERA, USB, JTAG
+* microUSB
+* Neopixel LED
