@@ -1,0 +1,420 @@
+= BPI-xx Introduction
+
+Banana Pi BPI-R2 Pro is the next generation smart router developement board from Banana Pi in 2021. It is powered by Rockchip RK 3568 processor.Onboard 2GB LPDDR4 memory and 16GB eMMC storage, and supports 2 USB 3.0 interface, 5 gigabit network port. M.2 key-E and mini PCIe interface, 2 mipi DSI interface(one can change to LVDS by software), 1 CSI camera interface,1 HDMI output.
+
+
+
+BPI-R2 Pro same size as Banana Pi BPI-R2 , and interface is also same .so can use BPI-R2 case.
+
+Banana Pi BPI-CM2 Computer module also design with Rockchip RK3568,if you want to customize your own products, you just need to develop baseboards based on BPI-CM2 and quickly mass produce your products based on RK3568 solution.
+
+=== Rockchip RK3568
+RK3568 has built-in MICRO-research NPU of Rockchip, 0.8Tops computing power and integrated high performance AI accelerator RKNN NPU. Rockchip also provides developers with an easy-to-use model transformation tool, RKNN-Toolkit, which supports one-click transformation of Caffe/TensorFlow/TF-Lite/ONNX/PyTorch/Keras/Darknet mainstream architecture models.
+
+RK3568 has rich interface expansion capabilities. Supports a variety of peripheral high-speed interfaces, supporting four USB2.0 ports, 4xUSB2.0 HOST+ 1xUSB3.0 HOST+ 1xusB3.0 OTG. Support gigabit Ethernet *2, multi-camera support, support MIPI CSI 4Lanes, can be divided into 2x2Lanes two groups of independent use support 16bit DVP interface, support BT1120 input, support VC mode. RK3568 has a complete display interface, support HDMI 2.0 output support dual channel MIPI DSI, dual channel LVDS, can drive 2.5K LCD screen, can directly drive ink screen, support eDp. RK3568 has plenty of peripherals, supporting 10x UART, 6x I2C, 16x PWM, 4x SPI, 8xSARADC and MINI PCIE.
+
+Rockchip RK3568 chip is a general PURPOSE SoC designed for consumer industry applications. The CPU uses 4-core A55 architecture processor, integrated G52 GRAPHICS processor, built-in independent NPU, and runs Android 11 and Linux. RK3568 is mainly customized for tablet PC, speaker with screen, Android pen, dictionary pen and other consumer products, as well as face payment POS machine, e-book, cloud terminal, video phone, NAS storage and other industry products
+
+Rockchip RK3568 chip is a high-range general-purpose SoC, made in 22nm process technology, integrated 4-core ARM architecture A55 processor and Mali G52 2EE graphics processor, supporting 4K decoding and 1080P encoding. RK3568 supports various types of peripheral interfaces such as SATA/PCIE/USB3.0, it has a built-in independent NPU, and can be used for lightweight AI applications. RK3568 supports both Android 11 and Linux systems, and targets at industrial customization markets such as IoT gateways, NVR storage, industrial control panels, industrial equipment, industrial control boxes, karaoke, cloud terminals, and vehicle control center.
+
+== Key Features
+
+- Rockchip RK3568 Quad-core ARM Cortex-A55 CPU
+- Mali-G52 1-Core-2EE
+- 2G LPDDR4 SDRAM (option 4G)
+- Mini PCIE interface and M.2 key-e interface
+- support 1 SATA interface
+- MicroSD slot supports up to 256GB expansion
+- 16G eMMC flash (option 16/32/64G)
+- 2 MIPI display interface support
+- 1 CSI camera interface
+- 5 port 10/100/1000 Mb Ethernet port
+- 2 USB 3.0 and 1 USB 2.0 otg port
+
+== Getting Start
+
+link:/en/BPI-R2_Pro/GettingStarted_BPI-R2_Pro[Getting Started BPI-R2_Pro]
+
+= Hardware
+== Hardware Interface
+
+image::/bpi-m1_interface.jpg[bpi-m1_interface.jpg]
+
+== Hardware Spec
+
+[option="header",cols="1,5"]
+|=====
+2+| **HardWare Specification of Banana Pi R2 Pro**
+| CPU              | Rockchip RK3568 Quad-core ARM Cortex-A55 CPU 2GHz
+| GPU              | Mali-G52 1-Core-2EE OpenGL ES3.2 Vu1kn 1.1 OpenCL 2.0
+| Memory           | 2G DDR3 SDRAM (option 4G)
+| Storage          | Onboard 16GB eMMC Flash, Micro SD-Card slot, SATA 3.0 Port,SPI flash
+| Network          | 5 x 10/100/1000 Mbit/s Ethernet
+| Display(s)       | 1 HDMI port, 2 DSI interface(1 DSI can change to LVDS by software)
+| Camera           | 1 CSI camera interface
+| Video decoder(s) | H.265 HEVC/MVC Main10 Profile yuv420@L5.1 up to 4096x2304@60fps,H.264 AVC/MVC Main10 Profile yuv400/yuv420/yuv422/@L5.1 up to 4096x2304@60fps 
+| Video encoder(s) | H.264/AVC BP/MP/HP@level4.2，up to 1920x1080@100fps, H.265/HEVC MP@level4.1, up to 1920x1080@100fps (4096x4096@10fps with TILE)
+| Audio Output(s)  | HDMI & I2S & Speaker & Headphone 
+| USB port         | USB 3.0 PORT (x2), micro USB OTG (x1)
+| mini PCIE        | 1 mini pcie interface & 1 M.2 key-e interface
+| Remote           | IR Receiver (x1)
+| GPIO             | 40 Pin Header : GPIO (x28) and Power (+5V, +3.3V and GND). Some of I/O Pin can be used for specific functions as UART, I2C, SPI or PWM        
+| Switches         | Reset button, Power button, U-boot button 
+| LED              | Power Status and 8P8C
+| Power Source     | 12 volt @2A via DC Power and/or Micro USB (OTG)
+| Size & Weight    | 148 mm × 100.5mm 100g
+| OS               | OpenWRT, Linux and others OS
+|=====
+
+== GPIO Pin Define
+
+=== BPI-xx 40PIN GPIO
+
+[option="header",cols="1,1,1,1"]
+|=====
+4+| **40 PIN GPIO of Banana pi BPI-R2 Pro**
+| GPIO Pin Name	| Default ：GPIO	| Function2	| Function3
+| CON2-P01 | VCC3V3_SYS |                 |              
+| CON2-P02 | VCC5V0_SYS |                 |              
+| CON2-P03 | GPIO3_B4   | I2C5_SDA_M0     |              
+| CON2-P04 | VCC5V0_SYS |                 |              
+| CON2-P05 | GPIO3_B3   | I2C5_SCL_M0     |              
+| CON2-P06 | GND        |                 |              
+| CON2-P07 | GPIO3_B5   | PWM10_M0        |              
+| CON2-P08 | GPIO0_C1   | UART0_TX        |              
+| CON2-P09 | GND        |                 |              
+| CON2-P10 | GPIO0_C0   | UART0_RX        |              
+| CON2-P11 | GPIO3_C4   | UART7_TX_M1     | PWM14_M0     
+| CON2-P12 | GPIO3_A3   | I2S3_SCLK_M0_BT |              
+| CON2-P13 | GPIO3_C5   | UART7_RX_M1     | SPDIF_TX1_M1 
+| CON2-P14 | GND        |                 |              
+| CON2-P15 | GPIO3_B6   |                 | PWM11_IR_M0  
+| CON2-P16 | GPIO0_C4   | UART0_RTS       |              
+| CON2-P17 | VCC3V3_SYS |                 |              
+| CON2-P18 | GPIO0_C7   | UART0_CTS       |              
+| CON2-P19 | GPIO4_C3   | SPI3_MOSI_M1    | CAN1_TX      
+| CON2-P20 | GND        |                 |              
+| CON2-P21 | GPIO4_C5   | SPI3_MISO_M1    | UART9_TX 
+| CON2-P22 | GPIO4_C4   |                 | SPDIF_TX 
+| CON2-P23 | GPIO4_C2   | SPI3_CLK_M1     | CAN1_RX  
+| CON2-P24 | GPIO4_C6   | SPI3_CS0_M1     | UART9_RX 
+| CON2-P25 | GND        |                 |          
+| CON2-P26 | GPIO3_C3   | UART5_RX_M1     |          
+| CON2-P27 | GPIO1_A4   |                 |          
+| CON2-P28 | GPIO3_C2   | UART5_TX_M1     |          
+| CON2-P29 | GPIO1_B0   |                 |          
+| CON2-P30 | GND        |                 |          
+| CON2-P31 | GPIO1_B1   |                 |          
+| CON2-P32 | GPIO4_D2   |                 |          
+| CON2-P33 | GPIO1_B2   |                 |          
+| CON2-P34 | GND        |                 |          
+| CON2-P35 | GPIO3_A4   | I2S3_LRCK_M0_BT |          
+| CON2-P36 | GPIO3_A2   | I2S3_MCLK_M0    |          
+| CON2-P37 | GPIO2_D7   |                 |          
+| CON2-P38 | GPIO3_A6   | I2S3_SDI_M0_BT  |          
+| CON2-P39 | GND        |                 |          
+| CON2-P40 | GPIO3_A5   | I2S3_SDO_M0_BT  |          
+|=====
+
+=== BPI-R2 Pro Debug UART
+
+|=====
+| CON3-P1	| GND
+| CON3-P2	| UART0-RX
+| CON3-P3	| UART0-TX
+|=====
+
+=== BPI-R2 Pro Camera(CN6)
+|=====
+| CSI Pin Name | Default Function	| Function2：GPIO
+| CN6-P01 | GND              |  
+| CN6-P02 | MIPI_CSI_D3N     |  
+| CN6-P03 | MIPI_CSI_D3P     |  
+| CN6-P04 | GND              |  
+| CN6-P05 | MIPI_CSI_D2N     |  
+| CN6-P06 | MIPI_CSI_D2P     |  
+| CN6-P07 | GND              |  
+| CN6-P08 | MIPI_CSI_CLK1N   |  
+| CN6-P09 | MIPI_CSI_CLK1P   |  
+| CN6-P10 | GND              |  
+| CN6-P11 | MIPI_CSI_D1N     |  
+| CN6-P12 | MIPI_CSI_D1P     |  
+| CN6-P13 | GND              |  
+| CN6-P14 | MIPI_CSI_D0N     |  
+| CN6-P15 | MIPI_CSI_D0P     |  
+| CN6-P16 | GND              |  
+| CN6-P17 | MIPI_CSI_CLK0N   |  
+| CN6-P18 | MIPI_CSI_CLK0P   |  
+| CN6-P19 | NC/MIPI_CAM0_PDN |  
+| CN6-P20 | CAM0_CLKOUT      |  
+| CN6-P21 | CAM0_IRCUT       |  
+| CN6-P22 | I2C2_SCL_M1      |  
+| CN6-P23 | I2C2_SDA_M1      |  
+| CN6-P24 | CAM0_CSI_RST     |  
+| CN6-P25 | VCC1V8_DOVDD     |  
+| CN6-P26 | GND              |  
+| CN6-P27 | GND              |  
+| CN6-P28 | VCC33            |  
+| CN6-P29 | VCC33            |  
+| CN6-P30 | VCC33            |  
+|=====
+
+=== MIPI LCD0(CN8)
+|=====
+|DSI Pin Name	| Default Function	| Function2
+| CN8-P01 | NC                |               
+| CN8-P02 | VCC3V3_LCD0       |               
+| CN8-P03 | VCC3V3_LCD0       |               
+| CN8-P04 | GND               |               
+| CN8-P05 | MIPI_LCD0_RST     |               
+| CN8-P06 | SARADC_VIN5       |               
+| CN8-P07 | GND               |               
+| CN8-P08 | MIPI_DSI_TX0_D0N  | LVDS_TX0_D0N  
+| CN8-P09 | MIPI_DSI_TX0_D0P  | LVDS_TX0_D0P  
+| CN8-P10 | GND               |               
+| CN8-P11 | MIPI_DSI_TX0_D1N  | LVDS_TX0_D1N  
+| CN8-P12 | MIPI_DSI_TX0_D1P  | LVDS_TX0_D1P  
+| CN8-P13 | GND               |               
+| CN8-P14 | MIPI_DSI_TX0_CLKN | LVDS_TX0_CLKN 
+| CN8-P15 | MIPI_DSI_TX0_CLKP | LVDS_TX0_CLKP 
+| CN8-P16 | GND               |               
+| CN8-P17 | MIPI_DSI_TX0_D2N  | LVDS_TX0_D2N  
+| CN8-P18 | MIPI_DSI_TX0_D2P  | LVDS_TX0_D2P  
+| CN8-P19 | GND               |               
+| CN8-P20 | MIPI_DSI_TX0_D3N  | LVDS_TX0_D3N  
+| CN8-P21 | MIPI_DSI_TX0_D3P  | LVDS_TX0_D3P 
+| CN8-P22 | GND               |              
+| CN8-P23 | NC                |              
+| CN8-P24 | NC                |              
+| CN8-P25 | GND               |              
+| CN8-P26 | LCD0_BL_PWM       |              
+| CN8-P27 | MIPI0_LCM_PWMOUT  |              
+| CN8-P28 | NC                |              
+| CN8-P29 | NC                |              
+| CN8-P30 | GND               |              
+| CN8-P31 | LED0-             |              
+| CN8-P32 | LED0-             |              
+| CN8-P33 | NC                |              
+| CN8-P34 | TP_INT_L_GPIO0_B5 |              
+| CN8-P35 | TP_RST_L_GPIO0_B6 |              
+| CN8-P36 | I2C1_SCL_TP       |              
+| CN8-P37 | I2C1_SDA_TP       |              
+| CN8-P38 | NC                |              
+| CN8-P39 | LED0+             |              
+| CN8-P40 | LED0+             |              
+|=====
+
+=== MIPI LCD1(CN7)
+|=====
+| DSI Pin Name | Default Function	| Function2
+| CN7-P01 | NC                |  
+| CN7-P02 | VCC3V3_LCD1       |  
+| CN7-P03 | VCC3V3_LCD1       |  
+| CN7-P04 | GND               |  
+| CN7-P05 | MIPI_LCD1_RST     |  
+| CN7-P06 | SARADC_VIN2       |  
+| CN7-P07 | GND               |  
+| CN7-P08 | MIPI_DSI_TX1_D0N  |  
+| CN7-P09 | MIPI_DSI_TX1_D0P  |  
+| CN7-P10 | GND               |  
+| CN7-P11 | MIPI_DSI_TX1_D1N  |  
+| CN7-P12 | MIPI_DSI_TX1_D1P  |  
+| CN7-P13 | GND               |  
+| CN7-P14 | MIPI_DSI_TX1_CLKN |  
+| CN7-P15 | MIPI_DSI_TX1_CLKP |  
+| CN7-P16 | GND               |  
+| CN7-P17 | MIPI_DSI_TX1_D2N  |  
+| CN7-P18 | MIPI_DSI_TX1_D2P  |  
+| CN7-P19 | GND               |  
+| CN7-P20 | MIPI_DSI_TX1_D3N  |  
+| CN7-P21 | MIPI_DSI_TX1_D3P  |  
+| CN7-P22 | GND               |  
+| CN7-P23 | NC                |  
+| CN7-P24 | NC                |  
+| CN7-P25 | GND               |  
+| CN7-P26 | LCD1_BL_PWM       |  
+| CN7-P27 | MIPI1_LCM_PWMOUT  |  
+| CN7-P28 | NC                |  
+| CN7-P29 | NC                |  
+| CN7-P30 | GND               |  
+| CN7-P31 | LED1-             |  
+| CN7-P32 | LED1-             |  
+| CN7-P33 | NC                |  
+| CN7-P34 | TP_INT_L_GPIO0_B5 |  
+| CN7-P35 | TP_RST_L_GPIO0_B6 |  
+| CN7-P36 | I2C1_SCL_TP       |  
+| CN7-P37 | I2C1_SDA_TP       |  
+| CN7-P38 | NC                |  
+| CN7-P39 | LED1+             |  
+| CN7-P40 | LED1+             |  
+|=====
+
+=== EDP LCD(CN9)
+|=====
+| DSI Pin Name | Default Function	| Function2
+| CN9-P01 | EDP_TX_AUXN |  
+| CN9-P02 | EDP_TX_AUXP |  
+| CN9-P03 | EDP_TX_D0P  |  
+| CN9-P04 | EDP_TX_D0N  |  
+| CN9-P05 | EDP_TX_D1P  |  
+| CN9-P06 | EDP_TX_D1N  |  
+| CN9-P07 | EDP_TX_D2P  |  
+| CN9-P08 | EDP_TX_D2N  |  
+| CN9-P09 | EDP_TX_D3P  |  
+| CN9-P10 | EDP_TX_D3N  |  
+| CN9-P11 | NC          |  
+| CN9-P12 | NC          |  
+| CN9-P13 | NC          |  
+| CN9-P14 | NC          |  
+| CN9-P15 | LCD1_RST    |  
+| CN9-P16 | LCD1_BL_PWM |  
+| CN9-P17 | SARADC_VIN4 |  
+| CN9-P18 | VCC3V3_LCD1 |  
+| CN9-P19 | VCC3V3_LCD1 |  
+| CN9-P20 | GND         |  
+| CN9-P21	| GND	        |
+| CN9-P22	| GND	        |
+| CN9-P23	| VCC12V_LCD1	|
+| CN9-P24	| VCC12V_LCD1 |
+|=====
+
+Running on android11 system, connecting with 2x dsi panel + 1x eDP panel: https://www.youtube.com/watch?v=HpDAmNVDwXI
+
+== Custom production
+RK3568 custom board, industrial control board
+
+
+
+= Development
+== Source Code
+
+=== Linux
+
+TIP: linux-4.19.xx kernel BSP Source code on github ： https://github.com/BPI-SINOVOIP/BPI-R2PRO-BSP/
+
+TIP: linux-5.10.66 kernel BSP Source code on github ： https://github.com/BPI-SINOVOIP/BPI-R2PRO-BSP-5.10.x/
+
+=== Android
+
+TIP: BPI-R2 PRO Android11 Source Code : +
+Baidu Cloud: https://pan.baidu.com/s/1c2vw-df4hh55VB3gSsM6Uw?pwd=8888 (提取码: 8888)
+
+
+== Resources
+
+TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
+
+TIP: All banana pi link:https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[docement(SCH file,DXF file,and doc)]
+
+TIP: BPI-R2 Pro schematic diagram : https://drive.google.com/file/d/1aDOL8U6-4bxn7iB_MzCOgHoDhUu0wuQu/view?usp=sharing
+
+TIP: BPI-R2 Pro DXF file ： https://drive.google.com/file/d/1N9AWJVHC4fZEko5_RIkc3pI0gK1I0XiV/view?usp=sharing
+
+TIP: MT7531 switch chip datasheet: https://drive.google.com/file/d/1aVdQz3rbKWjkvdga8-LQ-VFXjmHR8yf9/view?usp=sharing
+
+TIP: RTL8367RB-VB-CG Switch chip datasheet: https://drive.google.com/file/d/1Rua-SRJLPoV0NLnvwJg-fopsD178KIts/view?usp=sharing
+
+TIP: BPI-R2 Pro CE,FCC,RoHS certificate : https://banana-pi.org/en/bpi-honor/
+
+TIP: Install google play on Bananapi BPI-R2 pro Android 11/12: https://www.youtube.com/watch?v=pMKBVcJhsx4
+
+= System Image
+== All image
+NOTE: Note: the network disk include linux-4.19.xx and linux-5.10.66 kernel version, linux-5.10.66 kernel version can support DSA feature.
+
+All image for BPI-R2 Pro google ： https://drive.google.com/drive/folders/1gHNGVL_uq8L4t987k-nzg6MKWDSmDcfC
+
+All image for BPI-R2 Pro : Baidu ： https://pan.baidu.com/s/1u5bIp0fMJPre-j0bXGfDWA?pwd=i8q6 Pincode: i8q6
+
+== Android
+
+NOTE: All Android image can find here:
+
+Google Drive: https://drive.google.com/drive/folders/1Bs0lhnukZ4A_BmbY-QPiJsFguPXh6imh?usp=share_link
+
+Baidu Cloud: https://pan.baidu.com/s/19_nZls-1tzAsIB3_B-PWrg?pwd=6zw8 (pincode: 6zw8)
+
+NOTE: 2023-03-17-Android11-atv-bpi-r2pro.img
+
+Google Drive: https://drive.google.com/drive/folders/1TZMsaeg99bC8WwxEb8zOMTOAA0TurQ_E?usp=share_link
+
+Baidu Cloud: https://pan.baidu.com/s/1_Hb0dB_4mHhTXiWP6TAzDA?pwd=bdxa (pincode: bdxa)
+
+NOTE: 2023-03-17-Android11-bpi-r2pro.img
+
+Google Drive: https://drive.google.com/drive/folders/108SbohEB8OsWYaxvFeYhGDzxHaUJ1OcW?usp=share_link
+
+Baidu Cloud: https://pan.baidu.com/s/1FKdN2b3qA2Cc4syO15zbng?pwd=rnxd (pincode: rnxd)
+
+NOTE: 2022-11-16 release, Android12-bpi-r2pro.img
+
+Google Drive: https://drive.google.com/file/d/1UZ-e6QJIB8ZU-rdGsCnDNaNR2pYHHvxA/view?usp=share_link
+
+Baidu Cloud: https://pan.baidu.com/s/1tQ5Fg47R0fpUajYpNIsJ3g?pwd=8888 (pincode: 8888)
+
+MD5: a7b5faf7818f1ab2d36253a5d3ca1d18
+
+Forum pthread: https://forum.banana-pi.org/t/bananapi-bpi-r2-pro-2022-11-16-android-12/14264
+
+NOTE: 2022-06-10 release, Android 11 with kernel 4.19.219, tablet variant image
+
+Google Drive: https://drive.google.com/file/d/1qiLZKU8_2O0hHgP25F0CRxv9MnSJlXpv/view?usp=sharing
+
+Baidu Cloud: https://pan.baidu.com/s/1EUiGaXuPxAkR69g7EOnVaw?pwd=4n6c (pincode: 4n6c)
+
+MD5: ebd336bad0c27c66ae65a4d38103bced
+
+NOTE: 2022-06-10 release, Android 11 with kernel 4.19.219, atv variant image
+
+Google Drive: https://drive.google.com/file/d/104K7W1PX4OFvUtqNGHOnx6RZO49BrTZp/view?usp=sharing
+
+Baidu Cloud: https://pan.baidu.com/s/1RbNf1dFqMxy1Dx_ysym82w?pwd=v4u8 (pincode: v4u8)
+
+MD5: 49506a8a3183ab189046b5e2e2833b87
+
+== Linux
+
+=== Ubuntu
+
+NOTE: kernel 5.10.66 , support DSA feature, Ubuntu 16.04. Ubuntu 20.04, Ubunutu 22.04.
+
+Baidu : https://pan.baidu.com/s/19B6AYrHfbIFgRytTpW8Mbg?pwd=6me6 Pincode: 6me6
+
+=== Debian
+
+NOTE: kernel 5.10.66, support DSA feature, Debian10.
+
+Baidu : https://pan.baidu.com/s/19B6AYrHfbIFgRytTpW8Mbg?pwd=6me6 Pincode: 6me6
+
+== Third part image
+
+=== Armbian
+
+NOTE: 2023-07 Armbian_2023.02.0 for BPI-R2 PRO
+
+Baidu Cloud: https://pan.baidu.com/s/1Ey02SbYbTjdYpiB1MdgL7A?pwd=8888 (pincode:8888)
+
+Google Drive: https://drive.google.com/drive/folders/1oN1W-vvxDUTX5bx4RHw9_dQdoDfNtg91?usp=sharing
+
+=== Armbian and LibreELEC
+
+NOTE: Image: https://forum.banana-pi.org/t/armbian-and-libreelec-for-bpi-r2-pro-rk3568/13308
+
+== OperWRT
+NOTE: kernel 5.10.66, support DSA feature, OpenWRT
+
+Baidu : https://pan.baidu.com/s/19B6AYrHfbIFgRytTpW8Mbg?pwd=6me6 Pincode: 6me6
+
+= FAQ
+
+
+
+= Easy to buy
+
+WARNING: SINOVOIP Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M1/1100417230_40000003426518.html
+
+WARNING: Bipai Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M1/1101951077_40000003418620.html
+
+WARNING: Taobao Shop: https://shop108780008.taobao.com/category-1694930629.htm
+
+WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
