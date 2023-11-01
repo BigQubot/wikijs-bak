@@ -36,6 +36,50 @@ link:/en/BPI-PicoW-S3/GettingStarted_BPI-PicoW-S3[Getting Started BPI-PicoW-S3]
 
 == Hardware interface
 
+image::/picture/bpi_picow_s3_pic.jpg[bpi_picow_s3_pic.jpg]
+
 image::/picture/bpi-picow-s3-v0.4-io.png[bpi-picow-s3-v0.4-io.png]
 
-image::/picture/bpi_picow_s3_pic.jpg[bpi_picow_s3_pic.jpg]
+== Hardware spec
+
+[option="header",cols="1,3"]
+|=====
+2+| **HardWare Specification of BPI-PicoW-S3**
+| SoC                           | ESP32-S3, Xtensa® 32-bit LX7 dual core                                                                                      
+| Basic frequency               | 240MHz MAX                                                                                                                  
+| Operating temperature         | -40℃~+85℃                                                                                                                   
+| On-chip ROM                   | 384KB                                                                                                                       
+| On-chip SRAM                  | 512KB                                                                                                                       
+| Extereal FLASH                | 8MB                                                                                                                         
+| In-packge PSRAM               | 2MB                                                                                                                         
+| WIFI                          | IEEE 802.11 b/g/n, 2.4Ghz band, 150Mbps                                                                                     
+| Bluetooth                     | Bluetooth 5, Bluetooth mesh                                                                                                 
+| GPIO                          | BPI-PicoW-S3 has led out 27 available GPIOs                                                                                 
+| ADC                           | 2 × 12-bit SAR ADC supporting 18 analog channel inputs                                                                      
+| TOUCH Capacitive Touch Sensor | 14                                                                                                                          
+| SPI                           | 4                                                                                                                           
+| I2C                           | 2. Support master or slave mode                                                                                             
+| I2S                           | 2, input and output of serial stereo data                                                                                   
+| LCD                           | 1, support 8-bit ~16-bit parallel RGB, I8080, MOTO6800 interface                                                            
+| CAMERA                        | 1, supports 8-bit ~16-bit DVP image sensor interface                                                                        
+| UART                          | 3, supports asynchronous communication (RS232 and RS485) and IrDA                                                           
+| PWM                           | 8 independent channels, 14-bit precision                                                                                    
+| MCPWM                         | 2                                                                                                                           
+| USB                           | 1 × Full Speed ​​USB 2.0 OTG, MicroUSB Female                                                                               
+| USB Serial/JTAG Controller    | 1, USB full speed standard, CDC-ACM, JTAG                                                                                   
+| Temperature sensor            | 1, the measurement range is –20 °C to 110 °C, for monitoring the internal temperature of the chip                           
+| SD/MMC                        | 1 × SDIO host interface, with 2 card slots, supports SD card 3.0 and 3.01, SDIO 3.0, CE-ATA 1.1, MMC 4.41, eMMC 4.5 and 4.51
+| TWAI® Controller              | 1, compatible with ISO11898-1 (CAN specification 2.0)                                                                       
+| Generic DMA Controller        | 5 receive channels and 5 transmit channels                                                                                  
+| RMT                           | 4-channel transmit, 4-channel receive, shared 384 x 32-bit RAM                                                              
+| Pulse Counter                 | 4 pulse count controllers (units), each unit has 2 independent channels                                                     
+| Timer                         | 4 × 54-bit general-purpose timers, 16-bit clock prescaler, 1 × 52-bit system timer, 3 × watchdog timers                     
+| External crystal              | 40Mhz                                                                                                                       
+| RTC and Low Power Management  | Power Management Unit (PMU) + Ultra Low Power Coprocessor (ULP)                                                             
+| Low power consumption current | 10uA                                                                                                                        
+| Working Voltage               | 3.3V                                                                                                                        
+| Input voltage                 | 3.3V~5.5V                                                                                                                   
+| Maximum discharge current     | 2A@3.3V DC/DC                                                                                                               
+| Controllable full color LED   | 1                                                                                                                           
+| Controllable monochrome LED   | 1 
+|=====
