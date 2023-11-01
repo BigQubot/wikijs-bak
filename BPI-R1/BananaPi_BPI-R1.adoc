@@ -6,7 +6,7 @@ The R1 is a open hardware router that can run on a variety of open source operat
 
 Banana Pi is an open platform device, it is for anyone who wants to play and build with developer technology instead of simply using consumer technology. Backed by our community, starting a project and building servers is fun and rewarding. We welcome all companies, DIYers, and tech loving people within our community! Together, we can make a difference, we can discover our passions, inspire others, and build a practical project.
 
-image::/a_bpi-m1.jpg[bpi-m1.jpg]
+image::/picture/bpi-r1_960x360.jpg[bpi-r1_960x360.jpg]
 
 == Key Features
 
@@ -23,7 +23,8 @@ link:/en/BPI-R1/GettingStarted_BPI-R1[Getting Started BPI-R1]
 = Hardware
 == Hardware Interface
 
-image::/bpi-m1_interface.jpg[bpi-m1_interface.jpg]
+image::/picture/bpi-r1_front.png[bpi-r1_front.png]
+image::/picture/bpi-r1_back.jpg[bpi-r1_back.jpg]
 
 == Hardware Spec
 
@@ -49,7 +50,7 @@ image::/bpi-m1_interface.jpg[bpi-m1_interface.jpg]
 
 === BPI-R1 40PIN GPIO
 
-image::/picture/bpi-m1_26_pin.png[bpi-m1_26_pin.png]
+image::/picture/gpio_define.png[gpio_define.png]
 
 = Development
 == Resources
@@ -130,7 +131,9 @@ bin2fex ./script.bin ./script.fex
 +
 . edit script.fex file:
 +
+```
 nano script.fex
+```
 +
 see this below:
 +
@@ -218,6 +221,65 @@ bootargs=enforcing=1 console=ttyS0,115200 console=tty1 root=/dev/mmcblk0p2 rootw
 ma_list="120m,176m,512m" loglevel=8 bootmenutimeout=10 datadev=mmcblk0p2 disp.screen0_output_type=3 disp.screen0_o
 utput_mode=10 disp.screen1_output_type=3 disp.screen1_output_mode=10
 ```
+
+=== How to build OpenWRT image from github
+We test it with deepin2014(base on ubuntu14.04)
+
+. install depend package :
++
+```
+ apt-get install subversion build-essential libncurses5-dev zlib1g-dev gawk 
+git ccache gettext libssl-dev xsltproc unzip subversion file
+```
++
+. get openwrt source code
+
++
+```
+git clone https://github.com/BPI-SINOVOIP/BPI-OpenWRT.git
+```
++
+. enter openwrt dir:
++
+```
+cd BPI-OpenWRT
+```
++
+. update package and install
++
+```
+./scripts/feeds update -a
+./scripts/feeds install -a
+```
++
+. Enter the customization interface:
++
+image::/picture/r1_openwrt_1.jpg[r1_openwrt_1.jpg]
++
+please choose your need:
++
+Target System default is BananaPi，its the only choice on that matte.，Please change the device selection under Target Profile. The OpenWrt image supports M1, M1+ and R1.
++
+example : i need web and add chinese support
++
+```
+LuCI—> 1. Collections  ---> <*> luci  add Luci support ，it mean web GUI support，it is defaultes
+LuCI—>2. Modules  ---> <*> luci-i18n-chinese   add chinese also you can choose others.
+```
++
+. Make ,you can add V=s to see more message ,also add -j4 to use quad core to work .
++
+```
+make
+```
++
+when compile finish bin/sunxi/ dir have a image，file name：openwrt-sunxi-BPI-XX-sdcard-vfat-ext4.img，i compile is BPI-R1，so name is ：openwrt-sunxi-BPI-R1-sdcard-vfat-ext4.img，
+
+. use USB Image Tool(http://www.alexpage.de/) burn image to sd，insert BPI and booting it.
+
+. running ：
+
+image::/picture/r1_openwrt_2.png[r1_openwrt_2.png]
 
 = System Image
 == Android
