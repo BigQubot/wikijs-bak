@@ -108,12 +108,12 @@ image::/picture/bpi-pico-s3-board-dimension.png[bpi-pico-s3-board-dimension.png]
 .2+|ADC|ADC1_CH0~9|GPIO 1~10
        |ADC2_CH0~9|GPIO 11~20
 |Touch Sensor|TOUCH1~14|GPIO 1~14
-.4+^|JTAG ^|MTCK ^|GPIO 39
+.4+|JTAG |MTCK |GPIO 39
         |MTDO|GPIO 40
         |MTDI|GPIO 41
         |MTMS|GPIO 42
         
-.14+^|UART 2+|Default assigned pins, can be redefined as any GPIO
+.14+|UART 2+|Default assigned pins, can be redefined as any GPIO
             |U0RXD_in	|GPIO 44
             |U0CTS_in	|GPIO 16
             |U0DSR_in	|Any GPIO
@@ -158,5 +158,19 @@ image::/picture/bpi-pico-s3-board-dimension.png[bpi-pico-s3-board-dimension.png]
 |TWAI 2+|Any GPIO
 |Full Color LED 2+|Any GPIO
 |Monochrome LED 2+|Any GPIO
-
 |=====
+
+= Resources
+
+TIP:  https://github.com/BPI-STEAM/BPI-PicoW-Doc/blob/main/sch/BPI-PicoW-V0.4.pdf[BPI-PicoW-S3 schematic]
+
+= Easy to buy sample
+
+WARNING: Official AliExpress: https://www.aliexpress.com/item/1005004775634442.html
+
+WARNING: SinoVoip Aliexpress : https://www.aliexpress.com/item/1005004775859077.html
+
+WARNING: Official Taobao: https://item.taobao.com/item.htm?spm=a2126o.success.0.0.25b04831CHV1Nc&id=684134360199
+
+WARNING: OEM&OEM customized service: sales@banana-pi.com
+
