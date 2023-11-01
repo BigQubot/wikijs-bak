@@ -102,18 +102,18 @@ image::/picture/bpi-pico-s3-board-dimension.png[bpi-pico-s3-board-dimension.png]
 
 == GPIO define
 
-[option="header",cols="1<.>,1^,1^",width=60%]
+[option="header",cols="1,1,1",width=60%]
 |=====
 |**Peripheral Interface**|**Signal**|**Pins**
 .2+|ADC|ADC1_CH0~9|GPIO 1~10
        |ADC2_CH0~9|GPIO 11~20
 |Touch Sensor|TOUCH1~14|GPIO 1~14
-.4+|JTAG|MTCK|GPIO 39
+.4+^|JTAG ^|MTCK ^|GPIO 39
         |MTDO|GPIO 40
         |MTDI|GPIO 41
         |MTMS|GPIO 42
         
-.14+|UART 2+|Default assigned pins, can be redefined as any GPIO
+.14+^|UART 2+|Default assigned pins, can be redefined as any GPIO
             |U0RXD_in	|GPIO 44
             |U0CTS_in	|GPIO 16
             |U0DSR_in	|Any GPIO
