@@ -31,24 +31,36 @@ image::/picture/circuitpython_repo_header_logo.jpg[circuitpython_repo_header_log
 . link:./CircuitPython/OLED_real-time_display_dual-axis_joystick[OLED real-time animation display of dual-axis joystick position]
 
 
-=== Supported by the adafruit/circuitpython GitHub repository
+=== Supported by CircuitPython
 
-https://github.com/adafruit/circuitpython/pull/7031
+. Supported by the adafruit/circuitpython GitHub repository.
++
+https://github.com/adafruit/circuitpython/pull/7031 branch has been merged.
 
-'''Supported by the adafruit/tinyuf2 GitHub repository'''
+. Supported by the adafruit/tinyuf2 GitHub repository.
++
+https://github.com/adafruit/tinyuf2/pull/250 branch has been merged.
 
-https://github.com/adafruit/tinyuf2/pull/250
+. Supported by the adafruit/circuitpython-org GitHub repository.
++
+https://github.com/adafruit/circuitpython-org/pull/1070 branch has been merged.
++
+https://github.com/adafruit/circuitpython-org/pull/1077 branch has been merged.
 
-'''Reference Resources''' :
+. The circuitpython.org website can download circuitpython firmware and tinyuf2 firmware.
++
+https://circuitpython.org/board/bpi_picow_s3/
 
-* [https://learn.adafruit.com/welcome-to-circuitpython Adafruit: Welcome To CircuitPython]
+=== Reference Resources
 
-* [https://learn.adafruit.com/getting-started-with-web-workflow-using-the-code-editor/overview Adafruit:CircuitPython Web Workflow Code Editor Quick Start]
+* https://learn.adafruit.com/welcome-to-circuitpython[Adafruit: Welcome To CircuitPython]
 
-* [https://circuitpython.readthedocs.io/ Adafruit:CircuitPython Docs]
+* https://learn.adafruit.com/getting-started-with-web-workflow-using-the-code-editor/overview[Adafruit:CircuitPython Web Workflow Code Editor Quick Start]
 
-* [https://github.com/todbot/circuitpython-tricks GitHub:CircuitPython-tricks]
+* https://circuitpython.readthedocs.io/[Adafruit:CircuitPython Docs]
 
-* [https://forum.banana-pi.org/t/bpi-pico-s3-getting-started-code-circuitpython-with-mu-editor/13969 BPI-Pico-S3 Getting Started, Code CircuitPython with Mu Editor]
+* https://github.com/todbot/circuitpython-tricks[GitHub:CircuitPython-tricks]
+
+* https://forum.banana-pi.org/t/bpi-pico-s3-getting-started-code-circuitpython-with-mu-editor/13969[BPI-Pico-S3 Getting Started, Code CircuitPython with Mu Editor]
 
 
