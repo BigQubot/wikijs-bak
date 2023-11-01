@@ -27,3 +27,9 @@ What follows is a description of the most important features of ESP32-S3.
 * Rich IO interfaces: ESP32-S3 has 45 programmable GPIOs and common peripheral interfaces such as SPI, I2S, I2C, PWM, RMT, ADC, UART, SD/MMC host controller and TWAITM controller. Fourteen of the GPIOs can be configured as capacitive touch inputs for HMI interaction. In addition, ESP32-S3 is equipped with an ultra-low power coprocessor (ULP) and supports multiple low-power modes, making it widely applicable to various low-power application scenarios.
 
 * Security mechanism: ESP32-S3 provides comprehensive security mechanism and protection measures for iot devices to prevent all kinds of malicious attacks and threats. It supports Flash encryption based on AES-XTS algorithm, secure startup based on RSA algorithm, digital signature and HMAC. Esp32-s3 also includes a new "World Controller" module, which provides two non-interfering execution environments to implement a trusted execution environment or permission separation mechanism.
+
+== Getting Start
+
+link:/en/BPI-PicoW-S3/GettingStarted_BPI-PicoW-S3[Getting Started BPI-PicoW-S3]
+
+
