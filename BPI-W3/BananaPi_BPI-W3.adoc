@@ -1,0 +1,266 @@
+= BPI-W3 Introduction
+
+The Banana Pi BPI-W3 single board computer is designed and developed by bananapi team for professional and enterprise users, powered by Rockchip RK3588 SoC quad ARM Cortex-A76 and quad Cortex-A55 consists of an eight-core CPU processor with dynamic frequency scaling up to 2.4GHz. Embedded high -performance 3D and 2D image acceleration module, AI accelerator NPU with a built -in 6 TOPS computing power.
+
+BPI-W3 up to 32GB 64bit LPDDR4X ram, up to 8K@60 HDMI OUT, HDMI IN, MIPI DSI, MIPI CSI, 3.5mm jack with mic, USB Port, 2.5GbE LAN, PCIe 3.0 x4, PCIe 2.0x2, 40-pin expansion header, RTC,POE,SD card, DC power，typec.
+
+image::/a_bpi-m1.jpg[bpi-m1.jpg]
+=== BPI-3588-LGA Core board
+Banana Pi BPI-W3 base on BPI-RK3588 Core board and development Kit use BPI-RK3588-LGA core board. so you can easy to do new design with BPI-W3, just need to development a new base board.
+
+BPI-3588-LGA core board uses the Rockchip RK3588 flagship chip,integrating a 6Tops NPU and a high-performance quad-core Mali-G610 MP4 GPU. It adopts LGA 506pin package method, which can expand a variety of display interfaces and industrial application interfaces. With open baseboard design materials and open-source SDKs, it can be efficiently developed. It supports multiple operating systems such as Android, Ubuntu, Debian, and Buildroot. It provides robust, stable, reliable, and expandable product support for various AI application scenarios, and is widely applicable to fields such as edge computing, artificial intelligence,cloud computing, VR/AR, blockchain, smart security, intelligent industrial control, and smart home.
+
+
+
+== Key Features
+
+- Rockchip RK3588 quad ARM Cortex-A76 and quad Cortex-A55 consists of an eight-core CPU processor
+- ARM Mali-G610 MP4,
+- NPU for AI : 6Tops@INT8
+- 8G RAM and 32G eMMC flash onboard
+- 2.5Gbps Ethernet
+- Support HDMI in and HDMI out * 2
+
+== Getting Start
+
+link:/en/BPI-xx/GettingStarted_BPI-xx[Getting Started BPI-xx]
+
+link:http://wiki.armsom.org/index.php/Getting_Started_with_ArmSoM-w3[Getting Started with ArmSoM-w3]
+
+= Hardware
+== Hardware Interface
+
+image::/bpi-m1_interface.jpg[bpi-m1_interface.jpg]
+
+== Hardware Spec
+=== BPI-W3
+[option="header",cols="1,4"]
+|=====
+2+| **HardWare Specification of Banana Pi W3**
+| SOC           | RockChip RK3588                                     
+| CPU           | Quad Core A76+ Quad Core A55 ,use 8nm , 2.4GHz     
+| GPU           | ARM Mali-G610 MP4 GPU，Support OpenGL ES3.2 / OpenCL 2.2 / Vulkan1.1, 450 GFLOPS                                                  
+| NPU           | 6 TOPS，Support INT4/INT8/INT16 mixed operation,Support framework switching of TensorFlow/MXNet/PyTorch/Caffe                     
+| Encode&Decode | encode：8K@60fps H.265/VP9/AVS2、8K@30fps H.264 AVC/MVC、4K@60fps AV1、1080P@60fps MPEG-2/-1/VC-1/VP8 ,decode：8K@30fps H.265 / H.264 
+| Ram           | 4GB/8GB/16GB（up to 32GB）64bit LPDDR4/LPDDR4x/LPDDR5，Defalut LPDDR4 8GB                                                           
+| Flash         | 16GB/32GB/64GB/128GB/256GB eMMC，support MicroSD card slot，Defaut :32GB                                                           
+| M2 Key M      | The interface supports extension SSD                
+| network       | 2.5G network port（RLT8125BS）                        
+| video output  | 2 x HDMI2.1(just one support 8K@60fps or 4K@120fps，other support 4K@60fps),1 x MIPI-DSI(4K@60fps),1 x DP1.4(8K@30fps),           
+| video input   | 1 x 4Lanes MIPI CSI / 2 x 2lanes MIPI CSI,1 x HDMI RX2.0
+| Voice         | 2 x HDMI voice output ,1 x DP1.4 voice output,1 x headphone （es8316）
+| Wireless      | M2 E key interface support sdio、pcie、usb BT&wifi（AP6256，Intel AX210）                                                             
+| USB           | 2 x USB3.1,2 x USB2.0,1x USB-C（DP1.4(8K@30fps)/OTG/PD fast charging）                                                             
+| Others        | Fan、RTC、LED、debug                                    
+| Button        | Power Button、Reset Button、 Recovery Button、Root Button 
+| GPIO          | 40 x GPIO（UART、SPI、I2C、I2S、PWM、ADC、 GPIO、 5V power 、3.3V power）
+| Power         | DC 12V/2.5A bore diameter 2.5mm，support USB Type-C PD 2.0 ，9V/2A, 12V/2A, 15V/2A，Support 12V POE power supply                    
+| System        | Android 12.0、Ubuntu、Debian11、Buildroot、Kylin Linux 
+| Size          | 148 mm × 100.5mm
+| operating temperature	| -10℃ ~ 70℃
+| storage temperature	  | -20℃ ~ 70℃
+|=====
+
+=== BPI-3588-LGA
+
+[option="header",cols="1,4"]
+|=====
+2+| **BPI-3588-LGA spec**
+| CPU                            | Quad Core Cortex-A76@2.4GHz +Quad Core Cortex-A55@1.8GHz, 8nm                           
+| GPU                            | ARM Mali-G610 MP4 GPU,Support OpenGL ES3.2 / OpenCL 2.2 / Vulkan1.1                     
+| NPU                            | 6 TOPS@INT8,Support INT4/INT8/INT16 mixed operation Support framework switching of TensorFlow/MXNet/PyTorch/Caffe
+| ISP                            | 48-Megapixel ISP,It implements a lot of algorithm accelerators, such as HDR, 3A, LSC, 3DNR, 2DNR, sharpening, dehaze, fisheye correction, gamma correction and so on. 
+| Encode&Decode                  | Decode：8K@60fps H.265/VP9/AVS2,8K@30fps H.264 AVC/MVC, 4K@60fps AV1, 1080P@60fps MPEG-2/-1/VC-1/VP8 +
+Encode：8K@30fps H.265 / H.264            
+     
+| RAM                            | 4GB/8GB/16GB（up to 32GB）64-bit LPDDR4/LPDDR4x, Defalut LPDDR4x 8GB                    
+| Flash                          | 16GB/32GB/64GB/128GB/256GB eMMC, support MicroSD card slot, Defaut eMMC 32GB           
+| Operating Systems              | Android 12.0, Ubuntu 20.04, Ubuntu 22.04, Debian11, Buildroot, Armbian, Kylin OS
+| Power supply                   | 4.0V 
+| Interface Type                 | LGA 506pin 
+| Size                           | 45mm×50mm×4.5mm(top: 2.2mm+PCB: 1.2mm +bottom: 1.1mm)
+| Operating temperature          | 0℃ ~ 70℃ 
+| Storage temperature            | -20℃ ~ 70℃
+|=====
+== Function parameter
+
+[option="header",cols="1,2,1,3,3"]
+|=====
+| Category	| Function	| quantity	2+|parameter
+|Video Input Interface | MIPI DC(DPHY/CPHY) combo PHY	| 2 |	
+Support to use DPHY or CPHY +
+Each MIPI DPHY V2.0, 4lanes, 4.5Gbps per lane +
+Each MIPI CPHY V1.1, 3lanes, 2.5Gsps per lane | Support camera input combination: +
+2 MIPI DCPHY + 4 MIPI CSI DPHY(2 lanes) +
+2 MIPI DCPHY + 1 MIPI CSI DPHY(4 lanes) + 2 MIPI CSI DPHY(2 lanes) +
+2 MIPI DCPHY + 2 MIPI CSI DPHY(4 lanes)
+|
+
+
+|=====
+
+== GPIO Pin Define
+
+=== BPI-xx 40PIN GPIO
+
+xxxx
+
+image::/picture/bpi-m1_26_pin.png[bpi-m1_26_pin.png]
+
+[option="header",cols="2,1,1"]
+|=====
+3+| **40 PIN GPIO of Banana pi BPI-M1**
+| CSI GPIO Pin | Pin Name | GPIO
+| CONx P01 | xxxx         | xxxx
+| CONx P02 | xxxx         | xxxx
+| CONx P03 | xxxx         | xxxx
+| CONx P04 | xxxx         | xxxx
+| CONx P05 | xxxx         | xxxx
+| CONx P06 | xxxx         | xxxx
+| CONx P07 | xxxx         | xxxx
+| CONx P08 | xxxx         | xxxx
+| CONx P09 | xxxx         | xxxx
+| CONx P10 | xxxx         | xxxx
+| CONx P11 | xxxx         | xxxx
+| CONx P12 | xxxx         | xxxx
+| CONx P13 | xxxx         | xxxx
+| CONx P14 | xxxx         | xxxx 
+| CONx P15 | xxxx         | xxxx 
+| CONx P16 | xxxx         | xxxx 
+| CONx P17 | xxxx         | xxxx 
+| CONx P18 | xxxx         | xxxx 
+| CONx P19 | xxxx         | xxxx 
+| CONx P20 | xxxx         | xxxx 
+| CONx P21 | xxxx         | xxxx 
+| CONx P22 | xxxx         | xxxx 
+| CONx P23 | xxxx         | xxxx 
+| CONx P24 | xxxx         | xxxx 
+| CONx P25 | xxxx         | xxxx 
+| CONx P26 | xxxx         | xxxx 
+| CONx P27 | xxxx         | xxxx 
+| CONx P28 | xxxx         | xxxx 
+| CONx P29 | xxxx         | xxxx 
+| CONx P30 | xxxx         | xxxx 
+| CONx P31 | xxxx         | xxxx 
+| CONx P32 | xxxx         | xxxx 
+| CONx P33 | xxxx         | xxxx 
+| CONx P34 | xxxx         | xxxx 
+| CONx P35 | xxxx         | xxxx 
+| CONx P36 | xxxx         | xxxx 
+| CONx P37 | xxxx         | xxxx 
+| CONx P38 | xxxx         | xxxx 
+| CONx P39 | xxxx         | xxxx
+| CONx P40 | xxxx         | xxxx
+|=====
+
+=== BPI-M5 Debug UART
+
+|=====
+|CONx-P1  | GND
+|CONx-P2  | UART0-RX
+|CONx-P3  | UART0-TX
+|=====
+
+= Development
+== Source Code
+
+=== Linux BSP Source Code
+
+TIP: Linux BSP source code
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+=== Android
+
+TIP: Linux BSP source code
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+== Resources
+
+= System Image
+== Android
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+== Linux
+
+=== Ubuntu
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+=== Debian
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+=== CentOS
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+== Third part image
+
+=== Raspbian
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+=== Armbian
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+=== EmuELEC
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+=== CoreELEC
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+= FAQ
+
+
+
+= Easy to buy
+
+WARNING: SINOVOIP Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M1/1100417230_40000003426518.html
+
+WARNING: Bipai Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M1/1101951077_40000003418620.html
+
+WARNING: Taobao Shop: https://shop108780008.taobao.com/category-1694930629.htm
+
+WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
