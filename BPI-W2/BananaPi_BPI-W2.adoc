@@ -1,0 +1,243 @@
+= BPI-xx Introduction
+
+The Banana Pi BPI-W2 is a router based development board, which can run on a variety of open source operating systems including OpenWrt, Android, and linux. It has 1 Gigabit LAN ports, 1 Gigabit WAN. it design with Realtek RTD1296, Quad-core ARM Cortex-A53. with 2G DDR4 and 8G eMMC flash onboard.
+
+image::/a_bpi-m1.jpg[bpi-m1.jpg]
+
+== Key Features
+
+- Realtek RTD1296, Quad-core ARM Cortex-A53
+- Mali T820 MP3 GPU
+- 2G DDR4 SDRAM
+- 8G eMMC flash
+- Mini PCIE 2.0 , 1.1 interface ,SDIO,M.2 intereface
+- MicroSD slot supports up to 256GB expansion
+- 2xMIC in/Audio out
+- 2 SATA interface
+- 1XGigabit LAN 1x Gigabit WAN
+- 1xUSB 3.0 2xUSB 2.0
+- HDMI in & HDMI out
+- Mini DP
+- TYPE C
+
+== Getting Start
+
+link:/en/BPI-W2/GettingStarted_BPI-W2[Getting Started BPI-W2]
+
+= Hardware
+== Hardware Interface
+
+image::/bpi-m1_interface.jpg[bpi-m1_interface.jpg]
+
+the inner and outer diameter of the power plug adapter datasheet: https://drive.google.com/file/d/1k3AWmYOs2XE7lnRxCyytZu0Vpq_Bzcu_/view?usp=sharing
+
+image::/picture/dc090_size.png[dc090_size.png]
+
+== Hardware Spec
+
+[option="header",cols="1,5"]
+|=====
+2+| **HardWare Specification of Banana Pi M2+(Plus)**
+| Soc                                 | Realtek RTD1296 quad-core ARM A53
+| GPU                                 | Mali T820 MP3 GPU
+| SDRAM                               | 2GB DDR4 \(shared with GPU\)                                                                                                                                                                                                                                                                                                       
+| Power                               | 12V @ 2A via DC power 5.0mmx2.0mm jack                                                                                                                                                                                                                                                                                             
+| Low-level peripherals               | 40 Pins Header, 28×GPIO, some of which can be used for specific functions including UART, I2C, SPI, PWM, I2S.                                                                                                                                                                                                                      
+| Onboard Network                     | 2x 10/100/1000Mbps Ethernet                                                                                                                                                                                                                                                                                                        
+| Wifi/Bluetooth                      | **Option** ,not support onboard WIFI & BT                                                                                                                                                                                                                                                                                          
+| RGMII                               | 1 RGMII interface with PIN                                                                                                                                                                                                                                                                                                         
+| On board Storage                    | MicroSD \(TF\) card; 2 native SATA 3 6Gbps ;eMMC;SIM card slot                                                                                                                                                                                                                                                                     
+| Display                             | HDMI \(Type A\) output with HDCP 1.4, resolutions up 1920x1200； MIPI DP                                                                                                                                                                                                                                                            
+| Video decoder/encode                | The Video DSP of RTD1296 is dedicated to manipulating,decoding and encoding of video streams in various formats, e.g. decoding 4K2K H.265,Full HD MPEG1/2/4/H.264/H.264 MVC,AVC/VC-1,VP8,AVS,AVS Plus,HD jpeg,etc.Video decoding and encoding can run simultaneously. support 3D de-intrlacing,video scaling up to 4K2K and so on. 
+| Aideo decoding                      | Audio decoding is carried out by an Audio DSP that is capable of decoding a set of audio formats,e.g. DTS HD,Dolby Digital Plus,TrueHD,and other popular formats.the Audio DSP also performs audio post processing                                                                                                                 
+| Audio                               | support two audio device HDMI and headphone, also support Audio In/Out with PIN define. support 2 MIC in                                                                                                                                                                                                                           
+| HDMI Out/In                         | 1* HDMI 2.0a out port and 1* HDMI 2.0a In port                                                                                                                                                                                                                                                                                     
+| Audio outputs/Inputs                | HDMI, I2S audio,Audio micro out, Audio out/in with PIN define                                                                                                                                                                                                                                                                      
+| M.2 KEY E：PCIE 2.0/USB 2.0          | 1 pcie 2.0 interface                                                                                                                                                                                                                                                                                                               
+| M.2 KEY E:PCIe 1.1 / SDIO / USB 2.0 | 1 pcie 1.1 and SDIO interface                                                                                                                                                                                                                                                                                                      
+| USB 3.0                             | 1x USB 3.0 host                                                                                                                                                                                                                                                                                                                    
+| USB 2.0                             | 2x USB 2.0 OTG, 1 with standard USB port , 1 define with PIN                                                                                                                                                                                                                                                                       
+| M.2 KEY B                           | 1 * M.2 interface USB 2.0 for 4G with Micro SIM card slot                                                                                                                                                                                                                                                                          
+|==========================================================================================================================================================================================================================================================================================================================================================================
+
+| CPU           | xxxx
+| GPU           | xxxx
+| Memory        | xxxx
+| Flash         | xxxx
+| Network       | xxxx
+| WIFI&BT       | xxxx
+| Video Input   | xxxx
+| Video Outputs | xxxx
+| Audio Outputs | xxxx
+| Power         | xxxx
+| USB 2.0 ports | xxxx
+| GPIO          | xxxx
+| LED           | xxxx
+| Storage       | xxxx
+|=====
+
+== GPIO Pin Define
+
+=== BPI-xx 40PIN GPIO
+
+xxxx
+
+image::/picture/bpi-m1_26_pin.png[bpi-m1_26_pin.png]
+
+[option="header",cols="2,1,1"]
+|=====
+3+| **40 PIN GPIO of Banana pi BPI-M1**
+| CSI GPIO Pin | Pin Name | GPIO
+| CONx P01 | xxxx         | xxxx
+| CONx P02 | xxxx         | xxxx
+| CONx P03 | xxxx         | xxxx
+| CONx P04 | xxxx         | xxxx
+| CONx P05 | xxxx         | xxxx
+| CONx P06 | xxxx         | xxxx
+| CONx P07 | xxxx         | xxxx
+| CONx P08 | xxxx         | xxxx
+| CONx P09 | xxxx         | xxxx
+| CONx P10 | xxxx         | xxxx
+| CONx P11 | xxxx         | xxxx
+| CONx P12 | xxxx         | xxxx
+| CONx P13 | xxxx         | xxxx
+| CONx P14 | xxxx         | xxxx 
+| CONx P15 | xxxx         | xxxx 
+| CONx P16 | xxxx         | xxxx 
+| CONx P17 | xxxx         | xxxx 
+| CONx P18 | xxxx         | xxxx 
+| CONx P19 | xxxx         | xxxx 
+| CONx P20 | xxxx         | xxxx 
+| CONx P21 | xxxx         | xxxx 
+| CONx P22 | xxxx         | xxxx 
+| CONx P23 | xxxx         | xxxx 
+| CONx P24 | xxxx         | xxxx 
+| CONx P25 | xxxx         | xxxx 
+| CONx P26 | xxxx         | xxxx 
+| CONx P27 | xxxx         | xxxx 
+| CONx P28 | xxxx         | xxxx 
+| CONx P29 | xxxx         | xxxx 
+| CONx P30 | xxxx         | xxxx 
+| CONx P31 | xxxx         | xxxx 
+| CONx P32 | xxxx         | xxxx 
+| CONx P33 | xxxx         | xxxx 
+| CONx P34 | xxxx         | xxxx 
+| CONx P35 | xxxx         | xxxx 
+| CONx P36 | xxxx         | xxxx 
+| CONx P37 | xxxx         | xxxx 
+| CONx P38 | xxxx         | xxxx 
+| CONx P39 | xxxx         | xxxx
+| CONx P40 | xxxx         | xxxx
+|=====
+
+=== BPI-M5 Debug UART
+
+|=====
+|CONx-P1  | GND
+|CONx-P2  | UART0-RX
+|CONx-P3  | UART0-TX
+|=====
+
+= Development
+== Source Code
+
+=== Linux BSP Source Code
+
+TIP: Linux BSP source code
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+=== Android
+
+TIP: Linux BSP source code
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+== Resources
+
+= System Image
+== Android
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+== Linux
+
+=== Ubuntu
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+=== Debian
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+=== CentOS
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+== Third part image
+
+=== Raspbian
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+=== Armbian
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+=== EmuELEC
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+=== CoreELEC
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+= FAQ
+
+
+
+= Easy to buy
+
+WARNING: SINOVOIP Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M1/1100417230_40000003426518.html
+
+WARNING: Bipai Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M1/1101951077_40000003418620.html
+
+WARNING: Taobao Shop: https://shop108780008.taobao.com/category-1694930629.htm
+
+WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
