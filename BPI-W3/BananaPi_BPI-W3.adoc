@@ -36,7 +36,7 @@ image::/bpi-m1_interface.jpg[bpi-m1_interface.jpg]
 === BPI-W3
 [option="header",cols="1,4"]
 |=====
-2+| **HardWare Specification of Banana Pi W3**
+2+^| **HardWare Specification of Banana Pi W3**
 | SOC           | RockChip RK3588                                     
 | CPU           | Quad Core A76+ Quad Core A55 ,use 8nm , 2.4GHz     
 | GPU           | ARM Mali-G610 MP4 GPU，Support OpenGL ES3.2 / OpenCL 2.2 / Vulkan1.1, 450 GFLOPS                                                  
@@ -87,7 +87,7 @@ Encode：8K@30fps H.265 / H.264
 [option="header",cols="1,2,1,3,3"]
 |=====
 | Category	| Function	| quantity	2+|parameter
-|Video Input Interface | MIPI DC(DPHY/CPHY) combo PHY	| 2 a|	
+.4+|Video Input Interface | MIPI DC(DPHY/CPHY) combo PHY	| 2 a|	
 - Support to use DPHY or CPHY +
 - Each MIPI DPHY V2.0, 4lanes, 4.5Gbps per lane +
 - Each MIPI CPHY V1.1, 3lanes, 2.5Gsps per lane a| Support camera input combination: 
