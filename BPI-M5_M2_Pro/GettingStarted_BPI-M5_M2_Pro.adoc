@@ -83,7 +83,7 @@ Please read the source code link:https://github.com/BPI-SINOVOIP/BPI-S905X3-Andr
 === Android DTB overlay
 Bananapi M5/M2Pro DTBO idx value table, default idx value is 0 in release image.
 
-[options="header" cols="1,2,2" width="70%"]
+[options="header" cols="1,1,2" width="70%"]
 |=====
 3+| Bananapi M5/M2pro DTBO idx value table 
 | idx value | device tree overlay | description                         
