@@ -95,14 +95,14 @@ Bananapi M5/M2Pro DTBO idx value table, default idx value is 0 in release image.
 | 5         | uart1               | enable 2 pins uart 1                
 | 6         | uart1_cts_rts       | enable 4 pins uart 1                
 | 7         | uart2               | enable 2 pins uart 2                
-| 8         | hifi_pcm5122        | enable i2s pcm5122 HiFi DAC         
+| 8         | hifi_pcm5122        | enable i2s link:https://shumeipai.nxez.com/hifidac-hat-for-raspberry-pi[pcm5122 HiFi DAC]
 |=====
 
 **How to apply a new dtbo**
 
 . ADB command via sysfs
 +
-```
+```sh
  root@dangku-desktop:/tmp# adb root
  restarting adbd as root
  root@dangku-desktop:/tmp# adb remount
@@ -114,7 +114,7 @@ Bananapi M5/M2Pro DTBO idx value table, default idx value is 0 in release image.
 ```
 . Uart console command via sysfs
 +
-```
+```sh
  console:/ $ 
  console:/ $ su
  console:/ # echo dtbo > /sys/class/unifykeys/name
@@ -133,7 +133,7 @@ Bananapi M5/M2Pro DTBO idx value table, default idx value is 0 in release image.
 +
 Check the bootup uart debug message and confirm which dtbo is loaded actually, here "1" means set idx=1 to apply wifi_bt_rtl8822cs dtbo.
 +
-```
+```sh
  load dtb from 0x1000000 ......
        Amlogic multi-dtb tool
        Single dtb detected
@@ -150,16 +150,38 @@ image::/picture/m5_android_erase_all.png[m5_android_erase_all.png]
 
 . Default build-in overlays are defined in device/amlogic/bananapi_m5/Kernel.mk, you can add a new overlay dtbo here.
 +
-```
+```sh
  DTBO_DEVICETREE := android_p_overlay wifi_bt_rtl8822cs i2c2 i2c3 sdio uart1 uart1_cts_rts uart2 hifi_pcm5122
 ```
 . Default apply DTBO idx is defined in device/amlogic/bananapi_m5/BoardConfig.mk, you can change the idx value to set which overlay dtbo will be applied default.
 +
-```
+```sh
  BOARD_KERNEL_CMDLINE += androidboot.dtbo_idx=0
 ```
 . DTS files are in common/arch/arm/boot/dts/amlogic/overlay/bananapi_m5/
 More info about android device tree overlays, please refer to link:https://source.android.com/devices/architecture/dto[google android offical site]
+
+=== Install OpenGapps
+. Download install package from OpenGapps, Android release image is arm/android 9.0 variant.
++
+image::/picture/opengapps.png[opengapps.png]
+
+. Download device_id.apk.
+. Copy the OpenGapp package to a udisk or sdcard root directory.
+. Create a txt file named factory_update_param.aml in udisk or sdcard root directory with the following android recovery parameter content, and replace the file name with the actual downloaded package.
++
+udisk:
+
+
+
+
+
+
+
+
+
+
+
 
 == Linux
 === Prepare
