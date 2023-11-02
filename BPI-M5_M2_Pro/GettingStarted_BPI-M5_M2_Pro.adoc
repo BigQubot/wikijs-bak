@@ -43,19 +43,19 @@ Mali-G31 MP2 GPU @ 650Mhz
 
 . Open USB_Burning_Tool.exe, select menu File->Import image, choose the android image file aml_upgrade_package.img.
 +
-
+image::/picture/m5_android_install_1.png[m5_android_install_1.png]
 
 . M5/M2pro board disconnect power, press and hold SW4 button beside 40pin header, plugin type-c usb cable(microUSB on m2pro) to PC
 +
-
+image::/picture/m5_android_install_2.png[m5_android_install_2.png]
 
 . Click the Start button and wait for upgrade complete.
 +
-
+image::/picture/m5_android_install_3.png[m5_android_install_3.png]
 
 . After Burning successfull, Unplug the usb and connect to power supply adaptor to startup.
 +
-
+image::/picture/m5_android_install_4.png[m5_android_install_4.png]
 
 . Click the Stop button to cancel the upgrade process and close the USB Buring Tool.
 
@@ -65,7 +65,7 @@ link:https://github.com/Dangku/aml-flash-tool[Aml-flash-tool] is a linux platfor
 
  $ ./flash-tool.sh --img=/path/to/aml_upgrade_package.img --parts=all --wipe --soc=g12a --reset=y
 ```
-
+image::/picture/m5_linux_flash.png[m5_linux_flash.png]
 
 
 === Build Android Source Code
@@ -144,7 +144,7 @@ Check the bootup uart debug message and confirm which dtbo is loaded actually, h
 +
 Unifykeys is stored in a specific emmc part, "Normal erase" selected in USB_Burning_Tool will not erase this data for next update, you must select "Erase all" if you want the default dtbo idx to be applied after image download.
 +
-
+image::/picture/m5_android_erase_all.png[m5_android_erase_all.png]
 
 **Build Android image with a specific DTBO default.**
 
