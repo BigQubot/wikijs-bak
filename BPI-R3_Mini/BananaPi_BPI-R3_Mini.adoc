@@ -1,0 +1,136 @@
+= BPI-R3 Mini Introduction
+
+Banana Pi BPI-R3 Mini Router board with MediaTek MT7986A(Filogic 830) quad core ARM A53 chip design ,2G DDR RAM ,8G eMMC flash onboard,It is a very high performance open source router development board,support Wi-Fi6 2.4G/5G with MT7976C, support 2x 2.5GbE ethernet port.
+
+image::/picture/banana_pi_bpi-r3_mini_banner_1.jpg[banana_pi_bpi-r3_mini_banner_1.jpg]
+
+=== MediaTek MT7986(Filogic 830)
+
+The MT7986A(Filogic 830) integrates four Arm Cortex-A53 cores up to 2GHz with up to 18,000 DMIPs of processing power and 6Gbps of dual 4x4 Wi-Fi6 connectivity. It has two 2.5g Ethernet interfaces and serial peripheral interfaces (SPI). Filogic 830‘s built-in hardware acceleration engine enables fast and reliable Wi-Fi offloading and wireless network connection. In addition, the chip supports Mediatek FastPath™ technology, which is suitable for games, AR/VR and other low-latency applications.
+
+Wi-fi 6 has many advantages over its predecessors, including lower latency, larger bandwidth capacity and faster transmission rates. Wireless network devices supporting the 6GHz band mainly use 160MHz wide channel and 6GHz uncongested bandwidth to provide multigigabit transmission and low-latency wi-fi connection, providing reliable wireless network for streaming media, games, AR/VR and other applications.
+
+== Key Features
+
+- MediaTek MT7986A(Filogic 830) Quad core ARM Cortex A53
+- Wifi 6 2.4G/5G（MT7976C）
+- 2G DDR RAM
+- 8G eMMC flash
+- 128MB Nand flash
+- 2x 2.5GbE network port
+- 1x M.2 Key B USB interface
+- 1x M.2 KEY M PCIe interface
+- 1x USB2.0 interface
+
+== Application direction
+
+- Internet service Router
+- Wireless Router
+- Wireless Repeater
+- Home security Gateway
+- Home Automation
+- Nas device
+- Soft router
+- Network and communication applications
+
+== Getting Start
+
+link:/en/BPI-R3_Mini/GettingStarted_BPI-R3_Mini[Getting Started BPI-R3_Mini]
+
+= Hardware
+== Hardware Interface
+
+image::/picture/bpi-r3_mini_interface.jpg[bpi-r3_mini_interface.jpg]
+
+== Hardware Spec
+
+[option="header",cols="1,3"]
+|=====
+2+| **HardWare Specification of Banana Pi R3 Mini**
+| CPU	MediaTek      | MT7986A(Filogic 830) Quad-core ARM Cortex-A53
+| SDRAM	            | 2 GB DDR4
+| On board Storage	| 128MB SPI NandFlash，8GB eMMC
+| On board Network	| 2x 2.5GbE Ethernet
+| Wifi	            | Wifi6 2x2 2.4G + 3x3 5G(MT7976C)
+| M.2 Key B       	| 1x M.2 Key B interface
+| M.2 Key M	        | 1x M.2 KEY-M PCIe inerface
+| USB	              | 1x USB 2.0
+| Buttons         	| Reset button, boot switch
+| 5x Leds          	| Power ,System, Wifi 2G ,Wifi 5G ,4G Lte ,SSD
+| DC Power        	| 20W/12V,USB TypeC PD
+| Sizes	            | 65x65mm
+| Weight	          | 100g
+|=====
+
+== SSD and 5G support
+
+image::/picture/bpi-r3_mini_ssd_5g.jpg[bpi-r3_mini_ssd_5g.jpg]
+
+== Accessories
+=== Case design
+
+image::/picture/banana_pi_bpi-r3_mini_case_9.jpg[banana_pi_bpi-r3_mini_case_9.jpg]
+
+=== 5G module support
+- BPI-R3 mini can use Quectel RM500U-CN & RM520N-GL 5G Modules
+
+= Development
+== Source Code
+TIP: Opensource Driver BSP : 
+https://github.com/BPI-SINOVOIP/BPI-R3MINI-OPENWRT-V21.02.3
+
+== Resources
+
+TIP: BPI-R3 Mini DXF file 
+
+Google Drive: https://drive.google.com/file/d/1FgNVjR-kPdFVNZBPkAF8xTIZ4YauJ_2O/view?usp=sharing 
+
+Baidu Cloud: https://pan.baidu.com/s/1t1hZjNdg7rMBJcqVEZN-Ag?pwd=8888 (pincode:8888)
+
+TIP: BPI-R3 Mini schematic diagram
+
+Google Drive: https://drive.google.com/file/d/1wvovcYf0OtvQl5fekJku25QNeER1D7cM/view?usp=sharing
+
+Baidu Cloud: https://pan.baidu.com/s/1HohHjd2w-mqLlBhwsXR87A?pwd=8888 (pincode:8888)
+
+TIP: MT7986A_Datasheet_1.15 : https://drive.google.com/file/d/1t_nuPTeoAcFb1dmEe4kJVlLWdHcAA6OB/view?usp=sharing
+
+TIP: MT7986A_Reference_Manual_for_BPI-R3 : https://drive.google.com/file/d/1biSJmxnIpNzQroYDg9mtPtSTAv4i0DFf/view?usp=sharing
+
+TIP: Bananapi R3 review with WiFi / CPU benchmarks and power consumption numbers: https://wiki.junicast.de/en/junicast/review/bananapi-BPI-R3
+
+= System Image
+
+== OpenWRT
+
+NOTE: bl2_emmc.img
+
+Google Drive: https://drive.google.com/file/d/1L5lVyg8dDl60eyzkqBr-8aeG2Weq5ouo/view?usp=sharing
+
+Baidu Cloud: https://pan.baidu.com/s/1vdnCKqr0GSzQid7Y3ADCKw?pwd=8888 (pincode:8888)
+
+NOTE: 2023-09-12 BPI-R3 Mini OpenWRT image with Opensource Driver BSP (support Quectel RM500U-CN & RM520N-GL 5G Modules)
+
+Google Drive: https://drive.google.com/drive/folders/1o6JGM61eZQycuYPFlror4IwNa5cGzyIa?usp=sharing
+
+Baidu Cloud: https://pan.baidu.com/s/1vAJC-n37Yt_aHEZU9PL7Sw?pwd=8888 (pincode:8888)
+
+NOTE: 2023-09-12 BPI-R3 Mini OpenWRT image with MTK vendor driver, Not OpenSource Driver BSP (support Quectel RM500U-CN & RM520N-GL 5G Modules)
+
+Google Drive: https://drive.google.com/drive/folders/15iXMvzaZFb1M5HHfotew3NMdMEjOEtTJ?usp=sharing
+
+Baidu Cloud: https://pan.baidu.com/s/1qAiIqHxhUwuRUp8CIcrPTw?pwd=8888 (pincode:8888)
+
+= FAQ
+
+
+
+= Easy to buy
+
+WARNING: SINOVOIP Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M1/1100417230_40000003426518.html
+
+WARNING: Bipai Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M1/1101951077_40000003418620.html
+
+WARNING: Taobao Shop: https://shop108780008.taobao.com/category-1694930629.htm
+
+WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
