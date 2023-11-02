@@ -1,0 +1,184 @@
+= Introduction
+
+Banana Pi M5 is a new generation single board computer design , use Amlogic S905X3 Quad-Core Cortex-A55 (2.0xxGHz) Processor. Mali-G31 MP2 GPU with 4 x Execution Engines (650Mhz). support 4GB LPDDR4 and 16G eMMC flash. it have 4 USB 3.0 port,1GbE LAN port, IR Reciver, Audio Jack, 1 HDMI Out and USB type-c power supply.
+
+Banana Pi M2Pro is the same SOC with M5, but different board layout. 2GB LPDDR4 and 16G eMMC flash, 2 USB 3.0 port,1GbE LAN port, rtl8821cu usb wifi/bt onboard, IR Reciver, 1 HDMI Out, 1 MicroUSB port, DC power supply.
+
+TIP: More Infomation: link:/en/BPI-M5/BananaPi_BPI-M5[Banana Pi BPI-M5] +
+More Infomation: link:/en/BPI-M2_Pro/BananaPi_BPI-M2_Pro[Banana Pi BPI-M2_Pro]
+
+== specifications
+
+- SoC – Amlogic S905X3 quad-core Cortex-A55 processor @ up to 2.0 GHz with
+Mali-G31 MP2 GPU @ 650Mhz
+- System Memory – 4GB LPDDR4
+- Storage – 16GB eMMC flash (option up to 64GB), MicroSD slot up to 2TB
+- Video Output – HDMI 2.1 up to 4Kp60 with HDR, CEC, EDID
+- Audio – 3.5mm audio jack, digital HDMI audio
+- Connectivity – Gigabit Ethernet
+- USB – 4x USB 3.0 ports via VL817 hub controller, 1x USB-C port (for power only?)
+- Expansion – 40-pin Raspberry Pi header with 28x GPIO, UART, I2C, SPI, PWM, and power signal (+5V, +3.3V, GND).
+- Debugging – 3-pin debug header
+- Misc – Reset, Power, and U-boot button; power and activity LED’s; IR receiver
+- Power Supply – 5V @3A via USB Type-C port
+- Dimensions – 92x60mm (Not the same as Raspberry Pi PCB size, but they probably included the connectors during measurement)
+- Weight – 48grams
+
+= Development
+== Prepare
+
+. Prepare a usb-serial cable, a 5V/3A adaptor type-c power supply. The serial cable is used for console debug and type-c cable is used for android image download and ADB debug. M2pro is used Micro-usb port for android image download and ADB debug.
+. Prepare a SDcard at least 8GB for linux development, android only support emmc boot.
+. The SOC rom first boot media is emmc, so board can't bootup from SDcard if the emmc is bootable with any image flashed, more info please refer to board boot sequence.
+. In Android SDcard is mmc0, emmc is mmc1, but in Linux SDcard is mmc1, emmc is mmc0.
+
+== Android
+=== Prepare
+
+. Download and install the link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/files/?p=%2FTools%2Fimage_download_tools%2Faml_usb_burning_tool_V2_setup_v2.2.3.3.zip[AML Usb Burning Tool] for android image download via USB type-c on M5 and Micro-usb on M2pro, only support windows.
+. Download the latest android image, and confirm that the md5 checksum is correct.
+. M5 and M2pro are compatiable with same android image.
+
+=== Install Image with Usb Burning Tool
+
+. Open USB_Burning_Tool.exe, select menu File->Import image, choose the android image file aml_upgrade_package.img.
++
+
+
+. M5/M2pro board disconnect power, press and hold SW4 button beside 40pin header, plugin type-c usb cable(microUSB on m2pro) to PC
++
+
+
+. Click the Start button and wait for upgrade complete.
++
+
+
+. After Burning successfull, Unplug the usb and connect to power supply adaptor to startup.
++
+
+
+. Click the Stop button to cancel the upgrade process and close the USB Buring Tool.
+
+=== Install Image with Aml Flash Tool
+link:https://github.com/Dangku/aml-flash-tool[Aml-flash-tool] is a linux platform opensource image flash util for Amlogic android.
+```sh
+
+ $ ./flash-tool.sh --img=/path/to/aml_upgrade_package.img --parts=all --wipe --soc=g12a --reset=y
+```
+
+
+
+=== Build Android Source Code
+. Get Android 9.0 source code
++
+```sh
+ $ git clone https://github.com/BPI-SINOVOIP/BPI-S905X3-Android9
+```
++
+or you can get the source code tar archive from link:https://pan.baidu.com/s/1TmmR_075b49lPSt1Phq0ag?pwd=8888[Baidu Pan(pincode: 8888)] or link:https://drive.google.com/drive/folders/1RuvazYcr46HKMvNBxSqQftdyWa0tK9f7?usp=share_link[Google Drive]
++
+. Build the Android 9.0 Source code
+Please read the source code link:https://github.com/BPI-SINOVOIP/BPI-S905X3-Android9/blob/master/README.md[README.md]
+
+=== Android DTB overlay
+Bananapi M5/M2Pro DTBO idx value table, default idx value is 0 in release image.
+
+[options="header" cols="1,1,1"]
+|=====
+3+| Bananapi M5/M2pro DTBO idx value table 
+| idx value | device tree overlay | description                         
+| 0         | android_p_overlay   | default dtbo, no use                
+| 1         | wifi_bt_rtl8822cs   | enable bpi rtl8822cs wifi/bt module 
+| 2         | i2c2                | enable i2c 2                        
+| 3         | i2c3                | enable i2c 3                        
+| 4         | sdio                | enable sdio                         
+| 5         | uart1               | enable 2 pins uart 1                
+| 6         | uart1_cts_rts       | enable 4 pins uart 1                
+| 7         | uart2               | enable 2 pins uart 2                
+| 8         | hifi_pcm5122        | enable i2s pcm5122 HiFi DAC         
+|=====
+
+**How to apply a new dtbo**
+
+. ADB command via sysfs
++
+```
+ root@dangku-desktop:/tmp# adb root
+ restarting adbd as root
+ root@dangku-desktop:/tmp# adb remount
+ remount succeeded
+ root@dangku-desktop:/tmp# adb shell
+ bananapi_m5:/ # echo dtbo > /sys/class/unifykeys/name
+ bananapi_m5:/ # echo "1" > /sys/class/unifykeys/write
+ bananapi_m5:/ # reboot
+```
+. Uart console command via sysfs
++
+```
+ console:/ $ 
+ console:/ $ su
+ console:/ # echo dtbo > /sys/class/unifykeys/name
+ [  115.702781@0] unifykey: name_store() 1302, name dtbo, 4
+ [  115.702856@0] unifykey: name_store() 1311
+ console:/ #
+ console:/ # echo "1" > /sys/class/unifykeys/write
+ [  129.262659@0] unifykey: write_store()  is a string
+ [  129.262733@0] unifykey: dtbo, 1, 1
+ [  129.265312@0] unifykey: amlkey_write 393
+ [  129.292347@1] emmc_key_write:149, write ok
+ console:/ # 
+ console:/ # reboot
+```
+. Settings App(To-Do)
++
+Check the bootup uart debug message and confirm which dtbo is loaded actually, here "1" means set idx=1 to apply wifi_bt_rtl8822cs dtbo.
++
+```
+ load dtb from 0x1000000 ......
+       Amlogic multi-dtb tool
+       Single dtb detected
+ find 2 dtbos
+ dtbos to be applied: 1
+ Apply dtbo 1
+```
++
+Unifykeys is stored in a specific emmc part, "Normal erase" selected in USB_Burning_Tool will not erase this data for next update, you must select "Erase all" if you want the default dtbo idx to be applied after image download.
++
+
+
+**Build Android image with a specific DTBO default.**
+
+. Default build-in overlays are defined in device/amlogic/bananapi_m5/Kernel.mk, you can add a new overlay dtbo here.
++
+```
+ DTBO_DEVICETREE := android_p_overlay wifi_bt_rtl8822cs i2c2 i2c3 sdio uart1 uart1_cts_rts uart2 hifi_pcm5122
+```
+. Default apply DTBO idx is defined in device/amlogic/bananapi_m5/BoardConfig.mk, you can change the idx value to set which overlay dtbo will be applied default.
++
+```
+ BOARD_KERNEL_CMDLINE += androidboot.dtbo_idx=0
+```
+. DTS files are in common/arch/arm/boot/dts/amlogic/overlay/bananapi_m5/
+More info about android device tree overlays, please refer to link:https://source.android.com/devices/architecture/dto[google android offical site]
+
+== Linux
+=== Prepare
+
+. xxx
+. xxx
+. xxx
+. xxx
+
+=== Install Image with xxx
+
+. xxx
+. xxx
+. xxx
+. xxx
+
+=== Install Image with xxx
+
+. xxx
+. xxx
+. xxx
+. xxx
