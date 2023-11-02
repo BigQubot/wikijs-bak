@@ -192,11 +192,11 @@ watch this video on link:https://www.bilibili.com/video/BV13y4y1s77i/[bilibili]
 === IR Remote Control Custom
 Before starting this work, some android basic concepts and knowledge need to be known.
 
-Linux kernel input key event. +
-Android keycode. +
-Linux keycode map to android keycode. +
-Android Adb function work on your PC
-
+- Linux kernel input key event.
+- Android keycode.
+- Linux keycode map to android keycode.
+- Android Adb function work on your PC
+--
 . pull the remote files from device
 +
 ```
@@ -281,25 +281,63 @@ push remote.tab and test each key whether works
 ```
 
 . Reboot the board 
+--
 
 == Linux
 === Prepare
 
-. xxx
-. xxx
-. xxx
-. xxx
+. Linux image support SDcard or EMMC bootup, but you should read the boot sequence at first.
+. It’s recommended to use A1 rated cards, 8GB at least.
+. M5 and M2pro are compatiable with same Linux image.
+. Make sure bootable EMMC is formatted if you want bootup from SDcard
+. Make sure SDcard is formatted without Linux image flashed if you want bootup from EMMC and use Sdcard as storage.
 
-=== Install Image with xxx
+=== Install Image with SDcard
+**Windows**
 
-. xxx
-. xxx
-. xxx
-. xxx
+Install Image with Balena Etcher. +
+link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive
 
-=== Install Image with xxx
+image::/picture/etcher.jpg[etcher.jpg]
 
-. xxx
-. xxx
-. xxx
-. xxx
+**Linux**
+
+. Install Image with Balena Cli. +
+link:https://github.com/balena-io/balena-cli[Balena CLI] is a Command Line Interface for balenaCloud or openBalena. It can be used to flash linux image. Download the installer or standalone package from link:https://github.com/balena-io/balena-cli/releases[balena-io] and link:https://github.com/balena-io/balena-cli/blob/master/INSTALL.md[install ]it correctly to your PC, then you can use the "link:https://docs.balena.io/reference/balena-cli/#local-flash-image[local flash]" command option of balena to flash a linux image to sdcard or usb drive.
++
+```
+ $ sudo balena local flash path/to/xxx-bpi-m5-xxx.img.zip
+ $ sudo balena local flash path/to/xxx-bpi-m5-xxx.img.zip --drive /dev/disk2
+ $ sudo balena local flash path/to/xxx-bpi-m5-xxx.img.zip --drive /dev/disk2 --yes
+```
+. Install Image with dd command on Linux, umount SDcard device /dev/sdX partition if mounted automatically. Actually bpi-copy is the same as this dd command.
++
+```
+ $ sudo apt-get install pv unzip
+ $ sudo unzip -p xxx-bpi-m5-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxfer
+```
+. Install image with bpi-tools on Linux, plug SDcard to Linux PC and run
++
+```
+ $ sudo apt-get install pv unzip
+ $ sudo bpi-copy xxx-bpi-m5-xxx.img.zip /dev/sdX
+```
+
+=== Install Image with eMMC
+
+. Prepare a SDcard with Linux image flashed and bootup board with this SDcard.
+. Copy Linux image to udisk, plug the udisk to board and mount it.
+. There are two ways to install the linux image to board.
+- Install with dd command, umount mmcblk0p1 and mmcblk0p2 partition if mounted automatically. Actually bpi-copy is the same as this dd command.
++
+```
+ $ sudo apt-get install pv unzip
+ $ sudo unzip -p xxx-bpi-m5-xxx.img.zip | pv | dd of=/dev/mmcblk0 bs=10M status=noxfer
+```
+- Install the linux image in udisk with bpi-tools command
++
+```
+ $ sudo apt-get install pv unzip
+ $ sudo bpi-copy xxx-bpi-m5-xxx.img.zip /dev/mmcblk0
+```
+. After download complete, power off safely and eject the SDcard.
