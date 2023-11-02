@@ -84,22 +84,40 @@ Encode：8K@30fps H.265 / H.264
 |=====
 == Function parameter
 
-[option="header",cols="1,2,1,3,3"]
+[option="header",cols="1,1,1,3,3"]
 |=====
 | Category	| Function	| quantity	2+|parameter
-.4+|Video Input Interface | MIPI DC(DPHY/CPHY) combo PHY	| 2 a|	
-- Support to use DPHY or CPHY +
+.4+|Video Input Interface | MIPI DC(DPHY/CPHY) combo PHY	| 2 a|	- Support to use DPHY or CPHY +
 - Each MIPI DPHY V2.0, 4lanes, 4.5Gbps per lane +
-- Each MIPI CPHY V1.1, 3lanes, 2.5Gsps per lane a| Support camera input combination: 
+- Each MIPI CPHY V1.1, 3lanes, 2.5Gsps per lane .2+a| Support camera input combination: 
 
 - 2 MIPI DCPHY + 4 MIPI CSI DPHY(2 lanes) 
 
 - 2 MIPI DCPHY + 1 MIPI CSI DPHY(4 lanes) + 2 MIPI CSI DPHY(2 lanes) 
 
 - 2 MIPI DCPHY + 2 MIPI CSI DPHY(4 lanes)
-|
-
-
+| MIPI CSI DPHY	| 4	 a|
+- Each MIPI DPHY V1.2, 2lanes, 2.5Gbps per lane
+- Support to combine 2 DPHY together to one 4lanes
+| DVP | ≤1	 2+a|
+- One 8/10/12/16-bit standard DVP interface, up to 150MHz input data
+- Support BT.601/BT.656 and BT.1120 VI interface
+- Support the polarity of pixel_clk, hsync, vsync configurable
+| HDMI RX	| 1  2+a|
+- HDMI 2.0 RX PHY, 4 lanes, no sideband channels
+- Data rate support in HDMI 2.0 mode, 6Gbps down to 3.4Gbps
+- Data rate support in HDMI 1.4 mode, 3.4Gbps down to 250Mbps
+- Support HDCP2.3 and HDCP1.4
+.4+| Display interface | HDMI/eDP TX interface | ≤2	 2+a|
+- Support two HDMI/eDP TX combo interface, but HDMI and eDP can not work at the same time for each interface
+- Support x1, x2 and x4 configuration for each interface
+- Support up to 7680x4320@60Hz for HDMI TX, and 4K@60Hz for eDP
+- Support HDCP2.3 for HDMI TX, and HDCP1.3 for eDP
+| DP TX	| 2	 2+a|
+- Support 2 DP TX 1.4a interface which combo with USB3.1 Gen1
+- Support up to 7680x4320@30Hz
+- Support Single Stream Transport(SST)
+- Support HDCP2.3, HDCP 1.3
 |=====
 
 == GPIO Pin Define
