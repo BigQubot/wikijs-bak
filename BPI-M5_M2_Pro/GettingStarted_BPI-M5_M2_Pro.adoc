@@ -426,7 +426,7 @@ Install from git source directly without development
 If the package is already installed, it should be uninstalled before installing the new one, or installing the new one with --force-reinstall option.
 
 === WiringPi2-Python
-link:https://newwiki.banana-pi.org/en/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro#_enable_sudo_for_debian[ll]
+
 Build and install, for debian, you must link:https://newwiki.banana-pi.org/en/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro#_enable_sudo_for_debian[install sudo] before build
 ```
  $ sudo apt-get update
