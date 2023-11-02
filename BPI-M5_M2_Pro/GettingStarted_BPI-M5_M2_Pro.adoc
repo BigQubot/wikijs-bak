@@ -446,8 +446,19 @@ Build and install, for debian, you must link:https://newwiki.banana-pi.org/e/en/
 
 
 
+== Other Development
 
+=== Enable sudo for Debian
 
-
+The release Debian image do not install sudo default, with "su -" command, user can change to root. If you like sudo, you can install it.
+```
+ $ su root
+ Password:(enter bananapi)
+ 
+ # apt-get update
+ # apt-get install sudo
+ # adduser pi sudo
+```
+Then please do logout and login again
 
 
