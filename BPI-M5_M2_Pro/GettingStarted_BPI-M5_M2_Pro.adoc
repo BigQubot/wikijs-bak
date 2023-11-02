@@ -129,8 +129,7 @@ Bananapi M5/M2Pro DTBO idx value table, default idx value is 0 in release image.
  console:/ # 
  console:/ # reboot
 ```
-. Settings App(To-Do)
-+
+. Settings App(To-Do) +
 Check the bootup uart debug message and confirm which dtbo is loaded actually, here "1" means set idx=1 to apply wifi_bt_rtl8822cs dtbo.
 +
 ```sh
@@ -162,26 +161,126 @@ image::/picture/m5_android_erase_all.png[m5_android_erase_all.png]
 More info about android device tree overlays, please refer to link:https://source.android.com/devices/architecture/dto[google android offical site]
 
 === Install OpenGapps
-. Download install package from OpenGapps, Android release image is arm/android 9.0 variant.
+. Download install package from link:https://opengapps.org/[OpenGapps], Android release image is arm/android 9.0 variant.
 +
 image::/picture/opengapps.png[opengapps.png]
 
-. Download device_id.apk.
+. Download link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fapps%2Fdevice_id_v1.3.2.apk[device_id.apk].
 . Copy the OpenGapp package to a udisk or sdcard root directory.
-. Create a txt file named factory_update_param.aml in udisk or sdcard root directory with the following android recovery parameter content, and replace the file name with the actual downloaded package.
-+
+. Create a txt file named factory_update_param.aml in udisk or sdcard root directory with the following android recovery parameter content, and replace the file name with the actual downloaded package. +
 udisk:
++
+```
+ --wipe_cache
+ --update_package=/udisk/open_gapps-arm-9.0-pico-20210327.zip
+```
+sdcard:
++
+```
+ --wipe_cache
+ --update_package=/sdcard/open_gapps-arm-9.0-pico-20210327.zip
+```
 
+. Plugin the udisk or sdcard to the board and poweron.
 
+. OpenGapps install and certify.
++
+https://youtu.be/fXOKmWfpqF8
++
+watch this video on link:https://www.bilibili.com/video/BV13y4y1s77i/[bilibili]
 
+=== IR Remote Control Custom
+Before starting this work, some android basic concepts and knowledge need to be known.
 
+Linux kernel input key event. +
+Android keycode. +
+Linux keycode map to android keycode. +
+Android Adb function work on your PC
 
+. pull the remote files from device
++
+```
+ # adb pull /vendor/etc/remote.cfg
+ # adb pull /vendor/etc/remote.tab 
+```
 
+. modify remote.cfg to enable remote debug message
++
+image::/picture/remotecfg.png[remotecfg.png]
++
+push remote.cfg back
++
+```
+ # adb root
+ # adb remount
+ # adb push remote.cfg /vendor/etc/
+ # adb shell
+ m5_mbox:/ # chmod 644 /vendor/etc/remote.cfg
+ m5_mbox:/ # remotecfg -c /vendor/etc/remote.cfg -d
+ cfgdir = /vendor/etc/remote.cfg
+ work_mode = 1
+ repeat_enable = 0
+ debug_enable = 1
+ max_frame_time = 1000
+```
 
+. Get the remote keycode +
+Press your remote key one by one and then print the dmesg to get the remote custom_code and each remote key code.
++
+```
+ # adb shell dmesg | grep framecode=
+```
++
+image::/picture/keycode.png[keycode.png]
++
+custom_code = 0xfe01 +
+keycode = 0x00, 0x01, 0x09, 0x02, 0x0a, 0x05, 0x04 0x06, 0x03, 0x0b, 0x40, 0x48, 0x44
 
+. Modify remote.tab to map the scancode to android keycode
++
+image::/picture/remotetab.png[remotetab.png]
++
+push remote.tab and test each key whether works
++
+```
+ # adb root
+ # adb remount
+ # adb push remote.tab1 /vendor/etc/
+ # adb shell
+ m5_mbox:/ # chmod 644 /vendor/etc/remote.tab
+ m5_mbox:/ # remotecfg -c /vendor/etc/remote.cfg -t /vendor/etc/remote.tab -d
+ cfgdir = /vendor/etc/remote.cfg
+ work_mode = 1
+ repeat_enable = 0
+ debug_enable = 1
+ max_frame_time = 1000
+ tabdir = /vendor/etc/remote.tab
+ custom_name = nec-test
+ fn_key_scancode = 0xffff
+ cursor_left_scancode = 0xffff
+ cursor_right_scancode = 0xffff
+ cursor_up_scancode = 0xffff
+ cursor_down_scancode = 0xffff
+ cursor_ok_scancode = 0xffff
+ custom_code = 0xfe01
+ release_delay = 80
+ map_size = 13
+ key[0] = 0x74
+ key[1] = 0x1008b
+ key[2] = 0x90066
+ key[3] = 0x20069
+ key[4] = 0xa006a
+ key[5] = 0x50067
+ key[6] = 0x4006c
+ key[7] = 0x6001c
+ key[8] = 0x30072
+ key[9] = 0xb0073
+ key[10] = 0x40009e
+ key[11] = 0x4800a4
+ key[12] = 0x440071
+```
 
-
-
+. Reboot the board 
 
 == Linux
 === Prepare
