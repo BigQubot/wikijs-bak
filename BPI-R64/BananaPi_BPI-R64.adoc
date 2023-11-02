@@ -1,0 +1,322 @@
+= BPI-R64 Introduction
+
+The Banana Pi R64 is a router based development board, which can run on a variety of open source operating systems including OpenWrt,Linux. It has 4 Gigabit LAN ports, 1 Gigabit WAN, and AC wifi AP function. use 64 bit chip design
+
+image::/picture/banana_pi_bpi-r64.png[banana_pi_bpi-r64.png]
+
+IMPORTANT: Note: this board doesn't have HDMI interface
+
+=== MTK MT7622
+Highly integrated 4x4 802.11n and Bluetooth 5.0 platform with dedicated Network Accelerator MediaTek MT7622 is the world’s first with 4x4n 802.11n/Bluetooth 5.0 system-on-chip designed and built for premium networking devices across several applications including routers/repeaters, home automation gateways, wireless audio, and wireless storage. The highly versatile chipset provides a single platform for popular 4X4 dual-band and tri-band routers/repeaters, providing maximum flexibility for manufacturers looking to build top-tier networking devices. The platform pairs high performance and extensively integrated functionality with a cost-effective approach.
+
+The MT7622 contains MediaTek’s Adaptive Network technology that allows for easy setup, network self-healing, roaming, band steering, Smart quality of service, advanced security and more. For audio and voice control applications, essential audio interfaces such as I2S, TDM and S/PDIF are included. And for Home Automation Gateways there is a rich array of slow I/O in addition to the integrated Wi-Fi, Bluetooth and Zigbee co-existence.
+
+Powered by a 64-bit dual-core ARM Cortex-A53 processor clocked at 1.35GHz, the MT7622 provides a host of advanced connectivity options like SGMII/RGMII, PCIe, and USB, and 4X4 802.11n FEM integration. Extending the platform with 802.11ac to meet additional markets is simply done via MT7615 SoC.
+
+The MT7622 introduces several best-in-class features such as Bluetooth 5.0 and a dedicated Network Accelerator engine with the MediaTek Wi-Fi Warp Accelerator, storage accelerator (SATA 3.0/eSATA Gen2) and HNAT HQoS calculations are offloaded from the CPU, lowering overall power-use and freeing up resources to avoid any potential slow-downs.
+
+The advantage of the MediaTek Wi-Fi Warp Accelerator is two-fold. Firstly it connects the Gigabit+ class 802.11ac networking through to the Gigabit switch/WAN connection via multi-Gigabit internal pathways, ensuring no bottleneck. Secondly, its specialized design not only offloads the CPU from many-user throughput and QoS calculations, it does so at lower power. The result is the MediaTek Wi-Fi Warp Accelerator maintains a sustained high-performance when even supporting multiple, simultaneous heavy users.
+
+Integrated Bluetooth allows for a direct, local wireless connection via App for easy configuration of the router/Wi-Fi settings. The latest Bluetooth 5.0 quadruples range and doubles speed versus previous 4.x technologies, allowing new and innovative possibilities.
+
+== Key Features
+
+- MediaTek MT7622,1.35GHZ 64 bit dual-core ARM Cortex-A53
+- 1G DDR3 SDRAM
+- Mini PCIE interface support 4G module
+- built-in 4x4n 802.11n/Bluetooth 5.0 system-on-chip
+- MTK7615 4x4ac wifi (option)
+- support 1 SATA interface
+- MicroSD slot supports up to 256GB expansion
+- 8G eMMC flash (option 16/32/64G)
+- 128MB nand flash
+- 5 port 10/100/1000 Mb Ethernet port
+- 1 USB 3.0
+- Slow I/O:ADC, Audio Amplifier, GPIO, I2C, I2S, IR, PMIC I/F, PWM, RTC, SPI, UART
+- POE function support
+
+== Getting Start
+
+link:/en/BPI-R64/GettingStarted_BPI-R64[Getting Started BPI-R64]
+
+Frank wiki : http://fw-web.de/dokuwiki/doku.php?id=en:bpi-r64:start
+
+= Hardware
+== Hardware Interface
+
+image::/picture/bpi-r64_interface.jpg[bpi-r64_interface.jpg]
+
+the inner and outer diameter of the power plug adapter datasheet: https://drive.google.com/file/d/1k3AWmYOs2XE7lnRxCyytZu0Vpq_Bzcu_/view?usp=sharing
+
+image::/picture/dc090_size.png[dc090_size.png]
+
+== Hardware Spec
+
+[option="header",cols="1,4"]
+|=====
+2+| **HardWare Specification of Banana Pi R64**
+| CPU	| MediaTek MT7622,1.35GHZ 64 bit dual-core ARM Cortex-A53
+| SDRAM	            | 1 GB DDR3
+| SATA	            | support 1 SATA interface
+| GPIO	            | 40 Pins Header, 28×GPIO, some of which can be used for specific functions including UART, I2C, SPI, PWM, I2S.
+| On board Network	| 5 10/100/1000Mbps Ethernet
+| Wifi	            | built-in 4x4n 802.11n (800Mbps) sysem-on-chip and MTK7615 4x4ac wifi Module (1733Mbps) (option)
+| Bluetooth	        | Bluetooth 5.0 system-on-chip
+| On board Storage	| MicroSD \(TF\) card,8GB eMMC onboard
+| Mini PCIE	        | 1 mini pcie interface for 4G
+| USB	              | 1 USB 3.0 host
+| Buttons	          | Reset button
+| Leds	            | Power status Led and RJ45 Led
+| IR	              | PIN define with GPIO
+| DC Power	        | 12V/2A with DC in
+| POE	              | support POE module interface,can add POE module
+| Sizes	            | 148 mm × 100.5mm same as Banana Pi BPI-R3 and Banana Pi BPI-R2
+| Weight	          | 100g
+|=====
+
+== PoE support
+We design PoE function for BPI-R64 ,so easy to add PoE module to support PoE function,PoE modue can support IEEE 802.3bt PoE standard ,Max support 12V/3A to power BPI-R64
+
+image::/picture/bpi-r64_poe.jpg[bpi-r64_poe.jpg]
+
+more PoE module spec
+
+link:[BPI-7402 IEEE 802.3at PoE module]
+
+== 4G support
+. use pcie interface standard module ,and use SIM card slot onboard
++
+image::/picture/4g_onboard.jpg[4g_onboard.jpg]
++
+. use 4G extend module via USB port
++
+USB 4G module : http://wiki.banana-pi.org/4G_module_via_USB
+
+== BPI-MT7615 802.11 ac wifi 4x4 dual-band
+We have design a MT7615 802.11 ac wifi module ,can use on BPI-R64
+
+MT7615 is a highly integrated Wi-Fi single chip which support 1733 Mbps PHY rate,It fully compies with IEEE 802.11ac and IEEE802.11 a/b/n standards,offering feature-rich wireless connecivity at high standards,and delivering reliable,cost-effective throughput from and extended distance.
+
+BPI-MT7615 802.11 ac wifi 4x4 dual-band module
+
+BPI-R64 + MT7615 function test
+
+== GPIO Pin Define
+
+image::/picture/r64_gpio_40.jpg[r64_gpio_40.jpg]
+
+= Development
+== Source Code
+
+=== Linux
+
+TIP: BPI-R64 Linux BSP(kernel 5.4):https://github.com/BPI-SINOVOIP/BPI-R64-bsp-5.4
+
+TIP: BPI-R64 Linux BSP(kernel 4.19):https://github.com/BPI-SINOVOIP/BPI-R64-bsp-4.19
+
+TIP: BPI-R64 Linux BSP(kernel 4.4) : https://github.com/BPI-SINOVOIP/BPI-R64-bsp
+
+=== Frank
+TIP: Frank github(kernel 5.4): https://github.com/frank-w/BPI-R2-4.14/tree/5.4-r64-dsa
+
+=== OpenWRT
+TIP: Banana Pi BPI-R64 (MT7622) openwrt (Kernel 4.19) : https://github.com/BPI-SINOVOIP/BPI-R64-openwrt
+
+TIP: OpenWRT: https://github.com/openwrt/openwrt/tree/master/target/linux/mediatek/mt7622
+
+== Resources
+
+TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the new link bpi-image Files
+
+TIP: All banana pi docement(SCH file,DXF file,and doc)
+
+TIP: BPI-R64 schematic diagram
+
+google : https://drive.google.com/file/d/1QzKmIwgSNbCIXQbqLsTUELJCEPik3VGr/view?usp=sharing
+
+baidu cloud link: https://pan.baidu.com/s/18MEJpr5OTYmySZoyk3bO5Q pincode: amqt
+
+TIP: BPI-R64 DXF file for case deign : https://drive.google.com/file/d/1_YNsdQ9Cv7FVOGrqd6GP0Tu5u2cjLwTA/view?usp=sharing
+
+TIP: BPI-R64 DXF file and the parts used for the assembly datasheet: https://drive.google.com/file/d/1LK5HkP4AfE8xNLJMRHvc7JgexfkDBUAF/view?usp=sharing
+
+TIP: 3D printed case for Banana PI R-64. Link https://www.thingiverse.com/thing:4261948
+
+TIP: BPI-R64 3D design file update with SolidWorks : http://forum.banana-pi.org/t/bpi-r64-3d-design-file-with-solidworks/10910
+
+TIP: MTK 7622 chip : https://www.mediatek.com/products/homeNetworking/mt7622
+
+TIP: MTK MT7622A_Datasheet_for_BananaPi_Only : https://drive.google.com/file/d/1DVEv3bovA8cPti3Ln7d9lDBjMCGFSE5m/view?usp=sharing
+
+TIP: MT7622 Reference Manual for Develope Board(BPi) : https://drive.google.com/file/d/1cW8KQmmVpwDGmBd48KNQes9CRn7FEgBb/view?usp=sharing
+
+TIP: MT7531 switch chip datasheet: https://drive.google.com/file/d/1aVdQz3rbKWjkvdga8-LQ-VFXjmHR8yf9/view?usp=sharing
+
+TIP: Banana Pi BPI-R64 debian Linux boot demo and bootlog: http://forum.banana-pi.org/t/banana-pi-bpi-r64-debian-linux-boot-demo-and-bootlog/8155
+
+TIP: Banana Pi BPI-R64 passed AWS Greengrass : https://devices.amazonaws.com/detail/a3G0h000000OvObEAK/Banana-Pi-R64
+
+TIP: Bpi-R64 quick start (boot from eMMC): http://forum.banana-pi.org/t/bpi-r64-quick-start-boot-from-emmc/9809
+
+TIP: Banana Pi BPI-R64 CE,FCC,RoHS Certification : http://forum.banana-pi.org/t/banana-pi-bpi-r64-open-source-router-board-ce-fcc-rohs-certification/10094
+
+TIP: Patchwork/Mailinglist there was a DSA-driver for mt7531 released : https://patchwork.kernel.org/project/linux-mediatek/list/?submitter=189635
+
+TIP: MTK chip mailline Linux effort : https://mtk.bcnfs.org/doku.php?id=linux_mainline_effort
+
+TIP: BPI-R64 current u-boot support : http://forum.banana-pi.org/t/bpi-r64-current-u-boot-support/10077
+
+TIP: New netfilter flow table based HNAT: http://forum.banana-pi.org/t/new-netfilter-flow-table-based-hnat/12049
+
+TIP: [Tutorial] Build, customize and use MediaTek open-source U-Boot and ATF : https://forum.banana-pi.org/t/tutorial-build-customize-and-use-mediatek-open-source-u-boot-and-atf/13785
+
+TIP: [BPI-R2/R64/R3] OpenWrt built on devices : https://openwrt.org/docs/guide-developer/toolchain/building_openwrt_on_openwrt
+
+== Amazon AWS Greengrass
+
+TIP: Banana Pi BPI-R64 passed Amazon AWS Greengrass: https://devices.amazonaws.com/detail/a3G0h000000OvObEAK/Banana-Pi-BPI-R64
+
+= System Image
+NOTE: Download and setup separate ATF image for booting directly into kernel or u-boot
+
+https://forum.banana-pi.org/t/bpi-r64-download-and-setup-separate-atf-image-for-booting-directly-into-kernel-or-u-boot/12806
+
+== OpenWRT & LEDE
+
+NOTE: Banana Pi BPI-R64 19.07.7 OpenWRT Router image 2021-05-01
+
+Google driver: https://drive.google.com/file/d/1YHSU8BHG-k0EcHNp0-F73Xlpiqq1ho4v/view?usp=sharing
+
+Baidu link : https://pan.baidu.com/s/1RxtvekBOxP0UtNSzx5mpEg Pincode: fthx
+
+Source code on github: https://github.com/BPI-SINOVOIP/BPI-R64-openwrt.git
+
+Discuss on forum : http://forum.banana-pi.org/t/banana-pi-bpi-r64-19-07-7-openwrt-router-image-2021-05-01/12209
+
+Custom OpenWrt build for Banana Pi R64:
+http://forum.banana-pi.org/t/bpi-r64-custom-openwrt-build-for-banana-pi-r64/10973
+
+NOTE: BPI-R64 new image : LEDE17 (OpenWRT) image Kernel:4.4.177 2020-04-09
+
+Google driver ： https://drive.google.com/drive/folders/1EK6fkGivZB3OmY38W8gN4rFAsnInMlNl
+
+Baidu cloud : https://pan.baidu.com/s/1UR-Uli2chQ5tO9VCl5Yz6A Pincode：j00s
+
+Boot media: SD Card & eMMC ,two image
+
+MD5: 21a6d89979d473cde59f7d61f3
+
+Discuss on forum: http://forum.banana-pi.org/t/bpi-r64-new-image-lede17-openwrt-image-kernel-4-4-177-2020-04-09/10924
+
+NOTE: Mainline OpenWRT image
+
+https://drive.google.com/drive/folders/1LQaxUAWPh6Q3QbLEIxN3JP3soIDEPzGD
+
+Discuss on forum : http://forum.banana-pi.org/t/r64-mainline-openwrt-image/11415
+
+== Linux
+
+=== Ubuntu
+
+NOTE: 2021-6-16 update BPI-R64 Ubuntu Server 21.04 image
+
+Baidu link: https://pan.baidu.com/s/1nEfneNrFND1dfDLBAekdsg Pincode: dfvv
+
+Google link : https://drive.google.com/file/d/1ieF-qTyt8LDJiaGqr0uCL4QmAxJZpjhH/view?usp=drivesdk
+
+NOTE: 2020-05-08 updae ,Ubuntu 18.04 with kernel 5.4.0
+
+Donload link : https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/?p=%2FImages%2FBPI-R64%2FUbuntu18.04&mode=list
+
+Discuss on forum : http://forum.banana-pi.org/t/bpi-r64-new-image-debian10-and-ubuntu18-04-linux-kernel-5-4-0-2020-05-08/11106
+
+NOTE: 2019-08-23 update,Ubuntu Server 16.04,This release is for banana pi R64 board, and it is based on kernel 4.19.
+
+Google Drive : https://drive.google.com/open?id=1zrOSS2QJPirSwoK5yJFx10SiOtxRjXPt
+
+Baidu Drive : https://pan.baidu.com/s/1iOtk-OnC9yNTMzdhSeOCJA（PinCode：ew9c）
+
+MD5 : 79fc190def54140dd9bf12b73e263bd0
+
+Username : root/pi ; password : bananapi
+
+Forum Pthread: http://forum.banana-pi.org/t/bpi-r64-ubuntu-16-04-aarch64-linux-lite-debian-10-buster-lite-demo-images-release-2019-08-23/9759
+
+NOTE: 2020-12-22 Ubuntu 18.04 with kernel 5.4.0
+
+Download link : https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/files/?p=%2FImages%2FBPI-R64%2FUbuntu18.04%2F2020-12-20-ubuntu-18.04.3-bpi-r64-5.4-sd-emmc.img.zip
+
+Supports 4G Module(EC20)
+
+Username : root/pi ; password : bananapi
+
+=== Debian
+
+NOTE: [BPI-R64] debian buster with new bootchain and linux 5.10,frank share this image
+
+http://forum.banana-pi.org/t/bpi-r64-debian-buster-with-new-bootchain-and-linux-5-10/11850
+
+NOTE: 2020-05-08 updae ,Debian10 with kernel 5.4.0
+
+Download link : https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/?p=%2FImages%2FBPI-R64%2FDebian10&mode=list
+
+Discuss on forum : http://forum.banana-pi.org/t/bpi-r64-new-image-debian10-and-ubuntu18-04-linux-kernel-5-4-0-2020-05-08/11106
+
+NOTE: 2019-08-23 update,Debian 10 buster lite,This release is for banana pi R64 board, and it is based on Debian 10 Buster Lite Operation system with kernel 4.19.
+
+Google Drive : https://drive.google.com/open?id=1p4WImHkItdSYGRV5jtMdfYHm5PD4dl-q
+
+Baidu Drive : https://pan.baidu.com/s/1hVQj-1_rYc74QQ1Z4WoaiQ （PinCode：g1j5）
+
+MD5 : fa3f6a7f7a4bcf2c5a8072301cf8c268
+
+Username : root/pi ; password : bananapi
+
+Forum Pthread: http://forum.banana-pi.org/t/bpi-r64-ubuntu-16-04-aarch64-linux-lite-debian-10-buster-lite-demo-images-release-2019-08-23/9759
+
+NOTE: 2018-12-11 update This release is for banana pi R64 board which is based on Mtk 7622, Debian 8 AARCH64 is based on kernel 4.4.92
+
+Features Map: http://wiki.banana-pi.org/Getting_Started_with_R64
+
+Google Drive : https://drive.google.com/open?id=1Xnz327Mm24WoVwAsj4yPPek09bP3yv7P
+
+Baidu Drive : https://pan.baidu.com/s/1AdCM9lTuWP9oXiOE2qGsDw
+
+Md5sum : 4b43980375c3f9692c1f0585ca6b541a
+
+Discuss on forum: http://forum.banana-pi.org/t/banana-pi-bpi-r64-new-image-debian-8-11-aarch64-release-2018-12-11/7447
+
+=== AArch64 Linux
+
+NOTE: Image builder Arch Linux v2 with image ready for download
+
+https://forum.banana-pi.org/t/bpi-r64-image-builder-arch-linux-v2-with-image-ready-for-download/13646
+
+NOTE: 2019-08-23 update,AArch64 Linux lite,This release is for banana pi R64 board, and it is based on kernel 4.19.
+
+Google Drive : https://drive.google.com/open?id=1x7_Iu1D9jJGvAExdNZGDVGuv7CbDp4ep
+
+Baidu Drive : https://pan.baidu.com/s/15X6XtRuab08_N2T0vgoVOQ （PinCode：j4f7）
+
+MD5 :ed579320359fdc471eeaf37f98d5874d
+
+username : root/pi ; password : bananapi
+
+Forum Pthread: http://forum.banana-pi.org/t/bpi-r64-ubuntu-16-04-aarch64-linux-lite-debian-10-buster-lite-demo-images-release-2019-08-23/9759
+
+= FAQ
+
+Easy to buy sample: BPI official Aliexpress shop
+
+== TTL Voltage
+The debug-uart TTL is tolerant to 3.3V.
+
+= Easy to buy
+
+WARNING: SINOVOIP Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-R64-MTK7622/1100417230_40000003430450.html
+
+WARNING: Bipai Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-R64-MTK7622/1101951077_40000002157510.html
+
+WARNING: Taobao Shop: https://shop108780008.taobao.com/category-1694930645.htm
+
+WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
