@@ -29,7 +29,7 @@ image::/picture/bpi-m4_berry_interface.jpg[bpi-m4_berry_interface.jpg]
 
 == Hardware Spec
 
-[option="header",cols="1,3",width="80%"]
+[option="header",cols="1,4",width="70%"]
 |=====
 2+| **HardWare Specification of Banana Pi BPI-M4 Berry**
 | CPU                               | Allwinner H618, Quad-core ARM Cortex™-A53 processor, 64-bit, up to 1.5GHz                    
@@ -43,8 +43,8 @@ image::/picture/bpi-m4_berry_interface.jpg[bpi-m4_berry_interface.jpg]
 | Audio                             | 1x 3.5mm Audio & TVE jack socket                                                             
 | IR                                | 1x CIR                                                                                       
 | USB                               | 4x USB2.0 Type-A HOST, 1x USB2.0 Type-C OTG                                                  
-| GPIO                              | 40-pin header, 28 pins GPIO and Power (+5V, +3.3V and GND)                                   
-| UART, SPI, TWI/I²C, PWM, PCM/I²S  |                                                                                              
+.2+| GPIO                              | 40-pin header, 28 pins GPIO and Power (+5V, +3.3V and GND)                                   
+| UART, SPI, TWI/I²C, PWM, PCM/I²S                                                                                               
 | Buttons                           | Reset, FEL and User                                                                          
 | LED                               | Power Status and Activity status                                                             
 | Power                             | 5V@3A via USB Type-C                                                                         
