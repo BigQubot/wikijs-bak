@@ -290,7 +290,11 @@ Wait few seconds and check whether fastboot connected
 **Windows**
 
 Install Image with Balena Etcher. +
-link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive
+link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
+
+First button on the left, select image.  +
+The middle button selects the U Disk drive that needs to be burned. +
+Click the button on the right to start burning.
 
 image::/picture/etcher.jpg[etcher.jpg]
 
