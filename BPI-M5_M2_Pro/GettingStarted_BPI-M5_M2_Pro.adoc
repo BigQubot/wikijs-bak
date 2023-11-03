@@ -406,10 +406,10 @@ image::/picture/m5_wiringpi.png[m5_wiringpi.png]
 . BPI GPIO Extend board and examples in link:https://github.com/BPI-SINOVOIP/amlogic-wiringPi/tree/master/examples[amlogic-wiringPi/examples]
 +
 blinkall, blink all pin header gpios, no extend board. +
-lcd-bpi, link:https://wiki.banana-pi.org/BPI_LCD_1602_display_module[BPI LCD 1602 display module] example. +
-52pi-bpi, link:https://wiki.banana-pi.org/BPI_OLED_Display_Module[BPI OLED Display Module] example. +
-matrixled-bpi, link:https://wiki.banana-pi.org/BPI_RGB_LED_Matrix_Expansion_Module[BPI RGB LED Matrix Expansion Module] example. +
-berryclip-bpi, link:https://wiki.banana-pi.org/BPI_BerryClip_Module[BPI BerryClip Module]
+lcd-bpi, link:https://wiki.banana-pi.org/BPI_LCD_1602_display_module[BPI LCD 1602 display module 后续更换] example. +
+52pi-bpi, link:https://wiki.banana-pi.org/BPI_OLED_Display_Module[BPI OLED Display Module 后续更换] example. +
+matrixled-bpi, link:https://wiki.banana-pi.org/BPI_RGB_LED_Matrix_Expansion_Module[BPI RGB LED Matrix Expansion Module 后续更换] example. +
+berryclip-bpi, link:https://wiki.banana-pi.org/BPI_BerryClip_Module[BPI BerryClip Module 后续更换]
 
 === RPi.GPIO
 
