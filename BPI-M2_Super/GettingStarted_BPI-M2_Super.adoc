@@ -179,7 +179,7 @@ The two 10" mipi panels are all portrait hw display, so the default android rele
 +
 
 
-. SurfaceFlinger rotation, need link:/modify android source code and build +
+. SurfaceFlinger rotation, need link:https://newwiki.banana-pi.org/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_build_android_source_code[modify android source code] and build +
 Change the default sf rotation property
 +
 ```sh
@@ -214,36 +214,778 @@ Change the touch panel rotation in dts
                    //rotation = <3>; /* sf_rotation 270 */
 ```                   
                    
-                   
-                   
-                   
-                   
-                   
-                   
+=== Custom Android Boot Logo
+Android bootloader limit boot logo fb display size is 1080p60hz/1920x1080 default, and android kernel dtb partition table limit boot logo partition size to 16MB default .
 
-
-
-
-
+. Prepare a 16bit bmp file and named boot-logo.bmp
+. Compress the bmp file to boot-logo.bmp.gz
++
+```sh
+ $ gzip boot-logo.bmp
+```
+. Download link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Flogo_create_tools%2Fm2s_android_bootlogo_tool.zip[m2s_android_bootlogo_tool.zip]
+. Extract this tool
++
+```sh
+ $ unzip m2s_android_bootlogo_tool.zip
+ $ cd m2s_android_bootlogo_tool/
+ $ ls -l logo/
+ -rwxr--r-- 1 dangku dangku 525054 Sep 25 16:54 bootup.bmp
+ -rwxr--r-- 1 dangku dangku 525054 Sep 25 16:54 bootup_secondary.bmp
+ -rwxr--r-- 1 dangku dangku    184 May 19  2020 upgrade_bar.bmp
+ -rwxr--r-- 1 dangku dangku 180072 May 19  2020 upgrade_error.bmp
+ -rwxr--r-- 1 dangku dangku 180072 May 19  2020 upgrade_fail.bmp
+ -rwxr--r-- 1 dangku dangku 180072 May 19  2020 upgrade_logo.bmp
+ -rwxr--r-- 1 dangku dangku 180072 May 19  2020 upgrade_success.bmp
+ -rwxr--r-- 1 dangku dangku    184 May 19  2020 upgrade_unfocus.bmp
+ -rwxr--r-- 1 dangku dangku 180072 May 19  2020 upgrade_upgrading.bmp
+```
+. Copy the boot-logo.bmp.gz
++
+```sh
+ $ cp boot-logo.bmp.gz logo/bootup.bmp
+ $ cp boot-logo.bmp.gz logo/bootup_secondary.bmp
+```
+. Create target logo.img with img pack tool, the binary and related libs of m2s_android_bootlogo_tool are copy from <android-source-dir>/out/host/linux-x86
++
+```sh
+ $ ./logo_img_packer -r logo logo.img
+```
+. Flash boot logo with fastboot
++
+```sh
+ $ adb root
+ $ adb remount
+ $ adb reboot fastboot
+```
+Wait few seconds and check whether fastboot connected
++
+```sh
+ $ fastboot device
+ 1234567890      fastboot
+ $ fastboot flashing unlock_critical
+ $ fastboot flashing unlock
+ $ fastboot flash logo logo.img
+ $ fastboot reboot                   
+```                   
 
 == Linux
 === Prepare
 
-. xxx
-. xxx
-. xxx
-. xxx
+. Linux image support SDcard or EMMC bootup.
+. It’s recommended to use A1 rated cards, 8GB at least.
+. Make sure bootable EMMC is formatted if you want bootup from SDcard, more info refer to Erase EMMC for SDcard Bootup
+. Make sure SDcard is formatted without Linux image flashed if you want bootup from EMMC and use Sdcard as storage.
+. Install bpi-tools on your Linux PC(if flash image with other tools, ignore this step). If you can't access this URL or any other install problem, please go to link:https://github.com/bpi-sinovoip/bpi-tools[bpi-tools] source repo, download and install this tools manually.
++
+```sh
+ $ apt-get install pv
+ $ curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
+```
+. Download Linux latest Linux Image, and confirm that the md5 checksum is correct.
+. Default login: pi/bananapi or root/bananapi
+. The wiki guide is only for bananapi 4.9 bsp ubuntu/debian images.
 
-=== Install Image with xxx
+=== Install Image to SDcard
+**Windows**
 
-. xxx
-. xxx
-. xxx
-. xxx
+Install Image with Balena Etcher. +
+link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive
 
-=== Install Image with xxx
+image::/picture/etcher.jpg[etcher.jpg]
 
-. xxx
-. xxx
-. xxx
-. xxx
+**Linux**
+
+. Install Image with Balena Cli. +
+link:https://github.com/balena-io/balena-cli[Balena CLI] is a Command Line Interface for balenaCloud or openBalena. It can be used to flash linux image. Download the installer or standalone package from link:https://github.com/balena-io/balena-cli/releases[balena-io] and link:https://github.com/balena-io/balena-cli/blob/master/INSTALL.md[install ]it correctly to your PC, then you can use the "link:https://docs.balena.io/reference/balena-cli/#local-flash-image[local flash]" command option of balena to flash a linux image to sdcard or usb drive.
++
+```sh
+ $ sudo balena local flash path/to/xxx-bpi-m2s-xxx.img.zip
+ $ sudo balena local flash path/to/xxx-bpi-m2s-xxx.img.zip --drive /dev/disk2
+ $ sudo balena local flash path/to/xxx-bpi-m2s-xxx.img.zip --drive /dev/disk2 --yes
+```
+
+. Install Image with dd command on Linux, umount SDcard device /dev/sdX partition if mounted automatically. Actually bpi-copy is the same as this dd command.
++
+```sh
+ $ sudo apt-get install pv unzip
+ $ sudo unzip -p xxx-bpi-m2s-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxfer
+```
+. Install image with bpi-tools on Linux, plug SDcard to Linux PC and run
++
+```sh
+ $ sudo apt-get install pv unzip
+ $ sudo bpi-copy xxx-bpi-m2s-xxx.img.zip /dev/sdX
+```
+
+=== Install Image to eMMC
+
+. Prepare a SDcard with Linux image flashed and bootup board with this SDcard.
+. Copy Linux image to udisk, plug the udisk to board and mount it.
+. There are two ways to install the linux image to board.
+- Install with dd command, umount mmcblk0p1 and mmcblk0p2 partition if mounted automatically. Actually bpi-copy is the same as this dd command.
++
+```sh
+ $ sudo apt-get install pv unzip
+ $ sudo unzip -p xxx-bpi-m2s-xxx.img.zip | pv | dd of=/dev/mmcblk0 bs=10M status=noxfer
+```
+- Install the linux image in udisk with bpi-tools command
++
+```sh
+ $ sudo apt-get install pv unzip
+ $ sudo bpi-copy xxx-bpi-m2s-xxx.img.zip /dev/mmcblk0
+```
+. After download complete, power off safely and eject the SDcard.
+
+=== Build Linux Source Code
+. Get the Linux bsp source code
++
+```sh
+ $  git clone https://github.com/BPI-SINOVOIP/BPI-M2S-bsp
+```
+. Build the bsp source code +
+Please read the source code link:https://github.com/BPI-SINOVOIP/BPI-M2S-bsp/blob/master/README.md[README.md]
+. If you want build uboot and kernel separately, please download the link:https://github.com/Dangku/amlogic-u-boot/tree/khadas-g12b-v2015.01-m2s[u-boot] the link:https://github.com/Dangku/amlogic-linux/tree/khadas-g12b-4.9.y-m2s[kernel] only, get the toolchains, boot script and other configuration files from link:https://github.com/BPI-SINOVOIP/BPI-M2S-bsp/tree/master/aml-pack/g12b/bpi-m2s/linux[BPI-M2S-bsp]
+
+=== DTB overlay
+. DTB overlay is used for 40pin gpios multi-function configuration and install in vfat boot partition, you can check the mount point with mount command.
++
+```sh
+ root@bananapi:~# ls /boot/overlays/
+ custom_ir.dtbo      pwm_b-backlight.dtbo  spi0.dtbo
+ ds3231.dtbo         pwm_c-beeper.dtbo     uart1_cts_rts.dtbo
+ hifi_pcm5102a.dtbo  pwm_cd-c.dtbo         uart1.dtbo
+ hifi_pcm5122.dtbo   pwm_cd.dtbo           uart2.dtbo
+ i2c1.dtbo           pwm_ef.dtbo           waveshare_tft24_lcd.dtbo
+ i2c2.dtbo           pwm_ef-f.dtbo         waveshare_tft35c_lcd.dtbo
+ pwm_ab.dtbo         sdio.dtbo             waveshare_tft35c_rtp.dtbo
+```
+. Update the overlays env in vfat /boot/env.txt to enable what you want.
++
+```sh
+ # Device Tree Overlays
+ #   uart1           -- Enable UART1 (uart_A, GPIO Header PIN8 & PIN10)
+ #   pwm_c           -- Enable PWM_C (GPIO Header PIN7)
+ #   i2c2            -- Enable i2c2 (GPIO Header PIN3 & PIN5)
+ #   spi0            -- Enable SPI0 (GPIO Header PIN19 & PIN21 & PIN23 & PIN24)
+ overlays="i2c2 spi0 uart1"
+```
+. Must be restart the board for overlay dtb loaded.
+
+=== Enable Camera
+The linux release image is camera disabled default, according to the following configuration, it can be enabled by yourself.
+
+. Update the link:https://newwiki.banana-pi.org/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_dtb_overlay[dtb overlays] env in /boot/env.txt to enable camera dtbo.
++
+```sh
+ overlays="os08a10"
+```
+. Add camera modules to /etc/modules
++
+```sh
+ iv009_isp_iq
+ iv009_isp_lens
+ iv009_isp_sensor
+ iv009_isp
+```
+. Create and add camera modules options to /etc/modprobe.d/os08a10.conf
++
+```sh
+ #choose camera calibration parameters
+ options iv009_isp_iq cali_name=0
+ #choose isp register sequence
+ options iv009_isp_sensor isp_seq_num=0
+``` 
+. Enable camera isp systemd service
++
+```sh
+ $ sudo systemctl enable camera_isp_3a_server.service
+```
+Camera device is /dev/video0 after reboot.
+
+=== Switch Mipi Panel
+The default linux release image only support one mipi panel because hw has no detect logic for different panel at boot, so 800x1280 bpi panel enabled as default, but you can change to [1200x1920 bpi panel] as defualt in /boot/lcd_env.txt
+```sh
+ # Mipi panel type
+ #    Symbol    | Resolution
+ # ----------------------+-------------
+ #    "lcd_0"   | 10" 800x1280 panel
+ #    "lcd_1"   | 10" 1200x1920 panel
+ panel_type=lcd_0
+```
+WARNING: Note: Dual display is not work on linux, so disconnect hdmi cable when mipi used.
+
+=== Panel Rotation
+The two 10" mipi panels are all portrait hw display, so the default release image is portrait mode, but you can rotate it to 90/180/270. +
+For Desktop image, create a xorg configuration file /usr/share/X11/xorg.conf.d/10-fbdev-rotate.conf with contents:
+```sh
+ Section "Device"
+     Identifier "Configured Video Device"
+     # Rotate off
+ #   Option "Rotate" "off"
+     # Rotate Right / clockwise, 90 degrees
+     Option "Rotate" "CW"
+     # Rotate upside down, 180 degrees
+ #   Option "Rotate" "UD"
+     # Rotate counter clockwise, 270 degrees
+ #   Option "Rotate" "CCW"
+ 
+ EndSection
+ 
+ Section "InputClass"
+     Identifier "Coordinate Transformation Matrix"
+     MatchIsTouchscreen "on"
+     MatchProduct "goodix-ts"
+     MatchDevicePath "/dev/input/event0"
+     MatchDriver "libinput"
+     # Rotate Right / clockwise, 90 degrees 
+     Option "CalibrationMatrix" "0 1 0 -1 0 1 0 0 1"
+     # Rotate upside down, 180 degrees
+ #   Option "CalibrationMatrix" "-1 0 1 0 -1 1 0 0 1"
+     # otate counter clockwise, 270 degrees 
+ #   Option "CalibrationMatrix" "0 -1 1 1 0 0 0 0 1"
+ 
+ EndSection
+```
+For Server image, you can change the framebuffer rotation in two ways:
+
+. Sysfs dynamically change.
++
+```sh
+ echo 0 > /sys/class/graphics/fbcon/rotate    //origin 0 degree
+ echo 1 > /sys/class/graphics/fbcon/rotate    //90 degree
+ echo 2 > /sys/class/graphics/fbcon/rotate    //180 degree
+ echo 3 > /sys/class/graphics/fbcon/rotate    //270 degree
+```
+. Boot Configuration change. +
+change the fb_rotate env in /boot/env.txt
++
+```sh
+ # Framebuffer Rotate
+ # 0 - origin 0 degree
+ # 1 - 90 degree
+ # 2 - 180 degree
+ # 3 - 270 degree
+ fb_rotate=0
+```
+
+=== WiringPi
+
+WARNING: Note: This WiringPi only support set 40pin gpio to output, input, pwm or software pwm, for io functions as i2c, spi, ..., you must enable dtb overlay in boot.ini
+
+. Build and install wiringPi, for debian, you must link:https://newwiki.banana-pi.org/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_enable_sudo_for_debian[install sudo] before build
++
+```sh
+ $ sudo apt-get update
+ $ sudo apt-get install build-essential git
+ $ git clone https://github.com/Dangku/amlogic-wiringPi
+ $ cd amlogic-wiringPi
+ $ chmod a+x build
+ $ sudo ./build
+```
+. Run gpio readall to show all 40pins status.
++
+image::/picture/m2s_wiringpi.png[m2s_wiringpi.png]
+
+. BPI GPIO Extend board and examples in link:https://github.com/Dangku/amlogic-wiringPi/tree/master/examples[amlogic-wiringPi/examples] +
+blinkall, blink all pin header gpios, no extend board. +
+lcd-bpi, link:https://wiki.banana-pi.org/BPI_LCD_1602_display_module[BPI LCD 1602 display module 后续更换] example. +
+52pi-bpi, link:https://wiki.banana-pi.org/BPI_OLED_Display_Module[BPI OLED Display Module 后续更换] example. +
+matrixled-bpi, link:https://wiki.banana-pi.org/BPI_RGB_LED_Matrix_Expansion_Module[BPI RGB LED Matrix Expansion Module 后续更换] example. +
+berryclip-bpi, link:https://wiki.banana-pi.org/BPI_BerryClip_Module[BPI BerryClip Module 后续更换]
+
+=== RPi.GPIO
+Build and install, for debian, you must link:https://newwiki.banana-pi.org/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_enable_sudo_for_debian[install sudo] before build
+```sh
+ $ sudo apt-get update
+ $ sudo apt-get install build-essential python3 python3-pip python3-dev python3-setuptools git
+ $ git clone https://github.com/Dangku/RPi.GPIO-Amlogic.git
+ $ cd RPi.GPIO-Amlogic
+ $ sudo python3 setup.py clean --all
+ $ sudo python3 setup.py install
+```
+Create and install wheel package
+```sh
+ $ sudo python3 setup.py bdist_wheel
+ $ sudo pip3 install dist/RPi.GPIO-XXX.whl
+```
+Install from git source directly without development
+```sh
+ $ sudo pip3 install git+https://github.com/Dangku/RPi.GPIO-Amlogic.git
+```
+If the package is already installed, it should be uninstalled before installing the new one, or installing the new one with --force-reinstall option.
+
+=== WiringPi2-Python
+Build and install, for debian, you must link:https://newwiki.banana-pi.org/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_enable_sudo_for_debian[install sudo] before build
+```sh
+ $ sudo apt-get update
+ $ sudo apt-get install build-essential python3 python3-dev python3-setuptools swig git
+ $ git clone --recursive  https://github.com/Dangku/WiringPi2-Python-Amlogic.git
+ $ cd WiringPi2-Python-Amlogic
+ $ sudo python3 setup.py install
+```
+
+=== Luma.Examples
+link:https://github.com/rm-hull/luma.examples[Luma.examples] use GPIO.BCM gpio mode default, so you should map 40pin header pins to bcm gpio number and connect the hardware correctly.
+
+. build and install RPi.GPIO
+build bananapi m2s RPi.GPIO with python3 instead of python because luma uses python3.
++
+```sh
+ $ sudo apt-get update
+ $ sudo apt-get install build-essential python3 python3-dev python3-setuptools git
+ $ git clone https://github.com/Dangku/RPi.GPIO-Amlogic.git
+ $ cd RPi.GPIO-Amlogic
+ $ sudo python3 setup.py clean --all
+ $ sudo python3 setup.py install
+```
+you can change the bcmledpin variable in test/led.py to your hardware backlight gpio and run it to check RPi.GPIO works well.
++
+```sh
+ $ sudo python3 test/led.py
+```
+hardware backlight will repeat on and off
+. luma.examples libs install
++
+```sh
+ $ sudo usermod -a -G i2c,spi,gpio pi
+```
+if group does not exist, the following command will create it:
++
+```sh
+ $ sudo groupadd --system xxx
+ $ sudo apt-get install python3-dev python3-pip libfreetype6-dev libjpeg-dev build-essential
+ $ sudo apt-get install libsdl-dev libportmidi-dev libsdl-ttf2.0-dev libsdl-mixer1.2-dev libsdl-image1.2-dev
+ $ git clone https://github.com/rm-hull/luma.examples.git
+ $ cd luma.examples
+```
+install luma.core, luma.emulator, luma.lcd, luma.le-matrix, luma.oled pip libs, make sure this step without error or downloading interrupted, try again if get errors
++
+```sh
+ $ sudo -H pip install -e .
+```
+or
++
+```sh
+ $ sudo -H pip3 install -e .
+```
+for debian buster(python 3.7) which does not include /usr/bin/pip in package python3-pip, and will get the following errors when install luma packages with pip3
++
+```sh
+ ...
+ WARNING, No "Setup" File Exists, Running "buildconfig/config.py"
+ Using UNIX configuration...
+ 
+ /bin/sh: 1: sdl2-config: not found
+ /bin/sh: 1: sdl2-config: not found
+ /bin/sh: 1: sdl2-config: not found
+ ...
+```
+install sdl2 related packages to fix this issue, then install luma libs again with pip3
++
+```sh
+ $ sudo apt-get install libsdl2-dev libsdl2-ttf-dev libsdl2-mixer-dev libsdl2-image-dev
+ $ sudo -H pip3 install -e .
+check installed luma pip libs
+ $ pip3 list | grep luma
+   
+   luma.core          2.4.0
+   luma.emulator      1.4.0
+   luma.lcd           2.10.0
+   luma.led-matrix    1.7.0
+   luma.oled          3.11.0
+```
+. examples test +
+Enable i2c or spi link:https://newwiki.banana-pi.org/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_dtb_overlay[overlays] before running test examples
++
+```sh
+ $ cd examples
+ $ sudo python3 bounce.py --config ../conf/ili9341.conf
+```
+
+=== HDMI LCD
+[options="header" cols="1,1"]
+|=====
+2+| **Bananapi M2 Super Tested HDMI LCD**
+| panel                             | /boot/boot.ini                    
+| link:https://www.waveshare.com/3.5inch-hdmi-lcd.htm[Waveshare 3.5inch 480x320]                 | setenv display_autodetect "false" +
+setenv hdmimode "480x320p60hz" 
+| link:https://www.waveshare.com/3.5inch-hdmi-lcd-e.htm[Waveshare 3.5inch 640x480]                 |                                   
+| link:https://www.waveshare.com/4inch-hdmi-lcd-c.htm[Waveshare 4inch 720x720]                 |                                   
+| link:https://www.waveshare.com/5inch-hdmi-amoled.htm[Waveshare 5inch 960x544]                 |                                   
+| link:https://www.waveshare.com/5inch-hdmi-lcd-h.htm[Waveshare 5inch 800x480]                 |                                   
+| link:https://www.waveshare.com/5.5inch-1440x2560-lcd.htm[Waveshare 5.5inch 1440x2560]               | setenv display_autodetect "false" +
+setenv hdmimode "1440x2560p60hz"
+| link:https://www.waveshare.com/7inch-hdmi-lcd-b.htm[Waveshare 7inch 800x480]                 |                                   
+| link:https://www.waveshare.com/7inch-hdmi-lcd-c.htm[Waveshare 7inch 1024x600]                |                                   
+| link:https://www.waveshare.com/7.9inch-HDMI-LCD.htm[Waveshare 7.9inch 400x1280]                |                                   
+| link:https://www.waveshare.com/8inch-1536x2048-LCD.htm[Waveshare 8inch 1536x2048]               | setenv display_autodetect "false" +
+setenv hdmimode "1536x2048p60hz"
+| link:https://www.waveshare.com/8.8inch-Side-Monitor.htm[Waveshare 8.8inch 480x1920]                |                                   
+| link:https://www.waveshare.com/9inch-2560x1600-Monitor.htm[Waveshare 9inch 2560x1600]               | setenv display_autodetect "false" +
+setenv hdmimode "2560x1600p60hz"
+| link:https://www.waveshare.com/10.1inch-HDMI-LCD-E.htm[Waveshare 10.1inch 1024x600]	               |
+| link:https://www.waveshare.com/10.1inch-hdmi-lcd-b-with-case.htm[Waveshare 10.1inch 1280x800]	      |
+| link:https://www.waveshare.com/11.9inch-HDMI-LCD.htm[Waveshare 11.9inch 320x1480]	               |
+| link:https://www.waveshare.com/12.3inch-hdmi-lcd.htm[Waveshare 12.3inch 1920x720]	               |
+| link:https://www.waveshare.com/13.3inch-HDMI-LCD-H.htm[Waveshare 13.3inch 1920x1080]	             |
+| link:https://www.waveshare.com/15.6inch-hdmi-lcd-h-with-case.htm[Waveshare 15.6inch 1920x1080]	    |
+|=====
+Backlight control :  https://github.com/Dangku/Waveshare-USB-Brightness
+
+=== Custom Linux Boot Logo
+Linux uboot limit boot logo fb size to 1080p60hz/1920x1080 default, so oversize resolution will not be supported by default image, but you can modify uboot source code to support it.
+
+. Prepare a 24bit bmp file and named boot-logo.bmp
+. copy the target file to /boot/firmware/ or /boot/ directory.
+
+== Other Development
+=== Boot Sequence
+
+image::/picture/m5_linux_boot_squence.png[m5_linux_boot_squence.png]
+
+Check bootloader loaded from SDcard or EMMC at the beginning of the console debug messages
+
+. Rom load bootloader from SDcard (Linux log example)
++
+```sh
+ ...
+ 
+ BL2 Built : 15:21:42, Mar 26 2020. g12a g486bc38 - gongwei.chen@droid11-sz
+ 
+ Board ID = 1
+ Set cpu clk to 24M
+ Set clk81 to 24M
+ Use GP1_pll as DSU clk.
+ DSU clk: 1200 Mhz
+ CPU clk: 1200 MHz
+ Set clk81 to 166.6M
+ board id: 1
+ Load FIP HDR DDR from SD, src: 0x00010200, des: 0xfffd0000, size: 0x00004000, part: 0
+ fw parse done
+ PIEI prepare done
+ fastboot data verify
+ result: 255
+ Cfg max: 12, cur: 1. Board id: 255. Force loop cfg
+ DDR4 probe
+ 
+ ...
+```
+. Rom load bootloader from EMMC(Android Log example)
++
+```sh
+ ...
+ 
+ Board ID = 1
+ Set cpu clk to 24M
+ Set clk81 to 24M
+ Use GP1_pll as DSU clk.
+ DSU clk: 1200 Mhz
+ CPU clk: 1200 MHz
+ Set clk81 to 166.6M
+ eMMC boot @ 0
+ sw8 s
+ board id: 1
+ Load FIP HDR DDR from eMMC, src: 0x00010200, des: 0xfffd0000, size: 0x00004000, part: 0
+ fw parse done
+ PIEI prepare done
+ 00000000
+ emmc switch 1 ok
+ ddr saved addr:00016000
+ Load ddr parameter from eMMC, src: 0x02c00000, des: 0xfffd0000, size: 0x00001000, part: 0
+ 00000000
+ 
+ ...
+``` 
+
+=== Erase EMMC for SDcard Bootup
+There are four possible scenarios should be pay attention to, EMMC already flashed Android image, EMMC already flashed Linux image, boot process hangup in BL2 and EMMC empty.
+
+. Bootable EMMC with Android image flashed
+- Using usb burning tool, unplug the type-c usb cable while the download process at **7% formatting**
++
+image::/picture/m5_android_format.png[m5_android_format.png]
+
+- Using Android Fastboot tool, make sure the adb/fastboot tools is work on your PC before doing this.
++
+```sh
+   root@dangku-desktop:/tmp# adb root
+   adbd is already running as root
+   root@dangku-desktop:/tmp# adb remount
+   remount succeeded
+   root@dangku-desktop:/tmp# adb shell
+   bananapi_m2s:/ # reboot fastboot
+```
+Wait a few seconds for board reboot to fastboot mode
++
+```sh
+   root@dangku-desktop:/tmp# fastboot devices
+   1234567890	fastboot
+   root@dangku-desktop:/tmp# fastboot flashing unlock_critical
+   ...
+   OKAY [  0.044s]
+   finished. total time: 0.044s
+   root@dangku-desktop:/tmp# fastboot flashing unlock
+   ...
+   OKAY [  0.047s]
+   finished. total time: 0.047s
+   root@dangku-desktop:/tmp# fastboot erase bootloader
+   erasing 'bootloader'...
+   OKAY [  0.059s]
+   finished. total time: 0.059s
+   root@dangku-desktop:/tmp# fastboot erase bootloader-boot0
+   erasing 'bootloader-boot0'...
+   OKAY [  0.036s]
+   finished. total time: 0.036s
+   root@dangku-desktop:/tmp# fastboot erase bootloader-boot1
+   erasing 'bootloader-boot1'...
+   OKAY [  0.035s]
+   finished. total time: 0.035s
+```
+- Using uboot command, connect a debug console cable and press ESC while power on to enter uboot command line
++
+```sh
+   bananapi_m2s_v1#amlmmc erase 1
+   emmckey_is_protected(): protect
+   start = 0,end = 57343
+   start = 221184,end = 30535679
+   Erasing blocks 0 to 8192 @ boot0
+   start = 0,end = 8191
+   Erasing blocks 0 to 8192 @ boot1
+   start = 0,end = 8191
+   bananapi_m2s_v1#reset
+   resetting ...
+   SM1:BL:511f6b:81ca2f;FEAT:A0F83180:20282000;POC:F;RCY:0;EMMC:0;READ:0;CHK:1F;READ:0;CHK:1F;READ:0;CHK;
+```
+These two ways actually erase the bootloader part of EMMC android, After bootup from SDcard Linux, You'd better link:https://newwiki.banana-pi.org/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_erase_emmc_android_by_dd_command[format the whole EMMC by dd command].
+
+- The simplest way is insert the SDcard with Linux image flashed before power on, the Android bootloader will check boot.ini file whether exist in SDcard vfat partition, so that the SDcard Linux will bootup. After bootup, you can link:https://newwiki.banana-pi.org/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_erase_emmc_android_by_dd_command[format the whole EMMC by dd command] and then flash the Linux image to EMMC.
++
+```sh
+   ...
+   BPI: try boot from sdcard
+   reading boot.ini
+   2453 bytes read in 3 ms (797.9 KiB/s)
+   ## Executing script at 03080000
+   Starting boot.ini...
+   reading env.txt
+   3483 bytes read in 7 ms (485.4 KiB/s)
+   HDMI: Autodetect: 1080p60hz
+   reading Image.gz
+   10924573 bytes read in 611 ms (17.1 MiB/s)
+   reading bananapi_m2s.dtb
+   88054 bytes read in 12 ms (7 MiB/s)
+   reading uInitrd
+   11704481 bytes read in 655 ms (17 MiB/s)
+   reading overlays/wifi_bt_rtl8822cs.dtbo
+   729 bytes read in 6 ms (118.2 KiB/s)
+```
+. Bootable EMMC with Linux image flashed
+- Using uboot command, connect a debug console cable and press ESC while power on to enter uboot command line
++
+```sh
+   bananapi_m2s# mmc erase 0 1000
+```
+- Linux u-boot also check boot.ini file whether exist in SDcard vfat partition so that the SDcard Linux will bootup. After bootup, you can format the whole EMMC by dd command or flash the Linux image directly to EMMC.
+
+. A **extreme situation** is bootloader or uboot corrupted, Rom load it from EMMC but hangup in u-boot or BL2, for example the boot process will hangup in BL2 of EMMC if dram init failed, The only way is format the EMMC with usb burning tool, or download the Android image completely and then try other ways to erase EMMC or flash Linux image to EMMC.
+
+. Rom will try to load bootloader from SDcard directly if EMMC is empty.
+
+=== Erase Emmc Android by dd command
+If the board is flashed android before, the whole emmc must be erased by these commands if you want bootup it with SDcard Linux image.
+```sh
+ $ sudo dd if=/dev/zero of=/dev/mmcblk0boot0 bs=1M status=noxfer 
+ $ sudo dd if=/dev/zero of=/dev/mmcblk0boot1 bs=1M status=noxfer
+ $ sudo dd if=/dev/zero of=/dev/mmcblk0 bs=1M status=noxfer 
+ $ sync
+```
+=== Wifi/BT support
+. Android test and support.
++
+```sh
+ rtl8723bu wifi/bt(usb)
+ rtl8188eu wifi(usb)
+ rtl8821cu wifi/bt(usb)
+ rtl8822cs wifi/bt(sdio/uart)
+ rtl8814au wifi(usb), please get the aircrack-ng driver and install.
+```
+**How to enable Android Wifi/BT** +
+USB type: Plug-in the usb dongle to usb host port and reboot the system, After bootup, you can enable or disable wifi and bluetooth in Settings app. +
+SDIO/UART type: Connect the hardware module to 40pin header correctly and link:https://newwiki.banana-pi.org/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_android_dtb_overlay[configure the Android DTB overlay] to enable it.
++
+WARNING: Note: Android is not support that ethernet and wifi are both connected at the same time, Ethernet have a higher prioprity than wifi, it means wifi can't connect network if ethernet already connected, and wifi will drop connection if ethernet cable plugin.
+
+. Linux test and support.
++
+```sh
+ rtl8188eu wifi(usb)
+ rtl8192eu wifi(usb)
+ rtl8723bu wifi/bt(usb)
+ rtl8811au wifi(usb)
+ rtl8812au wifi(usb)
+ rtl8812bu wifi(usb)
+ rtl8821cu wifi/bt(usb)
+ rtl8822cs wifi/bt(sdio/uart)
+```
++
+--
+**How to enable Linux Wifi**
+
+Wifi module drivers are already prebuild in the release images.
+
+USB type: Plug-in the usb dongle to usb host port and driver will be loaded automatically.
+SDIO/UART type:
+
+- Connect the hardware module to 40pin header correctly.
+- Configure the link:https://newwiki.banana-pi.org/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_dtb_overlay[dtb overlay]
++
+```sh
+   overlays="wifi_bt_rtl8822cs"
+```
+- Add the wifi module name to /etc/modules for loaded automatically next boot.
++
+```sh
+ # This file contains the names of kernel modules that should be loaded
+ # at boot time, one per line. Lines beginning with "#" are ignored.
+ 88x2cs
+```
+--
++
+--
+**How to enable Linux Bluetooth**
+
+- Please download link:https://github.com/Dangku/m5-rtk-linux-bt-driver[rtk-linux-bt-driver] source code, build and install usb or uart rtk linux bluetooth drivers/firmwares to your image.
+- For USB type, plug-in the usb dongle to usb host port and driver will be loaded automatically.
+- For UART type, Configure the dtb overlay as the same as wifi before install the bluetooth drivers/firmwares. hci_uart driver will be loaded when rtk-hciuart.service start.
+
+--
+
+=== Cloud-init&Snap
+Cloud-init and Snap service are enabled default, you can disable or remove them.
+
+. disable or remove cloud-init
++
+```sh
+ $ sudo touch /etc/cloud/cloud-init.disabled
+```
+or
++
+```sh
+ $ sudo apt purge cloud-init
+```
+. disable or remove snap
++
+```sh
+ $ sudo apt purge snapd
+```
+
+=== Enable rc-local
+The systemd service rc-local.service already exists in release image, but there is no [Install] part in the unit file. As a result, Systemd is unable to enable it. First, we must update the file.
+```sh
+ $ sudo nano /lib/systemd/system/rc-local.service
+```
+```sh
+ [Unit]
+ Description=/etc/rc.local Compatibility
+ Documentation=man:systemd-rc-local-generator(8)
+ ConditionFileIsExecutable=/etc/rc.local
+ After=network.target
+ 
+ [Service]
+ Type=forking
+ ExecStart=/etc/rc.local start
+ TimeoutSec=0
+ RemainAfterExit=yes
+ GuessMainPID=no
+ 
+ [Install]
+ WantedBy=multi-user.target
+ Alias=rc-local.service
+```
+Create /etc/rc.local file.
+```sh
+ sudo nano /etc/rc.local
+ #!/bin/sh
+ #
+ # rc.local
+ #
+ # This script is executed at the end of each multiuser runlevel.
+ # Make sure that the script will "exit 0" on success or any other
+ # value on error.
+ #
+ # In order to enable or disable this script just change the execution
+ # bits.
+ #
+ # By default this script does nothing.
+ 
+ exit 0
+```
+Add executable permission to /etc/rc.local
+```sh
+ $ sudo chmod +x /etc/rc.local
+```
+Enable rc-local.service and reboot
+```sh
+ $ sudo systemctl enable rc-local.service
+ $ sudo reboot
+```
+
+=== Enable sudo for Debian
+The release Debian image do not install sudo default, with "su -" command, user can change to root. If you like sudo, you can install it.
+```sh
+ $ su root
+ Password:(enter bananapi)
+ 
+ # apt-get update
+ # apt-get install sudo
+ # adduser pi sudo
+```
+Then please do logout and login again
+
+=== Install Docker Engine
+Install Docker Engine on Ubuntu 20.04 Server
+
+. Set up the repository
+Update the apt package index and install packages to allow apt to use a repository over HTTPS:
++
+```sh
+ $ sudo apt-get update
+ $ sudo apt-get install apt-transport-https ca-certificates curl gnupg lsb-release
+```
+Add Docker’s official GPG key:
++
+```sh
+ $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+```
+Set up the stable repository
++
+```sh
+ $  echo \
+    "deb [arch=arm64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+    $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+```
+. Install Docker Engine
++
+```sh
+ $ sudo apt-get update
+ $ sudo apt-get install docker-ce docker-ce-cli containerd.io
+```
+. Verify the Docker Engine is installed correctly by running the hello-world image.
++
+```sh
+ $ sudo docker run hello-world
+```
++
+image::/picture/docker-test.png[docker-test.png]
++
+Install docker with a simple command
++
+```sh
+ $ curl -sSL get.docker.com | sudo sh
+```
+link:https://docs.docker.com/engine/install/[Install Docker Engine] on other Linux distributions
+
+
+
+
