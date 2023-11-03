@@ -1,0 +1,74 @@
+= Introduction
+
+
+TIP: More Infomation: link:/en/BPI-M2_Super/BananaPi_BPI-M2_Super[Banana Pi BPI-M2_Super]
+
+== specifications
+
+
+= Development
+== Prepare
+
+. Prepare a usb-serial cable, a 5V/3A adaptor type-c power supply. The serial cable is used for console debug and type-c cable is used for android image download and ADB debug.
+. Prepare a SDcard at least 8GB for linux development, android only support emmc boot.
+. The SOC rom first boot media is emmc, so board can't bootup from SDcard if the emmc is bootable with any image flashed, more info please refer to board boot sequence.
+. Only A311D variant board have camera, mipi panel and npu support.
+
+== Android
+=== Prepare
+
+. Download and install the link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/files/?p=%2FTools%2Fimage_download_tools%2Faml_usb_burning_tool_V2_setup_v2.2.3.3.zip[AML Usb Burning Tool] for android image download via type-c, only support windows.
+. Download the latest android image, and confirm that the md5 checksum is correct.
+
+=== Install Image with Usb Burning Tool
+
+. Open USB_Burning_Tool.exe, select menu File->Import image, choose the android image file aml_upgrade_package.img.
++
+image::/picture/m2s_android_install_1.png[m2s_android_install_1.png]
+. Press and hold USB button on the board, plugin type-c usb cable to PC or press the RST button if power adapter already connected, about two seconds later, release the button, the board will be identified correctly.
++
+image::/picture/m2s_android_install_3.png[m2s_android_install_3.png]
+image::/picture/m5_android_install_2.png[m5_android_install_2.png]
+
+. Click the Start button of the download tool and wait for upgrade complete.
++
+image::/picture/m5_android_install_3.png[m5_android_install_3.png]
+
+. After Burning successfull, Unplug the type-c usb and connect to power supply adaptor to startup.
++
+image::/picture/m5_android_install_4.png[m5_android_install_4.png]
+
+. Click the Stop button to cancel the upgrade process and close the USB Buring Tool.
+. xxx
+. xxx
+. xxx
+. xxx
+
+=== Install Image with xxx
+
+. xxx
+. xxx
+. xxx
+. xxx
+
+== Linux
+=== Prepare
+
+. xxx
+. xxx
+. xxx
+. xxx
+
+=== Install Image with xxx
+
+. xxx
+. xxx
+. xxx
+. xxx
+
+=== Install Image with xxx
+
+. xxx
+. xxx
+. xxx
+. xxx
