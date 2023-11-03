@@ -163,9 +163,9 @@ sdcard:
 . Plugin the udisk or sdcard to the board and poweron.
 . OpenGapps install and certify.
 +
-https://youtu.be/fXOKmWfpqF8
+YouTube Video: https://youtu.be/fXOKmWfpqF8
 +
-watch this video on link:https://www.bilibili.com/video/BV13y4y1s77i/[bilibili]
+You can also watch this video on link:https://www.bilibili.com/video/BV13y4y1s77i/[bilibili]
 
 === Switch Mipi Panel
 The default android release image only support one mipi panel because hw has no detect logic for different panel at boot, so [800x1280 bpi panel] enabled as default, but you can change to [1200x1920 bpi panel] as defualt in Settings->Panel Output
