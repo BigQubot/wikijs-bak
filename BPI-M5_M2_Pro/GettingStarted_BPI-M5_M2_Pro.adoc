@@ -550,8 +550,8 @@ Backlight control :  https://github.com/Dangku/Waveshare-USB-Brightness
 
 S905x3 is not support usb boot in soc rom, so the only way for booting linux from usb drive is create a bootable sdcard or emmc with bootloader flashed, then load boot and rootfs from usb drive. After bootup, everything will run from usb drive.
 
-. The simple way is link:https://newwiki.banana-pi.org/en/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro/#_install_image_to_sdcard[flash the M5/M2Pro Linux image to sdcard or emmc] for bootable and also flash it to the usb drive for loading boot and rootfs.
-. Bootup the M5/M2pro board with link:https://newwiki.banana-pi.org/en/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro/#_boot_sequence[sdcard or emmc], copy /boot/boot.ini to /boot/boot.ini.org so that bootloader load boot.ini fail and then try to load it from usb drive boot partition.
+. The simple way is link:https://newwiki.banana-pi.org/en/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro#_install_image_to_sdcard[flash the M5/M2Pro Linux image to sdcard or emmc] for bootable and also flash it to the usb drive for loading boot and rootfs.
+. Bootup the M5/M2pro board with link:https://newwiki.banana-pi.org/en/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro#_boot_sequence[sdcard or emmc], copy /boot/boot.ini to /boot/boot.ini.org so that bootloader load boot.ini fail and then try to load it from usb drive boot partition.
 . Reboot the system, bootscript and rootfs will load from usb drive.
 
 
