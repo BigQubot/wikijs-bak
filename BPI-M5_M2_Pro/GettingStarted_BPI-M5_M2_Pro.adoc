@@ -828,7 +828,7 @@ If the board is flashed android before, the whole emmc must be erased by these c
 ```
 **How to enable Android Wifi/BT**
 +
-USB type: Plug-in the usb dongle to usb host port and reboot the system, After bootup, you can enable or disable wifi and bluetooth in Settings app.
+USB type: Plug-in the usb dongle to usb host port and reboot the system, After bootup, you can enable or disable wifi and bluetooth in Settings app. +
 SDIO/UART type: Connect the hardware module to 40pin header correctly and link:https://newwiki.banana-pi.org/en/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro#_android_dtb_overlay[configure the Android DTB overlay] to enable it.
 +
 WARNING: Note: Android is not support that ethernet and wifi are both connected at the same time, Ethernet have a higher prioprity than wifi, it means wifi can't connect network if ethernet already connected, and wifi will drop connection if ethernet cable plugin.
