@@ -170,13 +170,13 @@ image::/picture/opengapps.png[opengapps.png]
 . Create a txt file named factory_update_param.aml in udisk or sdcard root directory with the following android recovery parameter content, and replace the file name with the actual downloaded package. +
 udisk:
 +
-```
+```sh
  --wipe_cache
  --update_package=/udisk/open_gapps-arm-9.0-pico-20210327.zip
 ```
 sdcard:
 +
-```
+```sh
  --wipe_cache
  --update_package=/sdcard/open_gapps-arm-9.0-pico-20210327.zip
 ```
@@ -199,7 +199,7 @@ Before starting this work, some android basic concepts and knowledge need to be 
 --
 . pull the remote files from device
 +
-```
+```sh
  # adb pull /vendor/etc/remote.cfg
  # adb pull /vendor/etc/remote.tab 
 ```
@@ -210,7 +210,7 @@ image::/picture/remotecfg.png[remotecfg.png]
 +
 push remote.cfg back
 +
-```
+```sh
  # adb root
  # adb remount
  # adb push remote.cfg /vendor/etc/
@@ -227,7 +227,7 @@ push remote.cfg back
 . Get the remote keycode +
 Press your remote key one by one and then print the dmesg to get the remote custom_code and each remote key code.
 +
-```
+```sh
  # adb shell dmesg | grep framecode=
 ```
 +
@@ -242,7 +242,7 @@ image::/picture/remotetab.png[remotetab.png]
 +
 push remote.tab and test each key whether works
 +
-```
+```sh
  # adb root
  # adb remount
  # adb push remote.tab1 /vendor/etc/
@@ -428,7 +428,7 @@ If the package is already installed, it should be uninstalled before installing 
 === WiringPi2-Python
 
 Build and install, for debian, you must link:https://newwiki.banana-pi.org/en/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro#_enable_sudo_for_debian[install sudo] before build
-```
+```sh
  $ sudo apt-get update
  $ sudo apt-get install build-essential python3 python3-dev python3-setuptools swig git
  $ git clone --recursive  https://github.com/Dangku/WiringPi2-Python-Amlogic.git
@@ -441,7 +441,7 @@ link:https://github.com/rm-hull/luma.examples[Luma.examples] use GPIO.BCM gpio m
 
 . Build and install RPi.GPIO
 +
-```
+```sh
  $ sudo apt-get update
  $ sudo apt-get install build-essential python3 python3-dev python3-setuptools git
  $ git clone https://github.com/Dangku/RPi.GPIO-Amlogic.git
@@ -451,18 +451,18 @@ link:https://github.com/rm-hull/luma.examples[Luma.examples] use GPIO.BCM gpio m
 ```
 You can change the bcmledpin variable in test/led.py to your hardware backlight gpio and run it to check RPi.GPIO works well.
 +
-```
+```sh
  $ sudo python3 test/led.py
 ```
 Hardware backlight will repeat on and off
 . Luma.examples libs install
 +
-```
+```sh
  $ sudo usermod -a -G i2c,spi,gpio pi
 ```
 If group does not exist, the following command will create it:
 +
-```
+```sh
  $ sudo groupadd --system xxx
  $ sudo apt-get install python3-dev python3-pip libfreetype6-dev libjpeg-dev build-essential
  $ sudo apt-get install libsdl-dev libportmidi-dev libsdl-ttf2.0-dev libsdl-mixer1.2-dev libsdl-image1.2-dev
@@ -471,17 +471,17 @@ If group does not exist, the following command will create it:
 ```
 Install luma.core, luma.emulator, luma.lcd, luma.le-matrix, luma.oled pip libs, make sure this step without error or downloading interrupted, try again if get errors
 +
-```
+```sh
  $ sudo -H pip install -e .
 ```
 or
 +
-```
+```sh
  $ sudo -H pip3 install -e .
 ```
 For debian buster(python 3.7) which does not include /usr/bin/pip in package python3-pip, and will get the following errors when install luma packages with pip3
 +
-```
+```sh
  ...
  WARNING, No "Setup" File Exists, Running "buildconfig/config.py"
  Using UNIX configuration...
@@ -493,13 +493,13 @@ For debian buster(python 3.7) which does not include /usr/bin/pip in package pyt
 ```
 Install sdl2 related packages to fix this issue, then install luma libs again with pip3
 +
-```
+```sh
  $ sudo apt-get install libsdl2-dev libsdl2-ttf-dev libsdl2-mixer-dev libsdl2-image-dev
  $ sudo -H pip3 install -e .
 ```
 check installed luma pip libs
 +
-```
+```sh
  $ pip3 list | grep luma
    
    luma.core          2.4.0
@@ -511,7 +511,7 @@ check installed luma pip libs
 . examples test
 Enable i2c or spi overlays before running test examples
 +
-```
+```sh
  $ cd examples
  $ sudo python3 bounce.py --config ../conf/ili9341.conf
 ```
@@ -553,38 +553,264 @@ S905x3 is not support usb boot in soc rom, so the only way for booting linux fro
 . The simple way is link:https://newwiki.banana-pi.org/en/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro#_install_image_to_sdcard[flash the M5/M2Pro Linux image to sdcard or emmc] for bootable and also flash it to the usb drive for loading boot and rootfs.
 . Bootup the M5/M2pro board with link:https://newwiki.banana-pi.org/en/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro#_boot_sequence[sdcard or emmc], copy /boot/boot.ini to /boot/boot.ini.org so that bootloader load boot.ini fail and then try to load it from usb drive boot partition.
 . Reboot the system, bootscript and rootfs will load from usb drive.
++
+image::/picture/m5_boot_from_usb.png[m5_boot_from_usb.png]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+. Test performance
+You can verify the performance of your usb drive on Pi Benchmarks using the following command:
++
+```sh
+ sudo curl https://raw.githubusercontent.com/TheRemote/PiBenchmarks/master/Storage.sh | sudo bash
+```
+Test results for sd, emmc and usb drive
++
+[cols="1,1,1,1,1" width="70%]
+|=====
+| Category    | Test             | Sdcard Test Result    | Emmc Test Result        | Usb Drive Test Result  
+| HDParm      | Disk Read        | 67.91 MB/s            | 156.64 MB/s             | 253.40 MB/s            
+| HDParm      | Cached Disk Read | 57.39 MB/s            | 126.53 MB/s             | 253.52 MB/s            
+| DD          | Disk Write       | 13.0 MB/s             | 48.8 MB/s               | 149 MB/s               
+| FIO         | 4k random read   | 2456 IOPS (9826 KB/s) | 9701 IOPS (38806 KB/s)  | 5474 IOPS (21897 KB/s) 
+| FIO         | 4k random write  | 938 IOPS (3753 KB/s)  | 12888 IOPS (51554 KB/s) | 6980 IOPS (27920 KB/s) 
+| IOZone      | 4k read          | 10615 KB/s            | 29568 KB/s              | 23770 KB/s             
+| IOZone      | 4k write         | 4276 KB/s             | 33585 KB/s              | 18598 KB/s             
+| IOZone      | 4k random read   | 8661 KB/s             | 29637 KB/s              | 19982 KB/s             
+| IOZone      | 4k random write  | 4795 KB/s             | 38177 KB/s              | 22134 KB/s             
+|             |                  | Score: 1300           | Score: 7811              | Score: 5879
+|=====
 
 == Other Development
+=== Custom Linux Boot Logo
+
+Linux uboot limit boot logo fb size to 1080p60hz/1920x1080 default, so oversize resolution will not be supported by default image, but you can modify uboot source code to support it.
+
+. Prepare a 24bit bmp file and named boot-logo.bmp
+. Compress the bmp file to boot-logo.bmp.gz
++
+```sh
+ $ gzip boot-logo.bmp
+```
+. copy the target file to BPI-BOOT partition of linux image
++
+```sh
+ $ cp boot-logo.bmp.gz /media/xxx/BPI-BOOT/
+```
+
+=== Custom Android Boot Logo
+
+Android bootloader limit boot logo fb display size is 1080p60hz/1920x1080 default, and android kernel dtb partition table limit boot logo partition size to 16MB default .
+
+. Prepare a 24bit bmp file and named boot-logo.bmp
+. Compress the bmp file to boot-logo.bmp.gz
++
+```sh
+ $ gzip boot-logo.bmp
+```
+. Download link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/files/?p=%2FTools%2Flogo_create_tools%2Fm5_android_bootlogo_tool.zip[m5_android_bootlogo_tool.zip]
+. Extract this tool
++
+```sh
+ $ unzip m5_android_bootlogo_tool.zip
+ $ cd m5_android_bootlogo_tool/
+ $ cp -a logo_img_files logo               //logo_img_files is the origin bootlogo resource in android source and copy from <android-source-dir>/devices/amlogic/bananapi_m5/log_img_files
+ $ ls -l logo/
+ -rwxr--r-- 1 dangku dangku 525054 Sep 25 16:54 bootup.bmp
+ -rwxr--r-- 1 dangku dangku 525054 Sep 25 16:54 bootup_X3.bmp
+ -rwxr--r-- 1 dangku dangku    184 May 19  2020 upgrade_bar.bmp
+ -rwxr--r-- 1 dangku dangku 180072 May 19  2020 upgrade_error.bmp
+ -rwxr--r-- 1 dangku dangku 180072 May 19  2020 upgrade_fail.bmp
+ -rwxr--r-- 1 dangku dangku 180072 May 19  2020 upgrade_logo.bmp
+ -rwxr--r-- 1 dangku dangku 180072 May 19  2020 upgrade_success.bmp
+ -rwxr--r-- 1 dangku dangku    184 May 19  2020 upgrade_unfocus.bmp
+ -rwxr--r-- 1 dangku dangku 180072 May 19  2020 upgrade_upgrading.bmp
+```
+. Copy the boot-logo.bmp.gz
++
+```sh
+ $ cp boot-logo.bmp.gz logo/bootup.bmp
+ $ cp boot-logo.bmp.gz logo/bootup_X3.bmp
+```
+. Create target logo.img with img pack tool, the binary and related libs of m5_android_bootlogo_tool are copy from <android-source-dir>/out/host/linux-x86
++
+```sh
+ $ ./logo_img_packer -r logo logo.img
+```
+. Flash boot logo with fastboot
++
+```sh
+ $ adb root
+ $ adb remount
+ $ adb reboot fastboot
+```
+Wait few seconds and check whether fastboot connected
++
+```sh
+ $ fastboot device
+ 1234567890      fastboot
+ $ fastboot flashing unlock_critical
+ $ fastboot flashing unlock
+ $ fastboot flash logo logo.img
+ $ fastboot reboot
+```
+
+=== Boot Sequence
+
+image::/picture/m5_linux_boot_squence.png[m5_linux_boot_squence.png]
+
+Check bootloader loaded from SDcard or EMMC at the beginning of the console debug messages
+
+. Rom load bootloader from SDcard (Linux log example)
++
+```sh
+ ...
+ 
+ BL2 Built : 15:21:42, Mar 26 2020. g12a g486bc38 - gongwei.chen@droid11-sz
+ 
+ Board ID = 1
+ Set cpu clk to 24M
+ Set clk81 to 24M
+ Use GP1_pll as DSU clk.
+ DSU clk: 1200 Mhz
+ CPU clk: 1200 MHz
+ Set clk81 to 166.6M
+ board id: 1
+ Load FIP HDR DDR from SD, src: 0x00010200, des: 0xfffd0000, size: 0x00004000, part: 0
+ fw parse done
+ PIEI prepare done
+ fastboot data verify
+ result: 255
+ Cfg max: 12, cur: 1. Board id: 255. Force loop cfg
+ DDR4 probe
+ 
+ ...
+```
+. Rom load bootloader from EMMC(Android Log example)
++
+```sh
+ ...
+ 
+ Board ID = 1
+ Set cpu clk to 24M
+ Set clk81 to 24M
+ Use GP1_pll as DSU clk.
+ DSU clk: 1200 Mhz
+ CPU clk: 1200 MHz
+ Set clk81 to 166.6M
+ eMMC boot @ 0
+ sw8 s
+ board id: 1
+ Load FIP HDR DDR from eMMC, src: 0x00010200, des: 0xfffd0000, size: 0x00004000, part: 0
+ fw parse done
+ PIEI prepare done
+ 00000000
+ emmc switch 1 ok
+ ddr saved addr:00016000
+ Load ddr parameter from eMMC, src: 0x02c00000, des: 0xfffd0000, size: 0x00001000, part: 0
+ 00000000
+ 
+ ...
+``` 
+
+=== Erase EMMC for SDcard Bootup
+There are four possible scenarios should be pay attention to, EMMC already flashed Android image, EMMC already flashed Linux image, boot process hangup in BL2 and EMMC empty.
+
+. Bootable EMMC with Android image flashed
+- Using usb burning tool, unplug the download usb cable while the download process at **7% formatting**
++
+image::/picture/m5_android_format.png[m5_android_format.png]
+
+- Using Android Fastboot tool, make sure the adb/fastboot tools is work on your PC before doing this.
++
+```sh
+   root@dangku-desktop:/tmp# adb root
+   adbd is already running as root
+   root@dangku-desktop:/tmp# adb remount
+   remount succeeded
+   root@dangku-desktop:/tmp# adb shell
+   bananapi_m5:/ # reboot fastboot
+```
+Wait a few seconds for board reboot to fastboot mode
++
+```sh
+   root@dangku-desktop:/tmp# fastboot devices
+   1234567890	fastboot
+   root@dangku-desktop:/tmp# fastboot flashing unlock_critical
+   ...
+   OKAY [  0.044s]
+   finished. total time: 0.044s
+   root@dangku-desktop:/tmp# fastboot flashing unlock
+   ...
+   OKAY [  0.047s]
+   finished. total time: 0.047s
+   root@dangku-desktop:/tmp# fastboot erase bootloader
+   erasing 'bootloader'...
+   OKAY [  0.059s]
+   finished. total time: 0.059s
+   root@dangku-desktop:/tmp# fastboot erase bootloader-boot0
+   erasing 'bootloader-boot0'...
+   OKAY [  0.036s]
+   finished. total time: 0.036s
+   root@dangku-desktop:/tmp# fastboot erase bootloader-boot1
+   erasing 'bootloader-boot1'...
+   OKAY [  0.035s]
+   finished. total time: 0.035s
+```
+- Using uboot command, connect a debug console cable and press ESC while power on to enter uboot command line
++
+```sh
+   bananapi_m5_v1#amlmmc erase 1
+   emmckey_is_protected(): protect
+   start = 0,end = 57343
+   start = 221184,end = 30535679
+   Erasing blocks 0 to 8192 @ boot0
+   start = 0,end = 8191
+   Erasing blocks 0 to 8192 @ boot1
+   start = 0,end = 8191
+   bananapi_m5_v1#reset
+   resetting ...
+   SM1:BL:511f6b:81ca2f;FEAT:A0F83180:20282000;POC:F;RCY:0;EMMC:0;READ:0;CHK:1F;READ:0;CHK:1F;READ:0;CHK;
+```
+These two ways actually erase the bootloader part of EMMC android, After bootup from SDcard Linux, You'd better format the whole EMMC by dd command.
+
+- The simplest way is insert the SDcard with Linux image flashed before power on, the Android bootloader will check boot.ini file whether exist in SDcard vfat partition, so that the SDcard Linux will bootup. After bootup, you can format the whole EMMC by dd command and then flash the Linux image to EMMC.
++
+```sh
+   ...
+   BPI: try boot from sdcard
+   reading boot.ini
+   5699 bytes read in 3 ms (1.8 MiB/s)
+   ## Executing script at 01b00000
+   ...
+   reading Image.gz
+   9143358 bytes read in 510 ms (17.1 MiB/s)
+   reading meson64_bananapi_m5.dtb
+   70850 bytes read in 8 ms (8.4 MiB/s)
+   reading uInitrd
+   11704481 bytes read in 655 ms (17 MiB/s)
+   reading overlays/i2c0.dtbo
+   223 bytes read in 6 ms (36.1 KiB/s)
+   reading overlays/spi0.dtbo
+   516 bytes read in 6 ms (84 KiB/s)
+   reading overlays/uart1.dtbo
+   225 bytes read in 5 ms (43.9 KiB/s)
+```
+. Bootable EMMC with Linux image flashed
+- Using uboot command, connect a debug console cable and press ESC while power on to enter uboot command line
++
+```sh
+   bananapi_m5# mmc erase 0 1000
+```
+- Linux u-boot also check boot.ini file whether exist in SDcard vfat partition so that the SDcard Linux will bootup. After bootup, you can format the whole EMMC by dd command or flash the Linux image directly to EMMC.
+
+. A extreme situation is bootloader or uboot corrupted, Rom load it from EMMC but hangup in u-boot or BL2, for example the boot process will hangup in BL2 of EMMC if dram init failed, The only way is format the EMMC with usb burning tool, or download the Android image completely and then try other ways to erase EMMC or flash Linux image to EMMC.
+
+. Rom will try to load bootloader from SDcard directly if EMMC is empty.
+
 
 === Enable sudo for Debian
 
 The release Debian image do not install sudo default, with "su -" command, user can change to root. If you like sudo, you can install it.
-```
+```sh
  $ su root
  Password:(enter bananapi)
  
