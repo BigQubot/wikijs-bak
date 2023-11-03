@@ -274,7 +274,7 @@ Wait few seconds and check whether fastboot connected
 
 . Linux image support SDcard or EMMC bootup.
 . It’s recommended to use A1 rated cards, 8GB at least.
-. Make sure bootable EMMC is formatted if you want bootup from SDcard, more info refer to Erase EMMC for SDcard Bootup
+. Make sure bootable EMMC is formatted if you want bootup from SDcard
 . Make sure SDcard is formatted without Linux image flashed if you want bootup from EMMC and use Sdcard as storage.
 . Install bpi-tools on your Linux PC(if flash image with other tools, ignore this step). If you can't access this URL or any other install problem, please go to link:https://github.com/bpi-sinovoip/bpi-tools[bpi-tools] source repo, download and install this tools manually.
 +
