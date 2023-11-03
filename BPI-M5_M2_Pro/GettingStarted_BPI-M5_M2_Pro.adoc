@@ -67,7 +67,6 @@ link:https://github.com/Dangku/aml-flash-tool[Aml-flash-tool] is a linux platfor
 ```
 image::/picture/m5_linux_flash.png[m5_linux_flash.png]
 
-
 === Build Android Source Code
 . Get Android 9.0 source code
 +
@@ -85,7 +84,7 @@ Bananapi M5/M2Pro DTBO idx value table, default idx value is 0 in release image.
 
 [options="header" cols="1,2,2" width="68%"]
 |=====
-3+| Bananapi M5/M2pro DTBO idx value table 
+3+| **Bananapi M5/M2pro DTBO idx value table **
 | idx value | device tree overlay | description                         
 | 0         | android_p_overlay   | default dtbo, no use                
 | 1         | wifi_bt_rtl8822cs   | enable bpi rtl8822cs wifi/bt module 
