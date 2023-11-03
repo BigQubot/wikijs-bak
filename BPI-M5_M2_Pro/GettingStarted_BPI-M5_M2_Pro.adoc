@@ -83,7 +83,7 @@ Please read the source code link:https://github.com/BPI-SINOVOIP/BPI-S905X3-Andr
 === Android DTB overlay
 Bananapi M5/M2Pro DTBO idx value table, default idx value is 0 in release image.
 
-[options="header" cols="1,1,2" width="70%"]
+[options="header" cols="1,1,2" width="68%"]
 |=====
 3+| Bananapi M5/M2pro DTBO idx value table 
 | idx value | device tree overlay | description                         
@@ -435,6 +435,139 @@ Build and install, for debian, you must link:https://newwiki.banana-pi.org/en/BP
  $ cd WiringPi2-Python-Amlogic
  $ sudo python3 setup.py install
 ```
+=== Luma.Examples
+
+link:https://github.com/rm-hull/luma.examples[Luma.examples] use GPIO.BCM gpio mode default, so you should map 40pin header pins to bcm gpio number and connect the hardware correctly.
+
+. Build and install RPi.GPIO
++
+```
+ $ sudo apt-get update
+ $ sudo apt-get install build-essential python3 python3-dev python3-setuptools git
+ $ git clone https://github.com/Dangku/RPi.GPIO-Amlogic.git
+ $ cd RPi.GPIO-Amlogic
+ $ sudo python3 setup.py clean --all
+ $ sudo python3 setup.py install
+```
+You can change the bcmledpin variable in test/led.py to your hardware backlight gpio and run it to check RPi.GPIO works well.
++
+```
+ $ sudo python3 test/led.py
+```
+Hardware backlight will repeat on and off
+. Luma.examples libs install
++
+```
+ $ sudo usermod -a -G i2c,spi,gpio pi
+```
+If group does not exist, the following command will create it:
++
+```
+ $ sudo groupadd --system xxx
+ $ sudo apt-get install python3-dev python3-pip libfreetype6-dev libjpeg-dev build-essential
+ $ sudo apt-get install libsdl-dev libportmidi-dev libsdl-ttf2.0-dev libsdl-mixer1.2-dev libsdl-image1.2-dev
+ $ git clone https://github.com/rm-hull/luma.examples.git
+ $ cd luma.examples
+```
+Install luma.core, luma.emulator, luma.lcd, luma.le-matrix, luma.oled pip libs, make sure this step without error or downloading interrupted, try again if get errors
++
+```
+ $ sudo -H pip install -e .
+```
+or
++
+```
+ $ sudo -H pip3 install -e .
+```
+For debian buster(python 3.7) which does not include /usr/bin/pip in package python3-pip, and will get the following errors when install luma packages with pip3
++
+```
+ ...
+ WARNING, No "Setup" File Exists, Running "buildconfig/config.py"
+ Using UNIX configuration...
+ 
+ /bin/sh: 1: sdl2-config: not found
+ /bin/sh: 1: sdl2-config: not found
+ /bin/sh: 1: sdl2-config: not found
+ ...
+```
+Install sdl2 related packages to fix this issue, then install luma libs again with pip3
++
+```
+ $ sudo apt-get install libsdl2-dev libsdl2-ttf-dev libsdl2-mixer-dev libsdl2-image-dev
+ $ sudo -H pip3 install -e .
+```
+check installed luma pip libs
++
+```
+ $ pip3 list | grep luma
+   
+   luma.core          2.4.0
+   luma.emulator      1.4.0
+   luma.lcd           2.10.0
+   luma.led-matrix    1.7.0
+   luma.oled          3.11.0
+```
+. examples test
+Enable i2c or spi overlays before running test examples
++
+```
+ $ cd examples
+ $ sudo python3 bounce.py --config ../conf/ili9341.conf
+```
+
+=== HDMI LCD
+[options="header" cols="1,1"]
+|=====
+2+| **Bananapi M5/M2pro Tested HDMI LCD**
+| panel                             | /boot/boot.ini                    
+| link:https://www.waveshare.com/3.5inch-hdmi-lcd.htm[Waveshare 3.5inch 480x320]                 | setenv display_autodetect "false" +
+setenv hdmimode "480x320p60hz" 
+| link:https://www.waveshare.com/3.5inch-hdmi-lcd-e.htm[Waveshare 3.5inch 640x480]                 |                                   
+| link:https://www.waveshare.com/4inch-hdmi-lcd-c.htm[Waveshare 4inch 720x720]                 |                                   
+| link:https://www.waveshare.com/5inch-hdmi-amoled.htm[Waveshare 5inch 960x544]                 |                                   
+| link:https://www.waveshare.com/5inch-hdmi-lcd-h.htm[Waveshare 5inch 800x480]                 |                                   
+| link:https://www.waveshare.com/5.5inch-1440x2560-lcd.htm[Waveshare 5.5inch 1440x2560]               | setenv display_autodetect "false" +
+setenv hdmimode "1440x2560p60hz"
+| link:https://www.waveshare.com/7inch-hdmi-lcd-b.htm[Waveshare 7inch 800x480]                 |                                   
+| link:https://www.waveshare.com/7inch-hdmi-lcd-c.htm[Waveshare 7inch 1024x600]                |                                   
+| link:https://www.waveshare.com/7.9inch-HDMI-LCD.htm[Waveshare 7.9inch 400x1280]                |                                   
+| link:https://www.waveshare.com/8inch-1536x2048-LCD.htm[Waveshare 8inch 1536x2048]               | setenv display_autodetect "false" +
+setenv hdmimode "1536x2048p60hz"
+| link:https://www.waveshare.com/8.8inch-Side-Monitor.htm[Waveshare 8.8inch 480x1920]                |                                   
+| link:https://www.waveshare.com/9inch-2560x1600-Monitor.htm[Waveshare 9inch 2560x1600]               | setenv display_autodetect "false" +
+setenv hdmimode "2560x1600p60hz"
+| link:https://www.waveshare.com/10.1inch-HDMI-LCD-E.htm[Waveshare 10.1inch 1024x600]	               |
+| link:https://www.waveshare.com/10.1inch-hdmi-lcd-b-with-case.htm[Waveshare 10.1inch 1280x800]	      |
+| link:https://www.waveshare.com/11.9inch-HDMI-LCD.htm[Waveshare 11.9inch 320x1480]	               |
+| link:https://www.waveshare.com/12.3inch-hdmi-lcd.htm[Waveshare 12.3inch 1920x720]	               |
+| link:https://www.waveshare.com/13.3inch-HDMI-LCD-H.htm[Waveshare 13.3inch 1920x1080]	             |
+| link:https://www.waveshare.com/15.6inch-hdmi-lcd-h-with-case.htm[Waveshare 15.6inch 1920x1080]	    |
+|=====
+Backlight control :  https://github.com/Dangku/Waveshare-USB-Brightness
+
+=== Boot Linux from USB drive
+
+S905x3 is not support usb boot in soc rom, so the only way for booting linux from usb drive is create a bootable sdcard or emmc with bootloader flashed, then load boot and rootfs from usb drive. After bootup, everything will run from usb drive.
+
+. The simple way is link:/en/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro/#_install_image_to_sdcard[flash the M5/M2Pro Linux image to sdcard or emmc] for bootable and also flash it to the usb drive for loading boot and rootfs.
+. Bootup the M5/M2pro board with link:/en/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro/#_boot_sequence[sdcard or emmc], copy /boot/boot.ini to /boot/boot.ini.org so that bootloader load boot.ini fail and then try to load it from usb drive boot partition.
+. Reboot the system, bootscript and rootfs will load from usb drive.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
