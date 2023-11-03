@@ -715,11 +715,11 @@ Check bootloader loaded from SDcard or EMMC at the beginning of the console debu
 There are four possible scenarios should be pay attention to, EMMC already flashed Android image, EMMC already flashed Linux image, boot process hangup in BL2 and EMMC empty.
 
 . Bootable EMMC with Android image flashed
-- Using usb burning tool, unplug the download usb cable while the download process at **7% formatting**
+a. Using usb burning tool, unplug the download usb cable while the download process at **7% formatting**
 +
 image::/picture/m5_android_format.png[m5_android_format.png]
 
-- Using Android Fastboot tool, make sure the adb/fastboot tools is work on your PC before doing this.
+b. Using Android Fastboot tool, make sure the adb/fastboot tools is work on your PC before doing this.
 +
 ```sh
    root@dangku-desktop:/tmp# adb root
@@ -755,7 +755,7 @@ Wait a few seconds for board reboot to fastboot mode
    OKAY [  0.035s]
    finished. total time: 0.035s
 ```
-- Using uboot command, connect a debug console cable and press ESC while power on to enter uboot command line
+c. Using uboot command, connect a debug console cable and press ESC while power on to enter uboot command line
 +
 ```sh
    bananapi_m5_v1#amlmmc erase 1
@@ -772,7 +772,7 @@ Wait a few seconds for board reboot to fastboot mode
 ```
 These two ways actually erase the bootloader part of EMMC android, After bootup from SDcard Linux, You'd better format the whole EMMC by dd command.
 
-- The simplest way is insert the SDcard with Linux image flashed before power on, the Android bootloader will check boot.ini file whether exist in SDcard vfat partition, so that the SDcard Linux will bootup. After bootup, you can format the whole EMMC by dd command and then flash the Linux image to EMMC.
+d. The simplest way is insert the SDcard with Linux image flashed before power on, the Android bootloader will check boot.ini file whether exist in SDcard vfat partition, so that the SDcard Linux will bootup. After bootup, you can format the whole EMMC by dd command and then flash the Linux image to EMMC.
 +
 ```sh
    ...
@@ -795,16 +795,51 @@ These two ways actually erase the bootloader part of EMMC android, After bootup 
    225 bytes read in 5 ms (43.9 KiB/s)
 ```
 . Bootable EMMC with Linux image flashed
-- Using uboot command, connect a debug console cable and press ESC while power on to enter uboot command line
++
+a. Using uboot command, connect a debug console cable and press ESC while power on to enter uboot command line
 +
 ```sh
    bananapi_m5# mmc erase 0 1000
 ```
-- Linux u-boot also check boot.ini file whether exist in SDcard vfat partition so that the SDcard Linux will bootup. After bootup, you can format the whole EMMC by dd command or flash the Linux image directly to EMMC.
-
+b. Linux u-boot also check boot.ini file whether exist in SDcard vfat partition so that the SDcard Linux will bootup. After bootup, you can format the whole EMMC by dd command or flash the Linux image directly to EMMC.
 . A extreme situation is bootloader or uboot corrupted, Rom load it from EMMC but hangup in u-boot or BL2, for example the boot process will hangup in BL2 of EMMC if dram init failed, The only way is format the EMMC with usb burning tool, or download the Android image completely and then try other ways to erase EMMC or flash Linux image to EMMC.
 
 . Rom will try to load bootloader from SDcard directly if EMMC is empty.
+
+=== Erase Emmc Android by dd command
+
+If the board is flashed android before, the whole emmc must be erased by these commands if you want bootup it with SDcard Linux image.
+```sh
+ $ sudo dd if=/dev/zero of=/dev/mmcblk0boot0 bs=1M status=noxfer 
+ $ sudo dd if=/dev/zero of=/dev/mmcblk0boot1 bs=1M status=noxfer
+ $ sudo dd if=/dev/zero of=/dev/mmcblk0 bs=1M status=noxfer 
+ $ sync
+```
+
+=== Wifi/BT support
+. Android test and support.
++
+```sh
+ rtl8723bu wifi/bt(usb)
+ rtl8188eu wifi(usb)
+ rtl8821cu wifi/bt(usb)
+ rtl8822cs wifi/bt(sdio/uart)
+ rtl8814au wifi(usb), please get the aircrack-ng driver and install.
+```
+**How to enable Android Wifi/BT**
+USB type: Plug-in the usb dongle to usb host port and reboot the system, After bootup, you can enable or disable wifi and bluetooth in Settings app.
+SDIO/UART type: Connect the hardware module to 40pin header correctly and configure the Android DTB overlay to enable it.
++
+WARNING: Note: Android is not support that ethernet and wifi are both connected at the same time, Ethernet have a higher prioprity than wifi, it means wifi can't connect network if ethernet already connected, and wifi will drop connection if ethernet cable plugin.
+
+. Linux test and support.
+
+
+
+
+
+
+
 
 
 === Enable sudo for Debian
