@@ -28,28 +28,203 @@ image::/picture/m2s_android_install_1.png[m2s_android_install_1.png]
 . Press and hold USB button on the board, plugin type-c usb cable to PC or press the RST button if power adapter already connected, about two seconds later, release the button, the board will be identified correctly.
 +
 image::/picture/m2s_android_install_3.png[m2s_android_install_3.png]
-image::/picture/m5_android_install_2.png[m5_android_install_2.png]
+image::/picture/m2s_android_install_2.png[m2s_android_install_2.png]
 
 . Click the Start button of the download tool and wait for upgrade complete.
 +
-image::/picture/m5_android_install_3.png[m5_android_install_3.png]
+image::/picture/m2s_android_install_4.png[m2s_android_install_4.png]
 
 . After Burning successfull, Unplug the type-c usb and connect to power supply adaptor to startup.
 +
-image::/picture/m5_android_install_4.png[m5_android_install_4.png]
+image::/picture/m2s_android_install_5.png[m2s_android_install_5.png]
 
 . Click the Stop button to cancel the upgrade process and close the USB Buring Tool.
-. xxx
-. xxx
-. xxx
-. xxx
 
-=== Install Image with xxx
+=== Install Image with Aml Flash Tool
+link:https://github.com/Dangku/aml-flash-tool[Aml-flash-tool] is a linux platform opensource image flash util for Amlogic android.
+```sh
 
-. xxx
-. xxx
-. xxx
-. xxx
+ $ ./flash-tool.sh --img=/path/to/aml_upgrade_package.img --parts=all --wipe --soc=g12a --reset=y
+```
+image::/picture/m5_linux_flash.png[m5_linux_flash.png]
+
+=== Build Android Source Code
+
+. Get Android 9.0 source code
++
+```sh
+git clone https://github.com/BPI-SINOVOIP/BPI-A311D-Android9
+```
+or you can get the source code tar archive from link:https://pan.baidu.com/s/1rANGEB-1MLPCBXqOR5aYCg?pwd=8888[BaiduPan(pincode: 8888)] or link:https://drive.google.com/drive/folders/1INIABp_MbB5UcwfqujTngGLOZN7YGuWp?usp=share_link[GoogleDrive]
+
+. Build the Android 9.0 Source code +
+Please read the source code link:https://github.com/BPI-SINOVOIP/BPI-A311D-Android9/blob/master/README.md[README.md]
+
+=== Android DTB overlay
+Bananapi M2S DTBO idx value table, default idx value is 0 in release image.
+
+[options="header" cols="1,2,2" width="68%"]
+|=====
+3+|**Bananapi M2S DTBO idx value table**
+| idx value | device tree overlay | description    
+| 0 | android_p_overlay | default dtbo, no use                
+| 1 | wifi_bt_rtl8822cs | enable bpi rtl8822cs wifi/bt module 
+| 2 | i2c1              | enable i2c 1                        
+| 3 | i2c2              | enable i2c 2                        
+| 4 | sdio              | enable sdio                         
+| 5 | uart1             | enable 2 pins uart 1                
+| 6 | uart1_cts_rts     | enable 4 pins uart 1                
+| 7 | uart2             | enable 2 pins uart 2                
+| 8 | hifi_pcm5122      | enable i2s link:https://shumeipai.nxez.com/hifidac-hat-for-raspberry-pi[pcm5122 HiFi DAC]   
+|=====
+
+**How to apply a new dtbo**
+
+. ADB command via sysfs
++
+```sh
+ root@dangku-desktop:/tmp# adb root
+ restarting adbd as root
+ root@dangku-desktop:/tmp# adb remount
+ remount succeeded
+ root@dangku-desktop:/tmp# adb shell
+ bananapi_m2s:/ # echo dtbo > /sys/class/unifykeys/name                                                
+ bananapi_m2s:/ # echo "1" > /sys/class/unifykeys/write                                                
+ bananapi_m2s:/ # reboot
+```
+. Uart console command via sysfs
++
+```sh
+ console:/ $ 
+ console:/ $ su
+ console:/ # echo dtbo > /sys/class/unifykeys/name                              
+ [  115.702781@0] unifykey: name_store() 1302, name dtbo, 4
+ [  115.702856@0] unifykey: name_store() 1311
+ console:/ #
+ console:/ # echo "1" > /sys/class/unifykeys/write                              
+ [  129.262659@0] unifykey: write_store()  is a string
+ [  129.262733@0] unifykey: dtbo, 1, 1
+ [  129.265312@0] unifykey: amlkey_write 393
+ [  129.292347@1] emmc_key_write:149, write ok
+ console:/ # 
+ console:/ # reboot
+```
+. Settings App(To-Do)
++
+Check the bootup uart debug message and confirm which dtbo is loaded actually, here "1" means set idx=1 to apply wifi_bt_rtl8822cs dtbo.
++
+```sh
+ load dtb from 0x1000000 ......
+       Amlogic multi-dtb tool
+       Single dtb detected
+ find 2 dtbos
+ dtbos to be applied: 1
+ Apply dtbo 1
+```
+Unifykeys is stored in a specific emmc part, "Normal erase" selected in USB_Burning_Tool will not erase this data for next update, you must select "Erase all" if you want the default dtbo idx to be applied after image download.
++
+image::/picture/m2s_android_erase_all.png[m2s_android_erase_all.png]
+
+**Build Android image with a specific DTBO default.**
+
+. Default build-in overlays are defined in device/bananapi/bananapi_m2s/Kernel.mk, you can add a new overlay dtbo here.
++
+```sh
+ DTBO_DEVICETREE := android_p_overlay wifi_bt_rtl8822cs i2c1 i2c2 sdio uart1 uart1_cts_rts uart2 hifi_pcm5122
+```
+. Default apply DTBO idx is defined in device/bananapi/bananapi_m2s/BoardConfig.mk, you can change the idx value to set which overlay dtbo will be applied default.
++
+```sh
+ BOARD_KERNEL_CMDLINE += androidboot.dtbo_idx=0
+```
+. DTS files are in common/arch/arm64/boot/dts/amlogic/overlay/bananapi_m2s/ +
+More info about android device tree overlays, please refer to link:https://source.android.com/devices/architecture/dto[google android offical site]
+
+=== Install OpenGapps
+. Download install package from OpenGapps, Android release image is arm/android 9.0 variant.
++
+image::/picture/opengapps.png[opengapps.png]
+
+. Download link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fapps%2Fdevice_id_v1.3.2.apk[device_id.apk].
+. Copy the OpenGapp package to a udisk or sdcard root directory.
+. Create a txt file named **factory_update_param.aml** in udisk or sdcard root directory with the following android recovery parameter content, and replace the file name with the actual downloaded package. +
+udisk:
++
+```sh
+ --wipe_cache
+ --update_package=/udisk/open_gapps-arm-9.0-pico-20210327.zip
+```
+sdcard:
++
+```sh
+ --wipe_cache
+ --update_package=/sdcard/open_gapps-arm-9.0-pico-20210327.zip
+```
+. Plugin the udisk or sdcard to the board and poweron.
+. OpenGapps install and certify.
+
+https://youtu.be/fXOKmWfpqF8
+
+watch this video on link:https://www.bilibili.com/video/BV13y4y1s77i/[bilibili]
+
+=== Switch Mipi Panel
+The default android release image only support one mipi panel because hw has no detect logic for different panel at boot, so [800x1280 bpi panel] enabled as default, but you can change to [1200x1920 bpi panel] as defualt in Settings->Panel Output
+
+image::/picture/m2s_panel_switch.png[m2s_panel_switch.png]
+
+=== Panel Rotation
+The two 10" mipi panels are all portrait hw display, so the default android release image is portrait mode, but you can rotate it to 90/180/270 in two ways.
+
+. UI Rotation in Settings->Display->Screen rotation
++
+
+
+. SurfaceFlinger rotation, need link:/modify android source code and build +
+Change the default sf rotation property
++
+```sh
+   diff --git a/device/bananapi/bananapi_m2s/bananapi_m2s.mk b/device/bananapi/bananapi_m2s/bananapi_m2s.mk
+   index 1f51703..d592a44 100644
+   --- a/device/bananapi/bananapi_m2s/bananapi_m2s.mk
+   +++ b/device/bananapi/bananapi_m2s/bananapi_m2s.mk
+   @@ -579,6 +579,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
+    else
+    PRODUCT_PROPERTY_OVERRIDES += \
+        ro.sf.lcd_density=213 \
+    -    ro.sf.primary_display_orientation=0
+   +    ro.sf.primary_display_orientation=90
+    endif
+```
+Change the touch panel rotation in dts
++
+```sh
+   diff --git a/common/arch/arm64/boot/dts/amlogic/bananapi_m2s.dts b/common/arch/arm64/boot/dts/amlogic/bananapi_m2s.dts
+   index 4a698b0..3d41b63 100755
+   --- a/common/arch/arm64/boot/dts/amlogic/bananapi_m2s.dts
+   +++ b/common/arch/arm64/boot/dts/amlogic/bananapi_m2s.dts
+   @@ -876,8 +876,8 @@
+                   reg = <0x5d>;
+                   reset-gpio = <&gpio GPIOA_6 GPIO_ACTIVE_HIGH>;
+                   irq-gpio = <&gpio GPIOA_5 GPIO_ACTIVE_HIGH>;
+   -               rotation = <4>; /* sf_rotation 0 */
+   -               //rotation = <0>; /* sf_rotation 90*/
+  +               //rotation = <4>; /* sf_rotation 0 */
+  +               rotation = <0>; /* sf_rotation 90*/
+                   //rotation = <5>; /* sf_rotation 180 */
+                   //rotation = <3>; /* sf_rotation 270 */
+```                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+
+
+
+
+
 
 == Linux
 === Prepare
