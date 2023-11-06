@@ -184,9 +184,9 @@ sdcard:
 
 . OpenGapps install and certify.
 +
-https://youtu.be/fXOKmWfpqF8
+YouTube Video:https://youtu.be/fXOKmWfpqF8
 +
-watch this video on link:https://www.bilibili.com/video/BV13y4y1s77i/[bilibili]
+Watch this video on link:https://www.bilibili.com/video/BV13y4y1s77i/[bilibili]
 
 === IR Remote Control Custom
 Before starting this work, some android basic concepts and knowledge need to be known.
@@ -196,18 +196,18 @@ Before starting this work, some android basic concepts and knowledge need to be 
 - Linux keycode map to android keycode.
 - Android Adb function work on your PC
 --
-. pull the remote files from device
+. Pull the remote files from device
 +
 ```sh
  # adb pull /vendor/etc/remote.cfg
  # adb pull /vendor/etc/remote.tab 
 ```
 
-. modify remote.cfg to enable remote debug message
+. Modify remote.cfg to enable remote debug message
 +
 image::/picture/remotecfg.png[remotecfg.png]
 +
-push remote.cfg back
+Push remote.cfg back
 +
 ```sh
  # adb root
