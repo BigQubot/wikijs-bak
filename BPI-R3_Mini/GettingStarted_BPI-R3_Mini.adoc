@@ -225,7 +225,7 @@ echo 1 > /sys/class/gpio/gpio433/value
 
 === FAN
 
-
+image::/picture/r3mini-fan-con.png[r3mini-fan-con.png]
 
 CN16 is a 1.25 pitch 3PIN socket, used to connect the fan, supports PWM control.
 
@@ -241,7 +241,7 @@ echo 1 > /sys/class/pwm/pwmchip0/pwm0/enable
 === M.2 KEY B slot
 Currently, M.2 KEY B slot only support USB 4G/5G module, example: Quectel RM500U-CN or RM520N-GL
 
-
+image::/picture/r3mini-rm500u-1000.png[r3mini-rm500u-1000.png]
 
 when you install one 4G/5G module, you may check it.
 
