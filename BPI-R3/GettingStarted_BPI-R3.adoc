@@ -82,8 +82,8 @@ Before burning image to eMMC, please prepare a SD card with flashed bootable ima
 
 Let's take OpenWrt image (mtk-bpi-r3-SD-WAN1-SFP1-20220619-single-image.img, mtk-bpi-r3-NAND-WAN1-SFP1-20220619-single-image.bin, bl2_emmc.img, mtk-bpi-r3-EMMC-WAN1-SFP1-20220619-single-image.img) for example, the steps are below:
 
-. Insert the flashed SD card and power on to start the board.(the image "mtk-bpi-r3-SD-WAN1-SFP1-20220619-single-image.img" on the SD card can be OpenWrt or other linux OS like ubuntu...)
-. Copy Nand bootable and EMMC boot OpenWrt image(mtk-bpi-r3-NAND-WAN1-SFP1-20220619-single-image.bin, bl2_emmc.img, mtk-bpi-r3-EMMC-WAN1-SFP1-20220619-single-image.img) to USB disk, if the image is compressed please uncompress it before copying to USB disk.
+. Insert the flashed SD card and power on to start the board.(the image "**mtk-bpi-r3-SD-WAN1-SFP1-20220619-single-image.img**" on the SD card can be OpenWrt or other linux OS like ubuntu...)
+. Copy Nand bootable and EMMC boot OpenWrt image(**mtk-bpi-r3-NAND-WAN1-SFP1-20220619-single-image.bin, bl2_emmc.img, mtk-bpi-r3-EMMC-WAN1-SFP1-20220619-single-image.img**) to USB disk, if the image is compressed please uncompress it before copying to USB disk.
 . Plug in USB disk to the board, and mount the USB to /mnt or other directory as follows: (you can skip mounting if it is mounted automatically)
 +
 ```sh
