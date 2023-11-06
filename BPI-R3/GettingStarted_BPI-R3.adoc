@@ -102,7 +102,7 @@ dd if=mtk-bpi-r3-NAND-WAN1-SFP1-20220619-single-image.bin of=/dev/mtdblock0
 ```
 . Remove SD card, and change bootstrap to boot from nand flash and change SD/EMMC switch jumper to EMMC, restart the board from Nand Flash.
 +
-WARNING: Note: Enable EMMC device, boot strap is from nand
+TIP: Enable EMMC device, boot strap is from nand
 +
 image::/picture/bpi-r3-jumper-flash-nand.png[bpi-r3-jumper-flash-nand.png]
 
@@ -117,7 +117,7 @@ mmc bootpart enable 1 1 /dev/mmcblk0
 ```
 . power off R3 board, remove u-disk driver, change bootstrap to boot from emmc device.
 +
-WARNING: Note: Enable EMMC device, boot strap is from EMMC.
+TIP: Enable EMMC device, boot strap is from EMMC.
 +
 image::/picture/bpi-r3-jumper-boot-emmc.png[bpi-r3-jumper-boot-emmc.png]
 
