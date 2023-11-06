@@ -201,13 +201,86 @@ image::/picture/r3mini-iperf3-switch.png[r3mini-iperf3-switch.png]
 
 iPhone 5Gwifi <-------iperf3------> (Wi-Fi) BPI-R3mini
 
-Note: The distance between iPhone and R3mini is about one meter.
+WARNING: Note: The distance between iPhone and R3mini is about one meter.
 
 image::/picture/r3mini-wifitesta.png[r3mini-wifitesta.png]
 
 == Advanced Development
-GPIO Control
+=== GPIO Control
+```sh
 echo xxx > /sys/class/gpio/export
 echo in/out > /sys/class/gpio/gpioxxx/direction
 echo 0/1 > /sys/class/gpio/gpioxxx/value
+```
 Check the base gpio, you could see mine is 411
+
+
+
+For example: if you want to change gpio 22 as out highlevel, you need input commands like this：
+```sh
+echo 433（22+411） > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio433/direction
+echo 1 > /sys/class/gpio/gpio433/value
+```
+
+=== FAN
+
+
+
+CN16 is a 1.25 pitch 3PIN socket, used to connect the fan, supports PWM control.
+
+=== PWM FAN Control
+```sh
+echo 0 > /sys/class/pwm/pwmchip0/export
+echo 10000 > /sys/class/pwm/pwmchip0/pwm0/period
+echo 5000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+echo normal > /sys/class/pwm/pwmchip0/pwm0/polarity
+echo 1 > /sys/class/pwm/pwmchip0/pwm0/enable
+```
+
+=== M.2 KEY B slot
+Currently, M.2 KEY B slot only support USB 4G/5G module, example: Quectel RM500U-CN or RM520N-GL
+
+
+
+when you install one 4G/5G module, you may check it.
+
+=== 4G/5G Module
+BPI-R3mini supports **M.2 KEYB USB interface** Cellular network module: 4G LTE EM05, 5G Quectel RM500U-CN/RG200U-CN and RM520N-GL/RM500Q-GL Series.
+
+The released image(2023-09-12 or later) default driver is RM500U-CN and RM520N-GL, Install one of these two modules and you can use it directly.
+
+If use EM05 or others,you will most likely need to modify the driver.
+
+WARNING: Note: The availability of 4G/5G depends on the local carrier frequency band.
+
+=== Wi-Fi Ap mode on BPI-R3mini
+* ra0 is MT7986a 2.4G wifi
+* rax0 is MT7986a 5G wifi
+
+=== Serial cable
+Because the UART0_TXD of the debug port is also a wifi strap pin, this pin needs to be pull-low when poweron，
+
+some serial cable have strong pull-up, such as PL2303,if it is inserted before powering on, it will cause the wifi chip to be recognized incorrectly, and the wifi function will fail.
+
+Other types including cp2102,ch340 and FDTI are all available, serial cable power domian must be 3.3v TTL standard.
+
+You can buy the serial cable here: https://www.aliexpress.us/item/3256805457599756.html
+
+image::/picture/r3mini-usbc2uart.png[r3mini-usbc2uart.png]
+
+If your computer has a USB TypeC connector and supports PD12V/1.5A (20W) or above, you can also directly use the computer to power BPI-R3mini.
+
+Moreover, since BPI-R3mini has built-in USB to serial port chip CH340E, you do not need to use additional serial cables.
+
+WARNING: NOTE: If your computer does not support USB PD, then the R3mini will most likely keep restarting.
+
+Because the power consumption of R3mini is relatively large (all peripherals are plugged in and the power consumption is close to 20W when running)
+
+= FAQ
+MT7986a Reference Manual for Develope Board(BPi)
+
+Google Drive: https://drive.google.com/file/d/1biSJmxnIpNzQroYDg9mtPtSTAv4i0DFf/view?usp=sharing
+
+=== TTL Voltage
+The debug uart is 3.3V TTL power domain.
