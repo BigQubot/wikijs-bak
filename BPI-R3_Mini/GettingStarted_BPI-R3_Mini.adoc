@@ -1,0 +1,183 @@
+= Introduction
+
+Banana Pi BPI-R3 Mini Router board with MediaTek MT7986A(Filogic 830) quad core ARM A53 chip design ,2G DDR RAM ,8G eMMC flash onboard,It is a very high performance open source router development board,support Wi-Fi6 2.4G/5G with MT7976C, support 2x 2.5GbE ethernet port.
+
+TIP: More Infomation: link:/en/BPI-R3_Mini/BananaPi_BPI-R3_Mini[Banana Pi BPI-R3_Mini]
+
+=== MediaTek MT7986(Filogic 830)
+The MT7986(Filogic 830) integrates four Arm Cortex-A53 cores up to 2GHz with up to 18,000 DMIPs of processing power and 6Gbps of dual 4x4 Wi-Fi6 connectivity. It has two 2.5g Ethernet interfaces and serial peripheral interfaces (SPI). Filogic 830‘s built-in hardware acceleration engine enables fast and reliable Wi-Fi offloading and wireless network connection. In addition, the chip supports Mediatek FastPath™ technology, which is suitable for games, AR/VR and other low-latency applications.
+
+Wi-fi 6 has many advantages over its predecessors, including lower latency, larger bandwidth capacity and faster transmission rates. Wireless network devices supporting the 6GHz band mainly use 160MHz wide channel and 6GHz uncongested bandwidth to provide multigigabit transmission and low-latency wi-fi connection, providing reliable wireless network for streaming media, games, AR/VR and other applications.
+
+== Specifications
+
+- MediaTek MT7986A(Filogic 830) Quad core ARM Cortex A53
+- Wifi 6 2.4G/5G（MT7976C）
+- 2G DDR RAM
+- 8G eMMC flash
+- 128MB Nand flash
+- 2x 2.5GbE Ethernet port
+- 1x M.2 Key B USB inerface
+- 1x M.2 KEY M PCIe inerface
+- 1x USB2.0 interface
+
+= Development
+== Prepare
+
+. Prepare USB-Serial interface
+. Using your USB-Serial Connect debug console on BPI-R3 MINI 
+
+WARNING: Note: Debug Uart 3.3v TTL
+
+. R3mini boot switch Jumper Setting
+  
+WARNING: Note: EMMC Boot or Nand boot Support.
+
+== Warnning
+WARNING: Note: Because BPI-R3 MINI can't support that it boot from SD, So the factory will flash one default image into Nand and EMMC Device. 
+ Anytime please confirm that one EMMC or Nand device include one bootable image, it's very important!!
+ 
+ - If you want to update EMMC device, please boot from Nand
+ 
+ 
+ 
+ - Otherwise you update Nand device when it boot from EMMC.
+ 
+ 
+ 
+== Linux
+=== Install Image to onboard eMMC
+
+WARNING: Note: when you want to Update EMMC device, Firstly Change boot switch to boot from Nand device, then after boot up,you need flash one emmc image into EMMC device. Finally you change bootstrap to boot from EMMC.
+
+Before burning image to eMMC, please prepare a USB disk. Let's take OpenWrt image (mtk-bpi-r3mini-EMMC-20230719.img, bl2_emmc-r3mini.img) for example, the steps are below:
+
+. Copy EMMC boot OpenWrt image(mtk-bpi-r3mini-EMMC-20230719.img, bl2_emmc.img) to USB disk.
+. Change boot switch Jumper, the board boot from Nand device, then power up the board.
+. Plug in USB disk to the board, and mount the USB to /mnt or other directory as follows: (you can skip mounting if it is mounted automatically)
++
+```sh
+mount -t vfat /dev/sda1 /mnt 
+```
+change your directory to the mounting point, here is : 
++
+```sh
+cd /mnt
+```
+
+. Execute following command to enable and copy image to EMMC device:
++
+```sh
+echo 0 > /sys/block/mmcblk0boot0/force_ro
+dd if=bl2_emmc-r3mini.img of=/dev/mmcblk0boot0
+dd if=mtk-bpi-r3mini-EMMC-20230719.img of=/dev/mmcblk0
+mmc bootpart enable 1 1 /dev/mmcblk0
+```
+ . Power off R3MINI board, unplug the USB drive, and change the boot program to boot from the emmc device.
+
+WARNING: Note: Enable EMMC device, boot strap is from EMMC.
+
+=== Install Image to onboard Nand
+
+WARNING: Note: when you want to Update Nand device, Firstly Change boot switch to boot from EMMC device, then after boot up,you need flash one nand image into nand device. Finally you change bootstrap to boot from Nand device.
+
+Before burning image into Nand, please prepare a USB disk. Let's take OpenWrt image (mtk-bpi-r3mini-NAND-20230719-single-image.bin) for example, the steps are below:
+
+. Copy Nand boot OpenWrt image(mtk-bpi-r3mini-NAND-20230719-single-image.bin) to USB disk.
+ . Change boot switch Jumper, the board boot from EMMC device, then power up the board.
+ . Plug in USB disk to the board, and mount the USB to /mnt or other directory as follows: (you can skip mounting if it is mounted automatically)
++
+```sh
+mount -t vfat /dev/sda1 /mnt
+```
+change your directory to the mounting point, here is :
++
+```sh
+cd /mnt
+```
+. Execute following command to erase the whole Nand flash and copy image to nand device:
++
+```sh
+mtd erase /dev/mtd0
+dd if=mtk-bpi-r3mini-NAND-20230719-single-image.bin of=/dev/mtdblock0
+```
+. Power off BPI-R3 MINI board, remove u-disk driver, change bootstrap to boot from Nand device.
+
+WARNING: Note: Enable Nand device, boot strap is from Nand.
+
+=== Network-Configuration
+Network-Configuration refer to: http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:network:start
+
+Network Interface: eth1 is for WAN; eth0, rax0, ra0 is for LAN, ra0 is for 2.4G wireless, rax0 is for 5G wireless.
+
+```sh
+root@OpenWrt:/# ifconfig
+br-lan Link encap:Ethernet HWaddr EE:A1:57:81:CA:19
+         inet addr:192.168.1.1  Bcast:192.168.1.255  Mask:255.255.255.0
+         inet6 addr: fe80::eca1:57ff:fe81:ca19/64 Scope:Link
+         inet6 addr: fd63:8bea:d5ce::1/60 Scope:Global
+         UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+         RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:15 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:0 (0.0 B)  TX bytes:2418 (2.3 KiB)
+br-wan Link encap:Ethernet HWaddr EE:A1:57:81:CA:19
+         inet6 addr: fe80::eca1:57ff:fe81:ca19/64 Scope:Link
+         UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+         RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:34 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:0 (0.0 B)  TX bytes:8538 (8.3 KiB)
+eth0 Link encap:Ethernet HWaddr EE:A1:57:81:CA:19
+         inet6 addr: fe80::eca1:57ff:fe81:ca19/64 Scope:Link
+         UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+         RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:32 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:0 (0.0 B)  TX bytes:4408 (4.3 KiB)
+         Interrupt:124
+eth1 Link encap:Ethernet HWaddr 4A:BB:84:B4:5D:3F
+         UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+         RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:34 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:0 (0.0 B)  TX bytes:8674 (8.4 KiB)
+         Interrupt:124
+lo Link encap:Local Loopback
+         inet addr:127.0.0.1  Mask:255.0.0.0
+         inet6 addr: ::1/128 Scope:Host
+         UP LOOPBACK RUNNING  MTU:65536  Metric:1
+         RX packets:56 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:56 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:4368 (4.2 KiB)  TX bytes:4368 (4.2 KiB)
+ra0 Link encap:Ethernet HWaddr 00:0C:43:26:60:38
+         UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+         RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+         Interrupt:6
+rax0 Link encap:Ethernet HWaddr 02:0C:43:36:60:38
+         UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+         RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+```
+
+```sh
+root@OpenWrt:/# brctl show br-wan
+bridge name bridge id STP enabled interfaces br-wan 7fff.eea15781ca19 no eth1
+root@OpenWrt:/# brctl show br-lan
+bridge name bridge id STP enabled interfaces br-lan 7fff.eea15781ca19 no eth0, rax0, ra0, apclix0, apcli0
+```
+
+=== iperf3 test
+2.5G Ethernet:
+
+R3miniA(WAN)---|             | +
+               | 2.5G wwitch |---Ethernet +
+R3miniB(WAN)---|             |
+
+R3miniA <-------iperf3------> R3miniB
