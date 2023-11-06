@@ -23,11 +23,10 @@ TIP: More Infomation: link:/en/BPI-M2_Berry/BananaPi_BPI-M2_Berry[Banana Pi BPI-
 - SATA Interface
 
 = Development
-== Prepare
-
-
-
 == Android
+=== Prepare
+Download PhoenixCard: https://pan.baidu.com/s/1-fjvPqtG_zewVzqnXf1AHw?pwd=eid9
+
 === Install Image to SD cards
  
 . Put your TF card into a TF-USB adapter, and then plug adapter in your Windows PC usb interface.
@@ -39,12 +38,19 @@ TIP: More Infomation: link:/en/BPI-M2_Berry/BananaPi_BPI-M2_Berry[Banana Pi BPI-
 
 image::/picture/m3_android_burning.png[m3_android_burning.png]
 
-=== Install Image with xxx
+=== Install Image to eMMC
 
-. xxx
-. xxx
-. xxx
-. xxx
+. Put your TF card into a TF-USB adapter, and then plug adapter in your Windows PC usb interface.
+. Prepare your image, and download image burning tools PhoenixCard.exe.
+. Use "PhoenixCard.exe" to burn android image to TF card.
+- Select the image in the image path option
+- Select mass production card
+- Then click on burn image
++
+image::/picture/m2u-android-emmc.png[m2u-android-emmc.png]
+
+. After the image is burned, insert the SD card into the board and power on to start.After startup, the image will be automatically burned to the EMMC.
+.  After the burning is completed, the power will be cut off, and the SD card will be removed. Power on again to start from EMMC.
 
 == Linux
 === Prepare
