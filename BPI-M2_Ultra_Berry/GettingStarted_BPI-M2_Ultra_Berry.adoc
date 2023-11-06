@@ -238,7 +238,9 @@ BPI_M2U_LCD7.img.gz
 bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_LCD7.img.gz
 ```
 
-
+- Execute "**bpi-bootsel**", you'll see a list of boot files
+- Find "**BPI_M2U_LCD7.img.gz**"
+- Then execute "**bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_LCD7.img.gz**"
 
 
 
