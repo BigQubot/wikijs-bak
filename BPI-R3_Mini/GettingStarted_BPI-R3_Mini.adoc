@@ -26,11 +26,11 @@ Wi-fi 6 has many advantages over its predecessors, including lower latency, larg
 
 . Prepare USB-Serial interface
 . Using your USB-Serial Connect debug console on BPI-R3 MINI 
-
++
 WARNING: Note: Debug Uart 3.3v TTL
 
 . R3mini boot switch Jumper Setting
-  
++  
 WARNING: Note: EMMC Boot or Nand boot Support.
 
 == Warnning
@@ -74,7 +74,7 @@ dd if=mtk-bpi-r3mini-EMMC-20230719.img of=/dev/mmcblk0
 mmc bootpart enable 1 1 /dev/mmcblk0
 ```
  . Power off R3MINI board, unplug the USB drive, and change the boot program to boot from the emmc device.
-
++
 WARNING: Note: Enable EMMC device, boot strap is from EMMC.
 
 === Install Image to onboard Nand
@@ -102,7 +102,7 @@ mtd erase /dev/mtd0
 dd if=mtk-bpi-r3mini-NAND-20230719-single-image.bin of=/dev/mtdblock0
 ```
 . Power off BPI-R3 MINI board, remove u-disk driver, change bootstrap to boot from Nand device.
-
++
 WARNING: Note: Enable Nand device, boot strap is from Nand.
 
 === Network-Configuration
@@ -174,10 +174,12 @@ bridge name bridge id STP enabled interfaces br-lan 7fff.eea15781ca19 no eth0, r
 ```
 
 === iperf3 test
+// 111
+
 2.5G Ethernet:
 
-R3miniA(WAN)---|             | +
-               | 2.5G wwitch |---Ethernet +
+``R3miniA(WAN)---``|``             ``|``  `` +
+``               ``|`` 2.5G wwitch ``|``---Ethernet`` +
 R3miniB(WAN)---|             |
 
 R3miniA <-------iperf3------> R3miniB
