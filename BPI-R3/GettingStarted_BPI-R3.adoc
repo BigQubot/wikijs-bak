@@ -1,0 +1,144 @@
+= Introduction
+
+Banana Pi BPI-R3 Mini Router board with MediaTek MT7986(Filogic 830) quad core ARM A53 chip design ,2G DDR RAM ,8G eMMC flash onboard,It is a very high performance open source router development board,support Wi-Fi6 2.4G wifi use MT7975N and 5G wifi use MT7975P, support 2 2.5GbE network port.
+
+=== MediaTek MT7986(Filogic 830)
+The MT7986(Filogic 830) integrates four Arm Cortex-A53 cores up to 2GHz with up to 18,000 DMIPs of processing power and 6Gbps of dual 4x4 Wi-Fi6 connectivity. It has two 2.5g Ethernet interfaces and serial peripheral interfaces (SPI). Filogic 830‘s built-in hardware acceleration engine enables fast and reliable Wi-Fi offloading and wireless network connection. In addition, the chip supports Mediatek FastPath™ technology, which is suitable for games, AR/VR and other low-latency applications.
+
+Wi-fi 6 has many advantages over its predecessors, including lower latency, larger bandwidth capacity and faster transmission rates. Wireless network devices supporting the 6GHz band mainly use 160MHz wide channel and 6GHz uncongested bandwidth to provide multigigabit transmission and low-latency wi-fi connection, providing reliable wireless network for streaming media, games, AR/VR and other applications.
+
+TIP: More Infomation: link:/en/BPI-R3/BananaPi_BPI-R3[Banana Pi BPI-R3]
+
+== Specifications
+
+- MediaTek MT7986(Filogic 830) Quad core ARM Cortex A53
+- Wifi 6 2.4G/5G（MT7976C）
+- 2G DDR RAM
+- 8G eMMC flash
+- 128MB Nand flash
+- 2x 2.5GbE network port
+- 1x M.2 Key B USB inerface
+- 1x M.2 KEY M PCIe inerface
+- 1x USB2.0 interface
+
+
+= Development
+== Prepare
+
+Prepare 8G/above TF card, USB-Serial interface.
+
+Using your USB-Serial Connect debug console on BPI-R3.
+
+image::/picture/r3_debug_console.jpg[r3_debug_console.jpg]
+
+R3 bootstrap and device select Jumper Setting
+
+image::/picture/bpi-r3-jumper.png[bpi-r3-jumper.png]
+
+NOTE: SW1-A and SW1-B is for boot strap selecting; +
+SW1-C is that SPI-Nand or SPI-Nor Device is connected to CPU's SPI bus; +
+SW1-D is that SD Card or EMMC device is connected tp CPU's EMMC bus.
+
+== Linux
+=== Install Image to SD card
+**Windows**
+
+Install Image with Balena Etcher. +
+link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
+
+Click on "Flash from file" to select image. Click on "Select target" to select USB device. Click on "Flash!" Start burning.
+
+image::/picture/etcher.jpg[etcher.jpg]
+ 
+**Linux PC**
+
+. Install bpi-tools. If you can't access this URL or any other problems, please go to bpi-tools repo and install this tools manually.
++
+```sh
+apt-get install pv
+curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
+``` 
+. After you download the image, insert your TF card into your Ubuntu. +
+Execute 
++
+```sh
+bpi-copy xxx.img /dev/sdx
+```
+to install image on your TF card.
+ 
+. Insert the TF card into R3, switch to the correct boot, and power on to start up R3.
+
+TIP: Change Boot Jumper to boot from SD, Enable SD Card Device.
+
+image::/picture/bpi-r3-jumper-all-high.png[bpi-r3-jumper-all-high.png]
+
+=== Install Image to eMMC
+
+WARNING: Note: because SD card and EMMC device share one SOC's interface, you need flash one SD image firstly, then R3 boot from SD card, then flash nand image into Nand, then change boot strap to boot from nand,  you need flash EMMC image into EMMC. Finally you change bootstrap to boot from EMMC.
+
+WARNING: If there are bootable images in Nand, you can ignore steps 4 and 5.
+
+Before burning image to eMMC, please prepare a SD card with flashed bootable image and a USB disk.
+
+Let's take OpenWrt image (mtk-bpi-r3-SD-WAN1-SFP1-20220619-single-image.img, mtk-bpi-r3-NAND-WAN1-SFP1-20220619-single-image.bin, bl2_emmc.img, mtk-bpi-r3-EMMC-WAN1-SFP1-20220619-single-image.img) for example, the steps are below:
+
+. Insert the flashed SD card and power on to start the board.(the image "mtk-bpi-r3-SD-WAN1-SFP1-20220619-single-image.img" on the SD card can be OpenWrt or other linux OS like ubuntu...)
+. Copy Nand bootable and EMMC boot OpenWrt image(mtk-bpi-r3-NAND-WAN1-SFP1-20220619-single-image.bin, bl2_emmc.img, mtk-bpi-r3-EMMC-WAN1-SFP1-20220619-single-image.img) to USB disk, if the image is compressed please uncompress it before copying to USB disk.
+. Plug in USB disk to the board, and mount the USB to /mnt or other directory as follows: (you can skip mounting if it is mounted automatically)
++
+```sh
+mount -t vfat /dev/sda1 /mnt 
+```
+change your directory to the mounting point, here is : 
++
+```sh
+cd /mnt
+```
+. Execute following command to enable and copy image to nand flash:
++
+```sh
+mtd erase /dev/mtd0
+dd if=mtk-bpi-r3-NAND-WAN1-SFP1-20220619-single-image.bin of=/dev/mtdblock0
+```
+. Remove SD card, and change bootstrap to boot from nand flash and change SD/EMMC switch jumper to EMMC, restart the board from Nand Flash.
++
+WARNING: Note: Enable EMMC device, boot strap is from nand
++
+image::/picture/bpi-r3-jumper-flash-nand.png[bpi-r3-jumper-flash-nand.png]
+
+. Repeat the third step to mount the USB drive to/mnt, and then execute the following command to burn the image to EMMC:
++
+```sh
+mount -t vfat /dev/sda1 /mnt
+echo 0 > /sys/block/mmcblk0boot0/force_ro
+dd if=bl2_emmc.img of=/dev/mmcblk0boot0
+dd if=mtk-bpi-r3-EMMC-WAN1-SFP1-20220619-single-image.img of=/dev/mmcblk0
+mmc bootpart enable 1 1 /dev/mmcblk0
+```
+. power off R3 board, remove u-disk driver, change bootstrap to boot from emmc device.
++
+WARNING: Note: Enable EMMC device, boot strap is from EMMC.
++
+image::/picture/bpi-r3-jumper-boot-emmc.png[bpi-r3-jumper-boot-emmc.png]
+
+=== Network-Configuration
+Network-Configuration refer to: http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:network:start
+
+Network Interface: eth1, lan0 is for WAN; lan4, rax0, lan2, lan5, ra0, lan3, lan1 is for LAN, ra0 is for 2.4G wireless, rax0 is for 5G wireless.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
