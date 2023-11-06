@@ -126,19 +126,203 @@ Network-Configuration refer to: http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi
 
 Network Interface: eth1, lan0 is for WAN; lan4, rax0, lan2, lan5, ra0, lan3, lan1 is for LAN, ra0 is for 2.4G wireless, rax0 is for 5G wireless.
 
+image::/picture/bpi-r3_network_interface.jpg[bpi-r3_network_interface.jpg]
+
+```sh
+root@OpenWrt:/# ifconfig
+br-lan Link encap:Ethernet HWaddr EE:A1:57:81:CA:19
+         inet addr:192.168.1.1  Bcast:192.168.1.255  Mask:255.255.255.0
+         inet6 addr: fe80::eca1:57ff:fe81:ca19/64 Scope:Link
+         inet6 addr: fd63:8bea:d5ce::1/60 Scope:Global
+         UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+         RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:15 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:0 (0.0 B)  TX bytes:2418 (2.3 KiB)
+
+br-wan Link encap:Ethernet HWaddr EE:A1:57:81:CA:19
+         inet6 addr: fe80::eca1:57ff:fe81:ca19/64 Scope:Link
+         UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+         RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:34 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:0 (0.0 B)  TX bytes:8538 (8.3 KiB)
+
+eth0 Link encap:Ethernet HWaddr EE:A1:57:81:CA:19
+         inet6 addr: fe80::eca1:57ff:fe81:ca19/64 Scope:Link
+         UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+         RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:32 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:0 (0.0 B)  TX bytes:4408 (4.3 KiB)
+         Interrupt:124
+
+eth1 Link encap:Ethernet HWaddr 4A:BB:84:B4:5D:3F
+         UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+         RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:34 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:0 (0.0 B)  TX bytes:8674 (8.4 KiB)
+         Interrupt:124
+
+lan0 Link encap:Ethernet HWaddr EE:A1:57:81:CA:19
+         UP BROADCAST MULTICAST  MTU:1500  Metric:1
+         RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+lan1 Link encap:Ethernet HWaddr EE:A1:57:81:CA:19
+         UP BROADCAST MULTICAST  MTU:1500  Metric:1
+         RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+lan2 Link encap:Ethernet HWaddr EE:A1:57:81:CA:19
+         UP BROADCAST MULTICAST  MTU:1500  Metric:1
+         RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+lan3 Link encap:Ethernet HWaddr EE:A1:57:81:CA:19
+         UP BROADCAST MULTICAST  MTU:1500  Metric:1
+         RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+lan4 Link encap:Ethernet HWaddr EE:A1:57:81:CA:19
+         UP BROADCAST MULTICAST  MTU:1500  Metric:1
+         RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+lan5 Link encap:Ethernet HWaddr EE:A1:57:81:CA:19
+         UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+         RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:15 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:0 (0.0 B)  TX bytes:2418 (2.3 KiB)
+
+lo Link encap:Local Loopback
+         inet addr:127.0.0.1  Mask:255.0.0.0
+         inet6 addr: ::1/128 Scope:Host
+         UP LOOPBACK RUNNING  MTU:65536  Metric:1
+         RX packets:56 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:56 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:4368 (4.2 KiB)  TX bytes:4368 (4.2 KiB)
+
+ra0 Link encap:Ethernet HWaddr 00:0C:43:26:60:38
+         UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+         RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+         Interrupt:6
+
+rax0 Link encap:Ethernet HWaddr 02:0C:43:36:60:38
+         UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+         RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+```
+```sh
+root@OpenWrt:/# brctl show br-wan
+bridge name bridge id STP enabled interfaces br-wan 7fff.eea15781ca19 no lan0, eth1
+root@OpenWrt:/# brctl show br-lan
+bridge name bridge id STP enabled interfaces br-lan 7fff.eea15781ca19 no lan4, rax0, lan2, lan5, ra0, lan3, lan1
+```
+
+== Advanced Development
+=== GPIO
+**26 Pins Definition**
+
+image::/picture/r3_gpio_40.jpg[r3_gpio_40.jpg]
+
+**GPIO Control**
+
+```sh
+echo xxx > /sys/class/gpio/export
+echo in/out > /sys/class/gpio/gpioxxx/direction
+echo 0/1 > /sys/class/gpio/gpioxxx/value
+```
+Check the base gpio, you could see mine is 411
+
+image::/picture/bpi-r3-gpio-base.jpg[bpi-r3-gpio-base.jpg]
+
+For example: if you want to change gpio 22 as out highlevel, you need input commands like this：
+```sh
+echo 433（22+411） > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio433/direction
+echo 1 > /sys/class/gpio/gpio433/value
+```
+
+=== FAN
+
+image::/picture/fan.png[fan.png]
+
+R317 for 5V FAN and R318 for 12V FAN.
+
+CN23 supports PWM control while CN22 does not support.
+
+=== PWM FAN Control
+```sh
+echo 0 > /sys/class/pwm/pwmchip0/export
+echo 10000 > /sys/class/pwm/pwmchip0/pwm0/period
+echo 5000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+echo normal > /sys/class/pwm/pwmchip0/pwm0/polarity
+echo 1 > /sys/class/pwm/pwmchip0/pwm0/enable
+```
+
+=== MiniPCIe slot
+Currently, miniPCIe slot only support one USB 4G module, example: EC25 when you insert one EC25 module, you may check it.
+
+image::/picture/bpi-r3-minipcie-slot-ec25.jpg[bpi-r3-minipcie-slot-ec25.jpg]
+
+=== SFP
+After high and low temperature test, the following modules are suppoted by BPI-R3:
+
+image::/picture/sfp.png[sfp.png]
+
+=== 4G&5G
+
+BPI-R3 supports 4G LTE EC25.
+
+If you want to use 5G on BPI-R3:
+
+. Insert 5G dongle into USB3.0.
+. Connect RG200U-CN to mini PCIe, connect SoC through USB2.0(speed limited).
+. Make an RG200U-CN LGA adapter board and insert it into M.2 KEY M.
+
+WARNING: Note: The availability of 4G/5G depends on the local carrier frequency band.
+
+=== Ap mode on BPI-R3
+
+ra0 is MT7986a 2.4G wifi
+
+rax0 is MT7986a 5G wifi
+
+=== Wifi & Serial cable
+
+If the chip type of serial cable is pl2303, the driver fails to load the firmware apparently and thus the wifi can't work.
+
+Other types including cp2102,ch340 and FDTI are all available, serial cable vlotage must be 3.3v LVTTL standard.
+
+UART_TX0 is the Boot Strapping PIN and must be kept low during power-on.
+
+image::/picture/strapping.png[strapping.png]
 
 
+= FAQ
 
+MT7986a Reference Manual for Develope Board(BPi)
+Google Drive: https://drive.google.com/file/d/1biSJmxnIpNzQroYDg9mtPtSTAv4i0DFf/view?usp=sharing
 
+**TTL Voltage**
 
-
-
-
-
-
-
-
-
-
-
-
+The debug-uart TTL is tolerant to 3.3V.
