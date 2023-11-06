@@ -187,7 +187,7 @@ bridge name bridge id STP enabled interfaces br-lan 7fff.eea15781ca19 no eth0, r
 
 image::/picture/r3mini-case-wanlana.png[r3mini-case-wanlana.png]
 
-2.5G Ethernet:
+**2.5G Ethernet:**
 
 R3miniA <-------iperf3------> R3miniB
 
@@ -197,10 +197,17 @@ R3miniC <-------iperf3------> R3miniA
 
 image::/picture/r3mini-iperf3-switch.png[r3mini-iperf3-switch.png]
 
-5GWi-Fi:
+**5GWi-Fi:**
 
 iPhone 5Gwifi <-------iperf3------> (Wi-Fi) BPI-R3mini
 
 Note: The distance between iPhone and R3mini is about one meter.
 
 image::/picture/r3mini-wifitesta.png[r3mini-wifitesta.png]
+
+== Advanced Development
+GPIO Control
+echo xxx > /sys/class/gpio/export
+echo in/out > /sys/class/gpio/gpioxxx/direction
+echo 0/1 > /sys/class/gpio/gpioxxx/value
+Check the base gpio, you could see mine is 411
