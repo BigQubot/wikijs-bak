@@ -28,6 +28,8 @@ Wi-fi 6 has many advantages over its predecessors, including lower latency, larg
 . Using your USB-Serial Connect debug console on BPI-R3 MINI 
 +
 WARNING: Note: Debug Uart 3.3v TTL
++
+image::/picture/bpi-r3-mini-back.png[bpi-r3-mini-back.png]
 
 . R3mini boot switch Jumper Setting
 +  
@@ -39,11 +41,11 @@ WARNING: Note: Because BPI-R3 MINI can't support that it boot from SD, So the fa
  
  - If you want to update EMMC device, please boot from Nand
  
- 
+image::/picture/r3mini_nandboot2.png[r3mini_nandboot2.png]
  
  - Otherwise you update Nand device when it boot from EMMC.
  
- 
+image::/picture/r3mini_emmcboot.png[r3mini_emmcboot.png] 
  
 == Linux
 === Install Image to onboard eMMC
@@ -110,6 +112,8 @@ Network-Configuration refer to: http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi
 
 Network Interface: eth1 is for WAN; eth0, rax0, ra0 is for LAN, ra0 is for 2.4G wireless, rax0 is for 5G wireless.
 
+image::/picture/bpi-r3_mini_interface.jpg[bpi-r3_mini_interface.jpg]
+
 ```sh
 root@OpenWrt:/# ifconfig
 br-lan Link encap:Ethernet HWaddr EE:A1:57:81:CA:19
@@ -174,12 +178,7 @@ bridge name bridge id STP enabled interfaces br-lan 7fff.eea15781ca19 no eth0, r
 ```
 
 === iperf3 test
-// 111
-
 2.5G Ethernet:
 
-``R3miniA(WAN)---``|``             ``|``  `` +
-``               ``|`` 2.5G wwitch ``|``---Ethernet`` +
-R3miniB(WAN)---|             |
 
 R3miniA <-------iperf3------> R3miniB
