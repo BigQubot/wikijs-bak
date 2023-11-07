@@ -162,7 +162,6 @@ mount /dev/sdx /mnt/xxx
 ```
 . If you meet some errors when you mount SATA, try these following commands:
 +
---
 - Create new partition
 +
 ```sh
@@ -174,10 +173,11 @@ set your partition numbers and size, after created partitions, input â€œ**wq**â€
 ```sh
 mkfs.ext2 /dev/sdx
 ```
+- Mount
++
 ```sh
 mount /dev/sdx /mnt/xxx
 ```
---
 . After you success to insert SATA, we could input following commands to test SATA interface:
 - Test read speed
 +
