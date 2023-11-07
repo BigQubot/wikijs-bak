@@ -147,19 +147,48 @@ git clone: https://github.com/BPI-SINOVOIP/BPI-M2U-bsp.git
 +
 image::/picture/m2u_sata.png[m2u_sata.png]
 +
-After insert sata interface, execute "fdisk -l"
+After insert sata interface, execute
++
+```sh
+fdisk -l
+```
 +
 image::/picture/m2u_sata_fdisk_l.png[m2u_sata_fdisk_l.png]
 +
-Then "**mount /dev/sdx /mnt/xxx**"
+Then
++
+```sh
+mount /dev/sdx /mnt/xxx
+```
 . If you meet some errors when you mount SATA, try these following commands:
 +
-- “**fdisk /dev/sdx**” to create new partition , set your partition numbers and size, after created partitions, input “**wq**” to save and quit.
-- “**mkfs.ext2 /dev/sdx**” to format the SATA
-- “**mount /dev/sdx /mnt/xxx**”
+--
+- Create new partition
++
+```sh
+fdisk /dev/sdx
+```
+set your partition numbers and size, after created partitions, input “**wq**” to save and quit.
+- Format the SATA
++
+```sh
+mkfs.ext2 /dev/sdx
+```
+```sh
+mount /dev/sdx /mnt/xxx
+```
+--
 . After you success to insert SATA, we could input following commands to test SATA interface:
-- “**time dd if=/dev/xxx of=/dev/null bs=1M count=1000**” to test read speed
-- “**time dd if=/dev/zero of=/dev/sdx bs=1M count=1000**” to test write speed
+- Test read speed
++
+```sh
+time dd if=/dev/xxx of=/dev/null bs=1M count=1000
+```
+- Test write speed
++
+```sh
+time dd if=/dev/zero of=/dev/sdx bs=1M count=1000
+```
 +
 image::/picture/sata_test.png[sata_test.png]
 
