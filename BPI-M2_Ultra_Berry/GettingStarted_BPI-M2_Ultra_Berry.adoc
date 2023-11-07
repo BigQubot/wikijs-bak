@@ -166,42 +166,92 @@ image::/picture/sata_test.png[sata_test.png]
 === OTG
 . On M2U console:
 +
-Execute “**/usr/local/bin/adbd.sh**” then execute “**ps -ax | grep adbd**” to see if adbd is set up
+Execute 
++
+```sh
+/usr/local/bin/adbd.sh
+```
+then execute
++
+```sh
+ps -ax | grep adbd
+```
+to see if adbd is set up
 +
 image::/picture/m2p_adbd.png[m2p_adbd.png]
 
 . On PC terminal:
 +
 - If adbd was succeed to set up, insert OTG-USB interface to M2U and PC(with Ubuntu system)
-- Execute ”**adb devices**“ to see if PC has recognised M2U OTG
-- If yes, we could execute “**adb shell**” to connect M2U by adb now
+- Execute 
++
+```sh
+adb devices
+```
+to see if PC has recognised M2U OTG
+- If yes, we could execute
++
+```sh
+adb shell
+```
+to connect M2U by adb now
 +
 image::/picture/m2p_adbd_shell.png[m2p_adbd_shell.png]
 
 === LCD 5" & LCD 7"
 
-- Execute "**bpi-bootsel**", you'll see a list of boot files
+- Execute 
++
+```sh
+bpi-bootsel
+```
+you'll see a list of boot files.
 - Find "**BPI_M2U_LCD7.img.gz**"
-- Then execute "**bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_LCD7.img.gz**"
+- Then execute 
++
+```sh
+bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_LCD7.img.gz
+```
 
 === GMAC
 Use iperf3 to test gmac
 
 . On PC Terminal:
 
-- Execute "**iperf3 -s**"
-
+- Execute 
++
+```sh
+iperf3 -s
+```
++
 . On M2U console:
 
-- TCP test: "**iperf3 -c serverIP**"
-- UDP test: "**iperf3 -u -c serverIP**"
+- TCP test: 
++
+```sh
+iperf3 -c serverIP
+```
+- UDP test: 
++
+```sh
+iperf3 -u -c serverIP
+```
 +
 image::/picture/m2u_gmac_test.png[m2u_gmac_test.png]
 
 === Bluetooth
 - Use bluetoothctl tool to operate BT
-- Execute "**bluetoothctl**"
-- If you don't know how to use bluetoothctl, type "**help**", you will see more commands
+- Execute
++
+```sh
+bluetoothctl
+```
+- If you don't know how to use bluetoothctl, type 
++
+```sh
+help
+```
+you will see more commands
 - Execute these commands:
 +
 image::/picture/m2u_bluetooth.png[m2u_bluetooth.png]
@@ -249,9 +299,20 @@ Applications -> Sound & Video -> guvcview
 
 **Shell**
 
-We also have built-in command in "**/usr/local/bin**" to test camara
-"**./test_ov5640_image_mode.sh**" to test picture taking function
-"**./cameratest.sh**" to test video recording function
+We also have built-in command in ,
+```sh
+/usr/local/bin**
+```
+to test camara,
+
+```sh
+./test_ov5640_image_mode.sh
+```
+to test picture taking function,
+```sh
+./cameratest.sh
+```
+to test video recording function.
 
 === IR function
 - Execute 
