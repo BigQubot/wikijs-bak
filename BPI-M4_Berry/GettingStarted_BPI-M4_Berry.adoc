@@ -99,7 +99,7 @@ image::/picture/bpi_m4_berry_mobaxterm_18.jpg[bpi_m4_berry_mobaxterm_18.jpg]
 
 . Make sure the Linux image has been burned into an SD card and insert the SD card. By default it will boot from the SD card.
 
-. Enter the command lsblk in the terminal to list the block device information in the system, such as hard disks, partitions, disks, etc.
+. Enter the command `lsblk` in the terminal to list the block device information in the system, such as hard disks, partitions, disks, etc.
 +
 ```
 pi@bpi-m4berry:~$ lsblk
