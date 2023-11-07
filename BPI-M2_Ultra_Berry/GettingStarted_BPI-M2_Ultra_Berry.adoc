@@ -303,9 +303,8 @@ apt-get install libxcb*
 download qt5.7
 make & make install
 apt-get install qtcreator
+Config qtcreator
 ```
-. Config qtcreator
-
 
 
 
