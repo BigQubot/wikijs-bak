@@ -259,31 +259,72 @@ We also have built-in command in "**/usr/local/bin**" to test camara
 
 === RPi.GPIO
 ==== Install RPi.GPIO
-- Execute "**git clone https://github.com/BPI-SINOVOIP/RPi.GPIO**"
-- After clone the repo, "**cd RPi.GPIO**"
-- Execute "**sudo apt-get update**"
-- Execute "**sudo apt-get install python-dev python3-dev**"
--Execute "**sudo python setup.py install**" or "**sudo python3 setup.py install**" to install the module
+- Execute 
++
+```sh
+git clone https://github.com/BPI-SINOVOIP/RPi.GPIO
+```
+- After clone the repo
++
+```sh
+cd RPi.GPIO
+```
+- Execute 
++
+```sh
+sudo apt-get update
+```
+- Execute 
++
+```sh
+sudo apt-get install python-dev python3-dev
+```
+- Execute 
++
+```sh
+sudo python setup.py install
+```
+or
++
+```sh
+sudo python3 setup.py install
+```
+to install the module
 
 ==== Using RPi.GPIO
-- "**cd /usr/local/bin**"
-- Execute "**./bpi_test_g40.py**" to test RPi.GPIO
-+
+```sh
+cd /usr/local/bin
+```
+Execute 
+```sh
+./bpi_test_g40.py
+```
+to test RPi.GPIO
+
 image::/picture/rpi_gpio.png[rpi_gpio.png]
 
 === WringPi
 
 GitHub: https://github.com/BPI-SINOVOIP/BPI-WiringPi2.git
 
-We also have built-in test command in "**/usr/local/bin**"
+We also have built-in test command in 
+```sh
+/usr/local/bin
+```
 
 **RGB 1602 LCD**
 
-- Execute "**/usr/local/bin/bpi_test_lcd1602.sh**"
+- Execute 
+```sh
+/usr/local/bin/bpi_test_lcd1602.sh
+```
 
 **0.96 Inch OLED Display**
 
-- Execute "**/usr/local/bin/bpi_test_52pi.sh**"
+- Execute 
+```sh
+/usr/local/bin/bpi_test_52pi.sh
+```
 
 **8x8 RGB LED Martix**
 
@@ -291,10 +332,16 @@ We also have built-in test command in "**/usr/local/bin**"
 +
 image::/picture/wringpi_led_martix_extend_board.png[wringpi_led_martix_extend_board.png]
 
-- Execute "**/usr/local/bin/bpi_test_gpio40.sh**"
+- Execute 
+```sh
+/usr/local/bin/bpi_test_gpio40.sh
+```
 
 === File System
-Read only system change to read & write mode: "mount -o remount,rw /"
+Read only system change to read & write mode: 
+```sh
+mount -o remount,rw /
+```
 
 === Install Qt5.7 & Qtcreator
 . Prepare a 32Gb TF card
