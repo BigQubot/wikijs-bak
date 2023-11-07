@@ -78,7 +78,7 @@ image::/picture/bpi-r3-jumper-all-high.png[bpi-r3-jumper-all-high.png]
 
 WARNING: Note: because SD card and EMMC device share one SOC's interface, you need flash one SD image firstly, then R3 boot from SD card, then flash nand image into Nand, then change boot strap to boot from nand,  you need flash EMMC image into EMMC. Finally you change bootstrap to boot from EMMC.
 
-WARNING: If there are bootable images in Nand, you can ignore steps 4 and 5.
+WARNING: If there are bootable images in Nand, you can start directly from step five.
 
 Before burning image to eMMC, please prepare a SD card with flashed bootable image and a USB disk.
 
