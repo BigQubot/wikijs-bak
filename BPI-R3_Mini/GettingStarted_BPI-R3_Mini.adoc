@@ -188,11 +188,20 @@ bridge name bridge id STP enabled interfaces br-lan 7fff.eea15781ca19 no eth0, r
 image::/picture/r3mini-case-wanlana.png[r3mini-case-wanlana.png]
 
 **2.5G Ethernet:**
-
+|=====
+|R3miniA(WAN)---|            |
+|               |2.5G wwitch |---Ethernet
+|R3miniB(WAN)---|            |
+|=====
 R3miniA <-------iperf3------> R3miniB
 
 image::/picture/r3mini-iperf3-wan.png[r3mini-iperf3-wan.png]
 
+|=====
+|                    R3miniA(WAN)---|            |
+|                                   |2.5G wwitch |---Ethernet      
+|R3miniC(WAN)---(LAN)R3miniB(WAN)---|            |
+|=====
 R3miniC <-------iperf3------> R3miniA     
 
 image::/picture/r3mini-iperf3-switch.png[r3mini-iperf3-switch.png]
