@@ -149,94 +149,34 @@ After insert sata interface, execute "fdisk -l"
 +
 image::/picture/m2u_sata_fdisk_l.png[m2u_sata_fdisk_l.png]
 +
-Then "mount /dev/sdx /mnt/xxx"
+Then "**mount /dev/sdx /mnt/xxx**"
 . If you meet some errors when you mount SATA, try these following commands:
 +
-```sh
-fdisk /dev/sdx
-``` 
-to create new partition , set your partition numbers and size, after created partitions, input 
-+
-
-```sh
-wq
-```
-to save and quit.
-+
-```sh
-mkfs.ext2 /dev/sdx
-```
-to format the SATA
-+
-```sh
-mount /dev/sdx /mnt/xxx
-```
+- “**fdisk /dev/sdx**” to create new partition , set your partition numbers and size, after created partitions, input “**wq**” to save and quit.
+- “**mkfs.ext2 /dev/sdx**” to format the SATA
+- “**mount /dev/sdx /mnt/xxx**”
 . After you success to insert SATA, we could input following commands to test SATA interface:
-+
-```sh
-time dd if=/dev/xxx of=/dev/null bs=1M count=1000
-```
-to test read speed
-+
-```sh
-time dd if=/dev/zero of=/dev/sdx bs=1M count=1000
-```
-to test write speed
+- “**time dd if=/dev/xxx of=/dev/null bs=1M count=1000**” to test read speed
+- “**time dd if=/dev/zero of=/dev/sdx bs=1M count=1000**” to test write speed
 +
 image::/picture/sata_test.png[sata_test.png]
 
 === OTG
 . On M2U console:
 +
-Execute
-+
-```sh
-/usr/local/bin/adbd.sh
-```
-then execute
-+
-```sh
-ps -ax | grep adbd
-```
-to see if adbd is set up
+Execute “**/usr/local/bin/adbd.sh**” then execute “**ps -ax | grep adbd**” to see if adbd is set up
 +
 image::/picture/m2p_adbd.png[m2p_adbd.png]
 
 . On PC terminal:
 +
 - If adbd was succeed to set up, insert OTG-USB interface to M2U and PC(with Ubuntu system)
-- Execute
-+
-```sh
-adb devices
-```
-to see if PC has recognised M2U OTG
-- If yes, we could execute
-+
-```sh
-adb shell
-```
-to connect M2U by adb now
+- Execute ”**adb devices**“ to see if PC has recognised M2U OTG
+- If yes, we could execute “**adb shell**” to connect M2U by adb now
 +
 image::/picture/m2p_adbd_shell.png[m2p_adbd_shell.png]
 
 === LCD 5" & LCD 7"
-- Execute 
-+
-```sh
-bpi-bootsel
-```
-you'll see a list of boot files
-- Find
-+
-```sh
-BPI_M2U_LCD7.img.gz
-```
-- Then execute
-+
-```sh
-bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_LCD7.img.gz
-```
 
 - Execute "**bpi-bootsel**", you'll see a list of boot files
 - Find "**BPI_M2U_LCD7.img.gz**"
