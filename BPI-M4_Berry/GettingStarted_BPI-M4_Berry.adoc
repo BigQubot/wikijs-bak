@@ -73,6 +73,55 @@ sudo apt-get install pv unzip
 sudo bpi-copy xxx-bpi-m4-berry-xxx.img.zip /dev/sdX
 ```
 
+=== Install the image to eMMC
+
+. Make sure that the Linux image has been burned into an SD card and started normally.
+
+. Enter the following command in the terminal.
++
+```
+sudo bananapi-config
+```
+
+. By default, select the first item continuously and press the Enter key to install the Linux system image on the eMMC.
++
+image::/picture/bpi_m4_berry_mobaxterm_12.jpg[bpi_m4_berry_mobaxterm_12.jpg]
+image::/picture/bpi_m4_berry_mobaxterm_13.jpg[bpi_m4_berry_mobaxterm_13.jpg]
+image::/picture/bpi_m4_berry_mobaxterm_14.jpg[bpi_m4_berry_mobaxterm_14.jpg]
+image::/picture/bpi_m4_berry_mobaxterm_15.jpg[bpi_m4_berry_mobaxterm_15.jpg]
+image::/picture/bpi_m4_berry_mobaxterm_16.jpg[bpi_m4_berry_mobaxterm_16.jpg]
+image::/picture/bpi_m4_berry_mobaxterm_17.jpg[bpi_m4_berry_mobaxterm_17.jpg]
+image::/picture/bpi_m4_berry_mobaxterm_18.jpg[bpi_m4_berry_mobaxterm_18.jpg]
+
+. The last step is to shut down the computer. At this time, disconnect the power supply, remove the SD card, and power on again to boot from eMMC.
+
+=== Erase eMMC
+
+. Make sure the Linux image has been burned into an SD card and insert the SD card. By default it will boot from the SD card.
+
+. Enter the command lsblk in the terminal to list the block device information in the system, such as hard disks, partitions, disks, etc.
++
+```
+pi@bpi-m4berry:~$ lsblk
+NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINTS
+mmcblk0 179:0 0 7.4G 0 disk
+└─mmcblk0p1 179:1 0 7.2G 0 part /var/log.hdd
+                                        /
+mmcblk1 179:32 0 7.3G 0 disk
+└─mmcblk1p1 179:33 0 7.3G 0 part
+mmcblk1boot0 179:64 0 4M 1 disk
+mmcblk1boot1 179:96 0 4M 1 disk
+zram0 252:0 0 993.2M 0 disk [SWAP]
+zram1 252:1 0 50M 0 disk /var/log
+zram2 252:2 0 0B 0 disk
+```
+
+. mmcblk0 is the SD card and mmcblk1 is the eMMC. Enter the following command in the terminal to erase the eMMC. This process takes several minutes and is irreversible. Be careful to back up important data.
++
+```
+sudo dd if=/dev/zero of=/dev/mmcblk1
+```
+
 === Ubuntu Desktop
 
 . Using the Ubuntu desktop version system image, you can get a graphical operation interface.
