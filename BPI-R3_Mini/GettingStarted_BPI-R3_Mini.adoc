@@ -197,6 +197,7 @@ R3miniA <-------iperf3------> R3miniB
 
 image::/picture/r3mini-iperf3-wan.png[r3mini-iperf3-wan.png]
 
+[option="header",cols="2,1,1"]
 |=====
 |                    R3miniA(WAN)---|            |
 |                                   |2.5G wwitch |---Ethernet      
