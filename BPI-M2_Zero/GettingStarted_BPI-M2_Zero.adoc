@@ -1,0 +1,127 @@
+= Introduction
+
+Banana Pi M2 Zero is an ultra compact single board computer measures only 60mm*30mm. It uses quad-core Cortex A7 allwinner H2+ processor, with 512MB RAM memory. It's ideal for light-weight systems with some space-limited applications. Like other members of Banana Pi, it supports both linux and android operating system.
+
+TIP: More Infomation: link:/en/BPI-M2_Zero/BananaPi_BPI-M2_Zero[Banana Pi BPI-M2_Zero]
+
+== Specifications
+
+- Quad Core ARM Cortex A7 CPU H2+
+- 512MB SDRAM.
+- WiFi (AP6212) & Bluetooth onboard.
+- Mini HDMI.
+
+= Development
+== Android
+=== Prepare
+
+Download PhoenixCard: https://pan.baidu.com/s/1-fjvPqtG_zewVzqnXf1AHw?pwd=eid9
+
+=== Install Image to SD cards
+ 
+. Put your TF card into a TF-USB adapter, and then plug adapter in your Windows PC usb interface.
+. Prepare your image, and download image burning tools PhoenixCard.exe.
+. Use "PhoenixCard.exe" to burn android image to TF card.
+- Select the image in the image path option
+- Select set as card startup
+- Then click on burn image
++
+image::/picture/m3_android_burning.png[m3_android_burning.png]
+
+=== Install Image to eMMC
+
+. Put your TF card into a TF-USB adapter, and then plug adapter in your Windows PC usb interface.
+. Prepare your image, and download image burning tools PhoenixCard.exe.
+. Use "PhoenixCard.exe" to burn android image to TF card.
+- Select the image in the image path option
+- Select mass production card
+- Then click on burn image
++
+image::/picture/m2u-android-emmc.png[m2u-android-emmc.png]
+
+. After the image is burned, insert the SD card into the board and power on to start.After startup, the image will be automatically burned to the EMMC.
+.  After the burning is completed, the power will be cut off, and the SD card will be removed. Power on again to start from EMMC.
+
+== Linux
+=== Prepare
+
+. Linux image support SDcard or EMMC bootup
+. It’s recommended to use A1 rated cards, 8GB at least.
+. Install bpi-tools on your Linux PC(if flash image with other tools, ignore this step). If you can't access this URL or any other install problem, please go to link:https://github.com/bpi-sinovoip/bpi-tools[bpi-tools] source repo, download and install this tools manually.
++
+```sh
+ $ apt-get install pv
+ $ curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
+```
+. Download latest Linux Image, and confirm that the md5 checksum is correct.
+. Default login: pi/bananapi or root/bananapi
+
+=== Install Image to SDcard
+**Windows PC**
+
+Install Image with Balena Etcher. +
+link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
+
+. Click on "**Flash from file**" to select image. 
+. Click on "**Select target**" to select USB device. 
+. Click on "**Flash!**" Start burning.
+
+image::/picture/etcher.jpg[etcher.jpg]
+
+**Linux PC**
+
+**There are three methods for you to choose from.**
+
+. Install Image with Balena Cli. +
+link:https://github.com/balena-io/balena-cli[Balena CLI] is a Command Line Interface for balenaCloud or openBalena. It can be used to flash linux image. Download the installer or standalone package from link:https://github.com/balena-io/balena-cli/releases[balena-io] and link:https://github.com/balena-io/balena-cli/blob/master/INSTALL.md[install ]it correctly to your PC, then you can use the "link:https://docs.balena.io/reference/balena-cli/#local-flash-image[local flash]" command option of balena to flash a linux image to sdcard or usb drive.
++
+```sh
+ $ sudo balena local flash path/to/xxx-bpi-m5-xxx.img.zip
+ $ sudo balena local flash path/to/xxx-bpi-m5-xxx.img.zip --drive /dev/disk2
+ $ sudo balena local flash path/to/xxx-bpi-m5-xxx.img.zip --drive /dev/disk2 --yes
+```
+
+. Install Image with dd command on Linux, umount SDcard device /dev/sdX partition if mounted automatically. Actually bpi-copy is the same as this dd command.
++
+```sh
+ $ sudo apt-get install pv unzip
+ $ sudo unzip -p xxx-bpi-m5-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxfer
+```
+. Install image with bpi-tools on Linux, plug SDcard to Linux PC and run
++
+```sh
+ $ sudo apt-get install pv unzip
+ $ sudo bpi-copy xxx-bpi-m5-xxx.img.zip /dev/sdX
+```
+
+=== Install Image to eMMC
+
+. Prepare a SDcard with Linux image flashed and bootup board with this SDcard.
+. Unzip the image and copy it to a USB drive, plug the udisk to board and mount it.（If automatically mounted, ignore this step）
++
+```sh
+mount /dev/sdx /mnt
+```
+. There are two ways to install the linux image to board.
+- Install with dd command.
++
+```sh
+sudo dd if=/mnt/xxx.bpi-m2-ultra-xxx.img of=/dev/mmcblk0 bs=10M status=noxfer
+```
+- Install the linux image in udisk with bpi-tools command
++
+```sh
+ $ sudo bpi-copy xxx-bpi-m2-ultra-xxx.img.zip /dev/mmcblk0
+```
+. After download complete, power off safely and eject the SDcard.
+
+=== Update your image
+. Get the m2 zero bsp source code
++
+```sh
+$ git clone https://github.com/BPI-SINOVOIP/BPI-M2P-bsp-4.4
+```
+. Build the source code according to the README.md, and update the packages to the sdcard with bpi image flashed.
+
+== Advanced Development
+=== How to create an image
