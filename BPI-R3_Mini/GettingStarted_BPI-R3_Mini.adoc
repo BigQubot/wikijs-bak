@@ -192,8 +192,8 @@ image::/picture/r3mini-case-wanlana.png[r3mini-case-wanlana.png]
 |R3miniA(WAN)---|            |
 |               |2.5G wwitch |---Ethernet
 |R3miniB(WAN)---|            |
+3+|R3miniA <-------iperf3------> R3miniB
 |=====
-R3miniA <-------iperf3------> R3miniB
 
 image::/picture/r3mini-iperf3-wan.png[r3mini-iperf3-wan.png]
 
@@ -202,9 +202,8 @@ image::/picture/r3mini-iperf3-wan.png[r3mini-iperf3-wan.png]
 |                    R3miniA(WAN)---|            |
 |                                   |2.5G wwitch |---Ethernet      
 |R3miniC(WAN)---(LAN)R3miniB(WAN)---|            |
+3+|R3miniC <-------iperf3------> R3miniA     
 |=====
-R3miniC <-------iperf3------> R3miniA     
-
 image::/picture/r3mini-iperf3-switch.png[r3mini-iperf3-switch.png]
 
 **5GWi-Fi:**
