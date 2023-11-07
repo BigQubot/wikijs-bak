@@ -81,6 +81,8 @@ image::/picture/etcher.jpg[etcher.jpg]
 
 **Linux PC**
 
+**There are three methods for you to choose from.**
+
 . Install Image with Balena Cli. +
 link:https://github.com/balena-io/balena-cli[Balena CLI] is a Command Line Interface for balenaCloud or openBalena. It can be used to flash linux image. Download the installer or standalone package from link:https://github.com/balena-io/balena-cli/releases[balena-io] and link:https://github.com/balena-io/balena-cli/blob/master/INSTALL.md[install ]it correctly to your PC, then you can use the "link:https://docs.balena.io/reference/balena-cli/#local-flash-image[local flash]" command option of balena to flash a linux image to sdcard or usb drive.
 +
