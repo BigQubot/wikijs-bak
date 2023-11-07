@@ -254,7 +254,11 @@ We also have built-in command in "**/usr/local/bin**" to test camara
 "**./cameratest.sh**" to test video recording function
 
 === IR function
-- Execute "**getevent**"
+- Execute 
++
+```sh
+getevent
+```
 - Use your IR device to send information to M2U
 
 === RPi.GPIO
