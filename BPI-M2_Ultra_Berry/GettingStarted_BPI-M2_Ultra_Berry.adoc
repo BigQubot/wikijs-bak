@@ -215,7 +215,6 @@ iw dev wlan0 scan | grep SSID
 nano /etc/wpasupplicant/wpa_supplicant.conf
 ```
 +
---
 ```sh
 network={    
  ssid="ssid"    
@@ -223,7 +222,6 @@ network={
  priority=1 
  }
 ```
---
 +
 ```sh
 wpa_supplicant -iwlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf
@@ -231,7 +229,82 @@ dhclient wlan0
 ```
 . Use UI interface to setup WiFi Client
 
+=== Clear boot
+```sh
+git clone https://github.com/BPI-SINOVOIP/BPI-files/tree/master/SD/100MB
+bpi-bootsel BPI-cleanboot-8k.img.gz /dev/sdX
+```
 
+=== Camara function
+We use HDF5640 camara.
+
+image::/picture/ov5640_camara.png[ov5640_camara.png]
+
+**Guvcview**
+
+Use your UI interface to operate camara
+Applications -> Sound & Video -> guvcview
+
+**Shell**
+
+We also have built-in command in "**/usr/local/bin**" to test camara
+"**./test_ov5640_image_mode.sh**" to test picture taking function
+"**./cameratest.sh**" to test video recording function
+
+=== IR function
+- Execute "**getevent**"
+- Use your IR device to send information to M2U
+
+=== RPi.GPIO
+==== Install RPi.GPIO
+- Execute "**git clone https://github.com/BPI-SINOVOIP/RPi.GPIO**"
+- After clone the repo, "**cd RPi.GPIO**"
+- Execute "**sudo apt-get update**"
+- Execute "**sudo apt-get install python-dev python3-dev**"
+-Execute "**sudo python setup.py install**" or "**sudo python3 setup.py install**" to install the module
+
+==== Using RPi.GPIO
+- "**cd /usr/local/bin**"
+- Execute "**./bpi_test_g40.py**" to test RPi.GPIO
++
+image::/picture/rpi_gpio.png[rpi_gpio.png]
+
+=== WringPi
+
+GitHub: https://github.com/BPI-SINOVOIP/BPI-WiringPi2.git
+
+We also have built-in test command in "**/usr/local/bin**"
+
+**RGB 1602 LCD**
+
+- Execute "**/usr/local/bin/bpi_test_lcd1602.sh**"
+
+**0.96 Inch OLED Display**
+
+- Execute "**/usr/local/bin/bpi_test_52pi.sh**"
+
+**8x8 RGB LED Martix**
+
+- Firstly you need a GPIO Extend Board for 8x8 LED Martix
++
+image::/picture/wringpi_led_martix_extend_board.png[wringpi_led_martix_extend_board.png]
+
+- Execute "**/usr/local/bin/bpi_test_gpio40.sh**"
+
+=== File System
+Read only system change to read & write mode: "mount -o remount,rw /"
+
+=== Install Qt5.7 & Qtcreator
+. Prepare a 32Gb TF card
+. Use GParted to resize root point '/' as 32Gb
++
+```sh
+apt-get install libxcb*
+download qt5.7
+make & make install
+apt-get install qtcreator
+```
+. Config qtcreator
 
 
 
