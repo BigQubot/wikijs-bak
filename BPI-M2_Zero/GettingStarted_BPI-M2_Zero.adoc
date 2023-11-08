@@ -125,3 +125,117 @@ $ git clone https://github.com/BPI-SINOVOIP/BPI-M2P-bsp-4.4
 
 == Advanced Development
 === How to create an image
+- Prepare a SD card which have installed system(Ubuntu/Raspbian/..)
+- Start with SD card, and after the startup is completed, copy your files and config your system, then poweroff M2 Zero. [If you don't want to config your system, you can skip this step]
+- Plug your SD card in PC(which is running Linux)
++
+```sh
+cd /media
+```
+then 
++
+```sh
+ln -s <your account> pi
+```
+- Execute
++
+```sh
+bpi-migrate -c bpi-m2z.conf -c ubuntu-mate-from-sd.conf -d /dev/sdx
+```
+- Then you could get your own image now
+
+=== OTG
+. On M2 Zero console:
++
+Execute
++
+```sh
+./adbd.sh
+```
+then execute
++
+```sh
+ps -ax | grep adbd
+```
+to see if adbd is set up
+
+. On PC terminal:
++
+If adbd was succeed to set up, insert OTG-USB interface to M2 Zero and PC(with Ubuntu system)
+Execute
++
+```sh
+adb devices
+```
+to see if PC has recognised M2 ZeroP OTG
+If yes, we could execute
++
+```sh
+adb shell
+```
+to connect M2 Zero by adb now
+
+=== USB Ethernet
+Prepare a USB to OTG wire, usb ethernet adapter
+
+image::/picture/m2zero_usb_network_wire.png[m2zero_usb_network_wire.png]
+
+Use iperf3 to test network
+
+image::/picture/m2zero_network.png[m2zero_network.png]
+
+=== Bluetooth
+Use bluetoothctl tool to operate BT
+Execute
+```sh
+bluetoothctl
+```
+If you don't know how to use bluetoothctl, type "**help**", you will see more commands
+
+Execute these commands:
+
+image::/picture/m2zero_bluetooth.png[m2zero_bluetooth.png]
+
+=== WiFi Client
+You have two ways to setup WiFi Client
+
+. Use commands to setup WiFi client
++
+--
+```sh
+ip link set wlan0 up
+iw dev wlan0 scan | grep SSID
+vim /etc/wpa_supplicant/wpa_supplicant.conf
+```
+```sh
+network={    
+ssid="ssid"    
+psk="password"    
+priority=1 
+}
+```
+```sh
+wpa_supplicant -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf
+dhclient wlan0
+```
+--
+
+. Use UI interface to setup WiFi Client
+
+=== Clear boot
+```sh
+git clone https://github.com/BPI-SINOVOIP/BPI-files/tree/master/SD/100MB
+bpi-bootsel BPI-cleanboot-8k.img.gz /dev/sdX
+```
+
+=== Camara function
+We use HDF5640 camara.
+
+image::/picture/ov5640_camara.png[ov5640_camara.png]
+
+
+
+
+
+
+
