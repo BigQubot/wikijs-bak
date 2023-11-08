@@ -233,6 +233,132 @@ We use HDF5640 camara.
 
 image::/picture/ov5640_camara.png[ov5640_camara.png]
 
+**Guvcview**
+
+Use your UI interface to operate camara
+
+Applications -> Sound & Video -> guvcview
+
+**Shell**
+
+We also have built-in command in /usr/local/bin to test camara
+
+Test picture taking function
+```sh
+./test_ov5640_image_mode.sh
+```
+
+Test video recording function
+```sh
+./cameratest.sh
+```
+
+=== Display
+**How to change display resolution**
+
+For Example： we change M2Z HDMI display 1080P.
+
+. First
++
+```sh
+mount /dev/mmcblk0p1 /mnt
+```
+then enter to
++
+```sh
+/mnt/bananapi/bpi-m2z/linux
+```
+find "**sys_config.fex**"
+
+. Execute
++
+```sh
+vim sys_config.fex
+```
+change
++
+```sh
+screen0_output_mode = 5
+```
+to 
++
+```sh
+screen0_output_mode = 10
+```
++
+
+
+. After save changed, use
++
+```sh
+fex2bin
+```
+command to transfer sys_config.fex to bin file
++
+```sh
+fex2bin sys_config.fex script.bin
+```
+reboot.
++
+parameters meaning：
++
+
+
+=== BPI-Tools
+**Install Bpi-tools**
+
+```sh
+curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash -
+```
+**Update Bpi-tools**
+
+```sh
+bpi-tools
+```
+
+
+
+
+=== RPi.GPIO
+**Install RPi.GPIO**
+
+```sh
+git clone https://github.com/BPI-SINOVOIP/RPi.GPIO
+```
+
+After clone the repo
+```sh
+cd RPi.GPIO
+sudo apt-get update
+sudo apt-get install python-dev python3-dev
+```
+Execute
+```sh
+sudo python setup.py install
+```
+or
+```sh
+sudo python3 setup.py install
+```
+```sh
+cd /usr/local/bin
+```
+Test RPi.GPIO
+```sh
+./bpi_test_g40.py
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
