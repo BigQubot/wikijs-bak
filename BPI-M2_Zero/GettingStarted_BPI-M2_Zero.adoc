@@ -286,7 +286,7 @@ to
 screen0_output_mode = 10
 ```
 +
-
+image::/picture/display_output.png[display_output.png]
 
 . After save changed, use
 +
@@ -302,7 +302,7 @@ reboot.
 +
 parameters meaning：
 +
-
+image::/picture/display_mode.png[display_mode.png]
 
 === BPI-Tools
 **Install Bpi-tools**
@@ -316,8 +316,7 @@ curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -
 bpi-tools
 ```
 
-
-
+image::/picture/bpi-tools.png[bpi-tools.png]
 
 === RPi.GPIO
 **Install RPi.GPIO**
@@ -337,27 +336,53 @@ or
 sudo python3 setup.py install
 ```
 
-Test RPi.GPIO
+**Using RPi.GPIO**
 ```sh
 cd /usr/local/bin
-
 ./bpi_test_g40.py
 ```
 
+image::/picture/rpi_gpio.png[rpi_gpio.png]
 
+=== WiringPi
 
+GitHub: https://github.com/BPI-SINOVOIP/BPI-WiringPi2.git
 
+We also have built-in test command in
+```sh
+/usr/local/bin
+```
 
+**How to Update WiringPi**
 
+```sh
+bpi-update -c pkglist.conf
+```
 
+image::/picture/update_pkglist.png[update_pkglist.png]
 
+```sh
+bpi-update -c bpi-pkg-bpi-wiringpi.conf
+```
 
+image::/picture/update_wringpi.png[update_wringpi.png]
 
+**RGB 1602 LCD**
+```sh
+/usr/local/bin/bpi_test_lcd1602.sh
+```
+**0.96 Inch OLED Display**
+```sh
+/usr/local/bin/bpi_test_52pi.sh
+```
+**8x8 RGB LED Martix**
 
+Firstly you need a GPIO Extend Board for 8x8 LED Martix
 
+image::/picture/wringpi_led_martix_extend_board.png[wringpi_led_martix_extend_board.png]
 
-
-
-
+```sh
+/usr/local/bin/bpi_test_gpio40.sh
+```
 
 
