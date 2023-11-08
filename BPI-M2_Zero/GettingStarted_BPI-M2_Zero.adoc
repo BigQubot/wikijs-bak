@@ -324,10 +324,6 @@ bpi-tools
 
 ```sh
 git clone https://github.com/BPI-SINOVOIP/RPi.GPIO
-```
-
-After clone the repo
-```sh
 cd RPi.GPIO
 sudo apt-get update
 sudo apt-get install python-dev python3-dev
