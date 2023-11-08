@@ -336,11 +336,11 @@ or
 ```sh
 sudo python3 setup.py install
 ```
-```sh
-cd /usr/local/bin
-```
+
 Test RPi.GPIO
 ```sh
+cd /usr/local/bin
+
 ./bpi_test_g40.py
 ```
 
