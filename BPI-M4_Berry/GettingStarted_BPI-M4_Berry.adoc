@@ -348,7 +348,7 @@ image::/picture/bpi_m4_berry_ubuntu_7.jpg[bpi_m4_berry_ubuntu_7.jpg]
 
 . The method to connect the Bluetooth device through the command line in the terminal is as follows:
 
-```bash
+```
 pi@bpi-m4berry:~$ sudo bluetoothctl #Open the Bluetooth device management tool
 [sudo] password for pi:
 Agent registered
