@@ -1,0 +1,63 @@
+= Introduction
+
+
+TIP: More Infomation: link:/en/BPI-W2/BananaPi_BPI-W2[Banana Pi BPI-W2]
+
+== specifications
+
+
+= Development
+== Prepare
+
+. Prepare 8G/above TF card, USB-Serial interface, PC with Ubuntu System
+. Using your USB-Serial Connect debug console on W2
+
+WARNING: Rx and Tx need to be connected in reverse, so TTL lines are connected in black, green, and white order.
+
+image::/picture/ttl.jpeg[ttl.jpeg]
+
+== Android
+=== Prepare
+
+. link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/files/?p=%2FTools%2Fimage_download_tools%2Fw2_android_usb_download_tool.zip[BPI-W2 USB flash tool] is a usb download tool for flashing android image to board emmc, and only support Windows platform.
+. Make sure SW4 switch to '0' for emmc boot.
+
+image::/picture/w2-sw4-0.jpg[w2-sw4-0.jpg]
+
+=== Install Image with USB
+
+. There is a document description in the doc folder.
+. xxx
+. xxx
+. xxx
+
+=== Install Image with xxx
+
+. xxx
+. xxx
+. xxx
+. xxx
+
+== Linux
+=== Prepare
+
+. xxx
+. xxx
+. xxx
+. Make sure SW4 switch to '1' for SD boot.
+
+image::/picture/w2-sw4-1.jpg[w2-sw4-1.jpg]
+
+=== Install Image with xxx
+
+. xxx
+. xxx
+. xxx
+. xxx
+
+=== Install Image with xxx
+
+. xxx
+. xxx
+. xxx
+. xxx
