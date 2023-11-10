@@ -25,13 +25,13 @@ TIP: More Infomation: link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry[Banana Pi BPI-
 == Linux
 === Prepare
 
-. Linux image support SDcard or EMMC bootup, but you should read the [Boot_Sequence boot sequence] at first.
+. Linux image support SDcard or eMMC bootup, but you should read the [Boot_Sequence boot sequence] at first.
 
 . It’s recommended to use A1 rated cards, 8GB at least.
 
-. Make sure bootable EMMC is formatted if you want bootup from SDcard.
+. Make sure bootable eMMC is formatted if you want bootup from SDcard.
 
-. Make sure SDcard is formatted without Linux image flashed if you want bootup from EMMC and use Sdcard as storage.
+. Make sure SDcard is formatted without Linux image flashed if you want bootup from eMMC and use Sdcard as storage.
 
 . Download latest Linux Linux Image, and confirm that the md5 checksum is correct.
 
