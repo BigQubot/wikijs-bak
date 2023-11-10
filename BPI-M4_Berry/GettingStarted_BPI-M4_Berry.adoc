@@ -327,7 +327,7 @@ image::/picture/bpi_m4_berry_ubuntu_2.jpg[bpi_m4_berry_ubuntu_2.jpg]
 
 === Use USB disk
 . Prepare a USB disk that has been partitioned normally and insert it into the USB interface of BPI-M4 Berry.
-. In the Ubuntu desktop version, you can see that the USB flash drive has been recognized and can be opened in the file manager, or partition management can be performed through the GParted tool.
+. In the Ubuntu desktop version, you can see that the USB disk has been recognized and can be opened in the file manager, or partition management can be performed through the GParted tool.
 +
 image::/picture/bpi_m4_berry_ubuntu_3.jpg[bpi_m4_berry_ubuntu_3.jpg]
 
@@ -359,6 +359,13 @@ image::/picture/bpi_m4_berry_ubuntu_5.jpg[bpi_m4_berry_ubuntu_5.jpg]
 +
 image::/picture/bpi_m4_berry_ubuntu_6.jpg[bpi_m4_berry_ubuntu_6.jpg]
 . Play audio.
+
+==== Terminal command to play audio files
+```bash
+aplay -l #List devices
+aplay -D hw:0,0 [path] #Play the audio file of the specified path
+```
+
 
 === Use Bluetooth
 . Open settings in the Ubuntu desktop and connect a Bluetooth device, such as a Bluetooth mouse or keyboard, in the Bluetooth bar.
