@@ -28,9 +28,7 @@ image::/picture/w2-sw4-0.jpg[w2-sw4-0.jpg]
 
 WARNING:  There is a document description in the doc folder.
 
-EMMC example:
-
-After launching rtumdfsample.exe, you can see the window shown in above figure. Please.
+After launching rtumdfsample.exe, you can see the window shown in above figure. Please:
 
 .	Choose flash type. (EMMC)
 .	Select DDR type.
@@ -54,29 +52,54 @@ image::/picture/w2-usb-flash-tool-3.jpg[w2-usb-flash-tool-3.jpg]
 
 .	If you are already load install.img with step3, you could click ‘reload img’ to use previous setting in current burn-in process. (green frame)
 
-=== Install Image with xxx
-
-. xxx
-. xxx
-. xxx
-. xxx
-
 == Linux
 === Prepare
 
-. xxx
-. xxx
-. xxx
+. Linux image support SDcard or EMMC bootup
+. It’s recommended to use A1 rated cards, 8GB at least.
+. M2 Ultra and M2 Berry are compatiable with same Linux image.
+. Install bpi-tools on your Linux PC(if flash image with other tools, ignore this step). If you can't access this URL or any other install problem, please go to link:https://github.com/bpi-sinovoip/bpi-tools[bpi-tools] source repo, download and install this tools manually.
++
+```sh
+ $ apt-get install pv
+ $ curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
+```
+. Download latest Linux Image, and confirm that the md5 checksum is correct.
+. Default login: pi/bananapi or root/bananapi
 . Make sure SW4 switch to '1' for SD boot.
 
 image::/picture/w2-sw4-1.jpg[w2-sw4-1.jpg]
 
-=== Install Image with xxx
+=== Install Image with SD card
 
-. xxx
-. xxx
-. xxx
-. xxx
+**Windows PC**
+
+Install Image with Balena Etcher. +
+link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
+
+. Click on "**Flash from file**" to select image. 
+. Click on "**Select target**" to select USB device. 
+. Click on "**Flash!**" Start burning.
+
+image::/picture/etcher.jpg[etcher.jpg]
+
+**Linux PC**
+
+**There are two methods for you to choose from.**
+
+
+. Install Image with dd command on Linux, umount SDcard device /dev/sdX partition if mounted automatically. Actually bpi-copy is the same as this dd command.
++
+```sh
+ $ sudo apt-get install pv unzip
+ $ sudo unzip -p xxx-bpi-w2-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxfer
+```
+. Install image with bpi-tools on Linux, plug SDcard to Linux PC and run
++
+```sh
+ $ sudo apt-get install pv unzip
+ $ sudo bpi-copy xxx-bpi-w2-xxx.img.zip /dev/sdX
+```
 
 === Install Image with xxx
 
