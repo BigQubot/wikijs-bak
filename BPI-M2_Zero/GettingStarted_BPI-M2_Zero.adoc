@@ -39,13 +39,13 @@ image::/picture/m3_android_burning.png[m3_android_burning.png]
 +
 image::/picture/m2u-android-emmc.png[m2u-android-emmc.png]
 
-. After the image is burned, insert the SD card into the board and power on to start.After startup, the image will be automatically burned to the EMMC.
-.  After the burning is completed, the power will be cut off, and the SD card will be removed. Power on again to start from EMMC.
+. After the image is burned, insert the SD card into the board and power on to start.After startup, the image will be automatically burned to the eMMC.
+.  After the burning is completed, the power will be cut off, and the SD card will be removed. Power on again to start from eMMC.
 
 == Linux
 === Prepare
 
-. Linux image support SDcard or EMMC bootup
+. Linux image support SDcard or eMMC bootup
 . It’s recommended to use A1 rated cards, 8GB at least.
 . Install bpi-tools on your Linux PC(if flash image with other tools, ignore this step). If you can't access this URL or any other install problem, please go to link:https://github.com/bpi-sinovoip/bpi-tools[bpi-tools] source repo, download and install this tools manually.
 +
