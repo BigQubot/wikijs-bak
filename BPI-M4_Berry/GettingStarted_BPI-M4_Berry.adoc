@@ -90,16 +90,29 @@ sudo bananapi-config
 ```
 
 . By default, select the first item continuously and press the Enter key to install the Linux system image on the eMMC.
+.. Select `Ststem`.
 +
 image::/picture/bpi_m4_berry_mobaxterm_12.jpg[bpi_m4_berry_mobaxterm_12.jpg]
+.. Select `Install`.
++
 image::/picture/bpi_m4_berry_mobaxterm_13.jpg[bpi_m4_berry_mobaxterm_13.jpg]
+.. Select `Boot from eMMC`.
++
 image::/picture/bpi_m4_berry_mobaxterm_14.jpg[bpi_m4_berry_mobaxterm_14.jpg]
+.. Select `Yes`.
++
 image::/picture/bpi_m4_berry_mobaxterm_15.jpg[bpi_m4_berry_mobaxterm_15.jpg]
+.. Select `ext4`.
++
 image::/picture/bpi_m4_berry_mobaxterm_16.jpg[bpi_m4_berry_mobaxterm_16.jpg]
+.. Wait a few minutes. Do not power off or restart the board at this time.
++
 image::/picture/bpi_m4_berry_mobaxterm_17.jpg[bpi_m4_berry_mobaxterm_17.jpg]
+.. The last step is to shut down the computer. At this time, disconnect the power supply, remove the SD card, and connect the power again, to boot from eMMC.
++
 image::/picture/bpi_m4_berry_mobaxterm_18.jpg[bpi_m4_berry_mobaxterm_18.jpg]
 
-. The last step is to shut down the computer. At this time, disconnect the power supply, remove the SD card, and power on again to boot from eMMC.
+
 
 === Erase eMMC
 
