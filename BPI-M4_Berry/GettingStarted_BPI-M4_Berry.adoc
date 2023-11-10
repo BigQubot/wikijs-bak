@@ -44,6 +44,12 @@ TIP: More Infomation: link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry[Banana Pi BPI-
 . Install Image with Balena Etcher on Windows, Linux and MacOS.
 +
 link:https://balena.io/etcher[Balena Etcher] an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
+
+.. Click on "**Flash from file**" to select image. 
+.. Click on "**Select target**" to select USB device. 
+.. Click on "**Flash!**" Start burning.
++
+image::/picture/etcher.jpg[etcher.jpg]
 +
 image::/picture/m2s_linux_flash.png[m2s_linux_flash.png]
 
