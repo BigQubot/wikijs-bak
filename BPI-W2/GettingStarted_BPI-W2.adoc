@@ -26,10 +26,33 @@ image::/picture/w2-sw4-0.jpg[w2-sw4-0.jpg]
 
 === Install Image with USB
 
-. There is a document description in the doc folder.
-. xxx
-. xxx
-. xxx
+WARNING:  There is a document description in the doc folder.
+
+EMMC example:
+
+After launching rtumdfsample.exe, you can see the window shown in above figure. Please.
+
+.	choose flash type. (EMMC)
+.	Select DDR type.
+.	Open file, choose an install image file
+.	Switch SW4 to 0(emmc boot)
+.	Press and hold the usb button beside SW4 and connect board to PC with USB cable at the same time, If connected like the following figure1, release usb button and click the green robot icon, the tool will start to burn-in.
++
+image::/picture/w2-usb-flash-tool.png[w2-usb-flash-tool.png]
+
+.	Burner has the icon to indicate status
++
+image::/picture/w2-usb-flash-tool-1.jpg[w2-usb-flash-tool-1.jpg]
+- Burner has recognized the target board, and read to burn.
+- The board has finished the burning process.
++
+image::/picture/w2-usb-flash-tool-2.jpg[w2-usb-flash-tool-2.jpg]
+- During the burning process will be show icon 
++
+image::/picture/w2-usb-flash-tool-3.jpg[w2-usb-flash-tool-3.jpg]
+-	Burn install.img to target but fail, the debug log will save to log\error_log
+
+.	If you are already load install.img with step3, you could click ‘reload img’ to use previous setting in current burn-in process. (green frame)
 
 === Install Image with xxx
 
