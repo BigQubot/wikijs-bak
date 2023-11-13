@@ -60,9 +60,9 @@ image::/picture/m2s_linux_flash.png[m2s_linux_flash.png]
 > Suport Windows, Linux and MacOS.
 
 link:https://github.com/balena-io/balena-cli[Balena CLI] is a Command Line Interface for balenaCloud or openBalena. It can be used to flash linux image.
-+
+
 Download the installer or standalone package from link:https://github.com/balena-io/balena-cli/releases[balena-io] and link:https://github.com/balena-io/balena-cli/blob/master/INSTALL.md[install] it correctly to your PC, then you can use the link:https://docs.balena.io/reference/balena-cli/#local-flash-image[local flash] command option of balena to flash a linux image to sdcard or usb drive.
-+
+
 ```bash
 sudo balena local flash path/to/xxx-bpi-m4-berry-xxx.img.zip
 sudo balena local flash path/to/xxx-bpi-m4-berry-xxx.img.zip --drive /dev/disk2
@@ -73,7 +73,7 @@ sudo balena local flash path/to/xxx-bpi-m4-berry-xxx.img.zip --drive /dev/disk2 
 > Suport Linux. 
 
 Umount SDcard device /dev/sdX partition if mounted automatically. Actually bpi-copy is the same as this dd command.
-+
+
 ```bash
 sudo apt-get install pv unzip
 sudo unzip -p xxx-bpi-m4-berry-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxfer
@@ -83,7 +83,7 @@ sudo unzip -p xxx-bpi-m4-berry-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=n
 > Suport Linux.
 
 Plug SDcard to Linux PC and run:
-+
+
 ```bash
 sudo apt-get install pv unzip
 sudo bpi-copy xxx-bpi-m4-berry-xxx.img.zip /dev/sdX
