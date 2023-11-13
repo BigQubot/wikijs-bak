@@ -23,10 +23,17 @@ Download PhoenixCard: https://pan.baidu.com/s/1-fjvPqtG_zewVzqnXf1AHw?pwd=eid9
 . Prepare your image, and download image burning tools PhoenixCard.exe.
 . Use "PhoenixCard.exe" to burn android image to TF card.
 - Select the image in the image path option
-- Select set as card startup
-- Then click on burn image
 +
-image::/picture/m3_android_burning.png[m3_android_burning.png]
+image::/picture/m2z-android-sd-1.jpg[m2z-android-sd-1.jpg]
+image::/picture/m2z-android-sd-2.jpg[m2z-android-sd-2.jpg]
+
+- Select set as card startup, then click on burn image
++
+image::/picture/m2z-android-sd-3.jpg[m2z-android-sd-3.jpg]
+
+- Burning ended，
++
+image::/picture/m2z-android-sd-4.jpg[m2z-android-sd-4.jpg]
 
 === Install Image to eMMC
 
@@ -34,10 +41,17 @@ image::/picture/m3_android_burning.png[m3_android_burning.png]
 . Prepare your image, and download image burning tools PhoenixCard.exe.
 . Use "PhoenixCard.exe" to burn android image to TF card.
 - Select the image in the image path option
-- Select mass production card
-- Then click on burn image
 +
-image::/picture/m2u-android-emmc.png[m2u-android-emmc.png]
+image::/picture/m2z-android-sd-1.jpg[m2z-android-sd-1.jpg]
+image::/picture/m2z-android-sd-2.jpg[m2z-android-sd-2.jpg]
+
+- Select mass production card，then click on burn image
++
+image::/picture/m2z-android-emmc-1.jpg[m2z-android-emmc-1.jpg]
+
+- Burning ended.
++
+image::/picture/m2z-android-emmc.jpg[m2z-android-emmc.jpg]
 
 . After the image is burned, insert the SD card into the board and power on to start.After startup, the image will be automatically burned to the eMMC.
 .  After the burning is completed, the power will be cut off, and the SD card will be removed. Power on again to start from eMMC.
