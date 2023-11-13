@@ -53,6 +53,14 @@ image::/picture/w2-usb-flash-tool-3.jpg[w2-usb-flash-tool-3.jpg]
 
 .	If you are already load install.img with step3, you could click ‘reload img’ to use previous setting in current burn-in process. (green frame)
 
+=== How to support your IR Remote
+
+https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/files/?p=%2FImages%2FBPI-W2%2Fdocs%2FBananapi-W2-Android-Custom-IR-Remote.pdf
+
+=== How to custom your Boot Logo
+
+https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/files/?p=%2FImages%2FBPI-W2%2Fdocs%2FBananapi-W2-Android-Custom-Bootlogo.pdf
+
 == Linux
 === Prepare
 
@@ -122,15 +130,6 @@ sudo dd if=/mnt/xxx.bpi-w2-xxx.img of=/dev/mmcblk0 bs=10M status=noxfer
 sudo bpi-copy xxx-bpi-w2-xxx.img.zip /dev/mmcblk0
 ```
 . After download complete, power off safely and eject the SDcard.
-
-
-=== How to support your IR Remote
-
-https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/files/?p=%2FImages%2FBPI-W2%2Fdocs%2FBananapi-W2-Android-Custom-IR-Remote.pdf
-
-=== How to custom your Boot Logo
-
-https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/files/?p=%2FImages%2FBPI-W2%2Fdocs%2FBananapi-W2-Android-Custom-Bootlogo.pdf
 
 == Advanced Development
 === SATA
