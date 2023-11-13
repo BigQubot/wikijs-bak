@@ -41,8 +41,11 @@ TIP: More Infomation: link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry[Banana Pi BPI-
 
 === Install Image to SDcard
 
-. Install Image with Balena Etcher on Windows, Linux and MacOS.
-+
+We have prepared four methods to help you burn the image, just choose one of them.
+
+==== Install Image with Balena Etcher 
+> Suport Windows, Linux and MacOS.
+
 link:https://balena.io/etcher[Balena Etcher] an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
 
 .. Click on "**Flash from file**" to select image. 
@@ -53,8 +56,9 @@ image::/picture/etcher.jpg[etcher.jpg]
 +
 image::/picture/m2s_linux_flash.png[m2s_linux_flash.png]
 
-. Install Image with Balena Cli on Windows, Linux and MacOS.
-+
+==== Install Image with Balena Cli 
+> Suport Windows, Linux and MacOS.
+
 link:https://github.com/balena-io/balena-cli[Balena CLI] is a Command Line Interface for balenaCloud or openBalena. It can be used to flash linux image.
 +
 Download the installer or standalone package from link:https://github.com/balena-io/balena-cli/releases[balena-io] and link:https://github.com/balena-io/balena-cli/blob/master/INSTALL.md[install] it correctly to your PC, then you can use the link:https://docs.balena.io/reference/balena-cli/#local-flash-image[local flash] command option of balena to flash a linux image to sdcard or usb drive.
@@ -65,14 +69,20 @@ sudo balena local flash path/to/xxx-bpi-m4-berry-xxx.img.zip --drive /dev/disk2
 sudo balena local flash path/to/xxx-bpi-m4-berry-xxx.img.zip --drive /dev/disk2 --yes
 ```
 
-. Install Image with dd command on Linux, umount SDcard device /dev/sdX partition if mounted automatically. Actually bpi-copy is the same as this dd command.
+==== Install Image with dd command
+> Suport Linux. 
+
+Umount SDcard device /dev/sdX partition if mounted automatically. Actually bpi-copy is the same as this dd command.
 +
 ```bash
 sudo apt-get install pv unzip
 sudo unzip -p xxx-bpi-m4-berry-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxfer
 ```
 
-. Install image with bpi-tools on Linux, plug SDcard to Linux PC and run
+==== Install image with bpi-tools 
+> Suport Linux.
+
+Plug SDcard to Linux PC and run:
 +
 ```bash
 sudo apt-get install pv unzip
