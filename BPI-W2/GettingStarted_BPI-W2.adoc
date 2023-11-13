@@ -92,19 +92,172 @@ image::/picture/etcher.jpg[etcher.jpg]
 . Install Image with dd command on Linux, umount SDcard device /dev/sdX partition if mounted automatically. Actually bpi-copy is the same as this dd command.
 +
 ```sh
- $ sudo apt-get install pv unzip
- $ sudo unzip -p xxx-bpi-w2-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxfer
+sudo apt-get install pv unzip
+sudo unzip -p xxx-bpi-w2-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxfer
 ```
 . Install image with bpi-tools on Linux, plug SDcard to Linux PC and run
 +
 ```sh
- $ sudo apt-get install pv unzip
- $ sudo bpi-copy xxx-bpi-w2-xxx.img.zip /dev/sdX
+sudo apt-get install pv unzip
+sudo bpi-copy xxx-bpi-w2-xxx.img.zip /dev/sdX
 ```
 
 === Install Image to eMMC
 
-. xxx
-. xxx
-. xxx
-. xxx
+. Prepare a SDcard with Linux image flashed and bootup board with this SDcard.
+. Unzip the image and copy it to a USB drive, plug the udisk to board and mount it.（If automatically mounted, ignore this step）
++
+```sh
+mount /dev/sdx /mnt
+```
+. There are two ways to install the linux image to board.
+- Install with dd command.
++
+```sh
+sudo dd if=/mnt/xxx.bpi-w2-xxx.img of=/dev/mmcblk0 bs=10M status=noxfer
+```
+- Install the linux image in udisk with bpi-tools command
++
+```sh
+sudo bpi-copy xxx-bpi-w2-xxx.img.zip /dev/mmcblk0
+```
+. After download complete, power off safely and eject the SDcard.
+
+
+=== How to support your IR Remote
+
+https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/files/?p=%2FImages%2FBPI-W2%2Fdocs%2FBananapi-W2-Android-Custom-IR-Remote.pdf
+
+=== How to custom your Boot Logo
+
+https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/files/?p=%2FImages%2FBPI-W2%2Fdocs%2FBananapi-W2-Android-Custom-Bootlogo.pdf
+
+== Advanced Development
+=== SATA
+
+. Mount dev on W2
+
+- After insert sata interface, execute 
++
+```sh
+fdisk -l
+mount /dev/sdx /mnt/xxx
+```
++
+image::/picture/w2_sata.jpg[w2_sata.jpg]
+
+. If you meet some errors when you mount SATA, try these following commands:
+
+- Create new partition
++
+```SH
+fdisk /dev/sdx
+```
+set your partition numbers and size, after created partitions, input "**wq**" to save and quit.
+
+- Format the SATA
++
+```SH
+mkfs.ext2 /dev/sdx
+```
+- Mount sata
++
+```sh
+mount /dev/sdx /mnt/xxx
+```
+
+==== SSD
+. After you success to insert SATA, we could input following commands to test SATA interface:
++
+--
+Test read speed
+```sh
+time dd if=/dev/xxx of=/dev/null bs=1M count=1000
+```
+Test write speed
+```sh
+time dd if=/dev/zero of=/dev/sdx bs=1M count=1000
+```
+--
++
+image::/picture/w2_ssd_test.jpg[w2_ssd_test.jpg]
+
+==== HDD
+. After you success to insert SATA, we could input following commands to test SATA interface:
++
+--
+Test read speed
+```sh
+time dd if=/dev/xxx of=/dev/null bs=1M count=1000
+```
+Test write speed
+```sh
+time dd if=/dev/zero of=/dev/sdx bs=1M count=1000
+```
+--
++
+image::/picture/w2_hdd_test.jpg[w2_hdd_test.jpg]
+
+=== NetWork
+=== GMAC
+
+. iperf3 -c [server]
++
+image::/picture/w2_iperf3_c.jpg[w2_iperf3_c.jpg]
+
+. iperf3 -u -c [server]
++
+image::/picture/w2_iperf3_u_c.jpg[w2_iperf3_u_c.jpg]
+
+. iperf3 -s
++
+image::/picture/w2_iperf3_s.jpg[w2_iperf3_s.jpg]
+
+==== WiFi & BT
+1.If you want to use WiFi or BT, you could use RTL8822BE module.
+
+image::/picture/rtl8822be.jpg[rtl8822be.jpg]
+
+==== STA
+. Use commands to setup WiFi client
++
+--
+```sh
+ip link set wlan0 up
+iw dev wlan0 scan | grep SSID
+vim /etc/wpa_supplicant/wpa_supplicant.conf
+```
+```sh
+network={    
+ssid="ssid"    
+psk="password"    
+priority=1 
+}
+```
+```sh
+wpa_supplicant -iwlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf
+dhclient wlan0
+```
+--
+
+. Use UI interface to setup WiFi Client
++
+image::/picture/rtl8822be_sta.jpg[rtl8822be_sta.jpg]
+
+=== GPU
+. Start OpenGL test
++
+```sh
+glmark2-es
+```
+. glmark2 Score: 30
++
+image::/picture/m3_gpu_test.png[m3_gpu_test.png]
+
+
+
+
+
+
+
+
