@@ -25,7 +25,7 @@ TIP: More Infomation: link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry[Banana Pi BPI-
 == Linux
 === Prepare
 
-. Linux image support SDcard or eMMC bootup, but you should read the [Boot_Sequence boot sequence] at first.
+. Linux image support SDcard or eMMC bootup, and will boot from the SD card first.
 
 . It’s recommended to use A1 rated cards, 8GB at least.
 
@@ -33,7 +33,7 @@ TIP: More Infomation: link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry[Banana Pi BPI-
 
 . Make sure SDcard is formatted without Linux image flashed if you want bootup from eMMC and use Sdcard as storage.
 
-. Download latest Linux Linux Image, and confirm that the md5 checksum is correct.
+. Download latest Linux Image, and confirm that the md5 checksum is correct.
 
 . Default login: pi/bananapi or root/bananapi
 
@@ -48,13 +48,26 @@ We have prepared four methods to help you burn the image, just choose one of the
 
 link:https://balena.io/etcher[Balena Etcher] an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
 
-.. Click on "**Flash from file**" to select image. 
-.. Click on "**Select target**" to select USB device. 
-.. Click on "**Flash!**" Start burning.
+. If you are installing it in a Linux desktop operating system, such as Ubuntu, you may need to give AppImage file permission to run first. If you are installing it using Windows, skip this step.
+.. Right-click the AppImage file and click `Properties`.
 +
-image::/picture/etcher.jpg[etcher.jpg]
+image::/picture/bpi_m4_berry_ubuntu_balena_etcher_1.jpg[bpi_m4_berry_ubuntu_balena_etcher_1.jpg]
+
+.. Select `Permissions`, then enable `Allow executing file as program`, and finally close this bar.
 +
-image::/picture/m2s_linux_flash.png[m2s_linux_flash.png]
+image::/picture/bpi_m4_berry_ubuntu_balena_etcher_2.jpg[bpi_m4_berry_ubuntu_balena_etcher_2.jpg]
+
+. Run Balena Etcher, click on "**Flash from file**" to select image. 
++
+image::/picture/bpi_m4_berry_ubuntu_balena_etcher_3.jpg[bpi_m4_berry_ubuntu_balena_etcher_3.jpg]
+. Click on "**Select target**" to select USB device. 
++
+image::/picture/bpi_m4_berry_ubuntu_balena_etcher_4.jpg[bpi_m4_berry_ubuntu_balena_etcher_4.jpg]
+image::/picture/bpi_m4_berry_ubuntu_balena_etcher_5.jpg[bpi_m4_berry_ubuntu_balena_etcher_5.jpg]
+. Click on "**Flash!**" Start burning.
++
+image::/picture/bpi_m4_berry_ubuntu_balena_etcher_6.jpg[bpi_m4_berry_ubuntu_balena_etcher_6.jpg]
+image::/picture/bpi_m4_berry_ubuntu_balena_etcher_7.jpg[bpi_m4_berry_ubuntu_balena_etcher_7.jpg]
 
 ==== Install Image with Balena Cli 
 > Suport Windows, Linux and MacOS.
@@ -71,18 +84,23 @@ balena util available-drives
 
 . Then you can use the link:https://docs.balena.io/reference/balena-cli/#local-flash-image[local flash] command option of balena to flash a linux image to sdcard or usb drive.
 +
+WARNING: Note that you need to change the path of the image file to the correct path you need. And modify the device to the device you want to burn.
+
+.. On Windows, just do it.
++
+```bash
+balena local flash path/to/xxx-bpi-m4-berry-xxx.img.zip --drive \\.\PhysicalDrive2
+```
+
 .. On Linux, you may need to use the `sudo` command to gain root privileges to execute.
 +
 ```bash
 sudo balena local flash path/to/xxx-bpi-m4-berry-xxx.img.zip --drive /dev/disk2
 ```
-.. On Windows, just do it.
-+
-```bash
-balena local flash path/to/xxx-bpi-m4-berry-xxx.img.zip --drive /dev/disk2
-```
 
-```powershell
+* The logs in Windows are as follows:
++
+```
 PS D:\temp\Bpi-m4berry_0.0.1_beta_ubuntu_jammy_desktop_xfce_linux6.1.31> balena util available-drives
 DEVICE             SIZE   DESCRIPTION
 \\.\PhysicalDrive2 7.9 GB SDHC Card
@@ -91,6 +109,7 @@ PS D:\temp\Bpi-m4berry_0.0.1_beta_ubuntu_jammy_desktop_xfce_linux6.1.31> balena 
 Flashing [========================] 100% eta 0s
 Validating [========================] 100% eta 0s
 ```
+
 
 === Install the image to eMMC
 
