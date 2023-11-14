@@ -1,0 +1,40 @@
+== Make pins output high or low level, control the LED
+
+. `board.LED` controls a single-color LED on PicoW-S3, high level is on, low level is off, enter the following code in the REPL:
++
+```py
+import board
+import digitalio
+ledpin = digitalio.DigitalInOut(board.LED)
+ledpin.direction = digitalio.Direction.OUTPUT
+ledpin.value = True
+```
+
+. Or:
++
+```py
+import board
+import digitalio
+ledpin = digitalio.DigitalInOut(board.LED)
+ledpin.switch_to_output(value=True) # value=1
+```
+
+. Make the LED blink every 0.5 seconds:
+```py
+import board
+import digitalio
+import time
+ledpin = digitalio.DigitalInOut(board.LED)
+while True:
+    ledpin.switch_to_output(value=1)
+    time.sleep(0.5)
+    ledpin.switch_to_output(value=0)
+    time.sleep(0.5)
+
+```
+
+. Use the KeyboardInterrupt(ctrl+c) in REPL to stop the running of the program.
+
+. Enter `import board;help(board)` in the REPL interface of the Mu editor to list all controllable pins.
+
+. `board.GP25` is exactly the same as `board.LED`.
