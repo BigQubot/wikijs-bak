@@ -142,7 +142,7 @@ Check the bootup uart debug message and confirm which dtbo is loaded actually, h
 +
 Unifykeys is stored in a specific emmc part, "Normal erase" selected in USB_Burning_Tool will not erase this data for next update, you must select "Erase all" if you want the default dtbo idx to be applied after image download.
 +
-image::/picture/m5_android_erase_all.png[m5_android_erase_all.png]
+image::/picture/m2s_android_erase_all.png[m2s_android_erase_all.png]
 
 **Build Android image with a specific DTBO default.**
 
