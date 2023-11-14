@@ -61,32 +61,25 @@ image::/picture/m2s_linux_flash.png[m2s_linux_flash.png]
 
 link:https://github.com/balena-io/balena-cli[Balena CLI] is a Command Line Interface for balenaCloud or openBalena. It can be used to flash linux image.
 
-Download the installer or standalone package from link:https://github.com/balena-io/balena-cli/releases[balena-io] and link:https://github.com/balena-io/balena-cli/blob/master/INSTALL.md[install] it correctly to your PC, then you can use the link:https://docs.balena.io/reference/balena-cli/#local-flash-image[local flash] command option of balena to flash a linux image to sdcard or usb drive.
+. Download the installer or standalone package from link:https://github.com/balena-io/balena-cli/releases[Balena CLI releases].
+. link:https://github.com/balena-io/balena-cli/blob/master/INSTALL.md[Install] it correctly to your PC.
+. Use link:https://docs.balena.io/reference/balena-cli/#util-available-drives[util available-drives] command option of balena to list available drives which are usable for writing an OS image to. 
++
+```
+balena util available-drives
+```
 
+. Then you can use the link:https://docs.balena.io/reference/balena-cli/#local-flash-image[local flash] command option of balena to flash a linux image to sdcard or usb drive.
++
+.. On Linux, you may need to use the `sudo` command to gain root privileges to execute.
++
 ```bash
-sudo balena local flash path/to/xxx-bpi-m4-berry-xxx.img.zip
 sudo balena local flash path/to/xxx-bpi-m4-berry-xxx.img.zip --drive /dev/disk2
-sudo balena local flash path/to/xxx-bpi-m4-berry-xxx.img.zip --drive /dev/disk2 --yes
 ```
-
-==== Install Image with dd command
-> Suport Linux. 
-
-Umount SDcard device /dev/sdX partition if mounted automatically. Actually bpi-copy is the same as this dd command.
-
+.. On Windows, just do it.
++
 ```bash
-sudo apt-get install pv unzip
-sudo unzip -p xxx-bpi-m4-berry-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxfer
-```
-
-==== Install image with bpi-tools 
-> Suport Linux.
-
-Plug SDcard to Linux PC and run:
-
-```bash
-sudo apt-get install pv unzip
-sudo bpi-copy xxx-bpi-m4-berry-xxx.img.zip /dev/sdX
+balena local flash path/to/xxx-bpi-m4-berry-xxx.img.zip --drive /dev/disk2
 ```
 
 === Install the image to eMMC
@@ -99,7 +92,7 @@ sudo bpi-copy xxx-bpi-m4-berry-xxx.img.zip /dev/sdX
 sudo bananapi-config
 ```
 
-. By default, select the first item continuously and press the Enter key to install the Linux system image on the eMMC.
+. Follow the instructions below to install the Linux system image on the eMMC.
 .. Select `Ststem`.
 +
 image::/picture/bpi_m4_berry_mobaxterm_12.jpg[bpi_m4_berry_mobaxterm_12.jpg]
