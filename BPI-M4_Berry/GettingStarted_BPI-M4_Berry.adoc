@@ -64,7 +64,7 @@ image::/picture/bpi_m4_berry_ubuntu_balena_etcher_3.jpg[bpi_m4_berry_ubuntu_bale
 +
 image::/picture/bpi_m4_berry_ubuntu_balena_etcher_4.jpg[bpi_m4_berry_ubuntu_balena_etcher_4.jpg]
 image::/picture/bpi_m4_berry_ubuntu_balena_etcher_5.jpg[bpi_m4_berry_ubuntu_balena_etcher_5.jpg]
-. Click on `*Flash!` Start burning.
+. Click on `Flash!` Start burning.
 +
 image::/picture/bpi_m4_berry_ubuntu_balena_etcher_6.jpg[bpi_m4_berry_ubuntu_balena_etcher_6.jpg]
 image::/picture/bpi_m4_berry_ubuntu_balena_etcher_7.jpg[bpi_m4_berry_ubuntu_balena_etcher_7.jpg]
@@ -140,7 +140,7 @@ image::/picture/bpi_m4_berry_mobaxterm_16.jpg[bpi_m4_berry_mobaxterm_16.jpg]
 .. Wait a few minutes. Do not power off or restart the board at this time.
 +
 image::/picture/bpi_m4_berry_mobaxterm_17.jpg[bpi_m4_berry_mobaxterm_17.jpg]
-.. The last step is to shut down the computer. At this time, disconnect the power supply, remove the SD card, and connect the power again, to boot from eMMC.
+.. The last step is to shut down the board. At this time, disconnect the power supply, remove the SD card, and connect the power again, to boot from eMMC.
 +
 image::/picture/bpi_m4_berry_mobaxterm_18.jpg[bpi_m4_berry_mobaxterm_18.jpg]
 
