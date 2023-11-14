@@ -1,0 +1,33 @@
+== Edit code.py to make the RGB LED blink
+
+. Click the Load button, select the code.py file on the CircuitPython development board, and click Open to start editing code.py .
+
+. Enter the following code in the editor:
++
+```python
+import time
+import board
+import neopixel
+
+pixels = neopixel.NeoPixel(board.NEOPIXEL, 1, brightness=0.1)
+
+while 1:
+    pixels[0] = (255,0,0)
+    pixels.show()
+    time.sleep(0.5)
+    pixels[0] = (0,255,0)
+    pixels.show()
+    time.sleep(0.5)
+    pixels[0] = (0,0,255)
+    pixels.show()
+    time.sleep(0.5)
+    pixels[0] = (255,255,255)
+    pixels.show()
+    time.sleep(0.5)
+```
+
+. Click the **Save** button, the edited content will be saved to the CircuitPython development board. If the code is correct, the color LED on the development board will flash red, green, blue and white in a cycle. Reset the development board or power it on again, and the program will start running again.
+. Use the interrupt shortcut key in the REPL to stop the program from running.
+. The code can also be directly copied and pasted into the REPL to run.
+
+> All subsequent examples can be edited in the code.py file or copied and pasted into the REPL to run. However, after the program code in the code.py file is executed, the development board will return to the state when it is not running, and the state will not be retained, but the state will be retained when executed in the REPL.
