@@ -199,8 +199,9 @@ image::/picture/bpi_m4_berry_debian_desktop_1.jpg[bpi_m4_berry_debian_desktop_1.
 . Use the USB to TTL module to connect the PC USB port and the Debug UART port on the board.
 . Open a serial terminal software on the PC, such as link:https://mobaxterm.mobatek.net/[mobaxterm] or link:https://www.putty.org/[putty].
 . Taking mobaxterm as an example, after setting the serial port number and 115200 baud rate, you can open the BPI-M4 Berry UART terminal.
-
++
 image::/picture/bpi_m4_berry_mobaxterm_1.jpg[bpi_m4_berry_mobaxterm_1.jpg]
++
 image::/picture/bpi_m4_berry_mobaxterm_2.jpg[bpi_m4_berry_mobaxterm_2.jpg]
 
 === SSH
