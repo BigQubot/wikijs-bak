@@ -340,7 +340,7 @@ Plug SDcard to Linux PC and run
 
 . Prepare a SDcard with Linux image flashed and bootup board with this SDcard.
 . Copy Linux image to udisk, plug the udisk to board and mount it.
-. There are two ways to install the linux image to board.
+. There are **two ways** to install the linux image to board.
 - Install with dd command, umount mmcblk0p1 and mmcblk0p2 partition if mounted automatically. Actually bpi-copy is the same as this dd command.
 +
 ```sh
