@@ -173,15 +173,25 @@ zram2 252:2 0 0B 0 disk
 sudo dd if=/dev/zero of=/dev/mmcblk1
 ```
 
-=== Ubuntu Desktop
+=== Desktop
 
-. Using the Ubuntu desktop version system image, you can get a graphical operation interface.
+. Using the Ubuntu&Debian desktop version system image, you can get a graphical operation interface.
 . You need to prepare a monitor with an HDMI interface and an HDMI cable.
 . Use an HDMI cable to connect the monitor and BPI-M4 Berry, switch the monitor input interface to the corresponding HDMI interface, power on, and wait a moment to see the desktop.
+
+--
+
+* Ubuntu Desktop
 +
 image::/picture/bpi_m4_berry_ubuntu_1.jpg[bpi_m4_berry_ubuntu_1.jpg]
 
+* Debian Desktop
++
+image::/picture/bpi_m4_berry_debian_desktop_1.jpg[bpi_m4_berry_debian_desktop_1.jpg,640]
+--
+
 === Debug UART
+
 . Prepare a 3.3v USB to TTL module.
 . Use the USB to TTL module to connect the PC USB port and the Debug UART port on the board.
 . Open a serial terminal software on the PC, such as link:https://mobaxterm.mobatek.net/[mobaxterm] or link:https://www.putty.org/[putty].
@@ -355,7 +365,15 @@ sensors
 === Modify HDMI output resolution
 When using the Ubuntu desktop operating system, you can find the Displays column in Settings and modify the resolution.
 
+* Ubuntu Desktop
++
 image::/picture/bpi_m4_berry_ubuntu_2.jpg[bpi_m4_berry_ubuntu_2.jpg]
+
+* Debian Desktop
++
+image::/picture/bpi_m4_berry_debian_desktop_2.jpg[bpi_m4_berry_debian_desktop_2.jpg,640]
+
+
 
 === Use USB disk
 . Prepare a USB disk that has been partitioned normally and insert it into the USB interface of BPI-M4 Berry.
