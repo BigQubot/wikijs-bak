@@ -25,7 +25,7 @@ image::/picture/bpi_picow_s3_rotary_incremental_encoder_pic.png[rotary_increment
 
 . Incremental rotary encoders use quadrature encoders to generate their A and B output signals. The pulses emitted from the A and B outputs are encoded in quadrature, which means that when the incremental encoder is moving at a constant velocity, the A and B waveforms are square waves with a 90 degree phase difference between A and B. Eventually the A and B signals will be delivered to the microcontroller from two pins.
 +
-image::/picture/rotary_incremental_encoder_pic_2.gif[rotary_incremental_encoder_pic_2.gif]
+image::/picture/bpi_picow_s3_rotary_incremental_encoder_pic_2.gif[bpi_picow_s3_rotary_incremental_encoder_pic_2.gif]
 
 . Theoretically, at any given time, for a rotary encoder, there is a phase difference of +90° for clockwise rotation and −90° for counterclockwise rotation between the A and B signals, it depends on the design of the quadrature encoder inside the device.
 
