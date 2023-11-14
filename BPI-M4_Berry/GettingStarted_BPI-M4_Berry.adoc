@@ -363,7 +363,7 @@ sensors
 ```
 
 === Modify HDMI output resolution
-When using the Ubuntu desktop operating system, you can find the Displays column in Settings and modify the resolution.
+When using the Ubuntu&Debian desktop operating system, you can find the Displays column in Settings and modify the resolution.
 
 * Ubuntu Desktop
 +
@@ -372,8 +372,6 @@ image::/picture/bpi_m4_berry_ubuntu_2.jpg[bpi_m4_berry_ubuntu_2.jpg]
 * Debian Desktop
 +
 image::/picture/bpi_m4_berry_debian_desktop_2.jpg[bpi_m4_berry_debian_desktop_2.jpg,640]
-
-
 
 === Use USB disk
 . Prepare a USB disk that has been partitioned normally and insert it into the USB interface of BPI-M4 Berry.
