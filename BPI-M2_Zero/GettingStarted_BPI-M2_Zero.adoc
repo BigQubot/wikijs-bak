@@ -54,6 +54,13 @@ image::/picture/m2z-android-emmc-1.jpg[m2z-android-emmc-1.jpg]
 image::/picture/m2z-android-emmc.jpg[m2z-android-emmc.jpg]
 
 . After the image is burned, insert the SD card into the board and power on to start.After startup, the image will be automatically burned to the eMMC.
++
+image::/picture/m2z-android-emmc-2.jpg[m2z-android-emmc-2.jpg]
++
+You can also judge by the light. When the red light changes from normally on to off, the burning is complete.
++
+image::/picture/m2z-android-emmc-3.jpg[m2z-android-emmc-3.jpg]
+
 .  After the burning is completed, the power will be cut off, and the SD card will be removed. Power on again to start from eMMC.
 
 == Linux
