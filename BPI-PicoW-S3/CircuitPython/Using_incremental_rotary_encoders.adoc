@@ -120,7 +120,6 @@ while True:
 .. The law of counterclockwise rotation is (1, 1)>(1, 0)>(0, 0)>(0, 1)>(1, 1) .
 
 .. The law of clockwise rotation is (1, 1)>(0, 1)>(0, 0)>(1, 0)>(1, 1) .
-
 +
 From this, we can design a program that rotates clockwise to make the count +1, and rotates counterclockwise to make the count -1, and add the function of debounce and error correction.
 +
