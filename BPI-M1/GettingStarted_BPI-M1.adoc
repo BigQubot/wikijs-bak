@@ -36,21 +36,34 @@ apt-get -y install git
 
 link:{https://www.armbian.com/bananapi/}[https://www.armbian.com/bananapi/]
 
-= Development For Android
-== Load your first image on M1
+= Development
+== Android
+=== Prepare
+Download PhoenixCard: link:{https://pan.baidu.com/s/1-fjvPqtG_zewVzqnXf1AHw?pwd=eid9}[Download Link]
+
+=== Load your first image on M1
 
 . You could download latest image from our forum.
 . Put your TF card into a TF-USB adapter, and then plug adapter in your Windows PC usb interface.
 . Prepare your image, and download image burning tools PhoenixCard.exe.
 . Use "PhoenixCard.exe" to burn android image to TF card.
+- Select the image in the image path option
++
+image::/picture/m1-android-1.jpg[m1-android-1.jpg]
+image::/picture/m1-android-2.jpg[m1-android-2.jpg]
 
-image::/picture/m3_android_burning.png[m3_android_burning.png]
+- Select set as card startup, then click on burn image
++
+image::/picture/m1-android-3.jpg[m1-android-3.jpg]
 
-Download PhoenixCard: link:{https://pan.baidu.com/s/1-fjvPqtG_zewVzqnXf1AHw?pwd=eid9}[Download Link]
+- Burning ended.
++
+image::/picture/m1-android-4.jpg[m1-android-4.jpg]
 
-== How to buld M1 Bsp code
 
-```
+=== How to buld M1 Bsp code
+
+```sh
 Prepare a PC which runs ubuntu
 Install Docker-ce on your PC，https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce
 After install Docker, execute "docker pull sinovoip/bpi-build-android:a20_01", to pull image
@@ -63,8 +76,8 @@ After built, open a new terminal, execute "docker cp xxxxx(your container id):xx
 
 image::/picture/docker_operate.png[docker_operate.png]
 
-= Development For Linux
-== Load the linux image on M1
+== Linux
+=== Load the linux image on M1
 
 . Download the latest image from the forum.
 . Put the TF card into a card reader and plug it to your PC USB interface.
@@ -75,7 +88,6 @@ image::/picture/docker_operate.png[docker_operate.png]
 
 image::/picture/etcher.jpg[etcher.jpg]
 
-Let's get start to develop on BPI-M1, see amazing things happen.
 
 == Basic Development
 === Prepare to develop
@@ -93,23 +105,44 @@ image::/picture/m1_console_interface.png[m1_console_interface.png]
 
 . You could download latest image from our forum 
 . Install bpi-tools on your system. If you can't access this URL or any other problems, please go to bpi-tools repo and install this tools manually.
-*	``
-  apt-get install pv
-  ``
-* ``
-	curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
- ``
++
+```sh
+apt-get install pv
+curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
+```
 . After you download the image, insert your TF card into your Ubuntu
-* ``
-	Execute "bpi-copy xxx.img /dev/sdx" to install image on your TF card.
-	``
++
+```sh
+Execute "bpi-copy xxx.img /dev/sdx" to install image on your TF card.
+```
 . After step 3, then you can insert your TF card into M1, and press power button setup M1
 
 === Update your image
 
-. execute “bpi-tools”, to update your bpi tools;
-. execute “bpi-update -c bpi-m1.conf”, to download new driver to update your image
-. execute “file *.tgz”, to check download files’ type is compressed data
-. execute “bpi-bootsel”, you will see the bootloader path, “/usr/lib/u-boot/bananapi/u-boot-2018.01/u-boot-2018.01-bpi-m1-8k.img.gz”
-. execute “bpi-bootsel /usr/lib/u-boot/bananapi/u-boot-2018.01/u-boot-2018.01-bpi-m1-8k.img.gz”, to update your bootloader
-. reboot
+. Update your bpi tools
++
+```sh
+bpi-tools
+```
+. Download new driver to update your image
++
+```sh
+bpi-update -c bpi-m1.conf
+```
+. Check download files’ type is compressed data
++
+```sh
+file *.tgz
+```
+. execute
++
+```SH
+bpi-bootsel
+```
+you will see the bootloader path, “/usr/lib/u-boot/bananapi/u-boot-2018.01/u-boot-2018.01-bpi-m1-8k.img.gz”
+. Update your bootloader
++
+```sh
+bpi-bootsel /usr/lib/u-boot/bananapi/u-boot-2018.01/u-boot-2018.01-bpi-m1-8k.img.gz
+```
+. Reboot
