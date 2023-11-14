@@ -1,5 +1,3 @@
-== Make pins output high or low level, control the LED
-
 . `board.LED` controls a single-color LED on PicoW-S3, high level is on, low level is off, enter the following code in the REPL:
 +
 ```py
