@@ -42,9 +42,8 @@ TIP: More Infomation: link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry[Banana Pi BPI-
 === Install Image to SDcard
 
 We have prepared four methods to help you burn the image, just choose one of them.
-
-==== Install Image with Balena Etcher 
-> Suport Windows, Linux and MacOS.
+ 
+> Install Image with Balena Etcher, suport Windows, Linux and MacOS.
 
 link:https://balena.io/etcher[Balena Etcher] an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
 
@@ -73,8 +72,8 @@ image::/picture/bpi_m4_berry_ubuntu_balena_etcher_6.jpg[bpi_m4_berry_ubuntu_bale
 +
 image::/picture/bpi_m4_berry_ubuntu_balena_etcher_7.jpg[bpi_m4_berry_ubuntu_balena_etcher_7.jpg]
 
-==== Install Image with Balena Cli 
-> Suport Windows, Linux and MacOS.
+
+> Install Image with Balena Cli, suport Windows, Linux and MacOS.
 
 link:https://github.com/balena-io/balena-cli[Balena CLI] is a Command Line Interface for balenaCloud or openBalena. It can be used to flash linux image.
 
