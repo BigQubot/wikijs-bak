@@ -43,7 +43,7 @@ TIP: More Infomation: link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry[Banana Pi BPI-
 
 We have prepared 2 methods to help you burn the image, just choose one of them.
  
-> Install Image with Balena Etcher, suport Windows, Linux and MacOS.
+> Install Image with **Balena Etcher**, suport Windows, Linux and MacOS.
 
 link:https://balena.io/etcher[Balena Etcher] an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
 
@@ -73,7 +73,7 @@ image::/picture/bpi_m4_berry_ubuntu_balena_etcher_6.jpg[bpi_m4_berry_ubuntu_bale
 image::/picture/bpi_m4_berry_ubuntu_balena_etcher_7.jpg[bpi_m4_berry_ubuntu_balena_etcher_7.jpg]
 
 
-> Install Image with Balena Cli, suport Windows, Linux and MacOS.
+> Install Image with **Balena Cli**, suport Windows, Linux and MacOS.
 
 link:https://github.com/balena-io/balena-cli[Balena CLI] is a Command Line Interface for balenaCloud or openBalena. It can be used to flash linux image.
 
@@ -89,19 +89,19 @@ balena util available-drives
 +
 WARNING: Note that you need to change the path of the image file to the correct path you need. And modify the device to the device you want to burn.
 
-.. On Windows, just do it.
+- On Windows, just do it.
 +
 ```bash
 balena local flash path/to/xxx-bpi-m4-berry-xxx.img.zip --drive \\.\PhysicalDrive2
 ```
 
-.. On Linux, you may need to use the `sudo` command to gain root privileges to execute.
+- On Linux, you may need to use the `sudo` command to gain root privileges to execute.
 +
 ```bash
 sudo balena local flash path/to/xxx-bpi-m4-berry-xxx.img.zip --drive /dev/disk2
 ```
 
-* The logs in Windows are as follows:
+- The logs in Windows are as follows:
 +
 ```
 PS D:\temp\Bpi-m4berry_0.0.1_beta_ubuntu_jammy_desktop_xfce_linux6.1.31> balena util available-drives
