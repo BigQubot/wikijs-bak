@@ -43,21 +43,19 @@ Mali-G31 MP2 GPU @ 650Mhz
 
 . Open USB_Burning_Tool.exe, select menu File->Import image, choose the android image file aml_upgrade_package.img.
 +
-image::/picture/m5_android_install_1.png[m5_android_install_1.png]
 image::/picture/m5_android_install_1.jpg[m5_android_install_1.jpg]
 
 . M5/M2pro board disconnect power, press and hold SW4 button beside 40pin header, plugin type-c usb cable(microUSB on m2pro) to PC
 +
-image::/picture/m5_android_install_2.png[m5_android_install_2.png]
 image::/picture/m5_android_install_2.jpg[m5_android_install_2.jpg]
 
 . Click the Start button and wait for upgrade complete.
 +
-image::/picture/m5_android_install_3.png[m5_android_install_3.png]
+image::/picture/m5_android_install_3.jpg[m5_android_install_3.jpg]
 
 . After Burning successfull, Unplug the usb and connect to power supply adaptor to startup.
 +
-image::/picture/m5_android_install_4.png[m5_android_install_4.png]
+image::/picture/m5_android_install_4.jpg[m5_android_install_4.jpg]
 
 . Click the Stop button to cancel the upgrade process and close the USB Buring Tool.
 
