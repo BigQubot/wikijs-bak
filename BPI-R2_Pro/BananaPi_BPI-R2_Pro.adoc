@@ -68,7 +68,7 @@ image::/picture/banana_pi_bpi-r2_pro_int_750.jpg[banana_pi_bpi-r2_pro_int_750.jp
 
 == GPIO Pin Define
 
-=== BPI-xx 40PIN GPIO
+=== BPI-R2 Pro 40PIN GPIO
 
 [option="header",cols="1,1,1,1"]
 |=====
@@ -287,7 +287,6 @@ image::/picture/rk3568_industrial_control_development_board_interface.jpg[rk3568
 
 = Development
 == Source Code
-
 === Linux
 
 TIP: linux-4.19.xx kernel BSP Source code on github ： https://github.com/BPI-SINOVOIP/BPI-R2PRO-BSP/
@@ -404,9 +403,6 @@ NOTE: Image: https://forum.banana-pi.org/t/armbian-and-libreelec-for-bpi-r2-pro-
 NOTE: kernel 5.10.66, support DSA feature, OpenWRT
 
 Baidu : https://pan.baidu.com/s/19B6AYrHfbIFgRytTpW8Mbg?pwd=6me6 Pincode: 6me6
-
-= FAQ
-
 
 
 = Easy to buy
