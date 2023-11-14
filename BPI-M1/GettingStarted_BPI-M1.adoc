@@ -20,8 +20,9 @@ TIP: More Infomation: link:/en/BPI-M1/BananaPi_BPI-M1[Banana Pi BPI-M1]
 - DSI display interface
 - 26 PIN GPIO
 
-= Development For Armbian
-== Basic requirements
+= Development
+== Armbian
+=== Basic requirements
 
 x86_64 or aarch64 machine with at least 2GB of memory and ~35GB of disk space for a virtual machine, container or bare metal installation Ubuntu Jammy 22.04.x amd64 or aarch64 for native building or any Docker capable amd64 / aarch64 Linux for containerised
 
@@ -32,11 +33,10 @@ apt-get -y install git
  ./compile.sh
 ```
 
-== Latest images
+=== Latest images
 
 link:{https://www.armbian.com/bananapi/}[https://www.armbian.com/bananapi/]
 
-= Development
 == Android
 === Prepare
 Download PhoenixCard: link:{https://pan.baidu.com/s/1-fjvPqtG_zewVzqnXf1AHw?pwd=eid9}[Download Link]
