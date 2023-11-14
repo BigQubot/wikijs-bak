@@ -196,12 +196,8 @@ The jumper J12 provides the power source including 3.3V and 5V. There is a pair 
 
 image::/picture/bpi-m1_all_pin.png[bpi-m1_all_pin.png]
 
-= Software
 
 = Development
-== Basic Development
-
-= Resources
 == Source code
 
 TIP: Linux kernel 3.4 Source code : https://github.com/BPI-SINOVOIP/BPI-M1-bsp
@@ -224,7 +220,7 @@ TIP: BPI-M1 3D design file download link: link:{https://drive.google.com/folderv
 
 TIP: CE FCC RoHS : link:{https://bananapi.gitbooks.io/bpi-m1/content/en/bpi-m1_ce_fcc_rohs_certification.html}[BPI-M1 CE,FCC,RoHS]
 
-TIP: Arch linux wiki for BPI-M1:https://wiki.archlinux.org/index.php/Banana_Pi
+TIP: Arch linux wiki for BPI-M1: https://wiki.archlinux.org/index.php/Banana_Pi
 
 TIP: Nas for BPI-M1/BPI-M1+ : https://www.hackster.io/jeffbaocai/bananapi-pro-nas-0815dc?ref=platform&ref_id=8064_popular___&offset=3
 
