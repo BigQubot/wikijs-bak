@@ -1,0 +1,86 @@
+== Hello World!
+
+. Make sure that the development board is correctly connected in the Mu editor, refer to [Configuring the environment (Mu editor)](config_mu-editor.md).
+. The following information usually appears in the CircuitPython REPL window. The appearance of the `>>>` symbol means that we can start to enter commands to interact with it.
++
+```
+]0;🐍Wi-Fi: off | Done | 8.0.0-beta.0-49-g14fc4a079\Auto-reload is on. Simply save files over USB to run them or enter REPL to disable.
+
+Press any key to enter the REPL. Use CTRL-D to reload.
+]0;🐍Wi-Fi: off | Done | 8.0.0-beta.0-49-g14fc4a079\]0;�Wi-Fi: off | REPL | 8.0.0-beta.0-49-g14fc4a079\
+Adafruit CircuitPython 8.0.0-beta.0-49-g14fc4a079 on 2022-09-20; BPI-PicoW-S3 with ESP32S3
+>>>
+```
+
+. Start typing the command on the right side of the `>>>` symbol, for example: `print("Hello World!")`.
+> Note that using the English input method, Chinese characters cannot be recognized by the REPL.
++
+```py
+>>> print("Hello World!")
+Hello World!
+>>>
+```
+
+== REPL shortcut keys
+
+. Copy `ctrl + shift + c`.
+. Paste `ctrl + shift + v`.
+    Use the left mouse button to drag and select the command to be copied in the REPL, press the copy shortcut key on the keyboard, and then press the paste shortcut key to copy and paste the command.
+. Soft reset `ctrl + d`.
+. Interrupt `ctrl + c`, interrupt the currently executing program, but will not restart and reset.
+
+== View built-in modules
+
+. Entering `help("modules")` in the REPL will list all modules in the current CircuitPython development board.
+. After importing the module, you can use the `help()` function to view the function names or variable names available inside the module. For example, if you view the `board` module, you can see all the available pins and peripheral functions of the development board.
++
+```py
+>>> import board
+>>> help(board)
+object <module 'board'> is of type module
+  __name__ -- board
+  board_id -- bpi_picow_s3
+  GP0 -- board.GP0
+  GP1 -- board.GP1
+  GP2 -- board.GP2
+  GP3 -- board.GP3
+  GP4 -- board.GP4
+  GP5 -- board.GP5
+  GP6 -- board.GP6
+  GP7 -- board.GP7
+  GP8 -- board.GP8
+  GP9 -- board.GP9
+  GP10 -- board.GP10
+  GP11 -- board.GP11
+  GP12 -- board.GP12
+  GP13 -- board.GP13
+  GP14 -- board.GP14
+  GP15 -- board.GP15
+  GP16 -- board.GP16
+  GP17 -- board.GP17
+  GP18 -- board.GP18
+  GP19 -- board.GP19
+  GP20 -- board.GP20
+  GP21 -- board.GP21
+  GP22 -- board.GP22
+  GP25 -- board.GP25
+  LED -- board.GP25
+  GP26 -- board.GP26
+  GP26_A0 -- board.GP26
+  A0 -- board.GP26
+  GP27 -- board.GP27
+  GP27_A1 -- board.GP27
+  A1 -- board.GP27
+  GP28 -- board.GP28
+  GP28_A2 -- board.GP28
+  A2 -- board.GP28
+  GP29 -- board.GP29
+  GP29_A3 -- board.GP29
+  A3 -- board.GP29
+  NEOPIXEL -- board.NEOPIXEL
+  TX -- board.GP0
+  RX -- board.GP1
+  BOOT0 -- board.BOOT0
+  UART -- <function>
+>>> 
+```
