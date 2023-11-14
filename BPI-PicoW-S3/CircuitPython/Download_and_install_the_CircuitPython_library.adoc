@@ -39,22 +39,21 @@ it locally. > Just download the latest version.
 . Unzip the downloaded two compressed packages, the internal folder
 structure is as follows:
 
-....
-├─examples
-│  ├─xxx.py
-│  ├─xxx.py
-│  └─......
-├─lib
-│  ├─a.mpy
-│  ├─b.mpy
-│  └─......
-└─requirements
-   ├─a
-   │ └─requirements.txt
-   ├─b
-   │ └─requirements.txt
-   └─......
-....
+
+  ├─examples
+  │  ├─xxx.py
+  │  ├─xxx.py
+  │  └─......
+  ├─lib
+  │  ├─a.mpy
+  │  ├─b.mpy
+  │  └─......
+  └─requirements
+     ├─a
+     │ └─requirements.txt
+     ├─b
+     │ └─requirements.txt
+     └─......
 
 [arabic, start=5]
 . In the examples folder are some library usage routines, in the lib
