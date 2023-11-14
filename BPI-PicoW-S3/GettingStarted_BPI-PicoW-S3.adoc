@@ -14,21 +14,21 @@ A `CIRCUITPY` disk will reappear on the computer file management page.
 
 image::/picture/circuitpython_repo_header_logo.jpg[circuitpython_repo_header_logo.jpg]
 
-. link:./CircuitPython/config_mu-editor[Configure usage environment (Mu editor)] , then you can refer to the use case below and start programming.
+. link:./CircuitPython/config_mu-editor[Configure usage environment (Mu editor)]| https://www.youtube.com/watch?v=K2_YXf0Eovc[YouTube Video] , then you can refer to the use case below and start programming.
 . If you want to update the firmware, see link:./CircuitPython/update_circuitpython[How to update CircuitPython firmware].
-. If an unexpected problem occurs that prevents normal startup, or the flash is erased, see link:./CircuitPython/flash_tinyuf2[How to upload tinyUF2 firmware].
+. If an unexpected problem occurs that prevents normal startup, or the flash is erased, see link:./CircuitPython/flash_tinyuf2[How to upload tinyUF2 firmware]| https://www.youtube.com/watch?v=MZlrpOE2y6I[YouTube Video].
 
 === Use case
 
 . link:./CircuitPython/REPL_simple_to_use[REPL simple to use]
-. link:./CircuitPython/Edit_code_py[Edit code.py to make the RGB LED blink]
-. link:./CircuitPython/pins_output[Make pins output high or low level, control the LED]
-. link:./CircuitPython/PWM_output[PWM output, control LED brightness]
-. link:./CircuitPython/PWM_controlled_servo[PWM controlled servo]
-. link:./CircuitPython/ADC_input[ADC input, use a dual-axis joystick]
-. link:./CircuitPython/Using_incremental_rotary_encoders[Using incremental rotary encoders]
-. link:./CircuitPython/Download_and_install_the_CircuitPython_library[Download and install the CircuitPython library to drive the ssd1306 oled display module]
-. link:./CircuitPython/OLED_real-time_display_dual-axis_joystick[OLED real-time animation display of dual-axis joystick position]
+. link:./CircuitPython/Edit_code_py[Edit code.py to make the RGB LED blink]| https://www.youtube.com/watch?v=RdNg8suVBAw[YouTube Video]
+. link:./CircuitPython/pins_output[Make pins output high or low level, control the LED]| https://www.youtube.com/watch?v=-tXQjxDrvSc[YouTube Video]
+. link:./CircuitPython/PWM_output[PWM output, control LED brightness]| https://www.youtube.com/watch?v=rp9lUDSgeds[YouTube Video]
+. link:./CircuitPython/PWM_controlled_servo[PWM controlled servo]| https://www.youtube.com/watch?v=82UMfU77mq4[YouTube Video]
+. link:./CircuitPython/ADC_input[ADC input, use a dual-axis joystick]| https://www.youtube.com/watch?v=Eq0NBaAQIS8[YouTube Video]
+. link:./CircuitPython/Using_incremental_rotary_encoders[Using incremental rotary encoders]| https://www.youtube.com/watch?v=E6fLFvamf18[YouTube Video]
+. link:./CircuitPython/Download_and_install_the_CircuitPython_library[Download and install the CircuitPython library to drive the ssd1306 oled display module]| https://www.youtube.com/watch?v=tKRom5dzNDY[YouTube Video]
+. link:./CircuitPython/OLED_real-time_display_dual-axis_joystick[OLED real-time animation display of dual-axis joystick position]| https://www.youtube.com/watch?v=DGlPyaJRxxc[YouTube Video]
 
 
 === Supported by CircuitPython
