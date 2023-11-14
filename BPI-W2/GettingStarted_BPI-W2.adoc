@@ -34,7 +34,6 @@ After launching rtumdfsample.exe, you can see the window shown in above figure. 
 .	Choose flash type. (EMMC)
 .	Select DDR type.
 .	Open file, choose an install image file
-.	Switch SW4 to 0(emmc boot)
 .	Press and hold the usb button beside SW4 and connect board to PC with USB cable at the same time, If connected like the following figure1, release usb button and click the green robot icon, the tool will start to burn-in.
 +
 image::/picture/w2-usb-flash-tool.png[w2-usb-flash-tool.png]
