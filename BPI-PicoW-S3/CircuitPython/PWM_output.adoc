@@ -1,0 +1,28 @@
+. The brightness of the LED light can be controlled by controlling the PWM duty cycle. The control duty cycle is from 0% to 100%, using 16-bit precision, 0 to 65535 in decimal and 0 to FFFF in hexadecimal. Enter the following code in the REPL:
++
+```py
+import board
+import pwmio
+ledpin = pwmio.PWMOut(board.LED, frequency=25000, duty_cycle=0)
+ledpin.duty_cycle = 32768  # mid-point 0-65535 = 50 % duty-cycle
+```
+. Just enter the last line of code again in the REPL to change the PWM duty cycle to bring the LED to maximum brightness:
++
+```py
+ledpin.duty_cycle = 65535
+```
+. Use `while` and `for` loops to make breathing lights:
++
+```py
+import board
+import pwmio
+import time
+
+ledpin = pwmio.PWMOut(board.LED, frequency=25000, duty_cycle=0)
+
+while True:
+    for i in range(0, 65535, 1):
+        ledpin.duty_cycle = i
+    for i in range(65535, 0, -1):
+        ledpin.duty_cycle = i
+```
