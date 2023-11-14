@@ -82,6 +82,16 @@ sudo balena local flash path/to/xxx-bpi-m4-berry-xxx.img.zip --drive /dev/disk2
 balena local flash path/to/xxx-bpi-m4-berry-xxx.img.zip --drive /dev/disk2
 ```
 
+```powershell
+PS D:\temp\Bpi-m4berry_0.0.1_beta_ubuntu_jammy_desktop_xfce_linux6.1.31> balena util available-drives
+DEVICE             SIZE   DESCRIPTION
+\\.\PhysicalDrive2 7.9 GB SDHC Card
+PS D:\temp\Bpi-m4berry_0.0.1_beta_ubuntu_jammy_desktop_xfce_linux6.1.31> balena local flash .\Bpi-m4berry_0.0.1_beta_ubuntu_jammy_desktop_xfce_linux6.1.31.img --drive \\.\PhysicalDrive2
+? This will erase the selected drive. Are you sure? Yes
+Flashing [========================] 100% eta 0s
+Validating [========================] 100% eta 0s
+```
+
 === Install the image to eMMC
 
 . Make sure that the Linux image has been burned into an SD card and started normally.
