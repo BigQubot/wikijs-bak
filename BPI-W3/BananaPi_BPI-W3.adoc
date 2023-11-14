@@ -251,6 +251,8 @@ Combo PIPE PHY2 support one of the following interfaces
 
 === BPI-W3 MIPI CSI
 0.5mm FPC Connector
+
+[option="header",cols="1,2,2"]
 |=====
 | Pin#                                   | MIPI-CSI                   | Description                                        
 | 1,4,7,10,13,16,19,21,24,25,26,27,32,33 | GND                        | Power Ground & Signal Ground                       
@@ -279,6 +281,7 @@ Combo PIPE PHY2 support one of the following interfaces
 
 === BPI-W3 MIPI DSI
 0.5mm FPC Connector (J23)
+[option="header",cols="1,2,2"]
 |=====
 | Pin#                    | MIPI-DSI                   | Description
 | 1,4,7,10,13,16,27,33,34 | GND                        | Power and Signal Ground                            
@@ -401,9 +404,6 @@ NOTE: BPI-W3 armbian image 2023.4.14 update
 Baidu cloud  : https://pan.baidu.com/s/1cxHc0nRnav2jH1BEpFjxLQ?pwd=arms Pincode: arms
 
 Google drive: https://drive.google.com/drive/folders/1toeRkmdbo2dnhSnEEtFLipefn5GsnA2q?usp=drive_link
-
-= FAQ
-
 
 
 = Easy to buy
