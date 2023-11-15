@@ -16,13 +16,76 @@ Features Map
 === Kernel 4.9.119
 Features Map
 
+[options="header" cols="1,1,2,1,3"]
+|=====
+| Image           | Features    | Sub-Features  | Status     | Performance 
+.19+| Ubuntu   .3+| USB2.0      | USB Camera    | YES        | Applications -> Sound & Video -> Cheese            
+                                | Gadget        | YES        |
+                                | 10.1 inch HDMI| YES        | issue:display show unstable
+                  | HDMI        | 720P          | YES        |                                 | Audio       |               | YES        | HDMI Audio                       | ETH	       | Emac          | YES        | iperf3 TCP:95M/s, UDP:1M/s
+               .2+| WiFi        | WiFi Client   | YES        | setup in gui/wpa_supplicant
+                                | AP mode       | YES        | hostapd                      .2+| Bluetooth   | BT            | YES        | bluetoothctl,Audio
+                                | BLE           | Developing | hcitool
+                  | M.2         | PCIe2.0 / USB | YES        | 8822BE                        .3+| WiringPI	  | 8x8 LEDs	    | Developing | /usr/local/bin/bpi_test_hello  
+                                | 1602 LCD	    | Developing | /usr/local/bin/bpi_test_lcd1602
+OLED	Developing	/usr/local/bin/bpi_test_52pi
+                                | OLED	        | Developing | /usr/local/bin/bpi_test_52pi
+                  | RPI GPIO	  | Recognize	    | Developing | /usr/local/bin/g40.py
+                  | SATA->USB	  | Recognise	    | YES	       | HDD no, SSD yes.
+                  | Type C	    | Recognise	    | YES	       |
+                  | 1080P	      | MPV           | YES	       | HDMI audio yes
+                  | GPU	        | OpenGL	      | YES	       | glmark2-es2,soft opengl glmark score: 20
+                  | EMMC	      | Recognise	    | YES	       |
+|=====
 
 == Raspbian 9.8 stretch
 === Kernel 4.9.119
 Features Map
-
+[options="header" cols="1,1,2,1,3"]
+|=====
+| Image           | Features    | Sub-Features  | Status     | Performance 
+.17+| Raspbian .3+| USB2.0	    | USB Camera	  | YES	       |
+                                | Gadget	      | YES        |	
+                                | 10.1 inch HDMI| YES	       | issue:display show unstable
+                  | HDMI	      | 720P	        | YES        |	
+                  | Audio		    |               | YES	       | HDMI Audio
+                  | ETH	        | Emac	        | YES	       | iperf3 TCP:95M/s, UDP:1M/s
+               .2+| WiFi	      | WiFi Client	  | YES        |	setup in gui/wpa_supplicant
+                                | AP mode	      | YES	       | hostapd
+               .2+| Bluetooth	  | BT	          | YES	       | bluetoothctl,Audio
+                                | BLE	          | Developing | hcitool
+                  | M.2	        | PCIe2.0 / USB	| YES	       | 8822BE
+               .3+| WiringPI	  | 8x8 LEDs	    | Developing | /usr/local/bin/bpi_test_hello
+                                | 1602 LCD	    | Developing | /usr/local/bin/bpi_test_lcd1602
+                                |OLED	          | Developing | /usr/local/bin/bpi_test_52pi
+                 | RPI GPIO	    | Recognize	    | Developing | /usr/local/bin/g40.py
+                 | SATA->USB	  | Recognise	    | YES	       | HDD no, SSD yes.
+                 | Type C	      | Recognise	    | YES	       |
+                 | EMMC	        | Recognise	    | YES        | 	
+|=====
 
 == Debian 10 buster
 === Kernel 4.9.119
 Features Map
-
+Features Map
+[options="header" cols="1,1,2,1,3"]
+|=====
+| Image           | Features    | Sub-Features  | Status     | Performance 
+.17+| Debian   .2+| USB2.0	    | Gadget	      | YES	       | 
+                                | 10.1 inch HDMI| YES	       | issue:display show unstable
+                  | HDMI	      | 720P	        | YES        | 	
+                  | Audio       |              	|	YES	       | HDMI Audio
+                  | ETH	        | Emac	        | YES	       | iperf3 TCP:95M/s, UDP:1M/s
+               .2+| WiFi	      | WiFi Client	  | YES	       | setup in gui/wpa_supplicant
+                                | AP mode       | YES	       | hostapd
+               .2+| Bluetooth	  | BT	          | YES	       | bluetoothctl,Audio
+                                | BLE	          | Developing | hcitool
+                  | M.2	        | PCIe2.0 / USB	| YES	       | 8822BE
+               .3+| WiringPI	  | 8x8 LEDs	    | Developing | /usr/local/bin/bpi_test_hello
+                                | 1602 LCD	    | Developing | /usr/local/bin/bpi_test_lcd1602
+                                | OLED	        | Developing | /usr/local/bin/bpi_test_52pi
+                 | RPI GPIO	    | Recognize	    | Developing | /usr/local/bin/g40.py
+                 | SATA->USB	  | Recognise	    | YES	       | HDD no, SSD yes.
+                 | Type C	      | Recognise	    | YES        |	
+                 | EMMC	        | Recognise	    | YES	       |
+|=====
