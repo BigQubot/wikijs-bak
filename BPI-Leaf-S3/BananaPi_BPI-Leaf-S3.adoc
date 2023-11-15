@@ -97,7 +97,7 @@ The pin spacing is breadboard compatible for easy application debugging.
 
 [options="header",cols="1,1,1",width=50%]
 |=====
-3+| **40 PIN GPIO of Banana pi BPI-M1**
+3+| **Pin Define of BPI-Leaf-S3**
 | Peripheral Interface        | Signal                                                             | Pin                  
 .2+| ADC        | ADC1_CH0~9   | GPIO 1~10            
                 | ADC2_CH0~9   | GPIO 11~20           
@@ -152,6 +152,12 @@ The pin spacing is breadboard compatible for easy application debugging.
 
 
 = Development
+
+== Source Code
+TIP: link:https://github.com/espressif/esp-idf/[esp-idf]
+
+TIP: link:https://github.com/micropython/micropython/[micropython]
+
 == Resources
 
 TIP:  https://github.com/BPI-STEAM/BPI-PicoW-Doc/blob/main/sch/BPI-PicoW-V0.4.pdf[BPI-PicoW-S3 schematic]
@@ -161,7 +167,6 @@ TIP:  https://www.espressif.com/sites/default/files/documentation/esp32-s3_datas
 TIP:  https://www.espressif.com/sites/default/files/documentation/esp32-s3_technical_reference_manual_en.pdf[ESP32-S3 Technical Reference Manual]
 
 = FAQ
-
 
 
 = Easy to buy
