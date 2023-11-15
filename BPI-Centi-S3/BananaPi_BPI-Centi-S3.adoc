@@ -159,6 +159,13 @@ image::/picture/bpi-centi-s3-v0.2_dimensions.jpg[bpi-centi-s3-v0.2_dimensions.jp
 
 = Development
 
+== Source Code
+TIP: link:https://github.com/espressif/esp-idf/tree/v4.4.3[esp-idf 4.4.3 ]
+
+TIP: link:https://github.com/micropython/micropython/tree/v1.20.0[micropython 1.20.0]
+
+TIP: link:https://github.com/russhughes/st7789s3_esp_lcd[russhughes/st7789s3_esp_lcd]
+
 == Example code
 
 TIP: link:https://github.com/BPI-STEAM/BPI-Centi-S3-Doc/tree/main/micropython_example[GitHub: BPI-Centi-S3 MicroPython example]
@@ -174,14 +181,6 @@ TIP:  https://www.espressif.com/sites/default/files/documentation/esp32-s3_techn
 = Firmware
 
 NOTE: link:https://github.com/BPI-STEAM/BPI-Centi-S3-Doc/tree/main/micropython_st7789s3_firmware[GitHub: BPI-Centi-S3 micropython+st7789s3 firmware]
-
-Based on :
-
-* link:https://github.com/espressif/esp-idf/tree/v4.4.3[esp-idf 4.4.3 ]
-
-* link:https://github.com/micropython/micropython[micropython]
-
-* link:https://github.com/russhughes/st7789s3_esp_lcd[russhughes/st7789s3_esp_lcd]
 
 = FAQ
 
