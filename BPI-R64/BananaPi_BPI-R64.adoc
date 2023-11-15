@@ -52,7 +52,7 @@ image::/picture/dc090_size.png[dc090_size.png]
 
 == Hardware Spec
 
-[option="header",cols="1,4"]
+[options="header",cols="1,4"]
 |=====
 2+| **HardWare Specification of Banana Pi R64**
 | CPU	| MediaTek MT7622,1.35GHZ 64 bit dual-core ARM Cortex-A53
@@ -81,7 +81,7 @@ image::/picture/bpi-r64_poe.jpg[bpi-r64_poe.jpg]
 
 more PoE module spec
 
-link:/en/BPI-7402_IEEE_802&3at_PoE_module[BPI-7402 IEEE 802.3at PoE module]
+link:/en/BPI-7402_IEEE_802_3at_PoE_module[BPI-7402 IEEE 802.3at PoE module]
 
 == 4G support
 . use pcie interface standard module ,and use SIM card slot onboard
@@ -97,7 +97,7 @@ We have design a MT7615 802.11 ac wifi module ,can use on BPI-R64
 
 MT7615 is a highly integrated Wi-Fi single chip which support 1733 Mbps PHY rate,It fully compies with IEEE 802.11ac and IEEE802.11 a/b/n standards,offering feature-rich wireless connecivity at high standards,and delivering reliable,cost-effective throughput from and extended distance.
 
-link:/en/BPI-MT7615_802&11_ac_wifi_4x4_dual-band_module[BPI-MT7615 802.11 ac wifi 4x4 dual-band module]
+link:/en/BPI-MT7615_802_11_ac_wifi_4x4_dual-band_module[BPI-MT7615 802.11 ac wifi 4x4 dual-band module]
 
 link:/en/BPI-R64_%2B_MT7615_function_test[BPI-R64 + MT7615 function test]
 
@@ -276,7 +276,6 @@ Forum Pthread: http://forum.banana-pi.org/t/bpi-r64-ubuntu-16-04-aarch64-linux-l
 
 NOTE: 2018-12-11 update This release is for banana pi R64 board which is based on Mtk 7622, Debian 8 AARCH64 is based on kernel 4.4.92
 
-Features Map: http://wiki.banana-pi.org/Getting_Started_with_R64
 
 Google Drive : https://drive.google.com/open?id=1Xnz327Mm24WoVwAsj4yPPek09bP3yv7P
 
