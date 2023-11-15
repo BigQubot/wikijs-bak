@@ -1,6 +1,6 @@
 WARNING: TinyUF2 + CircuitPython firmware has been installed before leaving the factory. To upgrade circuitython, you only need to double-click the reset button to enter UF2 bootloader mode without erasing the flash.
 
-TIP: This method is applicable to development boards that already have tinyUF2 firmware. If the flash of the development board is erased or fails to enter UF2 mode, please refer to [How to burn tinyUF2 firmware](flash_tinyuf2.md).
+TIP: This method is applicable to development boards that already have tinyUF2 firmware. If the flash of the development board is erased or fails to enter UF2 mode, please refer to link:en/BPI-PicoW-S3/CircuitPython/flash_tinyuf2[How to flash tinyUF2 firmware].
 
 . Enter the https://circuitpython.org/board/bpi_picow_s3/[BPI-PicoW-S3 CircuitPython Download] page.
 +
