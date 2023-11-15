@@ -34,7 +34,7 @@ image::/picture/banana_pi_bpi-w3_interface_800.jpg[banana_pi_bpi-w3_interface_80
 
 == Hardware Spec
 === BPI-W3
-[option="header",cols="1,4"]
+[options="header",cols="1,4"]
 |=====
 2+| **HardWare Specification of Banana Pi W3**
 | SOC           | RockChip RK3588                                     
@@ -63,7 +63,7 @@ image::/picture/banana_pi_bpi-w3_interface_800.jpg[banana_pi_bpi-w3_interface_80
 
 === BPI-3588-LGA
 
-[option="header",cols="1,4"]
+[options="header",cols="1,4"]
 |=====
 2+| **BPI-3588-LGA spec**
 | CPU                            | Quad Core Cortex-A76@2.4GHz +Quad Core Cortex-A55@1.8GHz, 8nm                           
@@ -84,7 +84,7 @@ Encode：8K@30fps H.265 / H.264
 |=====
 == Function parameter
 
-[option="header",cols="1,1,1,3,3"]
+[options="header",cols="1,1,1,3,3"]
 |=====
 | Category	| Function	| quantity	2+|parameter
 .4+|Video Input Interface | MIPI DC(DPHY/CPHY) combo PHY	| 2 a|	- Support to use DPHY or CPHY +
@@ -203,7 +203,7 @@ Combo PIPE PHY2 support one of the following interfaces
 == GPIO Pin Define
 
 === BPI-W3 40PIN GPIO
-[option="header",cols="1,1,1,1,1,1,1,1,1,1",width=50%]
+[options="header",cols="1,1,1,1,1,1,1,1,1,1",width=50%]
 |=====
 10+| **40 PIN GPIO of Banana pi BPI-W3**
 | Pin# | Function1  | Function2  | Function3   | Function4     | Function5   | Function6    | Function7    | Function8    | GPIO number
@@ -252,7 +252,7 @@ Combo PIPE PHY2 support one of the following interfaces
 === BPI-W3 MIPI CSI
 0.5mm FPC Connector
 
-[option="header",cols="1,2,2"]
+[options="header",cols="1,2,2"]
 |=====
 | Pin#                                   | MIPI-CSI                   | Description                                        
 | 1,4,7,10,13,16,19,21,24,25,26,27,32,33 | GND                        | Power Ground & Signal Ground                       
@@ -281,7 +281,7 @@ Combo PIPE PHY2 support one of the following interfaces
 
 === BPI-W3 MIPI DSI
 0.5mm FPC Connector (J23)
-[option="header",cols="1,2,2"]
+[options="header",cols="1,2,2"]
 |=====
 | Pin#                    | MIPI-DSI                   | Description
 | 1,4,7,10,13,16,27,33,34 | GND                        | Power and Signal Ground                            
