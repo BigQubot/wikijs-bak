@@ -31,7 +31,7 @@ image::/picture/bpi-m2plus_800.jpg[bpi-m2plus_800.jpg]
 
 == Hardware Spec
 
-[option="header",cols="1,4"]
+[options="header",cols="1,4"]
 |=====
 2+| **HardWare Specification of Banana Pi M2+(Plus)**
 | CPU           | H3 Quad-core Cortex-A7 H.265/HEVC 4K
@@ -55,7 +55,7 @@ image::/picture/bpi-m2plus_800.jpg[bpi-m2plus_800.jpg]
 
 === BPI-M2 Plus 40PIN GPIO
 
-[option="header",cols="1,1,1,1"]
+[options="header",cols="1,1,1,1"]
 |=====
 4+| **40 PIN GPIO of Banana pi BPI-M2+(Plus)**
 | GPIO Pin Name	| Default Function | Function2：GPIO | Function3 
@@ -103,7 +103,7 @@ image::/picture/bpi-m2plus_800.jpg[bpi-m2plus_800.jpg]
 
 === CSI Camera Connector specification
 
-[option="header",cols="1,1,1"]
+[options="header",cols="1,1,1"]
 |=====
 3+| **CSI Camera PIN of Banana pi BPI-M2+(Plus)**
 |CSI Pin Name	| Default Function	| Function2：GPIO
@@ -265,7 +265,7 @@ Baidu cloud: https://pan.baidu.com/s/1Tay4F7nJJV1MzI_aO4NjHw PIN code: ih9p
 
 NOTE: 2018-11-09 update ,Ubuntu 16.04,kernel 4.4.
 
-Features Map: http://wiki.banana-pi.org/M2P-H3_Image_Map#Kernel_4.4.55
+Features Map: http://newwiki.banana-pi.org/en/BPI-P2_Zero/M2P-H3_Image_Map#_kernel_4_4_55
 
 Google Drive : https://drive.google.com/file/d/1dgrtVqbR4I6xYlSfWBJeGwh8xI79L1PD/view?usp=sharing
 
@@ -317,7 +317,7 @@ NOTE: 2019-09-18 update,Banana Pi BPI-M2+ boot debian 10 with grub (u-boot-2019.
 Google drive: https://drive.google.com/file/d/1ZQx732W8u83LECsFqCT9DtEPiQati-z6/view?usp=sharing
 
 NOTE: 2018-11-09 update ,Debian 9, kernel 4.4.
-Features Map :http://wiki.banana-pi.org/M2P-H3_Image_Map#Kernel_4.4.55_2
+Features Map :http://newwiki.banana-pi.org/en/BPI-P2_Zero/M2P-H3_Image_Map#_kernel_4_4_55_2
 
 Google Drive : https://drive.google.com/file/d/13HTp2smKPPK_4byHCI_T3Atg8_NfyQ5S/view?usp=sharing
 
@@ -341,7 +341,7 @@ Image download : http://download.opensuse.org/ports/armv7hl/factory/images/
 
 NOTE: 2018-11-09 update ,Raspbian 9, kernel 4.4.
 
-Features Map: http://wiki.banana-pi.org/M2P-H3_Image_Map#Kernel_4.4.55_3
+Features Map: http://newwiki.banana-pi.org/en/BPI-P2_Zero/M2P-H3_Image_Map#_kernel_4_4_55_3
 
 Google Drive : https://drive.google.com/open?id=182a1iSYyW8UMJHOyzbu35RfLi-Wn5H8h
 
