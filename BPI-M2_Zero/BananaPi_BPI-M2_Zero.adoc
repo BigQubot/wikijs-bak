@@ -25,7 +25,7 @@ image::/picture/bpi-m2_zero_interface.png[bpi-m2_zero_interface.png]
 
 == Hardware Spec
 
-[option="header",cols="1,3"]
+[options="header",cols="1,3"]
 |=====
 2+| **HardWare Specification of Banana Pi M2 Zero**
 | CPU                   | Allwinner H3/H2+ Quad-core Cortex-A7 H265/HEVC 1080P
@@ -58,7 +58,7 @@ image::/picture/bpi-m2_zero_interface.png[bpi-m2_zero_interface.png]
 
 Banana Pi BPI-M2 zero has a 40-pin GPIO header that matches that of the Model Raspberry Pi 3. Following is the Banana Pi GPIO Pinout:
 
-[option="header",cols="1,1,1,1"]
+[options="header",cols="1,1,1,1"]
 |=====
 4+| **40 PIN GPIO of Banana pi BPI-M2 Zero**
 | GPIO Pin Name	| Default Function	| Function2：GPIO	| Function3
@@ -108,7 +108,7 @@ Banana Pi BPI-M2 zero has a 40-pin GPIO header that matches that of the Model Ra
 
 The CSI Camera Connector is a 24-pin FPC connector which can connect external camera module with proper signal pin mappings. The pin definitions of the CSI interface are shown as below. This is marked on the Banana Pi board as “CSI″.
 
-[option="header",cols="1,1,1"]
+[options="header",cols="1,1,1"]
 |=====
 3+| **24 PIN CSI Camera connector of Banana pi BPI-M2 Zero**
 |CSI Pin Name	|Default Function	|Function2：GPIO
