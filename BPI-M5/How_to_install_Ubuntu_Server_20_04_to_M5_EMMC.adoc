@@ -1,0 +1,60 @@
+Setting up Banana Pi with Ubuntu 20.04 Server from a Windows PC
+
+- Download latest version of Balena Etcher
+- Download image file from: [Banana Pi Open Source Project (banana-pi.dev)](https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FImages%2FBPI-M5%2Fubuntu%2F2021-06-21-ubuntu-20.04-server-bpi-m5-m2pro-aarch64-sd-emmc.img.zip)
++
+```sh
+2021-06-21-ubuntu-20.04-server-bpi-m5-m2pro-aarch64-sd-emmc.img.zip
+```
+- Unzip the image file to a folder on your Windows machine
+- Used Balena Etcher to flash the unzipped image file (*.img) to an SD card
+- Copy the zipped (*.zip) version of the same file to a USB thumb drive (I had to reformat the USB drive to NTFS file system to copy the file to the USB stick…not sure why)
+- Boot up the Bpi M5 with the SD card
+- Login for Ubuntu was ‘pi’ with password ‘bananapi”
+- Can **STOP HERE IF YOU JUST WANT TO BOOT UBUNTU FROM SD CARD**
+- CONTINUE IF YOU WANT TO CONFIGURE M5 TO BOOT UBUNTU FROM EMMC
+- If you proceed, you will no longer be able to boot from the SD card until you reformat EMMC**
+- Login for Ubuntu was ‘pi’ with password ‘bananapi”
+- At the terminal prompt $, ran these two commands:
++
+```sh
+sudo apt-get install pv
+curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
+```
+- Insert the USB thumb drive into Bpi M5 and mount in via terminal $ using these commands:
++
+```sh
+sudo fdisk -l
+```
+Used to see what the OS is naming your USB drive +
+Mine was /dev/sda1
++
+```sh
+sudo mkdir /media/usb
+```
+Used to make a directory (mount point) for mounting the USB drive. This directory may already exist.
++
+```sh
+cd /media/usb
+sudo mount /dev/sda1 /media/usb
+```
+Used to mount the USB drive to the /media/usb folder
++
+```sh
+ls
+```
+Lists the contents of the USB drive. +
+Should see your .zip version of the Ubuntu image file
++
+```sh   
+sudo bpi-copy 2021-06-21-ubuntu-20.04-server-bpi-m5-m2pro-aarch64-sd-emmc.img.zip /dev/mmcblk0
+```
+Copies, unzips, and installs the image file onto the EMMC +
+I got an error at this point related to “**unzip**” not being a valid command +
+I just ran the command: "**sudo apt-get install unzip**" +
+Re-ran the command: "**sudo bpi-copy**"… listed above
+
+- The boot order for the Bpi M5 is Start ROM:Boot EMMC and then Boot SD Card, so if you want to go back to booting from the SD Card after installing an OS on the EMMC, you will have to erase it first and start over. +
+To erase the EMMC for SD Card bootup:
+ * Connect the M5 to your computer via USB debug console cable
+ * Use the Amlogic USB Burning Tool to format the EMMC
