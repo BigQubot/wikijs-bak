@@ -37,7 +37,7 @@ image::/picture/bpi-m1_plus_interface_.jpg[bpi-m1_plus_interface_.jpg]
 
 == Hardware Spec
 
-[option="header",cols="1,3"]
+[options="header",cols="1,3"]
 |=====
 2+| **HardWare Specification of Banana Pi M1+(Plus)**
 | CPU           | A20 ARM Cortex -A7 Dual-Core
@@ -64,7 +64,7 @@ Banana Pi BPI-M1+ has a 40-pin GPIO header . Following is the Banana Pi GPIO Pin
 
 image::/picture/gpio_define.png[gpio_define.png]
 
-[option="header",cols="1,1,1"]
+[options="header",cols="1,1,1"]
 |=====
 3+| **40 PIN GPIO of Banana pi BPI-M1+(Plus)**
 | GPIO Pin Name	| Default Function	| Function2：GPIO
@@ -114,7 +114,7 @@ image::/picture/gpio_define.png[gpio_define.png]
 
 The CSI Camera Connector is a 40-pin FPC connector which can connect external camera module with proper signal pin mappings.The pin definitions of the CSI interface are shown as below. This is marked on the Banana Pi board as “CON1″.
 
-[option="header",cols="1,1,1"]
+[options="header",cols="1,1,1"]
 |=====
 3+| **CSI PIN of Banana pi BPI-M1 Plus**
 | CSI Pin Name | Default Function Pin name | Function2：GPIO 
@@ -164,7 +164,7 @@ The CSI Camera Connector is a 40-pin FPC connector which can connect external ca
 
 The LVDS Connector is a 40-pin FPC connector which can connect external LCD panel \(LVDS\) and touch screen \(I2C\) module as well.The pin definitions of this connector are shown as below. This is marked on the Banana Pi board as “CON2″.
 
-[option="header",cols="1,2,1,1"]
+[options="header",cols="1,2,1,1"]
 |=====
 4+| **LVDS PIN of Banana pi BPI-M1 Plus**
 |LVDS Pin	| Default Function	| Function2	| Function3：GPIO
@@ -214,7 +214,7 @@ The LVDS Connector is a 40-pin FPC connector which can connect external LCD pane
 
 The jumper J11header CON4 is the UART interface.For developers of Banana Pi, this is an easy way to get the UART console output to check the system status and log message.
 
-[option="header",cols="1,1,1"]
+[options="header",cols="1,1,1"]
 |=====
 |Pin Name	| Default Function	| GPIO
 |CON4-P03	| UART0-TXD	| PB22
