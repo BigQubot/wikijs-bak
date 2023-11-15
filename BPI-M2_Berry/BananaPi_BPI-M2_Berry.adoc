@@ -29,7 +29,7 @@ image::/picture/bpi-m2_berry.jpg[bpi-m2_berry.jpg]
 
 == Hardware Spec
 
-[option="header",cols="1,5"]
+[options="header",cols="1,5"]
 |=====
 2+| **HardWare Specification of Banana Pi M2_Berry**
 | Soc              | Allwinner A40i/R40/V40
@@ -59,7 +59,7 @@ image::/picture/bpi-m2_berry.jpg[bpi-m2_berry.jpg]
 
 === BPI-M2 Berry 40PIN GPIO
 
-[option="header",cols="1,1,1,1"]
+[options="header",cols="1,1,1,1"]
 |=====
 4+| **40 PIN GPIO of Banana pi BPI-M2 Berry**
 |GPIO Pin Name | Default Function | Function2：GPIO | Function3
@@ -107,7 +107,7 @@ image::/picture/bpi-m2_berry.jpg[bpi-m2_berry.jpg]
 
 === CSI Camera Connector specification
 
-[option="header",cols="1,1,1"]
+[options="header",cols="1,1,1"]
 |=====
 3+| **CSI Camera connector GPIO of Banana pi BPI-M2 Berry**
 | CSI Pin Name	| Default Function	| Function2：GPIO
@@ -139,7 +139,7 @@ image::/picture/bpi-m2_berry.jpg[bpi-m2_berry.jpg]
 
 === Display specification
 
-[option="header",cols="1,1,1"]
+[options="header",cols="1,1,1"]
 |=====
 3+| **DSI GPIO of Banana pi BPI-M2 Berry**
 | DSI Pin Name	| Default Function	| Function2：GPIO
@@ -247,7 +247,7 @@ Ubuntu 16.04 server link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/?
 
 NOTE: 2019-05-13 update,Ubuntu 16.04 ,kernel 3.10.108
 
-Features Map: http://wiki.banana-pi.org/M2U/Berry_Image_Map#Ubuntu_16.04
+Features Map: http://newwiki.banana-pi.org/en/BPI-M2_Ultra/M2U-Berry_Image_Map#_ubuntu_16_04
 
 **Desktop image**
 
@@ -295,7 +295,7 @@ Debian 9 stretch lite link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b
 
 NOTE: 2019-05-13 update , Debian 9 ,kernel 3.10.108
 
-Features Map: http://wiki.banana-pi.org/M2U/Berry_Image_Map#Debian_9
+Features Map: http://newwiki.banana-pi.org/en/BPI-M2_Ultra/M2U-Berry_Image_Map#_debian_9
 
 **Desktop images **
 
@@ -341,7 +341,7 @@ Google Drive: https://drive.google.com/drive/folders/0B_YnvHgh2rwjR0JsaUltalFXan
 
 NOTE: 2019-05-13 update,Raspbian 9,Desktop, kernel 3.10.108
 
-BPI-M2U Raspbian 9 Features Map: http://wiki.banana-pi.org/M2U/Berry_Image_Map#Raspbian_9.4
+BPI-M2U Raspbian 9 Features Map: http://newwiki.banana-pi.org/en/BPI-M2_Ultra/M2U-Berry_Image_Map#_raspbian_9_4
 
 Google Drive : https://drive.google.com/file/d/146--P5XiX9F_Dn8JzC3gRApGBQUUcEzH/view?usp=sharing
 
@@ -416,7 +416,7 @@ Forum pthread : http://forum.banana-pi.org/t/armbian-bionic-and-stretch/6573
 === Tina IoT Linux
 NOTE: BPI-M2 Ultra / BPI-M2 Berry support Allwinner TinaLinux .
 
-More please see : link:https://wiki.banana-pi.org/Tina_Linux[Tina Linux]
+More please see : link:https://newwiki.banana-pi.org/Tina_Linux[Tina Linux]
 
 === RPiTC v3 1.12
 
