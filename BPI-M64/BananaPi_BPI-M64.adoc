@@ -29,7 +29,7 @@ image::/picture/bpi-m64_interface.jpg[bpi-m64_interface.jpg]
 
 == Hardware Spec
 
-[option="header",cols="1,4"]
+[options="header",cols="1,4"]
 |=====
 2+| **HardWare Specification of Banana Pi M64**
 | CPU             | Allwinner 64 Bit Quad Core ARM Cortex A53 1.2 GHz CPU
@@ -55,7 +55,7 @@ image::/picture/bpi-m64_interface.jpg[bpi-m64_interface.jpg]
 
 === BPI-M64 40PIN GPIO
 
-[option="header",cols="1,1,1,1"]
+[options="header",cols="1,1,1,1"]
 |=====
 4+| **40 PIN GPIO of Banana pi BPI-M64**
 | GPIO Pin Name	| Default Function	| Function2：GPIO	| Function3
@@ -103,7 +103,7 @@ image::/picture/bpi-m64_interface.jpg[bpi-m64_interface.jpg]
 
 === CSI Camera Connector specification
 
-[option="header",cols="1,1,1"]
+[options="header",cols="1,1,1"]
 |=====
 3+| **CSI camer PIN define of Banana pi BPI-M64**
 | CSI Pin Name	| Default Function	| Function2：GPIO
@@ -135,7 +135,7 @@ image::/picture/bpi-m64_interface.jpg[bpi-m64_interface.jpg]
 
 === MIPI DSI (Display Serial Interface)
 
-[option="header",cols="1,1,1"]
+[options="header",cols="1,1,1"]
 |=====
 3+| **MIPI DSI display PIN define of Banana pi BPI-M64**
 | DSI Pin Name	| Default Function	| Function2：GPIO
@@ -323,18 +323,15 @@ TIP: Banana Pi BPI-M64 passed Amazon AWS Greengrass: https://devices.amazonaws.c
 
 = System Image
 == Android
-====
 NOTE: 2020-07-10 update, Android 7.1, base on kernel 3.10
 
 link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/?p=%2FImages%2FBPI-M64%2FAndroid7.1&mode=list[Download Android 7.1 image]
 
-====
 
-====
 NOTE: 2018-10-24 update Android 6.0 ,HDMI & LCD7, based on kernel 3.10.
 
 
-Features Map: http://wiki.banana-pi.org/M64_Image_Map#Android_6.0
+Features Map: http://newwiki.banana-pi.org/en/BPI-M64/M64_Image_Map#_android_6_0
 
 
 **HDMI Version Image Links**
@@ -349,13 +346,11 @@ Google Drive : https://drive.google.com/open?id=1Tts1krZyzwz9mL90j1ilTzVrJm6hh_J
 
 Baidu Drive : https://pan.baidu.com/s/1oKMx_Ml5K1Jv7-qeS-NMsQ
 
-====
 
-====
 
 NOTE: 2018-10-24 update ,Android 7.0 HDMI & LCD7, based on kernel 3.10. 
 
-Features Map: http://wiki.banana-pi.org/M64_Image_Map#Android_7.0
+Features Map: http://newwiki.banana-pi.org/en/BPI-M64/M64_Image_Map#_android_7_0
 
 
 **HDMI Version Image Links：**
@@ -370,12 +365,9 @@ Google Drive : https://drive.google.com/open?id=16Ffc5xiZgD7JYgrMtCGaOYLCuZdQGcn
 
 Baidu Drive : https://pan.baidu.com/s/1a9RYKSTRhCO-UzFfIoGCtQ
 
-====
-
-====
 NOTE: 2018-10-24 update, Android 8.1 HDMI & LCD7, based on kernel 3.10. 
 
-Features Map: http://wiki.banana-pi.org/M64_Image_Map#Android_8.1
+Features Map: http://newwiki.banana-pi.org/en/BPI-M64/M64_Image_Map#_android_8_1
 
 **HDMI Version Image Links:**
 
@@ -391,11 +383,10 @@ Baidu Drive : https://pan.baidu.com/s/1MteYqyBp8LeECjcDteCTZQ
 
 Forum pthread: http://forum.banana-pi.org/t/banana-pi-bpi-m64-new-images-android-6-0-7-0-8-1-release-2018-10-24/7107
 
-====
-====
+
 NOTE: 2018-9-17 update android 6.0,HDMI & LCD7
 
-Features Map :http://wiki.banana-pi.org/M64_Image_Map#Android_6.0
+Features Map :http://newwiki.banana-pi.org/en/BPI-M64/M64_Image_Map#_android_6_0
 
 **HDMI Version Image Links:**
 
@@ -411,14 +402,12 @@ Baidu Drive : https://pan.baidu.com/s/1K0HYPiQe6nGvAS5bAAFHow
 
 Forum pthread : http://forum.banana-pi.org/t/banana-pi-bpi-m64-new-images-release-2018-09-18/6796
 
-====
 
-====
 NOTE: 2018-08-17 update,android 8.1,HDMI & LCD7
 
 This release is for banana pi M64 board which is based on Allwinner A64, We have two images release，Android 8.1 is based on kernel 4.9
 
-Features Map: http://wiki.banana-pi.org/M64_Image_Map#Android_8.1
+Features Map: http://newwiki.banana-pi.org/en/BPI-M64/M64_Image_Map#_android_8_1
 
 Google Drive : https://drive.google.com/open?id=11XjvTAbPw57R6H5kL27GVXry4xu18dVs
 
@@ -426,16 +415,12 @@ Baidu Drive : https://pan.baidu.com/s/1PQgJCUo6cY3wWxJ7rZrk-A
 
 Forum pthread: http://forum.banana-pi.org/t/bananapi-bpi-m64-a64-new-image-android-8-1-ubuntu-release-2018-08-17/6531
 
-====
 
-====
 NOTE: 2018-05-20 update ,android 7.0, HDMI & LCD5.0
 
 Baidu cloud : https://pan.baidu.com/s/1O3PsI73WmFFvhxMmzEscIQ
 
-====
 
-====
 NOTE: 2017-05-11 update ,android 6.0
 
 **HDMI-Version**
@@ -456,7 +441,6 @@ MD5: be27e4eced96d3de81d46e512fd978eb
 
 Forum pthread: http://forum.banana-pi.org/t/bpi-m64-new-image-android-6-0-version-v3/3240/4
 
-====
 
 == Linux
 
@@ -474,7 +458,7 @@ Baidu cloud: https://pan.baidu.com/s/18XH8_uusUGBusbp4xw4txQ PinCode：36R0
 
 NOTE: 2018-11-02 update, BPI-M64 Ubuntu 16.04 Desktp
 
-Features Map: http://wiki.banana-pi.org/M64_Image_Map#Ubuntu_Desktop_16.04
+Features Map: http://newwiki.banana-pi.org/en/BPI-M64/M64_Image_Map#_ubuntu_desktop_16_04
 
 Google Drive : https://drive.google.com/file/d/1YzdkY8i-IsXzXLkbPCPNbAuhYbHmUwgv/view
 
@@ -484,7 +468,7 @@ Md5 : 3564f0d3de9936aa26b93eaf027703a0
 
 NOTE: 2018-11-02 update,BPI-M64 Ubuntu 16.04 AARCH64 Kernel 3.10
 
-Features Map : http://wiki.banana-pi.org/M64_Image_Map#Ubuntu_Desktop_aarch64_16.04
+Features Map : http://newwiki.banana-pi.org/en/BPI-M64/M64_Image_Map#_ubuntu_desktop_aarch64_16_04
 
 Google Drive : https://drive.google.com/file/d/1MglySZLvquRPu1Wj8oLwdKBkFnRzLUL-/view
 
@@ -494,7 +478,7 @@ Md5 : 7422e02daa01bff6de808490e89b436e
 
 NOTE: 2018-11-02 update,BPI-M64 Ubuntu 16.04 AARCH64 Kernel 4.4
 
-features Map: http://wiki.banana-pi.org/M64_Image_Map#Kernel_4.4.89
+features Map: http://newwiki.banana-pi.org/en/BPI-M64/M64_Image_Map#_kernel_4_4_89
 
 Google Drive : https://drive.google.com/file/d/1g_m1NLn1-wUQ8jjPKEAwQcSj4d4P9vRP/view
 
@@ -514,7 +498,7 @@ Forum pthread: http://forum.banana-pi.org/t/bpi-r18-avs-new-image-ubuntu-16-04-4
 
 NOTE: 2018-09-18 This release is for banana pi M64 board which is based on Allwinner A64, We release three Images, Ubuntu 16.04 Desktop & Android is based on kernel 3.10.
 
-Features Map : http://wiki.banana-pi.org/M64_Image_Map#Ubuntu_Desktop_16.04
+Features Map : http://newwiki.banana-pi.org/en/BPI-M64/M64_Image_Map#_ubuntu_desktop_16_04
 
 Baidu Drive : https://pan.baidu.com/s/1wANJ4SwfNwKtBcd02WcbWA
 
@@ -548,7 +532,7 @@ Baidu Cloud: https://pan.baidu.com/s/1vFR9sUR0FhWgS1pemk9lTg?pwd=ina6 (pincode: 
 
 NOTE: 2018-11-2 update ,M64 Debian 9.5 AARCH64 Kernel 3.10
 
-Features Map :  http://wiki.banana-pi.org/M64_Image_Map#Debian_9.5_AARCH64
+Features Map :  http://newwiki.banana-pi.org/en/BPI-M64/M64_Image_Map#_debian_9_5_aarch64
 
 Google driver : https://drive.google.com/file/d/10qGv2gVrSgwXMBLDsCF0nQFc9EJnnkeS/view
 
@@ -558,7 +542,7 @@ Md5 : 71fe25c1922c7f9ef81bb88e0f544de6
 
 NOTE: 2018-11-2 update ,M64 Debian 9.5 AARCH64 Kernel 4.4
 
-Features Map: http://wiki.banana-pi.org/M64_Image_Map#Debian_9.5_AARCH64
+Features Map: http://newwiki.banana-pi.org/en/BPI-M64/M64_Image_Map#_debian_9_5_aarch64
 
 Google Drive : https://drive.google.com/file/d/17fh3YY6cwOzHMsqwnRQRTu9cXjKU4_tV/view
 
@@ -588,7 +572,7 @@ link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/?p=%2FImages%2FBPI-M6
 
 NOTE: 2018-11-06 update, BPI-M64 Raspbian 9.4 Kernel 3.10
 
-Features Map : http://wiki.banana-pi.org/M64_Image_Map#Raspbian_9.4_AARCH64
+Features Map : http://newwiki.banana-pi.org/en/BPI-M64/M64_Image_Map#_raspbian_9_4_aarch64
 
 Google Drive : https://drive.google.com/file/d/1qoKCVDgiuEj0IVEzuPgzuFLjFR9hTLH8/view
 
@@ -598,7 +582,7 @@ Md5 : e321c6dbb096a0348fceb9d4a0b6c210
 
 NOTE: 2018-11-06 update, BPI-M64 Raspbian 9.4 Kernel 4.4
 
-Features Map : http://wiki.banana-pi.org/M64_Image_Map#Kernel_4.4.89_4
+Features Map : http://newwiki.banana-pi.org/en/BPI-M64/M64_Image_Map#_kernel_4_4_89_4
 
 Google Drive : https://drive.google.com/file/d/1WnsHKnbI_FWQVkHQmbCcJ3yJ38oWaHGy/view
 
@@ -707,7 +691,6 @@ WARNING:  How-to use ubuntu system to support lcd7**?
 
 image::/picture/bpi-m64_lcd7.png[bpi-m64_lcd7.png]
 
-For more operation details please see Wiki: http://wiki.banana-pi.org/Getting_Started_with_M64
 
 = Easy to buy
 
