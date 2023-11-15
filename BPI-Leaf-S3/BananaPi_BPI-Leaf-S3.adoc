@@ -80,74 +80,61 @@ image::/picture/bpi_leaf_s3_board_interface.jpg[bpi_leaf_s3_board_interface.jpg]
 
 == GPIO Pin Define
 
-=== BPI-xx 40PIN GPIO
-
-xxxx
-
-image::/picture/bpi-m1_26_pin.png[bpi-m1_26_pin.png]
-
 [option="header",cols="1,1,1",width=50%]
 |=====
 3+| **40 PIN GPIO of Banana pi BPI-M1**
 | Peripheral Interface        | Signal                                                             | Pin                  
-| ADC                         | ADC1_CH0~9                                                         | GPIO 1~10            
-|                             | ADC2_CH0~9                                                         | GPIO 11~20           
+.2+| ADC        | ADC1_CH0~9   | GPIO 1~10            
+                | ADC2_CH0~9   | GPIO 11~20           
 | Touch sensor                | TOUCH1~14                                                          | GPIO 1~14            
-| JTAG                        | MTCK                                                               | GPIO 39              
-|                             | MTDO                                                               | GPIO 40              
-|                             | MTDI                                                               | GPIO 41              
-|                             | MTMS                                                               | GPIO 42              
-| UART                        | The pins are assigned by default, and can be redefined to any GPIO |                      
-|                             | U0RXD_in                                                           | GPIO 44              
-|                             | U0CTS_in                                                           | GPIO 16              
-|                             | U0DSR_in                                                           | any GPIO             
-|                             | U0TXD_out                                                          | GPIO43               
-|                             | U0RTS_out                                                          | GPIO 15              
-|                             | U0DTR_out                                                          | any GPIO             
-|                             | U1RXD_in                                                           | GPIO 18              
-|                             | U1CTS_in                                                           | GPIO 20              
-|                             | U1DSR_in                                                           | any GPIO             
-|                             | U1TXD_out                                                          | GPIO 17              
-|                             | U1RTS_out                                                          | GPIO 19              
-|                             | U1DTR_out                                                          | any GPIO             
-|                             | U2                                                                 | any GPIO             
-| I2C                         | any GPIO                                                           |                      
-| PWM                         | any GPIO                                                           |                      
-| I2S                         | any GPIO                                                           |                      
-| LCD                         | any GPIO                                                           |                      
-| CAMERA                      | any GPIO                                                           |                      
-| RMT                         | any GPIO                                                           |                      
-| SPI0/1                      | Used for FLASH and PSRAM                                           |                      
-| SPI2/3                      | any GPIO                                                           |                      
-| Pulse counter               | any GPIO                                                           |                      
-| USB OTG                     | D-                                                                 | GPIO 19（on-chip PHY） 
-|                             | D+                                                                 | GPIO 20（on-chip PHY） 
-|                             | VP                                                                 | GPIO 42（external PHY）
-|                             | VM                                                                 | GPIO 41（external PHY）
-|                             | RCV                                                                | GPIO21（external PHY） 
-|                             | OEN                                                                | GPIO 40（external PHY）
-|                             | VPO                                                                | GPIO 39（external PHY）
-|                             | VMO                                                                | GPIO38（external PHY） 
-| USB Serial/JTAG             | D-                                                                 | GPIO 19（on-chip PHY） 
-|                             | D+                                                                 | GPIO 20（on-chip PHY） 
-|                             | VP                                                                 | GPIO 42（external PHY）
-|                             | VM                                                                 | GPIO 41（external PHY）
-|                             | OEN                                                                | GPIO 40（external PHY）
-|                             | VPO                                                                | GPIO 39（external PHY）
-|                             | VMO                                                                | GPIO38（external PHY） 
-| SD/MMC                      | any GPIO                                                           |                      
-| MCPWM                       | any GPIO                                                           |                      
-| TWAI                        | any GPIO                                                           |                      
-| Neopixel LED                | GPIO 48                                                            |       
+.4+| JTAG                        | MTCK                                                               | GPIO 39              
+                             | MTDO                                                               | GPIO 40              
+                             | MTDI                                                               | GPIO 41              
+                             | MTMS                                                               | GPIO 42              
+.14+| UART                        2+| The pins are assigned by default, and can be redefined to any GPIO                       
+                             | U0RXD_in                                                           | GPIO 44              
+                             | U0CTS_in                                                           | GPIO 16              
+                             | U0DSR_in                                                           | any GPIO             
+                             | U0TXD_out                                                          | GPIO43               
+                             | U0RTS_out                                                          | GPIO 15              
+                             | U0DTR_out                                                          | any GPIO             
+                             | U1RXD_in                                                           | GPIO 18              
+                             | U1CTS_in                                                           | GPIO 20              
+                             | U1DSR_in                                                           | any GPIO             
+                             | U1TXD_out                                                          | GPIO 17              
+                             | U1RTS_out                                                          | GPIO 19              
+                             | U1DTR_out                                                          | any GPIO             
+                             | U2                                                                 | any GPIO             
+| I2C                         2+| any GPIO                                                             
+| PWM                         2+| any GPIO                                                                                 
+| I2S                         2+| any GPIO                                                                                 
+| LCD                         2+| any GPIO                                                                                 
+| CAMERA                      2+| any GPIO                                                                                 
+| RMT                         2+| any GPIO                                                                                 
+| SPI0/1                      2+| Used for FLASH and PSRAM                                                                 
+| SPI2/3                      2+| any GPIO                                                                                 
+| Pulse counter               2+| any GPIO                                                                                 
+.8+| USB OTG                     | D-                                                                 | GPIO 19（on-chip PHY） 
+                             | D+                                                                 | GPIO 20（on-chip PHY） 
+                             | VP                                                                 | GPIO 42（external PHY）
+                             | VM                                                                 | GPIO 41（external PHY）
+                             | RCV                                                                | GPIO21（external PHY） 
+                             | OEN                                                                | GPIO 40（external PHY）
+                             | VPO                                                                | GPIO 39（external PHY）
+                             | VMO                                                                | GPIO38（external PHY） 
+.7+| USB Serial/JTAG             | D-                                                                 | GPIO 19（on-chip PHY） 
+                             | D+                                                                 | GPIO 20（on-chip PHY） 
+                             | VP                                                                 | GPIO 42（external PHY）
+                             | VM                                                                 | GPIO 41（external PHY）
+                             | OEN                                                                | GPIO 40（external PHY）
+                             | VPO                                                                | GPIO 39（external PHY）
+                             | VMO                                                                | GPIO38（external PHY） 
+| SD/MMC                      2+| any GPIO                                                                                 
+| MCPWM                       2+| any GPIO                                                                                 
+| TWAI                        2+| any GPIO                                                                                 
+| Neopixel LED                2+| GPIO 48                                                                   
 |=====
 
-=== BPI-M5 Debug UART
-
-|=====
-|CONx-P1  | GND
-|CONx-P2  | UART0-RX
-|CONx-P3  | UART0-TX
-|=====
 
 = Development
 == Source Code
