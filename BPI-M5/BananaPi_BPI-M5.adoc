@@ -26,7 +26,7 @@ image::/picture/banana_pi_bpi-m5_interface1.jpg[banana_pi_bpi-m5_interface1.jpg]
 
 == Hardware Spec
 
-[option="header",cols="1,3"]
+[options="header",cols="1,3"]
 |=====
 2+| **HardWare Specification of Banana Pi M5**
 | CPU             | Amlogic S905X3 64-bit Quad-Core Cortex-A55 (2.0xxGHz)
@@ -49,7 +49,7 @@ image::/picture/banana_pi_bpi-m5_interface1.jpg[banana_pi_bpi-m5_interface1.jpg]
 
 === BPI-M5 40PIN GPIO
 
-[option="header",cols="1,1,1"]
+[options="header",cols="1,1,1"]
 |=====
 3+| **40 PIN GPIO of Banana pi BPI-M5**
 | GPIO Pin Name | Default Function	| Function2：GPIO
