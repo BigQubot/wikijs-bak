@@ -30,7 +30,7 @@ image::/picture/m3-hdw-label.jpg[m3-hdw-label.jpg]
 
 == Hardware Spec
 
-[option="header",cols="1,4"]
+[options="header",cols="1,4"]
 |=====
 2+| **HardWare Specification of Banana Pi M3**
 | CPU             | Allwinner A83T ARM Cortex-A7 Octa-Core 1.8 GHz, 512KB L1 cache and 1MB L2 cache
@@ -56,7 +56,7 @@ image::/picture/m3-hdw-label.jpg[m3-hdw-label.jpg]
 
 === BPI-M3 40PIN GPIO
 
-[option="header",cols="1,1,1,1"]
+[options="header",cols="1,1,1,1"]
 |=====
 4+| **40 PIN GPIO of Banana pi BPI-M3**
 | GPIO Pin Name	| Default Function | Function2：GPIO	| Function3
@@ -104,7 +104,7 @@ image::/picture/m3-hdw-label.jpg[m3-hdw-label.jpg]
 
 === CSI Camera Connector specification
 
-[option="header",cols="1,1,1"]
+[options="header",cols="1,1,1"]
 |=====
 3+| **CSI camera GPIO of Banana pi BPI-M3**
 | CSI Pin Name | Default Function	| Function2：GPIO
@@ -152,7 +152,7 @@ image::/picture/m3-hdw-label.jpg[m3-hdw-label.jpg]
 
 === Display specification
 
-[option="header",cols="1,1,1"]
+[options="header",cols="1,1,1"]
 |=====
 3+| **MIPI DSI PIN define of Banana pi BPI-M3**
 | CSI Pin Name | Default Function	| Function2：GPIO
@@ -330,7 +330,7 @@ MD5: ea5abe3fd6988931df85a2376808501a
 
 NOTE: 2018-07-18 BPI-M3 Ubuntu 16.04 Mate Desktop (new eMMC)
 
-Features Map : http://wiki.banana-pi.org/M3_Image_Map#Ubuntu_16.04
+Features Map : http://newwiki.banana-pi.org/en/BPI-M3/M3_Image_Map#_ubuntu_16_04
 
 Google Drive : https://drive.google.com/open?id=1DlOrt08yUY9hAETiUXBiyoyPFHrOxtvq
 
@@ -340,7 +340,7 @@ Forum pthread: http://forum.banana-pi.org/t/bananapi-bpi-m3-new-image-new-emmc-u
 
 NOTE: 2018-07-18 M3 Ubuntu Server (new eMMC)
 
-Features Map : http://wiki.banana-pi.org/M3_Image_Map#Ubuntu_Lite
+Features Map : http://newwiki.banana-pi.org/en/BPI-M3/M3_Image_Map#_ubuntu_lite
 
 Google Drive : https://drive.google.com/open?id=1Yyd2BepHjyhgXhSmnFh_0Az6YoXPEI3J
 
@@ -382,7 +382,7 @@ Forum thread: http://forum.banana-pi.org/t/banana-pi-bpi-m3-new-image-ubuntu-16-
 
 NOTE: 2018-07-18 BPI-M3 Debian Jessie 9 (new eMMC)
 
-Features Map : http://wiki.banana-pi.org/M3_Image_Map#Debian_Jessie_9
+Features Map : http://newwiki.banana-pi.org/en/BPI-M3/M3_Image_Map#_debian_jessie_9
 
 Google Drive : https://drive.google.com/open?id=1M997Uf-RVqdFKJkXMjgY0w3fHyiOq4iG
 
@@ -485,9 +485,6 @@ http://mirror.lakka.tv/nightly/
 === Others image
 
 http://forum.banana-pi.org/c/bpi-m3/M2image
-
-= FAQ
-
 
 
 = Easy to buy
