@@ -28,7 +28,7 @@ image::/picture/bpi-r1_back.jpg[bpi-r1_back.jpg]
 
 == Hardware Spec
 
-[option="header",cols="1,4"]
+[options="header",cols="1,4"]
 |=====
 2+| **HardWare Specification of Banana Pi R1**
 | CPU           | A20 ARM Cortex -A7 Dual-Core
@@ -100,44 +100,44 @@ sudo apt-get install libusb-1.0-0-dev
 +
 . get sunxi-tools new code from github:
 +
-```
+```sh
 git clone https://github.com/linux-sunxi/sunxi-tools.git
 ```
 +
 . compile sunxi-tools
 +
-```
+```sh
 cd sunxi-tools
 make
 ```
 +
 . backup script.bin
 +
-```
+```sh
 sudo cp /boot/bananapi/script.bin /boot/bananapi/script.bak
 ```
 +
 . copy script.bin to current dir
 +
-```
+```sh
 cp /boot/bananapi/script.bin ./
 ```
 +
 . use bin2fex change bin to fex
 +
-```
+```sh
 bin2fex ./script.bin ./script.fex
 ```
 +
 . edit script.fex file:
 +
-```
+```sh
 nano script.fex
 ```
 +
 see this below:
 +
-```
+```sh
 [disp_init]
 disp_init_enable = 1
 disp_mode = 0
@@ -168,7 +168,7 @@ just change screen0_output_mode = 5, note , other not do any change.
 +
 A20 support as below: HDMI/TV mode numbers:
 +
-```
+```sh
 0 480i
 1 576i
 2 480p
@@ -196,27 +196,26 @@ A20 support as below: HDMI/TV mode numbers:
 Press Ctrl + x ， Y ，Enter save and exit edit:
 ```
 +
-
 . use fex2bin change fex to bin
 +
-```
+```sh
 fex2bin ./script.fex ./script.bin
 ```
 +
 copy script.bin to /boot
 +
-```
+```sh
 sudo cp ./script.bin /boot/bananapi/
 ```
 +
 . reboot and make a try
 +
-```
+```sh
 sudo reboot
 ```
 another easy way: just edit uEnv.txt file to change it:
 +
-```
+```sh
 bootargs=enforcing=1 console=ttyS0,115200 console=tty1 root=/dev/mmcblk0p2 rootwait init=/init vmalloc=384M ion_
 ma_list="120m,176m,512m" loglevel=8 bootmenutimeout=10 datadev=mmcblk0p2 disp.screen0_output_type=3 disp.screen0_o
 utput_mode=10 disp.screen1_output_type=3 disp.screen1_output_mode=10
@@ -227,7 +226,7 @@ We test it with deepin2014(base on ubuntu14.04)
 
 . install depend package :
 +
-```
+```sh
  apt-get install subversion build-essential libncurses5-dev zlib1g-dev gawk 
 git ccache gettext libssl-dev xsltproc unzip subversion file
 ```
@@ -235,19 +234,19 @@ git ccache gettext libssl-dev xsltproc unzip subversion file
 . get openwrt source code
 
 +
-```
+```sh
 git clone https://github.com/BPI-SINOVOIP/BPI-OpenWRT.git
 ```
 +
 . enter openwrt dir:
 +
-```
+```sh
 cd BPI-OpenWRT
 ```
 +
 . update package and install
 +
-```
+```sh
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 ```
@@ -262,14 +261,14 @@ Target System default is BananaPi，its the only choice on that matte.，Please 
 +
 example : i need web and add chinese support
 +
-```
+```sh
 LuCI—> 1. Collections  ---> <*> luci  add Luci support ，it mean web GUI support，it is defaultes
 LuCI—>2. Modules  ---> <*> luci-i18n-chinese   add chinese also you can choose others.
 ```
 +
 . Make ,you can add V=s to see more message ,also add -j4 to use quad core to work .
 +
-```
+```sh
 make
 ```
 +
@@ -286,7 +285,7 @@ image::/picture/r1_openwrt_2.png[r1_openwrt_2.png]
 
 NOTE: 2018-07-28 update android 4.4 HDMI version image
 
-Features Map: http://wiki.banana-pi.org/R1_Image_Map
+Features Map: http://newwiki.banana-pi.org/en/BPI-R1/R1_Image_Map
 
 Baidu Drive: https://pan.baidu.com/s/1dorsPZAqCbL1oC6J4zQyvQ
 
@@ -484,9 +483,6 @@ NOTE: Forum pthread: http://forum.banana-pi.org/t/asterisk-for-banana-pi-bpi-r1-
 
 === Others
 NOTE: You can fine others image at forum : http://forum.banana-pi.org/c/bpi-r1
-
-= FAQ
-
 
 
 = Easy to buy
