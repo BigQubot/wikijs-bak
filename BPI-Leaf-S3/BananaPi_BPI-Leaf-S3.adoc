@@ -1,0 +1,254 @@
+= BPI-Leaf-S3 Introduction
+
+The Banana Pi BPI-Leaf-S3 is a series of low-powered microcontrollers designed for IoT development and Maker DIY board.It supports 2.4 GHz Wi-Fi and Bluetooth® LE dual-mode wireless communication, the peripheral is compatible with low-power hardware design, and the power consumption is only 10uA in deep sleep mode.
+
+The main controller supports two power supply inputs: USB and external 3.7V lithium battery, both can be interchangable freely. The battery could also be charged while USB is plugged in. Compact size, various interface, easy to use, and can be directly applied to low-power IoT projects.
+
+In terms of programming, the Leaf-S3 supports ESP-IDF, Arduino, micropython and other methods.
+
+The IO pins on BPI-Leaf-S3 are identical to the Espressif ESP32-S3-DevKitC-1, developers can add peripherals that are supported by DevKitC-1 onto the BPI-Leaf-S3, and can also combine it onto a breadboard.
+
+image::/picture/bpi_leaf_s3_banner.jpg[bpi_leaf_s3_banner.jpg]
+
+== Key Features
+
+* ESP32-S3，Xtensa® 32 bit LX7
+* Extereal FLASH 8MB 
+* In-packge PSRAM 2MB
+* Ultra-low power 10uA
+* 2.4G WIFI ，Bluetooth 5 ，Bluetooth mesh
+* GPIO , ADC , TOUCH , PWM , I2C , SPI , RMT , I2S , UART , LCD，CAMERA ，USB , JTAG
+* 1* SH 1mm 4-Pin Socket, support I2C
+* 1 * USB Type-C
+* 1 * MX 1.25mm 2-Pin Socket，support USB charging
+* 1 * Neopixel LED
+
+
+== Getting Start
+
+link:/en/BPI-xx/GettingStarted_BPI-Leaf-S3[Getting Started BPI-Leaf-S3]
+
+= Hardware
+== Hardware Interface
+
+image::/picture/bpi_leaf_s3_board_interface.jpg[bpi_leaf_s3_board_interface.jpg]
+
+== Hardware Spec
+
+[option="header",cols="1,3"]
+|=====
+2+| **HardWare Specification of BPI-Leaf-S3**
+| SoC                            | ESP32-S3，Xtensa® dual-core 32-bit LX7 microprocessor                                                
+| Clock Frequency                | 240MHz MAX                                                                                          
+| Operating Temperature          | -40℃~+85℃                                                                                           
+| Internal ROM                   | 384 KB                                                                                              
+| Internal SRAM                  | 512 KB                                                                                              
+| Onboard FLASH ROM              | 8MB                                                                                                 
+| In-packge PSRAM                | 2MB                                                                                                 
+| WIFI                           | IEEE 802.11 b/g/n ，2.4Ghz，150Mbps                                                                   
+| Bluetooth                      | Bluetooth 5 ，Bluetooth mesh                                                                         
+| GPIO                           | BPI-Leaf-S3 has led out 36 available gpios                                                          
+| ADC                            | 2 × 12-bit SAR ADCs, up to 20 channels                                                              
+| Touch Sensor                   | 14                                                                                                  
+| SPI                            | 4                                                                                                   
+| I2C                            | 2                                                                                                   
+| I2S                            | 2                                                                                                   
+| LCD                            | 1 × LCD interface (8-bit ~16-bit parallel RGB, I8080 and MOTO6800)                                  
+| CAMERA                         | 1 × DVP 8-bit ~16-bit camera interface                                                              
+| UART                           | 3                                                                                                   
+| PWM                            | 8 channels 14 bits                                                                                  
+| MCPWM                          | 2                                                                                                   
+| USB                            | 1 × full-speed USB OTG，female Type-C socket                                                         
+| USB Serial/JTAG controller     | 1，CDC-ACM ，JTAG                                                                                     
+| Temperature Sensor             | 1，ranging from -20 °C to 110 °C                                                                     
+| SD/MMC                         | 1 × SDIO host controller with 2 slots,SD 3.0,SD 3.01,SDIO 3.0,CE-ATA 1.1,MMC 4.41,eMMC 4.5,eMMC 4.51
+| TWAI® controller               | 1 ，compatible with ISO 11898-1 (CAN Specification 2.0)                                              
+| General DMA controller (GDMA)  | 5 transmit channels and 5 receive channels                                                          
+| RMT                            | 4 TX channels,4RX channels.Eight channels share a 384 x 32-bit RAM                                  
+| Pulse Count Controller         | 4 independent pulse counters (units).Each unit consists of two independent channels                 
+| Timers                         | 4 × 54-bit general-purpose timers. 1 × 52-bit system timer. 3 × watchdog timers                     
+| External crystal oscillator    | 40Mhz                                                                                               
+| RTC and Low­Power Management   | Power Management Unit (PMU) + Ultra-­Low-­Power Coprocessor(ULP)                                    
+| Deep-sleep consumption current | 10uA                                                                                                
+| Operating Voltage              | 3.3V                                                                                                
+| Input Voltage                  | 3.3V~5.5V                                                                                           
+| Maximum discharge current      | 2A@3.3V DC/DC                                                                                       
+| USB charge                     | Support                                                                                             
+| Maximum charging current       | 500mA                                                                                               
+| Neopixel LED                   | 1
+|=====
+
+== GPIO Pin Define
+
+=== BPI-xx 40PIN GPIO
+
+xxxx
+
+image::/picture/bpi-m1_26_pin.png[bpi-m1_26_pin.png]
+
+[option="header",cols="1,1,1",width=50%]
+|=====
+3+| **40 PIN GPIO of Banana pi BPI-M1**
+| Peripheral Interface        | Signal                                                             | Pin                  
+| ADC                         | ADC1_CH0~9                                                         | GPIO 1~10            
+|                             | ADC2_CH0~9                                                         | GPIO 11~20           
+| Touch sensor                | TOUCH1~14                                                          | GPIO 1~14            
+| JTAG                        | MTCK                                                               | GPIO 39              
+|                             | MTDO                                                               | GPIO 40              
+|                             | MTDI                                                               | GPIO 41              
+|                             | MTMS                                                               | GPIO 42              
+| UART                        | The pins are assigned by default, and can be redefined to any GPIO |                      
+|                             | U0RXD_in                                                           | GPIO 44              
+|                             | U0CTS_in                                                           | GPIO 16              
+|                             | U0DSR_in                                                           | any GPIO             
+|                             | U0TXD_out                                                          | GPIO43               
+|                             | U0RTS_out                                                          | GPIO 15              
+|                             | U0DTR_out                                                          | any GPIO             
+|                             | U1RXD_in                                                           | GPIO 18              
+|                             | U1CTS_in                                                           | GPIO 20              
+|                             | U1DSR_in                                                           | any GPIO             
+|                             | U1TXD_out                                                          | GPIO 17              
+|                             | U1RTS_out                                                          | GPIO 19              
+|                             | U1DTR_out                                                          | any GPIO             
+|                             | U2                                                                 | any GPIO             
+| I2C                         | any GPIO                                                           |                      
+| PWM                         | any GPIO                                                           |                      
+| I2S                         | any GPIO                                                           |                      
+| LCD                         | any GPIO                                                           |                      
+| CAMERA                      | any GPIO                                                           |                      
+| RMT                         | any GPIO                                                           |                      
+| SPI0/1                      | Used for FLASH and PSRAM                                           |                      
+| SPI2/3                      | any GPIO                                                           |                      
+| Pulse counter               | any GPIO                                                           |                      
+| USB OTG                     | D-                                                                 | GPIO 19（on-chip PHY） 
+|                             | D+                                                                 | GPIO 20（on-chip PHY） 
+|                             | VP                                                                 | GPIO 42（external PHY）
+|                             | VM                                                                 | GPIO 41（external PHY）
+|                             | RCV                                                                | GPIO21（external PHY） 
+|                             | OEN                                                                | GPIO 40（external PHY）
+|                             | VPO                                                                | GPIO 39（external PHY）
+|                             | VMO                                                                | GPIO38（external PHY） 
+| USB Serial/JTAG             | D-                                                                 | GPIO 19（on-chip PHY） 
+|                             | D+                                                                 | GPIO 20（on-chip PHY） 
+|                             | VP                                                                 | GPIO 42（external PHY）
+|                             | VM                                                                 | GPIO 41（external PHY）
+|                             | OEN                                                                | GPIO 40（external PHY）
+|                             | VPO                                                                | GPIO 39（external PHY）
+|                             | VMO                                                                | GPIO38（external PHY） 
+| SD/MMC                      | any GPIO                                                           |                      
+| MCPWM                       | any GPIO                                                           |                      
+| TWAI                        | any GPIO                                                           |                      
+| Neopixel LED                | GPIO 48                                                            |       
+|=====
+
+=== BPI-M5 Debug UART
+
+|=====
+|CONx-P1  | GND
+|CONx-P2  | UART0-RX
+|CONx-P3  | UART0-TX
+|=====
+
+= Development
+== Source Code
+
+=== Linux BSP Source Code
+
+TIP: Linux BSP source code
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+=== Android
+
+TIP: Linux BSP source code
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+== Resources
+
+= System Image
+== Android
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+== Linux
+
+=== Ubuntu
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+=== Debian
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+=== CentOS
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+== Third part image
+
+=== Raspbian
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+=== Armbian
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+=== EmuELEC
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+=== CoreELEC
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+= FAQ
+
+
+
+= Easy to buy
+
+WARNING: SINOVOIP Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M1/1100417230_40000003426518.html
+
+WARNING: Bipai Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M1/1101951077_40000003418620.html
+
+WARNING: Taobao Shop: https://shop108780008.taobao.com/category-1694930629.htm
+
+WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
