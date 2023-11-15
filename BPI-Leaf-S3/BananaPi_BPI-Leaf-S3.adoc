@@ -68,8 +68,8 @@ image::/picture/bpi_leaf_s3_board_interface.jpg[bpi_leaf_s3_board_interface.jpg]
 | Pulse Count Controller         | 4 independent pulse counters (units).Each unit consists of two independent channels                 
 | Timers                         | 4 × 54-bit general-purpose timers. 1 × 52-bit system timer. 3 × watchdog timers                     
 | External crystal oscillator    | 40Mhz                                                                                               
-| RTC and Low­Power Management   | Power Management Unit (PMU) + Ultra-­Low-­Power Coprocessor(ULP)                                    
-| Deep-sleep consumption current | 10uA                                                                                                
+| RTC and Low Power Management   | Power Management Unit (PMU) + Ultra-Low-Power Coprocessor(ULP)                                    
+| Deep-sleep consumption current | 10uA                                                                                               
 | Operating Voltage              | 3.3V                                                                                                
 | Input Voltage                  | 3.3V~5.5V                                                                                           
 | Maximum discharge current      | 2A@3.3V DC/DC                                                                                       
@@ -77,6 +77,21 @@ image::/picture/bpi_leaf_s3_board_interface.jpg[bpi_leaf_s3_board_interface.jpg]
 | Maximum charging current       | 500mA                                                                                               
 | Neopixel LED                   | 1
 |=====
+
+== Hardware Size
+image::/picture/bpi_leaf_s3_board_board_dimension.jpg[bpi_leaf_s3_board_board_dimension.jpg] 
+
+[options="header"]
+|===========================================================
+2+| **BPI-Leaf-S3 Dimensions**
+| Pin spacing           | 2.54mm                            
+| Mounting hole spacing | 23mm/ 62.25mm                     
+| Mounting hole size    | bore 2mm/outside 3mm              
+| Motherboard size      | 26 × 65.25(mm)/1.02 x 2.57(inches)
+| board thickness       | 1.2mm                             
+|===========================================================
+
+The pin spacing is breadboard compatible for easy application debugging.
 
 == GPIO Pin Define
 
@@ -137,94 +152,13 @@ image::/picture/bpi_leaf_s3_board_interface.jpg[bpi_leaf_s3_board_interface.jpg]
 
 
 = Development
-== Source Code
-
-=== Linux BSP Source Code
-
-TIP: Linux BSP source code
-
-xxxxxxxxxx
-
-xxxxxxxxxx
-
-=== Android
-
-TIP: Linux BSP source code
-
-xxxxxxxxxx
-
-xxxxxxxxxx
-
 == Resources
 
-= System Image
-== Android
+TIP:  https://github.com/BPI-STEAM/BPI-PicoW-Doc/blob/main/sch/BPI-PicoW-V0.4.pdf[BPI-PicoW-S3 schematic]
 
-NOTE: 20xx-xx-xx release, xxxxxxx image
+TIP:  https://www.espressif.com/sites/default/files/documentation/esp32-s3_datasheet_en.pdf[ESP32-S3 Datasheet]
 
-xxxxxxxxxx
-
-xxxxxxxxxx
-
-== Linux
-
-=== Ubuntu
-
-NOTE: 20xx-xx-xx release, xxxxxxx image
-
-xxxxxxxxxx
-
-xxxxxxxxxx
-
-=== Debian
-
-NOTE: 20xx-xx-xx release, xxxxxxx image
-
-xxxxxxxxxx
-
-xxxxxxxxxx
-
-=== CentOS
-
-NOTE: 20xx-xx-xx release, xxxxxxx image
-
-xxxxxxxxxx
-
-xxxxxxxxxx
-
-== Third part image
-
-=== Raspbian
-
-NOTE: 20xx-xx-xx release, xxxxxxx image
-
-xxxxxxxxxx
-
-xxxxxxxxxx
-
-=== Armbian
-
-NOTE: 20xx-xx-xx release, xxxxxxx image
-
-xxxxxxxxxx
-
-xxxxxxxxxx
-
-=== EmuELEC
-
-NOTE: 20xx-xx-xx release, xxxxxxx image
-
-xxxxxxxxxx
-
-xxxxxxxxxx
-
-=== CoreELEC
-
-NOTE: 20xx-xx-xx release, xxxxxxx image
-
-xxxxxxxxxx
-
-xxxxxxxxxx
+TIP:  https://www.espressif.com/sites/default/files/documentation/esp32-s3_technical_reference_manual_en.pdf[ESP32-S3 Technical Reference Manual]
 
 = FAQ
 
@@ -232,10 +166,10 @@ xxxxxxxxxx
 
 = Easy to buy
 
-WARNING: SINOVOIP Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M1/1100417230_40000003426518.html
+WARNING: BIPAI Aliexpress shop: https://www.aliexpress.com/item/1005004701866550.html?
 
-WARNING: Bipai Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M1/1101951077_40000003418620.html
+WARNING: SINOVOIP Aliexpress shop : https://www.aliexpress.com/item/1005004428945296.html?spm=5261.ProductManageOnline.0.0.48af4edfYbyEoI
 
-WARNING: Taobao Shop: https://shop108780008.taobao.com/category-1694930629.htm
+WARNING: Taobao shop : https://item.taobao.com/item.htm?spm=a2126o.success.0.0.29034831FGnLQW&id=677287234553
 
-WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
+WARNING: OEM&OEM customized service ： sales@banana-pi.com
