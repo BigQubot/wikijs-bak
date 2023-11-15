@@ -32,7 +32,7 @@ image::/picture/bpi-m2s_s922x_new.jpg[bpi-m2s_s922x_new.jpg]
 
 == Hardware Spec
 
-[option="header",cols="1,4"]
+[options="header",cols="1,4"]
 |=====
 2+| **HardWare Specification of Banana Pi M2 Super**
 | SoC | Amlogic A311D hexa-core processor with 4x Arm Cortex-A73 cores, 2x Arm Cortex-A53 cores, Arm Mali-G52 MP4 (6EE) GPU with OpenGL ES 3.2, Vulkan 1.0 and OpenCL 2.0 support, 5 TOPS NPU
@@ -57,7 +57,7 @@ MIPI CSI connector for camera
 
 === BPI-M2 Super 40PIN GPIO
 
-[option="header",cols="1,1,1,1"]
+[options="header",cols="1,1,1,1"]
 |=====
 4+| **40 PIN GPIO of Banana pi BPI-M2 Super**
 | GPIO Pin Name	| Default ：GPIO	| Function2	| Function3
@@ -182,7 +182,7 @@ BPI-M5 rtl8822cs WiFi&BT board,SDIO interface, 802.11 a/b/g/n/ac 2T2R WiFi and B
 
 PoE support RT9600-5V PoE module
 
-link:https://wiki.banana-pi.org/BPI-9600_IEEE_802.3af_PoE_module[BPI-9600 IEEE 802.3af PoE module]
+link:https://newwiki.banana-pi.org/en/BPI-9600_IEEE_802_3af_PoE_module[BPI-9600 IEEE 802.3af PoE module]
 
 = Development
 == Source Code
@@ -324,9 +324,6 @@ Baidu Cloud: https://pan.baidu.com/s/1xPL6t4sbJjv3DzwPddZ2GQ?pwd=8888
 Google Drive: https://drive.google.com/drive/folders/1vCpzC7sM42amOHqGcSjaZF6YovGg-xk3?usp=share_link
 
 Discuss on the forum: https://forum.banana-pi.org/t/banana-pi-bpi-m2s-new-image-release-armbian-jammy-current/14637
-
-= FAQ
-
 
 
 = Easy to buy
