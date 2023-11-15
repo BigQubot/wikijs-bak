@@ -3,7 +3,14 @@ TIP: link:https://newwiki.banana-pi.org/en/BPI-M4/BananaPi_BPI-M4[Banana Pi BPI 
 == Android 8.1 HDMI
 === Kernel 4.9.119
 Features Map
-
+[options="header" cols="1,1,1,1,3"]
+|=====
+| Image           | Features    | Sub-Features  | Status     | Performance 
+.14+| Android  .2+| USB         | HID           | YES        |             
+                                | Storage       | YES        |                                 | Emac        |               | YES        |                              .2+| WiFi        | WiFi Client   | Developing | 2.4G & 5G                                     | AP mode       | YES        | 2.4G:Download 42Mbps, Upload 10Mbps & 5G:Download 49Mbps, Upload 12Mbps 
+               .2+| Bluetooth   | BT            | YES        |                                               | BLE           | Unknown    |                                 | HDMI        | 720P          | YES        |                                 | EMMC        | Recognise     | YES        | fdisk -h can recognise EMMC, and can burn image on EMMC 
+                  | OTG         | adb           | YES        |                                 | 1080P       | MPV           | YES        |                                 | 4K TV       |               | Unknown    |                                 | Audio Codec |               | YES        | sound & record                   | GPU         | OpenGL        | YES        | OpenGL ES 2.0
+|=====
 
 == Ubuntu 18.04 Mate
 === Kernel 4.9.119
