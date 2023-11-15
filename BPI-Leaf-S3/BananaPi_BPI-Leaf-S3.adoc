@@ -35,7 +35,7 @@ image::/picture/bpi_leaf_s3_board_interface.jpg[bpi_leaf_s3_board_interface.jpg]
 
 == Hardware Spec
 
-[option="header",cols="1,3"]
+[options="header",cols="1,3"]
 |=====
 2+| **HardWare Specification of BPI-Leaf-S3**
 | SoC                            | ESP32-S3，Xtensa® dual-core 32-bit LX7 microprocessor                                                
@@ -95,7 +95,7 @@ The pin spacing is breadboard compatible for easy application debugging.
 
 == GPIO Pin Define
 
-[option="header",cols="1,1,1",width=50%]
+[options="header",cols="1,1,1",width=50%]
 |=====
 3+| **40 PIN GPIO of Banana pi BPI-M1**
 | Peripheral Interface        | Signal                                                             | Pin                  
