@@ -35,7 +35,7 @@ image::/picture/dc090_size.png[dc090_size.png]
 
 == Hardware Spec
 
-[option="header",cols="1,5"]
+[options="header",cols="1,5"]
 |=====
 2+| **HardWare Specification of Banana Pi W2**
 | Soc                                 | Realtek RTD1296 quad-core ARM A53
@@ -72,7 +72,7 @@ image::/picture/dc090_size.png[dc090_size.png]
 
 === BPI-W2 40PIN GPIO
 
-[option="header",cols="1,1,1"]
+[options="header",cols="1,1,1"]
 |=====
 3+| **40 PIN GPIO of Banana pi BPI-W2**
 | GPIO Pin Name	| Default Function	| Function 2：GPIO
@@ -208,7 +208,7 @@ NOTE: 2019-8-16 update This release is for banana pi W2 board, and it is based o
 
 **Android 6.0**
 
-Fetures Map: http://wiki.banana-pi.org/W2_Image_Map#Android_6.0_HDMI
+Fetures Map: http://newwiki.banana-pi.org/en/BPI-W2/W2_Image_Map#_android_6_0_hdmi
 
 Google Drive : https://drive.google.com/open?id=1cblHB2rKnDOZmhxbHL79k3QlYfAHOdBe
 
@@ -218,7 +218,7 @@ MD5 : 1a90335d798863e31f99c1fae615c43c
 
 **Android 7.1**
 
-Fetures Map: http://wiki.banana-pi.org/W2_Image_Map#Android_7.1_HDMI
+Fetures Map: http://newwiki.banana-pi.org/en/BPI-W2/W2_Image_Map#_android_7_1_hdmi
 
 Google Drive : https://drive.google.com/open?id=1j1n10Wh9jE7TCDMutwLifPavt_PJ-5x3
 
@@ -238,7 +238,7 @@ Forum pthread : http://forum.banana-pi.org/t/bpi-w2-android7-new-image-support-g
 
 NOTE: 2019-05-09 update, This release is for banana pi W2 board which is based on RTD1296, Android 6.0 Operation system with kernel 4.1.17.
 
-BPI-W2 Android 6.0 Features Map :http://wiki.banana-pi.org/W2_Image_Map#Android_6.0_HDMI
+BPI-W2 Android 6.0 Features Map :http://newwiki.banana-pi.org/en/BPI-W2/W2_Image_Map#_android_6_0_hdmi
 
 Google Drive : https://drive.google.com/open?id=1h3XhhmY1SQpzDOKCY3hqPoHJlJdkqhuY
 
@@ -256,7 +256,7 @@ NOTE: 2019-6-18 update,This release is for banana pi M4 & W2 board, and it is ba
 
 **BPI-M4/BPI-W2 Ubuntu Mate 18.04**
 
-Fetures Map: http://wiki.banana-pi.org/M4_Image_Map#Ubuntu_18.04_Mate
+Fetures Map: http://newwiki.banana-pi.org/en/BPI-M4/M4_Image_Map#_ubuntu_18_04_mate
 
 Google Drive : https://drive.google.com/open?id=1nPI2dy_KCW4h5korQdvj0iymHIDyxIPq
 
@@ -266,7 +266,7 @@ MD5 : 7409b48a46e0bbc2d0ae2e70a49bfb36
 
 **BPI-M4/BPI-W2 Ubuntu Server 16.04**
 
-Fetures Map: http://wiki.banana-pi.org/M4_Image_Map#Ubuntu_18.04_Mate
+Fetures Map: http://newwiki.banana-pi.org/en/BPI-M4/M4_Image_Map#_ubuntu_18_04_mate
 
 Google Drive : https://drive.google.com/open?id=1G4915FPOU4pDzbI0TCFH8wWXUGmNdlkF
 
@@ -280,7 +280,7 @@ Forum pthread: http://forum.banana-pi.org/t/bpi-m4-demo-image-release-ubuntu-mat
 
 NOTE: 2018-09-17 update.This release is for banana pi W2 board which is based on realtek RTD1296, and it is based on Ubuntu 18.04 operation system with kernel 4.9.119.
 
-W2 Features Map: http://wiki.banana-pi.org/W2_Image_Map
+W2 Features Map: http://newwiki.banana-pi.org/en/BPI-W2/W2_Image_Map
 
 Baidu Drive： https://pan.baidu.com/s/1iLOa1MOgtSqY6dVsQ_SyQg
 
@@ -294,7 +294,7 @@ http://forum.banana-pi.org/t/bpi-w2-new-image-how-to-make-and-run-the-64-bit-ubu
 
 NOTE: 2019-08-13 update BPI-M4/BPI-W2 Debian10 Buster Desktop New Demo Image ,This release is for banana pi M4 and W2 board, and it is based on Debian 10 Operation system with kernel 4.9.Debian 10 buster desktop(32bit)
 
-Fetures Map: http://wiki.banana-pi.org/M4_Image_Map#Debian_10_buster
+Fetures Map: http://newwiki.banana-pi.org/en/BPI-M4/M4_Image_Map#_debian_10_buster
 
 Google Drive : https://drive.google.com/open?id=1rVrZStsw2PINBhIxCzOLOtYLbtoECmEk
 
@@ -311,7 +311,7 @@ NOTE: 2019-08-06 update,BPI-M4/BPI-W2 Debian 10 Buster Lite Demo Image ,This rel
 
 **Debian 10 buster AArch64 (64bit)**
 
-Fetures Map: http://wiki.banana-pi.org/M4_Image_Map#Debian_10_buster
+Fetures Map: http://newwiki.banana-pi.org/en/BPI-M4/M4_Image_Map#_debian_10_buster
 
 Google Drive : https://drive.google.com/open?id=1QyZX5AGUpEV2OZMXz3qkB8riXROXHdx3
 
@@ -321,7 +321,7 @@ MD5 : 5a8b1eb36b782fdd742ba746c645593d
 
 **Debian 10 buster (32bit)**
 
-Fetures Map: http://wiki.banana-pi.org/M4_Image_Map#Debian_10_buster
+Fetures Map: http://newwiki.banana-pi.org/en/BPI-M4/M4_Image_Map#_Debian_10_buster
 
 Google Drive : https://drive.google.com/open?id=1WJlKTMPAipYnDFqIPl_dmR76oobuO5Wd
 
@@ -329,14 +329,9 @@ Baidu Drive : https://pan.baidu.com/s/1lTtcMTWqE0jG_1PWGtWSqw (Pincode:gny6)
 
 MD5 : a59f2e6a298237a08bb523b53372d937
 
-
-**For more info, please see here:** +
-BPI-M4: http://wiki.banana-pi.org/Getting_Started_with_M4 +
-BPI-W2: http://wiki.banana-pi.org/Getting_Started_with_W2
-
 NOTE: 2018-09-18 update.This release is for banana pi W2 board which is based on realtek RTD1296, and it is based on Debian 9 operation system with kernel 4.9.119.
 
-W2 Features Map: http://wiki.banana-pi.org/W2_Image_Map#Debian_9
+W2 Features Map: http://newwiki.banana-pi.org/en/BPI-W2/W2_Image_Map#_debian_9
 
 Baidu Drive： https://pan.baidu.com/s/1bmTektF0ufRL9_FOpdoO2w
 
@@ -367,7 +362,7 @@ http://forum.banana-pi.org/t/bpi-w2-new-image-burn-openwrt-with-linux-kernel-4-4
 
 NOTE: 2019-6-19 update,This release is for banana pi M4 & W2 board, and it is based on Raspbian 9.8 stretch & AArch64 Linux Mate & AArch Linux Lite Operation system with kernel 4.9.119.
 
-Fetures Map: http://wiki.banana-pi.org/M4_Image_Map#Raspbian_9.8_stretch
+Fetures Map: http://newwiki.banana-pi.org/en/BPI-M4/M4_Image_Map#_raspbian_9_8_stretch
 
 Google Drive : https://drive.google.com/open?id=15cypBk4NKL0X8uD3Mffc__Sx05j39xCW
 
@@ -382,7 +377,7 @@ Forum pthread: http://forum.banana-pi.org/t/bpi-m4-bpi-w2-demo-image-release-ras
 
 NOTE: 2018-09-17 uptate ,This release is for banana pi W2 board which is based on realtek RTD1296, and it is based on Raspbian 9.4 operation system with kernel 4.9.119.
 
-BPI-W2 Features Map: http://wiki.banana-pi.org/W2_Image_Map#Raspbian_9.4
+BPI-W2 Features Map: http://newwiki.banana-pi.org/en/BPI-W2/W2_Image_Map#_raspbian_9_4
 
 Baidu Drive： https://pan.baidu.com/s/1aL5ZsHIRwM-1rvnZDiR3EA
 
@@ -417,7 +412,7 @@ Forum pthread: http://forum.banana-pi.org/t/bpi-m4-bpi-w2-demo-image-release-ras
 
 NOTE: 2018-09-25 uptate,This release is for banana pi W2 board which is based on realtek RTD1296, and it is based on OpenSUSE operation system with kernel 4.9.119.
 
-BPI-W2 Features Map: http://wiki.banana-pi.org/W2_Image_Map
+BPI-W2 Features Map: http://newwiki.banana-pi.org/en/BPI-W2/W2_Image_Map
 
 Baidu Drive： https://pan.baidu.com/s/1UZl-UFUugPhCPaFHBB9_GA
 
@@ -430,7 +425,7 @@ Forum pthrad: http://forum.banana-pi.org/t/bananapi-bpi-w2-new-image-opensuse-re
 
 NOTE: 2018-09-25 update,This release is for banana pi W2 board which is based on realtek RTD1296, and it is based on Kali operation system with kernel 4.9.119.
 
-BPI-W2 Features Map: http://wiki.banana-pi.org/W2_Image_Map
+BPI-W2 Features Map: http://newwiki.banana-pi.org/en/BPI-W2/W2_Image_Map
 
 Baidu Drive： https://pan.baidu.com/s/1eslUG_xlHHsGwHk_Lq_bVw
 
