@@ -40,7 +40,7 @@ image::/picture/bpi-m1_plus_interface_.jpg[bpi-m1_plus_interface_.jpg]
 [options="header",cols="1,3"]
 |=====
 2+| **HardWare Specification of Banana Pi M1+(Plus)**
-| CPU           | A20 ARM Cortex -A7 Dual-Core
+| CPU           ^| A20 ARM Cortex -A7 Dual-Core
 | GPU           | ARM Mali400MP2Complies with OpenGL ES 2.0/1.1
 | Memory        | 1GB DDR3
 | Network       | 10/100/1000 Ethernet
