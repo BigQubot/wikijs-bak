@@ -1,7 +1,5 @@
 = BPI-Centi-S3 Introduction
 
-image::/picture/bpi-centi-s3.jpg[bpi-centi-s3.jpg]
-
 BPI-Centi-S3 is a small-sized ESP32-S3 development board with an
 1.9-inch LCD onboard, suitable for the development of Internet of Things
 application projects including color display, interactive control,
@@ -18,6 +16,8 @@ Support both USB and external 3.7V lithium battery power input. With the
 board’s designed battery voltage detection circuit, it can automatically
 detect and switch to USB power supply when both are connected. And also
 supports USB charging mode, convenient for power management.
+
+image::/picture/bpi-centi-s3.jpg[bpi-centi-s3.jpg]
 
 == Key Features
 
