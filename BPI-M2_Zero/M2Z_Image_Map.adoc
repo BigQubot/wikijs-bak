@@ -1,0 +1,125 @@
+== Android 4.4
+=== Kernel 3.4.2
+Features Map
+[options="header",cols="1,2,2,1,2"]
+|=====
+| Image	         | Features  	  | Sub-Features	| Status	| Performance
+.15+|Android	.3+| USB	        | HID	          | YES     |	
+                                | Storage       | YES	    |
+                                | Usb Camera	  | Unknown	| CameraFi
+              .2+| WiFi	        | WiFi Client	  | YES     |	
+                                | AP mode       |	YES     |	
+              .2+| Bluetooth    |	BT	          | YES     |	
+                                | BLE	          | Unknown	|
+              .2+| CAMERA ov5640| photograph	  | YES	    |
+                                | recording	    | YES	    |
+              .2+| HDMI	        | 1080P	        | YES	    |
+                                | 720P	        | YES	    |
+                 | OTG	        | adb	          | YES     |	
+                 | 1080P	      | MPV           |	YES     |	
+                 | GPU	        | OpenGL	      | YES     |	OpenGL ES 2.0, 50.0fps
+                 | TVCast	      | Television projection	| YES	 |Use HappyCast
+|=====
+
+== Ubuntu 16.04
+=== Kernel 3.4
+Features Map
+[options="header",cols="1,2,2,1,3"]
+|=====
+| Image	         | Features	        | Sub-Features	| Status	   |Performance
+.18+| Ubuntu	.2+| Ethernet to USB	| TCP	          | YES	       | iperf3 test: 350M/s
+                                    | UDP	          | YES	       | iperf3 test: 1M/s
+              .2+| WiFi	            | WiFi Client	  | YES	       |
+                                    | AP mode	      | Developing | hostapd
+              .2+| Bluetooth	      | BT	          | YES	       | bluetoothctl
+                                    | BLE	          | Developing | hcitool
+              .3+| CAMERA ov5640	  | ffmpeg	      | YES	       | /usr/local/bin/cameratest.sh
+                                    | cap	          | YES        | /usr/local/bin/test_ov5640.sh
+                                    | guvcview	    | YES        |	
+             .3+| WiringPI	        | 8x8 LEDs	    | YES	       | /usr/local/bin/bpi_test_hello
+                                    | 1602 LCD	    | YES	       | /usr/local/bin/bpi_test_lcd1602
+                                    | OLED	        | YES        | /usr/local/bin/bpi_test_52pi
+                | HDMI	            | 720P	        | YES        |	
+                | RPI GPIO	        | Recognize	    | YES        | /usr/local/bin/g40.py
+             .2+| OTG	              | adb	          | NO	       | adbd.sh
+                                    | USB Gadget	  | YES	       |
+                | 1080P	            | MPV	          | YES	       |
+                | GPU	              | OpenGL	      | YES	       | glmark2-es2, score: 70
+|=====
+
+=== Kernel 4.14.55
+Features Map
+[options="header",cols="1,2,1,1,3"]
+|=====
+| Image	         | Features      	| Sub-Features	| Status	   | Performance
+.18+| Ubuntu	.2+|Ethernet to USB	| TCP	          | YES	       | iperf3 test: 350M/s
+                                  | UDP	          | YES	       | iperf3 test: 1M/s
+              .2+| WiFi	          | WiFi Client	  | YES        |	
+                                  | AP mode	      | Developing | hostapd
+              .2+| Bluetooth	    | BT	          | YES	       | bluetoothctl
+                                  | BLE	          | Developing | hcitool
+              .3+|CAMERA ov5640	  | ffmpeg	      | Developing | /usr/local/bin/cameratest.sh
+                                  | cap	          | Developing | /usr/local/bin/test_ov5640.sh
+                                  | guvcview	    | Developing |
+              .3+| WiringPI	      | 8x8 LEDs	    | YES        | /usr/local/bin/bpi_test_hello
+                                  | 1602 LCD      | YES	       | /usr/local/bin/bpi_test_lcd1602
+                                  | OLED	        | YES        | 	/usr/local/bin/bpi_test_52pi
+                 | HDMI	          | 720P	        | YES        |	
+                 | RPI GPIO	      | Recognize	    | YES	       | /usr/local/bin/g40.py
+              .2+| OTG	          | adb	          | NO	       | adbd.sh
+                                  | USB Gadget	  | YES	       |
+                 | 1080P          |	MPV           |	YES        |	
+                 | GPU	          | OpenGL	      | Developing | glmark2-es2, score: 70
+|=====
+
+== Raspbian 8.0
+=== Kernel 3.4
+Features Map
+[options="header",cols="1,1,1,1,3"]
+|=====
+| Image	| Features	| Sub-Features	| Status	| Performance
+.18+|Raspbian	.2+| Ethernet to USB	| TCP	| YES	| iperf3 test: 350M/s
+                                    | UDP	| YES	| iperf3 test: 1M/s
+              .2+| WiFi             |	WiFi Client	|YES	|
+                                    | AP mode	| Developing	| hostapd
+              .2+|Bluetooth	        | BT	| YES	| bluetoothctl
+                                    | BLE	| Developing	| hcitool
+              .3+| CAMERA ov5640	  | ffmpeg	| YES	 | /usr/local/bin/cameratest.sh
+                                    | cap	    | YES	 | /usr/local/bin/test_ov5640.sh
+                                    | guvcview| YES	 |
+              .3+| WiringPI	        | 8x8 LEDs|	YES	 | /usr/local/bin/bpi_test_hello
+                                    | 1602 LCD|	YES	 | /usr/local/bin/bpi_test_lcd1602
+                                    | OLED	  | YES  | /usr/local/bin/bpi_test_52pi
+                 | HDMI	            | 720P	  | YES	 |
+                 | RPI GPIO	        | Recognize| YES | /usr/local/bin/g40.py
+                 | OTG	            | adb	    | NO	 |adbd.sh
+                 | USB              | Gadget	| YES	 |
+                 | 1080P	          | MPV	    | YES	 |no audio out
+                 | GPU	            | OpenGL	| Unknown	|
+|=====
+
+== Raspbian 9.4
+=== Kernel 3.4
+Features Map
+[options="header",cols="1,2,1,1,3"]
+|=====
+|Image	|Features	|Sub-Features	|Status	|Performance
+.18+|Raspbian	.2+|Ethernet to USB	|TCP	|YES	|iperf3 test: 350M/s
+|UDP	|YES	|iperf3 test: 1M/s
+.2+|WiFi	|WiFi Client	|YES	|
+|AP mode	|Developing	|hostapd
+.2+|Bluetooth	|BT	|YES	|bluetoothctl
+|BLE	|Developing	|hcitool
+.3+|CAMERA ov5640	|ffmpeg	|YES	|/usr/local/bin/cameratest.sh
+|cap	|YES	|/usr/local/bin/test_ov5640.sh
+|guvcview	|YES	|
+.3+|WiringPI	|8x8 LEDs	|YES	|/usr/local/bin/bpi_test_hello
+|1602 LCD	|YES	|/usr/local/bin/bpi_test_lcd1602
+|OLED	|YES	|/usr/local/bin/bpi_test_52pi
+|HDMI	|720P	|YES	|
+|RPI GPIO	|Recognize	|YES	|/usr/local/bin/g40.py
+|OTG	|adb	|NO	|adbd.sh
+|USB |Gadget	|YES	|
+|1080P	|MPV	|YES	|no audio out
+|GPU	|OpenGL	|Unknown	|
+|=====
