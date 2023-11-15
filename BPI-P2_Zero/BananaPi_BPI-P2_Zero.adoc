@@ -34,7 +34,7 @@ image::/picture/bpi-p2_zero_interface.jpg[bpi-p2_zero_interface.jpg]
 
 == Hardware Spec
 
-[option="header",cols="1,3"]
+[options="header",cols="1,3"]
 |=====
 2+| **HardWare Specification of Banana Pi P2 Zero**
 | Module                | Banana Pi BPI-P2 Zero 
@@ -66,7 +66,7 @@ image::/picture/bpi-p2_zero_interface.jpg[bpi-p2_zero_interface.jpg]
 
 === BPI-P2 Zero 40PIN GPIO
 
-[option="header",cols="1,1,1,1"]
+[options="header",cols="1,1,1,1"]
 |=====
 4+| **40 PIN GPIO of Banana pi BPI-P2 Zero**
 | GPIO Pin Name	| Default Function	| Function2：GPIO	| Function3
@@ -116,7 +116,7 @@ image::/picture/bpi-p2_zero_interface.jpg[bpi-p2_zero_interface.jpg]
 
 The CSI Camera Connector is a 24-pin FPC connector which can connect external camera module with proper signal pin mappings. The pin definitions of the CSI interface are shown as below. This is marked on the Banana Pi board as “CSI″.
 
-[option="header",cols="1,1,1"]
+[options="header",cols="1,1,1"]
 |=====
 3+| **24 PIN CSI Camera connector of Banana pi BPI-P2 Zero**
 |CSI Pin Name	| Default Function	| Function2：GPIO
@@ -212,7 +212,7 @@ Discuss on forum: http://forum.banana-pi.org/t/banana-pi-bpi-m2-zero-new-image-2
 
 NOTE: 2019-4-30 update BPI-M2 Zero & BPI-P2 Zero Ubuntu Server 16.04
 
-Features Map: http://wiki.banana-pi.org/M2Z_Image_Map#Kernel_3.4
+Features Map: http://newwiki.banana-pi.org/en/BPI-M2_Zero/M2Z_Image_Map#_kernel_3_4
 
 Google Drive : https://drive.google.com/open?id=1nTrali0w7GgcGatu-jxyJR-sF06rMN39
 
@@ -224,7 +224,7 @@ Forum pthread: http://forum.banana-pi.org/t/bananapi-bpi-m2z-bpi-p2-zero-h2-new-
 
 NOTE: 2018-4-30 update BPI-M2 Zero & P2Zero Ubuntu Desktop 16.04
 
-Features Map: http://wiki.banana-pi.org/M2Z_Image_Map#Kernel_3.4
+Features Map: http://newwiki.banana-pi.org/en/BPI-M2_Zero/M2Z_Image_Map#_kernel_3_4
 
 Google Drive : https://drive.google.com/open?id=14_qm7Nk3FIycIC95ghVyeFz2xEbKjuSx
 
@@ -236,7 +236,7 @@ Forum pthread: http://forum.banana-pi.org/t/bananapi-bpi-m2z-bpi-p2-zero-h2-new-
 
 NOTE: 2018-08-17 update Ubuntu image V1.0 release This release is for BPI-P2 Zero board which is based on Allwinner H2+, We have one demo image release，Ubuntu 16.04 is based on kernel 3.4.
 
-Features Map : http://wiki.banana-pi.org/P2Z_Image_Map
+Features Map : http://newwiki.banana-pi.org/en/BPI-P2_Zero/P2Z_Image_Map
 
 Google Drive : https://drive.google.com/open?id=1izY4ib2roA4I9s4psbXqZq5sBXLkCgBE
 
@@ -298,9 +298,6 @@ Google Drive:  https://drive.google.com/file/d/1_rsQthyCU4HaN8tcGsPMvzt6dMwaRI-A
 Baidu Cloud: https://pan.baidu.com/s/1RKJzzpMOHnFW0nj8I-NJIA?pwd=rk22 PinCode: rk22
 
 MD5: f4dfbe234c21a6038f50f699780d4e03
-
-= FAQ
-
 
 
 = Easy to buy
