@@ -54,7 +54,9 @@ I got an error at this point related to “**unzip**” not being a valid comman
 I just ran the command: "**sudo apt-get install unzip**" +
 Re-ran the command: "**sudo bpi-copy**"… listed above
 
-- The boot order for the Bpi M5 is Start ROM:Boot EMMC and then Boot SD Card, so if you want to go back to booting from the SD Card after installing an OS on the EMMC, you will have to erase it first and start over. +
+- The boot order for the Bpi M5 is Start ROM:Boot EMMC and then Boot SD Card, so if you want to go back to booting from the SD Card after installing an OS on the EMMC, you will have to erase it first and start over. 
++
 To erase the EMMC for SD Card bootup:
+
  * Connect the M5 to your computer via USB debug console cable
  * Use the Amlogic USB Burning Tool to format the EMMC
