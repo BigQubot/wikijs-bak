@@ -37,7 +37,7 @@ image::/picture/banana_pi_bpi-p2_pro.jpg[banana_pi_bpi-p2_pro.jpg]
 
 == Hardware Spec
 
-[option="header",cols="1,3"]
+[options="header",cols="1,3"]
 |=====
 2+| **HardWare Specification of Banana Pi P2 Pro**
 | SOC                   | RockChip RK3308B-S
@@ -66,7 +66,7 @@ image::/picture/banana_pi_bpi-p2_pro.jpg[banana_pi_bpi-p2_pro.jpg]
 
 === BPI-P2 Pro 40PIN GPIO
 
-[option="header",cols="1,2,2,2,1"]
+[options="header",cols="1,2,2,2,1"]
 |=====
 5+| **40 PIN GPIO of Banana pi BPI-P2 Pro**
 | Pin# | Function1 | Function2 | Function3 | RK3308B-S SOC Pin No.
@@ -114,7 +114,7 @@ image::/picture/banana_pi_bpi-p2_pro.jpg[banana_pi_bpi-p2_pro.jpg]
 
 === 12 PIN GPIO
 
-[option="header",cols="1,2,2,2,2,1"]
+[options="header",cols="1,2,2,2,2,1"]
 |=====
 | Pin# | Function1 | Function2 | Function3 | Function4 | RK3308B-S SOC Pin No.
 | 1  | GPIO2_A1 | SPI0_TX  | UART0_TX    |          | 65
@@ -133,7 +133,7 @@ image::/picture/banana_pi_bpi-p2_pro.jpg[banana_pi_bpi-p2_pro.jpg]
 === POE
 TIP: We deign a IEEE 802.3at PoE module for BPI-P2 Zero ,easy to support PoE function,more spec ,please check BPI-9600 PoE module spec
 
-link:https://wiki.banana-pi.org/BPI-9600_IEEE_802.3af_PoE_module[BPI-9600 IEEE 802.3af PoE module]
+link:https://newwiki.banana-pi.org/en/BPI-9600_IEEE_802_3af_PoE_module[BPI-9600 IEEE 802.3af PoE module]
 
 = Development
 == Source Code
@@ -166,6 +166,7 @@ NOTE: BPI-P2 pro Tools
 Baidu cloud : https://pan.baidu.com/s/1ocWvRUz4IFCoZBjSx7MavQ?pwd=arms Pincode:arms
 
 Google drive: https://drive.google.com/drive/folders/1WJxMzmInB1xr3DpDQXYblU0iM9RbsmPF?usp=drive_link
+
 == Linux
 
 === Buildroot
@@ -198,9 +199,6 @@ NOTE: BPI-P2 pro armbian image
 Baidu cloud  : https://pan.baidu.com/s/1wvy4iBUu8-E3PsH8YXmNOQ?pwd=arms Pincode: arms
 
 Google drive: https://drive.google.com/drive/folders/1vkIgdQTS632QeToFfyqUcMjvxrB3qbuB?usp=drive_link
-
-= FAQ
-
 
 
 = Easy to buy
