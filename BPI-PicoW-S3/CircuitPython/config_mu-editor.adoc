@@ -1,0 +1,25 @@
+## Download and install Mu editor
+
+. Enter https://codewith.mu/[**Mu Editing Organ Network**], click the **Download** button to enter the new page.
++
+image::/picture/bpi_picow_s3_download_mu_1.jpg[bpi_picow_s3_download_mu_1.jpg]
+
+. Select the operating system currently used by your computer, and click the **Download** button corresponding to the operating system to start downloading the installation package.
++
+image::/picture/bpi_picow_s3_download_mu_2.png[bpi_picow_s3_download_mu_1.png]
+
+. Click the **Instuctions** button corresponding to the operating system to view the detailed installation steps, and install according to the guidelines.
++
+image::/picture/bpi_picow_s3_download_mu_3.jpg[bpi_picow_s3_download_mu_3.jpg]
+
+## Establish the connection
+
+> BPI-PicoW-S3 has been installed with tinyUF2 and CircuitPython firmware.
+
+. Start the Mu editor and change the mode to CircuitPython. If you have connected the CircuitPython development board correctly, you will be prompted whether to switch to this mode directly.
++
+image::/picture/bpi_picow_s3_download_mu_4.png[bpi_picow_s3_download_mu_4.png]
+
+. Click the **Serial** button, then press any key to enter the CircuitPython REPL.
++
+image::/picture/bpi_picow_s3_download_mu_5.jpg[bpi_picow_s3_download_mu_5.jpg]
