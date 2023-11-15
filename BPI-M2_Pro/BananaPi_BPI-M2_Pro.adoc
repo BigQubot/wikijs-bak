@@ -28,7 +28,7 @@ image::/picture/bpi-m2_pro_interface.jpg[bpi-m2_pro_interface.jpg]
 
 == Hardware Spec
 
-[option="header",cols="1,3"]
+[options="header",cols="1,3"]
 |=====
 2+| **HardWare Specification of Banana Pi M2 Pro**
 | CPU             | Amlogic S905X3 64-bit Quad-Core Cortex-A55 (2.0xxGHz)
@@ -52,7 +52,7 @@ image::/picture/bpi-m2_pro_interface.jpg[bpi-m2_pro_interface.jpg]
 
 === BPI-M2 Pro 40PIN GPIO
 
-[option="header",cols="1,1,1,1"]
+[options="header",cols="1,1,1,1"]
 |=====
 4+| **40 PIN GPIO of Banana pi BPI-M2 Pro**
 | GPIO Pin Name	| Default Function	| Function2	| Function3
@@ -308,9 +308,6 @@ NOTE: Manjaro porting for BPI-M5 from Official Image for Odroid C4, the ported i
 Download Link: https://mega.nz/folder/BuZWkLhC#phC9KSsassB4bmkAegYykA
 
 discuss on forum : https://forum.banana-pi.org/t/manjaro-for-bpi-m5/12726
-
-= FAQ
-
 
 
 = Easy to buy
