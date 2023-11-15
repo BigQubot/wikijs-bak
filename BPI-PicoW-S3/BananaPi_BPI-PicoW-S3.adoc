@@ -100,7 +100,7 @@ image::/picture/bpi-pico-s3-board-dimension.png[bpi-pico-s3-board-dimension.png]
 |Thickness|	1.2mm
 |=====
 
-== GPIO define
+== Pin define
 
 [options="header",cols="1,1,1",width=60%]
 |=====
@@ -168,6 +168,10 @@ TIP:  https://github.com/BPI-STEAM/BPI-PicoW-Doc/blob/main/sch/BPI-PicoW-V0.4.pd
 TIP:  https://www.espressif.com/sites/default/files/documentation/esp32-s3_datasheet_en.pdf[ESP32-S3 Datasheet]
 
 TIP:  https://www.espressif.com/sites/default/files/documentation/esp32-s3_technical_reference_manual_en.pdf[ESP32-S3 Technical Reference Manual]
+
+= Firmware
+
+NOTE: https://circuitpython.org/board/bpi_picow_s3/[CircuitPython Firmware Download Page]
 
 = Easy to buy sample
 
