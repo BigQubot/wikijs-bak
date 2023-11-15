@@ -42,7 +42,7 @@ image::/picture/bpi-picow-s3-v0.4-io.png[bpi-picow-s3-v0.4-io.png]
 
 == Hardware spec
 
-[option="header",cols="1,3"]
+[options="header",cols="1,3"]
 |=====
 2+| **HardWare Specification of BPI-PicoW-S3**
 | SoC                           | ESP32-S3, Xtensa® 32-bit LX7 dual core                                                                                      
@@ -90,7 +90,7 @@ The pin spacing is compatible with universal boards (hole boards, dot matrix boa
 
 image::/picture/bpi-pico-s3-board-dimension.png[bpi-pico-s3-board-dimension.png]
 
-[option="header",cols="1,3"]
+[options="header",cols="1,3"]
 |=====
 2+| **BPI-PicoW-S3 size Spec**
 |Pin spacing|	2.54mm
