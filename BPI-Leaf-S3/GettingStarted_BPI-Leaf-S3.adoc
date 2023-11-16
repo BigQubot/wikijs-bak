@@ -16,16 +16,12 @@ recommended for beginners to use MicroPython to develop and learn.
 == Use MicroPython to get started quickly
 
 . See link:./MicroPython/environment.md[Install and configure the
-environment], install Python 3, mpremote tool, mpbridge tool, VScode
-IDE.
-. See link:./MicroPython/VScode_mpbridge.md[How to use VScode + mpbridge
-tool] to learn how to connect to the development board, copy, modify,
-and delete files on the development board.
+Thonny], complete environment configuration and establish connection through simple operations.
 . See link:./MicroPython/REPL_use_case.md[REPL Use Case] to quickly
 understand the common shortcut keys of MicroPython REPL and the method
 of viewing modules.
 
-. After the above three steps, you can start developing.
+. After the above two steps, you can start developing.
 
 . For learning Python and MicroPython, we recommend getting started with
 Python in the link:https://docs.python.org/3.10/tutorial/index.html[Python
@@ -45,6 +41,11 @@ between MicroPython and CPython].
 . In the next section of this page, you can find some MicroPython example
 that may help you.
 
+. If you have an unexpected vicious BUG during development that prevents
+the development board from starting normally, or other reasons cause the
+firmware to be erased or damaged, see
+link:./MicroPython/Burn_firmware.md[Burn firmware].
+
 === MicroPython example
 
 . link:./MicroPython/Light_up_the_onboard_LED[Light up the onboard LED]
@@ -55,7 +56,11 @@ that may help you.
 . link:./MicroPython/TB6612FNG_module_PWM_drive_motor[TB6612FNG module PWM drive motor]
 . link:./MicroPython/Use_ADC_to_detect_potentiometer_voltage[Use ADC to detect potentiometer voltage]
 . link:./MicroPython/Use_the_potentiometer_to_steplessly_adjust_the_brightness_of_the_colored_lights[Use the potentiometer to steplessly adjust the brightness of the colored lights]
-. link:./MicroPython/
-. link:./MicroPython/
-. link:./MicroPython/
-. link:./MicroPython/
+. link:./MicroPython/Use_the_ADC_to_measure_the_potentiometer_to_adjust_the_motor_speed[Use the ADC to measure the potentiometer to adjust the motor speed]
+. link:./MicroPython/UART_serial_data_read_and_write[UART serial data read and write]
+. link:./MicroPython/I2C_SSD1306_OLED_display[I²C, SSD1306 OLED display]
+. link:./MicroPython/OLED_display_potentiometer_voltage_and_real-time_progress_bar[OLED display potentiometer voltage and real-time progress bar]
+
+== Reference Resources
+
+* https://awesome-micropython.com/[Awesome Micropython], a curated list of awesome MicroPython libraries, frameworks, software and resources.
