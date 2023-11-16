@@ -1,0 +1,29 @@
+```py
+from machine import Pin
+from neopixel import NeoPixel
+import time
+
+pin_48 = Pin(48, Pin.OUT)
+np = NeoPixel(pin_48, 1, bpp=3, timing=1)
+
+RED = (255, 0, 0)
+ORANGE = (255, 100, 0)
+YELLOW = (255, 255, 0)
+GREEN = (0, 255, 0)
+CYAN = (0, 255, 255)
+BLUE = (0, 0, 255)
+PURPLE = (180, 0, 255)
+WHITE = (255, 255, 255)
+OFF = (0, 0, 0)
+
+color_list = [RED,ORANGE,YELLOW,GREEN,CYAN,BLUE,PURPLE,WHITE,OFF]
+brightness = 0.1
+
+while True:
+     for i in color_list:
+         color = (round(i[0]*brightness),round(i[1]*brightness),round(i[2]*brightness))
+         np[0] = color
+         np. write()
+         time. sleep(1)
+
+```
