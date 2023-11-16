@@ -1,0 +1,24 @@
+After completing link:/en/BPI-Leaf-S3/MicroPython/environment[Install and configure the Thonny], you can try programming immediately.
+
+Create a new main.py script file and enter the following code in it:
+
+```py
+from machine import Pin
+from neopixel import NeoPixel
+import time
+pin_48 = Pin(48)
+np = NeoPixel(pin_48, 1, bpp=3, timing=1)
+while True:
+     np[0] = (25,25,25)
+     np. write()
+     time. sleep_ms(250)
+     np[0] = (0,0,0)
+     np. write()
+     time. sleep_ms(250)
+```
+
+Save the file to the MicroPython device, click the "Run" button to make the onboard colored LED flash.
+
+Modify the data in the tuple on the right side of `np[0] = (25,25,25)` to change the color, which corresponds to the brightness levels of R, G, and B respectively. The setting range is 0-255, and the recommended range is 0-25. When the brightness is too high, please do not look directly at it for a long time!
+
+TIP: https://docs.micropython.org/en/latest/library/neopixel.html[neopixel — control of WS2812 / NeoPixel LEDs — MicroPython documentation]
