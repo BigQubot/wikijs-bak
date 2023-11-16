@@ -17,9 +17,9 @@ recommended for beginners to use MicroPython to develop and learn.
 
 image::/picture/mircopython.png[mircopython.png]
 
-. See link:./MicroPython/environment.md[Install and configure the
-Thonny], complete environment configuration and establish connection through simple operations.
-. See link:./MicroPython/REPL_use_case.md[REPL Use Case] to quickly
+. See link:./MicroPython/environment[Install and configure the
+Thonny] , complete environment configuration and establish connection through simple operations.
+. See link:./MicroPython/REPL_use_case[REPL Use Case] to quickly
 understand the common shortcut keys of MicroPython REPL and the method
 of viewing modules.
 
@@ -46,7 +46,7 @@ that may help you.
 . If you have an unexpected vicious BUG during development that prevents
 the development board from starting normally, or other reasons cause the
 firmware to be erased or damaged, see
-link:./MicroPython/Burn_firmware.md[Burn firmware].
+link:./MicroPython/Burn_firmware[Burn firmware].
 
 === MicroPython example
 
