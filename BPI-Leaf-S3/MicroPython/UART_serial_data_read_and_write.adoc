@@ -1,0 +1,41 @@
+== External Hardware Requirements
+
+USB to UART module (CH340, CP2102, etc.).
+
+== Software Requirements
+
+A serial port debugging software such as https://putty.org/[PuTTY], and the driver required for the USB to UART module.
+
+== Wiring Reference
+
+Connect the BPI-Leaf-S3 development board to the computer via USB, connect the RX of the USB to UART module to GPIO17 (TX of BPI-Leaf-S3), connect TX to GPIO18 (RX of BPI-Leaf-S3), and connect GND to GND (common ground) ), the USB interface of the USB to UART module is connected to the computer, which can be the same computer connected to the BPI-Leaf-S3, or two different computers.
+
+== running result
+
+In the MicroPython REPL of the computer where the BPI-Leaf-S3 is located, the data received from the USB to UART module will be output every second.
+
+In the serial port debugging software window of the computer where the USB to UART module is located, it can be seen that a line of characters `Hello World!` sent by BPI-Leaf-S3 is output every second.
+
+== Code
+```
+from machine import UART
+import time
+
+uart1 = UART(1, tx=17, rx=18)
+# Select the UART interface and specify the pins used by TX and RX
+
+uart1.init(115200, bits=8, parity=None, stop=1)
+# Initialization, set the baud rate, set the number of characters, set the parity, set the stop bit
+
+
+def test():
+     for i in range(50):
+         uart1.write('Hello World!') # write data
+         time. sleep(0.5)
+         print(uart1. read()) # read data
+         time. sleep(0.5)
+
+
+test()
+
+```
