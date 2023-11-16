@@ -1,3 +1,6 @@
+TIP: link:../GettingStarted_BPI-Leaf-S3[Back to Getting Started BPI-Leaf-S3]
+
+
 ```py
 from machine import Pin
 from neopixel import NeoPixel
