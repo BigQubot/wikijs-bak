@@ -1,0 +1,70 @@
+### External hardware requirements
+
+A TB6612FNG module, a 3.3~5V DC motor.
+
+### connection method
+
+[options="header"]
+|=========================
+| TB6612FNG | BPI-Leaf-S3 
+| PWMA      | 11          
+| AIN2      | 13          
+| AIN1      | 12          
+| STBY      | 10          
+| VM        | 5V          
+| VCC       | 3.3V        
+| GND       | GND         
+| AO1       | Motor N pole
+| AO2       | Motor S pole
+|=========================
+
+> The connection sequence between AO1/AO2 and the motor can be exchanged arbitrarily to change the direction of rotation.
+
+### running result
+
+The motor will start to rotate in one direction and gradually accelerate to the maximum speed achievable by the current current within 7 seconds, then gradually decelerate to stop within 5 seconds, then reverse the rotation and repeat the process.
+
+https://www.youtube.com/watch?v=3WXCZ1BsPNY[youtube vedio]
+
+### Code
+
+```py
+from machine import Pin,PWM
+import time
+
+PWM_A = PWM(Pin(11)) #Set PWM output pin
+PWM_A.freq(20000) #Set PWM frequency
+PWM_A. duty(0) #Set PWM duty cycle
+AIN1 = Pin(12,Pin.OUT)
+AIN2 = Pin(13,Pin.OUT)
+STBY = Pin(10,Pin.OUT)
+STBY.on() #When STBY pin is at high level, TB6612FNG starts.
+
+def MOTOR_Forward():
+     AIN1.on()
+     AIN2.off()
+def MOTOR_Reverse():
+     AIN1.off()
+     AIN2.on()
+
+while True:
+     MOTOR_Forward()
+     #for cycle is used to control the PWM duty cycle change.
+     #The PWM duty cycle control precision is 10bit, ie 0~1023.
+     #Some motors require a certain PWM duty cycle to start.
+     for i in range(350,1024,1):
+        PWM_A. duty(i)
+        time. sleep_ms(10)
+     for i in range(1022,0,-1):
+        PWM_A. duty(i)
+        time. sleep_ms(5)
+    
+     MOTOR_Reverse()
+     for i in range(350,1024,1):
+        PWM_A. duty(i)
+        time. sleep_ms(10)
+     for i in range(1022,0,-1):
+        PWM_A. duty(i)
+        time. sleep_ms(5)
+
+```
