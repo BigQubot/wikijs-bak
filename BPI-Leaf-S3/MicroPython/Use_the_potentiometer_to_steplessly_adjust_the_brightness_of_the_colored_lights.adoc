@@ -1,0 +1,63 @@
+TIP: link:../GettingStarted_BPI-Leaf-S3[Back to Getting Started BPI-Leaf-S3]
+
+https://www.youtube.com/watch?v=d3tm8aYNCx8[youtube vedio]
+
+
+== Code
+```py
+from machine import Pin,ADC
+from neopixel import NeoPixel
+from array import array
+import time
+import micropython
+
+adc1 = ADC(Pin(1),atten=ADC.ATTN_11DB)
+
+micropython.alloc_emergency_exception_buf(100)
+
+p_48 = Pin(48, Pin.OUT)
+np = NeoPixel(p_48, 1, bpp=3, timing=1)
+
+p0 = Pin(0,Pin.IN,Pin.PULL_UP)
+trig_locks = array('B',[0])
+trig_timeticks_list = array('L',[0,0])
+count = array('L',[0])
+
+def p0_irq(pin):
+     if pin.value()==0 and trig_locks[0]==0:
+         trig_timeticks_list[0]=time.ticks_ms()
+         trig_locks[0]=1
+     elif pin.value()==1 and trig_locks[0]==1:
+         trig_timeticks_list[1]=time.ticks_diff(time.ticks_ms(),trig_timeticks_list[0])
+         trig_locks[0]=0
+         if trig_timeticks_list[1] >= 20:
+             count[0] = count[0] + 1
+             if count[0] > 8:
+                 count[0] = 0
+
+p0.irq(handler=p0_irq, trigger= Pin.IRQ_FALLING | Pin.IRQ_RISING )
+
+RED = (255, 0, 0)
+ORANGE = (255, 100, 0)
+YELLOW = (255, 255, 0)
+GREEN = (0, 255, 0)
+CYAN = (0, 255, 255)
+BLUE = (0, 0, 255)
+PURPLE = (180, 0, 255)
+WHITE = (255, 255, 255)
+OFF = (0, 0, 0)
+
+color_list = [RED,ORANGE,YELLOW,GREEN,CYAN,BLUE,PURPLE,WHITE,OFF]
+
+while True:
+     adc1_read = adc1.read() # 12bit
+     adc1_read_mv = adc1.read_uv()/1000
+     adc1_read_u16 = adc1.read_u16() # 16bit
+     brightness = adc1_read/4095
+     i = color_list[count[0]]
+     color = (round(i[0]*brightness),round(i[1]*brightness),round(i[2]*brightness))
+     np[0] = color
+     np. write()
+     print(adc1_read,adc1_read_u16,adc1_read_mv,"mv",count[0],color)
+     time. sleep(0.1)
+```
