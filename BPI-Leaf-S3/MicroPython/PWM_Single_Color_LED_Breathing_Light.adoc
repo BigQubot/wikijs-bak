@@ -1,0 +1,29 @@
+TIP: link:../GettingStarted_BPI-Leaf-S3[Back to Getting Started BPI-Leaf-S3]
+
+== External Hardware Requirements
+
+A LED light that can work on 3.3v.
+
+== connection method
+
+The GPIO13 pin is used in the routine, and the positive pole of the LED light is connected to the GPIO13 pin, and the negative pole is connected to GND.
+
+== Code
+
+```py
+from machine import Pin, PWM
+import time
+
+PWM_LED = PWM(Pin(13))
+PWM_LED.freq(1000)
+PWM_LED. duty(0)
+
+while True:
+     for i in range(0,1024,1):
+        PWM_LED. duty(i)
+        time. sleep_ms(2)
+     for i in range(1022,0,-1):
+        PWM_LED. duty(i)
+        time. sleep_ms(1)
+    
+```
