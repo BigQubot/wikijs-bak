@@ -1,0 +1,61 @@
+== Install
+
+Thonny IDE is a very beginner-friendly tool. After finding the installation package corresponding to your current operating system on its official website or GitHub Release page, download it and follow the prompts to complete the installation.
+
+* https://thonny.org/[Thonny official website] 
+* https://github.com/thonny/thonny/releases[GitHub Release]
+* https://github.com/thonny/thonny/releases/tag/v3.3.13[GitHub Release v3.3.13]
+
+TIP: Release v3.3.13 is the version we tested and is more stable and practical.
+
+== Configure
+
+Connect the development board to the computer.
+
+. Run Thonny, click **Run** > **Configure interpreter**.
++
+image::/picture/bpi_leaf_s3_thonny_1.jpg[bpi_leaf_s3_thonny_1.jpg]
+. Select **MicroPython(ESP32)**.
++
+image::/picture/bpi_leaf_s3_thonny_2.jpg[bpi_leaf_s3_thonny_2.jpg]
+
+
+. Select the **Port** where the development board is located, and click OK to confirm the settings.
++
+image::/picture/bpi_leaf_s3_thonny_3.jpg[bpi_leaf_s3_thonny_3.jpg]
+
+. Check **View** > **Files** to open the file management bar.
++
+image::/picture/bpi_leaf_s3_thonny_4.jpg[bpi_leaf_s3_thonny_4.jpg]
+
+== Use the REPL to output Hello World
+
+**REPL** is the abbreviation of **Read-Eval-Print-Loop**, translated as **Read-Eval-Output-Loop**.
+
+We can understand its meaning through practical operation.
+
+After connecting the development board with MicroPython firmware installed to the computer, running Thonny IDE and configuring it correctly, the following text will appear in the Shell window:
+
+```py
+MicroPython v1.20.0-283-g7d66ae603 on 2023-07-14; ESP32S3 module (spiram) with ESP32S3
+
+Type "help()" for more information.
+
+>>> 
+```
+
+Pay attention to the `>>>` prompt on the last line, we can directly enter the formula or code after this, and press the `enter` key on the keyboard to get the output result in the next line immediately.
+
+```python
+>>> 1+2
+3
+>>> print("Hello World")
+hello world
+>>>
+```
+
+Now it can be understood very intuitively. It will read the information we input, perform calculation and evaluation, output the result, and then wait for our subsequent input, and keep looping this process. 
+
+The information we input is transmitted to the chip for interpretation and operation without compilation. Yes, this is an important feature of the Python language, and MicroPython perfectly inherits it.
+
+> About the application of REPL, more detailed and comprehensive content can refer to https://docs.micropython.org/en/latest/reference/repl.html[MicroPython Documentation: REPL]
