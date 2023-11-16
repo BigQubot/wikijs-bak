@@ -1,0 +1,56 @@
+TIP: link:../GettingStarted_BPI-Leaf-S3[Back to Getting Started BPI-Leaf-S3]
+
+
+== External Hardware Requirements
+
+a potentiometer.
+
+== ESP32-S3 ADC
+
+The ESP32-S3 chip integrates two **ADC analog-to-digital converters**, the measurement range is 0mV-3100mV, and the resolution is 12bit, that is, 0mV-3100mV is divided into 2^12=4096 levels, and each level is a digital quantity .
+
+The two ADC analog-to-digital converters each have 10 measurement channels, ADC1 is GPIO1 ~ 10, and ADC2 is GPIO11 ~ 20.
+
+== connection method
+
+GND is connected to GND, VCC is connected to 3V3, the S output terminal is connected to GPIO11 pin, and channel 1 of ADC2 is used for measurement.
+
+GPIO1~20 pins can be used as ADC input pins.
+
+== Code
+
+```py
+from machine import Pin,ADC
+import time
+adc11 = ADC(Pin(11),atten=ADC.ATTN_11DB)
+#adc11 = ADC(Pin(11))
+#adc11.atten(ADC.ATTN_11DB)
+while True:
+     read=adc11.read()
+     read_u16 = adc11.read_u16()
+     read_uv = adc11.read_uv()
+     print("read={0},read_u16={1},read_uv={2}".format(read,read_u16,read_uv))
+     time. sleep_ms(100)
+```
+
+[options="header"]
+|===================================================
+| Attenuation value | Measurable input voltage range
+| ADC.ATTN_0DB      | 0 mV ~ 950 mV                 
+| ADC.ATTN_2_5DB    | 0 mV ~ 1250 mV                
+| ADC.ATTN_6DB      | 0 mV ~ 1750 mV                
+| ADC.ATTN_11DB     | 0 mV ~ 3100 mV                
+|===================================================
+
+
+  1. `ADC(*, atten)` initializes the ADC channel of a GPIO pin, and you can choose to use `atten` to set the attenuation value, which controls the measurable input voltage range of the chip. If not set, it will be the default value `atten=ADC.ATTN_0DB` or the value set last time.
+  2. You can modify the attenuation value through `ADC.atten()` after initializing an ADC channel.
+  3. `ADC.read()` reads the ADC and returns the read result. The ADC of the ESP32-S3 chip returns data with 12-bit precision.
+  4. `ADC.read_u16()` reads the ADC and returns 16-bit data.
+  5. `ADC.read_uv()` returns the calibrated input voltage in `uV` microvolts according to the characteristics of the ADC. Return values only have `mV` millivolt resolution (ie, will always be in multiples of 1000 microvolts).
+
+The WiFi function also uses ADC2, so trying to read analog values from ADC2's measurement channels GPIO11 ~ 20 while WiFi is active will throw an exception.
+
+It is recommended to use `ADC.read_uv()` to read the voltage value, which is a decimal constant returned after calibration according to the characteristics of the ADC analog-to-digital converter, which is more accurate than the other two reading methods. At the same time, it is also recommended to directly divide the operation when using: `ADC.read_uv()//1000` to get the data of `mV` millivolt resolution.
+
+Directly print out `ADC.read()` or `ADC.read_u16()` to get the decimal value, you can use the `hex()` function to convert the data type into hexadecimal, for example `hex(ADC.read() )`, or use the `bin()` function to convert the data type to binary.
