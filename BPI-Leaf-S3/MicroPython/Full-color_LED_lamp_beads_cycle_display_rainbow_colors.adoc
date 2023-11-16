@@ -1,0 +1,43 @@
+TIP: link:../GettingStarted_BPI-Leaf-S3[Back to Getting Started BPI-Leaf-S3]
+
+
+Based on the previous section, we can go one step further and write a loop to automatically change the color of the lamp bead.
+
+```py
+from machine import Pin
+from neopixel import NeoPixel
+import time
+
+def rainbow(num=1,level=25,delay=100):
+     def write_all(num,delay,red,green,blue):
+         for j in range (num):
+             np[j] = (red,green,blue)
+         np. write()
+         time. sleep_ms(delay)
+    
+     red,green,blue = level,0,0
+    
+     rainbow_step_list2 = [(0,1,0),(-1,0,0),(0,0,1),(0,-1,0),(1,0,0),(0,0, -1)]
+    
+     for step in rainbow_step_list2:
+         for i in range (level):
+             red+=step[0]
+             green+=step[1]
+             blue+=step[2]
+             write_all(num,delay,red,green,blue)
+            
+
+
+np = NeoPixel(Pin(48, Pin.OUT), 1,bpp=3, timing=1)
+
+while True:
+     rainbow(num=1,level=25,delay=10)
+
+```
+This routine can be applied to ws2812 light strips of any length.
+
+Modify the first parameter in `NeoPixel(Pin(48, Pin.OUT), 1,bpp=3, timing=1)` to any GPIO pin that you want to connect the light strips in series.
+
+Modify the num parameter in `rainbow(num=1,level=25,delay=100)` to be the number of corresponding lamp beads on the light strip.
+
+Of course, we can also use for loop or while loop to make the color change pattern we want according to our own ideas.
