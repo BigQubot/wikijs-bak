@@ -1,0 +1,70 @@
+TIP: link:../GettingStarted_BPI-Leaf-S3[Back to Getting Started BPI-Leaf-S3]
+
+
+BPI-Leaf-S3 has two buttons, BOOT and RST, RST controls the hardware reset of the chip, and BOOT is connected to GPIO0, the circuit is shown in the figure below.
+
+image::/picture/bpi-leaf-s3_boot_sch.png[bpi-leaf-s3_boot_sch.png]
+
+It can be seen that when the development board is powered on and working normally, when the BOOT button is not pressed, GPIO0 is connected to 3.3v with a resistor in series, and it is at a high potential at this time. When the BOOT button is pressed, GPIO0 will be directly grounded, and at this time it is a low potential. The ESP32-S3 chip can determine whether the button is pressed by detecting the potential of this GPIO pin.
+
+
+TIP: https://docs.micropython.org/en/latest/library/machine.Pin.html#machine.Pin.irq[MicroPython GPIO interrupt program machine.Pin.irq documentation]
+
+In the program, by detecting the trigger mode of the GPIO interrupt, you can design a set of interrupt program that records the number of times the button is pressed, and control the color of the colored light by judging the number of times that the button has been pressed.
+
+
+https://www.youtube.com/watch?v=PQ2x4PayFPc[youtube vedio]
+
+
+```python
+from machine import Pin
+from neopixel import NeoPixel
+from array import array
+import time
+import micropython
+
+micropython.alloc_emergency_exception_buf(100)
+
+p_48 = Pin(48, Pin.OUT)
+np = NeoPixel(p_48, 1, bpp=3, timing=1)
+
+p0 = Pin(0,Pin.IN,Pin.PULL_UP)
+trig_locks = array('B',[0])
+trig_timeticks_list = array('L',[0,0])
+count = array('L',[0])
+
+def p0_irq(pin):
+     if pin.value()==0 and trig_locks[0]==0:
+         trig_timeticks_list[0]=time.ticks_ms()
+         trig_locks[0]=1
+     elif pin.value()==1 and trig_locks[0]==1:
+         trig_timeticks_list[1]=time.ticks_diff(time.ticks_ms(),trig_timeticks_list[0])
+         trig_locks[0]=0
+         if trig_timeticks_list[1] >= 20:
+             count[0] = count[0] + 1
+             if count[0] > 8:
+                 count[0] = 0
+
+p0.irq(handler=p0_irq, trigger= Pin.IRQ_FALLING | Pin.IRQ_RISING )
+
+RED = (255, 0, 0)
+ORANGE = (255, 100, 0)
+YELLOW = (255, 255, 0)
+GREEN = (0, 255, 0)
+CYAN = (0, 255, 255)
+BLUE = (0, 0, 255)
+PURPLE = (180, 0, 255)
+WHITE = (255, 255, 255)
+OFF = (0, 0, 0)
+
+color_list = [RED,ORANGE,YELLOW,GREEN,CYAN,BLUE,PURPLE,WHITE,OFF]
+brightness = 0.1
+
+while True:
+     print (count)
+     i = color_list[count[0]]
+     color = (round(i[0]*brightness),round(i[1]*brightness),round(i[2]*brightness))
+     np[0] = color
+     np. write()
+     time. sleep(0.1)
+```
