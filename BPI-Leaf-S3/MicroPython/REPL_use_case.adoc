@@ -1,0 +1,24 @@
+TIP: link:../GettingStarted_BPI-Leaf-S3[Back to Getting Started BPI-Leaf-S3]
+
+== REPL shortcut keys
+
+. Copy `ctrl + shift + c`.
+. Paste `ctrl + shift + v`. Use the left mouse button to drag and select
+the command to be copied in the REPL, press the copy shortcut key on the
+keyboard, and then press the paste shortcut key to copy and paste the
+command.
+. Soft reset `ctrl + d`.
+. Interrupt `ctrl + c`, interrupt the currently executing program, but
+will not restart and reset.
+
+== View built-in modules
+
+. Entering `help("modules")` in the REPL will list all modules in the
+current CircuitPython development board.
+. After importing the module, you can use the `help()` function to view
+the function names or variable names available inside the module.
+
+```py
+import machine
+help(machine)
+```
