@@ -283,19 +283,27 @@ TIP: Google Drive: https://drive.google.com/drive/folders/1INIABp_MbB5UcwfqujTng
 
 == Resources
 
-* BPI-CM4 Module Datasheet
+TIP: BPI-CM4 Module Datasheet
+
 ** Baidu Cloud: https://pan.baidu.com/s/1NXBXwiowWbHVY7ciT1lw-Q?pwd=8888 (pincode:8888)
 ** Google Drive: https://drive.google.com/file/d/1FQzHy510SBKjwisMDWA-bZmt8fkb_wxs/view?usp=sharing
 
-* Banana PI BPI-M2S Amlogic A311D / S922X : https://www.youtube.com/watch?v=9eFXiOtzFl0
+TIP: Banana PI BPI-M2S Amlogic A311D / S922X : https://www.youtube.com/watch?v=9eFXiOtzFl0
 * Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
-* All banana pi https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[docement(SCH file,DXF file,and doc)]
-* Amlogic A311D datasheet: https://drive.google.com/file/d/1SRAY_RDxKhw819uyo9H13zNN2wlG6LDq/view?usp=sharing
-* BPI-CM4 Schematic：https://drive.google.com/file/d/1IXXok1P2OLiW3p8tavkbfEPTGTrM3b-R/view?usp=sharing
-* BPI-CM4 DXF file: https://drive.google.com/file/d/1hTLNCwmYhCuzt9rL6fP0PjK4MTIE5dK6/view?usp=sharing
-* UglyScale Present - Banana Pi BPI-CM4 : https://www.youtube.com/watch?v=9qhAmpjdEfE
-* Banana Pi CM4 Review ( VS Compute Raspberrypi  CM4) : https://bret.dk/banana-pi-cm4-review/
-* BPI-CM4 MNT Reform with A311D Processor desktop performance captured over HDMI : https://www.youtube.com/watch?v=SULvVajiLvw
+
+TIP: All banana pi https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[docement(SCH file,DXF file,and doc)]
+
+TIP: Amlogic A311D datasheet: https://drive.google.com/file/d/1SRAY_RDxKhw819uyo9H13zNN2wlG6LDq/view?usp=sharing
+
+TIP: BPI-CM4 Schematic: https://drive.google.com/file/d/1IXXok1P2OLiW3p8tavkbfEPTGTrM3b-R/view?usp=sharing
+
+TIP: BPI-CM4 DXF file: https://drive.google.com/file/d/1hTLNCwmYhCuzt9rL6fP0PjK4MTIE5dK6/view?usp=sharing
+
+TIP: UglyScale Present - Banana Pi BPI-CM4 : https://www.youtube.com/watch?v=9qhAmpjdEfE
+
+TIP: Banana Pi CM4 Review ( VS Compute Raspberrypi  CM4) : https://bret.dk/banana-pi-cm4-review/
+
+TIP: BPI-CM4 MNT Reform with A311D Processor desktop performance captured over HDMI : https://www.youtube.com/watch?v=SULvVajiLvw
 
 = System image
 
@@ -343,8 +351,11 @@ Google Drive: https://drive.google.com/drive/folders/1_k0RYmuZoBBk4GCaDDOD112FDO
 === Armbian
 
 BPI-CM4 is currently on platinum support from armbian. Download the latest images from here: https://www.armbian.com/bananapicm4io/
+
 Armbian is a simple, light, and fast Linux operating system optimized for development boards, offering a user-friendly experience for newcomers and professionals.
+
 The system is designed to minimize SD card wear. It can be accessed via serial, HDMI/VGA, or SSH, with optional special utilities available for further customization.
+
 The system can also be built and customized via the https://github.com/armbian/build[armbian build utility].
 
 === BPI-CM4 with VIM3 rootfs image
