@@ -1,0 +1,104 @@
+= BPI-AI Introduction
+
+BPI-AI(also name Web:AI for Webduino) design with K210 RISC-V chip design.
+
+An integrated artificial intelligence SOC chip solution that can accommodate neural network models, using a new risc-v instruction set for the field of artificial intelligence and edge computing. 
+
+The main target market is the AIoT and STEAM education market, it support screen and camera. 
+
+So easy to do many AI application, cowork with Webduino team. and support Webduino blockly for STEAM education.
+
+Also support Arduino IDE,MixPy.
+
+== Type Applications
+
+* AI for Edge Computing
+* Smart Building
+* Medical equipment
+* Automation & Process Control
+* Robot
+* IoT applications
+* STEAM education
+
+== Key Features
+
+* 64-bit RISC-V CPU Dual-Core, up to 400MHz
+* IMAFDC (RV64GC) ISA extension
+* Hardware FPU (Float Point Unit), Double Precision
+* 32 KB I-Cache per core and 32 KB D-Cache per core
+* 8MB On-Chip SRAM 128Kbit One-Time Programmable Memory (OTP) ,Read Only Memory (ROM)
+* DMA
+* Camera and screen interface
+* WiFI (ESP8285)
+* JTAG, OpenOCD support
+
+== About Kendryte K210 chip
+
+The Kendryte K210 is a system-on-chip (SoC) that integrates machine vision and machine hearing. 
+
+Using TSMC’s ultra-low-power 28nm advanced process with dual-core 64-bit processors for better power performance, stability and reliability. 
+
+The program strives for zero threshold development and can be deployed in the user’s products in the shortest time, giving the product artificial intelligence.
+
+The Kendryte K210 is located in the SoC of the AI and IoT markets and is a very convenient MCU.
+
+Kendryte Chinese means surveying intelligence, while surveying intelligence is taken from surveying and searching. 
+
+The main application field of this chip is in the field of Internet of Things, and it is developed in the field of Internet of Things. 
+
+Therefore, this chip mainly provides artificial intelligence solutions, which are explored in the field of artificial intelligence.
+
+= Hardware
+== Hardware Interface
+
+image::/picture/bpi-ai_interface.jpg[bpi-ai_interface.jpg]
+
+== Hardware Spec
+
+[options="header",cols="1,4"]
+|=====
+2+| **HardWare Specification of Banana Pi BPI-AI**
+| CPU                     | Kendryte K210 64-bit RISC-V CPU Dual-Core, up to 400MHz,with neural processing unit (NPU)                                                          
+| Memory                  | SPI flash and The accelerator has its own memory, with 6MB of static RAM given over to the dual-core CPU and a further 2MB for the NPU coprocessor.
+| Camera                  | 5 million pixel cameras                                                                                                                            
+| WIFI                    | ESP8285 wifi module support 802.11.b/g/n                                                                                                           
+| Audio Output(s)         | Built-in MEMS microphone supports 3W speaker output                                                                                                
+| LCD Screen              | 8bit MCU 2.3 LCD,DPI 320x240                                                                                                                       
+| Socket                  | Compatible with BPI: BIT Micro:bit Goldfinger,TF card ,Speaker,lithium battery interface                                                           
+| Development environment | Arduino IDE, MaixPy IDE ,Webduino                                                                                                                  
+| Switches                | Reset, A/B key                                                                                                                                     
+| Power Source            | 5volt@2A via Micro USB ,lithium battery interface(3.7-4.2V)                                                                                        
+| Size & Weight           | 51.6mm×67mm, 58g 
+|=====
+
+
+= Development
+== Source Code
+
+TIP: K210 chip official Source code on github: https://github.com/kendryte
+
+TIP: Web:AI for maixpy : https://github.com/webduinoio/webai-maixpy
+
+
+== Resources
+
+=== BPI:AI(Web:AI) for Webduino
+
+TIP: Web:AI initialization Settings teaching ： https://www.youtube.com/watch?v=ZSGkZUQQXcI
+
+=== Documents
+TIP: K210 chip datasheet(English):https://drive.google.com/file/d/1AavU-bCoyA2BWSDB3NQBp41A7CvdJvBL/view?usp=sharing
+
+TIP: K210 chip datasheet(Chinese):https://drive.google.com/file/d/1_xQ3waq4ENHIlfJ7ujrfRSAClNAk6beL/view?usp=sharing
+
+TIP: K210 SDK（drive）、documents、compiler、OpenOCD Debugging software :https://kendryte.com/downloads/
+
+TIP: jacklab K210 wiki page : http://wiki.jackslab.org/K210
+
+
+= FAQ
+
+
+
+= Easy to buy
+WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
