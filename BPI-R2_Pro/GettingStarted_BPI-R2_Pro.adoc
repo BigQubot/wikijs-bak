@@ -1,0 +1,80 @@
+= Introduction
+
+TIP: More Infomation: link:/en/BPI-R2_Pro/BananaPi_BPI-R2_Pro[Banana Pi BPI-R2_Pro]
+
+= Development
+== Android
+=== Prepare
+
+. Double male USB data cable for image download or adb debug.
+. MicroUSB cable or usb to ttl cable if you need console debug message print, default baudrate is 1500000.
+. Windows or Linux PC.
+. Download the latest android image, and confirm that the md5 checksum is correct before flashing.
+
+=== Install Image with Usb Download Tool
+**Windows**
+
+. Download and install Rockchip USB driver
+
+
+
+. Download Rockchip USB Download Tool
+This tool defaults language is Chinese. you can change it to English after extract the package. Open **RKDevTool_Release_v2.84/config.ini** with an text editor (like notepad). The starting lines are:
++
+image::/picture/r2-pro_usb-tool-1.jpg[r2-pro_usb-tool-1.jpg]
++
+```sh
+ #Language Selection: Selected=1(Chinese); Selected=2(English)
+ [Language]
+ Kinds=2
+ Selected=1
+ LangPath=Language\
+```
+. Open RKDevTool.exe, Switch to the “**upgrade firmware**” page. Press the “**firmware**” button to open the image file to be upgraded. The upgrade tool displays detailed firmware information.
++
+image::/picture/r2-pro_usb-tool-2.jpg[r2-pro_usb-tool-2.jpg]
+image::/picture/r2-pro_usb-tool-3.jpg[r2-pro_usb-tool-3.jpg]
+. Disconnect power adapter, connect dual male usb cable from the top usb host port to PC.
+
+. There have two usb download mode for image upgrade.
+
+- **Uboot Usb Download Mode (loader mode)** +
+It's supposed to use this way if board already flashed a bootable uboot before.
+- **Maskrom Usb Download Mode(maskrom mode)** +
+Press the Recovery button or Maskrom button beside 3pin uart header and hold, connect the power adapter or press the RST button if power adapter already connected, about two seconds later, release the button. PC will Identify the device if RK usb driver installed correctly.
++
+image::/picture/r2-pro_usb-tool-4.jpg[r2-pro_usb-tool-4.jpg]
+The download tool also show the download mode if device connected.
++
+image::/picture/r2-pro_usb-tool-5.jpg[r2-pro_usb-tool-5.jpg]
+image::/picture/r2-pro_usb-tool-6.jpg[r2-pro_usb-tool-6.jpg]
+
+
+=== Install Image with xxx
+
+. xxx
+. xxx
+. xxx
+. xxx
+
+== Linux
+=== Prepare
+
+. xxx
+. xxx
+. xxx
+. xxx
+
+=== Install Image with xxx
+
+. xxx
+. xxx
+. xxx
+. xxx
+
+=== Install Image with xxx
+
+. xxx
+. xxx
+. xxx
+. xxx
