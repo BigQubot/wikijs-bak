@@ -52,10 +52,143 @@ image::/picture/r2-pro_usb-tool-6.jpg[r2-pro_usb-tool-6.jpg]
 
 === Install Image with SD card
 
-. xxx
-. xxx
-. xxx
-. xxx
+. Download link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FRKSDDiskTool_v1.7.zip[Rockchip SD Disk Tool].
+. Insert card reader to Windows PC, 8GB sdcard size at least.
+. Run SD_Firmware_Tool, check the “**Upgrade Firmware**” box and select the correct removable disk device, Choose firmware image, then Click Create button to make it and wait until it is finshed
++
+image::/picture/r2-pro_sd-1.jpg[r2-pro_sd-1.jpg]
+. Safely remove the microSD card, insert it into the R2pro board, power on the board, it will start upgrading automatically.
++
+image::/picture/sd_upgrade.png[sd_upgrade.png]
+
+. After the upgrade, you can see the following info on screen, remove the microSD card and the board will restart automatically to complete the whole process of firmware update.
++
+image::/picture/sd_upgrade_finish.png[sd_upgrade_finish.png]
+
+=== Boot Android from SDcard
+Create a sdcard for android boot is almost the same as create a firmware upgrade sdcard, only one difference is select "SD Boot" mode instead of "Upgrade Firmware". This process lasts about 8 minutes, then safely remove the SDcard, insert it into the r2pro board and power on.
+
+One thing to note is that make sure emmc is empty, you must erase it if flashed before. We recommend that use emmc for android boot because it is faster and more stable.
+
+image::/picture/r2-pro_sd-up.jpg[r2-pro_sd-up.jpg]
+
+=== Build Android Source Code
+. Get Android source code
++
+```sh
+ $ git clone https://github.com/BPI-SINOVOIP/BPI-Rockchip-Android11 --depth=1
+```
+or you can get the source code tar archive from link:https://pan.baidu.com/s/1c2vw-df4hh55VB3gSsM6Uw?pwd=8888[BaiduPan(pincode: 8888)] or link:https://drive.google.com/drive/folders/1_DkE_6dsTQ-HZoEDGdvFsYtf5_ARQXoh?usp=share_link[GoogleDrive]
+. Build the Android Source code +
+Please read the source code link:https://github.com/BPI-SINOVOIP/BPI-Rockchip-Android11/blob/master/README.md[README.md]
+
+=== USB OTG Mode Switch
+The top usb port is a usb 3.0 otg port, but without hw id pin, it only can be used as host or peripheral.The release image set host mode default, but you can change it in Settings
+
+. Tablet variant image +
+Settings->Connected devices->USB Connect to PC, switch on is peripheral mode and switch off is host mode.
++
+image::/picture/otg_mode.png[otg_mode.png]
+
+. Box variant image +
+Go to Settings->Device Preferences->About, tap "Build" seven times to enable "Developer options" preference. Then back to Settings->Device Preferences->Developer options.Switch on is peripheral mode and switch off is host mode.
++
+image::/picture/box_otg_mode.png[box_otg_mode.png]
+
+=== Touch Panel
+R2Pro hw design only have one group TP io, CN7, CN8, CN9 are all connect to it, so only one interface Touch Screen can be used at the same time. you can enable or disable it in dtb
+```sh
+ &i2c1 {
+         status = "okay"
+ }
+```
+
+=== Custom Android Boot Logo
+. prepare two bmp format files, logo.bmp for uboot logo and logo_kernel.bmp for kernel logo.
+. there are two ways to replace the logo
+a. create and replace the logo with adb tool +
+link:/en/BPI-R2_Pro/GettingStarted_BPI-R2_Pro#_usb_otg_mode_switch[switch the otg port] to enable adb, push the logo files to /sdcard/ directory.
++
+```sh
+ $ adb push logo_kernel.bmp /sdcard/
+ $ adb push logo.bmp /sdcard/
+ $ adb root
+ $ adb shell
+```
+create logo.img
++
+```sh
+ bananapi_r2pro:/ # cd /sdcard/
+ bananapi_r2pro:/sdcard # cat logo.bmp > logo.img && truncate -s %512 
+logo.img && cat logo_kernel.bmp >> logo.img
+```
+flash logo.img to logo partition
++
+```sh
+ bananapi_r2pro:/sdcard # dd if=logo.img  of=/dev/block/by-name/logo
+ 24301+1 records in
+ 24301+1 records out
+ 12442166 bytes (12 M) copied, 1.104449 s, 11 M/s
+```
+reboot android
++
+```sh
+ bananapi_r2pro:/sdcard # reboot
+```
+b. create the logo on Linux and replace it with RKDevTool +
+create logo.img on Linux
++
+```sh
+ $ cat logo.bmp > logo.img && truncate -s %512 logo.img && cat logo_kernel.bmp >> logo.img
+```
+open RKDevTool.exe, Switch to the “Download Image” page, change the items as following, press REC/LOADER and power on or reset the board to enter loader download mode, then click Run to flash logo.img to logo partition.
++
+image::/picture/flash_logo.png[flash_logo.png]
+
+=== Wlan&BT
+CN13 M.2 KEY E Slot is used for connect Wlan&BT adapter, the following WiFi Cards are tested and supported in default image
+
+ - RTL8822CE WIFI/BT (PCIE+USB)
+ - RTL8822BE WIFI/BT (PCIE+USB)
+ - link:https://shop.allnetchina.cn/collections/rock-pi-wireless-modules/products/radxa-m-2-wireless-module-a8[RTL8852BE WIFI/BT (PCIE+USB)]
+ - RTL8822CS WIFI/BT (SDIO+UART)
+ - link:https://shop.allnetchina.cn/collections/rock-pi-wireless-modules/products/rock-pi-wireless-module-a2[AP6256 WIFI/BT (SDIO+UART)]
+
+=== Install Google Play with Magisk
+
+. Download link:https://magiskmanager.com/[Magisk app]
+. Download link:https://sourceforge.net/projects/magiskgapps/files/[MagiskGapps package]
+. Download link:https://m.apkpure.com/device-id/com.evozi.deviceid[device id app]
+. Copy download apps and package to SDcard and plugin it to Bananapi R2pro.
+. Follow the process in the video to Install Google Play store.
+
+**YouTube Video**:
+
+Another way, you can build the android source code with OpenGApps google play include.
+
+. Download the link:en/BPI-R2_Pro/GettingStarted_BPI-R2_Pro#_build_android_source_code[android source code]
+. Apply this patch to enable build OpenGApps
++
+```sh
+ diff --git a/device/rockchip/rk356x/bananapi_r2pro/BoardConfig.mk b/device/rockchip/rk356x/bananapi_r2pro/BoardConfig.mk
+ index 3f17d3c0cc..bd8d1b3213 100755
+ --- a/device/rockchip/rk356x/bananapi_r2pro/BoardConfig.mk
+ +++ b/device/rockchip/rk356x/bananapi_r2pro/BoardConfig.mk
+ @@ -45,7 +45,7 @@ SF_PRIMARY_DISPLAY_ORIENTATION := 0
+  TARGET_ROCKCHIP_PCBATEST := false
+  BOARD_HAS_FACTORY_TEST := false
+
+ -BOARD_HAVE_OPENGAPPS := false
+ +BOARD_HAVE_OPENGAPPS := true
+
+  # increase super partition size for system, system_ext, vendor, product and odm
+  # must be a multiple of its block size(65536)
+```
+. Create /vendor/opengapps folder
+. Download link:https://github.com/opengapps/aosp_build[OpenGApps aosp_build] project to /vendor/opengapps/build
+. Create /vendor/opengapps/sources folder, download link:https://gitlab.opengapps.org/opengapps[OpenGApps projects] to /vendor/opengapps/sources/
+. Build the source code and flash the output image.
+. Install device id app and register your device for google play certification, more info please refer to the video above.
 
 == Linux
 === Prepare
