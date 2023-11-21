@@ -43,6 +43,7 @@ image::/picture/m1-android-4.jpg[m1-android-4.jpg]
 . Using your USB-Serial Connect debug console on M1 Plus
 
 === Install Image with SD card
+**Windows**
 
 Install Image with Balena Etcher. +
 link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
@@ -69,7 +70,7 @@ fdisk -l
 mount /dev/sdx /mnt/xxx
 ```
 +
-
+image::/picture/m1p_sata.png[m1p_sata.png]
 
 . If you meet some errors when you mount SATA, try these following commands:
 
@@ -89,8 +90,6 @@ mkfs.ext2 /dev/sdx
 ```sh
 mount /dev/sdx /mnt/xxx
 ```
-+
-
 
 . After you success to insert SATA, we could input following commands to test SATA interface:
 
@@ -105,6 +104,8 @@ time dd if=/dev/xxx of=/dev/null bs=1M count=1000
 time dd if=/dev/zero of=/dev/sdx bs=1M count=1000
 ```
 +
+
+image::/picture/sata_test.png[sata_test.png]
 
 
 === GMAC
@@ -130,7 +131,7 @@ iperf3 -u -c serverIP
 ```
 --
 +
-
+image::/picture/m1p_gmac_test.png[m1p_gmac_test.png]
 
 === WiFi Client
 **You have two ways to setup WiFi Client**
@@ -169,6 +170,8 @@ getevent
 ```
 Use your IR device to send information to M1 Plus
 
+image::/picture/m1p_ir.png[m1p_ir.png]
+
 === RPi.GPIO
 **Install RPi.GPIO**
 ```sh
@@ -192,6 +195,8 @@ cd /usr/local/bin
 ./bpi_test_g40.py
 ```
 
+image::/picture/rpi_gpio.png[rpi_gpio.png]
+
 === WringPi
 GitHub: https://github.com/BPI-SINOVOIP/BPI-WiringPi2.git
 
@@ -205,12 +210,14 @@ We also have built-in test command in
 ```
 **8x8 RGB LED Martix**
 
-Firstly you need a GPIO Extend Board for 8x8 LED Martix +
+Firstly you need a GPIO Extend Board for 8x8 LED Martix 
+
+image::/picture/wringpi_led_martix_extend_board.png[wringpi_led_martix_extend_board.png]
+
 Execute 
 ```sh
 /usr/local/bin/bpi_test_gpio40.sh
 ```
-
 
 === File System
 read only system change to read & write mode:
