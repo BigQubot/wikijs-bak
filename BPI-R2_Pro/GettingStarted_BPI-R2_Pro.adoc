@@ -312,18 +312,12 @@ link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by 
 image::/picture/etcher.jpg[etcher.jpg]
 
 === Install Separate Images with Usb Download Tool
-. Download Rockchip USB Download Tool for EMMC upgrade 2. Open **RKDevTool.exe**, Switch to the “**Download Image**” page. The upgrade tool displays detailed all firmware image information. Then all image file is ready, you may push "**run**", the upgrade process begin.
-
+. Download Rockchip USB Download Tool for EMMC upgrade 
+. Open **RKDevTool.exe**, Switch to the “**Download Image**” page. The upgrade tool displays detailed all firmware image information. Then all image file is ready, you may push "**run**", the upgrade process begin.
++
 NOTE: Note: Because Linux's release package, Example: **Ubuntu-22.04-Desktop-EMMCBoot-rockdev-MT7531SW-DSA.zip**, unzip it into the same folder "Update-EMMC-Tools" inside.
-
-
-
-
-
-
-
-
-
++
+image::/picture/r2-pro-download_-image.jpg[r2-pro-download_-image.jpg]
 
 === Build Linux BSP Source Code
 . Get Linux source code
@@ -338,11 +332,11 @@ NOTE: Note: All linux Image suuport dual display HDMI and eDP together, eDP only
 
 HDMI Display
 
-
+image::/picture/hdmi-monitor-display.jpg[hdmi-monitor-display.jpg]
 
 eDP panel Display
 
-
+image::/picture/edp-monitor-display.jpg[edp-monitor-display.jpg]
 
 === Wlan&BT
 CN13 M.2 KEY E Slot is used for connect Wlan&BT adapter, default image support RTL8822CE(PCIE+USB) and RTL8822CS(SDIO+UART).
