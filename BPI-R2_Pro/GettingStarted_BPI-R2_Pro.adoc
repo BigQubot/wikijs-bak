@@ -15,8 +15,8 @@ TIP: More Infomation: link:/en/BPI-R2_Pro/BananaPi_BPI-R2_Pro[Banana Pi BPI-R2_P
 **Windows**
 
 . Download and install Rockchip USB driver
-
-
++
+image::/picture/driver_install_2.png[driver_install_2.png]
 
 . Download Rockchip USB Download Tool
 This tool defaults language is Chinese. you can change it to English after extract the package. Open **RKDevTool_Release_v2.84/config.ini** with an text editor (like notepad). The starting lines are:
@@ -162,7 +162,7 @@ CN13 M.2 KEY E Slot is used for connect Wlan&BT adapter, the following WiFi Card
 . Copy download apps and package to SDcard and plugin it to Bananapi R2pro.
 . Follow the process in the video to Install Google Play store.
 
-**YouTube Video**:
+**YouTube Video**:https://youtu.be/pMKBVcJhsx4
 
 Another way, you can build the android source code with OpenGApps google play include.
 
@@ -189,22 +189,38 @@ https://docs.banana-pi.org/en/BPI-R2_Pro/GettingStarted_BPI-R2_Pro#_build_androi
 . Download link:https://github.com/opengapps/aosp_build[OpenGApps aosp_build] project to /vendor/opengapps/build
 . Create /vendor/opengapps/sources folder, download link:https://gitlab.opengapps.org/opengapps[OpenGApps projects] to /vendor/opengapps/sources/
 . Build the source code and link:/en/BPI-R2_Pro/GettingStarted_BPI-R2_Pro#_install_image_with_usb_download_tool[flash the output image].
-. Install device id app and register your device for google play certification, more info please refer to the video above.
+. Install link:https://m.apkpure.com/device-id/com.evozi.deviceid[device id app] and register your device for google play certification, more info please refer to the video above.
 
 == Linux
 === Prepare
 
-. xxx
-. xxx
-. xxx
-. xxx
+. Double male USB data cable for image download into EMMC
+. MicroUSB cable or usb to ttl cable if you need debug, default baudrate is 1500000.
+. Windows or Linux PC.
+. Download the Linux Release Image Linux Release Image, and confirm that the md5 checksum is correct before flashing.
 
-=== Install Image with xxx
+NOTE:  Note: The below picture is for BPI-R2PRO's Debug Connecting, the blue usb cable is Double male USB data cable for image download, the white MicroUSB cable is linux serial console, please install CH340E's USB convert serial driver.
 
-. xxx
-. xxx
-. xxx
-. xxx
+image::/picture/bpi-r2pro-debug-connect.jpg[bpi-r2pro-debug-connect.jpg]
+
+=== Install Image with Usb Download Tool
+
+. Download and install Rockchip USB driver
++
+image::/picture/driver_install_2.png[driver_install_2.png]
+
+. Download Rockchip USB Download Tool
+This tool defaults language is Chinese. you can change it to English after extract the package. Open **RKDevTool_Release_v2.84/config.ini** with an text editor (like notepad). The starting lines are:
++
+image::/picture/r2-pro_usb-tool-1.jpg[r2-pro_usb-tool-1.jpg]
++
+```sh
+ #Language Selection: Selected=1(Chinese); Selected=2(English)
+ [Language]
+ Kinds=2
+ Selected=1
+ LangPath=Language\
+```
 
 === Install Image with xxx
 
