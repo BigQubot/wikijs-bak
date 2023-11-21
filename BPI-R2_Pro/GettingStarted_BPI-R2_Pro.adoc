@@ -205,22 +205,7 @@ image::/picture/bpi-r2pro-debug-connect.jpg[bpi-r2pro-debug-connect.jpg]
 
 === Install Image with Usb Download Tool
 
-. Download and install Rockchip USB driver
-+
-image::/picture/driver_install_2.png[driver_install_2.png]
-
-. Download Rockchip USB Download Tool
-This tool defaults language is Chinese. you can change it to English after extract the package. Open **RKDevTool_Release_v2.84/config.ini** with an text editor (like notepad). The starting lines are:
-+
-image::/picture/r2-pro_usb-tool-1.jpg[r2-pro_usb-tool-1.jpg]
-+
-```sh
- #Language Selection: Selected=1(Chinese); Selected=2(English)
- [Language]
- Kinds=2
- Selected=1
- LangPath=Language\
-```
+The Android and Linux images of R2 Pro have the same burning method on Windows.link:/en/BPI-R2_Pro/GettingStarted_BPI-R2_Pro#_install_image_with_usb_download_tool[Install Image with Usb Download Tool-Windows]
 
 === Install Image with xxx
 
