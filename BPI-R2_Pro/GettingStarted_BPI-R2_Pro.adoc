@@ -14,11 +14,11 @@ TIP: More Infomation: link:/en/BPI-R2_Pro/BananaPi_BPI-R2_Pro[Banana Pi BPI-R2_P
 === Install Image with Usb Download Tool
 **Windows**
 
-. Download and install Rockchip USB driver
+. Download and install link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FDriverAssitant_v5.11.zip[Rockchip USB driver]
 +
 image::/picture/driver_install_2.png[driver_install_2.png]
 
-. Download Rockchip USB Download Tool
+. Download link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FUpdate-EMMC-Tools.zip[Rockchip USB Download Tool] +
 This tool defaults language is Chinese. you can change it to English after extract the package. Open **RKDevTool_Release_v2.84/config.ini** with an text editor (like notepad). The starting lines are:
 +
 image::/picture/r2-pro_usb-tool-1.jpg[r2-pro_usb-tool-1.jpg]
@@ -105,7 +105,7 @@ image::/picture/sd_upgrade.png[sd_upgrade.png]
 image::/picture/sd_upgrade_finish.png[sd_upgrade_finish.png]
 
 === Boot Android from SDcard
-Create a sdcard for android boot is almost the same as create a firmware upgrade sdcard, only one difference is select "SD Boot" mode instead of "Upgrade Firmware". This process lasts about 8 minutes, then safely remove the SDcard, insert it into the r2pro board and power on.
+Create a sdcard for android boot is almost the same as create a link:/en/BPI-R2_Pro/GettingStarted_BPI-R2_Pro#_install_image_with_sd_card[firmware upgrade sdcard], only one difference is select "**SD Boot**" mode instead of "**Upgrade Firmware**". This process lasts about 8 minutes, then safely remove the SDcard, insert it into the r2pro board and power on.
 
 One thing to note is that make sure emmc is empty, you must erase it if flashed before. We recommend that use emmc for android boot because it is faster and more stable.
 
@@ -246,11 +246,11 @@ image::/picture/bpi-r2pro-debug-connect.jpg[bpi-r2pro-debug-connect.jpg]
 
 **Windows**
 
-. Download and install Rockchip USB driver
+. Download and install link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FDriverAssitant_v5.11.zip[Rockchip USB driver]
 +
 image::/picture/driver_install_2.png[driver_install_2.png]
 
-. Download Rockchip USB Download Tool
+. Download link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FUpdate-EMMC-Tools.zip[Rockchip USB Download Tool] +
 This tool defaults language is Chinese. you can change it to English after extract the package. Open **RKDevTool_Release_v2.84/config.ini** with an text editor (like notepad). The starting lines are:
 +
 image::/picture/r2-pro_usb-tool-1.jpg[r2-pro_usb-tool-1.jpg]
@@ -312,7 +312,7 @@ link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by 
 image::/picture/etcher.jpg[etcher.jpg]
 
 === Install Separate Images with Usb Download Tool
-. Download Rockchip USB Download Tool for EMMC upgrade 
+. Download link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FUpdate-EMMC-Tools.zip[Rockchip USB Download Tool for EMMC upgrade] 
 . Open **RKDevTool.exe**, Switch to the “**Download Image**” page. The upgrade tool displays detailed all firmware image information. Then all image file is ready, you may push "**run**", the upgrade process begin.
 +
 NOTE: Note: Because Linux's release package, Example: **Ubuntu-22.04-Desktop-EMMCBoot-rockdev-MT7531SW-DSA.zip**, unzip it into the same folder "Update-EMMC-Tools" inside.
