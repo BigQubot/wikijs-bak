@@ -49,6 +49,45 @@ The download tool also show the download mode if device connected.
 image::/picture/r2-pro_usb-tool-5.jpg[r2-pro_usb-tool-5.jpg]
 image::/picture/r2-pro_usb-tool-6.jpg[r2-pro_usb-tool-6.jpg]
 
+. Press the “**upgrade**” button to start the upgrade.
++
+image::/picture/r2-pro_usb-tool-7.jpg[r2-pro_usb-tool-7.jpg]
+
+. If the upgrade fails, you can try to erase the Emmc by pressing the EraseFlash button first, and then upgrade image again.
++
+image::/picture/r2-pro_usb-tool-8.jpg[r2-pro_usb-tool-8.jpg]
+
+**Linux**
+
+. Download link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FRK_Linux_Upgrade_Tool_v1.65.zip[Linux USB Download Tool], And install it into the system as follows commands:
++
+```sh
+ $ unzip Linux_Upgrade_Tool_xxxx.zip
+ $ cd Linux_UpgradeTool_xxxx
+ $ sudo mv upgrade_tool /usr/local/bin
+ $ sudo chown root:root /usr/local/bin/upgrade_tool
+ $ sudo chmod a+x /usr/local/bin/upgrade_tool
+```
+. Check the windows download processes, enter the right usb download mode and upgrade image firmware with this command:
++
+```sh
+ $ sudo upgrade_tool uf update.img
+```
++
+image::/picture/linux_download.png[linux_download.png]
+. If the upgrade fails, try erasing the emmc and upgrade again.
++
+```sh
+ $ sudo upgrade_tool ef update.img
+```
++
+image::/picture/linux_erase.png[linux_erase.png]
+
++
+```sh
+# upgrade again
+ $ sudo upgrade_tool uf update.img
+```
 
 === Install Image with SD card
 
@@ -205,11 +244,106 @@ image::/picture/bpi-r2pro-debug-connect.jpg[bpi-r2pro-debug-connect.jpg]
 
 === Install Image with Usb Download Tool
 
-The Android and Linux images of R2 Pro have the same burning method on Windows.link:/en/BPI-R2_Pro/GettingStarted_BPI-R2_Pro#_install_image_with_usb_download_tool[Install Image with Usb Download Tool-Windows]
+**Windows**
 
-=== Install Image with xxx
+. Download and install Rockchip USB driver
++
+image::/picture/driver_install_2.png[driver_install_2.png]
 
-. xxx
-. xxx
-. xxx
-. xxx
+. Download Rockchip USB Download Tool
+This tool defaults language is Chinese. you can change it to English after extract the package. Open **RKDevTool_Release_v2.84/config.ini** with an text editor (like notepad). The starting lines are:
++
+image::/picture/r2-pro_usb-tool-1.jpg[r2-pro_usb-tool-1.jpg]
++
+```sh
+ #Language Selection: Selected=1(Chinese); Selected=2(English)
+ [Language]
+ Kinds=2
+ Selected=1
+ LangPath=Language\
+```
+. Open RKDevTool.exe, Switch to the “**upgrade firmware**” page. Press the “**firmware**” button to open the image file to be upgraded. The upgrade tool displays detailed firmware information.
++
+image::/picture/r2-pro_usb-tool-linux-1.jpg[r2-pro_usb-tool-linux-1.jpg]
+image::/picture/r2-pro_usb-tool-linux-2.jpg[r2-pro_usb-tool-linux-2.jpg]
+. Disconnect power adapter, connect dual male usb cable from the top usb host port to PC.
+
+. There have two usb download mode for image upgrade.
+
+- **Uboot Usb Download Mode (loader mode)** +
+It's supposed to use this way if board already flashed a bootable uboot before.
+- **Maskrom Usb Download Mode(maskrom mode)** +
+Press the Recovery button or Maskrom button beside 3pin uart header and hold, connect the power adapter or press the RST button if power adapter already connected, about two seconds later, release the button. PC will Identify the device if RK usb driver installed correctly.
++
+image::/picture/r2-pro_usb-tool-4.jpg[r2-pro_usb-tool-4.jpg]
+The download tool also show the download mode if device connected.
++
+image::/picture/r2-pro_usb-tool-linux-3.jpg[r2-pro_usb-tool-linux-3.jpg]
+image::/picture/r2-pro_usb-tool-linux-4.jpg[r2-pro_usb-tool-linux-4.jpg]
+
+. Press the “**upgrade**” button to start the upgrade.
++
+image::/picture/r2-pro_usb-tool-linux-5.jpg[r2-pro_usb-tool-linux-5.jpg]
+
+. If the upgrade fails, you can try to erase the Emmc by pressing the EraseFlash button first, and then upgrade image again.
++
+image::/picture/r2-pro_usb-tool-linux-6.jpg[r2-pro_usb-tool-linux-6.jpg]
+
+=== Install Image with SD card
+
+. Download link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FUpdate-SD-Tools.zip[Rockchip SD Disk Tool].
+. Insert card reader to Windows PC, 8GB sdcard size at least.
+. Run SD_Firmware_Tool, check the “Upgrade Firmware” box and select the correct removable disk device, Choose firmware image, then Click Create button to make it and wait until it is finshed
++
+image::/picture/r2-pro_sd-linux-1.jpg[r2-pro_sd-linux-1.jpg]
+
+=== Install Image with SD card 2
+WARNING: If you use **Rockchip SD Disk Tool** and **RKDevTool_ Release** displays "**Loading firmware failed!**", then you can use the following method to burn.
+
+**Windows PC**
+
+Install Image with Balena Etcher. +
+link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
+
+. Click on "**Flash from file**" to select image. 
+. Click on "**Select target**" to select USB device. 
+. Click on "**Flash!**" Start burning.
+
+image::/picture/etcher.jpg[etcher.jpg]
+
+=== Install Separate Images with Usb Download Tool
+. Download Rockchip USB Download Tool for EMMC upgrade 2. Open **RKDevTool.exe**, Switch to the “**Download Image**” page. The upgrade tool displays detailed all firmware image information. Then all image file is ready, you may push "**run**", the upgrade process begin.
+
+NOTE: Note: Because Linux's release package, Example: **Ubuntu-22.04-Desktop-EMMCBoot-rockdev-MT7531SW-DSA.zip**, unzip it into the same folder "Update-EMMC-Tools" inside.
+
+
+
+
+
+
+
+
+
+
+=== Build Linux BSP Source Code
+. Get Linux source code
++
+```sh
+ $ git clone https://github.com/BPI-SINOVOIP/BPI-R2PRO-BSP.git
+```
+. Build the Linux BSP Source code
+
+=== Dual Display
+NOTE: Note: All linux Image suuport dual display HDMI and eDP together, eDP only support 1920x1080.
+
+HDMI Display
+
+
+
+eDP panel Display
+
+
+
+=== Wlan&BT
+CN13 M.2 KEY E Slot is used for connect Wlan&BT adapter, default image support RTL8822CE(PCIE+USB) and RTL8822CS(SDIO+UART).
+  
