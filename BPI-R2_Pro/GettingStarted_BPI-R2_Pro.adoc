@@ -166,7 +166,8 @@ CN13 M.2 KEY E Slot is used for connect Wlan&BT adapter, the following WiFi Card
 
 Another way, you can build the android source code with OpenGApps google play include.
 
-. Download the link:en/BPI-R2_Pro/GettingStarted_BPI-R2_Pro#_build_android_source_code[android source code]
+. Download the link:/en/BPI-R2_Pro/GettingStarted_BPI-R2_Pro#_build_android_source_code[android source code]
+https://docs.banana-pi.org/en/BPI-R2_Pro/GettingStarted_BPI-R2_Pro#_build_android_source_code
 . Apply this patch to enable build OpenGApps
 +
 ```sh
@@ -187,7 +188,7 @@ Another way, you can build the android source code with OpenGApps google play in
 . Create /vendor/opengapps folder
 . Download link:https://github.com/opengapps/aosp_build[OpenGApps aosp_build] project to /vendor/opengapps/build
 . Create /vendor/opengapps/sources folder, download link:https://gitlab.opengapps.org/opengapps[OpenGApps projects] to /vendor/opengapps/sources/
-. Build the source code and flash the output image.
+. Build the source code and link:/en/BPI-R2_Pro/GettingStarted_BPI-R2_Pro#_install_image_with_usb_download_tool[flash the output image].
 . Install device id app and register your device for google play certification, more info please refer to the video above.
 
 == Linux
