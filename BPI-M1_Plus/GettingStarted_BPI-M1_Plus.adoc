@@ -1,0 +1,346 @@
+= Introduction
+
+The Banana Pi M1+ features onboard WiFi g/b/n. The board supports all classic projects and even more because of the onboard WIFi chip. Like its sibling, it can run operating systems including Android, Lubuntu, Ubuntu, Debian, and Raspbian.
+
+The Banana Pi M1+ is our upgraded M1 board. We feel like the onboard WiFi adds a lot more features to the board and makes it more convient for users to set up their linx desktop or router projects. 
+
+TIP: More Infomation: link:/en/BPI-M1_Plus/BananaPi_BPI-M1_Plus[Banana Pi BPI-M1_Plus]
+
+== specifications
+
+- Dual-core 1.0GHz CPU
+- 1 GB DDR3 memeory
+- Mali-400 MP2 with Open GL ES 2.0/1.1
+- WiFi onbaord
+
+= Development
+== Android
+=== Install Image with SD card
+
+. Download the M1 Plus image.
+. Put your TF card into a TF-USB adapter, and then plug adapter in your Windows PC usb interface.
+. Prepare your image, and download image burning tools PhoenixCard.exe.
+. Use "PhoenixCard.exe" to burn android image to TF card.
+- Select the image in the image path option
++
+image::/picture/m1-android-1.jpg[m1-android-1.jpg]
+image::/picture/m1-android-2.jpg[m1-android-2.jpg]
+
+- Select set as card startup, then click on burn image
++
+image::/picture/m1-android-3.jpg[m1-android-3.jpg]
+
+- Burning ended.
++
+image::/picture/m1-android-4.jpg[m1-android-4.jpg]
+
+
+== Linux
+=== Prepare
+
+. Prepare 8G/above TF card, USB-Serial interface, PC with windows System
+. Using your USB-Serial Connect debug console on M1 Plus
+
+=== Install Image with SD card
+
+Install Image with Balena Etcher. +
+link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
+
+. Click on "**Flash from file**" to select image. 
+. Click on "**Select target**" to select USB device. 
+. Click on "**Flash!**" Start burning.
+
+image::/picture/etcher.jpg[etcher.jpg]
+
+
+== Advanced Development
+=== SATA
+. Mount SATA on M1P
+
+- After insert sata interface, execute
++
+```sh
+fdisk -l
+```
+- Then 
++
+```sh
+mount /dev/sdx /mnt/xxx
+```
++
+
+
+. If you meet some errors when you mount SATA, try these following commands:
+
+- Create new partition
++
+```sh
+fdisk /dev/sdx
+```
+set your partition numbers and size, after created partitions, input "**wq**" to save and quit.
+- Format the SATA
++
+```sh
+mkfs.ext2 /dev/sdx
+```
+- Execute
++
+```sh
+mount /dev/sdx /mnt/xxx
+```
++
+
+
+. After you success to insert SATA, we could input following commands to test SATA interface:
+
+- Test read speed
++
+```SH
+time dd if=/dev/xxx of=/dev/null bs=1M count=1000 
+```
+- Test write speed
++
+```SH
+time dd if=/dev/zero of=/dev/sdx bs=1M count=1000
+```
++
+
+
+=== GMAC
+Use iperf3 to test gmac
+
+. On PC Terminal:
++
+Execute
++
+```sh
+iperf3 -s
+```
+. On M1P console:
++
+--
+TCP test
+```sh
+iperf3 -c serverIP
+```
+UDP test: 
+```sh
+iperf3 -u -c serverIP
+```
+--
++
+
+
+=== WiFi Client
+**You have two ways to setup WiFi Client**
+
+. Use commands to setup WiFi client
++
+--
+```sh
+ip link set wlan0 up
+iw dev wlan0 scan | grep SSID
+nano /etc/wpasupplicant/wpa_supplicant.conf
+```
+```sh
+ network={    
+ ssid="ssid"    
+ psk="password"    
+ priority=1 
+ }
+```
+```sh
+wpa_supplicant -iwlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf
+dhclient wlan0
+```
+--
+. Use UI interface to setup WiFi Client
+
+=== Clear boot
+```sh
+git clone https://github.com/BPI-SINOVOIP/BPI-files/tree/master/SD/100MB
+bpi-bootsel BPI-cleanboot-8k.img.gz /dev/sdX
+```
+=== IR function
+Execute 
+```sh
+getevent
+```
+Use your IR device to send information to M1 Plus
+
+=== RPi.GPIO
+**Install RPi.GPIO**
+```sh
+git clone https://github.com/BPI-SINOVOIP/RPi.GPIO
+cd RPi.GPIO
+sudo apt-get update
+sudo apt-get install python-dev python3-dev
+```
+Install module, execute 
+```sh
+sudo python setup.py install
+```
+or
+```sh
+sudo python3 setup.py install
+```
+
+**Using RPi.GPIO**
+```sh
+cd /usr/local/bin
+./bpi_test_g40.py
+```
+
+=== WringPi
+GitHub: https://github.com/BPI-SINOVOIP/BPI-WiringPi2.git
+
+We also have built-in test command in 
+```sh
+/usr/local/bin
+```
+**RGB 1602 LCD**
+```sh
+/usr/local/bin/bpi_test_lcd1602.sh
+```
+**8x8 RGB LED Martix**
+
+Firstly you need a GPIO Extend Board for 8x8 LED Martix +
+Execute 
+```sh
+/usr/local/bin/bpi_test_gpio40.sh
+```
+
+
+=== File System
+read only system change to read & write mode:
+```sh
+mount -o remount,rw /
+```
+
+=== Install QT
+```sh
+sudo apt-get install build-essential
+sudo apt-get install libgl1-mesa-dev
+sudo apt-get install libglu1-mesa-dev
+sudo apt-get install freeglut3-dev
+sudo apt-get install cmake
+sudo apt-get install qt5-default qtcreator
+```
+=== A20 CAN Bus
+In order to port can4linux to the BananaPi, the CAN module description is needed from the A20 hardware manual. can4linux is a character-driver-based Linux driver used already on desktop PCs and embedded platforms like Freescale FlexCAN (the i.MX series of micro controllers) or Xiliny Zynq.
+
+There is a more detailed document about CAN on the A20 at: https://dl.linux-sunxi.org/A20/CAN%20Bus1.pdf
+
+This is a tutorial for using CAN BUS on bananapi with bananian 15-01
+
+Thank selqcir share this example:
+
+- Download and install "bananian-1501.img" into 8 GB SDCard.
+- Expand the root file system using "bananian-config"
+- Install missing package:
++
+```sh
+apt-get install git
+apt-get update
+apt-get upgrade
+reboot
+```
+- Get last bananian available, and continu to install missing package:
++
+```sh
+git clone https://github.com/Bananian/linux-bananapi
+apt-get install build-essential u-boot-tools uboot-mkimage 
+apt-get install libusb-1.0-0 libusb-1.0-0-dev git wget fakeroot kernel-package zlib1g-dev libncurses5-dev
+apt-get install subversion
+```
+- Build kernel:
++
+```sh
+cd linux-bananapi
+make menuconfig
+```
+- Exit without saving when menu appears
++
+```sh
+zcat /proc/config.gz > /root/linux-bananapi/.config
+make uImage modules
+make INSTALL_MOD_PATH=output modules_install
+```
+- At this step, kernel should be compiled and "Module.symvers" should be available
+- Then rename modules and firmware provide by Bananian, and replace by the new one.
++
+```sh
+mv /lib/modules /lib/modules.old
+mv /lib/firmware /lib/firmware.old
+mv /root/linux-bananapi/output/lib/modules /lib/modules
+mv /root/linux-bananapi/output/lib/firmware /lib/firmware
+```
+- Same for uImage:
++
+```sh
+mount /dev/mmcblk0p1 /mnt
+cd /mnt
+mv uImage uImage.old
+mv /root/linux-bananapi/arch/arm/boot/uImage /mnt
+reboot
+```
+- Create link for further build:
++
+```sh
+cd /lib/modules/3.4.104/
+ln -s /root/linux-bananapi build
+cd ~
+```
+- Get Can4Linux and build it:
++
+```sh
+svn checkout https://svn.code.sf.net/p/can4linux/code/trunk can4linux-code
+cd /root/can4linux-code/can4linux/
+make TARGET=BANANAPI
+```
+- Install module for each startup of the board:
++
+```sh
+insmod can4linux.ko
+cp can4linux.ko /lib/modules/3.4.104/kernel/net/can/
+depmod -A -v
+modprobe -v can4linux
+echo "" >> /etc/modules ; echo "can4linux" >> /etc/modules
+reboot
+```
+- Build CAN example
++
+```sh
+apt-get install swig
+apt-get install python-dev
+cd can4linux-code/can4linux-examples/
+```
+- Update CAN speed and device in file "pyCan-example.py"
++
+```sh
+# setting the device number
+device = 0
+defaultBaudrate = '250'
+```
+- Connect CAN transceiver and CAN bus, and check with for example:
++
+```sh
+python pyCan-example.py
+```
+
+That's all
+
+With this method, kernel version is "Linux bananapi 3.4.104" instead of "Linux bananapi 3.4.104+", because i was unable to find same sources than Bananian 15-01 , but CAN bus work!
+
+
+
+
+
+
+
+
+
+
+
+
+
