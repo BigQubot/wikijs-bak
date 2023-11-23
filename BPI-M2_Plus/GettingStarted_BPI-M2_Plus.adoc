@@ -38,19 +38,28 @@ TIP: More Infomation: link:/en/BPI-M2_Plus/BananaPi_BPI-M2_Plus[Banana Pi BPI-M2
 . Prepare 8G/above TF card, USB-Serial interface
 . Using your USB-Serial Connect debug console on M2P
 
-=== Install Image with xxx
+=== Install Image on SD card
 
-. xxx
-. xxx
-. xxx
-. xxx
+. Install bpi-tools on your Linux. If you can't access this URL or any other problems, please go to bpi-tools repo and install this tools manually.
++
+```sh
+apt-get install pv
+curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
+```
 
-=== Install Image with xxx
-
-. xxx
-. xxx
-. xxx
-. xxx
+. After you download the image, insert your TF card into your Linux +
+Execute "bpi-copy xxx.img /dev/sdx" to install image on your TF card.
+ 
+. After step 3, then you can insert your TF card into M2P, and press power button setup M2P.
+ 
+. Login user/password: pi/bananapi or root/bananapi.
+ 
+=== Install Image on eMMC
+ * Run your M2P with TF card
+ * Copy "xxx-sd-emmc-xxx.img.zip / xxx-sd-emmc-xxx.img" to your USB disk
+ * Plug your USB disk in M2P
+ * After M2P recognise USB disk, execute "bpi-copy xxx-sd-emmc-xxx.img.zip / xxx-sd-emmc-xxx.img" to install image on EMMC
+ * Then power off M2P, take TF card out, power on M2P with EMMC
 
 === Update image
 For example, update your image to support new emmc5.1
