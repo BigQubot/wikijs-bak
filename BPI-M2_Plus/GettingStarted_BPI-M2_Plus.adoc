@@ -196,13 +196,13 @@ cd BPI-M2P-bsp
 +
 Prepare a ".bmp" picture, here I rotate 180°, as follows :
 +
-M2P CL 1.png
+image::/picture/m2p_cl_1.png[m2p_cl_1.png]
 
 - Change your picture name as "**bootlogo.bmp**"
 - put your picture to "sunxi-pack/chips/sun8iw7p1/configs/BPI-M2P-xxxP/"
 Here I replaced “bootlogo.bmp” which is under “sunxi-pack/chips/sun8iw7p1/configs/BPI-M2P-720P/” as an example:
 +
-M2P CL 2.png
+image::/picture/m2p_cl_2.png[m2p_cl_2.png]
 
 . Build your code
 +
@@ -211,34 +211,164 @@ M2P CL 2.png
 ```
 choose 1
 +
-M2P CL 3.png
+image::/picture/m2p_cl_3.png[m2p_cl_3.png]
 +
 After you built the project, you will see “**SD**” directory
 +
-M2P CL 4.png
+image::/picture/m2p_cl_4.png[m2p_cl_4.png]
 
 . Install a raspbian image on your SD card
 
 . Plug your SD card into your Ubuntu PC
++
+check your SD card was recognised as /dev/sdxx, as you can see, mine sd card was recognised as /dev/sde
++
+image::/picture/m2p_cl_5.png[m2p_cl_5.png]
 
-(1) check your SD card was recognised as /dev/sdxx, as you can see, mine sd card was recognised as /dev/sde
+. Then
++
+```sh
+cd SD/bpi-m2p/100MB
+```
 
-M2P CL 5.png
+. Execute 
++
+```sh
+bpi-bootsel BPI-M2P-720P.img.gz /dev/sde
+```
++
+image::/picture/m2p_cl_6.png[m2p_cl_6.png]
 
-. Then “cd SD/bpi-m2p/100MB”
+=== Clear boot
+```sh
+git clone https://github.com/BPI-SINOVOIP/BPI-files/tree/master/SD/100MB
+bpi-bootsel BPI-cleanboot-8k.img.gz /dev/sdX
+```
 
-. Execute command “bpi-bootsel BPI-M2P-720P.img.gz /dev/sde”
+=== Camara function
+We use HDF5640 camara.
 
-M2P CL 6.png
+image::/picture/ov5640_camara.png[ov5640_camara.png]
 
-. Insert your updated SD card to board, and power on, you will see:
+**Guvcview**
 
+Use your UI interface to operate camara +
+Applications -> Sound & Video -> guvcview
 
+**Shell**
 
+We also have built-in command in /usr/local/bin to test camara
 
+- Test picture taking function
++
+```sh
+./test_ov5640_image_mode.sh
+```
+- Test video recording function
++
+```sh
+./cameratest.sh
+```
 
+=== IR function
+Execute
+```sh
+getevent
+```
+Use your IR device to send information to M2P
 
+image::/picture/ir_getevent.png[ir_getevent.png]
 
+=== BPI-Tools
+**Install Bpi-tools**
 
+Execute 
+```sh
+curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash - 
+```
+**Update Bpi-tools**
 
+Execute 
+```sh
+bpi-tools
+```
 
+image::/picture/bpi-tools.png[bpi-tools.png]
+
+=== RPi.GPIO
+**Install RPi.GPIO**
+```sh
+git clone https://github.com/BPI-SINOVOIP/RPi.GPIO"
+cd RPi.GPIO
+sudo apt-get update
+sudo apt-get install python-dev python3-dev
+```
+Install the module
+```sh
+sudo python setup.py install
+```
+or
+```sh
+sudo python3 setup.py install
+```
+**Using RPi.GPIO**
+```sh
+cd /usr/local/bin
+./bpi_test_g40.py
+```
+image::/picture/rpi_gpio.png[rpi_gpio.png]
+
+=== WiringPi
+- GitHub: https://github.com/BPI-SINOVOIP/BPI-WiringPi2.git
+
+- We also have built-in test command in 
++
+```sh
+/usr/local/bin
+```
+
+**How to Update WiringPi**
+
+- Execute
++
+```sh
+bpi-update -c pkglist.conf
+```
+image::/picture/update_pkglist.png[update_pkglist.png]
+
+- Execute
++
+```sh
+bpi-update -c bpi-pkg-bpi-wiringpi.conf
+```
+image::/picture/update_wringpi.png[update_wringpi.png]
+
+**RGB 1602 LCD**
+
+- Execute
++
+```sh
+/usr/local/bin/bpi_test_lcd1602.sh
+```
+image::/picture/wringpi_1602_lcd_m2m.png[wringpi_1602_lcd_m2m.png]
+
+**0.96 Inch OLED Display**
+
+- Execute 
++
+```sh
+/usr/local/bin/bpi_test_52pi.sh
+```
+
+**8x8 RGB LED Martix**
+
+- Firstly you need a GPIO Extend Board for 8x8 LED Martix
++
+image::/picture/wringpi_led_martix_extend_board.png[wringpi_led_martix_extend_board.png]
+
+- Execute 
++
+```sh
+/usr/local/bin/bpi_test_gpio40.sh
+```
+image::/picture/wringpi_led_martix_m2m.png[wringpi_led_martix_m2m.png]
