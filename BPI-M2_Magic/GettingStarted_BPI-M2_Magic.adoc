@@ -21,12 +21,24 @@ TIP: More Infomation: link:/en/BPI-M2_Magic/BananaPi_BPI-M2_Magic[Banana Pi BPI-
 
 . Download PhoenixCard: https://pan.baidu.com/s/1-fjvPqtG_zewVzqnXf1AHw?pwd=eid9
 
-=== Install Image with xxx
+=== Install Image with SD card
 
-. xxx
-. xxx
-. xxx
-. xxx
+. Put your TF card into a TF-USB adapter, and then plug adapter in your Windows PC usb interface.
+ 
+. Prepare your image, and download image burning tools PhoenixCard.exe.
+ 
+. Use "PhoenixCard.exe" to burn android image to TF card.
+- Select the image in the image path option
++
+image::/picture/m2m-android-1.jpg[m2m-android-1.jpg]
+
+- Select set as card startup, then click on burn image
++
+image::/picture/m2m-android-2.jpg[m2m-android-2.jpg]
+
+- Burning ended
++
+image::/picture/m2m-android-3.jpg[m2m-android-3.jpg]
 
 == Linux
 === Prepare
