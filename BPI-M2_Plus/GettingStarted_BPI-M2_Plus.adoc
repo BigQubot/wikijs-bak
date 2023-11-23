@@ -76,9 +76,10 @@ curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -
 
 **Clone code**
 
-Git clone: https://github.com/BPI-SINOVOIP/BPI-M2P-bsp.git
+```sh
+git clone: https://github.com/BPI-SINOVOIP/BPI-M2P-bsp.git
 ./build.sh
-
+```
 === How to create an image
 . Prepare a SD card which have installed system(Ubuntu/Raspbian/..)
 . Boot your SD card with M2P, after M2P finish starting, copy your files and config your system, then poweroff M2P. [If you don't want to config your system, you can skip this step]
