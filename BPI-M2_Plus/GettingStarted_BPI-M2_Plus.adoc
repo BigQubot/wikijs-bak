@@ -37,29 +37,61 @@ TIP: More Infomation: link:/en/BPI-M2_Plus/BananaPi_BPI-M2_Plus[Banana Pi BPI-M2
 
 . Prepare 8G/above TF card, USB-Serial interface
 . Using your USB-Serial Connect debug console on M2P
+. Login user/password: pi/bananapi or root/bananapi.
 
-=== Install Image on SD card
+=== Install Image to SD card
 
-. Install bpi-tools on your Linux. If you can't access this URL or any other problems, please go to bpi-tools repo and install this tools manually.
+**Windows PC**
+
+Install Image with Balena Etcher. +
+link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
+
+. Click on "**Flash from file**" to select image. 
+. Click on "**Select target**" to select USB device. 
+. Click on "**Flash!**" Start burning.
+
+image::/picture/etcher.jpg[etcher.jpg]
+
+**Linux PC**
+
+**There are two methods for you to choose from.**
+
+. Install Image with dd command on Linux, umount SDcard device /dev/sdX partition if mounted automatically. Actually bpi-copy is the same as this dd command.
 +
 ```sh
-apt-get install pv
-curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
+ $ sudo apt-get install pv unzip
+ $ sudo unzip -p xxx-bpi-m5-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxfer
+```
+. Install image with bpi-tools on Linux, plug SDcard to Linux PC and run
++
+```sh
+ $ sudo apt-get install pv unzip
+ $ sudo bpi-copy xxx-bpi-m5-xxx.img.zip /dev/sdX
 ```
 
-. After you download the image, insert your TF card into your Linux +
-Execute "bpi-copy xxx.img /dev/sdx" to install image on your TF card.
  
-. After step 3, then you can insert your TF card into M2P, and press power button setup M2P.
- 
-. Login user/password: pi/bananapi or root/bananapi.
- 
-=== Install Image on eMMC
- * Run your M2P with TF card
- * Copy "xxx-sd-emmc-xxx.img.zip / xxx-sd-emmc-xxx.img" to your USB disk
- * Plug your USB disk in M2P
- * After M2P recognise USB disk, execute "bpi-copy xxx-sd-emmc-xxx.img.zip / xxx-sd-emmc-xxx.img" to install image on EMMC
- * Then power off M2P, take TF card out, power on M2P with EMMC
+=== Install Image to eMMC
+
+. Copy "xxx-sd-emmc-xxx.img.zip / xxx-sd-emmc-xxx.img" to your USB disk
+. Plug your USB disk in M2P
+. Execute(If it is automatically mounted, skip this step)
++
+```sh
+mont /dev/sda1 /mnt
+```
+. There are two methods to burn images to eMMC.
+- Using bpi-copy for burning.
++
+```sh
+bpi-copy xxx-sd-emmc-xxx.img.zip / xxx-sd-emmc-xxx.img
+```
+- Using the dd command for burning.
++
+```sh
+sudo dd if=/mnt/sda1/xxx-sd-emmc-xxx.img of=/dev/mmcblk0
+```
+
+. Then power off M2P, take TF card out, power on M2P with EMMC
 
 === Update image
 For example, update your image to support new emmc5.1
