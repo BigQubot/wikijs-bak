@@ -50,13 +50,16 @@ image::/picture/m2m_pin_define.png[m2m_pin_define.png]
 
 === Install Image with SD card
 
+**Windows PC**
 
+Install Image with Balena Etcher. +
+link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
 
+. Click on "**Flash from file**" to select image. 
+. Click on "**Select target**" to select USB device. 
+. Click on "**Flash!**" Start burning.
 
-
-
-
-
+image::/picture/etcher.jpg[etcher.jpg]
 
 **Linxu**
 
@@ -74,9 +77,134 @@ $ sudo apt-get install pv
 $ sudo unzip -p xxx-bpi-m2m-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxfer
 ```
 
-=== Install Image with xxx
+=== Install Image with eMMC
 
-. xxx
-. xxx
-. xxx
-. xxx
+. Prepare a SDcard with Linux image flashed and bootup the board with this SDcard.
+. Copy emmc image to udisk, plugin the udisk to board and mount it.
+. Install with bpi-tools command
++
+```sh
+$ sudo bpi-copy xxx-bpi-m2m-xxx.img.zip /dev/mmcblk1
+```
+. Or Install with dd command, umount mmcblk1p1 and mmcblk1p2 partition if mounted automatically, Actually bpi-copy is the same as this dd command
++
+```sh
+   $ sudo apt-get install pv
+   $ sudo unzip -p xxxb-bpi-m2m-xxx.img.zip | pv | dd of=/dev/mmcblk1 bs=10M status=noxfer
+```
+. After flash complete, power off safely and eject the sdcard.
+
+NOTE: Note: If the emmc was flashed android image before, you must erase the boot partition of android before step 3 or step 4.
+
+```sh
+   root@bpi-iot-ros-ai:/# echo 0 > /sys/block/mmcblk1/mmcblk1boot0/force_ro                              
+   root@bpi-iot-ros-ai:/# echo 0 > /sys/block/mmcblk1/mmcblk1boot1/force_ro                              
+   root@bpi-iot-ros-ai:/# 
+   root@bpi-iot-ros-ai:/# dd if=/dev/zero of=/dev/mmcblk1boot0 bs=4096 count=1024                        
+   1024+0 records in
+   1024+0 records out
+   4194304 bytes (4.2 MB, 4.0 MiB) copied, 0.421164 s, 10.0 MB/s
+   root@bpi-iot-ros-ai:/# dd if=/dev/zero of=/dev/mmcblk1boot1 bs=4096 count=1024                        
+   1024+0 records in
+   1024+0 records out
+   4194304 bytes (4.2 MB, 4.0 MiB) copied, 0.428427 s, 9.8 MB/s
+```
+
+=== Build Source Code
+. Get the bsp source code
++
+```sh
+ $ git clone https://github.com/BPI-SINOVOIP/BPI-M2M-bsp
+```
+. Build the bsp source code
++
+Please read the source code link:https://github.com/BPI-SINOVOIP/BPI-M2M-bsp/blob/master/README.md[README.md]
+
+== Advance Development
+=== Enable uart0 for emmc only image debug
+. Enable uart0 node and disable sdc0 node in sunxi-pack/sun8iw5p1/configs/BPI-M2M-LCD7/sys_config.fex.
++
+```sh
+    --- a/sunxi-pack/sun8iw5p1/configs/BPI-M2M-LCD7/sys_config.fex
+    +++ b/sunxi-pack/sun8iw5p1/configs/BPI-M2M-LCD7/sys_config.fex
+   @@ -262,7 +262,7 @@ twi_sda         = port:PE13<3><default><default><default>
+    ;uart_type       = 2:2 wire,4:4 wire,8:8 wire, full function
+    ;----------------------------------------------------------------------------------
+    [uart0]
+   -uart_used       = 0
+   +uart_used       = 1
+    uart_port       = 0
+    uart_type       = 2
+    uart_tx         = port:PF02<3><1><default><default>
+   @@ -803,7 +803,7 @@ led3_active_low             = 1
+    ;     that supports SD3.0 cards and eMMC4.4+ flashes
+    ;-------------------------------------------------------------------------------
+    [mmc0_para]
+   -sdc_used          = 1
+   +sdc_used          = 0
+    sdc_detmode       = 3
+    sdc_buswidth      = 4
+    sdc_d1            = port:PF00<2><1><2><default>
+```
+
+. Build the bsp source code.
+. Copy the bootloader file SD/bpi-m2m/100MB/BPI-M2M-LCD7-8k.img.gz to udisk. bpi also provide a link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FImages%2FBPI-M2M%2FUbuntu16.04%2FBPI-M2M-LCD7-eMMC-only-uart0-debug-8k.img.gz[prebuild bootloader] for this requirement.
+. Bootup the m2m board from emmc, plugin the udisk and mount it.
+. Flash the bootloader to emmc
++
+```sh
+   $ sudo bpi-bootsel BPI-M2M-LCD7-8k.img.gz /dev/mmcblk0
+```
+or
++
+```sh
+   $ sudo gunzip -c BPI-M2M-LCD7-8k.img.gz | dd of=/dev/mmcblk0 bs=1024 seek=8
+   $ sync
+   $ sudo umount /dev/sda1
+```
+. Mout boot partition and set kernel debug console in uEnv.txt
++
+```sh
+   $ sudo mount -t vfat /dev/mmcblk0p1 /mnt
+```
+Change "console=ttyS2,115200" to "console=ttyS0,115200" in /mnt/bananapi/bpi-m2m/linux/lcd7/uEnv.txt
++
+```sh
+   $ sudo umount /dev/mmcblk0p1
+```
+. Safely poweroff the board and connect debug uart to uart0 three pin header.
+
+=== Audio Path
+. 2-pin HP header output audio path
++
+[options="header",cols="1,2,2"]
+|=====
+3+| 2-pin HP header output audio path 
+| Number id  | Ctl_name                   | value
+| 1          | headphone volume           | 0-63  
+| 104        | AIF1IN0L Mux               | AIF1_DA0L       
+| 103        | AIF1IN0R Mux               | AIF1_DA0R       
+| 100        | DACL Mixer AIF1DA0L Switch | 1               
+| 96         | DACR Mixer AIF1DA0R Switch | 1               
+| 78         | HP_R Mux                   | DACR HPR Switch 
+| 77         | HP_L Mux                   | DACL HPL Switch 
+| 105        | Headphone Switch           | 1              
+|=====
+
+. Mic 1 input audio path
++
+[options="header",cols="1,3,1"]
+|=====
+3+|Mic 1 input audio path
+|Number id	|Ctl_name	|value
+|56	|AIF1OUT0L Mux	|AIF1_AD0L
+|55	|AIF1OUT0R Mux	|AIF1_AD0R
+|51	|AIF1 AD0L Mixer ADCL Switch |1
+|47	|AIF1 AD0R Mixer ADCR Switch |1
+|24	|ADCR Mux	|ADC
+|25	|ADCL Mux	|ADC
+|34	|LEFT ADC input Mixer MIC1 boost Switch	|1
+|27	|RIGHT ADC input Mixer MIC1 boost Switch	|1
+|4	|MIC1 boost amplifier gain	|0-7
+|=====
+3.Alsa configuration file /var/lib/alsa/alsa.state.bpi-m2m already enable 2-pin HP output and Mic 1 input audio path, and restore by /var/lib/bananapi/bpi-autorun.d/S10-audio-bpi-m2m.sh after system bootup.
