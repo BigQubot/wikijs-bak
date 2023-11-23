@@ -207,4 +207,146 @@ Change "console=ttyS2,115200" to "console=ttyS0,115200" in /mnt/bananapi/bpi-m2m
 |27	|RIGHT ADC input Mixer MIC1 boost Switch	|1
 |4	|MIC1 boost amplifier gain	|0-7
 |=====
-3.Alsa configuration file /var/lib/alsa/alsa.state.bpi-m2m already enable 2-pin HP output and Mic 1 input audio path, and restore by /var/lib/bananapi/bpi-autorun.d/S10-audio-bpi-m2m.sh after system bootup.
+
+. Alsa configuration file /var/lib/alsa/alsa.state.bpi-m2m already enable 2-pin HP output and Mic 1 input audio path, and restore by /var/lib/bananapi/bpi-autorun.d/S10-audio-bpi-m2m.sh after system bootup.
+
+=== Bluetooth
+- Use bluetoothctl tool to operate BT
+- Execute "**bluetoothctl**"
+- If you don't know how to use bluetoothctl, type "**help**", you will see more commands
+- Execute these commands:
++
+```sh
+devices
+power on
+pairable on
+discoverable on
+agen on
+list
+scan on
+connect to *****
+```
++
+image::/picture/m2m_bt_bluetoothctl.png[m2m_bt_bluetoothctl.png]
+
+=== WiFi Client
+**You have two ways to setup WiFi Client**
+
+. Use commands to setup WiFi client
++
+```sh
+ $ sudo su
+ # killall wpa_supplicant
+ # wpa_passphrase <ssid> <passphrase> > /etc/wpa_supplicant/wpa_supplicant.conf              
+ # ifconfig wlan0 up
+ # iwlist wlan0 scan
+ # wpa_supplicant -B -iwlan0 -c/etc/wpa_supplicant/wpa_supplicant.conf
+ # dhclient wlan0
+```
+There are some other command line ways, please google for them.
+
+. Use UI interface to setup WiFi Client
+
+=== Camara function
+We use HDF5640 camara.
+
+image::/picture/ov5640_camara.png[ov5640_camara.png]
+
+**Guvcview**
+
+- Use your UI interface to operate camara
+- Applications -> Sound & Video -> guvcview
+
+**Shell**
+
+We also have built-in command in /usr/local/bin to test camara
+
+- Test picture taking function
++
+```sh
+./test_ov5640_image_mode.sh
+```
+- Test video recording function
++
+```sh
+./cameratest.sh
+```
+
+=== RPi.GPIO
+**Install RPi.GPIO**
+```sh
+git clone https://github.com/BPI-SINOVOIP/RPi.GPIO"
+cd RPi.GPIO
+sudo apt-get update
+sudo apt-get install python-dev python3-dev
+```
+Install the module
+```sh
+sudo python setup.py install
+```
+or
+```sh
+sudo python3 setup.py install
+```
+**Using RPi.GPIO**
+```sh
+cd /usr/local/bin
+./bpi_test_g40.py
+```
+image::/picture/rpi_gpio.png[rpi_gpio.png]
+
+=== WiringPi
+- GitHub: https://github.com/BPI-SINOVOIP/BPI-WiringPi2.git
+
+- We also have built-in test command in 
++
+```sh
+/usr/local/bin
+```
+
+**How to Update WiringPi**
+
+- Execute
++
+```sh
+bpi-update -c pkglist.conf
+```
+image::/picture/update_pkglist.png[update_pkglist.png]
+
+- Execute
++
+```sh
+bpi-update -c bpi-pkg-bpi-wiringpi.conf
+```
+image::/picture/update_wringpi.png[update_wringpi.png]
+
+**RGB 1602 LCD**
+
+- Execute
++
+```sh
+/usr/local/bin/bpi_test_lcd1602.sh
+```
+image::/picture/wringpi_1602_lcd_m2m.png[wringpi_1602_lcd_m2m.png]
+
+**0.96 Inch OLED Display**
+
+- Execute 
++
+```sh
+/usr/local/bin/bpi_test_52pi.sh
+```
+
+**8x8 RGB LED Martix**
+
+- Firstly you need a GPIO Extend Board for 8x8 LED Martix
++
+image::/picture/wringpi_led_martix_extend_board.png[wringpi_led_martix_extend_board.png]
+
+- Execute 
++
+```sh
+/usr/local/bin/bpi_test_gpio40.sh
+```
+image::/picture/wringpi_led_martix_m2m.png[wringpi_led_martix_m2m.png]
+
