@@ -53,6 +53,33 @@ image::/picture/bpi-m4_berry_interface.jpg[bpi-m4_berry_interface.jpg]
 | Weight                            | 60g                                            
 |=====
 
+== Hardware Spec
+
+[options="header"]
+|=====================================================================================================================================================================
+| module           | Raspberry Pi 4B                                                         | Banana Pi BPI-M4 Berry                                                 
+| CPU              | 1.5GHz Quad-Core BroadcomBCM2711(Cortex A72)                            | H618,64 Bit Cortex™-A53 Quad-Core                                      
+| GPU              | 500 MHz VideoCore Vl                                                    | ARM Mali G31 GPU                                                       
+| Memory \(SDRAM\) | 1-4GB DDR4                                                              | 2GB LPDDR4(up to 4G)                                                   
+| Onboard Storage  | MicroSD (TF) card                                                       | MicroSD (TF) card / MMC card slot ,eMMC 8GB                            
+| Network          | 10/100/1000 Ethernet                                                    | 10/100/1000 Ethernet                                                   
+| Onboard WIFI &BT | IEEE 802.11a/b/g/n/ac & BT5.0                                           | IEEE 802.11a/b/g/n/ac & BT4.2                                          
+| Display          | HDMI                                                                    | HDMI                                                                   
+| Camera           | N/A                                                                     | N/A                                                                    
+| Video Outputs    | 2*Micro-HDMI                                                            | HDMI 2.0a 4K@60fps
+
+| Audio Output     | 3.5 mm Jack and HDMI                                                    | 3.5 mm Jack and HDMI                                                   
+| Audino In        | N/A                                                                     | N/A                                                                    
+| GPIO             | 40-PIN: PWM,GPIO,UART,I²C bus,I²S bus,SPI bus,+3.3v,+5v,ground. CAN bus | 40-PIN: PWM,GPIO,UART,I²C bus,I²S bus,SPI bus,+3.3v,+5v,ground. CAN bus
+| Remote           | N/A                                                                     | IR reciever                                                            
+| USB Ports        | 2 * USB3.0+2 * USB2.0                                                   | 2 * USB 2.0 1* USB Otg                                                 
+| Buttons          | N/A                                                                     | Reset button, User button, Uboot button                                
+| LED              | Power led Status led                                                    | Power led  Status led  Wifi led                                        
+| Power            | DC 5V/3A                                                                | DC 5V/2A                                                               
+| Board Size       | 88mmx58mm                                                               | 88mmx58mm                                                              
+|=====================================================================================================================================================================
+
+
 == GPIO Pin Define
 
 === BPI-M4 Berry 40PIN GPIO
