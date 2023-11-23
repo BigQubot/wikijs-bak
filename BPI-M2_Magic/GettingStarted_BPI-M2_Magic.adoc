@@ -34,7 +34,7 @@ TIP: More Infomation: link:/en/BPI-M2_Magic/BananaPi_BPI-M2_Magic[Banana Pi BPI-
 . Prepare 8G/above TF card, USB-Serial cable.
 . Connect USB-Serial to 40 pin header uart2 for kernel console debug.
 +
-NOTE: Note: three pin header uart0 beside usb port is not debug uart for bpi release images because SDcard and uart0 are multiplex pin and default bpi images support both SD and eMMC. If you want bootup with emmc only and enable uart0 as debug port without SDcard support, please refer to enable link:https://wiki.banana-pi.org/Getting_Started_with_M2M#Enable_uart0_for_emmc_only_image_debug[uart0 debug for emmc only image] section.
+NOTE: Note: three pin header uart0 beside usb port is not debug uart for bpi release images because SDcard and uart0 are multiplex pin and default bpi images support both SD and eMMC. If you want bootup with emmc only and enable uart0 as debug port without SDcard support, please refer to enable link:/en/BPI-M2_Magic/GettingStarted_BPI-M2_Magic#_enable_uart0_for_emmc_only_image_debug[uart0 debug for emmc only image] section.
 +
 image::/picture/m2m_debug_console.jpg[m2m_debug_console.jpg]
 image::/picture/m2m_pin_define.png[m2m_pin_define.png]
@@ -50,7 +50,7 @@ image::/picture/m2m_pin_define.png[m2m_pin_define.png]
 
 === Install Image with SD card
 
-**Windows PC**
+**Windows**
 
 Install Image with Balena Etcher. +
 link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
