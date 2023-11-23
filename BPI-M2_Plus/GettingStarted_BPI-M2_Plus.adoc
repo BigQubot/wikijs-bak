@@ -1,0 +1,168 @@
+= Introduction
+
+Banana Pi M2+ is mini size development board that offers great computing performance in an ultra portable form factor.It is a 65mm*65mm fantastic mini size board with Allwinner H series chips. It comes with different versions but share the same interfaces.
+
+TIP: More Infomation: link:/en/BPI-M2_Plus/BananaPi_BPI-M2_Plus[Banana Pi BPI-M2 Plus]
+
+== specifications
+
+- Quad-core 1.2GHz Cortex-A7 H3
+- 1GB DDR3
+- 8GB eMMC onboard
+- WiFi and BlueTooth onboard
+- 10/100/1000Mbps Ethernet Port
+
+= Development
+== Android
+=== Prepare
+
+. Download PhoenixCard: https://pan.baidu.com/s/1-fjvPqtG_zewVzqnXf1AHw?pwd=eid9
+
+=== Install Image with xxx
+
+. xxx
+. xxx
+. xxx
+. xxx
+
+=== Install Image with xxx
+
+. xxx
+. xxx
+. xxx
+. xxx
+
+== Linux
+=== Prepare
+
+. Prepare 8G/above TF card, USB-Serial interface
+. Using your USB-Serial Connect debug console on M2P
+
+=== Install Image with xxx
+
+. xxx
+. xxx
+. xxx
+. xxx
+
+=== Install Image with xxx
+
+. xxx
+. xxx
+. xxx
+. xxx
+
+=== Update image
+For example, update your image to support new emmc5.1
+```sh
+  * execute “bpi-tools”, to update your bpi tools;
+  * execute “bpi-update -c bpi-m2p.conf”, to download new driver to update your image
+  * execute “file *.tgz”, to check download files’ type is compressed data
+  * execute “bpi-bootsel”, you will see the bootloader path, “/usr/lib/u-boot/bananapi/bpi-m2p/BPI_M2P_720P.img.gz”
+  * execute “bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2p/BPI_M2P_720P.img.gz”, to update your bootloader
+  * reboot
+```
+
+== Advanced Development
+=== How to build uboot & kernel
+**Install tools**
+
+```sh
+apt-get udpate
+apt-get install gcc-arm-linux-gnueabihf u-boot-tools
+apt-get install pv
+curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
+```
+
+**Clone code**
+
+Git clone: https://github.com/BPI-SINOVOIP/BPI-M2P-bsp.git
+./build.sh
+
+=== How to create an image
+. Prepare a SD card which have installed system(Ubuntu/Raspbian/..)
+. Boot your SD card with M2P, after M2P finish starting, copy your files and config your system, then poweroff M2P. [If you don't want to config your system, you can skip this step]
+. Plug your SD card in PC(which is running Linux)
++
+```sh
+cd /media
+ln -s <your account> pi
+```
+. Execute
++
+```sh
+bpi-migrate -c bpi-m2p.conf -c ubuntu-mate-from-sd.conf -d /dev/sdx
+```
+. Then you could get your own image now
+
+=== GPIO Control
+- To access a GPIO pin you first need to export it with
++
+```sh
+ echo XX > /sys/class/gpio/export
+```
+- with XX being the number of the desired pin. To obtain the correct number you have to calculate it from the pin name (like PH18) 
++
+(position of letter in alphabet - 1) * 32 + pin number 
++
+for PH18 this would be ( 8 - 1) * 32 + 18 = 224 + 18 = 242 (since 'h' is the 8th letter)
++
+```sh  
+echo "out/in" > /sys/class/gpio/gpio*NUMBER*/direction
+ echo "0/1" > /sys/class/gpio/gpio*NUMBER*/value
+```
+
+=== OTG
+. On M2P console:
++
+Execute 
++
+```sh
+./adbd.sh
+ps -ax | grep adbd
+```
+see if adbd is set up
+
+. On PC terminal:
+
+- If adbd was succeed to set up, insert OTG-USB interface to M2P and PC(with Ubuntu system)
+
+- Execute
++
+```sh
+adb devices
+```
+see if PC has recognised M2P OTG.
++
+- If yes, we could execute
++
+```sh
+adb shell
+```
+connect M2P by adb now.
+
+=== GMAC
+Use iperf3 to test gmac
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
