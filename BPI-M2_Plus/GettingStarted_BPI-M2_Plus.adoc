@@ -145,18 +145,93 @@ connect M2P by adb now.
 === GMAC
 Use iperf3 to test gmac
 
+image::/picture/m2p_gmac.png[m2p_gmac.png]
 
+=== Bluetooth
+- Use bluetoothctl tool to operate BT
+- Execute "**bluetoothctl**"
+- If you don't know how to use bluetoothctl, type "**help**", you will see more commands
+- Execute these commands:
 
+image::/picture/m2p_bt_bluetoothctl.png[m2p_bt_bluetoothctl.png]
 
+image::/picture/m2p_bt.png[m2p_bt.png]
 
+=== WiFi
+Driver code: https://github.com/BPI-SINOVOIP/BPI_WiFi_Firmware
 
+**You have two ways to setup WiFi Client**
 
+. Use commands to setup WiFi client
++
+```sh
+ip link set wlan0 up
+iw dev wlan0 scan | grep SSID
+vim /etc/wpasupplicant/wpa_supplicant.conf
+```
++
+```sh
+ network={    
+ ssid="ssid"    
+ psk="password"    
+ priority=1 
+ }
+```
++
+```sh
+wpa_supplicant -iwlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf
+dhclient wlan0
+```
+. Use UI interface to setup WiFi Client
 
+=== Change Logo
 
+. Download M2P bsp code
++
+```sh
+git clone https://github.com/BPI-SINOVOIP/BPI-M2P-bsp
+cd BPI-M2P-bsp
+```
+. Change to your boot logo
++
+Prepare a ".bmp" picture, here I rotate 180°, as follows :
++
+M2P CL 1.png
 
+- Change your picture name as "**bootlogo.bmp**"
+- put your picture to "sunxi-pack/chips/sun8iw7p1/configs/BPI-M2P-xxxP/"
+Here I replaced “bootlogo.bmp” which is under “sunxi-pack/chips/sun8iw7p1/configs/BPI-M2P-720P/” as an example:
++
+M2P CL 2.png
 
+. Build your code
++
+```sh
+./build.sh BPI-M2P-720P
+```
+choose 1
++
+M2P CL 3.png
++
+After you built the project, you will see “**SD**” directory
++
+M2P CL 4.png
 
+. Install a raspbian image on your SD card
 
+. Plug your SD card into your Ubuntu PC
+
+(1) check your SD card was recognised as /dev/sdxx, as you can see, mine sd card was recognised as /dev/sde
+
+M2P CL 5.png
+
+. Then “cd SD/bpi-m2p/100MB”
+
+. Execute command “bpi-bootsel BPI-M2P-720P.img.gz /dev/sde”
+
+M2P CL 6.png
+
+. Insert your updated SD card to board, and power on, you will see:
 
 
 
