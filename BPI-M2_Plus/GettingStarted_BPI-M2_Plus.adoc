@@ -86,13 +86,13 @@ image::/picture/etcher.jpg[etcher.jpg]
 +
 ```sh
  $ sudo apt-get install pv unzip
- $ sudo unzip -p xxx-bpi-m5-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxfer
+ $ sudo unzip -p xxx-bpi-m2_plus-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxfer
 ```
 . Install image with bpi-tools on Linux, plug SDcard to Linux PC and run
 +
 ```sh
  $ sudo apt-get install pv unzip
- $ sudo bpi-copy xxx-bpi-m5-xxx.img.zip /dev/sdX
+ $ sudo bpi-copy xxx-bpi-m2_plus-xxx.img.zip /dev/sdX
 ```
 
  
