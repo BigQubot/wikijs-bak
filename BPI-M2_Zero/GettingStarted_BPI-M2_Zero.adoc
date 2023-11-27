@@ -106,27 +106,6 @@ image::/picture/etcher.jpg[etcher.jpg]
  $ sudo bpi-copy xxx-bpi-m2_zero-xxx.img.zip /dev/sdX
 ```
 
-=== Install Image to eMMC
-
-. Prepare a SDcard with Linux image flashed and bootup board with this SDcard.
-. Unzip the image and copy it to a USB drive, plug the udisk to board and mount it.（If automatically mounted, ignore this step）
-+
-```sh
-mount /dev/sdx /mnt
-```
-. There are two ways to install the linux image to board.
-- Install with dd command.
-+
-```sh
-sudo dd if=/mnt/xxx.bpi-m2_zero-xxx.img of=/dev/mmcblk0 bs=10M status=noxfer
-```
-- Install the linux image in udisk with bpi-tools command
-+
-```sh
- $ sudo bpi-copy xxx-bpi-m2_zero-xxx.img.zip /dev/mmcblk0
-```
-. After download complete, power off safely and eject the SDcard.
-
 === Update your image
 . Get the m2 zero bsp source code
 +
