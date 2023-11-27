@@ -1,0 +1,392 @@
+= Introduction
+
+Banana Pi BPI-M64 is a 64-bit quad-core mini single board computer. It features 2GB of RAM and 8GB eMMC. It also has onboard WiFi and BT. On the ports side, the BPI-M64 has 2 USB A 2.0 ports, 1 USB OTG port, 1 HDMI port, 1 audio jack, and lastly a DC power port. The processor is pin-to-pin comptialbe with R18, so it comes with two versions:M64 and M64-R18.
+
+TIP: More Infomation: link:/en/BPI-M64/BananaPi_BPI-M64[Banana Pi BPI-M64]
+
+== specifications
+
+**A64**
+
+- 1.2 Ghz Quad-Core ARM Cortex A53 64-Bit Processor-A64
+- 2GB DDR3 SDRAM
+- 8G EMMC
+- 10/100/1000Mbps Ethernet
+- WiFi (AP6212) & Bluetooth
+
+**R18**
+
+- 1.2 Ghz Quad-Core ARM Cortex A53 64-Bit Processor-R18
+- 2GB DDR3 SDRAM
+- 8G EMMC
+- 10/100/1000Mbps Ethernet
+- WiFi (AP6212) & Bluetooth
+
+= Development
+
+== Android
+=== Prepare
+
+. Prepare a USB-Serial cable, a MicroUSB cable and PC with Linux or WIndows 7/10
+. The USB-Serial cable is used for console debug and MicroUSB cable is used for Image download and ADB debug.
+. M64 board is only suport DC power supply bootup.
+. If you want insert a SDcard for Android storage using, and your SDcard was download Linux Image or any other allwinner bootable SDcard image, please format the SDcard start from block 0.
+. Download and Install Allwinner Image Download Tools, PhoenixSuit is for window and LiveSuit is for Linux
+
+=== Install Image with  PhoenixSuit on Windows
+
+. Open PhoenixSuit, click the Firmware icon to switching to firmware download panel, then click Image button and choose the Android Image file.
++
+image::/picture/m64-android-1.png[m64-android-1.png]
+
+. M64 board disconnect DC power, press and hold the uboot-key button(new uart debug pin), plugin mirco-usb cable to PC, popup a warning dialog.
++
+image::/picture/m64-android-2.png[m64-android-2.png]
+
+. Press Yes to continue and popup another waring dialog, Press Yes to continue
+. Downloading
++
+image::/picture/m64-android-3.png[m64-android-3.png]
+
+. Download finish
++
+image::/picture/m64-android-4.png[m64-android-4.png]
+
+=== Install Image with LiveSuit on Linux
+
+. According to the Readme.pdf in LiveSuit Install package, After install the LiveSuit successfully please run LiveSuit.sh with root permission, then the download process is almost the same as PhoenixSuit.
++
+image::/picture/live_suit.png[live_suit.png]
+
+=== Build Android source code
+Get Android source code
+
+- Android 7.1
++
+```sh
+ $ git clone https://github.com/BPI-SINOVOIP/BPI-A64-Android7
+```
+- Android 6.1
++
+```sh
+ $ git clone https://github.com/BPI-SINOVOIP/BPI-A64-Android
+```
+
+== Linux
+=== Prepare
+
+. Prepare 8G/above TF card, USB-Serial interface, PC with Ubuntu System
+. Using your USB-Serial Connect debug console on M64
+. M64 board is only suport DC power supply bootup
+. Install bpi-tools on your Linux PC. If you can't access this URL or any other problems, please go to bpi-tools repo and install this tools manually.
++
+```sh
+  $ apt-get install pv
+  $ curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
+```
+. Download BPI latest image
+. Login user/password: pi/bananapi or root/bananapi
+
+=== Install Image to SDcard
+**Windows PC**
+
+Install Image with Balena Etcher. +
+link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
+
+. Click on "**Flash from file**" to select image. 
+. Click on "**Select target**" to select USB device. 
+. Click on "**Flash!**" Start burning.
+
+image::/picture/etcher.jpg[etcher.jpg]
+
+**Linux PC**
+
+**There are two methods for you to choose from.**
+
+. Install Image with dd command on Linux, umount SDcard device /dev/sdX partition if mounted automatically. Actually bpi-copy is the same as this dd command.
++
+```sh
+ $ sudo apt-get install pv unzip
+ $ sudo unzip -p xxx-bpi-m64-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxfer
+```
+. Install image with bpi-tools on Linux, plug SDcard to Linux PC and run
++
+```sh
+ $ sudo apt-get install pv unzip
+ $ sudo bpi-copy xxx-bpi-m64-xxx.img.zip /dev/sdX
+```
+
+=== Install Image to EMMC
+. Prepare a SDcard with Linux image flashed and bootup board with this SDcard.
+. Unzip the image and copy it to a USB drive, plug the udisk to board and mount it.（If automatically mounted, ignore this step）
++
+```sh
+mount /dev/sdx /mnt
+```
+. There are two ways to install the linux image to board.
+- Install with dd command.
++
+```sh
+sudo dd if=/mnt/xxx.bpi-p2_zero-xxx.img of=/dev/mmcblk0 bs=10M status=noxfer
+```
+- Install the linux image in udisk with bpi-tools command
++
+```sh
+ $ sudo bpi-copy xxx-bpi-p2_zero-xxx.img.zip /dev/mmcblk0
+```
+. After download complete, power off safely and eject the SDcard.
+
+=== Switch to LCD boot type
+. The default release images are HDMI boot type, you can switch to LCD boot type for BPI 7" LCD support after first boot.
++
+```sh
+ $ sudo bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m64/BPI-M64-LCD7-linux4.4-8k.img.gz
+ $ reboot
+```
+. Load the Touchscreen driver if you want to using TP
++
+```sh
+ $ sudo modprobe gt9xxnew_ts.ko
+```
+
+=== Build Linux source code
+Get the bsp source code
+```SH
+ $ git clone https://github.com/BPI-SINOVOIP/BPI-M64-bsp-4.4
+```
+
+== Other development
+=== GMAC
+Use iperf3 to test gmac
+
+. On PC Terminal:
++
+- Execute
++
+```sh
+iperf3 -s
+```
+
+. On M2U console:
++
+--
+- TCP test: 
++
+```sh
+iperf3 -c serverIP
+```
+- UDP test: 
++
+```sh
+iperf3 -u -c serverIP
+```
+--
++
+A64 Gmac test.png
+
+=== Bluetooth
+-  Use bluetoothctl tool to operate BT
+- Execute 
++
+```sh
+bluetoothctl
+```
+- If you don't know how to use bluetoothctl, type "**help**", you will see more commands
+- Execute these commands:
++
+A64 bluetooth.png
+
+=== WiFi
+==== WiFi Client
+
+**You have two ways to setup WiFi Client**
+
+. Use commands to setup WiFi client
++
+```sh
+ip link set wlan0 up
+iw dev wlan0 scan | grep SSID
+vim /etc/wpasupplicant/wpa_supplicant.conf
+```
++
+```sh
+ network={    
+ ssid="ssid"    
+ psk="password"    
+ priority=1 
+ }
+```
++
+```sh
+wpa_supplicant -iwlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf
+dhclient wlan0
+```
+. Use UI interface to setup WiFi Client
+
+==== Ap Mode
+. Install hostapd and create hostapd configuration file hostapd.conf:
++
+```sh
+interface=wlan0
+driver=nl80211
+ssid=test
+hw_mode=g
+channel=1
+```
+. Execute command
++
+```sh
+hostapd -d /<path>/hostapd.conf
+```
+- If you meet problem like this：
++
+A64 ap 1.png
+
+- Then, you could solve by following command：
++
+```sh
+nmcli radio wifi off
+```
++
+A64 ap 2.png
++
+```sh
+rfkill unblock 1
+rfkill unblock 2
+ifconfig wlan0 up
+hostapd -d hostapd.conf
+```
++
+A64 ap 3.png
+
+=== Clear boot
+```sh
+git clone https://github.com/BPI-SINOVOIP/BPI-files/tree/master/SD/100MB
+bpi-bootsel BPI-cleanboot-8k.img.gz /dev/sdX
+```
+
+=== GPIO Control
+. To access a GPIO pin you first need to export it with
++
+```sh
+ echo XX > /sys/class/gpio/export
+```
+
+. with XX being the number of the desired pin. To obtain the correct number you have to calculate it from the pin name (like PH18)
++
+NOTE: (position of letter in alphabet - 1) * 32 + pin number +
+for PH18 this would be ( 8 - 1) * 32 + 18 = 224 + 18 = 242 (since 'h' is the 8th letter)
++
+```sh
+echo "out/in" > /sys/class/gpio/gpio*NUMBER*/direction
+echo "0/1" > /sys/class/gpio/gpio*NUMBER*/value
+```
+
+=== Camara function
+We use HDF5640 camara.
+
+image::/picture/ov5640_camara.png[ov5640_camara.png]
+
+**Guvcview**
+
+Use your UI interface to operate camara
+
+Applications -> Sound & Video -> guvcview
+
+**Shell**
+
+We also have built-in command in "/usr/local/bin" to test camara
+
+- Test picture taking function
++
+```sh
+./test_ov5640_image_mode.sh
+```
+- Test video recording function
++
+```sh
+./cameratest.sh
+```
+
+**IR function**
+
+- Execute
++
+```sh
+getevent
+```
+- Use your IR device to send information to A64
+
+=== RPi.GPIO
+**Install RPi.GPIO**
+
+```sh
+git clone https://github.com/BPI-SINOVOIP/RPi.GPIO
+cd RPi.GPIO
+sudo apt-get update
+sudo apt-get install python-dev python3-dev
+```
+Execute
+```sh
+sudo python setup.py install
+```
+or
+```sh
+sudo python3 setup.py install
+```
+
+**Using RPi.GPIO**
+```sh
+cd /usr/local/bin
+./bpi_test_g40.py
+```
+
+image::/picture/rpi_gpio.png[rpi_gpio.png]
+
+
+=== WiringPi
+
+GitHub: https://github.com/BPI-SINOVOIP/BPI-WiringPi2.git
+
+We also have built-in test command in
+```sh
+/usr/local/bin
+```
+
+**How to Update WiringPi**
+
+```sh
+bpi-update -c pkglist.conf
+```
+
+image::/picture/update_pkglist.png[update_pkglist.png]
+
+```sh
+bpi-update -c bpi-pkg-bpi-wiringpi.conf
+```
+
+image::/picture/update_wringpi.png[update_wringpi.png]
+
+**RGB 1602 LCD**
+```sh
+/usr/local/bin/bpi_test_lcd1602.sh
+```
+**0.96 Inch OLED Display**
+```sh
+/usr/local/bin/bpi_test_52pi.sh
+```
+**8x8 RGB LED Martix**
+
+Firstly you need a GPIO Extend Board for 8x8 LED Martix
+
+image::/picture/wringpi_led_martix_extend_board.png[wringpi_led_martix_extend_board.png]
+
+```sh
+/usr/local/bin/bpi_test_gpio40.sh
+```
+
+=== File System
+read only system change to read & write mode
+```sh
+mount -o remount,rw /
+```
