@@ -38,6 +38,34 @@ image::/picture/m2z-android-sd-3.jpg[m2z-android-sd-3.jpg]
 +
 image::/picture/m2z-android-sd-4.jpg[m2z-android-sd-4.jpg]
 
+=== Install Image to eMMC
+
+. Put your TF card into a TF-USB adapter, and then plug adapter in your Windows PC usb interface.
+. Prepare your image, and download image burning tools PhoenixCard.exe.
+. Use "PhoenixCard.exe" to burn android image to TF card.
+- Select the image in the image path option
++
+image::/picture/m2z-android-sd-1.jpg[m2z-android-sd-1.jpg]
+image::/picture/m2z-android-sd-2.jpg[m2z-android-sd-2.jpg]
+
+- Select mass production card，then click on burn image
++
+image::/picture/m2z-android-emmc-1.jpg[m2z-android-emmc-1.jpg]
+
+- Burning ended.
++
+image::/picture/m2z-android-emmc.jpg[m2z-android-emmc.jpg]
+
+. After the image is burned, insert the SD card into the board and power on to start.After startup, the image will be automatically burned to the eMMC.
++
+image::/picture/m2z-android-emmc-2.jpg[m2z-android-emmc-2.jpg]
++
+You can also judge by the light. When the red light changes from normally on to off, the burning is complete.
++
+image::/picture/m2z-android-emmc-3.jpg[m2z-android-emmc-3.jpg]
+
+.  After the burning is completed, the power will be cut off, and the SD card will be removed. Power on again to start from eMMC.
+
 == Linux
 === Prepare
 . Linux image support SDcard or EMMC bootup
