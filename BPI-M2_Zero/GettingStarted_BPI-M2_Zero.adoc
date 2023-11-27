@@ -279,15 +279,11 @@ Test video recording function
 
 For Example： we change M2Z HDMI display 1080P.
 
-. First
+. Execute
 +
 ```sh
 mount /dev/mmcblk0p1 /mnt
-```
-then enter to
-+
-```sh
-/mnt/bananapi/bpi-m2z/linux
+cd /mnt/bananapi/bpi-m2z/linux
 ```
 find "**sys_config.fex**"
 
@@ -314,12 +310,7 @@ image::/picture/display_output.png[display_output.png]
 ```sh
 fex2bin
 ```
-command to transfer sys_config.fex to bin file
-+
-```sh
-fex2bin sys_config.fex script.bin
-```
-reboot.
+command to transfer sys_config.fex to bin file "**fex2bin sys_config.fex script.bin**",reboot.
 +
 parameters meaning：
 +
