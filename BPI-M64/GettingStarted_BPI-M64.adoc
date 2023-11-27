@@ -182,7 +182,7 @@ iperf3 -u -c serverIP
 ```
 --
 +
-A64 Gmac test.png
+image::/picture/a64_gmac_test.png[a64_gmac_test.png]
 
 === Bluetooth
 -  Use bluetoothctl tool to operate BT
@@ -194,7 +194,7 @@ bluetoothctl
 - If you don't know how to use bluetoothctl, type "**help**", you will see more commands
 - Execute these commands:
 +
-A64 bluetooth.png
+image::/picture/a64_bluetooth.png[a64_bluetooth.png]
 
 === WiFi
 ==== WiFi Client
@@ -240,7 +240,7 @@ hostapd -d /<path>/hostapd.conf
 ```
 - If you meet problem like this：
 +
-A64 ap 1.png
+image::/picture/a64_ap_1.png[a64_ap_1.png]
 
 - Then, you could solve by following command：
 +
@@ -248,7 +248,7 @@ A64 ap 1.png
 nmcli radio wifi off
 ```
 +
-A64 ap 2.png
+image::/picture/a64_ap_2.png[a64_ap_2.png]
 +
 ```sh
 rfkill unblock 1
@@ -257,7 +257,7 @@ ifconfig wlan0 up
 hostapd -d hostapd.conf
 ```
 +
-A64 ap 3.png
+image::/picture/a64_ap_3.png[a64_ap_3.png]
 
 === Clear boot
 ```sh
