@@ -102,28 +102,19 @@ image::/picture/etcher.jpg[etcher.jpg]
 
 **Linux PC**
 
-**There are three methods for you to choose from.**
-
-. Install Image with Balena Cli. +
-link:https://github.com/balena-io/balena-cli[Balena CLI] is a Command Line Interface for balenaCloud or openBalena. It can be used to flash linux image. Download the installer or standalone package from link:https://github.com/balena-io/balena-cli/releases[balena-io] and link:https://github.com/balena-io/balena-cli/blob/master/INSTALL.md[install ]it correctly to your PC, then you can use the "link:https://docs.balena.io/reference/balena-cli/#local-flash-image[local flash]" command option of balena to flash a linux image to sdcard or usb drive.
-+
-```sh
- $ sudo balena local flash path/to/xxx-bpi-m5-xxx.img.zip
- $ sudo balena local flash path/to/xxx-bpi-m5-xxx.img.zip --drive /dev/disk2
- $ sudo balena local flash path/to/xxx-bpi-m5-xxx.img.zip --drive /dev/disk2 --yes
-```
+**There are two methods for you to choose from.**
 
 . Install Image with dd command on Linux, umount SDcard device /dev/sdX partition if mounted automatically. Actually bpi-copy is the same as this dd command.
 +
 ```sh
  $ sudo apt-get install pv unzip
- $ sudo unzip -p xxx-bpi-m5-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxfer
+ $ sudo unzip -p xxx-bpi-m2-ultra-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxfer
 ```
 . Install image with bpi-tools on Linux, plug SDcard to Linux PC and run
 +
 ```sh
  $ sudo apt-get install pv unzip
- $ sudo bpi-copy xxx-bpi-m5-xxx.img.zip /dev/sdX
+ $ sudo bpi-copy xxx-bpi-m2-ultra-xxx.img.zip /dev/sdX
 ```
 
 === Install Image to eMMC
