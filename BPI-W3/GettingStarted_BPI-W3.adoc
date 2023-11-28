@@ -1,7 +1,7 @@
 = Introduction
 
 
-TIP: More Infomation: link:/en/BPI-xx/BananaPi_BPI-xx[Banana Pi BPI-xx]
+TIP: More Infomation: link:/en/BPI-W3/BananaPi_BPI-W3[Banana Pi BPI-W3]
 
 = Development
 == Prepare
@@ -303,7 +303,8 @@ chmod +X /usr/bin/start_ rknn.sh
 chmod +X /usr/bin/restart rknn.sh
 restart_ rknn. sh
 ```
-- Run program
+
+**Run program**
 
 - Execute adb devices in the docker image first, remembering the adb ID number
 
@@ -343,17 +344,91 @@ root@linaro-alip:/home/linaro# echo 0 > /sys/class/leds/blue:status/brightness
 ```
 - red light is the same, class device /sys/class/leds/red:status/trigger
 
+=== RTC Device
+BPI-W3 is equipped with one RTC IC hym8563
 
+. Firstly, plug in RTC battery to give power to RTC IC. Please note that we should keep the RTC battery in the RTC connector.
 
+. Secondly,Check whether the driver is successfully loaded.
++
+```sh
+root@linaro-alip:~# dmesg | grep rtc
+[    3.149263] rtc-hym8563 6-0051: rtc information is valid
+[    3.154624] rtc-hym8563 6-0051: registered as rtc0
+[    3.155646] rtc-hym8563 6-0051: setting system clock to 2021-01-01T12:00:05 UTC (1609502405)
+```
+. Finally, check whether you can view and set the time.
++
+```sh
+root@linaro-alip:~# hwclock -r
+2022-08-07 13:38:24.370866+00:00
+root@linaro-alip:~# date
+2022年 08月 07日 星期日 13:38:41 UTC
+root@linaro-alip:~# hwclock -w
+```
 
+=== Audio
+. View sound cards in the system.
++
+```sh
+root@linaro-alip:/# aplay -l
+**** List of PLAYBACK Hardware Devices ****
+card 0: rockchipdp0 [rockchip,dp0], device 0: rockchip,dp0 spdif-hifi-0 [rockchip,dp0 spdif-hifi-0]
+ Subdevices: 1/1
+ Subdevice #0: subdevice #0
+card 1: rockchipes8316 [rockchip-es8316], device 0: fe470000.i2s-ES8316 HiFi es8316.7-0011-0 [fe470000.i2s-ES8316 HiFi es8316.7-0011-0]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 3: rockchiphdmi0 [rockchip-hdmi0], device 0: rockchip-hdmi0 i2s-hifi-0 [rockchip-hdmi0 i2s-hifi-0]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 4: rockchiphdmi1 [rockchip-hdmi1], device 0: rockchip-hdmi1 i2s-hifi-0 [rockchip-hdmi1 i2s-hifi-0]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+```
+. Specify the sound card to play audio fiile.
++
+```sh
+aplay -D hw:0,0 /mnt/test.wav
+```
 
+=== MIC
+```sh
+root@linaro-alip:/root# arecord -D hw:1,0 -f S16_LE -t wav -c2 -r 16000 -d 3 t.wav
+Recording WAVE 't.wav' : Signed 16 bit Little Endian, Rate 16000 Hz, Stereo
+root@linaro-alip:/root# aplay t.wav
+Playing WAVE 't.wav' : Signed 16 bit Little Endian, Rate 16000 Hz, Stereo
+```
 
+=== Storage device
+**Supports three types of storage devices**
 
+- microSD card
++
+```sh
+/dev/mmcblk1
+```
 
+- eMMC
++
+```sh
+/dev/mmcblk0
+```
 
+- NVME M.2 SDD
++
+```sh
+root@linaro-alip:/home/linaro# mkdir temp
+root@linaro-alip:/home/linaro# mount /dev/nvme0n1 temp
+```
 
-
-
-
-
+=== FAN
+```sh
+echo 0 > /sys/devices/platform/fd8b0010.pwm/pwm/pwmchip*/export
+echo 10000 > /sys/devices/platform/fd8b0010.pwm/pwm/pwmchip*/pwm0/period
+echo 5000 > /sys/devices/platform/fd8b0010.pwm/pwm/pwmchip*/pwm0/duty_cycle
+echo inversed  > /sys/devices/platform/fd8b0010.pwm/pwm/pwmchip*/pwm0/polarity
+echo 1 > /sys/devices/platform/fd8b0010.pwm/pwm/pwmchip*/pwm0/enable
+#echo 0 > /sys/devices/platform/fd8b0010.pwm/pwm/pwmchip*/pwm0/enable
+```
 
