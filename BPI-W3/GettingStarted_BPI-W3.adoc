@@ -1,0 +1,359 @@
+= Introduction
+
+
+TIP: More Infomation: link:/en/BPI-xx/BananaPi_BPI-xx[Banana Pi BPI-xx]
+
+= Development
+== Prepare
+
+Before starting to use your ArmSoM-W3 get the following items ready:
+
+- BPI-W3
+- Power supply（choose one of three）:
++
+--
+12 volt @2/3A via DC Power 
+
+USB C PD Charger (15W & above) 
+
+12 volt PoE
+--
+- If you wish to boot from sd card：MicroSD Card/TF Card: Class 10 or Above, minimum 8GB SDHC
+
+
+== Linux
+=== Prepare
+
+. xxx
+. xxx
+. xxx
+. xxx
+
+=== Install Image with Usb Download Tool
+
+. Download and install link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FDriverAssitant_v5.11.zip[Rockchip USB driver]
++
+image::/picture/driver_install_2.png[driver_install_2.png]
+
+. Download link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FUpdate-EMMC-Tools.zip[Rockchip USB Download Tool] +
+This tool defaults language is Chinese. you can change it to English after extract the package. Open **RKDevTool_Release_v2.84/config.ini** with an text editor (like notepad). The starting lines are:
++
+image::/picture/r2-pro_usb-tool-1.jpg[r2-pro_usb-tool-1.jpg]
++
+```sh
+ #Language Selection: Selected=1(Chinese); Selected=2(English)
+ [Language]
+ Kinds=2
+ Selected=1
+ LangPath=Language\
+```
+. Open RKDevTool.exe, Switch to the “**upgrade firmware**” page. Press the “**firmware**” button to open the image file to be upgraded. The upgrade tool displays detailed firmware information.
++
+image::/picture/r2-pro_usb-tool-2.jpg[r2-pro_usb-tool-2.jpg]
+image::/picture/r2-pro_usb-tool-3.jpg[r2-pro_usb-tool-3.jpg]
+. Disconnect power adapter, connect dual male usb cable from the top usb host port to PC.
+
+. There have two usb download mode for image upgrade.
+
+- **Uboot Usb Download Mode (loader mode)** +
+It's supposed to use this way if board already flashed a bootable uboot before.
+- **Maskrom Usb Download Mode(maskrom mode)** +
+Press the Recovery button or Maskrom button beside 3pin uart header and hold, connect the power adapter or press the RST button if power adapter already connected, about two seconds later, release the button. PC will Identify the device if RK usb driver installed correctly.
++
+image::/picture/r2-pro_usb-tool-4.jpg[r2-pro_usb-tool-4.jpg]
+The download tool also show the download mode if device connected.
++
+image::/picture/r2-pro_usb-tool-5.jpg[r2-pro_usb-tool-5.jpg]
+image::/picture/r2-pro_usb-tool-6.jpg[r2-pro_usb-tool-6.jpg]
+
+. Press the “**upgrade**” button to start the upgrade.
++
+image::/picture/r2-pro_usb-tool-7.jpg[r2-pro_usb-tool-7.jpg]
+
+. If the upgrade fails, you can try to erase the Emmc by pressing the EraseFlash button first, and then upgrade image again.
++
+image::/picture/r2-pro_usb-tool-8.jpg[r2-pro_usb-tool-8.jpg]
+
+
+=== Install Separate Images with Usb Download Tool
+. Download link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FUpdate-EMMC-Tools.zip[Rockchip USB Download Tool for EMMC upgrade] 
+. Open **RKDevTool.exe**, Switch to the “**Download Image**” page. The upgrade tool displays detailed all firmware image information. Then all image file is ready, you may push "**run**", the upgrade process begin.
++
+NOTE: Note: Because Linux's release package, Example: **Ubuntu-22.04-Desktop-EMMCBoot-rockdev-MT7531SW-DSA.zip**, unzip it into the same folder "Update-EMMC-Tools" inside.
++
+image::/picture/r2-pro-download_-image.jpg[r2-pro-download_-image.jpg]
+
+=== Install Image with SD card
+
+. Download link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FUpdate-SD-Tools.zip[Rockchip SD Disk Tool].
+. Insert card reader to Windows PC, 8GB sdcard size at least.
+. Run SD_Firmware_Tool, check the “Upgrade Firmware” box and select the correct removable disk device, Choose firmware image, then Click Create button to make it and wait until it is finshed
++
+image::/picture/r2-pro_sd-linux-1.jpg[r2-pro_sd-linux-1.jpg]
+
+=== Build Linux BSP Source Code
+
+. Get Linux source code
++
+```sh
+ $ git clone https://github.com/BPI-SINOVOIP/BPI-W3-BSP
+```
+. Build the Linux BSP Source code
+
+=== Dual Display
+NOTE: Note: All linux Image suuport dual display HDMI and MIPI-DSI together, MIPI-DSI only support 1200x1920.
+
+**HDMI Display**
+
+
+
+**MIPI-DSI panel Display**
+
+
+
+=== Wlan&BT
+J14 M.2 KEY E Slot is used for connect Wlan&BT adapter, default image support RTL8822CE(PCIE+USB) and RTL8822CS(SDIO+UART).
+
+=== Ethernet
+ArmSoM-w3 is configured with one 2.5G Ethernet interface. You can connect ArmSoM-w3 to the network using a network cable (one end is connected to an external network port or a route). The ArmSoM-w3 automatically configures the network for your Internet access.
+
+Check that the Ethernet is working by using the ifconfig command, which displays network card eth0 or enP4p65s0, along with the Ethernet IP address. In addition, you can use the ping tool to test network connectivity.
+```sh
+ifconfig
+ping www.google.com
+```
+If the network cable is connected, no IP address is assigned to the node.
+```sh
+dhclient eth0
+```
+or
+```sh
+dhclient enP4p65s0
+```
+
+=== HDMI RX
+The ArmSoM-w3 uses an hdmi_in port built into the rk3588 chip,You can use the v4l2 command to test the hdmi in interface.
+
+**View all video nodes**
+
+```sh
+ls /dev/video*
+```
+**Look for the rk hdmirx device**
+
+Run the v4l2-ctl -d command to specify the vidoe node. Run the -D command to view the node information. Check the rk_hdmirx device using the Driver name.
+```sh
+# v4l2-ctl -d /dev/video0 -D
+Driver Info:
+Driver name : rk_hdmirx
+Card type : rk_hdmirx
+Bus info : fdee0000.hdmirx-controller
+Driver version : 5.10.66
+Capabilities : 0x84201000
+Video Capture Multiplanar
+Streaming
+Extended Pix Format
+Device Capabilities
+Device Caps : 0x04201000
+Video Capture Multiplanar
+Streaming
+Extended Pix Format
+```
+
+**Query resolution and image format**
+
+To query the current resolution and image format:
+```sh
+# v4l2-ctl -d /dev/video17 --get-fmt-video
+Format Video Capture Multiplanar:
+Width/Height : 3840/2160
+Pixel Format : 'NV16'
+Field : None
+Number of planes : 1
+Flags : premultiplied-alpha, 000000fe
+Colorspace : Unknown (1025fcdc)
+Transfer Function : Unknown (00000020)
+YCbCr Encoding : Unknown (000000ff)
+Quantization : Default
+Plane 0 :
+Bytes per Line : 3840
+Size Image : 16588800
+```
+
+**Grab image file**
+
+Save the image file to the device, adb pull to the PC, and view it through 7yuv and other tools:
+```sh
+v4l2-ctl --verbose -d /dev/video17 \
+--set-fmt-video=width=3840,height=2160,pixelformat='NV16' \
+--stream-mmap=4 --stream-skip=3 \
+--stream-to=/data/4k60_nv16.yuv \
+--stream-count=5 --stream-poll
+```
+
+**Querying the HDMI RX status**
+
+Query the current status of HDMI RX, including signal locking, image format, Timings information, Pixl Clk, etc.
+```sh
+# cat /d/hdmirx/status
+status: plugin
+Clk-Ch:Lock Ch0:Lock Ch1:Lock Ch2:Lock
+Ch0-Err:0 Ch1-Err:0 Ch2-Err:0
+Color Format: YUV422 Store Format: YUV422 (8 bit)
+Mode: 3840x2160p60 (4400x2250) hfp:172 hs:92 hbp:296 vfp:8 vs:10 vbp:72
+Pixel Clk: 594024000
+```
+
+=== Camera
+. MIPI-CSI The camera uses the IMX415 module,After the camera module is connected and powered on, you can view the startup log.
++
+```sh
+root@linaro-alip:/# dmesg | grep imx415
+[    2.547754] imx415 3-001a: driver version: 00.01.08
+[    2.547767] imx415 3-001a:  Get hdr mode failed! no hdr default
+[    2.547819] imx415 3-001a: Failed to get power-gpios
+[    2.547826] imx415 3-001a: could not get default pinstate
+[    2.547831] imx415 3-001a: could not get sleep pinstate
+[    2.547850] imx415 3-001a: supply dvdd not found, using dummy regulator
+[    2.547918] imx415 3-001a: supply dovdd not found, using dummy regulator
+[    2.547945] imx415 3-001a: supply avdd not found, using dummy regulator
+[    2.613843] imx415 3-001a: Detected imx415 id 0000e0
+[    2.613890] rockchip-csi2-dphy csi2-dphy0: dphy0 matches m00_b_imx415 3-001a:bus type 5
+[   18.386174] imx415 3-001a: set fmt: cur_mode: 3864x2192, hdr: 0
+[   18.389067] imx415 3-001a: set exposure(shr0) 2047 = cur_vts(2250) - val(203)
+```
+The kernel assigns device information description files to the camera.
++
+```sh
+grep "" /sys/class/video4linux/v*/name | grep mainpath
+/sys/class/video4linux/video11/name:rkisp_mainpath
+Verify the functions of the camera
+```
+Grab a picture
++
+```sh
+# v4l2-ctl -d /dev/video11 --set-fmt-video=width=3840,height=2160,pixelformat=NV12 --stream-mmap=3 --stream-skip=60 --stream-to=/tmp/cif73.out --stream-count=3 --stream-poll
+```
+Display on desktop using gst-launch-1.0
++
+```sh
+# gst-launch-1.0 v4l2src device=/dev/video11 ! video/x-raw,format=NV12,width=3840,height=2160, framerate=30/1 ! xvimagesink
+```
++
+1200px-Gst-luanch.jpeg
+
+. USB3.0 Camera
++
+After connecting the usb3.0 camera, open the Qt V4L2 test Utility application for testing
++
+V4L2.png
++
+Then open the video node: video21:
++
+Video21.png
++
+Then click the camera button, you will see the camera screen:
++
+1200px-Capture.png
+
+=== NPU usage
+**DEMO video**: https://www.youtube.com/watch?v=y7mYxn3rq0U
+
+**Prepare tools**
+
+. Use the Ubuntu18.04 / Ubuntu20.04 operating system (OS).
+
+. An W3-PRO board
+
+**Preparation procedure**
+
+- First make sure you have docker installed on your Ubuntu system,If not, refer to the Internet installation tutorial
+
+- We provide the source code and the docker image of the installed environment:docker image
+
+- Create a rknpu folder on the PC server and copy the firmware to the folder
++
+```sh
+rknpu/rknn-toolkit2-1.4.0/docker$ ls
+md5sum.txt  rknn-toolkit2-1.4.0-cp36-docker.tar.gz  rknn-toolkit2-1.4.0-cp38-docker.tar.gz
+```
+- Run the following command to run the docker image. After the Docker image is run, the bash environment of the image is displayed
++
+```sh
+docker run -t -i --privileged -v /dev/bus/usb:/dev/bus/usb rknn-toolkit2:1.4.0-cp38 /bin/bash
+```
+- Map examples code into a Docker environment by attaching "-v <host src folder>:<image dst folder>"Parameters, such as:
++
+```sh
+docker run -t -i --privileged -v /dev/bus/usb:/dev/bus/usb -v /your/rknn-toolkit2-1.x.x/examples:/examples rknn-toolkit2:1.x.x /bin/bash
+```
+- The code is synchronized after mapping
+
+- The rknn service needs to run on the development board
+
+- BOARD ARCH corresponds to the aarch64 directory on 64-bit Linux systems and to the armhf directory on 32-bit systems
+
+. adb push all files in Linux/rknn server/${B0ARD_ ARCH}/usr/bin/ to /usr/bin
+. adb push Linux/librknn api/${BOARD ARCH}/ librknrnt. so to /usr/1ib
+. Access the serial port terminal of the board and run the following command
++
+```sh
+chmod +x /usr/bin/rknn server
+chmod +X /usr/bin/start_ rknn.sh
+chmod +X /usr/bin/restart rknn.sh
+restart_ rknn. sh
+```
+- Run program
+
+- Execute adb devices in the docker image first, remembering the adb ID number
+
+- Go to /examples/onnx/yolov5 and change test.py
++
+```sh
+ret = rknn.init_runtime(target='rk3588', device_id=DEVICE_ID, perf_debug=True,eval_mem=True)
+outputs = rknn.inference(inputs=[img])
+ret = rknn.eval_perf(inputs=[img], is_print=True)
+cv2.imwrite("result.jpg", img_1)
+```
+- The above four functions are not added
+
+- Run python3 test.py
+
+=== LED
+- On BPI-W3 three-color LED is configured as LED class device. When the blue LED is not active a green LED will show to indicate the board has power. You can control the behavior mode of the blue LED by writing to /sys/class/leds/blue:status/trigger. By default only root users can write to the device. The default mode of the blue LED is heartbeat.
++
+```sh
+linaro@linaro-alip:/home/linaro# sudo su // linaro password
+root@linaro-alip:/home/linaro# echo timer > /sys/class/leds/blue:status/trigger
+root@linaro-alip:/home/linaro# echo activity > /sys/class/leds/blue:status/trigger
+```
+
+- You can use cat on the trigger property to list all the available LED modes. The value in brackets is the currently active mode.
++
+```sh
+root@linaro-alip:/home/linaro# cat /sys/class/leds/blue:status/trigger
+none rfkill-any rfkill-none kbd-scrolllock kbd-numlock kbd-capslock kbd-kanalock kbd-shiftlock kbd-altgrlock kbd-ctrllock kbd-altlock kbd-shiftllock kbd-shiftrlock kbd-ctrlllock kbd-ctrlrlock tcpm-source-psy-4-0022-online mmc2 mmc1 timer oneshot disk-activity disk-read disk-write ide-disk mtd nand-disk heartbeat backlight gpio cpu cpu0 cpu1 cpu2 cpu3 cpu4 cpu5 cpu6 cpu7 mmc0 [activity] default-on transient flash torch panic netdev rfkill0
+```
+- In the None mode, writing to /sys/class/leds/blue:status/brightness can manually control the status of the blue LED.
++
+```sh
+root@linaro-alip:/home/linaro# echo none > /sys/class/leds/blue:status/trigger
+root@linaro-alip:/home/linaro# echo 1 > /sys/class/leds/blue:status/brightness
+root@linaro-alip:/home/linaro# echo 0 > /sys/class/leds/blue:status/brightness
+```
+- red light is the same, class device /sys/class/leds/red:status/trigger
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
