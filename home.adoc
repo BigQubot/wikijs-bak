@@ -7,73 +7,6 @@ link:http://www.banana-pi.org/[Banana Pi] is an open source hardware project lea
 
 Welcome free discuss on link:http://forum.banana-pi.org/[Banana Pi Forum], Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the new link link:https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[Documents] and link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[Image]
 
-Easy to buy sample from link:https://pt.aliexpress.com/store/302756[SinoVoip aliexpress online shop] and link:https://www.aliexpress.com/store/1101951077[BPI aliexpress online shop]
-
-link:https://wiki.banana-pi.org/BPI_4.0_Server[BPI 4.0 Server] has served more than 200 link:https://wiki.banana-pi.org/Successful_case[Successful case] around the world, providing one-stop service of r&d, production, supply chain management and product certification for customers.
-
-== Getting Started
-[options="header",cols="3,3,3"]
-|=====
-| Singal Board Computer | Compute Module | Smart Router
-| link:/en/BPI-M1/GettingStarted_BPI-M1[GettingStarted_BPI-M1] | link:/en/BPI-CM4/GettingStarted_BPI-CM4[Gettint Started BPI-CM4] | link:/en/BPI-R1/GettingStarted_BPI-R1[Gettint Started BPI-R1]
-
-| link:/en/BPI-M1_Plus/GettingStarted_BPI-M1_Plus[Gettint Started BPI-M1 Plus] | link:/en/BPI-CM5/GettingStarted_BPI-CM5[Gettint Started BPI-CM5] | link:/en/BPI-R2/GettingStarted_BPI-R2[Gettint Started BPI-R2]
-
-| link:/en/BPI-M2_Ultra_Berry/GettingStarted_BPI-M2_Ultra_Berry[Gettint Started BPI-M2 Ultra/Berry] | link:/en/BPI-CM2/GettingStarted_BPI-CM2[Gettint Started BPI-CM2] | link:/en/BPI-R2_Pro/GettingStarted_BPI-R2_Pro[Gettint Started BPI-R2_Pro]
-
-| link:/en/BPI-M2_Magic/GettingStarted_BPI-M2_Magic[Gettint Started BPI-M2 Magic] | | link:/en/BPI-R64/GettingStarted_BPI-R64[Gettint Started BPI-R64]
-
-| link:/en/BPI-M2_Plus/GettingStarted_BPI-M2_Plus[Gettint Started BPI-M2 Plus] | | link:/en/BPI-W2/GettingStarted_BPI-W2[Gettint Started BPI-W2]
-
-| link:/en/BPI-M2_Zero/GettingStarted_BPI-M2_Zero[Gettint Started BPI-M2 Zero] | | link:/en/BPI-W3/GettingStarted_BPI-W3[Gettint Started BPI-W3]
-
-| link:/en/BPI-P2_Zero/GettingStarted_BPI-P2_Zero[Gettint Started BPI-P2 Zero] | | link:/en/BPI-R3/GettingStarted_BPI-R3[Gettint Started BPI-R3]
-
-| link:/en/BPI-M64/GettingStarted_BPI-M64[Gettint Started BPI-M64] | | link:/en/BPI-R3_Mini/GettingStarted_BPI-R3_Mini[Gettint Started BPI-R3 Mini]
-
-| link:/en/BPI-M3/GettingStarted_BPI-M3[Gettint Started BPI-M3] | | link:/en/BPI-R4/GettingStarted_BPI-R4[Gettint Started BPI-R4]
-
-| link:/en/BPI-M4/GettingStarted_BPI-M4[Gettint Started BPI-M4] | | link:/en/BPI-BPI-WiFi6_Router/GettingStarted_BPI-WiFi6_Router[Gettint Started BPI-WiFi6 Router]
-
-| link:/en/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro[Gettint Started BPI-M5/M2 Pro] | |
-
-| link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super[Gettint Started BPI-M2S(Super)] | |
-
-| link:/en/BPI-M6/GettingStarted_BPI-M6[Gettint Started BPI-M6] | |
-
-| link:/en/BPI-M4_Berry/GettingStarted_BPI-M4_Berry[Gettint Started BPI-M4 Berry] | |
-
-| link:/en/BPI-M4_Zero/GettingStarted_BPI-M4_Zero[Gettint Started BPI-M4 Zero] | |
-
-|=====
-
-== Software & Development Tools
-=== Embedded Operating Systems
-
-TIP: link:https://wiki.banana-pi.org/Armbian[Armbian]
-
-TIP: link:https://wiki.banana-pi.org/Tina_Linux[Tina Linux]
-
-TIP: link:https://wiki.banana-pi.org/Mainline_Linux_uboot_2019.07[Mainline Linux uboot 2019.07]
-
-=== Development Tools
-
-TIP: link:https://wiki.banana-pi.org/Using_4G_module_with_BananaPi[Using 4G module with BananaPi]
-
-TIP: link:https://wiki.banana-pi.org/WiFi/AP/BT/BLE_on_BananaPi[WiFi/AP/BT/BLE on BananaPi]
-
-TIP: link:https://wiki.banana-pi.org/OpenCV_3.4x_on_BananaPi[OpenCV 3.4x on BananaPi]
-
-TIP: link:https://wiki.banana-pi.org/How_to_bulid_a_image_with_BSP[How to bulid a image with BSP]
-
-TIP: link:https://wiki.banana-pi.org/How_to_use_DHT_Sensor_via_banana_pi[How to use DHT Sensor via banana pi]
-
-=== Building from sources
-
-Banana PI SBC and Router source code on github : https://github.com/bpi-sinovoip
-
-STEAM education product source code on github : https://github.com/BPI-STEAM
-
 == Products
 === Banana Pi Single Board Computer : link:{https://wiki.banana-pi.org/Banana_Pi_Series_Comparison}[Banana Pi Series Comparison]
 
@@ -183,3 +116,31 @@ link:/en/BPI-Pico-2040/BananaPi_BPI-Pico-2040[Banana Pi BPI-Pico-2040] [RP2040]
 |=====
 
 === 
+
+== Software & Development Tools
+=== Embedded Operating Systems
+
+TIP: link:https://wiki.banana-pi.org/Armbian[Armbian]
+
+TIP: link:https://wiki.banana-pi.org/Tina_Linux[Tina Linux]
+
+TIP: link:https://wiki.banana-pi.org/Mainline_Linux_uboot_2019.07[Mainline Linux uboot 2019.07]
+
+=== Development Tools
+
+TIP: link:https://wiki.banana-pi.org/Using_4G_module_with_BananaPi[Using 4G module with BananaPi]
+
+TIP: link:https://wiki.banana-pi.org/WiFi/AP/BT/BLE_on_BananaPi[WiFi/AP/BT/BLE on BananaPi]
+
+TIP: link:https://wiki.banana-pi.org/OpenCV_3.4x_on_BananaPi[OpenCV 3.4x on BananaPi]
+
+TIP: link:https://wiki.banana-pi.org/How_to_bulid_a_image_with_BSP[How to bulid a image with BSP]
+
+TIP: link:https://wiki.banana-pi.org/How_to_use_DHT_Sensor_via_banana_pi[How to use DHT Sensor via banana pi]
+
+=== Building from sources
+
+Banana PI SBC and Router source code on github : https://github.com/bpi-sinovoip
+
+STEAM education product source code on github : https://github.com/BPI-STEAM
+
