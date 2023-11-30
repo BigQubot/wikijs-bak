@@ -1,0 +1,447 @@
+= Introduction
+
+ Banana Pi M3 is a super charged single board computer with an Octa-core processor and 2GB of RAM. Along side the elite processing unit, it features Gigabit Ethernet, 2 USB, SATA, WiFi, Bluetooth, and HDMI connection. It can run on a variety of operating systems including Android, Lubuntu, Ubuntu, Debian, and Raspbian. 
+
+TIP: More Infomation: link:/en/BPI-M3/BananaPi_BPI-M3[Banana Pi BPI-M3]
+
+== specifications
+
+- Octa-core 1.8GHz Powerful CPU
+- 2 GB LPDDR3 memory
+- 8 GB eMMC storage
+- WiFi & Bluetooth onboard
+
+= Development
+== Android
+=== Prepare
+
+. Download PhoenixCard: https://pan.baidu.com/s/1-fjvPqtG_zewVzqnXf1AHw?pwd=eid9
+
+=== Install Image with xxx
+
+. xxx
+. xxx
+. xxx
+. xxx
+
+=== Install Image with xxx
+
+. xxx
+. xxx
+. xxx
+. xxx
+
+=== How to buld M3 Bsp code
+. Prepare a PC which runs ubuntu
+. Install Docker-ce on your PC，https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce (Install Docker Environment)
+. After install Docker, pull docker image,execute
++
+```sh
+docker pull sinovoip/bpi-build:ubuntu12.04
+```
+. Then you pulled image,create a port to login docker image, execute
++
+```sh
+docker run --privileged -d -p 2222:22 -v /media:/media sinovoip/bpi-build:ubuntu12.04
+```
+. login in docker image
++
+```sh
+ssh -p 2222 root@127.0.0.1 #default passwd is root
+```
+. Git clone M3 bsp code,execute 
++
+```sh
+git clone https://github.com/BPI-SINOVOIP/BPI-M3-bsp.git
+```
+. Build M3 bsp code,execute
++
+```sh
+./build.sh
+```
+. After built, open a new terminal, you could copy the compile files out of docker image by executing
++
+```sh
+docker cp <your container id>:<your project path> <your pc path>
+```
+image::/picture/docker_operate.png[docker_operate.png]
+
+== Linux
+=== Prepare
+
+. xxx
+. xxx
+. xxx
+. xxx
+
+=== Install Image with xxx
+
+. xxx
+. xxx
+. xxx
+. xxx
+
+=== Install Image with xxx
+
+. xxx
+. xxx
+. xxx
+. xxx
+
+=== Update your image
+For example, update your image to support new emmc5.1
+
+```sh
+bpi-tools
+bpi-update -c bpi-m3.conf
+file *.tgz
+bpi-bootsel
+bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m3/BPI_M3_720P.img.gz
+reboot
+```
+
+=== Make your own image
+
+- Make one raspbian image
+
+- Prepare a SD card which have installed Raspbian system
+
+- Boot your SD card with M3, after M3 finish starting, copy your files and config your Raspbian, then poweroff M3
+
+- Plug your SD card in Linux PC
++
+```sh
+cd /media
+ln -s <your account> pi
+```
+
+- Execute 
++
+```sh
+bpi-migrate -c bpi-m3.conf -c raspbian-jessie-from-sd.conf -d /dev/sdx
+```
+
+- Then you could get your own image now
+
+== Advanced Development
+=== Install Docker
+You could try armbian to install docker, here is the image: https://dl.armbian.com/bananapim3/Debian_stretch_dev.7z (Here Thanks for the armbian community)
+
+Download this image to your ubuntu PC (I am using ubuntu PC), then decompress it
+```sh
+7z x Debian_stretch_xxx.img
+bpi-copy Debian_stretch_xxx.img /dev/sd< drive letter >
+``` 
+Username: root, password: 1234
+
+Here are steps to install docker:
+```sh
+vim /etc/apt/sources.list
+add this source：“deb http://http.debian.net/debian jessie-backports main”
+apt-get update
+apt-get install docker.io
+```
+To have a test, if docker has installed in your image.
+```sh
+sudo docker run --rm hello-world
+```
+
+=== SATA
+. Mount SATA on M3
++
+```sh
+fdisk -l
+mount /dev/sdx /mnt/xxx
+```
++
+image::/picture/m3_sata.png[m3_sata.png]
+
+. If you meet some errors when you mount SATA, try these following commands:
++
+```sh
+fdisk /dev/sdx
+```
+to create new partition , set your partition numbers and size, after created partitions, input "wq" to save and quit.
++
+```sh
+mkfs.ext2 /dev/sdx
+mount /dev/sdx /mnt/xxx
+```
+. After you success to insert SATA, we could input following commands to test SATA interface:
+
+- Test read speed
++
+```SH
+time dd if=/dev/xxx of=/dev/null bs=1M count=1000
+```
+- Test write speed
++
+```sh
+time dd if=/dev/zero of=/dev/sdx bs=1M count=1000
+```
++
+image::/picture/sata_test.png[sata_test.png]
+
+=== OTG
+. On M3 console:
++
+Execute
++
+```sh
+./adbd.sh
+ps -ax | grep adbd
+```
+to see if adbd is set up
++
+image::/picture/m2p_adbd.png[m2p_adbd.png]
+
+. On PC terminal:
+
+- If adbd was succeed to set up, insert OTG-USB interface to M3 and PC(with Ubuntu system)
+- Execute
++
+```sh
+adb devices
+```
+to see if PC has recognised M3 OTG
+- If yes, we could execute
++
+```sh
+adb shell
+```
+to connect M3 by adb now
++
+image::/picture/m2p_adbd_shell.png[m2p_adbd_shell.png]
+
+=== LCD 5" & LCD 7"
+- Execute
++
+```sh
+bpi-bootsel
+```
+you'll see a list of boot files.Find "**BPI_M3_LCD7.img.gz**"
+
+- Then execute
++
+```sh
+bpi-bootsel /usr/lib/u-boot/bananapi/bpi-M3/BPI_M3_LCD7.img.gz
+```
++
+image::/picture/m3_bootsel_lcd7.png[m3_bootsel_lcd7.png]
+
+=== GMAC
+Use iperf3 to test gmac
+
+. On PC Terminal:
++
+```sh
+iperf3 -s
+```
+
+. On M3 console:
+
+- TCP test
++
+```sh
+iperf3 -c serverIP
+```
+- UDP test
++
+```sh
+iperf3 -u -c serverIP
+```
+
+image::/picture/m3_gmac_test.png[m3_gmac_test.png]
+
+=== Bluetooth
+Use bluetoothctl tool to operate BT
+
+- Execute
++
+```sh
+bluetoothctl
+```
+If you don't know how to use bluetoothctl, type "help", you will see more commands
+- Execute these commands:
++
+image::/picture/m3_bluetooth.png[m3_bluetooth.png]
+
+=== WiFi Client
+You have two ways to setup WiFi Client
+
+. Use commands to setup WiFi client
++
+```sh
+ip link set wlan0 up
+iw dev wlan0 scan | grep SSID
+vim /etc/wpa_supplicant/wpa_supplicant.conf
+```
++
+```sh
+network={    
+ssid="ssid"    
+psk="password"    
+priority=1 
+}
+```
++
+```sh
+wpa_supplicant -iwlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf
+dhclient wlan0
+```
+
+. Use UI interface to setup WiFi Client
+
+=== Clear boot
+```sh
+git clone https://github.com/BPI-SINOVOIP/BPI-files/tree/master/SD/100MB
+bpi-bootsel BPI-cleanboot-8k.img.gz /dev/sdX
+```
+=== Camara function
+We use HDF5640camara and HDF8865.
+
+image::/picture/ov5640_camara.png[ov5640_camara.png]
+
+image::/picture/ov8865_camara.png[ov8865_camara.png]
+
+**Guvcview**
+
+Use your UI interface to operate camara
+
+Applications -> Sound & Video -> guvcview
+
+**Shell**
+
+Ov5640
+
+We also have built-in command in "/usr/local/bin" to test camara
+
+- Test picture taking function
++
+```sh
+./test_ov5640_image_mode.sh
+```
+- Test video recording function
++
+```sh
+./cameratest.sh
+```
+
+Ov8865
+```sh
+/test_ov8865.sh
+```
+
+=== IR function
+Execute "getevent"
+Use your IR device to send information to M3
+
+image::/picture/m3_ir.png[m3_ir.png]
+
+=== BPI-Tools
+**Install Bpi-tools**
+```sh
+curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash - 
+```
+**Update Bpi-tools**
+
+```sh
+bpi-tools
+```
+
+image::/picture/bpi-tools.png[bpi-tools.png]
+
+=== RPi.GPIO
+**Install RPi.GPIO**
+
+```sh
+git clone https://github.com/BPI-SINOVOIP/RPi.GPIO"
+cd RPi.GPIO
+sudo apt-get update
+sudo apt-get install python-dev python3-dev
+```
+Execute
+```sh
+sudo python setup.py install
+```
+or
+```sh
+sudo python3 setup.py install
+```
+to install the module
+
+**Using RPi.GPIO**
+```sh
+cd /usr/local/bin
+./bpi_test_g40.py
+```
+image::/picture/rpi_gpio.png[rpi_gpio.png]
+
+=== WiringPi
+GitHub: https://github.com/BPI-SINOVOIP/BPI-WiringPi2.git
+
+We also have built-in test command in "/usr/local/bin"
+
+**How to Update WiringPi**
+
+Execute 
+```sh
+bpi-update -c pkglist.conf
+```
+
+image::/picture/update_pkglist.png[update_pkglist.png]
+
+Execute 
+```sh
+bpi-update -c bpi-pkg-bpi-wiringpi.conf
+```
+
+image::/picture/update_wringpi.png[update_wringpi.png]
+
+**RGB 1602 LCD**
+
+Execute 
+```sh
+/usr/local/bin/bpi_test_lcd1602.sh
+```
+
+**0.96 Inch OLED Display**
+
+Execute 
+```sh
+/usr/local/bin/bpi_test_52pi.sh
+```
+
+**8x8 RGB LED Martix**
+
+Firstly you need a GPIO Extend Board for 8x8 LED Martix
+
+image::/picture/wringpi_led_martix_extend_board.png[wringpi_led_martix_extend_board.png]
+
+Execute 
+```sh
+/usr/local/bin/bpi_test_gpio40.sh
+```
+
+=== GPU
+. Execute 
++
+```sh
+glmark2-es
+```
+to start OpenGL test
+
+. Glmark2 Score: 258
+
+image::/picture/m3_gpu_test.png[m3_gpu_test.png]
+
+=== File System
+read only system change to read & write mode
+```sh
+mount -o remount,rw /
+```
+
+
+
+
+
