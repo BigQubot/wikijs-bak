@@ -1,6 +1,6 @@
 = Introduction
 
- Banana Pi M3 is a super charged single board computer with an Octa-core processor and 2GB of RAM. Along side the elite processing unit, it features Gigabit Ethernet, 2 USB, SATA, WiFi, Bluetooth, and HDMI connection. It can run on a variety of operating systems including Android, Lubuntu, Ubuntu, Debian, and Raspbian. 
+Banana Pi M3 is a super charged single board computer with an Octa-core processor and 2GB of RAM. Along side the elite processing unit, it features Gigabit Ethernet, 2 USB, SATA, WiFi, Bluetooth, and HDMI connection. It can run on a variety of operating systems including Android, Lubuntu, Ubuntu, Debian, and Raspbian. 
 
 TIP: More Infomation: link:/en/BPI-M3/BananaPi_BPI-M3[Banana Pi BPI-M3]
 
@@ -17,19 +17,45 @@ TIP: More Infomation: link:/en/BPI-M3/BananaPi_BPI-M3[Banana Pi BPI-M3]
 
 . Download PhoenixCard: https://pan.baidu.com/s/1-fjvPqtG_zewVzqnXf1AHw?pwd=eid9
 
-=== Install Image with xxx
+=== Install Image to SD card
 
-. xxx
-. xxx
-. xxx
-. xxx
+. Put your TF card into a TF-USB adapter, and then plug adapter in your Windows PC usb interface.
+. Prepare your image, and download image burning tools PhoenixCard.exe.
+. Use "PhoenixCard.exe" to burn android image to TF card.
+- Select the image in the image path option
++
+image::/picture/m2_plus-android-1.jpg[m2_plus-android-1.jpg]
 
-=== Install Image with xxx
+- Select set as card startup, then click on burn image
++
+image::/picture/m2_plus-android-2.jpg[m2_plus-android-2.jpg]
 
-. xxx
-. xxx
-. xxx
-. xxx
+- Burning ended，
++
+image::/picture/m2_plus-android-3.jpg[m2_plus-android-3.jpg]
+
+=== Install Image to eMMC
+
+. Put your TF card into a TF-USB adapter, and then plug adapter in your Windows PC usb interface.
+. Prepare your image, and download image burning tools PhoenixCard.exe.
+. Use "PhoenixCard.exe" to burn android image to TF card.
+- Select the image in the image path option
++
+image::/picture/m2_plus-android-1.jpg[m2_plus-android-1.jpg]
+
+- Select mass production card，then click on burn image
++
+image::/picture/m2_plus-android-emmc-1.jpg[m2_plus-android-emmc-1.jpg]
+
+- Burning ended.
++
+image::/picture/m2_plus-android-emmc-2.jpg[m2_plus-android-emmc-2.jpg]
+
+. After the image is burned, insert the SD card into the board and power on to start.After startup, the image will be automatically burned to the EMMC.
++
+image::/picture/m2_plus-android-emmc-3.jpg[m2_plus-android-emmc-3.jpg]
+
+.  After the burning is completed, the power will be cut off, and the SD card will be removed. Power on again to start from EMMC.
 
 === How to buld M3 Bsp code
 . Prepare a PC which runs ubuntu
@@ -69,24 +95,64 @@ image::/picture/docker_operate.png[docker_operate.png]
 == Linux
 === Prepare
 
-. xxx
-. xxx
-. xxx
-. xxx
+. Prepare 8G/above TF card, USB-Serial interface
+. Using your USB-Serial Connect debug console on M2P
+. Login user/password: pi/bananapi or root/bananapi.
 
-=== Install Image with xxx
+=== Install Image to SD card
 
-. xxx
-. xxx
-. xxx
-. xxx
+**Windows PC**
 
-=== Install Image with xxx
+Install Image with Balena Etcher. +
+link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
 
-. xxx
-. xxx
-. xxx
-. xxx
+. Click on "**Flash from file**" to select image. 
+. Click on "**Select target**" to select USB device. 
+. Click on "**Flash!**" Start burning.
+
+image::/picture/etcher.jpg[etcher.jpg]
+
+**Linux PC**
+
+**There are two methods for you to choose from.**
+
+. Install Image with dd command on Linux, umount SDcard device /dev/sdX partition if mounted automatically. Actually bpi-copy is the same as this dd command.
++
+```sh
+ $ sudo apt-get install pv unzip
+ $ sudo unzip -p xxx-bpi-m3-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxfer
+```
+. Install image with bpi-tools on Linux, plug SDcard to Linux PC and run
++
+```sh
+ $ sudo apt-get install pv unzip
+ $ sudo bpi-copy xxx-bpi-m3-xxx.img.zip /dev/sdX
+```
+
+ 
+=== Install Image to eMMC
+
+. Copy "xxx-sd-emmc-xxx.img.zip / xxx-sd-emmc-xxx.img" to your USB disk
+. Plug your USB disk in M3
+. Execute(If it is automatically mounted, skip this step)
++
+```sh
+mont /dev/sda1 /mnt
+```
+. There are two methods to burn images to eMMC.
+- Using bpi-copy for burning.
++
+```sh
+bpi-copy xxx-sd-emmc-xxx.img.zip / xxx-sd-emmc-xxx.img
+```
+- Using the dd command for burning.
++
+```sh
+sudo dd if=/mnt/sda1/xxx-sd-emmc-xxx.img of=/dev/mmcblk0
+```
+
+. Then power off M3, take TF card out, power on M3 with EMMC
+
 
 === Update your image
 For example, update your image to support new emmc5.1
