@@ -177,8 +177,11 @@ The two 10" mipi panels are all portrait hw display, so the default android rele
 +
 image::/picture/m2s-rotation.png[m2s-rotation.png]
 
-. SurfaceFlinger rotation, need modify android source code and build
+. SurfaceFlinger rotation, need link:/en/BPI-CM4/GettingStarted_BPI-CM4#_build_android_source_code[modify android source code and build]
++
 Change the default sf rotation property
++
+```sh
    diff --git a/device/bananapi/bananapi_m2s/bananapi_m2s.mk b/device/bananapi/bananapi_m2s/bananapi_m2s.mk
    index 1f51703..d592a44 100644
    --- a/device/bananapi/bananapi_m2s/bananapi_m2s.mk
@@ -190,7 +193,10 @@ Change the default sf rotation property
     -    ro.sf.primary_display_orientation=0
    +    ro.sf.primary_display_orientation=90
     endif
+```
 Change the touch panel rotation in dts
++
+```sh
    diff --git a/common/arch/arm64/boot/dts/amlogic/bananapi_m2s.dts b/common/arch/arm64/boot/dts/amlogic/bananapi_m2s.dts
    index 4a698b0..3d41b63 100755
    --- a/common/arch/arm64/boot/dts/amlogic/bananapi_m2s.dts
@@ -205,13 +211,21 @@ Change the touch panel rotation in dts
   +               rotation = <0>; /* sf_rotation 90*/
                    //rotation = <5>; /* sf_rotation 180 */
                    //rotation = <3>; /* sf_rotation 270 */
-Custom Android Boot Logo
+```
+
+=== Custom Android Boot Logo
 Android bootloader limit boot logo fb display size is 1080p60hz/1920x1080 default, and android kernel dtb partition table limit boot logo partition size to 16MB default .
-1. Prepare a 16bit bmp file and named boot-logo.bmp
-2. Compress the bmp file to boot-logo.bmp.gz
+
+. Prepare a 16bit bmp file and named boot-logo.bmp
+. Compress the bmp file to boot-logo.bmp.gz
++
+```sh
  $ gzip boot-logo.bmp
-3. Download m2s_android_bootlogo_tool.zip
-4. Extract this tool
+```
+. Download link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Flogo_create_tools%2Fm2s_android_bootlogo_tool.zip[m2s_android_bootlogo_tool.zip]
+. Extract this tool
++
+```sh
  $ unzip m2s_android_bootlogo_tool.zip
  $ cd m2s_android_bootlogo_tool/
  $ ls -l logo/
@@ -224,23 +238,33 @@ Android bootloader limit boot logo fb display size is 1080p60hz/1920x1080 defaul
  -rwxr--r-- 1 dangku dangku 180072 May 19  2020 upgrade_success.bmp
  -rwxr--r-- 1 dangku dangku    184 May 19  2020 upgrade_unfocus.bmp
  -rwxr--r-- 1 dangku dangku 180072 May 19  2020 upgrade_upgrading.bmp
-5. Copy the boot-logo.bmp.gz
+```
+. Copy the boot-logo.bmp.gz
++
+```sh
  $ cp boot-logo.bmp.gz logo/bootup.bmp
  $ cp boot-logo.bmp.gz logo/bootup_secondary.bmp
-6. Create target logo.img with img pack tool, the binary and related libs of m2s_android_bootlogo_tool are copy from <android-source-dir>/out/host/linux-x86
+```
+. Create target logo.img with img pack tool, the binary and related libs of m2s_android_bootlogo_tool are copy from <android-source-dir>/out/host/linux-x86
++
+```sh
  $ ./logo_img_packer -r logo logo.img
-7. Flash boot logo with fastboot
+. Flash boot logo with fastboot
  $ adb root
  $ adb remount
  $ adb reboot fastboot
+```
 Wait few seconds and check whether fastboot connected
++
+```sh
  $ fastboot device
  1234567890      fastboot
  $ fastboot flashing unlock_critical
  $ fastboot flashing unlock
  $ fastboot flash logo logo.img
  $ fastboot reboot
- 
+```
+
 == Linux
 === Prepare
 
