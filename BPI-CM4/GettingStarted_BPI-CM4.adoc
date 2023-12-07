@@ -895,5 +895,102 @@ Check bootloader loaded from SDcard or EMMC at the beginning of the console debu
 === Erase EMMC for SDcard Bootup
 There are four possible scenarios should be pay attention to, EMMC already flashed Android image, EMMC already flashed Linux image, boot process hangup in BL2 and EMMC empty.
 
-1. Bootable EMMC with Android image flashed
+. Bootable EMMC with Android image flashed
 - Using usb burning tool, unplug the type-c usb cable while the download process at 7% formatting
++
+M5 android format.png
+
+- Using Android Fastboot tool, make sure the adb/fastboot tools is work on your PC before doing this.
++
+```sh
+   root@dangku-desktop:/tmp# adb root
+   adbd is already running as root
+   root@dangku-desktop:/tmp# adb remount
+   remount succeeded
+   root@dangku-desktop:/tmp# adb shell
+   bananapi_m2s:/ # reboot fastboot
+```
+Wait a few seconds for board reboot to fastboot mode
++
+```sh
+   root@dangku-desktop:/tmp# fastboot devices
+   1234567890	fastboot
+   root@dangku-desktop:/tmp# fastboot flashing unlock_critical
+   ...
+   OKAY [  0.044s]
+   finished. total time: 0.044s
+   root@dangku-desktop:/tmp# fastboot flashing unlock
+   ...
+   OKAY [  0.047s]
+   finished. total time: 0.047s
+   root@dangku-desktop:/tmp# fastboot erase bootloader
+   erasing 'bootloader'...
+   OKAY [  0.059s]
+   finished. total time: 0.059s
+   root@dangku-desktop:/tmp# fastboot erase bootloader-boot0
+   erasing 'bootloader-boot0'...
+   OKAY [  0.036s]
+   finished. total time: 0.036s
+   root@dangku-desktop:/tmp# fastboot erase bootloader-boot1
+   erasing 'bootloader-boot1'...
+   OKAY [  0.035s]
+   finished. total time: 0.035s
+```
+- Using uboot command, connect a debug console cable and press ESC while power on to enter uboot command line
++
+```sh
+   bananapi_m2s_v1#amlmmc erase 1
+   emmckey_is_protected(): protect
+   start = 0,end = 57343
+   start = 221184,end = 30535679
+   Erasing blocks 0 to 8192 @ boot0
+   start = 0,end = 8191
+   Erasing blocks 0 to 8192 @ boot1
+   start = 0,end = 8191
+   bananapi_m2s_v1#reset
+   resetting ...
+   SM1:BL:511f6b:81ca2f;FEAT:A0F83180:20282000;POC:F;RCY:0;EMMC:0;READ:0;CHK:1F;READ:0;CHK:1F;READ:0;CHK;
+```
+These two ways actually erase the bootloader part of EMMC android, After bootup from SDcard Linux, You'd better link:/en/BPI-CM4/GettingStarted_BPI-CM4#_erase_emmc_android_by_dd_command[format the whole EMMC by dd command].
+- The simplest way is insert the SDcard with Linux image flashed before power on, the Android bootloader will check boot.ini file whether exist in SDcard vfat partition, so that the SDcard Linux will bootup. After bootup, you can format the whole EMMC by dd command and then flash the Linux image to EMMC.
++
+```sh
+   ...
+   BPI: try boot from sdcard
+   reading boot.ini
+   2453 bytes read in 3 ms (797.9 KiB/s)
+   ## Executing script at 03080000
+   Starting boot.ini...
+   reading env.txt
+   3483 bytes read in 7 ms (485.4 KiB/s)
+   HDMI: Autodetect: 1080p60hz
+   reading Image.gz
+   10924573 bytes read in 611 ms (17.1 MiB/s)
+   reading bananapi_m2s.dtb
+   88054 bytes read in 12 ms (7 MiB/s)
+   reading uInitrd
+   11704481 bytes read in 655 ms (17 MiB/s)
+   reading overlays/wifi_bt_rtl8822cs.dtbo
+   729 bytes read in 6 ms (118.2 KiB/s)
+```
+
+. Bootable EMMC with Linux image flashed
+- Using uboot command, connect a debug console cable and press ESC while power on to enter uboot command line
++
+```sh
+   bananapi_m2s# mmc erase 0 1000
+```
+- Linux u-boot also check boot.ini file whether exist in SDcard vfat partition so that the SDcard Linux will bootup. After bootup, you can format the whole EMMC by dd command or flash the Linux image directly to EMMC.
+
+. A extreme situation is bootloader or uboot corrupted, Rom load it from EMMC but hangup in u-boot or BL2, for example the boot process will hangup in BL2 of EMMC if dram init failed, The only way is format the EMMC with usb burning tool, or download the Android image completely and then try other ways to erase EMMC or flash Linux image to EMMC.
+
+. Rom will try to load bootloader from SDcard directly if EMMC is empty.
+Erase Emmc Android by dd command
+If the board is flashed android before, the whole emmc must be erased by these commands if you want bootup it with SDcard Linux image.
++
+```sh
+ $ sudo dd if=/dev/zero of=/dev/mmcblk0boot0 bs=1M status=noxfer 
+ $ sudo dd if=/dev/zero of=/dev/mmcblk0boot1 bs=1M status=noxfer
+ $ sudo dd if=/dev/zero of=/dev/mmcblk0 bs=1M status=noxfer 
+ $ sync
+```
