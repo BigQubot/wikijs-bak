@@ -1,0 +1,56 @@
+= Introduction
+
+BananaPi BPI-CM4 new design with Amlogic A311D Quad core ARM Cortex-A73 and dual core ARM Cortex-A53 CPU ,ARM G52 MP4(6EE) GPU,NPU for AI at 5.0 TOPS, support Camera and MIPI-CSI interface ,HDMI output,2 Gigabit port . 4G RAM and 16 GB eMMC flash.
+
+TIP: More Infomation: link:/en/BPI-CM4/BananaPi_BPI-CM4[Banana Pi BPI-CM4]
+
+= Development
+== Prepare
+
+. Prepare a usb-serial cable, a 5V/3A adaptor type-c power supply. The serial cable is used for console debug and type-c cable is used for android image download and ADB debug.
+. Prepare a SDcard at least 8GB for linux development, android only support emmc boot.
+. The SOC rom first boot media is emmc, so board can't bootup from SDcard if the emmc is bootable with any image flashed, more info please refer to board link:/en/BPI-CM4/GettingStarted_BPI-CM4#_boot_sequence[boot sequence].
+
+== Android
+=== Prepare
+
+. xxx
+. xxx
+. xxx
+. xxx
+
+=== Install Image with xxx
+
+. xxx
+. xxx
+. xxx
+. xxx
+
+=== Install Image with xxx
+
+. xxx
+. xxx
+. xxx
+. xxx
+
+== Linux
+=== Prepare
+
+. xxx
+. xxx
+. xxx
+. xxx
+
+=== Install Image with xxx
+
+. xxx
+. xxx
+. xxx
+. xxx
+
+=== Install Image with xxx
+
+. xxx
+. xxx
+. xxx
+. xxx
