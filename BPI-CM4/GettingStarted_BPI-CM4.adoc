@@ -268,21 +268,225 @@ Wait few seconds and check whether fastboot connected
 == Linux
 === Prepare
 
-. xxx
-. xxx
-. xxx
-. xxx
+. Linux image support SDcard or EMMC bootup.
+. It’s recommended to use A1 rated cards, 8GB at least.
+. Make sure bootable EMMC is formatted if you want bootup from SDcard
+. Make sure SDcard is formatted without Linux image flashed if you want bootup from EMMC and use Sdcard as storage.
+. Install bpi-tools on your Linux PC(if flash image with other tools, ignore this step). If you can't access this URL or any other install problem, please go to link:https://github.com/bpi-sinovoip/bpi-tools[bpi-tools] source repo, download and install this tools manually.
++
+```sh
+ $ apt-get install pv
+ $ curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
+```
+. Download Linux latest Linux Image, and confirm that the md5 checksum is correct.
+. Default login: pi/bananapi or root/bananapi
 
-=== Install Image with xxx
+=== Install Image to SDcard
+> Install Image with Balena Etcher on Windows, Linux and MacOS.
 
-. xxx
-. xxx
-. xxx
-. xxx
+link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
 
-=== Install Image with xxx
+- Click on "Flash from file" to select image. 
+- Click on "Select target" to select USB device.
+- Click on "Flash!" Start burning.
 
-. xxx
-. xxx
-. xxx
-. xxx
+image::/picture/etcher.jpg[etcher.jpg]
+
+> Install Image with Balena Cli on Windows, Linux and MacOS.
+
+link:https://github.com/balena-io/balena-cli[Balena CLI] is a Command Line Interface for balenaCloud or openBalena. It can be used to flash linux image. Download the installer or standalone package from link:https://github.com/balena-io/balena-cli/releases[balena-io] and link:https://github.com/balena-io/balena-cli/blob/master/INSTALL.md[install ]it correctly to your PC, then you can use the "link:https://docs.balena.io/reference/balena-cli/#local-flash-image[local flash]" command option of balena to flash a linux image to sdcard or usb drive.
+```sh
+ $ sudo balena local flash path/to/xxx-bpi-m2s-xxx.img.zip
+ $ sudo balena local flash path/to/xxx-bpi-m2s-xxx.img.zip --drive /dev/disk2
+ $ sudo balena local flash path/to/xxx-bpi-m2s-xxx.img.zip --drive /dev/disk2 --yes
+```
+
+> Install Image with dd command on Linux
+
+Mount SDcard device /dev/sdX partition if mounted automatically. Actually bpi-copy is the same as this dd command.
+```sh
+ $ sudo apt-get install pv unzip
+ $ sudo unzip -p xxx-bpi-cm4-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxfer
+```
+> Install image with bpi-tools on Linux 
+
+Plug SDcard to Linux PC and run
+```sh
+ $ sudo apt-get install pv unzip
+ $ sudo bpi-copy xxx-bpi-cm4-xxx.img.zip /dev/sdX
+```
+
+=== Install Image to eMMC
+
+. Prepare a SDcard with Linux image flashed and bootup board with this SDcard.
+. Copy Linux image to udisk, plug the udisk to board and mount it.
+. There are two ways to install the linux image to board.
+- Install with dd command, umount mmcblk0p1 and mmcblk0p2 partition if mounted automatically. Actually bpi-copy is the same as this dd command.
++
+```sh
+ $ sudo apt-get install pv unzip
+ $ sudo unzip -p xxx-bpi-cm4-xxx.img.zip | pv | dd of=/dev/mmcblk0 bs=10M status=noxfer
+```
+- Install the linux image in udisk with bpi-tools command
++
+```sh
+ $ sudo apt-get install pv unzip
+ $ sudo bpi-copy xxx-bpi-cm4-xxx.img.zip /dev/mmcblk0
+```
+. After download complete, power off safely and eject the SDcard.
+
+=== Build Linux Source Code
+. Get the Linux bsp source code
++
+```sh
+ $  git clone https://github.com/BPI-SINOVOIP/BPI-M2S-bsp
+```
+. Build the bsp source code +
+Please read the source code link:https://github.com/BPI-SINOVOIP/BPI-M2S-bsp/blob/master/README.md[README.md]
+. If you want build uboot and kernel separately, please download the link:https://github.com/Dangku/amlogic-u-boot/tree/khadas-g12b-v2015.01-m2s[u-boot] the link:https://github.com/Dangku/amlogic-linux/tree/khadas-g12b-4.9.y-m2s[kernel] only, get the toolchains, boot script and other configuration files from link:https://github.com/BPI-SINOVOIP/BPI-M2S-bsp/tree/master/aml-pack/g12b/bpi-m2s/linux[BPI-M2S-bsp]
+
+=== DTB overlay
+. DTB overlay is used for 40pin gpios multi-function configuration and install in vfat boot partition, you can check the mount point with mount command.
++
+```sh
+ root@bananapi:~# ls /boot/overlays/
+ custom_ir.dtbo      pwm_b-backlight.dtbo  spi0.dtbo
+ ds3231.dtbo         pwm_c-beeper.dtbo     uart1_cts_rts.dtbo
+ hifi_pcm5102a.dtbo  pwm_cd-c.dtbo         uart1.dtbo
+ hifi_pcm5122.dtbo   pwm_cd.dtbo           uart2.dtbo
+ i2c1.dtbo           pwm_ef.dtbo           waveshare_tft24_lcd.dtbo
+ i2c2.dtbo           pwm_ef-f.dtbo         waveshare_tft35c_lcd.dtbo
+ pwm_ab.dtbo         sdio.dtbo             waveshare_tft35c_rtp.dtbo
+```
+. Update the overlays env in vfat /boot/env.txt to enable what you want.
++
+```sh
+ # Device Tree Overlays
+ #   uart1           -- Enable UART1 (uart_A, GPIO Header PIN8 & PIN10)
+ #   pwm_c           -- Enable PWM_C (GPIO Header PIN7)
+ #   i2c2            -- Enable i2c2 (GPIO Header PIN3 & PIN5)
+ #   spi0            -- Enable SPI0 (GPIO Header PIN19 & PIN21 & PIN23 & PIN24)
+ overlays="i2c2 spi0 uart1"
+```
+. Must be restart the board for overlay dtb loaded.
+
+=== Enable Camera
+The linux release image is camera disabled default, according to the following configuration, it can be enabled by yourself.
+
+. Update the link:/en/CM4/GettingStarted_BPI-CM4#_dtb_overlay[dtb overlays] env in /boot/env.txt to enable camera dtbo.
++
+```sh
+ overlays="os08a10"
+```
+. Add camera modules to /etc/modules
++
+```sh
+ iv009_isp_iq
+ iv009_isp_lens
+ iv009_isp_sensor
+ iv009_isp
+```
+. Create and add camera modules options to /etc/modprobe.d/os08a10.conf
++
+```sh
+ #choose camera calibration parameters
+ options iv009_isp_iq cali_name=0
+ #choose isp register sequence
+ options iv009_isp_sensor isp_seq_num=0
+``` 
+. Enable camera isp systemd service
++
+```sh
+ $ sudo systemctl enable camera_isp_3a_server.service
+```
+Camera device is /dev/video0 after reboot.
+
+=== Switch Mipi Panel
+The default linux release image only support one mipi panel because hw has no detect logic for different panel at boot, so 800x1280 bpi panel enabled as default, but you can change to [1200x1920 bpi panel] as defualt in /boot/lcd_env.txt
+```sh
+ # Mipi panel type
+ #    Symbol    | Resolution
+ # ----------------------+-------------
+ #    "lcd_0"   | 10" 800x1280 panel
+ #    "lcd_1"   | 10" 1200x1920 panel
+ panel_type=lcd_0
+```
+WARNING: Note: Dual display is not work on linux, so disconnect hdmi cable when mipi used.
+
+=== Panel Rotation
+The two 10" mipi panels are all portrait hw display, so the default release image is portrait mode, but you can rotate it to 90/180/270. +
+For Desktop image, create a xorg configuration file /usr/share/X11/xorg.conf.d/10-fbdev-rotate.conf with contents:
+```sh
+ Section "Device"
+     Identifier "Configured Video Device"
+     # Rotate off
+ #   Option "Rotate" "off"
+     # Rotate Right / clockwise, 90 degrees
+     Option "Rotate" "CW"
+     # Rotate upside down, 180 degrees
+ #   Option "Rotate" "UD"
+     # Rotate counter clockwise, 270 degrees
+ #   Option "Rotate" "CCW"
+ 
+ EndSection
+ 
+ Section "InputClass"
+     Identifier "Coordinate Transformation Matrix"
+     MatchIsTouchscreen "on"
+     MatchProduct "goodix-ts"
+     MatchDevicePath "/dev/input/event0"
+     MatchDriver "libinput"
+     # Rotate Right / clockwise, 90 degrees 
+     Option "CalibrationMatrix" "0 1 0 -1 0 1 0 0 1"
+     # Rotate upside down, 180 degrees
+ #   Option "CalibrationMatrix" "-1 0 1 0 -1 1 0 0 1"
+     # otate counter clockwise, 270 degrees 
+ #   Option "CalibrationMatrix" "0 -1 1 1 0 0 0 0 1"
+ 
+ EndSection
+```
+For Server image, you can change the framebuffer rotation in two ways:
+
+. Sysfs dynamically change.
++
+```sh
+ echo 0 > /sys/class/graphics/fbcon/rotate    //origin 0 degree
+ echo 1 > /sys/class/graphics/fbcon/rotate    //90 degree
+ echo 2 > /sys/class/graphics/fbcon/rotate    //180 degree
+ echo 3 > /sys/class/graphics/fbcon/rotate    //270 degree
+```
+. Boot Configuration change. +
+change the fb_rotate env in /boot/env.txt
++
+```sh
+ # Framebuffer Rotate
+ # 0 - origin 0 degree
+ # 1 - 90 degree
+ # 2 - 180 degree
+ # 3 - 270 degree
+ fb_rotate=0
+```
+
+=== WiringPi
+
+WARNING: Note: This WiringPi only support set 26pin gpio to output, input, pwm or software pwm, for io functions as i2c, spi, ..., you must enable dtb overlay in boot.ini
+
+. Build and install wiringPi, for debian, you must link:/en/CM4/GettingStarted_BPI-CM4#_enable_sudo_for_debian[install sudo] before build
++
+```sh
+ $ sudo apt-get update
+ $ sudo apt-get install build-essential git
+ $ git clone https://github.com/Dangku/amlogic-wiringPi
+ $ cd amlogic-wiringPi
+ $ chmod a+x build
+ $ sudo ./build
+```
+. Run gpio readall to show all 40pins status.
++
+
+. BPI GPIO Extend board and examples in link:https://github.com/Dangku/amlogic-wiringPi/tree/master/examples[amlogic-wiringPi/examples] +
+blinkall, blink all pin header gpios, no extend board. +
+lcd-bpi, link:https://docs.banana-pi.org/en/BPI_LCD_1602_display_module[BPI LCD 1602 display module] example. +
+52pi-bpi, link:https://docs.banana-pi.org/en/BPI_OLED_Display_Module[BPI OLED Display Module] example. +
+matrixled-bpi, link:https://docs.banana-pi.org/en/BPI_RGB_LED_Matrix_Expansion_Module[BPI RGB LED Matrix Expansion Module] example. +
+berryclip-bpi, link:https://docs.banana-pi.org/en/BPI_BerryClip_Module[BPI BerryClip Module]
