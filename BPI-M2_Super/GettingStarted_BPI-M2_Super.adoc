@@ -177,7 +177,7 @@ The two 10" mipi panels are all portrait hw display, so the default android rele
 
 . UI Rotation in Settings->Display->Screen rotation
 +
-
+image::/picture/m2s-rotation.png[m2s-rotation.png]
 
 . SurfaceFlinger rotation, need link:https://newwiki.banana-pi.org/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_build_android_source_code[modify android source code] and build +
 Change the default sf rotation property
