@@ -595,9 +595,50 @@ Terminate quectel-CM process:
 ```
 
 === Boot Linux from SSD
-A311d soc rom and BPI-M2S-bsp uboot are both not support nvme boot, so the only way for booting linux from SSD is create a bootable sdcard or emmc with bootloader and boot partition flashed, then load rootfs from SSD. After bootup, everything will run from SSD. You need a minipcie to nvme adapter board because bananapi cm4io has a minipcie slot onboard.
-1. The simple way is flash the CM4 Linux image to sdcard or emmc for bootable and also flash it to the nvme ssd for loading rootfs.
-2. Bootup the CM4 board with sdcard or emmc, modify /boot/boot.ini to load rootfs from nvme partition for kernel.
+A311d soc rom and link:https://github.com/BPI-SINOVOIP/BPI-M2S-bsp[BPI-M2S-bsp] uboot are both not support nvme boot, so the only way for booting linux from SSD is create a bootable sdcard or emmc with bootloader and boot partition flashed, then load rootfs from SSD. After bootup, everything will run from SSD. You need a minipcie to nvme adapter board because bananapi cm4io has a minipcie slot onboard.
 
+. The simple way is link:/en/BPI-CM4/GettingStarted_BPI-CM4#_install_image_to_sdcard[flash the CM4 Linux image to sdcard or emmc] for bootable and also flash it to the nvme ssd for loading rootfs.
+. Bootup the CM4 board with link:/en/BPI-CM4/GettingStarted_BPI-CM4#_boot_sequence[sdcard or emmc], modify /boot/boot.ini to load rootfs from nvme partition for kernel.
++
+```sh
+ diff a/boot/boot.ini b/boot/boot.ini
+ index 2222e79..c485067 100755
+ --- a/boot/boot.ini
+ +++ b/boot/boot.ini
+ @@ -20,6 +20,8 @@ fi;
 
+  if test "${devtype}" = "usb"; then setenv rootfsdev "/dev/sda2"; fi
 
+ +# force set root=/dev/nvme0n1p2
+ +setenv rootfsdev "/dev/nvme0n1p2"
+ +
+  # Load env.txt
+  fatload ${devtype} ${devno}:1 ${env_loadaddr} env.txt
+  env import -t ${env_loadaddr} ${filesize};
+```
+. Reboot the system, kernel will load rootfs from nvme ssd.
++
+image::/picture/cm4_ssd_rootfs.png[cm4_ssd_rootfs.png]
+
+. Test performance
+You can verify the performance of your SSD on Pi Benchmarks using the following command:
++
+```sh
+ sudo curl https://raw.githubusercontent.com/TheRemote/PiBenchmarks/master/Storage.sh | sudo bash
+```
+Test results for sd, emmc and nvme ssd (Samsung 970EVOPlus)
+
+[options="header",cols="1,2,2,2,2"]
+|=====
+| Category    | Test             | Sdcard Test Result    | Emmc Test Result        | Nvme SSD Test Result      
+| HDParm      | Disk Read        | 60.67 MB/s            | 148.80 MB/s             | 351.29 MB/s               
+| HDParm      | Cached Disk Read | 56.71 MB/s            | 141.02 MB/s             | 347.03 MB/s               
+| DD          | Disk Write       | 14 MB/s               | 51.0 MB/s               | 244 MB/s                  
+| FIO         | 4k random read   | 2176 IOPS (8704 KB/s) | 8438 IOPS (33753 KB/s)  | 101386 IOPS (405544 KB/s) 
+| FIO         | 4k random write  | 932 IOPS (3729 KB/s)  | 10876 IOPS (43505 KB/s) | 43206 IOPS (172827 KB/s)  
+| IOZone      | 4k read          | 8586 KB/s             | 20311 KB/s              | 119475 KB/s               
+| IOZone      | 4k write         | 2385 KB/s             | 19016 KB/s              | 90619 KB/s                
+| IOZone      | 4k random read   | 6734 KB/s             | 20807 KB/s              | 51517 KB/s                
+| IOZone      | 4k random write  | 3737 KB/s             | 22731 KB/s              | 95139 KB/s                
+||| Score: 1076 | Score: 5446      | Score: 24550 
+|=====
