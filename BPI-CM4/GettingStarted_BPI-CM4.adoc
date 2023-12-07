@@ -483,10 +483,121 @@ WARNING: Note: This WiringPi only support set 26pin gpio to output, input, pwm o
 ```
 . Run gpio readall to show all 40pins status.
 +
-
+image::/picture/cm4_wiringpi.png[cm4_wiringpi.png]
 . BPI GPIO Extend board and examples in link:https://github.com/Dangku/amlogic-wiringPi/tree/master/examples[amlogic-wiringPi/examples] +
 blinkall, blink all pin header gpios, no extend board. +
 lcd-bpi, link:https://docs.banana-pi.org/en/BPI_LCD_1602_display_module[BPI LCD 1602 display module] example. +
 52pi-bpi, link:https://docs.banana-pi.org/en/BPI_OLED_Display_Module[BPI OLED Display Module] example. +
 matrixled-bpi, link:https://docs.banana-pi.org/en/BPI_RGB_LED_Matrix_Expansion_Module[BPI RGB LED Matrix Expansion Module] example. +
 berryclip-bpi, link:https://docs.banana-pi.org/en/BPI_BerryClip_Module[BPI BerryClip Module]
+
+=== RPi.GPIO
+Build and install, for debian, you must link:/en/BPI-CM4/GettingStarted_BPI-CM4#_enable_sudo_for_debian[install sudo] before build
+```sh
+ $ sudo apt-get update
+ $ sudo apt-get install build-essential python python-dev python-setuptools git
+ $ git clone https://github.com/Dangku/RPi.GPIO-Amlogic.git
+ $ cd RPi.GPIO-Amlogic
+ $ sudo python setup.py clean --all
+ $ sudo python setup.py build install
+```
+
+=== WiringPi2-Python
+Build and install, for debian, you must link:/en/BPI-CM4/GettingStarted_BPI-CM4#_enable_sudo_for_debian[install sudo] before build
+```sh
+ $ sudo apt-get update
+ $ sudo apt-get install build-essential python python-dev python-setuptools swig git
+ $ git clone --recursive  https://github.com/Dangku/WiringPi2-Python-Amlogic.git
+ $ cd WiringPi2-Python-Amlogic
+ $ sudo python setup.py install
+```
+=== Custom Linux Boot Logo
+Linux uboot limit boot logo fb size to 1080p60hz/1920x1080 default, so oversize resolution will not be supported by default image, but you can modify uboot source code to support it.
+
+. Prepare a 24bit bmp file and named boot-logo.bmp
+. copy the target file to /boot/firmware/ or /boot/ directory.
+
+=== EC20 LTE 4G Module
+. AT test
++
+After the module is connected and Linux OS bootup. several ttyUSB* device files are created in the directory /dev. For EC20, /dev/ttyUSB2 is the AT port.
+. Connect Network via qmi_wwan on Ubuntu Desktop
++
+Click edit connections in network manager menu
++
+image::/picture/ec20_desktop_0.png[ec20_desktop_0.png]
++
+Add a new mobile broadband connection
++
+image::/picture/ec20_desktop_1.png[ec20_desktop_1.png]
++
+Choose qmi channel device
++
+When the qmi_wwan_q driver has been installed in the module, a network device and a QMI channel are created. The network device is named as wwanX and the QMI channel is /dev/cdc-wdmX. The network device is used for data transmission, and QMI channel is used for QMI message interaction
++
+image::/picture/ec20_desktop_2.png[ec20_desktop_2.png]
++
+Choose carrier provider's country region
++
+image::/picture/ec20_desktop_3.png[ec20_desktop_3.png]
++
+Choose carrier provider.
++
+image::/picture/ec20_desktop_4.png[ec20_desktop_4.png]
+image::/picture/ec20_desktop_5.png[ec20_desktop_5.png]
++
+Set connection name, carrier connection username/password and APN if needed.
++
+image::/picture/ec20_desktop_6.png[ec20_desktop_6.png]
++
+Setup finished, now you can connect it.
++
+image::/picture/ec20_desktop_7.png[ec20_desktop_7.png]
+
+. Connect Network via pppd on Ubuntu&Debian Server
++
+Install pppd
++
+```sh
+ $ sudo apt install ipppd
+```
+Change AT device, username and password to your local carrier in /etc/ppp/peers/quectel-ppp
++
+image::/picture/ec20_server_pppd_uname.png[ec20_server_pppd_uname.png]
+Change APN to your local carrier in /etc/ppp/peers/quectel-chat-connect
++
+image::/picture/ec20_server_pppd_apn.png[ec20_server_pppd_apn.png]
+Two ways command to start pppd, you can check the process of PPP calling setup log link:https://github.com/Dangku/readme/blob/master/cm4/ec20_pppd.log[here].
++
+```sh
+ # pppd call quectel-ppp &
+```
+or
++
+```sh
+ # quectel-pppd.sh /dev/ttyUSB2 <apn> <username> <password>
+```
+Terminate pppd process:
++
+```sh
+ # quectel-ppp-kill
+```
+. Connect Network via qmi_wwan on Ubuntu&Debian Server
+[quectel-CM] is a connection manager program for you to set up data connection manually. You can check the process of qmi_wwan calling setup log link:https://github.com/Dangku/readme/blob/master/cm4/ec20_pppd.log[here].
++
+```sh
+ # quectel-CM &
+```
+Terminate quectel-CM process:
++
+```sh
+ # killall quectel-CM
+```
+
+=== Boot Linux from SSD
+A311d soc rom and BPI-M2S-bsp uboot are both not support nvme boot, so the only way for booting linux from SSD is create a bootable sdcard or emmc with bootloader and boot partition flashed, then load rootfs from SSD. After bootup, everything will run from SSD. You need a minipcie to nvme adapter board because bananapi cm4io has a minipcie slot onboard.
+1. The simple way is flash the CM4 Linux image to sdcard or emmc for bootable and also flash it to the nvme ssd for loading rootfs.
+2. Bootup the CM4 board with sdcard or emmc, modify /boot/boot.ini to load rootfs from nvme partition for kernel.
+
+
+
