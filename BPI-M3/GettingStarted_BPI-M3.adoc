@@ -24,15 +24,15 @@ TIP: More Infomation: link:/en/BPI-M3/BananaPi_BPI-M3[Banana Pi BPI-M3]
 . Use "PhoenixCard.exe" to burn android image to TF card.
 - Select the image in the image path option
 +
-image::/picture/m2_plus-android-1.jpg[m2_plus-android-1.jpg]
+image::/picture/m3-android-1.jpg[m3-android-1.jpg]
 
 - Select set as card startup, then click on burn image
 +
-image::/picture/m2_plus-android-2.jpg[m2_plus-android-2.jpg]
+image::/picture/m3-android-2.jpg[m3-android-2.jpg]
 
 - Burning ended，
 +
-image::/picture/m2_plus-android-3.jpg[m2_plus-android-3.jpg]
+image::/picture/m3-android-3.jpg[m3-android-3.jpg]
 
 === Install Image to eMMC
 
@@ -41,20 +41,20 @@ image::/picture/m2_plus-android-3.jpg[m2_plus-android-3.jpg]
 . Use "PhoenixCard.exe" to burn android image to TF card.
 - Select the image in the image path option
 +
-image::/picture/m2_plus-android-1.jpg[m2_plus-android-1.jpg]
+image::/picture/m3-android-1.jpg[m3-android-1.jpg]
 
 - Select mass production card，then click on burn image
 +
-image::/picture/m2_plus-android-emmc-1.jpg[m2_plus-android-emmc-1.jpg]
+image::/picture/m3-android-emmc-1.jpg[m3-android-emmc-1.jpg]
 
 - Burning ended.
 +
-image::/picture/m2_plus-android-emmc-2.jpg[m2_plus-android-emmc-2.jpg]
+image::/picture/m3-android-emmc-2.jpg[m3-android-emmc-2.jpg]
 
 . After the image is burned, insert the SD card into the board and power on to start.After startup, the image will be automatically burned to the EMMC.
 +
-image::/picture/m2_plus-android-emmc-3.jpg[m2_plus-android-emmc-3.jpg]
-
+image::/picture/m3-android-emmc-3.jpg[m3-android-emmc-3.jpg]
+You can also judge by light. When the light changes from constant on to off, it indicates that the combustion is complete.
 .  After the burning is completed, the power will be cut off, and the SD card will be removed. Power on again to start from EMMC.
 
 === How to buld M3 Bsp code
