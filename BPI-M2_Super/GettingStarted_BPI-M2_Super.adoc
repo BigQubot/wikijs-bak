@@ -1,6 +1,5 @@
 = Introduction
 
-
 TIP: More Infomation: link:/en/BPI-M2_Super/BananaPi_BPI-M2_Super[Banana Pi BPI-M2_Super]
 
 == Specifications
@@ -377,7 +376,7 @@ Please read the source code link:https://github.com/BPI-SINOVOIP/BPI-M2S-bsp/blo
 === Enable Camera
 The linux release image is camera disabled default, according to the following configuration, it can be enabled by yourself.
 
-. Update the link:https://newwiki.banana-pi.org/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_dtb_overlay[dtb overlays] env in /boot/env.txt to enable camera dtbo.
+. Update the link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_dtb_overlay[dtb overlays] env in /boot/env.txt to enable camera dtbo.
 +
 ```sh
  overlays="os08a10"
@@ -475,7 +474,7 @@ change the fb_rotate env in /boot/env.txt
 
 WARNING: Note: This WiringPi only support set 40pin gpio to output, input, pwm or software pwm, for io functions as i2c, spi, ..., you must enable dtb overlay in boot.ini
 
-. Build and install wiringPi, for debian, you must link:https://newwiki.banana-pi.org/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_enable_sudo_for_debian[install sudo] before build
+. Build and install wiringPi, for debian, you must link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_enable_sudo_for_debian[install sudo] before build
 +
 ```sh
  $ sudo apt-get update
