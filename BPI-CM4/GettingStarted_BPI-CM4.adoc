@@ -642,3 +642,196 @@ Test results for sd, emmc and nvme ssd (Samsung 970EVOPlus)
 | IOZone      | 4k random write  | 3737 KB/s             | 22731 KB/s              | 95139 KB/s                
 ||| Score: 1076 | Score: 5446      | Score: 24550 
 |=====
+
+=== Disable SDcard UHS mode
+Add disableuhs option to kernel bootargs in /boot/env.txt to disable sdcard uhs capability
+```sh
+ # User kernel args
+ # Add customer kernel args here
+ user_kernel_args=pci=pcie_bus_safe disableuhs
+```
+
+=== Enable Wifi and BT
+CM4 has onboard wifi/bt RTL8822CS, and is not enabled in default image, you can enable it with the following procedure.
+
+. Add the wifi module name to /etc/modules for loaded automatically next boot.
++
+```sh
+ # This file contains the names of kernel modules that should be loaded
+ # at boot time, one per line. Lines beginning with "#" are ignored.
+ 88x2cs
+```
+. Install bluetooth packages for server images
++
+```sh
+ $ sudo apt update
+ $ sudo apt install bluez rfkill
+```
+. Reboot system
+
+=== Linux Server Image Network Configuration
+link:https://netplan.io/[Netplan]
+
+**Linux Wifi STA mode**
+
+A sample wifi sta mode netplan configuration file, 01-wlan0-sta.yaml
+```sh
+network:
+  version: 2
+  renderer: networkd
+  wifis:
+    wlan0:
+      dhcp4: true
+      access-points:
+        "bananapi":
+           password: "123456789"
+```
+**Linux Wifi AP mode**
+
+. Prepare the setup the wifi adater correctly.
+. Get the wifi adapter Band, Frequencies, Channel, HT Capability, VHT Capability or other properties
+$ iw list
+. Manage wifi access point mode with Netplan and Network-Manager.
+Install NetworkManager because ap is only supported with NetworkManager renderer
++
+```sh
+$ sudo apt install network-manager
+```
+A sample 2.4G wifi ap mode netplan configuration file, 01-wlan0-ap-2.4g.yaml
++
+```sh
+network:
+version: 2
+renderer: NetworkManager
+wifis:
+  wlan0:
+    dhcp4: no
+    access-points:
+      "bananapi":
+         mode: ap
+         band: 2.4GHz
+         channel: 6
+         auth:
+           key-management: psk
+           password: "123456789"
+```
+A sample 5G wifi ap mode netplan configuration file, 01-wlan0-ap-5g.yaml
++
+```sh
+network:
+version: 2
+renderer: NetworkManager
+wifis:
+  wlan0:
+    dhcp4: no
+    access-points:
+      "bananapi":
+         mode: ap
+         band: 5GHz
+         channel: 36
+         auth:
+           key-management: psk
+           password: "123456789"
+```
+. Manage wifi access point mode with Netplan and Hostapd.
+- Create a netplan configuration file, 01-wlan0-ap-hostapd.yaml
++
+```sh
+network:
+version: 2
+renderer: networkd
+ethernets:
+  wlan0:
+    dhcp4: no
+    addresses:
+      - 192.168.11.1/24
+```
+- Install hostapd
++
+```sh
+$ sudo apt install hostapd
+```
+Create hostapd configuration file /etc/hostapd/hostapd.conf, for example
++
+```sh
+interface=wlan0
+ssid=bananapi
+
+driver=nl80211
+
+auth_algs=1
+wpa=2
+wpa_passphrase=123456789
+wpa_key_mgmt=WPA-PSK
+rsn_pairwise=CCMP
+
+#bridge=br0
+beacon_int=500
+#SSID not hidden
+ignore_broadcast_ssid=0
+
+hw_mode=a
+channel=36
+max_num_sta=8
+
+### IEEE 802.11n
+ieee80211n=1
+#require_vht=0
+ht_capab=[HT20][HT40+][SHORT-GI-20][SHORT-GI-40][SHORT-GI-80][DSSS_CCK-40]
+
+### IEEE 802.11ac
+ieee80211ac=1
+#require_vht=0
+#vht_capab=[MAX-MPDU-3895][SHORT-GI-80][SU-BEAMFORMEE]
+#vht_oper_chwidth=1
+#vht_oper_centr_freq_seg0_idx=42
+
+### WMM
+wmm_enabled=1
+```
+- To support 80MHz channel width you need load driver with rtw_vht_enable=2 option, Or you can create /etc/modprobe.d/8822cs.conf with content
++
+```sh
+options 88x2cs rtw_vht_enable=2
+```
+- Install and configure dhcp server service, use isc-dhcp-server for example
++
+```sh
+$ sudo apt install isc-dhcp-server
+```
+Configure dhcp server interface in /etc/default/isc-dhcp-server
++
+```sh
+# On what interfaces should the DHCP server (dhcpd) serve DHCP requests?
+#       Separate multiple interfaces with spaces, e.g. "eth0 eth1".
+INTERFACESv4="wlan0"
+```
+Configure dhcp subnet and dns in /etc/dhcp/dhcpd.conf
++
+```sh
+...
+option domain-name "example.org";
+option domain-name-servers 8.8.8.8, 114.114.114.114;
+...
+# No service will be given on this subnet, but declaring it helps the 
+# DHCP server to understand the network topology.
+subnet 192.168.11.0 netmask 255.255.255.0 {
+  range dynamic-bootp 192.168.11.1 192.168.11.100;
+  option broadcast-address 192.168.11.255;
+  option routers 192.168.11.1;
+}
+```
+- Start Service
++
+```sh
+$ sudo hostapd /etc/hostapd/hostapd.conf -B
+$ sudo systemctl restart isc-dhcp-server
+```
+- Routing configuration.
++
+```sh
+sysctl net.ipv4.ip_forward=1
+iptables -t nat -A POSTROUTING -s 192.168.11.0/24 -o eth0 -j MASQUERADE
+```
+
+== 
