@@ -834,4 +834,66 @@ sysctl net.ipv4.ip_forward=1
 iptables -t nat -A POSTROUTING -s 192.168.11.0/24 -o eth0 -j MASQUERADE
 ```
 
-== 
+== Other Development
+=== Boot Sequence
+
+image::/picture/m5_linux_boot_squence.png[m5_linux_boot_squence.png]
+Check bootloader loaded from SDcard or EMMC at the beginning of the console debug messages
+
+. Rom load bootloader from SDcard (Linux log example)
++
+```sh
+ ...
+ 
+ BL2 Built : 15:21:42, Mar 26 2020. g12a g486bc38 - gongwei.chen@droid11-sz
+ 
+ Board ID = 1
+ Set cpu clk to 24M
+ Set clk81 to 24M
+ Use GP1_pll as DSU clk.
+ DSU clk: 1200 Mhz
+ CPU clk: 1200 MHz
+ Set clk81 to 166.6M
+ board id: 1
+ Load FIP HDR DDR from SD, src: 0x00010200, des: 0xfffd0000, size: 0x00004000, part: 0
+ fw parse done
+ PIEI prepare done
+ fastboot data verify
+ result: 255
+ Cfg max: 12, cur: 1. Board id: 255. Force loop cfg
+ DDR4 probe
+ 
+ ...
+```
+. Rom load bootloader from EMMC(Android Log example)
++
+```sh
+ ...
+ 
+ Board ID = 1
+ Set cpu clk to 24M
+ Set clk81 to 24M
+ Use GP1_pll as DSU clk.
+ DSU clk: 1200 Mhz
+ CPU clk: 1200 MHz
+ Set clk81 to 166.6M
+ eMMC boot @ 0
+ sw8 s
+ board id: 1
+ Load FIP HDR DDR from eMMC, src: 0x00010200, des: 0xfffd0000, size: 0x00004000, part: 0
+ fw parse done
+ PIEI prepare done
+ 00000000
+ emmc switch 1 ok
+ ddr saved addr:00016000
+ Load ddr parameter from eMMC, src: 0x02c00000, des: 0xfffd0000, size: 0x00001000, part: 0
+ 00000000
+ 
+ ...
+```
+
+=== Erase EMMC for SDcard Bootup
+There are four possible scenarios should be pay attention to, EMMC already flashed Android image, EMMC already flashed Linux image, boot process hangup in BL2 and EMMC empty.
+
+1. Bootable EMMC with Android image flashed
+- Using usb burning tool, unplug the type-c usb cable while the download process at 7% formatting
