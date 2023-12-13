@@ -55,22 +55,36 @@ You can choose one of the following three methods.
 
 === Install Image to eMMC
 
-. Prepare a SDcard with Linux image flashed and bootup board with this SDcard.
-. Copy Linux image to udisk, plug the udisk to board and mount it.
-. There are **two ways** to install the linux image to board.
-- Install with dd command, umount mmcblk0p1 and mmcblk0p2 partition if mounted automatically. Actually bpi-copy is the same as this dd command.
+. Make sure that the Linux image has been burned into an SD card and started normally.
+
+. Enter the following command in the terminal.
 +
-```sh
- $ sudo apt-get install pv unzip
- $ sudo unzip -p xxx-bpi-m4_zero-xxx.img.zip | pv | dd of=/dev/mmcblk0 bs=10M status=noxfer
 ```
-- Install the linux image in udisk with bpi-tools command
+sudo bananapi-config
+```
+
+. Follow the instructions below to install the Linux system image on the eMMC.
+.. Select `Ststem`.
 +
-```sh
- $ sudo apt-get install pv unzip
- $ sudo bpi-copy xxx-bpi-m4_zero-xxx.img.zip /dev/mmcblk0
-```
-. After download complete, power off safely and eject the SDcard.
+image::/picture/bpi_m4_berry_mobaxterm_12.jpg[bpi_m4_berry_mobaxterm_12.jpg]
+.. Select `Install`.
++
+image::/picture/bpi_m4_berry_mobaxterm_13.jpg[bpi_m4_berry_mobaxterm_13.jpg]
+.. Select `Boot from eMMC`.
++
+image::/picture/bpi_m4_berry_mobaxterm_14.jpg[bpi_m4_berry_mobaxterm_14.jpg]
+.. Select `Yes`.
++
+image::/picture/bpi_m4_berry_mobaxterm_15.jpg[bpi_m4_berry_mobaxterm_15.jpg]
+.. Select `ext4`.
++
+image::/picture/bpi_m4_berry_mobaxterm_16.jpg[bpi_m4_berry_mobaxterm_16.jpg]
+.. Wait a few minutes. Do not power off or restart the board at this time.
++
+image::/picture/bpi_m4_berry_mobaxterm_17.jpg[bpi_m4_berry_mobaxterm_17.jpg]
+.. The last step is to shut down the board. At this time, disconnect the power supply, remove the SD card, and connect the power again, to boot from eMMC.
++
+image::/picture/bpi_m4_berry_mobaxterm_18.jpg[bpi_m4_berry_mobaxterm_18.jpg]
 
 === Ubuntu Desktop
 . Using the Ubuntu desktop version system image, you can get a graphical operation interface.
@@ -149,21 +163,21 @@ image::/picture/bpi_m4_berry_nomachine_4.jpg[bpi_m4_berry_nomachine_4.jpg]
 === WiFi
 Use the nmcli command to scan WiFi hotspots, connect to hotspots, and create AP hotspots.
 ```sh
-  nmcli device #List devices
-  nmcli device wifi list # List available wifi access points, list can be omitted
-  nmcli device wifi connect [SSID] password [PASSWORD] # Connect to the hotspot mySSID. After the connection is successful, the configuration file will be automatically generated. If you want to connect again in the future, you can use the nmcli connection up [SSID] command.
-  nmcli device disconnect [device name] # Disconnect wifi, use the wifi device name displayed in the nmcli device command
-  nmcli device wifi hotspot con-name [NAME] ifname [device name] ssid [SSID] password [PASSWORD] # Create AP hotspot
+  nmcli device
+  nmcli device wifi list
+  nmcli device wifi connect [SSID] password [PASSWORD]
+  nmcli device disconnect [device name]
+  nmcli device wifi hotspot con-name [NAME] ifname [device name] ssid [SSID] password [PASSWORD]
 ```
 ```sh
-  nmcli connection show #List network connection configuration
-  nmcli connection down [NAME] # Deactivate a connection
-  nmcli connection up [NAME] # Activate a connection
-  nmcli connection delete [SSID] #Delete a configuration and no longer save information and automatically connect
+  nmcli connection show
+  nmcli connection down [NAME]
+  nmcli connection up [NAME]
+  nmcli connection delete [SSID]
 ```
 ```sh
-  nmcli radio wifi off # Turn off wifi
-  nmcli radio wifi on # Turn on wifi
+  nmcli radio wifi off
+  nmcli radio wifi on
 ```
 - link:https://developer-old.gnome.org/NetworkManager/unstable/nmcli.html[nmcli command reference document]
 - link:https://developer-old.gnome.org/NetworkManager/unstable/nmcli-examples.html[nmcli command reference examples]
