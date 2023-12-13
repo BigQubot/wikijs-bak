@@ -31,7 +31,7 @@ image::/picture/bpi-m4_zero_interface.jpg[bpi-m4_zero_interface.jpg]
 
 == Hardware Spec
 
-[option="header",cols="1,4",width="70%"]
+[options="header",cols="1,4",width="70%"]
 |=====
 2+| **Hardware Specification of Banana pi BPI-M4 Zero**
 | CPU                                             | Allwinner H618, Quad-core ARM Cortex™-A53 processor, 64-bit, up to 1.5GHz
@@ -63,7 +63,7 @@ image::/picture/bpi-m4_zero_interface.jpg[bpi-m4_zero_interface.jpg]
 
 === BPI-M4 Berry 40PIN GPIO
 
-[option="header",cols="1,2,3,3,3,3",width="70%"]
+[options="header",cols="1,2,3,3,3,3",width="70%"]
 |=====
 6+| **40 PIN GPIO of Banana pi BPI-M4 Berry**
 | Pin Num | Pin Name | ALT0         | ALT1         | ALT2      | ALT3         
