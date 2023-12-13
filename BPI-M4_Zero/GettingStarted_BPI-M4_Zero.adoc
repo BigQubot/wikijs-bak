@@ -1,0 +1,367 @@
+= Introduction
+
+TIP: More Infomation: link:/en/BPI-M4_Zero/BananaPi_BPI-M4_Zero[Banana Pi BPI-M4_Zero]
+
+= Development
+
+== Android
+
+== Linux
+=== Prepare
+
+. Linux image support SDcard or EMMC bootup, and will boot from the SD card first.
+. It’s recommended to use A1 rated cards, 8GB at least.
+. Make sure bootable EMMC is formatted if you want bootup from SDcard.
+. Make sure SDcard is formatted without Linux image flashed if you want bootup from EMMC and use Sdcard as storage.
+. Download latest [Linux Linux Image], and confirm that the md5 checksum is correct.
+. Default login: pi/bananapi or root/bananapi
+. The wiki guide is only for [bananapi 4.9 bsp ubuntu/debian images].
+
+=== Install Image to SDcard
+**Windows**
+
+link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
+
+- Click on "**Flash from file**" to select image. 
+- Click on "**Select target**" to select USB device. 
+- Click on "**Flash!**" Start burning.
+
+image::/picture/etcher.jpg[etcher.jpg]
+
+**Linux** +
+You can choose one of the following three methods.
+
+- link:https://github.com/balena-io/balena-cli[Balena CLI] is a Command Line Interface for balenaCloud or openBalena. It can be used to flash linux image. Download the installer or standalone package from link:https://github.com/balena-io/balena-cli/releases[balena-io] and link:https://github.com/balena-io/balena-cli/blob/master/INSTALL.md[install ]it correctly to your PC, then you can use the "link:https://docs.balena.io/reference/balena-cli/#local-flash-image[local flash]" command option of balena to flash a linux image to sdcard or usb drive.
++
+```sh
+ $ sudo balena local flash path/to/xxx-bpi-m4_zero-xxx.img.zip
+ $ sudo balena local flash path/to/xxx-bpi-m4_zero-xxx.img.zip --drive /dev/disk2
+ $ sudo balena local flash path/to/xxx-bpi-m4_zero-xxx.img.zip --drive /dev/disk2 --yes
+```
+
+- Mount SDcard device /dev/sdX partition if mounted automatically. Actually bpi-copy is the same as this dd command.
++
+```sh
+ $ sudo apt-get install pv unzip
+ $ sudo unzip -p xxx-bpi-m4_zero-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxfer
+```
+
+- Plug SDcard to Linux PC and run
++
+```sh
+ $ sudo apt-get install pv unzip
+ $ sudo bpi-copy xxx-bpi-m4_zero-xxx.img.zip /dev/sdX
+```
+
+=== Install Image to eMMC
+
+. Prepare a SDcard with Linux image flashed and bootup board with this SDcard.
+. Copy Linux image to udisk, plug the udisk to board and mount it.
+. There are **two ways** to install the linux image to board.
+- Install with dd command, umount mmcblk0p1 and mmcblk0p2 partition if mounted automatically. Actually bpi-copy is the same as this dd command.
++
+```sh
+ $ sudo apt-get install pv unzip
+ $ sudo unzip -p xxx-bpi-m4_zero-xxx.img.zip | pv | dd of=/dev/mmcblk0 bs=10M status=noxfer
+```
+- Install the linux image in udisk with bpi-tools command
++
+```sh
+ $ sudo apt-get install pv unzip
+ $ sudo bpi-copy xxx-bpi-m4_zero-xxx.img.zip /dev/mmcblk0
+```
+. After download complete, power off safely and eject the SDcard.
+
+=== Ubuntu Desktop
+. Using the Ubuntu desktop version system image, you can get a graphical operation interface.
+. You need to prepare a monitor with an HDMI interface, an HDMI cable, and a mini HDMI to HDMI adapter.
+. Use an HDMI cable and a mini HDMI to HDMI adapter to connect the monitor and BPI-M4 Zero, switch the monitor input interface to the corresponding HDMI interface, power on, and wait a moment to see the desktop.
++
+image::/picture/bpi_m4_berry_ubuntu_1.jpg[bpi_m4_berry_ubuntu_1.jpg]
+
+=== Debug UART
+. Prepare a 3.3v USB to TTL module.
+. Use the USB to TTL module to connect the PC USB port and the Debug UART port on the board.
+. Open a serial terminal software on the PC, such as link:https://mobaxterm.mobatek.net/[mobaxterm] or link:https://www.putty.org/[putty].
+. Taking mobaxterm as an example, after setting the serial port number and 115200 baud rate, you can open the BPI-M4 Zero UART terminal.
++
+image::/picture/bpi_m4_berry_mobaxterm_1.jpg[bpi_m4_berry_mobaxterm_1.jpg]
+image::/picture/bpi_m4_berry_mobaxterm_2.jpg[bpi_m4_berry_mobaxterm_2.jpg]
+
+=== SSH
+. Prepare a network cable and a router.
+. Use a network cable to connect the LAN port of the router to the BPI-M4 Zero, and also connect the PC to another LAN port.
+. Check the IP address of BPI-M4 Zero on the router management interface, or use the following command on the BPI-M4 Zero UART terminal to check the IP address.
++
+```sh
+  ifconfig
+```
++
+```sh
+  eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST> mtu 1500
+        inet 192.168.3.10 netmask 255.255.255.0 broadcast 192.168.3.255
+        inet6 fe80::3e1f:688f:81ab:d8b7 prefixlen 64 scopeid 0x20<link>
+        ether 02:00:54:a0:d6:a6 txqueuelen 1000 (Ethernet)
+        RX packets 553 bytes 92549 (92.5 KB)
+        RX errors 0 dropped 0 overruns 0 frame 0
+        TX packets 329 bytes 26023 (26.0 KB)
+        TX errors 0 dropped 0 overruns 0 carrier 0 collisions 0
+        device interrupt 42
+```
+. Open an SSH terminal software on the PC, such as link:https://mobaxterm.mobatek.net/[mobaxterm] or link:https://www.putty.org/[putty].
+. Taking mobaxterm as an example, fill in the obtained IP address, such as 192.168.3.10 above, in the IP address column and 22 in the Port port.
++
+image::/picture/bpi_m4_berry_mobaxterm_3.jpg[bpi_m4_berry_mobaxterm_3.jpg]
+
+. Open the SSH terminal and enter the login username/password: pi/bananapi or root/bananapi. There will be no prompt when entering the password. Please enter it normally and press Enter when finished.
++
+image::/picture/bpi_m4_berry_mobaxterm_4.jpg[bpi_m4_berry_mobaxterm_4.jpg]
+
+=== NoMachine Remote Desktop
+. Make sure BPI-M4 Zero is connected to the Internet and use the following command to download the nomachine DEB installation package in the system.
++
+```sh
+  wget https://download.nomachine.com/download/8.9/Arm/nomachine_8.9.1_1_arm64.deb
+```
+. Or open link:https://downloads.nomachine.com/download/?id=117&distro=ARM[NoMachine for ARM - arm64 download page] in a PC browser, download the DEB installation package, and then copy it to BPI-M4 Zero user directory through SSH or USB disk.
+. After the download is completed, install it through the following command. Note that the file name is based on the actual downloaded file name.
++
+```sh
+  sudo dpkg -i nomachine_8.9.1_1_arm64.deb
+```
+. PC side also needs to download and install NoMachine. link:https://download.nomachine.com/[NoMachine download page] Select the installation package suitable for the PC operating system, download it locally and complete the installation.
+. Pay attention to keeping the PC and BPI-M4 Zero in the same LAN. You can try SSH connection first to ensure normal communication within the LAN.
+. Open NoMachine on the PC, click the Add button, enter the IP address of BPI-M4 Zero in the Host bar in the window after the jump, and then click the Add button.
++
+image::/picture/bpi_m4_berry_nomachine_1.jpg[bpi_m4_berry_nomachine_1.jpg]
+
+. Click the recognized port icon, enter the username/password in the new window that pops up, and then click the OK button.
++
+image::/picture/bpi_m4_berry_nomachine_2.jpg[bpi_m4_berry_nomachine_2.jpg]
+image::/picture/bpi_m4_berry_nomachine_3.jpg[bpi_m4_berry_nomachine_3.jpg]
+
+. After completing the subsequent settings, you can see the desktop.
++
+image::/picture/bpi_m4_berry_nomachine_4.jpg[bpi_m4_berry_nomachine_4.jpg]
+
+. If no device is connected to the HDMI interface, the NoMachine remote desktop will display a black screen. It is recommended to keep the HDMI connection or connect an HDMI decoy device.
+
+=== WiFi
+Use the nmcli command to scan WiFi hotspots, connect to hotspots, and create AP hotspots.
+```sh
+  nmcli device #List devices
+  nmcli device wifi list # List available wifi access points, list can be omitted
+  nmcli device wifi connect [SSID] password [PASSWORD] # Connect to the hotspot mySSID. After the connection is successful, the configuration file will be automatically generated. If you want to connect again in the future, you can use the nmcli connection up [SSID] command.
+  nmcli device disconnect [device name] # Disconnect wifi, use the wifi device name displayed in the nmcli device command
+  nmcli device wifi hotspot con-name [NAME] ifname [device name] ssid [SSID] password [PASSWORD] # Create AP hotspot
+```
+```sh
+  nmcli connection show #List network connection configuration
+  nmcli connection down [NAME] # Deactivate a connection
+  nmcli connection up [NAME] # Activate a connection
+  nmcli connection delete [SSID] #Delete a configuration and no longer save information and automatically connect
+```
+```sh
+  nmcli radio wifi off # Turn off wifi
+  nmcli radio wifi on # Turn on wifi
+```
+- link:https://developer-old.gnome.org/NetworkManager/unstable/nmcli.html[nmcli command reference document]
+- link:https://developer-old.gnome.org/NetworkManager/unstable/nmcli-examples.html[nmcli command reference examples]
+
+=== Set static IP, DNS
+. To set a static IP, you need to maintain the connection first. If you want to set an Ethernet static IP, you must first maintain the Ethernet connection; if you want to set a wireless network static IP, you must first maintain a connection to a WIFI.
+. If the upper-level router has assigned the IP address you want to set to other devices, please change it to an idle IP, or ask other devices to give up the IP.
+. Use the nmcli connection show command to display all connections, for example:
++
+```sh
+  pi@bpi-m4zero:~$ nmcli connection show
+  NAME UUID TYPE DEVICE
+  TP-LINK_5G_7747 e4a49726-adf1-44d7-a621-0e3af96cc390 wifi wlx2cc3e6acd5d7
+  Wired connection 1 612eda94-55dc-3c85-b05e-f16c41775b4e ethernet --
+```
+. Use the nmcli connection show [NAME] command to display all the properties of a specific connection, such as:
++
+```sh
+  nmcli connection show TP-LINK_5G_7747 #If you want to see Ethernet, change to Wired connection 1
+```
++
+```sh
+  #Only list three common items
+  ipv4.dns: 192.168.3.1 #The default is the gateway address
+  ipv4.addresses: 192.168.3.10/24 #The default is the IP address assigned by the router DHCP
+  ipv4.gateway: 192.168.3.1 #Gateway address, the default is the IP address of the router
+```
+. Set static IP:
++
+```sh
+  nmcli connection modify TP-LINK_5G_7747 ipv4.addresses 192.168.3.2
+```
+. Set DNS:
++
+```sh
+  nmcli connection modify TP-LINK_5G_7747 ipv4.dns 8.8.8.8 #Google DNS
+```
+. Reset:
++
+```sh
+  reboot
+```
+. After restarting, check whether the modification is successful:
++
+```sh
+  ifconfig
+  nmcli connection show TP-LINK_5G_7747
+```
+
+=== Network time synchronization
+Chrony is an open source free Network Time Protocol NTP client and server software. It allows the computer to keep the system clock synchronized with the clock server (NTP), thus allowing your computer to maintain accurate time. Chrony can also be used as a server software to provide time synchronization services for other computers.
+```sh
+  timedatectl set-ntp false #Disable NTP-based network time synchronization
+```
+```sh
+  sudo apt install chrony #Install chrony
+  systemctl start chrony #Start chrony
+  systemctl enable chrony
+  systemctl status chrony
+  systemctl restart chrony #Restart service
+```
+```sh
+  timedatectl status #View time synchronization status
+  timedatectl list-timezones #View time zone list
+  timedatectl set-timezone Asia/Shanghai #Modify time zone
+  timedatectl set-ntp true #Enable NTP network time synchronization
+```
+```sh
+  date #View time
+  sudo hwclock -r #View hardware clock
+```
+- link:https://chrony-project.org/documentation.html[Chrony reference documentation]
+
+=== View hardware temperature
+Enter the following command to view the temperature data returned by the sensor built into the chip on the BPI-M4 Zero board.
+```sh
+  sensors
+```
+=== Modify HDMI output resolution
+When using the Ubuntu desktop operating system, you can find the Displays column in Settings and modify the resolution.
+
+image::/picture/bpi_m4_berry_ubuntu_2.jpg[bpi_m4_berry_ubuntu_2.jpg]
+
+=== Use USB disk
+. Prepare a USB disk that has been partitioned normally and insert it into the USB interface of BPI-M4 Zero.If it is a USB disk with a type-A plug, you also need a type-A to type-C adapter.
+. In the Ubuntu desktop version, you can see that the USB disk has been recognized and can be opened in the file manager, or partition management can be performed through the GParted tool.
+image::/picture/bpi_m4_berry_ubuntu_3.jpg[bpi_m4_berry_ubuntu_3.jpg]
+
+. In the terminal, mount the USB disk to the local directory:
++
+```sh
+  mkdir mnt #Create a separate directory in the ~/user directory for mounting for easy management
+  cat /proc/partitions | grep "sd*" #List partitions starting with sd
+  sudo mount /dev/sda1 ~/mnt/ #Mount /dev/sda1 to ~/mnt/
+  ls ~/mnt/ #After mounting, you can list the files in the USB disk
+  sudo umount -v /dev/sda1 #umount, then you can remove the USB disk
+```
+
+=== Use Audio Devices
+Prepare an audio file and copy it to the BPI-M4 Zero Ubuntu desktop system through a USB flash drive or SSH.
+
+**HDMI audio**
+
+. Prepare a monitor with HDMI audio input function, turn on the relevant functions in the monitor settings, use an HDMI cable and a mini HDMI to HDMI adapter to connect the monitor.
+. Set the output device to HDMI Audio in the Sound column of the settings.
++
+image::/picture/bpi_m4_berry_ubuntu_4.jpg[bpi_m4_berry_ubuntu_4.jpg]
+
+. Play audio.
++
+image::/picture/bpi_m4_berry_ubuntu_5.jpg[bpi_m4_berry_ubuntu_5.jpg]
+
+=== Use Bluetooth
+. Open settings in the Ubuntu desktop and connect a Bluetooth device, such as a Bluetooth mouse or keyboard, in the Bluetooth bar.
++
+image::/picture/bpi_m4_berry_ubuntu_7.jpg[bpi_m4_berry_ubuntu_7.jpg]
+
+. The method to connect the Bluetooth device through the command line in the terminal is as follows:
++
+```sh
+pi@bpi-m4zero:~$ sudo bluetoothctl #Open the Bluetooth device management tool
+[sudo] password for pi:
+Agent registered
+[CHG] Controller 2C:C3:E6:AC:D5:D8 Pairable: yes
+[bluetooth]# power on #Start the Bluetooth function, power off to turn it off
+Changing power on succeeded
+[bluetooth]# discoverable on #Allow this device to be discovered
+Changing discoverable on succeeded
+[CHG] Controller 2C:C3:E6:AC:D5:D8 Discoverable: yes
+[bluetooth]# pairable on #Allow device pairing
+Changing pairable on succeeded
+[bluetooth]# scan on #Start scanning
+Discovery started
+[CHG] Controller 2C:C3:E6:AC:D5:D8 Discovering: yes
+[NEW] Device D4:C4:85:A5:C6:B1 Logitech Pebble #The MAC address and device name of a Bluetooth mouse
+[CHG] Device D4:C4:85:A5:C6:B1 TxPower: 4
+[bluetooth]# pair D4:C4:85:A5:C6:B1 #Pair the MAC address of the Bluetooth device you want to connect to
+Attempting to pair with D4:C4:85:A5:C6:B1
+[CHG] Device D4:C4:85:A5:C6:B1 Connected: yes
+[DEL] Device A4:C1:38:9B:F6:FD SLPO20N20200059
+[CHG] Device D4:C4:85:A5:C6:B1 UUIDs: 00001800-0000-1000-8000-00805f9b34fb
+[CHG] Device D4:C4:85:A5:C6:B1 UUIDs: 00001801-0000-1000-8000-00805f9b34fb
+[CHG] Device D4:C4:85:A5:C6:B1 UUIDs: 0000180a-0000-1000-8000-00805f9b34fb
+[CHG] Device D4:C4:85:A5:C6:B1 UUIDs: 0000180f-0000-1000-8000-00805f9b34fb
+[CHG] Device D4:C4:85:A5:C6:B1 UUIDs: 00001812-0000-1000-8000-00805f9b34fb
+[CHG] Device D4:C4:85:A5:C6:B1 UUIDs: 00010000-0000-1000-8000-011f2000046d
+[CHG] Device D4:C4:85:A5:C6:B1 ServicesResolved: yes
+[CHG] Device D4:C4:85:A5:C6:B1 Paired: yes
+Pairing successful #pairing successfully
+[CHG] Device D4:C4:85:A5:C6:B1 Modalias: usb:v046DpB021d0007
+[bluetooth]# exit #Exit the Bluetooth device management tool
+pi@bpi-m4zero:~$
+```
++
+link:https://wiki.archlinux.org/title/bluetooth[archlinux bluetooth reference document]
+
+=== Transfer files
+**scp**
+
+scp (secure copy) command in Linux system is used to copy file(s) between servers in a secure way.
+
+The SCP command or secure copy allows the secure transferring of files between the local host and the remote host or between two remote hosts.
+
+It uses the same authentication and security as it is used in the Secure Shell (SSH) protocol.
+
+You can copy files from a Windows terminal to a Linux system on the same LAN. Just make sure the Open SSH client is turned on and can be viewed in Settings > Applications > Optional Features.
+
+If you want to copy files from Windows systems to Linux systems, you also need to enable the Open SSH server.
+
+image::/picture/bpi_m4_berry_mobaxterm_6.jpg[bpi_m4_berry_mobaxterm_6.jpg]
+The scp command format is:
+```sh
+scp [optionals] file_source file_target
+```
+. [optionals] is an optional parameter, such as -r, which can be used to copy the entire directory recursively.
+. file_source The file or directory to be copied.
+. file_target will copy the past path and rename it if a specific file name is entered at the end.
+
+Take copying local files from a Windows system to a Linux system as an example. In the Windows terminal, enter:
+```sh
+PS D:\temp\temp_4> scp ".\hello.txt" pi@192.168.3.12:"/home/pi/Downloads/"
+```
+You can also copy files in the Linux system to the local computer in the Windows terminal:
+```sh
+PS D:\temp\temp_4> scp pi@192.168.3.12:"/home/pi/Downloads/hello.txt" "D:\temp\temp_4"
+```
+- Where pi@192.168.3.12 is the user name in the Linux system and the IP address of the BPI-M4 Zero in the LAN.
+- Where :"/home/pi/Downloads/hello.txt" is the file path in the Linux system.
+- Where "D:\temp\temp_4" is the path in Windows system.
+link:https://www.geeksforgeeks.org/scp-command-in-linux-with-examples/[scp reference document]
+
+**mobaxterm**
+
+Files can be managed through a graphical interface using mobaxterm or other similar software.
+
+link:https://mobaxterm.mobatek.net/download.html[mobaxterm download] +
+link:https://download.mobatek.net/mobaxterm-on-linux.html[mobaxterm-linux preview version]
+
+As shown in the figure below, after establishing an SSH connection in mobaxterm, a file management window will appear on the left side of the interface, which supports copying and pasting by dragging and dropping files.
+
+image::/picture/bpi_m4_berry_mobaxterm_7.jpg[bpi_m4_berry_mobaxterm_7.jpg]
