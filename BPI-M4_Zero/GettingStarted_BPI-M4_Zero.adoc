@@ -182,15 +182,21 @@ Use the nmcli command to scan WiFi hotspots, connect to hotspots, and create AP 
 . Use the nmcli connection show [NAME] command to display all the properties of a specific connection, such as:
 +
 ```sh
-  nmcli connection show TP-LINK_5G_7747 #If you want to see Ethernet, change to Wired connection 1
+  nmcli connection show TP-LINK_5G_7747
 ```
+ If you want to see Ethernet, change to Wired connection 1
++
+Only list three common items
 +
 ```sh
-  #Only list three common items
-  ipv4.dns: 192.168.3.1 #The default is the gateway address
-  ipv4.addresses: 192.168.3.10/24 #The default is the IP address assigned by the router DHCP
-  ipv4.gateway: 192.168.3.1 #Gateway address, the default is the IP address of the router
+  ipv4.dns: 192.168.3.1
+  ipv4.addresses: 192.168.3.10/24
+  ipv4.gateway: 192.168.3.1
 ```
+- The default is the gateway address
+- The default is the IP address assigned by the router DHCP
+- Gateway address, the default is the IP address of the router
+
 . Set static IP:
 +
 ```sh
@@ -199,7 +205,7 @@ Use the nmcli command to scan WiFi hotspots, connect to hotspots, and create AP 
 . Set DNS:
 +
 ```sh
-  nmcli connection modify TP-LINK_5G_7747 ipv4.dns 8.8.8.8 #Google DNS
+  nmcli connection modify TP-LINK_5G_7747 ipv4.dns 8.8.8.8
 ```
 . Reset:
 +
@@ -216,24 +222,24 @@ Use the nmcli command to scan WiFi hotspots, connect to hotspots, and create AP 
 === Network time synchronization
 Chrony is an open source free Network Time Protocol NTP client and server software. It allows the computer to keep the system clock synchronized with the clock server (NTP), thus allowing your computer to maintain accurate time. Chrony can also be used as a server software to provide time synchronization services for other computers.
 ```sh
-  timedatectl set-ntp false #Disable NTP-based network time synchronization
+  timedatectl set-ntp false
 ```
 ```sh
-  sudo apt install chrony #Install chrony
-  systemctl start chrony #Start chrony
+  sudo apt install chrony
+  systemctl start chrony
   systemctl enable chrony
   systemctl status chrony
-  systemctl restart chrony #Restart service
+  systemctl restart chrony
 ```
 ```sh
-  timedatectl status #View time synchronization status
-  timedatectl list-timezones #View time zone list
-  timedatectl set-timezone Asia/Shanghai #Modify time zone
-  timedatectl set-ntp true #Enable NTP network time synchronization
+  timedatectl status
+  timedatectl list-timezones
+  timedatectl set-timezone Asia/Shanghai
+  timedatectl set-ntp true
 ```
 ```sh
-  date #View time
-  sudo hwclock -r #View hardware clock
+  date
+  sudo hwclock -r
 ```
 - link:https://chrony-project.org/documentation.html[Chrony reference documentation]
 
@@ -250,16 +256,17 @@ image::/picture/bpi_m4_berry_ubuntu_2.jpg[bpi_m4_berry_ubuntu_2.jpg]
 === Use USB disk
 . Prepare a USB disk that has been partitioned normally and insert it into the USB interface of BPI-M4 Zero.If it is a USB disk with a type-A plug, you also need a type-A to type-C adapter.
 . In the Ubuntu desktop version, you can see that the USB disk has been recognized and can be opened in the file manager, or partition management can be performed through the GParted tool.
++
 image::/picture/bpi_m4_berry_ubuntu_3.jpg[bpi_m4_berry_ubuntu_3.jpg]
 
 . In the terminal, mount the USB disk to the local directory:
 +
 ```sh
-  mkdir mnt #Create a separate directory in the ~/user directory for mounting for easy management
-  cat /proc/partitions | grep "sd*" #List partitions starting with sd
-  sudo mount /dev/sda1 ~/mnt/ #Mount /dev/sda1 to ~/mnt/
-  ls ~/mnt/ #After mounting, you can list the files in the USB disk
-  sudo umount -v /dev/sda1 #umount, then you can remove the USB disk
+  mkdir mnt
+  cat /proc/partitions | grep "sd*"
+  sudo mount /dev/sda1 ~/mnt/
+  ls ~/mnt/
+  sudo umount -v /dev/sda1
 ```
 
 === Use Audio Devices
@@ -284,23 +291,23 @@ image::/picture/bpi_m4_berry_ubuntu_7.jpg[bpi_m4_berry_ubuntu_7.jpg]
 . The method to connect the Bluetooth device through the command line in the terminal is as follows:
 +
 ```sh
-pi@bpi-m4zero:~$ sudo bluetoothctl #Open the Bluetooth device management tool
+pi@bpi-m4zero:~$ sudo bluetoothctl
 [sudo] password for pi:
 Agent registered
 [CHG] Controller 2C:C3:E6:AC:D5:D8 Pairable: yes
-[bluetooth]# power on #Start the Bluetooth function, power off to turn it off
+[bluetooth]# power on
 Changing power on succeeded
-[bluetooth]# discoverable on #Allow this device to be discovered
+[bluetooth]# discoverable on
 Changing discoverable on succeeded
 [CHG] Controller 2C:C3:E6:AC:D5:D8 Discoverable: yes
-[bluetooth]# pairable on #Allow device pairing
+[bluetooth]# pairable on
 Changing pairable on succeeded
-[bluetooth]# scan on #Start scanning
+[bluetooth]# scan on
 Discovery started
 [CHG] Controller 2C:C3:E6:AC:D5:D8 Discovering: yes
-[NEW] Device D4:C4:85:A5:C6:B1 Logitech Pebble #The MAC address and device name of a Bluetooth mouse
+[NEW] Device D4:C4:85:A5:C6:B1 Logitech Pebble
 [CHG] Device D4:C4:85:A5:C6:B1 TxPower: 4
-[bluetooth]# pair D4:C4:85:A5:C6:B1 #Pair the MAC address of the Bluetooth device you want to connect to
+[bluetooth]# pair D4:C4:85:A5:C6:B1
 Attempting to pair with D4:C4:85:A5:C6:B1
 [CHG] Device D4:C4:85:A5:C6:B1 Connected: yes
 [DEL] Device A4:C1:38:9B:F6:FD SLPO20N20200059
@@ -314,7 +321,7 @@ Attempting to pair with D4:C4:85:A5:C6:B1
 [CHG] Device D4:C4:85:A5:C6:B1 Paired: yes
 Pairing successful #pairing successfully
 [CHG] Device D4:C4:85:A5:C6:B1 Modalias: usb:v046DpB021d0007
-[bluetooth]# exit #Exit the Bluetooth device management tool
+[bluetooth]# exit
 pi@bpi-m4zero:~$
 ```
 +
