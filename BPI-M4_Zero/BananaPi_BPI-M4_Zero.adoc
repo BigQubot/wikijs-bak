@@ -109,6 +109,37 @@ image::/picture/bpi-m4_zero_interface.jpg[bpi-m4_zero_interface.jpg]
 | 40      | PG13     | H_I2S2_DOUT0 | H_I2S2_DIN1  |           |              
 |=====
 
+=== 24-pin FPC
+[options="header",cols="1,2,3,3",width="70%"]
+|=====
+4+| **24-pin FPC define and GPIO Alternative Functions Assignments**
+| Pin Num	|Pin Name	|ALT0	|ALT1
+| 1  | GND      |              |              
+| 2  | EPHY_RXN |              |              
+| 3  | EPHY_RXP |              |              
+| 4  | EPHY_TXN |              |              
+| 5  | EPHY_TXP |              |              
+| 6  | GND      |              |              
+| 7  | PI9      | UART3_TX     | TWI2_SCK     
+| 8  | PI10     | UART3_RX     | TWI2_SDA     
+| 9  | PI12     | UART3_CTS    | PWM2         
+| 10 | PI11     | UART3_RTS    | PWM1         
+| 11 | 3V3      |              |              
+| 12 | 3V3      |              |              
+| 13 | PI4      | H_I2S0_DIN0  | H_I2S0_DOUT1 
+| 14 | PI3      | H_I2S0_DOUT0 | H_I2S0_DIN1  
+| 15 | PI2      | H_I2S0_LRCK  |              
+| 16 | PI1      | H_I2S0_BCLK  |              
+| 17 | PI0      | H_I2S0_MCLK  |              
+| 18 | GND      |              |              
+| 19 | PH10     | IR_RX        |              
+| 20 | 5V       |              |              
+| 21 | 5V	      |              |	
+| 22 | USB2_DP  |              |		
+| 23 | USB2_DM	|              |	
+| 24 | GND	   	|              |  
+|=====
+
 === BPI-M4 Berry Debug UART
 
 |=====
