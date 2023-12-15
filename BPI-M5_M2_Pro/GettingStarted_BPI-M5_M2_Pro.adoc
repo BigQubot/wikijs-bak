@@ -410,14 +410,14 @@ image::/picture/m5_wiringpi.png[m5_wiringpi.png]
 . BPI GPIO Extend board and examples in link:https://github.com/BPI-SINOVOIP/amlogic-wiringPi/tree/master/examples[amlogic-wiringPi/examples]
 +
 blinkall, blink all pin header gpios, no extend board. +
-lcd-bpi, link:https://wiki.banana-pi.org/BPI_LCD_1602_display_module[BPI LCD 1602 display module 后续更换] example. +
-52pi-bpi, link:https://wiki.banana-pi.org/BPI_OLED_Display_Module[BPI OLED Display Module 后续更换] example. +
-matrixled-bpi, link:https://wiki.banana-pi.org/BPI_RGB_LED_Matrix_Expansion_Module[BPI RGB LED Matrix Expansion Module 后续更换] example. +
-berryclip-bpi, link:https://wiki.banana-pi.org/BPI_BerryClip_Module[BPI BerryClip Module 后续更换]
+lcd-bpi, link:/en/BPI_LCD_1602_display_module[BPI LCD 1602 display module] example. +
+52pi-bpi, link:/en/BPI_OLED_Display_Module[BPI OLED Display Module] example. +
+matrixled-bpi, link:/en/BPI_RGB_LED_Matrix_Expansion_Module[BPI RGB LED Matrix Expansion Module] example. +
+berryclip-bpi, link:/en/BPI_BerryClip_Module[BPI BerryClip Module]
 
 === RPi.GPIO
 
-Build and install, for debian, you must link:https://newwiki.banana-pi.org/en/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro#_enable_sudo_for_debian[install sudo] before build
+Build and install, for debian, you must link:/en/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro#_enable_sudo_for_debian[install sudo] before build
 ```sh
  $ sudo apt-get update
  $ sudo apt-get install build-essential python3 python3-pip python3-dev python3-setuptools git
@@ -439,7 +439,7 @@ If the package is already installed, it should be uninstalled before installing 
 
 === WiringPi2-Python
 
-Build and install, for debian, you must link:https://newwiki.banana-pi.org/en/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro#_enable_sudo_for_debian[install sudo] before build
+Build and install, for debian, you must link:/en/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro#_enable_sudo_for_debian[install sudo] before build
 ```sh
  $ sudo apt-get update
  $ sudo apt-get install build-essential python3 python3-dev python3-setuptools swig git
@@ -562,8 +562,8 @@ Backlight control :  https://github.com/Dangku/Waveshare-USB-Brightness
 
 S905x3 is not support usb boot in soc rom, so the only way for booting linux from usb drive is create a bootable sdcard or emmc with bootloader flashed, then load boot and rootfs from usb drive. After bootup, everything will run from usb drive.
 
-. The simple way is link:https://newwiki.banana-pi.org/en/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro#_install_image_to_sdcard[flash the M5/M2Pro Linux image to sdcard or emmc] for bootable and also flash it to the usb drive for loading boot and rootfs.
-. Bootup the M5/M2pro board with link:https://newwiki.banana-pi.org/en/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro#_boot_sequence[sdcard or emmc], copy /boot/boot.ini to /boot/boot.ini.org so that bootloader load boot.ini fail and then try to load it from usb drive boot partition.
+. The simple way is link:/en/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro#_install_image_to_sdcard[flash the M5/M2Pro Linux image to sdcard or emmc] for bootable and also flash it to the usb drive for loading boot and rootfs.
+. Bootup the M5/M2pro board with link:/en/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro#_boot_sequence[sdcard or emmc], copy /boot/boot.ini to /boot/boot.ini.org so that bootloader load boot.ini fail and then try to load it from usb drive boot partition.
 . Reboot the system, bootscript and rootfs will load from usb drive.
 +
 image::/picture/m5_boot_from_usb.png[m5_boot_from_usb.png]
@@ -841,7 +841,7 @@ If the board is flashed android before, the whole emmc must be erased by these c
 **How to enable Android Wifi/BT**
 +
 USB type: Plug-in the usb dongle to usb host port and reboot the system, After bootup, you can enable or disable wifi and bluetooth in Settings app. +
-SDIO/UART type: Connect the hardware module to 40pin header correctly and link:https://newwiki.banana-pi.org/en/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro#_android_dtb_overlay[configure the Android DTB overlay] to enable it.
+SDIO/UART type: Connect the hardware module to 40pin header correctly and link:/en/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro#_android_dtb_overlay[configure the Android DTB overlay] to enable it.
 +
 WARNING: Note: Android is not support that ethernet and wifi are both connected at the same time, Ethernet have a higher prioprity than wifi, it means wifi can't connect network if ethernet already connected, and wifi will drop connection if ethernet cable plugin.
 
