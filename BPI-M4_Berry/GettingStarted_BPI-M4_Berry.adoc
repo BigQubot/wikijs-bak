@@ -613,3 +613,85 @@ sudo update-initramfs -u
 . `reboot`, you will see that boot logo has changed to the image you replaced.
 +
 image::/picture/bpi_m4_berry_ubuntu_8.jpg[bpi_m4_berry_ubuntu_8.jpg]
+
+=== 40 pin interface GPIO, I2C, UART, SPI, and PWM testing
+==== GPIO
+Control the GPIO port to light up the LED light.
+
+**Set the high and low levels of GPIO**
+
+image::/picture/m4_berry_gpio.jpg[m4_berry_gpio.jpg]
+
+The following is a demonstration using 7 pin.
+
+Insert the LED light and you can see that it is not lit up.
+
+image::/picture/m4_berry_gpio_led_1.jpg[m4_berry_gpio_led_1.jpg]
+
+. Execute
++
+```sh
+gpio mode 2 out
+```
+to set it to output mode.
+
+. Execute
++
+```sh
+gpio write 2 1
+```
+You can see that the LED light has been turned on.
++
+image::/picture/m4_berry_gpio_led_2.jpg[m4_berry_gpio_led_2.jpg]
+
+. Execute
++
+```sh
+gpio write 2 0
+```
+You can see that the LED light has been turned off.
++
+image::/picture/m4_berry_gpio_led_1.jpg[m4_berry_gpio_led_1.jpg]
+
+**Set pull-up and pull-down resistors**
+
+. Firstly, it is necessary to set the GPIO port to input mode
++
+```sh
+gpio mode 2 in
+```
+. Then set the GPIO port as an pull-up resistor
++
+```sh
+gpio mode 2 up
+```
+The LED light is lit up again
++
+image::/picture/m4_berry_gpio_led_1.jpg[m4_berry_gpio_led_1.jpg]
+
+. Finally, set the GPIO port to dropdown mode
++
+```sh
+gpio mode 2 down
+```
+The LED light goes out again
++
+image::/picture/m4_berry_gpio_led_2.jpg[m4_berry_gpio_led_2.jpg]
+
+==== I2C
+According to the schematic diagram, the available i2cs are i2c3 and i2c4
+
+image::/picture/m4_berry_gpio_i2c.png[m4_berry_gpio_i2c.png]
+
+. Execute
++
+```sh
+sudo bananapi-config
+```
+. Select "System"
++
+image::/picture/m4_berry_bananapi_config_1.jpg[m4_berry_bananapi_config_1.jpg]
+. Select "Hardware"
++
+image::/picture/m4_berry_bananapi_config_2_.jpg[m4_berry_bananapi_config_2_.jpg]
+
