@@ -737,3 +737,33 @@ image::/picture/m4_berry_i2c_4_led.jpg[m4_berry_i2c_4_led.jpg]
 ==== UART
 By reviewing the schematic, it can be found that the available uart are uart1 and uart5.
 
+image::/picture/m4_berry_gpio_uart.png[m4_berry_gpio_uart.png]
+
+. Uart1 is enabled and can be used directly. After short circuiting it, execute
++
+```sh
+gpio serial /dev/ttyS1
+```
+image::/picture/m4_berry_gpio_uart1.jpg[m4_berry_gpio_uart1.jpg]
+
+. Uart5 is closed and needs to be opened. Execute
++
+```sh
+sudo bananapi-config
+```
+. Select "System"
++
+image::/picture/m4_berry_bananapi_config_1.jpg[m4_berry_bananapi_config_1.jpg]
+
+. Select "Hardware"
++
+image::/picture/m4_berry_bananapi_config_2_.jpg[m4_berry_bananapi_config_2_.jpg]
+. Use the keyboard directional keys to move, then use the spacebar to select.Select "ph-uart5"
++
+image::/picture/m4_berry_bananapi_config_uart.jpg[m4_berry_bananapi_config_uart.jpg]
+. Select "Save", then select "Back"
++
+image::/picture/m4_berry_bananapi_config_3.jpg[m4_berry_bananapi_config_3.jpg]
+. Finally, choose Reboot.
++
+image::/picture/m4_berry_bananapi_config_4.jpg[m4_berry_bananapi_config_4.jpg]
