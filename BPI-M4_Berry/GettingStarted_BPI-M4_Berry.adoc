@@ -688,10 +688,52 @@ image::/picture/m4_berry_gpio_i2c.png[m4_berry_gpio_i2c.png]
 ```sh
 sudo bananapi-config
 ```
+
 . Select "System"
 +
 image::/picture/m4_berry_bananapi_config_1.jpg[m4_berry_bananapi_config_1.jpg]
+
 . Select "Hardware"
 +
 image::/picture/m4_berry_bananapi_config_2_.jpg[m4_berry_bananapi_config_2_.jpg]
+
+. Use the keyboard directional keys to move, then use the spacebar to select.Select "pg-i2c3"and"pg-i2c4"
++
+image::/picture/m4_berry_bananapi_config_i2c.jpg[m4_berry_bananapi_config_i2c.jpg]
+. Select "Save", then select "Back"
++
+image::/picture/m4_berry_bananapi_config_3.jpg[m4_berry_bananapi_config_3.jpg]
+. Finally, choose Reboot.
++
+image::/picture/m4_berry_bananapi_config_4.jpg[m4_berry_bananapi_config_4.jpg]
+. After restarting, check if there are i2c-3 and i2c-4 nodes.
++
+```sh
+pi@bpi-m4berry:~$ ls /dev/i2c-3
+/dev/i2c-3
+pi@bpi-m4berry:~$ ls /dev/i2c-4
+/dev/i2c-4
+```
+. Execute
++
+```sh
+cd /usr/src/wiringPi/examples/
+gcc ./oled_demo.c -o oled -lwiringPi
+```
+. Connect the i2c device to the pin of i2c3. Execute
++
+```sh
+sudo ./oled /dev/i2c-3
+```
+image::/picture/m4_berry_i2c_3_led.jpg[m4_berry_i2c_3_led.jpg]
+
+. Connect the i2c device to the pin of i2c4. Execute
++
+```sh
+sudo ./oled /dev/i2c-4
+```
+image::/picture/m4_berry_i2c_4_led.jpg[m4_berry_i2c_4_led.jpg]
+
+==== UART
+By reviewing the schematic, it can be found that the available uart are uart1 and uart5.
 
