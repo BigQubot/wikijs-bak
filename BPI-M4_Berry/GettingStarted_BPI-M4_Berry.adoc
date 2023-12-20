@@ -767,3 +767,61 @@ image::/picture/m4_berry_bananapi_config_3.jpg[m4_berry_bananapi_config_3.jpg]
 . Finally, choose Reboot.
 +
 image::/picture/m4_berry_bananapi_config_4.jpg[m4_berry_bananapi_config_4.jpg]
+. After restarting, check if there are ttyS5 nodes.
++
+```sh
+pi@bpi-m4berry:~$ ls /dev/ttyS5
+/dev/ttyS5
+```
+. Short circuit uart5 pin and execute
++
+image::/picture/m4_berry_gpio_uart5.jpg[m4_berry_gpio_uart5.jpg]
+
+==== SPI
+By reviewing the schematic, it can be found that the available spi is spi1.
+
+image::/picture/m4_berry_sch_gpio_spi.png[m4_berry_sch_gpio_spi.png]
+
+. Execute
++
+```sh
+sudo bananapi-config
+```
+. Select "System"
++
+image::/picture/m4_berry_bananapi_config_1.jpg[m4_berry_bananapi_config_1.jpg]
+
+. Select "Hardware"
++
+image::/picture/m4_berry_bananapi_config_2_.jpg[m4_berry_bananapi_config_2_.jpg]
+
+. Use the keyboard directional keys to move, then use the spacebar to select.Select "spi1-cs1-spidev"
++
+image::/picture/m4_berry_bananapi_config_spi.jpg[m4_berry_bananapi_config_spi.jpg]
+
+. Select "Save", then select "Back"
++
+image::/picture/m4_berry_bananapi_config_3.jpg[m4_berry_bananapi_config_3.jpg]
+. Finally, choose Reboot.
++
+image::/picture/m4_berry_bananapi_config_4.jpg[m4_berry_bananapi_config_4.jpg]
+
+. After restarting, check if there are SPI nodes.
++
+```sh
+pi@bpi-m4berry:~$ ls /dev/spidev1.1
+/dev/spidev1.1
+```
+
+. Execute
++
+```sh
+sudo spidev_test -v -D /dev/spidev1.1
+```
+image::/picture/m4_berry_bananapi_config_spi_1.jpg[m4_berry_bananapi_config_spi_1.jpg]
++
+It can be seen that TX and RX are different. So, we need to short-circuit MOSI and MISO and execute the command again.
++
+image::/picture/m4_berry_bananapi_config_spi_2.jpg[m4_berry_bananapi_config_spi_2.jpg]
+
+==== PWM
