@@ -994,3 +994,142 @@ If the board is flashed android before, the whole emmc must be erased by these c
  $ sudo dd if=/dev/zero of=/dev/mmcblk0 bs=1M status=noxfer 
  $ sync
 ```
+
+=== Erase Emmc Android by dd command
+If the board is flashed android before, the whole emmc must be erased by these commands if you want bootup it with SDcard Linux image.
+```sh
+ $ sudo dd if=/dev/zero of=/dev/mmcblk0boot0 bs=1M status=noxfer 
+ $ sudo dd if=/dev/zero of=/dev/mmcblk0boot1 bs=1M status=noxfer
+ $ sudo dd if=/dev/zero of=/dev/mmcblk0 bs=1M status=noxfer 
+ $ sync
+```
+
+=== Cloud-init&Snap
+Cloud-init and Snap service are enabled default, you can disable or remove them.
+
+. disable or remove cloud-init
++
+```sh
+ $ sudo touch /etc/cloud/cloud-init.disabled
+```
+or
++
+```sh
+ $ sudo apt purge cloud-init
+```
+. disable or remove snap
++
+```sh
+ $ sudo apt purge snapd
+```
+
+=== Enable rc-local
+The systemd service rc-local.service already exists in release image, but there is no [Install] part in the unit file. As a result, Systemd is unable to enable it. First, we must update the file.
+```sh
+ $ sudo nano /lib/systemd/system/rc-local.service
+```
+```sh
+ [Unit]
+ Description=/etc/rc.local Compatibility
+ Documentation=man:systemd-rc-local-generator(8)
+ ConditionFileIsExecutable=/etc/rc.local
+ After=network.target
+ 
+ [Service]
+ Type=forking
+ ExecStart=/etc/rc.local start
+ TimeoutSec=0
+ RemainAfterExit=yes
+ GuessMainPID=no
+ 
+ [Install]
+ WantedBy=multi-user.target
+ Alias=rc-local.service
+```
+Create /etc/rc.local file.
+```sh
+ sudo nano /etc/rc.local
+```
+```sh
+ #!/bin/sh
+ #
+ # rc.local
+ #
+ # This script is executed at the end of each multiuser runlevel.
+ # Make sure that the script will "exit 0" on success or any other
+ # value on error.
+ #
+ # In order to enable or disable this script just change the execution
+ # bits.
+ #
+ # By default this script does nothing.
+ 
+ exit 0
+```
+Add executable permission to /etc/rc.local
+```sh
+ $ sudo chmod +x /etc/rc.local
+```
+Enable rc-local.service and reboot
+```sh
+ $ sudo systemctl enable rc-local.service
+ $ sudo reboot
+```
+
+=== Enable sudo for Debian
+The release Debian image do not install sudo default, with "su -" command, user can change to root. If you like sudo, you can install it.
+```sh
+ $ su root
+ Password:(enter bananapi)
+```
+```sh
+ # apt-get update
+ # apt-get install sudo
+ # adduser pi sudo
+```
+Then please do logout and login again
+
+=== Install Docker Engine
+Install Docker Engine on Ubuntu 20.04 Server
+
+. Set up the repository
++
+Update the apt package index and install packages to allow apt to use a repository over HTTPS:
++
+```sh
+ $ sudo apt-get update
+ $ sudo apt-get install apt-transport-https ca-certificates curl gnupg lsb-release
+```
+Add Docker’s official GPG key:
++
+```sh
+ $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+```
+Set up the stable repository
++
+```sh
+ $  echo \
+    "deb [arch=arm64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+    $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+```
+. Install Docker Engine
++
+```sh
+ $ sudo apt-get update
+ $ sudo apt-get install docker-ce docker-ce-cli containerd.io
+```
+. Verify the Docker Engine is installed correctly by running the hello-world image.
++
+```sh
+ $ sudo docker run hello-world
+```
++
+
+Install docker with a simple command
++
+```sh
+ $ curl -sSL get.docker.com | sudo sh
+```
+image::/picture/docker-test.png[docker-test.png]
+
+link:https://docs.docker.com/engine/install/[Install Docker Engine] on other Linux distributions
