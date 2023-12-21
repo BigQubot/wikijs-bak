@@ -124,6 +124,45 @@ image::/picture/banana_pi_bpi-m6_interface.jpg[banana_pi_bpi-m6_interface.jpg]
 |MIPI_CSI1_RCKn	|73		|74	|VCC-NGFF
 |GND	|75			| |
 |=====
+
+=== MIPI DSI(CN12)
+[options="header",cols="1,4"]
+|=====
+2+| **MIPI DSI(CN12) GPIO define of Banana Pi M6**
+|CN12-P1	|MIPI_DSI_TX1_D0n
+|CN12-P2	|MIPI_DSI_TX1_D0p
+|CN12-P3	|MIPI_DSI_TX1_D1n
+|CN12-P4	|MIPI_DSI_TX1_D1p
+|CN12-P5	|MIPI_DSI_TX1_CLKn
+|CN12-P6	|MIPI_DSI_TX1_CLKp
+|CN12-P7  |MIPI_DSI_TX1_D2n
+|CN12-P8	|MIPI_DSI_TX1_D2p
+|CN12-P9	|MIPI_DSI_TX1_D3n
+|CN12-P10	|MIPI_DSI_TX1_D3p
+|CN12-P11	|GND
+|CN12-P12	|LCD_ADC
+|CN12-P13	|GPIO2/LCD1_PWR_EN(VDDIO_1.8V)
+|CN12-P14	|GPIO3/LCD1_RST(VDDIO_1.8V)
+|CN12-P15	|GPIO39/LCD1_BL_PWM(VDDIO_1.8V)
+|CN12-P16	|GND
+|CN12-P17	|GPIO0/TP_INT(VDDIO_1.8V)
+|CN12-P18	|GPIO1/TP_RST(VDDIO_1.8V)
+|CN12-P19	|GPIO47/TW0_SCL(VDDIO_1.8V)
+|CN12-P20	|GPIO46/TW0_SDA(VDDIO_1.8V)
+|CN12-P21 |GND
+|CN12-P22 |GND
+|CN12-P23 |PWR_5V
+|CN12-P24	|PWR_5V
+|=====
+
+=== Debug UART(CON2)
+[options="header",cols="1,4"]
+|=====
+2+| **Debug UART(CON2) GPIO define of Banana Pi M6**
+|CON2-P1	|GND
+|CON2-P2	|UART0-RX
+|CON2-P3	|UART0-TX
+|=====
 = Development
 
 == Resources
