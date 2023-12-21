@@ -24,12 +24,12 @@ VideoSmart™ VS680 solution, an industry-first edge computing SoC that combines
 
 link:/en/BPI-M6/GettingStarted_BPI-M6[Getting Started BPI-M6]
 
-= Hardware=
-== Hardware Interface
+= Hardware =
+== Hardware Interface ==
 
 image::/picture/banana_pi_bpi-m6_interface.jpg[banana_pi_bpi-m6_interface.jpg]
 
-== Hardware Spec
+== Hardware Spec ==
 
 [options="header",cols="1,4"]
 |=====
@@ -53,8 +53,8 @@ image::/picture/banana_pi_bpi-m6_interface.jpg[banana_pi_bpi-m6_interface.jpg]
 | OS              | Android and Linux
 |=====
 
-== GPIO define
-=== 40 Pin GPIO define 
+== GPIO define ==
+=== 40 Pin GPIO define ===
 [options="header",cols="1,2,3,4",width="70%"]
 |=====
 4+| **40 Pin GPIO define of Banana Pi M6**
@@ -81,7 +81,7 @@ image::/picture/banana_pi_bpi-m6_interface.jpg[banana_pi_bpi-m6_interface.jpg]
 |GND	|39		|40	|GPIO19/I2S1_DO0
 |=====
 
-=== M.2 E-KEY(CN10)
+=== M.2 E-KEY(CN10) ===
 
 [options="header",cols="1,2,3,4",width="70%"]
 |=====
