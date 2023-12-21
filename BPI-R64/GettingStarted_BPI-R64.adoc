@@ -1,0 +1,48 @@
+= Introduction
+
+The Banana Pi R64 is a router based development board, which can run on a variety of open source operating systems including OpenWrt,Linux. It has 4 Gigabit LAN ports, 1 Gigabit WAN, and AC wifi AP function. use 64 bit chip design.
+
+TIP: More Infomation: link:/en/BPI-R64/BananaPi_BPI-R64[Banana Pi BPI-R64]
+
+== specifications
+
+- MediaTek MT7622,1.35GHZ 64 bit dual-core ARM Cortex-A53
+- 1G DDR3 SDRAM
+- Mini PCIE interface support 4G module
+- Built-in 4x4n 802.11n/Bluetooth 5.0 system-on-chip
+- MTK7615 4x4ac wifi on board
+- Support 1 SATA interface
+- MicroSD slot supports up to 256GB expansion
+- 8G eMMC flash (option 16/32/64G)
+- 5 port 10/100/1000 Mb Ethernet port
+- 1 Port USB 3.0
+- Slow I/O:ADC, Audio Amplifier, GPIO, I2C, I2S, IR, PMIC I/F, PWM, RTC, SPI, UART
+- POE function support
+
+= Development
+== Prepare
+
+* Prepare 8G/above TF card, USB-Serial interface
+* Using your USB-Serial Connect debug console on R64
+
+== Linux
+=== Prepare
+
+. xxx
+. xxx
+. xxx
+. xxx
+
+=== Install Image with xxx
+
+. xxx
+. xxx
+. xxx
+. xxx
+
+=== Install Image with xxx
+
+. xxx
+. xxx
+. xxx
+. xxx
