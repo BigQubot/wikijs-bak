@@ -165,9 +165,24 @@ image::/picture/banana_pi_bpi-m6_interface.jpg[banana_pi_bpi-m6_interface.jpg]
 |CON2-P2	|UART0-RX
 |CON2-P3	|UART0-TX
 |=====
-= Development
 
-== Resources
+
+= Source code
+
+=== Armbian Source code ===
+TIP: https://github.com/BPI-SINOVOIP/armbian-build/commit/9163a04ca984461bec2516e9be0acd8a990863b9
+
+TIP: https://github.com/BPI-SINOVOIP/armbian-build/tree/v23.12.18
+
+=== Linux Source code ===
+
+TIP: https://github.com/BPI-SINOVOIP/pi-linux/tree/pi-5.4-vs680-hdmi
+ 
+TIP: https://github.com/BPI-SINOVOIP/pi-u-boot/tree/v2019.10-vs680
+
+= Development 
+
+== Resources ==
 TIP: Senary VS680(Synaptics SN3680) datasheet:
 
 TIP: The VS680 NPU is ranked first on AI benchmark website: https://ai-benchmark.com/ranking_IoT.html
