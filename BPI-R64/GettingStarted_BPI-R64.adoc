@@ -26,23 +26,61 @@ TIP: More Infomation: link:/en/BPI-R64/BananaPi_BPI-R64[Banana Pi BPI-R64]
 * Using your USB-Serial Connect debug console on R64
 
 == Linux
-=== Prepare
+=== Install Image to SDcard
+**Windows PC**
 
-. xxx
-. xxx
-. xxx
-. xxx
+link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
 
-=== Install Image with xxx
+- Click on "**Flash from file**" to select image. 
+- Click on "**Select target**" to select USB device. 
+- Click on "**Flash!**" Start burning.
 
-. xxx
-. xxx
-. xxx
-. xxx
+image::/picture/etcher.jpg[etcher.jpg]
 
-=== Install Image with xxx
+**Linux**
 
-. xxx
-. xxx
-. xxx
-. xxx
+bpi-copy
+
+. Install bpi-tools. If you can't access this URL or any other problems, please go to bpi-tools repo and install this tools manually.
++
+```sh
+apt-get install pv
+curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
+``` 
+. After you download the image, insert your TF card into your Ubuntu.Execute
++
+```sh
+bpi-copy xxx.img /dev/sdx
+```
+install image on your TF card
+
+dd
+
+Mount SDcard device /dev/sdX partition if mounted automatically. Actually bpi-copy is the same as this dd command.
+```sh
+ $ sudo apt-get install pv unzip
+ $ sudo unzip -p xxx-bpi-m5-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxfer
+```
+
+=== Install Image to eMMC
+Before burning image to eMMC, please prepare a SD card with flashed bootable image and a USB disk. Let's take OpenWrt image (mtk-bpi-r64-preloader-emmc.bin,2020-04-09-OpenWRT-mtk-bpi-r64-EMMC.img) for example.
+
+NOTE: Note: You can download the ".bin" file from github: https://github.com/BPI-SINOVOIP/BPI-R64-openwrt/tree/master/staging_dir/target-aarch64_cortex-a53_musl/image
+
+. Insert the flashed SD card and power on to start the board.(the image on the SD card can be OpenWrt or other linux OS like ubuntu...)
+. Copy eMMC bootable OpenWrt image(mtk-bpi-r64-preloader-emmc.bin,2020-04-09-OpenWRT-mtk-bpi-r64-EMMC.img) to USB disk, if the image is compressed please uncompress it before copying to USB disk.
+. Plug in USB disk to the board, and mount the USB to /mnt or other directory as follows: (you can skip mounting if it is mounted automatically)
++
+```sh
+mount -t vfat /dev/sda1 /mnt 
+cd /mnt
+```
+. Execute following command to enable and copy image to eMMC:
++
+```sh
+echo 0 > /sys/block/mmcblk0boot0/force_ro
+dd if=2020-04-09-OpenWRT-mtk-bpi-r64-EMMC.img of=/dev/mmcblk0
+dd if=mtk-bpi-r64-preloader-emmc.bin of=/dev/mmcblk0boot0
+mmc bootpart enable 1 1 /dev/mmcblk0
+```
+. Shutdown, remove SD card and USB disk, and restart the board from eMMC.
