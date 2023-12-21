@@ -23,7 +23,7 @@ VideoSmart™ VS680 solution, an industry-first edge computing SoC that combines
 link:/en/BPI-M6/GettingStarted_BPI-M6[Getting Started BPI-M6]
 
 = Hardware=
-== Hardware Interface==
+== Hardware Interface
 
 image::/picture/banana_pi_bpi-m6_interface.jpg[banana_pi_bpi-m6_interface.jpg]
 
@@ -49,6 +49,34 @@ image::/picture/banana_pi_bpi-m6_interface.jpg[banana_pi_bpi-m6_interface.jpg]
 | Power Source    | 5 volt @3A TYPE C
 | Size & Weight   | 92x60mm, 48g
 | OS              | Android and Linux
+|=====
+
+== GPIO define
+=== 40 Pin GPIO define 
+[options="header",cols="1,2,3,4",width="70%"]
+|=====
+4+| **40 Pin GPIO define of Banana Pi M6**
+| BPI-M6-CON3	|PIN		| PIN	|BPI-M6-CON3
+|PWR_3V3_CTL	|1		|2	|PWR_5V
+|GPIO46/TW0_SDA	|3		|4	|PWR_5V
+|GPIO47/TW0_SCL	|5		|6	|GND
+|GPIO53/PWM1	|7		|8	|SM_GPIO15/UART2_TXD
+|GND	|9		|10	|SM_GPIO14/UART2_RXD
+|GPIO36/PWM3	|11		|12	|GPIO20/I2S1_BCLK
+|GPIO37/PWM2	|13		|14	|GND
+|EXPANDER_TW3_GPIO1_4	|15	|	16	|EXPANDER_TW3_GPIO1_0
+|PWR_3V3_CTL	|17		|18	|EXPANDER_TW3_GPIO1_1
+|SM_GPIO13/SPI2_SDO/URT2_RTS/SM_STRAP1	|19		|20	|GND
+|SM_GPIO12/SPI2_SDI/URT2_CTS	|21		|22	|GPIO4/SPDIF
+|SM_GPIO11/SPI2_SCK	|23		|24	|SM_GPIO17/SPI2_SS0/SM_STRAP2
+|GND	|25		|26	|SM_GPIO16/SPI2_SS1/SM_STRAP3
+|GPIO15/I2S1_DO3	|27		|28	|GPIO16/I2S1_DO2
+|EXPANDER_TW3_GPIO1_7	|29		|30 |GND
+|EXPANDER_TW3_GPIO1_6	|31		|32	|EXPANDER_TW3_GPIO1_3
+|EXPANDER_TW3_GPIO1_5	|33		|34	|GND
+|GPIO21/I2S1_LRCK	|35		|36	|EXPANDER_TW3_GPIO1_2
+|GPIO18/I2S1_MCLK	|37		|38	|GPIO17/I2S1_DO1
+|GND	|39		|40	|GPIO19/I2S1_DO0
 |=====
 
 = Development
