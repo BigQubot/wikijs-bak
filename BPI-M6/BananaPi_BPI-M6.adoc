@@ -86,7 +86,7 @@ image::/picture/banana_pi_bpi-m6_interface.jpg[banana_pi_bpi-m6_interface.jpg]
 [options="header",cols="1,2,3,4",width="70%"]
 |=====
 4+| **M.2 E-KEY(CN10) define of Banana Pi M6**
-|	|PIN	|	|PIN	
+|	define |PIN	|   PIN	| define
 |GND	|1		|2	|VCC-NGFF
 |NGFF_KEYE_DP	|3		|4	|VCC-NGFF
 |NGFF_KEYE_DM |5		|6	|WiFi-LED
@@ -124,7 +124,7 @@ image::/picture/banana_pi_bpi-m6_interface.jpg[banana_pi_bpi-m6_interface.jpg]
 |GND	|69		|70	|MIPI_CSI1_RD1n
 |MIPI_CSI1_RCKp	|71		|72	|VCC-NGFF
 |MIPI_CSI1_RCKn	|73		|74	|VCC-NGFF
-|GND	|75			| |
+|GND	|75			|  |
 |=====
 
 === MIPI DSI(CN12)
