@@ -52,7 +52,7 @@ image::/picture/banana_pi_bpi-r4_interface.jpg[banana_pi_bpi-r4_interface.jpg]
 == Hardware Spec
 
 [options="header",cols="1,3"]
-|=====
+|====
 2+| **HardWare Specification of Banana Pi R4**
 | CPU              | MediaTek MT7988A (Filogic 880) quad-core Arm Corex-A73,1.8GHz processor
 | SDRAM            | 4 GB DDR4
@@ -69,11 +69,11 @@ image::/picture/banana_pi_bpi-r4_interface.jpg[banana_pi_bpi-r4_interface.jpg]
 | DC Power         | 12V/5.2A or 19V 3.2A
 | Sizes            | 100.5x148mm same as Banana Pi BPI-R64 and Banana Pi BPI-R2
 | Weight           | 250g 
-|=====
+|====
 == GPIO Define 
 === 26 Pin GPIO define
 [options="header",cols="1,2,3,4",width="70%"]
-|=====
+|====
 4+| **BPI-R4 26 PIN Header(CON2) GPIO define of BPI-R4**
 |BPI-R4-CON2	|PIN		|PIN	|BPI-R4-CON2
 |3.3VD	|1		|2	|5VD
@@ -89,12 +89,12 @@ image::/picture/banana_pi_bpi-r4_interface.jpg[banana_pi_bpi-r4_interface.jpg]
 |GPIO29/SPI1_MISO|	21	|	22	|GPIO53/PCM_DTX_I2S_DOUT
 |GPIO31/SPI1_CLK	|23	|24	|GPIO28/SPI1_CSB
 |GND	|25		|26	|GPIO52/PCM_DRX_I2S_DIN
-|=====
+|====
 
 === BPI-R4 M.2 B-KEY(CN16)			
 
 [options="header",cols="1,2,3,4",width="70%"]
-|=====
+|====
 4+| **BPI-R4 M.2 B-KEY(CN16) GPIO define of BPI-R4**
 |BPI-R4 M.2 B-KEY(CN16)	|PIN		|PIN	|BPI-R4 M.2 B-KEY(CN16)
 |NI	|1	|	2	|VCC_KEYB
@@ -135,12 +135,12 @@ image::/picture/banana_pi_bpi-r4_interface.jpg[banana_pi_bpi-r4_interface.jpg]
 |GND|	71	|	72|	VCC_KEYB
 |GND	|73	|	74|	VCC_KEYB
 |NI	|75	| |		
-|=====
+|====
 
 === BPI-R4 M.2 M-KEY(CN18)			
 
 [options="header",cols="1,2,3,4",width="70%"]
-|=====
+|====
 4+| **BPI-R4 M.2 M-KEY(CN18) GPIO define of BPI-R4**
 |BPI-R4 M.2 M-KEY(CN18)	|PIN		|PIN	|BPI-R4 M.2 M-KEY(CN18)
 |GND	|1		|2	|VDD33_M2
@@ -181,12 +181,12 @@ image::/picture/banana_pi_bpi-r4_interface.jpg[banana_pi_bpi-r4_interface.jpg]
 |GND	|71		|72	|VDD33_M2
 |GND	|73	|	74	|VDD33_M2
 |GND	|75|	|		
-|=====
+|====
 
 === BPI-R4 miniPCIe(CN12)	
 
 [options="header",cols="1,2,3,4",width="70%"]
-|=====
+|====
 4+| **BPI-R4 miniPCIe(CN12) GPIO define of BPI-R4**		
 |BPI-R4 miniPCIe(CN12)	|PIN		|PIN	|BPI-R4 miniPCIe(CN12)
 |PCIE_2L_0_WAKE_N(1.8V)	|1	|	2	|PCIe_3V3#2
@@ -215,11 +215,11 @@ image::/picture/banana_pi_bpi-r4_interface.jpg[banana_pi_bpi-r4_interface.jpg]
 |PCIE_2L_0_LN1_SOC_TXp	|47		|48	|PCIe_12V#2
 |GND	|49		|50	|GND
 |MT7996_EINT_RESETB(1.8V)	|51		|52	|PCIe_3V3#2
-|=====
+|====
 
 === BPI-R4 miniPCIe(CN14)		
 [options="header",cols="1,2,3,4",width="70%"]
-|=====
+|====
 4+| **BPI-R4 miniPCIe(CN14) GPIO define of BPI-R4**		
 |BPI-R4 miniPCIe(CN14)	|PIN		|PIN	|BPI-R4 miniPCIe(CN14)
 |PCIE_2L_1_WAKE_N(1.8V)	|1		|2	|PCIe_3V3#1
@@ -248,6 +248,38 @@ image::/picture/banana_pi_bpi-r4_interface.jpg[banana_pi_bpi-r4_interface.jpg]
 |PCIE_2L_1_LN1_SOC_TXp	|47	|	48|	PCIe_12V#1
 |GND	|49		|50|	GND
 |NI	|51		|52|	PCIe_3V3#1
+|====
+
+=== BPI-R4 5V/12V OUT PIN		
+
+[options="header",cols="1,3"]
+|====
+2+| **BPI-R4 5V/12V OUT(CN19,XH4A-2.54mm) of BPI-R4**
+|BPI-R4 5V/12V OUT	|PIN	
+|+12V	|1	
+|GND	|2	
+|GND	|3	
+|+5V	|4	
+|====		
+		
+		
+=== BPI-R4 FAN PIN	
+[options="header",cols="1,3"]
+|====
+2+| **BPI-R4 FAN(CN1,PH3A-2.00mm) of BPI-R4**
+|+5V	|1	
+|GND	|2	
+|PWM0	|3	
+|====	
+		
+=== BPI-R4 Debug UART PIN	
+[options="header",cols="1,3"]
+|====
+2+| **BPI-R4 Debug UART(CON1，3PIN-2.54mm) of BPI-R4**		
+|BPI-R4 Debug UART	|PIN	
+|GND	|1	
+|RXD	|2	
+|TXD	|3	
 |====
 
 == WiFi7 iPA NIC Module support
