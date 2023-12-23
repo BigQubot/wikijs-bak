@@ -91,11 +91,11 @@ image::/picture/banana_pi_bpi-r4_interface.jpg[banana_pi_bpi-r4_interface.jpg]
 |GND	|25		|26	|GPIO52/PCM_DRX_I2S_DIN
 |=====
 
-BPI-R4 M.2 B-KEY(CN16)			
+=== BPI-R4 M.2 B-KEY(CN16)			
 
 [options="header",cols="1,2,3,4",width="70%"]
 |=====
-4+| **BPI-R4 26 PIN Header(CON2) GPIO define of BPI-R4**
+4+| **BPI-R4 M.2 B-KEY(CN16) GPIO define of BPI-R4**
 |BPI-R4 M.2 B-KEY(CN16)	|PIN		|PIN	|BPI-R4 M.2 B-KEY(CN16)
 |NI	|1	|	2	|VCC_KEYB
 |GND	|3		|4	|VCC_KEYB
@@ -136,6 +136,54 @@ BPI-R4 M.2 B-KEY(CN16)
 |GND	|73	|	74|	VCC_KEYB
 |NI	|75	| |		
 |=====
+
+=== BPI-R4 M.2 M-KEY(CN18)			
+
+[options="header",cols="1,2,3,4",width="70%"]
+|=====
+4+| **BPI-R4 M.2 M-KEY(CN18) GPIO define of BPI-R4**
+|BPI-R4 M.2 M-KEY(CN18)	|PIN		|PIN	|BPI-R4 M.2 M-KEY(CN18)
+|GND	|1		|2	|VDD33_M2
+|GND	|3		|4	|VDD33_M2
+|NI	|5	|	6	|NI
+|NI	|7		|8	|NI
+|GND	|9		|10	|LED
+|NI	|11		|12	|VDD33_M2
+|NI	|13		|14	|VDD33_M2
+|GND	|15		|16	|VDD33_M2
+|NI	|17		|18	|VDD33_M2
+|NI	|19		|20	|NI
+|GND	|21		|22	|NI
+|NI	|23		|24	|NI
+|NI	|25		|26	|NI
+|GND	|27		|28	|NI
+|NI	|29		|30|	NI
+|NI	|31		|32	|NI
+|GND|	33		|34	|NI
+|NI	|35		|36	|NI
+|NI	|37		|38	|NI
+|GND	|39		|40	|NI
+|PCIE_1L_1_LN0_SOC_RXn	|41		|42|	NI
+|PCIE_1L_1_LN0_SOC_RXp	|43	|	44|	NI
+|GND	|45		|46|	NI
+|PCIE_1L_1_LN0_SOC_TXn	|47	|	48	|NI
+|PCIE_1L_1_LN0_SOC_TXp	|49	|	50|	NGFF_KEYM_PCIE_PERST_3VP3
+|GND	|51	|	52|	NGFF_KEYM_PCIE_CLKREQ_V3P3
+|PCIE_1L_1_SOC_CKn	|53	|	54|	NGFF_KEYM_PCIE_WAKE_V3P3
+|PCIE_1L_1_SOC_CKp	|55		|56|	I2C_SDA_KEYM
+|GND	|57		|58	|I2C_SCL_KEYM
+|NOCTH	|59		|60	|NOCTH
+| |	61	|	62	|
+|	|63	|	64|	
+| |	65		|66	|
+|NI	|67		|68	|32KOUT
+|NI	|69		|70	|VDD33_M2
+|GND	|71		|72	|VDD33_M2
+|GND	|73	|	74	|VDD33_M2
+|GND	|75|	|		
+|=====
+
+
 
 == WiFi7 iPA NIC Module support
 BPI-R4 wifi 7 modue use MediaTek MT7996+MT7995+MT7977A+MT7977B chip design
