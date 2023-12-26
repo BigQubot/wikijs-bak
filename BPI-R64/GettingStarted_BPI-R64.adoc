@@ -55,8 +55,9 @@ bpi-copy xxx.img /dev/sdx
 install image on your TF card
 
 - dd
-
++
 Mount SDcard device /dev/sdX partition if mounted automatically. Actually bpi-copy is the same as this dd command.
++
 ```sh
  $ sudo apt-get install pv unzip
  $ sudo unzip -p xxx-bpi-m5-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxfer
