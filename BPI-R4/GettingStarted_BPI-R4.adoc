@@ -9,28 +9,26 @@ TIP: More Infomation: link:/en/BPI-R4/BananaPi_BPI-R4[Banana Pi BPI-R4]
 * Using your USB-Serial cable(3.3V TTL,Baud=115200) Connect to debug console on BPI-R4
    G=GND;  RX=BPI-R4 input;  TX=BPI-R4 output
 
-
-image::/bpi-r4/r4_debugport.jpg[r4_debugport.jpg]
+image::/picture/r4_debugport.jpg[r4_debugport.jpg]
 
 === BPI-R4 bootstrap and device select Jumper Setting:
-
-image::/bpi-r4/330px-r4-bootstrip.png[330px-r4-bootstrip.png]
+image::/picture/r4-bootstrip.jpg[r4-bootstrip.jpg]
 
 . All Jumper is "1", BPI-R4 will boot from SD card 
 +
-image::/bpi-r4/bpi-r4_jumper.png[bpi-r4_jumper.png]
+image::/picture/r4_sdboot.jpg[r4_sdboot.jpg]
 
 . SW3-A is "0" and SW3-B is "1" , BPI-R4 will boot from SPI NAND
 +
-image::/bpi-r4/bpi-r4_jumper_1.png[bpi-r4_jumper_1.png]
+image::/picture/r4_nandboot.jpg[r4_nandboot.jpg]
 
 . SW3-A is "1" and SW3-B is "0" , BPI-R4 will boot from eMMC
 +
-image::/bpi-r4/bpi-r4_jumper_2.png[bpi-r4_jumper_2.png]
+image::/picture/r4_emmcboot.jpg[r4_emmcboot.jpg]
 
 . If the console said "system halt!", it means that the bootup storage does not cotain any OS
 +
-image::/bpi-r4/bpi-r4_jumper_3.png[bpi-r4_jumper_3.png]
+image::/picture/r4_systenhalt.png[r4_systenhalt.png]
 
 == Linux
 === Install Image to SD card
