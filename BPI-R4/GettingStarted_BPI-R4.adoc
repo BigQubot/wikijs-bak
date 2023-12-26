@@ -240,3 +240,38 @@ bridge name bridge id STP enabled interfaces br-lan 7fff.eea15781ca19 no apclii0
 
 root@OpenWrt:/#
 ```
+
+= Accessories
+=== 10G SFP Module
+The SFP serdes speed of BPI-R4 is fixed at 10Gbps, so only SFP that support this can be used！
+
+Usually the PIN6 of 10G SFP+ module is GND. After inserting the module, SFP_MOD_DEF0 will be pulled low, thereby turning on the SFP power supply.
+
+Therefore, if this PIN of the module is not GND, 3.3V_SFP power will not be supplied!
+
+
+==== 10G SFP+ Copper Module
+The temperature of this module is very high when used for a long time, It can reach 90℃ without a heat sink or cooling fan. Be careful to prevent burns!
+
+
+Note:
+
+Do not pull out this module once it is inserted, otherwise it will cause BPI-R4 to reboot.This phenomenon does not exist with other modules.
+
+==== 10G SFP+ Fibre Module
+
+
+
+=== 4G/5G Module
+BPI-R4 supports 4G LTE EC25. Quectel RM500U-CN & RM520N-GL 5G Modules.
+If you want to use 5G on BPI-R4:
+   1. Insert 5G dongle into USB3.0.
+   2. Connect RG200U-CN to mini PCIe, connect SoC through USB2.0(speed limited).
+   3. Make an RG200U-CN LGA adapter board and insert it into M.2 KEY M.
+Note: The availability of 4G/5G depends on the local carrier frequency band.
+
+=== NVMe SSD
+please insert one M2.KeyM SSD into M2.KeyM slot.
+
+
+=== Asia mPCIe WiFi6/WiFi6E
