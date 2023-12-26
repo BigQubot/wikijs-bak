@@ -272,7 +272,7 @@ echo out > /sys/class/gpio/gpio499/direction
 echo 1 > /sys/class/gpio/gpio499/value
 ```
 - PCIe supports EC-25 4G module.
-
++
 image::/picture/r64_pcie_test_1.jpg[r64_pcie_test_1.jpg]
 image::/picture/r64_pcie_test_2.jpg[r64_pcie_test_2.jpg]
 
@@ -305,7 +305,7 @@ image::/picture/r64_bt_arch.jpg[r64_bt_arch.jpg]
 
 - BLE on R64
 - Input Command "btmw-test", you will enter to "btmw_test_cli" command line
-
++
 image::/picture/r64_bt_cli.jpg[r64_bt_cli.jpg]
 
 - Here are some example commands:
