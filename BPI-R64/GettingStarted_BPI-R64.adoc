@@ -39,7 +39,7 @@ image::/picture/etcher.jpg[etcher.jpg]
 
 **Linux**
 
-bpi-copy
+- bpi-copy
 
 . Install bpi-tools. If you can't access this URL or any other problems, please go to bpi-tools repo and install this tools manually.
 +
@@ -54,7 +54,7 @@ bpi-copy xxx.img /dev/sdx
 ```
 install image on your TF card
 
-dd
+- dd
 
 Mount SDcard device /dev/sdX partition if mounted automatically. Actually bpi-copy is the same as this dd command.
 ```sh
