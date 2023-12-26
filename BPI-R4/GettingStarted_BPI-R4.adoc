@@ -3,7 +3,7 @@
 TIP: More Infomation: link:/en/BPI-R4/BananaPi_BPI-R4[Banana Pi BPI-R4]
 
 = Development
-== Prepare to develop
+== Prepare
 
 * Prepare 8G/above TF card, USB-Serial cable, Ubuntu System
 * Using your USB-Serial cable(3.3V TTL,Baud=115200) Connect to debug console on BPI-R4
@@ -32,7 +32,8 @@ image::/bpi-r4/bpi-r4_jumper_2.png[bpi-r4_jumper_2.png]
 +
 image::/bpi-r4/bpi-r4_jumper_3.png[bpi-r4_jumper_3.png]
 
-== Install Image to SD card
+== Linux
+=== Install Image to SD card
 **Windows PC**
 
 Install Image with Balena Etcher. +
@@ -61,7 +62,7 @@ bpi-copy xxx.img /dev/sdx
 **Change Boot Jumper to boot from SD, Enable SD Card Device.**
 
 image::/picture/bpi-r4_sdboot.jpg[bpi-r4_sdboot.jpg]
-== How to burn image to onboard eMMC
+=== How to burn image to onboard eMMC
 
 WARNING:  Note: because SD card and EMMC device share one SOC's interface, you need flash one SD image firstly, then R3 boot from SD card, then flash nand image into Nand, then change boot strap to boot from nand,  you need flash EMMC image into EMMC. Finally you change bootstrap to boot from EMMC.
  
@@ -93,7 +94,7 @@ WARNING:  Note: Enable EMMC device, boot strap is from EMMC.
 
 image::/bpi-r4/bpi-r3-jumper-boot-emmc.png[bpi-r3-jumper-boot-emmc.png]
 
-== Network-Configuration
+=== Network-Configuration
 
 * Network-Configuration refer to: http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:network:start
 
