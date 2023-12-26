@@ -297,3 +297,101 @@ UDP test:
 iperf3 -u -c serverIP
 ```
 image::/picture/r64_gmac_test.jpg[r64_gmac_test.jpg]
+
+=== BT & BLE on R64
+**R64 BT Architectural**
+
+image::/picture/r64_bt_arch.jpg[r64_bt_arch.jpg]
+
+- BLE on R64
+- Input Command "btmw-test", you will enter to "btmw_test_cli" command line
+
+image::/picture/r64_bt_cli.jpg[r64_bt_cli.jpg]
+
+- Here are some example commands:
++
+```sh
+MW_GAP name 7622_BT /*rename bt device*/
+MW_GAP info /*check local BT device info*/
+MW_GATTC scan /* start ble scan*/
+MW_GATTC stop_scan /* stop ble scan*/
+```
+
+=== R64 LAN Function
+- LAN eth interface is eth2
+```sh
+ifconfig eth2 up
+```
+- Config the ip, "ifconfig eth2 192.168.1.1".
++
+image::/picture/r64_lan_test_1.jpg[r64_lan_test_1.jpg]
+
+- Config your dhcp server
++
+```sh
+vim /etc/dhcp/dhcpd.conf
+```
+add these configurations.
++
+image::/picture/r64_lan_test_2.jpg[r64_lan_test_2.jpg]
+ 
+- Start dhcp server, "dhcpd eth2".
++
+image::/picture/r64_lan_test_3.jpg[r64_lan_test_3.jpg]
+
+- Then config iptables and set package forward.
+* Add "net.ipv4.ip_forward=1" to "/etc/sysctl.conf"
+* "/sbin/sysctl -p" to make forward work
+* "iptables -t nat -A POSTROUTING -s 192.168.1.1/24 -o eth3 -j MASQUERADE"
+
+=== Ap mode on R64
+- Find "mt_wifi.ko" and insmod it.
++
+```sh
+insmod ./lib/modules/4.4.92-BPI-R64-Kernel/extra/mt_wifi.ko
+```
+- Then you will see ra0 and rai0.
++
+image::/picture/r64_wifi_test_1.jpg[r64_wifi_test_1.jpg]
+
+- ra0 is MT7622 2.4G wifi
+- rai0 is MT7615 5G wifi
+
+==== 2.4G WiFi
+- Use "ifconfig ra0 up" to enable it.
+- Config the ip, "ifconfig ra0 192.168.1.1".
+- Config your dhcp server, "vim /etc/dhcp/dhcpd.conf", add these configurations.
++
+image::/picture/r64_lan_test_2.jpg[r64_lan_test_2.jpg]
+
+- Start dhcp server, "dhcpd ra0".
+Then config iptables and set package forward.
+
+* Add "net.ipv4.ip_forward=1" to "/etc/sysctl.conf"
+* "/sbin/sysctl -p" to make forward work
+* "iptables -t nat -A POSTROUTING -s 192.168.1.1/24 -o eth3 -j MASQUERADE"
+
+==== 5G WiFi
+- Use "ifconfig rai0 up" to enable it.
+- Config the ip, "ifconfig rai0 192.168.1.1".
+- Config your dhcp server, "vim /etc/dhcp/dhcpd.conf", add these configurations.
++
+image::/picture/r64_lan_test_2.jpg[r64_lan_test_2.jpg]
+- Start dhcp server, "dhcpd rai0".Then config iptables and set package forward.
+* Add "net.ipv4.ip_forward=1" to "/etc/sysctl.conf"
+* "/sbin/sysctl -p" to make forward work
+* "iptables -t nat -A POSTROUTING -s 192.168.1.1/24 -o eth3 -j MASQUERADE"
+
+= FAQ
+MT7622 Reference Manual for Develope Board(BPi)
+
+Google Drive: https://drive.google.com/open?id=1UhaIM9ork1O9cNO-t6ENMVVamB75AThV
+
+BaiDu Drive: https://pan.baidu.com/s/1KduFT2MUvMs2FhOF4A8kQQ
+
+= Reference Link
+http://forum.banana-pi.org/
+
+
+
+
