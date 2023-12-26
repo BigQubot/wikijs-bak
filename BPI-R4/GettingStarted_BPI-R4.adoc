@@ -249,29 +249,38 @@ Usually the PIN6 of 10G SFP+ module is GND. After inserting the module, SFP_MOD_
 
 Therefore, if this PIN of the module is not GND, 3.3V_SFP power will not be supplied!
 
-
+image::/picture/r4_sfp_power.png[r4_sfp_power.png]
 ==== 10G SFP+ Copper Module
 The temperature of this module is very high when used for a long time, It can reach 90℃ without a heat sink or cooling fan. Be careful to prevent burns!
 
+image::/picture/sfp-10g-t-aqr.png[sfp-10g-t-aqr.png]
+image::/picture/bpi-r4_sfp-10g-t(aqr113c)_1.png[bpi-r4_sfp-10g-t(aqr113c)_1.png]
+image::/picture/bpi-r4_sfp-10g-t(aqr113c)_2.png[bpi-r4_sfp-10g-t(aqr113c)_2.png]
 
-Note:
+WARNING: Note:Do not pull out this module once it is inserted, otherwise it will cause BPI-R4 to reboot.This phenomenon does not exist with other modules.
 
-Do not pull out this module once it is inserted, otherwise it will cause BPI-R4 to reboot.This phenomenon does not exist with other modules.
+image::/picture/bpi-r4_sfp-10g-t(aqr113c)-pull_out_reboot_1.png[bpi-r4_sfp-10g-t(aqr113c)-pull_out_reboot_1.png]
+image::/picture/bpi-r4_sfp-10g-t(aqr113c)-pull_out_reboot_2.png[bpi-r4_sfp-10g-t(aqr113c)-pull_out_reboot_2.png]
 
 ==== 10G SFP+ Fibre Module
-
-
+image::/picture/sfp-10g-bx20.jpg[sfp-10g-bx20.jpg]
+image::/picture/bpi-r4_sfp-10g-bx20_1.png[bpi-r4_sfp-10g-bx20_1.png]
+image::/picture/bpi-r4_sfp-10g-bx20_2.png[bpi-r4_sfp-10g-bx20_2.png]
 
 === 4G/5G Module
 BPI-R4 supports 4G LTE EC25. Quectel RM500U-CN & RM520N-GL 5G Modules.
+
 If you want to use 5G on BPI-R4:
-   1. Insert 5G dongle into USB3.0.
-   2. Connect RG200U-CN to mini PCIe, connect SoC through USB2.0(speed limited).
-   3. Make an RG200U-CN LGA adapter board and insert it into M.2 KEY M.
-Note: The availability of 4G/5G depends on the local carrier frequency band.
+
+. Insert 5G dongle into USB3.0.
+. Connect RG200U-CN to mini PCIe, connect SoC through USB2.0(speed limited).
+. Make an RG200U-CN LGA adapter board and insert it into M.2 KEY M.
+
+TIP: Note: The availability of 4G/5G depends on the local carrier frequency band.
 
 === NVMe SSD
-please insert one M2.KeyM SSD into M2.KeyM slot.
+Please insert one M2.KeyM SSD into M2.KeyM slot.
 
-
+image::/picture/bpi-r4-m2_keym-ssd_connnect.jpg[bpi-r4-m2_keym-ssd_connnect.jpg]
+image::/picture/bpi-r4-m2_keym-ssd_linux.png[bpi-r4-m2_keym-ssd_linux.png]
 === Asia mPCIe WiFi6/WiFi6E
