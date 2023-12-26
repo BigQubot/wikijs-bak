@@ -93,8 +93,8 @@ Network-Configuration : http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:netw
 === GPIO
 **40 Pins Definition**
 
-
-**GPIO Control**
+image::/picture/r64_gpio_40.jpg[r64_gpio_40.jpg]
+==== GPIO Control
 ```sh
 echo xxx > /sys/class/gpio/export
 echo in/out > /sys/class/gpio/gpioxxx/direction
@@ -102,7 +102,7 @@ echo 0/1 > /sys/class/gpio/gpioxxx/value
 ```
 Check the base gpio, you could see mine is 409
 
-R64 gpio base.jpg
+image::/picture/r64_gpio_base.jpg[r64_gpio_base.jpg]
 
 For example: if you want to change gpio 22 as out highlevel, you need input commands like this:
 ```sh
@@ -110,14 +110,14 @@ echo 431（22+409） > /sys/class/gpio/export
 echo out > /sys/class/gpio/gpio431/direction
 echo 1 > /sys/class/gpio/gpio431/value
 ```
-**PWM Control**
+==== PWM Control
 ```sh
 echo x >/sys/class/pwm/pwmchip0/export
 echo 200000 >/sys/class/pwm/pwmchip0/pwmx/period
 echo 100000 >/sys/class/pwm/pwmchip0/pwmx/duty_cycle
 echo 1 >/sys/class/pwm/pwmchip0/pwmx/enable
 ```
-**SPI touch panel**
+==== SPI touch panel
 
 SPI Panel module:
 
@@ -215,11 +215,85 @@ Application:
 |input-event-daemon	|input-event-daemon with touchTEST event	|https://github.com/SAM33/input-event-daemon
 |=====
 input-event-daemon config that show image by touch area: (I don't know why are the coordinates so strange, but the result of my actual touch and print out that it is like this)
-
+```sh
 [Global]
 listen = /dev/input/event0
 listen = /dev/input/event1
 [TouchTEST]
 340,400,3440,1860 = cat /dev/zero > /dev/fb0; fbv -f /root/bpi_608x429.jpg -s 1
 340,2260,3440,1860 = cat /dev/zero > /dev/fb0; fbv -f /root/openwrt_449x449.png -s 1
+```
 Banana Pi BPI-R64 SPI touch panel test: https://www.youtube.com/watch?v=ikag-D_TI0g&feature=youtu.be
+
+=== Sata
+- If you want to use Sata interface on R64, you need to give GPIO90 low level
++
+```sh
+echo 499 > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio499/direction
+echo 0 > /sys/class/gpio/gpio499/value
+```
+- Test a TOSHIBA HDD DISK, the Read/Write performance are below:
+
+* Read from disk: 50MB/s command: 
++
+```sh
+dd if=/dev/sda of=/dev/null bs=1M count=1024
+```
+
+* Write to disk: 38MB/s command: 
++
+```sh
+dd if=/dev/zero of=/dev/sda bs=1M count=1024
+```
+image::/picture/r64_hdd_sata_test.jpg[r64_hdd_sata_test.jpg]
+
+- Test a SAMSUNG SSD DISK, the Read/Write performance are below:
++
+Read from disk: 360MB/s command: 
++
+```sh
+dd if=/dev/sda of=/dev/null bs=1M count=1024
+```
+Write to disk: 200MB/s command: 
++
+```sh
+dd if=/dev/zero of=/dev/sda bs=1M count=1024
+```
++
+image::/picture/r64_ssd_sata_test.jpg[r64_ssd_sata_test.jpg]
+
+=== PCIe
+- If you want to use PCIe interface on R64, you need to give GPIO90 high level
++
+```sh
+echo 499 > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio499/direction
+echo 1 > /sys/class/gpio/gpio499/value
+```
+- PCIe supports EC-25 4G module.
+
+image::/picture/r64_pcie_test_1.jpg[r64_pcie_test_1.jpg]
+image::/picture/r64_pcie_test_2.jpg[r64_pcie_test_2.jpg]
+
+=== GMAC
+Use iperf3 to test gmac
+
+. On PC Terminal.Execute
++
+```sh
+iperf3 -s
+```
+. On R64 console:
++
+TCP test:
++
+```sh
+iperf3 -c serverIP
+```
+UDP test: 
++
+```sh
+iperf3 -u -c serverIP
+```
+image::/picture/r64_gmac_test.jpg[r64_gmac_test.jpg]
