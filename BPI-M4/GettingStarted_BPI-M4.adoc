@@ -1,0 +1,130 @@
+= Introduction
+
+Banana Pi BPI-M4 use Realtek RTD1395 chp design ,it is a 64-bit quad-core A53 mini single board computer. It features 1 GB of RAM and 8 GB eMMC. It also has onboard WiFi for b/g/n/ac and BT 4.2. On the ports side, the BPI-M4 has 4 USB 2.0 ports, 1 USB TYPE C port, 1 HDMI port, 1 audio jack. support M.2 Key E PCIE 2.0 interface. 
+
+TIP: More Infomation: link:/en/BPI-M4/BananaPi_BPI-M4[Banana Pi BPI-M4]
+
+== specifications
+
+- Realtek RTD1395 ARM Cortex-A53 Quad-Core 64 Bit
+- Mali 470 MP4 GPU OpenGL ES 1.1/2.0 H.264 H.265,2K4K
+- Onboard1 GB DDR4 (option 2 GB)
+- 8G eMMC flash (max 64 GB)
+- 10/100 Mbit/s Ethernet and RTL8821 module support Wi-Fi 802.11 b/g/n/AC + Bluetooth 4.2
+- USB 2.0 TYPE C
+- M.2 Key E slot PCIE 2.0 and USB 2.0
+- PoE function support
+
+= Development
+== Android
+=== Prepare
+
+. xxx
+. xxx
+. xxx
+. xxx
+
+=== Install Image to eMMC
+
+. xxx
+. xxx
+. xxx
+. xxx
+
+== Linux
+=== Prepare
+
+. Board SW2 (board bottom near sd slot) switch to 0
+. For the compatibility of new 2GB and 1GB board with one Linux image, the old batch (before May, 2020) 1GB board must update the spirom firmware, so it can run the new release image.
+. Login user/password: pi/bananapi or root/bananapi
+
+=== Install Image with xxx
+
+. xxx
+. xxx
+. xxx
+. xxx
+
+=== Install Image with xxx
+
+. xxx
+. xxx
+. xxx
+. xxx
+
+=== Enable SPI
+Without device-tree overlay support, 40pin header SPI function is disabled default because pins multiplexing with uart2, it can be enabled according to this topic
+
+https://forum.banana-pi.org/t/banana-pi-bpi-m4-how-to-get-i2c-and-spi-running-tutorial/12824
+or by fdtput command without building kernel. Make sure boot partition mounted before doing this.
+```sh
+ # fdtput -t s /media/pi/BPI-BOOT/bananapi/bpi-m4/linux/rtd-1395-bananapi-m4-2GB.dtb /spi@9801BD00 status okay
+ # fdtput -t s /media/pi/BPI-BOOT/bananapi/bpi-m4/linux/rtd-1395-bananapi-m4-1GB.dtb /spi@9801BD00 status okay
+ # reboot
+```
+
+=== Installed Docker
+To have a test, if docker has installed in your image.
+```sh
+sudo docker run --rm hello-world
+```
+=== EMAC
+Use iperf3 to test gmac
+
+. On PC Terminal.Execute 
++
+```sh
+iperf3 -s
+```
+. On M3 console:
+
+- TCP test
++
+```sh
+iperf3 -c serverIP
+```
+- UDP test
++
+```sh
+iperf3 -u -c serverIP
+```
+
+
+
+=== Bluetooth
+**You have two ways to setup BT**
+
+. Use commands to setup BT
+
+- Use bluetoothctl tool to operate BT
+- Execute "**bluetoothctl**"
+- If you don't know how to use bluetoothctl, type "**help**", you will see more commands
+- Execute these commands:
+
+. Use UI interface to setup BT
+
+=== WiFi Client
+**You have two ways to setup WiFi Client**
+
+. Use commands to setup WiFi client
++
+```sh
+ip link set wlan0 up
+iw dev wlan0 scan | grep SSID
+vim /etc/wpa_supplicant/wpa_supplicant.conf
+```
++
+```sh
+ network={    
+ ssid="ssid"    
+ psk="password"    
+ priority=1 
+ }
+```
++
+```sh
+wpa_supplicant -iwlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf
+dhclient wlan0
+```
+
+. Use UI interface to setup WiFi Client
