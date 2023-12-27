@@ -88,8 +88,8 @@ iperf3 -c serverIP
 ```sh
 iperf3 -u -c serverIP
 ```
-
-
++
+image::/picture/m4_emac_test.jpg[m4_emac_test.jpg]
 
 === Bluetooth
 **You have two ways to setup BT**
@@ -100,6 +100,8 @@ iperf3 -u -c serverIP
 - Execute "**bluetoothctl**"
 - If you don't know how to use bluetoothctl, type "**help**", you will see more commands
 - Execute these commands:
++
+image::/picture/m4_bluetooth.jpg[m4_bluetooth.jpg]
 
 . Use UI interface to setup BT
 
@@ -128,3 +130,5 @@ dhclient wlan0
 ```
 
 . Use UI interface to setup WiFi Client
++
+image::/picture/m4_wifi_iperf3.jpg[m4_wifi_iperf3.jpg]
