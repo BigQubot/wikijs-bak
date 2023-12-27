@@ -242,8 +242,8 @@ image::/picture/banana_pi_bpi-cm4_interface_.jpg[banana_pi_bpi-cm4_interface_.jp
 
 |===
 
-== Banana Pi BPI-CM4 SBC specifications
-
+== BPI-CM4 IO board
+=== BPI-CM4 with IO board spec
 * SoC – Amlogic A311D hexa-core processor with 4x Arm Cortex-A73 cores, 2x Arm Cortex-A53 cores, Arm Mali-G52 MP4 (6EE) GPU with OpenGL ES 3.2, Vulkan 1.0 and OpenCL 2.0 support, 5 TOPS NPU
 * System Memory – 4GB LPDDR4
 * Storage – 16GB eMMC flash (option up to 128GB), MicroSD card slot
@@ -257,6 +257,8 @@ image::/picture/banana_pi_bpi-cm4_interface_.jpg[banana_pi_bpi-cm4_interface_.jp
 * Debugging – 3-pin header for serial console
 * Misc – 2x buttons.
 * Power Supply – Via USB-C port or pin header
+
+
 
 == Same size as RPI CM4
 
