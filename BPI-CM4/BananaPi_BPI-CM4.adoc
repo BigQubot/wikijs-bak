@@ -12,8 +12,8 @@ For A311D chip PIN limited ,just support 1 HDMI ,1 CSI and 1 DSI , Raspberry Pi 
 * NPU for AI :Next generation, deep-neural-network applications, at 5.0 TOPS
 * 4GB LPDDR4 RAM
 * 16GB eMMC flash (Max 128G)
-* support MIPI DSI Display interface
-* support MIPI CSI Camera interface
+* Support MIPI DSI Display interface
+* Support MIPI CSI Camera interface
 * Minipcie
 * HDMI output
 * 26 PIN GPIO 
@@ -273,7 +273,7 @@ TIP: https://github.com/BPI-SINOVOIP/BPI-M2S-bsp
 === Android 9
 TIP: https://github.com/BPI-SINOVOIP/BPI-A311D-Android9
 
-=== geerlingguy sbc-reviews
+=== Geerlingguy sbc-reviews
 TIP: https://github.com/geerlingguy/sbc-reviews/issues/11
 
 === BPI-M2S/CM4 Android9 Source Code
@@ -385,7 +385,7 @@ The system can also be built and customized via the https://github.com/armbian/b
 
 BPI-CM4 use vim3 rootfs image, you can run the npu demo from khadas wiki on this image, username/password: khadas/khadas or root/khadas
 
-Baidu Link: https://pan.baidu.com/s/1zLQJGf4YQ_45ZLKotKWhhw?pwd=xvvc （pincode: xvvc)
+Baidu Link: https://pan.baidu.com/s/1zLQJGf4YQ_45ZLKotKWhhw?pwd=xvvc PIN code:xvvc
 
 Google drive: https://drive.google.com/drive/folders/11ReyzqHyalOA010uAo-jKHYB9E89qVBx
 
