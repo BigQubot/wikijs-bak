@@ -20,10 +20,9 @@ TIP: More Infomation: link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry[Banana Pi BPI-
 * 1x GbE Ethernet port
 
 
-= Development
 
-== Linux
-=== Prepare
+= Linux development
+== Prepare
 
 . Linux image support SDcard or eMMC bootup, and will boot from the SD card first.
 
@@ -39,7 +38,7 @@ TIP: More Infomation: link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry[Banana Pi BPI-
 
 . The wiki guide is only for ubuntu/debian images.
 
-=== Install Image to SDcard
+== Install Image to SDcard
 
 We have prepared 2 methods to help you burn the image, just choose one of them.
  
@@ -114,7 +113,7 @@ Validating [========================] 100% eta 0s
 ```
 
 
-=== Install the image to eMMC
+== Install the image to eMMC
 
 . Make sure that the Linux image has been burned into an SD card and started normally.
 
@@ -149,7 +148,7 @@ image::/picture/bpi_m4_berry_mobaxterm_18.jpg[bpi_m4_berry_mobaxterm_18.jpg]
 
 
 
-=== Erase eMMC
+== Erase eMMC
 
 . Make sure the Linux image has been burned into an SD card and insert the SD card. By default it will boot from the SD card.
 
@@ -176,7 +175,7 @@ zram2 252:2 0 0B 0 disk
 sudo dd if=/dev/zero of=/dev/mmcblk1
 ```
 
-=== Desktop
+== Desktop
 
 . Using the Ubuntu&Debian desktop version system image, you can get a graphical operation interface.
 . You need to prepare a monitor with an HDMI interface and an HDMI cable.
@@ -193,7 +192,7 @@ image::/picture/bpi_m4_berry_ubuntu_1.jpg[bpi_m4_berry_ubuntu_1.jpg]
 image::/picture/bpi_m4_berry_debian_desktop_1.jpg[bpi_m4_berry_debian_desktop_1.jpg,640]
 --
 
-=== Debug UART
+== Debug UART
 
 . Prepare a 3.3v USB to TTL module.
 . Use the USB to TTL module to connect the PC USB port and the Debug UART port on the board.
@@ -204,7 +203,7 @@ image::/picture/bpi_m4_berry_mobaxterm_1.jpg[bpi_m4_berry_mobaxterm_1.jpg]
 +
 image::/picture/bpi_m4_berry_mobaxterm_2.jpg[bpi_m4_berry_mobaxterm_2.jpg]
 
-=== SSH
+== SSH
 . Prepare a network cable and a router.
 . Use a network cable to connect the LAN port of the router to the BPI-M4 Berry, and also connect the PC to another LAN port.
 . Check the IP address of BPI-M4 Berry on the router management interface, or use the following command on the BPI-M4 Berry UART terminal to check the IP address.
@@ -232,7 +231,7 @@ image::/picture/bpi_m4_berry_mobaxterm_3.jpg[bpi_m4_berry_mobaxterm_3.jpg]
 +
 image::/picture/bpi_m4_berry_mobaxterm_4.jpg[bpi_m4_berry_mobaxterm_4.jpg]
 
-=== NoMachine Remote Desktop
+== NoMachine Remote Desktop
 . Make sure BPI-M4 Berry is connected to the Internet and use the following command to download the nomachine DEB installation package in the system.
 
    wget https://download.nomachine.com/download/8.9/Arm/nomachine_8.9.1_1_arm64.deb
@@ -266,7 +265,7 @@ image::/picture/bpi_m4_berry_nomachine_4.jpg[bpi_m4_berry_nomachine_4.jpg]
 
 IMPORTANT: TIP: If no device is connected to the HDMI interface, the NoMachine remote desktop will display a black screen. It is recommended to keep the HDMI connection or connect an HDMI decoy device.
 
-=== WiFi
+== WiFi
 Use the nmcli command to scan WiFi hotspots, connect to hotspots, and create AP hotspots.
 
 ```bash
@@ -292,7 +291,7 @@ nmcli radio wifi on # Turn on wifi
 * link:https://developer-old.gnome.org/NetworkManager/unstable/nmcli.html[nmcli command reference document]
 * link:https://developer-old.gnome.org/NetworkManager/unstable/nmcli-examples.html[nmcli command reference examples]
 
-=== Set static IP, DNS
+== Set static IP, DNS
 . To set a static IP, you need to maintain the connection first. If you want to set an Ethernet static IP, you must first maintain the Ethernet connection; if you want to set a wireless network static IP, you must first maintain a connection to a WIFI.
 . If the upper-level router has assigned the IP address you want to set to other devices, please change it to an idle IP, or ask other devices to give up the IP.
 . Use the nmcli connection show command to display all connections, for example:
@@ -337,7 +336,7 @@ ifconfig
 nmcli connection show TP-LINK_5G_7747
 ```
 
-=== Network time synchronization
+== Network time synchronization
 Chrony is an open source free Network Time Protocol NTP client and server software. It allows the computer to keep the system clock synchronized with the clock server (NTP), thus allowing your computer to maintain accurate time. Chrony can also be used as a server software to provide time synchronization services for other computers.
 
 ```bash
@@ -360,7 +359,7 @@ sudo hwclock -r #View hardware clock
 
 * link:https://chrony-project.org/documentation.html[Chrony reference documentation]
 
-=== View hardware temperature
+== View hardware temperature
 Enter the following command to view the temperature data returned by the sensor built into the chip on the BPI-M4 Berry board.
 ```bash
 sensors
@@ -377,7 +376,7 @@ image::/picture/bpi_m4_berry_ubuntu_2.jpg[bpi_m4_berry_ubuntu_2.jpg]
 +
 image::/picture/bpi_m4_berry_debian_desktop_2.jpg[bpi_m4_berry_debian_desktop_2.jpg,640]
 
-=== Use USB disk
+== Use USB disk
 . Prepare a USB disk that has been partitioned normally and insert it into the USB interface of BPI-M4 Berry.
 . In the Ubuntu desktop version, you can see that the USB disk has been recognized and can be opened in the file manager, or partition management can be performed through the GParted tool.
 +
@@ -392,10 +391,10 @@ ls ~/mnt/ #After mounting, you can list the files in the USB disk
 sudo umount -v /dev/sda1 #umount, then you can remove the USB disk
 ```
 
-=== Use Audio Devices
+== Use Audio Devices
 Prepare an audio file and copy it to the BPI-M4 Berry Ubuntu desktop system through a USB flash drive or SSH.
 
-==== HDMI audio
+=== HDMI audio
 . Prepare a monitor with HDMI audio input function, turn on the relevant functions in the monitor settings, and use an HDMI cable to connect the monitor.
 . Set the output device to HDMI Audio in the Sound column of the settings.
 +
@@ -405,21 +404,21 @@ image::/picture/bpi_m4_berry_ubuntu_4.jpg[bpi_m4_berry_ubuntu_4.jpg]
 +
 image::/picture/bpi_m4_berry_ubuntu_5.jpg[bpi_m4_berry_ubuntu_5.jpg]
 
-==== 3.5mm audio jack
+=== 3.5mm audio jack
 . Prepare a headset or other audio device that uses a 3.5mm plug, insert the plug into the 3.5mm jack of BPI-M4 Berry.
 . Set the output device to Audio Codec in the Sound column of the settings.
 +
 image::/picture/bpi_m4_berry_ubuntu_6.jpg[bpi_m4_berry_ubuntu_6.jpg]
 . Play audio.
 
-==== Terminal command to play audio files
+=== Terminal command to play audio files
 ```bash
 aplay -l #List devices
 aplay -D hw:0,0 [path] #Play the audio file of the specified path
 ```
 
 
-=== Use Bluetooth
+== Use Bluetooth
 . Open settings in the Ubuntu desktop and connect a Bluetooth device, such as a Bluetooth mouse or keyboard, in the Bluetooth bar.
 +
 image::/picture/bpi_m4_berry_ubuntu_7.jpg[bpi_m4_berry_ubuntu_7.jpg]
@@ -463,7 +462,7 @@ pi@bpi-m4berry:~$
 
 * link:https://wiki.archlinux.org/title/bluetooth[archlinux bluetooth reference document]
 
-=== Use IR Receiver
+== Use IR Receiver
 . You need to prepare an infrared remote control using NEC format.
 . Enter the following command in the terminal to start receiving infrared signals.
 
@@ -492,9 +491,9 @@ Testing events. Please, press CTRL-C to abort.
 
 For other commands and specific application methods, please see  link:https://manpages.ubuntu.com/manpages/focal/en/man1/ir-keytable.1.html[ir-keytable reference document].
 
-=== Transfer files
+== Transfer files
 
-==== scp
+=== scp
 
 scp (secure copy) command in Linux system is used to copy file(s) between servers in a secure way. 
 
@@ -537,7 +536,7 @@ PS D:\temp\temp_4> scp pi@192.168.3.12:"/home/pi/Downloads/hello.txt" "D:\temp\t
 
 * link:https://www.geeksforgeeks.org/scp-command-in-linux-with-examples/[scp reference document]
 
-==== mobaxterm
+=== mobaxterm
 Files can be managed through a graphical interface using mobaxterm or other similar software.
 
 * link:https://mobaxterm.mobatek.net/download.html[mobaxterm download]
@@ -547,7 +546,7 @@ As shown in the figure below, after establishing an SSH connection in mobaxterm,
 
 image::/picture/bpi_m4_berry_mobaxterm_7.jpg[bpi_m4_berry_mobaxterm_7.jpg]
 
-=== nano - text editor 
+== nano - text editor 
 
 https://www.nano-editor.org/[GNU nano] is a text editor for Unix-like computing systems or operating environments using a command line interface.
 
@@ -564,9 +563,9 @@ Usually you can complete editing, save, and exit the editor in this order:
 * https://www.nano-editor.org/dist/latest/cheatsheet.html[nano's shortcuts]
 * https://www.nano-editor.org/dist/latest/nano.html[Documentation]
 
-=== Set boot logo
+== Set boot logo
 
-==== on/off boot logo
+=== on/off boot logo
 
 . `sudo nano "/boot/bananapiEnv.txt"`,rewrite `bootlogo=true` as `bootlogo=false`.
 +
@@ -586,7 +585,7 @@ image::/picture/bpi_m4_berry_mobaxterm_11.jpg[bpi_m4_berry_mobaxterm_11.jpg]
 
 . `reboot` , the startup logo would not display.
 
-==== Replace boot logo
+=== Replace boot logo
 
 . `sudo nano "/boot/bananapiEnv.txt"`,rewrite `bootlogo=false` as `bootlogo=true`.
 
@@ -614,8 +613,8 @@ sudo update-initramfs -u
 +
 image::/picture/bpi_m4_berry_ubuntu_8.jpg[bpi_m4_berry_ubuntu_8.jpg]
 
-=== 40 pin interface GPIO, I2C, UART, SPI, and PWM testing
-==== GPIO
+== 40 pin interface GPIO, I2C, UART, SPI, and PWM testing
+=== GPIO
 Control the GPIO port to light up the LED light.
 
 **Set the high and low levels of GPIO**
@@ -678,7 +677,7 @@ The LED light goes out again
 +
 image::/picture/m4_berry_gpio_led_2.jpg[m4_berry_gpio_led_2.jpg]
 
-==== I2C
+=== I2C
 According to the schematic diagram, the available i2cs are i2c3 and i2c4
 
 image::/picture/m4_berry_gpio_i2c.png[m4_berry_gpio_i2c.png]
@@ -734,7 +733,7 @@ sudo ./oled /dev/i2c-4
 ```
 image::/picture/m4_berry_i2c_4_led.jpg[m4_berry_i2c_4_led.jpg]
 
-==== UART
+=== UART
 By reviewing the schematic, it can be found that the available uart are uart1 and uart5.
 
 image::/picture/m4_berry_gpio_uart.png[m4_berry_gpio_uart.png]
@@ -777,7 +776,7 @@ pi@bpi-m4berry:~$ ls /dev/ttyS5
 +
 image::/picture/m4_berry_gpio_uart5.jpg[m4_berry_gpio_uart5.jpg]
 
-==== SPI
+=== SPI
 By reviewing the schematic, it can be found that the available spi is spi1.
 
 image::/picture/m4_berry_sch_gpio_spi.png[m4_berry_sch_gpio_spi.png]
@@ -824,4 +823,4 @@ It can be seen that TX and RX are different. So, we need to short-circuit MOSI a
 +
 image::/picture/m4_berry_bananapi_config_spi_2.jpg[m4_berry_bananapi_config_spi_2.jpg]
 
-==== PWM
+=== PWM
