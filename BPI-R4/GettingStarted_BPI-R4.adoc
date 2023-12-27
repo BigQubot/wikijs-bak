@@ -2,8 +2,7 @@
 
 TIP: More Infomation: link:/en/BPI-R4/BananaPi_BPI-R4[Banana Pi BPI-R4]
 
-= Development
-== Prepare
+= Prepare
 
 * Prepare 8G/above TF card, USB-Serial cable, Ubuntu System
 * Using your USB-Serial cable(3.3V TTL,Baud=115200) Connect to debug console on BPI-R4
@@ -11,7 +10,7 @@ TIP: More Infomation: link:/en/BPI-R4/BananaPi_BPI-R4[Banana Pi BPI-R4]
 
 image::/picture/r4_debugport.jpg[r4_debugport.jpg]
 
-=== BPI-R4 bootstrap and device select Jumper Setting:
+== BPI-R4 bootstrap and device select Jumper Setting:
 image::/picture/r4-bootstrip.png[r4-bootstrip.png]
 
 . All Jumper is "1", BPI-R4 will boot from SD card 
@@ -30,8 +29,8 @@ image::/picture/r4_emmcboot.jpg[r4_emmcboot.jpg]
 +
 image::/picture/r4_systenhalt.png[r4_systenhalt.png]
 
-== Linux
-=== Install Image to SD card
+= Linux
+== Install Image to SD card
 **Windows PC**
 
 Install Image with Balena Etcher. +
@@ -60,7 +59,7 @@ bpi-copy xxx.img /dev/sdx
 **Change Boot Jumper to boot from SD, Enable SD Card Device.**
 
 image::/picture/bpi-r4_sdboot.jpg[bpi-r4_sdboot.jpg]
-=== Install Image to Nand
+== Install Image to Nand
 
 NOTE: Note: when you want to Update Nand device, Firstly Change boot switch to boot from SD device and insert one SD with SD boot Image, then after boot up,you need flash one nand image into nand device. Finally you change bootstrap to boot from Nand device.
 
@@ -85,7 +84,7 @@ dd if=mtk-bpi-r4-NAND-20231030.img of=/dev/mtdblock0
 
 . Power off BPI-R4 board, unplug u-disk driver, change bootstrap to boot from Nand device.
 
-=== Install Image to eMMC
+== Install Image to eMMC
 
 NOTE: Note: because SD card and EMMC device share one SOC's controller, it is necessary to switch to NAND startup and then burn the EMMC image into the EMMC. Finally, you will change the boot to boot from EMMC.
 
@@ -112,7 +111,7 @@ mmc bootpart enable 1 1 /dev/mmcblk0
 ```
 . Power off R4 board, remove u-disk driver, change bootstrap to boot from emmc device.
 
-=== Network-Configuration
+== Network-Configuration
 - Network-Configuration refer to: http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:network:start
 
 - Network Interface: eth2, lan0 is for WAN; eth1, lan0, lan1, lan2, lan3 is for LAN, ra0 is for 2.4G wireless, rai0 is for 5G wifi6 wireless, rax0 is for 6G wifi7 wireless.
@@ -242,7 +241,7 @@ root@OpenWrt:/#
 ```
 
 = Accessories
-=== 10G SFP Module
+== 10G SFP Module
 The SFP serdes speed of BPI-R4 is fixed at 10Gbps, so only SFP that support this can be used！
 
 Usually the PIN6 of 10G SFP+ module is GND. After inserting the module, SFP_MOD_DEF0 will be pulled low, thereby turning on the SFP power supply.
@@ -250,7 +249,7 @@ Usually the PIN6 of 10G SFP+ module is GND. After inserting the module, SFP_MOD_
 Therefore, if this PIN of the module is not GND, 3.3V_SFP power will not be supplied!
 
 image::/picture/r4_sfp_power.png[r4_sfp_power.png]
-==== 10G SFP+ Copper Module
+=== 10G SFP+ Copper Module
 The temperature of this module is very high when used for a long time, It can reach 90℃ without a heat sink or cooling fan. Be careful to prevent burns!
 
 image::/picture/sfp-10g-t-aqr.png[sfp-10g-t-aqr.png]
@@ -262,12 +261,12 @@ WARNING: Note:Do not pull out this module once it is inserted, otherwise it will
 image::/picture/bpi-r4_sfp-10g-t(aqr113c)-pull_out_reboot_1.png[bpi-r4_sfp-10g-t(aqr113c)-pull_out_reboot_1.png]
 image::/picture/bpi-r4_sfp-10g-t(aqr113c)-pull_out_reboot_2.png[bpi-r4_sfp-10g-t(aqr113c)-pull_out_reboot_2.png]
 
-==== 10G SFP+ Fibre Module
+=== 10G SFP+ Fibre Module
 image::/picture/sfp-10g-bx20.jpg[sfp-10g-bx20.jpg]
 image::/picture/bpi-r4_sfp-10g-bx20_1.png[bpi-r4_sfp-10g-bx20_1.png]
 image::/picture/bpi-r4_sfp-10g-bx20_2.png[bpi-r4_sfp-10g-bx20_2.png]
 
-=== 4G/5G Module
+== 4G/5G Module
 BPI-R4 supports 4G LTE EC25. Quectel RM500U-CN & RM520N-GL 5G Modules.
 
 If you want to use 5G on BPI-R4:
@@ -278,9 +277,9 @@ If you want to use 5G on BPI-R4:
 
 TIP: Note: The availability of 4G/5G depends on the local carrier frequency band.
 
-=== NVMe SSD
+== NVMe SSD
 Please insert one M2.KeyM SSD into M2.KeyM slot.
 
 image::/picture/bpi-r4-m2_keym-ssd_connnect.jpg[bpi-r4-m2_keym-ssd_connnect.jpg]
 image::/picture/bpi-r4-m2_keym-ssd_linux.png[bpi-r4-m2_keym-ssd_linux.png]
-=== Asia mPCIe WiFi6/WiFi6E
+== Asia mPCIe WiFi6/WiFi6E
