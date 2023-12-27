@@ -4,20 +4,19 @@ BananaPi BPI-CM4 new design with Amlogic A311D Quad core ARM Cortex-A73 and dual
 
 TIP: More Infomation: link:/en/BPI-CM4/BananaPi_BPI-CM4[Banana Pi BPI-CM4]
 
-= Development
-== Prepare
+= Development Prepare
 
 . Prepare a usb-serial cable, a 5V/3A adaptor type-c power supply. The serial cable is used for console debug and type-c cable is used for android image download and ADB debug.
 . Prepare a SDcard at least 8GB for linux development, android only support emmc boot.
 . The SOC rom first boot media is emmc, so board can't bootup from SDcard if the emmc is bootable with any image flashed, more info please refer to board link:/en/BPI-CM4/GettingStarted_BPI-CM4#_boot_sequence[boot sequence].
 
-== Android
-=== Prepare
+= Android
+== Prepare
 
 . Download and install the link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/files/?p=%2FTools%2Fimage_download_tools%2Faml_usb_burning_tool_V2_setup_v2.2.3.3.zip[AML Usb Burning Tool] for android image download via type-c, only support windows.
 . Download the latest android image, and confirm that the md5 checksum is correct.
 
-=== Install Image with Usb Burning Tool
+== Install Image with Usb Burning Tool
 . Open USB_Burning_Tool.exe, select menu File->Import image, and select android image.
 +
 
@@ -39,7 +38,7 @@ M2s android install 5.png
 
 . Click the Stop button to cancel the upgrade process and close the USB Buring Tool.
 
-=== Install Image with Aml Flash Tool
+== Install Image with Aml Flash Tool
 link:https://github.com/Dangku/aml-flash-tool[Aml-flash-tool] is a linux platform opensource image flash util for Amlogic android.
 ```sh
  $ ./flash-tool.sh --img=/path/to/aml_upgrade_package.img --parts=all --wipe --soc=g12a --reset=y
@@ -47,7 +46,7 @@ link:https://github.com/Dangku/aml-flash-tool[Aml-flash-tool] is a linux platfor
 
 M5 linux flash.PNG
 
-=== Build Android Source Code
+== Build Android Source Code
 
 . Get Android 9.0 source code:
 +
@@ -58,7 +57,7 @@ or you can get the source code tar archive from link:https://pan.baidu.com/s/1rA
 . Build the Android 9.0 Source code
 Please read the source code link:https://github.com/BPI-SINOVOIP/BPI-A311D-Android9/blob/master/README.md[README.md]
 
-=== Android DTB overlay
+== Android DTB overlay
 Bananapi CM4 DTBO idx value table, default idx value is 0 in release image.
 
 [options="header",cols="1,2,3"]
@@ -137,7 +136,7 @@ Unifykeys is stored in a specific emmc part, "Normal erase" selected in USB_Burn
 +
 More info about android device tree overlays, please refer to link:https://source.android.com/devices/architecture/dto[google android offical site]
 
-=== Install OpenGapps
+== Install OpenGapps
 . Download install package from link:https://opengapps.org/[OpenGapps], Android release image is arm/android 9.0 variant.
 +
 image::/picture/opengapps.png[opengapps.png]
@@ -165,12 +164,12 @@ YouTube : https://youtu.be/fXOKmWfpqF8
 +
 Bilibili: https://www.bilibili.com/video/BV13y4y1s77i/
 
-=== Switch Mipi Panel
+== Switch Mipi Panel
 The default android release image only support one mipi panel because hw has no detect logic for different panel at boot, so [800x1280 bpi panel] enabled as default, but you can change to [1200x1920 bpi panel] as defualt in Settings->Panel Output
 
 image::/picture/m2s_panel_switch.png[m2s_panel_switch.png]
 
-=== Panel Rotation
+== Panel Rotation
 The two 10" mipi panels are all portrait hw display, so the default android release image is portrait mode, but you can rotate it to 90/180/270 in two ways.
 
 . UI Rotation in Settings->Display->Screen rotation
@@ -213,7 +212,7 @@ Change the touch panel rotation in dts
                    //rotation = <3>; /* sf_rotation 270 */
 ```
 
-=== Custom Android Boot Logo
+== Custom Android Boot Logo
 Android bootloader limit boot logo fb display size is 1080p60hz/1920x1080 default, and android kernel dtb partition table limit boot logo partition size to 16MB default .
 
 . Prepare a 16bit bmp file and named boot-logo.bmp
@@ -265,8 +264,8 @@ Wait few seconds and check whether fastboot connected
  $ fastboot reboot
 ```
 
-== Linux
-=== Prepare
+= Linux
+== Prepare
 
 . Linux image support SDcard or EMMC bootup.
 . It’s recommended to use A1 rated cards, 8GB at least.
@@ -281,7 +280,7 @@ Wait few seconds and check whether fastboot connected
 . Download Linux latest Linux Image, and confirm that the md5 checksum is correct.
 . Default login: pi/bananapi or root/bananapi
 
-=== Install Image to SDcard
+== Install Image to SDcard
 > Install Image with Balena Etcher on Windows, Linux and MacOS.
 
 link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
@@ -316,7 +315,7 @@ Plug SDcard to Linux PC and run
  $ sudo bpi-copy xxx-bpi-cm4-xxx.img.zip /dev/sdX
 ```
 
-=== Install Image to eMMC
+== Install Image to eMMC
 
 . Prepare a SDcard with Linux image flashed and bootup board with this SDcard.
 . Copy Linux image to udisk, plug the udisk to board and mount it.
@@ -335,7 +334,7 @@ Plug SDcard to Linux PC and run
 ```
 . After download complete, power off safely and eject the SDcard.
 
-=== Build Linux Source Code
+== Build Linux Source Code
 . Get the Linux bsp source code
 +
 ```sh
@@ -345,7 +344,7 @@ Plug SDcard to Linux PC and run
 Please read the source code link:https://github.com/BPI-SINOVOIP/BPI-M2S-bsp/blob/master/README.md[README.md]
 . If you want build uboot and kernel separately, please download the link:https://github.com/Dangku/amlogic-u-boot/tree/khadas-g12b-v2015.01-m2s[u-boot] the link:https://github.com/Dangku/amlogic-linux/tree/khadas-g12b-4.9.y-m2s[kernel] only, get the toolchains, boot script and other configuration files from link:https://github.com/BPI-SINOVOIP/BPI-M2S-bsp/tree/master/aml-pack/g12b/bpi-m2s/linux[BPI-M2S-bsp]
 
-=== DTB overlay
+== DTB overlay
 . DTB overlay is used for 40pin gpios multi-function configuration and install in vfat boot partition, you can check the mount point with mount command.
 +
 ```sh
@@ -370,7 +369,7 @@ Please read the source code link:https://github.com/BPI-SINOVOIP/BPI-M2S-bsp/blo
 ```
 . Must be restart the board for overlay dtb loaded.
 
-=== Enable Camera
+== Enable Camera
 The linux release image is camera disabled default, according to the following configuration, it can be enabled by yourself.
 
 . Update the link:/en/CM4/GettingStarted_BPI-CM4#_dtb_overlay[dtb overlays] env in /boot/env.txt to enable camera dtbo.
@@ -401,7 +400,7 @@ The linux release image is camera disabled default, according to the following c
 ```
 Camera device is /dev/video0 after reboot.
 
-=== Switch Mipi Panel
+== Switch Mipi Panel
 The default linux release image only support one mipi panel because hw has no detect logic for different panel at boot, so 800x1280 bpi panel enabled as default, but you can change to [1200x1920 bpi panel] as defualt in /boot/lcd_env.txt
 ```sh
  # Mipi panel type
@@ -413,7 +412,7 @@ The default linux release image only support one mipi panel because hw has no de
 ```
 WARNING: Note: Dual display is not work on linux, so disconnect hdmi cable when mipi used.
 
-=== Panel Rotation
+== Panel Rotation
 The two 10" mipi panels are all portrait hw display, so the default release image is portrait mode, but you can rotate it to 90/180/270. +
 For Desktop image, create a xorg configuration file /usr/share/X11/xorg.conf.d/10-fbdev-rotate.conf with contents:
 ```sh
@@ -467,7 +466,7 @@ change the fb_rotate env in /boot/env.txt
  fb_rotate=0
 ```
 
-=== WiringPi
+== WiringPi
 
 WARNING: Note: This WiringPi only support set 26pin gpio to output, input, pwm or software pwm, for io functions as i2c, spi, ..., you must enable dtb overlay in boot.ini
 
@@ -491,7 +490,7 @@ lcd-bpi, link:https://docs.banana-pi.org/en/BPI_LCD_1602_display_module[BPI LCD 
 matrixled-bpi, link:https://docs.banana-pi.org/en/BPI_RGB_LED_Matrix_Expansion_Module[BPI RGB LED Matrix Expansion Module] example. +
 berryclip-bpi, link:https://docs.banana-pi.org/en/BPI_BerryClip_Module[BPI BerryClip Module]
 
-=== RPi.GPIO
+== RPi.GPIO
 Build and install, for debian, you must link:/en/BPI-CM4/GettingStarted_BPI-CM4#_enable_sudo_for_debian[install sudo] before build
 ```sh
  $ sudo apt-get update
@@ -502,7 +501,7 @@ Build and install, for debian, you must link:/en/BPI-CM4/GettingStarted_BPI-CM4#
  $ sudo python setup.py build install
 ```
 
-=== WiringPi2-Python
+== WiringPi2-Python
 Build and install, for debian, you must link:/en/BPI-CM4/GettingStarted_BPI-CM4#_enable_sudo_for_debian[install sudo] before build
 ```sh
  $ sudo apt-get update
@@ -511,13 +510,13 @@ Build and install, for debian, you must link:/en/BPI-CM4/GettingStarted_BPI-CM4#
  $ cd WiringPi2-Python-Amlogic
  $ sudo python setup.py install
 ```
-=== Custom Linux Boot Logo
+== Custom Linux Boot Logo
 Linux uboot limit boot logo fb size to 1080p60hz/1920x1080 default, so oversize resolution will not be supported by default image, but you can modify uboot source code to support it.
 
 . Prepare a 24bit bmp file and named boot-logo.bmp
 . copy the target file to /boot/firmware/ or /boot/ directory.
 
-=== EC20 LTE 4G Module
+== EC20 LTE 4G Module
 . AT test
 +
 After the module is connected and Linux OS bootup. several ttyUSB* device files are created in the directory /dev. For EC20, /dev/ttyUSB2 is the AT port.
@@ -594,7 +593,7 @@ Terminate quectel-CM process:
  # killall quectel-CM
 ```
 
-=== Boot Linux from SSD
+== Boot Linux from SSD
 A311d soc rom and link:https://github.com/BPI-SINOVOIP/BPI-M2S-bsp[BPI-M2S-bsp] uboot are both not support nvme boot, so the only way for booting linux from SSD is create a bootable sdcard or emmc with bootloader and boot partition flashed, then load rootfs from SSD. After bootup, everything will run from SSD. You need a minipcie to nvme adapter board because bananapi cm4io has a minipcie slot onboard.
 
 . The simple way is link:/en/BPI-CM4/GettingStarted_BPI-CM4#_install_image_to_sdcard[flash the CM4 Linux image to sdcard or emmc] for bootable and also flash it to the nvme ssd for loading rootfs.
@@ -643,7 +642,7 @@ Test results for sd, emmc and nvme ssd (Samsung 970EVOPlus)
 ||| Score: 1076 | Score: 5446      | Score: 24550 
 |=====
 
-=== Disable SDcard UHS mode
+== Disable SDcard UHS mode
 Add disableuhs option to kernel bootargs in /boot/env.txt to disable sdcard uhs capability
 ```sh
  # User kernel args
@@ -651,7 +650,7 @@ Add disableuhs option to kernel bootargs in /boot/env.txt to disable sdcard uhs 
  user_kernel_args=pci=pcie_bus_safe disableuhs
 ```
 
-=== Enable Wifi and BT
+== Enable Wifi and BT
 CM4 has onboard wifi/bt RTL8822CS, and is not enabled in default image, you can enable it with the following procedure.
 
 . Add the wifi module name to /etc/modules for loaded automatically next boot.
@@ -669,7 +668,7 @@ CM4 has onboard wifi/bt RTL8822CS, and is not enabled in default image, you can 
 ```
 . Reboot system
 
-=== Linux Server Image Network Configuration
+== Linux Server Image Network Configuration
 link:https://netplan.io/[Netplan]
 
 **Linux Wifi STA mode**
@@ -834,8 +833,8 @@ sysctl net.ipv4.ip_forward=1
 iptables -t nat -A POSTROUTING -s 192.168.11.0/24 -o eth0 -j MASQUERADE
 ```
 
-== Other Development
-=== Boot Sequence
+= Other Development
+== Boot Sequence
 
 image::/picture/m5_linux_boot_squence.png[m5_linux_boot_squence.png]
 Check bootloader loaded from SDcard or EMMC at the beginning of the console debug messages
@@ -892,7 +891,7 @@ Check bootloader loaded from SDcard or EMMC at the beginning of the console debu
  ...
 ```
 
-=== Erase EMMC for SDcard Bootup
+== Erase EMMC for SDcard Bootup
 There are four possible scenarios should be pay attention to, EMMC already flashed Android image, EMMC already flashed Linux image, boot process hangup in BL2 and EMMC empty.
 
 . Bootable EMMC with Android image flashed
@@ -995,7 +994,7 @@ If the board is flashed android before, the whole emmc must be erased by these c
  $ sync
 ```
 
-=== Erase Emmc Android by dd command
+== Erase Emmc Android by dd command
 If the board is flashed android before, the whole emmc must be erased by these commands if you want bootup it with SDcard Linux image.
 ```sh
  $ sudo dd if=/dev/zero of=/dev/mmcblk0boot0 bs=1M status=noxfer 
@@ -1004,7 +1003,7 @@ If the board is flashed android before, the whole emmc must be erased by these c
  $ sync
 ```
 
-=== Cloud-init&Snap
+== Cloud-init&Snap
 Cloud-init and Snap service are enabled default, you can disable or remove them.
 
 . disable or remove cloud-init
@@ -1023,7 +1022,7 @@ or
  $ sudo apt purge snapd
 ```
 
-=== Enable rc-local
+== Enable rc-local
 The systemd service rc-local.service already exists in release image, but there is no [Install] part in the unit file. As a result, Systemd is unable to enable it. First, we must update the file.
 ```sh
  $ sudo nano /lib/systemd/system/rc-local.service
@@ -1076,7 +1075,7 @@ Enable rc-local.service and reboot
  $ sudo reboot
 ```
 
-=== Enable sudo for Debian
+== Enable sudo for Debian
 The release Debian image do not install sudo default, with "su -" command, user can change to root. If you like sudo, you can install it.
 ```sh
  $ su root
@@ -1089,7 +1088,7 @@ The release Debian image do not install sudo default, with "su -" command, user 
 ```
 Then please do logout and login again
 
-=== Install Docker Engine
+== Install Docker Engine
 Install Docker Engine on Ubuntu 20.04 Server
 
 . Set up the repository
