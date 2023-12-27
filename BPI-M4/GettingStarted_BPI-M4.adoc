@@ -19,10 +19,12 @@ TIP: More Infomation: link:/en/BPI-M4/BananaPi_BPI-M4[Banana Pi BPI-M4]
 == Android
 === Prepare
 
-. . Board SW2 (board bottom near sd slot) switch to 1
-. xxx
-. xxx
-. xxx
+. BPI-M4 Android8 image only support 2GB ddr board.
+. BPI-M4 USB flash tool is a usb download tool for flashing android image to board emmc, and only support Windows platform.
+. Make sure SW2 (board bottom near sd slot) switch to 1
+. Read document/bananapi_m4_usb_download_tool_guide.doc in usb flash tool package before flashing image.
+
+Download link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/files/?p=%2FTools%2Fimage_download_tools%2Fm4_android_usb_download_tool.zip[BPI-M4 USB flash tool]
 
 === Install Image to eMMC
 
