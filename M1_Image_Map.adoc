@@ -10,7 +10,7 @@ TIP: link:/en/BPI-M1_Plus/BananaPi_BPI-M1_Plus[BananaPi_BPI-M1_Plus]
 | Image	         | Features	 | Sub-Features	| Status	| Performance
 .20+| Android	.2+| USB	     | HID	        | YES	    |
                              | Storage	    | YES	    |
-                 | Ethernet	 |	            | YES	    | More --> Ethernet --> Use Ethernet
+                 | Ethernet	 |	            | YES	    ^| More --> Ethernet --> Use Ethernet
               .2+| WiFi	     | WiFi Client  |	No	    | No Wifi module on board
                              | AP mode	    | No	    | No Wifi module on board
               .2+| Bluetooth | BT	          | No	    | No BT module on board
