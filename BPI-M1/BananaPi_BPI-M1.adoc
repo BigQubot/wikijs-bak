@@ -168,7 +168,7 @@ The LVDS Connector is a 40-pin FPC connector which can connect external LCD pane
 
 The jumper J11 is the UART interface. For developers of Banana Pi, this is an easy way to get the UART console output to check the system status and log message.
 
-[options="header",cols="1,1,2,1"]
+[options="header",cols="1,1,1,1"]
 |=====
 4+| Jumper J11 of Banana Pi BPI-M1
 | J11 Pin  | Pin Name | Function1 | Function2(GPIO)
@@ -178,7 +178,7 @@ The jumper J11 is the UART interface. For developers of Banana Pi, this is an ea
 
 The jumper J12 provides the power source including 3.3V and 5V. There is a pair of UART TX/RX signals output here.
 
-[options="header",cols="1,1,2,1"]
+[options="header",cols="1,1,1,1"]
 |=====
 4+| Jumper J12 of Banana Pi BPI-M1
 | J12 Pin  | Pin Name | Function1 | Function2(GPIO)
