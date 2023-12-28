@@ -118,7 +118,7 @@ CSI Camera Connector The CSI Camera Connector is a 40-pin FPC connector which ca
 
 The LVDS Connector is a 40-pin FPC connector which can connect external LCD panel \(LVDS\) and touch screen \(I2C\) module as well. The pin definitions of this connector are shown as below. This is marked on the Banana Pi board as “CON2″.
 
-[options="header",cols="2,2,2,1"]
+[options="header",cols="1,1,1,1"]
 |=====
 4+| **LVDS GPIO of Banana Pi BPI-M1**
 | LVDS Pin | Pin Name | Function1 | Function2(GPIO)
