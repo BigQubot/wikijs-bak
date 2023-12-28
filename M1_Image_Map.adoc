@@ -5,3 +5,27 @@ TIP: link:/en/BPI-M1_Plus/BananaPi_BPI-M1_Plus[BananaPi_BPI-M1_Plus]
 == Android 4.4
 === Kernel 3.4.39
 **Features Map**
+[options="header",cols="1,1,1,1,3"]
+|====
+| Image	         | Features	 | Sub-Features	| Status	| Performance
+.20+| Android	.2+| USB	     | HID	        | YES	    |
+                             | Storage	    | YES	    |
+                 | Ethernet	 |	            | YES	    | More --> Ethernet --> Use Ethernet
+              .2+| WiFi	     | WiFi Client  |	No	    | No Wifi module on board
+                             | AP mode	    | No	    | No Wifi module on board
+              .2+| Bluetooth | BT	          | No	    | No BT module on board
+                             | BLE	        | No	    | No BT module on board
+              .2+| CAMERA ov5640|	photograph|	Developing	|
+                                | recording	| Developing	|
+                 | LCD 7'	   | RGB	        | YES	    | Support Touch, S070WV20, HC070TG(Two Interface)
+                 | Audio	   | Recognise	  | YES     |	
+                 | Mic	     | Recognise	  | YES	    |
+                 | Av video	 |              |	Unknown	|
+              .2+| Sata	     | SSD	        | Developing	|
+                             | HDD	        | Developing	|
+                 |IR function|Recognise	    | Developing	| getevent can get data
+                 | EMMC	     | Recognise	  | No	    | No EMMC on board
+                 | OTG	     | adb	        | YES     |	Developer options --> USB debugging & Revoke USB debugging authorisations
+                 | 1080P	   | MPV	        | YES     |	
+                 | GPU	     | OpenGL	      | YES	    | OpenGL ES 2.0, 61fps
+|====
