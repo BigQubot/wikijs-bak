@@ -36,7 +36,6 @@ TIP: link:/en/BPI-M1_Plus/BananaPi_BPI-M1_Plus[BananaPi_BPI-M1_Plus]
 [options="header",cols="1,2,2,1,5"]
 |====
 | Image	|Features	|Sub-Features	|Status	| Performance
-
 .19+|Ubuntu	.2+|USB	|HID	|YES	|
                   |Storage	|YES|	
 .2+|GMAC	|TCP	|YES	|iperf3 test: 430M/s
@@ -57,3 +56,32 @@ TIP: link:/en/BPI-M1_Plus/BananaPi_BPI-M1_Plus[BananaPi_BPI-M1_Plus]
 .2+|Sata	|SSD	|YES|	
 |HDD	|YES	|
 |====
+
+== Ubuntu 16.04 Desktop
+=== Kernel 3.4.112
+**Features Map**
+[options="header",cols="1,2,2,1,5"]
+|====
+|Image	|Features	|Sub-Features	|Status	|Performance
+.20+| Ubuntu	.2+| USB  	| HID	      | YES   |	
+                          | Storage	  | YES   |	
+              .2+| GMAC	  | TCP	      | YES	  | iperf3 test: 430M/s
+                          | UDP	      | YES	  | iperf3 test: 1M/s
+              .2+| WiFi	  |WiFi Client| No	  | No Wifi module on board
+                          | AP mode	  | No	  | No Wifi module on board
+              .2+|Bluetooth|BT	      | No	  | No BT module on board
+                          | BLE	      | No    | No BT module on board
+              .2+| CAMERA ov5640|photograph	|Developing	|
+                          | recording	|Developing	|
+              .3+| WringPI| 8x8 LEDs	| YES	 | /usr/local/bin/bpi_test_hello
+                          | 1602 LCD	| YES	 | /usr/local/bin/bpi_test_lcd1602
+                          | OLED	    |Developing	| /usr/local/bin/bpi_test_52pi
+                 | HDMI	  | 720P	    | YES   |	
+                 | LCD 7'	| Touch	    | YES	  | HC070TG38035, vim /var/lib/bananapi/bpi-init.d/S10-bpi-hw-touch.sh, m1 ft5xx => gt9xx
+                 |IR function|Recognise|YES	  | getevent can get data
+                 | EMMC	  |	          | No	  | No EMMC on board
+                 | OTG	  | adb	      | No    |	
+              .2+| Sata	  | SSD	      | YES   |	
+                          | HDD	      | YES	  |
+|====
+
