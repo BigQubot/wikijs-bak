@@ -3,8 +3,7 @@
 
 TIP: More Infomation: link:/en/BPI-W3/BananaPi_BPI-W3[Banana Pi BPI-W3]
 
-= Development
-== Prepare
+= Development Prepare
 
 Before starting to use your ArmSoM-W3 get the following items ready:
 
@@ -21,8 +20,8 @@ USB C PD Charger (15W & above)
 - If you wish to boot from sd card：MicroSD Card/TF Card: Class 10 or Above, minimum 8GB SDHC
 
 
-== Linux
-=== Install Image with Usb Download Tool
+= Linux
+== Install Image with Usb Download Tool
 
 . Download and install link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FDriverAssitant_v5.11.zip[Rockchip USB driver]
 +
@@ -66,7 +65,7 @@ The download tool also show the download mode if device connected.
 
 
 
-=== Install Separate Images with Usb Download Tool
+== Install Separate Images with Usb Download Tool
 . Download link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FUpdate-EMMC-Tools.zip[Rockchip USB Download Tool for EMMC upgrade] 
 . Open **RKDevTool.exe**, Switch to the “**Download Image**” page. The upgrade tool displays detailed all firmware image information. Then all image file is ready, you may push "**run**", the upgrade process begin.
 +
@@ -74,7 +73,7 @@ NOTE: Note: Because Linux's release package, Example: **Ubuntu-22.04-Desktop-EMM
 +
 image::/picture/r2-pro-download_-image.jpg[r2-pro-download_-image.jpg]
 
-=== Install Image with SD card
+== Install Image with SD card
 
 . Download link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FUpdate-SD-Tools.zip[Rockchip SD Disk Tool].
 . Insert card reader to Windows PC, 8GB sdcard size at least.
@@ -82,7 +81,7 @@ image::/picture/r2-pro-download_-image.jpg[r2-pro-download_-image.jpg]
 +
 
 
-=== Build Linux BSP Source Code
+== Build Linux BSP Source Code
 
 . Get Linux source code
 +
@@ -91,7 +90,7 @@ image::/picture/r2-pro-download_-image.jpg[r2-pro-download_-image.jpg]
 ```
 . Build the Linux BSP Source code
 
-=== Dual Display
+== Dual Display
 NOTE: Note: All linux Image suuport dual display HDMI and MIPI-DSI together, MIPI-DSI only support 1200x1920.
 
 **HDMI Display**
@@ -102,10 +101,10 @@ NOTE: Note: All linux Image suuport dual display HDMI and MIPI-DSI together, MIP
 
 
 
-=== Wlan&BT
+== Wlan&BT
 J14 M.2 KEY E Slot is used for connect Wlan&BT adapter, default image support RTL8822CE(PCIE+USB) and RTL8822CS(SDIO+UART).
 
-=== Ethernet
+== Ethernet
 ArmSoM-w3 is configured with one 2.5G Ethernet interface. You can connect ArmSoM-w3 to the network using a network cable (one end is connected to an external network port or a route). The ArmSoM-w3 automatically configures the network for your Internet access.
 
 Check that the Ethernet is working by using the ifconfig command, which displays network card eth0 or enP4p65s0, along with the Ethernet IP address. In addition, you can use the ping tool to test network connectivity.
@@ -195,7 +194,7 @@ Mode: 3840x2160p60 (4400x2250) hfp:172 hs:92 hbp:296 vfp:8 vs:10 vbp:72
 Pixel Clk: 594024000
 ```
 
-=== Camera
+== Camera
 . MIPI-CSI The camera uses the IMX415 module,After the camera module is connected and powered on, you can view the startup log.
 +
 ```sh
@@ -247,7 +246,7 @@ Then click the camera button, you will see the camera screen:
 +
 1200px-Capture.png
 
-=== NPU usage
+== NPU usage
 **DEMO video**: https://www.youtube.com/watch?v=y7mYxn3rq0U
 
 **Prepare tools**
@@ -311,7 +310,7 @@ cv2.imwrite("result.jpg", img_1)
 
 - Run python3 test.py
 
-=== LED
+== LED
 - On BPI-W3 three-color LED is configured as LED class device. When the blue LED is not active a green LED will show to indicate the board has power. You can control the behavior mode of the blue LED by writing to /sys/class/leds/blue:status/trigger. By default only root users can write to the device. The default mode of the blue LED is heartbeat.
 +
 ```sh
@@ -335,7 +334,7 @@ root@linaro-alip:/home/linaro# echo 0 > /sys/class/leds/blue:status/brightness
 ```
 - red light is the same, class device /sys/class/leds/red:status/trigger
 
-=== RTC Device
+== RTC Device
 BPI-W3 is equipped with one RTC IC hym8563
 
 . Firstly, plug in RTC battery to give power to RTC IC. Please note that we should keep the RTC battery in the RTC connector.
@@ -358,7 +357,7 @@ root@linaro-alip:~# date
 root@linaro-alip:~# hwclock -w
 ```
 
-=== Audio
+== Audio
 . View sound cards in the system.
 +
 ```sh
@@ -383,7 +382,7 @@ card 4: rockchiphdmi1 [rockchip-hdmi1], device 0: rockchip-hdmi1 i2s-hifi-0 [roc
 aplay -D hw:0,0 /mnt/test.wav
 ```
 
-=== MIC
+== MIC
 ```sh
 root@linaro-alip:/root# arecord -D hw:1,0 -f S16_LE -t wav -c2 -r 16000 -d 3 t.wav
 Recording WAVE 't.wav' : Signed 16 bit Little Endian, Rate 16000 Hz, Stereo
@@ -391,7 +390,7 @@ root@linaro-alip:/root# aplay t.wav
 Playing WAVE 't.wav' : Signed 16 bit Little Endian, Rate 16000 Hz, Stereo
 ```
 
-=== Storage device
+== Storage device
 **Supports three types of storage devices**
 
 - microSD card
@@ -413,7 +412,7 @@ root@linaro-alip:/home/linaro# mkdir temp
 root@linaro-alip:/home/linaro# mount /dev/nvme0n1 temp
 ```
 
-=== FAN
+== FAN
 ```sh
 echo 0 > /sys/devices/platform/fd8b0010.pwm/pwm/pwmchip*/export
 echo 10000 > /sys/devices/platform/fd8b0010.pwm/pwm/pwmchip*/pwm0/period
