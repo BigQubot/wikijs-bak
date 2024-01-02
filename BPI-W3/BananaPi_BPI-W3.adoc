@@ -5,12 +5,16 @@ The Banana Pi BPI-W3 single board computer is designed and developed by bananapi
 BPI-W3 up to 32GB 64bit LPDDR4X ram, up to 8K@60 HDMI OUT, HDMI IN, MIPI DSI, MIPI CSI, 3.5mm jack with mic, USB Port, 2.5GbE LAN, PCIe 3.0 x4, PCIe 2.0x2, 40-pin expansion header, RTC,POE,SD card, DC power，typec.
 
 image::/picture/w3_wiki_v00.jpg[w3_wiki_v00.jpg]
-=== BPI-3588-LGA Core board
+== BPI-3588-LGA Core board
 Banana Pi BPI-W3 base on BPI-RK3588 Core board and development Kit use BPI-RK3588-LGA core board. so you can easy to do new design with BPI-W3, just need to development a new base board.
 
 BPI-3588-LGA core board uses the Rockchip RK3588 flagship chip,integrating a 6Tops NPU and a high-performance quad-core Mali-G610 MP4 GPU. It adopts LGA 506pin package method, which can expand a variety of display interfaces and industrial application interfaces. With open baseboard design materials and open-source SDKs, it can be efficiently developed. It supports multiple operating systems such as Android, Ubuntu, Debian, and Buildroot. It provides robust, stable, reliable, and expandable product support for various AI application scenarios, and is widely applicable to fields such as edge computing, artificial intelligence,cloud computing, VR/AR, blockchain, smart security, intelligent industrial control, and smart home.
 
 image::/picture/banana_pi_bpi-rk3588-lga_1.jpg[banana_pi_bpi-rk3588-lga_1.jpg]
+
+== Other RK3588 core board
+
+link:/BPI-RK3588_CoreBoardAndDevelopmentKit/BananaPi_BPI-RK3588_CoreBoardAndDevelopmentKit[BPI-RK3588 core board and kit Introduction] design with BPI-RK3588-LGA core board.
 
 == Key Features
 
