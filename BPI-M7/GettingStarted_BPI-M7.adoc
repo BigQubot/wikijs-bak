@@ -1,68 +1,86 @@
 = Introduction
 
-Here is replaced with a brief introduction about the board
+The Banana Pi BPI-M7 user manual helps users understand the basic usage and preparation work needed for BPI-M7
+
+Its model and hardware version can be found printed on the board when you got BPI-M7.
+
+This article gives an overview of the product information to you in as much detail as possible.
 
 TIP: More Infomation: link:/en/BPI-xx/BananaPi_BPI-M7[Banana Pi BPI-M7]
 
-== specifications
+= Prepare 
 
-- CPU
-- GPU
-- DDR
-- Flash
-- Interface1
-- Interface2
-...
+== Tool Preparation
 
-= Development
-== Prepare
+* BPI-M7 main board
+* Power supply: USB Type-C PD
+** Support 9V/2A, 12V/2A, 15V/2A
+* System installation (choose one)
+** MicroSD /TF card boot
+*** MicroSD card/TF, Class 10 or above, at least 8GB SDHC and a card reader
+*** High speed TF cards tested by the ArmSoM team:
+**** SanDisk 32GB TF (MicroSD) (developer recommended)
+**** SanDisk 32GB TF (MicroSD) Dashcam & Security Camera Storage Card (recommended for long-term operation)
+**** Sandisk TF 8G Class10 microSD
+**** Sandisk TF 128G Class10 microSD XC TF 128G 48MB/S：
+** Onboard eMMC boot
+*** USB Type-C data cable to write image from Type-C port on Sige7 to eMMC. You need to connect Sige7 to a PC using the Type-C cable.
 
-xxxxxx
+== Optional Accessories
 
-xxxxxx
+* USB keyboard and mouse
+* HDMI display and HDMI cable
+** Sige7 features a full-sized HDMI port, and supports up to 8K@60 display
+** HDMI EDID is used to determine optimum display resolution. 1080p (or 4K/8K) will be selected on displays and TVs that support it. If 1080p is not supported, EDID will find the next available resolution.
+* Ethernet cable
+** BPI-M7 supports 2.5Gb Ethernet
+** The network cable is used to connect BPI-M7 to a local network and the Internet
+* Camera module
+** BPI-M7 supports camera function
+** We recommend using the imx415 module, available through the Banana Pi Taobao store or AliExpress 
+* LCD display
+** BPI-M7 supports LCD display
+** We recommend the ArmSoM Display 10.1 HD, available through the Banana Pi Taobao store or AliExpress 
+* Audio cable
+** Available for 0.8mm vertical socket
+* USB-A to USB-C data cable
+BPI-M
+= Image Flashing
 
-xxxxxx
+= Interface Setup
 
-== Android
-=== Prepare
+If this is your first time using the Banana Pi BPI-M7, please familiarize yourself with the Peripheral Interfaces to better understand the content below.
 
-. xxx
-. xxx
-. xxx
-. xxx
+== 2.5G Ethernet
+If using wired Ethernet, insert the network cable into the RJ45 port on the BPI-M7 and the wired connection will pop up on the desktop.
 
-=== Install Image with xxx
+* Use the ifconfig command to check if Ethernet is working normally - it will display the NIC enP2p33s0 or enP4p65s0 and Ethernet IP address. Also use the ping tool to test network connectivity.
 
-. xxx
-. xxx
-. xxx
-. xxx
+```sh 
+ifconfig
+ping mi.com
+```
 
-=== Install Image with xxx
+* If unable to ping,please try:
+```sh
+$ sudo dhclient enP2p33s0
+or  
+$ sudo dhclient enP4p65s0
+```
 
-. xxx
-. xxx
-. xxx
-. xxx
+== HDMI
+BPI-M7 has an HDMI output port which supports CEC and HDMI 2.1, maximum resolution up to 8Kp60.
 
-== Linux
-=== Prepare
+== USB
 
-. xxx
-. xxx
-. xxx
-. xxx
+The BPI-M7 provides one USB 2.0 and one USB 3.0 port.
 
-=== Install Image with xxx
-
-. xxx
-. xxx
-. xxx
-. xxx
-
-=== Install Image with xxx
-
-. xxx
-. xxx
-. xxx
-. xxx
+USB3.0 Camera: After connecting a USB 3.0 camera, you can download cheese and use the camera with the following commands:
+```sh 
+armsom@armsom-sige7: sudo apt update
+armsom@armsom-sige7: sudo apt install cheese
+```
+You can also preview the camera in the terminal:
+```sh 
+gst-launch-1.0 v4l2src device=/dev/video0 io-mode=4 ! videoconvert ! video/x-raw,format=NV12,width=1920,height=1080 ! xvimagesink;
+```
