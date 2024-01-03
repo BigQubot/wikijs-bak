@@ -2,6 +2,10 @@
 
 Banana Pi BPI-RK3588 adopts Rockchip RK3588 design, adopts core board + baseboard development board suite, supports 8G memory,32G eMMC storage, supports 32G maximum memory and 128G maximum EMMC storage, can be convenient for all kinds of development and flexible base plate customization quickly mass production of products.
 
+TIP: Rockchip RK3588 design link:/BPI-RK3588_CoreBoardAndDevelopmentKit/BananaPi_BPI-RK3588_CoreBoardAndDevelopmentKit[BPI-RK3588 core board and kit Introduction] +  
+Rockchip RK3588 design link:/en/BPI-M7/BananaPi_BPI-M7[Banana Pi BPI-M7] +
+Rockchip RK3588 design link:/en/BPI-W3/BananaPi_BPI-W3[Banana Pi BPI-W3]
+
 == Rockchip RK3588 chip
 
 RK3588 is a new generation of flagship high-end processor launched by SWMC. It adopts 8nm process design and is equipped with eight-core CPU of quad core A76+ quad core A55, Arm high-performance GPU, and built-in NPU with 6T computing power. Have strong visual processing ability, can support structure light, TOF and other fast face unlock schemes; Support rich display interface, up to 8K display processing capacity; With strong expansibility, support PCI 3.0, SATA3.0, double TypeC/USB3.1 and other high-speed interfaces, can do AI computing power, image data processing and other expansion. Apply to ARMPC, high-end tablet, edge computing server, VIRTUAL reality, NVR, 8K TV, etc.The most important is pCI-E and SATA USB3.1 these IO are complete.
