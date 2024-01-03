@@ -10,21 +10,6 @@ TIP: Rockchip RK3588 design link:/BPI-RK3588_CoreBoardAndDevelopmentKit/BananaPi
 Rockchip RK3588 design link:/en/BPI-M7/BananaPi_BPI-M7[Banana Pi BPI-M7] +
 Rockchip RK3588 design link:/en/BPI-W3/BananaPi_BPI-W3[Banana Pi BPI-W3]
 
-== BPI-3588-LGA Core board
-Banana Pi BPI-W3 base on BPI-RK3588 Core board and development Kit use BPI-RK3588-LGA core board. so you can easy to do new design with BPI-W3, just need to development a new base board.
-
-BPI-3588-LGA core board uses the Rockchip RK3588 flagship chip,integrating a 6Tops NPU and a high-performance quad-core Mali-G610 MP4 GPU. It adopts LGA 506pin package method, which can expand a variety of display interfaces and industrial application interfaces. With open baseboard design materials and open-source SDKs, it can be efficiently developed. It supports multiple operating systems such as Android, Ubuntu, Debian, and Buildroot. It provides robust, stable, reliable, and expandable product support for various AI application scenarios, and is widely applicable to fields such as edge computing, artificial intelligence,cloud computing, VR/AR, blockchain, smart security, intelligent industrial control, and smart home.
-
-image::/picture/banana_pi_bpi-rk3588-lga_1.jpg[banana_pi_bpi-rk3588-lga_1.jpg]
-
-== Key Features
-
-- Rockchip RK3588 quad ARM Cortex-A76 and quad Cortex-A55 consists of an eight-core CPU processor
-- ARM Mali-G610 MP4,
-- NPU for AI : 6Tops@INT8
-- 8G RAM and 32G eMMC flash onboard
-- 2.5Gbps Ethernet
-- Support HDMI in and HDMI out * 2
 
 == Getting Start
 
@@ -66,7 +51,23 @@ image::/picture/banana_pi_bpi-w3_interface_800.jpg[banana_pi_bpi-w3_interface_80
 | storage temperature	  | -20℃ ~ 70℃
 |=====
 
-=== BPI-3588-LGA Core board
+== BPI-3588-LGA Core board
+Banana Pi BPI-W3 base on BPI-RK3588 Core board and development Kit use BPI-RK3588-LGA core board. so you can easy to do new design with BPI-W3, just need to development a new base board.
+
+BPI-3588-LGA core board uses the Rockchip RK3588 flagship chip,integrating a 6Tops NPU and a high-performance quad-core Mali-G610 MP4 GPU. It adopts LGA 506pin package method, which can expand a variety of display interfaces and industrial application interfaces. With open baseboard design materials and open-source SDKs, it can be efficiently developed. It supports multiple operating systems such as Android, Ubuntu, Debian, and Buildroot. It provides robust, stable, reliable, and expandable product support for various AI application scenarios, and is widely applicable to fields such as edge computing, artificial intelligence,cloud computing, VR/AR, blockchain, smart security, intelligent industrial control, and smart home.
+
+image::/picture/banana_pi_bpi-rk3588-lga_1.jpg[banana_pi_bpi-rk3588-lga_1.jpg]
+
+=== LGA core board Key Features
+
+- Rockchip RK3588 quad ARM Cortex-A76 and quad Cortex-A55 consists of an eight-core CPU processor
+- ARM Mali-G610 MP4,
+- NPU for AI : 6Tops@INT8
+- 8G RAM and 32G eMMC flash onboard
+- 2.5Gbps Ethernet
+- Support HDMI in and HDMI out * 2
+
+=== BPI-3588-LGA Core board spec
 
 [options="header",cols="1,4"]
 |=====
@@ -90,7 +91,7 @@ Encode：8K@30fps H.265 / H.264
 
 
 
-== Function parameter
+=== Function parameter
 
 [options="header",cols="1,1,1,3,3"]
 |=====
@@ -208,7 +209,7 @@ Combo PIPE PHY2 support one of the following interfaces
 
 
 
-== GPIO Pin Define
+== BPI-W3 GPIO Pin Define
 
 === BPI-W3 40PIN GPIO
 [options="header",cols="1,1,1,1,1,1,1,1,1,1",width=50%]
