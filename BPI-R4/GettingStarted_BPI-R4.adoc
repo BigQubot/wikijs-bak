@@ -262,11 +262,13 @@ image::/picture/bpi-r4_sfp-10g-t(aqr113c)-pull_out_reboot_1.png[bpi-r4_sfp-10g-t
 image::/picture/bpi-r4_sfp-10g-t(aqr113c)-pull_out_reboot_2.png[bpi-r4_sfp-10g-t(aqr113c)-pull_out_reboot_2.png]
 
 === 10G SFP+ Fibre Module
+
 image::/picture/sfp-10g-bx20.jpg[sfp-10g-bx20.jpg]
 image::/picture/bpi-r4_sfp-10g-bx20_1.png[bpi-r4_sfp-10g-bx20_1.png]
 image::/picture/bpi-r4_sfp-10g-bx20_2.png[bpi-r4_sfp-10g-bx20_2.png]
 
 == 4G/5G Module
+
 BPI-R4 supports 4G LTE EC25. Quectel RM500U-CN & RM520N-GL 5G Modules.
 
 If you want to use 5G on BPI-R4:
@@ -275,7 +277,7 @@ If you want to use 5G on BPI-R4:
 . Connect RG200U-CN to mini PCIe, connect SoC through USB2.0(speed limited).
 . Make an RG200U-CN LGA adapter board and insert it into M.2 KEY M.
 
-TIP: Note: The availability of 4G/5G depends on the local carrier frequency band.
+NOTE: Note: The availability of 4G/5G depends on the local carrier frequency band.
 
 == NVMe SSD
 Please insert one M2.KeyM SSD into M2.KeyM slot.
