@@ -1,14 +1,12 @@
-= Banana Pi online Documents Main Page
-
-== Banana Pi Open source hardware project
+= Banana Pi Open source hardware project
 image::/wiki_home.jpg[wiki_home.jpg]
 
 link:http://www.banana-pi.org/[Banana Pi] is an open source hardware project lead by link:https://wiki.banana-pi.org/About_BPI[GuangDong BiPai technology co., LTD]. It focuses on the open source hardware development board of ARM and MCU series, provides open software and hardware platform, and creates the basic technology development platform. Full series open source hardware products, complete integration of voice, data, video system platform. Developers can flexibly build various application platforms on the open source hardware foundation platform. It can be applied in the Internet of things, AI artificial intelligence, industrial Internet control, STEAM education and other aspects.Create link:https://wiki.banana-pi.org/Banana_Pi_open_source_community_ecology_and_Internet_of_things_overall_technical_solutions[banana Pi open source community ecology and Internet of things overall technical solutions].
 
 Welcome free discuss on link:http://forum.banana-pi.org/[Banana Pi Forum], Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the new link link:https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[Documents] and link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[Image]
 
-== Banana Pi Products
-=== Single Board Computer: link:{https://wiki.banana-pi.org/Banana_Pi_Series_Comparison}[Banana Pi Series Comparison]
+= Banana Pi Products
+== Single Board Computer: link:{https://wiki.banana-pi.org/Banana_Pi_Series_Comparison}[Banana Pi Series Comparison]
 
 |=====
 2+| Banana Pi Single Board Computer(SBC)
@@ -42,7 +40,7 @@ link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry[Banana Pi BPI-M4 Berry] [Allwinner H
 
 |=====
 
-=== Smart Router board: link:{https://wiki.banana-pi.org/Banana_Pi_router_Comparison}[Banana Pi router Comparison]
+== Smart Router board: link:{https://wiki.banana-pi.org/Banana_Pi_router_Comparison}[Banana Pi router Comparison]
 
 |=====
 2+| Banana Pi Smart Router
@@ -57,7 +55,7 @@ link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry[Banana Pi BPI-M4 Berry] [Allwinner H
 | link:/en/BPI-W3/BananaPi_BPI-W3[Banana Pi BPI-W3] [Rockchip RK3588] | link:/en/BPI-WiFi6_Router/BananaPi_BPI-WiFi6_Router[Banana Pi BPI-WiFi6 Router] [Triductor TR6560 + TR5220 wifi SOC]
 |=====
 
-=== Banana Pi Compute Module and Development Kit
+== Banana Pi Compute Module and Development Kit
 
 |=====
 2+| Banana Pi Compute Module and Development Kit
@@ -68,7 +66,7 @@ link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry[Banana Pi BPI-M4 Berry] [Allwinner H
 | link:/en/BPI-CM5/BananaPi_BPI-CM5[Banana Pi BPI-CM5] [Amlogic A311D2] | link:/en/BPI-S64_Core/BananaPi_BPI-S64_Core[Banana Pi BPI-S64 Core] [Actions S700]
 |=====
 
-=== Banana Pi Compute Module Base Board
+== Banana Pi Compute Module Base Board
 
 |=====
 | link:/en/BPI-CM4IO/BananaPi_BPI-CM4IO[Banana Pi BPI-CM4IO] | 
@@ -80,7 +78,7 @@ link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry[Banana Pi BPI-M4 Berry] [Allwinner H
 |   | 
 |=====
 
-=== Banana Pi Webduino & Arduino & MicroPython Products
+== Banana Pi Webduino & Arduino & MicroPython Products
 
 |=====
 2+| **Banana Pi Webduino & Arduino & MicroPython Products**
@@ -95,34 +93,34 @@ link:/en/BPI-Pico-2040/BananaPi_BPI-Pico-2040[Banana Pi BPI-Pico-2040] [RP2040]
 
 |=====
 
-=== Banana Pi Webduino & Arduino & Micro:bit boards Accessories
+== Banana Pi Webduino & Arduino & Micro:bit boards Accessories
 
 |=====
 |   |
 |=====
 
-=== Banana Pi Industrial control gateway design
+== Banana Pi Industrial control gateway design
 
 |=====
 |   |
 |=====
 
-=== Banana Pi IoT
+== Banana Pi IoT
 
 |=====
 |   |
 |=====
 
-=== Banana Pi Accessories
+== Banana Pi Accessories
 
 |=====
 |   |
 |=====
 
-=== 
+== 
 
-== Software & Development Tools
-=== Embedded Operating Systems
+= Software & Development Tools
+== Embedded Operating Systems
 
 TIP: link:https://wiki.banana-pi.org/Armbian[Armbian]
 
@@ -130,7 +128,7 @@ TIP: link:https://wiki.banana-pi.org/Tina_Linux[Tina Linux]
 
 TIP: link:https://wiki.banana-pi.org/Mainline_Linux_uboot_2019.07[Mainline Linux uboot 2019.07]
 
-=== Development Tools
+== Development Tools
 
 TIP: link:https://wiki.banana-pi.org/Using_4G_module_with_BananaPi[Using 4G module with BananaPi]
 
@@ -142,7 +140,7 @@ TIP: link:https://wiki.banana-pi.org/How_to_bulid_a_image_with_BSP[How to bulid 
 
 TIP: link:https://wiki.banana-pi.org/How_to_use_DHT_Sensor_via_banana_pi[How to use DHT Sensor via banana pi]
 
-=== Building from sources
+== Building from sources
 
 Banana PI SBC and Router source code on github : https://github.com/bpi-sinovoip
 
