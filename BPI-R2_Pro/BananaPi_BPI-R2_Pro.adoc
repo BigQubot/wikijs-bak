@@ -7,11 +7,11 @@ image::/picture/banana_pi_bpi-r2_pro_ban_.jpg[banana_pi_bpi-r2_pro_ban_.jpg]
 TIP: Rockchip RK3568 design : link:/en/BPI-R2_Pro/BananaPi_BPI-R2_Pro[Banana Pi BPI-R2 Pro] Router board +
 Rockchip RK3568 design : link:/en/BPI-CM2/BananaPi_BPI-CM2[Banana Pi BPI-CM2] Computer module kit
 
-BPI-R2 Pro same size as Banana Pi BPI-R2 , and interface is also same .so can use BPI-R2 case.
+NOTE: BPI-R2 Pro same size as Banana Pi BPI-R2 , and interface is also same .so can use BPI-R2 case.
 
 Banana Pi BPI-CM2 Computer module also design with Rockchip RK3568,if you want to customize your own products, you just need to develop baseboards based on BPI-CM2 and quickly mass produce your products based on RK3568 solution.
 
-=== Rockchip RK3568
+== Rockchip RK3568
 RK3568 has built-in MICRO-research NPU of Rockchip, 0.8Tops computing power and integrated high performance AI accelerator RKNN NPU. Rockchip also provides developers with an easy-to-use model transformation tool, RKNN-Toolkit, which supports one-click transformation of Caffe/TensorFlow/TF-Lite/ONNX/PyTorch/Keras/Darknet mainstream architecture models.
 
 RK3568 has rich interface expansion capabilities. Supports a variety of peripheral high-speed interfaces, supporting four USB2.0 ports, 4xUSB2.0 HOST+ 1xUSB3.0 HOST+ 1xusB3.0 OTG. Support gigabit Ethernet *2, multi-camera support, support MIPI CSI 4Lanes, can be divided into 2x2Lanes two groups of independent use support 16bit DVP interface, support BT1120 input, support VC mode. RK3568 has a complete display interface, support HDMI 2.0 output support dual channel MIPI DSI, dual channel LVDS, can drive 2.5K LCD screen, can directly drive ink screen, support eDp. RK3568 has plenty of peripherals, supporting 10x UART, 6x I2C, 16x PWM, 4x SPI, 8xSARADC and MINI PCIE.
