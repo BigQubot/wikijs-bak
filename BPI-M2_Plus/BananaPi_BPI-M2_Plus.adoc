@@ -4,11 +4,15 @@ Banana PI BPI-M2+ is the open source hardware platform, use Alliwnner H3 (option
 
 PBI-M2 hardware: 1Ghz ARM7 quad-core processor, 1GB DDR3 SDRAM, 8G eMMC flash on board,and SDIO wifi&BT 4.0 moodule on board.Gigabit ethrnet.
 
-BPI-M2+ series run Android,Debian linux,Ubuntu linux, Raspberry Pi image and others image. Banana PI,it can easily run with the game it support 1080P high definition video output and 4K support, the GPIO compatible with Raspberry Pi B+ .
+BPI-M2+ series run Android,Debian linux,Ubuntu linux, Raspberry Pi image and others image. Banana PI,it can easily run with the game it support 1080P high definition video output and 4K support, the GPIO compatible with Raspberry Pi B+.
 
-Banana Pi BPI-M2+ not support sata port, so you need use USB for hardisk.
+NOTE: Banana Pi BPI-M2+ not support sata port, so you need use USB for hardisk.
 
 image::/picture/banana_pi_bpi-m2+.jpg[banana_pi_bpi-m2+.jpg]
+
+TIP: Allwinner H3 design: link:/en/BPI-M2_Plus/BananaPi_BPI-M2_Plus[Banana Pi BPI-M2+] SBC with eMMC onboard +
+Allwinner H3 design: link:/en/BPI-M2_Zero/BananaPi_BPI-M2_Zero[Banana Pi BPI-M2 Zero] same size as Raspberry Pi Zero W +
+Allwinner H3 design: link:/en/BPI-P2_Zero/BananaPi_BPI-P2_Zero[Banana Pi BPI-P2 Zero] for IoT design
 
 == Key Features
 
