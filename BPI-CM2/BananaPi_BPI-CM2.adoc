@@ -4,6 +4,9 @@ Banana Pi BPI-CM2 is a computer module with Rockchip RK3568 Quad-core ARM Cortex
 
 Rockchip RK3568 provides a wealth of interface resources. In addition to the board-to-board connectors compatible with the Raspberry PI, other interfaces are also drawn from the board-to-board interface, so that you can design your own base board and use of the rich interface resources of the RK3568.
 
+TIP: Rockchip RK3568 design : link://en/BPI-R2_Pro/BananaPi_BPI-R2_Pro[Banana Pi BPI-R2 Pro] Router board +
+Rockchip RK3568 design : link:/en/BPI-CM2/BananaPi_BPI-CM2[Banana Pi BPI-CM2] Computer module kit
+
 == Rockchip RK3568
 
 RK3568 has built-in MICRO-research NPU of Rockchip, 0.8Tops computing power and integrated high performance AI accelerator RKNN NPU. Rockchip also provides developers with an easy-to-use model transformation tool, RKNN-Toolkit, which supports one-click transformation of Caffe/TensorFlow/TF-Lite/ONNX/PyTorch/Keras/Darknet mainstream architecture models.
