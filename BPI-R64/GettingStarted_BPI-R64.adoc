@@ -24,6 +24,10 @@ TIP: More Infomation: link:/en/BPI-R64/BananaPi_BPI-R64[Banana Pi BPI-R64]
 
 * Prepare 8G/above TF card, USB-Serial interface
 * Using your USB-Serial Connect debug console on R64
+* Baud rate: 115200
+* Default IP address for LAN port: 192.168.1.1
+* User name/password: pi/bananapi ,root/bananapi. +
+Or the user is root without a password
 
 == Linux
 === Install Image to SDcard
