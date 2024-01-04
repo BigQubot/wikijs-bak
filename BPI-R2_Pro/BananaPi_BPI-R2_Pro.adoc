@@ -7,9 +7,9 @@ image::/picture/banana_pi_bpi-r2_pro_ban_.jpg[banana_pi_bpi-r2_pro_ban_.jpg]
 TIP: Rockchip RK3568 design : link:/en/BPI-R2_Pro/BananaPi_BPI-R2_Pro[Banana Pi BPI-R2 Pro] Router board +
 Rockchip RK3568 design : link:/en/BPI-CM2/BananaPi_BPI-CM2[Banana Pi BPI-CM2] Computer module kit
 
-NOTE: BPI-R2 Pro same size as Banana Pi BPI-R2 , and interface is also same .so can use BPI-R2 case.
-
 Banana Pi BPI-CM2 Computer module also design with Rockchip RK3568,if you want to customize your own products, you just need to develop baseboards based on BPI-CM2 and quickly mass produce your products based on RK3568 solution.
+
+NOTE: BPI-R2 Pro same size as Banana Pi BPI-R2 , and interface is also same .so can use BPI-R2 case.
 
 == Rockchip RK3568
 RK3568 has built-in MICRO-research NPU of Rockchip, 0.8Tops computing power and integrated high performance AI accelerator RKNN NPU. Rockchip also provides developers with an easy-to-use model transformation tool, RKNN-Toolkit, which supports one-click transformation of Caffe/TensorFlow/TF-Lite/ONNX/PyTorch/Keras/Darknet mainstream architecture models.
