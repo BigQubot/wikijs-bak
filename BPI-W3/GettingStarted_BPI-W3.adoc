@@ -22,64 +22,6 @@ USB C PD Charger (15W & above)
 
 
 = Linux
-== Install Image with Usb Download Tool
-
-. Download and install link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FDriverAssitant_v5.11.zip[Rockchip USB driver]
-+
-image::/picture/driver_install_2.png[driver_install_2.png]
-
-. Download link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FUpdate-EMMC-Tools.zip[Rockchip USB Download Tool] +
-This tool defaults language is Chinese. you can change it to English after extract the package. Open **RKDevTool_Release_v2.84/config.ini** with an text editor (like notepad). The starting lines are:
-+
-image::/picture/r2-pro_usb-tool-1.jpg[r2-pro_usb-tool-1.jpg]
-+
-```sh
- #Language Selection: Selected=1(Chinese); Selected=2(English)
- [Language]
- Kinds=2
- Selected=1
- LangPath=Language\
-```
-. Open RKDevTool.exe, Switch to the “**upgrade firmware**” page. Press the “**firmware**” button to open the image file to be upgraded. The upgrade tool displays detailed firmware information.
-+
-
-. Disconnect power adapter, connect dual male usb cable from the top usb host port to PC.
-
-. There have two usb download mode for image upgrade.
-
-- **Uboot Usb Download Mode (loader mode)** +
-It's supposed to use this way if board already flashed a bootable uboot before.
-- **Maskrom Usb Download Mode(maskrom mode)** +
-Press the Recovery button or Maskrom button beside 3pin uart header and hold, connect the power adapter or press the RST button if power adapter already connected, about two seconds later, release the button. PC will Identify the device if RK usb driver installed correctly.
-+
-
-The download tool also show the download mode if device connected.
-+
-
-
-. Press the “**upgrade**” button to start the upgrade.
-+
-
-
-. If the upgrade fails, you can try to erase the Emmc by pressing the EraseFlash button first, and then upgrade image again.
-+
-
-
-
-== Install Separate Images with Usb Download Tool
-. Download link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FUpdate-EMMC-Tools.zip[Rockchip USB Download Tool for EMMC upgrade] 
-. Open **RKDevTool.exe**, Switch to the “**Download Image**” page. The upgrade tool displays detailed all firmware image information. Then all image file is ready, you may push "**run**", the upgrade process begin.
-+
-NOTE: Note: Because Linux's release package, Example: **Ubuntu-22.04-Desktop-EMMCBoot-rockdev-MT7531SW-DSA.zip**, unzip it into the same folder "Update-EMMC-Tools" inside.
-+
-image::/picture/r2-pro-download_-image.jpg[r2-pro-download_-image.jpg]
-
-== Install Image with SD card
-
-. Download link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FUpdate-SD-Tools.zip[Rockchip SD Disk Tool].
-. Insert card reader to Windows PC, 8GB sdcard size at least.
-. Run SD_Firmware_Tool, check the “Upgrade Firmware” box and select the correct removable disk device, Choose firmware image, then Click Create button to make it and wait until it is finshed
-+
 
 
 == Build Linux BSP Source Code
