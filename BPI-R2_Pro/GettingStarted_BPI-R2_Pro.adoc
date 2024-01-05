@@ -299,9 +299,7 @@ image::/picture/r2-pro_usb-tool-linux-6.jpg[r2-pro_usb-tool-linux-6.jpg]
 image::/picture/r2-pro_sd-linux-1.jpg[r2-pro_sd-linux-1.jpg]
 
 == Install Image with SD card 2
-WARNING: If you use **Rockchip SD Disk Tool** and **RKDevTool_ Release** displays "**Loading firmware failed!**", then you can use the following method to burn.
-
-**Windows PC**
+WARNING: Please use this burning method for Armbian images.
 
 Install Image with Balena Etcher. +
 link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
