@@ -9,6 +9,7 @@ Welcome free discuss on link:http://forum.banana-pi.org/[Banana Pi Forum], Becau
 == Single Board Computer: link:https://wiki.banana-pi.org/Banana_Pi_Series_Comparison[Banana Pi Series Comparison]
 |=====
 2+| Banana Pi Single Board Computer(SBC)
+
 |link:/en/BPI-M1/BananaPi_BPI-M1[Banana Pi BPI-M1] [Allwinner A20] | link:/en/BPI-F2/BananaPi_BPI-F2[Banana Pi BPI-F2] [Freescale IMX6 industrial-grade]
 
 | link:/en/BPI-M1_Plus/BananaPi_BPI-M1_Plus[Banana Pi BPI-M1_Plus] [Allwinner A20] | link:/en/BPI-F2S/BananaPi_BPI-F2S[Banana Pi BPI-F2S] [SunPlus SP7021 industrial-grade]
@@ -41,6 +42,7 @@ link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry[Banana Pi BPI-M4 Berry] [Allwinner H
 
 |=====
 2+| Banana Pi Smart Router
+
 | link:/en/BPI-R1/BananaPi_BPI-R1[Banana Pi BPI-R1] [Allwinner A20] | link:/en/BPI-R2_Pro/BananaPi_BPI-R2_Pro[Banana Pi BPI-R2 Pro] [Rockchip RK3568]
 
 | link:/en/BPI-R2/BananaPi_BPI-R2[Banana Pi BPI-R2] [MTK MT7623N] | link:/en/BPI-R3/BananaPi_BPI-R3[Banana Pi BPI-R3] [MTK MT7986(Filogic 830)]
@@ -56,6 +58,7 @@ link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry[Banana Pi BPI-M4 Berry] [Allwinner H
 
 |=====
 2+| Banana Pi Compute Module and Development Kit
+
 | link:/en/BPI-CM2/BananaPi_BPI-CM2[Banana Pi BPI-CM2] [Rockchip RK3568] | link:/en/BPI-RK3588_CoreBoardAndDevelopmentKit/BananaPi_BPI-RK3588_CoreBoardAndDevelopmentKit[Banana Pi BPI-RK3588 Core Board and Development Kit] [Rockchip RK3588]
 
 | link:/en/BPI-CM4/BananaPi_BPI-CM4[Banana Pi BPI-CM4] [Amlogic A311D] | link:/en/BPI-W3_CoreBoardAndDevelopmentKit/BananaPi_BPI-W3_CoreBoardAndDevelopmentKit[Banana Pi BPI-W3 Core Board and Development Kit] [Rockchip RK3588]
@@ -99,7 +102,11 @@ link:/en/BPI-Pico-2040/BananaPi_BPI-Pico-2040[Banana Pi BPI-Pico-2040] [RP2040]
 == Industrial control gateway design
 
 |=====
-|   |
+2+| Industrial control gateway design
+
+| link:/en/BPI-6202_Embeddedsingleboardindustrialcomputer[BPI-6202 Embedded single board industrial computer] [Allwinner A40i-H] | link:/en/BPI-5202_loongson_2k1000la_embedded_single_board_industrial_computer[BPI-5202 Loongson 2K1000LA Embedded single board industrial computer] [Loongson 2K1000LA]
+
+| link:/en/BPI-KVM_with_rockchip_rk3568_for_KVM_over_IP_design[BPI-KVM with Rockchip RK3568 for KVM over IP design] [Rockchip RK3568] | link:/en/5G+4GLTE+WifiAC+GigabitMultiplexaggregateroute[5G + 4G LTE+Wifi AC+Gigabit Multiplex aggregate route] [MediaTek MT7622E] 
 |=====
 
 == IoT
