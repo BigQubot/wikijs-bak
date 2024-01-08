@@ -1,3 +1,5 @@
+= Development
+
 == Prepare
 1. A TF card at least 8GB
 2. Card reader
@@ -5,37 +7,50 @@
 == Install Image to TF card
 You can choose between Method 1 and Method 2 according to your PC’s system.
 
-Method 1：(windows host environment)
+**Method 1**：(windows host environment)
 
 . In the windows host environment, use the tool Win32DiskImager to write image to the tf card.
 
-Method 2：(x86/64 Linux host environment)
+**Method 2**：(x86/64 Linux host environment)
 
 . In an x86/64 Linux host environment, insert the TF card into the host, assuming that the block device presented by the TF card in Linux is /dev/sdz, and the full path name of the file cs6202-xxx.img is/home/foobar/cs6202-xxx.img. Run the following command to create a tf card.
++
+```sh
 sudo dd if=/home/foobar/ cs6202-xxx.img of=/dev/sdz bs=16M status=progress
 sync && sleep 2 && sync && sudo udisksctl power-off -b /dev/sdz
-
+```
 . If there is already a valid file system partition on the tf card before inserting it, then after inserting it and before running the above command, use the umount command to unmount the automatically mounted/dev/sdzN partition.
 
 == Install image to eMMC
 Please select based on your image.
 
 === cs6202-starter-install-tfcard.img
-1. Insert the tf card into CS6202 and power on to start.
-2. If the startup is normal, the RUN light will be on (constantly on) within 5 seconds of powering on;
-3. When the RUN light changes from constant on to flashing heartbeat, the eMMC image contained in the tf is being burned into the onboard eMMC. At this time, the Fn light changes from constant off to constant on (always on);
-4. Wait for about 6-8 minutes. After successful burning, the Fn light will display a heartbeat flashing (similar to the RUN light's heartbeat flashing)
-5. During the burning process, if the Fn light goes from constant on to off, it indicates that the burning process has failed. The reason is probably one of the two: verifying the eMMC image in the tf card failed, or encountering an error while burning the eMMC.
-6. When the installation process completes step 4 (i.e. successful burning), turn off the power and remove the tf card (otherwise the tf card will start installation again). Then power on, cs6202 starts from eMMC.
-cs6202-ubuntu-mate-20.04.1-desktop-armhf-docker-sd-emmc.img
-1. Insert the tf card into CS6202 and power on to start.
-2. After starting CS6202, there are two methods to burn cs6202-ubuntu-mate-20.04.1-desktop-armhf-docker-sd-emmc.img.gz into eMMC.
-Method 1: Use a USB drive
+. Insert the tf card into CS6202 and power on to start.
+. If the startup is normal, the RUN light will be on (constantly on) within 5 seconds of powering on;
+. When the RUN light changes from constant on to flashing heartbeat, the eMMC image contained in the tf is being burned into the onboard eMMC. At this time, the Fn light changes from constant off to constant on (always on);
+. Wait for about 6-8 minutes. After successful burning, the Fn light will display a heartbeat flashing (similar to the RUN light's heartbeat flashing)
+. During the burning process, if the Fn light goes from constant on to off, it indicates that the burning process has failed. The reason is probably one of the two: verifying the eMMC image in the tf card failed, or encountering an error while burning the eMMC.
+. When the installation process completes step 4 (i.e. successful burning), turn off the power and remove the tf card (otherwise the tf card will start installation again). Then power on, cs6202 starts from eMMC.
+
+=== cs6202-ubuntu-mate-20.04.1-desktop-armhf-docker-sd-emmc.img
+. Insert the tf card into CS6202 and power on to start.
+. After starting CS6202, there are two methods to burn cs6202-ubuntu-mate-20.04.1-desktop-armhf-docker-sd-emmc.img.gz into eMMC.
++
+**Method 1**: Use a USB drive
++
 Copy the file cs6202-ubuntu-mate-20.04.1-desktop-armhf-docker-sd-emmc.img.gz to the USB drive, and then insert the USB drive into CS6202. Generally, CS6202 will automatically mount the USB drive. If the USB drive is not automatically mounted, you can also run the command mount to manually mount the USB drive. We assume that the full path of the file cs6202-ubuntu-mate-20.04.1-desktop-armhf-docker-sd-emmc.img.gz after the USB drive is/mnt/media/foobar/ cs6202-ubuntu-mate-20.04.1-desktop-armhf-docker-sd-emmc.img.gz. Run the following command in cs6202 to burn the image into eMMC.
++
+```sh
 gunzip -c /mnt/media/foobar/cs6202-ubuntu-mate-20.04.1-desktop-armhf-docker-sd-emmc.img.gz | sudo dd of=/dev/mmcblk1 bs=16M status=progress
 sync && sleep 2 && sync
-Method 2: Using a network
+```
++
+**Method 2**: Using a network
++
 Copy the image file to a web publishing directory, assuming the full URL path is: "http://a.b.c/pub/ cs6202-ubuntu-mate-20.04.1-desktop-armhf-docker-sd-emmc.img.gz", run the following command in CS6202 to burn the image into eMMC.
++
+```sh
 curl -fsSL "http://a.b.c/pub/cs6202-ubuntu-mate-20.04.1-desktop-armhf-docker-sd-emmc.img.gz" | gunzip -c | sudo dd of=/dev/mmcblk1 bs=16M status=progress
 sync && sleep 2 && sync
-3.After burning the eMMC according to the steps, unplug the TF card, power on again, and cs6202 will start from the eMMC.
+```
+. After burning the eMMC according to the steps, unplug the TF card, power on again, and cs6202 will start from the eMMC.
