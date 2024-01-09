@@ -244,6 +244,9 @@ image::/picture/banana_pi_bpi-cm4_interface_.jpg[banana_pi_bpi-cm4_interface_.jp
 |===
 
 == BPI-CM4 IO board
+
+image::/bpi-cm4/banana_pi_bpi-cm4_+_io_1.jpg[banana_pi_bpi-cm4_+_io_1.jpg]
+
 === BPI-CM4 with IO board spec
 * SoC – Amlogic A311D hexa-core processor with 4x Arm Cortex-A73 cores, 2x Arm Cortex-A53 cores, Arm Mali-G52 MP4 (6EE) GPU with OpenGL ES 3.2, Vulkan 1.0 and OpenCL 2.0 support, 5 TOPS NPU
 * System Memory – 4GB LPDDR4
@@ -259,7 +262,7 @@ image::/picture/banana_pi_bpi-cm4_interface_.jpg[banana_pi_bpi-cm4_interface_.jp
 * Misc – 2x buttons.
 * Power Supply – Via USB-C port or pin header
 
-link:https://docs.banana-pi.org/en/BPI-CM4IO/BananaPi_BPI-CM4IO[Banana Pi BPI-CM4IO]
+link:https://docs.banana-pi.org/en/BPI-CM4IO/BananaPi_BPI-CM4IO[Banana Pi BPI-CM4 IO baord]
 
 == Same size as RPI CM4
 
