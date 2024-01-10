@@ -117,13 +117,13 @@ Because BPI-6202 has strong computing power and more resources, in addition to c
 The appearance of the CS6202 including the chassis is shown in the figure below.
 
 === BPI-6202 interface description
-[options="header",cols="1,2,5"]
 
 image::/indu-board/industrial_computer_zh_6.png[industrial_computer_zh_6.png]
 
+[options="header",cols="1,2,4"]
 |====
-| No | interface           | illustrate                                                                                                                                                                                  
-| 1  | HDMI 1.4            | HDMI video cable to connect the video output port and the monitor. Note: The HDMI video cable is not included in the installation accessory package and needs to be purchased by the user. Please choose a shielded cable with a length less than 3M 
+| No | interface     | illustrate                                                                                                                                                                                  
+| 1  | HDMI 1.4   | HDMI video cable to connect the video output port and the monitor. Note: The HDMI video cable is not included in the installation accessory package and needs to be purchased by the user. Please choose a shielded cable with a length less than 3M 
 | 2  | USB 2.0             | Use the USB interface to connect the keyboard/mouse/touch screen, and connect the U disk. Note: The USB interface does not support hot swapping of storage devices.                                                                                  
 | 3  | Ethernet port       | Use a network cable to connect the Ethernet port of the device to the switch, supporting 1 x 1000M + 1 x 100M                                                                                                                                        
 | 4  | RS232/RS485         | Phoenix terminal, RS232 x 1+ RS485 x 2, connect the cable terminal to the Phoenix terminal interface of CS6202, and make sure that the peer device and BPI-6202 are connected to the ground wire.                                                    
