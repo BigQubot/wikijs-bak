@@ -1,7 +1,3 @@
-= Getting Start
-
-TIP: link:/en/BPI-6202_Embeddedsingleboardindustrialcomputer/GettingStarted_BPI-6202[Getting Started BPI-6202]
-
 = Embedded industrial computer overview
 == Definition and application scenarios of embedded industrial computer
 Industrial Personal Computer (IPC for short) is a reinforced and enhanced microcomputer that appeared in the 1990s and is widely used in industrial field monitoring and control. Industrial personal computers often operate in harsh environments. Data security requirements are also higher, so industrial computers are usually specially designed for reinforcement, dust-proof, moisture-proof, corrosion-proof, radiation-proof, etc. Up to now, the X86+Windows (Wintel) architecture is still the mainstream solution for industrial computers. It can be defined as a traditional industrial computer. Generally speaking
@@ -99,6 +95,11 @@ All boards are connected via internal bus(485 or SPI) in the box
 
 
 Banana Pi BPI-6202 expansion gateway design
+
+= Getting Start
+
+TIP: link:/en/BPI-6202_Embeddedsingleboardindustrialcomputer/GettingStarted_BPI-6202[Getting Started BPI-6202]
+
 
 == BPI-6202 product
 === About BPI-6202 Product
