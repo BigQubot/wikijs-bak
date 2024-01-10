@@ -59,6 +59,10 @@ From the above analysis, it is not difficult to see that the application of indu
 = BPI-6202 Embedded Single Board Industrial Computer
 BPI-6202 as a simple embedded general controller hardware and software development platform, it provides fully functional hardware solutions for application developers, and supports BSP+docker development environment. Provide strong edge computing support. Developers can quickly utilize the development platform, develop and productize
 
+= Getting Start
+
+TIP: link:/en/BPI-6202_Embeddedsingleboardindustrialcomputer/GettingStarted_BPI-6202[Getting Started BPI-6202]
+
 == BPI-6202 PCBA design
 === PCBA interface
 
@@ -78,7 +82,12 @@ image::/indu-board/banana_pi_bpi-6202_int.jpg[banana_pi_bpi-6202_int.jpg]
 
 === PCBA with SSD and 4G support
 
+image::/indu-board/industrial_computer_zh_int.png[industrial_computer_zh_int.png]
+
 === 20 Pin GPIO expansion port
+
+image::/indu-board/bpi-6202_gpio.png[bpi-6202_gpio.png]
+
 BPI-6202 also support expansion board ,The expansion port adopts 2.54mm pitch, 2x10P row pin seat, which is used to expand 10 interfaces.
 
 
@@ -94,12 +103,9 @@ The BPI-6202 supports modular design, provides rich expansion interfaces, and ca
 
 All boards are connected via internal bus(485 or SPI) in the box
 
-
 Banana Pi BPI-6202 expansion gateway design
 
-= Getting Start
-
-TIP: link:/en/BPI-6202_Embeddedsingleboardindustrialcomputer/GettingStarted_BPI-6202[Getting Started BPI-6202]
+image::/indu-board/banana_pi_bpi-6202_gateway_5.jpg[banana_pi_bpi-6202_gateway_5.jpg]
 
 
 == BPI-6202 product
