@@ -8,6 +8,10 @@ BPI-KVM supports a variety of video interface specifications, including VGA, HDM
 
 The BPI-KVM provides two RS-232 and two RS-485 serial communication interfaces. With the support of the interface communication protocol, you can flexibly control more external devices through the device connected to the RS485/RS232 serial port. In addition, the iKVM also provides 4 digital input and 1 digital output interface, which can be used to access the three-color lamp circuit of the product machine to obtain the status information of the machine simultaneously; Access Permission Control (Interlock) button interface is also available, supporting near & remote control permissions when enabling or disabling.
 
+TIP: Rockchip RK3568 design : link:/en/BPI-R2_Pro/BananaPi_BPI-R2_Pro[Banana Pi BPI-R2 Pro] Router board +
+Rockchip RK3568 design : link:/en/BPI-CM2/BananaPi_BPI-CM2[Banana Pi BPI-CM2] Computer module kit +
+Rockchip RK3568 design : link:/en/BPI-KVM/BananaPi_BPI-KVM[Banana Pi BPI-KVM] PiKVM for KVM over IP
+
 
 == Key Features
 * Compact and lightweight design to save space;
