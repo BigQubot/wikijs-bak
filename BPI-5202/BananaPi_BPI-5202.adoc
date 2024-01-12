@@ -104,8 +104,37 @@ Banana Pi BPI-5202 expansion gateway design
 image::/indu-board/banana_pi_bpi-6202_gateway_1.jpg[banana_pi_bpi-6202_gateway_1.jpg]
 
 == BPI-5202 Product
+BI-5202 embedded edge computing industrial computer, is based on Loongson 2K1000 (LA) research and development, at the same time connected to dozens of field electrical/Internet of things equipment/video front-end equipment of the domestic autonomous controllable industrial computer. The external chassis and interface position can be flexibly customized according to the field working conditions. BI-5202 integrates the following functions:
 
-The appearance of the CS6202 including the chassis is shown in the figure below.
+300+ Industry general/industry specific protocol library
+
+* Video access transmission/control/recording/linkage
+* Edge computing programming ability
+* Full-featured SCADA for C/S architecture
+
+BI-5202 is based on the domestic autonomous controllable platform, and completely replaces the original on-site WinTel architecture industrial computer scheme in the autonomous controllable application of key technologies of automation systems and information systems in various industries.
+
+Successfully passed the "2021 Domestic independent ecological industrial control system and product Test Evaluation" held by the "National Industrial Information Security Development Research Center" and the "National Industrial Control System Use Product Safety Quality Inspection and Testing Center" in 2021, and was recommended.
+
+BPI-5202, the basic configuration has 2 independent IP Ethernet ports, 2 RS485 ports, 1 RS232 port, 2 CAN network ports, 4G/5G/WIFI, flexible configuration, widely used in power, oil, factories and mining, and the Internet of things industry automation monitoring occasions. It is the main homegrown autonomous controllable edge computing gateway in CS series.
+
+BPI-5202 built-in 300+ protocol interpretation library and real-time database, can connect a variety of domestic and foreign protection devices, measurement and control devices, IEDs and other devices, and support IEC61850. Special specifications can be customized according to user requirements; Provide open API, convenient for users to develop their own protocol software, protocol software can be downloaded independently.
+
+BPI-5202 can support the access of dozens of devices, data protocol analysis, conversion and unified transmission.
+
+BPI-5202 has powerful video processing capabilities, including RTSP/RTMP video push-pull streaming, Onvif/GB28181 protocol stack and other video surveillance transmission functions, to achieve compatible access to multi-manufacturer video front-end equipment (IPC, NVR), after configuring a large capacity hard disk can replace NVR, video recording and playback functions. Provides the industry's only data + video perfect integration solution.
+
+The BPI-5202 supports full SCADA system functions up to 2048 points via HDMI display interface and USB keyboard and mouse (or touch screen).
+
+BPI-5202 supports three configuration modes:
+
+* Built-in WEB management, query/configure the working parameters of the device through the browser
+* Dedicated configuration software configures device parameters
+* Cloud remote management, gateway to gateway configuration and diagnosis, firmware and application upgrades
+
+BPI-5202 adopts the original iCoupler® digital isolation technology, RS485 automatic direction control, RS485 zero delay transmission technology, fully considering the particularness of industrial field applications in design, following EMI/EMC design specifications, and adapting to various harsh industrial sites and iot sites. Ensure the reliability of communication and various IO semaphore.
+
+The appearance of the BPI-5202 including the chassis is shown in the figure below.
 
 image::/indu-board/industrial_computer_zh_3.png[industrial_computer_zh_3.png]
 
