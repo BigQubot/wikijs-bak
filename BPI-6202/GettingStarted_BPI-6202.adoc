@@ -51,17 +51,26 @@ Please select based on your image.
 . After starting CS6202, there are two methods to burn cs6202-ubuntu-mate-20.04.1-desktop-armhf-docker-sd-emmc.img.gz into eMMC.
 +
 **Method 1**: Use a USB drive
+
+a. Copy the file cs6202-ubuntu-mate-20.04.1-desktop-armhf-docker-sd-emmc.img.gz to the USB drive, and then insert the USB drive into CS6202. 
+b. Generally, CS6202 will automatically mount the USB drive. If the USB drive is not automatically mounted, you can also run the command mount to manually mount the USB drive. 
 +
-Copy the file cs6202-ubuntu-mate-20.04.1-desktop-armhf-docker-sd-emmc.img.gz to the USB drive, and then insert the USB drive into CS6202. Generally, CS6202 will automatically mount the USB drive. If the USB drive is not automatically mounted, you can also run the command mount to manually mount the USB drive. We assume that the full path of the file cs6202-ubuntu-mate-20.04.1-desktop-armhf-docker-sd-emmc.img.gz after the USB drive is/mnt/media/foobar/ cs6202-ubuntu-mate-20.04.1-desktop-armhf-docker-sd-emmc.img.gz. Run the following command in cs6202 to burn the image into eMMC.
+```sh
+mount /dev/sda1 /mnt/media/foobar
+```
+c. We assume that the full path of the file cs6202-ubuntu-mate-20.04.1-desktop-armhf-docker-sd-emmc.img.gz after the USB drive is **/mnt/media/foobar/ cs6202-ubuntu-mate-20.04.1-desktop-armhf-docker-sd-emmc.img.gz**. 
+d. Run the following command in cs6202 to burn the image into eMMC.
 +
 ```sh
 gunzip -c /mnt/media/foobar/cs6202-ubuntu-mate-20.04.1-desktop-armhf-docker-sd-emmc.img.gz | sudo dd of=/dev/mmcblk1 bs=16M status=progress
 sync && sleep 2 && sync
 ```
+
 +
 **Method 2**: Using a network
-+
-Copy the image file to a web publishing directory, assuming the full URL path is: "http://a.b.c/pub/ cs6202-ubuntu-mate-20.04.1-desktop-armhf-docker-sd-emmc.img.gz", run the following command in CS6202 to burn the image into eMMC.
+a. Copy the image file to a web publishing directory
+b. Assuming the full URL path is: "http://a.b.c/pub/ cs6202-ubuntu-mate-20.04.1-desktop-armhf-docker-sd-emmc.img.gz"
+c. Run the following command in CS6202 to burn the image into eMMC.
 +
 ```sh
 curl -fsSL "http://a.b.c/pub/cs6202-ubuntu-mate-20.04.1-desktop-armhf-docker-sd-emmc.img.gz" | gunzip -c | sudo dd of=/dev/mmcblk1 bs=16M status=progress
