@@ -1,4 +1,8 @@
 = Embedded industrial computer overview
+
+TIP: Allwinner A40I design: link:/en/BPI-6202/BananaPi_BPI-6202[Banana Pi BPI-6202] Embedded single board industrial Computer  +
+Loongson 2K1000LA design: link:/en/BPI-5202/BananaPi_BPI-5202[Banana Pi BPI-5202] Embedded single board industrial computer
+
 == Definition and application scenarios of embedded industrial computer
 Industrial Personal Computer (IPC for short) is a reinforced and enhanced microcomputer that appeared in the 1990s and is widely used in industrial field monitoring and control. Industrial personal computers often operate in harsh environments. Data security requirements are also higher, so industrial computers are usually specially designed for reinforcement, dust-proof, moisture-proof, corrosion-proof, radiation-proof, etc. Up to now, the X86+Windows (Wintel) architecture is still the mainstream solution for industrial computers. It can be defined as a traditional industrial computer. Generally speaking
 
