@@ -14,7 +14,16 @@ You can choose between Method 1 and Method 2 according to your PC’s system.
 
 **Method 1**：(windows host environment)
 
-. In the windows host environment, use the tool Win32DiskImager to write image to the tf card.
+. Install Image with Balena Etcher. +
+link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
++
+- Click on "**Flash from file**" to select image. 
+
+- Click on "**Select target**" to select USB device. 
+
+- Click on "**Flash!**" Start burning.
++
+image::/picture/etcher.jpg[etcher.jpg]
 
 **Method 2**：(x86/64 Linux host environment)
 
