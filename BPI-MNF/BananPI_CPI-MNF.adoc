@@ -38,19 +38,19 @@ We have design 5G interface on board ,Use M.2 PCIe interface for 5G.So easy to a
 . Quectel 5G module test : https://www.youtube.com/watch?v=pRQRWRrgcQI&fbclid=IwAR3yPpDbtCw8o0OUQVVAp57jw-1zs6Ia6yI3itBjS0HILxND1x2ISMlS3CM
 
 == 4G interface
-This board design in 4-6 port 4G LTE module interface ,support PCIe interface 4G module. if not use wifi AC module ,can support 5 pcs 4G module,so you can use it do many 4G application.
+This board design in 4-6 port 4G LTE module interface ,support PCIe interface 4G module. If not use wifi AC module ,can support 5 pcs 4G module,so you can use it do many 4G application.
 
 It can support 4G CARDS of different operators, and automatically switch to another operator when the 4G signal is not stable, so as to guarantee the communication quality(QOS)
 
 It also support OpenMPTcpRouter project.
 
 == WiFi support
-Not design wifi onboard. but easy to add wifi support onboard via PCIe wifi card.
+Not design wifi onboard. But easy to add wifi support onboard via PCIe wifi card.
 
-We also design a BPI-MT7615 802.11 ac wifi 4x4 dual-band module for this board. and test all driver on this .
+We also design a BPI-MT7615 802.11 ac wifi 4x4 dual-band module for this board and test all driver on this.
 
 == Pin define for IoT
-This board have 26 PIN define on board. easy to add IoT module for IoT application.
+This board have 26 PIN define on board, easy to add IoT module for IoT application.
 
 Easy to support zigbee,NB-IoT,LoRA,Z-Wave.....
 
@@ -75,9 +75,8 @@ It can be applied to communication vehicles, command vehicles, smart police cars
 . High security: after the original data is unpacked and encrypted by the fusion device, it is sent to the server through different channels. The load of each link is dynamically adjusted according to the communication capacity of each channel. The terminal and server are also equipped with VPN to protect the data up to 4 times.
 . Industrial-grade AP access: industrial-grade AP module is built in the device, suitable for WIFI device access/bridge and other scenarios in various environments.
 . Enrich the IoT extension interface,support Zigbee,Z-Wave,NB-IoT,LoRA,PLC....
-technical highlights of multi-card aggregation intelligent fusion 
 
-== Communication equipment
+== Technical highlights of multi-card aggregation intelligent fusion Communication equipment
 . Enhance the bandwidth to provide reliable connection: by combining multiple wired and cellular network resources through channel connection at the same time, provide broadband function, make use of the operator's diversity of link aggregation and link flow control technology to achieve seamless fault switching, and guarantee the system to provide continuous and uninterrupted broadband service.
 . Secure communication: ensure data encryption and protect the diversified network resources of transactions with IPSec, VPN and distributed computing across multiple paths, operators and routes.
 . 4G multi-carrier support technology: support multiple operators network, can ensure that only one network can work under normal circumstances.
