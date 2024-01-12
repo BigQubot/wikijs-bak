@@ -1,0 +1,97 @@
+= Overview
+
+This is a link:/en/BPI_4.0_Server[BPI 4.0 Server] base on link:/en/BPI-R64/BananaPi_BPI-R64[Banana Pi BPI-R64] design,use MTK7622 quad-core 64-bit A53 chip design, with the main frequency up to 1.35g. Onboard 1-2g DDR memory and 8g eMMC storage.Can support OpenWRT,Linux operating system, in-depth customization of xiaocao technology integrated communication software platform.Provide a complete fusion communication, multi - link communication solution.And supports IoT extensions.Free access to IoT applications.
+
+- Module 1 : Base on BPI-R2,ithas 4 x 4G LTE interface ,can support max 5 port 4G LTE module ,support OpenWRT and OpenMPTcpRouter protocol. have one PCIe for 2.4G/5.8G wifi AC, can support MT7615 wifi module. and we also design a 5G inerface , easy to add 5G module onboard to support 5G. and have 5 Gigabit Wan/Lan port to spport router function
+- Module 2 : Base on BPI-R64 ,support 5 4G LTE and 1 M.2 5G interface.support OpenWRT and OpenMPTcpRouter protocol. have one PCIe for 2.4G/5.8G wifi AC, can support MT7615 wifi module. and we also design a 5G inerface , easy to add 5G module onboard to support 5G. and have 5 Gigabit Wan/Lan port to spport router function
+- Module 3 ：Base on BPI-R64,support 3 4G LTE inerface and 2 M.2 5G interface,support OpenWRT and OpenMPTcpRouter protocol. have one PCIe for 2.4G/5.8G wifi AC, can support MT7615 wifi module. and we also design a 5G inerface , easy to add 5G module onboard to support 5G. and have 5 Gigabit Wan/Lan port to spport router function
+
+= Hardware
+== Main fcunction
+- MediaTek MT7622E,1.35GHZ 64 bit dual-core ARM Cortex-A53
+- 1x5G port , via M.2 inerface USB 3.0 or PCIe bus.
+- 4x4G LTE , support Multiple Merges protocol.
+- 5xGigabit port. support VPN ,router function.
+- wifi 802.11 b/g/n/ac function support.
+- IoT expanding application with 26 PIN GPIO
+- (1-2)G DDR and 8G eMMC flash
+- M.2 key B interface
+
+== PCBA inerface
+=== 3 Port 4G
+
+
+
+
+=== 5 port 4G
+
+
+
+=== 6 Port 4G
+
+
+== 5G interface
+We have design 5G interface on board ,Use M.2 PCIe interface for 5G.so easy to add 5G module to support 5G application. also add standard 5G sim slot onbaord.
+
+. Simcom 5G module
+. Quectel 5G module Specification : https://drive.google.com/file/d/1g8kUucKQ3XBrnZVwWw2k9Wb0cHS0fkub/view?usp=sharing
+. Quectel 5G module test : https://www.youtube.com/watch?v=pRQRWRrgcQI&fbclid=IwAR3yPpDbtCw8o0OUQVVAp57jw-1zs6Ia6yI3itBjS0HILxND1x2ISMlS3CM
+
+== 4G interface
+This board design in 4-6 port 4G LTE module interface ,support PCIe interface 4G module. if not use wifi AC module ,can support 5 pcs 4G module,so you can use it do many 4G application.
+
+It can support 4G CARDS of different operators, and automatically switch to another operator when the 4G signal is not stable, so as to guarantee the communication quality(QOS)
+
+It also support OpenMPTcpRouter project.
+
+== WiFi support
+Not design wifi onboard. but easy to add wifi support onboard via PCIe wifi card.
+
+We also design a BPI-MT7615 802.11 ac wifi 4x4 dual-band module for this board. and test all driver on this .
+
+== Pin define for IoT
+This board have 26 PIN define on board. easy to add IoT module for IoT application.
+
+Easy to support zigbee,NB-IoT,LoRA,Z-Wave.....
+
+= Software support
+== Soruce code on github
+https://github.com/BPI-SINOVOIP/BPI-R64-openwrt
+
+Please use commond : make -j5 to build OpenWRT image, also have 5G driver include.
+
+== Reference
+- Banana Pi do all hardware design and BSP development,xiaocao support application layer development : aixiaocao website: https://www.aixiaocao.com/
+- Banana Pi BPI:4.0 service: BPI-R64 for 4G/5G gateway deign : https://www.youtube.com/watch?v=AoC2TBWFLmo
+
+== Product application direction
+It can be applied to communication vehicles, command vehicles, smart police cars, medical rescue vehicles, engineering and emergency vehicles (water, electricity, gas, fire trucks, etc.), cargo transport and passenger vehicles, high-speed rail, mobile finance and other scenarios.
+
+
+== Product feature
+. 5G high-speed access, 5G technology has higher throughput, providing a higher possibility for the Internet of everything, real-time.
+. 4g Multiple Merges support, network speed guarantee: multi-channel cable, 4-channel 4G wireless link can be aggregated to form a high-speed, stable and safe high-capacity upstream and downstream channel. Support 4G wireless network mixing of all mobile/unicom/telecom operators, and support dedicated line /DAL cable link and satellite link.
+. High stability and convenience: the data transmitted by the front end can better optimize and configure the load of the links, so as to effectively avoid the link congestion caused by blind data transmission, maximize the use of all available channels, and form a stable communication link.
+. High security: after the original data is unpacked and encrypted by the fusion device, it is sent to the server through different channels. The load of each link is dynamically adjusted according to the communication capacity of each channel. The terminal and server are also equipped with VPN to protect the data up to 4 times.
+. Industrial-grade AP access: industrial-grade AP module is built in the device, suitable for WIFI device access/bridge and other scenarios in various environments.
+. Enrich the IoT extension interface,support Zigbee,Z-Wave,NB-IoT,LoRA,PLC....
+technical highlights of multi-card aggregation intelligent fusion 
+
+== Communication equipment
+. Enhance the bandwidth to provide reliable connection: by combining multiple wired and cellular network resources through channel connection at the same time, provide broadband function, make use of the operator's diversity of link aggregation and link flow control technology to achieve seamless fault switching, and guarantee the system to provide continuous and uninterrupted broadband service.
+. Secure communication: ensure data encryption and protect the diversified network resources of transactions with IPSec, VPN and distributed computing across multiple paths, operators and routes.
+. 4G multi-carrier support technology: support multiple operators network, can ensure that only one network can work under normal circumstances.
+. Realize true 4G multiplex aggregation: stable aggregation link, complete big data transmission with low latency, and real-time transmission of hd video signal without pressure.
+
+== Server management platform
+== Support System
+. OpenWRT
+. OpenMPTCPRouter
+. Linux
+
+= Cooperative partner
+WARNING: Ai xiao cao : https://www.aixiaocao.com/
+
+WARNING: OEM&ODM please contact : judyhuang@banana-pi.com
+
+WARNING: Easy to buy 5G development board: https://www.aliexpress.com/item/1005001721150316.html?spm=2114.12010611.8148356.1.782430d9pjtdYW
