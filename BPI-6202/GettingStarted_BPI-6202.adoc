@@ -8,6 +8,7 @@ TIP: link:/en/BPI-6202/BananaPi_BPI-6202[BananaPi BPI-6202 Embedded single board
 . A TF card at least 8GB
 . Card reader
 . 3.3V TTL line. Baud: 115200
+. 24V power supply
 
 == Install Image to TF card
 You can choose between Method 1 and Method 2 according to your PC’s system.
@@ -36,13 +37,25 @@ sync && sleep 2 && sync && sudo udisksctl power-off -b /dev/sdz
 . If there is already a valid file system partition on the tf card before inserting it, then after inserting it and before running the above command, use the umount command to unmount the automatically mounted/dev/sdzN partition.
 
 == Install image to eMMC
-Please select based on your image.
+NOTE: Please select based on your image.
 
 === cs6202-starter-install-tfcard.img
 . Insert the tf card into CS6202 and power on to start.
 . If the startup is normal, the RUN light will be on (constantly on) within 5 seconds of powering on;
-. When the RUN light changes from constant on to flashing heartbeat, the eMMC image contained in the tf is being burned into the onboard eMMC. At this time, the Fn light changes from constant off to constant on (always on);
++
+image::/picture/cs6202-starter-install-tfcard_1.jpg[cs6202-starter-install-tfcard_1.jpg]
+. When the RUN light changes from constant on to flashing heartbeat, the eMMC image contained in the tf is being burned into the onboard eMMC. At this time, the Fn light changes from constant off to constant on (always on)
++
+image::/picture/cs6202-starter-install-tfcard_2.jpg[cs6202-starter-install-tfcard_2.jpg]
 . Wait for about 6-8 minutes. After successful burning, the Fn light will display a heartbeat flashing (similar to the RUN light's heartbeat flashing)
++
+**LED lights:**
++
+image::/picture/cs6202-starter-install-tfcard_3.jpg[cs6202-starter-install-tfcard_3.jpg]
++
+**Display screen:**
++
+image::/picture/cs6202-starter-install-tfcard.jpg[cs6202-starter-install-tfcard.jpg]
 . During the burning process, if the Fn light goes from constant on to off, it indicates that the burning process has failed. The reason is probably one of the two: verifying the eMMC image in the tf card failed, or encountering an error while burning the eMMC.
 . When the installation process completes step 4 (i.e. successful burning), turn off the power and remove the tf card (otherwise the tf card will start installation again). Then power on, cs6202 starts from eMMC.
 
