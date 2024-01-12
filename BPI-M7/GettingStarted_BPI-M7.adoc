@@ -44,7 +44,7 @@ TIP: More Infomation: link:/en/BPI-M7/BananaPi_BPI-M7[Banana Pi BPI-M7]
 * Audio cable
 ** Available for 0.8mm vertical socket
 * USB-A to USB-C data cable
-BPI-M
+
 = Image Flashing
 
 = Interface Setup
@@ -55,13 +55,14 @@ If this is your first time using the Banana Pi BPI-M7, please familiarize yourse
 If using wired Ethernet, insert the network cable into the RJ45 port on the BPI-M7 and the wired connection will pop up on the desktop.
 
 * Use the ifconfig command to check if Ethernet is working normally - it will display the NIC enP2p33s0 or enP4p65s0 and Ethernet IP address. Also use the ping tool to test network connectivity.
-
++
 ```sh 
 ifconfig
 ping mi.com
 ```
 
 * If unable to ping,please try:
++
 ```sh
 $ sudo dhclient enP2p33s0
 or  
@@ -137,6 +138,7 @@ armsom@armsom-sige7:/# echo activity > /sys/class/leds/red/trigger
 * The BPI-M7 features an hym8563 RTC chip.
 * First, insert the RTC battery using the 2-pin header to supply power to the RTC IC.
 * Note that we should keep the RTC battery in the RTC connector and confirm the rtc hym8563 device which has been created.
++
 ```sh 
 armsom@armsom-sige7:/# dmesg | grep rtc  
 [ 6.407133] rtc-hym8563 6-0051: rtc information is valid  
@@ -144,6 +146,7 @@ armsom@armsom-sige7:/# dmesg | grep rtc
 [ 6.413779] rtc-hym8563 6-0051: setting system clock to 2022-06-22T01:22:26 UTC (1655860946)  
 ```
 * Find rtc0, then use the following commands to set system time and sync to rtc0:
++
 ```sh 
 armsom@armsom-sige7:/# hwclock -r  
 2023-11-03 10:32:40.461910+00:00  
@@ -154,6 +157,7 @@ armsom@armsom-sige7:/# hwclock -r
 armsom@armsom-sige7:/# poweroff  
 ```
 * Turn off the RTC battery for 10+ minutes, insert the battery again and boot Sige7, and check if RTC synced with system clock:
++
 ```sh 
 armsom@armsom-sige7:/# hwclock -r  
 2023-11-03 10:35:40.461910+00:00  
@@ -165,14 +169,16 @@ Fri 3rd Nov 10:36:01 UTC 2023
 The BPI-M7 provides an M.2 connector:
 
 * There is an M.2 M Key connector on the back with a 4-lane PCIe 3.0 interface. The board has a standard M.2 2280 mounting hole to deploy M.2 2280 NVMe SSDs.
-Note: This M.2 interface does NOT support M.2 SATA SSDs.
++
+WARNING: Note: This M.2 interface does NOT support M.2 SATA SSDs.
++
 ```sh 
 armsom@armsom-sige7:/# mkdir temp  
 armsom@armsom-sige7:/# mount /dev/nvme0n1 temp
 ```
 
 == Camera
-MIPI-CSI
+**MIPI-CSI**
 
 Use the IMX415 module for the camera. After connecting and powering on the camera module you can view the boot log:
 ```sh 
