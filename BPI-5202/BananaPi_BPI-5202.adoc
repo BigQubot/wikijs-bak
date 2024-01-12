@@ -111,6 +111,23 @@ image::/indu-board/industrial_computer_zh_3.png[industrial_computer_zh_3.png]
 
 === BPI-5202 interface description
 
+image::/indu-board/bpi_industrial_product_interface_6.png[bpi_industrial_product_interface_6.png]
+
+[options="header",cols="1,2,6"]
+|====
+| No | interface     | illustrate                                                                                                                                                                                  
+| 1  | HDMI 1.4   | HDMI video cable to connect the video output port and the monitor. +
+**Note**: The HDMI video cable is not included in the installation accessory package and needs to be purchased by the user. Please choose a shielded cable with a length less than 3M 
+| 2  | USB 2.0             | Use the USB interface to connect the keyboard/mouse/touch screen, and connect the U disk. +
+**Note**: The USB interface does not support hot swapping of storage devices.                                                                                  
+| 3  | Ethernet port       | Use a network cable to connect the Ethernet port of the device to the switch, supporting 1 x 1000M + 1 x 100M                                                                                                                                        
+| 4  | RS232/RS485         | Phoenix terminal, RS232 x 1+ RS485 x 2, connect the cable terminal to the Phoenix terminal interface of CS6202, and make sure that the peer device and BPI-6202 are connected to the ground wire.                                                    
+| 5  | DC power            | Phoenix terminal, using 24V DC power supply                                                                                                                                                                                                          
+| 6  | WiFi Antenna Mount  | SMA-K (external thread + internal hole), if you need to use the antenna to connect to the network, connect the antenna device to the BPI-6202 through the antenna interface. Standard 1 antenna, Wifi antenna, 4G+WiFi;                              
+| 7  | 4G/5G Antenna Mount | A standard 4G antenna is provided. If you need to expand 5G, you need to use a customized chassis and configure 4 additional antennas                                                                                                                
+| 8  | 3 indicator lights  | From top to bottom, they are: system running light, which flashes regularly during normal operation; reserved light (programmable and controllable); 4G/5G running light, showing cellular communication status                                      
+|====
+
 === BPI-5202 product key feature
 
 === Internal logical structure
