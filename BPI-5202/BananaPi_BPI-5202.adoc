@@ -100,6 +100,24 @@ Banana Pi BPI-5202 expansion gateway design
 
 image::/indu-board/banana_pi_bpi-6202_gateway_1.jpg[banana_pi_bpi-6202_gateway_1.jpg]
 
+== BPI-5202 Product
+
+The appearance of the CS6202 including the chassis is shown in the figure below.
+
+image::/indu-board/industrial_computer_zh_3.png[industrial_computer_zh_3.png]
+
+=== BPI-5202 interface description
+
+=== BPI-5202 product key feature
+
+=== Internal logical structure
+
+image::/indu-board/bpi-5020_1.png[bpi-5020_1.png]
+
+=== External connection
+
+image::/indu-board/industrial_computer_zh_6.png[industrial_computer_zh_6.png]
+
 
 = Cooperation method
 . BPI-5206 is an open-source hardware product. The Banana Pi community provides all BSP board-level support codes and supports Docker containers in the codes. Customers with technical development capabilities can directly carry out secondary application development on BPI-6202.
