@@ -1,1 +1,27 @@
-TIP: link:/en/BPI-WiFi6_Router/BananaPi-WiFi6_Router[Banana Pi WiFi6 Router]
+TIP: link:/en/BPI-WiFi6_Router/BananaPi_BPI-WiFi6_Router[Banana Pi WiFi6 Router]
+
+= Prepare
+
+- Ethernet cable, BPI-WiFi6, 12V power supply
+
+== Web page upgrade
+. First, download the image you want to upgrade.
+. Power on the BPI-WiFi 6 and connect it to the computer using a network cable.
+. Enter the webpage (default IP is 192.168.1.1，the user is root and does not have a password.)
++
+image::/picture/bpi-wifi6_upgrade_5.png[bpi-wifi6_upgrade_5.png]
+. Select “System", then select "Backup/Flash Firmware".
++
+image::/picture/bpi-wifi6_upgrade_1.png[bpi-wifi6_upgrade_1.png]
+. Select "Flash image...".
++
+image::/picture/bpi-wifi6_upgrade_2.png[bpi-wifi6_upgrade_2.png]
+. Select the image you want to upgrade, and then click "Upload".
++
+image::/picture/bpi-wifi6_upgrade_3.png[bpi-wifi6_upgrade_3.png]
+. Uncheck "Keep settings and retain the current configuration".Select "Continue".
++
+image::/picture/bpi-wifi6_upgrade_4.png[bpi-wifi6_upgrade_4.png]
+. Wait a few minutes, after the upgrade is completed, it will automatically restart and the web page will automatically refresh.
++
+image::/picture/bpi-wifi6_upgrade_5.png[bpi-wifi6_upgrade_5.png]
