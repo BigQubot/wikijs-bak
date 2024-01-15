@@ -42,8 +42,7 @@ image::/picture/r2-pro_usb-tool-1.jpg[r2-pro_usb-tool-1.jpg]
 ```
 . Open RKDevTool.exe, Switch to the “**upgrade firmware**” page. Press the “**firmware**” button to open the image file to be upgraded. The upgrade tool displays detailed firmware information.
 +
-image::/picture/r2-pro_usb-tool-2.jpg[r2-pro_usb-tool-2.jpg]
-image::/picture/r2-pro_usb-tool-3.jpg[r2-pro_usb-tool-3.jpg]
+
 . Disconnect power adapter, connect dual male usb cable from the top usb host port to PC.
 
 . There have two usb download mode for image upgrade.
@@ -56,16 +55,15 @@ Press the Recovery button or Maskrom button beside 3pin uart header and hold, co
 image::/picture/r2-pro_usb-tool-4.jpg[r2-pro_usb-tool-4.jpg]
 The download tool also show the download mode if device connected.
 +
-image::/picture/r2-pro_usb-tool-5.jpg[r2-pro_usb-tool-5.jpg]
-image::/picture/r2-pro_usb-tool-6.jpg[r2-pro_usb-tool-6.jpg]
+
 
 . Press the “**upgrade**” button to start the upgrade.
 +
-image::/picture/r2-pro_usb-tool-7.jpg[r2-pro_usb-tool-7.jpg]
+
 
 . If the upgrade fails, you can try to erase the Emmc by pressing the EraseFlash button first, and then upgrade image again.
 +
-image::/picture/r2-pro_usb-tool-8.jpg[r2-pro_usb-tool-8.jpg]
+
 
 
 = Linux
