@@ -6,6 +6,10 @@ This is a link:/en/BPI_4.0_Server[BPI 4.0 Server] base on link:/en/BPI-R64/Banan
 - Module 2 : Base on BPI-R64 ,support 5 4G LTE and 1 M.2 5G interface.support OpenWRT and OpenMPTcpRouter protocol. have one PCIe for 2.4G/5.8G wifi AC, can support MT7615 wifi module. and we also design a 5G inerface , easy to add 5G module onboard to support 5G. and have 5 Gigabit Wan/Lan port to spport router function
 - Module 3 ：Base on BPI-R64,support 3 4G LTE inerface and 2 M.2 5G interface,support OpenWRT and OpenMPTcpRouter protocol. have one PCIe for 2.4G/5.8G wifi AC, can support MT7615 wifi module. and we also design a 5G inerface , easy to add 5G module onboard to support 5G. and have 5 Gigabit Wan/Lan port to spport router function
 
+TIP: Mediatek MT7622 chip design : link:/en/BPI-R64/BananaPi_BPI-R64[Banana Pi BPI-R64] Router board +
+Mediatek MT7622 chip design : link:https://docs.banana-pi.org/en/BPI-MNF/BananPI_CPI-MNF[Banana Pi BPI-MNF] 5G + 4G LTE+Wifi AC+Gigabit Multiplex aggregate route
+
+
 = Hardware
 == Main fcunction
 - MediaTek MT7622E,1.35GHZ 64 bit dual-core ARM Cortex-A53
