@@ -22,17 +22,71 @@ Mediatek MT7622 chip design : link:https://docs.banana-pi.org/en/BPI-MNF/BananPI
 - M.2 key B interface
 
 == PCBA inerface
+
 === 3 Port 4G
 
+image::/bpi-mnf/bpi-mnf_3_card_1.jpg[bpi-mnf_3_card_1.jpg]
 
+Hardware spec:
 
+[options="header",cols="2,4"]
+|=====
+2+| **HardWare Specification of Banana Pi BPI-MNF 3 Card**
+|size |150(w)×108(d)× 13(h)mm
+|Memery | 1G
+|eMMC | onboard 8G eMMC flash
+|network port  |4 X10/100/1000Mbps LAN口 1个WAN口
+|WiFi | support 802.11 b/g/n 2.4G
+|SIM slot |3 x 4G SIM slot and 1 x 5G SIM slot
+|4G | support 3 4G module 
+|5G  |support 1 5G module, support  5G NSA and SA 
+|LTE |support FDD/TDD LTE FDD LTE：B1/B3 TDD LTE：B38/B39/B40/B41 UMTS：B1
+|    |TD-SCDMA：B34/B39 GSM/GPRS/EDGE：850/900/1800/1900MHz
+|  |CDMA2000：800MHz CDMA1x：800MHz
+|Operating temperature | -20°C ~70°C
+|Operating humidity |0%~85%
+|Power| 10-27V DC 
 
+|=====
 === 5 port 4G
+=== Hardware interface
+image::/bpi-mnf/bpi-mnf_5_card_1.jpg[bpi-mnf_5_card_1.jpg]
 
+=== Hardware spec
 
+|=====
+2+| **HardWare Specification of Banana Pi BPI-MNF 5 Card**
+|Size |210(w)×146(d)× 20(h)mm
+|Memery | 1G
+|eMMC | onboard 8G eMMC flash
+|network port |4 x 10/100/1000Mbps LAN and  1 x WAN 
+|WiFi |support 802.11 b/g/n 2.4G
+|SIM slot | 5 x 4G SIM slot、1 x 5G SIM slot
+|4G | support 4 4G module 
+|5G  |support 1 5G module, support  5G NSA and SA 
+|Operating temperature | -20°C ~70°C
+|Operating humidity |0%~85%
+|Power| 10-27V DC 
+|=====
 
 === 6 Port 4G
+=== Hardware interface
+image::/bpi-mnf/bpi-mnf_6_card_1.jpg[bpi-mnf_6_card_1.jpg]
 
+|=====
+2+| **HardWare Specification of Banana Pi BPI-MNF 5 Card**
+|Size |	210(w)×160(d)×20(h)mm
+|Memery | 1G
+|eMMC | onboard 8G eMMC flash
+|network port |4 x 10/100/1000Mbps LAN and  1 x WAN 
+|WiFi |support 802.11 b/g/n 2.4G and 5.8G,support AP/Station
+|SIM slot | 6 x 4G SIM slot、1 x 5G SIM slot
+|4G | support 6 4G module 
+|5G  |support 1 5G module, support  5G NSA and SA 
+|Operating temperature | -20°C ~70°C
+|Operating humidity |0%~85%
+|Power| 10-27V DC 
+|=====
 
 == 5G interface
 We have design 5G interface on board ,Use M.2 PCIe interface for 5G.So easy to add 5G module to support 5G application. Also add standard 5G sim slot onbaord.
