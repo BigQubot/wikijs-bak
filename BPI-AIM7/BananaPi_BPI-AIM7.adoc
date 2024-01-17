@@ -200,103 +200,27 @@ image::/bpi-aim7/banana_pi_bpi-aim7.jpg[banana_pi_bpi-aim7.jpg]
 |VDD_IN_7	|257	|258|	VDD_IN_8
 |VDD_IN_9	|259	|260|	VDD_IN_10
 |=====
-=== BPI-M5 Debug UART
 
-|=====
-|CONx-P1  | GND
-|CONx-P2  | UART0-RX
-|CONx-P3  | UART0-TX
-|=====
+
 
 = Development
+
 == Source Code
 
 === Linux BSP Source Code
 
 TIP: Linux BSP source code
 
-xxxxxxxxxx
-
-xxxxxxxxxx
-
 === Android
 
-TIP: Linux BSP source code
+TIP: Android BSP source code
 
-xxxxxxxxxx
 
-xxxxxxxxxx
 
 == Resources
 
 = System Image
-== Android
 
-NOTE: 20xx-xx-xx release, xxxxxxx image
-
-xxxxxxxxxx
-
-xxxxxxxxxx
-
-== Linux
-
-=== Ubuntu
-
-NOTE: 20xx-xx-xx release, xxxxxxx image
-
-xxxxxxxxxx
-
-xxxxxxxxxx
-
-=== Debian
-
-NOTE: 20xx-xx-xx release, xxxxxxx image
-
-xxxxxxxxxx
-
-xxxxxxxxxx
-
-=== CentOS
-
-NOTE: 20xx-xx-xx release, xxxxxxx image
-
-xxxxxxxxxx
-
-xxxxxxxxxx
-
-== Third part image
-
-=== Raspbian
-
-NOTE: 20xx-xx-xx release, xxxxxxx image
-
-xxxxxxxxxx
-
-xxxxxxxxxx
-
-=== Armbian
-
-NOTE: 20xx-xx-xx release, xxxxxxx image
-
-xxxxxxxxxx
-
-xxxxxxxxxx
-
-=== EmuELEC
-
-NOTE: 20xx-xx-xx release, xxxxxxx image
-
-xxxxxxxxxx
-
-xxxxxxxxxx
-
-=== CoreELEC
-
-NOTE: 20xx-xx-xx release, xxxxxxx image
-
-xxxxxxxxxx
-
-xxxxxxxxxx
 
 = FAQ
 
@@ -304,10 +228,3 @@ xxxxxxxxxx
 
 = Easy to buy
 
-WARNING: SINOVOIP Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M1/1100417230_40000003426518.html
-
-WARNING: Bipai Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M1/1101951077_40000003418620.html
-
-WARNING: Taobao Shop: https://shop108780008.taobao.com/category-1694930629.htm
-
-WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
