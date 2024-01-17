@@ -738,14 +738,7 @@ By reviewing the schematic, it can be found that the available uart are uart1 an
 
 image::/picture/m4_berry_gpio_uart.png[m4_berry_gpio_uart.png]
 
-. Uart1 is enabled and can be used directly. After short circuiting it, execute
-+
-```sh
-gpio serial /dev/ttyS1
-```
-image::/picture/m4_berry_gpio_uart1.jpg[m4_berry_gpio_uart1.jpg]
-
-. Uart5 is closed and needs to be opened. Execute
+. Uart1 and Uart5 is closed by default and needs to be opened. Execute
 +
 ```sh
 sudo bananapi-config
@@ -757,7 +750,7 @@ image::/picture/m4_berry_bananapi_config_1.jpg[m4_berry_bananapi_config_1.jpg]
 . Select "Hardware"
 +
 image::/picture/m4_berry_bananapi_config_2_.jpg[m4_berry_bananapi_config_2_.jpg]
-. Use the keyboard directional keys to move, then use the spacebar to select.Select "ph-uart5"
+. Use the keyboard directional keys to move, then use the spacebar to select.If you want to use uart1,select"pg-uart1".If you want to use uart5,select"ph-uart5"
 +
 image::/picture/m4_berry_bananapi_config_uart.jpg[m4_berry_bananapi_config_uart.jpg]
 . Select "Save", then select "Back"
@@ -772,8 +765,12 @@ image::/picture/m4_berry_bananapi_config_4.jpg[m4_berry_bananapi_config_4.jpg]
 pi@bpi-m4berry:~$ ls /dev/ttyS5
 /dev/ttyS5
 ```
-. Short circuit uart5 pin and execute
+. Short circuit uart1 pin or uart5 and execute
 +
+```sh
+gpio serial /dev/ttyS1
+```
+image::/picture/m4_berry_gpio_uart1.jpg[m4_berry_gpio_uart1.jpg]
 image::/picture/m4_berry_gpio_uart5.jpg[m4_berry_gpio_uart5.jpg]
 
 === SPI
