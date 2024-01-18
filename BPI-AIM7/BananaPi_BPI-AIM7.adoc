@@ -33,6 +33,12 @@ BPI-AIM7 can be applied to ARM PC, edge computing, cloud server, artificial inte
 * PCB: 12-layer PCB board design
 * Size: 69.6 mm x 45 mm
 
+== Support Large Language Model (LLM)
+
+Boasting up to 6 TOPs AI performance, AIM7 supports Large Language Model (LLM) such as GPT, LLaMA, ChatGLM, and Bloom. It also enables multi-chip parallel acceleration for handling very large model inferences.
+
+image::/bpi-aim7/banana_pi_bpi-aim7_llm_support.png[banana_pi_bpi-aim7_llm_support.png]
+
 == Getting Start
 
 TIP: link:/en/BPI-AIM7/GettingStarted_BPI-AIM7[Getting Started BPI-AIM7]
