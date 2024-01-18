@@ -43,6 +43,8 @@ TIP: link:/en/BPI-AIM7/GettingStarted_BPI-AIM7[Getting Started BPI-AIM7]
 
 image::/bpi-aim7/banana_pi_bpi-aim7.jpg[banana_pi_bpi-aim7.jpg]
 
+NOTE: All pins of AIM7 are compatible with NVIDIA Jetson TX2 & NVIDIA Jetson Nano, with the same dimensions
+
 == Hardware Spec
 
 [options="header",cols="1,2,2"]
