@@ -1,0 +1,144 @@
+= Product overview
+
+BPI-FSM8191D servo motor controller is an industrial-grade servo motor control product created by Bananapai open source community and Fortior technology. It is a servo module used to drive rotary servo motor, linear servo motor and torque motor. In practical applications, it is composed of main control board and power board, providing motor control core algorithm and various communication functions. BPI-FSM8191D servo module main control board, configured with two application ports and a power board interface, the servo module pin contains a number of signal interfaces, which can meet the debugging of most servo functions. In different application scenarios, the servo power board can be customized to provide power input and output, power supply and energy consumption requirements. The power board has a rich debugging interface, which fully meets the needs of developers for different power and power supplies.
+
+= Application direction
+- New energy industry: die cutting machine, laminating machine, cutting and laminating machine, pole ear welding, coating machine, shell machine, top welding, helium detector, liquid injection machine, forming cabinet, replenishing machine, sealing welding machine, parting cabinet, Pack line, etc.
+- Semiconductor industry: cleaning equipment, lithography machine, etching machine, repair testing equipment, scribing machine, wafer probe testing equipment, sorting machine, chip placement machine, bonding machine and other equipment
+- New display industry: solid crystal machine, rerepair machine, dispensing machine, laminating equipment, bonding equipment, backlight assembly equipment, defoaming equipment, cutting equipment, AOI equipment and other basic complete set of process equipment.
+- Optical industry: welding machine, focusing machine, pendulum machine, assembly machine, imaging detection, etc.
+
+= Hardware
+
+
+= Hardware Specifications
+== Common servo controller electrical specifications made of modules
+
+[options="header",cols="2,3,1"]
+|====
+3+| Servo controller electrical specifications 
+| Number | spec |              
+.3+| Power circuit input power supply（L1,L2,L3）  | Rated Voltage（VAC line-line）±10%   | 240          
+                                                  | frequency(Hz)  | 50 
+                                                  | 240VAC         | Single phase/three phase     
+| Control circuit input power supply（L1C,L2C） | 240±10VAC | Single phase 
+| Logic input fuse(delay)   | 240VAC(A)    | 0.5          
+| STO (Safe torque cut-off) | STP DC(VDC)  | 24±10%       
+| STO Fuse (delay)          | 240VAC(A)    | 1.5          
+.5+| Motor outputs (U,V,W)  | Continuous output power supply (Arms)| 4.5                                 | Continuous output power supply （Apeak）  | 6.63          
+                            | Peak output current in 2 seconds（Arms）  | 14              
+                            | Peak output current in 2 seconds（Apeak） | 20           
+                            | PWM frequency（kHz）                      | 16   
+.2+| Soft boot              | maximum surge current（A）| 7            
+                            | Maximum charging time(ms) | 250                
+.2+| tripping voltage       | under voltage tripping(rated)(VDC)| 50                                     | overvoltage tripping(VDC) | 420             
+| over-temperature | Power board overtemperature Indicates the fault temperature（Stable temperature）（℃） | 100±5%       
+.3+| regenerative brake | Internal busbar capacitance（uF）    |
+                        |VLOW（Regenerative circuit off）（VDC）|380 (can set)
+                        |VMAX（Regenerative circuit on）（VDC）	|400 (can set)
+|====
+
+== Servo module control specifications
+
+[options="header",cols="1,2,3"]
+|====
+3+|Interface options: Analog voltage/pulse instruction /RS232 control specification
+|Item	|spec	|explain
+.2+|motor	|Ac and DC	 |Rotary servo motor, linear servo motor
+          |Auto Config |Automatic configuration of motor phase and phase line Settings
+|running mode	|Selectable mode	|Torque control, speed control, position control
+.6+|torque control	|Input instruction/output instruction	|Speed command/PCOC
+                    |performance	|refresh rate62.5us (16kHz)
+                    |Step response time	|
+                    |control method	|DQ, PI
+                    |reference command	|simulate±10VDC，serial RS232
+                    |auto adjust	|Manually adjust the current loop parameters
+.5+|speed control	|Input instruction/output instruction	|Speed command / PCOC
+                  |performance	|refresh rate: 125 μs (8 kHz)
+                  |Optional speed control method	|PI
+                  |filter | First-order low-pass filter, two-cascaded first-order low-pass filter
+                  |reference command	|simulation±10 VDC, serial RS232 or USB
+.4+|position control	|Input instruction/output instruction	|Position command/speed command
+                      |performance	|refresh rate:250us（4kHz）
+                      |control method	|PID and acceleration feedforward
+                      |reference command	|Pulse & direction with electronic drive，serial ，serial RS232
+|status display	|modality	|Fase 7 LED (Red)，Display drive status (alarm, running, enable, etc.)
+|electronic gear	|method	|User defined gear ratio
+.2+|GUI	|UI	|base on Windows serial port software
+        |function	|Set connection, drive information, power information, motor, feedback, I/O selection/configuration, motion Settings/adjustments, fault history/status display, etc.
+.3+|Rotate toward unit	|position	|pulse（Counts）
+                        |speed	|per minute （rpm）
+                        |Acceleration/deceleration	|rps/s
+.3+|line unit	|position	|pulse（Counts）、mm
+              |speed	|mm/s
+              |Acceleration/deceleration	|mm/s2
+|====
+
+== Servo module communication specifications
+[options="header",cols="2,3"]
+|====
+2+|Communication specification
+|number	|spec
+.3+|RS232	|base on modbus RTU
+          |Baud rate: 19200 bit/s
+          |Maximum conductor length: 10 m
+.3+|High-Speed Serial (Specially used to observe waveforms)	|Based on custom protocols
+                                                            |Baud rate: 115200 - 750000 bit/s
+                                                            |Maximum conductor length:2 m
+|====
+
+
+== Servo module I/O specifications
+
+[options="header",cols="2,2,3"]
+|====
+3+|Servo module I/O specifications
+|Item	|standard	|explain
+.3+|analog input	|voltage range	    |simulate ±10 VDC Finite difference
+                  |zero attenuation	  |100 Hz
+                  |bandwidth (-3 dB) 	|500 Hz
+.2+|Pulse & Direction	|signal|RS 422 line receiver
+                      |Maximum input frequency	|1.6 MHz (will be increased to 5MHz in the future)
+|Digital input (8 channels)	|signal	|Configurable, light isolated, drain input.
+.3+|(General IO configurable related pin function)|voltage	|24 V
+                                                  |Maximum input current |10 mA
+                                                  |Transfer delay time	 |1 ms
+|Digital output (6 channels)	|signal	|Configurable, light isolated, drain input.
+.3+|(General IO configurable related pin function)	|voltage	|24 V
+                                                    |Maximum input current	|40 mA
+                                                    |Transfer delay time	|1 ms
+|Main I/O function signal	|function	|explain
+.6+|input signal（Ports can be configured）	|forward limit	|Positive limit switch
+                                           |Negative limit	|Negative limit switch
+                                           |Return Origin	|Origin switch
+                                           |Motor enable	|External enable signal
+                                           |ALM-RST	|External clear alarm signal
+                                           |speed limitation	|Torque control with speed limit input
+.6+|Output signal (port configurable)	|Servo positioning complete	|Servo execution positioning complete signal
+                                      |SERVO stoped	|Servo execution stop signal
+                                      |SERVO ALARM	|Servo error alarm signal
+                                      |Servo brake	|Servo brake control signal
+                                      |Servo phase seeking complete	|Servo phase seeking complete signal
+                                      |Servo return to zero complete	|Servo return to zero complete signal
+|====
+
+== Servo module supports motor feedback specifications
+
+
+|====
+3+|Supported motor feedback specifications
+|motor feedback	|specifications	|explain
+.3+|summary	|Driver output voltage	|5 VDC
+            |Maximum output current of the driver	|250 mA
+            |Maximum cable length	|AWG 28 – 3 m； AWG 24 – 10 m
+incremental encoder	signal	With (or without) a zero/hall signal AB quadrature signal encoder differential output
+AB Orthogonal maximum input frequency	1.6 MHz (Orthogonality conditions) (It will be increased to 5MHz in the future)
+Minimum zero pulse width	1 µs
+Hall sensor	signal	single-ended
+Sinusoidal encoder (will be added in next version)	signal	Sine-cosine difference, with or without Hall
+signal level	1 Vpp @ 2.5 V
+Maximum input frequency	270 kHz
+input impedance	120 Ω
+interpolation	Max to 16384 (14 bit)
+Effective interpolation	Max to 4096 (12 bit)
+|====
