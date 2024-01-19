@@ -6,7 +6,7 @@ Characterized by its robust performance, versatile features, and remarkable imag
 
 TIP: More Infomation: link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry[Banana Pi BPI-M4 Berry Main Page]
 
-== specifications
+== Specifications
 
 * Allwinner H618, Quad-core ARM Cortex™-A53 processor
 * ARM Mali G31 GPU
@@ -19,7 +19,33 @@ TIP: More Infomation: link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry[Banana Pi BPI-
 * 1x 3.5mm Audio & TVE jack socket
 * 1x GbE Ethernet port
 
+= Andriod
 
+== Preoare
+. Download latest link:https://docs.banana-pi.org/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry#_android_2[Android image].
+
+. Download and Install link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2Fphoenixsuit_V1.1.0_20150325.rar[Allwinner Image Download Tools], PhoenixSuit is for window. 
+
+. Type-C cable, 5V power supply.
+
+== Install Image with USB tool ==
+
+. Open PhoenixSuit, click the Firmware icon to switching to firmware download panel, then click Image button and choose the Android Image file.
++
+image::/picture/m4-berry_android_1.jpg[m4-berry_android_1.jpg]
+image::/picture/m4-berry_android_2.jpg[m4-berry_android_2.jpg]
+
+. Press and hold the SW2 button on M4 Berry while connecting to the computer using type-c, popup a warning dialog.Press Yes.
++
+image::/picture/m4-berry_android_3.jpg[m4-berry_android_3.jpg]
+
+. Download
++
+image::/picture/m4-berry_android_4.jpg[m4-berry_android_4.jpg]
+
+. Download finish
++
+image::/picture/m4-berry_android_5.jpg[m4-berry_android_5.jpg]
 
 = Linux development
 == Prepare
