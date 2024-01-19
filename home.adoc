@@ -94,14 +94,14 @@ link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry[Banana Pi BPI-M4 Berry] [Allwinner H
 link:/en/BPI-Pico-2040/BananaPi_BPI-Pico-2040[Banana Pi BPI-Pico-2040] [RP2040]
 
 | link:/en/BPI-AI/BananaPi_BPI-AI[Banana Pi BPI-AI][Kendryte K210] |
-
-
+link:/en/BPI-Bit/BananaPi_BPI-Bit[Banana Pi BPI-Bit][ESP32 STEAM education] 
+| link:/en/BPI-Bit-S2/BananaPi_BPI-Bit-S2[Banana Pi BPI-Bit-S2][ESP32-S2 STEAM education] |
 |=====
 
 == Webduino & Arduino & Micro:bit boards Accessories
 
 |=====
-|   |
+| | 
 |=====
 
 == Industrial control gateway design
@@ -112,15 +112,23 @@ link:/en/BPI-Pico-2040/BananaPi_BPI-Pico-2040[Banana Pi BPI-Pico-2040] [RP2040]
 | link:/en/BPI-6202/BananaPi_BPI-6202[Banana Pi BPI-6202 Embedded industrial computer] [Allwinner A40i-H] | link:/en/BPI-5202/BananaPi_BPI-5202[Banana Pi BPI-5202 Embedded industrial computer] [Loongson 2K1000LA]
 
 | link:/en/BPI-KVM/BananaPi_BPI-KVM[Banana Pi BPI-KVM for KVM over IP design] [Rockchip RK3568] | link:/en/BPI-MNF/BananPI_CPI-MNF/[BPI-MNF 5G + 4G LTE + Wifi AC+Gigabit Multiplex aggregate router] [MediaTek MT7622E] 
+| link:/en/BPI-FSM1819D/BananaPi_BPI-FSM1819D[Banana Pi BPI-FSM1819D Servo motor controller] |
+|=====
+
+
+== Accessories
+|=====
+2+| Accessories
+
+| link:/en/BPI-9600/BananaPi_BPI-9600[BPI-9600 IEEE 802.3af PoE module]
+| link:/en/BPI-9460/BananaPi_BPI-9460[BPI-9460 IEEE 802.3af Isolation Model PoE module]
+| link:/en/BPI-7604/BananaPi_BPI-7604[BPI-7604 IEEE 802.3af PoE Splitter module]
+| link:/en/BPI-7402/BananaPi_BPI-7402[BPI-7402 IEEE 802.3at PoE module]
+| link:/en/BPI-6175/BananaPi_BPI-6175[BPI-6175 Single channel PoE++ BT PSE Module]
+| link:/en/BPI-Zigbee-BT5.0/BananaPi_BPI-Zigbee-BT5.0[BPI Zigbee BT5.0 IoT module]
 |=====
 
 == IoT
-
-|=====
-|   |
-|=====
-
-== Accessories
 
 |=====
 |   |
