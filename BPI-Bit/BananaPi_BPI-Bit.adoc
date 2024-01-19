@@ -173,7 +173,13 @@ https://www.amazon.com/gp/product/B0B4HNYBJ5/ref
 - link:https://github.com/alankrantas/micropython-BPIBIT[Alankrantas BPI:bit github]
 
 == Test routine
-link:/en/[MPU9250 sample code]
+**MPU9250 sample code**
+
+Code update to github : link:https://github.com/BPI-STEAM/MPU9250[MPU9250 exmaple]
+
+The following is the result of the return of the serial port
+
+image::/picture/mpu9250.jpg[mpu9250.jpg]
 
 == Useful links
 - link:https://github.com/BPI-STEAM/BPI-BIT/blob/master/doc/ESP32-datesheet_english.pdf[ESP32 规格书] ESP32 datasheet]
