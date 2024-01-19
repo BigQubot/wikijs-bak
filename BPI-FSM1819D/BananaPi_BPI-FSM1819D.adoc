@@ -124,21 +124,49 @@ BPI-FSM8191D servo motor controller is an industrial-grade servo motor control p
 
 == Servo module supports motor feedback specifications
 
-
+[options="header",cols="2,2,3"]
 |====
 3+|Supported motor feedback specifications
 |motor feedback	|specifications	|explain
 .3+|summary	|Driver output voltage	|5 VDC
             |Maximum output current of the driver	|250 mA
             |Maximum cable length	|AWG 28 – 3 m； AWG 24 – 10 m
-incremental encoder	signal	With (or without) a zero/hall signal AB quadrature signal encoder differential output
-AB Orthogonal maximum input frequency	1.6 MHz (Orthogonality conditions) (It will be increased to 5MHz in the future)
-Minimum zero pulse width	1 µs
-Hall sensor	signal	single-ended
-Sinusoidal encoder (will be added in next version)	signal	Sine-cosine difference, with or without Hall
-signal level	1 Vpp @ 2.5 V
-Maximum input frequency	270 kHz
-input impedance	120 Ω
-interpolation	Max to 16384 (14 bit)
-Effective interpolation	Max to 4096 (12 bit)
+.3+|incremental encoder|	signal	|With (or without) a zero/hall signal AB quadrature signal encoder differential output
+|AB Orthogonal maximum input frequency	|1.6 MHz (Orthogonality conditions) (It will be increased to 5MHz in the future)
+|Minimum zero pulse width	|1 µs
+|Hall sensor	|signal	|single-ended
+.6+|Sinusoidal encoder (will be added in next version)	|signal	|Sine-cosine difference, with or without Hall
+                                                        |signal level	|1 Vpp @ 2.5 V
+                                                        |Maximum input frequency	|270 kHz
+                                                        |input impedance	|120 Ω
+                                                        |interpolation	|Max to 16384 (14 bit)
+                                                        |Effective interpolation	|Max to 4096 (12 bit)
 |====
+
+== Motor signal feedback wire pin definition
+The motor feedback interface is wired according to the type of feedback device used in practical applications. See the pin outlet table below for details.
+
+The motor temperature sensor uses 12/25 pins and has been pulled up to 5V through the module interior.
+
+[options="header",cols="1,1,2,1,1,2"]
+|====
+6+|Motor signal feedback wire pin definition
+|Pin define	|Module pin	|function	|Pin define	|Module pin	|function
+|1	|97	a|- incremental encoder A+
+- SSI encoder data+|14	|98	|incremental encoder A-
+|2	|96	a|- incremental encoder B+	
+- SSI encoder clock+|15	|95	a|- incremental encoder B-
+- SSI encoder clock-
+|3	|93	|incremental encoder Z+	|16	|94	|incremental encoder Z-
+|4	|116	|Hall U+	|17	|115	|Hall V+
+|5	|114	|Hall W+	|18	| /	|/
+|6	|/	|/	|19	|/	|/
+|7	|/	|/	|20	|/	|/
+|8	|/	|/	|21	|/	|/
+|9	|111	|Sine encoder sine+	|22	|110	|Sine encoder sine-
+|10	|109	|Sine encoder cosine+	|23	|108	|Sine encoder cosine-
+|11	|3、4	|5V power	|24	|Common ground with module	|ground（5V loop）
+|12	|91	|Motor temperature sensor	|25	|90	|Motor temperature sensor
+|13	|3、4	|5V power	|26	|/	|shield
+|====
+
