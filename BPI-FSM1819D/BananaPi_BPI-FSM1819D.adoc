@@ -132,9 +132,9 @@ BPI-FSM8191D servo motor controller is an industrial-grade servo motor control p
             |Maximum output current of the driver	|250 mA
             |Maximum cable length	|AWG 28 – 3 m； AWG 24 – 10 m
 .3+|incremental encoder|	signal	|With (or without) a zero/hall signal AB quadrature signal encoder differential output
-|AB Orthogonal maximum input frequency	|1.6 MHz (Orthogonality conditions) (It will be increased to 5MHz in the future)
-|Minimum zero pulse width	|1 µs
-|Hall sensor	|signal	|single-ended
+                       |AB Orthogonal maximum input frequency	|1.6 MHz (Orthogonality conditions) (It will be increased to 5MHz in the future)
+                       |Minimum zero pulse width	|1 µs
+                       |Hall sensor	|signal	|single-ended
 .6+|Sinusoidal encoder (will be added in next version)	|signal	|Sine-cosine difference, with or without Hall
                                                         |signal level	|1 Vpp @ 2.5 V
                                                         |Maximum input frequency	|270 kHz
@@ -170,3 +170,115 @@ The motor temperature sensor uses 12/25 pins and has been pulled up to 5V throug
 |13	|3、4	|5V power	|26	|/	|shield
 |====
 
+== Servo module I/O port pin definition
+The digital/analog inputs and outputs are wired according to the requirements of your application. To keep the digital I/O isolated, the ground of your 24V loop is connected to pins 1 and 19, which drive the digital input pins and require you to provide a 24V signal.
+
+[options="header",cols="1,2,3,3"]
+|====
+4+|Servo module I/O port pin definition
+| Pin define | Module pin | function | explain                               | 1  | 64                        | Digital input to the public ground  | user provides a 24V input signa ground 
+| 2  | 107                       | Equivalent encoder output Z+        | Equivalent encoder output signal Z forward direction       
+| 3  | /                         | /                                   |
+| 4  | 106                       | Equivalent encoder output Z-        | Equivalent encoder output signal Z negative                
+| 5  | 104                       | Equivalent encoder output B+        | Equivalent encoder output signal B forward direction       
+| 6  | /                         | /                                   |
+| 7  | 105                       | Equivalent encoder output B-        | Equivalent encoder output signal B negative                
+| 8  | 112                       | Analog input AN+                    | Diff forward direction of analog instruction input         
+| 9  | 103                       | Equivalent encoder output A-        | Equivalent encoder output signal A negative                
+| 10 | Common ground with module | DGND                                | DGND                                                       
+| 11 | 102                       | Equivalent encoder output A+        | Equivalent encoder output signal A forward direction       
+| 12 | 113                       | Analog input AN-                    | Differential analog instruction input in negative direction
+| 13 | Common ground with module | DGND                                | DGND                                                       
+| 14 | 87                        | direction input -                   | Direction Indicates the negative direction of the input    
+| 15 | 79                        | Digital input 2                     | Optically isolated programmable digital input，Read with IN2
+| 16 | 86                        | direction input +                   | Direction Indicates the positive direction of the input    
+| 17 | 89                        | impulse input +                     | The pulse input is positive                                
+| 18 | 88                        | impulse input -                     | The negative direction of the pulse input                  
+| 19 | 72                        | Digital output to the public ground | provides 24V pull-up ground                                          
+| 20 | 84                        | RS485 ommunication input -          | RS485 ommunication input -(Or B terminal)                            
+| 21 | 83                        | 485 input +                         | RS485 communication input +(Or A terminal)                           
+| 22 | 73                        | Digital input 8                     | Optically isolated programmable digital input 8                      
+| 23 | 74                        | Digital input 7                     | Optically isolated programmable digital input 7                      
+| 24 | 75                        | Digital input 6                     | Optically isolated programmable digital input 6                      
+| 25 | Common ground with module | DGND                                | DGND                                                                 
+| 26 | 76                        | Digital input 5                     | Optically isolated programmable digital input 5                      
+| 27 | 77                        | Digital input 4                     | Optically isolated programmable digital input 4                      
+| 28 | 78                        | Digital input 3                     | Optically isolated programmable digital input 3                      
+| 29 | Common ground with module | DGND                                | DGND                                                                 
+| 30 | 68                        | Digital output 3                    | Optically isolated programmable digital output， can be read with OUT3
+| 31 | 65                        | Digital output 6                    | Optically isolated programmable digital output， can be read with OUT6
+| 32 | 69                        | Digital output 2                    | Optically isolated programmable digital output， can be read with OUT2
+| 33 | 80                        | Digital input 1                     | Optically isolated programmable digital input，Read with IN1          
+| 34 | 70                        | Digital output 1                    | Optically isolated programmable digital output， can be read with OUT1
+| 35 | 66                        | Digital output 5                    | Optically isolated programmable digital output， can be read with OUT5
+| 36 | 67                        | Digital output 4                    | Optically isolated programmable digital output， can be read with OUT4
+|====
+
+== Servo module protection function and use environment requirements
+[options="header",cols="2,4"]
+|====
+2+|Servo module protection function and use environment requirements
+|item	 |spec
+|Protection function	|Overcurrent, undervoltage and overvoltage, overtemperature, missing feedback, STO signal not connected, position following error, speed over, parameter error, etc.
+|Anti-flying car protection function	|When the motor is seeking phase, the external pulse input signal function (pulse & direction) and the receiving motion command function (RS232) are shielded to prevent motor accidents.
+|====
+
+= Development
+== BPI-FSM8191D servo motor controller installation
+=== General installation instructions
+Follow the steps below to install and configure the driver module.
+
+. According to the required operating power, select the appropriate power base plate.
+. Complete all electrical links：
+- Install the servo module onto the module switching base plate
+- Connect the switching base plate to the power plate
+- motor
+- motor feedback
+- Safe torque switching (STO), or shorting with a jumper
+- IO control signal
+- AC input power supply
+. Connect the drive to the PC using a USB/232 cable.
+. Power drives and PC。
+. Connect to a fieldbus device (optional).
+. Open FortiorTechServoStudio.exe（no need installation ）.
+. use FortiorTechServoStudio Configure and debug drives.
+
+=== FortiorTechServoStudio testing software
+**FortiorTechServoStudio**
+
+FortiorTechServoStudio is a graphical user interface (GUI) that comes with the servo module to install, configure, and debug the drive. FortiorTechServoStudio can be used to debug drive parameters online and perform specific drive operations.
+
+image::/picture/fortiortechservostudio_1.jpg[fortiortechservostudio_1.jpg]
+
+FortiorTechServoStudio support two methods for initial system configuration:
+
+- Using [General - Backup and Recovery], click "Default Parameters" to complete the initial parameter configuration, then configure the motor parameters in [Motor], and configure the encoder resolution in [Feedback].
+- With [General - Backup and Recovery], the motor "Import Parameters" import previously configured motor parameter data.
+
+FortiorTechServoStudio main interface consists of 5 functional areas:
+
+. Toolbar, containing common quick function buttons。 +
+Offline|Online – Toggle FortiorTechServoStudio online/offline and display the connection status. See section [Drive Online and Offline] 。 +
+Enable|Disable – Enable/disable the drive and display the enable status of the drive +
+Save – Saves the parameters in the current drive RAM to the drive memory. It is recommended to use the Save button after configuring parameters to save parameter values in memory. +
+No FLT — Clear drive faults. This bit turns red when the drive fails, and the motor can clear the fault.
+. information bar: +
+Stop —Stop the motor and disable the drive. +
+Help —FortiorTechServoStudio software online help. This feature is not enabled in this version of the software. +
+About —Information about the software version. In this version, the function is not available.
+. sidebar: +
+include FortiorTechServoStudio A navigation menu of the interface. +
+The sidebar can be hidden or displayed with this arrow button. +
+. Main operating interface: Displays interactive interfaces for viewing, setting, and testing parameters and configuring drives. These interfaces are described in detail in other sections of this manual +
+Fault display: If there is no fault, the background of the status bar is green. If there is a fault, it is red. Click this area to open the [Fault] screen. +
+Warning: If there is no warning, the background of the status bar is green; If there is a warning, it is red. +
+Drive status: When the drive is enabled, the background of the status bar is green and Drive Active is displayed. When the drive is not enabled, it is red and ".
+. Status bar: Displays the drive status. +
+Fault display: If there is no fault, the background of the status bar is green. If there is a fault, it is red. Click this area to open the [Fault] screen. +
+Warning: If there is no warning, the background of the status bar is green; If there is a warning, it is red (currently, no distinction is made between warning and fault). +
+Drive status: When the drive is enabled, the background of the status bar is green and Drive Active is displayed. If the Drive is not enabled, it is red and Drive Inactive is displayed. +
+Run mode: The background of this segment is gray. Displays the current running mode. +
+Curr：Displays the current running current +
+Vel：Displays the current motor speed. +
+Pos：Displays the current position of the motor. +
+Online/Offline：Connection status between the upper computer and the drive
