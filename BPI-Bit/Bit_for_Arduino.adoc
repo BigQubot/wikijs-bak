@@ -55,17 +55,37 @@ Install the current upstream Arduino IDE at the 1.8 level or later. The current 
 |SDA	|IO21
 |====
 
-[cols="e,m,^,s", width="25%"]
-|===
-|1 s|2 |3 |4
-^|5 2.2+|6 .3+m|7
-^|8
-|9 2+|10
-|===
+== How to use with Arduino IDE
 
+Source code on github: https://github.com/BPI-STEAM/BPI-BIT-Arduino-IDE
 
-[cols="e,m,s"]
-|====
-|111|22|3
-|66|6666666666666666666666666666633|555
-|====
+- link:/en/[How to use with Arduino IDE]
+
+== Lighting the RGB LED
+- link:/en/[Lighting the RGB LED]
+
+= How to use with Platform IO
+== Install Platform IO
+link:/en/[How to install Platform IO]
+
+== Source code at github
+Source code on github : https://github.com/BPI-STEAM/BPI-BIT-PlatformIO
+
+== Text Editor
+We need to prepare a text editor in advance (VSCode or Atom)
+
+link:https://code.visualstudio.com/[Visual Studio Code(VSCode)]
+
+link:https://atom.io/[Atom]
+
+== Add Espressif 32 Development Kit
+link:https://github.com/BPI-STEAM/BPI-BIT-PlatformIO/blob/master/docs/ESP32-PIO-Development-Kit.md[Espressif 32 for Atom/VSCode]
+
+= Documents
+BPI-Bit PlatformIO 4.0.0a3 documentation : https://docs.platformio.org/en/latest/boards/espressif32/bpi-bit.html#
+
+link:/en/[How to use with Platform IO]
+
+BPI:bit arduino basic development tutorials(chinese version) : http://forum.banana-pi.org/t/bpi-bit-arduino-basic-development-tutorials-chinese-version/7299
+
+Bpi:bit + Arduino IDE, shared by JavierPiay : http://forum.banana-pi.org/t/bpi-bit-arduino-ide/7244
