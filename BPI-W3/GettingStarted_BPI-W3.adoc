@@ -68,7 +68,7 @@ The download tool also show the download mode if device connected.
 
 = Linux
 == Install Image to sd card 1
-NOTE: Use this method for Ubuntu and Armbian images.
+NOTE: Use this method for **Ubuntu** and **Armbian** images.
 
 Install Image with Balena Etcher. +
 link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
@@ -80,7 +80,7 @@ link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by 
 image::/picture/etcher.jpg[etcher.jpg]
 
 == Install Image to sd card 2
-NOTE: Debian images use this method.
+NOTE: **Debian** images use this method.
 
 . Download link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FUpdate-SD-Tools.zip[Rockchip SD Disk Tool].
 . Insert card reader to Windows PC, 8GB sdcard size at least.
