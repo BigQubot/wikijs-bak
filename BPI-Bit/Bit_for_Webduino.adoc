@@ -1,0 +1,119 @@
+= About webduino
+
+link:http://www.webduino.com.cn/site/en/index.html[Webduino] = link:http://webcomponents.org/[WebComponents] + link:http://arduino.cc/[Arduino]
+
+
+
+link:https://drive.google.com/file/d/1V3k5p9DCj_jcsmSk4ffbPlO3MNpBGvnB/view?usp=sharing[Webduino introduce (Public)-en.pdf]
+
+link:https://drive.google.com/file/d/1-BH_AYh7fbwwMwVeYzMEeA_GOmTxn_KD/view?usp=sharing[Webduino 介绍(公开)-中文.pdf]
+
+== Webduino working model
+. Use WebComponents integration Breakout.
+. Use WebSocket(Firmata) to interacting with the server.
+. Server use TCP/IP(Firmata) to control webduino terminal.
+
+
+
+== Webduino project VS Arduino and micro:bit project
+[options="header",cols="1,1,1,1"]
+|====
+4+|Webduino project VS Arduino and micro:bit project
+|item compared	|Webduino	|Arduino	|Micro:bit
+|development |language	|HTML/JavaScript	|C/C++	Python/JavaScript
+|development |environment	WEB browser	|Arduino IDE	|JavaScript Blocks
+|Simulator	|Webduino Simulator	|Third-party support	|Microsoft MakeCode
+|graphical programming	|Wbduino blockly	|Third-party |Scratch	Blockly
+|Cloud Server	|webduino cloud	|N/A	|N/A
+|attended mode	|WiFi	|USB	|USB
+|Update the program	|web online update	|USB burn	|USB disk
+|====
+
+= Webduino source code on github
+More webduino function now is open source , and code update to github.
+
+https://github.com/webduinoio
+
+= How to power the BPI-Bit board
+Board a total of three power supply, you can choose one
+
+. USB cable power supply, bit board design has a Micro USB interface, in daily life wire is relatively common, it is quite convenient to use.
+
+
+. Power is supplied through 2Pin battery socket, which can supply power to the board through lithium battery, battery pack, etc. The interface has anti-stay design, and there is no need to worry about the problem of inverting the power supply
+
+
+
+. Through the goldfinger power supply, the lower end of the board goldfinger contains a power interface, while both input and output functions, compatibility is very high.
+
+= Webduino firmware programming
+== How to burn webduino firmware
+BPI-Bit has been programmed Webduino firmware by default. Only when you reprogram the flash with other firmware, will you need to program Webduino firmware again.
+
+== How to : Webduino firmware programming
+
+Webduino OTA Cloud upgrade
+BPI-Bit for webduino support OTA cloud upgrade , it is easy to use this function to update newest version.
+
+Power on bit ,Press the A button when flash white light, unpress A booton when when the green light is on, so start to update.
+
+= Initialization of Webduino Bit
+Initialization of Webduino Bit:https://www.webduino.com.cn/site/en/docs/setting.html
+
+If you can connect BPI-Bit to internet ,so you can use webduino blockly to use webduino all functions.
+
+= Web:bit offline education version
+== Software download
+Download link : https://github.com/BPI-STEAM/BPI-BIT-Webduino/releases 
+
+Please download the newest version and one key to install
+
+Web:bit offline education version support auto upgrade.When you start it, it updates automatically
+
+== Online documents
+Online doucments: https://doc.bpi-steam.com/en/latest/bpi-web/tutorials/index.html , we will keep update.
+
+= Webduino online Blockly and simulator
+Webduino Blockly and simulator
+
+Webduino online Blockly (english): https://bit.webduino.com.cn/blockly/?lang=en
+
+Webduino online Blockly (chinese) https://bit.webduino.io/blockly/?lang=zh-hant
+
+Quick start BPI:bit with Webduino Blockly and simulator http://www.webduino.com.cn/site/en/tutorials.html
+
+== Get to know Webduino Blockly Bit
+Get to know Webduino Blockly Bit :https://www.webduino.com.cn/site/en/docs/blockly.html
+
+= Webduino Cloud
+Webduino cloud platform provides your complete Internet of things services. You can update and operate various iot devices through platform management.
+
+https://cloud.webduino.io
+
+== Webduino refer to the tutorial
+- BPI-bit Through the photosensitive resistors built into Webduino Bit on the left and right sides, it is easy to determine which side the gesture comes from
++
+Code link: https://bit.ly/2lFNeYL
++
+Demo : https://www.facebook.com/oxxo.studio/videos/10216710024566280/?t=9
+
+- Using Webduino Bit nine shaft sensor "attitude Angle" + full color dot matrix, simple implementation ~ ^_^ interesting effects
++
+Code link: https://bit.ly/2MAhHTF
++
+Demo : https://www.facebook.com/oxxo.studio/videos/10216709482752735/?t=20
+
+= Online tutorials
+Webduino Bit Detail: https://www.webduino.com.cn/site/en/docs/detail.html
+
+Initialization of Webduino Bit: https://www.webduino.com.cn/site/en/docs/setting.html
+
+Get to know Webduino Blockly Bit : https://www.webduino.com.cn/site/en/docs/blockly.html
+
+5x5 RGB LED matrix: https://www.webduino.com.cn/site/en/docs/rgbmatrix.html
+
+Buttons : https://www.webduino.com.cn/site/en/docs/button.html
+
+Light Detection : https://www.webduino.com.cn/site/en/docs/photocell.html
+
+Buzzer : https://www.webduino.com.cn/site/en/docs/buzzer.html
