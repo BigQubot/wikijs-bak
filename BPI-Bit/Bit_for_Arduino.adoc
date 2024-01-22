@@ -1,0 +1,71 @@
+TIP: link:/en/BPI-Bit/BananaPi_BPI-Bit#_bpi_bit_for_arduino[BPI-Bit]
+
+= About BPI:bit
+
+This product adopts esp-wroom-32 module as the core for design, and supports wi-fi, bluetooth, BLE and other wireless communication modes.
+
+The BPI bit (also referred to as BPI-bit, stylised as bpi:bit) is an ESP32 with 32-bit Xtensa LX6 dual-core processor based embedded system. It supports Webduino, Arduino, MicroPython as well as Scratch X programming environments.
+
+= BPI:bit for Arduino-IDE
+==  Installation Instructions
+You can get more information about Arduino-esp32 from this page: https://github.com/espressif/arduino-esp32
+
+== Wired connection board
+Connect the boards to your computer via the MicroUSB wire, it is same as BPI:bit with microPython.
+
+Please see this documents:2 Wired connection board
+
+Installation instructions using Arduino IDE Boards Manager
+
+== Using Arduino IDE Boards Manager (preferred)
+- Stable release link: https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+
+- Development release link: https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_dev_index.json
+
+Starting with 1.6.4, Arduino allows installation of third-party platform packages using Boards Manager. We have packages available for Windows, Mac OS, and Linux (32, 64 bit and ARM).
+
+Install the current upstream Arduino IDE at the 1.8 level or later. The current version is at the Arduino website. Start Arduino and open Preferences window. Enter one of the release links above into Additional Board Manager URLs field. You can add multiple URLs, separating them with commas. Open Boards Manager from Tools > Board menu and install esp32 platform (and don't forget to select your ESP32 board from Tools > Board menu after installation).
+
+= How to development with BPI:bit
+
+|====
+2+|Arduino IDE Programing Function Define
+
+|Function	|IO
+|RGB_LED	|IO4
+|RGB_LED_POWER	|IO2
+|BUZZER	|IO25
+|BOTTON_A	|IO35
+|BOTTON_B	|IO27
+|LIGHT_SENSOR1(upper left)	|IO36
+|LIGHT_SENSOR2(upper right)	|IO39
+|TEMPERTURE_SENSOR	|IO34
+|MPU9250_AD0	|IO0
+|====
+|====
+2+|Communication Protocol
+
+2+s|SPI
+|MISO	|IO19
+|MOSI	|IO23
+|SCK	|IO23
+|SS	|IO5
+2+s|I2C
+|SCL	|IO22
+|SDA	|IO21
+|====
+
+[cols="e,m,^,s", width="25%"]
+|===
+|1 s|2 |3 |4
+^|5 2.2+|6 .3+m|7
+^|8
+|9 2+|10
+|===
+
+
+[cols="e,m,s"]
+|====
+|111|22|3
+|66|6666666666666666666666666666633|555
+|====
