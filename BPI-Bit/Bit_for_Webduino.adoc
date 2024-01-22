@@ -2,7 +2,7 @@
 
 link:http://www.webduino.com.cn/site/en/index.html[Webduino] = link:http://webcomponents.org/[WebComponents] + link:http://arduino.cc/[Arduino]
 
-
+image::/picture/bpi-bit_webduino.png[bpi-bit_webduino.png]
 
 link:https://drive.google.com/file/d/1V3k5p9DCj_jcsmSk4ffbPlO3MNpBGvnB/view?usp=sharing[Webduino introduce (Public)-en.pdf]
 
@@ -12,8 +12,8 @@ link:https://drive.google.com/file/d/1-BH_AYh7fbwwMwVeYzMEeA_GOmTxn_KD/view?usp=
 . Use WebComponents integration Breakout.
 . Use WebSocket(Firmata) to interacting with the server.
 . Server use TCP/IP(Firmata) to control webduino terminal.
-
-
++
+image::/picture/bpi-bit_webduino_1.png[bpi-bit_webduino_1.png]
 
 == Webduino project VS Arduino and micro:bit project
 [options="header",cols="1,1,1,1"]
@@ -38,27 +38,32 @@ https://github.com/webduinoio
 Board a total of three power supply, you can choose one
 
 . USB cable power supply, bit board design has a Micro USB interface, in daily life wire is relatively common, it is quite convenient to use.
-
++
+image::/picture/bpi-bit_power_1.jpg[bpi-bit_power_1.jpg]
 
 . Power is supplied through 2Pin battery socket, which can supply power to the board through lithium battery, battery pack, etc. The interface has anti-stay design, and there is no need to worry about the problem of inverting the power supply
-
-
++
+image::/picture/bpi-bit_power_2.jpg[bpi-bit_power_2.jpg]
 
 . Through the goldfinger power supply, the lower end of the board goldfinger contains a power interface, while both input and output functions, compatibility is very high.
++
+image::/picture/bpi-bit_power_3.jpg[bpi-bit_power_3.jpg]
 
 = Webduino firmware programming
 == How to burn webduino firmware
 BPI-Bit has been programmed Webduino firmware by default. Only when you reprogram the flash with other firmware, will you need to program Webduino firmware again.
 
-== How to : Webduino firmware programming
+How to : link:https://wiki.banana-pi.org/Webduino_firmware_programming[Webduino firmware programming]
 
-Webduino OTA Cloud upgrade
+== Webduino OTA Cloud upgrade
 BPI-Bit for webduino support OTA cloud upgrade , it is easy to use this function to update newest version.
 
 Power on bit ,Press the A button when flash white light, unpress A booton when when the green light is on, so start to update.
 
+image::/picture/bpi-bit_webduino_ota.jpg[bpi-bit_webduino_ota.jpg]
+
 = Initialization of Webduino Bit
-Initialization of Webduino Bit:https://www.webduino.com.cn/site/en/docs/setting.html
+Initialization of Webduino Bit: https://www.webduino.com.cn/site/en/docs/setting.html
 
 If you can connect BPI-Bit to internet ,so you can use webduino blockly to use webduino all functions.
 
@@ -70,11 +75,15 @@ Please download the newest version and one key to install
 
 Web:bit offline education version support auto upgrade.When you start it, it updates automatically
 
+image::/picture/bpi-bit_webduino_education.png[bpi-bit_webduino_education.png]
+
 == Online documents
 Online doucments: https://doc.bpi-steam.com/en/latest/bpi-web/tutorials/index.html , we will keep update.
 
 = Webduino online Blockly and simulator
 Webduino Blockly and simulator
+
+image::/picture/bpi-bit_blockly_en_wiki_.png[bpi-bit_blockly_en_wiki_.png]
 
 Webduino online Blockly (english): https://bit.webduino.com.cn/blockly/?lang=en
 
