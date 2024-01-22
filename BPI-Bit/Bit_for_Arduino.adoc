@@ -6,6 +6,8 @@ This product adopts esp-wroom-32 module as the core for design, and supports wi-
 
 The BPI bit (also referred to as BPI-bit, stylised as bpi:bit) is an ESP32 with 32-bit Xtensa LX6 dual-core processor based embedded system. It supports Webduino, Arduino, MicroPython as well as Scratch X programming environments.
 
+image::/picture/a_bpi-bit.jpg[a_bpi-bit.jpg]
+
 = BPI:bit for Arduino-IDE
 ==  Installation Instructions
 You can get more information about Arduino-esp32 from this page: https://github.com/espressif/arduino-esp32
