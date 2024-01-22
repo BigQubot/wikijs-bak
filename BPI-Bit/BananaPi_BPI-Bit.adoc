@@ -1,11 +1,11 @@
 = Introduction
 
-The BPI bit (also referred to as **BPI-bit**, stylised as **bpi:bit**) is an ESP32 with 32-bit Xtensa LX6 dual-core processor based embedded system. It supports Webduino, Arduino, MicroPython as well as Scratch X programming environments.
+The BPI Bit (also referred to as **BPI-Bit**, stylised as **bpi:bit**) is an ESP32 with 32-bit Xtensa LX6 dual-core processor based embedded system. It supports Webduino, Arduino, MicroPython as well as Scratch X programming environments.
 
 
-BPI:bit hardware main function:
+BPI-Bit hardware main function:
 
-Bpi:bit board is 5 cm x 5 cm in size, weighs 10 ~ 12 grams, it houses a 20-Pin edge connector, built-in lighting matrix with 25 programmable full-color LEDs , two photosensitive light sensors, two programmable buttons, an NTC resistor, a buzzer and a nine shaft sensor (triaxial acceleration Three-axis gyroscope and three-axis magnetic compass),
+Bpi-Bit board is 5 cm x 5 cm in size, weighs 10 ~ 12 grams, it houses a 20-Pin edge connector, built-in lighting matrix with 25 programmable full-color LEDs , two photosensitive light sensors, two programmable buttons, an NTC resistor, a buzzer and a nine shaft sensor (triaxial acceleration Three-axis gyroscope and three-axis magnetic compass),
 
 The I/O space configuration is as follows:
 
@@ -18,7 +18,7 @@ The I/O space configuration is as follows:
 
 [options="header",cols="1,1,2"]
 |====
-3+| GPIO control of BPI:bit
+3+| GPIO control of BPI-Bit
 | Light Sensor(L)          | GPIO 36 | Analog Input                        
 | Light Sensor(R)          | GPIO 39 | Analog Input                        
 | Botton A                 | GPIO 35 | Digital Input                       
@@ -46,7 +46,7 @@ The edge interface is much compatible with those of micro:bit. so you may able t
 
 [options="header"]
 |====
-6+| HardWare PIN define of BPI:bit 
+6+| HardWare PIN define of BPI-Bit 
 | Pin Name  | Analog Function1 | Analog Function2 | Function1 | Function2 | Power     
 | P3        | ADC2_CH4         |            | GPIO13    |           | 
 | P0        | ADC2_CH8         | DAC_1      | GPIO25    |           |  
@@ -89,24 +89,24 @@ BPI:bit have 25 LEDs on board, it can be controlled with a single GPIO.
 |====
 
 == MPU9250 9-axis sensor
-The 9-axis sensor, MPU9250, is placed on the BPI:bit board. and MPU9250 uses I2C 0x69 address.
+The 9-axis sensor, MPU9250, is placed on the BPI-Bit board. and MPU9250 uses I2C 0x69 address.
 
 The 9-axis is the combination of 3 separate triple axis sensors. For more detailed information of this chip, click here MPU 9250 datasheet to view the datasheet.
 
-BPI-BIT MPU9250 Library and how to : https://github.com/BPI-STEAM/MPU9250
+BPI-Bit MPU9250 Library and how to : https://github.com/BPI-STEAM/MPU9250
 
-== BPI:bit power
-When you use BPI:bit, you need to supply the board first, and the bit supports three power supply modes
+== BPI-Bit power
+When you use BPI-Bit, you need to supply the board first, and the bit supports three power supply modes
 
-. micro USB port:USB cable power supply, the design of BPI:bit board has Micro USB interface, which is quite common in daily life and is quite convenient to use.
+. micro USB port:USB cable power supply, the design of BPI-Bit board has Micro USB interface, which is quite common in daily life and is quite convenient to use.
 . Battery port:Through 2 pin battery power supply socket, can through the lithium battery, battery pack to power supply board, interface fool proof design, don't worry about the power supply through the 2 pin battery power supply socket, can through the lithium battery, battery pack to power supply board, interface fool proof design, don't have to worry about power supply meet the problem.
 . Goldfinger ：Power is supplied through the gold finger, and the gold finger at the bottom of the board contains the power interface. Meanwhile, it has both input and output functions and has high compatibility.
 
 == BPI:bit VS micro:bit
 [options="header",cols="1,4,4"]
 |====
-3+|bpi:bit VS micro:bit
-| Module                | bpi:bit                 | micro:bit                                                                    
+3+|BPI-Bit VS micro:bit
+| Module                | BPI-Bit                 | micro:bit                                                                    
 | CPU                   | Dual-core 32bit Xtensa LX6, up to 240MHz | NXP KL26Z 32bit ARM Cortex M0, up to 16MHz                                   
 | RAM                   | 520 KB                  | 16 KB 
 | ROM                   | 448 KB                  | Unkown 
@@ -125,7 +125,7 @@ When you use BPI:bit, you need to supply the board first, and the bit supports t
 |====
 
 == BPI-Bit Software development
-BPI:bit Software development schedule and support applications:
+BPI-Bit Software development schedule and support applications:
 
 
 == BPI-Bit for Webduino
@@ -144,18 +144,18 @@ link:/en/BPI-Bit/Bit_for_Scratch[BPI-Bit for Scratch]
 https://bpi-steam.com/
 
 = Resources
-- link:https://github.com/BPI-STEAM/BPI-BIT/blob/master/doc/BPI-bit_user_manual.pdf[BPI:bit user manual]
-- link:https://github.com/BPI-STEAM/BPI-BIT/blob/master/doc/BPI-WEBDUINO-BIT-V1_4.pdf[BPI:bit V1.4 schematic diagram]
-- link:https://github.com/BPI-STEAM/BPI-BIT/blob/master/doc/BPI-WEBDUINO-BIT-V1_2.pdf[BPI:bit V1.2 schematic diagram]
-- link:http://forum.banana-pi.org/uploads/default/original/2X/0/0b86ccaeb565cdeef093164fd1ff837727ca2887.rar[BPI:bit dxf file]
+- link:https://github.com/BPI-STEAM/BPI-BIT/blob/master/doc/BPI-bit_user_manual.pdf[BPI-Bit user manual]
+- link:https://github.com/BPI-STEAM/BPI-BIT/blob/master/doc/BPI-WEBDUINO-BIT-V1_4.pdf[BPI-Bit V1.4 schematic diagram]
+- link:https://github.com/BPI-STEAM/BPI-BIT/blob/master/doc/BPI-WEBDUINO-BIT-V1_2.pdf[BPI-Bit V1.2 schematic diagram]
+- link:http://forum.banana-pi.org/uploads/default/original/2X/0/0b86ccaeb565cdeef093164fd1ff837727ca2887.rar[BPI-Bit dxf file]
 - link:https://drive.google.com/file/d/1JoQqcHd12TBzTResew5SkeNFxlJ3BGL8/view?usp=sharing[BPI:bit 3D design file]
-- Bananna Pi BPI:bit hardware introduce: https://www.youtube.com/watch?v=QVnlGKTittw
-- BPI:bit Webduino Easy How-To's Episode 1: Initial Setup : https://www.youtube.com/watch?v=23_a27N3_7k
+- Bananna Pi BPI-Bit hardware introduce: https://www.youtube.com/watch?v=QVnlGKTittw
+- BPI-Bit Webduino Easy How-To's Episode 1: Initial Setup : https://www.youtube.com/watch?v=23_a27N3_7k
 - How to Program Esp32 with Arduino IDE with C++ : https://technicalustad.com/program-esp32-with-arduino-ide-with-c/
-- Banana Pi BPI:bit CE FCC RoHS Certification : http://forum.banana-pi.org/t/banana-pi-bpi-bit-ce-fcc-rohs-certification/7363
-- BPI:bit platformio official support : https://docs.platformio.org/en/latest/boards/espressif32/bpi-bit.html
-- BPI:bit for webduino wuyu online documents(TaiWan): https://sites.google.com/site/wenyuwebbit/
-- BPI:bit for webduino chenlung document(TaiWan): https://sites.google.com/a/tssh.ntpc.edu.tw/chenlung/webduino-bit
+- Banana Pi BPI-Bit CE FCC RoHS Certification : http://forum.banana-pi.org/t/banana-pi-bpi-bit-ce-fcc-rohs-certification/7363
+- BPI-Bit platformio official support : https://docs.platformio.org/en/latest/boards/espressif32/bpi-bit.html
+- BPI-Bit for webduino wuyu online documents(TaiWan): https://sites.google.com/site/wenyuwebbit/
+- BPI-Bit for webduino chenlung document(TaiWan): https://sites.google.com/a/tssh.ntpc.edu.tw/chenlung/webduino-bit
 
 == Forum
 Free discuss forum : http://forum.banana-pi.org/c/bpi-bit
