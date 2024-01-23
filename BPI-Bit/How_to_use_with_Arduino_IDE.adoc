@@ -1,13 +1,13 @@
 = Ardino IDE
 
 == How to setup and start
-Need to be prepared:
+=== Need to be prepared
 
 - BPI-UNO32 1 or BPI:bit 1
 - Jumper Cap 4
 - microUSB 1
 
-Quickstart：
+=== Quickstart
 
 . Connect the four jumper caps to the top of the board, respectively, to connect the RGB LED to the buzzer. Then use the microUSB line to connect the development board to the computer.
 
