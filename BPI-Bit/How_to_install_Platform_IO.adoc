@@ -1,0 +1,60 @@
+= Install Vscode
+
+Visual Studio Code is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux. It comes with built-in support for JavaScript, TypeScript and Node.js and has a rich ecosystem of extensions for other languages (such as C++, C#, Java, Python, PHP, Go) and runtimes (such as .NET and Unity).
+
+Download vscode: https://code.visualstudio.com/
+
+It is easy to install ,So we won't go into detail here
+
+= Install the platformIO plug-in on vscode
+
+. First open the vscode extension list and click on the fifth icon in the left list
++
+image::/picture/vscode_1.jpeg[vscode_1.jpeg]
+
+. After searching for platformIO in the search bar, click the first platformIO IDE in the list below
++
+image::/picture/vscode_2.jpeg[vscode_2.jpeg]
+
+. Click install on the plug-in interface
++
+image::/picture/vscode_3.jpeg[vscode_3.jpeg]
+
+. The installation process will be very long, about 40 minutes, wait patiently. When a notification is given that Python2.7 cannot be found, we will ignore it because it will be automatically installed during PlatformIO installation.
++
+image::/picture/vscode_4.png[vscode_4.png]
+
+. After successful installation, an icon will appear in the left list, and a small log will appear in the lower left corner
++
+image::/picture/vscode_5.jpeg[vscode_5.jpeg]
+
+= Create new project
+. Click the small house in the lower left corner to enter the main page of platformIO and click New Project
++
+image::/picture/vscode_6.jpeg[vscode_6.jpeg]
+
+. Fill in the project name, board and frame. Project name on the basis of personal interests, because I am using bpi:bit board, so here I chose the bpibit board. Selecting the bpibit board will automatically select the frame. Below is the choice to save the address, generally the default, as long as the hook removed, you can choose to customize the address
++
+image::/picture/vscode_7.png[vscode_7.png]
+
+. Click finish to successfully set up a project
++
+image::/picture/vscode_8.jpeg[vscode_8.jpeg]
+
+. The explorer on the left displays the project folder
+
+- Platformio.ini (for configuration file)
+- Lib (directory of automatically generated libraries)
+- SRC (directory where the program source files are stored)
+
++
+image::/picture/vscode_9.jpeg[vscode_9.jpeg]
+
+= Flash reprogramming
+Enter the SRC directory and click main.cpp to program. After connecting the board to the computer with the data cable, click the arrow below, and platformIO will automatically identify the serial port and burn the program.
+
+image::/picture/vscode_10.jpeg[vscode_10.jpeg]
+
+Free developmnet BPI:bit with Platforum IO.
+
+image::/picture/vscode_11.jpeg[vscode_11.jpeg]
