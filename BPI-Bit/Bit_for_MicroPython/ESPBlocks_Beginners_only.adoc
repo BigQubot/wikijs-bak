@@ -1,0 +1,75 @@
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_board_development_tools[Banana Pi BPI-Bit]
+
+
+= The development tools
+
+- Use Windows link:https://github.com/BPI-STEAM/BPI-BIT-MicroPython/releases/tag/BlocksTools[click here to download].
+- Use Python source code link:https://github.com/junhuanchen/ESPBlocks[click here to download], the need to build Python depend on the environment, you don't go into here.
+
+= Connect the board
+Windows for example, in any location directly run, it is recommended that there is no Chinese path.
+
+Double-click to open ESPblocks. Exe and wait for a moment while it releases the resource
+
+Whether or not there is a Connect board, the Connect search board will pop up once, or you can click on the Connect to pop up the window.
+
+
+
+Now we connect the board through the wire, it will automatically find the current connected board serial port and display, as shown in the figure below.
+
+
+Then click the button in the figure to confirm that it is their own board can be connected.
+
+The connection is completed as shown below:
+
+
+
+Wireless connection is not supported now
+
+= Use the Editor to run the program
+Prepare a piece of code and copy it into the white box.
+```sh
+print('\n')
+print('test')
+print('\n')
+```
+
+
+Click the Run button to complete the Run
+
+
+= Use Blockly to run the program
+Follow the arrows in the figure below.
+
+
+When you click the Blockly button in the menu, a fixed size window pops up. This function cannot be reused at present, so you need to close the program to use it again.
+
+Select one of the display interface blocks in Blockly and it will appear synchronously in the edit box on the right, but you cannot edit code in Blockly mode.
+
+
+Then select the second square, the graphical interface square
+
+And then put it all together.
+
+The code is generated automatically.
+
+
+Click the Run button in the upper right corner to Run the program.
+
+
+The results are shown below.
+
+
+Important: only compatible with most functions of microbit, so there will be some interface incompatibility problems. If there is a problem in the process of using, you can try to submit an issue to me, and I will fix it from the underlying firmware.
+
+Note that it is not a Microbit and is only compatible with common features, so I can't guarantee that you can use it as a Microbit entirely, especially with hardware interfaces that don't exist on bpibit
+
+= Open question
+Note that this software is completely open source and is only recommended for beginners to use, so there will be some unsupported functions. If you need more complex functions, please use the series of mpfshell tools I maintain.
+
+List of known problems:
+
+. REPL support is poor and lacks some of the features that affect the experience, such as Tab auto completion, so don't worry if you don't know REPL.
+. Blockly's generated code has many incompatible interfaces, and the window cannot be opened twice.
+. Code assist is not supported, and there is no functional charm similar to Pycharm
+. File operation is not supported, file management is not possible, for example: Mpfshell support
