@@ -13,16 +13,17 @@ Double-click to open ESPblocks. Exe and wait for a moment while it releases the 
 
 Whether or not there is a Connect board, the Connect search board will pop up once, or you can click on the Connect to pop up the window.
 
-
+image::/bpi-bit/index_espblocks.png[index_espblocks.png]
 
 Now we connect the board through the wire, it will automatically find the current connected board serial port and display, as shown in the figure below.
 
+image::/bpi-bit/search.png[search.png]
 
 Then click the button in the figure to confirm that it is their own board can be connected.
 
 The connection is completed as shown below:
 
-
+image::/bpi-bit/connected_espblocks.png[connected_espblocks.png]
 
 Wireless connection is not supported now
 
@@ -34,20 +35,26 @@ print('test')
 print('\n')
 ```
 
+image::/bpi-bit/ready_espblocks.png[ready_espblocks.png]
 
 Click the Run button to complete the Run
 
+image::/bpi-bit/running.png[running.png]
 
 = Use Blockly to run the program
 Follow the arrows in the figure below.
 
+image::/bpi-bit/blockly.png[blockly.png]
 
 When you click the Blockly button in the menu, a fixed size window pops up. This function cannot be reused at present, so you need to close the program to use it again.
 
 Select one of the display interface blocks in Blockly and it will appear synchronously in the edit box on the right, but you cannot edit code in Blockly mode.
 
+image::/bpi-bit/blockly1.png[blockly1.png]
 
 Then select the second square, the graphical interface square
+
+image::/bpi-bit/blockly2.png[blockly2.png]
 
 And then put it all together.
 
