@@ -1,0 +1,47 @@
+= How to lighting the RGB LED
+
+== Install Library
+. Install library from github:
++
+Librarys:link:https://github.com/Makuna/NeoPixelBus[NeoPixel_Bus] from Makuna
++
+Download libraries and put it in the libraries folder in the installation directory of the Arduino IDE
++
+image::/picture/lightingled-1.png[lightingled-1.png]
+
+. Install Library by Manage Libraries:
++
+image::/picture/lightingled-4.png[lightingled-4.png]
+image::/picture/lightingled-6.png[lightingled-6.png]
+
+== Programe Code
+- Open Arduino IDE
++
+Click 'file'->'Example'->'NeoPixel Bus'->'simple' to open the example
++
+image::/picture/lightingled-7.png[lightingled-7.png]
+
+- We need to change some code,Find the code below in the code
++
+```sh
+ const uint16_t PixelCount = 4; // this example assumes 4 pixels, making it smaller will cause a failure
+ const uint8_t PixelPin = 2;  // make sure to set this to the correct pin, ignored for Esp8266
+```
+- Change to
++
+```sh
+ const uint16_t PixelCount = 25; // this example assumes 4 pixels, making it smaller will cause a failure
+ const uint8_t PixelPin = 4;  // make sure to set this to the correct pin, ignored for Esp8266
+```
+- Then add the following code to void setup()
++
+```sh
+ #define LED_POWER      2
+ pinMode(LED_POWER, OUTPUT);
+ digitalWrite(LED_POWER, HIGH);
+```
+- Compile this program
++
+image::/picture/lightingled-3.png[lightingled-3.png]
++
+And download it(Set the serial port and board）
