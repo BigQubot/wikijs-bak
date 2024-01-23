@@ -1,0 +1,43 @@
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_basic_board_development[Bit for MicroPython]
+
+
+= Wired connection board
+
+. Connect BPI;bit
++
+Connect a board to your computer via a MicroUSB wire, with Windows10 system
++
+image::/bpi-bit/bit_connect.jpg[bit_connect.jpg]
+
+. Check the drive
++
+Enter <device manager> to confirm whether Serial is installed, enter as follows.
++
+- (right key)This computer -> attribute -> device manager
+- Start menu -> (input) device manager
+- Control panel -> (search) device manager
+
++
+image::/bpi-bit/error.png[error.png]
+You can see the device display ** usb2.0-serial **, indicating that ** has not been installed driver **, if the driver has been installed before, you can skip to step 5.
+
+. Install the driver
++
+Check here link:http://www.wch.cn/downloads/file/5.html[Serial CH341] driver，And follow the instructions below to install the driver
+Open the downloaded CH341SER.ZIP ZIP package, enter the CH341SER folder, open setup. EXE, you can see the following figure.
++
+image::/bpi-bit/install.png[install.png]
++
+Check INSTALL to install driver，Wait a moment to complete the installation.
+
+. Confirm the serial port
++
+Check that the board is connected successfully
++
+image::/bpi-bit/success.png[success.png]
++
+You can see that the original usb2.0-serial has disappeared and is replaced by usb-serial CH340(COM3), which means that you have successfully installed the driver and got the name of the board Serial port (COM3). You can view the information coming out of the board of Serial port name (COM3) through various Serial port tools
+
+. Other System
++
+The board has been successfully connected，Go on to the next section link:/en/BPI-Bit/Bit_for_MicroPython/Try_burning_the_board[3 Try burning the board]，If it's a Linux or Mac system you have to do your own search, but it's pretty much the same.
