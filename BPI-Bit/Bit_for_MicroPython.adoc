@@ -1,0 +1,80 @@
+TIP: link:/en/BPI-Bit/BananaPi_BPI-Bit#_bpi_bit_for_micropyhton[Banana Pi BPI-Bit]
+
+
+image::/picture/mircopython.png[mircopython.png]
+
+== Banana Pi BPI:bit for microPython source on github
+BPI:bit have full support microPyton。firmware、exploitation environment、software and wiki documtnets have update to :
+
+Code on github and support :
+
+. Provide terminal command line operation tools
+. Provide wired or wireless to operation board
+. Provide Pycharm IDE development
+. Provide Microbit for MicroPython function library
+
+https://github.com/BPI-STEAM/BPI-BIT-MicroPython
+
+== Banana Pi BPI:bit for microPython online tutorial
+[options="header"]
+|====
+5+|Basic board development
+|link:https://wiki.banana-pi.org/1_Get_the_development_suite[1 Get the development suite]	
+|link:https://wiki.banana-pi.org/2_Wired_connection_board[2 Wired connection board]	
+|link:https://wiki.banana-pi.org/3_Try_burning_the_board[3 Try burning the board]	
+|link:https://wiki.banana-pi.org/4_Hello,_World![4 Hello, World!]	
+|link:https://wiki.banana-pi.org/5_Light_up_all_kinds_of_LED[5 Light up all kinds of LED]
+|====
+
+[options="header"]
+|====
+4+|Board development tools
+|link:https://wiki.banana-pi.org/1_Auto_series_one_key_burn[1 Auto series one key burn]	
+|link:https://wiki.banana-pi.org/2_ESPBlocks_Beginner%27s_only[2 ESPBlocks Beginner's only]	
+|link:https://wiki.banana-pi.org/3_Mpfshell_details[3 Mpfshell details]	
+|link:https://wiki.banana-pi.org/4_Pycharm_IDE_programming[4 Pycharm IDE programming]
+|====
+
+[options="header"]
+|====
+4+|Development tutorial(Based on MicroBit):
+|link:https://wiki.banana-pi.org/1._Panel_scrolling_text[1 Panel scrolling text]	
+|2 Panel display images	
+|3 Bottom IO port control	
+|4 Panel key detection	
+|5 Gets the board temperature	
+|6 Play MIDI music
+|7 Photosensitive gesture	
+|8 MPU-9250 9-axis sensor	
+|9 Make a compass	
+|10 Free to define gesturesl	
+|11 Random number generator
+|12 S2m Scratch2	
+|13 Codelab Scratch3
+| | | 
+|====
+
+[options="header"]
+|====
+5+|Development of advanced:
+|1 The basic algorithm	
+|2 WiFI wireless connection	
+|3 WiFI wireless programming	
+|4 MQTT communication applications	
+|5 Get the city weather
+|====
+
+== Resources
+We are now testing all micro:bit online documentation examples，we have let BPI:bit compatibility micro:bit function library，so，microPyton support for micro:bit，You can run it directly on BPI:bit.
+
+This is BPI:Bit run:https://microbit-micropython.readthedocs.io/en/latest/tutorials/hello.html code . You can run the code directly on BPI:bit, you can see the video demo.
+
+https://www.youtube.com/watch?v=AczqV6zMi9E&feature=youtu.be
+
+For more board examples, see the following url:
+
+microbit online documents : https://microbit-micropython.readthedocs.io/en/latest/tutorials/introduction.html
+
+microbit online simulator genuine: http://www.micropython.org.cn/pye/editor-en.html
+
+more sample code on github: https://github.com/BPI-STEAM/micropython-samples
