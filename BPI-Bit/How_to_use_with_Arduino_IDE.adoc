@@ -1,0 +1,49 @@
+= Ardino IDE
+
+== How to setup and start
+Need to be prepared:
+
+- BPI-UNO32 1 or BPI:bit 1
+- Jumper Cap 4
+- microUSB 1
+
+Quickstart：
+
+. Connect the four jumper caps to the top of the board, respectively, to connect the RGB LED to the buzzer. Then use the microUSB line to connect the development board to the computer.
+
+- Port:
++
+image::/picture/uno32_start_0.png[uno32_start_0.png]
+
+- Connect:
++
+image::/picture/uno32_start_1.png[uno32_start_1.png]
++
+--
+Open Arduino IDE and install ESP32 Expansion pack
+
+Arduino IDE Software:(*link:https://www.arduino.cc/en/Main/Software[Arduino IDE])
+
+ESP32 Expansion pack:(*link:https://github.com/espressif/arduino-esp32/blob/master/README.md[Installation guide]) ->Installation Instructions
+--
+
+- Open Arduino IDE and setup baord:
++
+image::/picture/arduinoide-1.png[arduinoide-1.png]
+
++
+If you install ESP32 package you can ESP32 board in Tools->Boards see <ESP32 Arduino>
+
+- Arduino IDE Compile and Download:
++
+image::/picture/arduinoide-2.png[arduinoide-2.png]
+
+- Arduino IDE serial port setup:
++
+image::/picture/arduinoide-3.png[arduinoide-3.png]
+
+. You can click Serial Monitor in Arduino IDE. It will open a new window ,in this window ,you can setup serial :
+
+- Serial Config:
++
+image::/picture/arduinoide-4.png[arduinoide-4.png]
