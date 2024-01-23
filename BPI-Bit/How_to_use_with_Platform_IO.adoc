@@ -1,0 +1,49 @@
+= Ardino IDE
+
+== How to setup and start
+Need to be prepared:
+
+- BPI-UNO32 1 or BPI:bit 1
+- Jumper Cap 4
+- microUSB 1
+
+Quickstart:
+
+. Connect the four jumper caps to the top of the board, respectively, to connect the RGB LED to the buzzer. Then use the microUSB line to connect the development board to the computer.
+
+- Port:
++
+image::/picture/uno32_start_0.png[uno32_start_0.png]
+
+- Connect:
++
+image::/picture/uno32_start_1.png[uno32_start_1.png]
++
+Open VS Code \(you can also choose other compilers\) and open BPI-UNO32 on the PlatformIO Home page Code project, for example, to open a test code engineering folderPlatformIO\_VSCode。
+
+- Project:
++
+image::/picture/uno32_start_2.png[uno32_start_2.png]
++
+Open the VS Code terminal console, input , compile the program, input , compile and burn the program. (if it hasn't been compiled before, it may be slow to compile the first time and need to be connected because he needs to get the corresponding platform information).
+
+- Platformio run：
++
+image::/picture/uno32_start_3.png[uno32_start_3.png]
+
+- Platformio run --target upload：
++
+image::/picture/uno32_start_4.png[uno32_start_4.png]
+
+. Then open the serial port assistant tool, select BPI-UNO32 on the computer corresponding to the serial serial number, the serial port settings are selected as: Baud rate: 115200 Data bit: 8 Parity check: no Stop bit:
+
+- Serial Config：
++
+image::/picture/uno32_start_5.png[uno32_start_5.png]
+
+. Test content：
+
+- RGB LED fading.
+- AD acquisition and testing of 6 ADC\_channel1.
+- WiFi scan testing.
+- Control test of buzzer gradient.
