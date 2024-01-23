@@ -1,0 +1,89 @@
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_basic_board_development[Bit for MicroPython]
+
+= Light up all kinds of LED
+
+If Hello World is the beginning of religious programming for software programmers, Blink Led is the same for hardware programmers. All hardware programming starts with lighting a lamp.
+
+So we started to prepare our hardware, and I was using a beta version 1.3. It is sufficient for the purposes of this chapter, and is common to subsequent boards. Therefore, we pay attention to progressive, first a lamp, and then a row of lights.
+
+image::/bpi-bit/ready.png[ready.png]
+
+== Use repl
+Go into repl mode
+
+image::/bpi-bit/into_repl.png[into_repl.png]
+
+input (after selecting the text to copy, right-click in the black box and paste)
+```sh
+from machine import Pin
+```
+input again
+```sh
+Pin(18, Pin.OUT).value(1)
+```
+
+image::/bpi-bit/light_up.png[light_up.png]
+
+Make sure that one of the lights on the panel is lit
+
+image::/bpi-bit/light_result.jpg[light_result.jpg]
+
+Just to make sure it's the light we're controlling,input
+```sh
+Pin(18, Pin.OUT).value(0)
+```
+
+image::/bpi-bit/light_down.png[light_down.png]
+
+That's when you see it go out
+
+image::/bpi-bit/light_restore.jpg[light_restore.jpg]
+
+== Use mian.py
+Prepare the following code into the main.py file. Unlike the previous one, this effect is continuous. It will make the light on and wait for one second before it goes off.
+```sh
+from machine import Pin
+import time
+led = Pin(18, Pin.OUT) # get a led on gpio 18.
+print('turn on')
+led.value(1) # turn on
+print('sleep 1s')
+time.sleep(1) # sleep 1s
+print('turn off')
+led.value(0) # turn off
+```
+
+image::/bpi-bit/mian_light.png[mian_light.png]
+
+If you feel the effect is not obvious, you can write an infinite loop to see the effect. Please use Ctrl + C to stop, otherwise you cannot continue the operation.
+```sh
+from machine import Pin
+import time
+led = Pin(18, Pin.OUT) # get a led on gpio 18.
+while True:
+   print('turn on')
+   led.value(1) # turn on
+   print('sleep 1s')
+   time.sleep(1) # sleep 1s
+   print('turn off')
+   led.value(0) # turn off
+   print('sleep 1s')
+   time.sleep(1) # sleep 1s
+```
+
+image::/bpi-bit/blink_led.png[blink_led.png]
+
+== Learn the LED light array (NeoPixel) on the light panel
+Ready the following code into main.py (\HowToCode\ 01.leds \rgb_lattice. Py)
+```sh
+from pixel import Pixel
+View = Pixel()
+RGB = (10, 10, 10)
+View.LoadXY(2, 2, RGB)
+View.Show()
+```
+Execute using runfile main.py.
+
+image::/bpi-bit/pixel.png[pixel.png]
+
+At this point, the quick start of the tutorial has ended, from the lower toolbar back to the home page or read the material on the right, learn more basic, advanced, application and so on.
