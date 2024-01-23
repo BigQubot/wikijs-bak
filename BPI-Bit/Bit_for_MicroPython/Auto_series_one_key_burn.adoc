@@ -91,7 +91,7 @@ The result of successful execution of the repair (erasure) tool is shown below.
 
 image::/bpi-bit/repair_finish.jpg[repair_finish.jpg]
 
-= trouble shooting
+= Trouble shooting
 == Write firmware failed, write program flash back, or the result appears red warning
 Most reason is that there was a problem with the serial port driver you can try again after the solution to this problem, if the burn write error, it is possible that your computer is using multiple serial ports, the issues that led to the identification error please ensure that the board is the latest inserted, otherwise cannot be automatically identify and burning, if sure have this problem have appeared in the burning failure situation, please change to other burning cables, at this time still burning fails, please send us the board, we will repair or replacement for you.
 
