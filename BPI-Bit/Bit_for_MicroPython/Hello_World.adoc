@@ -1,0 +1,69 @@
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_basic_board_development[Bit for MicroPython]
+
+= Introduction
+
+Hello World is one of the most famous programs.For every programmer, this program is the first example program in almost every programming language.In fact, all it does is tell the computer to say Hello World.Traditionally, this program has been used by programmers to test a new system or programming language.For programmers, seeing these two words on a computer screen is often a sign that their code is ready to compile, load, and run, and this output is meant to prove it, so take this as an example.
+
+= Program with MpfShell
+Tips: please burn the MicroPython firmware before use.
+
+For the needed materials, please go here to download windows-mpfshell. exe, which needs to be manually selected because the software version may be updated.
+
+= Run the program through repl
+
+image::/bpi-bit/program.png[program.png]
+
+(take Windows as an example) double-click to run windows-mpfshell.exe.
+
+image::/bpi-bit/index.png[index.png]
+
+[options="header",cols="1,3"]
+|====
+2+|BPI:bit
+|The colors that appear in turn	|explain
+|white	|Displays all supported command actions, top command for helpful instructions, bottom command for reverse.
+|yellow	|The above command for all the support, if you want to know the usage of the ls ` ` input ` help ls `.
+|blue	|Show the current insert board serial port name, as shown for ` com5 `, can input ` open com5 ` connected devices
+|====
+
+To try to connect to the device, type open com5 (or o com5 for short). If nothing happens, use CTRL + C or the Red Cross in the upper right corner.
+
+image::/bpi-bit/opendev.png[opendev.png]
+
+Now hint: start the panel for the first time, if the networking function is used, if the lamp is connected to the panel when it is still rolling, the networking operation may be stopped, so when the networking function is found to be stopped, you need to manually execute wifi. Start () in repl, or use exec to execute the statement.
+
+Previous tips: the first time you start the board, the first time the connection fails, you can try again according to the tips, so please pay attention to the red message.
+
+image::/bpi-bit/connected.png[connected.png]
+
+When the Connected to esp32 is displayed, you can confirm that the board has been Connected successfully.
+
+At this point, type repl again, go to the base programming environment, and write down your first program, for example: print('Hello, World! ')
+
+Tip: the latest firmware in boot REPL there could be no found AP, want to stop it can input wifi. The close (), external operation, this does not affect the board just can affect the output of REPL position, set the firmware board electricity automatically connected to the Internet, the network configuration file in internal wifi_cfg. Py, because everyone's environment is different, so the default connection webduino. IO/webduino, its output message affects only the display, do not affect function.
+
+image::/bpi-bit/print_helloworld.png[print_helloworld.png]
+
+Echo the Hello, World! If you have successfully run your first program, you can continue to type in the code to test it.
+More programming usage will be covered in subsequent chapters.
+
+= Run the program through main.py
+Create a new main.py file and write the following.
+```sh
+print('Hello, World!')
+```
+If you want to use the MpfShell to execute this file, place it in the same directory as the MpfShell.
+
+image::/bpi-bit/main.png[main.png]
+
+Then switch to the program area of the MpfShell, and enter runfile main.py, or rf main.py, runfile short for rf.
+
+image::/bpi-bit/main_result.png[main_result.png]
+
+You can see that the echo of hello world indicates that you have successfully run the program.
+
+Useful hint: the latest mpfshell instruction has a lexecfile, which you can use if you need to interact with python input, because runfile can only receive board output and not input.
+
+= Program using PyCharm
+
+To use methods, please see link:/en/BPI-Bit/Bit_for_MicroPython/Pycharm_IDE_programming[4 Pycharm IDE programming]
