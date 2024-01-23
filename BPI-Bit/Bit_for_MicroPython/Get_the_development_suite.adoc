@@ -1,0 +1,46 @@
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_basic_board_development[Bit for MicroPython]
+
+= Know the project
+
+Github is a public and free version management repository, and most of them are open source projects. You can get a lot of materials or code you need here, etc., while our open source source code and other things are stored in the git repository of Github.
+Base.png
+
+The circled button option, for the user, provides the following functionality (although the document content may be updated with The Times, the general content shown in the image will not change).
+
+. Code: is the open source Code that the project stores, in this case the sample Code that can be used directly for the board.
+
+ Code.png
+ 
+. Issues:can be posted here if there is any doubt, whether it is error report or need help, etc.
+
+  Issues.png
+  
+. Project: refers to the current development of the Project. You can see the development of the whole Project here.
+
+  Project.png
+  
+. Wiki: view the documentation for the project,github is chinese version ,here is english
+
+   Wiki.png
+   
+. commits: to describe changes or commits that are current on a particular project.
+
+  Commits.png
+  
+. release: is where you store the tool suite, source code, and so on that the user can use directly.
+
+  Release.png
+
+= Download the project
+
+You can see the Clone or Download button below, which bundles the sample code for the current project directly for Download (without the development suite).
+
+Into.png
+
+Get development kit : https://github.com/BPI-STEAM/BPI-BIT-MicroPython/releases
+
+List.png
+
+Click on the blue font to download the file. In this project, the development kit tools are downloaded on demand, so when you need a tool, the document will mention the required materials at the beginning.
+
+You can go back to the beginning to relearn or move on to the next chapter link:/en/BPI-Bit/Bit_for_MicroPython/Wired_connection_board[2 Wired connection board]
