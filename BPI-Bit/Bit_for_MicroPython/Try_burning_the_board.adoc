@@ -1,0 +1,98 @@
+= Why burn the board
+
+Burn is a term that used to be used to download programs to hardware. Now it's just an idiom.As long as we burn the tools, we can put the program we want to run in the hardware.
+
+= Prepare related tools
+For example with windows 10，you need choose a image verison from link:https://github.com/BPI-STEAM/BPI-BIT-MicroPython/releases[BPI:bitrelease]，and download AutoErase.exe、AutoFlash.exe、firmware.bin and put it in the same directory
+
+On other systems, you need to use the py script for the burn, which is autoerers.py and autoflash.py.
+
+image::/bpi-bit/all_tools.png[all_tools.png]
+
+Finally, please ensure that the driver has been successfully installed and the board has been connected to the computer, you can continue to read the following content
+
+image::/bpi-bit/win_check_ch340.png[win_check_ch340.png]
+
+= One key to write firmware
+== Erase the board firmware
+It is recommended to erase the board once in the following situations.
+
+- First use of the firmware
+- Other firmware existed before
+- The board operation is abnormal
+- When at a loss
+
+In Windows system, for example, double-click to run autoeraser.Exe , which recognizes the serial port where the computer inserted the latest board and automatically erases the board, so you only need to make sure the board is the latest device to insert.
+
+image::/bpi-bit/erase_succeed.png[erase_succeed.png]
+
+The above is the successful erasure, if failed, please try again, still failed, please check or the serial port of the device.
+
+== Update the board firmware
+It is recommended to update the board once in the following situations.
+
+- After erasing the board
+- Firmware needs to be upgraded
+
+In Windows, for example, double-click to run autoflash.exe . It will recognize the most recently inserted serial port of the board and automatically write all firmware files in the same directory to the board.
+
+image::/bpi-bit/flash_succeed.png[flash_succeed.png]
+
+The above is a successful burn, if the failure, please try again, still failed, please check or device serial port
+
+Now that the burn is complete, you can move on to the next chapter link:/en/BPI-Bit/Bit_for_MicroPython/Hello,_World[4 Hello, World!]，If you have any other questions or want to know more, please read on.
+
+= Burn tool details
+== Use windows System
+Run ` AutoFlash. Exe ` program will automatically find the latest inserted into the serial port and will be the same directory ` fimware. Bin ` file burn write to the chip of a key.
+
+image::/bpi-bit/auto_flash_running.png[auto_flash_running.png]
+
+
+Using ` AutoErase. Exe ` program firmware can be erased, if there are other firmware, or have a unsolvable problems, are available through the repair (erase) tool to reset the board after burning firmware, note that it will be the board all the file is deleted.
+
+image::/bpi-bit/auto_erase_running.png[auto_erase_running.png]
+
+The above procedure through related Python scripts and ` Pyinstller X86 ` module packaging
+
+more than two tools support command line ` AutoErase. Exe - port COM4 - baud 115200 - port ` usage, specific can see below the configuration parameters are introduced.
+
+== Use linux system
+```sh
+Shell 
+sudo esptool.py --chip esp32 --port COM3 --baud 1152000 write_flash -z --flash_mode dio --flash_freq 40m 0x1000 firmware.bin
+```
+
+- Before this need users to install python and installing the dependencies esptool, such as `PIP install esptool`
+- esptool.py is ESP chip series of burn script tools
+- `--chip esp32` is esp32 chip
+- `--port COM3` COM3 is the name of a serial port in Windows and /dev/ttyusb0 in Linux.
+- `--baud 921600`,If a burn error occurs, it can be lowered to 460800, which will slow down the burn.
+- `firmware.bin`,Refers to the location of a file that is burned. If there is no path, the default is the same directory.
+- The others remain unchanged
+
+== Performs a burn in the Python interpreter environment
+link:https://github.com/junhuanchen/AutoTools/blob/master/AutoFlash.py[AutoFlash.py] Consistent with the Linux Shell, you can see this in the Py code
+
+link:https://github.com/junhuanchen/AutoTools/blob/master/AutoErase.py[AutoErase.py] To erase the firmware of the current hardware. When you encounter a problem that cannot be solved, you can try to erase it.
+
+= After burning
+After the burn, if the burn is successful will be as shown below, otherwise it will flash back or appear red warning content, and other information report.
+
+image::/bpi-bit/flash_finish.jpg[flash_finish.jpg]
+
+= Go wrong
+If you do not know how to solve the problem, please directly submit the problem to us for solving.
+
+If no one offers a solution, you can use the fix (erase) tool and re-burn the firmware yourself.
+
+The result of successful execution of the repair (erasure) tool is shown below.
+
+image::/bpi-bit/repair_finish.jpg[repair_finish.jpg]
+
+= Trouble shooting
+== Write firmware failed, write program flash back, or the result appears red warning
+Most reason is that there was a problem with the serial port driver you can try again after the solution to this problem, if the burn write error, it is possible that your computer is using multiple serial ports, the issues that led to the identification error please ensure that the board is the latest inserted, otherwise cannot be automatically identify and burning, if sure have this problem have appeared in the burning failure situation, please change to other burning cables, at this time still burning fails, please send us the board, we will repair or replacement for you.
+
+== Burned successfully.But not work.
+Make sure wire, if the panel light is not bright, there are two possible, one is the problem of connection wire (line is poorer, insufficient power supply), replace the better line is ok, the other is a previous firmware problem, partition data is damaged, need to erase a can, generally occurred in previous burned other firmware, if ruled out in both cases, only is a computer problem, can first check whether the driver is normal, not an exclamation point, or change the computer to try again.
