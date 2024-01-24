@@ -1,0 +1,106 @@
+= Description
+
+The BPI-9600 series of modules are designed to extract power from a conventional twisted pair Category 5 Ethernet cable, conforming to the IEEE 802.3af Power-over-Ethernet(PoE) standard. The BPI-9600 signature and control circuit provides the PoE compatibility signature and power classification required by the Power Sourcing Equipment (PSE) before applying up to 15W power to the port. The BPI-9600 provides a Class 0 signature.
+
+The DC/DC converter operates over a wide input voltage range and provides a regulated output. The DC/DC converter also has built-in short-circuit output protection.
+
+image::/picture/poe_9600_mode_1.jpg[poe_9600_mode_1.jpg]
+
+= Features
+- IEEE802.3af compliant
+- Input voltage range 36V to 57V
+- Integral high efficiency DC/DC converter.
+- Low output ripple and noise
+- High performance with low price
+- Short-circuit protection
+- Adjustable Output
+- Optional multi-voltage output 3.3V 5V 12V 24V
+- Transformer isolation ,1500V isolation (input to output)
+- Easy to use, with a minimum number of external components.
+
+= Applications
+- IoT gateway
+- IP Cameras
+- Wireless access point
+- Security and alarm systems
+- VOIP telephone
+- Point of sale network terminal equipment
+
+= PBI-9600 PoE Hardware
+== Module size
+
+image::/picture/bpi-9600_size.png[bpi-9600_size.png]
+
+== Product Selector
+[options="header",cols="3,2,2,2,2"]
+|====
+5+|BPI-9600 PoE module
+|Part Number |Nominal Output Voltage |Maximum Output Power |Marking |Package
+|BPI-9600-3.3V	|3.3V	|6.6W	|3.3V	|SIL
+|BPI-9600 -5V	  |5V	  |10W	|5V	  |SIL
+|BPI-9600 -12V	|12V	|12W	|12V	|SIL
+|BPI-9600 -24V	|24V	|12W	|24V	|SIL
+|====
+
+At 25°C with VIN = 48V
+
+== Pin Description
+[options="header",cols="1,1,6"]
+|====
+3+|BPI-9600 PoE module
+|Pin #	|Name	|Description
+|1	|VA1	|RX Input (1). This input pin is used in conjunction with VA2 and connects to the centre tap of the transformer connected to pins 1 & 2 of the RJ45 connector (RX) - it is not polarity sensitive.
+|2	|VA2	|TX Input (2). This input pin is used in conjunction with VA1 and connects to the centre tap of the transformer connected to pins 3 & 6 of the RJ45 connector (TX) - it is not polarity sensitive.
+|3	|VB1	|Direct Input (1). This input pin is used in conjunction with VB2 and connects to pin 4 & 5 of the RJ45 connector - it is not polarity sensitive.
+|4	|VB2	|Direct Input (2). This input pin is used in conjunction with VB1 and connects to pin 7 & 8 of the RJ45 connector - it is not polarity sensitive.
+|5	|-VDC	|DC Return. This pin is the return path for the +VDC output.
+|6	|+VDC	|DC Output. This pin provides the regulated output from the DC/DC converter.
+|====
+
+== Absolute Maximum Ratings
+[options="header",cols="1,2,1,1,1,1"]
+|====
+6+|BPI-9600 PoE module
+|　	|Parameter	|Symbol	|Min	|Max	|Units
+|1	|DC Supply Voltage	|VCC	|-0.3	|60	|V
+|2	|DC Supply Voltage Surge for 1ms	|VSURGE	|-0.6	|80	|V
+|3	|Storage Temperature	|TS	|-40	|100	|OC
+|====
+Note 1: Exceeding the above ratings may cause permanent damage to the product. Functional operation under these conditions is not implied. Maximum ratings assume free airflow.
+
+== Recommended Operating Conditions
+[options="header",cols="1,2,1,1,1,1,1,1"]
+|====
+8+|BPI-9600 PoE module
+|   |Parameter	|Symbol	|Min	|Typ	|Max	|Units	|Units
+|1	|Input Supply Voltage1	|VIN	  |36	  |48	|57	|V	      |V
+|2	|Under Voltage Lockout	|VLOCK	|30	  |   |36 |V	      |V
+|3	|Operating Temperature2	|TOP	  |-20	|25	|70	|Ta / OC	|BPI-9600
+|====
+
+Note:
+
+. With minimum load
+. See Section Operating Temperature Range +
+Extended use close to, or at the maximum operating temperature can reduce the life time of the device.
+
+== DC Electrical Characteristics
+
+image::/picture/bpi-9600_10.png[bpi-9600_10.png]
+
+Note:
+
+. Typical figures are at 25°C with a nominal 48V supply and are for design aid only. Not Guaranteed
+. The output ripple and noise can be reduced with an external filter, see application note.
+. Continuous short circuit duration is applicable at 25'C ambient temperature in free air. At higher temperatures or with restricted
+airflow (e.g. in a sealed enclosure) the duration will need to be limited to avoid overheating.
+
+= Typical Connection Diagram
+
+image::/picture/bpi-9600_sch_1.png[bpi-9600_sch_1.png]
+
+= Resources
+Banana pi BPI-P2 Zero IEEE 802.3af PoE function test: https://www.youtube.com/watch?v=RCrDmhjxfCU&feature=youtu.be
+
+= OEM&ODM
+Products can be customized according to customer needs
