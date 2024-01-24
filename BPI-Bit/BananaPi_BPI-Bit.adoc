@@ -2,8 +2,11 @@
 
 The BPI Bit (also referred to as **BPI-Bit**, stylised as **bpi:bit**) is an ESP32 with 32-bit Xtensa LX6 dual-core processor based embedded system. It supports Webduino, Arduino, MicroPython as well as Scratch X programming environments.
 
+image::/bpi-bit/bpi-steam_750.jpg[bpi-steam_750.jpg]
 
 BPI-Bit hardware main function:
+
+image::/bpi-bit/webduino_web_en_1.png[webduino_web_en_1.png]
 
 Bpi-Bit board is 5 cm x 5 cm in size, weighs 10 ~ 12 grams, it houses a 20-Pin edge connector, built-in lighting matrix with 25 programmable full-color LEDs , two photosensitive light sensors, two programmable buttons, an NTC resistor, a buzzer and a nine shaft sensor (triaxial acceleration Three-axis gyroscope and three-axis magnetic compass),
 
@@ -38,11 +41,16 @@ Webduino Bit is the latest board of Webduino with much more sensors on top of it
 
 Webduion bit board has a compact size of 50mm x 50mm, weighs 10-12 grams.It has 20 pins at the bottom,25 full color LED array in the middle, two photo cells,two buttons, one thermistor,one buzzer,one 9-axis sensor(3-axis accelerometer,3-axis gyroscope and 3-axis magnetometer)
 
+image::/bpi-bit/a_bpi-bit.jpg[a_bpi-bit.jpg]
+
 == Hardware interface
 
+image::/bpi-bit/bpi_bit_interfact.jpg[bpi_bit_interfact.jpg]
 
 == PIN definitions
 The edge interface is much compatible with those of micro:bit. so you may able to use micro:bit accessories on bpi:bit
+
+image::/bpi-bit/bpi_bit_gpio_detail-05.jpg[bpi_bit_gpio_detail-05.jpg]
 
 [options="header"]
 |====
@@ -120,13 +128,14 @@ When you use BPI-Bit, you need to supply the board first, and the bit supports t
 | IO interface          | edge interface (compatible with most micro:bit I/O features)                                         | edge interface 
 | Button                | 2 programmable buttons  | 2 programmable buttons 
 | micro USB             | 1x micro USB(UART)      | 1 x micro USB(Mass Storage Device)                                           
-| Software              | Webduino, Arduino, MicroPython, Scratch X | Microsoft MakeCode, MicroPython, Scratch X                                   
+| Software              | link:http://www.webduino.com.cn/[Webduino], Arduino, MicroPython, Scratch X | Microsoft MakeCode, MicroPython, Scratch X                                   
 | Size                  | 5*5 cm                  | 5*4 cm   
 |====
 
 == BPI-Bit Software development
 BPI-Bit Software development schedule and support applications:
 
+image::/bpi-bit/bpi_bit_map_wiki.png[bpi_bit_map_wiki.png]
 
 == BPI-Bit for Webduino
 link:/en/BPI-Bit/Bit_for_Webduino[BPI-Bit for Webduino]
