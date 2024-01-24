@@ -1,0 +1,16 @@
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_board_development_tools[Banana Pi BPI-Bit]
+
+
+Mpfshell user manual
+
+In python3.5 or above, you can use the command
+```sh
+pip install mpfshell-lite 
+```
+to install, and then type
+```sh
+mpfshell-lite
+```
+to open and run.
+
+image::/bpi-bit/mpfshell_install.png[mpfshell_install.png]
