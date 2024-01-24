@@ -1,3 +1,5 @@
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_development_of_advanced[Bit for MicroPython]
+
 = BPI:bit connect WiFI AP
 
 After the firmware is powered on, it will try to connect to the Internet by default after the LED light in the panel has been rolled over. You may notice that if the tool or artificial Ctrl + C stops at this time, there will be no connection to the Internet. The following code is required
