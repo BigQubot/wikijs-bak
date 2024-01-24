@@ -7,7 +7,7 @@ TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_board_development_tools[Banana Pi BPI
 - Use Windows link:https://www.python.org/ftp/python/3.7.0/python-3.7.0.exe[click here to download]
 - Setup interface is as follows!
 
-
+image::/bpi-bit/python02.png[python02.png]
 
 - The system already has Python.
 
@@ -19,20 +19,20 @@ TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_board_development_tools[Banana Pi BPI
 - Important clew 2, Linux system if there is a serial connection, please kindly check whether the serial port for the average user permissions, if not sure, please check this instruction ` usermod - a - G dialout Username && sudo reboot `, Username is to point to your user name, not a Username.
 - When the installation is complete, open it. Press the default Settings to enter the following interface.
 
-
+image::/bpi-bit/python03.png[python03.png]
 
 = Create a new project
 Click Create New Project to bring up the following interface.
 
-
+image::/bpi-bit/python05.png[python05.png]
 
 If you do not have Python installed, here is the interface
 
-
+image::/bpi-bit/python06.png[python06.png]
 
 Finally, you can see that the project has been established and completed.
 
-
+image::/bpi-bit/python07.png[python07.png]
 
 Refer to the official documentation of link:http://www.jetbrains.com/help/pycharm/meet-pycharm.html[pycharm] for more methods
 
@@ -41,67 +41,68 @@ Refer to the official documentation of link:http://www.jetbrains.com/help/pychar
 - Releases in the link:https://github.com/BPI-STEAM/BPI-BIT-MicroPython/releases[release] directory link:https://github.com/BPI-STEAM/BPI-BIT-MicroPython/releases/download/Tools/intellij-micropython-1.1.0.zip[intellij micropython - 1.1.0. Zip] the plugin file, and information about the plug-in in link:http://plugins.jetbrains.com/plugin/9777-micropython[official introduction] and link:https://github.com/vlasovskikh/intellij-micropython[official GIT]
 - Download good ` intellij micropython - 1.1.0 ` plug-in, where you know, into the JetBrains pycharm Community Edition of File - > Settings - > plugins - > Install plugins from disk
 
-
+image::/bpi-bit/python08.png[python08.png]
+image::/bpi-bit/py08.png[py08.png]
 
 - **Tip: I offer this plugin is a modified version at the bottom of the interface, and haven't access to the official store, so still and the original plugin name, therefore the IDE prompts plug-ins need to upgrade or other repair, will be replaced back to the original, in this case, it is good to ignore, then replace the plug-in names again issued can be directly connected to the Internet in the shop for download.**
 
-
+image::/bpi-bit/py09.png[py09.png]
 
 - Latest revision: the latest link:https://github.com/BPI-STEAM/BPI-BIT-MicroPython/releases/download/intellij-mpfshell-1.1.1/intellij-mpfshell-1.1.1.zip[intellij-mpfshell-1.1.1.1.zip] is now available, which differs from the specified version above in that it cleanness unnecessary information display, the connection is more stable, also applies to esp8266, and plans to launch the store in the future.
 
 = Run a file
 Once the plug-in is installed, start it in the project.
 
-
+image::/bpi-bit/py10.png[py10.png]
 
 You can search for MicroPython in Settings to get the above page.
 
-
+image::/bpi-bit/py11.png[py11.png]
 
 Now start it and click on the Settings in the figure, Enable MicroPython support.
 
-
+image::/bpi-bit/py12.png[py12.png]
 
 Select ESP8266 (ESP32) to configure the device type, and click Detect to Detect the path (or name) of the board you are connecting to, which is bound to fail because the key dependencies are not yet installed.
 
-
+image::/bpi-bit/py13.png[py13.png]
 
 When automatic serial port recognition fails, you need to fill in your own serial port name (including path) or other connection parameters, such as: ws:192.168.1.1,1234, which is the same as the open of mpfshell.
 
-
+image::/bpi-bit/py14.png[py14.png]
 
 Now that you have set the connection parameters for the board, you can right click on a new python file from untitled and be sure to create a file to trigger the installation dependency the first time you use it, before using the auto-identification serial port and other Tools (Tools in the menu item).
 
-
+image::/bpi-bit/py15.png[py15.png]
 
 In the right code edit box, say print(helloworld!)
 
-
+image::/bpi-bit/py16.png[py16.png]
 
 The first time you use it, you'll be prompted to Install the dependencies, so click Install requirements in the message to download the installation automatically in the background
 
-
+image::/bpi-bit/py17.png[py17.png]
 
 Just wait a moment
 
-
+image::/bpi-bit/py18.png[py18.png]
 
 You will be prompted when the installation is complete.
 
-
+image::/bpi-bit/py19.png[py19.png]
 
 Now we can Run the main.py file. Select Run 'Flash main.py' from the right-click menu anywhere in the edit box to automatically generate the Run file configuration and Run it on the board
 
-
+image::/bpi-bit/py20.png[py20.png]
 
 You can see the results below
 
-
+image::/bpi-bit/py21.png[py21.png]
 
 = Use the Mpfshell directly
 REPL and Mpfshell shortcuts are available in tools-> MicroPython.
 
-
+image::/bpi-bit/py22.png[py22.png]
 
 = Functional specification
 == Understanding intellij-micropython plug-ins
@@ -111,28 +112,32 @@ Note from the past: the future will be independent or merged back into the offic
 Note: the intellij-mpfshell has been updated synchronously. This version will continue my update.
 
 == Manually configure the files you want to run
-Tip: now that the underlying machine has been automatically reconnected, it automatically fixes and reexecutes if something goes wrong, so running the code will not fail in most cases.
+**Tip: now that the underlying machine has been automatically reconnected, it automatically fixes and reexecutes if something goes wrong, so running the code will not fail in most cases.**
 
-The following information may be outdated and is for reference only.
+**The following information may be outdated and is for reference only.**
 
 Previous tips: the current operation can only be retried if it fails, which may happen occasionally, especially in the main.py function. Since the main.
 
 Prepare a project and add a file as shown.
 
+image::/bpi-bit/py23.png[py23.png]
 
 First configure the current file, as shown in the figure
 
+image::/bpi-bit/py24.png[py24.png]
 
 Just set the Name and Path
 
+image::/bpi-bit/py25.png[py25.png]
 
 Select the configured device, and then click the green triangle to run. The red square indicates that it has stopped running. If it fails, just retry
 
-
-
+image::/bpi-bit/py26.png[py26.png]
 
 The results
 
-
+image::/bpi-bit/py27.png[py27.png]
 
 The common failures are shown below, just like the mpfshell, because the underlying layer is the same.
+
+image::/bpi-bit/py28.png[py28.png]
