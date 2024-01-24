@@ -1,0 +1,124 @@
+= Description
+
+BPI-6175 is a single channel Power Sourcing Equipment (PSE) module designed for ,use in Power over Ethernet (PoE) applications for a wide range of power levels from 15.4W (IEEE802.3af) up to 75W (IEEE802.3bt) proprietary power levels. The BPI-6175 is capable of delivering up 75W ,BPI-6175 is aimed at applications requiring PSE functionality such as CCTV DVR, home networking and industrial ethernet. BPI-6175 is a self-contained module, requiring just a few external components to provide a great deal of control and feedback over each Powered Device (PD) that is connected to the PSE.
+
+= Features
+- Small package
+- Compliant with IEEE802.3 bt & at & af
+- Low cost
+- Output power up to 75W 
+- Minimal (low cost) external
+- components required
+- Over-current and short circuit protection
+- Available in Industrial Temperature version.
+
+= Applications
+- PoE power supply system
+
+= Signature and Classification
+The BPI-6175 will automatically perform the Signature and Classification, the timing sequence for a Type 1 Powered Device (PD) and the timing sequence for a Type 2 PD. In the ‘IEEE802.3bt’ classification the first pulse is much longer. This is to indicate to the PD that implements the bt specification’s lower Maintain Power Signature (MPS) requirements (see section 5.6 below for details of MPS). Additionally if is set in ‘BT 1 pair’ or ‘BT Type 3’ modes the will produce a third class pulse looking for a change in class current presented. If the current changes correctly will produce 1 further pulse which indicates to the PD the requested power (>30W) has been granted. After classification is complete the will begin to power up its output with the current limit selected based on the detected class and mode of the module.
+
+image::/picture/bpi-6175_poe_1.png[bpi-6175_poe_1.png]
+
+== Signature Detection
+To ensure that the RT6175 does not apply power to a non PoE enabled device the Port output first checks for a valid PoE signature. The PD should present a nominal 25kΩ (23.75kΩ to 26.25kΩ) Signature resistance; if the BPI-6175 does not see a valid signature then it will disconnect, wait approximately 2 seconds then try again, see Figure 7 below.
+
+image::/picture/bpi-6175_poe_2.png[bpi-6175_poe_2.png]
+
+== Classification
+On completion of a valid signature, the BPI-6175 will then interrogate the PD to see if a classification signature is present. The classification signature is used to determine the amount of power the PD will draw and limits the output power accordingly (see Table 2). It is optional for the PD to present a classification signature and the RT6175 will default to Class 0 if the PD does not present one.
+
+Table shows the measured current limits that the RT6175 uses to assign a classification value.
+
+[cols="1,1"]
+|====
+|Measured Current	|Classification
+|0mA to 6.5mA   	|Class 0
+|>6.5mA to 14.5mA	|Class 1
+|>14.5mA to 23mA	|Class 2
+|>23mA to 33mA	  |Class 3
+|>33mA to 48mA	  |Class 4
+|====
+Input Protection:The BPI-6175 has built-in Tranzorb diode across its input, to protect the module from transients from the power supply.
+
+== Maintain Power Signature
+On successful completion of a valid signature (and classification) the BPI-6175 will apply main power to the Port output.. Once main power has been applied, the BPI-6175 with constantly monitor the PD to ensure that it is still connected; this is referred to as the Maintain Power Signature (MPS). The BPI-6175 uses the dc detection method of MPS and will remove power if the current drawn falls below the detect threshold. If the RT6175 Port output current is ≥10mA the output will remain on. If the Port output current is ≤ 5mA the output will be turned off and the BPI-6175 will return to the signature cycle (looking for a valid signature).
+
+= Output Current Limits
+The BPI-6175 has two over current limits - Current Limit 1* and Current Limit 2*. The BPI-6175 will allow the Port output to exceed Current Limit 1 (but not Current Limit 2) for a short duration – TLIM1*. If the Port output continues to exceed Current Limit 1; the output power will be removed If the output exceeds Current Limit 2, the BPI-6175 will remove power (without waiting for TLIM)
+
+= Output Power
+The BPI-6175 is capable of delivering up to 75W, when supplied with its maximum input voltage of 57V. Please note this is not the power available at the input of the Powered Device (PD). There are cable, connector and polarity protection losses to be taking into account.
+
+= Output Short-Circuit Protection
+In addition to the over-current protection the BPI-6175 has built-in output short-circuit protection.If the Port output is shorted, the RT6175 will limit the current and remove the power
+
+== Absolute Maximum Ratings1
+[cols="1,2,1,1,1,1"]
+|====
+| |Parameter	|Symbol	|Min	|Max	|Units
+|1	|DC Supply Voltage	|VDD	|-0.3	|60	|V
+|2	|Storage Temperature	|TS	|-40	|+100	|OC
+|====
+
+== Recommended Operating Conditions
+[cols="4,2,1,1,1,1"]
+|====
+|Parameter	|Symbol	|Min	|Typ	|Max	|Units
+.3+|Input Supply Voltage	VDD|VDD (Type1)	|45	|	|57	|V
+|(Type2)	|50	|	|57	|V
+|VDD (Type3)	|54	|	|57	|V
+|Standard Operating Temperature -	|TOP	|-20	|25	|70	|Ta / OC
+|Industrial Operating Temperature -	|	|-40	|25	|85|
+|====
+
+= Pin Description
+[cols="1,1,6"]
+|====
+|1	|VIN+	|Main Power Supply. This pin connects to an isolated 45V to 57V supply; relative to the 0V.
+|2	|0V	|0V. This pin is the return path for the isolated VIN+ power supply.
+|3	|NC	|Unconnected
+|4	|Port+	|Port Output.
+|5	|Port-	|Port Output Return. This pin is the return path for Port+
+.4+|6	.4+|R1_PIN	|Connect the resistor to the input 0v to configure the working mode of the module.
+            |Not connected Module working mode: BT, Max output power 75w
+            |Connected 47.5K Module working mode: AT Max output power 30W
+            |Connected 16.5K Module working mode: AF Max output power 15.4W
+|====
+
+= How to use
+== BPI-6175 Poe at/af pse Connection 100M Internet
+
+image::/picture/bpi-6175_poe_3.png[bpi-6175_poe_3.png]
+
+== RT6175 Poe bt pse Connection 1000M Internet
+
+image::/picture/bpi-6175_poe_4.png[bpi-6175_poe_4.png]
+
+== Input Power Supplies
+The RT6175 only requires one power supply; to conform to the IEEE802.3at bt specification, this supply must be isolated from mains ground
+
+== Reliability MTBF
+
+About the life time ,we design according to the following: 1)life time of RT6175  : 100,000 hours @ 25°C
+
+== Mechanical / Environmental Performance data
+[cols="1,2,7"]
+|====
+|　 |Item	|Requirement and Standard
+|1	|Resistance to Wave	|max Preheat Temp range & time 120 ℃ / 180S
+Soldering Heat	max soldering temp &time:265 ℃ / 4S
+|2	|Solder ability	|Solder able area shall have minimum of 95% solder coverage.And then into solder bath,Temperature at 245 ±5 ℃ , for 4-5sec.
+|3	|Hand Soldering Temperature Resistance	|T > =350 ℃ , 3sec at least.
+|4	|Thermal Shock	|subject to follow condition for 5 cycles.1 cycles: -55 ℃ , 30 minutes +85 ℃ , 30 minutes
+|5	|Humidity(Temp Cycling)	|less than 95% (non-condensing) ( -20 to 70 ℃)
+|6	|Temperature Life|temperature life at 85℃ for 96 hours.
+|7	|Salt Spray	|connectors to 5% salt-solution concentration, 35 ℃,Gold flash for 8 hours there will be no change in the gold layer
+|====
+
+= BPI-6175 Package Size:(mm )
+
+image::/picture/bpi-6175_poe_5.png[bpi-6175_poe_5.png]
+
+= OEM&ODM
+Products can be customized according to customer needs
