@@ -58,14 +58,19 @@ image::/bpi-bit/blockly2.png[blockly2.png]
 
 And then put it all together.
 
+image::/bpi-bit/blockly3.png[blockly3.png]
+
 The code is generated automatically.
 
+image::/bpi-bit/blockly4.png[blockly4.png]
 
 Click the Run button in the upper right corner to Run the program.
 
+image::/bpi-bit/blockly5.png[blockly5.png]
 
 The results are shown below.
 
+image::/bpi-bit/result.jpg[result.jpg]
 
 Important: only compatible with most functions of microbit, so there will be some interface incompatibility problems. If there is a problem in the process of using, you can try to submit an issue to me, and I will fix it from the underlying firmware.
 
