@@ -1,0 +1,61 @@
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_development_of_advanced[Bit for MicroPython]
+
+
+= Implement the basic algorithm. 
+
+After we learned some basic hardware controls in the last chapter, let's make up our basic software lessons.
+
+= Enter the year to determine the leap year
+A leap year is a noun in the Gregorian calendar. Common year: a year that is divisible by 4 but not by 100 is a common leap year. (2004 is a leap year, 1999 is not); Century years: leap years are those divisible by 400.
+
+The code is as follows :(can be placed in main.py):
+```sh
+def is_leap_year(year):
+   if (year % 4) == 0 and (year % 100) != 0 or (year % 400) == 0:
+		print("{0} is leap year".format(year))
+	else:
+		print("{0} not is leap year".format(year))
+```
+using runfile main.py,Run it in the interpreter and then run commond in repl.
+```sh
+is_leap_year(int(input("input a leap year ")))
+```
+
+image::/bpi-bit/mpfshell17.png[mpfshell17.png]
+
+- The year 2004 is leap year.
+- The year 1999 is not leap year.
+- The year 2000 is leap year.
+- You can also go ahead and type in more and have it tell you which year is a leap year.
+
+When you type a command in REPL, you are prompted to enter a value, and press ok to confirm the input.
+
+
+= Fibonacci sequence
+What is a Fibonacci sequence? What it means is that you have a sequence of 0, 1, 1, 2, 3, 5, 8, 13, and in particular, the 0th term is 0, and the first term is the first 1. Starting with the third term, each term is equal to the sum of the first two terms.
+
+The code is as follows :(can be placed in main.py)
+```sh
+def fab(n):
+	if n == 1: 
+		return 0
+	if n == 2:
+		return 1
+	if n > 2:
+		return fab(n-1) + fab(n-2)
+
+def printfablist(n):
+	for i in range(1, n+1):
+		print(fab(i),end = ' ')
+	print()
+```
+using runfile main.py,Run it in the interpreter and then run commond in repl.
+```sh
+printfablist(int(input('please input a number:'))
+```
+
+image::/bpi-bit/mpfshell16.png[mpfshell16.png]
+
+You can try to compute the relationship between the first term and the second term on your own.
+
+When you type a command in REPL, you are prompted to enter a value and press ok for input. For example, if I enter 5, the Fibonacci sequence of 5 items (0, 1, 1, 2, 3) is output.
