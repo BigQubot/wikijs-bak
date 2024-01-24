@@ -1,0 +1,75 @@
+= Description
+
+BPI-6175 Single channel PoE++ BT PSE Module
+BPI-7604 series of modules are designed to extract power from a conventional twisted pair Category 5 Ethernet cable, conforming to the IEEE 802.3af Power-over-Ethernet(PoE) standard. BPI-7604 signature and control circuit provides the PoE compatibility signature and power classification required by the Power Sourcing Equipment (PSE) before applying up to 15W power to the port. BPI-7604 provides a Class 0 signature. BPI-7604 DC/DC converter operates over a wide input voltage range and provides a regulated output. The DC/DC converter also has built-in short-circuit output protection.
+
+= Application
+- IP Cameras
+- Wireless access point
+- Security and alarm systems
+- VOIP telephone
+- Point of sale network terminal equipment
+
+= Main sprc
+- IEEE802.3af compliant
+- Integrated LAN Filters
+- Regulated 12V DC output
+- Low output ripple and noise
+- Wide Input voltage range
+- Overload and short-circuit protection
+- 1500V isolation (input to output)
+- Simple installation
+- CE and FCC part 15 certified
+- Enables PoE functionality for legacy products
+
+= Hardware
+== Specification
+[cols="1,3"]
+|====
+|1	|Input Voltage: 36 to 57 Vdc
+|2	|Output power: 13W max.
+|3	|Output current and voltage: 1.08A max. @ 12V +/-0.5V
+|4	|Ripple: Typical 100mVp-p
+|5	|Connectors: 2 x 8pin 1x 4pin 1.25mm
+|6	|Ethernet Supported: 10/100-Base-T IEEE 802.3af
+|7	|PoE Pin Assignment: 3/6, 1/2 or 4/5, 7/8
+|8	|Storage Temperature: -30°C to +80°C
+|9	|Operating Humidity: 10% to 90%, non-condensing
+|10	|Storage Humidity: 5% to 95%, non-condensing
+|11	|Emissions & Immunity: FCC Part 15 Class A EN55022 (CISPR 22) Class B EN55024 (CISPR 24)
+|12	|Safety: CE IEC 60950
+|13	|Reliability MTBF: 100,000 hours @ 25°C
+|14	|Warranty : 1 Year
+|15	|Dimensions: Height: 38 mm Width: 38mm Depth: 18mm Weight: 20 g
+|16	|Operating Temperature: -20°C to +70°C
+|====
+
+== Connector and Pin Description
+[cols="1,3,1,3"]
+|====
+|J1	|AUX IN 1.25mm	|J3	|DC Putout 2 2.0mm
+|1	|Ethernet cable spare pair 7,8	|1	|12V Output +
+|2	|Ethernet cable spare pair 4,5	|2	|12V Output -
+|3	|DC Auxiliary input 12V-		||
+|4	|DC Auxiliary input 12V+		||
+|J2	|POE_IN 1.25mm	|J4	|NET out 1.25mm
+|1	|LED- Internal connection J3	|1	|12V Output -
+|2	|LED+ Internal connection J3	|2	|12V Output +
+|3	|Ethernet cable 6	|3	|LED- Internal connection J1
+|4	|Ethernet cable 3	|4	|LED+ Internal connection J1
+|5	|Ethernet cable 2	|5	|Ethernet cable 1
+|6	|Ethernet cable 1	|6	|Ethernet cable 2
+|7	|Ethernet cable 3||
+|8	|Ethernet cable 6||
+|====
+
+== Package Size
+
+image::/picture/bpi-7604_1.png[bpi-7604_1.png]
+
+= Typical Connection in IP Cameras
+
+image::/picture/bpi-7604_2.png[bpi-7604_2.png]
+
+= OEM&ODM
+Products can be customized according to customer needs
