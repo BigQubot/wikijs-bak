@@ -9,44 +9,46 @@ wifi.try_connect()
 ```
 As shown below, import wifi is invoked by default in boot.py, so you can also call wifi.try_connect() directly from REPL.
 
-
+image::/bpi-bit/try_connect.png[try_connect.png]
 
 In the default networking mode, if no network has ever been configured, the board will initially automatically connect to the WIFI hotspot with WIFI name:webduino.io password:webduino.
 
 If not near the hot spot, will output the no AP found, and my surroundings are prepared ahead of the hot spots, so to get an IP address 192.168.10.185 (pictured), otherwise it will be repeated output connection problems (this does not affect your input and output), if you don't want it to continue to connect to the Internet, you can manually enter wifi.close() to stop the wifi connection.
 
+image::/bpi-bit/got_ip.png[got_ip.png]
+
 == Connect WiFI by mobile
 Of course, your WIFI hotspot is definitely not this one, so now you can press and hold A key and press the reset key to start to enter the mode of distribution network, connect the board to other WIFI, help the board connect to the specified WIFI, enter the mode of distribution network of SmartConfig, LED (18) will light up, LED (18) is the LED light in the previous chapter.
 
-
+image::/bpi-bit/start_config.jpg[start_config.jpg]
 
 LED lights will long bright when reset BPI:bit, If necessary, you can also view the corresponding output at this time of the serial port information, note that in this mode will not be able to use the Mpfshell open.This is because the board can no longer respond to the serial REPL operation, so you need to use the Mpfshell again when the network is complete.
 
-
+image::/bpi-bit/smartconfig.png[smartconfig.png]
 
 If something goes wrong during the tool run, use another serial port tool to view the output, such as the windows-comdbg.zip provided under link:https://github.com/BPI-STEAM/BPI-BIT-MicroPython/releases[Release]
 
-
+image::/bpi-bit/view_com.png[view_com.png]
 
 Once you're in distribution mode, you'll need to use an android phone to install the distribution software provided by link:https://github.com/BPI-STEAM/BPI-BIT-MicroPython/releases[Release]
 
-
+image::/bpi-bit/view_apk.png[view_apk.png]
 
 Take android-smartconfig.apk as an example, connect the mobile phone to WIFI first, then connect the board to the same WIFI, and then input the password of the WIFI to the software, which will tell the board how to connect to the WIFI.
 
-
+image::/bpi-bit/open_apk.png[open_apk.png]
 
 Click the unique button to start the distribution network, you can see the corresponding information output of REPL, and the LED light of the board will also change accordingly
 
-
+image::/bpi-bit/smc_apk.png[smc_apk.png]
 
 Wait for a while. If the network mode fails, it will restart automatically within two minutes. When the distribution network is successful, the LED light will turn slightly bright, and then REPL will output the IP address of the board connected to WIFI, as shown in the figure below: 192.168.10.185. It is worth noting that 3de1 corresponds to the name of the board, which will be used later.
 
-
+image::/bpi-bit/smc_finish.png[smc_finish.png]
 
 And on the phone, also can see the IP address of the board, at this time the board has completed the network configuration.
 
-
+image::/bpi-bit/apk_finish.png[apk_finish.png]
 
 TIP: Tip: if the network fails, please follow the following procedures to troubleshoot the problem.
 
@@ -80,11 +82,12 @@ NOTE: Note: before use, make sure that the application is allowed through the ne
 * Set the network connection password (no less than 4 digits, need to enter twice, it is up to you, I just want to save trouble)
 * Need to restart the board (reset input y, otherwise input n)
 
-
++
+image::/bpi-bit/webrepl.png[webrepl.png]
 
 - I have known that the IP of the board is now 192.168.10.185. If you don't know, you can power it up again. Then use mpfshell and input ws:192.168.10.185 and 1234.Among them,1234 is the connection password I set before (the previous chapter), you may not enter it now, but it will prompt you to enter the password later.(note that the English input method comma)
-
-
++
+image::/bpi-bit/into_webrepl.png[into_webrepl.png]
 
 - You can see that the connection is successful, and the board can be operated wirelessly. You can also restart the reset and try again.
 - There are two kinds of hints for connection failure:
@@ -92,9 +95,12 @@ NOTE: Note: before use, make sure that the application is allowed through the ne
 . Connection WebREPL Password Error, prompt WebREPL Password Error, re-enter the Password, perhaps you are connected to someone else's board.
 
 - If the connection fails, press Ctrl + D to reset the connection, and then exit to replace the wireless connection.
++
+image::/bpi-bit/error_webrepl.png[error_webrepl.png]
 
++
 TIP: Tip: as to how to use the wireless connection of the Pycharm Mpfshell plug-in, you only need to set up ws:192.168.10.185,1234 in the device path (comx).
-
-
++
+image::/bpi-bit/webrepl_pycharm.png[webrepl_pycharm.png]
 
 - These operations are all performed in mpfshell. If you use Pycharm programming, you can also operate in mpfshell tools. I believe you should all be able to operate.
