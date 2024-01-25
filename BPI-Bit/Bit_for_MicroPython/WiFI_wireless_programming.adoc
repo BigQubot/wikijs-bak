@@ -1,0 +1,115 @@
+= Understanding wireless programming
+
+The way using wired connection board is the characteristic of last century, so we in the later development process, is to support, and as far as possible to the wireless control the direction of, for all kinds of simple things networking equipment is not a cable interface specially reserved for you connected to the computer control, for example, a intelligent control of light.
+
+So at this time the wireless is put to use, you can see, in the board connected to the Internet, we can need not be inserted into the computer to help the board directly online (link:/en/BPI-Bit/Bit_for_MicroPython/WiFI_wireless_connection#_connect_wifi_by_mobile[mobile phone distribution network model in the previous section]), so this is the wireless programming basis, through a simple way to make the board into your network, you can control it.
+
+= Remote to connect BPI:bit
+The MicroPython interface USES the Python REPL, which means that it is itself an operating system environment that can be re-used. Unlike previous Linux systems, it is characterized by its simplicity and ease of use
+
+REPL is a commonly used interactive interface when wired, while on wireless, link:http://micropython.org/webrepl/[WebREPL] is introduced, which, as the name implies, is a cloud REPL, as shown in the figure below:
+
+
+
+You can see that it can directly operate the board, like the past wired connection, response speed is very fast, and wired feeling is not much different.
+
+However, this is obviously not enough, because this editor can only be used, but it is not easy to use, so I specially adapted webrepl in mpfshell. That is to say, the mpfshell-based pycharm plug-in also supports wireless programming, so all the functions that are thought to be useful are used, as shown in the following figure.
+
+
+
+Running the program is fine and responsive faster (after all, it has been specially fixed for this purpose), but it's important to note that the paths are not quite the same.
+
+- The webrepl standard path is ws://192.168.30.116:8266.
+- The path of mpfshell is ws:192.168.30.116 and 1234, the difference being that the latter allows passcode to be bypassed, thus eliminating connection authentication.
+
+At this point, you can use it just like you used to with wired, and if anything goes wrong during this time, just restart the board, which will automatically power up the network and open the Webrepl support service
+
+In the future, it will be powered by batteries, without computer power, so you can completely control it without wires. Please note that you need to lower the frequency to 80Mhz when necessary, or the power will be out soon.
+
+= Remote management BPI:bit
+While we can use REPL to programmatically control the board, we need some additional network support services to make our board more enjoyable. I'm going to talk a little bit about them here
+
+== FTP standard file system operation service
+Start with the following code:
+```sh
+import ftptiny
+ftptiny.FtpTiny().start()
+```
+
+
+
+== WebDAV HTTP file system service
+Start by using the following code
+```sh
+import webdav
+webdav.start()
+```
+
+
+
+It is different from FTP in that it use port 80 and use HTTP instead of FTP
+
+
+
+== Hostname local domain name service
+This requires specific routing service support, such as openwrt(Linux).
+
+It allows you to access the boards using hostname.lan (or directly hostname) instead of IP.
+
+So instead of memorizing IP addresses, you define your own board names.
+
+The hostname is saved in the wifi_cfg.py file below.
+
+
+
+As shown in figure bit3D6D, the access method and test method are as follows.:
+
+
+
+And how to use it?
+
+After you go to other places to change the network, there is no need to change the IP, just need to change the WIFI connection configuration.
+
+== MDns reverse domain name resolution service
+If you can't use the hostname to replace the IP memory, in addition to request the cloud service providers registered DNS domain name resolution, that there is a way to, is to reverse the registered DNS, DNS is unique to the server management services, the client is not under the changes again, so, we will use the active application of DNS for their specific domain name.
+
+In other words, turn IP into a custom network path, such as hostname.local.
+
+As shown below, this also requires relatively new router support. As long as the router is not in the last century, it basically supports this service, but it does not deny that the router produced 10 years ago may not have this MDns service, including computers may not support it
+
+Windows requires an additional installation of Bonjour Print Services, which can be link:https://support.apple.com/kb/DL999[downloaded here].
+
+Now I use the following code to configure the board to have Mdns registration (all operations are internet-based)
+
+```sh
+try:
+   import network
+   mdns = network.mDNS()
+   mdns.start("bpibit", "MicroPython with mDNS")
+   _ = mdns.addService('_ftp', '_tcp', 21, "MicroPython",
+                       {"board": "ESP32", "service": "bpibit FTP File transfer", "passive": "True"})
+   _ = mdns.addService('_telnet', '_tcp', 23, "MicroPython", {"board": "ESP32", "service": "bpibit Telnet REPL"})
+   _ = mdns.addService('_http', '_tcp', 80, "MicroPython", {"board": "ESP32", "service": "bpibit Web server"})
+   print("mDNS started")
+except Exception as e:
+   print("mDNS not started")
+```
+You can use bpibit.local instead of an IP address to access it on your computer, as shown in the figure below. You can also change the name of mdns.start("bpibit", "MicroPython with MDNS ") in your code
+
+
+
+But actually not only that, but you know what services it provides and so on, and I used other software to look at it,The following is a look at the phone results, you can see MicroPython corresponding to the mdns.addservice parameters.
+
+
+
+We can see from the picture that we provided the information when we registered, such as FTP and HTTP services
+
+== Python creates a web service on the fly
+Webdav is intended to be a static, pure web server, not a web service that USES Python in the background.
+
+Therefore, I provided link:https://microwebsrv.hc2.fr/[microwebsrv] in the firmware to build Python dynamic website.
+
+This will be followed by a simple application example that will set up a web service similar to the PHP language.
+
+= End
+So far, it only introduces the features of wireless programming, and does not carry out detailed instructions on the use of this, which will be slowly brought out in the following chapters. This section describes more text, mainly explain, wireless programming basic concepts and attractive complementary functions, let people more easily accept its beauty, but also can not forget its shortcomings.
