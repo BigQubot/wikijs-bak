@@ -1,0 +1,57 @@
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_development_of_advanced[Bit for MicroPython]
+
+= The development of preparation
+- First, ensure the integrity of the current firmware dependency package
++
+```sh
+help(“modules”)
+```
+- The effect is shown below. If you do not have two dependency packages on the diagram, please burn the latest firmware.
+
+image::/bpi-bit/weathercheck.png[weathercheck.png]
+
+Make sure you're connected to the Internet. if not , please see link:/en/BPI-Bit/Bit_for_MicroPython/WiFI_wireless_connection[2 WiFI wireless connection]
+
+= Prepare the weather API
+
+. I'm using the national weather service API here, http://www.weather.com.cn/data/cityinfo/101200801.html # 101200801 （In jingzhou city），See details of city ids： http://mobile.weather.com.cn/js/citylist.xml
+
+. Request to return Json data sample
++
+```sh
+{
+"weatherinfo": 
+{
+"city": "jingzhou",
+"cityid": "101200801",
+"img1": "n7.gif",
+"img2": "d2.gif",
+"ptime": "18:00",
+"temp1": "16℃",
+"temp2": "23℃",
+"weather": "Rain turns shade"
+}
+}
+```
+We can analyze these json files and write an example like this
+
+== Example analyse
+```sh
+import urequests
+from microbit import * 
+
+def get_weather():
+	url = "http://www.weather.com.cn/data/cityinfo/101200801.html"
+	rsp = urequests.get(url)
+	data = eval(rsp.text) # eval function is used to convert string type json data from -> to python dictionary type
+	weather = data["weatherinfo"]
+	L = weather["temp1"] #lowest temperature
+	H = weather["temp2"] #the highest temperature
+	return "L:" + L[:-1] + " H:" + H[:-1] #Data sample->  L:16 H:23
+
+display.scroll(get_weather())
+
+# L[:-1] H[:-1]Remove ℃ ℉ and two special symbol, can appear otherwise coding errors
+```
+= Write at end
+These operations are all performed in mpfshell. If you use Pycharm programming, you can also operate in mpfshell tools. I believe you should all be able to operate.
