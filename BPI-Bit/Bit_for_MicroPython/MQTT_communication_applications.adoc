@@ -8,7 +8,7 @@ MQTT server mode of transmission can be thought of as everyone through their int
 == For example
 Xiao Ming want to send a message to the little red, so xiao Ming can create a topic (topic) of the chat room for sending (publish), then the little red to join (subscribe) this topic (topic) of the chat room, so she could get the xiao Ming's information, the old version of the MQTT chat room is public, between each other is free to join others' topic, also is the others can receive xiaoming, privately, but now the MQTT server allows you to define permissions (config), Let xiao Ming's topic only xiao hong can join.
 
-
+image::/bpi-bit/mqttprocess.png[mqttprocess.png]
 
 Code between under this architecture, we are the client code, also do not need to write the server receives the program to another, as long as the two sides agree on the data of the interface agreement is ok, because the communication between the too transparent, so the security so far are too dependent on the surface of certification, will be back to authority and to improve the communication control.
 
@@ -17,11 +17,11 @@ Use a common MQTT server. If you do not have a public server, click here to ente
 
 You can also test out the MQTT service directly online, subscribing to your own topic messages and sending your own.
 
-
+image::/bpi-bit/mqttonline_demo.png[mqttonline_demo.png]
 
 If you don't want to use the Internet's own MQTT server, you can use link:https://github.com/BPI-STEAM/BPI-BIT-MicroPython/releases/tag/windows-mosquitto[the local mosquitto Windows server environment pack], Just unzip and write out the mosquitos, and the config file is the mosquito.conf
 
-
+image::/bpi-bit/mqttconfig.png[mqttconfig.png]
 
 It won't show any data after running normally, otherwise it will report an error and flash back, so don't worry about whether it is working or not, if you need to confirm whether it is working properly, you can follow the following tutorial to try.
 
@@ -83,6 +83,8 @@ If we send data to the foo_topic on the web page, the board will receive the dat
 
 Try it for yourself.
 
-
+image::/bpi-bit/mqttonline_test.png[mqttonline_test.png]
 
 If it is a web page, it will display the data you defined in the board
+
+image::/bpi-bit/mqttrunning_.png[mqttrunning_.png]
