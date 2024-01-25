@@ -9,13 +9,13 @@ The MicroPython interface USES the Python REPL, which means that it is itself an
 
 REPL is a commonly used interactive interface when wired, while on wireless, link:http://micropython.org/webrepl/[WebREPL] is introduced, which, as the name implies, is a cloud REPL, as shown in the figure below:
 
-
+image::/bpi-bit/webrepl_ftp.png[webrepl_ftp.png]
 
 You can see that it can directly operate the board, like the past wired connection, response speed is very fast, and wired feeling is not much different.
 
 However, this is obviously not enough, because this editor can only be used, but it is not easy to use, so I specially adapted webrepl in mpfshell. That is to say, the mpfshell-based pycharm plug-in also supports wireless programming, so all the functions that are thought to be useful are used, as shown in the following figure.
 
-
+image::/bpi-bit/pycharm.png[pycharm.png]
 
 Running the program is fine and responsive faster (after all, it has been specially fixed for this purpose), but it's important to note that the paths are not quite the same.
 
@@ -36,7 +36,7 @@ import ftptiny
 ftptiny.FtpTiny().start()
 ```
 
-
+image::/bpi-bit/ftp.png[ftp.png]
 
 == WebDAV HTTP file system service
 Start by using the following code
@@ -45,11 +45,11 @@ import webdav
 webdav.start()
 ```
 
-
+image::/bpi-bit/webdav.png[webdav.png]
 
 It is different from FTP in that it use port 80 and use HTTP instead of FTP
 
-
+image::/bpi-bit/webdav_index.png[webdav_index.png]
 
 == Hostname local domain name service
 This requires specific routing service support, such as openwrt(Linux).
@@ -60,13 +60,15 @@ So instead of memorizing IP addresses, you define your own board names.
 
 The hostname is saved in the wifi_cfg.py file below.
 
-
+image::/bpi-bit/wifi_cfg.png[wifi_cfg.png]
 
 As shown in figure bit3D6D, the access method and test method are as follows.:
 
-
+image::/bpi-bit/hostname.png[hostname.png]
 
 And how to use it?
+
+image::/bpi-bit/hostname_demo.png[hostname_demo.png]
 
 After you go to other places to change the network, there is no need to change the IP, just need to change the WIFI connection configuration.
 
@@ -96,11 +98,11 @@ except Exception as e:
 ```
 You can use bpibit.local instead of an IP address to access it on your computer, as shown in the figure below. You can also change the name of mdns.start("bpibit", "MicroPython with MDNS ") in your code
 
-
+image::/bpi-bit/mdns.png[mdns.png]
 
 But actually not only that, but you know what services it provides and so on, and I used other software to look at it,The following is a look at the phone results, you can see MicroPython corresponding to the mdns.addservice parameters.
 
-
+image::/bpi-bit/mdns_server.jpg[mdns_server.jpg]
 
 We can see from the picture that we provided the information when we registered, such as FTP and HTTP services
 
