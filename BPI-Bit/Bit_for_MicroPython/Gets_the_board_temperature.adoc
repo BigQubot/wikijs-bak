@@ -1,0 +1,28 @@
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_development_tutorialbased_on_microbit[Bit for MicroPython]
+
+= Thermistor
+This module allows you to get ambient temperature.Before using it, it is recommended to put the board under cooling before collecting, otherwise the reading temperature will deviate from the surrounding temperature, because the board will generate heat, so the most influential heat source around it is the temperature of the board itself, so the ambient temperature will become the temperature of the board.
+
+So before the board starts to heat up, the initial temperature must be the ambient temperature, and then gradually become the board temperature.
+
+= Sample code
+```SH
+from microbit import *
+while True:
+   sleep(100)
+   temp = temperature() # get temperature ℃
+   print(temp)
+   display.show(str(temp))
+```
+= Testing effect
+== Led panel display content
+
+image::/bpi-bit/tem.png[tem.png]
+
+== Print the data
+
+image::/bpi-bit/tem2.png[tem2.png]
+
+== The temperature measured
+
+image::/bpi-bit/tem1.jpg[tem1.jpg]
