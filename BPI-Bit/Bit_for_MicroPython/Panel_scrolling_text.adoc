@@ -1,0 +1,109 @@
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_development_tutorialbased_on_microbit[Bit_for_MicroPython]
+
+
+= Panel scrolling text
+This is a qualitative change from the original hello word!
+
+== Prepare the required tools
+
+- BPI:bit newest firmware. Bin
+
+- Windows - Mpfshell. Exe
+you can download from : https://github.com/BPI-STEAM/BPI-BIT-MicroPython/releases
+
+== Easy to use MicroPython
+```sh
+from microbit import *
+display.scroll("Hello, World!")
+```
+
+image::/bpi-bit/scroll-hello.gif[scroll-hello.gif]
+
+* Each line also has special semantics.
+** *The form microbit import*
++
+If you have been exposed to c before, you can understand by the library. All modules are existing code libraries. These libraries are imported from microbit. The second row
+
+** *Display.scroll("Hello, World!")*
++
+This also makes sense, telling microPython to use the display command to scroll the "helloworld" character number of the string. This display is a module in the microbit that represents the physical display of the device, with the display in quotes.
+Now copy the code directly to your editor and burn it to your device. Can you change the character information? Give it a try!
+
+* Testing effect:
++
+image::/bpi-bit/scroll.png[scroll.png]
+
+= Character color
+Compared with microbit, bpibit's led panel USES programmable RGB light (ws2812b). link:https://github.com/BPI-STEAM/BPI-BIT/blob/master/doc/WS2812B.pdf[Click here for more details on WS2812B]
+
+RGB lights can be programmed to display 255 *255 *255 colors, which is 16 million colors. It's hard to believe, so let's start our color show.
+
+It's easy to change the color of the font. We preset 8 colors in our firmware
+```sh
+black = [0, 0, 0]
+Red = [2, 0, 0]
+Orange = [2, 1, 0]
+Yellow = [2, 2, 0]
+Green = [0, 2, 0]
+Blue = [0, 0, 2]
+Indigo = [0, 2, 2]
+Purple = [2, 0, 2]
+```
+They are black (light out), red, orange, yellow, green, blue, indigo and purple. With these basic colors you can modify the font color.
+
+== Sample code
+```sh
+from display import*
+display=Display()
+display.scroll("Hello, World!",Yellow)
+```
+
+image::/bpi-bit/yellow.png[yellow.png]
+
+The default color of the board is red, as long as the string (that is, "Hello, World! ) to modify the color of the characters displayed. As you can see from the figure above, the color of our characters has changed to yellow.
+
+Some of you may have questions here, right? So how do you make each character appear a different color? Let's look at the following operation
+```sh
+from display import*
+display=Display()
+color=[Red,Orange,Yellow,Green,Blue,Indigo,Purple]
+display.scroll("ROYGBIP",color)
+```
+
+image::/bpi-bit/color.png[color.png]
+
+We'll create a new list color, which will store the required color of each character in order, and then we'll add color after the scroll function, so that each character will have a different color.
+
+== Custom colors
+- To here clever classmate should ask a question again, be not say to have more than 16 million kinds of color, how a few kinds, h'm not urgent, let me slowly way come.
+- After all that talk about RGB, what is RGB? RGB colors are often referred to as primary colors, with R for Red, G for Green, and B for Blue. In nature, any color that can be seen by the naked eye can be made up of the mixture and superposition of these three colors. In computers, the RGB "how much" refers to brightness and is expressed as an integer. In general, RGB has 256 levels of brightness, represented by Numbers from 0, 1, 2... Until 255. Note that although the number is up to 255, 0 is also one of the Numbers, so there are 256 levels. According to the calculation, the 256-level RGB colors can be combined into about 16.78 million colors, that is, 256 * 256 * 256=16777216. Also commonly referred to as 16 million colors or 10 million colors. Also known as 24 bit color (2 to the 24th power). In the field of led, three-in-one dot matrix full-color technology is used, that is, a light-emitting cell is composed of RGB three-color chips to form full-color pixels. As this technology continues to mature, led display technology will bring people more real color experience.
+- So anyway, how do we control our boards to display the colors that we want, and how do we store the colors in a list
++
+```sh
+Red = [2, 0, 0]
+```
+So why is Red (2, 0, 0), the list respectively corresponding to the three Numbers is actually we R (Red), G (green) the brightness of the B (blue), in front of mentioned each color has 256 levels of brightness, obvious [2, 0, 0] said is the Red brightness is 2, the brightness of the green is 0, the brightness of the blue is 0. From this, we can deduce the meaning of other color lists.
+- Here we can also define our colors in the same way.Let's define a mycolor=[1, 2, 3] to see what it looks like
++
+```sh
+from display import*
+display=Display()
+mycolor=[3,3,3]
+display.scroll("hello",mycolor)
+```
++
+image::/bpi-bit/mycolor.png[mycolor.png]
+
+Isn't it fun? You'll have a lot of fun ideas right now, so give it a try
+
+Here are a few caveats:
+
+. The brightness of each color is 0-255. There are 256 values to choose from, so the minimum is [0, 0, 0] and the maximum is [255,255,255].
+. Brightness does not want to adjust commonly too big, brightness is too bright shake an eye easily
+
+= Trouble shooting
+What if something goes wrong:
+
+. First t try to get help with MicroPython, and when you get an error, it will show you useful information about which line of code is wrong.
+. Note: python is case-sensitive, so Microbit, Microbit, and Microbit are different. If the micropython file name is incorrect, you may have entered an invalid name. Also, if Micropython contains a SyntaxError. Even if your code is not understood by micropython, you may be missing some symbols, such as "" or" "; "Yes, you need to find and fix it yourself, so the best way to fix bugs is to understand the code!
+. Next, if your microbit stops responding, or you can't burn new code, or type in a command in repl, don't ask why. You can try unplugging the usb cable, sometimes with surprising results!
