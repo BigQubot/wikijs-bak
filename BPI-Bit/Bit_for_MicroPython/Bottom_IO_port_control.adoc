@@ -4,7 +4,7 @@ TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_development_tutorialbased_on_microbit
 
 IO in the computer refers to Input/Output, namely Input and Output, referred to as IO port.
 
-
+image::/bpi-bit/bitio.png[bitio.png]
 
 - IO ports are different, some are larger, and in general, there are tags near them for users to understand. For example, the bottom of this board is distributed on goldfinger in the order of 0/1/2/3V/GND (most computers start from 0).
 - If you attach the gold finger to the base, other smaller blue and white line pins can be used as well, which was specifically noted in the introduction of the hardware in chapter 1. You can forget to check the link:https://docs.banana-pi.org/en/BPI-Bit/BananaPi_BPI-Bit#_hardware[BPI:bit hardware].
@@ -31,7 +31,7 @@ The procedure is explained as follows:
 
 The running effect is as follows:
 
-
+image::/bpi-bit/touched_io.png[touched_io.png]
 
 It should be noted that since we have static electricity in our body (hands), it may be electrocuted and cause its expression to twitch sometimes.
 
@@ -42,17 +42,17 @@ For this purpose, I have prepared the following common Led lights, and you will 
 
 Tip: the purpose of distinguishing the positive and negative poles is to hope that when you are wiring, the element (LED) positive pole is connected to the power positive pole (+), and the element (LED) negative pole is connected to the power negative pole
 
-
+image::/bpi-bit/leds.jpg[leds.jpg]
 
 Let's start with the first step, which is to turn on the ordinary light, that is, directly connect it (LED) to the power supply, then directly connect the big guy to the board of 3V and GND, 3V refers to the positive pole of the power supply (3V), GND refers to the negative level of the power supply, also known as the ground.
 
-
+image::/bpi-bit/leds1.png[leds1.png]
 
 This lights up a light (pay attention to the positive and negative), but the light is not controllable, it will only light up, not out.
 
 I wanted to take another lamp to connect it for comparison, but I found a problem that the other lights were too short, so I changed the following. I used our headlight to control, and it can be seen that the lamp will not be on at this time.
 
-
+image::/bpi-bit/led_off.jpg[led_off.jpg]
 
 So let's control its on and off by the following code, you can see in the picture I used pin2 pin to control.
 ```sh
@@ -61,11 +61,11 @@ pin2.write_digital(1)
 ```
 Now I use the Pycharm + Mpfshell plug-in to run this code.
 
-
+image::/bpi-bit/code_(1).png[code_(1).png]
 
 You can see it lights up, so that means we can control the light, is that consistent with the initial tutorial?
 
-
+image::/bpi-bit/led_on.jpg[led_on.jpg]
 
 So let's add a Blink effect this time, using the following code.
 ```sh
@@ -77,8 +77,7 @@ while True:
    sleep(1000)
 ```
 
-
-
+image::/bpi-bit/blink.png[blink.png]
 
 Let me explain the procedure:
 
