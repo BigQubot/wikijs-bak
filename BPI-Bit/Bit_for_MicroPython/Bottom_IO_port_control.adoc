@@ -45,3 +45,44 @@ Tip: the purpose of distinguishing the positive and negative poles is to hope th
 
 
 Let's start with the first step, which is to turn on the ordinary light, that is, directly connect it (LED) to the power supply, then directly connect the big guy to the board of 3V and GND, 3V refers to the positive pole of the power supply (3V), GND refers to the negative level of the power supply, also known as the ground.
+
+
+
+This lights up a light (pay attention to the positive and negative), but the light is not controllable, it will only light up, not out.
+
+I wanted to take another lamp to connect it for comparison, but I found a problem that the other lights were too short, so I changed the following. I used our headlight to control, and it can be seen that the lamp will not be on at this time.
+
+
+
+So let's control its on and off by the following code, you can see in the picture I used pin2 pin to control.
+```sh
+from microbit import *
+pin2.write_digital(1)
+```
+Now I use the Pycharm + Mpfshell plug-in to run this code.
+
+
+
+You can see it lights up, so that means we can control the light, is that consistent with the initial tutorial?
+
+
+
+So let's add a Blink effect this time, using the following code.
+```sh
+from microbit import *
+while True:
+   pin2.write_digital(1)
+   sleep(200)
+   pin2.write_digital(0)
+   sleep(1000)
+```
+
+
+
+
+Let me explain the procedure:
+
+- Use pin2 pin to output 1, which will make the LED become high level. Simply think that this pin has voltage, the effect is equivalent to directly connected to the positive pole of the power supply.(the potential difference between the two pins should be understood in principle)
+- Light it up first, namely pin2.write_digital(1), and then use sleep(200) to rest the board for 200 milliseconds.
+- Then you put it out, which is pin2.write_digital(0), and rest for another 1,000 milliseconds, or one second.
+- Do it all over again.
