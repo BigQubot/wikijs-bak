@@ -431,5 +431,60 @@ echo 1 > /sys/devices/platform/fd8b0010.pwm/pwm/pwmchip*/pwm0/enable
 ```
 
 = Others
+== NPU usage
+vis:
 
 
+=== Prepare tools
+. Use the Ubuntu18.04 / Ubuntu20.04 operating system (OS).
+
+. An W3-PRO board
+
+=== Preparation procedure
+First make sure you have docker installed on your Ubuntu system,If not, refer to the Internet installation tutorial
+
+We provide the source code and the docker image of the installed environment:link:https://pan.baidu.com/s/1qm7qPQ-6Cau7kVhf-T-hzg?pwd=1234[docker image]
+
+Create a rknpu folder on the PC server and copy the firmware to the folder
+```sh
+rknpu/rknn-toolkit2-1.4.0/docker$ ls
+md5sum.txt  rknn-toolkit2-1.4.0-cp36-docker.tar.gz  rknn-toolkit2-1.4.0-cp38-docker.tar.gz
+```
+Run the following command to run the docker image. After the Docker image is run, the bash environment of the image is displayed
+```sh
+docker run -t -i --privileged -v /dev/bus/usb:/dev/bus/usb rknn-toolkit2:1.4.0-cp38 /bin/bash
+```
+Map examples code into a Docker environment by attaching "-v <host src folder>:<image dst folder>"Parameters, such as:
+```sh
+docker run -t -i --privileged -v /dev/bus/usb:/dev/bus/usb -v /your/rknn-toolkit2-1.x.x/examples:/examples rknn-toolkit2:1.x.x /bin/bash
+```
+The code is synchronized after mapping
+
+The rknn service needs to run on the development board
+
+BOARD ARCH corresponds to the aarch64 directory on 64-bit Linux systems and to the armhf directory on 32-bit systems
+```sh
+ adb push all files in Linux/rknn server/${B0ARD_ ARCH}/usr/bin/ to /usr/bin
+adb push Linux/librknn api/${BOARD ARCH}/ librknrnt. so to /usr/1ib
+```
+Access the serial port terminal of the board and run the following command
+```sh
+ chmod +x /usr/bin/rknn server
+ chmod +X /usr/bin/start_ rknn.sh
+ chmod +X /usr/bin/restart rknn.sh
+ restart_ rknn. sh
+```
+
+=== Run program
+Execute adb devices in the docker image first, remembering the adb ID number
+
+Go to /examples/onnx/yolov5 and change test.py
+```sh
+ret = rknn.init_runtime(target='rk3588', device_id=DEVICE_ID, perf_debug=True,eval_mem=True)
+outputs = rknn.inference(inputs=[img])
+ret = rknn.eval_perf(inputs=[img], is_print=True)
+cv2.imwrite("result.jpg", img_1)
+```
+The above four functions are not added
+
+Run python3 test.py
