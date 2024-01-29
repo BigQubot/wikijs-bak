@@ -13,3 +13,146 @@ import music
 music.play(music.NYAN)
 ```
 You can see the following list, which is our built-in music.
+```sh
+music.DADADADUM
+music.ENTERTAINER
+music.PRELUDE
+music.ODE
+music.NYAN
+music.RINGTONE
+music.FUNK
+music.BLUES
+music.BIRTHDAY
+music.WEDDING
+music.FUNERAL
+music.PUNCHLINE
+music.PYTHON
+music.BADDY
+music.CHASE
+music.BA_DING
+music.WAWAWAWAA
+music.JUMP_UP
+music.JUMP_DOWN
+music.POWER_UP
+music.POWER_DOWN
+```
+Pick some out and listen. There should be something you like.
+
+= Create a song of your own
+To write a list of Python [" c4:4 ", "D4", "C", "e8 "] is to write a music.
+
+How do you understand that?
+
+Each element can be thought of as a note whose format follows:
+```sh
+NOTE[octave][:duration]
+```
+The first step is to have a little basic understanding of music theory.
+
+NOTE refers to the scale of this node. In common terms, C, D, E, F, G, A, B in music are scales. For example, "C" refers to do, so C, D, E, F, G, A, B is do, re, mi, fa, so, la xi.
+
+Octave refers to the octave of this node, octave refers to the interval relationship. To put it simply, you sing 1, 2, 3, 4, 5, 6, 7, 1 (note: CDEFGAB for 1234567). The first one is the lower octave of the last one, and the last one is the higher octave of the first one.
+
+Duration refers to the number of duration of notes played by the node.
+
+For example:
+
+"C4:4" corresponds to the note of C (Do) in the 4 (middle part), and then :4 refers to the duration of four beats, the default duration of which is 125 ms, that is, the duration of play is 0.5s.
+
+If you name the node NOTE R then the speaker won't play any sound for the specified amount of time.
+
+To explain this, let's look at the case in the following chapter.
+
+== Extra-curricular knowledge
+Music racket positioning module is the default for ticks = 4, BMP = 120, ticks refers to the beat of a note type default values, such as: 'C4 and ticks = 4, equivalent to' C4:4 ', means that the node under the benchmark of BPM broadcast duration, and BPM refers to the number of beats per minute, it is dependent on the use of electronic music the discretion of the BPM value to describe the rate of different music.
+
+According to the formula, we can calculate the benchmark beats = 60(s) * 000/120/ ticks, and if that's the default, the beats will be 60,000/120/4 = 125 milliseconds.
+
+== Case 1: basic testing
+You can look at the code and see what's going on
+```sh
+import music
+music.play([ "C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5"])
+music.play([ "D1", "D2", "D3", "D4", "D5", "D6", "D7", "D8"])
+```
+
+== Case 2: two tigers
+In order to play the classic two tigers on the board, we prepared the following code.
+```sh
+import music
+tune = ["C4:4", "D4:4", "E4:4", "C4:4", "C4:4", "D4:4", "E4:4", "C4:4",
+       "E4:4", "F4:4", "G4:8", "E4:4", "F4:4", "G4:8"]
+music.play(tune)
+```
+And the magic is not only that, it can further simplify the composition process, for example, the current node 'c4:4' will affect the octave configuration later, until a new replacement. So you can write it like this:
+```sh
+import music
+tune = ["C4:4", "D", "E", "C", "C", "D", "E", "C", "E", "F", "G:8",
+       "E:4", "F", "G:8"]
+music.play(tune)
+```
+Does it have the same effect?
+
+== sound effect
+Music lets you make non-musical sounds, like down here we've created a police siren
+```sh
+import music
+while True:
+   for freq in range(880, 1760, 16):
+       music.pitch(freq, 6)
+   for freq in range(1760, 880, -16):
+       music.pitch(freq, 6)
+```
+Notice a little bit that the music.pitch method is an example of using it, and it requires a frequency, the frequency of 440 is the same as the frequency of a concert that is tuned.
+
+In addition, in this case, the range function is used to generate the value of a number that defines the pitch of the pitch, the starting value, the ending value, and the gradient value. So the first range here means. Create a frequency value that starts at 880 and increases to 1760 in 16 spans, while the second range says create a 1760 that decreases to 880 in 16 spans. This allows us to make one up and one down sounds like a siren.
+
+And finally, we used while Ture: it will let the siren go on and on. Isn't that interesting?
+
+Ok, that's all, this chapter is over, hope you can learn something!!!
+
+= Connect your stereo
+Do you find that the sound is a little bit low when playing music on the board? Here I will introduce how to connect the board to the sound system and play music with the sound system, as shown in the figure below
+
+
+
+P0 port connects the left channel or right channel of the audio line, and GND connects the GND of the audio line
+
+
+
+= Get sheet music
+Those of you who are new to the music format may be confused. Is there a way to get the score quickly? Some net friends specially made a conversion tool, can automatically generate audio format data. Let's try using this tool to generate music data that can be played on the board.
+
+This tool is made by link:https://github.com/fizban99[fizban99]. https://github.com/fizban99/microbit_rttl
+
+The conversion is done in an excel file. First we download the excel file and click download.
+
+Now that we have the conversion tool, we need to download the music source file. Click the link below to download it
+
+- link:http://www.picaxe.com/downloads/rtttl.zip[Zip file of Mixed itunes (450 itunes)]
+- link:http://www.picaxe.com/downloads/rtttl2.zip[Zip file of Mixed itunes (375 itunes) 2]
+- link:http://www.picaxe.com/downloads/rtttl3.zip[Zip file of Mixed itunes 3 (10000 itunes)]
+- link:http://www.picaxe.com/downloads/rtttl_tv.zip[Zip file of TV Theme itunes (50 itunes)]
+- link:http://www.picaxe.com/downloads/rtttl_xmas.zip[Zip file of Christmas itunes (70 itunes)]
+
+Unzip all the music source files you downloaded, and when you're all set, open the excel file we downloaded earlier and you'll see something like this
+
+
+
+Click Open RTTTL tune file, it will automatically pop up the file manager, find one of the files we just extracted, select the music file to convert, and click Open
+
+
+
+After completing the above steps, we have completed the conversion. Click play to play the music file. Note: the Copy code here cannot be used, but it is gibberish
+
+
+
+Copy the translated code, you can let the board play music:
+```sh
+import music
+music.set_tempo(ticks=16, bpm=45)
+tune = ['D#6', 'D#', 'D#:2', 'F', 'G', 'G#', 'G#', 'G', 'F', 'F:6',
+       'D:2', 'D', 'D', 'D', 'D#','F', 'G', 'G', 'F', 'D#', 'D#:6',
+       'D#:2', 'D#', 'D#', 'D#', 'F', 'G', 'G#', 'G#', 'G', 'F', 'F:4']
+music.play(tune)
+```
