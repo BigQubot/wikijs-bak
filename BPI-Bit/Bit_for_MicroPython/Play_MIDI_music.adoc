@@ -114,11 +114,11 @@ Ok, that's all, this chapter is over, hope you can learn something!!!
 = Connect your stereo
 Do you find that the sound is a little bit low when playing music on the board? Here I will introduce how to connect the board to the sound system and play music with the sound system, as shown in the figure below
 
-
+image::/bpi-bit/music.jpg[music.jpg]
 
 P0 port connects the left channel or right channel of the audio line, and GND connects the GND of the audio line
 
-
+image::/bpi-bit/bit5.png[bit5.png]
 
 = Get sheet music
 Those of you who are new to the music format may be confused. Is there a way to get the score quickly? Some net friends specially made a conversion tool, can automatically generate audio format data. Let's try using this tool to generate music data that can be played on the board.
@@ -137,15 +137,15 @@ Now that we have the conversion tool, we need to download the music source file.
 
 Unzip all the music source files you downloaded, and when you're all set, open the excel file we downloaded earlier and you'll see something like this
 
-
+image::/bpi-bit/bit_music_1.png[bit_music_1.png]
 
 Click Open RTTTL tune file, it will automatically pop up the file manager, find one of the files we just extracted, select the music file to convert, and click Open
 
-
+image::/bpi-bit/bit_music_2.png[bit_music_2.png]
 
 After completing the above steps, we have completed the conversion. Click play to play the music file. Note: the Copy code here cannot be used, but it is gibberish
 
-
+image::/bpi-bit/bit_music_3.png[bit_music_3.png]
 
 Copy the translated code, you can let the board play music:
 ```sh
