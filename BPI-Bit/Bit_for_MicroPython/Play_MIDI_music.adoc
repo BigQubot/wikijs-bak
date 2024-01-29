@@ -1,0 +1,15 @@
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_development_tutorialbased_on_microbit[Bit for MicroPython]
+
+= Music
+We provide a MIDI playback function module, it can be specified on the buzzer PWM output, thus playing out music, although you may not need to know this.
+
+Well, without further nonsense, click on music, the board has been pre-connected to a built-in buzzer, its pin position is 25.
+
+A side note: don't install a piezoelectric buzzer. It only plays a single tone.
+
+The code is as follows (refer to the Microbit documentation for the interface)
+```sh
+import music
+music.play(music.NYAN)
+```
+You can see the following list, which is our built-in music.
