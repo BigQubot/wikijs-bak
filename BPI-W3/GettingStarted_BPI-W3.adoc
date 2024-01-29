@@ -43,7 +43,7 @@ image::/picture/r2-pro_usb-tool-1.jpg[r2-pro_usb-tool-1.jpg]
 . Open RKDevTool.exe, Switch to the “**upgrade firmware**” page. Press the “**firmware**” button to open the image file to be upgraded. The upgrade tool displays detailed firmware information.
 +
 
-. Disconnect power adapter, connect dual male usb cable from the top usb host port to PC.
+. Disconnect the power adapter , connect the type-c cable to the bpi-w3 and PC.
 
 . There have two usb download mode for image upgrade.
 
