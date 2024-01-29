@@ -1,3 +1,5 @@
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_development_tutorialbased_on_microbit[Bit for MicroPython]
+
 = Panel key detection
 
 Well, at least we've now created some code to get the board to do something. So, let's deal with device input, like keystroke input. First, we need to know two concepts: Output represents the Output from the device to the periphery, and Input represents some information received in the process of processing the device
