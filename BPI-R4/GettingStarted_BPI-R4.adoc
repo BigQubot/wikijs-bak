@@ -6,9 +6,14 @@ TIP: More Infomation: link:/en/BPI-R4/BananaPi_BPI-R4[Banana Pi BPI-R4]
 
 = Prepare
 
-* Prepare 8G/above TF card, USB-Serial cable, Ubuntu System
-* Using your USB-Serial cable(3.3V TTL,Baud=115200) Connect to debug console on BPI-R4
-   G=GND;  RX=BPI-R4 input;  TX=BPI-R4 output
+ * Prepare 8G/above TF card, USB-Serial cable, Ubuntu System
+ * 12V/2A power adapter (without any peripherals, the power consumption of BPI-R4 Main Board will not exceed 10W in the most extreme cases. but you need to determine whether you need a higher power power adapter according to your own accessory usage)
+ * Using your USB-Serial cable(3.3V TTL,Baud=115200) Connect to debug console on BPI-R4
+   G=GND;  RX=BPI-R4 input;  TX=BPI-R4 output0
+ * Default IP address for LAN port: 192.168.1.1
+ * User name/password: pi/bananapi ,root/bananapi.
+ Or the user is root without a password.
+ * WIFI: AP_MTK_MT7990_2G/AP_MTK_MT7990_5G/AP_MTK_MT7990_6G
 
 image::/picture/r4_debugport.jpg[r4_debugport.jpg]
 
@@ -29,102 +34,116 @@ image::/picture/r4_emmcboot.jpg[r4_emmcboot.jpg]
 
 . If the console said "system halt!", it means that the bootup storage does not cotain any OS
 +
-image::/picture/r4_systenhalt.png[r4_systenhalt.png]
 
-= Linux
-== Install Image to SD card
-**Windows PC**
+  F0: 102B 0000
+  FA: 5100 0000
+  FA: 5100 0000 [0200]
+  F9: 1041 0000
+  F3: 1001 0000 [0200]
+  F3: 1001 0000
+  F6: 102C 0000
+  F5: 1026 0000
+  00: 1005 0000
+  FA: 5100 0000
+  FA: 5100 0000 [0200]
+  F9: 1041 0000
+  F3: 1001 0000 [0200]
+  F3: 1001 0000
+  F6: 102C 0000
+  01: 102A 0001
+  02: 1005 0000
+  BP: 0200 00C0 [0001]
+  EC: 0000 0000 [0000]
+  MK: 0000 0000 [0000]
+  T0: 0000 00D7 [0101]
+  System halt!
+  
+== How to burn image for SD, EMMC Nand
 
-Install Image with Balena Etcher. +
-link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
+Release Image:  https://wiki.banana-pi.org/Banana_Pi_BPI-R4#Release_image
 
-. Click on "**Flash from file**" to select image. 
-. Click on "**Select target**" to select USB device. 
-. Click on "**Flash!**" Start burning.
+Note: boot device select:  https://wiki.banana-pi.org/Getting_Started_with_BPI-R4#Prepare_to_develop
+
+== How to burn image to SD card
+
+* A. Note: burn image to SD card on linux computer
+**   1.You could download latest image from our forum     
+**   2.Install bpi-tools on your Ubuntu. If you can't access this URL or any other problems, please go to bpi-tools repo and install this tools manually.
+
+*** apt-get install pv
+*** curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
+**  3.After you download the image, insert your TF card into your Ubuntu
+*** Execute "bpi-copy xxx.img /dev/sdx" to install image on your TF card
+**  4.After step 3, then you can insert your TF card into R4, and press power button to setup R4
+ 
+* B. Note: burn image to SD card on windows computer
+**   Balena Etcher is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
+**   Click on "Flash from file" to select image. 
+**   Click on "Select target" to select USB device. 
+**   Click on "Flash!" Start burning.
 
 image::/picture/etcher.jpg[etcher.jpg]
 
-**Linux PC**
+** C. Change Boot Jumper to boot from SD, Enable SD Card Device.
+*** Note: boot device select:  https://wiki.banana-pi.org/Getting_Started_with_BPI-R4#Prepare_to_develop
+*** Note: please low level format the SD and clear all data of SD. it's very important.
 
-. Install bpi-tools on your Ubuntu. If you can't access this URL or any other problems, please go to bpi-tools repo and install this tools manually.
-+
-```sh
-apt-get install pv
-curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
-```
-. After you download the image, insert your TF card into your Ubuntu.Execute 
-+
-```sh
-bpi-copy xxx.img /dev/sdx
-```
- 
-**Change Boot Jumper to boot from SD, Enable SD Card Device.**
+== How to burn image to onboard Nand
 
-image::/picture/bpi-r4_sdboot.jpg[bpi-r4_sdboot.jpg]
-== Install Image to Nand
-
-NOTE: Note: when you want to Update Nand device, Firstly Change boot switch to boot from SD device and insert one SD with SD boot Image, then after boot up,you need flash one nand image into nand device. Finally you change bootstrap to boot from Nand device.
+NOTE: when you want to Update Nand device, Firstly Change boot switch to boot from SD device and insert one SD with SD boot Image, then after boot up,you need flash one nand image into nand device. Finally you change bootstrap to boot from Nand device.
 
 Before burning image into Nand, please prepare a USB disk. Let's take OpenWrt image (mtk-bpi-r4-NAND-20231030.img) for example, the steps are below:
 
-. Copy Nand boot OpenWrt image(mtk-bpi-r4-NAND-20231030.img) to USB disk.
+ 1. Copy Nand boot OpenWrt image(mtk-bpi-r4-NAND-20231030.img) to USB disk.
   
-. Change boot switch Jumper, the board boot from SD device, then power up the board.
+ 2. Change boot switch Jumper, the board boot from SD device, then power up the board.
  
-. Plug in USB disk to the board, and mount the USB to /mnt or other directory as follows: (you can skip mounting if it is mounted automatically)
-+
-```sh
-mount -t vfat /dev/sda1 /mnt 
-cd /mnt
-```
-. Execute following command to erase the whole Nand flash and copy image to nand device:
-+
-```sh
-mtd erase /dev/mtd0
-dd if=mtk-bpi-r4-NAND-20231030.img of=/dev/mtdblock0
-```
+ 3. Plug in USB disk to the board, and mount the USB to /mnt or other directory as follows: (you can skip mounting if it is mounted automatically)
+    * mount -t vfat /dev/sda1 /mnt 
+    * change your directory to the mounting point, here is : cd /mnt
 
-. Power off BPI-R4 board, unplug u-disk driver, change bootstrap to boot from Nand device.
+ 4. Execute following command to erase the whole Nand flash and copy image to nand device:
+    * mtd erase /dev/mtd0
+    * dd if=mtk-bpi-r4-NAND-20231030.img of=/dev/mtdblock0
 
-== Install Image to eMMC
+ 5. Power off BPI-R4 board, unplug u-disk driver, change bootstrap to boot from Nand device.
+   * Note: Enable Nand device, boot strap is from Nand.
+   * Note: boot device select:  https://wiki.banana-pi.org/Getting_Started_with_BPI-R4#Prepare_to_develop
 
-NOTE: Note: because SD card and EMMC device share one SOC's controller, it is necessary to switch to NAND startup and then burn the EMMC image into the EMMC. Finally, you will change the boot to boot from EMMC.
+== How to burn image to onboard eMMC
+NOTE: because SD card and EMMC device share one SOC's controller, it is necessary to switch to NAND startup and then burn the EMMC image into the EMMC. Finally, you will change the boot to boot from EMMC.
 
 Before burning image to eMMC, please prepare a USB disk. Let's take OpenWrt image (bl2_emmc-r4.img, mtk-bpi-r4-EMMC-20231030.img) for example, the steps are below:
 
-. Copy EMMC boot OpenWrt image(bl2_emmc-r4.img, mtk-bpi-r4-EMMC-20231030.img) to USB disk, if the image is compressed please uncompress it before copying to USB disk.
+ 1. Copy EMMC boot OpenWrt image(bl2_emmc-r4.img, mtk-bpi-r4-EMMC-20231030.img) to USB disk, if the image is compressed please uncompress it before copying to USB disk.
 
-. Change the switch jumper to Nand and start the motherboard from Nand.
+ 2. Change the switch jumper to Nand and start the motherboard from Nand.
+    Note: Enable Nand device, boot strap is from Nand
  
-. Plug in USB disk to the board, and mount the USB to /mnt or other directory as follows: (you can skip mounting if it is mounted automatically)
-+
-```sh
-mount -t vfat /dev/sda1 /mnt 
-change your directory to the mounting point, here is : cd /mnt
-```
-
-. Execute :
-+
-```sh
-echo 0 > /sys/block/mmcblk0boot0/force_ro
-dd if=bl2_emmc-r4.img of=/dev/mmcblk0boot0
-dd if=mtk-bpi-r4-EMMC-20231030.img of=/dev/mmcblk0
-mmc bootpart enable 1 1 /dev/mmcblk0
-```
-. Power off R4 board, remove u-disk driver, change bootstrap to boot from emmc device.
-
+ 3. Plug in USB disk to the board, and mount the USB to /mnt or other directory as follows: (you can skip mounting if it is mounted automatically)
+   * mount -t vfat /dev/sda1 /mnt 
+   * change your directory to the mounting point, here is : cd /mnt
+ 
+ 4. Execute :
+    * echo 0 > /sys/block/mmcblk0boot0/force_ro
+    * dd if=bl2_emmc-r4.img of=/dev/mmcblk0boot0
+    * dd if=mtk-bpi-r4-EMMC-20231030.img of=/dev/mmcblk0
+    * mmc bootpart enable 1 1 /dev/mmcblk0
+ 
+ 5. Power off R4 board, remove u-disk driver, change bootstrap to boot from emmc device.
+    * Note: Enable EMMC device, boot strap is from EMMC.
+    * Note: boot device select:  https://wiki.banana-pi.org/Getting_Started_with_BPI-R4#Prepare_to_develop
+    
 == Network-Configuration
-- Network-Configuration refer to: http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:network:start
 
-- Network Interface: eth2, lan0 is for WAN; eth1, lan0, lan1, lan2, lan3 is for LAN, ra0 is for 2.4G wireless, rai0 is for 5G wifi6 wireless, rax0 is for 6G wifi7 wireless.
-
-image::/picture/bpi-r4_network_interface.jpg[bpi-r4_network_interface.jpg]
+* Network-Configuration refer to: http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:network:start
+* Network Interface: eth2, lan0 is for WAN; eth1, lan0, lan1, lan2, lan3 is for LAN, ra0/ra1 is for 2.4G wireless, rai0 is for 5G wifi6 wireless, rax0 is for 6G wifi7 wireless.
+    
+image::/bpi-r4/network_confige.jpg[network_confige.jpg]    
 
 ```sh
 root@OpenWrt:/# ifconfig
-
-br-lan Link encap:Ethernet HWaddr EE:A1:57:81:CA:19
-
+br-lan    Link encap:Ethernet  HWaddr EE:A1:57:81:CA:19
          inet addr:192.168.1.1  Bcast:192.168.1.255  Mask:255.255.255.0
          inet6 addr: fe80::eca1:57ff:fe81:ca19/64 Scope:Link
          inet6 addr: fd63:8bea:d5ce::1/60 Scope:Global
@@ -133,16 +152,14 @@ br-lan Link encap:Ethernet HWaddr EE:A1:57:81:CA:19
          TX packets:15 errors:0 dropped:0 overruns:0 carrier:0
          collisions:0 txqueuelen:1000
          RX bytes:0 (0.0 B)  TX bytes:2418 (2.3 KiB)
-br-wan Link encap:Ethernet HWaddr EE:A1:57:81:CA:19
-
+br-wan    Link encap:Ethernet  HWaddr EE:A1:57:81:CA:19
          inet6 addr: fe80::eca1:57ff:fe81:ca19/64 Scope:Link
          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
          TX packets:34 errors:0 dropped:0 overruns:0 carrier:0
          collisions:0 txqueuelen:1000
          RX bytes:0 (0.0 B)  TX bytes:8538 (8.3 KiB)
-eth0 Link encap:Ethernet HWaddr EE:A1:57:81:CA:19
-
+eth0      Link encap:Ethernet  HWaddr EE:A1:57:81:CA:19
          inet6 addr: fe80::eca1:57ff:fe81:ca19/64 Scope:Link
          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
@@ -150,52 +167,45 @@ eth0 Link encap:Ethernet HWaddr EE:A1:57:81:CA:19
          collisions:0 txqueuelen:1000
          RX bytes:0 (0.0 B)  TX bytes:4408 (4.3 KiB)
          Interrupt:124
-eth1 Link encap:Ethernet HWaddr 4A:BB:84:B4:5D:3F
-
+eth1      Link encap:Ethernet  HWaddr 4A:BB:84:B4:5D:3F
          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
          TX packets:34 errors:0 dropped:0 overruns:0 carrier:0
          collisions:0 txqueuelen:1000
          RX bytes:0 (0.0 B)  TX bytes:8674 (8.4 KiB)
          Interrupt:124
-eth2 Link encap:Ethernet HWaddr 22:02:CE:9C:92:BA
-
+eth2      Link encap:Ethernet  HWaddr 22:02:CE:9C:92:BA
          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
          TX packets:34 errors:0 dropped:0 overruns:0 carrier:0
          collisions:0 txqueuelen:1000
          RX bytes:0 (0.0 B)  TX bytes:8674 (8.4 KiB)
          Interrupt:124
-lan0 Link encap:Ethernet HWaddr EE:A1:57:81:CA:19
-
+lan0      Link encap:Ethernet  HWaddr EE:A1:57:81:CA:19
          UP BROADCAST MULTICAST  MTU:1500  Metric:1
          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
          collisions:0 txqueuelen:1000
          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
-lan1 Link encap:Ethernet HWaddr EE:A1:57:81:CA:19
-
+lan1      Link encap:Ethernet  HWaddr EE:A1:57:81:CA:19
          UP BROADCAST MULTICAST  MTU:1500  Metric:1
          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
          collisions:0 txqueuelen:1000
          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
-lan2 Link encap:Ethernet HWaddr EE:A1:57:81:CA:19
-
+lan2      Link encap:Ethernet  HWaddr EE:A1:57:81:CA:19
          UP BROADCAST MULTICAST  MTU:1500  Metric:1
          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
          collisions:0 txqueuelen:1000
          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
-lan3 Link encap:Ethernet HWaddr EE:A1:57:81:CA:19
-
+lan3      Link encap:Ethernet  HWaddr EE:A1:57:81:CA:19
          UP BROADCAST MULTICAST  MTU:1500  Metric:1
          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
          collisions:0 txqueuelen:1000
          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
-lo Link encap:Local Loopback
-
+lo        Link encap:Local Loopback
          inet addr:127.0.0.1  Mask:255.0.0.0
          inet6 addr: ::1/128 Scope:Host
          UP LOOPBACK RUNNING  MTU:65536  Metric:1
@@ -203,44 +213,39 @@ lo Link encap:Local Loopback
          TX packets:56 errors:0 dropped:0 overruns:0 carrier:0
          collisions:0 txqueuelen:1000
          RX bytes:4368 (4.2 KiB)  TX bytes:4368 (4.2 KiB)
-ra0 Link encap:Ethernet HWaddr 00:0C:43:26:60:88
-
+ra0       Link encap:Ethernet  HWaddr 00:0C:43:26:60:88
          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
          collisions:0 txqueuelen:1000
          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
-ra1 Link encap:Ethernet HWaddr 02:0C:43:36:60:88
-
+ra1       Link encap:Ethernet  HWaddr 02:0C:43:36:60:88
          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
          collisions:0 txqueuelen:1000
          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
-rai0 Link encap:Ethernet HWaddr 00:0C:43:2B:B1:F8
-
+rai0      Link encap:Ethernet  HWaddr 00:0C:43:2B:B1:F8
          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
          collisions:0 txqueuelen:1000
          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
-rax0 Link encap:Ethernet HWaddr 0C:0C:43:26:60:D8
-
+rax0      Link encap:Ethernet  HWaddr 0C:0C:43:26:60:D8
          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
          collisions:0 txqueuelen:1000
          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
 root@OpenWrt:/# brctl show br-wan
-
-bridge name bridge id STP enabled interfaces br-wan 7fff.eea15781ca19 no lan0, eth2
-
+bridge name     bridge id               STP enabled     interfaces
+br-wan          7fff.eea15781ca19       no              lan0, eth2
 root@OpenWrt:/# brctl show br-lan
-
-bridge name bridge id STP enabled interfaces br-lan 7fff.eea15781ca19 no apclii0 apclix0 apcli0 ra1 rai0 rax0 lan2 eth1 ra0 lan3 lan1
-
+bridge name     bridge id               STP enabled     interfaces
+br-lan          7fff.eea15781ca19       no              apclii0 apclix0 apcli0 ra1 rai0 rax0 lan2 eth1 ra0 lan3 lan1
 root@OpenWrt:/#
-```
+
+'''
 
 = Accessories
 == 10G SFP Module
