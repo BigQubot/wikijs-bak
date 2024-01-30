@@ -654,7 +654,6 @@ root@R4CN:/# lspci
 0002:01:00.0 SATA controller: JMicron Technology Corp. JMB58x AHCI SATA controller
 0004:00:00.0 Unclassified device [0002]: MEDIATEK Corp. Device 7981
 root@R4CN:/# 
-root@R4CN:/#
 root@R4CN:/# [  743.794932] ata1: SATA link up 1.5 Gbps (SStatus 113 SControl 300)
 [  743.802031] ata1.00: HPA detected: current 234439535, native 234441648
 [  743.808746] ata1.00: ATA-8: Hitachi HTS542512K9SA00, BB2OC31P, max UDMA/133
@@ -685,4 +684,78 @@ major minor  #blocks  name
   8        2    2097152 sda2
 root@R4CN:/#
 ```
+
+===  PCIe to USB
+
+BPI-R4 Also supports ASMedia's ASM2142. But this module requires an additional 5V power supply.
+
+image::/bpi-r4/bpi-r4-pcie2usb.jpg[bpi-r4-pcie2usb.jpg]
+```bash
+root@R4CN:/# lspci
+0002:00:00.0 PCI bridge: MEDIATEK Corp. Device 7988 (rev 01)
+0002:01:00.0 USB controller: ASMedia Technology Inc. ASM2142 USB 3.1 Host Controller
+0004:00:00.0 Unclassified device [0002]: MEDIATEK Corp. Device 7981
+root@R4CN:/# 
+root@R4CN:/# lsusb
+Bus 002 Device 001: ID 1d6b:0003 Linux 5.4.246 xhci-hcd xHCI Host Controller
+Bus 003 Device 003: ID 2109:8822 VIA Labs, Inc.          USB Billboard Device   
+Bus 003 Device 002: ID 2109:2822 VIA Labs, Inc.          USB2.0 Hub             
+Bus 004 Device 002: ID 2109:0822 VIA Labs, Inc.          USB3.1 Hub             
+Bus 004 Device 001: ID 1d6b:0003 Linux 5.4.246 xhci-hcd xHCI Host Controller
+Bus 001 Device 001: ID 1d6b:0002 Linux 5.4.246 xhci-hcd xHCI Host Controller
+Bus 003 Device 001: ID 1d6b:0002 Linux 5.4.246 xhci-hcd xHCI Host Controller
+root@R4CN:/# 
+root@R4CN:/# [   65.031157] usb 1-2: new high-speed USB device number 2 using xhci_hcd
+[   65.312671] usb-storage 1-2:1.0: USB Mass Storage device detected
+[   65.318899] scsi host0: usb-storage 1-2:1.0
+[   66.341397] scsi 0:0:0:0: Direct-Access     HIKSEMI  MD202            1.00 PQ: 0 ANSI: 6
+[   66.351211] sd 0:0:0:0: [sda] 250069680 512-byte logical blocks: (128 GB/119 GiB)
+[   66.359500] sd 0:0:0:0: [sda] Write Protect is off
+[   66.364288] sd 0:0:0:0: [sda] Mode Sense: 37 00 00 08
+[   66.370127] sd 0:0:0:0: [sda] Write cache: disabled, read cache: enabled, doesn't support DPO or FUA
+[   66.399133]  sda: sda1 sda2
+[   66.405370] sd 0:0:0:0: [sda] Attached SCSI disk
+[   66.567935] [EXFAT] trying to mount...
+[   66.596276] [EXFAT] mounted successfully
+[   66.688447] FAT-fs (sda2): utf8 is not a recommended IO charset for FAT filesystems, filesystem will be case sensitive!
+[   66.705213] FAT-fs (sda2): Volume was not properly unmounted. Some data may be corrupt. Please run fsck.
+root@R4CN:/# 
+root@R4CN:/# lsusb
+Bus 001 Device 002: ID 0bda:9210 HIKSEMI MD202
+Bus 002 Device 001: ID 1d6b:0003 Linux 5.4.246 xhci-hcd xHCI Host Controller
+Bus 003 Device 003: ID 2109:8822 VIA Labs, Inc.          USB Billboard Device   
+Bus 003 Device 002: ID 2109:2822 VIA Labs, Inc.          USB2.0 Hub             
+Bus 004 Device 002: ID 2109:0822 VIA Labs, Inc.          USB3.1 Hub             
+Bus 004 Device 001: ID 1d6b:0003 Linux 5.4.246 xhci-hcd xHCI Host Controller
+Bus 001 Device 001: ID 1d6b:0002 Linux 5.4.246 xhci-hcd xHCI Host Controller
+Bus 003 Device 001: ID 1d6b:0002 Linux 5.4.246 xhci-hcd xHCI Host Controller
+root@R4CN:/# 
+root@R4CN:/# 
+root@R4CN:/# cat /proc/partitions
+major minor  #blocks  name
+  31        0     131072 mtdblock0
+  31        1       1024 mtdblock1
+  31        2        512 mtdblock2
+  31        3       4096 mtdblock3
+  31        4       2048 mtdblock4
+  31        5     115200 mtdblock5
+ 179        0    7634944 mmcblk0
+ 253        0      56172 ubiblock0_1
+   8        0  125034840 sda
+   8        1  125001048 sda1
+   8        2      32768 sda2
+root@R4CN:/#
+```
+
+This module can be used on M.2 KEYB Slot (but the module size2260 and has no place to fix it)
+
+image::/bpi-r4/bpi-r4-keyb2usb.jpg[bpi-r4-keyb2usb.jpg]
+
+```bash
+root@R4CN:/# lspci
+0003:00:00.0 PCI bridge: MEDIATEK Corp. Device 7988 (rev 01)
+0003:01:00.0 USB controller: ASMedia Technology Inc. ASM2142 USB 3.1 Host Controller
+0004:00:00.0 Unclassified device [0002]: MEDIATEK Corp. Device 7981
+```
+
 == Asia mPCIe WiFi6/WiFi6E
