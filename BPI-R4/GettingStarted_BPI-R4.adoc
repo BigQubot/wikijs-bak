@@ -426,10 +426,62 @@ root@R4CN:/# [  201.763041] mapfilter:drop IP addr timeout! stop dropping IP add
 === 10G SFP+ Fibre Module
 
 image::/bpi-r4/r4_sfp_10g_optical_module.jpg[r4_sfp_10g_optical_module.jpg]
-
-image::/picture/bpi-r4_sfp-10g-bx20_1.png[bpi-r4_sfp-10g-bx20_1.png]
-
-image::/picture/bpi-r4_sfp-10g-bx20_2.png[bpi-r4_sfp-10g-bx20_2.png]
+```bash
+root@R4CN:/# [  455.370399] sfp sfp@1: SM: enter empty:up:down event insert
+[  455.375999] sfp sfp@1: SM: exit probe:up:down
+[  455.687021] sfp sfp@1: SM: enter probe:up:down event timeout
+[  455.703815] sfp sfp@1: module OEM              SFP-10G-BX20-U   rev 1.0  sn 2309250008       dc 230925  
+[  455.713292] sfp sfp@1: sfp: support mode 00,00001000,00006040
+[  455.719042] mtk_soc_eth 15100000.ethernet eth1: requesting link mode inband/10gbase-kr with support 00,00001000,00006440
+[  455.740862] sfp sfp@1: tx disable 1 -> 0
+[  455.744792] sfp sfp@1: SM: exit present:up:wait
+[  455.799020] sfp sfp@1: SM: enter present:up:wait event timeout
+[  455.804849] sfp sfp@1: probing phy device through the [MDIO_I2C_NONE] protocol
+[  455.812066] sfp sfp@1: SM: exit present:up:link_up
+[  455.833979] mtk_soc_eth 15100000.ethernet eth1: resolve link status: system iface=0
+[  455.843477] sfp sfp@1: SM: enter present:up:link_up event los_high
+[  455.849657] sfp sfp@1: SM: exit present:up:wait_los
+[  476.904686] sfp sfp@1: SM: enter present:up:wait_los event los_low
+[  476.910875] sfp sfp@1: SM: exit present:up:link_up
+[  476.941863] mtk_soc_eth 15100000.ethernet eth1: Link is Up - 10Gbps/Full - flow control off
+[  476.950225] br-lan: port 4(eth1) entered blocking state
+[  476.955445] br-lan: port 4(eth1) entered forwarding state
+[  477.784529] alloc new entry for 18:f2:2c:6f:45:3e, interface:eth1
+[  477.790622] recv intf mac 76:38:02:df:74:7f
+root@R4CN:/# 
+root@R4CN:/# i2cdetect -y 4
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:                         -- -- -- -- -- -- -- -- 
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+50: 50 51 -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+70: UU -- -- -- -- -- -- --                         
+root@R4CN:/# 
+root@R4CN:/# ethtool eth1
+Settings for eth1:
+       Supported ports: [ FIBRE ]
+       Supported link modes:   10000baseLR/Full 
+       Supported pause frame use: Symmetric Receive-only
+       Supports auto-negotiation: Yes
+       Supported FEC modes: Not reported
+       Advertised link modes:  10000baseLR/Full 
+       Advertised pause frame use: Symmetric Receive-only
+       Advertised auto-negotiation: Yes
+       Advertised FEC modes: Not reported
+       Speed: 10000Mb/s
+       Duplex: Full
+       Port: FIBRE
+       PHYAD: 0
+       Transceiver: internal
+       Auto-negotiation: on
+       Current message level: 0x000000ff (255)
+                              drv probe link timer ifdown ifup rx_err tx_err
+       Link detected: yes
+root@R4CN:/#
+```
 
 == 4G/5G Module
 
