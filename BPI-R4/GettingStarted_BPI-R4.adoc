@@ -256,18 +256,172 @@ Usually the PIN6 of 10G SFP+ module is GND. After inserting the module, SFP_MOD_
 Therefore, if this PIN of the module is not GND, 3.3V_SFP power will not be supplied!
 
 image::/picture/r4_sfp_power.png[r4_sfp_power.png]
+
 === 10G SFP+ Copper Module
+
 The temperature of this module is very high when used for a long time, It can reach 90℃ without a heat sink or cooling fan. Be careful to prevent burns!
 
 image::/bpi-r4/sfp_10g_t_copper_module.jpg[sfp_10g_t_copper_module.jpg]image::/picture/sfp-10g-t-aqr.png[sfp-10g-t-aqr.png]
 
-image::/picture/bpi-r4_sfp-10g-t(aqr113c)_1.png[bpi-r4_sfp-10g-t(aqr113c)_1.png]
-image::/picture/bpi-r4_sfp-10g-t(aqr113c)_2.png[bpi-r4_sfp-10g-t(aqr113c)_2.png]
+```bash
+root@R4CN:/# [   67.870063] sfp sfp@0: SM: enter empty:up:down event insert
+[   67.875642] sfp sfp@0: SM: exit probe:up:down
+[   68.199179] sfp sfp@0: SM: enter probe:up:down event timeout
+[   68.215970] sfp sfp@0: module OEM              SFP-10G-T        rev 10   sn 2309250003       dc 230925  
+[   68.225443] sfp sfp@0: module OEM              SFP-10G-T        rev 10   has been found in the quirk list
+[   68.235004] sfp sfp@0: sfp: support mode 00,00000800,00007040
+[   68.240749] sfp sfp@0: tx disable 1 -> 0
+[   68.244681] sfp sfp@0: SM: exit present:up:wait
+[   68.343638] sfp sfp@0: SM: enter present:up:wait event los_high
+[   68.349549] sfp sfp@0: SM: exit present:up:wait
+[   82.476711] sfp sfp@0: SM: enter present:up:wait event los_low
+[   82.482550] sfp sfp@0: SM: exit present:up:wait
+[   83.584504] alloc new entry for 18:f2:2c:6f:45:3e, interface:eth2
+[   83.590595] recv intf mac ae:19:d1:7e:2a:74
+[   95.271188] sfp sfp@0: SM: enter present:up:wait event timeout
+[   95.277715] sfp sfp@0: probing phy device through the [MDIO_I2C_ROLLBALL] protocol
+[   95.821247] sfp sfp@0: CL45 PHY device [0x31c3:0x1c13] found!
+[   95.826999] sfp sfp@0: CL45 PHY device [0x31c3:0x1c13] found!
+[   95.832741] sfp sfp@0: CL45 PHY device [0x31c3:0x1c13] found!
+[   95.838479] sfp sfp@0: CL45 PHY device [0x31c3:0x1c13] found!
+[   95.844217] sfp sfp@0: CL45 PHY driver [Aquantia AQR113C] found!
+[   95.850215] sfp sfp@0: phy: support mode 00,00018000,000e706c
+[   95.855960] mtk_soc_eth 15100000.ethernet eth2: requesting link mode inband/10gbase-kr with support 00,00018000,000a7068
+[   96.273193] mtk_soc_eth 15100000.ethernet eth2: PHY [i2c:sfp@0:11] driver [Aquantia AQR113C]
+[   96.357199] sfp sfp@0: SM: exit present:up:link_up
+[   96.357206] mtk_soc_eth 15100000.ethernet eth2: resolve link status: system iface=1, line iface=0
+[   96.630718] sfp sfp@0: SM: enter present:up:link_up event los_high
+[   96.636904] sfp sfp@0: SM: exit present:up:wait_los
+[  101.395228] sfp sfp@0: SM: enter present:up:wait_los event los_low
+[  101.401416] sfp sfp@0: SM: exit present:up:link_up
+[  101.401426] mtk_soc_eth 15100000.ethernet eth2: resolve link status: system iface=1, line iface=0
+[  101.696172] mtk_soc_eth 15100000.ethernet eth2: Link is Up - 10Gbps/Full - flow control off
+[  101.704534] br-wan: port 2(eth2) entered blocking state
+[  101.709754] br-wan: port 2(eth2) entered forwarding state
+ root@R4CN:/# 
+ root@R4CN:/# i2cdetect -y 3
+    0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:                         -- -- -- -- -- -- -- -- 
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+50: 50 51 -- -- -- -- 56 -- -- -- -- -- -- -- -- -- 
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+70: UU -- -- -- -- -- -- --                         
+root@R4CN:/#                    
+root@R4CN:/# ethtool eth2
+Settings for eth2:
+       Supported ports: [ ]
+       Supported link modes:   100baseT/Full 
+                               1000baseT/Full 
+                               10000baseT/Full 
+                               1000baseKX/Full 
+                               10000baseKR/Full 
+                               2500baseT/Full 
+                               5000baseT/Full 
+       Supported pause frame use: Symmetric Receive-only
+       Supports auto-negotiation: Yes
+       Supported FEC modes: Not reported
+       Advertised link modes:  100baseT/Full 
+                               1000baseT/Full 
+                               10000baseT/Full 
+                               1000baseKX/Full 
+                               10000baseKR/Full 
+                               2500baseT/Full 
+                               5000baseT/Full 
+       Advertised pause frame use: Symmetric Receive-only
+       Advertised auto-negotiation: Yes
+       Advertised FEC modes: Not reported
+       Link partner advertised link modes:  10baseT/Full 
+                                            100baseT/Full 
+                                            1000baseT/Full 
+                                            10000baseT/Full 
+                                            2500baseT/Full 
+                                            5000baseT/Full 
+       Link partner advertised pause frame use: No
+       Link partner advertised auto-negotiation: Yes
+       Link partner advertised FEC modes: Not reported
+       Speed: 10000Mb/s
+       Duplex: Full
+       Port: MII
+       PHYAD: 17
+       Transceiver: external
+       Auto-negotiation: on
+       Current message level: 0x000000ff (255)
+                              drv probe link timer ifdown ifup rx_err tx_err
+       Link detected: yes
+root@R4CN:/# 
+
+```
 
 WARNING: Note:Do not pull out this module once it is inserted, otherwise it will cause BPI-R4 to reboot.This phenomenon does not exist with other modules.
 
-image::/picture/bpi-r4_sfp-10g-t(aqr113c)-pull_out_reboot_1.png[bpi-r4_sfp-10g-t(aqr113c)-pull_out_reboot_1.png]
-image::/picture/bpi-r4_sfp-10g-t(aqr113c)-pull_out_reboot_2.png[bpi-r4_sfp-10g-t(aqr113c)-pull_out_reboot_2.png]
+```bash
+root@R4CN:/# [  201.763041] mapfilter:drop IP addr timeout! stop dropping IP addr.
+[  499.938345] sfp sfp@0: SM: enter present:up:link_up event los_high
+[  499.950712] mtk_soc_eth 15100000.ethernet eth2: Link is Down
+[  499.956370] sfp sfp@0: SM: exit present:up:wait_los
+[  499.961367] br-wan: port 2(eth2) entered disabled state
+[  502.867442] sfp sfp@0: SM: enter present:up:wait_los event remove
+[  502.873705] sfp sfp@0: module removed
+[  502.877937] sfp sfp@0: tx disable 0 -> 1
+[  502.881872] sfp sfp@0: SM: exit empty:up:down
+[  503.164077] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000180
+[  503.172853] Mem abort info:
+[  503.175634]   ESR = 0x96000006
+[  503.178683]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  503.183985]   SET = 0, FnV = 0
+[  503.187030]   EA = 0, S1PTW = 0
+[  503.190162] Data abort info:
+[  503.193035]   ISV = 0, ISS = 0x00000006
+[  503.196861]   CM = 0, WnR = 0
+[  503.199816] user pgtable: 4k pages, 39-bit VAs, pgdp=000000012fd21000
+[  503.206246] [0000000000000180] pgd=0000000132bfb003, pud=0000000132bfb003, pmd=0000000000000000
+[  503.214936] Internal error: Oops: 96000006 [#1] SMP
+[  503.219799] Modules linked in: ksmbd mt7991(P) mt7990(P) iptable_nat ipt_REJECT xt_time xt_tcpudp xt_state xt_socket xt_recent xt_policy xt_nat xt_multiport xt_mark xt_mac xt_limit xt_iprange xt_helper xt_esp xt_conntrack xt_connmark xt_connlimit xt_connbytes xt_comment xt_TPROXY xt_TCPMSS xt_REDIRECT xt_MASQUERADE xt_LOG xt_FLOWOFFLOAD xt_CT usblp ts_fsm ts_bm spidev rfcomm pptp ppp_mppe nf_tproxy_ipv6 nf_tproxy_ipv4 nf_socket_ipv6 nf_socket_ipv4 nf_reject_ipv4 nf_nat_tftp nf_nat_snmp_basic nf_nat_sip nf_nat_pptp nf_nat_irc nf_nat_h323 nf_nat_amanda nf_nat nf_log_ipv4 nf_flow_table_hw nf_flow_table nf_conntrack_tftp nf_conntrack_snmp nf_conntrack_sip nf_conntrack_pptp nf_conntrack_netlink nf_conntrack_irc nf_conntrack_h323 nf_conntrack_broadcast ts_kmp nf_conntrack_amanda nf_conncount mtqos mtfwd mapfilter libcrc32c l2tp_ppp iptable_raw iptable_mangle iptable_filter ipt_ah ip_tables hidp btusb btintel bnep asn1_decoder mt7990_dbg(P) mtk_wed(P) mtk_pci(P) connac_if(P) mtk_hwifi(P)
+[  503.219869]  mt_wifi(P) hid mt_wifi_cmn evdev input_core cfg80211 compat xt_set ip_set_list_set ip_set_hash_netportnet ip_set_hash_netport ip_set_hash_netnet ip_set_hash_netiface ip_set_hash_net ip_set_hash_mac ip_set_hash_ipportnet ip_set_hash_ipportip ip_set_hash_ipport ip_set_hash_ipmark ip_set_hash_ip ip_set_bitmap_port ip_set_bitmap_ipmac ip_set_bitmap_ip ip_set nfnetlink nf_log_ipv6 nf_log_common ip6table_mangle ip6table_filter ip6_tables ip6t_REJECT x_tables nf_reject_ipv6 nfsd ip6_gre ip_gre gre l2tp_netlink l2tp_core udp_tunnel ip6_udp_tunnel ipcomp6 xfrm6_tunnel esp6 ah6 ip6_tunnel tunnel6 ip_tunnel rpcsec_gss_krb5 auth_rpcgss oid_registry af_key lockd sunrpc grace autofs4 dm_mirror dm_region_hash dm_log dm_crypt nls_utf8 nls_iso8859_1 nls_cp437 macsec seqiv md4 ghash_generic gf128mul gcm cts ctr ccm arc4 mtk_warp mtkhnat leds_gpio xhci_plat_hcd ohci_platform ohci_hcd fsl_mph_dr_of ehci_platform ehci_fsl ehci_hcd gpio_button_hotplug
+[  503.390068] CPU: 2 PID: 7304 Comm: aqr107_mib_thre Tainted: P                  5.4.246 #0
+[  503.398227] Hardware name: Bananapi BPI-R4 (DT)
+[  503.402746] pstate: 80000005 (Nzcv daif -PAN -UAO)
+[  503.407531] pc : __phy_read_mmd+0x20/0xa0
+[  503.411529] lr : phy_read_mmd+0x38/0x60
+[  503.415351] sp : ffffffc01388bd90
+[  503.418653] x29: ffffffc01388bd90 x28: 0000000000000000 
+[  503.423952] x27: ffffff80f2ae3638 x26: ffffffc010a373c0 
+[  503.429250] x25: ffffffc010557918 x24: ffffff80f4ce8800 
+[  503.434547] x23: ffffffc010d83908 x22: ffffffc01388be3c 
+[  503.439845] x21: 000000000000e811 x20: 0000000000000003 
+[  503.445142] x19: ffffff80f4ce8800 x18: ffffffc010c0a1a8 
+[  503.450440] x17: 000000000000003c x16: 000000000000003c 
+[  503.455738] x15: 0000000000000018 x14: 00000000fffbd1b0 
+[  503.461035] x13: 00000000000001f4 x12: ffffffc010c0a160 
+[  503.466332] x11: 000000000000c503 x10: 0000000000000830 
+[  503.471630] x9 : ffffffc01388bd10 x8 : ffffff80efda0890 
+[  503.476927] x7 : ffffffc0eec26000 x6 : ffffffc0eec26000 
+[  503.482224] x5 : 0000000000000000 x4 : 0000000000000000 
+[  503.487522] x3 : ffffff80f4ce8800 x2 : 000000000000e811 
+[  503.492819] x1 : 0000000000000003 x0 : ffffff80f4ce8800 
+[  503.498117] Call trace:
+[  503.500553]  __phy_read_mmd+0x20/0xa0
+[  503.504202]  phy_read_mmd+0x38/0x60
+[  503.507680]  aqr107_mib_read_word+0x2c/0x60
+[  503.511850]  aqr107_mib_read+0x24/0x200
+[  503.515673]  aqr107_mib_thread+0x20/0x50
+[  503.519585]  kthread+0x120/0x128
+[  503.522801]  ret_from_fork+0x10/0x1c
+[  503.526368] Code: a9be7bfd aa0003e3 910003fd f9418005 (f940c0a5) 
+[  503.532447] ---[ end trace 3fa317a53584315f ]---
+[  503.538554] Kernel panic - not syncing: Fatal exception
+[  503.543768] SMP: stopping secondary CPUs
+[  503.547680] Kernel Offset: disabled
+[  503.551155] CPU features: 0x10002,20002008
+[  503.555238] Memory Limit: none
+[  503.559792] Starting Memory dump SMCC
+[  503.563452] Memory dump SMCC failed
+[  503.566929] Rebooting in 3 seconds..
+
+```
 
 === 10G SFP+ Fibre Module
 
