@@ -1,0 +1,48 @@
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_development_tutorialbased_on_microbit[Bit for MicroPython]
+
+= MPU9250 9-axis sensor
+BPI:Bit use a 9-axis sensor, MPU9250, is placed on the BPI:bit board. and MPU9250 uses I2C 0x69 address.
+
+The 9-axis is the combination of 3 separate triple axis sensors. For more detailed information of this chip, click here link:https://github.com/yelvlab/BPI-BIT/blob/master/doc/MPU-9250A-01-v1.1.pdf[MPU 9250 datasheet] to view the datasheet.
+
+BPI-BIT MPU9250 Library and how to : https://github.com/BPI-STEAM/MPU9250
+
+= Board attitude detection
+This module allows you to get the current nine axis attitude values of the board, which are acceleration, gravity, and magnetic induction (X, Y, Z).
+
+The most basic function is to obtain their current X, Y and Z values to judge the motion state of the board at this time. For example, the z-value of acceleration increases by a small amount, indicating that the board is moving in the z-axis direction (with acceleration), so we can judge that the board is moving in the direction above the z-axis.
+
+== Based on using
+After a simple introduction, we can design a simple judgment, such as getting the balance of the board, accelerometer acceleration module, for example, to get its value of the X axis, you can get a basic values, if the value is greater than 20 shows it to the right, if less than 20, explain it to the left, if between the two, is that it is balanced, so has the following code, L said the left, and show that R said the board to the right, give it a try!
+```sh
+from microbit import *
+while True:
+   reading = accelerometer.get_x()
+   if reading > 20:
+       display.show("R")
+   elif reading < -20:
+       display.show("L")
+   else:
+       display.show("-")
+```
+
+== The advanced use of
+Gesture detection, such as up and down, left and right, forward and backward, shake free landing, etc., the following code is, when the board is facing up, it displays a smiling face, while when facing down, it displays an angry expression.
+```sh
+from microbit import *
+while True:
+   gesture = accelerometer.current_gesture()
+   if gesture == "face up":
+       display.show(Image.HAPPY)
+   else:
+       display.show(Image.ANGRY)
+```
+
+== Funny games
+Based on the previous application of the basis, we can make a fun game, the code in the bottom link, the bottom also has the corresponding measured animation, may need to load for a while, some huge.
+
+link:https://github.com/BPI-STEAM/BPI-BIT-MicroPython/blob/master/11.app/balance_ball.py[Balancing ball code] (for BPI:bit hardware version 1.4)
+
+
+
+With this MPU-9250 9-axis sensor, we can also do a lot of basic attitude detection functions, it is a very extended functional module
