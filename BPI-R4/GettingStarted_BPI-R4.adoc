@@ -765,3 +765,23 @@ The BPI-R4-NIC module requires 12V power supply, so the power supply on the BPI-
 
 NOTE: The 12V power supply will be supplied to the BPI-R4-NIC through PIN6/8/48 of the miniPCI socket. When plugging in other modules, be sure to turn off SW4 if you cannot confirm whether the module can withstand 12V.
 
+image::/bpi-r4/bpi-r4-minipcieslot.jpg[bpi-r4-minipcieslot.jpg]
+
+image::/bpi-r4/bpi-r4-minipcieslot-power.jpg[bpi-r4-minipcieslot-power.jpg]
+
+=== BPI-R4-NIC-BE14
+
+BPI-R4-NIC-BE14 Block_Diagram: MT7995AV+MT7976CN+MT7977IAN
+
+image::/bpi-r4/be14-block_diagram.jpg[be14-block_diagram.jpg]
+
+image::/bpi-r4/bpi-r4_be14.jpg[bpi-r4_be14.jpg]
+```bash
+root@OpenWrt:/# lspci
+0000:00:00.0 PCI bridge: MEDIATEK Corp. Device 7988 (rev 01)
+0000:01:00.0 Network controller: MEDIATEK Corp. Device 7990
+0001:00:00.0 PCI bridge: MEDIATEK Corp. Device 7988 (rev 01)
+0001:01:00.0 Network controller: MEDIATEK Corp. Device 7991
+0004:00:00.0 Unclassified device [0002]: MEDIATEK Corp. Device 7981
+
+```
