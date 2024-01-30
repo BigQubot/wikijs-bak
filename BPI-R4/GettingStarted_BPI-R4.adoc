@@ -141,7 +141,7 @@ Before burning image to eMMC, please prepare a USB disk. Let's take OpenWrt imag
     
 image::/bpi-r4/network_confige.jpg[network_confige.jpg]    
 
-```sh
+```bash
 root@OpenWrt:/# ifconfig
 br-lan    Link encap:Ethernet  HWaddr EE:A1:57:81:CA:19
          inet addr:192.168.1.1  Bcast:192.168.1.255  Mask:255.255.255.0
@@ -244,10 +244,10 @@ root@OpenWrt:/# brctl show br-lan
 bridge name     bridge id               STP enabled     interfaces
 br-lan          7fff.eea15781ca19       no              apclii0 apclix0 apcli0 ra1 rai0 rax0 lan2 eth1 ra0 lan3 lan1
 root@OpenWrt:/#
-
-'''
+```
 
 = Accessories
+
 == 10G SFP Module
 The SFP serdes speed of BPI-R4 is fixed at 10Gbps, so only SFP that support this can be used！
 
