@@ -602,10 +602,87 @@ round-trip min/avg/max = 36.447/41.766/47.085 ms
 root@R4CN:/#
 
 ```
+=== M.2 4G/5G Module(PCIe Interface)
+Theoretically, it also supports PCIe cellular modules, but it has not been tested
 
-== NVMe SSD
-Please insert one M2.KeyM SSD into M2.KeyM slot.
+=== miniPCIe 4G/5G Module(USB Interface)
 
-image::/picture/bpi-r4-m2_keym-ssd_connnect.jpg[bpi-r4-m2_keym-ssd_connnect.jpg]
-image::/picture/bpi-r4-m2_keym-ssd_linux.png[bpi-r4-m2_keym-ssd_linux.png]
+== Storage
+=== NVMe SSD
+
+Please insert one M.2 KeyM SSD(PCIe interface) into KeyM slot(CN18).
+
+NOTE: No compatibility testing has been done and there is no guarantee that all SSDs can be used.
+
+image::/bpi-r4/bpi-r4-m2_keym-ssd_connnect.jpg[bpi-r4-m2_keym-ssd_connnect.jpg]
+
+```bash
+root@R4CN:/# lspci
+0002:00:00.0 PCI bridge: MEDIATEK Corp. Device 7988 (rev 01)
+0002:01:00.0 Non-Volatile memory controller: KIOXIA Corporation Device 0001
+0004:00:00.0 Unclassified device [0002]: MEDIATEK Corp. Device 7981
+root@R4CN:/# 
+root@R4CN:/# 
+root@R4CN:/# cat /proc/partitions
+major minor  #blocks  name
+ 31        0     131072 mtdblock0
+259        0  125034840 nvme0n1
+259        1  125033472 nvme0n1p1
+ 31        1       1024 mtdblock1
+ 31        2        512 mtdblock2
+ 31        3       4096 mtdblock3
+ 31        4       2048 mtdblock4
+ 31        5     115200 mtdblock5
+179        0    7634944 mmcblk0
+253        0      56172 ubiblock0_1
+root@R4CN:/# 
+```
+
+=== PCIe to SATA
+
+BPI-R4 supports JMicron's JMB585 (PCIe to 5x SATA chip)
+
+image::/bpi-r4/bpi-r4-pcie2sata.jpg[bpi-r4-pcie2sata.jpg]
+
+image::/bpi-r4/bpi-r4-pcie2sata-cable.jpg[bpi-r4-pcie2sata-cable.jpg]
+
+image::/bpi-r4/bpi-r4-satapwr.jpg[bpi-r4-satapwr.jpg]
+
+```bash
+root@R4CN:/# lspci
+0002:00:00.0 PCI bridge: MEDIATEK Corp. Device 7988 (rev 01)
+0002:01:00.0 SATA controller: JMicron Technology Corp. JMB58x AHCI SATA controller
+0004:00:00.0 Unclassified device [0002]: MEDIATEK Corp. Device 7981
+root@R4CN:/# 
+root@R4CN:/#
+root@R4CN:/# [  743.794932] ata1: SATA link up 1.5 Gbps (SStatus 113 SControl 300)
+[  743.802031] ata1.00: HPA detected: current 234439535, native 234441648
+[  743.808746] ata1.00: ATA-8: Hitachi HTS542512K9SA00, BB2OC31P, max UDMA/133
+[  743.815699] ata1.00: 234439535 sectors, multi 0: LBA48 NCQ (depth 32), AA
+[  743.823749] ata1.00: configured for UDMA/133
+[  743.828182] scsi 0:0:0:0: Direct-Access     ATA      Hitachi HTS54251 C31P PQ: 0 ANSI: 5
+[  743.836710] sd 0:0:0:0: [sda] 234439535 512-byte logical blocks: (120 GB/112 GiB)
+[  743.844204] sd 0:0:0:0: [sda] Write Protect is off
+[  743.848992] sd 0:0:0:0: [sda] Mode Sense: 00 3a 00 00
+[  743.854075] sd 0:0:0:0: [sda] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+[  744.221268]  sda: sda1 sda2
+[  744.224485] sd 0:0:0:0: [sda] Attached SCSI disk
+[  744.459896] EXT4-fs (sda1): The kernel was not built with CONFIG_QUOTA and CONFIG_QFMT_V2
+root@R4CN:/# 
+root@R4CN:/#
+root@R4CN:/# cat /proc/partitions
+major minor  #blocks  name
+ 31        0     131072 mtdblock0
+ 31        1       1024 mtdblock1
+ 31        2        512 mtdblock2
+ 31        3       4096 mtdblock3
+ 31        4       2048 mtdblock4
+ 31        5     115200 mtdblock5
+179        0    7634944 mmcblk0
+253        0      56172 ubiblock0_1
+  8        0  117219767 sda
+  8        1    8388608 sda1
+  8        2    2097152 sda2
+root@R4CN:/#
+```
 == Asia mPCIe WiFi6/WiFi6E
