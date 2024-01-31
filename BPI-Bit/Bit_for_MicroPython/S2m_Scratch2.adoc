@@ -3,7 +3,7 @@ TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_development_tutorialbased_on_microbit
 = About Scratch2
 In order to help you understand computer language more quickly and let children make their own works, experts from MIT's multimedia lab developed a computer language for children --Scratch. In Scratch, there is no need to memorize complex syntax and statements. Scratch is similar to building blocks, and programs can be written by dragging and dropping. Therefore, Scratch looks more visual, intuitive and easy to operate. Students can easily make their own works!
 
-
+image::/bpi-bit/scratch2_1.png[scratch2_1.png]
 
 = BPI:bit for Scratch2
 Here's how Scratch2 works on Linux ARM hardware running on Bananapi M64,and development for BPI:bit
@@ -20,15 +20,15 @@ There is no need to unplug the hardware after the burn. The hardware is now read
 == Install Scratch2 on Windows system
 To access the link:https://scratch.mit.edu/download/scratch2[Scratch 2.0 editor], install Adobe AIR first and then Scratch Offline editor.
 
-Install (1).png
+image::/bpi-bit/bit-scratch2_install.png[bit-scratch2_install.png]
 
 then open the link:https://raw.githubusercontent.com/junhuanchen/s2m/master/s2m/scratch_files/projects/s2m-bpi-bit.sb2[s2m-bpi-bit.sb2] file with Scratch2
 
-Open project.png
+image::/bpi-bit/open_project.png[open_project.png]
 
 Now you can see more blocks:
 
-More .png
+image::/bpi-bit/more_.png[more_.png]
 
 The red dot indicates that the device is not connected. At this point, it is necessary to download the link:https://github.com/BPI-STEAM/BPI-BIT-MicroPython/releases/download/Firmware1230/s2m-windows.exe[s2m-windows.exe] software of the link:https://github.com/BPI-STEAM/BPI-BIT-MicroPython/releases/tag/s2mb[s2mb release] page.
 
@@ -38,17 +38,20 @@ Make sure it works:
 
 Now open s2m-windows.exe and you will see that the green light has been turned on. Start using it.
 
-Running scratch.png
+image::/bpi-bit/running_scratch.png[running_scratch.png]
 
 If you don't insert the hardware, it will prompt you.
 
-Scratch error (1).png
+image::/bpi-bit/bit-scratch2_scratch_error.png[bit-scratch2_scratch_error.png]
 
 == Install Scratch on Linux
 Prerequisite for software preparation ,Confirm python3 and pip3 installed, and then type the command shell box
 ```sh
 pip3 install git+https://github.com/junhuanchen/s2m 
 ```
+confirm for the installation is complete.
+
+image::/bpi-bit/try_use.png[try_use.png]
 
 == Start using software
 When the installation is complete, type s2m into the shell, which will automatically look up the serial port and open the service, so you should make sure the hardware is connected and start the service
@@ -56,4 +59,3 @@ When the installation is complete, type s2m into the shell, which will automatic
 Since everyone's installation of Scratch2 may be different, I suggest that you just take Scratch2 project back and open it directly. The downloaded s2m-link:https://raw.githubusercontent.com/junhuanchen/s2m/master/s2m/scratch_files/projects/s2m-bpi-bit.sb2[bpi-bit.sb2] project is link:https://github.com/junhuanchen/s2m/tree/master/s2m/scratch_files/projects[here] (that is, in the s2m directory).
 
 Then use Scratch2 loading the project file, when I saw the top bar at this time for the green dots can be s2m has normal work, and even on the hardware for data, you can use in Scratch2 bpibit to learn programming, if you have other want, can also be easily added, only need to open it with zip right project file, edit project. The contents of the json can add more building blocks, the corresponding function requires the corresponding modify s2m and s2mb source code.
-confirm for the installation is complete.
