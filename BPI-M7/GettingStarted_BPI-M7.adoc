@@ -46,6 +46,7 @@ TIP: More Infomation: link:/en/BPI-M7/BananaPi_BPI-M7[Banana Pi BPI-M7]
 * USB-A to USB-C data cable
 
 = Image Flashing
+
 == Android
 
 === Install Image with Usb Download Tool
@@ -69,7 +70,7 @@ image::/picture/r2-pro_usb-tool-1.jpg[r2-pro_usb-tool-1.jpg]
 . Open RKDevTool.exe, Switch to the “**upgrade firmware**” page. Press the “**firmware**” button to open the image file to be upgraded. The upgrade tool displays detailed firmware information.
 +
 
-. Disconnect the power adapter , connect the type-c cable to the bpi-w3 and PC.
+. Disconnect the power adapter , connect the type-c cable to the BPI-M7 and PC.
 
 . There have two usb download mode for image upgrade.
 
@@ -106,6 +107,7 @@ link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by 
 image::/picture/etcher.jpg[etcher.jpg]
 
 === Install Image to sd card 2
+
 NOTE: **Debian** images use this method.
 
 . Download link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FUpdate-SD-Tools.zip[Rockchip SD Disk Tool].
