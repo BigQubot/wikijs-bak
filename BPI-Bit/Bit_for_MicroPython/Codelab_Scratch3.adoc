@@ -3,7 +3,7 @@ TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_development_tutorialbased_on_microbit
 = About CodeLab
 Codelab.club is a nonprofit organization. official website : https://www.codelab.club/
 
-
+image::/bpi-bit/scratch_3.png[scratch_3.png]
 
 We are committed to delivering the joy of programming and helping people become creators of the digital age.
 
@@ -20,40 +20,39 @@ First select the version of the system that works for you and get link:https://a
 
 And then going to refer to link:https://adapter.codelab.club/user_guide/usage/#3-microbit[usb_microbit user manual]，in a similar way，choose mpfshell option.
 
-
+image::/bpi-bit/scratch_3_1.png[scratch_3_1.png]
 
 = Begin to use BPI:bit with CodeLab scratch 3
 . Make sure adapter software and scratch3 websites are open.
 
 . In scratch3, click on it (the expand button in the bottom left corner)
 +
-Scratch 2 external.png
+image::/bpi-bit/scratch_2_external.png[scratch_2_external.png]
 
 . Scroll to the bottom, find the BPI :bit plug-in, select it, and click ok to return to the main interface.
 +
-
+image::/bpi-bit/scratch_3_3.png[scratch_3_3.png]
 
 . Check the isconnected indicator to connect
 +
-Scratch 3 4.png
+image::/bpi-bit/scratch_3_4.png[scratch_3_4.png]
 
 . At this point, insert the hardware and click on the connection button. (if you're not sure, check with your regular mpfshell) if connect , will show "true"
 +
-
+image::/bpi-bit/scratch_3_5.png[scratch_3_5.png]
 
 . Now ,you can use CodeLab scratch 3 function.
 +
-
+image::/bpi-bit/scratch_3_6.png[scratch_3_6.png]
 
 . Since then you can free to use their own building blocks, however, if you are not satisfied with own blocks and can be used directly mpfshell, direct control the hardware, if you want some combination of debugging interface, into a separate building blocks, can submit to us, directly to merge, but because there were no dynamic blocks scratch3 load, so we can't completely open
 +
-
-
+image::/bpi-bit/scratch_3_7.png[scratch_3_7.png]
 
 = How to use Scratch3 for Mpfshell
 How to use mpfshell, in fact, only need to look at a few examples to know their origin and contrast relationship.
 
-
+image::/bpi-bit/scratch_3_8.png[scratch_3_8.png]
 
 If you know how to use the mpfshell, it is same here. The so-called control hardware is actually equivalent to calling mpfshell exec every time.
 
