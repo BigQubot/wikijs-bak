@@ -261,7 +261,67 @@ The released image(2023-09-12 or later) default driver is RM500U-CN and RM520N-G
 
 If use EM05 or others,you will most likely need to modify the driver.
 
+. Install 4G/5G Cellular Module into CN4 Slot(M.2 KEYB)
+. Inset the NANOSIM Card
+. Install antenna on the module
+. After powering on, it will automatically dial
+
 WARNING: Note: The availability of 4G/5G depends on the local carrier frequency band.
+
+**RM520N-GL**
+```sh
+wwan0     Link encap:Ethernet  HWaddr C2:CA:76:42:83:EC
+          NOARP  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+wwan0_1   Link encap:Ethernet  HWaddr C2:CA:76:42:83:EC
+          NOARP  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+          
+root@OpenWrt:/#
+root@OpenWrt:/# lsusb
+Bus 001 Device 001: ID 1d6b:0002 Linux 5.4.188 xhci-hcd xHCI Host Controller
+Bus 002 Device 002: ID 2c7c:0801 Quectel RM520N-GL
+Bus 002 Device 001: ID 1d6b:0003 Linux 5.4.188 xhci-hcd xHCI Host Controller
+root@OpenWrt:/#
+root@OpenWrt:/# ping ping baidu .com
+PING baidu.com (110.242.68.66) 56 data bvtes
+64 bytes from 110.242.68.66: seq=0 ttl=50 time=38.540 ms
+64 bytes from 110.242.68.66: seq=1 ttl=50 time=38.276 ms
+64 bytes from 110.242.68.66: seq=2 ttl=50 time=38.355 ms
+64 bytes from 110.242.68.66: seq=3 ttl=50 time=38.788 ms
+^C
+--- baidu.com ping statistics ---
+4 packets transmitted, 4 received，0% packet loss
+round-trip min/avg/max = 38.276/38.490/38.788 ms
+root@OpenWrt:/#
+```
+
+**RM500U-CN**
+
+```sh
+usb0      Link encap:Ethernet  HWaddr 46:F7:1B:36:AE:26
+          inet addr:10.101.26.65  Bcast:10.101.26.255  Mask:255.255.255.0
+          inet6 addr: 2409:895a:30a9:55e2:44f7:1bff:fe36:ae26/64 Scope:Global
+          inet6 addr: fe80::5c3b:9cff:fe76:7c46/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:191 errors:0 dropped:2 overruns:0 frame:0
+          TX packets:243 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:71800 (70.1 KiB)  TX bytes:35923 (35.0 KiB)
+root@R3mini-Router:/# 
+root@R3mini-Router:/# lsusb
+Bus 001 Device 001: ID 1d6b:0002 Linux 5.4.171 xhci-hcd xHCI Host Controller
+Bus 002 Device 002: ID 2c7c:0900 RM500U-CN
+Bus 002 Device 001: ID 1d6b:0003 Linux 5.4.171 xhci-hcd xHCI Host Controller
+root@R3mini-Router:/#
+```
 
 === Wi-Fi Ap mode on BPI-R3mini
 * ra0 is MT7986a 2.4G wifi
