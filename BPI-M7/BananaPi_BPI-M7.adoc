@@ -197,6 +197,7 @@ TIP: There are two identical Type-C ports on Sige7,but only the Type-C (PD Only)
 === MIPI DSI 
 0.5mm FPC connector (J23)
 
+[options="header",cols="1,1,1"]
 |====
 3+| MIPI CDI GPIO define of Banana Pi BPI-M7 
 |Pin	|MIPI-DSI	|description
@@ -222,6 +223,16 @@ TIP: There are two identical Type-C ports on Sige7,but only the Type-C (PD Only)
 |26|	TP_RST (GPIO0_C6)|	1.8V, GPIO
 |28,29|	VCC5V0_LCD|	5V Power ouput
 |31,32|	VCC_1V8|	1.8V Power ouput
+|====
+
+=== Fan 
+0.8mm connector(CN32)
+[options="header",cols="1,1,1"]
+|====
+3+| Fan GPIO define of Banana Pi BPI-M7 
+| 1| 	VCC_5V0	| 5V Power ouput
+| 2	| GND	| GND
+| 3	| PWM	| PWM cotrol
 |====
 
 == Case design:
