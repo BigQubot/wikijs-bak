@@ -4,7 +4,8 @@ Banana Pi BPI-R4 Router board with MediaTek MT7988A (Filogic 880) quad-core ARM 
 
 TIP: More Infomation: link:/en/BPI-R4/BananaPi_BPI-R4[Banana Pi BPI-R4]
 
-= Prepare
+= Development
+== Prepare
 
 * Prepare 8G/above TF card, USB-Serial cable, Ubuntu System
 * 12V/2A power adapter (without any peripherals, the power consumption of BPI-R4 Main Board will not exceed 10W in the most extreme cases. but you need to determine whether you need a higher power power adapter according to your own accessory usage)
