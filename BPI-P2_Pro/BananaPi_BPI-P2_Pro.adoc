@@ -66,10 +66,10 @@ image::/picture/banana_pi_bpi-p2_pro.jpg[banana_pi_bpi-p2_pro.jpg]
 
 === BPI-P2 Pro 40PIN GPIO
 
-[options="header",cols="1,2,2,2,1,1,2,2,2,1",width="60%"]
+[options="header",cols="2,2,2,2,1,1,2,2,2,2",width="60%"]
 |====
 10+|**40 Pin GPIO define of Banana Pi BPI-P2 Pro**
-|Pin No|Function3|Function2	|Function1|	Pin |	Pin	|Function1	|Function2|	Function3|	Pin No 
+| RK3308 Pin No|Function3|Function2	|Function1|	Pin |	Pin	|Function1	|Function2|	Function3|RK3308	Pin No 
 | | | |VCC_IO	|	1	|2|		VCC5V0_SYS|		| |
 | | ||ADC_KEY_IN1	|	3	|4	|	VCC5V0_SYS|		 | | 
 |69	||	I2S0_SCLK_TX|	GPIO2_A5|	5|	6	|GPIO0_C1|	SPDIF_TX	||	17
