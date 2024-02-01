@@ -6,14 +6,15 @@ TIP: More Infomation: link:/en/BPI-R4/BananaPi_BPI-R4[Banana Pi BPI-R4]
 
 = Prepare
 
- * Prepare 8G/above TF card, USB-Serial cable, Ubuntu System
- * 12V/2A power adapter (without any peripherals, the power consumption of BPI-R4 Main Board will not exceed 10W in the most extreme cases. but you need to determine whether you need a higher power power adapter according to your own accessory usage)
- * Using your USB-Serial cable(3.3V TTL,Baud=115200) Connect to debug console on BPI-R4
-   G=GND;  RX=BPI-R4 input;  TX=BPI-R4 output0
- * Default IP address for LAN port: 192.168.1.1
- * User name/password: pi/bananapi ,root/bananapi.
- Or the user is root without a password.
- * WIFI: AP_MTK_MT7990_2G/AP_MTK_MT7990_5G/AP_MTK_MT7990_6G
+* Prepare 8G/above TF card, USB-Serial cable, Ubuntu System
+* 12V/2A power adapter (without any peripherals, the power consumption of BPI-R4 Main Board will not exceed 10W in the most extreme cases. but you need to determine whether you need a higher power power adapter according to your own accessory usage)
+* Using your USB-Serial cable(3.3V TTL,Baud=115200) Connect to debug console on BPI-R4 +
+G=GND;  RX=BPI-R4 input;  TX=BPI-R4 output0
+* link:https://docs.banana-pi.org/en/BPI-R4/BananaPi_BPI-R4#_system_image[Download the image] to be burned
+* Default IP address for LAN port: 192.168.1.1
+* User name/password: pi/bananapi ,root/bananapi. +
+Or the user is root without a password.
+* WIFI: AP_MTK_MT7990_2G/AP_MTK_MT7990_5G/AP_MTK_MT7990_6G
 
 image::/picture/r4_debugport.jpg[r4_debugport.jpg]
 
@@ -57,12 +58,6 @@ image::/picture/r4_emmcboot.jpg[r4_emmcboot.jpg]
   MK: 0000 0000 [0000]
   T0: 0000 00D7 [0101]
   System halt!
-  
-== How to burn image for SD, EMMC Nand
-
-Release Image:  https://wiki.banana-pi.org/Banana_Pi_BPI-R4#Release_image
-
-Note: boot device select:  https://wiki.banana-pi.org/Getting_Started_with_BPI-R4#Prepare_to_develop
 
 == How to burn image to SD card
 
