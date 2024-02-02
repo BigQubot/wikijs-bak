@@ -120,7 +120,7 @@ NOTE: Because SD card and EMMC device share one SOC's controller, it is necessar
 
 Before burning image to eMMC, please prepare a USB disk. Let's take OpenWrt image (bl2_emmc-r4.img, mtk-bpi-r4-EMMC-20231030.img) for example, the steps are below:
 
-. Copy EMMC boot OpenWrt image(bl2_emmc-r4.img, mtk-bpi-r4-EMMC-20231030.img) to USB disk, if the image is compressed please uncompress it before copying to USB disk.
+. Copy EMMC boot OpenWrt image(**bl2_emmc-r4.img**,**mtk-bpi-r4-EMMC-20231030.img**) to USB disk, if the image is compressed please uncompress it before copying to USB disk.
 
 . Change the switch jumper to Nand and start the motherboard from Nand.
  
