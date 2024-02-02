@@ -99,7 +99,7 @@ NOTE: When you want to Update Nand device, Firstly Change boot switch to boot fr
 
 Before burning image into Nand, please prepare a USB disk. Let's take OpenWrt image (mtk-bpi-r4-NAND-20231030.img) for example, the steps are below:
 
-. Copy Nand boot OpenWrt image(mtk-bpi-r4-NAND-20231030.img) to USB disk. 
+. Copy Nand boot OpenWrt image(**mtk-bpi-r4-NAND-20231030.img**) to USB disk. 
 . Change boot switch Jumper, the board boot from SD device, then power up the board.
 . Plug in USB disk to the board, and mount the USB to /mnt or other directory as follows: (you can skip mounting if it is mounted automatically)
 +
