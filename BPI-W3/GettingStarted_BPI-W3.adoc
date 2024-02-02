@@ -619,6 +619,26 @@ echo inversed  > /sys/devices/platform/fd8b0010.pwm/pwm/pwmchip*/pwm0/polarity
 echo 1 > /sys/devices/platform/fd8b0010.pwm/pwm/pwmchip*/pwm0/enable
 #echo 0 > /sys/devices/platform/fd8b0010.pwm/pwm/pwmchip*/pwm0/enable
 ```
+== Overlays
+The device tree Overlays make it possible to support multiple hardware configurations with a single kernel, without the need to explicitly load or mask kernel modules.
+
+=== Ubuntu 22.04 Mirror Enable Overlay
+The path for storing the overlay file of Ubuntu 22.04 image on the board side is:**/boot/firmware/dtbs/rockchip/overlay/*.dtbo**
+
+Find the keyword "**overlays=**" in the **/boot/firmware/ubuntuEnv.txt** file. The following is an example of using two overlay layers for BPI-W3.
+```sh
+overlays=bananapi-w3-camera-imx415-4k bananapi-w3-display-mipi-dsi
+```
+After editing, restart the device to change the overlay settings.
+
+=== Armbian Mirror Enable Overlay
+The path for storing the overlay file of Armbian image on the board side is:**/boot/dtbs/rockchip/overlay/*.dtbo**
+
+Find the keyword "**overlays=**" in the **/boot/armbianEnv.txt** file. The following is an example of using two overlay layers for BPI-W3.
+```sh
+overlays=bananapi-w3-camera-imx415-4k bananapi-w3-display-mipi-dsi
+```
+After editing, restart the device to change the overlay settings.
 
 = Others
 == NPU usage
