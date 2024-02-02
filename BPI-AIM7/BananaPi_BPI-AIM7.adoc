@@ -55,7 +55,7 @@ NOTE: All pins of AIM7 are compatible with NVIDIA Jetson TX2 & NVIDIA Jetson Nan
 
 [options="header",cols="1,2,2"]
 |=====
-2+| **Specifications	BPI-AIM7(Rockchip) VS	Jetson Nano (NVIDIA)**|
+3+| **Specifications	BPI-AIM7(Rockchip) VS	Jetson Nano (NVIDIA)**
 |Specifications	|BPI-AIM7(Rockchip RK3588)	|Jetson Nano (NVIDIA)
 |CPU Cores	|Quad-core ARM® Cortex®-A76 + Quad-core ARM®Cortex®-A55	|Quad-core ARM® Cortex®-A57 MPCore processor
 |GPU Cores	|ARM Mali-G610 MP4	|128-core Maxwell GPU
