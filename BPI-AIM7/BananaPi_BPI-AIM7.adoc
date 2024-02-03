@@ -373,6 +373,23 @@ SDIO pin descriptions
 |223	|SDMMC0_D2	|SD Card or SDIO Data 2	|Bidir	|CMOS – 1.8V/3.3V
 |225	|SDMMC0_D3	|SD Card or SDIO Data 3	|Bidir	|CMOS – 1.8V/3.3V
 |=====
+
+=== GMAC
+Gigabit Ethernet pin descriptions
+[options="header",cols="1,2,4,1,1",width="70%"]
+|=====
+|Pin	|Pin name	|Signal description	|Direction	|Pin type
+|184	|PHY0_MDI0-	|GbE Transformer Data 0–	|Bidir	|MDI
+|186	|PHY0_MDI0+	|GbE Transformer Data 0+	|Bidir	|MDI
+|190	|PHY0_MDI1-	|GbE Transformer Data 1–	|Bidir	|MDI
+|192	|PHY0_MDI1+	|GbE Transformer Data 1+	|Bidir	|MDI
+|196	|PHY0_MDI2-	|GbE Transformer Data 2–	|Bidir	|MDI
+|198	|PHY0_MDI2+	|GbE Transformer Data 2+	|Bidir	|MDI
+|202	|PHY0_MDI3-	|GbE Transformer Data 3–	|Bidir	|MDI
+|204	|PHY0_MDI3+	|GbE Transformer Data 3+	|Bidir	|MDI
+|188	|PHY0_LED1/CFG_LDO0	|Ethernet Link LED (Green)	|Output	|-
+|194	|PHY0_LED2/CFG_LDO1	|Ethernet Activity LED (Yellow)	|Output	|-
+|=====
 = Development
 
 == Source Code
