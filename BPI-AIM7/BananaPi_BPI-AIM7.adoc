@@ -328,7 +328,7 @@ MIPI DSI interface
 |=====
 
 ==== DP & eDP/HDMI pin descriptions
-[options="header",cols="1,4,4,2,1",width="70%"]
+[options="header",cols="1,4,4,1,1",width="70%"]
 |=====
 |Pin	|Pin name	|Signal description	|Direction	|Pin type
 |39	|TYPEC0_SSRX1N/DP0_TX0N	|Display Port 0 Lane 0-	|Output	|DP
