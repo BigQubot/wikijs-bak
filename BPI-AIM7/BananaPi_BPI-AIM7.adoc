@@ -357,10 +357,11 @@ MIPI DSI interface
 |=====
 
 === SDIO
-Compatible with SDIO3.0 protocol
 
+* Compatible with SDIO3.0 protocol
 * 4-bit data bus width
-* Table 5. SDIO pin descriptions
+
+SDIO pin descriptions
 
 [options="header",cols="1,2,4,1,3",width="70%"]
 |=====
