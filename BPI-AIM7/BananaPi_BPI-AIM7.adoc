@@ -393,6 +393,7 @@ Gigabit Ethernet pin descriptions
 |=====
 
 === USB3.0
+
 * Embedded two USB 3.0 OTG interfaces which combo with DP TX (USB3OTG_0 and USB3OTG_1)
 * Embedded one USB 3.0 Host interface which combos with Combo PIPE PHY2 (USB3OTG_2)
 
@@ -407,7 +408,25 @@ USB 3.0 GEN1 pin descriptions
 |168	|PCIE20_2_TXP/SATA30_2_TXP/USB30_2_SSTXP	|USB SS Transmit+ (USB 3.0 Ctrl #0)	|Output	|USB SS PHY
 |=====
 
+=== USB 2.0 Host
+* Compatible with USB 2.0 specification
+* Support two USB 2.0 Hosts
+* Supports high-speed (480 Mbps), full-speed (12 Mbps) and low-speed (1.5 Mbps) mode
+* Support Enhanced Host Controller Interface Specification (EHCI), Revision 1.0
+* Support Open Host Controller Interface Specification (OHCI), Revision 1.0a
 
+USB 2.0 pin descriptions
+
+[options="header",cols="1,4,4,1,1",width="70%"]
+|=====
+|Pin	|Pin name	|Signal description	|Direction	|Pin type
+|109	|TYPEC0_USB20_OTG_DM	|USB2.0 Port 0 Data–	|Bidir	|USB PHY
+|111	|TYPEC0_USB20_OTG_DP	|USB2.0 Port 0 Data+	|Bidir	|USB PHY
+|115  |USB20_HOST0_DM	|USB 2.0 Port 1 Data–	|Bidir	|USB PHY
+|117	|USB20_HOST0_DP	|USB 2.0 Port 1 Data+	|Bidir	|USB PHY
+|121	|USB20_HOST1_DM	|USB 2.0 Port 2 Data–	|Bidir	|USB PHY
+|123  |USB20_HOST1_DP	|USB 2.0 Port 2 Data+	|Bidir	|USB PHY
+|=====
 = Development
 
 == Source Code
