@@ -417,7 +417,7 @@ USB 3.0 GEN1 pin descriptions
 
 USB 2.0 pin descriptions
 
-[options="header",cols="1,4,4,1,1",width="70%"]
+[options="header",cols="1,4,4,1,2",width="70%"]
 |=====
 |Pin	|Pin name	|Signal description	|Direction	|Pin type
 |109	|TYPEC0_USB20_OTG_DM	|USB2.0 Port 0 Data–	|Bidir	|USB PHY
