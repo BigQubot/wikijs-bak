@@ -281,6 +281,52 @@ Four MIPI CSI DPHY
 |122	|CAM1_MCLK	|Camera 1 Reference Clock|	Output	|CMOS – 1.8V
 |120	|CAM1_PWDN	|Camera 1 Powerdown or GPIO	|Output	|CMOS – 1.8V
 |=====
+
+=== Video output processor
+
+HDMI/eDP TX interface
+
+* Support x1, x2 and x4 configuration for each interface
+* Support all the data rates for HDMI FRL: 3, 6, 8, 10 and 12Gbps
+* Support 1.62Gbps, 2.7Gbps and 5.4Gbps for eDP
+* Support up to 7680x4320@60Hz for HDMI TX, and 4K@60Hz for eDP
+* Support RGB/YUV(up to 10bit) format for HDMI TX
+* Support RGB, YCbCr 4:4:4, YCbCr 4:2:2 and 8/10 bit per component video format for eDP
+* Support DSC 1.2a for HDMI TX
+* Support HDCP2.3 for HDMI TX, and HDCP1.3 for eDP
+
+DP TX interface
+
+* Support 2 DP TX 1.4a interface which combo with USB3.1 Gen1
+* Support 1/2/4lanes for each interface
+* Support 1.62Gbps, 2.7Gbps, 5.4Gbps and 8.1Gbps Serializer
+* Support up to 7680x4320@30Hz
+* Support RGB/YUV(up to 10bit) format
+* Support Single Stream Transport(SST)
+* Support DP Alt mode on USB Type-C
+* Support HDCP2.3, HDCP 1.3
+
+MIPI DSI interface
+
+* Support 2 MIPI DPHY 2.0 interfaces
+* Support 4 data lanes and 4.5 Gbps maximum data rate per lane
+* Support max resolution 4K@60 Hz
+* Support dual MIPI display: left-right mode
+* Support RGB (up to 10 bits) format
+* Support DSC 1.1/1.2a
+
+==== DSI pin descriptions
+[options="header",cols="1,4,2,2,4",width="70%"]
+|=====
+|Pin|	Pin name	|Signal description	|Direction	|Pin type
+|76	|MIPI_DPHY1_TX_CLKN	|DSI Clock–	|Output	|MIPI D-PHY
+|78	|MIPI_DPHY1_TX_CLKP	|DSI Clock+	|Output	|MIPI D-PHY
+|70	|MIPI_DPHY1_TX_D0N	|DSI Data 0–	|Output	|MIPI D-PHY
+|72	|MIPI_DPHY1_TX_D0P	|DSI Data 0+	|Output	|MIPI D-PHY
+|82	|MIPI_DPHY1_TX_D1N	|DSI Data 1–	|Output	|MIPI D-PHY
+|84	|MIPI_DPHY1_TX_D1P	|DSI Data 1+	|Output	|MIPI D-PHY
+|=====
+
 = Development
 
 == Source Code
