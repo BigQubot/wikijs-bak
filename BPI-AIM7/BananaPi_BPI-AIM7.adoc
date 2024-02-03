@@ -228,7 +228,9 @@ Four MIPI CSI DPHY
 
 * Each MIPI DPHY V1.2, 2 lanes, 2.5 Gbps per lane
 * Support combine 2 DPHY together to one 4-lan
-=== All Pin define
+
+==== CSI pin descriptions:
+
 [options="header",cols="1,2,2,2",width="70%"]
 |=====
 |Pin	|Pin name	|Signal description	|Direction	Pin type
@@ -268,8 +270,17 @@ Four MIPI CSI DPHY
 |66	|MIPI_DPHY0_RX_D3P|	Camera, CSI 4 Data 3+	|Input	MIPI D/C-PHY
 |=====
 
+==== Camera control pin descriptions
 
-
+[options="header",cols="1,2,4,2,2",width="70%"]
+|=====
+|Pin	|Pin name	|Signal description	|Direction	|Pin type
+|213	|CAM_I2C_SCL	|Camera I2C Clock. 2.2kΩ pull-up to 3.3 V on the module.|	Bidir	|Open Drain –3.3V
+|116	|CAM0_MCLK	|Camera 0 Reference Clock	|Output	|CMOS – 1.8V
+|114	|CAM0_PWDN	|Camera 0 Powerdown or GPIO	|Output	|CMOS – 1.8V
+|122	|CAM1_MCLK	|Camera 1 Reference Clock|	Output	|CMOS – 1.8V
+|120	|CAM1_PWDN	|Camera 1 Powerdown or GPIO	|Output	|CMOS – 1.8V
+|=====
 = Development
 
 == Source Code
