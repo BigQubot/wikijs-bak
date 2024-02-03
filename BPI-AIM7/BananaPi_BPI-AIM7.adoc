@@ -376,6 +376,7 @@ SDIO pin descriptions
 
 === GMAC
 Gigabit Ethernet pin descriptions
+
 [options="header",cols="1,2,4,1,1",width="70%"]
 |=====
 |Pin	|Pin name	|Signal description	|Direction	|Pin type
@@ -390,6 +391,23 @@ Gigabit Ethernet pin descriptions
 |188	|PHY0_LED1/CFG_LDO0	|Ethernet Link LED (Green)	|Output	|-
 |194	|PHY0_LED2/CFG_LDO1	|Ethernet Activity LED (Yellow)	|Output	|-
 |=====
+
+=== USB3.0
+* Embedded two USB 3.0 OTG interfaces which combo with DP TX (USB3OTG_0 and USB3OTG_1)
+* Embedded one USB 3.0 Host interface which combos with Combo PIPE PHY2 (USB3OTG_2)
+
+USB 3.0 GEN1 pin descriptions
+
+[options="header",cols="1,4,4,1,1",width="70%"]
+|=====
+|Pin	|Pin name	|Signal description	|Direction	|Pin type
+|161	|PCIE20_2_RXN/SATA30_2_RXN/USB30_2_SSRXN	|USB SS Receive- (USB 3.0 Ctrl #0)	|Input	|USB SS PHY
+|163	|PCIE20_2_RXP/SATA30_2_RXP/USB30_2_SSRXP	|USB SS Receive+ (USB 3.0 Ctrl #0)	|Input	|USB SS PHY
+|166	|PCIE20_2_TXN/SATA30_2_TXN/USB30_2_SSTXN	|USB SS Transmit- (USB 3.0 Ctrl #0)	|Output	|USB SS PHY
+|168	|PCIE20_2_TXP/SATA30_2_TXP/USB30_2_SSTXP	|USB SS Transmit+ (USB 3.0 Ctrl #0)	|Output	|USB SS PHY
+|=====
+
+
 = Development
 
 == Source Code
