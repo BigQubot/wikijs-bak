@@ -428,6 +428,29 @@ USB 2.0 pin descriptions
 |123  |USB20_HOST1_DP	|USB 2.0 Port 2 Data+	|Bidir	|USB PHY
 |=====
 
+=== PCIe
+PCIe 2.1 interface
+
+* Compatible with PCI Express Base Specification Revision 2.1
+* Support one lane for each PCIe 2.1 interface
+* Support Root Complex (RC) only
+* Support 5 Gbps data rate
+
+PCIe 2.1 pin descriptions
+
+[options="header",cols="1,2,4,1,1",width="70%"]
+|=====
+|Pin	|Pinname	|Signal description	|Direction	|Pin type
+|167	|PCIE20_0_RXN/SATA30_0_RXN	|PCIe #1 Receive 0– (PCIe Ctrl #2 Lane 0)|	Input	|PCIe PHY
+|169	|PCIE20_0_RXP/SATA30_0_RXP	|PCIe #1 Receive 0+ (PCIe Ctrl #2 Lane 0)	|Input	|PCIe PHY
+|172	|PCIE1_TX0_N	|PCIe #1 Transmit 0– (PCIe Ctrl #2 Lane 0)	|Output	|PCIe PHY
+|174	|PCIE1_TX0_P	|PCIe #1 Transmit 0+ (PCIe Ctrl #2 Lane 0)	|Output|	PCIe PHY
+|183	|PCIE1_RST*	|PCIe #1 Reset (PCIe Ctrl #2). 4.7kΩ pull-up to 3.3V on the module.	|Output	|Open Drain – 3.3V
+|182	|PCIE20X1_2_CLKREQN_M0*	|PCIe #1 Clock Request (PCIe Ctrl #2). 47kΩ pull-up to 3.3V on the module.	|Bidir	|Open Drain – 3.3V
+|173	|PCIE20_0_REFCLKN	|PCIe #1 Reference Clock– (PCIe Ctrl #2)	|Output	|PCIe PHY
+|175	|PCIE20_0_REFCLKP	|PCIe #1 Reference Clock+ (PCIe Ctrl #2)	|Output	|PCIe PHY
+|179	|PCIE30X4_WAKEn_M0	|PCIe Wake. 47kΩ pull-up to 3.3V on themodule.	|Input	|Open Drain – 3.3V
+|=====
 
 = Development
 
