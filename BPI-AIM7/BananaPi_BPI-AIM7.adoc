@@ -452,6 +452,30 @@ PCIe 2.1 pin descriptions
 |179	|PCIE30X4_WAKEn_M0	|PCIe Wake. 47kΩ pull-up to 3.3V on themodule.	|Input	|Open Drain – 3.3V
 |=====
 
+PCIe 3.0 interface
+
+* Compatible with PCI Express Base Specification Revision 3.0
+* Support dual operation modes: Root Complex (RC) and End Point (EP)
+* Support data rates: 2.5 Gbps (PCIe 1.1), 5 Gbps (PCIe 2.1), 8 Gbps (PCIe 3.0)
+* Support aggregation and bifurcation with 1x 4 lanes, 2x 2 lanes, 4x 1 lanes and 1x 2 lanes + 2x 1 lanes
+
+[options="header",cols="1,2,4,1,2",width="70%"]
+|=====
+|Pin	|Pin name	|Signal description	|Direction	|Pin type
+|131	|PCIE30_PORT0_RX0N	|PCIe #0 Receive 0– (PCIe Ctrl #0 Lane 0)	|Input	|PCIe PHY
+|133	|PCIE30_PORT0_RX0P	|PCIe #0 Receive 0+ (PCIe Ctrl #0 Lane 0)	|Input	|PCIe PHY
+|137	|PCIE30_PORT0_RX1N	|PCIe #0 Receive 1– (PCIe Ctrl #0 Lane 1)	|Input	|PCIe PHY
+|139	|PCIE30_PORT0_RX1P	|PCIe #0 Receive 1+ (PCIe Ctrl #0 Lane 1)	|Input	|PCIe PHY
+|134	|PCIE30_PORT0_TX0N	|PCIe #0 Transmit 0– (PCIe Ctrl #0 Lane 0)	|Output	|PCIe PHY
+|136	|PCIE30_PORT0_TX0P	|PCIe #0 Transmit 0+ (PCIe Ctrl #0 Lane 0)	|Output	|PCIe PHY
+|140	|PCIE30_PORT0_TX1N	|PCIe #0 Transmit 1– PCIe Ctrl #0 Lane 1)	|Output	|PCIe PHY
+|142	|PCIE30_PORT0_TX1P	|PCIe #0 Transmit 1+ (PCIe Ctrl #0 Lane 1)	|Output	|PCIe PHY
+|181	|PCIE30X4_PERSTn_M0	|PCIe #0 Reset (PCIe Ctrl #0). 4.7kΩ pull-up to3.3V on the module.	|Bidir	|Open Drain – 3.3V
+|180	|PCIE30X4_CLKREQn_M0	|PCIe #0 Clock Request (PCIe Ctrl #0). 47kΩpull-up to 3.3V on the module.	|Bidir	|Open Drain – 3.3V
+|179	|PCIE30X4_WAKEn_M0	|PCIe Wake. 47kΩ pull-up to 3.3V on themodule.	|Input	Open |Drain – 3.3V
+|160	|PCIE30_CLK_N	|PCIe #0 Reference Clock–	|Output	|PCIe PHY
+|162	|PCIE30_CLK_P	|PCIe #0 Reference Clock+	|Output	|PCIe PHY
+|=====
 = Development
 
 == Source Code
