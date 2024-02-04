@@ -476,6 +476,29 @@ PCIe 3.0 interface
 |160	|PCIE30_CLK_N	|PCIe #0 Reference Clock–	|Output	|PCIe PHY
 |162	|PCIE30_CLK_P	|PCIe #0 Reference Clock+	|Output	|PCIe PHY
 |=====
+
+
+=== SPI interface
+* Support 5 SPI Controllers (SPI0-SPI4)
+* Support two chip-select output
+* Support serial-master and serial-slave mode, software-configurable
+
+SPI pin descriptions
+
+[options="header",cols="1,2,4,1,2",width="90%"]
+|=====
+|Pin	|Pin name|	Signal description|	Direction	|Pin type
+|91	|SPI0_SCK	|SPI 0 Clock	|Bidir	|CMOS – 1.8
+|89	|SPI0_MOSI	|SPI 0 Master Out / Slave In	|Bidir	|CMOS – 1.8
+|93	|SPI0_MISO	|SPI 0 Master In / Slave Out	|Bidir	|CMOS – 1.8
+|95	|SPI0_CS0*	|SPI 0 Chip Select 0	|Bidir	|CMOS – 1.8
+|97	|SPI0_CS1*	|SPI 0 Chip Select 1	|Bidir	|CMOS – 1.8
+|106	|SPI1_SCK	|SPI 1 Clock	|Bidir	|CMOS – 1.8
+|104	|SPI1_MOSI	|SPI 1 Master Out / Slave In	|Bidir	|CMOS – 1.8
+|108	|SPI1_MISO	|SPI 1 Master In / Slave Out	|Bidir	|CMOS – 1.8
+|110	|SPI1_CS0*	|SPI 1 Chip Select 0	|Bidir	|CMOS – 1.8
+|=====
+
 = Development
 
 == Source Code
