@@ -231,7 +231,7 @@ Four MIPI CSI DPHY
 
 ==== CSI pin descriptions:
 
-[options="header",cols="1,2,2,2",width="70%"]
+[options="header",cols="1,2,2,2",width="90%"]
 |=====
 |Pin	|Pin name	|Signal description	|Direction	Pin type
 |10	|MIPI_CSI0_RX_CLK0N	|Camera, CSI 0 Clock–|	Input	MIPI D-PHY
@@ -272,7 +272,7 @@ Four MIPI CSI DPHY
 
 ==== Camera control pin descriptions
 
-[options="header",cols="1,2,4,2,2",width="70%"]
+[options="header",cols="1,2,4,2,2",width="90%"]
 |=====
 |Pin	|Pin name	|Signal description	|Direction	|Pin type
 |213	|CAM_I2C_SCL	|Camera I2C Clock. 2.2kΩ pull-up to 3.3 V on the module.|	Bidir	|Open Drain –3.3V
@@ -316,7 +316,7 @@ MIPI DSI interface
 * Support DSC 1.1/1.2a
 
 ==== DSI pin descriptions
-[options="header",cols="1,4,2,2,4",width="70%"]
+[options="header",cols="1,4,2,2,4",width="90%"]
 |=====
 |Pin|	Pin name	|Signal description	|Direction	|Pin type
 |76	|MIPI_DPHY1_TX_CLKN	|DSI Clock–	|Output	|MIPI D-PHY
@@ -328,7 +328,7 @@ MIPI DSI interface
 |=====
 
 ==== DP & eDP/HDMI pin descriptions
-[options="header",cols="1,4,4,1,1",width="70%"]
+[options="header",cols="1,4,4,1,1",width="90%"]
 |=====
 |Pin	|Pin name	|Signal description	|Direction	|Pin type
 |39	|TYPEC0_SSRX1N/DP0_TX0N	|Display Port 0 Lane 0-	|Output	|DP
@@ -363,7 +363,7 @@ MIPI DSI interface
 
 SDIO pin descriptions
 
-[options="header",cols="1,2,4,1,3",width="70%"]
+[options="header",cols="1,2,4,1,3",width="90%"]
 |=====
 |Pin	|Pin name	|Signal description	|Direction	|Pin type
 |229	|SDMMC0_CLK	|SD Card or SDIO Clock	|Output	|CMOS – 1.8V/3.3V
@@ -377,7 +377,7 @@ SDIO pin descriptions
 === GMAC
 Gigabit Ethernet pin descriptions
 
-[options="header",cols="1,2,4,1,1",width="70%"]
+[options="header",cols="1,2,4,1,1",width="90%"]
 |=====
 |Pin	|Pin name	|Signal description	|Direction	|Pin type
 |184	|PHY0_MDI0-	|GbE Transformer Data 0–	|Bidir	|MDI
@@ -399,7 +399,7 @@ Gigabit Ethernet pin descriptions
 
 USB 3.0 GEN1 pin descriptions
 
-[options="header",cols="1,4,4,1,1",width="70%"]
+[options="header",cols="1,4,4,1,1",width="90%"]
 |=====
 |Pin	|Pin name	|Signal description	|Direction	|Pin type
 |161	|PCIE20_2_RXN/SATA30_2_RXN/USB30_2_SSRXN	|USB SS Receive- (USB 3.0 Ctrl #0)	|Input	|USB SS PHY
@@ -417,7 +417,7 @@ USB 3.0 GEN1 pin descriptions
 
 USB 2.0 pin descriptions
 
-[options="header",cols="1,4,4,1,2",width="70%"]
+[options="header",cols="1,4,4,1,2",width="90%"]
 |=====
 |Pin	|Pin name	|Signal description	|Direction	|Pin type
 |109	|TYPEC0_USB20_OTG_DM	|USB2.0 Port 0 Data–	|Bidir	|USB PHY
@@ -438,7 +438,7 @@ PCIe 2.1 interface
 
 PCIe 2.1 pin descriptions
 
-[options="header",cols="1,2,4,1,2",width="70%"]
+[options="header",cols="1,2,4,1,2",width="90%"]
 |=====
 |Pin	|Pinname	|Signal description	|Direction	|Pin type
 |167	|PCIE20_0_RXN/SATA30_0_RXN	|PCIe #1 Receive 0– (PCIe Ctrl #2 Lane 0)|	Input	|PCIe PHY
@@ -459,7 +459,7 @@ PCIe 3.0 interface
 * Support data rates: 2.5 Gbps (PCIe 1.1), 5 Gbps (PCIe 2.1), 8 Gbps (PCIe 3.0)
 * Support aggregation and bifurcation with 1x 4 lanes, 2x 2 lanes, 4x 1 lanes and 1x 2 lanes + 2x 1 lanes
 
-[options="header",cols="1,2,4,1,2",width="70%"]
+[options="header",cols="1,2,4,1,2",width="90%"]
 |=====
 |Pin	|Pin name	|Signal description	|Direction	|Pin type
 |131	|PCIE30_PORT0_RX0N	|PCIe #0 Receive 0– (PCIe Ctrl #0 Lane 0)	|Input	|PCIe PHY
