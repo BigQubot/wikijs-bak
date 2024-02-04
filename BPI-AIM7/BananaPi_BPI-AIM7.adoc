@@ -499,6 +499,22 @@ SPI pin descriptions
 |110	|SPI1_CS0*	|SPI 1 Chip Select 0	|Bidir	|CMOS – 1.8
 |=====
 
+=== I2C interface
+
+I2C pin descriptions
+
+[options="header",cols="1,2,5,1,3",width="90%"]
+|=====
+|Pin	|Pin name	|Signal description	|Direction	|Pin type
+|185	|I2C2_SCL_M0	|General I2C 0 Clock. 2.2kΩ pull-up to3.3V on module.	|Bidir	|Open Drain – 3.3V
+|187	|I2C2_SDA_M0	|General I2C 0 Data. 2.2kΩ pull-up to 3.3V on the module.	|Bidir	|Open Drain – 3.3V
+|189	|I2C4_SCL_M2	|General I2C 1 Clock. 2.2kΩ pull-up to 3.3V on the module.	|Bidir	|Open Drain – 3.3V
+|191	|I2C4_SDA_M2	|General I2C 1 Data. 2.2kΩ pull-up to 3.3V on the module.	|Bidir	|Open Drain – 3.3V
+|232	|I2C6_SCL_M1	|General I2C 2 Clock. 2.2kΩ pull-up to1.8V on the module.	|Bidir	|Open Drain – 1.8V
+|234	|I2C6_SDA_M1	|General I2C 2 Data. 2.2kΩ pull-up to 1.8V on the module.	|Bidir	|Open Drain – 1.8V
+|213	|I2C3_SCL_M0	|Camera I2C Clock. 2.2kΩ pull-up to 3.3V on the module.	|Bidir	|Open Drain – 3.3V
+|215	|I2C3_SDA_M0	|Camera I2C Data. 2.2kΩ pull-up to 3.3V on the module.	|Bidir	|Open Drain – 3.3V
+|=====
 = Development
 
 == Source Code
