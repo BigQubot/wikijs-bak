@@ -1,0 +1,211 @@
+= BPI-xx Introduction
+
+Replace here with a brief introduction about the board and attach a product promotion picture
+
+image::/a_bpi-m1.jpg[bpi-m1.jpg]
+
+== Key Features
+
+- CPU
+- GPU
+- DDR
+- Flash
+- Interface1
+- Interface2
+...
+
+== Getting Start
+
+TIP: link:/en/BPI-F3/GettingStarted_BPI-F3[Getting Started BPI-F3]
+
+= Hardware
+== Hardware Interface
+
+image::/bpi-m1_interface.jpg[bpi-m1_interface.jpg]
+
+== Hardware Spec
+
+[options="header",cols="1,3"]
+|=====
+2+| **HardWare Specification of Banana Pi M2+(Plus)**
+| CPU           | xxxx
+| GPU           | xxxx
+| Memory        | xxxx
+| Flash         | xxxx
+| Network       | xxxx
+| WIFI&BT       | xxxx
+| Video Input   | xxxx
+| Video Outputs | xxxx
+| Audio Outputs | xxxx
+| Power         | xxxx
+| USB 2.0 ports | xxxx
+| GPIO          | xxxx
+| LED           | xxxx
+| Storage       | xxxx
+|=====
+
+== GPIO Pin Define
+
+=== BPI-xx 40PIN GPIO
+
+xxxx
+
+image::/picture/bpi-m1_26_pin.png[bpi-m1_26_pin.png]
+
+[options="header",cols="2,1,1"]
+|=====
+3+| **40 PIN GPIO of Banana pi BPI-M1**
+| CSI GPIO Pin | Pin Name | GPIO
+| CONx P01 | xxxx         | xxxx
+| CONx P02 | xxxx         | xxxx
+| CONx P03 | xxxx         | xxxx
+| CONx P04 | xxxx         | xxxx
+| CONx P05 | xxxx         | xxxx
+| CONx P06 | xxxx         | xxxx
+| CONx P07 | xxxx         | xxxx
+| CONx P08 | xxxx         | xxxx
+| CONx P09 | xxxx         | xxxx
+| CONx P10 | xxxx         | xxxx
+| CONx P11 | xxxx         | xxxx
+| CONx P12 | xxxx         | xxxx
+| CONx P13 | xxxx         | xxxx
+| CONx P14 | xxxx         | xxxx 
+| CONx P15 | xxxx         | xxxx 
+| CONx P16 | xxxx         | xxxx 
+| CONx P17 | xxxx         | xxxx 
+| CONx P18 | xxxx         | xxxx 
+| CONx P19 | xxxx         | xxxx 
+| CONx P20 | xxxx         | xxxx 
+| CONx P21 | xxxx         | xxxx 
+| CONx P22 | xxxx         | xxxx 
+| CONx P23 | xxxx         | xxxx 
+| CONx P24 | xxxx         | xxxx 
+| CONx P25 | xxxx         | xxxx 
+| CONx P26 | xxxx         | xxxx 
+| CONx P27 | xxxx         | xxxx 
+| CONx P28 | xxxx         | xxxx 
+| CONx P29 | xxxx         | xxxx 
+| CONx P30 | xxxx         | xxxx 
+| CONx P31 | xxxx         | xxxx 
+| CONx P32 | xxxx         | xxxx 
+| CONx P33 | xxxx         | xxxx 
+| CONx P34 | xxxx         | xxxx 
+| CONx P35 | xxxx         | xxxx 
+| CONx P36 | xxxx         | xxxx 
+| CONx P37 | xxxx         | xxxx 
+| CONx P38 | xxxx         | xxxx 
+| CONx P39 | xxxx         | xxxx
+| CONx P40 | xxxx         | xxxx
+|=====
+
+=== BPI-M5 Debug UART
+
+|=====
+|CONx-P1  | GND
+|CONx-P2  | UART0-RX
+|CONx-P3  | UART0-TX
+|=====
+
+= Development
+== Source Code
+
+=== Linux BSP Source Code
+
+TIP: Linux BSP source code
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+=== Android
+
+TIP: Linux BSP source code
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+== Resources
+
+= System Image
+== Android
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+== Linux
+
+=== Ubuntu
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+=== Debian
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+=== CentOS
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+== Third part image
+
+=== Raspbian
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+=== Armbian
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+=== EmuELEC
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+=== CoreELEC
+
+NOTE: 20xx-xx-xx release, xxxxxxx image
+
+xxxxxxxxxx
+
+xxxxxxxxxx
+
+= FAQ
+
+
+
+= Easy to buy
+
+WARNING: SINOVOIP Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M1/1100417230_40000003426518.html
+
+WARNING: Bipai Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M1/1101951077_40000003418620.html
+
+WARNING: Taobao Shop: https://shop108780008.taobao.com/category-1694930629.htm
+
+WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
