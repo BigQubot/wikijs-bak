@@ -515,6 +515,31 @@ I2C pin descriptions
 |213	|I2C3_SCL_M0	|Camera I2C Clock. 2.2kΩ pull-up to 3.3V on the module.	|Bidir	|Open Drain – 3.3V
 |215	|I2C3_SDA_M0	|Camera I2C Data. 2.2kΩ pull-up to 3.3V on the module.	|Bidir	|Open Drain – 3.3V
 |=====
+
+=== UART interface
+* Support 10 UART interfaces (UART0-UART9)
+* Embedded two 64-byte FIFO for TX and RX operation respectively
+* Support transmitting or receiving 5-bit, 6-bit, 7-bit, and 8-bit serial data
+* Standard asynchronous communication bits such as start, stop and parity
+* Support different input clocks for UART operation to get up to 4 Mbps baud rate
+* Support auto flow control mode for all UART interfaces
+
+UART pin descriptions
+
+[options="header",cols="1,2,5,1,2",width="90%"]
+|=====
+|Pin	|Pin name	Signal |description	|Direction	|Pin type
+|99	|UART7_TX_M1	|UART #0 Transmit	|Output	|CMOS – 1.8V
+|101	|UART7_RX_M1	|UART #0 Receive	|Input	|CMOS – 1.8V
+|103	|UART7_RTSN_M1	|UART #0 Request to Send	|Output	|CMOS – 1.8V
+|105	|UART7_CTSN_M1	|UART #0 Clear to Send	|Input	|CMOS – 1.8V
+|203	|UART1_TX_M1	|UART #1 Transmit	|Output	|CMOS – 1.8V
+|205	|UART1_RX_M1	|UART #1 Receive	|Input	|CMOS – 1.8V
+|207	|UART1_RTSn_M1	|UART #1 Request to Send	|Output	|CMOS – 1.8V
+|209	|UART1_CTSn_M1	|UART #1 Clear to Send	|Input	|CMOS – 1.8V
+|236	|UART2_TX_M0_DEBUG	|UART #2 Transmit	|Output|	CMOS – 1.8V
+|238	|UART2_RX_M0_DEBUG	|UART #2 Receive	|Input	|CMOS – 1.8V
+|=====
 = Development
 
 == Source Code
