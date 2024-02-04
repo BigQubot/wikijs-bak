@@ -580,7 +580,7 @@ GPIO pin descriptions
 |211	|GPIO4_A0/I2S1_MCLK_M0/PCIE30X1_1_CLKREQN_M1	|GPIO #9 or Audio Codec Master Clock	|Bidir	|CMOS – 1.8V
 |212	|GPIO4_A3/PCIE30X1_0_CLKREQN_M1	|GPIO #10	|Bidir	|CMOS – 1.8V
 |216	|GPIO3_B0/MIPI_CAM3_CLKOUT	|GPIO #11 or Generic Clocks	|Bidir	|CMOS – 1.8V
-|218	|GPIO3_B4/I2S2_MCLK_M1/MIPI_CAM3_PDN	|GPIO #12 or Pulse Width Modulator	|Bidir	vCMOS – 1.8V
+|218	|GPIO3_B4/I2S2_MCLK_M1/MIPI_CAM3_PDN	|GPIO #12 or Pulse Width Modulator	|Bidir	|CMOS – 1.8V
 |228	|GPIO3_B1/PWM2/MIPI_CAM4_CLKOUT	|GPIO #13 or Pulse Width Modulator	|Bidir	|CMOS – 1.8V
 |230	|GPIO3_A1/PWM11_IR/MIPI_CAM4_PDN	|GPIO #14 or Pulse Width Modulator	|Bidir	|CMOS – 1.8V
 |=====
