@@ -438,7 +438,7 @@ PCIe 2.1 interface
 
 PCIe 2.1 pin descriptions
 
-[options="header",cols="1,2,4,1,1",width="70%"]
+[options="header",cols="1,2,4,1,2",width="70%"]
 |=====
 |Pin	|Pinname	|Signal description	|Direction	|Pin type
 |167	|PCIE20_0_RXN/SATA30_0_RXN	|PCIe #1 Receive 0– (PCIe Ctrl #2 Lane 0)|	Input	|PCIe PHY
