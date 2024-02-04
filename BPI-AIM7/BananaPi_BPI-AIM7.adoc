@@ -541,8 +541,19 @@ UART pin descriptions
 |238	|UART2_RX_M0_DEBUG	|UART #2 Receive	|Input	|CMOS – 1.8V
 |=====
 
+=== CAN bus
+* Support transmitting or receiving CAN standard frame
+* Support transmitting or receiving CAN extended frame
+* Support transmitting or receiving data frame, remote frame, overload frame, error frame, and frame interval
 
+CAN pin descriptions
 
+[options="header",cols="1,2,2,1,2",width="90%"]
+|=====
+|Pin	|Pin name	|Signal description	|Direction |Pin type	
+|145	|CAN_TX	CAN |PHY	|Output	|CMOS – 3.3V
+|143	|CAN_RX	CAN |PHY	|Input	|CMOS – 3.3V
+|=====
 = Development
 
 == Source Code
