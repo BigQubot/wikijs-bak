@@ -549,11 +549,11 @@ UART pin descriptions
 CAN pin descriptions
 
 [options="header",cols="1,2,2,1,2",width="90%"]
-
 |=====
 |Pin	|Pin name	|Signal description	|Direction |Pin type	
 |145	|CAN_TX	CAN |PHY	|Output	|CMOS – 3.3V
 |143	|CAN_RX	CAN |PHY	|Input	|CMOS – 3.3V
+[options="header",cols="1,2,2,1,2",width="90%"]
 |=====
 
 === GPIO
@@ -565,23 +565,25 @@ CAN pin descriptions
 * Support configurable drive strength
 
 GPIO pin descriptions
-
-Pin	Pin name	Signal description	Direction	Pin type
-87	GPIO1_C5	GPIO #0 or USB 0 VBUS Enable #0	Bidir	CMOS – 1.8V
-118	GPIO3_A7/MIPI_CAM2_CLKOUT	GPIO #1 or Generic Clocks	Bidir	CMOS – 1.8V
-124	GPIO3_A3/MIPI_CAM2_PDN	GPIO #2	Bidir	CMOS – 1.8V
-126	GPIO3_D0/PCIE20X1_2_WAKEN_M0	GPIO #3	Bidir	CMOS – 1.8V
-127	GPIO4_A4/PCIE30X1_0_WAKEN_M1	GPIO #4	Bidir	CMOS – 1.8V
-128	GPIO4_B0/PCIE30X2_PERSTN_M1	GPIO #5	Bidir	CMOS – 1.8V
-130	GPIO4_A7/PCIE30X2_WAKEN_M1	GPIO #6	Bidir	CMOS – 1.8V
-206	GPIO3_A0/PWM10	GPIO #7 or Pulse Width Modulator	Bidir	CMOS – 1.8V
-208	GPIO1_C6/PWM15_IR	GPIO #8 or Fan Tach	Bidir	CMOS – 1.8V
-211	GPIO4_A0/I2S1_MCLK_M0/PCIE30X1_1_CLKREQN_M1	GPIO #9 or Audio Codec Master Clock	Bidir	CMOS – 1.8V
-212	GPIO4_A3/PCIE30X1_0_CLKREQN_M1	GPIO #10	Bidir	CMOS – 1.8V
-216	GPIO3_B0/MIPI_CAM3_CLKOUT	GPIO #11 or Generic Clocks	Bidir	CMOS – 1.8V
-218	GPIO3_B4/I2S2_MCLK_M1/MIPI_CAM3_PDN	GPIO #12 or Pulse Width Modulator	Bidir	CMOS – 1.8V
-228	GPIO3_B1/PWM2/MIPI_CAM4_CLKOUT	GPIO #13 or Pulse Width Modulator	Bidir	CMOS – 1.8V
-230	GPIO3_A1/PWM11_IR/MIPI_CAM4_PDN	GPIO #14 or Pulse Width Modulator	Bidir	CMOS – 1.8V
+[options="header",cols="1,2,2,1,2",width="90%"]
+|=====
+|Pin	|Pin name	|Signal description	|Direction	|Pin type
+|87	|GPIO1_C5	|GPIO #0 or USB 0 VBUS Enable #0	|Bidir	|CMOS – 1.8V
+|118	|GPIO3_A7/MIPI_CAM2_CLKOUT	|GPIO #1 or Generic Clocks	|Bidir	|CMOS – 1.8V
+|124	|GPIO3_A3/MIPI_CAM2_PDN	|GPIO #2	|Bidir	|CMOS – 1.8V
+|126	|GPIO3_D0/PCIE20X1_2_WAKEN_M0	|GPIO #3	|Bidir	|CMOS – 1.8V
+|127	|GPIO4_A4/PCIE30X1_0_WAKEN_M1	|GPIO #4	|Bidir	|CMOS – 1.8V
+|128	|GPIO4_B0/PCIE30X2_PERSTN_M1	|GPIO #5	vBidir	vCMOS – 1.8V
+|130	|GPIO4_A7/PCIE30X2_WAKEN_M1	|GPIO #6	|Bidir	|CMOS – 1.8V
+|206	|GPIO3_A0/PWM10	|GPIO #7 or Pulse Width Modulator	|Bidir	vCMOS – 1.8V
+|208	|GPIO1_C6/PWM15_IR	|GPIO #8 or Fan Tach	|Bidir	|CMOS – 1.8V
+|211	|GPIO4_A0/I2S1_MCLK_M0/PCIE30X1_1_CLKREQN_M1	|GPIO #9 or Audio Codec Master Clock	|Bidir	|CMOS – 1.8V
+|212	|GPIO4_A3/PCIE30X1_0_CLKREQN_M1	|GPIO #10	|Bidir	|CMOS – 1.8V
+|216	|GPIO3_B0/MIPI_CAM3_CLKOUT	|GPIO #11 or Generic Clocks	|Bidir	|CMOS – 1.8V
+|218	|GPIO3_B4/I2S2_MCLK_M1/MIPI_CAM3_PDN	|GPIO #12 or Pulse Width Modulator	|Bidir	vCMOS – 1.8V
+|228	|GPIO3_B1/PWM2/MIPI_CAM4_CLKOUT	|GPIO #13 or Pulse Width Modulator	|Bidir	|CMOS – 1.8V
+|230	|GPIO3_A1/PWM11_IR/MIPI_CAM4_PDN	|GPIO #14 or Pulse Width Modulator	|Bidir	|CMOS – 1.8V
+|=====
 
 = Development
 
