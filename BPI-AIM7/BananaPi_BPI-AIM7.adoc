@@ -526,7 +526,7 @@ I2C pin descriptions
 
 UART pin descriptions
 
-[options="header",cols="1,2,5,1,2",width="90%"]
+[options="header",cols="1,2,4,1,2",width="90%"]
 |=====
 |Pin	|Pin name	Signal |description	|Direction	|Pin type
 |99	|UART7_TX_M1	|UART #0 Transmit	|Output	|CMOS – 1.8V
@@ -540,6 +540,9 @@ UART pin descriptions
 |236	|UART2_TX_M0_DEBUG	|UART #2 Transmit	|Output|	CMOS – 1.8V
 |238	|UART2_RX_M0_DEBUG	|UART #2 Receive	|Input	|CMOS – 1.8V
 |=====
+
+
+
 = Development
 
 == Source Code
