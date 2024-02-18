@@ -1,0 +1,61 @@
+= Android 6.0.1 HDMI & LCD7
+
+== Kernel 3.10.65
+Features Map
+[options="header",cols="2,2,2,1,3"]
+|====
+|Image	|Features	|Sub-Features	|Status	|Performance
+.18+|Android	.2+|USB	  |HID	      |YES	|
+                        |USB Camera	|YES	|
+                 |GMAC	|	          |YES	|
+              .2+|WiFi	|WiFi Client|YES	|
+                        |AP mode	  |YES	|
+              .2+|Bluetooth	|BT	    |YES	|BT sound
+                            |BLE	  |Unknown	|
+              .2+|CAMERA ov5640	|photograph	|YES	|
+                                |recording	|YES	|
+                 |HDMI	|720P   	  |YES	|
+                 |IR function	|Recognise	|YES	|getevent can get data
+                 |EMMC	|Recognise	|YES	|fdisk -h can recognise EMMC, and can burn image on EMMC
+                 |OTG	  |adb	      |YES	|
+                 |1080P	|MPV	      |YES	|
+                 |4K TV	|	          |Unknown|	
+                 |SATA	|	          |YES	|HDD & SSD
+                 |Audio Codec	|	    |YES	|HDMI sound, record
+                 |GPU	|OpenGL	      |YES	|OpenGL ES 2.0, FPS：60.0
+|====
+
+= Ubuntu 16.04
+== Kernel 3.10
+Features Map
+
+[options="header",cols="2,2,2,1,5"]
+|====
+|Image	|Features	|Sub-Features	|Status	|Performance
+.26+|Ubuntu	.2+|USB	        |HID      	|YES	|
+                            |Storage	  |YES	|
+            .2+|GMAC	      |TCP	      |YES	|iperf3 test: 850M/s
+                            |UDP	      |YES	|iperf3 test: 1M/s
+            .2+|WiFi	      |WiFi Client|YES	|
+                            |AP mode	  |Developing	|hostapd
+            .2+|Bluetooth	  |BT	        |YES	|bluetoothctl
+                            |BLE	      |Developing	|hcitool
+            .3+|CAMERA ov5640	|ffmpeg 	|YES	|./usr/local/bin/cameratest.sh
+                            |cap	      |YES	|./usr/local/bin/test_ov5640_image_mode.sh
+                            |guvcview	  |YES	|preview
+            .3+|WringPI	    |8x8 LEDs	  |YES	|./usr/local/bin/bpi_test_hello
+                            |1602 LCD	  |YES	|./usr/local/bin/bpi_test_lcd1602
+                            |OLED	      |YES	|./usr/local/bin/bpi_test_52pi
+            .3+|HDMI	      |1080P	    |YES	|bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_1080P.img.gz
+                            |720P	      |YES	|bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_720P.img.gz
+                            |480P	      |YES	|bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_480P.img.gz
+              |LCD Display  |LCD 7"	    |YES	|bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_LCD7.img.gz
+              |IR function	|Recognise	|YES	|getevent can get data
+              |EMMC	        |Recognise	|YES	|fdisk -h can recognise EMMC, and can burn image on EMMC
+              |OTG	        |adb	      |No	  |
+              |1080P	      |MPV	      |YES	|
+              |GPU	        |OpenGL     |No	  |
+              |SATA	        |Recognise	|YES	|
+              |Mic	        |Recognise	|YES	|
+              |Audio	      |Recognise	|YES	|
+|====
