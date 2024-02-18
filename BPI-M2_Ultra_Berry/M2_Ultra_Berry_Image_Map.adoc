@@ -59,3 +59,69 @@ Features Map
               |Mic	        |Recognise	|YES	|
               |Audio	      |Recognise	|YES	|
 |====
+
+= Raspbian 9.4
+== Kernel 3.10
+Features Map
+
+[options="header",cols="1,1,1,1,4"，width="70%"]
+|====
+|Image	|Features	|Sub-Features	|Status	|Performance
+.24+|Raspbian	.2+|USB	  |HID	    |YES	|
+                        |Storage	|YES  |	
+              .2+|GMAC	|TCP	    |YES	|iperf3 test: 850M/s
+                        |UDP	    |YES	|iperf3 test: 1M/s
+              .2+|WiFi	|WiFi Client	|YES	|
+                        |AP mode	|Developing	|hostapd
+              .2+|Bluetooth	|BT	  |YES      	|bluetoothctl
+                            |BLE	|Developing	|hcitool
+              .2+|CAMERA ov5640	|ffmpeg	|YES	|./usr/local/bin/cameratest.sh
+                                |cap	  |YES	|./usr/local/bin/test_ov5640_image_mode.sh
+              .3+|WringPI	|8x8 LEDs	|YES	|./usr/local/bin/bpi_test_hello
+                          |1602 LCD	|YES	|./usr/local/bin/bpi_test_lcd1602
+                          |OLED	    |YES	|./usr/local/bin/bpi_test_52pi
+              .3+|HDMI	  |1080P	  |YES	|bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_1080P.img.gz
+                          |720P	    |YES	|bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_720P.img.gz
+                          |480P   	|YES	|bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_480P.img.gz
+                 |LCD Display	|LCD 7"|YES	|bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_LCD7.img.gz
+                 |IR function	|Recognise	|YES	|getevent can get data
+                 |EMMC	|Recognise	|YES	|fdisk -h can recognise EMMC, and can burn image on EMMC
+                 |OTG  	|adb	      |Developing	|
+                 |1080P	|MPV	      |YES	|
+                 |SATA	|Recognise	|YES	|
+                 |Mic	  |Recognise	|YES	|
+                 |Audio	|Recognise	|YES	|
+|====
+
+= Debian 9
+== Kernel 3.10
+Features Map
+
+[options="header",cols="1,1,1,1,4"，width="70%"]
+|====
+|Image	|Features	|Sub-Features	|Status	|Performance
+.24+|Debian	.2+|USB          	|HID	        |YES	|
+                              |Storage	    |YES	|
+            .2+|GMAC	        |TCP	        |YES	|iperf3 test: 850M/s
+                              |UDP	        |YES	|iperf3 test: 1M/s
+            .2+|WiFi	        |WiFi Client	|YES	|
+                              |AP mode	    |Developing	|hostapd
+            .2+|Bluetooth    	|BT	          |YES	      |bluetoothctl
+                              |BLE	        |Developing	|hcitool
+            .2+|CAMERA ov5640	|ffmpeg	      |YES	|./usr/local/bin/cameratest.sh
+                              |cap	        |YES	|./usr/local/bin/test_ov5640_image_mode.sh
+            .3+|WringPI     	|8x8 LEDs	    |YES	|./usr/local/bin/bpi_test_hello
+                              |1602 LCD	    |YES	|./usr/local/bin/bpi_test_lcd1602
+                              |OLED	        |YES	|./usr/local/bin/bpi_test_52pi
+            .3+|HDMI	        |1080P	      |YES	|bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_1080P.img.gz
+                              |720P	        |YES	|bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_720P.img.gz
+                              |480P	        |YES	|bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_480P.img.gz
+               |LCD Display	  |LCD 7"   	  |YES	|bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_LCD7.img.gz
+               |IR function	  |Recognise	  |YES	|getevent can get data
+               |EMMC	        |Recognise	  |YES	|fdisk -h can recognise EMMC, and can burn image on EMMC
+               |OTG	          |adb	        |Developing	|
+               |1080P	        |MPV	        |YES	|
+               |SATA	        |Recognise	  |YES	|
+               |Mic	          |Recognise	  |YES	|
+               |Audio	        |Recognise	  |YES	|
+|====
