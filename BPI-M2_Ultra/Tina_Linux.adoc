@@ -1,0 +1,91 @@
+= Allwinner Tina-IoT os for BPI-M2 Ultra
+
+== About Tina-IoT Linux
+
+Dear user for BPI-M2 Ultra R40 Tina Linux V1.0 have public，Come and try
+
+Tina Linux development by Allwinner TinaTEAM, it base on OpenWrt,To build an embedded Linux distributions,The purpose of this release is to provide a quick learning and development is simple and convenient mass production Linux TurnKey solutions.
+
+The release of R40 Tina Linux is base on BPI-M2 Ultra reference hardware, that is, the source code download directly support banana pi BPI-M2 Ultra.
+
+R40 Tina Linux V1.0 version Base on Linux-3.10 and Tina Linux V2.1, it support a lot of fun and practical support functions:
+
+. support smartlink,（ultrasonic wave,airkiss,cooee）
+
+. support DLNA、QPlay Audio transmission and control protocol
+
+Too much, not to speak one by one, in support of all hardware modules on BPI-M2 Ultra
+
+== How to use R40 Tina Linux
+
+Play Tina need a 64 - bit Linux PC, we recommend using Ubuntu 12.04 or 14.04 64 - bit version, installed with the following command to install the build environment depends on:
+
+```sh
+sudo apt-get install build-essential subversion git-core libncurses5-dev zlib1g-dev gawk flex quilt libssl-dev xsltproc libxml-parser-perl mercurial bzr ecj cvs unzip
+```
+
+You can refer to detailed link:https://wiki.openwrt.org/doc/howto/buildroot.exigence[OpenWrt's WIKI]
+
+=== Download source code
+
+Use repo tool to download this code , tool download method is as follows:
+
+```sh
+curl https://raw.githubusercontent.com/tinalinux/repo/stable/repo > ~/bin/repo $ chmod +x ~/bin/repo
+```
+
+Then add "repo" to the environment variables, it is better to put the following sentences. Bashrc inside
+
+```sh
+export PATH=~/binPATH
+```
+
+Download the repo, the next download Tina's source code, as follows:
+
+```sh
+repo init -u https://github.com/tinalinux/manifest -b r40-v1.y -m r40/v1.y.xml $ repo sync $ repo start r40-v1.y --all
+```
+
+After downloading the source code, execute the following commands in Tina with directory compiled:
+
+```sh
+source build/envsetup.sh $ lunch azalea_m2ultra-tina $ make -j4 $ pack [-d]
+```
+
+Tina SDK need to perform "source "and "lunch" commond before every compile,Then perform other operations.
+
+Pack command has a "-d" parameter,The function of the parameter is: do not add - d use the default uart0 as a serial port output, added - d use TF bayonet IO mouth group as uart0
+
+=== Burn image
+
+Tina image Packaging has about 15 M, and support directly burned to eMMC flash on BPI-M2 Ultra.
+
+Burning method is as follows:
+
+If you use Linux system，Direct use LiveSuit for flash. Method of use is as follows:
+
+. LiveSuit we place it at tina SDK tools/aw\_tools dir
+
+. unzip LiveSuit 64bit version，run./LiveSuit.sh
+
+. LiveSuit will install at ~/Bin dir，use dpkg -i install aw driver,driver also at ~/Bin dir.
+
+. run LiveSuit，choose tina image
+
+. Hold the BPI-M2 Ultra uboot key， insert the usb ，you can begin burn image
+
+If use Windows system ,plsase use burn tool : phoenixsuit
+
+We place it at tools/aw\_tools dir
+
+=== How to configuration Tina
+
+Tina firmware configuration, there are two commonly used commands:"make menuconfig" and "make kernel\_menuconfig".
+
+These two commands must be in execution after "source " and "lunch" commond run finished ,
+
+make menuconfig : Which software is used to configure the system use
+
+make kernel\_menuconfig:Used to configure the kernel options.
+
+TinaLinux source code on github: https://github.com/tinalinux/
