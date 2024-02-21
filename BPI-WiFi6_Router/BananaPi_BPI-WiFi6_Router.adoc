@@ -53,6 +53,8 @@ We have design a case for BPI-Wifi6 Router board ,so you can use this board dire
 
 image::/bpi-wifi6/bpi-wifi6_router_product.jpg[bpi-wifi6_router_product.jpg]
 
+IMPORTANT: Note : the Router product just support 1Wan + 3 Lan port ,not 4 LAN port
+
 this board support customized service. You can quickly produce your own wifi6 router products. And develop your own software on it
 
 = Development
@@ -65,6 +67,7 @@ TIP: Source code on github: https://github.com/BPI-SINOVOIP/THG6500-TAX2-OPENWRT
 TIP: Banana Pi BPI wfi6 router with Triductor TR6560 + TR5220 wifi SOC test PoE and OpenWRT: https://www.youtube.com/watch?v=Nf03ssN8ez0
 
 = System Image
+
 == OpenWRT
 
 NOTE: 2024-01-05 OpenWRT-TGP3.1.0_rc8
