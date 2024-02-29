@@ -23,6 +23,7 @@ TIP: More Infomation: link:/en/BPI-R3/BananaPi_BPI-R3[Banana Pi BPI-R3]
 
 
 = Development
+
 == Prepare
 
 Prepare 8G/above TF card, USB-Serial interface.
@@ -39,8 +40,7 @@ NOTE: SW1-A and SW1-B is for boot strap selecting; +
 SW1-C is that SPI-Nand or SPI-Nor Device is connected to CPU's SPI bus; +
 SW1-D is that SD Card or EMMC device is connected tp CPU's EMMC bus.
 
-== Linux
-=== Install Image to SD card
+== Install Image to SD card
 **Windows PC**
 
 Install Image with Balena Etcher. +
@@ -74,7 +74,7 @@ TIP: Change Boot Jumper to boot from SD, Enable SD Card Device.
 
 image::/picture/bpi-r3-jumper-all-high.png[bpi-r3-jumper-all-high.png]
 
-=== Install Image to eMMC
+== Install Image to eMMC
 
 WARNING: Note: because SD card and EMMC device share one SOC's interface, you need flash one SD image firstly, then R3 boot from SD card, then flash nand image into Nand, then change boot strap to boot from nand,  you need flash EMMC image into EMMC. Finally you change bootstrap to boot from EMMC.
 
@@ -123,7 +123,7 @@ TIP: Enable EMMC device, boot strap is from EMMC.
 +
 image::/picture/bpi-r3-jumper-boot-emmc.png[bpi-r3-jumper-boot-emmc.png]
 
-=== Network-Configuration
+== Network-Configuration
 Network-Configuration refer to: http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:network:start
 
 Network Interface: eth1, lan0 is for WAN; lan4, rax0, lan2, lan5, ra0, lan3, lan1 is for LAN, ra0 is for 2.4G wireless, rax0 is for 5G wireless.
@@ -240,8 +240,7 @@ root@OpenWrt:/# brctl show br-lan
 bridge name bridge id STP enabled interfaces br-lan 7fff.eea15781ca19 no lan4, rax0, lan2, lan5, ra0, lan3, lan1
 ```
 
-== Advanced Development
-=== GPIO
+== GPIO
 **26 Pins Definition**
 
 image::/picture/r3_gpio_40.jpg[r3_gpio_40.jpg]
@@ -264,7 +263,7 @@ echo out > /sys/class/gpio/gpio433/direction
 echo 1 > /sys/class/gpio/gpio433/value
 ```
 
-=== FAN
+== FAN
 
 image::/picture/fan.png[fan.png]
 
@@ -272,7 +271,7 @@ R317 for 5V FAN and R318 for 12V FAN.
 
 CN23 supports PWM control while CN22 does not support.
 
-=== PWM FAN Control
+== PWM FAN Control
 ```sh
 echo 0 > /sys/class/pwm/pwmchip0/export
 echo 10000 > /sys/class/pwm/pwmchip0/pwm0/period
@@ -281,17 +280,17 @@ echo normal > /sys/class/pwm/pwmchip0/pwm0/polarity
 echo 1 > /sys/class/pwm/pwmchip0/pwm0/enable
 ```
 
-=== MiniPCIe slot
+== MiniPCIe slot
 Currently, miniPCIe slot only support one USB 4G module, example: EC25 when you insert one EC25 module, you may check it.
 
 image::/picture/bpi-r3-minipcie-slot-ec25.jpg[bpi-r3-minipcie-slot-ec25.jpg]
 
-=== SFP
+== SFP
 After high and low temperature test, the following modules are suppoted by BPI-R3:
 
 image::/picture/sfp.png[sfp.png]
 
-=== 4G&5G
+== 4G&5G
 
 BPI-R3 supports 4G LTE EC25.
 
@@ -303,7 +302,7 @@ If you want to use 5G on BPI-R3:
 
 WARNING: Note: The availability of 4G/5G depends on the local carrier frequency band.
 
-=== Ap mode on BPI-R3
+== Ap mode on BPI-R3
 
 ra0 is MT7986a 2.4G wifi
 
