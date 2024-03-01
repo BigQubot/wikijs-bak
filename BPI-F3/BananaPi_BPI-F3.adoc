@@ -51,7 +51,8 @@ image::/bpi-f3/bananna_pi_bpi-f3_interface.jpg[bananna_pi_bpi-f3_interface.jpg]
 |=====
 2+| **HardWare Specification of Banana Pi BPI-F3 RISC-V SBC**
 | CPU                               |  SpacemiT K1 8 core RISC-V chip
-| NPU                               |  2.0 Tops for AI                                                                            
+
+| AI                                |  2.0Tops from RlSC-V Core                                                                            
 | Memory                            | 4 GB LPDDR4                                                                                  
 | Storage                           | 16G eMMC flash,4M SPI NOR,32M SPI NAD                                                                              
 | SD card                           | MicroSD card slot                                                                            
