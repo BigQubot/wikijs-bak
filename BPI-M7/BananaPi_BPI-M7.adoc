@@ -243,26 +243,30 @@ image::/bpi-m7/banana_pi_bpi-m7_case_7.jpg[banana_pi_bpi-m7_case_7.jpg]
 
 == Source code
 
-TIP: BPI-M7 BSP code : https://github.com/ArmSoM/armsom-build
-
 TIP: BPI-M7 kernel code: https://github.com/ArmSoM/linux-rockchip
 
 TIP: BPI-M7 uboot code ： https://github.com/ArmSoM/u-boot
 
 == Resources
-TIP: Banana Pi(ArmSoM-Sige7) Schematics pdf : https://pan.baidu.com/s/1GUg1hSzNVVuuWlY-_vGloA?pwd=arms
+TIP: BPI-M7 Component diagram
 
-TIP: BPI-M7 2D CAD Drawings ： https://pan.baidu.com/s/10UYqMjc3IjTlguOVMv7JXw?pwd=arms#list/path=%2F
+Baidu Cloud: https://pan.baidu.com/s/1Klh1xt_2Qkd8ZKZ6EIbEbg?pwd=8888 （pincode:8888)
 
-TIP: BPI-M7 Assembly Drawings: https://pan.baidu.com/s/1Nk5RWFABTPvNcvISxS2c7Q?pwd=arms#list/path=%2F
+Google Drive: https://drive.google.com/drive/folders/13WhoyLEXPj6DJKkY3ceRTgJQR7U53NOn?usp=sharing
 
-TIP: BPI-M7 Components and components datasheet : https://pan.baidu.com/s/1SBVyAAxlQHdpzCAu6ZWJXQ?pwd=arms#list/path=%2F
+TIP: BPI-M7 2D CAD
 
-TIP: Rockchip RK3588 datasheet:
-https://drive.google.com/file/d/1ewQwywq19Zh2M6MFVgsMJUCaBTOEo8rl/view?usp=drive_link
+Baidu Cloud: https://pan.baidu.com/s/1spHZGhDMC4TW9G9HTei7rA?pwd=8888 (pincode:8888)
 
-TIP: Banana Pi BPI-M7 Hardware interface introduction
-https://www.youtube.com/watch?v=Ap2hwgMJ9aE
+Google Drive: https://drive.google.com/drive/folders/1rh1abnNbTly3O69uWi0fQsSZdRvm6_oO?usp=sharing
+
+TIP: BPI-M7 Schematic
+
+Baidu Cloud: https://pan.baidu.com/s/17_2BTwBnIsmeCV5V7xNXRA?pwd=8888 （pincode:8888)
+
+Google Drive: https://drive.google.com/file/d/1-Fz3oNMEvrztWFvQs_RUv_kGpvyORcaI/view?usp=sharing
+
+TIP: Rockchip RK3588 datasheet : https://drive.google.com/file/d/1ewQwywq19Zh2M6MFVgsMJUCaBTOEo8rl/view?usp=drive_link
 
 TIP: BPI-M7 GPU and CPU performance test:
 https://www.youtube.com/watch?v=C4ofIZLixpM
@@ -275,35 +279,38 @@ https://www.youtube.com/watch?v=60XQlSF3_20&t=10s
 
 = Image Release
 
-== Official Image
-Download
-The following systems have been tested and verified by Banana Pi (ArmSoM) official:
+== Android
+== Linux
+=== Ubuntu
+NOTE: ubuntu-22.04.3-preinstalled-desktop-arm64-bpi-m7_armsom-sige7.img-20240131
 
-Network disk address: https://drive.google.com/drive/folders/1aCoC6-5zoMaNBGwwgr_pYIs219aFijFM
+Baidu Cloud: https://pan.baidu.com/s/1qsXOSuaA14ODvFhetaLGIw?pwd=8888 (pincode:8888)
 
-- Debain bullseye +
-Firmware location: 3. Linux image/debian/ArmSoM-Sige7
+Google drive: https://drive.google.com/drive/folders/1MXqanJ0zd62XpOwRxqmlx9xuqbonhIKW?usp=sharing
 
-- Ubuntu +
-Image location: 3. Linux Images/ubuntu/ArmSoM-Sige7
+NOTE: ubuntu-22.04.3-preinstalled-server-arm64-bpi-m7_armsom-sige7.img-20240131
 
-- Istoreos +
-Firmware location: 3. Linux image/openwrt/ArmSoM-Sige7
+Baidu Cloud: https://pan.baidu.com/s/1RlTTgdbZdv5mqCy7iWi8Yw?pwd=8888 (pincode:8888)
 
-== Third Party System
+Google drive: https://drive.google.com/drive/folders/1JtsD2Djx7wGZa_dLYNC86JAE9N7p7v_s?usp=sharing
 
-**Armbian**
+=== Debian
 
-- Armbian-logo +
-Firmware location: 3. Linux image/armbian/ArmSoM-Sige7
+NOTE: BPI-M7_armsom-sige7-debian-bullseye-xfce4-arm64-20240129
+
+Baidu Cloud: https://pan.baidu.com/s/1ZLoUfPHYP9GF7aJ5uGEpcw?pwd=8888 (pincode:8888)
+
+Google drive: https://drive.google.com/file/d/1r9wXInxqDehEq2Qp98dozbKMCeMfKvLr/view?usp=sharing
 
 = Easy to buy sample
 
-TIP: SINOVOIP Aliexpressshop: 
+WARNING: SINOVOIP Aliexpressshop: 
 https://www.aliexpress.com/item/1005006504845998.html?spm
 
-TIP: Bipai Aliexpress shop: 
+WARNING: Bipai Aliexpress shop: 
 https://www.aliexpress.com/item/1005006504967822.html?spm
 
-TIP: Taobao shop : 
-https://item.taobao.com/item.htm?id=765236561383&skuId=5261866368655
+WARNING: Taobao shop : 
+ https://item.taobao.com/item.htm?id=765236561383&spm=a1z10.5-c-s.w4002-25059194413.11.76fe5332n69l2T
+
+WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
