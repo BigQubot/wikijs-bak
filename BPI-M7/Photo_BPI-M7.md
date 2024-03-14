@@ -2,7 +2,7 @@
 title: BPI-M7 Photo
 description: BPI-M7 Photo
 published: true
-date: 2024-03-14T10:08:15.939Z
+date: 2024-03-14T10:10:49.105Z
 tags: 
 editor: markdown
 dateCreated: 2024-03-14T10:08:15.939Z
@@ -18,5 +18,10 @@ dateCreated: 2024-03-14T10:08:15.939Z
 
 ![banana_pi_bpi-m7_5.jpg](/bpi-m7/banana_pi_bpi-m7_5.jpg)
 
-
 ![banana_pi_bpi-m7_6.jpg](/bpi-m7/banana_pi_bpi-m7_6.jpg)
+
+![banana_pi_bpi-m7_case_1.jpg](/bpi-m7/banana_pi_bpi-m7_case_1.jpg)
+
+![banana_pi_bpi-m7_case_2.jpg](/bpi-m7/banana_pi_bpi-m7_case_2.jpg)
+
+![banana_pi_bpi-m7_case_3.jpg](/bpi-m7/banana_pi_bpi-m7_case_3.jpg)
