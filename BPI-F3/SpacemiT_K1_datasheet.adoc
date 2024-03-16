@@ -84,3 +84,21 @@ SpacemiT® Key StoneTM K1 is a high-performance and ultra low-power cpu that int
 ** -PWM (×20)
 ** -CAN-FD (×1)
 ** -IR-RX (×1)
+
+* Security System
+** -RISC-V PMP Security
+** -Secure Boot
+** -Secure eFuse 4K bits
+** -Cryptographic engine (TRNG/AES/SM2/SM3/SM4/RSA/ECC/SHA2/HMAC)
+* Debug System
+** -Two JTAGs for both CPU and MCU subsystem
+** -UARTs
+** -CPU/IO register snapshot after watchdog reboot
+* Boot System
+** -Initial cpu boot from SPI-Nand/SPI-NorFlash/eMMC/SD
+** -128KB boot-ROM size
+* Aided System
+** -Watchdog design for each CPU/MCU subsystem
+
+
+
