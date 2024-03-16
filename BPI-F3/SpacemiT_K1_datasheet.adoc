@@ -1,10 +1,86 @@
 = Product Overview
-== Product Introduction
-SpacemiT® Key StoneTM K1 is a high-performance and ultra low-power cpu that integrates Octa RISC-V cores with SpacemiT® Daoyi™ AI computing power deployment. K1 has the following features: 
-* Integrates SpacemiT® self-innovate X60™ RISC-V processor core which adheres to the RISC-V 64GCVB architecture and RVA22 standard.
-Extends 2.0TOPS AI computing power by exploring RISC-V customized instructions to realize CPU AI fusion computing power, and mainstream AI inference frameworks such as TensorFlow Lite, TensorFlow, and ONNX RunTime are supported.
-Achieves ultra low power consumption by implementing different granularities of power islands and various levels of power states to make K1 more competitive and the leading edge. 
-Supports full-feature interfaces to enrich more innovatative applications and products.
-Compatible with mainstream OS to meet the needs of various application scenarios.
-Meets Industrial grade reliability standards
 
+== Product Introduction
+
+SpacemiT® Key StoneTM K1 is a high-performance and ultra low-power cpu that integrates Octa RISC-V cores with SpacemiT® Daoyi™ AI computing power deployment. K1 has the following features: 
+
+* Integrates SpacemiT® self-innovate X60™ RISC-V processor core which adheres to the RISC-V 64GCVB architecture and RVA22 standard.
+* Extends 2.0TOPS AI computing power by exploring RISC-V customized instructions to realize CPU AI fusion computing power, and mainstream AI inference frameworks such as TensorFlow Lite, TensorFlow, and ONNX RunTime are supported.
+* Achieves ultra low power consumption by implementing different granularities of power islands and various levels of power states to make K1 more competitive and the leading edge. 
+* Supports full-feature interfaces to enrich more innovatative applications and products.
+* Compatible with mainstream OS to meet the needs of various application scenarios.
+* Meets Industrial grade reliability standards
+
+
+== Feature Overview
+
+* RISC-V Processor
+** -RISC-V SpacemiT® X60™ Dual-cluster Octa-core processors 
+** -Adhere to the RISC-V 64GCVB architecture and RVA22 standard
+** -Cluster0
+*** •Quad-core with 2.0TOPS AI-Power
+*** •32K L1-Cache per core
+*** •512K L2-Cache
+*** •512KB TCM
+*** •Vector-256bit
+** -Cluster1
+*** •Quad-core 
+*** •32K L1-Cache per core
+*** •512K L2-Cache
+*** •Vector-256bit
+** -DVFS with adaptive operating voltage from 0.6V to 1.05V
+
+* DDR Memory
+** -Dual chip select 32-bit LPDDR4/LPDDR4x SDRAM with 2666Mbps operation and a total of up to 16GB of RAM
+** -Dual chip select 32-bit LPDDR3 SDRAM with 1866Mbps operation and a total of up to 4GB of RAM
+
+* RCPU(Real-Time CPU)system
+** -R-I2C (×1) 
+** -R-I2S (×2)
+** -R-UART (×2)
+** -R-CAN_FD (×1)
+** -R-IR_RX (×1)
+** -R-PWM (×10)
+** -R-SPI (×1)
+
+* Peripheral Controller
+** -GPIO (×128)
+*** •128 pins 
+*** •Pull-up/pull-down programmable
+*** •104x 1.8V IO 
+*** •24x 1.8V/3.3V IO
+** -UART (×10)
+*** •AP/BT/print
+** -I2C (×10)
+*** •for camera, G-Sensor/ E-COMPASS/ Proximit-Sensor/ Light-Sensor/Gyro and Fingerprint/NFC, PMIC, touch etc.
+*** •8x I2C(I2C0/1/7 only for camera)+1x HDMI I2C+1x PWR I2C
+** -SPI (×4)
+*** •To support both master and slave mode
+*** •For IMU, codec etc.
+*** •Platform has 4 SPI (1x QSPI, 1x SPI LCD, 2x SPI) 
+** -USB (×3)
+*** •USB 2.0 OTG
+*** •USB 2.0 Host
+*** •USB 3.0 (combo PCIE PortA)
+** -PCIE (×3)
+*** •PCIE PortA Gen2x1
+*** •PCIE PortB Gen2x2
+*** •PCIE PortC Gen2x2
+** -GMAC (×2)
+*** •10/100/1000 Mbps
+*** •RGMII
+** -SDIO (×1 for WIFI)
+*** •compatible for 4-bit SDIO 3.0 UHS-I protocol, up to SDR104
+** -SD (×1 for TF card)
+*** •compatible for 4-bit SD 3.0 UHS-I protocol, up to SDR104
+** -eMMC (×1)
+*** •compatible for 8bit eMMC5.1, up to HS400 (200MHz)
+** -MIPI CSI (CSI-2 v1.1) 4 lane(×2)
+*** •4 Lane + 4 Lane mode
+*** •4 Lane + 2 Lane mode
+*** •4 Lane + 2 Lane + 2 Lane mode (triple sensor)
+** -MIPI DSI (DSI v1.1) (×1)
+*** •4 Lane DSI
+** -PWM (×20)
+** -CAN-FD (×1)
+** -IR-RX (×1)
