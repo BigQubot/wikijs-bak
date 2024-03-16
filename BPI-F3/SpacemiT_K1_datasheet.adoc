@@ -100,5 +100,63 @@ SpacemiT® Key StoneTM K1 is a high-performance and ultra low-power cpu that int
 * Aided System
 ** -Watchdog design for each CPU/MCU subsystem
 
+== Multimedia Features
+
+* GPU
+** -IMG BXE-2-32
+** -Support OpenGL ES 3.2
+* VPU (video processing unit)
+** -H.265/H.264/VP8/VP9/MPEG4/MPEG2 decoder 4K@60fps
+** -H.265/H.264/VP8/VP9 encoder 4K@30fps
+** -Support simultaneously processing encoding 1080P@60fps and decoding 1080P@60fps
+** -Support simultaneously processing H264/H265 encoding 1080P@30fps and H264/H265 decoding 4K@30fps
+* Display 
+** -MIPI DSI 4-lane or SPI interface 
+** -Support up to HD (1920x1080@60fps)
+** -Support up to 4-full-size-layer composer and maximum 8 layer composer by up-down layer reuse in rdma channel
+** -Support cmdlist mechanism, which can configure register parameters by HW
+** -Support concurrent write back, with both raw and afbc format, also support dither/crop/rotation in write back path
+** -Support advanced mmu (virtual address) mechanism, with nearly no page missing in 90/270 degree
+
+* rotation
+** -Support color key and solid color
+** -Support both advanced error diffusion and pattern based dither for panel
+** -Support both afbc/raw format image source
+** -Color saturation/contrast enhancement
+** -Support both video mode and cmd mode for panel
+** -Support ddr frequency dynamic changing with embedded dfc buffer 
+** -HDMI 1.4
+* Camera
+** -Dual-ISP 
+*** •16M (max.) 30fps Dual ISP
+*** •One 4 Lane CSI + one 4 Lane CSI or 4 Lane + 2 lane + 2 lane
+*** •RAW sensor, output YUV data to DRAM 
+*** •Hardware JPEG encoder(hardware, up to 23M is supported)
+*** •Support YUV/EXIF/JFIF format
+*** •AF/AE/AWB
+*** •Face detection
+*** •Digital zoom, panorama view
+*** •PDAF
+*** •PIP (picture in picture)
+*** •Support HDR
+*** •Continuous video AF
+*** •HW 3D denoise
+* Audio
+** -Integrated high quality audio codec and audio front-end
+*** •ADC: 90dB SNR@20~20kHz
+*** •DAC: 95dB SNR@20~20kHz
+*** •Class-G: 95dB SNR@20~20kHz, 31mW@32-ohm, THD -90dB
+*** •ClassAB: 95dB SNR@20~20kHz, 75mW@32-ohm, THD-90dB
+*** •Line-out to support external Class-D audio amplifier (Class-D in PMIC: 95dB SNR@20 ~ 20kHz, 1W@4.2Vbat 10%THD + N, 8-ohm speaker)
+** -Three MICs input
+** -Stereo inputs path for noise cancellation
+** -Stereo headphone output
+** -Audio content sampling rates: 8kHz to 48kHz
+** -Microphone bias for headphone plug-in and hook-key detection 
+** -Quad vocoders for adaptive multi-rate (AMR)
+** -Noise suppression and echo cancellation
+* General
+** -Operation temperature: -40 ~ 85°C
+
 
 
