@@ -196,6 +196,23 @@ image::/bpi-f3/cluster_micro-architecture.png[cluster_micro-architecture.png]
 * Support RISC-V Debug Framework
 
 
+=== Interrupt
+The Platform Interrupt Controller consists of PLIC and CLINT, shared by two clusters. Exception handling (including exceptions and interrupts) is an important function of the processor, which is used to divert the on-the-fly exceptions to the corresponding core to process them. These events include hardware errors, instruction execution errors, user program requests and external interrupts for services, and so on.
+
+The X60 implements the processor core Local Interrupt Controller (CLINT), a memory address mapped module for handling software interrupts and timer interrupts.
+
+The Platform level Interrupt Controller (PLIC) is used to sample, arbitrate in priority, and then distribute external interrupt sources. In the PLIC model, both the machine mode and the supervisor mode of each core  are valid interrupt targets. PLIC supports 256 external interrupt sources. Each interrupt supports both level and edge formats.
+
+=== Debug and Trace
+
+The debugging interface is the channel through which software interacts with the processor. The user can obtain the information of the CPU register and memory contents, including other on-chip device information, through the debugging interface. In addition, operations such as program downloading can also be done through the debugging interface.
+
+The Debugging system consists of the debugging software, the debugging agent service, the debugger, and the debugging interface. Among those componets, the debugging software and debugging agent service program are interconnected through the network, the debugging agent service program and the debugger are connected through USB, and the debugger communicates with CPU through JTAG interface.
+
+The JTAG memory assess method could be either progbuf or sysbus mode. The progbug mode is a normal JTAG method through CPU while the sysbus is the other method to access the on-chip resources bypassing CPU through SBA (System Bus Access) port.
+
+image::/bpi-f3/debug_platform_micro-architecture.png[debug_platform_micro-architecture.png]
+
 
 
 
