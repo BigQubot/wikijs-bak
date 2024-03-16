@@ -158,5 +158,45 @@ SpacemiT® Key StoneTM K1 is a high-performance and ultra low-power cpu that int
 * General
 ** -Operation temperature: -40 ~ 85°C
 
+==  Block Diagram
+
+image::/bpi-f3/block_diagram.png[block_diagram.png]
+
+= Specifications
+
+== CPU Subsystem
+
+=== Overview
+The CPU Subsystem of K1 consists of the following features: 
+
+* Two asymmetric CPU Clusters included: Cluster0 integrates Quad RISC-V SpacemiT®  X60™Cores with 2.0TOPS AI-Power extension while Cluster1 includes Quad RISC-V SpacemiT® X60™  Cores without AI Capability
+* Each High-Performance low-Power SpacemiT® X60™ CPU cores adheres to RISC-V 64GCVB architecture and RVA22 standard
+* Support local interrupt controller CLINT and platform interrupt controller PLIC
+* Adhere to RISC-V Debug V0.13.2 standard
+* CPU critical infomation snapshot taken for debugging when Watchdog reset occurs
+* Power-Islands and two-levels power strategies designed for each CPU core and cluster to achieve ultra power savings 
+
+=== SpacemiT® X60™ RISC-V Core
+
+X60™ is an innovative, high-efficiency processor core with SpacemiT® Daoyi™ Al Innovation deployment, and it adheres to RISC-V 64GCVB and RVA22 standards. To meet current and future computational demands, it incorporates numerous DSA technologies and microarchitecture optimizations, and provides robust computing power for Al applications, machine learning, SLAM, ect. X60™  core has the following features: 
+
+image::/bpi-f3/cluster_micro-architecture.png[cluster_micro-architecture.png]
+
+* RISC-V 64GCVB and RVA22 standards 
+* Each core has 32KB L1-I Cache and 32KB L1-D Cache
+* Each cluster has 512KB L2 Cache 
+* Cluster0 has 512KB TCM (Tight-Coupled Memory) for AI extention
+* L1 Cache supports MESI consistency protocol, L2 Cache supports MOESI consistency protocol
+* Vector Extension: RVV1.0/VLEN 256/128-bit x2 execution width
+* AI customized instruciton explored and designed in Cluster0
+* Support CLINT and PLIC with 256 interrupts in total
+* Support RISC-V Performence PMU
+* Support SV39 Virtual Memory
+* Support 32 PMP entries adhering to RISC-V Security framwork
+* Support RISC-V Debug Framework
+
+
+
+
 
 
