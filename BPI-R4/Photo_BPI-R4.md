@@ -2,7 +2,7 @@
 title: Banana Pi BPI-R4 photo
 description: Banana Pi BPI-R4 photo
 published: true
-date: 2024-03-16T02:22:24.897Z
+date: 2024-03-16T02:22:34.158Z
 tags: 
 editor: markdown
 dateCreated: 2024-03-16T02:20:41.056Z
