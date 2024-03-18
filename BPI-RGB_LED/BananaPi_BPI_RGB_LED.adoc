@@ -1,0 +1,224 @@
+= Produce Overview
+
+The Matrix LED module is specifically designed for Banana Pi. The module with 8X8 Matrix LED. User can custom display content through programming. Pay attention, the module do not include driver board. You have to cooperate with 
+Infinity cascade IO expand module
+
+== Produce Features
+. Full color RGB
+. Square LED point source
+. Ultrathin
+. Plug and Play
+. No wire needed
+
+== Port
+need work with IO extend module.
+
+image::/picture/io_ext_board_2.jpg[io_ext_board_2.jpg]
+
+Banana Pi connection port，also can use on raspberry pi.
+
+== 5.Product Parameters
+. Dot Size: 5.0mm
+. Pixel Array: 8×8
+. Luminous Intensity: 40mcd
+. Package Dimension: 60mm×60mm
+. Reverse Voltage(Max): 5V
+. Forward Current(Max): 25mA
+. Peak Forward Current(Max): 100mA
+. Power Dissipation(Max): 100mW
+. Operating Temperature(Max):-35~+85℃
+. Storage Temperature(Max): -35~+85℃
+. Lead Solder Temperature(Max): 260℃ for 5 seconds
+
+== Typical Application
+. Scroll the display
+. LOGO display
+. Dynamic signage
+* Product Specification：**
+
+image::/picture/rgb_led_matrix_sepc.jpg[rgb_led_matrix_sepc.jpg]
+
+= How to use
+== How to use on BPI-M1
+For the Banana Pi ,just Insert these two module like the picture Below
+
+image::/picture/8x8_rgb_led_matrix_7.jfif[8x8_rgb_led_matrix_7.jfif]
+
+== How to use on BPI-M3
+OS: BPI-M3 Ubuntu15.10 (Kernel3.4)
+
+Version: 1.0 HDMI
+
+image::/picture/rgb_led_on_m3.jpg[rgb_led_on_m3.jpg]
+
+Step 1: Download WiringPI
+
+```sh
+$ git clone https://github.com/BPI-SINOVOIP/BPI-WiringPi.git1 -b BPI_M3
+$ cd BPI-WiringPi
+$ chmod +x ./build
+$ sudo ./build
+```
+Step 2 : Copy smaple code to Blue_RGB8*8.c file
+```sh
+$ sudo vi Blue_RGB8*8.c 
+```
+Step 3 : Compile Blue_RGB8*8.c
+```sh
+$ gcc -o Blue_RGB8*8 Blue_RGB8*8.c -l wiringPi 
+```
+Step 4: Run Blue_RGB8*8
+```sh
+$ sudo ./Blue_RGB8*8 
+```
+youtube Video Demo how to install hardware: https://www.youtube.com/watch?v=K6mRB_CtOlI&feature=youtu.be
+
+youtube Video Demo for display : https://www.youtube.com/watch?v=ynxjzZiSGDo
+
+= Sample Code:
+```sh
+#include <stdio.h>
+#include <wiringPi.h>
+#include <sr595.h>
+#define SPACE { \
+{0, 0, 0, 0, 0, 0, 0, 0}, \
+{0, 0, 0, 0, 0, 0, 0, 0}, \
+{0, 0, 0, 0, 0, 0, 0, 0}, \
+{0, 0, 0, 0, 0, 0, 0, 0}, \
+{0, 0, 0, 0, 0, 0, 0, 0}, \
+{0, 0, 0, 0, 0, 0, 0, 0}, \
+{0, 0, 0, 0, 0, 0, 0, 0}, \
+{0, 0, 0, 0, 0, 0, 0, 0} \
+} 
+#define FULL { \
+{1, 1, 1, 1, 1, 1, 1, 1}, \
+{1, 1, 1, 1, 1, 1, 1, 1}, \
+{1, 1, 1, 1, 1, 1, 1, 1}, \
+{1, 1, 1, 1, 1, 1, 1, 1}, \
+{1, 1, 1, 1, 1, 1, 1, 1}, \
+{1, 1, 1, 1, 1, 1, 1, 1}, \
+{1, 1, 1, 1, 1, 1, 1, 1}, \
+{1, 1, 1, 1, 1, 1, 1, 1} \
+}
+#define H { \
+{0, 1, 0, 0, 0, 0, 1, 0}, \
+{0, 1, 0, 0, 0, 0, 1, 0}, \
+{0, 1, 0, 0, 0, 0, 1, 0}, \
+{0, 1, 0, 0, 0, 0, 1, 0}, \
+{0, 1, 1, 1, 1, 1, 1, 0}, \
+{0, 1, 0, 0, 0, 0, 1, 0}, \
+{0, 1, 0, 0, 0, 0, 1, 0}, \
+{0, 1, 0, 0, 0, 0, 1, 0} \
+}
+#define E { \
+{0, 1, 1, 1, 1, 1, 1, 0}, \
+{0, 1, 0, 0, 0, 0, 0, 0}, \
+{0, 1, 0, 0, 0, 0, 0, 0}, \
+{0, 1, 1, 1, 1, 1, 1, 0}, \
+{0, 1, 0, 0, 0, 0, 0, 0}, \
+{0, 1, 0, 0, 0, 0, 0, 0}, \
+{0, 1, 0, 0, 0, 0, 0, 0}, \
+{0, 1, 1, 1, 1, 1, 1, 0} \
+}
+#define L { \
+{0, 1, 0, 0, 0, 0, 0, 0}, \
+{0, 1, 0, 0, 0, 0, 0, 0}, \
+{0, 1, 0, 0, 0, 0, 0, 0}, \
+{0, 1, 0, 0, 0, 0, 0, 0}, \
+{0, 1, 0, 0, 0, 0, 0, 0}, \
+{0, 1, 0, 0, 0, 0, 0, 0}, \
+{0, 1, 0, 0, 0, 0, 0, 0}, \
+{0, 1, 1, 1, 1, 1, 1, 0} \
+}
+#define O { \
+{0, 0, 0, 1, 1, 0, 0, 0}, \
+{0, 0, 1, 0, 0, 1, 0, 0}, \
+{0, 1, 0, 0, 0, 0, 1, 0}, \
+{0, 1, 0, 0, 0, 0, 1, 0}, \
+{0, 1, 0, 0, 0, 0, 1, 0}, \
+{0, 1, 0, 0, 0, 0, 1, 0}, \
+{0, 0, 1, 0, 0, 1, 0, 0}, \
+{0, 0, 0, 1, 1, 0, 0, 0} \
+}
+#define Smile { \
+{0, 0, 1, 1, 1, 1, 0, 0}, \
+{0, 1, 0, 0, 0, 0, 1, 0}, \
+{1, 0, 1, 0, 0, 1, 0, 1}, \
+{1, 0, 0, 0, 0, 0, 0, 1}, \
+{1, 0, 1, 0, 0, 1, 0, 1}, \
+{1, 0, 0, 1, 1, 0, 0, 1}, \
+{0, 1, 0, 0, 0, 0, 1, 0}, \
+{0, 0, 1, 1, 1, 1, 0, 0} \
+}
+#define Line { \
+{1, 0, 0, 0, 0, 0, 0, 0}, \
+{0, 1, 0, 0, 0, 0, 0, 0}, \
+{0, 0, 1, 0, 0, 0, 0, 0}, \
+{0, 0, 0, 1, 0, 0, 0, 0}, \
+{0, 0, 0, 0, 1, 0, 0, 0}, \
+{0, 0, 0, 0, 0, 1, 0, 0}, \
+{0, 0, 0, 0, 0, 0, 1, 0}, \
+{0, 0, 0, 0, 0, 0, 0, 1}, \
+}
+int RowRed[8]={116,117,118,119,120,121,122,123};
+int RowGreen[8]={108,109,110,111,112,113,114,115};
+int RowBlue[8]={100,101,102,103,104,105,106,107};
+int Column[8]={124,125,126,127,128,129,130,131};
+
+void MatrixSetup()
+{
+int j;
+for(j = 0; j < 32; j++)
+{
+pinMode(100 + j, OUTPUT);
+}
+for(j = 0; j < 8; j++)
+{
+digitalWrite(100 + j, 1);
+}
+for(j = 0; j < 8; j++)
+{
+digitalWrite(116 + j, 1);
+}
+for(j = 0; j < 8; j++)
+{
+digitalWrite(108 + j, 1);
+}
+}
+void Clear()
+{
+int i;
+for(i=0;i<8;i++)
+{
+digitalWrite(RowRed[i],1);
+digitalWrite(RowGreen[i],1);
+digitalWrite(RowBlue[i],1);
+digitalWrite(Column[i],0);
+}
+}
+int main(int argc, char *argv[])
+{
+int column, row, thisPixel;
+long long k;
+wiringPiSetup();
+sr595Setup(100, 32, 12, 14, 10);
+MatrixSetup();
+int matrix[8][8]= Smile ;
+while(1)
+{
+Clear();
+for(column=0;column<8;column++)
+{
+digitalWrite(Column[column],1);
+for(row=0;row<8;row++)
+{
+if(matrix[column][row] == 1)
+digitalWrite(RowBlue[row],0); // Blue color
+digitalWrite(RowBlue[row],1); // Blue color
+}
+digitalWrite(Column[column],0);
+}
+}
+}
+```
+Link to BPI forum: http://forum.banana-pi.org/t/bpi-m3-bpi-8x8-led-matrix-module-and-how-to-use/1096
