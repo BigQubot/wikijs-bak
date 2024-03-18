@@ -2,7 +2,7 @@
 title: Banana Pi BPI-F2P photo
 description: Banana Pi BPI-F2P photo
 published: true
-date: 2024-03-18T04:15:56.845Z
+date: 2024-03-18T04:16:13.174Z
 tags: bananapi
 editor: markdown
 dateCreated: 2024-03-18T04:15:56.845Z
