@@ -1,0 +1,91 @@
+= Introduction
+
+The Banana Pi R2 is a router based development board, which can run on a variety of open source operating systems including OpenWrt, Android, and Bananian. It has 4 Gigabit LAN ports, 1 Gigabit WAN, and 300Mbs wireless N capabilities. 
+
+TIP: More Infomation: link:/en/BPI-R2/BananaPi_BPI-R2[Banana Pi BPI-R2]
+
+== Key Features
+- MediaTek MT7623N, Quad-core ARM Cortex-A7
+- Mali 450 MP4 GPU
+- 2G DDR3 SDRAM
+- 1x Mini PCIE interface
+- 2x SATA interface
+- 4x Gigabit LAN 1x Gigabit WAN
+
+= Hardware
+== BPI-R2 SATA interface
+BPI-R2 support 2 sata interface and onboard power port.
+
+
+
+You can use sata line connect your hardisk on BPI-R2.
+
+Test a SAMSUNG SSD DISK, the Read/Write performance are below:
+
+Read from disk: 230MB/s 
+```sh
+dd if=/dev/sda of=/dev/zero bs=1M count=10240\
+```
+
+Write to disk: 192MB/s 
+```sh
+dd if=/dev/zero of=/dev/sda bs=1M count=1024 oflag=direct\
+```
+
+WARNING: Note: if you use 3.5 big hardisk ,you may need power with outside power. on board power maybe can not support enough current
+= Development
+Let's get start to develop on BPI-R2, see amazing things happen.
+
+== Prepare to develop
+* Prepare 16G/above TF card, USB-Serial interface, Ubuntu System
+* Using your USB-Serial (3.3V,Baud: 115200)  Connect debug console on R2
+* Default IP address for LAN port: 192.168.1.1
+* User name/password: pi/bananapi ,root/bananapi. +
+Or the user is root without a password.
+
+
+
+* BananaPi R2 - Debug-UART: http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:debug-uart
+
+== Load your first image on R2
+. You could download latest image from our forum
++
+Here is the example image link: http://forum.banana-pi.org/t/bpi-r2-new-image-release-ubuntu-16-04-v1-3-2018-3-30/5293
+ 
+. Install bpi-tools on your Ubuntu. If you can't access this URL or any other problems, please go to bpi-tools repo and install this tools manually.
++
+```sh
+apt-get install pv
+curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
+```
+ 
+. After you download the image, insert your TF card into your Ubuntu
++
+```sh
+bpi-copy xxx.img /dev/sdx
+```
+. After step 3, then you can insert your TF card into R2, and press power button for around 10s to setup R2
+
+== Update Your Ubuntu On SD Card
+. Clone Bsp project from Github
+ * Execute "git clone git@github.com:BPI-SINOVOIP/BPI-R2-bsp.git" 
+ 
+. Execute "./build.sh", to build your own uboot and kernel.
+R2 build sh.png
+ 
+. After finish built, Execute "cd SD", plug your Ubuntu TFcard in PC. 
+ 
+. Execute "bpi-update -c bpi-r2.conf -d /dev/sdX", to update the compiled kernel to your TFcard.
+
+== Ubuntu On Emmc
+If you want to install Ubuntu on EMMC, follow these steps：
+
+* Burn an image to sd card, and set up R64 with sd card.
+* Copy the image which name contains "xxx-emmc-xxx" to U disk.
+* mount U disk to R64, then use bpi-copy to burn image to Emmc. 
+```sh
+   bpi-copy  <XXX.img.zip> 
+```
+* XXX.img.zip is ubuntu image we can get it from http://www.banana-pi.org/r2-download.html 
+ * power off
+ * remove SD & power on
