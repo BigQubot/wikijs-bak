@@ -1,0 +1,113 @@
+= How to Burning and booting steps with SD and eMMC
+
+== Install Win32DiskImager
+open win32diskimager-1.0.0-install, choose “I accept the agreement “,
+
+image::/picture/bpi-f2p_burn_1.png[bpi-f2p_burn_1.png]
+
+“Next> “, then choose “Create a desktop shortcut”
+
+“Next> “, after that install the software. Like the follow picture:
+
+image::/picture/bpi-f2p_burn_2.png[bpi-f2p_burn_2.png]
+
+Install and set SDFormatterv4.
+
+Open SDFormatterv4, double-click “Setup”, like the follow picture: 
+
+image::/picture/bpi-f2p_burn_3.png[bpi-f2p_burn_3.png]
+
+“next step” , go in Installation directory and choose” Default installation”,
+
+“next step” , choose installation again
+
+“finish”
+
+== SDFormat
+
+image::/picture/bpi-f2p_burn_4.png[bpi-f2p_burn_4.png]
+
+Install the SD card in card reader, install the card reader in PC, then open SDFormatterv4, like the follow picture:
+
+image::/picture/bpi-f2p_burn_5.png[bpi-f2p_burn_5.png]
+
+Choose” Drive (according to PC display)
+
+Choose “Option settings”, and set the “adjust Logical size” to “ON”,like the follow picture:
+
+image::/picture/bpi-f2p_burn_6.png[bpi-f2p_burn_6.png]
+
+Choose”OK”
+
+Then Format
+
+Finish
+
+== Burning the image in SD Card
+Dowload Ubuntu Image from the below website:
+
+https://docs.banana-pi.org/en/BPI-F2P/BananaPi_BPI-F2P#_linux_2
+
+2021-01-29-ubuntu-mate-20.04.1-desktop-armhf-ext4-v5.4.35-bpi-f2p.img.zip: Ubuntu Desktop system, Support HDMI interface to display Desktop. 2021-01-29-ubuntu-server-20.04.1-armhf-ext4-v5.4.35-bpi-f2p.img.zip: Ubuntu Server System, it don’t include Desktop, only support serial console.
+
+Firstly please Decompress the zip file, get the burning image file.
+
+Install the SD which has formatted in card reader, and install the card reader in PC
+
+Open Win32DiskImager, choose device and image file, then burn in. Then choose “OK” (cover), like the follow picture:
+
+After finish, the page will show “ OK”
+
+image::/picture/bpi-f2p_burn_7.png[bpi-f2p_burn_7.png]
+image::/picture/bpi-f2p_burn_8.png[bpi-f2p_burn_8.png]
+
+== How to boot from SD card
+After finish burning, install the SD card in F2p Board, then it can boot
+
+Serial Console Output: 
+
+image::/picture/bpi-f2p_burn_9.png[bpi-f2p_burn_9.png]
+
+HDMI Interface Display：
+
+image::/picture/bpi-f2p_burn_10.jpg[bpi-f2p_burn_10.jpg]
+
+== How to boot form EMMC
+1.Burning image
+
+Firstly Burning 20201-01-29-ubuntu-mate-20.04.1-desktop-armhf-ext4-v5.4.35-bpi-f2p.img in SD card and boot up. Refer to the below picture:
+
+Console Serial, Username: root, Password: bananapi
+
+image::/picture/bpi-f2p_burn_11.jpg[bpi-f2p_burn_11.jpg]
+
+2.Copy the same image compress file you want in USB flash disk volume root directory, and plugin the USB flash disk in b2p board’s USB port.
+
+**2021-01-29-ubuntu-mate-20.04.1-desktop-armhf-ext4-v5.4.35-bpi-f2p.img.zip**
+
+3.Mount USB flash disk to /mnt
+
+Input instruction：
+```sh
+mount -t vfat /dev/sda1 /mnt
+```
+Input instructionto USB flash disk：
+```sh
+cd /mnt
+```
+
+4.Burning the image to EMMC
+
+Input the below instructions, like the follow picture：
+```sh
+unzip –p 2021-01-29-ubuntu-mate-20.04.1-desktop-armhf-ext4-v5.4.35-bpi-f2p.img.zip | dd of=/dev/mmcblk0
+echo 0 > /sys/block/mmcblk0boot0/force_ro
+cd /root/
+dd if=xboot.img of=/dev/mmcblk0boot0
+mmc bootpart enable 1 1 /dev/mmcblk0
+mmc extcsd read /dev/mmcblk0 | grep PARTITION_CONFIG
+sync
+```
+image::/picture/bpi-f2p_burn_12.jpg[bpi-f2p_burn_12.jpg]
+
+5.Finish the burning, remove SD card and USB flash disk, Push the Red Switch PIN to off, re-power on and boot from EMMC
