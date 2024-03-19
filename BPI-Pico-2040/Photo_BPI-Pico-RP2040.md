@@ -2,7 +2,7 @@
 title: Banana Pi BPI-Pico_RP2040
 description: Banana Pi BPI-Pico_RP2040
 published: true
-date: 2024-03-19T05:27:33.909Z
+date: 2024-03-19T05:29:38.718Z
 tags: 
 editor: markdown
 dateCreated: 2024-03-19T05:27:33.909Z
