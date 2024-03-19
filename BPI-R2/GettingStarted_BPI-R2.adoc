@@ -67,21 +67,39 @@ bpi-copy xxx.img /dev/sdx
 . After step 3, then you can insert your TF card into R2, and press power button for around 10s to setup R2
 
 == Update Your Ubuntu On SD Card
-. Clone Bsp project from Github
- * Execute "git clone git@github.com:BPI-SINOVOIP/BPI-R2-bsp.git" 
- 
-. Execute "./build.sh", to build your own uboot and kernel.
+. Clone Bsp project from Github,Execute
++
+```sh
+git clone git@github.com:BPI-SINOVOIP/BPI-R2-bsp.git
+``` 
+. Execute
++
+```sh
+./build.sh
+```
+to build your own uboot and kernel.
++
 R2 build sh.png
  
-. After finish built, Execute "cd SD", plug your Ubuntu TFcard in PC. 
+. After finish built, Execute
++
+```sh
+cd SD
+```
+plug your Ubuntu TFcard in PC. 
  
-. Execute "bpi-update -c bpi-r2.conf -d /dev/sdX", to update the compiled kernel to your TFcard.
+. Execute
++
+```sh
+bpi-update -c bpi-r2.conf -d /dev/sdX
+```
+to update the compiled kernel to your TFcard.
 
 == Ubuntu On Emmc
 If you want to install Ubuntu on EMMC, follow these steps：
 
 * Burn an image to sd card, and set up R64 with sd card.
-* Copy the image which name contains "xxx-emmc-xxx" to U disk.
+* Copy the image which name contains "**xxx-emmc-xxx**" to U disk.
 * mount U disk to R64, then use bpi-copy to burn image to Emmc. 
 ```sh
    bpi-copy  <XXX.img.zip> 
