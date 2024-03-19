@@ -370,30 +370,34 @@ Combo PIPE PHY2 support one of the following interfaces
 = Development
 == Source Code
 
-TIP: BPI-W3 BSP : https://github.com/ArmSoM/armsom-w3-bsp
+TIP: Banana Pi linux-5.10.110 kernel BSP Source code on github ： https://github.com/BPI-SINOVOIP/BPI-W3-BSP
+
+TIP: Armsom github source code :https://github.com/ArmSoM/armsom-w3-bsp
 
 TIP: BPI-W3 kernel: https://github.com/ArmSoM/linux-rockchip
 
 TIP: BPI-W3 uboot : https://github.com/ArmSoM/u-boot
 
-TIP: Banana Pi linux-5.10.110 kernel BSP Source code on github ： https://github.com/BPI-SINOVOIP/BPI-W3-BSP
-
 
 == Resources
 
-TIP: Rockchip RK3588 datasheet : https://drive.google.com/file/d/1ewQwywq19Zh2M6MFVgsMJUCaBTOEo8rl/view?usp=drive_link
+TIP: Rockchip RK3588 datasheet
 
-TIP: Banana PI BPI-W3 SCH, DXF, SMD file:
+Baidu cloud: https://pan.baidu.com/s/1GeskKfLFwjgmz0pgt7sICg?pwd=8888 (pincode:8888)
 
-Baidu cloud  : https://pan.baidu.com/s/1cxHc0nRnav2jH1BEpFjxLQ?pwd=arms Pincode: arms
+Google drive: https://drive.google.com/drive/folders/1l1YmUdBaLuDkJma3CYZJWjYug9D-jV_4?usp=sharing
 
-Google drive: https://drive.google.com/drive/folders/1tzVbrZYoj6G6ShwTfe1Cxv8wC4knKBOu?usp=drive_link
+TIP: Banana PI BPI-W3 SCH, DXF, SMD file
+
+Baidu cloud: https://pan.baidu.com/s/1ETL7U4R54Cd5cDg8usp-JQ?pwd=pb48 (pincode:8888)
+
+Google drive: https://drive.google.com/drive/folders/1d_vtW5aDH3dPAco-dHIwm16r25JUYWS8?usp=sharing
 
 TIP: Banana Pi BPI-W3 coare board 3588-LGA Core board all pin list file(5.core board (LGA) pin List)
 
-Baidu cloud  : https://pan.baidu.com/s/1cxHc0nRnav2jH1BEpFjxLQ?pwd=arms Pincode: arms
+Baidu cloud: https://pan.baidu.com/s/1ZqDRkk0NVEjpHxsQNHbleQ?pwd=8888 (pincode:8888)
 
-Google drive: https://drive.google.com/drive/folders/1tzVbrZYoj6G6ShwTfe1Cxv8wC4knKBOu?usp=drive_link
+Google drive: https://docs.google.com/spreadsheets/d/1yj6fLbJET5cLjJG-cD3R5_b7S4umTFXI/edit?usp=sharing&ouid=101692257577438398584&rtpof=true&sd=true
 
 TIP: Banana Pi Core board design for RK3588 : BPI-RK3588 Core board and development Kit
 
@@ -403,6 +407,8 @@ Banana Pi BPI-W3 RK3588 NPU6T AI RKNN Toolkit2 and RKNPU2 demo ： https://www.y
 
 TIP: BPI-W3 Rk3588 development github blog: https://github.com/ArmSoM/Embedded-Technology-Blog
 
+TIP: BPI-W3 ubuntu20.04 Linux system adaptation is complete: https://www.youtube.com/watch?v=xVDkWv_Q9xY
+
 == BPI-W3 Tools
 Baidu cloud : https://pan.baidu.com/s/1ocWvRUz4IFCoZBjSx7MavQ?pwd=arms Pincode:arms
 
@@ -410,46 +416,48 @@ Google drive: https://drive.google.com/drive/folders/1WJxMzmInB1xr3DpDQXYblU0iM9
 
 = System Image
 
-== All image
-
-Download link: https://drive.google.com/drive/folders/1aCoC6-5zoMaNBGwwgr_pYIs219aFijFM
-
 == Android
 
-NOTE: BPI-W3 android 12 image 2023.4.14 update
+NOTE: BPI-W3_armsom-w3-emmc-android12-rkr12-20231103.img
 
-Baidu cloud  : https://pan.baidu.com/s/1cxHc0nRnav2jH1BEpFjxLQ?pwd=arms Pincode: arms
+Baidu cloud: https://pan.baidu.com/s/1rAfTRARQRDwaZnulPOu0Fg?pwd=8888 (pincode:8888)
 
-Google drive: https://drive.google.com/drive/folders/17JueSJx6xBgoXGixRkoIpuFMazS3LEou?usp=drive_link
+Google drive: https://drive.google.com/file/d/1y_tEuc0rslUtNn4SVZoyPTh9tAqAcKp4/view?usp=sharing
+
+NOTE: BPI-W3_armsom-w3-emmc-android12-TV-rkr12-20230525.img
+
+Baidu cloud: https://pan.baidu.com/s/1p8gOK3gNTN-f0Fxb6c6CFw?pwd=8888 (pincode:8888)
+
+Google drive: https://drive.google.com/file/d/1knzU875x6FQdYNef3DSaFExbMn6IXjf4/view?usp=sharing
+
 
 == Linux
 
 === Debian
 
-NOTE: Debian linux image
+NOTE: BPI-W3_armsom-w3-debian-bullseye-xfce4-arm64-20231204.img
 
-Baidu cloud: https://pan.baidu.com/s/1cxHc0nRnav2jH1BEpFjxLQ?pwd=arms Pincode: arms
+Baidu cloud: https://pan.baidu.com/s/1OB6qzCmwhaXTnabs0_jmeQ?pwd=8888 (pincode:8888)
 
-Google drive: https://drive.google.com/drive/folders/189hdj2vfzmJgar1XxVbPhUJGWPRtinUZ?usp=drive_link
+Google drive: https://drive.google.com/drive/folders/1E9ynf6LSThnb7HLDC09IqAJDdOo4TWK4?usp=sharing
 
 === Ubuntu
 
-NOTE: BPI-W3 ubuntu image 2023.4.14 update
+NOTE: Ubuntu-22.04.3-preinstalled-desktop-arm64-bpi-w3_armsom-w3.img
 
-Google driver :
-https://drive.google.com/drive/folders/1qjZhSiCHOQzKMtidpLuNjWYQJiioT1f4?usp=drive_link
+Baidu Cloud: https://pan.baidu.com/s/1lKyEvNJXKkf13xwDg1e4Hw?pwd=8888 (pincode:8888)
 
-baidu cloud : https://pan.baidu.com/s/1MoLblTgYXfD2HZppMmzvMg?pwd=arms
+Google Drive: https://drive.google.com/drive/folders/162vkWVjWJCsPRG7XjONzCIkdPkro5zY1?usp=sharing
+
+NOTE: Ubuntu-22.04.3-preinstalled-server-arm64-bpi-w3_armsom-w3.img
+
+Baidu cloud: https://pan.baidu.com/s/1cqbpgk5ykp_-1uv9ZpxoZg?pwd=8888 (pincode:8888)
+
+Google drive: https://drive.google.com/drive/folders/1-GxlXelKY11b-sbiNARzA0DZ-bb328l-?usp=sharing
+
 
 == Third part image
 
-=== Armbian
-
-NOTE: BPI-W3 armbian image 2023.4.14 update
-
-Baidu cloud  : https://pan.baidu.com/s/1cxHc0nRnav2jH1BEpFjxLQ?pwd=arms Pincode: arms
-
-Google drive: https://drive.google.com/drive/folders/1toeRkmdbo2dnhSnEEtFLipefn5GsnA2q?usp=drive_link
 
 = Easy to buy sample
 WARNING: SINOVOIP Aliexpress shop:
