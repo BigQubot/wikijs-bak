@@ -6,9 +6,7 @@ image::/picture/bpi-m2m.png[bpi-m2m.png]
 
 BPI-M2 Magic integrate four ARM Cortex-A7 CPU cores and Mali400MP2 graphics architecture, It also includes a variety of peripherals, BPI-M2 Magic with 512M DDR3，including 4 lane-MIPI DSI, LVDS, USB2.0 OTG/HOST,802.11 b/g/n wifi & BT4.0 onboard.
 
-IMPORTANT: BPI-M2 Magic not HDMI interface. 
-
-IMPORTANT: Not support RJ45 interface
+IMPORTANT: BPI-M2 Magic not HDMI interface. Not support RJ45 interface
 
 BPI-M2 Magic can run with Android smoothly, it also can run Debian, Ubuntu linux, Raspberry Pi image and others OS. It can easily run with the game it support 1080P high definition video output, the GPIO compatible with Raspberry Pi B+ and can run the ROM Image
 
@@ -183,6 +181,19 @@ image::/picture/bpi-m2_magic_interface.jpg[bpi-m2_magic_interface.jpg]
 === Android 6.0 source code
 TIP: google driver : https://drive.google.com/file/d/1FhHAVjNWTi8Uq-LNMn0liqcHS4cSN5xY/view?usp=drivesdk
 
+
+== Hardware means of production
+
+TIP: BPI-M2 Magic Gerber/Boom/Assembly document: 
+
+Baidu cloud: https://pan.baidu.com/s/1cpuZXDWfuW6twX_IYBRWaw?pwd=8888 (pincode: 8888)
+
+Google drive: https://drive.google.com/file/d/1017oWy4oR7l5weSilT0MqaIQubfBkTXa/view?usp=sharing
+
+TIP: BPI-M2 Magic SCH : link:https://drive.google.com/drive/folders/0B4PAo2nW2KfnflVqbjJGTFlFTTd1b1o1OUxDNk5ackVDM0RNUjBpZ0FQU19SbDk1MngzZWM?resourcekey=0-ZRCiv304nGzvq-w7lwnpjg&usp=sharing[google driver]
+
+TIP: BPI-M2 Magic DXF file public : https://drive.google.com/file/d/0B4PAo2nW2KfnalhDRG5EclU1dHM/view?usp=sharing
+
 == Resources
 
 TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
@@ -193,11 +204,11 @@ TIP: Allwinner R16 chip Datasheet-V1.4 (1): https://drive.google.com/file/d/0B4P
 
 TIP: Allwinner_R16_User_Manual_V1.2： https://drive.google.com/file/d/0B4PAo2nW2KfnUjZUNVdyN1RkVlE/view?usp=sharing
 
-TIP: SCH : link:https://drive.google.com/drive/folders/0B4PAo2nW2KfnflVqbjJGTFlFTTd1b1o1OUxDNk5ackVDM0RNUjBpZ0FQU19SbDk1MngzZWM?resourcekey=0-ZRCiv304nGzvq-w7lwnpjg&usp=sharing[google driver]
+
 
 TIP: AXP223 Datasheet V1.0_en : https://drive.google.com/file/d/0B4PAo2nW2KfnckxWZFBBMUNWSUk/view?usp=sharing
 
-TIP: BPI-M2 Magic DXF file public : https://drive.google.com/file/d/0B4PAo2nW2KfnalhDRG5EclU1dHM/view?usp=sharing
+
 
 = System Image
 == Android
