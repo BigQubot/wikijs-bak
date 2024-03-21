@@ -32,7 +32,7 @@ Write to disk: 192MB/s
 dd if=/dev/zero of=/dev/sda bs=1M count=1024 oflag=direct\
 ```
 
-WARNING: Note: if you use 3.5 big hardisk ,you may need power with outside power. on board power maybe can not support enough current
+WARNING: Note: If you use 3.5 big hardisk ,you may need power with outside power. on board power maybe can not support enough current
 = Development
 Let's get start to develop on BPI-R2, see amazing things happen.
 
