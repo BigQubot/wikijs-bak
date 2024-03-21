@@ -1,0 +1,32 @@
+= 关于 BPI 维基
+
+BPI Wiki 使用 Wiki.js
+
+TIP: link:https://docs.requarks.io/[Wiki.js Docs]
+
+BPI WiKi 建议使用 `asciidoc` 语言编写，它比 `markdown` 有更多的语法和可能性。
+
+== 语法建议
+
+TIP: link:https://docs.asciidoctor.org/[Asciidoctor Docs]
+
+TIP: link:https://meniny.cn/docs/asciidoc/full.html[AsciiDoc User Guide]
+
+TIP: link:https://meniny.cn/docs/asciidoc/[AsciiDoc 指引]
+
+= 关于文档路径
+
+WARNING: 请严格注意文档存储路径
+
+```
+/en/BPI-xx/BananaPi_BPI-xx[Banana Pi BPI-xx]
+/en/BPI-xx/GettingStarted_BPI-xx[Getting Started BPI-xx]
+```
+
+= 关于图片路径
+
+WARNING: 请严格注意图片存储路径
+
+```
+image::/picture/bpi-xxxx.png[bpi-xxxx.png]
+```
