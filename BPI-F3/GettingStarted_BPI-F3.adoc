@@ -3,3 +3,52 @@
 BananaPi BPI-F3 adopts K1 core, SPM8821 PMIC+external DCDC power supply scheme. Storage adopts LPDDR4X and eMMC. There are peripheral devices such as PCIe 2.0 2 lane M.2 KEY M, PCIe 2.0 1 lane MINI PCIe, 4xUSB3.0 TYPE-A, WIFI/BT, TF Card, HDMI TX, MIPI DSI, MIPI CSI, TYPE-C, 2xRJ45, etc. Integrated, integrating a stable and scalable solution.
 
 TIP: More Infomation: link:/en/BPI-F3/BananaPi_BPI-F3[Banana Pi BPI-F3 Main Page]
+
+= Development
+== Prepare
+. Prepare a TTL cable, a 12V PD power supply, dual USB male cable, and a minimum of 8G TF card.
+. Please link:/en/BPI-F3/BananaPi_BPI-F3#_system_image[download] the SD and EMMC images to be burned.
+
+== Install Image to SDcard
+
+link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
+
+- Click on "**Flash from file**" to select image. 
+- Click on "**Select target**" to select USB device. 
+- Click on "**Flash!**" Start burning.
+
+image::/picture/etcher.jpg[etcher.jpg]
+
+== Install Image to eMMC
+**Install driver software**
+
+. link:[Download Titan Flasher]
+. Double click **titantools_for_windows-latest** to install. Linux grants executable permissions and can be run by opening **titantools_for_Linux-latest** without the need for installation.
+. Allow this app from unknown publishers to make changes to your device. Then choose to always install this driver software.
+
+
+
+. If the driver installation is successful, it will prompt that the USB driver installation is successful.
+
+
+
+**Burn image to EMMC**
+
+. Click Single Machine Burn (If you need to burn multiple devices simultaneously, click Multiple Machine Burn)
+
+
+
+. To put the device into flashing mode:
+- **Method 1:** +
+The device is not powered on. Press and hold the DOWNLOAAO (FEL) button, plug in the dual male USB cable, and then release the button. (If you are worried about insufficient USB power, you can first plug in the power, then release the button, and then plug in the USB cable)
+- **Method 2:** +
+The device is powered on. Press and hold the DOWNLOAD (FEL) button, then press the Reset button, and then plug in the dual male USB cable.
+
++
+
+. Select the flash file, the software will decompress it, please be patient and wait for a while.
+
+
+. Click to start flashing. At present, the entire flashing process takes about 15 minutes.
+
+. Burn completed, power on again.
