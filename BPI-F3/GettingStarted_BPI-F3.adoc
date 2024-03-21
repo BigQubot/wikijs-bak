@@ -8,6 +8,7 @@ TIP: More Infomation: link:/en/BPI-F3/BananaPi_BPI-F3[Banana Pi BPI-F3 Main Page
 == Prepare
 . Prepare a TTL cable, a 12V PD power supply, dual USB male cable, and a minimum of 8G TF card.
 . Please link:/en/BPI-F3/BananaPi_BPI-F3#_system_image[download] the SD and EMMC images to be burned.
+. Please note that the image ending with "**img. zip**" is the **SD card image**, while the image ending with "**. zip**" is the **EMMC image**. **Please do not make the wrong selection when burning.**
 
 == Install Image to SDcard
 
