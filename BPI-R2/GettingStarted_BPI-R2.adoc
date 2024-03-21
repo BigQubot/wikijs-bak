@@ -109,27 +109,31 @@ If you want to install Ubuntu on EMMC, follow these steps：
  * remove SD & power on
 
 == OpenWrt On SD & Emmc Steps
-1. Clone OpenWrt project from Github.
- * Execute "git clone https://github.com/garywangcn/bpi-r2_lede.git"
+--
+. Clone OpenWrt project from Github.
++
+```sh
+git clone https://github.com/garywangcn/bpi-r2_lede.git
+```
  
-2. You need to have installed gcc, binutils, bzip2, flex, python, perl, make, find, grep, diff, unzip, gawk, getopt, subversion, libz-dev and libc headers.
+. You need to have installed gcc, binutils, bzip2, flex, python, perl, make, find, grep, diff, unzip, gawk, getopt, subversion, libz-dev and libc headers.
  
-3. Run "./scripts/feeds update -a" to get all the latest package definitions defined in feeds.conf / feeds.conf.default respectively and "./scripts/feeds install -a" to install symlinks of all of them into package/feeds/.
+. Run "./scripts/feeds update -a" to get all the latest package definitions defined in feeds.conf / feeds.conf.default respectively and "./scripts/feeds install -a" to install symlinks of all of them into package/feeds/.
  
-4. Use "make menuconfig" to configure your image.
+. Use "make menuconfig" to configure your image.
  * Choose "Target System" to config as "MediaTek Ralink ARM"
  * Choose "Boot Loaders" to config as "u-boot-bpi_r2"
  
-5. Execute "make -j1 V=s" to build your own OpenWrt image.
+. Execute "make -j1 V=s" to build your own OpenWrt image.
  
-6. After built, we have two ways to install image.
- (1) Plug your TFcard in Ubuntu PC, and enter to "build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/linux-mediatek_32/", 
+. After built, we have two ways to install image.
+.. Plug your TFcard in Ubuntu PC, and enter to "build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/linux-mediatek_32/", 
      you will find two images:
      * mtk-bpi-r2-EMMC.img
      * mtk-bpi-r2-SD.img
- (2) Write image to TF card, execute "dd if=mtk-bpi-r2-SD.img of=/dev/sdX"
+..  Write image to TF card, execute "dd if=mtk-bpi-r2-SD.img of=/dev/sdX"
  
- (3) If you want to install image to EMMC, We need another system which is running on SD card to program EMMC image to EMMC, please follow below steps to do:
+.. If you want to install image to EMMC, We need another system which is running on SD card to program EMMC image to EMMC, please follow below steps to do:
      * Copy EMMC image to a running system which is from SD card
      * Program EMMC image to User Data Area of EMMC: dd if=mtk-bpi-r2-EMMC.img of=/dev/mmcblk0 (assume /dev/mmcblk0 is for EMMC)
      * Unlock EMMC boot0 block: echo 0 > /sys/block/mmcblk0boot0/force_ro
@@ -137,8 +141,9 @@ If you want to install Ubuntu on EMMC, follow these steps：
      * Change the Partition configurion of EMMC is 48h: reboot the system which is running SD, and enter the U-boot command line, run command emmc pconf 48 (for this steps, we can change partition configuration in userspace by using mmc-utils,see more information in BPI-R2 OpenWrt(LEDE) Souce code : 2018-04-11)
      * Power off, remove SD card, and then power on R2 board
  
-7. This step is for upgrade, if you don't want to install image after you built, you could use runtime upgrade.
+. This step is for upgrade, if you don't want to install image after you built, you could use runtime upgrade.
  * Copy "bin/targets/mediatek/32/lede-mediatek-32-bananapi,bpi-r2-sysupgrade.tar" to R2 board which is running OpenWrt system(no matter where(SD or EMMC) it boots from), and then run command "sysupgrade lede-mediatek-32-bananapi,bpi-r2-sysupgrade.tar" to update both kernel and rootfs.
+--
 
 - Banana Pi R2 install openWRT: https://www.cnblogs.com/topbin/p/8794152.html
 - Banana Pi R2 Openwrt Network port configuration analysis : https://www.cnblogs.com/topbin/p/9518279.html
@@ -151,62 +156,80 @@ Network-Configuration : http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:netw
 = Advanced Development
 == GPIO
 === GPIO Control
+```sh
 echo xxx > /sys/class/gpio/export
 echo in/out > /sys/class/gpio/gpioxxx/direction
 echo 0/1 > /sys/class/gpio/gpioxxx/value
+```
 Check the base gpio, you could see mine is 233
 
 R2 gpio base.png
 
 For example: if you want to change gpio 22 as out highlevel, you need input commands like this：
-
+```sh
 echo 255（22+233） > /sys/class/gpio/export
 echo out > /sys/class/gpio/gpio255/direction
 echo 1 > /sys/class/gpio/gpio255/value
-
+```
 === PWM Control
+```sh
 echo x >/sys/class/pwm/pwmchip0/export
 echo 200000 >/sys/class/pwm/pwmchip0/pwmx/period
 echo 100000 >/sys/class/pwm/pwmchip0/pwmx/duty_cycle
 echo 1 >/sys/class/pwm/pwmchip0/pwmx/enable
+```
 More about GPIO : http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:gpio
 
 === Install RPi.GPIO
-Execute "git clone https://github.com/BPI-SINOVOIP/RPi.GPIO"
-after clone the repo, cd RPi.GPIO
-Execute "sudo apt-get update"
-Execute "sudo apt-get install python-dev python3-dev"
+```sh
+git clone https://github.com/BPI-SINOVOIP/RPi.GPIO
+cd RPi.GPIO
+sudo apt-get update
+sudo apt-get install python-dev python3-dev
+```
 Execute "sudo python setup.py install" or "sudo python3 setup.py install" to install the module
 
 === Using RPi.GPIO
+```sh
 cd /usr/local/bin
-Execute "./g40.py" to test RPi.GPIO
+./g40.py
+```
+Test RPi.GPIO
 
 == Develop 4G module with R2
 Gets more info from here:
 
-Using 4G module with BananaPi
+link:/en/[Using 4G module with BananaPi]
 
 == WiFi and Ap mode on R2 Ubuntu
 === STA
+```sh
 wmt_loader (ignore errors)
 stp_uart_launcher -p /etc/firmware &
 ip link set wlan0 up
 iw dev wlan0 scan | grep SSID
 vim /etc/wpasupplicant/wpa_supplicant.conf
+```
+```sh
 network={    
 ssid="ssid"    
 psk="password"    
 priority=1 
 }
+```
+```sh
 wpa_supplicant -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf
 dhclient wlan0
+```
 
 === AP mode
+```sh
 wmt_loader (ignore errors)
 stp_uart_launcher -p /etc/firmware &
 echo A >/dev/wmtWifi
-create your hostapd.conf: "vim /etc/hostapd/hostapd.conf "
+```
+create your hostapd.conf: "**vim /etc/hostapd/hostapd.conf** "
+```sh
 interface=ap0
 bridge=br0
 ssid=test_r2
@@ -222,22 +245,31 @@ wpa_key_mgmt=WPA-PSK
 wpa_passphrase=ledetest
 logger_stdout=-1
 logger_stdout_level=2
+```
 According to your network interface(can search internet) to config ap0:
- my network interface which can search internet is wan, and ip is 192.168.30.102, so I config ap0 as follows:
-“ifconfig ap0 192.168.30.188 netmask 255.255.255.0”
 
-Run hostapd : “hostapd -d /etc/hostapd/hostapd.conf”
-Config dhcp file : “vim /etc/dhcp/dhcpd.conf”
+my network interface which can search internet is wan, and ip is 192.168.30.102, so I config ap0 as follows:
+```sh
+ifconfig ap0 192.168.30.188 netmask 255.255.255.0
+```
+Run hostapd : “**hostapd -d /etc/hostapd/hostapd.conf**”
+
+Config dhcp file : “**vim /etc/dhcp/dhcpd.conf**”
+```sh
 subnet 192.168.30.0 netmask 255.255.255.0 {
 range 192.168.30.2 192.168.30.250;
 option domain-name-servers 8.8.8.8;
 option routers 192.168.30.1; }
+```
 Config dhcp of ap0, then the devices which connect ap0 could get IP: "dhcpd ap0 -pf /var/run/dhcpd.pid "
-And a bridge
-brctl addbr br0
-brctl addif br0 ap0
-brctl addif br wan
+
+- And a bridge
+- brctl addbr br0
+- brctl addif br0 ap0
+- brctl addif br wan
+
 Config br0 : “ifconfig br0 192.168.30.180 netmask 255.255.255.0”
+
 Add br0 gw as : “route add -net default netmask 255.255.255.0 gw 192.168.30.1 dev br0”
 
 === Ap Mode FAQ
@@ -248,20 +280,29 @@ A64 ap 1.png
 Then, you could solve by following command：
 
 nmcli radio wifi off
+
 A64 ap 2.png
 
 rfkill unblock 1
+
 rfkill unblock 2
+
 ifconfig ap0 up
+
 hostapd -d hostapd.conf
+
 A64 ap 3.png
 
 == WiFi and Ap mode on R2 Openwrt
 
 === AP mode
-1. Make a bash script
-
+. Make a bash script
++
+```sh
 vim setup.sh
+```
++
+```sh
 #!/bin/ash
 wmt_loader &
 sheep 3
@@ -270,9 +311,14 @@ sleep 5
 echo A > /dev/wmtWifi &
 sleep 5
 hostapd -d hostapd.conf
-2. Create your hostapd.conf
-
+```
+. Create your hostapd.conf
++
+```sh
 vim hostapd.conf
+```
++
+```sh
 interface=ap0
 bridge=br-lan
 ssid=BPI_R2
@@ -288,28 +334,37 @@ wpa_key_mgmt=WPA-PSK
 wpa_passphrase=ledetest
 logger_stdout=-1
 logger_stdout_level=2
-3. Make it run
-
+```
+. Make it run
++
+```sh
 ./setup.sh
-4. Add it to starting progress
-
+```
+. Add it to starting progress
++
+```sh
 vim /etc/rc.local
+```
++
+```sh
  cd /root/
  sleep 6
  ./setup.sh &
-5. If your Ap is not stable, please limit the speed, here I limit download speed as 8Mbit/s, upload as 4Mbit/s
+```
+. If your Ap is not stable, please limit the speed, here I limit download speed as 8Mbit/s, upload as 4Mbit/s
 
-tc qdisc add dev ap0 root handle 1: htb default 11
-tc class add dev ap0 parent 1:1 classid 1:2 htb rate 8Mbit ceil 4Mbit prio 2
-Make your own image
-Prepare a SD card which have installed Ubuntu system
-Boot your SD card with R2, after R2 finish starting, copy your files and config your Ubuntu, then poweroff R2
-Plug your SD card in Linux PC, "cd /media", then "ln -s <your account> pi"
-Execute "bpi-migrate -c bpi-r2.conf -c ubuntu-mate-from-sd.conf -d /dev/sdx"
-Then you could get your own image now
+- tc qdisc add dev ap0 root handle 1: htb default 11
+- tc class add dev ap0 parent 1:1 classid 1:2 htb rate 8Mbit ceil 4Mbit prio 2
+
+=== Make your own image
+- Prepare a SD card which have installed Ubuntu system
+- Boot your SD card with R2, after R2 finish starting, copy your files and config your Ubuntu, then poweroff R2
+- Plug your SD card in Linux PC, "cd /media", then "ln -s <your account> pi"
+- Execute "bpi-migrate -c bpi-r2.conf -c ubuntu-mate-from-sd.conf -d /dev/sdx"
+- Then you could get your own image now
 
 == FAQ
-1.Banana Pi BPI-R2 Razberry board OpenHab2
+Banana Pi BPI-R2 Razberry board OpenHab2
 https://community.openhab.org/t/banana-pi-bpi-r2-razberry-board-openhab2-help/37222/8
 
 === TTL Voltage
