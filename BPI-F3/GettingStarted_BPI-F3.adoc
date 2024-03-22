@@ -6,7 +6,7 @@ TIP: More Infomation: link:/en/BPI-F3/BananaPi_BPI-F3[Banana Pi BPI-F3 Main Page
 
 = Development
 == Prepare
-. Prepare a TTL cable, a 12V PD power supply, dual USB male cable, and a minimum of 8G TF card.
+. Prepare a TTL cable, a 12V PD power supply, USB cable, and a minimum of 8G TF card.
 . Please link:/en/BPI-F3/BananaPi_BPI-F3#_system_image[download] the SD and EMMC images to be burned.
 . Please note that the image ending with "**img. zip**" is the **SD card image**, while the image ending with "**. zip**" is the **EMMC image**. **Please do not make the wrong selection when burning.**
 
@@ -31,20 +31,20 @@ image::/picture/etcher.jpg[etcher.jpg]
 
 
 . If the driver installation is successful, it will prompt that the USB driver installation is successful.
-
++
 image::/picture/bpi-f3_install_usb_driver.jpg[bpi-f3_install_usb_driver.jpg]
 
 **Burn image to EMMC**
 
 . Click Single Machine Burn (If you need to burn multiple devices simultaneously, click Multiple Machine Burn)
-
-
++
+image::/picture/bpi-f3_tianflasher_1.png[bpi-f3_tianflasher_1.png]
 
 . To put the device into flashing mode:
 - **Method 1:** +
-The device is not powered on. Press and hold the **DOWNLOAAO (FEL)** button, plug in the dual male USB cable, and then release the button. (If you are worried about insufficient USB power, you can first plug in the power, then release the button, and then plug in the USB cable)
+The device is not powered on. Press and hold the **DOWNLOAAO (FEL)** button, plug in the USB cable, and then release the button. (If you are worried about insufficient USB power, you can first plug in the power, then release the button, and then plug in the USB cable)
 - **Method 2:** +
-The device is powered on. Press and hold the **DOWNLOAD (FEL)** button, then press the Reset button, and then plug in the dual male USB cable.
+The device is powered on. Press and hold the **DOWNLOAD (FEL)** button, then press the Reset button, and then plug in the USB cable.
 
 +
 
