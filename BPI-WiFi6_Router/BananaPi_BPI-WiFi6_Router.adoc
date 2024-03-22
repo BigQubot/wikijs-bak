@@ -9,13 +9,13 @@ Triductor TR6560 + TR5220 wifi design: link:/en/BPI-WiFi6_Mini/BananaPi_BPI-WiFi
 
 == Key Features
 
-- Dual core ARM cortex-A9 1.2G Hz
-- Integrated 5GE PHY, one RGMII
-- Supports 6 GE MACs,1000M/100M/10M rate mode and standard MIB statistics
-- Supports IEEE802.11a/b/g/n/ac/ax wireless LAN communication protocol
-- Support Wifi AP mode and STA mode
+- Dual core ARM Cortex-A9 1.2G Hz
+- Integrated 5*GE PHY
+- Support 1000M/100M/10M rate mode self-negotiation and standard MIB statistics
+- Support IEEE802.11a/b/g/n/ac/ax wireless LAN communication protocol
+- Support Wi-Fi AP mode and STA mode
 - Support WPA,WPA2, WPA3 encryption and decryption, pay Chinese WAPI standard
-- PoE function suppor
+- PoE function support
 
 == Getting Start
 
