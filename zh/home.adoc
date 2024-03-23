@@ -1,15 +1,18 @@
-= Banana Pi Open source hardware project
+= 香蕉派(Banana Pi)开源硬件社区在线文档
+
 image::/wiki_home.jpg[wiki_home.jpg]
 
-link:http://www.banana-pi.org/[Banana Pi] is an open source hardware project lead by link:https://wiki.banana-pi.org/About_BPI[GuangDong BiPai technology co., LTD]. It focuses on the open source hardware development board of ARM and MCU series, provides open software and hardware platform, and creates the basic technology development platform. Full series open source hardware products, complete integration of voice, data, video system platform. Developers can flexibly build various application platforms on the open source hardware foundation platform. It can be applied in the Internet of things, AI artificial intelligence, industrial Internet control, STEAM education and other aspects.Create link:https://wiki.banana-pi.org/Banana_Pi_open_source_community_ecology_and_Internet_of_things_overall_technical_solutions[banana Pi open source community ecology and Internet of things overall technical solutions].
+link:http://www.banana-pi.org/[Banana Pi] 开源硬件项目是由link:https://wiki.banana-pi.org/[广东比派科技] 主导的一个开源硬件社区，并得到了鸿海集团（富士康）的战略支持。 专注在ARM，RISC-V,MCU系列开源硬件开发板，提供全开放的软件与硬件平台,打造基础技术开发平台。重点打造香蕉派(Banana Pi) 开源社区生态与物联网整体技术解决方案.
 
-Welcome free discuss on link:http://forum.banana-pi.org/[Banana Pi Forum], Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the new link link:https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[Documents] and link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[Image]
+全系列开源硬件产品，完整整合了语音，数据，视频系统平台,传感器。开发者可以灵活的在开源硬件基础平台上搭建各种应用平台。可以应用在物联网，AI 人工智能 ，工业互联网控制，STEAM教育等各方面。
+
+BPI 4.0 定制服务已经全球有100多个BPI 4.0 成功案例，为客户提供研发，生产，供应链管理，产品认证一站式服务。
 
 = 香蕉派产品
 
-== Single Board Computer: link:https://wiki.banana-pi.org/Banana_Pi_Series_Comparison[Banana Pi Series Comparison]
+== 单板计算机系列
 |=====
-2+| Banana Pi Single Board Computer(SBC)
+2+| 开源硬件单板计算机系列(SBC)
 
 |link:/zh/BPI-M1/BananaPi_BPI-M1[Banana Pi BPI-M1] [Allwinner A20] | link:/zh/BPI-F2/BananaPi_BPI-F2[Banana Pi BPI-F2] [Freescale IMX6 industrial-grade]
 
