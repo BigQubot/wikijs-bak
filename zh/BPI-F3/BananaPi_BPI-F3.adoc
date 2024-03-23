@@ -1,0 +1,123 @@
+= BPI-F3 Introduction
+
+Banana Pi BPI-F3 is a industrial grade RISC-V development board, it design with SpacemiT K1 8 core RISC-V chip, CPU integrates 2.0 TOPs AI computing power. 8G DDR and 16G eMMC onboard.2x GbE Ethernet prot, 4x USB 3.0 and PCIe for M.2 interface, supprt HDMI and Dual MIPI-CSI Camera.
+
+
+image::/bpi-f3/banana_pi_bpi-f3_banner_4.jpg[banana_pi_bpi-f3_banner_4.jpg]
+
+== about SpacemiT K1 8 core RISC-V chip
+
+SpacemiT K1 is an octa-core 64-bit RISC-V AI CPU. Base on RISC-V open instruction set architecture,we are committed to create more energy efficient and more commonly used AI processor platform,promote global open source and open ecological computing power construction.
+
+SpacemiT K1 is mainly used for single board computer,network storage,cloud computer,smart robort,industrial control,edge computer,etc.
+
+TIP: link:/en/BPI-F3/SpacemiT_K1[SpacemiT K1 8 core RISC-V chip Brief]
+
+TIP: link:/en/BPI-F3/SpacemiT_K1_datasheet[SpacemiT K1 8 core RISC-V chip datasheet]
+
+== Key Features
+
+* 8 core RISC-V chip, CPU integrates 2.0 TOPs AI computing power
+
+* Single-core general computing power equivalent to 1.3 times Cortex-A55
+
+* Supports 32-bit LPDDR4/4X, with a maximum of 16GB of memory
+
+* 4K decoding and encoding
+
+* 5-lane PCIE2.1 expansion capability
+
+* 1x USB 3.0 + 2x USB 2.0 interfaces
+
+* 12x UART serial ports
+
+* Operating temperature range: -40°C to 85°C 
+
+== Application direction
+
+* NAS
+* Laptop
+* Intelligent robotics
+* Industrial control
+* AI edge computing
+
+
+
+== Getting Start
+
+TIP: link:/en/BPI-F3/GettingStarted_BPI-F3[Getting Started BPI-F3]
+
+= Hardware
+
+== Hardware Interface
+
+image::/bpi-f3/bananna_pi_bpi-f3_interface.jpg[bananna_pi_bpi-f3_interface.jpg]
+
+image::/bpi-f3/bpi-f3_sch.png[bpi-f3_sch.png]
+
+== Hardware Spec
+[options="header",cols="1,4",width="70%"]
+|=====
+2+| **HardWare Specification of Banana Pi BPI-F3 RISC-V SBC**
+| CPU                               |  SpacemiT K1 8 core RISC-V chip
+
+| AI                                |  2.0Tops from RlSC-V Core                                                                            
+| Memory                            | 4 GB LPDDR4                                                                                  
+| Storage                           | 16G eMMC flash,4M SPI NOR,32M SPI NAD                                                                              
+| SD card                           | MicroSD card slot                                                                            
+| Wireless                          | 2.4G/5G WiFi and Bluetooth 4.2                                                               
+| Ethernet                          | 2x GbE Ethernet port(supports PoE with add-on PoE HAT)                                       
+| HDMI                              | 1x full-size HDMI digital Audio output 
+
+| Audio                             | Speaker，Mic， Earphone   
+
+| Camera                             | MIPI-CSI, Dual-shot support                                                                                   
+| USB                               | 4x USB 3.0 Type-A HOST, 1x USB 2.0 Type-C OTG    
+
+| PCIe                              | PCIE2.1 2lane * 2. PCIEB 2lane connect M.2 KEY M；PCIEC 1lane connect MINI PCIE
+| GPIO                              | 26-pin header 
+                                                                                        
+| Buttons                           | Reset, Power and Burn 
+
+| IR                                | IR-Rx
+
+| LED                               | Power Status                                                            
+| Power                             | DC in and TYPE-C in                                                                    
+| Size                              | 148x100 mm                                                                                     
+| Weight                            | 200g                                            
+|=====
+
+== GPIO Pin Define
+
+
+
+= Development
+
+== Source Code
+
+=== Linux BSP Source Code
+
+
+
+== Resources
+
+TIP: BPI-F3 run Ubuntu Linux test 8 Core CPU performance and AI function: https://www.youtube.com/watch?v=Ym-VcJgaGIY
+
+TIP:  BPI-F3 SpacemiT K1 run OpenWRT:
+https://www.youtube.com/watch?v=ejV5KFww8Xo
+
+TIP: BPI-F3 run visual AI+ large models simultaneously:
+https://www.youtube.com/watch?v=Kn7GYiOxato
+
+= System Image
+
+== Linux
+
+
+
+= FAQ
+
+
+
+= Easy to buy
+
