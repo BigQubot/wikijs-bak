@@ -1,0 +1,494 @@
+= BPI-R1 Introduction
+
+The Banana Pi R1 is a router based Banana Pi running on the same SoC as the M1 Classic Pi.
+
+The R1 is a open hardware router that can run on a variety of open source operating systems including OpenWrt, Android, and Bananian. The R1 has slim router form factor with a bay for 2.5" HDDs. It also has 4 Gigabit LAN ports, 1 Gigabit WAN, and 300Mbs wireless N capabilities.
+
+Banana Pi is an open platform device, it is for anyone who wants to play and build with developer technology instead of simply using consumer technology. Backed by our community, starting a project and building servers is fun and rewarding. We welcome all companies, DIYers, and tech loving people within our community! Together, we can make a difference, we can discover our passions, inspire others, and build a practical project.
+
+image::/picture/bpi-r1_960x360.jpg[bpi-r1_960x360.jpg]
+
+TIP: Allwinner A20 design: link:/en/BPI-M1/BananaPi_BPI-M1[Banana Pi BPI-M1] SBC  +
+Allwinner A20 design: link:/en/BPI-M1_Plus/BananaPi_BPI-M1_Plus[Banana Pi BPI-M1+] SBC +
+Allwinner A20 design: link:/en/BPI-R1/BananaPi_BPI-R1[Banana Pi BPI-R1] Router
+
+== Key Features
+
+- Allwinner A20 Dual-core 1.0GHz CPU
+- Mali-400 MP2 with Open GL ES 2.0/1.1.
+- 1 GB DDR3 memory.
+- 1x SATA interface.
+- 4x Gigabit LAN 1x Gigabit WAN
+
+== Getting Start
+
+TIP: link:/en/BPI-R1/GettingStarted_BPI-R1[Getting Started BPI-R1]
+
+= Hardware
+== Hardware Interface
+
+image::/picture/bpi-r1_front.png[bpi-r1_front.png]
+image::/picture/bpi-r1_back.jpg[bpi-r1_back.jpg]
+
+== Hardware Spec
+
+[options="header",cols="1,4"]
+|=====
+2+| **HardWare Specification of Banana Pi R1**
+| CPU           | A20 ARM Cortex -A7 Dual-Core
+| GPU           | ARM Mali400MP2Complies with OpenGL ES 2.0/1.1
+| Memory        | 1GB DDR3
+| Network       | 10/100/1000 Ethernet 8P8C, Wi-Fi
+| Video Input   | A CSI input connector allows for the connection of a designed camera module 
+| Video Outputs | HDMI, CVBS, LVDS/RGB
+| Audio Outputs | 3.5mm jack and HDMI
+| Power Source  | 5 volt via Micro USB (DC in only) and / or Micro USB OTG
+| USB 2.0 ports | 2(direct from Allwinner A20 chip)
+| GPIO          | GPIO, UART, I2C BUS, SPI BUS, WITH TWO CHIP SELECTS, CAN bus, ADC, PWM, +3.3V, +5V, GND
+| LED           | Power Key & 8P8C 
+| Storage       | SATA 2.0 
+| OS            | Android 4.4, Android 4.2, Raspbian, Lubuntu, Open Suse, Debian
+|=====
+
+== GPIO Pin Define
+
+=== BPI-R1 40PIN GPIO
+
+image::/picture/gpio_define.png[gpio_define.png]
+
+= Development
+== Resources
+
+TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
+
+TIP: All banana pi link:https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[docement(SCH file,DXF file,and doc)]
+
+TIP: BPI-R1 schematic diagram :  https://drive.google.com/file/d/0B4PAo2nW2KfnNTBaVENGeHZfSzA/view?usp=sharing
+
+TIP: Banana Pi BPI-R1 Gerber file : https://drive.google.com/file/d/1tFD8FuCtbD0dyUcc98lQOz3SGcRsF01d/view?usp=sharing
+
+TIP: BPI-R1 3D & DXF file : https://drive.google.com/file/d/0B4PAo2nW2KfnOVhFMFp6MFFfa00/view?usp=sharing
+
+TIP: BPI-R1 CE,FCC RoHS Certification :
+
+TIP: linux-sunxi wiki: http://linux-sunxi.org/Lamobo_R1
+
+TIP: NetBSD/evbarm on Allwinner Technology SoCs : https://wiki.netbsd.org/ports/evbarm/allwinner/#index1h1
+
+TIP: Manual for HW setup and basic router functionalities: https://docs.google.com/document/d/1LVuukSuby7aCuAaQezFn-kM8ZQM-I0kuGiI_XnT0sDg/edit?usp=sharing
+
+TIP: David Bentham / openwrt-bpi-r1-prebuilt
+
+- Stable 1.2.1 release:
+- Kernel upgraded to 4.1.17
+- Added Parted package
+- Lots of package upgrades and bug fixes...
+- VM build system - OpenwrtBuild-BPI-R1-VM-V1.0.torrent if you wish to spin up your own version from scratch!
+- Github link: https://github.com/db260179/openwrt-bpi-r1
+
+TIP: Allwinner chip documents: http://dl.linux-sunxi.org/
+
+== Basic Development
+=== Compulsive modification of HDMI output resolution
+The final solution of compulsive modification of HDMI output resolution.
+
+As you may have discovered the common configuration method in raspberry pi (such as alteration of /boot/config.txt) does not work on BPI, neither does the modification of cmdline.txt and uEnv.txt especially for some display with converter(HDMI->VGA or HDMI ->IDVI) or some old display devices.
+
+Today,we are introducing a new solution to modify the resolution of HDMI, no other risks if you do it according to this document step by step:
+
+. install compile sunxi-tools depended-upon packages
++
+```sh
+sudo apt-get install libusb-1.0-0-dev
+```
++
+. get sunxi-tools new code from github:
++
+```sh
+git clone https://github.com/linux-sunxi/sunxi-tools.git
+```
++
+. compile sunxi-tools
++
+```sh
+cd sunxi-tools
+make
+```
++
+. backup script.bin
++
+```sh
+sudo cp /boot/bananapi/script.bin /boot/bananapi/script.bak
+```
++
+. copy script.bin to current dir
++
+```sh
+cp /boot/bananapi/script.bin ./
+```
++
+. use bin2fex change bin to fex
++
+```sh
+bin2fex ./script.bin ./script.fex
+```
++
+. edit script.fex file:
++
+```sh
+nano script.fex
+```
++
+see this below:
++
+```sh
+[disp_init]
+disp_init_enable = 1
+disp_mode = 0
+screen0_output_type = 3
+screen0_output_mode = 5
+screen1_output_type = 2
+screen1_output_mode = 11
+fb0_framebuffer_num = 2
+fb0_format = 10
+fb0_pixel_sequence = 0
+fb0_scaler_mode_enable = 1
+fb1_framebuffer_num = 2
+fb1_format = 10
+fb1_pixel_sequence = 0
+fb1_scaler_mode_enable = 0
+lcd0_backlight = 197
+lcd1_backlight = 197
+lcd0_bright = 50
+lcd0_contrast = 50
+lcd0_saturation = 57
+lcd0_hue = 50
+lcd1_bright = 50
+lcd1_contrast = 50
+lcd1_saturation = 57
+lcd1_hue = 50 
+just change screen0_output_mode = 5, note , other not do any change.
+```
++
+A20 support as below: HDMI/TV mode numbers:
++
+```sh
+0 480i
+1 576i
+2 480p
+3 576p
+4 720p 50Hz
+5 720p 60Hz
+6 1080i 50 Hz
+7 1080i 60 Hz
+8 1080p 24 Hz
+9 1080p 50 Hz
+10 1080p 60 Hz
+11 PAL
+12 PAL SVIDEO
+14 NTSC
+15 NTSC SVIDEO
+17 PAL_M
+18 PAL_M SVIDEO
+20 PAL_NC
+21 PAL_NC SVIDEO
+23 1080p 24 Hz 3D
+24 720p 50 Hz 3D
+25 720p 60 Hz 3D
+26 1360x768 60 Hz
+27 1280x1024 60 Hz
+Press Ctrl + x ， Y ，Enter save and exit edit:
+```
++
+. use fex2bin change fex to bin
++
+```sh
+fex2bin ./script.fex ./script.bin
+```
++
+copy script.bin to /boot
++
+```sh
+sudo cp ./script.bin /boot/bananapi/
+```
++
+. reboot and make a try
++
+```sh
+sudo reboot
+```
+another easy way: just edit uEnv.txt file to change it:
++
+```sh
+bootargs=enforcing=1 console=ttyS0,115200 console=tty1 root=/dev/mmcblk0p2 rootwait init=/init vmalloc=384M ion_
+ma_list="120m,176m,512m" loglevel=8 bootmenutimeout=10 datadev=mmcblk0p2 disp.screen0_output_type=3 disp.screen0_o
+utput_mode=10 disp.screen1_output_type=3 disp.screen1_output_mode=10
+```
+
+=== How to build OpenWRT image from github
+We test it with deepin2014(base on ubuntu14.04)
+
+. install depend package :
++
+```sh
+ apt-get install subversion build-essential libncurses5-dev zlib1g-dev gawk 
+git ccache gettext libssl-dev xsltproc unzip subversion file
+```
++
+. get openwrt source code
+
++
+```sh
+git clone https://github.com/BPI-SINOVOIP/BPI-OpenWRT.git
+```
++
+. enter openwrt dir:
++
+```sh
+cd BPI-OpenWRT
+```
++
+. update package and install
++
+```sh
+./scripts/feeds update -a
+./scripts/feeds install -a
+```
++
+. Enter the customization interface:
++
+image::/picture/r1_openwrt_1.jpg[r1_openwrt_1.jpg]
++
+please choose your need:
++
+Target System default is BananaPi，its the only choice on that matte.，Please change the device selection under Target Profile. The OpenWrt image supports M1, M1+ and R1.
++
+example : i need web and add chinese support
++
+```sh
+LuCI—> 1. Collections  ---> <*> luci  add Luci support ，it mean web GUI support，it is defaultes
+LuCI—>2. Modules  ---> <*> luci-i18n-chinese   add chinese also you can choose others.
+```
++
+. Make ,you can add V=s to see more message ,also add -j4 to use quad core to work .
++
+```sh
+make
+```
++
+when compile finish bin/sunxi/ dir have a image，file name：openwrt-sunxi-BPI-XX-sdcard-vfat-ext4.img，i compile is BPI-R1，so name is ：openwrt-sunxi-BPI-R1-sdcard-vfat-ext4.img，
+
+. use USB Image Tool(http://www.alexpage.de/) burn image to sd，insert BPI and booting it.
+
+. running ：
++
+image::/picture/r1_openwrt_2.png[r1_openwrt_2.png]
+
+= System Image
+== Android
+
+NOTE: 2018-07-28 update android 4.4 HDMI version image
+
+Features Map: http://newwiki.banana-pi.org/en/BPI-R1/R1_Image_Map
+
+Baidu Drive: https://pan.baidu.com/s/1dorsPZAqCbL1oC6J4zQyvQ
+
+Google Drive: https://drive.google.com/open?id=1ztI_dB0veEPkEaB7XV7OdEb3YE2mwywm
+
+Forum pthtread :http://forum.banana-pi.org/t/bananapi-m1-m1p-r1-new-image-release-20180728/6357
+
+NOTE: Banana pi PBI-R1 android 4.4 image : https://drive.google.com/file/d/0BxpbZWFFuHmyUHRYeE9uenFTVmc/view
+
+== Linux
+
+=== Ubuntu kernel 3.4
+
+NOTE: 2022-04-16 Banana Pi new image: Ubuntu 16.04 with Allwinner BSP, use MPV play 1080P video,Allwinner BSP kernel 3.4 , BPI-M2 Ultra/Berry use kernel 3.10
+
+Google driver: https://drive.google.com/drive/folders/1DEO7JdMfDhHynC83K7JMxgnNxf1gV82S
+
+Discuss on forum: https://forum.banana-pi.org/t/banana-pi-new-image-ubuntu-16-04-with-allwinner-bsp-use-mpv-play-1080p-video/13272
+
+NOTE: 2018-07-28 ubuntu-server-16.04
+
+Google drive : https://drive.google.com/file/d/1ztI_dB0veEPkEaB7XV7OdEb3YE2mwywm/view?usp=sharing
+
+Baidu drive  : https://pan.baidu.com/s/1dorsPZAqCbL1oC6J4zQyvQ
+
+Forum thread:
+http://forum.banana-pi.org/t/bananapi-m1-m1p-r1-new-image-android-and-ubuntu-sever-release-2018-07-28/6357
+
+NOTE: 2016-07-21 update ubuntu-mate-16.04-desktop
+support BPI-M2,BPI-M1+，BPI-R1
+
+Google drive : https://drive.google.com/file/d/0B_YnvHgh2rwjbzFITldLY2VjOVE/view?usp=sharing
+
+MD5: 155f072da499a7c523b7394f77dd9def
+
+Forum thread:
+http://forum.banana-pi.org/t/bpi-r1-new-image-ubuntu-mate-16-04-desktop-armhf-raspberry-pi-bpi-m1-m1p-r1-sd-emmc-2016-07-21/2052
+
+NOTE: 2016-07-19 update, need use >=16G SD card
+
+Google drive : https://drive.google.com/file/d/0B_YnvHgh2rwjUXZmZTh3ZG5LTEU/view?usp=sharing
+
+MD5: 37d6599eac4daced375fba8fa58dc1d5
+
+Forum thread:
+http://forum.banana-pi.org/t/bpi-r1-new-image-edu-ubuntu-mate-1604-preview-bpi-m1-m1p-r1-img-2016-07-19/2043
+
+NOTE: 2016-07-10 update Ubuntu-16.04-xenial-minimal
+support BPI-M2,BPI-M1+，BPI-R1
+
+Google drive : https://drive.google.com/file/d/0B_YnvHgh2rwjUXFrU0ZDX3Z2NlE/view?usp=sharing
+
+MD5: b900b9ba3b0f664a2cfae1fa1146b2fa
+
+Forum thread:
+http://forum.banana-pi.org/t/bpi-r1-new-image-ubuntu-16-04-xenial-minimal-preview-bpi-m1-m1p-r1-img-2016-07-10/1991
+
+NOTE: 2016-06-04 update Ubuntu-16.04-xenial
+support BPI-M2,BPI-M1+，BPI-R1
+
+Google drive : https://drive.google.com/file/d/0B_YnvHgh2rwjQ1JJNkpQSXoxVVk/view?usp=sharing
+
+Baidu cloud: http://pan.baidu.com/s/1jHDZCsY
+
+MD5: b900b9ba3b0f664a2cfae1fa1146b2fa
+
+Forum thread:
+http://forum.banana-pi.org/t/bpi-r1-new-image-ubuntu-mate-16-04-xenial-preview-bpi-r1-sd-emmc-2016-06-04/1821
+
+=== Debian
+
+NOTE: Update 2022-04-04, Banana Pi BPI-R1 (lamobo-r1) new Images，Ubuntu Jammy ,Ubuntu Impish, Ubuntu Focal
+
+https://forum.banana-pi.org/t/bananapi-r1-lamobo-r1-images/13230
+
+NOTE: 2019-9-18 update. Debian 10 buster mate desktop with grub support (boot-2019.07 + kernel 5.1.1)
+
+Google driver: https://drive.google.com/file/d/1TAirzSDpbhtfznlxD6DL3HiCJ2c0FESB/view?usp=sharing
+
+Forum pthread: http://forum.banana-pi.org/t/bpi-m1-m1-r1-new-image-debian-10-buster-mate-desktop-with-grub-support-boot-2019-07-kernel-5-1-1/9916
+
+NOTE: 2016-08-04-Armbian_5.17_Lamobo-r1_Debian_jessie_4.6.5_desktop-build-by-bpi-r1.img.zip
+
+Google drive download : https://drive.google.com/file/d/0B_YnvHgh2rwjV3I5RlpwdmZHYWs/view?usp=sharing
+
+MD5: f6952fc265ba26c953eb929d23d1ac95
+
+Forum thread:
+http://forum.banana-pi.org/t/bpi-r1-new-image-armbian-5-17-bpi-r1-debian-jessie-4-6-5-desktop-build-by-bpi-r1-img/2095
+
+NOTE: 2015-07-21 update Debian8_docker uboot : 2015-7 linux kernel: 4.2.4
+
+Google drive download : https://drive.google.com/file/d/0B3EGHv0FSPOGSXVIaUVaRDBldE0/view
+
+Baidu cloud : http://pan.baidu.com/s/1kTnKNrx
+
+MD5: 0e3349ea78e790382461a538264b569d
+
+Forum thread:
+http://forum.banana-pi.org/t/bpi-r1-new-image-debian8-docker-k4-2-beta-v4-0/516
+
+== OpenWRT
+
+=== Officeal OpenWRT
+
+Wiki : https://wiki.openwrt.org/toh/lamobo/r1
+
+Openwrt support for allwinner : https://wiki.openwrt.org/doc/hardware/soc/soc.allwinner.sunxi?s[]=banana&s[]=pi
+
+Image download : https://downloads.openwrt.org/chaos_calmer/15.05/sunxi/generic/uboot-sunxi-Lamobo_R1/
+
+=== BPI OpenWRT V4.0
+
+Google drive: https://drive.google.com/file/d/0B3EGHv0FSPOGeHJNdmVXS3UtMUU/view?usp=sharing
+
+Baidu cloud: http://pan.baidu.com/s/1mg8Gjna
+
+MD5: CB597EE79A6E27630AD7F903D23C4A7B
+
+Forum thread:
+http://forum.banana-pi.org/t/bpi-r1-openwrt-4-0-new-image-release/430
+
+== Third part image
+
+=== Raspbian
+
+NOTE: 2016-07-13 update raspbian jessie
+
+Google drive download : https://drive.google.com/file/d/0B_YnvHgh2rwjdTh5ZnVZam1rb0E/view?usp=sharing
+
+MD5: 156b09907586ea9e86481bda73f4254f
+
+Forum thread:
+http://forum.banana-pi.org/t/bpi-r1-new-image-raspbian-jessie-bpi-m1-m1p-r1-img-2016-07-13/2011
+
+NOTE: 2016-07-12 update raspbian lite
+
+Google drive download : https://drive.google.com/file/d/0B_YnvHgh2rwjRXRuWHJ5V3BJTmc/view?usp=sharing
+
+MD5: 302063f7417079390da79334258dd538
+
+Forum thread:
+http://forum.banana-pi.org/t/bpi-r1-new-image-raspbian-lite-bpi-m1-m1p-r1-img-2016-07-12/2004
+
+=== Armbian
+NOTE: Update 2022-04-04, Banana Pi BPI-R1 (lamobo-r1) new Images，Armbian Sid,Armbian Bullseye, Armbian Buster
+
+https://forum.banana-pi.org/t/bananapi-r1-lamobo-r1-images/13230
+
+NOTE: Armbian Xenial and Armbian Jessie
+
+Image lownload link :https://www.armbian.com/lamobo-r1/
+
+=== Fedora
+NOTE: Banana pi BPI-R1 mainline linux kernel for fedora
+
+https://www.wiesinger.com/opensource/fedora/kernel/BananaPi-R1/
+
+=== Kanux
+NOTE: 2016-07-12 update KANO OS Beta 3.3.0 (support rpi3 rpi2 rpi1)
+
+Google drive download : https://drive.google.com/file/d/0B_YnvHgh2rwjaXQtVGUtbFplTUU/view?usp=sharing
+
+MD5: 1951f3abc0a54675d9bbbac387760e4e
+
+Forum thread:
+http://forum.banana-pi.org/t/bpi-r1-new-image-kanux-beta-3-3-0-preview-bpi-m1-m1p-r1-img-2016-07-15/2025
+
+=== Arch linux
+NOTE: Archlinux 28-12-2017 4.6.5 sunxi mainline kernel
+
+Kernel borrowed from armbian: BPI-R1 new image: Armbian_5.17_bpi-r1_Debian_jessie_4.6.5_desktop-build-by-bpi-r1.img
+
+Archlinux upgraded from official bpi image.
+
+The kernel issues related to kernel / userspace mismatch seem to be gone (such as systemd-sysctl input / output error etc).
+
+Image download link: http://mkaczanowski.com/files/archlinux-bpi-r1-2017-28-2017-4.6.5-sunxi-mainline.img
+
+=== FreeBSD
+NOTE: Banana pi as the official partner of Allwinner , must banana pi product use Allwinner chip design . such as A20/A31S/H3/H2+/A64/A83T , and FreeBSD have support many Allwinner . so easy to use on banana pi board.
+
+- Allwinner A20 (sun7i), a dual-core Cortex-A7 : BPI-M1/BPI-M1+/BPI-R1
+- Allwinner A31 and A31s (sun6i), a quad-core Cortex-A7 : BPI-M2
+- Allwinner A64 sun50i), a quad-core Cortex-A53 :BPI-M64
+- Allwinner A83T (sun8i), an octa-core Cortex-A7 : BPI-M3
+- Allwinner H3 (sun8i), a quad-core Cortex-A7 : BPI-M2+/BPI-M2+ EDU/
+
+https://wiki.freebsd.org/FreeBSD/arm/Allwinner
+
+=== Asterisk
+NOTE: Asterisk support http://dostmuhammad.com/blog/asterisk-for-banana-pi-r1-freepbx-image-included/
+
+NOTE: Forum pthread: http://forum.banana-pi.org/t/asterisk-for-banana-pi-bpi-r1-freepbx-image-included/921
+
+=== Others
+NOTE: You can fine others image at forum : http://forum.banana-pi.org/c/bpi-r1
+
+
+= Easy to buy
+
+WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
