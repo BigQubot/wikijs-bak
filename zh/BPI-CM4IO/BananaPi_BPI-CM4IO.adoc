@@ -1,0 +1,84 @@
+= BPI-CM4IO Introduction
+
+BananaPi BPI-CM4IO board is design for link:/en/BPI-CM4/BananaPi_BPI-CM4[Banana Pi BPI-CM4] or RPi-CM4.
+
+image::/bpi-cm4/cm4-io_board_1.jpg[cm4-io_board_1.jpg]
+
+TIP:  Rockchip RK3568 design link:/en/BPI-CM2/BananaPi_BPI-CM2[Banana Pi BPI-CM2] computer module +
+Amlogic A311D design : link:/en/BPI-CM4/BananaPi_BPI-CM4[Banana Pi BPI-CM4] computer module +
+Amlogic A311D2 design : link:/en/BPI-CM5/BananaPi_BPI-CM5[Banana Pi BPI-CM5] computer module
+
+== Key Features
+
+* Support MIPI DSI Display interface
+* Support MIPI CSI Camera interface
+* Minipcie
+* HDMI output
+* 26 PIN GPIO 
+* USB TypeC OTG
+* TF Card slot
+* SIM Card Slot
+* RJ45(1 Gigabyte Ethernet)
+* USB 2.0 *2
+* UART Debug Interface
+* AD Key
+* Size: 100x72mm
+
+= Hardware
+
+== BPI-CM4 moudule base board interface
+
+image::/bpi-cm4/banana_pi_bpi-cm4_io_interface.jpg[banana_pi_bpi-cm4_io_interface.jpg]
+
+== BPI-CM4 Photo
+
+link:/en/BPI-CM4/Photo_BPI-CM4[Banana Pi BPI-CM4 Product photo gallery]
+
+== BPI-CM4 Module PIN Out define
+
+[option="header",cols="1,1,1,1"]
+|=====
+4+| **HardWare Specification of Banana Pi M2+(Plus)**
+| GPIO Pin Name | Default Function | Function2：GPIO | Function3
+| CON2-P01      | VCC-3V3          |                |          
+| CON2-P02      | DCIN             |                |          
+| CON2-P03      | I2C1_SDA         | GPIOX-17       |          
+| CON2-P04      | DCIN             |                |          
+| CON2-P05      | I2C1_SCL         | GPIOX-18       |          
+| CON2-P06      | GND              |                |          
+| CON2-P07      | SPDIF_IN         | GPIOH_5        |          
+| CON2-P08      | UART_B_TX        | GPIOX-6        |          
+| CON2-P09      | GND              |                |          
+| CON2-P10      | UART_B_RX        | GPIOX-7        |          
+| CON2-P11      |                  | GPIOAO-10      |          
+| CON2-P12      | I2SB_SCLK        | GPIOA-1        |          
+| CON2-P13      | SPDIF_OUT        | GPIOH-4        |          
+| CON2-P14      | GND              |                |          
+| CON2-P15      | IR-IN            | GPIOAO-5       |          
+| CON2-P16      | I2S_MCLK         | GPIOA-0        |          
+| CON2-P17      | VCC-3V3          |                |          
+| CON2-P18      | I2SB_LRCLK       | GPIOA-2        |          
+| CON2-P19      | SPI_A-MOSI       | GPIOX-8        |          
+| CON2-P20      | GND              |                |          
+| CON2-P21      | SPI_A-MISO       | GPIOX-9        |          
+| CON2-P22      | I2SC_DOUT_DIN_3  | GPIOA-7        |          
+| CON2-P23      | SPI_A-SCK        | GPIOX-11       |          
+| CON2-P24      | SPI_A-SS0        | GPIOX-10       |          
+| CON2-P25      | GND              |                |          
+| CON2-P26      | I2SC_DOUT_DIN_0  | GPIOA-3        |
+|=====
+
+=== UART specification
+
+[option="header",cols="1,1,1"]
+|=====
+| CON1-P1       | GND              |     
+| CON1-P2       | UART0-RX         |     
+| CON1-P3       | UART0-TX         |     
+|=====
+
+= Development
+== Resources
+TIP: https://drive.google.com/file/d/1IErCKqfWdU7gL7kUod2-wlpG7uE9EiVZ/view?usp=sharing[BPI-CM4 Base board Schematic]
+
+TIP: https://drive.google.com/file/d/1-K3ESgU63S4ynwwNbe0p3Ol1ajOsufQ8/view?usp=sharing[BPI-CM4 Base board DXF file]
