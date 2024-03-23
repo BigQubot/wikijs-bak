@@ -1,0 +1,697 @@
+= BPI-M64 Introduction
+
+Banana Pi BPI-M64 is a 64-bit quad-core mini single board computer. It features 2GB of RAM and 8GB eMMC. It also has onboard WiFi and BT. On the ports side, the BPI-M64 has 2 USB A 2.0 ports, 1 USB OTG port, 1 HDMI port, 1 audio jack, and lastly a DC power port. The processor is pin-to-pin comptialbe with R18, so it comes with two versions: M64 and M64-R18.
+
+image::/picture/bpi-m64_960x360.jpg[bpi-m64_960x360.jpg]
+
+Also being a member of the Banana Pi family, the M64 is a big jump from the octa-core BPI-M3. This is because this Banana Pi BPI is named after its 64-bit SoC. BPI-M64 will be reserved for an upcoming board
+
+BPI-M64 is an open platform device, it is for anyone who wants to play and build with developer technology instead of simply using consumer technology. Backed by our community, starting a project and building servers is fun and rewarding. We welcome all companies, DIYers, and tech loving people within our community! Together, we can make a difference, we can discover our passions, inspire others, and build a practical project.
+
+== Key Features
+
+- Allwinner A64 1.2 Ghz Quad-Core ARM Cortex A53 64-Bit Processor.
+- 2 GB DDR3 SDRAM
+- 8G EMMC
+- 10/100/1000Mbps Ethernet
+- WiFi (AP6212) & Bluetooth
+- MIPI LCD interface
+- Camera interface
+
+== Getting Start
+
+TIP: link:/en/BPI-M64/GettingStarted_BPI-M64[Getting Started BPI-M64]
+
+= Hardware
+== Hardware Interface
+
+image::/picture/bpi-m64_interface.jpg[bpi-m64_interface.jpg]
+
+== Hardware Spec
+
+[options="header",cols="1,4"]
+|=====
+2+| **HardWare Specification of Banana Pi M64**
+| CPU             | Allwinner 64 Bit Quad Core ARM Cortex A53 1.2 GHz CPU
+| GPU             | Dual core Mali 400 MP2 GPU
+| Memory          | 2GB LPDDR3 (shared with GPU)
+| Storage         | MicroSD slot with support for up to 256GB expansion and 8G eMMC flash with support for up to 64GB
+| Network         | 10/100/1000 Mbit/s Ethernet + Wi-Fi 802.11 b/g/n + Bluetooth 4.0
+| Video Input(s)  | A CSI input connector allows for the connection of a designed camera module
+| Video Output(s) | 1080p capable HDMI port and multi-channel audio output (NO H./X.265 capabilities)
+| Audio Input(s)  | On board microphone
+| Audio Output(s) | 3.5mm jack and HDMI
+| USB ports       | USB 2.0 PORT (x2), USB OTG (x1)
+| Remote          | IR Receiver
+| GPIO            | 40 Pin Header : GPIO (x28) and Power (+5V, +3.3V and GND). GPIO pins can be used for UART, I2C, SPI or PWM
+| Switches        | Reset, Power and U-boot
+| LED             | Power Status and 8P8C    
+| Power Source    | 5 volt @2A via DC Power and/or Micro USB (OTG)
+| Size & Weight   | 92x60mm, 48g             
+| OS              | Android and Linux 
+|=====
+
+== GPIO Pin Define
+
+=== BPI-M64 40PIN GPIO
+
+[options="header",cols="1,1,1,1"]
+|=====
+4+| **40 PIN GPIO of Banana pi BPI-M64**
+| GPIO Pin Name	| Default Function	| Function2：GPIO	| Function3
+| CON2-P01 | VCC-3V3   |      |        
+| CON2-P02 | VCC-5V    |      | 　 　      
+| CON2-P03 | TWI1-SDA  | PH3  | 　        
+| CON2-P04 | VCC-5V    |      | 　        
+| CON2-P05 | TWI1-SCK  | PH2  |          
+| CON2-P06 | GND       |      | 　        
+| CON2-P07 | PH6       | PH6  | 　        
+| CON2-P08 | UART2-TX  | PB0  | 　        
+| CON2-P09 | GND       |      | 　 　      
+| CON2-P10 | UART2-RX  | PB1  | 　        
+| CON2-P11 | PH7       | PH7  | 　        
+| CON2-P12 | UART2-CTS | PB3  | 　        
+| CON2-P13 | DMIC-CLK  | PH10 | 　        
+| CON2-P14 | GND       |      | 　 　      
+| CON2-P15 | DMIC-DIN  | PH11 | 　        
+| CON2-P16 | UART2-RTS | PB2  | 　        
+| CON2-P17 | VCC-3V3   |      | 　 　      
+| CON2-P18 | PD4       | PD4  | 　        
+| CON2-P19 | SPI1-MOSI | PD2  | UART4-TX 
+| CON2-P20 | GND       |      | 　 　      
+| CON2-P21 | SPI1-MISO | PD3  | UART4-RX 
+| CON2-P22 | PC0       | PC0  | 　        
+| CON2-P23 | SPI1-CLK  | PD1  | UART3-RX 
+| CON2-P24 | SPI1-CS   | PD0  | UART3-TX 
+| CON2-P25 | GND       |      | 　 　      
+| CON2-P26 | PC2       | PC2  |          
+| CON2-P27 | PC4       | PC4  |          
+| CON2-P28 | PC3       | PC3  |          
+| CON2-P29 | PC7       | PC7  |          
+| CON2-P30 | GND       |      |        
+| CON2-P31 | PCM0-BCLK | PB5  |          
+| CON2-P32 | PCM0-DIN  | PB7  | 　        
+| CON2-P33 | PCM0-SYNC | PB4  |          
+| CON2-P34 | GND       |      |        
+| CON2-P35 | PCM0-DOUT | PB6  |          
+| CON2-P36 | PL9       | PL9  | 　        
+| CON2-P37 | PL12      | PL12 | 　        
+| CON2-P38 | PL7       | PL7  | 　        
+| CON2-P39 | GND       |      | 　 　      
+| CON2-P40 | PL8       | PL8  |       
+|=====
+
+=== CSI Camera Connector specification
+
+[options="header",cols="1,1,1"]
+|=====
+3+| **CSI camer PIN define of Banana pi BPI-M64**
+| CSI Pin Name	| Default Function	| Function2：GPIO
+| CN5-P01 | NC         | 　    
+| CN5-P02 | GND        | 　    
+| CN5-P03 | CSI0-SDA   | PE13 
+| CN5-P04 | CSI0-AVDD  | 　    
+| CN5-P05 | CSI0-SCK   | PE12 
+| CN5-P06 | CSI0-Reset | PE16 
+| CN5-P07 | CSI0-VSYNC |      
+| CN5-P08 | CSI0-PWDN  | PE17 
+| CN5-P09 | CSI0-HSYNC | PE2  
+| CN5-P10 | CSI0-DVDD  | 　    
+| CN5-P11 | CSI0-DOVDD | 　    
+| CN5-P12 | CSI0-D7    | PE11 
+| CN5-P13 | CSI0-MCLK  | PE1  
+| CN5-P14 | CSI0-D6    | PE10 
+| CN5-P15 | GND        | 　    
+| CN5-P16 | CSI0-D5    | PE9  
+| CN5-P17 | CSI0-PCLK  | PE0  
+| CN5-P18 | CSI0-D4    | PE8  
+| CN5-P19 | CSI0-D0    | PE4  
+| CN5-P20 | CSI0-D3    | PE7  
+| CN5-P21	| CSI0-D1	   | PE5
+| CN5-P22	| CSI0-D2	   | PE6
+| CN5-P23	| GND	       | 
+| CN5-P24	| CSI0-AFVCC |    
+|=====
+
+=== MIPI DSI (Display Serial Interface)
+
+[options="header",cols="1,1,1"]
+|=====
+3+| **MIPI DSI display PIN define of Banana pi BPI-M64**
+| DSI Pin Name	| Default Function	| Function2：GPIO
+| CN6-P01 | VCC       | 　   
+| CN6-P02 | IPSOUT    | 　   
+| CN6-P03 | VCC       | 　   
+| CN6-P04 | IPSOUT    | 　   
+| CN6-P05 | GND       | 　   
+| CN6-P06 | IPSOUT    | 　   
+| CN6-P07 | GND       |     
+| CN6-P08 | IPSOUT    | 　   
+| CN6-P09 | NC        | 　   
+| CN6-P10 | GND       |     
+| CN6-P11 | NC        |     
+| CN6-P12 | DSI-D0N   |     
+| CN6-P13 | NC        | 　   
+| CN6-P14 | DSI-D0P   |     
+| CN6-P15 | NC        | 　   
+| CN6-P16 | GND       |     
+| CN6-P17 | TWI0-SDA  | PH1 
+| CN6-P18 | DSI-D1N   |     
+| CN6-P19 | TWI0-SCK  | PH0 
+| CN6-P20 | DSI-D1P   |     
+| CN6-P21 | CTP-INT   | PH4  
+| CN6-P22 | GND       | 　    
+| CN6-P23 | CTP-RST   | PH8  
+| CN6-P24 | DSI-CKN   |      
+| CN6-P25 | GND       |      
+| CN6-P26 | DSI-CKP   | 　    
+| CN6-P27 | LCD-BL-EN | PD5  
+| CN6-P28 | GND       |      
+| CN6-P29 | LCD-RST   | PD6  
+| CN6-P30 | DSI-D2N   | 　    
+| CN6-P31 | LCD-PWR-EN| PD7  
+| CN6-P32 | DSI-D2P   | 　    
+| CN6-P33 | GND       |      
+| CN6-P34 | GND       | 　    
+| CN6-P35 | LCD-PWM   | PL10 
+| CN6-P36 | DSI-D3N   |      
+| CN6-P37 | GND       |      
+| CN6-P38 | DSI-D3P   | 　    
+| CN6-P39 | NC        |      
+| CN6-P40 | GND       |      
+|=====
+
+=== BPI-M64 Debug UART
+
+|=====
+| CON2 P03	| UART0-TXD	| PB8
+| CON2 P02	| UART0-RXD	| PB9
+| CON2 P01	| GND	      |    
+|=====
+
+= Development
+== Source Code
+
+=== Linux
+
+TIP: BPI-M64 (allwnner A64) Linux 4.4 source code: https://github.com/BPI-SINOVOIP/BPI-M64-bsp-4.4
+
+Forum pthread: http://forum.banana-pi.org/t/banana-pi-bpi-m64-allwnner-a64-linux-4-4-source-code-public-on-github/6706
+
+TIP: BPI-M64 Linux kernel 3.4 BSP code: https://github.com/BPI-SINOVOIP/BPI-M64-bsp
+
+=== Android
+
+TIP: BPI-M64 Android 7 source code
+
+Download link : https://github.com/BPI-SINOVOIP/BPI-A64-Android7
+
+TIP: BPI-M64 Android 6.0.1 source code
+
+Download link : https://drive.google.com/open?id=0B_YnvHgh2rwjdTRVRVFaSHd2cnc
+
+=== Win 10 IoT
+TIP: BPI-M64 Win10 IoT source code: https://bananapi.gitbooks.io/bpi-m64/content/en/sourcecodeongithub.html
+
+=== Robot Operating System (ROS)
+TIP: BPI-M64 Robot Operating System (ROS)
+
+Github: https://github.com/techping/BPI-robot-1
+
+Discuss on forum: http://forum.banana-pi.org/t/discuss-robot-operating-system-ros-on-banana-pi/10967
+
+== Resources
+
+TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
+
+TIP: All banana pi link:https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[docement(SCH file,DXF file,and doc)]
+
+TIP: Schematic diagram:
+
+Google driver :link:https://drive.google.com/drive/folders/0B4PAo2nW2KfnflVqbjJGTFlFTTd1b1o1OUxDNk5ackVDM0RNUjBpZ0FQU19SbDk1MngzZWM?resourcekey=0-ZRCiv304nGzvq-w7lwnpjg&usp=sharing[google driver]
+
+Baidu cloud : http://pan.baidu.com/s/1kVRpcYb
+
+TIP: DXF file google download link: https://drive.google.com/file/d/0B4PAo2nW2KfnajlEY0xsdjNxY3c/view?usp=sharing
+
+TIP: Allwinner A64 chip datasheet: https://drive.google.com/file/d/0B4PAo2nW2KfnSW9lQnZ0d1RoVW8/view?usp=sharing
+
+TIP: Allwinner A64 user’s manual (720 pages): https://drive.google.com/file/d/0B4PAo2nW2KfnNHk4dkFJZEdqYXc/view?usp=sharing
+
+TIP: AXP803 Datasheet V1.0.pdf : https://drive.google.com/file/d/1nRbP1T02KlNZBbTJx4BHW5wVWvQPmDxC/view?usp=sharing
+
+TIP: A64 chip linux-sunxi wiki: http://linux-sunxi.org/A64
+
+TIP: BPI-M64 linux-sunxi wiki: https://linux-sunxi.org/Banana_Pi_M64
+
+TIP: Recording: burning the linux image to EMMC on M64 for the first time: https://forum.banana-pi.org/t/recording-burning-the-linux-image-to-emmc-on-m64-for-the-first-time/15477
+
+TIP: Other document about allwinner A64 chip: http://bundie.neterra.net:8080/a64/
+
+TIP: Battery interface spec ： https://drive.google.com/file/d/0B4PAo2nW2KfnSmVuVDhQc0NLdG8/view?usp=sharing
+
+TIP: BPI-M64 quality guarantee:
+
+BPI-M64 BT Lab test : https://bananapi.gitbooks.io/bpi-m64/content/en/bpi-m64bt40labtest.html
+
+BPI-M64 WIFI Lab test : https://bananapi.gitbooks.io/bpi-m64/content/en/bpi-m264wifilabtest.html
+
+BPI-M64 Validation test : https://bananapi.gitbooks.io/bpi-m64/content/en/bpi-m64validationtestreport.html
+
+CE FCC RoHS : http://forum.banana-pi.org/t/bpi-m64-ce-fcc-rohs-certification/2747
+
+== Basic Development
+=== Win 10 IoT
+
+TIP: Banana pi BPI-M64 IOT certifying pass by Microsoft: windows 10 iot core
+
+BPI-M64 for Win10 IoT : https://catalog.azureiotsolutions.com/details?title=Allwinner_Banana_Pi_BPI_M64&source=all-devices-page
+
+image::/picture/win10_1.png[win10_1.png]
+
+Link: https://azure.microsoft.com/en-us/documentation/articles/iot-hub-tested-configurations/
+
+Get start: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-iot-core-banana-pi-bpi-m64-csharp.md
+
+test on BPI-M64
+
+image::/picture/win10_2.jpg[win10_2.jpg]
+
+Discuss on forum: http://forum.banana-pi.org/t/banana-pi-bpi-m64-iot-certifying-pass-by-microsoft-windows-10-iot-core/2090
+
+=== Windows 10 IoT Core for BPI-M64 Release Note
+
+TIP: The Unified Extensible Firmware Interface (UEFI]) is a specification that defines a software interface between an operating system and platform firmware. UEFI replaces the Basic Input/Output System (BIOS) firmware interface originally present in all IBM PC-compatible personal computers AllWinner UEFI Firmware Release Notes
+
+TIP: This document describes how to build AllWinner UEFI Firmware and bring a AllWinner dev board up with it. The AllWinner UEFI Firmware, as the major boot system for AllWinner-Windows platform, is based on the EDK2 framework which is open-source and with some AllWinner platform software packages injected.
+
+TIP: Some updates:
+
+. Update the OS version to build v.10.0.15063.0 \(Creators Update\)
+. New page style of Device Portal, visit https://deviceipaddr:8080 to check it
+. Built-in Cortana assistant, need to be enabled in settings page in default app and Device Portal
+. Support on-screen keyboard, need to be enabled in Device Portal
+. Enable 100M Ethernet and fix some bugs
+. Support built-in UART bus in A64 SoC\(not built in the ffu, later provide driver binary and deployment helper\)
+. Support built-in IR module in A64 SoC\(not built in the ffu, later provide source code and dev doc for developers in community\)
+
+TIP: Known Issues:
+
+. Kernel debug is enabled by default. This will slow the bring-up process. If a kernel debug is not necessary for you, visit Device Portal and navigate to Processes->Run Command page
+. run this command to disable : Bcdedit /store C:\EFIESP\EFI\Microsoft\boot\BCD /set {default} debug off
+. An PnP bug in audio device may cause a blue screen when acting software shutdown
+. Ethernet device may not start with problem code 12 at the first time to bring up
+
+TIP: And another bomb! I uploaded core driver binaries and packaging toolchains on GitHub!
+
+Here is the repo address: https://github.com/Leeway213/BSP-aw1689
+
+And also some driver source code here with A64 datasheet in readme: https://github.com/Leeway213/driver-samples
+
+Welcome makers developers and anyone-elsers to post your feedback.
+
+=== Microsoft Azure IoT
+TIP: We have test BPI-M64 with Microsoft Azure IoT with aarch64 Ubuntu 18.04 Linux
+
+Microsoft Azure IoT Edge using DPS with TPM 2.0 SLB9670 : https://www.youtube.com/watch?v=k9_GSQgKlqk&feature=youtu.be
+
+Microsoft Azure IoT Edge using DPS with TPM 2.0 ST33 i2c : https://www.youtube.com/watch?v=2MrO1-esjwI&feature=youtu.be
+
+== Amazon AWS Greengrass
+
+TIP: Banana Pi BPI-M64 passed Amazon AWS Greengrass: https://devices.amazonaws.com/detail/a3G0h000000OvPoEAK/Banana-Pi-BPI-M64
+
+= System Image
+== Android
+NOTE: 2020-07-10 update, Android 7.1, base on kernel 3.10
+
+link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/?p=%2FImages%2FBPI-M64%2FAndroid7.1&mode=list[Download Android 7.1 image]
+
+
+NOTE: 2018-10-24 update Android 6.0 ,HDMI & LCD7, based on kernel 3.10.
+
+
+Features Map: http://newwiki.banana-pi.org/en/BPI-M64/M64_Image_Map#_android_6_0
+
+
+**HDMI Version Image Links**
+
+Google Drive : https://drive.google.com/open?id=1Em7ZXVvbJI7wMXy_TM4VNwHo6Oa-vVBc
+
+Baidu Drive : https://pan.baidu.com/s/1ZginIvO3LVakqokIZAX1Xw
+
+**LCD7 Version Image Links**
+
+Google Drive : https://drive.google.com/open?id=1Tts1krZyzwz9mL90j1ilTzVrJm6hh_J4
+
+Baidu Drive : https://pan.baidu.com/s/1oKMx_Ml5K1Jv7-qeS-NMsQ
+
+
+
+NOTE: 2018-10-24 update ,Android 7.0 HDMI & LCD7, based on kernel 3.10. 
+
+Features Map: http://newwiki.banana-pi.org/en/BPI-M64/M64_Image_Map#_android_7_0
+
+
+**HDMI Version Image Links：**
+
+Google Drive : https://drive.google.com/open?id=1mvKyK6KuPixs-jLD0FocIaV465bJ1Eig
+
+Baidu Drive : https://pan.baidu.com/s/15b32TXdh6752c-GBnR-Zeg
+
+**LCD7 Version Image Links:**
+
+Google Drive : https://drive.google.com/open?id=16Ffc5xiZgD7JYgrMtCGaOYLCuZdQGcnY
+
+Baidu Drive : https://pan.baidu.com/s/1a9RYKSTRhCO-UzFfIoGCtQ
+
+NOTE: 2018-10-24 update, Android 8.1 HDMI & LCD7, based on kernel 3.10. 
+
+Features Map: http://newwiki.banana-pi.org/en/BPI-M64/M64_Image_Map#_android_8_1
+
+**HDMI Version Image Links:**
+
+Google Drive : https://drive.google.com/open?id=1UBaH9CNbmC9-n3jGImrFIAPZ8aZhqMJz
+
+Baidu Drive : https://pan.baidu.com/s/1lz57HrqNHx6f_Q6nk0oZvA
+
+**LCD7 Version Image Links:**
+
+Google Drive : https://drive.google.com/open?id=1wktuCcvolfozMFkLmugfZtGziHDj-1EM
+
+Baidu Drive : https://pan.baidu.com/s/1MteYqyBp8LeECjcDteCTZQ
+
+Forum pthread: http://forum.banana-pi.org/t/banana-pi-bpi-m64-new-images-android-6-0-7-0-8-1-release-2018-10-24/7107
+
+
+NOTE: 2018-9-17 update android 6.0,HDMI & LCD7
+
+Features Map :http://newwiki.banana-pi.org/en/BPI-M64/M64_Image_Map#_android_6_0
+
+**HDMI Version Image Links:**
+
+Google Drive : https://drive.google.com/open?id=19ExJ9Ztfy3UgK9NZ4SiaVZAMozgyCJl7
+
+Baidu Drive : https://pan.baidu.com/s/1s_orgiEI7JU_hUgjnpd25w
+
+**LCD7 Version Image Links:**
+
+Google Drive : https://drive.google.com/open?id=1gWD_IT0P4NvdeqtK5I4MnJjwzsP7SXJc
+
+Baidu Drive : https://pan.baidu.com/s/1K0HYPiQe6nGvAS5bAAFHow
+
+Forum pthread : http://forum.banana-pi.org/t/banana-pi-bpi-m64-new-images-release-2018-09-18/6796
+
+
+NOTE: 2018-08-17 update,android 8.1,HDMI & LCD7
+
+This release is for banana pi M64 board which is based on Allwinner A64, We have two images release，Android 8.1 is based on kernel 4.9
+
+Features Map: http://newwiki.banana-pi.org/en/BPI-M64/M64_Image_Map#_android_8_1
+
+Google Drive : https://drive.google.com/open?id=11XjvTAbPw57R6H5kL27GVXry4xu18dVs
+
+Baidu Drive : https://pan.baidu.com/s/1PQgJCUo6cY3wWxJ7rZrk-A
+
+Forum pthread: http://forum.banana-pi.org/t/bananapi-bpi-m64-a64-new-image-android-8-1-ubuntu-release-2018-08-17/6531
+
+
+NOTE: 2018-05-20 update ,android 7.0, HDMI & LCD5.0
+
+Baidu cloud : https://pan.baidu.com/s/1O3PsI73WmFFvhxMmzEscIQ
+
+
+NOTE: 2017-05-11 update ,android 6.0
+
+**HDMI-Version**
+
+Google Drive: https://drive.google.com/open?id=0B_YnvHgh2rwjcF9USm1MWWtxSXc
+
+Baidu Cloud: https://pan.baidu.com/s/1bHWhlW
+
+MD5: f85281213b9c5b88008a487dd1b6963c
+
+**LCD-Version**
+
+Google Drive: https://drive.google.com/open?id=0B_YnvHgh2rwjdHpFbHJMQWtsbFk
+
+Baidu Cloud: https://pan.baidu.com/s/1kVJVPGV
+
+MD5: be27e4eced96d3de81d46e512fd978eb
+
+Forum pthread: http://forum.banana-pi.org/t/bpi-m64-new-image-android-6-0-version-v3/3240/4
+
+
+== Linux
+
+=== Ubuntu
+
+NOTE: 2020-08-26 update, Ubuntu Mate 18.04, Ubuntu Server 16.04,  base on kernel 4.4
+
+link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/?p=%2FImages%2FBPI-M64%2Flinux&mode=list[Download Image]
+
+NOTE: 2020-04-21 update,  Ubuntu 16.06 Mate Desktop, Ubuntu 16.06 Server and Ubuntu 18.04 Mate Desktop, base on kernel 4.4
+
+Google drive: https://drive.google.com/drive/folders/0B_YnvHgh2rwja3I4SllZN2VkYm8
+
+Baidu cloud: https://pan.baidu.com/s/18XH8_uusUGBusbp4xw4txQ PinCode：36R0
+
+NOTE: 2018-11-02 update, BPI-M64 Ubuntu 16.04 Desktp
+
+Features Map: http://docs.banana-pi.org/en/BPI-M64/M64_Image_Map#_ubuntu_desktop_16_04
+
+Google Drive : https://drive.google.com/file/d/1YzdkY8i-IsXzXLkbPCPNbAuhYbHmUwgv/view
+
+Baidu Drive : https://pan.baidu.com/s/1XhOJBQtPkhvidjgipFNdzg
+
+Md5 : 3564f0d3de9936aa26b93eaf027703a0
+
+NOTE: 2018-11-02 update,BPI-M64 Ubuntu 16.04 AARCH64 Kernel 3.10
+
+Features Map : http://docs.banana-pi.org/en/BPI-M64/M64_Image_Map#_ubuntu_desktop_aarch64_16_04
+
+Google Drive : https://drive.google.com/file/d/1MglySZLvquRPu1Wj8oLwdKBkFnRzLUL-/view
+
+Baidu Drive : https://pan.baidu.com/s/1_ZTDCuL9QZf6qrqaE4gbgQ
+
+Md5 : 7422e02daa01bff6de808490e89b436e
+
+NOTE: 2018-11-02 update,BPI-M64 Ubuntu 16.04 AARCH64 Kernel 4.4
+
+features Map: http://docs.banana-pi.org/en/BPI-M64/M64_Image_Map#_kernel_4_4_89
+
+Google Drive : https://drive.google.com/file/d/1g_m1NLn1-wUQ8jjPKEAwQcSj4d4P9vRP/view
+
+Baidu Drive : https://pan.baidu.com/s/1JmKQGRKvJ9DwL_ij0K79FA
+
+Md5 : ea9bba6ab7fc78f7b8478bfd013a9b50
+
+Forum pthread: http://forum.banana-pi.org/t/banana-pi-bpi-m64-new-images-ubuntu16-04-desktop-aarch64-release-2018-11-1/7159/1
+
+NOTE: 2018-4-17 update Ubuntu 16.04.4 with linux kernel 4.4.89
+
+Google Drive: https://drive.google.com/open?id=1dlfo9LGNcrc-_cpKd1uJnrNx0PdonBnK
+
+MD5: 4b7e163d260e58a39ba8905e7ed39943
+
+Forum pthread: http://forum.banana-pi.org/t/bpi-r18-avs-new-image-ubuntu-16-04-4-with-linux-kernel-4-4-89-2018-4-17/5435
+
+NOTE: 2018-09-18 This release is for banana pi M64 board which is based on Allwinner A64, We release three Images, Ubuntu 16.04 Desktop & Android is based on kernel 3.10.
+
+Features Map : http://docs.banana-pi.org/en/BPI-M64/M64_Image_Map#_ubuntu_desktop_16_04
+
+Baidu Drive : https://pan.baidu.com/s/1wANJ4SwfNwKtBcd02WcbWA
+
+Forum pthread : http://forum.banana-pi.org/t/banana-pi-bpi-m64-new-images-release-2018-09-18/6796
+
+NOTE: 2018-08-17 update Ubuntu 16.04 Server kernel 3.10.105
+
+Google Drive : https://drive.google.com/open?id=1K-B4u8jGcv17s3I9v-Pr0xv5u5txvfok
+
+Baidu Drive : https://pan.baidu.com/s/1HcrR8NsL9_1RwbZNa7uwmg
+
+Forum pthread: http://forum.banana-pi.org/t/bananapi-bpi-m64-a64-new-image-android-8-1-ubuntu-release-2018-08-17/6531
+
+NOTE: 2017-08-14 update based on ubuntu 16.04.3 LTS Mate Desktop (64-bit),support BPI-M64 kernel 3.10.105
+
+Google Drive: https://drive.google.com/file/d/0B_YnvHgh2rwjN1h1U0xDYUxET00/view?usp=sharing
+
+Baidu cloud: http://pan.baidu.com/s/1pLkbdTT
+
+MD5 : ae34baa840874276858d936a7ca85c4f
+
+Forum pthread: http://forum.banana-pi.org/t/bpi-m64-new-image-2017-08-14-ubuntu-16-04-mate-desktop-beta-aarch64-bpi-m64-sd-emmc/3695
+
+=== Debian
+
+NOTE: 2022-09-07 Armbian_22.11.0-trunk_Bananapim64_bullseye_edge_5.19.7_xfce_desktop.img
+
+Google Drive: https://drive.google.com/file/d/1UUbn24l3q_OsVP4XWT6eVQN531tHPzX0/view?usp=sharing
+
+Baidu Cloud: https://pan.baidu.com/s/1vFR9sUR0FhWgS1pemk9lTg?pwd=ina6 (pincode: ina6)
+
+NOTE: 2018-11-2 update ,M64 Debian 9.5 AARCH64 Kernel 3.10
+
+Features Map :  http://docs.banana-pi.org/en/BPI-M64/M64_Image_Map#_debian_9_5_aarch64
+
+Google driver : https://drive.google.com/file/d/10qGv2gVrSgwXMBLDsCF0nQFc9EJnnkeS/view
+
+Baidu Drive : https://pan.baidu.com/s/1DJd7CGAT0NiijKfOBq9J4Q
+
+Md5 : 71fe25c1922c7f9ef81bb88e0f544de6
+
+NOTE: 2018-11-2 update ,M64 Debian 9.5 AARCH64 Kernel 4.4
+
+Features Map: http://docs.banana-pi.org/en/BPI-M64/M64_Image_Map#_debian_9_5_aarch64
+
+Google Drive : https://drive.google.com/file/d/17fh3YY6cwOzHMsqwnRQRTu9cXjKU4_tV/view
+
+Baidu Drive : https://pan.baidu.com/s/1sOR6WFz2U9MT0ltq6zYnJA
+
+Md5 : f3c2391b0232178018fda7ebfd64b14c
+
+Forum pthread: http://forum.banana-pi.org/t/banana-pi-bpi-m64-new-images-debian-9-5-aarch64-release-2018-11-02/7166
+
+NOTE: 2017-08-13 debian 8.9 jessie Mate Desktop (64-bit),support BPI-M64 kernel 3.10.105
+
+Google Drive: https://drive.google.com/file/d/0B_YnvHgh2rwjazlNRTRHei1NbmM/view?usp=sharing
+
+Baidu cloud: http://pan.baidu.com/s/1eSeTQeA
+
+MD5: 9ddf067457ebaf193de63c5c7141446a
+
+Forum pthread: http://forum.banana-pi.org/t/bpi-m64-new-image-2017-08-13-debian-8-jessie-mate-desktop-preview-aarch64-bpi-m64-sd-emmc/3694
+
+== Third part image
+
+=== Raspbian
+
+NOTE: 2020-08-26 update, Raspbian Stretch, base on kernel 4.4
+
+link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/?p=%2FImages%2FBPI-M64%2Flinux&mode=list[Download Image]
+
+NOTE: 2018-11-06 update, BPI-M64 Raspbian 9.4 Kernel 3.10
+
+Features Map : http://docs.banana-pi.org/en/BPI-M64/M64_Image_Map#_raspbian_9_4_aarch64
+
+Google Drive : https://drive.google.com/file/d/1qoKCVDgiuEj0IVEzuPgzuFLjFR9hTLH8/view
+
+Baidu Drive : https://pan.baidu.com/s/1MlIzQRpjs_soBDXOKf8NAw
+
+Md5 : e321c6dbb096a0348fceb9d4a0b6c210
+
+NOTE: 2018-11-06 update, BPI-M64 Raspbian 9.4 Kernel 4.4
+
+Features Map : http://docs.banana-pi.org/en/BPI-M64/M64_Image_Map#_kernel_4_4_89_4
+
+Google Drive : https://drive.google.com/file/d/1WnsHKnbI_FWQVkHQmbCcJ3yJ38oWaHGy/view
+
+Baidu Drive : https://pan.baidu.com/s/1Bu-xiqiYsnau_xZp8-QEkw
+
+Md5 : 1d4f00680e6869e2c4e66e205e61d93d
+
+Forum pthread: http://forum.banana-pi.org/t/banana-pi-bpi-m64-new-images-raspbian-9-4-kernel-3-10-4-4-release-2018-11-06/7195
+
+=== Armbian
+
+NOTE: Armbian_23.02.0-trunk_BananaPi_M64_jammy.img
+
+Baidu Cloud: https://pan.baidu.com/s/1hkkl22uVjvRct1V7N4OK2w?pwd=8888
+
+Google Drive: https://drive.google.com/drive/folders/1VpvVkYMqgmSnmfKXQSrEY2B6wRa-cggL?usp=share_link
+
+Discuss on forum: https://forum.banana-pi.org/t/banana-pi-bpi-m64-new-armbian-image/15161
+
+NOTE: 2022-09-07 Armbian_22.11.0-trunk_Bananapim64_jammy_edge_5.19.7_xfce_desktop.img
+
+Google Drive: https://drive.google.com/file/d/1_BaSpSdIaxJYy-QjaXLsOrJ25Ja7vA78/view?usp=sharing
+
+Baidu Cloud: https://pan.baidu.com/s/1uOex7pm2tPhfJ47hoXIuGA?pwd=7hms PinCode: 7hms
+
+NOTE: link:https://www.armbian.com/bananapi-m64/[Armbian] Image is base on Linux Mainline kernel
+
+=== Fedora Linux
+
+NOTE: BPI-M64 fedora image download(not support desktop): fedora 31 with grub (u-boot-2019.07 + kernel 5.3.0)
+
+https://drive.google.com/file/d/1dIr943Ke28lEtCDpy8cI3q1dBUtHymJP/view?usp=drivesdk
+
+https://drive.google.com/file/d/1F3nYOw9AiLLaz8be0umz_9nlnhDP3t0s/view?usp=drivesdk
+
+Forum pthread: http://forum.banana-pi.org/t/bananapi-bpi-m64-new-image-fedora-31-with-grub-u-boot-2019-07-kernel-5-3-0/9938
+
+=== Manjaro
+
+NOTE: 2019-01-15 update,BananaPi BPI-M64 Support Run Manjaro AArch64 System
+
+Baidu Drive: https://pan.baidu.com/s/18drwPBFKAzf4lFe6IPjaPA
+
+Google Drive: https://drive.google.com/open?id=1Lu8xw4sAVyiHJT4eYcolNTAIKG154gm6
+
+Bpi Ftp Server: https://dev.banana-pi.org.cn/Image/BPI-M64/Manjaro/
+
+Md5 : 8c9964fbd80836228c72fa205eb62f78
+
+Username: manjaro/root
+
+Password: bananapi
+
+Forum pthread: http://forum.banana-pi.org/t/bananapi-bpi-m64-new-image-manjaro-aarch64-system-2019-01-16/7696
+
+=== FreeBSD
+
+NOTE: FreeBSD on Allwinner (sunxi) systems for banana pi
+
+Banana pi as the official partner of Allwinner , must banana pi product use Allwinner chip design . such as A20/A31S/H3/H2+/A64/A83T , and FreeBSD have support many Allwinner . so easy to use on banana pi board.
+
+- Allwinner A20 (sun7i), a dual-core Cortex-A7 BPI-M1/BPI-M1+/BPI-R1
+- Allwinner A31 and A31s (sun6i), a quad-core Cortex-A7 BPI-M2
+- Allwinner A64 (sun50i), a quad-core Cortex-A53 BPI-M64
+- Allwinner A83T (sun8i), an octa-core Cortex-A7 BPI-M3
+- Allwinner H3 (sun8i), a quad-core Cortex-A7 BPI-M2+/BPI-M2+ EDU/
+
+https://wiki.freebsd.org/FreeBSD/arm/Allwinner
+
+=== Clonezilla
+
+NOTE: Clonezilla support arm64 (Banana Pi BPI-M64),Thanks to Steven Shiau (NCHC Free Software Labs in Taiwan) & https://clonezilla.org/ , this image just for test .
+
+Image download: https://drive.google.com/file/d/15oj0RjoU1TPC-jOXJ2bfhLb3vAiMf7p2/view
+
+Discuss on forum: http://forum.banana-pi.org/t/bpi-m64-new-image-clonezilla-support-arm64-on-bpi-m64/10789
+
+=== Others
+
+NOTE: Others image ,you can download at forum ： http://forum.banana-pi.org/c/BPI-M64/M63image
+
+== Win 10 IoT
+
+NOTE: 2017-1-13 updae Win10 IoT Core beta0.2
+
+Baidu cloud : http://pan.baidu.com/s/1c2ce100
+
+NOTE: Win10 IoT Core 10586 beta0.1
+
+Download link : https://drive.google.com/open?id=0B_YnvHgh2rwjODJOSS1TdkRvcEk
+
+Baidu link : http://pan.baidu.com/s/1dEQyGgD
+
+MD5: 1c09118cd45bf0c3b61d1846710a3649
+
+NOTE: BPI-M64 win10 IoT: https://catalog.azureiotsolutions.com/details?title=Allwinner_Banana_Pi_BPI_M64&source=all-devices-page
+
+= FAQ
+
+WARNING:  How-to use ubuntu system to support lcd7**?
+
+. "vi /media/pi/BPI-BOOT/bananapi/bpi-m64/linux/lcd7/uEnv.txt"
+. If you use HC070TG lcd7 screen, change "touch=gt9xxnew_ts" But if you use S070WV20 lcd7 screen, you don't need to change.
+. "bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m64/u-boot-with-dtb-bpi-m64-lcd7-8k.img.gz"
+. reboot
+
+image::/picture/bpi-m64_lcd7.png[bpi-m64_lcd7.png]
+
+
+= Easy to buy
+
+WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
