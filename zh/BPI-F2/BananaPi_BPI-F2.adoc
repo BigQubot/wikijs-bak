@@ -1,0 +1,67 @@
+= BPI-F2 Introduction
+
+Banana Pi BPI-F2 use freescale IMX6 Industrial chip design. IMX6 with ARM Cortex-A9 MPCore 4xCPU processor(with TrustZone),this is ths first banana pi board design with freescale chip.
+
+image::/picture/bpi-f2.jpg[bpi-f2.jpg]
+
+== Key Features
+
+- Freescale IMX6 Industrial solutions.
+- 2G DDR3 and 8G eMMC flash
+- CAN bus function support
+- Mini PCIE interface
+- 2 camera interface: DVP and MIP
+
+
+= Hardware
+== Hardware Interface
+
+image::/picture/bpi-f2_interface.jfif[bpi-f2_interface.jfif]
+
+== Hardware Spec
+
+[options="header",cols="1,3"]
+|=====
+2+| **HardWare Specification of Banana Pi F2**
+| Soc              | Freescale IMX6
+| CPU              | ARM Cortex-A9 MPCore 4xCPU processor(with TrustZone)
+| GPU              | OpenGL ES 2.0 3D graphics accelerator with forshaders,2D graphics accelerator,and didicated OpenVG 1.1 accelerator 
+| SDRAM            | 2G DDR3
+| PCIE             | 1 mini PCIE interface 
+| CAN bus          | 1 CAN bus interface
+| SATA             | Support 1*SATA interface
+| GPIO             | 40 Pins Header, 28×GPIO, some of which can be used for specific functions including UART, I2C, SPI, PWM, I2S.      
+| On board Network | 10/100/1000 Mbit/s Ethernet 
+| Wifi Module      | N/A
+| Bluetooth        | N/A
+| On board Storage | MicroSD \(TF\) card,8G eMMC onboard (option 8-64G) 
+| Display          | HDMI out, LVDS out
+| Video            | HDMI out, LVDS out
+| Audio outputs    | 1 * 3.5 headset jack
+| Camera           | 1 * DVP camera interface and 1* MIP camera interface 
+| Audio input      | N/A 
+| USB              | 2 * USB 2.0 1* USB Otg
+| Buttons          | Power & Reset
+| Leds             | 3* RGB leds
+| IR	             | N/A
+| DC Power	       | 12V/2A with DC port
+| Battery	         | No 3.7V lithium battery power support
+| Sizes	           | 
+| Weight	         | 80g
+|=====
+
+
+= Development
+
+== Resources
+
+TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
+
+TIP: All banana pi link:https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[docement(SCH file,DXF file,and doc)]
+
+TIP: IMX.6 wiki page : https://en.wikipedia.org/wiki/I.MX#i.MX_6_series
+
+
+= Easy to buy
+
+WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
