@@ -1,0 +1,411 @@
+= BPI-CM4 Introduction
+
+image::/bpi-cm4/banana_pi_bpi-cm5_banner.jpg[banana_pi_bpi-cm5_banner.jpg]
+
+BananaPi BPI-CM4 new design with Amlogic A311D Quad core ARM Cortex-A73 and dual core ARM Cortex-A53 CPU ,ARM G52 MP4(6EE) GPU,NPU for AI at 5.0 TOPS, support Camera and MIPI-CSI interface ,HDMI output,2 Gigabit port ，4G RAM and 16 GB eMMC flash.
+
+For A311D chip PIN limited ,just support 1 HDMI ,1 CSI and 1 DSI , Raspberry Pi support 2 HDMI ,2 CSI and 2 DSI , Other is Pin2Pin . you can use Raspberry Pi CM4 baseboard.
+
+TIP: Amlogic A311D design : link:/en/BPI-M2_Super/BananaPi_BPI-M2_Super[Banana Pi BPI-M2S] single board computer +
+Amlogic A311D design : link:/en/BPI-CM4/BananaPi_BPI-CM4[Banana Pi BPI-CM4] computer module
+
+== Key Features
+
+* Amlogic  A311D Quad core ARM Cortex-A73 and dual core ARM Cortex-A53 CPU ,ARM G52 MP4(6EE) GPU
+* NPU for AI :Next generation, deep-neural-network applications, at 5.0 TOPS
+* 4GB LPDDR4 RAM
+* 16GB eMMC flash (Max 128G)
+* Support MIPI DSI Display interface
+* Support MIPI CSI Camera interface
+* Minipcie
+* HDMI output
+* 26 PIN GPIO 
+* Support Android and Linux system.
+* Size: 55x40mm
+
+== Getting Start
+
+TIP: link:/en/BPI-CM4/GettingStarted_BPI-CM4[Getting Started BPI-CM4]
+
+= Hardware
+== Hardware Interface
+
+image::/picture/banana_pi_bpi-cm4_interface_.jpg[banana_pi_bpi-cm4_interface_.jpg]
+
+== BPI-CM4 Photo
+
+link:/en/BPI-CM4/Photo_BPI-CM4[Banana Pi BPI-CM4 Product photo gallery]
+
+== BPI-CM4 Module PIN Out define
+
+[options="header",cols="3,3,1,1,3,3"]
+|===
+6+| **Banana pi BPI-CM4 PIN Out define VS Raspberry PI CM4**
+|**BPI-CM4** |**RPI CM4** |**PIN** |**PIN** |**RPI CM4** |**BPI-CM4**
+
+|GND |GND |1 |2 |GND |GND
+
+|NAT0_MDI3p |Ethernet_Pair3_P |3 |4 |Ethernet_Pair1_P |NAT0_MDI1p
+
+|NAT0_MDI3n |Ethernet_Pair3_N |5 |6 |Ethernet_Pair1_N |NAT0_MDI1n
+
+|GND |GND |7 |8 |GND |GND
+
+|NAT0_MDI2n |Ethernet_Pair2_N |9 |10 |Ethernet_Pair0_N |NAT0_MDI0n
+
+|NAT0_MDI2p |Ethernet_Pair2_P |11 |12 |Ethernet_Pair0_P |NAT0_MDI0p
+
+|GND |GND |13 |14 |GND |GND
+
+|Ethernet_LED2/1G_Active |Ethernet_nLED3_1G-Active |15 |16
+|Ethernet_SYNC_IN |LINUX_Debug_RX
+
+|Ethernet_LED1/Link |Ethernet_nLED2_1G-Link |17 |18 |Ethernet_SYNC_OUT
+|LINUX_Debug_TX
+
+|Ethernet_0_LED0/CFG_EXT |Ethernet_nLED1_Y |19 |20 |EEPROM_nWP |NC
+
+|SYS_LED2 |Pi_nLED_Activity |21 |22 |GND |GND
+
+|GND |GND |23 |24 |I2S_MCLK/GPIO26 |GPIOA_0
+
+|GPIOA_3 |GPIO21/I2S_DO |25 |26 |I2S_LRCLK/GPIO19 |GPIOA_2
+
+|GPIOA_4 |GPIO20/I2S_DI |27 |28 |GPIO13 |GPIOA_7
+
+|GPIOAO_11 |GPIO16 |29 |30 |GPIO6 |GPIOAO_10
+
+|GPIOH_5 |GPIO12 |31 |32 |GND |GND
+
+|GND |GND |33 |34 |GPO5 |GPIOH_4
+
+|GPIOA_15 |ID_SC |35 |36 |ID_SD |GPIOA_14
+
+|GPIOAO_5 |GPIO7/SPI-CE1 |37 |38 |SPI-CLK/GPIO11 |GPIOX_11
+
+|GPIOX_10 |GPIO8/SPI-CE0 |39 |40 |SPI-MISO/GPIO9 |GPIOX_9
+
+|GPIOA_11 |GPIO25 |41 |42 |GND |GND
+
+|GND |GND |43 |44 |SPI-MOSI/GPIO10 |GPIOX_8
+
+|GPIOA_12 |GPIO24/UART0-CTS |45 |46 |GPIO22 |GPIOA_5
+
+|GPIOA_13 |GPIO23/UART0-RTS |47 |48 |UART1-RXD/GPIO27 |GPIOA_6
+
+|GPIOA_1 |GPIO18/I2S_SCLK |49 |50 |UART1-TXD/GPIO17 |GPIOA_9
+
+|GPIOX_7 |GPIO15/UART0-RXD |51 |52 |GND |GND
+
+|GND |GND |53 |54 |PWM/GPIO4 |GPIOA_10
+
+|GPIOX_6 |GPIO14/UART0-TXD |55 |56 |SCL/GPIO3 |GPIOX_18
+
+|SD_CLK_B |SD_CLK |57 |58 |SDA/GPIO2 |GPIOX_17
+
+|GND |GND |59 |60 |GND |GND
+
+|SD_D3_B |SD_DAT3 |61 |62 |SD_CMD |SD_CMD_B
+
+|SD_D0_B |SD_DAT0 |63 |64 |SD_DAT5 |NC
+
+|GND |GND |65 |66 |GND |GND
+
+|SD_D1_B |SD_DAT1 |67 |68 |SD_DAT4 |NC
+
+|SD_D2_B |SD_DAT2 |69 |70 |SD_DAT7 |NC
+
+|GND |GND |71 |72 |SD_DAT6 |NC
+
+|NC |SD_VDD_Override |73 |74 |GND |GND
+
+|TF_VDD_EN |SD_PWR_ON |75 |76 |Reserved/SD_DET |CARD_DET
+
+|+5V_Input |+5V_Input |77 |78 |GPIO_VREF |NC
+
+|+5V_Input |+5V_Input |79 |80 |SCL0_Camera_3V3 |GPIOH_7
+
+|+5V_Input |+5V_Input |81 |82 |SDA0_Camera_3V3 |GPIOH_6
+
+|+5V_Input |+5V_Input |83 |84 |CM4_3V3_OUTPUT |CM4_3V3_OUTPUT
+
+|+5V_Input |+5V_Input |85 |86 |CM4_3V3_OUTPUT |CM4_3V3_OUTPUT
+
+|+5V_Input |+5V_Input |87 |88 |CM4_1V8_OUTPUT |CM4_1V8_OUTPUT
+
+|NC |WL_nDisable_3V3 |89 |90 |CM4_1V8_OUTPUT |CM4_1V8_OUTPUT
+
+|NC |BT_nDisable_3V3 |91 |92 |RUN_PG/Reset_3V3 |CPU_RST
+
+|NC |nRPIBOOT_3V3 |93 |94 |AnalogIP1/USBC_CC2 |SARADC_CH3
+
+|SYS_LED |PI_LED_nPWR |95 |96 |AnalogIP0/USBC_CC1 |ADC_KEY
+
+|NC |Camera_PWD_GPIO |97 |98 |GND |GND
+
+|NC |GLOBAL_EN_5V |99 |100 |nEXTRST |GPIOH_8
+
+|USBOTG_B_ID |USB_OTG_ID_3V3 |101 |102 |PCIe_CLK_nREQ_3V3 |PCIECK_REQN
+
+|USBOTG_B_DM |USB_N |103 |104 |Reserved |USB_A_DP
+
+|USBOTG_B_DP |USB_P |105 |106 |Reserved |USB_A_DM
+
+|GND |GND |107 |108 |GND |GND
+
+|PERST0_N |PCIe_nRST_3V3 |109 |110 |PCIe_CLK_P |PCIE_CLKP
+
+|NC |VDAC_COMP_TV |111 |112 |PCIe_CLK_N |PCIE_CLKN
+
+|GND |GND |113 |114 |GND |GND
+
+|MIPI_CSI_D0N |CAM1_D0_N |115 |116 |PCIe_RX_P |PCIE_SOC_RXP
+
+|MIPI_CSI_D0P |CAM1_D0_P |117 |118 |PCIe_RX_N |PCIE_SOC_RXN
+
+|GND |GND |119 |120 |GND |GND
+
+|MIPI_CSI_D1N |CAM1_D1_N |121 |122 |PCIe_TX_P |PCIE_TX0_P
+
+|MIPI_CSI_D1P |CAM1_D1_P |123 |124 |PCIe_TX_N |PCIE_TX0_N
+
+|GND |GND |125 |126 |GND |GND
+
+|MIPI_CSI_CLKAN |CAM1_C_N |127 |128 |CAM0_D0_N |NC
+
+|MIPI_CSI_CLKAP |CAM1_C_P |129 |130 |CAM0_D0_P |NC
+
+|GND |GND |131 |132 |GND |GND
+
+|MIPI_CSI_D2N |CAM1_D2_N |133 |134 |CAM0_D1_N |NC
+
+|MIPI_CSI_D2P |CAM1_D2_P |135 |136 |CAM0_D1_P |NC
+
+|GND |GND |137 |138 |GND |GND
+
+|MIPI_CSI_D3N |CAM1_D3_N |139 |140 |CAM0_C_N |MIPI_CSI_CLKBN
+
+|MIPI_CSI_D3P |CAM1_D3_P |141 |142 |CAM0_C_P |MIPI_CSI_CLKBP
+
+|NC |HDMI1_HOTPLUG_5V |143 |144 |GND |GND
+
+|NC |HDMI1_SDA_5V |145 |146 |HDMI1_TX2_P |NC
+
+|NC |HDMI1_SCL_5V |147 |148 |HDMI1_TX2_N |NC
+
+|NC |HDMI1_CEC_5V |149 |150 |GND |GND
+
+|HDMI_TXCEC |HDMI0_CEC_5V |151 |152 |HDMI1_TX1_P |NC
+
+|HDMI_HPDC |HDMI0_HOTPLUG_5V |153 |154 |HDMI1_TX1_N |NC
+
+|GND |GND |155 |156 |GND |GND
+
+|NC |DSI0_D0_N |157 |158 |HDMI1_TX0_P |NC
+
+|NC |DSI0_D0_P |159 |160 |HDMI1_TX0_N |NC
+
+|GND |GND |161 |162 |GND |GND
+
+|NC |DSI0_D1_N |163 |164 |HDMI1_CLK_P |NC
+
+|NC |DSI0_D1_P |165 |166 |HDMI1_CLK_N |NC
+
+|GND |GND |167 |168 |GND |GND
+
+|NC |DSI0_C_N |169 |170 |HDMI0_TX2_P |HDMI_TX2P
+
+|NC |DSI0_C_P |171 |172 |HDMI0_TX2_N |HDMI_TX2N
+
+|GND |GND |173 |174 |GNF |GND
+
+|MIPI_D0_N |DSI1_D0_N |175 |176 |HDMI0_TX1_P |HDMI_TX1P
+
+|MIPI_D0_P |DSI1_D0_P |177 |178 |HDMI0_TX1_N |HDMI_TX1N
+
+|GND |GND |179 |180 |GND |GND
+
+|MIPI_D1_N |DSI1_D1_N |181 |182 |HDMI0_TX0_P |HDMI_TX0P
+
+|MIPI_D1_P |DSI1_D1_P |183 |184 |HDMI0_TX0_N |HDMI_TX0N
+
+|GND |GND |185 |186 |GND |GND
+
+|MIPI_CLK_N |DSI1_C_N |187 |188 |HDMI0_CLK_P |HDMI_TXCP
+
+|MIPI_CLK_P |DSI1_C_P |189 |190 |HDMI0_CLK_N |HDMI_TXCN
+
+|GND |GND |191 |192 |GND |GND
+
+|MIPI_D2_N |DSI1_D2_N |193 |194 |DSI1_D3_N |MIPI_D3_N
+
+|MIPI_D2_P |DSI1_D2_P |195 |196 |DSI1_D3_P |MIPI_D3_P
+
+|GND |GND |197 |198 |GND |GND
+
+|HDMI_SDA |HDMI0_SDA_5V |199 |200 |HDMI0_SCL_5V |HDMI_SCL
+
+|===
+
+== BPI-CM4 IO board
+
+image::/bpi-cm4/banana_pi_bpi-cm4_+_io_1.jpg[banana_pi_bpi-cm4_+_io_1.jpg]
+
+=== BPI-CM4 with IO board spec
+* SoC – Amlogic A311D hexa-core processor with 4x Arm Cortex-A73 cores, 2x Arm Cortex-A53 cores, Arm Mali-G52 MP4 (6EE) GPU with OpenGL ES 3.2, Vulkan 1.0 and OpenCL 2.0 support, 5 TOPS NPU
+* System Memory – 4GB LPDDR4
+* Storage – 16GB eMMC flash (option up to 128GB), MicroSD card slot
+* Video interfaces
+** HDMI 2.1 output up to 4Kp60
+** MIPI DSI connector for display
+** MIPI CSI connector for camera
+* Networking – 1x Gigabit Ethernet ports one via RTL8211F GbE transceiver
+* USB – 2x USB 2.0 Type-A port, 1x USB Type-C port
+* Expansion – 26-pin GPIO header
+* Debugging – 3-pin header for serial console
+* Misc – 2x buttons.
+* Power Supply – Via USB-C port or pin header
+
+link:https://docs.banana-pi.org/en/BPI-CM4IO/BananaPi_BPI-CM4IO[Banana Pi BPI-CM4 IO baord]
+
+== Same size as RPI CM4
+
+The BPI-CM4 computer module is exactly the same size as the raspberry PI CM4, and adopts the same interface,You can use the universal raspberry PI CM4 module expansion board.
+
+image::/picture/banana_pi_bpi-cm4_8.jpg[banana_pi_bpi-cm4_8.jpg]
+
+= Development
+== Source Code
+
+=== Linux BSP source code
+TIP: https://github.com/BPI-SINOVOIP/BPI-M2S-bsp
+
+=== Android 9
+TIP: https://github.com/BPI-SINOVOIP/BPI-A311D-Android9
+
+=== Geerlingguy sbc-reviews
+TIP: https://github.com/geerlingguy/sbc-reviews/issues/11
+
+=== BPI-M2S/CM4 Android9 Source Code
+TIP: Baidu Cloud: https://pan.baidu.com/s/1rANGEB-1MLPCBXqOR5aYCg?pwd=8888 PIN code: 8888
+
+TIP: Google Drive: https://drive.google.com/drive/folders/1INIABp_MbB5UcwfqujTngGLOZN7YGuWp?usp=share_link
+
+== Resources
+
+TIP: BPI-CM4 Module Datasheet
+
+Baidu Cloud: https://pan.baidu.com/s/1NXBXwiowWbHVY7ciT1lw-Q?pwd=8888 PIN code:8888
+ 
+Google Drive: https://drive.google.com/file/d/1FQzHy510SBKjwisMDWA-bZmt8fkb_wxs/view?usp=sharing
+
+TIP: Banana PI BPI-M2S Amlogic A311D / S922X : https://www.youtube.com/watch?v=9eFXiOtzFl0
+
+Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
+
+TIP: All banana pi https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[docement(SCH file,DXF file,and doc)]
+
+TIP: Amlogic A311D datasheet: https://drive.google.com/file/d/1SRAY_RDxKhw819uyo9H13zNN2wlG6LDq/view?usp=sharing
+
+TIP: BPI-CM4 Schematic: https://drive.google.com/file/d/1IXXok1P2OLiW3p8tavkbfEPTGTrM3b-R/view?usp=sharing
+
+TIP: BPI-CM4 DXF file: https://drive.google.com/file/d/1hTLNCwmYhCuzt9rL6fP0PjK4MTIE5dK6/view?usp=sharing
+
+TIP: UglyScale Present - Banana Pi BPI-CM4 : https://www.youtube.com/watch?v=9qhAmpjdEfE
+
+TIP: Banana Pi CM4 Review ( VS Compute Raspberrypi  CM4) : https://bret.dk/banana-pi-cm4-review/
+
+TIP: BPI-CM4 MNT Reform with A311D Processor desktop performance captured over HDMI : https://www.youtube.com/watch?v=SULvVajiLvw
+
+= System image
+
+== Android
+
+NOTE: 2023-01-12-bpi-m2s-cm4-android9.img
+
+Baidu Cloud: https://pan.baidu.com/s/1YVl0T9rSNqM3D0I1BRUr7A?pwd=8888 PIN code:8888
+
+Google Drive: https://drive.google.com/drive/folders/1u8flA6zsMOLnr75U4rvbph02z8YUKe2Y?usp=share_link
+
+== Linux
+
+=== Armbian
+
+NOTE: 2023-07-10 Armbian_23.05.0-trunk_Bananapicm4io_bullseye_edge_6.2.12_gnome_desktop.img
+
+Baidu Cloud: https://pan.baidu.com/s/1aAMO-qKdowDakZ37JH6YBA?pwd=8888 PIN code:8888
+
+Google Drive: https://drive.google.com/drive/folders/1Zwf91uvC8vsmdwmIn9x3-8_D-yRTofZT?usp=sharing
+
+=== Ubuntu
+NOTE: 2023-12-26-ubuntu-20.04-server-bpi-cm4-aarch64-sd-emmc.img
+
+Baidu Cloud: https://pan.baidu.com/s/1sQxZ2EZ7YL6nVI_CjzaUrw?pwd=8888 PIN code:8888
+
+Google Drive: https://drive.google.com/drive/folders/1ogrdn-Kx5oqIOLUhwMqqMAhxZIcDYzPs?usp=sharing
+
+NOTE: 2023-12-26-ubuntu-20.04-mate-desktop-bpi-cm4-aarch64-sd-emmc.img
+
+Baidu Cloud: https://pan.baidu.com/s/11veH_09OJI1Pk1CG9J0MHw?pwd=8888 PIN code:8888
+
+Google Drive: https://drive.google.com/drive/folders/18DeljVr7ZFjlRMekDi4eUOimkC9iNO4o?usp=sharing
+
+NOTE: 2023-01-12-ubuntu-20.04-mate-desktop-bpi-cm4-aarch64-sd-emmc.img
+
+Baidu Cloud: https://pan.baidu.com/s/1rh55yoEjPWsHXIcna7xEhQ?pwd=8888 PIN code:8888
+
+Google Drive: https://drive.google.com/drive/folders/1xd2HA4Vv_U69iREiAUkOftZmmVbjw7yF?usp=share_link
+
+NOTE: 2023-01-12-ubuntu-20.04-server-bpi-cm4-aarch64-sd-emmc.img
+
+Baidu Cloud: https://pan.baidu.com/s/17gu0ToxWmFi2i8VwuiqVDQ?pwd=8888 PIN code:8888
+
+Google Drive： https://drive.google.com/drive/folders/1i7okuijL3Jd99vf8PYuK7uH8D2t_WJZg?usp=share_link
+
+=== Debian
+NOTE: 2023-12-26-debian-10-buster-bpi-cm4-aarch64-sd-emmc.img
+
+Baidu Cloud: https://pan.baidu.com/s/1xhaAE0wqYi6NjpHwAeKh-g?pwd=8888 PIN code:8888
+
+Google Drive: https://drive.google.com/drive/folders/1ee2bgefoz6X74bQ-AdO2OyhymAGcgF83?usp=sharing
+
+NOTE: 2023-12-26-debian-10-buster-xfce-bpi-cm4-aarch64-sd-emmc.img
+
+Baidu Cloud: https://pan.baidu.com/s/1Q74ijyubqYBOZC7NX8YMSw?pwd=8888 PIN code:8888
+
+Google Drive: https://drive.google.com/drive/folders/1zs7CB3__eVNqQzPUaHg9nn7yAdQLnLVs?usp=sharing
+
+NOTE: 2023-01-12-debian-10-buster-bpi-cm4-aarch64-sd-emmc.img
+
+Baidu Cloud: https://pan.baidu.com/s/19aQB16fdo2Si-is76R9LOQ?pwd=8888 PIN code:8888
+
+Google Drive: https://drive.google.com/drive/folders/1_k0RYmuZoBBk4GCaDDOD112FDORcV5g2?usp=share_link
+
+== Third part image
+
+=== Armbian
+
+BPI-CM4 is currently on platinum support from armbian. Download the latest images from here: https://www.armbian.com/bananapicm4io/
+
+Armbian is a simple, light, and fast Linux operating system optimized for development boards, offering a user-friendly experience for newcomers and professionals.
+
+The system is designed to minimize SD card wear. It can be accessed via serial, HDMI/VGA, or SSH, with optional special utilities available for further customization.
+
+The system can also be built and customized via the https://github.com/armbian/build[armbian build utility].
+
+=== BPI-CM4 with VIM3 rootfs image
+
+BPI-CM4 use vim3 rootfs image, you can run the npu demo from khadas wiki on this image, username/password: khadas/khadas or root/khadas
+
+Baidu Link: https://pan.baidu.com/s/1zLQJGf4YQ_45ZLKotKWhhw?pwd=xvvc PIN code:xvvc
+
+Google drive: https://drive.google.com/drive/folders/11ReyzqHyalOA010uAo-jKHYB9E89qVBx
+
+= Easy to buy sample
+WARNING: BPI Aliexpress shop: https://www.aliexpress.us/item/3256804929238485.html?spm=5261.promotion_single_index.table.1.7d6b4edfN3JCJM&gatewayAdapt=glo2usa4itemAdapt&_randl_shipto=US
+
+WARNING: SinoVoip Aliexpress shop : https://www.aliexpress.com/item/1005005115415086.html
+
+WARNING: Taobao shop : https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-24708246124.11.473c3550l3PVcF&id=696638614755
+
+WARNING: OEM&ODM please contact : judyhuang@banana-pi.com
