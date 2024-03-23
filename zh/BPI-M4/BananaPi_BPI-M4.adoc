@@ -1,0 +1,307 @@
+= BPI-M4 Introduction
+
+Banana Pi BPI-M4 use Realtek RTD1395 chp design ,it is a 64-bit quad-core A53 mini single board computer. It features 1 GB/2GB of RAM and 8 GB eMMC. It also has onboard WiFi for b/g/n/ac and BT 4.2. On the ports side, the BPI-M4 has 4 USB 2.0 ports, 1 USB TYPE C port, 1 HDMI port, 1 audio jack. support M.2 Key E PCIE 2.0 interface.
+
+image::/picture/banana_pi_bpi-m4.jpg[banana_pi_bpi-m4.jpg]
+
+=== Realtek RTD1395
+The RTD1395 is equipped with a high-performance quad-core CPU,ARM cortex-A53,with 512K L2 cache embedded. the RTD1395 also integrates and efficient ARM Mali-470 Graphic Processing Unit(GPU) to accelerate 2D and 3D graphics processing. For acceleration of this OSD and 2K user interface,the built-in Streaming Engine of the RTD1395 provides commonly used drawing functions.the CPU is dedicated to applications ,while most of the functions of the RTD1395 is dedicated to manipulating,decoding video streams in vaious formats.e.g. decoding 4K2K H.265,Full HD MPEG1/2/4/H.264/H.264 MVC,AVC/VC-1,VP8,VP9,AVS,AVS plus,HD JPEG,etc. Video DSP can also handle encoding of up to Full HD with H.264 format.Video decoding and encoding can run simultaneously.
+
+== Key Features
+
+- Realtek RTD1395 ARM Cortex-A53 Quad-Core 64 Bit
+- Mali 470 MP4 GPU OpenGL ES 1.1/2.0 H.264 H.265,2K4K
+- Onboard1 GB DDR4 (option 2 GB)
+- 8G eMMC flash (max 64 GB)
+- 10/100 Mbit/s Ethernet and RTL8821 module support Wi-Fi 802.11 b/g/n/AC + Bluetooth 4.2
+- USB 2.0 TYPE C
+- M.2 Key E slot PCIE 2.0 and USB 2.0
+- PoE function support
+
+== Getting Start
+
+TIP: link:/en/BPI-M4/GettingStarted_BPI-M4[Getting Started BPI-M4]
+
+= Hardware
+== Hardware Interface
+
+image::/picture/banana_pi_bpi-m4_interface.jpg[banana_pi_bpi-m4_interface.jpg]
+
+== Hardware Spec
+
+[option="header",cols="1,3"]
+|=====
+2+| **HardWare Specification of Banana Pi M4**
+| CPU             | Realtek RTD1395 ARM Cortex-A53 Quad-Core 64 Bit
+| GPU             | Mali 470 MP4 GPU OpenGL ES 1.1/2.0
+| Memory          | 1 GB DDR4 (option 2 GB)
+| Storage         | MicroSD slot with support for up to 256GB expansion and 8G eMMC flash with support for up to 64GB
+| Network         | 10/100 Mbit/s Ethernet + Wi-Fi 802.11 b/g/n/AC + Bluetooth 4.2
+| Video Output(s) | HDMI port and multi-channel audio output support 1080P H.264 H.265 2K/4K 
+| Audio Output(s) | 3.5mm jack and HDMI
+| PCIE            | M.2 Key E slot PCIE 2.0 and USB 2.0
+| USB ports       | USB 2.0 PORT (x4), USB 2.0 TYPE C(x1)
+| GPIO            | 40 Pin Header : GPIO (x28) and Power (+5V, +3.3V and GND). GPIO pins can be used for UART, I2C, SPI or PWM 
+| Switches        | Reset, Power and U-boot
+| LED             | Power Status and Activity status
+| Power Source    | 5 volt @2A via Micro USB (TYPE C) or PoE support
+| Size & Weight   | 92x60mm, 48g
+| OS              | Android and Linux
+|=====
+
+== GPIO Pin Define
+
+=== BPI-M4 40PIN GPIO
+
+[option="header",cols="1,1,1"]
+|=====
+3+| **40 PIN GPIO of Banana pi BPI-M4**
+| GPIO Pin Name | Default Function	| Function2：GPIO
+| CON1-P01 | VCC-3V3   |        
+| CON1-P02 | DCIN      |        
+| CON1-P03 | I2C1_SDA  | GPIO-17
+| CON1-P04 | DCIN      |        
+| CON1-P05 | I2C1_SCL  | GPIO-16
+| CON1-P06 | GND       |        
+| CON1-P07 | PWM1      | GPIO-21
+| CON1-P08 | UR1_TX    | GPIO-9 
+| CON1-P09 | GND       |        
+| CON1-P10 | UR1_RX    | GPIO-8 
+| CON1-P11 | SDIO-D0   | GPIO-42
+| CON1-P12 | AIO_BCK   | GPIO-3 
+| CON1-P13 | SDIO-D1   | GPIO-43
+| CON1-P14 | GND       |        
+| CON1-P15 | SDIO-D2   | GPIO-44
+| CON1-P16 | UR1_RTS   | GPIO-11
+| CON1-P17 | VCC-3V3   |        
+| CON1-P18 | UR1_CTS   | GPIO-10
+| CON1-P19 | GSPI-MOSI | GPIO-31
+| CON1-P20 | GND       |        
+| CON1-P21 | GSPI-MISO | GPIO-18
+| CON1-P22 | GPIO-47   | GPIO-47
+| CON1-P23 | GSPI-SCK  | GPIO-19
+| CON1-P24 | GSPI-CS   | GPIO-20
+| CON1-P25 | GND       |        
+| CON1-P26 | PWM2      | GPIO-22
+| CON1-P27 | SDIO-D3   | GPIO-45
+| CON1-P28 | PWM3      | GPIO-23
+| CON1-P29 | SDIO-CLK  | GPIO-41
+| CON1-P30 | GND       |        
+| CON1-P31 | SDIO-CMD  | GPIO-40
+| CON1-P32 | SPDIF     | GPIO-50
+| CON1-P33 | AIO_CK    | GPIO-4 
+| CON1-P34 | GND       |        
+| CON1-P35 | AIO_LRCK  | GPIO-2 
+| CON1-P36 | GPIO-53   | GPIO-53
+| CON1-P37 | GPIO-34   | GPIO-34
+| CON1-P38 | AI_SD     | GPIO-5 
+| CON1-P39 | GND       |        
+| CON1-P40 | AO_SD     | GPIO-6 
+|=====
+
+=== BPI-M4 Debug UART
+The header CON2 is the UART interface. For developers of Banana Pi, this is an easy way to get the UART console output to check the system status and log message.
+|=====
+|CON2-P1	| GND	
+|CON2-P2	| UART0-RX	
+|CON2-P3	| UART0-TX
+|=====
+- Banana Pi BPI-M4: How to get I2C and SPI running (tutorial): https://forum.banana-pi.org/t/banana-pi-bpi-m4-how-to-get-i2c-and-spi-running-tutorial/12824/6
+
+= Development
+== Source Code
+
+=== Linux 
+
+TIP: Supports Banana Pi BPI-M4 (RTD1395) (Kernel 4.9.119)
+
+Source code on github: https://github.com/BPI-SINOVOIP/BPI-M4-bsp
+
+== Resources
+TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
+
+TIP: All banana pi link:https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[docement(SCH file,DXF file,and doc)]
+
+TIP: BPI-M4 schematic diagram:
+
+Google driver: https://drive.google.com/file/d/1A6pj8Y9Ru1_qfMapIdiQnMavEs5xzN5H/view?usp=sharing
+
+Baidu cloud: https://pan.baidu.com/s/1mnn51dwBV5uxpNheBD4vJA PIN code: t6cd
+
+TIP: Banana Pi BPI-M4 CE,FCC,RoHS Certification: http://forum.banana-pi.org/t/banana-pi-bpi-m4-ce-fcc-rohs-certification/9520
+
+TIP: Realtek RTD1395 chip datasheet : https://drive.google.com/file/d/1Jt8qUwEjLinMqURMftC3db0Xg9MIWIhu/view?usp=sharing
+
+TIP: BPI-M4 DXF file download
+
+Google driver: https://drive.google.com/file/d/1xK-DAjdjXiY7BgGcmq7x-aL5g6djznqT/view?usp=sharing
+
+Baidu cloud : https://pan.baidu.com/s/1bSZFMJ2lD_zuQru6Lf27RQ PIN code: 6pb8
+
+TIP: Banana Pi BPI-M4 Android 8 1 1 demo ,power by raspberry Pi PoE module:  https://www.youtube.com/watch?v=aEZ9tSJ-Oao&feature=youtu.be
+
+TIP: Banana Pi BPI-M4 video play h264 4K under Linux with gst-launch-1.0;https://www.youtube.com/watch?v=PwdyGX3tqvo&feature=youtu.be&fbclid=IwAR3AHOgFo4I3bDRl3oLtQXFBj2NUCYBR9GJnEo3tZzpNPKhjE9eKms7JVsQ
+
+TIP: Banana Pi BPI-M4 digital photo download: https://drive.google.com/file/d/1lD9vOhdZMqHFilTPPHY80My0biszvW8r/view?usp=sharing
+
+TIP: BPI-M4 SBC bench test: http://forum.banana-pi.org/t/bpi-m4-sbc-bench-test/9469
+
+TIP: Banana pi BPI-M4: m.2 extension board with nvme ssd: http://forum.banana-pi.org/t/bpi-m4-m-2-extension-board-with-nvme-ssd/11999
+
+TIP: Banana Pi BPI-M4 Review: https://www.magazinmehatronika.com/en/banana-pi-m4-review/
+
+TIP: BPI-M4 USB host dying (uvcvideo and usb rtl8821cu) (solution): https://forum.banana-pi.org/t/bpi-m4-usb-host-dying-uvcvideo-and-usb-rtl8821cu-solution/13210
+
+TIP: Banana Pi BPI-M4: How to get I2C and SPI running (tutorial): https://forum.banana-pi.org/t/banana-pi-bpi-m4-how-to-get-i2c-and-spi-running-tutorial/12824
+
+= System Image
+All image link: https://drive.google.com/drive/folders/1xBxYgKM40GrBa-qfgPDD-cRrUhWBo34u
+
+== Android
+
+
+NOTE: 2020-10-20 update, Android 8.1 with kernel 4.9.119.
+
+link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/?p=%2FImages%2FBPI-M4%2Fandroid8&mode=list[Download Android 8.1 image]
+
+WARNING: IMPORTANT: Note: BPI-M4 Android8 image is only support 2GB ddr board because 1GB ddr is not stable and smooth for Android8
+
+
+== Linux
+
+=== Ubuntu
+
+
+NOTE: 2020-05-18 update,Ubuntu Mate 18.04, Ubuntu Server 16.04,kernel 4.9.119.
+
+Google Drive: https://drive.google.com/drive/folders/19xi4l9xX34r1EY3TGjs1guxnvt2qUIsr?usp=share_link
+
+Download image: https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/?p=%2FImages%2FBPI-M4%2Flinux&mode=list
+
+NOTE: 2019-6-18 update,Ubuntu Mate 18.04 ,Ubuntu Server 16.04 ,kernel 4.9.119.
+
+Release ntoes: http://forum.banana-pi.org/t/bpi-m4-demo-image-release-ubuntu-mate-18-04-ubuntu-server-16-04-2019-06-18/9362
+
+**BPI-M4/BPI-W2 Ubuntu Mate 18.04**
+
+Fetures Map: https://newwiki.banana-pi.org/en/BPI-M4/M4_Image_Map#_ubuntu_18_04_mate
+
+Google Drive : https://drive.google.com/open?id=1nPI2dy_KCW4h5korQdvj0iymHIDyxIPq
+
+Baidu Drive : https://pan.baidu.com/s/1tB_QZ6zgmKiYstcZwn51gg PIN code：edrc
+
+MD5 : 7409b48a46e0bbc2d0ae2e70a49bfb36
+
+**BPI-M4/BPI-W2 Ubuntu Server 16.04**
+
+Fetures Map: https://newwiki.banana-pi.org/en/BPI-M4/M4_Image_Map#_ubuntu_18_04_mate
+
+Google Drive : https://drive.google.com/open?id=1G4915FPOU4pDzbI0TCFH8wWXUGmNdlkF
+
+Baidu Drive : https://pan.baidu.com/s/1lkG6gyzn-KPbvrEhf6Q85w PIN code：5jbo
+
+MD5 : 328706256bec238df50f9bd6ab8dfd1b
+
+WARNING: Issue: if HDMI doesn't display, please try "ctrl + alt + F1" to change terminal then "ctrl + alt + F7" change to desktop display.
+
+
+=== Debian
+
+
+NOTE: 2019-08-13 update,Debian 10 buster desktop(32bit),kernel 4.9.
+
+Release ntoes: http://forum.banana-pi.org/t/bpi-m4-bpi-w2-debian10-buster-desktop-new-demo-image-20190813/9712
+
+Fetures Map: https://newwiki.banana-pi.org/en/BPI-M4/M4_Image_Map#_debian_10_buster
+
+Google Drive : https://drive.google.com/open?id=1rVrZStsw2PINBhIxCzOLOtYLbtoECmEk
+
+Baidu Drive : https://pan.baidu.com/s/1WcrBkxm5OyBLedCBwaUz6Q PIN code：e6m3
+
+MD5 : 300b37cdfa092d72dceddd4f33825b40
+
+WARNING: Issue: if HDMI doesn’t display, please try “ctrl + alt + F1” to change terminal then “ctrl + alt + F7” change to desktop display.
+
+WARNING: SW2: switch to 0，if insert SD, SD start；if doesn’t insert SD，EMMC start.
+
+NOTE: 2019-08-06 update,Debian 10 Buster Lite Demo Image,kernel 4.9.
+
+**Debian 10 buster AArch64 (64bit)**
+
+Fetures Map: https://newwiki.banana-pi.org/en/BPI-M4/M4_Image_Map#_debian_10_buster
+
+Google Drive : https://drive.google.com/open?id=1QyZX5AGUpEV2OZMXz3qkB8riXROXHdx3
+
+Baidu Drive : https://pan.baidu.com/s/1CGxGUi8rt06tHwfk134Seg PIN code :7rcz
+
+MD5 : 5a8b1eb36b782fdd742ba746c645593d
+
+**Debian 10 buster (32bit)**
+
+Fetures Map: https://newwiki.banana-pi.org/en/BPI-M4/M4_Image_Map#_debian_10_buster
+
+Google Drive : https://drive.google.com/open?id=1WJlKTMPAipYnDFqIPl_dmR76oobuO5Wd
+
+Baidu Drive : https://pan.baidu.com/s/1lTtcMTWqE0jG_1PWGtWSqw PIN code: gny6
+
+MD5 : a59f2e6a298237a08bb523b53372d937
+
+
+=== AArch Linux
+
+NOTE: 2019-6-19 update,AArch64 Linux Mate ,AArch linux liteOperation,kernel 4.9.119.
+
+Google Drive : https://drive.google.com/open?id=1fsk5S4zQfo3tl97Nty_QA1uAEqgB63YK
+
+Baidu Drive : https://pan.baidu.com/s/1GvGsfs7t018EoRIv-au1GA PIN code：o496
+
+MD5 : d284b2326a36d2d9039fb8d7e20e2600
+
+
+NOTE: AArch64 Linux Lite
+
+Release ntoes: http://forum.banana-pi.org/t/bpi-m4-bpi-w2-demo-image-release-raspbian-9-8-stretch-aarch64-linux-mate-aarch64-linux-lite-2019-06-19/9370
+
+Google Drive : https://drive.google.com/open?id=17V49oBoJZ18MKjSHD_LKjf1Z7qEokYn7
+
+Baidu Drive : https://pan.baidu.com/s/1WivDWZHu_GnWOxhVOjoqIQ PIN code：uhcg
+
+MD5 : 53bb6f8d00f8708dab96bc865eaddc5e
+
+WARNING: Issue: if HDMI doesn't display, please try "ctrl + alt + F1" to change terminal then "ctrl + alt + F7" change to desktop display.
+
+WARNING: SW2: switch to 0，if insert SD, SD start；if doesn't insert SD，EMMC start.
+
+== Third part image
+
+=== Raspbian
+NOTE: 2020-05-18 update, Raspbian Stretch,Kernel 4.9.119
+
+Google Drive: https://drive.google.com/drive/folders/19xi4l9xX34r1EY3TGjs1guxnvt2qUIsr?usp=share_link
+
+Download image: https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/?p=%2FImages%2FBPI-M4%2Flinux&mode=list
+
+
+NOTE: 2019-6-19 update,Raspbian 9.8 stretch & AArch64 Linux Mate & AArch Linux Lite Operation system with kernel 4.9.119.
+
+Release ntoes: http://forum.banana-pi.org/t/bpi-m4-bpi-w2-demo-image-release-raspbian-9-8-stretch-aarch64-linux-mate-aarch64-linux-lite-2019-06-19/9370
+
+Fetures Map: https://newwiki.banana-pi.org/en/BPI-M4/M4_Image_Map#_raspbian_9_8_stretch
+
+Google Drive : https://drive.google.com/open?id=15cypBk4NKL0X8uD3Mffc__Sx05j39xCW
+
+Baidu Drive : https://pan.baidu.com/s/1gwD5ok9XLLQa0InU_-b7EA PIN code：uuqn
+
+MD5 : a397a9c4d078c2841f0c243c573dc9a8
+
+WARNING: Issue: if HDMI doesn't display, please try "ctrl + alt + F1" to change terminal then "ctrl + alt + F7" change to desktop display.
+
+WARNING: SW2: switch to 0，if insert SD, SD start；if doesn't insert SD，EMMC start.
+
+= FAQ
+- Easy to buy sample on aliexpress shop : https://pt.aliexpress.com/store/product/Banana-Pi-BPI-M4-Realtek-RTD1395-ARM-64-bit-Board/302756_33036948250.html?spm=2114.12010611.8148356.1.fcef30d9EoKVYY
+
+
+= Easy to buy
+
+WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
