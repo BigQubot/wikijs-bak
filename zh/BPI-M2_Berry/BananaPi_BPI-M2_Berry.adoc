@@ -1,0 +1,448 @@
+= BPI-M2 Berry Introduction
+
+Banana Pi BPI-M2 Berry is a quad-core mini single board computer built with Allwinner A40i SoC. It features 1GB of RAM . It also has onboard WiFi and BT. On the ports side, the BPI-M2 Ultra has 4 USB A 2.0 ports, 1 USB OTG port, 1 HDMI port, 1 audio jack, and last but not least, a SATA port.
+
+image::/picture/banana_pi_bpi-m2_berry.jpg[banana_pi_bpi-m2_berry.jpg]
+
+TIP: Allwinner A40i design link:/en/BPI-M2_Berry/BananaPi_BPI-M2_Berry[Banana Pi BPI-M2 Berry] SBC design +
+Allwinner A40i design link:/en/BPI-AIM7/BananaPi_BPI-AIM7[Banana Pi BPI-M2 Ultra] SBC design +
+Allwinner A40i design link:/en/BPI-6202/BananaPi_BPI-6202[Banana Pi BPI-6202] Industrial control gateway
+
+Also being a member of the Banana Pi family, the M2 Berry is a direct upgrade from the Banana Pi M1/M1+ that support SATA from the SoC. The SATA performance on the V40 is fitting for media related projects such as storage servers. Backed by our community, starting a project and building servers is fun and rewarding. We welcome all companies, DIYers, and tech loving people within our community! Together, we can make a difference, we can discover our passions, inspire others, and build a practical project.
+
+All size is same as raspberry pi 3,so you can use raspberry pi 3 case for BPI-M2 Berry.
+
+== Key Features
+
+- Allwinner A40i/R40/V40 Quad Core ARM Cortex A7 CPU
+- 1GB DDR3 SDRAM.
+- WiFi & BT onboard
+- SATA Interface
+- 4*USB 2.0
+- MIPI DSI interface
+- CSI camera interface
+
+== Getting Start
+
+TIP: link:/en/BPI-M2_Ultra_Berry/GettingStarted_BPI-M2_Ultra_Berry[Getting Started BPI-M2_Berry]
+
+= Hardware
+== Hardware Interface
+
+image::/picture/bpi-m2_berry.jpg[bpi-m2_berry.jpg]
+
+== BPI-M2 Berry Photo
+
+link:/en/BPI-M2_Ultra_Berry/Photo_BPI-M2_Berry[Banana Pi BPI-M2 Berry Product photo gallery]
+
+== Hardware Spec
+
+[options="header",cols="1,5"]
+|=====
+2+| **HardWare Specification of Banana Pi M2_Berry**
+| Soc              | Allwinner A40i/R40/V40
+| CPU              | quad-core cortex -A7,the most power efficient CPU core ARM's ever development
+| GPU              | dual-core MALI-400 MP2 and runs at 500MHz, capable of 1.1 Gpixel/s throughput. Graphics capabilities are slightly higher than the original Xbox’s level of performance. The GPU provides OpenGL ES 2.0, hardware-accelerated OpenVG, 1080p45 H.264 high-profile encode and decode. 
+| SDRAM            | 1GB DDR3 with 733MHz\(shared with GPU\)
+| SATA             | suppoort SATA interface
+| GPIO             | 40 Pins Header, 28×GPIO, some of which can be used for specific functions including UART, I2C, SPI, PWM, I2S.
+| On board Network | 10/100/1000Mbps Ethernet \(Realtek RTL8211E/D\)
+| Wifi Module      | WiFi 802.11 b/g/n \(AP 6212 module on board\)
+| Bluetooth        | BT4.0 
+| On board Storage | MicroSD \(TF\) card,No eMMC onboard
+| Display          | 4-lane MIPI DSI display,or RGB panel or LVDS panel,TV-out on HDMI V1.4
+| Video            | Multi-format FHD video decoding, including Mpeg1/2, Mpeg4, H.263, H.264, etc H.264 decode up to 1080P60,support video encodeing: High-deinition\(HD\)H.264 video encoder is up to 1080P@45fps 
+| Audio outputs    | HDMI, analog audio \(via 3.5 mm TRRS jack\), I2S audio \(also potentially for audio input\) 
+| Camera           | A CSI input connector Camera: Supports 8-bit YUV422 CMOS sensor interface,Supports CCIR656 protocol for NTSC and PAL,Supports 5M pixel camera sensor ,Supports video capture solution up to 1080p@30fps
+| USB              | 4 USB 2.0 host, 1 USB 2.0 OTG 
+| Buttons          | Reset button, Power button, U-boot button 
+| Leds             | Power status Led and RJ45 Led
+| IR               | No onboard IR receiver
+| DC Power         | 5V/2A with micro USB port
+| Battery          | No 3.7V lithium battery power support                   | Sizes	          | 85mmX56mm,same size as raspberry pi 3
+| Weight	         | 40g 
+|=====
+
+== GPIO Pin Define
+
+=== BPI-M2 Berry 40PIN GPIO
+
+[options="header",cols="1,1,1,1"]
+|=====
+4+| **40 PIN GPIO of Banana pi BPI-M2 Berry**
+|GPIO Pin Name | Default Function | Function2：GPIO | Function3
+| CON1-P01 | VCC-3V3    |      |            
+| CON1-P02 | DCIN       |      |            
+| CON1-P03 | TWI2-SDA   | PB21 | PWM5       
+| CON1-P04 | DCIN       |      |            
+| CON1-P05 | TWI2-SCK   | PB20 | PWM4       
+| CON1-P06 | GND        |      |            
+| CON1-P07 | PB3        | PB3  | PWM1       
+| CON1-P08 | UART2-TX   | PI18 | SPI1\_MOSI 
+| CON1-P09 | GND        |      |            
+| CON1-P10 | UART2-RX   | PI19 | SPI1\_MISO 
+| CON1-P11 | UART7-TX   | PI20 |            
+| CON1-P12 | UART2-CTS  | PI17 | SPI1\_CLK  
+| CON1-P13 | UART7-RX   | PI21 | PWM3       
+| CON1-P14 | GND        |      |            
+| CON1-P15 | PH25       | PH25 | CSI1-FIELD 
+| CON1-P16 | UART2-RTS  | PI16 | SPI1\_CS0  
+| CON1-P17 | VCC-3V3    |      |            
+| CON1-P18 | PH26       | PH26 | CSI1-HSYNC 
+| CON1-P19 | SPI0\_MOSI | PC0  |            
+| CON1-P20 | GND        |      |            
+| CON1-P21 | SPI0\_MISO | PC1  |            
+| CON1-P22 | PH27       | PH27 | CSI1-VSYNC 
+| CON1-P23 | SPI0\_CLK  | PC2  |            
+| CON1-P24 | SPI0\_CS   | PC23 |            
+| CON1-P25 | GND        |      |            
+| CON1-P26 | PH24       | PH24 | CSI1-PCLK  
+| CON1-P27 | TWI3-SDA   | PI1  |            
+| CON1-P28 | TWI3-SCK   | PI0  |            
+| CON1-P29 | PH0        | PH0  | CSI1-D0    
+| CON1-P30 | GND        |      |            
+| CON1-P31 | PH1        | PH1  | CSI1-D1    
+| CON1-P32 | PD20       | PD20 | CSI1-MCLK  
+| CON1-P33 | PH2        | PH2  | CSI1-D2    
+| CON1-P34 | GND        |      |            
+| CON1-P35 | PH3        | PH3  | CSI1-D3    
+| CON1-P36 | UART5-RX   | PH7  | CSI1-D7    
+| CON1-P37 | UART4-TX   | PH4  | CSI1-D4    
+| CON1-P38 | UART5-TX   | PH6  | CSI1-D6    
+| ON1-P39  | GND        |      |            
+| CON1-P40 | UART4-RX   | PH5  | CSI1-D5 
+|=====
+
+=== CSI Camera Connector specification
+
+[options="header",cols="1,1,1"]
+|=====
+3+| **CSI Camera connector GPIO of Banana pi BPI-M2 Berry**
+| CSI Pin Name	| Default Function	| Function2：GPIO
+| CN5-P01 | NC         |      
+| CN5-P02 | GND        |      
+| CN5-P03 | CSI0-SDA   | PI3  
+| CN5-P04 | CSI0-AVDD  |      
+| CN5-P05 | CSI0-SCK   | PI2  
+| CN5-P06 | CSI0-Reset | PI7  
+| CN5-P07 | CSI0-VSYNC | PE3  
+| CN5-P08 | CSI0-PWDN  | PI6  
+| CN5-P09 | CSI0-HSYNC | PE2  
+| CN5-P10 | CSI0-DVDD  |      
+| CN5-P11 | CSI0-DOVDD |      
+| CN5-P12 | CSI0-D7    | PE11 
+| CN5-P13 | CSI0-MCLK  | PE1  
+| CN5-P14 | CSI0-D6    | PE10 
+| CN5-P15 | GND        |      
+| CN5-P16 | CSI0-D5    | PE9  
+| CN5-P17 | CSI0-PCLK  | PE0  
+| CN5-P18 | CSI0-D4    | PE8  
+| CN5-P19 | CSI0-D0    | PE4  
+| CN5-P20 | CSI0-D3    | PE7  
+| CN5-P21 | CSI0-D1    | PE5  
+| CN5-P22 | CSI0-D2    | PE6  
+| CN5-P23 | GND        |      
+| CN5-P24 | CSI0-AFVCC |      
+|=====
+
+=== Display specification
+
+[options="header",cols="1,1,1"]
+|=====
+3+| **DSI GPIO of Banana pi BPI-M2 Berry**
+| DSI Pin Name	| Default Function	| Function2：GPIO
+| CN6-P01 | VCC-3V3  |      
+| CN6-P02 | IPSOUT   |      
+| CN6-P03 | VCC-3V3  |      
+| CN6-P04 | IPSOUT   |      
+| CN6-P05 | GND      |      
+| CN6-P06 | IPSOUT   |      
+| CN6-P07 | GND      |      
+| CN6-P08 | IPSOUT   |      
+| CN6-P09 | NC       |      
+| CN6-P10 | GND      |      
+| CN6-P11 | NC       |      
+| CN6-P12 | DSI-D0N  |      
+| CN6-P13 | NC       |      
+| CN6-P14 | DSI-D0P  |      
+| CN6-P15 | NC       |      
+| CN6-P16 | GND      |      
+| CN6-P17 | TWI0-SDA | PB19 
+| CN6-P18 | DSI-D1N  |      
+| CN6-P19 | TWI0-SCK | PB18 
+| CN6-P20 | DSI-D1P  |      
+| CN6-P21 | CTP-INT    | PI10 
+| CN6-P22 | GND        |      
+| CN6-P23 | CTP-RST    | PI11 
+| CN6-P24 | DSI-CKN    |      
+| CN6-P25 | GND        |      
+| CN6-P26 | DSI-CKP    |      
+| CN6-P27 | LCD-BL-EN  | PH16 
+| CN6-P28 | GND        |      
+| CN6-P29 | LCD-RST    | PH17 
+| CN6-P30 | DSI-D2N    |      
+| CN6-P31 | LCD-PWR-EN | PH18 
+| CN6-P32 | DSI-D2P    |      
+| CN6-P33 | GND        |      
+| CN6-P34 | GND        |      
+| CN6-P35 | LCD-PWM    | PB2  
+| CN6-P36 | DSI-D3N    |      
+| CN6-P37 | GND        |      
+| CN6-P38 | DSI-D3P    |      
+| CN6-P39 | NC         |      
+| CN6-P40 | GND        |      
+|=====
+
+=== BPI-M2 Berry Debug UART
+
+|=====
+| CON2 P03	| UART0-TXD	
+| CON2 P02	| UART0-RXD	
+| CON2 P01	| GND
+|=====
+
+= Development
+== Source Code
+
+== Resources
+
+TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
+
+TIP: All banana pi link:https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[docement(SCH file,DXF file,and doc)]
+
+TIP: Schematics: link:https://drive.google.com/drive/folders/0B4PAo2nW2KfnflVqbjJGTFlFTTd1b1o1OUxDNk5ackVDM0RNUjBpZ0FQU19SbDk1MngzZWM?resourcekey=0-ZRCiv304nGzvq-w7lwnpjg&usp=sharing[google driver]
+
+TIP: Dimensional diagram link:https://drive.google.com/file/d/0B4PAo2nW2Kfnci1xaHd5eWtseEU/view?usp=sharing[BPI-M2 Berry dxf file]
+
+TIP: Allwinner R40/V40 datasheet
+
+- link:https://drive.google.com/file/d/0B4PAo2nW2KfneE54VzVOdHpITzA/view?usp=sharing[Allwinner V40 datasheet]
+
+- link:https://drive.google.com/file/d/0B4PAo2nW2KfnbVp2TmRMYUdPUGM/view?usp=sharing[Allwinner R40 datasheet]
+
+- link:https://github.com/tinalinux/docs/blob/r40-v1.y/Allwinner/_R40/_User/_Manual/_V1.0.pdf[Allwinner R40 User Manual v1.0]
+
+- link:https://drive.google.com/file/d/0B4PAo2nW2KfnM2pnT19zZW5qOTA/view?usp=sharing[Axp221s PMU datasheet]
+
+TIP: Banana pi BPI-M2 Berry link:https://bananapi.gitbooks.io/bpi-m2-ultra-open-source-single-board-computer/content/bpi-m2-berry-cefcc-rohs-certification.html[CE,FCC,RoHS]
+
+TIP: BPI-M2 Ultra/Berry Touch work : https://forum.banana-pi.org/t/discuss-bpi-m2-ultra-touch-doesnt-work/15980
+
+= System Image
+== Android
+
+NOTE: 2017-08-25 update,HDMI-Version,LCD5-Version LCD7-Version
+
+Google Drive : https://drive.google.com/drive/folders/0B_YnvHgh2rwjNFRpVFlhcW56LUk?resourcekey=0-95UrcQ-bb0Bh-RDtLRp-0w
+
+Forum pthread : http://forum.banana-pi.org/t/bpi-m2-ultra-bpi-m2-berry-new-image-android-6-0-version-v1-2017-08-25/3731
+
+== Linux
+
+=== Ubuntu
+
+NOTE: 2022-04-16 Banana Pi new image: Ubuntu 16.04 with Allwinner BSP, use MPV play 1080P video,Allwinner BSP kernel 3.4 , BPI-M2 Ultra/Berry use kernel 3.10
+
+Google driver: https://drive.google.com/drive/folders/1DEO7JdMfDhHynC83K7JMxgnNxf1gV82S
+
+Discuss on forum: https://forum.banana-pi.org/t/banana-pi-new-image-ubuntu-16-04-with-allwinner-bsp-use-mpv-play-1080p-video/13272
+
+NOTE: 2020-04-19 update, kernel 3.10.108
+
+Ubuntu 16.04 mate desktop link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/?p=%2FImages%2FBPI-M2U%2FUbuntu16.04&mode=list[Download]
+
+Ubuntu 16.04 server link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/?p=%2FImages%2FBPI-M2U%2FUbuntu16.04&mode=list[Download]
+
+NOTE: 2019-05-13 update,Ubuntu 16.04 ,kernel 3.10.108
+
+Features Map: http://docs.banana-pi.org/en/BPI-M2_Ultra_Berry/M2_Ultra_Berry_Image_Map#_ubuntu_16_04
+
+**Desktop image**
+
+Google Drive : https://drive.google.com/file/d/1Q8MGksdugAsMhy4slj50Rp9P0eeDUQFo/view?usp=sharing
+
+Baidu Drive : https://pan.baidu.com/s/1Aap1emViG6Vh2ejVHPtZhg?pwd=xfd5 PIN code: xfd5
+
+MD5 : cde8fd1165b54c633bcc5288e8447c2b
+
+**Server image**
+
+Google Drive : https://drive.google.com/open?id=1vcuIpQ7O2SFB3cZ4UemOqR2hQkxHy3RF
+
+Baidu Drive : https://pan.baidu.com/s/18Cp7zeuHxa82z5OU_tV_oQ PIN code：qat4
+
+MD5 : 07981887a7a21f5cda72ab8a1e37a834
+
+Forum pthread : http://forum.banana-pi.org/t/bpi-m2u-berry-new-image-release-ubuntu-16-04-raspbian-9-4-debian-9-4-2019-05-13/9225
+
+NOTE: 2018-01-04 update BPI-M2 Ultra/Berry Ubuntu 16.04 image
+
+Google Drive : https://drive.google.com/file/d/1G4Ggkne63ofD51Yt2c-x5-qy9h7BgY4_/view?usp=sharing
+
+Baidu cloud : https://pan.baidu.com/s/1cFHYGY1
+
+MD5: a61e6f66a5ea2288fff0c3acff12d633
+
+NOTE: 2017-11-13 update
+
+Google Drive : https://drive.google.com/file/d/19PI9yuL9iFa4bU6dh7ym3tcCHhjAh-cM/view?usp=sharing
+
+Baidu cloud : http://pan.baidu.com/s/1nvccOlz
+
+MD5: 4655b896a3c4e1958a15bb8ca45ac4fe
+
+Forum pthread : http://forum.banana-pi.org/t/bpi-m2-ultra-bpi-m2-berry-new-image-2017-11-13-ubuntu-16-04-mate-desktop-beta2-bpi-m2u-sd-emmc-img/4182
+
+=== Debian
+
+NOTE: 2020-04-19 update, kernel 3.10.108
+
+Debian 9 stretch mate desktop link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/?p=%2FImages%2FBPI-M2U%2FDebian9&mode=list[Download]
+
+Debian 9 stretch lite link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/?p=%2FImages%2FBPI-M2U%2FDebian9&mode=list[Download]
+
+NOTE: 2019-05-13 update , Debian 9 ,kernel 3.10.108
+
+Features Map: http://docs.banana-pi.org/en/BPI-M2_Ultra_Berry/M2_Ultra_Berry_Image_Map#_debian_9
+
+**Desktop images **
+
+Baidu Drive : https://pan.baidu.com/s/1ZqDZT4dOQNyvsu0nT4oMTg PIN code: kshd
+
+MD5 : 7e5d848f804bc5ffb8854a93d7488694
+
+**Server images**
+
+Google Drive : https://drive.google.com/open?id=1aoB8mGwSveNztB-EO_fBKLOr-GdzcMNV
+
+Baidu Drive : https://pan.baidu.com/s/1V0djGvUR7QJFMeAgZV86zg PIN code: e0t6
+
+MD5 : b7314d444dc13a40e1dd7b1602436f40
+
+Forum pthread : http://forum.banana-pi.org/t/bpi-m2u-berry-new-image-release-ubuntu-16-04-raspbian-9-4-debian-9-4-2019-05-13/9225
+
+NOTE: 2017-11-13 update debian-9-stretch-mate-desktop
+
+Google Drive : https://drive.google.com/file/d/0B_YnvHgh2rwjeTh4TmlnMGl5X3M/view?usp=sharing
+
+Baidu cloud : http://pan.baidu.com/s/1c1LvS1y
+
+MD5: 0a1fad281c24902148b16276a79bac12
+
+NOTE: 2017-11-13 update debian-9-stretch-lite
+
+Google Drive: https://drive.google.com/file/d/0B_YnvHgh2rwjOWg1OW9heWZsYm8/view?usp=sharing
+
+Baidu cloud: http://pan.baidu.com/s/1c3zxCy
+
+MD5: cff677aa94ca5345fc6e26379cfe4e95
+
+Forum pthread : http://forum.banana-pi.org/t/bpi-m2-ultra-bpi-m2-berry-new-image-2017-08-28-debian-sd-emmc-img/3745/2
+
+== Third part image
+
+=== Raspbian
+
+NOTE: 2020-04-19 update, kernel 3.10.108
+
+Google Drive: https://drive.google.com/drive/folders/0B_YnvHgh2rwjR0JsaUltalFXanc?resourcekey=0-sP6nS_7yziua5nmCfFQmAw&usp=share_link
+
+NOTE: 2019-05-13 update,Raspbian 9,Desktop, kernel 3.10.108
+
+BPI-M2U Raspbian 9 Features Map: http://docs.banana-pi.org/en/BPI-M2_Ultra_Berry/M2_Ultra_Berry_Image_Map#_raspbian_9_4
+
+Google Drive : https://drive.google.com/file/d/146--P5XiX9F_Dn8JzC3gRApGBQUUcEzH/view?usp=sharing
+
+Baidu Drive : https://pan.baidu.com/s/1ngowiaK1q20MbQMQzXabDw?pwd=8888 PIN code: 8888
+
+MD5 : f7ee24ff15654724e2c7ec3bf72c8506
+
+Forum pthread : http://forum.banana-pi.org/t/bpi-m2u-berry-new-image-release-ubuntu-16-04-raspbian-9-4-debian-9-4-2019-05-13/9225
+
+NOTE: 2018-05-24 update Raspbian jessie 8.0 V1.1
+
+Google Drive : https://drive.google.com/file/d/0B_YnvHgh2rwjRGlUMUdqZk5ETDg/view?usp=sharing
+
+Baidu cloud : https://pan.baidu.com/s/1UnMPtGBNp3-8KHDZPhVOUg
+
+Forum pthread : http://forum.banana-pi.org/t/banana-pi-bpi-m2u-berry-new-image-release-raspbian-jessie-8-0-2018-5-24/5812
+
+NOTE: 2017-05-25 update raspbian jessie
+
+Google Drive : https://drive.google.com/file/d/0B_YnvHgh2rwjRGlUMUdqZk5ETDg/view?usp=sharing
+
+Baidu cloud : https://pan.baidu.com/s/1civq4e
+
+MD5: 60e19ea9138d6841fa6852ece4727b0a
+
+Forum pthread : http://forum.banana-pi.org/t/banana-pi-bpi-m2-ultra-bpi-m2-berry-new-image-2017-05-25-raspbian-jessie-preview3-bpi-m2u-sd-emmc-img/3306
+
+=== Armbian
+
+NOTE: 2023-07 BPI-M2 Berry Armbian_23.08.0 wiringpi
+
+Google Drive: https://drive.google.com/file/d/1RaZcDPDp6a5otU8rrbGKhBKFVJ-As426/view?usp=drivesdk
+
+Baidu Cloud: https://pan.baidu.com/s/1tOa_BymrKNXYTHciInmkXg?pwd=8888
+
+NOTE: 2023-07 BPI-M2 Berry Armbian_23.08.0
+
+Google Drive: https://drive.google.com/drive/folders/1DBvBi5RsPWYvgw7j2Gwq8JyOoDg-TXJw?usp=sharing
+
+Baidu Cloud: https://pan.baidu.com/s/1qZqTYBfM2oK03RARcTEqng?pwd=8888 PIN code: 8888
+
+NOTE: 2023-07 BPI-M2 Berry Armbian_23.05.0
+
+Google Drive: https://drive.google.com/drive/folders/1mzcyy11sJyg0ZrDzdKj4JVjo9qrDjRyb?usp=sharing
+
+Baidu Cloud: https://pan.baidu.com/s/1XYg5KjoAaxewIpv9NT-gcA?pwd=8888 PIN code: 8888
+
+NOTE: Armbian_23.02.0-trunk_Bananapim2ultra_jammy_edge_6.1.11_xfce_desktop.img
+
+Google Drive: https://drive.google.com/drive/folders/1VpvVkYMqgmSnmfKXQSrEY2B6wRa-cggL?usp=share_link
+
+Baidu Cloud: https://pan.baidu.com/s/1hkkl22uVjvRct1V7N4OK2w?pwd=8888
+
+Disucss on forum: https://forum.banana-pi.org/t/banana-pi-bpi-m2-berry-new-armbian-image/15140
+
+NOTE: 2022-12-06 Armbian_22.11.0-trunk_Banana Pi BPI-M2 Berry_bullseye_edge_6.0.9.img.xz
+
+Google Drive: https://drive.google.com/file/d/1vyK13DB2Z1OMjGE9Wd1XHYIMFPZ8UuZI/view?usp=share_link
+
+Baidu Cloud: https://pan.baidu.com/s/1GMUZGZcWWXPKRSW1X5fRKw?pwd=8888 PIN code: 8888
+
+Discuss on forum: https://forum.banana-pi.org/t/bananapi-bpi-m2-berry-new-image-release-armbian-bullseye/14451
+
+NOTE: Armbain have support BPI-M2 Ultra/BPI-M2 Berry，Armbian Bionic btea and Armbian Stretch beta version
+
+Image download ： https://www.armbian.com/bananapi-m2u/
+
+Boot logs : http://ix.io/1kVQ
+
+Forum pthread : http://forum.banana-pi.org/t/armbian-bionic-and-stretch/6573
+
+=== Tina IoT Linux
+NOTE: BPI-M2 Ultra / BPI-M2 Berry support Allwinner TinaLinux .
+
+More please see : link:https://docs.banana-pi.org/en/BPI-M2_Ultra/Tina_Linux[Tina Linux]
+
+=== RPiTC v3 1.12
+
+NOTE: 2017-11-28 updtae, RPiTC v3 1.12 for Banana Pi (BPI-M2U/BPI-M2B/BPI-M2P/BPI-M3/BPI-M64/BPI-R2): link:http://forum.banana-pi.org/t/rpitc-v3-1-12-for-banana-pi-bpi-m2u-bpi-m2b-bpi-m2p-bpi-m3-bpi-m64-bpi-r2/4292[download link]
+
+=== Others
+
+NOTE: Kali linux,crux linux,archlinux,centos linux for BPI-M2 Ultra & BPI-M2 Berry : link:http://forum.banana-pi.org/t/bpi-m2-ultra-bpi-m2-berry-new-image-2017-8-28-kali-linux-crux-linux-archlinux-centos-linux-image/3750[kali linux,crux linux,archlinux,centos linux 2017-08-25]
+
+Download: http://forum.banana-pi.org/c/Banana-pi-BPI-M2-Ultra/M2Uimage
+
+
+= Easy to buy
+
+WARNING: SINOVOIP Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M2-Berry/1100417230_40000003434388.html
+
+WARNING: Bipai Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M2-Berry/1101951077_40000003547464.html
+
+WARNING: Taobao Shop: https://shop108780008.taobao.com/category-1694930635.htm
+
+WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
