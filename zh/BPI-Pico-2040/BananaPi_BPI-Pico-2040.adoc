@@ -1,0 +1,113 @@
+= BPI-Pico-RP2040 Introduction
+
+Banana Pi Pico-RP2040 series is a low-power microcontroller development board designed for the Internet of Things.
+
+BPI-Pico-RP2040 is a microcontroller development board launched by Banana Pi equipped with RP2040 chip. Its most notable feature is to add a Onboard WS2812 color LED; replace the 3-Pin DEBUG interface with a JST SH 1mm 4-Pin socket, which can be connected with Qwiic & STEMMA QT or any possible peripherals; replace the micro-USB socket with a USB Type-C socket , supports reversible insertion, and is compatible with the USB Type-C cable of most modern smartphones, no additional purchase is required.
+
+image::/picture/bpi_pico_rp2040_banner.png[bpi_pico_rp2040_banner.png]
+
+TIP: ESP32-S3 design link:/en/BPI-Centi-S3/BananaPi_BPI-Centi-S3[Banana Pi BPI-Centi-S3] IoT and  Maker DIY design +
+ESP32-S3 design link:/en/BPI-Leaf-S3/BananaPi_BPI-Leaf-S3[Banana Pi BPI-Leaf-S3] IoT and  Maker DIY design +
+ESP32-S3 design link:/en/BPI-PicoW-S3/BananaPi_BPI-PicoW-S3[Banana Pi BPI-Pico-S3] IoT and  Maker DIY design +
+Raspberry Pi RP2040 design link:/en/BPI-Pico-2040/BananaPi_BPI-Pico-2040[Banana Pi BPI-Pico-RP2040] IoT and  Maker DIY design 
+
+== Key Features
+
+* Dual-core ARM Cortex M0+ CPU cores (up to 133 MHz)
+* 264K SRAM
+* 2MB Flash
+* 26 available GPIO pins, 4 of which support ADC analog input
+* 1 x LED
+* 1 x Neopixel LED
+* 1 × SH 1.0 4-Pin socket
+* 1 × USB Type-C socket
+
+
+== Getting Start
+
+TIP: link:/en/BPI-Pico-2040/GettingStarted_BPI-Pico-2040[**Getting Started BPI-Pico-RP2040**]
+
+= Hardware
+== Hardware Interface
+
+image::/picture/bpi_pico_rp2040_io_1920.jpg[bpi_pico_rp2040_io_1920.jpg]
+
+== BPI-Pico-RP2040 Photo
+
+link:/en/BPI-Pico-2040/Photo_BPI-Pico-RP2040[Banana Pi BPI-Pico-RP2040 Product photo gallery]
+
+== Hardware Spec
+
+[options="header"]
+|========================================================================
+2+| **HardWare Specification of Banana Pi BPI-Pico-2040**
+| Main Chip                   | RP2040,Dual-core ARM Cortex M0+ CPU cores
+| Frequency                   | 133MHz MAX                               
+| Operating temperature       | -20℃~+85℃                                
+| On-chip SRAM                | 264 KB                                   
+| On-board FLASH              | 2MB                                      
+| GPIO                        | 26 GPIO                                  
+| ADC                         | 4 analogue inputs                        
+| PIO                         | I2C                                      
+| SPI,DSPI,QSPI              
+| UART                       
+| SDIO (SD card)             
+| I2S                        
+| 8080 and 6800 parallel port
+| USB input voltage           | 5V                                       
+| 3V3 output current          | 2A MAX                                   
+| Neopixel LED                | 1                                        
+| LED                         | 1                                        
+| USB Type-C socket           | 1                                        
+| SH 1.0 4-pin socket         | 1                                        
+|========================================================================
+
+== Hardware Size
+
+image::/picture/bpi_pico_rp2040_dimension.jpg[bpi_pico_rp2040_dimension.jpg]
+
+[options="header"]
+|==================================================================
+| Pin spacing           | 2.54mm                                   
+| Mounting hole spacing | 17.6mm/ 11.4mm                           
+| Mounting hole size    | Inner diameter 2.1mm/outer diameter 3.4mm
+| Mainboard size        | 11.4 × 55.8(mm)                          
+| Thickness             | 1.2mm                                    
+|==================================================================
+
+The pin spacing is compatible with universal boards (hole boards, dot matrix boards) and breadboards, which is convenient for debugging applications.
+
+
+
+= Development
+== Source Code
+
+TIP: https://github.com/micropython/micropython[micropython]
+
+== Resources
+
+TIP: https://github.com/BPI-STEAM/BPI-Pico-RP2040-Doc/blob/main/BPI-Pico-RP2040-V0.2-SCH.pdf[GitHub: BPI-Pico-RP2040 Schematic diagram of development board PDF]
+
+TIP: https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf[rp2040-datasheet.pdf]
+
+TIP: https://datasheets.raspberrypi.com/rp2040/rp2040-product-brief.pdf[rp2040-product-brief.pdf]
+
+TIP: https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-python-sdk.pdf[Raspberry Pi Pico Python SDK]
+
+TIP: https://arduino-pico.readthedocs.io/en/latest/[RP2040 Arduino documentation]
+
+TIP: Banana Pi BPI-Pico-RP2040 review: https://www.youtube.com/watch?v=iKMkOPXfAc8
+
+= Firmware
+
+NOTE: https://micropython.org/download/RPI_PICO/[micorpython firmware download]
+
+= Easy to buy
+
+WARNING: BIPAI Aliexress shop: https://www.aliexpress.com/item/1005005083258994.html
+
+WARNING: SINOVOIP Aliexpress shop : https://www.aliexpress.us/item/3256804896912828.html?gatewayAdapt=glo2usa4itemAdapt&_randl_shipto=US
+
+WARNING: Taobao Shop: https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-24708246124.11.774a3ce5S1Yvbl&id=695456693140
+
+WARNING: OEM&ODM,please contact: judyhuang@banana-pi.com
