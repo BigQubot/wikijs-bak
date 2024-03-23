@@ -1,0 +1,263 @@
+= BPI-M4 Zero Introduction
+
+Banana Pi BPI-M4 Zero is the successor model of M2 Zero. It has a huge improvement in performance. The SOC is upgraded to H618 and the CPU frequency is increased by 25%. The memory is upgraded to DDR4, the capacity is quadrupled, and 8G eMMC is added. It supports 5G WiFi, and the USB interface has also been upgraded to type-C.
+
+It has same form factor and 40-pin connector as the Raspberry Pi Zero W, and it can fit most of the RPI Zero W cases and accessories.
+
+image::/picture/bpi_m4_zero_banner_1.jpg[bpi_m4_zero_banner_1.jpg]
+
+TIP: Allwinner H618 design : link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry[Banana Pi BPI-M4 Berry] Same size as Raspberry Pi 4B +
+Allwinner H618 design : link:/en/BPI-M4_Zero/BananaPi_BPI-M4_Zero[Banana Pi BPI-M4 Zero] Same size as Raspberry Pi Zere W
+
+= Key Features
+
+* Allwinner H618, Quad-core ARM Cortex™-A53 processor
+* ARM Mali G31 GPU
+* 2.4G/5G WIFI & Bluetooth 4.2
+* 2G LPDDR4 RAM
+* 8G eMMC flash memory
+* 1x USB2.0 Type-C OTG, 5V power supply
+* 1x USB2.0 Type-C
+* 1x miniHDMI 2.0a
+* 1x 24-pin FPC connector
+** 1x USB2.0 (in FPC connector)
+** 1x 100Mbps Ethernet (in FPC connector)
+
+== Getting Start
+
+TIP: link:/en/BPI-M4_Zero/GettingStarted_BPI-M4_Zero[Getting Started BPI-M4_Zero]
+
+= Hardware
+== Hardware Interface
+image::/picture/bpi-m4_zero_interface.jpg[bpi-m4_zero_interface.jpg]
+
+== BPI-M4 Zero Photo
+
+link:/en/BPI-M4_Zero/Photo_BPI-M4_Zero[Banana Pi BPI-M4 Zero Product photo gallery]
+
+== Hardware Spec
+
+[options="header",cols="1,4",width="70%"]
+|=====
+2+| **Hardware Specification of Banana pi BPI-M4 Zero**
+| CPU                                             | Allwinner H618, Quad-core ARM Cortex™-A53 processor, 64-bit, up to 1.5GHz
+| GPU                                             | ARM Mali G31 GPU
+| Memory                                          | 2 GB LPDDR4
+| Storage                                         | 8G eMMC flash
+| SD card                                         | MicroSD card slot, SDIO3.0
+| Wireless                                        | 2.4G/5G WiFi and Bluetooth 4.2
+| HDMI                                            | 1x miniHDMI 2.0a (up to 4K@60Hz with HDR10, CEC, DDC, SCDC), HDMI digital Audio output
+| USB                                             | 1x USB2.0 Type-C HOST, 1x USB2.0 Type-C OTG
+.2+| 40-pin header                                   | 28 pins GPIO and Power (+5V, +3.3V and GND)
+| UART, SPI, TWI/I²C, PWM, PCM/I²S
+.2+| 24-pin FPC                                      | 0.5mm pitch FPC connector， 1x USB2.0, 1x IR, 1x 100Mbps Ethernet
+| 9 pins GPIO, UART,TWI/I²C, PWM, PCM/I²S
+| Buttons                                         | Reset, FEL
+| LED                                             | Power Status and Activity status
+| Power                                           | 5V@3A via USB Type-C
+| Size                                            | 65mm × 30mm
+| Weight                                          |                                          
+|=====
+
+
+== BPI-M4 Zero VS Raspberry Pi Zero
+
+
+
+
+== GPIO Pin Define
+
+=== BPI-M4 Berry 40PIN GPIO
+
+[options="header",cols="1,2,3,3,3,3",width="70%"]
+|=====
+6+| **40 PIN GPIO of Banana pi BPI-M4 Berry**
+| Pin Num | Pin Name | ALT0         | ALT1         | ALT2      | ALT3         
+| 1       | 3.3V     |              |              |           |              
+| 2       | 5V       |              |              |           |              
+| 3       | PG16     | UART2_RX     |              |           | TWI4_SDA     
+| 4       | 5V       |              |              |           |              
+| 5       | PG15     | UART2_TX     |              |           | TWI4_SCK     
+| 6       | GND      |              |              |           |              
+| 7       | PG19     |              |              | PWM1      |              
+| 8       | PG6      | UART1_TX     |              |           |              
+| 9       | GND      |              |              |           |              
+| 10      | PG7      | UART1_RX     |              |           |              
+| 11      | PH2      | UART5_TX     |              | PWM2      |              
+| 12      | PG11     | H_I2S2_BCLK  |              |           |              
+| 13      | PH3      | UART5_RX     |              | PWM1      |              
+| 14      | GND      |              |              |           |              
+| 15      | PG2      |              |              |           |              
+| 16      | PG8      | UART1_RTS    |              |           |              
+| 17      | 3.3V     |              |              |           |              
+| 18      | PG9      | UART1_CTS    |              |           |              
+| 19      | PH7      | UART2_RTS    | H_I2S3_LRCK  | SPI1_MOSI |              
+| 20      | GND      |              |              |           |              
+| 21      | PH8      | UART2_CTS    | H_I2S3_DOUT0 | SPI1_MISO | H_I2S3_DIN1  
+| 22      | PG1      |              |              |           |              
+| 23      | PH6      | UART2_RX     | H_I2S3_BCLK  | SPI1_CLK  |              
+| 24      | PH5      | UART2_TX     | H_I2S3_MCLK  | SPI1_CS0  |              
+| 25      | GND      |              |              |           |              
+| 26      | PH9      |              | H_I2S3_DIN0  | SPI1_CS1  | H_I2S3_DOUT1 
+| 27      | PG18     | UART2_CTS    |              |           | TWI3_SDA     
+| 28      | PG17     | UART2_RTS    |              |           | TWI3_SCK     
+| 29      | PG3      |              |              |           |              
+| 30      | GND      |              |              |           |              
+| 31      | PG4      |              |              |           |              
+| 32      | PG0      |              |              |           |              
+| 33      | PG5      |              |              |           |              
+| 34      | GND      |              |              |           |              
+| 35      | PG12     | H_I2S2_LRCK  |              |           |              
+| 36      | PH4      |              |              |           |              
+| 37      | PG10     | H_I2S2_MCLK  |              |           |              
+| 38      | PG14     | H_I2S2_DIN0  | H_I2S2_DOUT1 |           |              
+| 39      | GND      |              |              |           |              
+| 40      | PG13     | H_I2S2_DOUT0 | H_I2S2_DIN1  |           |              
+|=====
+
+=== 24-pin FPC
+[options="header",cols="1,2,2,2",width="70%"]
+|=====
+4+| **24-pin FPC define and GPIO Alternative Functions Assignments**
+| Pin Num	|Pin Name	|ALT0	|ALT1
+| 1  | GND      |              |              
+| 2  | EPHY_RXN |              |              
+| 3  | EPHY_RXP |              |              
+| 4  | EPHY_TXN |              |              
+| 5  | EPHY_TXP |              |              
+| 6  | GND      |              |              
+| 7  | PI9      | UART3_TX     | TWI2_SCK     
+| 8  | PI10     | UART3_RX     | TWI2_SDA     
+| 9  | PI12     | UART3_CTS    | PWM2         
+| 10 | PI11     | UART3_RTS    | PWM1         
+| 11 | 3V3      |              |              
+| 12 | 3V3      |              |              
+| 13 | PI4      | H_I2S0_DIN0  | H_I2S0_DOUT1 
+| 14 | PI3      | H_I2S0_DOUT0 | H_I2S0_DIN1  
+| 15 | PI2      | H_I2S0_LRCK  |              
+| 16 | PI1      | H_I2S0_BCLK  |              
+| 17 | PI0      | H_I2S0_MCLK  |              
+| 18 | GND      |              |              
+| 19 | PH10     | IR_RX        |              
+| 20 | 5V       |              |              
+| 21 | 5V	      |              |	
+| 22 | USB2_DP  |              |		
+| 23 | USB2_DM	|              |	
+| 24 | GND	   	|              |  
+|=====
+
+=== BPI-M4 Berry Debug UART
+
+|=====
+|1|GND
+|2|UART0_RX
+|3|UART0_TX
+|=====
+
+= Development
+== Source Code
+=== Android
+TIP: BPI-H618-Android12-Code
+
+Baidu Cloud: https://pan.baidu.com/s/1yMlLXauxZywujH8WkYqEcQ?pwd=8888 PIN code:8888
+
+Google Drive: https://drive.google.com/drive/folders/1qQxQik4GJjOF1aEOs9a1YVFxJBPlyFnc?usp=sharing
+
+=== Linux BSP Source Code
+
+TIP: Linux BSP source code
+
+u-boot for H618 : https://github.com/BPI-SINOVOIP/pi-u-boot/tree/v2021.07-sunxi
+
+kernel for H618 : https://github.com/BPI-SINOVOIP/pi-linux/tree/pi-6.1-sunxi
+
+== Resources
+
+TIP: BPI-M4 Zero Hardware introduction video: https://www.youtube.com/watch?v=23J_TfsB480
+
+TIP: BPI-M4 Zero DXF file
+
+Baidu Cloud: https://pan.baidu.com/s/1Mjpa8V_rm9S_advARWvzKA?pwd=8888 PIN code:8888
+
+Google Drive: https://drive.google.com/file/d/1HBTiiMwU5mz2ogGsBUwHz2idkqJpXCNB/view?usp=sharing
+
+TIP: BPI-M4 ZERO Schematic diagram
+
+Baidu Cloud: https://pan.baidu.com/s/1KPAf3tz_-h-9PWv-6VcAJg?pwd=8888 PIN code:8888
+
+Google Drive: https://drive.google.com/file/d/1WUFn_GItB6fBIt0C-ejdyu3FwznuGmCr/view?usp=sharing 
+
+TIP: BPI-M4 Zero SBC bench test: 
+
+TIP: Allwinner H618 Datasheet
+
+Baidu Cloud: https://pan.baidu.com/s/10Rk4xLMOhIkk-gIoQx9DQw?pwd=8888 PIN code:8888
+
+Google Drive: https://drive.google.com/file/d/1N6oWF9PHTcxXC1JY4x3Malr3twFv2wWZ/view?usp=sharing
+
+= System Image
+== Android
+
+NOTE: 2024-01-14-bananapi-m4zero-android12-box.img.
+
+Baidu Cloud: https://pan.baidu.com/s/1HRiOLLBwdrLehv_z2sksfA?pwd=8888 PIN code:8888
+
+Google Drive: https://drive.google.com/drive/folders/15XDTLd5VqZxfgmv7tlqDBHrgOGvaBofU?usp=sharing
+
+NOTE: 2024-01-14-bananapi-m4zero-android12
+
+Baidu Cloud: https://pan.baidu.com/s/1rNXZc_OKJHyUVOPXtCixcQ?pwd=8888 PIN code:8888
+
+Google Drive: https://drive.google.com/drive/folders/18ZvhcAMIOWyAZxHcxNGJmKVjZidYqGtW?usp=sharing
+
+== Linux
+
+=== Ubuntu
+
+NOTE: 20240314-Bpi-m4zero_1.0.1_ubuntu24.04_jammy_desktop_xfce_linux6.1.31
+
+Baidu Cloud: https://pan.baidu.com/s/1GigN7INJarQnqJL5pQNK4g?pwd=8888 (pincode:8888)
+
+Google Drive: https://drive.google.com/file/d/1AhQqo54W4QOS36ek9lxoMnewk0F5nIoX/view?usp=sharing
+
+NOTE: 20240314-Bpi-m4zero_1.0.1_ubuntu24.04_jammy_minimal_linux6.1.31
+
+Baidu Cloud: https://pan.baidu.com/s/1nV6AJUayGSmLsUhIrMq9IQ?pwd=8888 (pincode:8888)
+
+Google Drive: https://drive.google.com/file/d/1CttN-hCD1PWImalYPh8QuxWsa2BPEyz-/view?usp=sharing
+
+=== Debian
+
+NOTE: 20240314-Bpi-m4zero_1.0.1_debian12_bookworm_desktop_xfce_linux6.1.31
+
+Baidu cloud: https://pan.baidu.com/s/1QJ0wFHxLMvaJgiCkk_NBpw?pwd=8888 (pincode:8888)
+
+Google drive: https://drive.google.com/file/d/1OKrAm2fX8pLpiYM6GcQOIyNdcgQh9_bH/view?usp=sharing
+
+NOTE: 20240314-Bpi-m4zero_1.0.1_debian12_bookworm_minimal_linux6.1.31
+
+Baidu cloud: https://pan.baidu.com/s/1oGq-HaHJoiUsUqIQwp72_Q?pwd=8888 (pincode:8888)
+
+Google drive: https://drive.google.com/file/d/1dNkG1sbh2EkKD9UUmUhT9LtdbfF3rT_c/view?usp=sharing
+
+NOTE: 20240315_Bpi-m4zero_1.0.1_debian11_bullseye_desktop_xfce_linux6.1.31
+
+Baidu Cloud: https://pan.baidu.com/s/1mkjxqcDDyDXDQ-ZJ_7Dcag?pwd=8888（pincode:8888)
+
+Google Drive: https://drive.google.com/file/d/1RyIC-1AsVUk9i8aL6c37uDcB3VIBQJwk/view?usp=sharing
+
+NOTE: 20240315_Bpi-m4zero_1.0.1_debian11_bullseye_minimal_linux6.1.31
+
+Baidu Cloud: https://pan.baidu.com/s/1x2ByNdQJHRxRxRIo5Ui1lA?pwd=8888 (pincode:8888)
+
+Google Drive: https://drive.google.com/file/d/19BjUfWAH8pQdVtxN1Ow6QERlSm5o5g5e/view?usp=sharing
+
+= Easy to buy
+
+WARNING: SINOVOIP Aliexpress Shop: https://www.aliexpress.us/item/1005006325178305.html
+
+WARNING: Bipai Aliexpress Shop: https://www.aliexpress.us/item/1005006325280213.html
+
+WARNING: Taobao Shop: https://item.taobao.com/item.htm?spm=a21dvs.23580594.0.0.4fee3d0dOP5VBH&ft=t&id=754939469582 
+
+WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
