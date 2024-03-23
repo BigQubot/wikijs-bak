@@ -1,0 +1,90 @@
+= BPI-WiFi6 Router Introduction
+
+Banana Pi BPI-Wifi6 Router design with Triductor TR6560 + TR5220 wifi SOC, it is a standard wifi6 router solution. Built-in high-performance dual-core ARM Cortex-A9 processor for WIFI message forwarding or intelligent business processing, built-in high-performance LSW and hardware NAT, supporting up to 5Gbps message forwarding,Integrated 5*GE PHY, provides 1000Mbps network access capability, and supports two WAN ports. Support hardware intelligent QoS. Support dual-band 2.4G 40M 2*2 +5G160M2.2 DBDC WIFI,Wifi protocol version support to IEEE 802.11ax, backward compatible 802.11a /b/g/n/ac, can support the highest rate of 3Gbps, 2G will reach 573.5Mbps, while 5G will reach 2401.9Mbps， support PoE interface ,add PoE module to support PoE function.
+
+image::/bpi-wifi6/banana_pi_bpi-wifi6_wiki_1.jpg[banana_pi_bpi-wifi6_wiki_1.jpg]
+
+TIP: Triductor TR6560 + TR5220 wifi design: link:/en/BPI-WiFi6_Router/BananaPi_BPI-WiFi6_Router[Banana Pi BPI-Wifi6 Router] low cost wifi6 Router board +
+Triductor TR6560 + TR5220 wifi design: link:/en/BPI-WiFi6_Mini/BananaPi_BPI-WiFi6_Mini[Banana Pi BPI-Wifi6 Mini Router] low cost Mini wifi6 Router board same size as: link:/en/BPI-R3_Mini/BananaPi_BPI-R3_Mini[Banana Pi BPI-R3 mini]
+
+== Key Features
+
+- Dual core ARM Cortex-A9 1.2G Hz
+- Integrated 5*GE PHY
+- Support 1000M/100M/10M rate mode self-negotiation and standard MIB statistics
+- Support IEEE802.11a/b/g/n/ac/ax wireless LAN communication protocol
+- Support Wi-Fi AP mode and STA mode
+- Support WPA,WPA2, WPA3 encryption and decryption, pay Chinese WAPI standard
+- PoE function support
+
+== Getting Start
+
+TIP: link:/en/BPI-WiFi6_Router/GettingStarted_BPI-WiFi6_Router[Getting Started BPI-WiFi6_Router]
+
+= Hardware
+== Hardware Interface
+
+image::/bpi-wifi6/banana_pi_bpi-wifi6_interface.jpg[banana_pi_bpi-wifi6_interface.jpg]
+
+== GPIO Pin Define
+
+=== BPI-WiFi6 Router Debug UART
+
+[options="header",cols="1,1"]
+|=====
+2+|**BPI-Wifi6 Router Debug UART(J3)-TTL3.3V**
+| Debug	| UART(J3)-TTL3.3V
+| PIN1	| RXD
+| PIN2	| NC
+| PIN3	| 3.3V
+| PIN4	| GND
+| PIN5	| TXD
+|=====
+
+== PoE support
+Easy to add PoE function suppport on BPI-Wifi6 router,The PoE module port is reserved on the board. If the PoE module is welded to the board, the PoE network cable power supply function is supported.
+
+image::/picture/banana_pi_bpi-wifi6_with_poe.jpg[banana_pi_bpi-wifi6_with_poe.jpg]
+
+IMPORTANT: Note : use BPI-RT5400-12V PoE module.
+
+== BPI-WIfi6 router product design
+We have design a case for BPI-Wifi6 Router board ,so you can use this board directly as a standard wifi6 router
+
+image::/bpi-wifi6/bpi-wifi6_router_product.jpg[bpi-wifi6_router_product.jpg]
+
+IMPORTANT: Note : the Router product just support 1Wan + 3 Lan port ,not 4 LAN port
+
+OEM&ODM support : this board support customized service. You can quickly produce your own wifi6 router products. And develop your own software on it
+
+= Development
+TIP: Please refer to github bsp's pdf document: 创耀_TGP3.0开发手册_2023.4.20.pdf ----- gtihub website: https://github.com/BPI-SINOVOIP/THG6500-TAX2-OPENWRT-BSP
+
+== Source Code
+TIP: Source code on github: https://github.com/BPI-SINOVOIP/THG6500-TAX2-OPENWRT-BSP
+
+== Resources
+TIP: Banana Pi BPI wfi6 router with Triductor TR6560 + TR5220 wifi SOC test PoE and OpenWRT: https://www.youtube.com/watch?v=Nf03ssN8ez0
+
+= System Image
+
+== OpenWRT
+
+NOTE: 2024-01-05 OpenWRT-TGP3.1.0_rc8
+
+Baidu Cloud: https://pan.baidu.com/s/16ZVe4cKMmQAGcg3KNcOq3w?pwd=8888 PIN code:8888
+
+Google Drive: https://drive.google.com/file/d/1MAzZjgSX4qVRCx40_qKOY9skHklWtcqm/view?usp=sharing
+
+= FAQ
+
+
+
+= Easy to buy
+WARNING: BPI Aliexpress shop : https://www.aliexpress.com/store/group/BPI-Wifi-6/1101951077_40000004162529.html?spm=a2g0o.store_pc_saleItems.0.0.77487862alHitN
+
+WARNING: SinoVoip Aliexpress shop : https://www.aliexpress.com/store/group/BPI-WIfi-6/1100417230_40000004365851.html?spm=a2g0o.store_pc_saleItems.0.0.1b4430d9kDRD79
+
+WARNING: Taobao shop : https://item.taobao.com/item.htm?spm=a2126o.success.0.0.729a4831qQlwiq&id=725082757481&qq-pf-to=pcqq.group
+
+WARNING: OEM&ODM please contact : judyhuang@banana-pi.com
