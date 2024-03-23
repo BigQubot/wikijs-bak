@@ -1,0 +1,407 @@
+= BPI-M1 Plus Introduction
+
+Banana Pi BPI-M1 Plus upgrade is an open-source single-board computer that adds more connectivity to the classic board. It features the same high performance AllWinner A20 dual-core SoC at 1GHz, 1GB of DDR3 SDRAM, Gigabit Ethernet, SATA, USB, and HDMI connections found in classic BPI-M1+ ; but the Banana Pi M1+ features onboard WiFi g/b/n. The board supports all classic projects and even more because of the onboard WIFi chip. Like its sibling, it can run operating systems including Android, Lubuntu, Ubuntu, Debian, and Raspbian.
+
+image::/picture/a_bpi-m1+.jpg[a_bpi-m1+.jpg]
+
+TIP: Allwinner A20 design: link:/en/BPI-M1/BananaPi_BPI-M1[Banana Pi BPI-M1] SBC  +
+Allwinner A20 design: link:/en/BPI-M1_Plus/BananaPi_BPI-M1_Plus[Banana Pi BPI-M1+] SBC +
+Allwinner A20 design: link:/en/BPI-R1/BananaPi_BPI-R1[Banana Pi BPI-R1] Router
+
+Banana Pi M1+ is our upgraded M1 board. We feel like the onboard WiFi adds a lot more features to the board and makes it more convient for users to set up their linx desktop or router projects. Banana Pi is an open platform device, it is for anyone who wants to play and build with developer technology instead of simply using consumer technology. Backed by our community, starting a project and building servers is fun and rewarding. With a Banana Pi, we want you to explore and experience the world of DIY projects and portable computing. We welcome all companies, DIYers, and tech loving people within our community! Together, we can make a difference, we can discover our passions, inspire others, and build a practical project.
+
+= Key Features
+
+- Allwinner A20 Dual-core 1.0GHz CPU
+- Mali-400 MP2 with Open GL ES 2.0/1.1.
+- 1 GB DDR3 memory.
+- Wifi support onboard
+- 1x SATA interface.
+- 1x Gigabit LAN
+- 1x USB otg and 2x USB 2.0
+- 1X MIC
+- AV out
+- HDMI out
+- IR
+- CSI camera interface
+- DSI display interface
+- 40 PIN gpio
+- 3.7V lithium battery interface
+
+== Getting Start
+
+TIP: link:/en/BPI-M1_Plus/GettingStarted_BPI-M1_Plus[Getting Started BPI-M1_Plus]
+
+= Hardware
+== Hardware Interface
+
+image::/picture/bpi-m1_plus_interface_.jpg[bpi-m1_plus_interface_.jpg]
+
+== Hardware Spec
+
+[options="header",cols="1,3"]
+|=====
+2+| **HardWare Specification of Banana Pi M1+(Plus)**
+| CPU           | A20 ARM Cortex -A7 Dual-Core
+| GPU           | ARM Mali400MP2Complies with OpenGL ES 2.0/1.1
+| Memory        | 1GB DDR3
+| Network       | 10/100/1000 Ethernet
+| wifi&BT       | Wifi support onboard
+| Video Input   | A CSI input connector allows for the connection of a designed camera module
+| Video Outputs | HDMI, CVBS, LVDS/RGB
+| Audio Outputs | 3.5mm jack and HDMI
+| Power Source  | 5V/2A via Micro USB (DC in only) and / or Micro USB OTG
+| USB 2.0 ports | 2(direct from Allwinner A20 chip)
+| GPIO          | GPIO, UART, I2C BUS, SPI BUS, WITH TWO CHIP SELECTS, CAN bus, ADC, PWM, +3.3V, +5V, GND
+| LED           | Power Key & 8P8C
+| Storage       | SATA 2.0  
+| OS            | Android 4.4, Android 4.2, Raspbian, Lubuntu, Open Suse, Debian
+|=====
+
+== GPIO Pin Define
+
+=== BPI-M1 Plus 40PIN GPIO
+
+Banana Pi BPI-M1+ has a 40-pin GPIO header . Following is the Banana Pi GPIO Pinout:
+
+image::/picture/gpio_define.png[gpio_define.png]
+
+[options="header",cols="1,1,1"]
+|=====
+3+| **40 PIN GPIO of Banana pi BPI-M1+(Plus)**
+| GPIO Pin Name	| Default Function	| Function2：GPIO
+| CON3-P01 | VCC-3V3    |      
+| CON3-P02 | VCC-DC     |      
+| CON3-P03 | TWI2-SDA   | PB21 
+| CON3-P04 | VCC-DC     |      
+| CON3-P05 | TWI2-SCK   | PB20 
+| CON3-P06 | GND        |      
+| CON3-P07 | PWM1       | PI3  
+| CON3-P08 | UART3\_TX  | PH0  
+| CON3-P09 | GND        |      
+| CON3-P10 | UART3\_RX  | PH1  
+| CON3-P11 | UART2\_RX  | PI19 
+| CON3-P12 | PH2        | PH2  
+| CON3-P13 | UART2\_TX  | PI18 
+| CON3-P14 | GND        |      
+| CON3-P15 | UART2\_CTS | PI17 
+| CON3-P16 | CAN\_TX    | PH20 
+| CON3-P17 | VCC-3V3    |      
+| CON3-P18 | CAN\_RX    | PH21 
+| CON3-P19 | SPI0\_MOSI | PI12 
+| CON3-P20 | GND        |      
+| CON3-P21 | SPI0\_MISO | PI13 
+| CON3-P22 | UART2\_RTS | PI16 
+| CON3-P23 | SPI0\_CLK  | PI11 
+| CON3-P24 | SPI0\_CS0  | PI10 
+| CON3-P25 | GND        |      
+| CON3-P26 | SPI0\_CS1  | PI14 
+| CON3-P27 | TWI3-SDA   | PI1  
+| CON3-P28 | TWI3-SCK   | PI0  
+| CON3-P29 | I2S\_MCLK  | PB5  
+| CON3-P30 | GND        |      
+| CON3-P31 | I2S\_BCLK  | PB6  
+| CON3-P32 | I2S\_DI    | PB12 
+| CON3-P33 | I2S\_LRCK  | PB7  
+| CON3-P34 | GND        |      
+| CON3-P35 | I2S\_DO0   | PB8  
+| CON3-P36 | UART7\_RX  | PI21 
+| CON3-P37 | IR0\_TX    | PB3  
+| CON3-P38 | UART7\_TX  | PI20 
+| CON3-P39 | GND        |      
+| CON3-P40 | SPDIF\_DO  | PB13 
+|=====
+
+=== CSI Camera Connector specification:
+
+The CSI Camera Connector is a 40-pin FPC connector which can connect external camera module with proper signal pin mappings.The pin definitions of the CSI interface are shown as below. This is marked on the Banana Pi board as “CON1″.
+
+[options="header",cols="1,1,1"]
+|=====
+3+| **CSI PIN of Banana pi BPI-M1 Plus**
+| CSI Pin Name | Default Function Pin name | Function2：GPIO 
+| CON1 P01     | LINEINL                   |                
+| CON1 P02     | LINEINR                   |                
+| CON1 P03     | VCC-CSI                   |                
+| CON1 P04     | ADC\_X1                   |                
+| CON1 P05     | GND                       |                
+| CON1 P06     | ADC\_X2                   |                
+| CON1 P07     | FMINL                     |                
+| CON1 P08     | ADC\_Y1                   |                
+| CON1 P09     | FMINR                     |                
+| CON1 P10     | ADC\_Y2                   |                
+| CON1 P11     | GND                       |                
+| CON1 P12     | CSI-FLASH                 | PH17           
+| CON1 P13     | LRADC0                    |                
+| CON1 P14     | TWI1-SDA                  | PB19           
+| CON1 P15     | LRADC1                    |                
+| CON1 P16     | TWI1-SCK                  | PB18           
+| CON1 P17     | CSI-D0                    | PE4            
+| CON1 P18     | CSI0-STBY-EN              | PH19           
+| CON1 P19     | CSI0-D1                   | PE5            
+| CON1 P20     | CSI-PCLK                  | PE0  
+| CON1 P21     | CSI-D2                    | PE6  
+| CON1 P22     | CSI0-PWR-EN               | PH16 
+| CON1 P23     | CSI-D3                    | PE7  
+| CON1 P24     | CSI0-MCLK                 | PE1  
+| CON1 P25     | CSI-D4                    | PE8  
+| CON1 P26     | CSI0-RESET\#              | PH14 
+| CON1 P27     | CSI-D5                    | PE9  
+| CON1 P28     | CSI-VSYNC                 | PE3  
+| CON1 P29     | CSI-D6                    | PE10 
+| CON1 P30     | CSI-HSYNC                 | PE2  
+| CON1 P31     | CSI-D7                    | PE11 
+| CON1 P32     | CSI1-STBY-EN              | PH18 
+| CON1 P33     | AP-RESET\#                |      
+| CON1 P34     | CSI1-RESET\#              | PH13 
+| CON1 P35     | CSI-IO0                   | PH11 
+| CON1 P36     | HPR                       |      
+| CON1 P37     | HPL                       |      
+| CON1 P38     | IPSOUT                    |      
+| CON1 P39     | GND                       |      
+| CON1 P40     | IPSOUT                    |
+|=====
+
+=== LVDS \(LCD display interface\)
+
+The LVDS Connector is a 40-pin FPC connector which can connect external LCD panel \(LVDS\) and touch screen \(I2C\) module as well.The pin definitions of this connector are shown as below. This is marked on the Banana Pi board as “CON2″.
+
+[options="header",cols="1,2,1,1"]
+|=====
+4+| **LVDS PIN of Banana pi BPI-M1 Plus**
+|LVDS Pin	| Default Function	| Function2	| Function3：GPIO
+| CON2 P01 | IPSOUT\(5V output\) |           |      
+| CON2 P02 | TWI3-SDA            |           | PI1  
+| CON2 P03 | IPSOUT\(5V output\) |           |      
+| CON2 P04 | TWI3-SCK            |           | PI0  
+| CON2 P05 | GND                 |           |      
+| CON2 P06 | LCD0-IO0            |           | PH7  
+| CON2 P07 | LCDIO-03            |           | PH12 
+| CON2 P08 | LCD0-IO1            |           | PH8  
+| CON2 P09 | LCD0-D0             | LVDS0-VP0 | PD0  
+| CON2 P10 | PWM0                |           | PB2  
+| CON2 P11 | LCD0-D1             | LVDS0-VN0 | PD1  
+| CON2 P12 | LCD0-IO2            |           |      
+| CON2 P13 | LCD0-D2             | LVDS0-VP1 | PD2  
+| CON2 P14 | LCD0-DE             |           | PD25 
+| CON2 P15 | LCD0-D3             | LVDS0-VN1 | PD3  
+| CON2 P16 | LCD0-VSYNC          |           | PD27 
+| CON2 P17 | LCD0-D4             | LVDS0-VP2 | PD4  
+| CON2 P18 | LCD0-HSYNC          |           | PD26 
+| CON2 P19 | LCD0-D5             | LVDS0-VN2 | PD5  
+| CON2 P20 | LCD0-CS             |           |      
+| CON2 P21 | LCD0-D6             | LVDS0-VPC | PD6  
+| CON2 P22 | LCD0-CLK            |           | PD24 
+| CON2 P23 | LCD0-D7             | LVDS0-VNC | PD7  
+| CON2 P24 | GND                 |           |      
+| CON2 P25 | LCD0-D8             | LVDS0-VP3 | PD8  
+| CON2 P26 | LCD0-D23            |           | PD23 
+| CON2 P27 | LCD0-D9             | LVDS0-VN3 | PD9  
+| CON2 P28 | LCD0-D22            |           | PD22 
+| CON2 P29 | LCD0-D10            |           | PD10 
+| CON2 P30 | LCD0-D21            |           | PD21 
+| CON2 P31 | LCD0-D11            |           | PD11 
+| CON2 P32 | LCD0-D20            |           | PD20 
+| CON2 P33 | LCD0-D12            |           | PD12 
+| CON2 P34 | LCD0-D19            |           | PD19 
+| CON2 P35 | LCD0-D13            |           | PD13 
+| CON2 P36 | LCD0-D18            |           | PD18 
+| CON2 P37 | LCD0-D14            |           | PD14 
+| CON2 P38 | LCD0-D17            |           | PD17 
+| CON2 P39 | LCD0-D15            |           | PD15 
+| CON2 P40 | LCD0-D16            |           | PD16 
+|=====
+
+=== BPI-M5 Debug UART
+
+The jumper J11header CON4 is the UART interface.For developers of Banana Pi, this is an easy way to get the UART console output to check the system status and log message.
+
+[options="header",cols="1,1,1"]
+|=====
+|Pin Name	| Default Function	| GPIO
+|CON4-P03	| UART0-TXD	| PB22
+|CON4-P02	| UART0-RXD	| PB23
+|CON4-P01	| GND	      |     
+|=====
+
+= Development
+== Source Code
+
+=== Linux
+
+TIP: Linux kernel 3.4 Source code : https://github.com/BPI-SINOVOIP/BPI-M1-bsp
+
+=== Android
+
+TIP: Android 4.4 source code
+LCD7 type: https://github.com/BPI-SINOVOIP/BPI-A20-Android-4.4
+
+TIP: Android 4.2.2 source code
+HDMI type: https://github.com/BPI-SINOVOIP/BPI-A20-Android
+
+== Hardware means of production
+
+TIP: BPI-M1+ Gerber/Boom/Assembly document: 
+
+Baidu cloud: https://pan.baidu.com/s/1Vc6b81eysfECBgsY7IZ-sQ?pwd=8888 (pincode: 8888)
+
+Google drive: https://drive.google.com/file/d/1GVANm-AmIi409qpgcsj0NgcBxXUj-l2J/view?usp=sharing
+
+TIP: Schematic diagram: link:https://drive.google.com/drive/folders/0B4PAo2nW2KfnflVqbjJGTFlFTTd1b1o1OUxDNk5ackVDM0RNUjBpZ0FQU19SbDk1MngzZWM?resourcekey=0-ZRCiv304nGzvq-w7lwnpjg&usp=sharing[google drive]
+
+TIP: BPI-M1+ DXF file download link : link:https://drive.google.com/folderview?id=0B4PAo2nW2Kfnfkd0QmxaU3F2bHBWdkFiS09vT3VoZkVyNW93OXFjM0dHRVdGazhRWmFzZDQ&usp=sharing&tid=0B4PAo2nW2Kfndjh6SW9MS2xKSWs[google drive]
+
+TIP: BPI-M1+ 3D design file download link :
+link:https://drive.google.com/folderview?id=0B4PAo2nW2Kfnfl95clI4ZzRKUmRENWhMcmwzUlVrYW1Ic3BXZENtUjJQcjk5TXc0RHBKdlU&usp=sharing&tid=0B4PAo2nW2Kfndjh6SW9MS2xKSWs[google drive]
+
+== Resources
+- Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
+- All banana pi link:https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[docement(SCH file,DXF file,and doc)]
+
+- CE FCC RoHS :link:https://bananapi.gitbooks.io/bpi-m1/content/en/bpi-m1_ce_fcc_rohs_certification.html[BPI-M1 CE,FCC,RoHS]
+- Arch linux wiki for BPI-M1: https://wiki.archlinux.org/index.php/Banana_Pi
+- Nas for BPI-M1/BPI-M1+ : https://www.hackster.io/jeffbaocai/bananapi-pro-nas-0815dc?ref=platform&ref_id=8064_popular___&offset=3
+- NetBSD/evbarm on Allwinner SoCs : https://wiki.netbsd.org/ports/evbarm/allwinner/#index1h1
+- Gentoo for banana pi : https://wiki.gentoo.org/wiki/Banana_Pi_the_Gentoo_Way
+- OpenSUSE for banana pi : https://en.opensuse.org/HCL:BananaPi
+- How to booting from SSD using Lubuntu / Raspbian: https://bananapi.gitbooks.io/bpi-m1/content/en/howtobootingfromssdusinglubunturaspbian.html
+- Building the cluster on BPI: https://www.hackster.io/Penguinfly/banana-pi-cluster-47d566
+- Allwinner chip online datasheet and documents: http://dl.linux-sunxi.org/
+
+= System Image
+== Android
+
+NOTE: 2018-07-28 update android 4.4 LCD version image
+
+Release ntoes: http://forum.banana-pi.org/t/bananapi-m1-m1p-r1-new-image-release-20180728/6357
+
+Features Map: https://docs.banana-pi.org/en/M1_Image_Map
+
+Baidu Drive: https://pan.baidu.com/s/1DfSIiMvW_I-kFjTZMtcVsA
+
+Google Drive: https://drive.google.com/open?id=1qcH9baIhOphsDdlH_yBADuBiZsvrSKnt
+
+== Linux
+
+=== Ubuntu
+
+NOTE: 2022-09-07 Armbian_22.11.0-trunk_Bananapim1plus_jammy_edge_5.19.6_xfce_desktop.img
+
+Google Drive: https://drive.google.com/file/d/1hlPkFx-NhGoCxYlHCqe4q9LwuQ0GosQL/view?usp=sharing
+
+Baidu Cloud: https://pan.baidu.com/s/1SOeRKjVmTqTb6rMD71SfAw?pwd=wbnt PIN code: wbnt
+
+NOTE: Banana Pi new image: Ubuntu 16.04 with Allwinner BSP, use MPV play 1080P video,Allwinner BSP kernel 3.4 
+
+Google driver: https://drive.google.com/drive/folders/1DEO7JdMfDhHynC83K7JMxgnNxf1gV82S
+
+Discuss on forum: https://forum.banana-pi.org/t/banana-pi-new-image-ubuntu-16-04-with-allwinner-bsp-use-mpv-play-1080p-video/13272
+
+=== Debian
+
+NOTE: 2022-09-07 Armbian_22.11.0-trunk_Bananapim1plus_bullseye_edge_5.19.6_xfce_desktop
+
+Google Drive: https://drive.google.com/file/d/1XpumxbOR74FSLayoICh4ZN4G3uZ_o0Fo/view?usp=sharing
+
+Baidu Cloud: https://pan.baidu.com/s/1JtqdKE4AsAwCc6i_Wys_VA?pwd=6kgc PIN code: 6kgc
+
+NOTE: 2019-9-18 update. Debian 10 buster mate desktop with grub support (boot-2019.07 + kernel 5.1.1)
+
+Google driver: https://drive.google.com/file/d/1FhbaO6pDBu5jSPYq1ghd7YKG-KvFy33Q/view?usp=sharing
+
+Release ntoes: http://forum.banana-pi.org/t/bpi-m1-m1-r1-new-image-debian-10-buster-mate-desktop-with-grub-support-boot-2019-07-kernel-5-1-1/9916
+
+== OpenWRT
+=== Officeal OpenWRT
+NOTE: BPI-M1/BPI-M1+/BPI-R1 use A20 chip,so easy to run openwrt
+wiki : https://wiki.openwrt.org/toh/lamobo/r1
+
+NOTE: Openwrt support for allwinner : https://wiki.openwrt.org/doc/hardware/soc/soc.allwinner.sunxi?s[]
+
+NOTE: Image download : https://downloads.openwrt.org/chaos_calmer/15.05/sunxi/generic/uboot-sunxi-Lamobo_R1/
+
+NOTE: Opwrt for Allwinner Soc : https://wiki.openwrt.org/doc/hardware/soc/soc.allwinner.sunxi?s[]
+
+=== BPI BSP for OpenWRT
+NOTE: How to build OpenWRT image from github : https://bananapi.gitbooks.io/bpi-m1/content/en/howtobuildopenwrtimagefromgithub.html
+
+== Third part image
+=== Armbian
+
+NOTE: Armbian_23.02.0-trunk_Bananapim1plus_jammy_edge_6.1.11_xfce_desktop.img.xz
+
+Baidu Drive: https://pan.baidu.com/s/1hkkl22uVjvRct1V7N4OK2w?pwd=8888
+
+Google Drive: https://drive.google.com/drive/folders/1VpvVkYMqgmSnmfKXQSrEY2B6wRa-cggL?usp=share_link
+
+Discuss on forum : https://forum.banana-pi.org/t/banana-pi-bpi-m1-plus-new-armbian-image/15158
+
+NOTE: 2022-12-06 Armbian_22.11.0-trunk_Bananapi BPI-M1+ bullseye_edge_6.0.9.img.xz
+
+Google Drive: https://drive.google.com/file/d/1AMEfQIygT8949sfkX6HIjap7WKpQox4i/view?usp=share_link
+
+Baidu Cloud: https://pan.baidu.com/s/1ePzBiwN0wEd8j3muk1HOlA?pwd=8888 PIN code: 8888
+
+Discuss on forum: https://forum.banana-pi.org/t/bananapi-bpi-m1-new-image-release-armbian-bullseye/14447/2
+
+NOTE: Armbian Xenial and Armbian Jessie
+
+Image lownload link: https://www.armbian.com/banana-pi-plus/
+
+=== FreeBSD
+NOTE: FreeBSD on Allwinner (sunxi) systems for banana pi
+
+Banana pi as the official partner of Allwinner , must banana pi product use Allwinner chip design . such as A20/A31S/H3/H2+/A64/A83T , and FreeBSD have support many Allwinner . so easy to use on banana pi board.
+
+- Allwinner A20 (sun7i), a dual-core Cortex-A7 BPI-M1/BPI-M1+/BPI-R1
+- Allwinner A31 and A31s (sun6i), a quad-core Cortex-A7 BPI-M2
+- Allwinner A64 (sun50i), a quad-core Cortex-A53 BPI-M64
+- Allwinner A83T (sun8i), an octa-core Cortex-A7 BPI-M3
+- Allwinner H3 (sun8i), a quad-core Cortex-A7 BPI-M2+/BPI-M2+ EDU/
+
+https://wiki.freebsd.org/FreeBSD/arm/Allwinner
+
+=== OpenSuse
+NOTE: Image and how to : https://bananapi.gitbooks.io/bpi-m1/content/en/opensuse.html
+
+=== OpenMediaVault
+NOTE: Image and how to : https://bananapi.gitbooks.io/bpi-m1/content/en/openmediavault.html
+
+=== Arch Linux
+NOTE: Image and how to : https://bananapi.gitbooks.io/bpi-m1/content/en/arch_linux.html
+
+=== Gentoo Linux
+NOTE: Image and how to : https://bananapi.gitbooks.io/bpi-m1/content/en/gentoolinux.html
+
+=== RaspBSD
+NOTE: Image and how to : https://bananapi.gitbooks.io/bpi-m1/content/en/raspbsdonbpi-m1.html
+
+=== CentOS
+NOTE: Image and how to : https://bananapi.gitbooks.io/bpi-m1/content/en/centos7linuxforbpi.html
+
+=== DietPi
+NOTE: Image and how to : https://bananapi.gitbooks.io/bpi-m1/content/en/dietpi.html
+
+=== FreeBSD/NetBSD
+NOTE: Image and how to : https://bananapi.gitbooks.io/bpi-m1/content/en/freebsdnetbsd.html
+
+=== Lakka TV
+- Banana Pi M2+ with H3 chip
+- Banana Pi M3 with A83T chip
+- BPI-M1 and BPI-M1+ use A20 chip
+- More about this : https://bananapi.gitbooks.io/bpi-m3/content/en/lakkatv.html
+
+http://mirror.lakka.tv/nightly/
+
+=== Simplenas
+NOTE: Simplenas image : https://simplenas.com/download/other/banana-pi-m1
+
+
+= Easy to buy
+WARNING: SINOVOIP Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M1-Plus/1100417230_40000003434385.html
+
+WARNING: Bipai Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M1-Plus/1101951077_40000003414810.html
+
+WARNING: Taobao Shop: https://shop108780008.taobao.com/category-1694930630.htm
+
+WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
