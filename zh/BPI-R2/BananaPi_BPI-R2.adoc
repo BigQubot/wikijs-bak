@@ -1,0 +1,439 @@
+= BPI-R2 Introduction
+
+The Banana Pi R2 is a router based development board, which can run on a variety of open source operating systems including OpenWrt, Android, and Linux. It has 4 Gigabit LAN ports, 1 Gigabit WAN, and 300Mbs wireless N capabilities.
+
+BPI-R2 integrate a Quad-code ARM Cortex-A7 MPcore operating up to 1.3GHz, The Router also includes a variety of peripherals, including HDMI TX, MIPI DSI, PCIe2.0, USB2.0 OTG, USB3.0 Port, SATA port，5 Gbps Port Gigabit Ethernet port, 802.11a/b/g/n wifi & BT4.1 onboard, also support 802.11ac/n WLAN connection thru mini PCI-e port
+
+image::/picture/banana_pi_bpi-r2.jpg[banana_pi_bpi-r2.jpg]
+
+== Key Features
+
+- MediaTek MT7623N, Quad-core ARM Cortex-A7
+- Mali 450 MP4 GPU
+- 2G DDR3 SDRAM
+- Mini PCIE interface.
+- support 2 SATA interface
+- MicroSD slot supports up to 256GB expansion
+- 8G eMMC flash (option 16/32/64G)
+- MIPI display interface support
+- 5 port 10/100/1000 Mb Ethernet port
+- (2) USB 3.0 and (1) USB 2.0 otg port
+- 1080P high-definition video playback
+- HDMI port and multi-channel audio output
+- WIFI&Bluetooth 4.1 with 802.11B/G/N onboard
+
+== Getting Start
+
+TIP: link:/en/BPI-R2/GettingStarted_BPI-R2[Getting Started BPI-R2]
+
+TIP: link:http://fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:start[Getting Start with Frank Wiki]
+
+TIP: Howto build 19.07.3 openwrt image for bpi r2: http://forum.banana-pi.org/t/howto-build-19-07-3-openwrt-image-for-bpi-r2/11503
+
+= Hardware
+== Hardware Interface
+
+image::/picture/bpi-r2_new_intface.jpg[bpi-r2_new_intface.jpg]
+
+== Hardware Spec
+
+[options="header",cols="1,3"]
+|=====
+2+| **HardWare Specification of Banana Pi R2**
+| CPU              | MediaTek MT7623N, Quad-core ARM Cortex-A7
+| GPU              | Mali 450 MP4 GPU
+| Memory           | 2G DDR3 SDRAM
+| Storage          | Onboard 8GB eMMC Flash, Micro SD-Card slot, Two SATA 2.0 Port
+| Network          | 5 x 10/100/1000 Mbit/s Ethernet (MT7530)
+| WIFI&BT          | Wi-Fi 802.11 b/g/n 2.4G/5G + Bluetooth BT4.1(MT6625L)
+| Display(s)       | HDMI (Type A) output with HDCP 1.4, resolutions up 1920x1200； MIPI Display Serial Interface (DSI) interface(4 data lanes)
+| Video decoder(s) | Multi-format FHD video decoding, including Mpeg1/2, Mpeg4, H.263, H.264, etc. H.264 high-profile 1080p@60fps, HEVC/H.265 1080P@60fps   
+| Audio Output(s)  | HDMI & I2S
+| USB port         | USB 3.0 PORT (x2), USB OTG (x1)
+| mini PCIE        | 1 mini pcie interface & 1 pcie pin define interface
+| Remote           | IR Receiver (x1)
+| GPIO             | 40 Pin Header : GPIO (x28) and Power (+5V, +3.3V and GND). Some of I/O Pin can be used for specific functions as UART, I2C, SPI or PWM 
+| Switches         | Reset button, Power button, U-boot button
+| LED              | Power Status and 8P8C
+| Power Source     | 5 volt @2A via DC Power and/or Micro USB (OTG)
+| Size & Weight    | 148p;mm × 100.5mm 100g same ase Banana Pi BPI-R64 and Banana Pi BPI-R3
+| OS               | OpenWRT, Debian, Ubuntu, Raspbian and others OS
+|=====
+
+== GPIO Pin Define
+
+=== BPI-R2 40PIN GPIO
+
+image::/picture/gpio_define.png[gpio_define.png]
+
+[options="header",cols="1,1,1"]
+|=====
+3+| **40 PIN GPIO of Banana pi BPI-R2**
+| GPIO Pin Name	| Default Function | 
+| CON1-P01 | VCC-3V3         |         
+| CON1-P02 | VCC-5V          |         
+| CON1-P03 | I2C\_SDA0       | GPIO75  
+| CON1-P04 | VCC-5V          |         
+| CON1-P05 | I2C\_SCL0       | GPIO76  
+| CON1-P06 | GND             |         
+| CON1-P07 | PWM-003         | GPIO206 
+| CON1-P08 | UTXD1           | GPIO80  
+| CON1-P09 | GND             |         
+| CON1-P10 | URXD0           | GPIO81  
+| CON1-P11 | URXD1           | GPIO80  
+| CON1-P12 | I2S0\_BCK       | GPIO74  
+| CON1-P13 | UTXD0           | GPIO79  
+| CON1-P14 | GND             |         
+| CON1-P15 | PWM-002         | GPIO205 
+| CON1-P16 | URTS1           | GPIO25  
+| CON1-P17 | VCC-3V3         |         
+| CON1-P18 | UCTS1           | GPIO24  
+| CON1-P19 | SPI0\_MO        | GPIO56  
+| CON1-P20 | GND             |         
+| CON1-P21 | SPI0\_MI        | GPIO55  
+| CON1-P22 | PCM\_CLK        | GPIO18  
+| CON1-P23 | SPI0\_CK        | GPIO54  
+| CON1-P24 | SPI0\_CSN       | GPIO53  
+| CON1-P25 | GND             |         
+| CON1-P26 | PCM\_RX         | GPIO20  
+| CON1-P27 | I2C\_SDA1       | GPIO57  
+| CON1-P28 | I2C\_SCL1       | GPIO58  
+| CON1-P29 | PCM\_RST        | GPIO22  
+| CON1-P30 | GND             |         
+| CON1-P31 | SPDIF\_OUT      | GPIO200 
+| CON1-P32 | PCM\_TX         | GPIO21  
+| CON1-P33 | I2S0\_MCLK      | GPIO126 
+| CON1-P34 | GND             |         
+| CON1-P35 | I2S0\_LRCK      | GPIO73  
+| CON1-P36 | PCM\_SYNC       | GPIO19  
+| CON1-P37 | SPDIF\_IN1      | GPIO202 
+| CON1-P38 | I2S0\_DATA\_IN  | GPIO72  
+| CON1-P39 | GND             |         
+| CON1-P40 | I2S0\_DATA\_OUT | GPI049 
+|=====
+
+How to use Banana PI BPI-R2's GPIO-s: http://forum.banana-pi.org/t/how-to-use-banana-pi-bpi-r2s-gpio-s/4480
+
+=== MIPI DSI \(Display SerialInterface\)
+[options="header",cols="1,1,1"]
+|=====
+3+| **MIPI DSI of Banana pi BPI-R2**
+|DSI Pin Name	|Default Function	|Function2：GPIO
+| CN6-P01 | VCC-3V3   |        
+| CN6-P02 | VCC-5V    |        
+| CN6-P03 | VCC-3V3   |        
+| CN6-P04 | VCC-5V    |        
+| CN6-P05 | GND       |        
+| CN6-P06 | VCC-5V    |        
+| CN6-P07 | GND       |        
+| CN6-P08 | VCC-5V    |        
+| CN6-P09 | NC        |        
+| CN6-P10 | GND       |        
+| CN6-P11 | NC        |        
+| CN6-P12 | DSI-D0N   |        
+| CN6-P13 | NC        |        
+| CN6-P14 | DSI-D0P   |        
+| CN6-P15 | DSI\_TE   | GPIO84 
+| CN6-P16 | GND       |        
+| CN6-P17 | I2C\_SDA2 | GPIO77 
+| CN6-P18 | DSI-D1N   |        
+| CN6-P19 | I2C\_SCL2 | GPIO78 
+| CN6-P20 | DSI-D1P   |        
+| CN6-P21 | CTP-INT    | GPIO23  
+| CN6-P22 | GND        |         
+| CN6-P23 | CTP-RST    | GPIO236 
+| CN6-P24 | DSI-CKN    |         
+| CN6-P25 | GND        |         
+| CN6-P26 | DSI-CKP    |         
+| CN6-P27 | GPIO28     |         
+| CN6-P28 | GND        |         
+| CN6-P29 | GPIO83     |         
+| CN6-P30 | DSI-D2N    |         
+| CN6-P31 | GPIO204    |         
+| CN6-P32 | DSI-D2P    |         
+| CN6-P33 | GND        |         
+| CN6-P34 | GND        |         
+| CN6-P35 | LCM\_BLPWM | GPIO203 
+| CN6-P36 | DSI-D3N    |         
+| CN6-P37 | GND        |         
+| CN6-P38 | DSI-D3P    |         
+| CN6-P39 | NC         |         
+| CN6-P40 | GND        |         
+|=====
+
+=== BPI-R2 Debug UART
+
+|=====
+| CON2P03  | UTXD2	
+| CON2P02	| URXD2	
+| CON2P01	| GND
+|=====
+
+== BPI-MT7615 802.11 ac wifi 4x4 dual-band
+
+We have design a MT7615 802.11 ac wifi module ,can use on BPI-R2
+
+MT7615 is a highly integrated Wi-Fi single chip which support 1733 Mbps PHY rate,It fully compies with IEEE 802.11ac and IEEE802.11 a/b/n standards,offering feature-rich wireless connecivity at high standards,and delivering reliable,cost-effective throughput from and extended distance.
+
+link:/en/BPI-MT7615_802_11_ac_wifi_4x4_dual-band_module[BPI-MT7615 802.11 ac wifi 4x4 dual-band module]
+
+link:/en/BPI-R64_2B_MT7615_function_test[BPI-R64 + MT7615 function test]
+
+= Development
+== Source Code
+=== OpenWRT
+TIP: OpenWRT 18.06 source code on Github: https://github.com/BPI-SINOVOIP/BPI-R2-OPENWRT-18.06
+
+TIP: Banana Pi BPI-R2 19.07.7 OpenWRT Router source code on github: https://github.com/BPI-SINOVOIP/BPI-R2-OPENWRT-19.07.7.git
+
+TIP: OpenWRT LEDE: https://github.com/garywangcn/bpi-r2_lede/tree/bpi-r2-on-lede-v1
+
+=== OpenMPTCP
+TIP: OpenMPTCProuter : https://github.com/Ysurac/openmptcprouter
+
+=== Linux
+TIP: BPI-R2 linux kernel 4.14 : https://github.com/frank-w/BPI-R2-4.14
+
+TIP: BPI-R2 github BSP : https://github.com/BPI-SINOVOIP/BPI-R2-bsp
+
+=== FreeBSD
+
+TIP: BPI-R2 FreeBSD support/ZRouter.org support : https://gist.github.com/rayddteam/3461964e69f1fcc727b1b68ec9d6d0c8
+
+== Resources
+
+TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
+
+TIP: All banana pi link:https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[docement(SCH file,DXF file,and doc)]
+
+TIP: BPI-R2 Schematics :link:https://drive.google.com/file/d/1ndEGlHUe73mitA_HaJL5q4hFzes5pJdn/view?usp=sharing[BPI-R2 V1.2 hardware schematic diagram]
+
+TIP: BPI-R2 Schematics :link:https://drive.google.com/file/d/0B4PAo2nW2KfnbVZzeDJERGd2SDg/view?usp=sharing[BPI-R2 V1.1 hardware schematic diagram]
+
+TIP: Dimensional diagram link:https://drive.google.com/file/d/0B4PAo2nW2KfnenRRNGhmc29IZ2c/view?usp=sharing[BPI-R2 DXF design file]
+
+TIP: MTK MT7623N datasheet: link:https://drive.google.com/file/d/1GwXa5BNJFExP4HFEBcDFKAHYCWC46bdA/view?usp=sharing[MTK 7623N datasheet for development board programming guide v1.1 new update]
+
+TIP: FW-Web Wiki : http://fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:start
+
+TIP: How to use Banana PI BPI-R2 GPIO: http://forum.banana-pi.org/t/how-to-use-banana-pi-bpi-r2s-gpio-s/4480
+
+TIP: Banana pi BPI-R2 : link:http://forum.banana-pi.org/t/bpi-r2-smart-router-board-ce-fcc-rohs-certification/4852[CE,FCC,RoHS: CE,FCC,RoHS]
+
+TIP: Banana Pi BPI-R2 Razberry board OpenHab2: https://community.openhab.org/t/banana-pi-bpi-r2-razberry-board-openhab2-help/37222/8
+
+TIP: Gitbook online documents: https://bananapi.gitbooks.io/banana-pi-bpi-r2-open-source-smart-router/content/
+
+TIP: The best news is that the final patchset version for HNAT framework was accepted ( kernel 4.16) and it's based on nftables.: https://www.spinics.net/lists/netfilter-devel/msg50973.html
+
+TIP: How to build an Ubuntu/Debian SD image from scratch : http://forum.banana-pi.org/t/how-to-build-an-ubuntu-debian-sd-image-from-scratch/6805
+
+TIP: Best Banana Pi R2 Operating System Options: https://www.electromaker.io/blog/article/best-banana-pi-r2-operating-system-options
+
+TIP: Make a Banana Pi R2 Router: Banana Pi R2 OpenWRT Installation and Review: https://www.electromaker.io/tutorial/blog/make-a-banana-pi-r2-router-banana-pi-r2-openwrt-installation-and-review
+
+TIP: MTK chip mailline Linux effort : https://mtk.bcnfs.org/doku.php?id=linux_mainline_effort
+
+TIP: BPI-R2 and SSD1306 oled screen : http://forum.banana-pi.org/t/bpi-r2-and-ssd1306-oled-screen/11917
+
+TIP: How to configure BPi-R2 as one-armed “router on a stick”: http://forum.banana-pi.org/t/how-to-configure-bpi-r2-as-one-armed-router-on-a-stick/12022/6
+
+TIP: New netfilter flow table based HNAT: http://forum.banana-pi.org/t/new-netfilter-flow-table-based-hnat/12049
+
+TIP: OpenWRT official wiki for BPI-R2 : https://openwrt.org/toh/sinovoip/sinovoip_banana_pi_r2
+
+TIP: 802.11ax 4x4 (mt7915) with BPI-R2 : http://forum.banana-pi.org/t/802-11ax-4x4-mt7915-with-r2/12082
+
+TIP: [Tutorial] Build, customize and use MediaTek open-source U-Boot and ATF : https://forum.banana-pi.org/t/tutorial-build-customize-and-use-mediatek-open-source-u-boot-and-atf/13785
+
+TIP: [BPI-R2/R64/R3] OpenWrt built on devices : https://openwrt.org/docs/guide-developer/toolchain/building_openwrt_on_openwrt
+
+TIP: BPI-R2 based DIY NAS/Router : https://bburky.com/NAS/ +
+Forum pthread: http://forum.banana-pi.org/t/bpi-r2-based-diy-nas-router/6787
+
+= System Image
+== Android
+NOTE: Android 6.0
+
+Baidu cloud : https://pan.baidu.com/s/1pMrroy3
+
+Discuss on forum : http://forum.banana-pi.org/t/bpi-r2-new-image-release-android-6-0-v1-0/4630
+
+== Linux
+
+=== Ubuntu
+
+NOTE: BPI-R2 Ubuntu 16.04 Kernel4.4 V1.3
+
+Source code(BSP): https://github.com/BPI-SINOVOIP/BPI-R2-bsp
+
+Image Release : http://forum.banana-pi.org/t/topic/5293
+
+NOTE: BPI-R2 Ubuntu 16.04 Kernel4.14 V1.0
+
+Source code(BSP): https://github.com/BPI-SINOVOIP/BPI-R2-bsp-4.14
+
+Image Release : http://forum.banana-pi.org/t/topic/5548
+
+=== Debian
+
+NOTE: 2019-8-12 update BPI-R2 debian 10 buster image with Kernel 4.19.62, shared by frank-w
+
+Username/password: root/bananapi
+
+Google drive: https://drive.google.com/open?id=1oP7jy1KrrIOifvImo2nQ59wx3_9hHkgk
+
+How to : https://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:storage#short_install-guide
+
+Forum discuss: http://forum.banana-pi.org/t/bpi-r2-debian-buster-image-with-kernel-4-19-62/9601
+
+Documents: http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:debian
+
+=== Centos 7
+NOTE: BPI-R2 Centos 7 Kernel4.4 20180112
+
+Source code(BSP): https://github.com/BPI-SINOVOIP/BPI-R2-bsp
+
+Image Release: http://forum.banana-pi.org/t/topic/5124
+
+How to install: https://www.electromaker.io/tutorial/blog/getting-started-with-centos-on-the-banana-pi-r2-how-to-install-centos-on-banana-pi-r2
+
+== Third part image
+=== Armbian
+
+NOTE: Armbian preview image for Bananapi R2 / K4.19.y
+
+https://www.armbian.com/bananapi-r2/
+
+=== Basic Alpine Router Platform with WIFI AccessPoint on Pantavisor 005
+NOTE: 2018-06-17 image Release
+
+**SD-Card images:**
+
+512M: https://s3.amazonaws.com/bpi-pv/alpine-router/2/2018-06-16-alpine-router-pantavisor-512M-bpi-r2-sd-emmc.img.zip
+
+8G: https://s3.amazonaws.com/bpi-pv/alpine-router/2/2018-06-16-alpine-router-pantavisor-8G-bpi-r2-sd-emmc.img.zip
+
+**PVR Command Line Tool (download to PATH directory and make executable):**
+
+Linux (amd64): https://gitlab.com/pantacor/pvr/uploads/b0db2e9e36fa70ff09e045df9c9803d4/pvr-004-amd64.gz
+
+Windows (x64): https://gitlab.com/pantacor/pvr/uploads/a7a26b603a5b8e9a98e2dc7c77b4c252/pvr-004-win10-x64.zip
+
+More downloads: https://gitlab.com/pantacor/pvr/tags/004
+
+**Discuss on forum** :
+http://forum.banana-pi.org/t/bpi-r2-new-image-basic-alpine-router-platform-with-wifi-accesspoint-on-pantavisor-005-2018-06-17/6032
+
+=== yocto Linux
+NOTE: This image just for test. yocto with kernel 4 4,and GPU working fine.this GPU binary is from yocto SDK with kernel 3.18 , we test it with github kernel 4.4 , just change rootfs. if working fine .so , maybe can use on kernel 4.14. just need to test . and have weston commond to test more.
+
+Test image : https://drive.google.com/open?id=1le2rroD3Dgc4HkEUmGyDLZix-Llrzeen
+
+Video demo : https://www.youtube.com/watch?v=HhFn1Nqht1E&feature=youtu.be
+
+Forum pthread : http://forum.banana-pi.org/t/banana-pi-bpi-r2-new-image-gpu-decode-test-yocto-with-kernel-4-4-just-for-test/6508
+
+=== MQLinux 19.02 beta
+
+NOTE: Update 2019-03-12, Note : this image is shared by http://www.morequick.net/. not support by BPI team
+
+Main features:
+
+ Highly streamlined embedded design system, running in memory
+ Mutilple Language (en/zh_CN currently)
+ DNS Proxy/Cache
+ DDNS
+ VLAN Extension for WAN
+ Multiple WAN (each ethernet port can be defined)
+ DHCP Server
+ FTP Server
+ PPPoE Server
+ Samber Server
+ VPN client/Server (PPTP VPN, IPsecVPN, OpenVPN)
+ Cloud Login
+ Firewall
+ IP-MAC Locking
+ Port Mapping/DMZ/UPnP
+ Diagnose Tools …
+ 
+Image dwonload: https://drive.google.com/file/d/1Ws2IUiCGSKKQ2dCM5XJBV-pog-hk17PM/view?usp=sharing
+
+MD5: 09b58f050166ed5d09803e1de56d7890
+
+Forum pthread: http://forum.banana-pi.org/t/banana-pi-bpi-r2-new-image-mqlinux-19-02-beta/8832
+
+=== FreeBSD
+
+NOTE: BPI-R2 FreeBSD support/ZRouter.org support
+
+http://forum.banana-pi.org/t/bpi-r2-freebsd-support-zrouter-org-support/7290
+
+== OpenWRT
+=== OpenWrt(LEDE)
+NOTE: Banana Pi BPI-R2 19.07.7 OpenWRT Router image Kernel 4.14.112 2021-04-15
+
+Wan IP : DHCP
+
+Lan IP :192.168.1.1
+
+Google image download link: https://drive.google.com/file/d/1OFSq6-23CT31Nt5Nohq2E9Nh6RmsCGXC/view?usp=sharing
+
+Baidu link : https://pan.baidu.com/s/1_0dWUsLXc4HUurAdleOf_w pincode: 7262
+
+Discuss on forum: http://forum.banana-pi.org/t/banana-pi-bpi-r2-19-07-7-openwrt-router-image-2021-04-15/12161
+
+Source code https://github.com/BPI-SINOVOIP/BPI-R2-OPENWRT-19.07.7.git
+
+NOTE: Banana Pi BPI-R2 OPENWRT 19.07 Image
+
+http://forum.banana-pi.org/t/banana-pi-bpi-r2-openwrt-19-07-image/11323
+
+NOTE: Official OpenWR 18.06.4 for Banana Pi BPI-R2 image released 2019-7-04
+
+Image download: https://downloads.openwrt.org/releases/18.06.4/targets/mediatek/mt7623/
+
+https://openwrt.org/toh/sinovoip/sinovoip_banana_pi_r2
+
+Forum pthread: http://forum.banana-pi.org/t/official-openwr-18-06-4-for-banana-pi-bpi-r2-image-released-2019-7-04/9459
+
+NOTE: BananaPI BPI-R2 Openwrt18.06 Image Release and source code 2019-03-06
+
+Source code on Github: https://github.com/BPI-SINOVOIP/BPI-R2-OPENWRT-18.06
+
+Image download: https://dev.banana-pi.org.cn/Image/BPI-R2/Openwrt/1806/
+
+MD5SUM:
+
+ mtk-bpi-r2-EMMC.img : 5d1537c45679de352dd25d8dda46b9ad
+ mtk-bpi-r2-SD.img ：71fce303abdceed4f1c3548d5a3fc207
+
+Forum Pthread: http://forum.banana-pi.org/t/bananapi-bpi-r2-openwrt18-06-demo-image-release-2019-03-06/8562
+
+NOTE: Official OpenWRT 18.06.0 image
+
+https://downloads.openwrt.org/releases/18.06.0/targets/mediatek/mt7623/
+
+Source code: https://github.com/garywangcn/bpi-r2_lede/tree/bpi-r2-on-lede-v1
+
+NOTE: BPI-R2 OpenWrt(LEDE) 20180509: http://forum.banana-pi.org/t/topic/5646
+
+NOTE: BPI-R2 OpenWrt(LEDE) 20180411: http://forum.banana-pi.org/t/topic/5395
+
+NOTE: BPI-R2 OpenWrt(LEDE) 20170908: http://forum.banana-pi.org/t/topic/3797
+
+=== OpenMPTCProuter
+NOTE: 2018-10-12 update, OpenMPTCProuter use MultiPath TCP (MPTCP) to aggregate multiple Internet connections and OpenWrt. and have official support BPI-R2.
+
+Image download: https://www.openmptcprouter.com/download
+
+Source code on github: https://github.com/Ysurac/openmptcprouter
+
+Forum pthread: http://forum.banana-pi.org/t/banana-pi-bpi-r2-new-image-openmptcprouter-official-support/7229
+
+
+
+= Easy to buy
+WARNING: link:https://pt.aliexpress.com/item/32823351577.html?spm=a2g0o.productlist.0.0.2eae7ca9svmJo4&algo_pvid=15a4e8a9-24e6-4f14-a486-4540ed19184a&algo_expid=15a4e8a9-24e6-4f14-a486-4540ed19184a-3&btsid=0bb47a1a16092043501194341e8477&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_[official aliexpress shop]
+
+WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
