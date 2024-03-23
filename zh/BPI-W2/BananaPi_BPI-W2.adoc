@@ -1,0 +1,473 @@
+= BPI-W2 Introduction
+
+The Banana Pi BPI-W2 is a router based development board, which can run on a variety of open source operating systems including OpenWrt, Android, and linux. It has 1 Gigabit LAN ports, 1 Gigabit WAN. it design with Realtek RTD1296, Quad-core ARM Cortex-A53. with 2G DDR4 and 8G eMMC flash onboard.
+
+image::/picture/banana_pi_bpi-w2.jpg[banana_pi_bpi-w2.jpg]
+
+== Key Features
+
+- Realtek RTD1296, Quad-core ARM Cortex-A53
+- Mali T820 MP3 GPU
+- 2G DDR4 SDRAM
+- 8G eMMC flash
+- Mini PCIE 2.0 , 1.1 interface ,SDIO,M.2 intereface
+- MicroSD slot supports up to 256GB expansion
+- 2xMIC in/Audio out
+- 2 SATA interface
+- 1XGigabit LAN 1x Gigabit WAN
+- 1xUSB 3.0 2xUSB 2.0
+- HDMI in & HDMI out
+- Mini DP
+- TYPE C
+
+== Getting Start
+
+TIP: link:/en/BPI-W2/GettingStarted_BPI-W2[Getting Started BPI-W2]
+
+= Hardware
+== Hardware Interface
+
+image::/picture/w2interface.jpg[w2interface.jpg]
+
+the inner and outer diameter of the power plug adapter datasheet: https://drive.google.com/file/d/1k3AWmYOs2XE7lnRxCyytZu0Vpq_Bzcu_/view?usp=sharing
+
+image::/picture/dc090_size.png[dc090_size.png]
+
+== Hardware Spec
+
+[options="header",cols="1,5"]
+|=====
+2+| **HardWare Specification of Banana Pi W2**
+| Soc                                 | Realtek RTD1296 quad-core ARM A53
+| GPU                                 | Mali T820 MP3 GPU
+| SDRAM                               | 2GB DDR4 \(shared with GPU\)
+| Power                               | 12V @ 2A via DC power 5.0mmx2.0mm jack                                                 
+| Low-level peripherals               | 40 Pins Header, 28×GPIO, some of which can be used for specific functions including UART, I2C, SPI, PWM, I2S.
+| Onboard Network                     | 2x 10/100/1000Mbps Ethernet
+| Wifi/Bluetooth                      | Option,not support onboard WIFI
+| RGMII                               | 1 RGMII interface with PIN
+| On board Storage                    | MicroSD \(TF\) card; 2 native SATA 3 6Gbps ;eMMC;SIM card slot                              
+| Display                             | HDMI \(Type A\) output with HDCP 1.4, resolutions up 1920x1200； MIPI DP                     
+| Video decoder/encode                | The Video DSP of RTD1296 is dedicated to manipulating,decoding and encoding of video streams in various formats, e.g. decoding 4K2K H.265,Full HD MPEG1/2/4/H.264/H.264 MVC,AVC/VC-1,VP8,AVS,AVS Plus,HD jpeg,etc.Video decoding and encoding can run simultaneously. support 3D de-intrlacing,video scaling up to 4K2K and so on. 
+| Aideo decoding                      | Audio decoding is carried out by an Audio DSP that is capable of decoding a set of audio formats,e.g. DTS HD,Dolby Digital Plus,TrueHD,and other popular formats.the Audio DSP also performs audio post processing                                   
+| Audio                               | support two audio device HDMI and headphone, also support Audio In/Out with PIN define. support 2 MIC in 
+| HDMI Out/In                         | 1* HDMI 2.0a out port and 1* HDMI 2.0a In port 
+| Audio outputs/Inputs                | HDMI, I2S audio,Audio micro out, Audio out/in with PIN define
+| M.2 KEY E：PCIE 2.0/USB 2.0          | 1 pcie 2.0 interface 
+| M.2 KEY E:PCIe 1.1 / SDIO / USB 2.0 | 1 pcie 1.1 and SDIO interface
+| USB 3.0                             | 1x USB 3.0 host
+| USB 2.0                             | 2x USB 2.0 OTG, 1 with standard USB port , 1 define with PIN 
+| M.2 KEY B                           | 1 * M.2 interface USB 2.0 for 4G with Micro SIM card slot       
+| Mini DP	                            | 1* Mini DP
+| TYPE C	                            | 1 type C interface
+| RTC battery                         |	RTC battery power interface
+| Buttons	                            | Reset button, Power button, U-boot button
+| Leds	                              | Red, Green, Blue
+| Other	                              | IR reciever
+| Sizes	                              | 148 mm × 100.5mm
+| Weight	                            | 100g
+|=====
+
+== GPIO Pin Define
+
+=== BPI-W2 40PIN GPIO
+
+[options="header",cols="1,1,1"]
+|=====
+3+| **40 PIN GPIO of Banana pi BPI-W2**
+| GPIO Pin Name	| Default Function	| Function 2：GPIO
+| CON1-P01 | VCC-3V3   |         
+| CON1-P02 | 5VD       |         
+| CON1-P03 | I2C5\_SCL | GPIO13  
+| CON1-P04 | 5VD       |         
+| CON1-P05 | I2C5\_SDA | GPIO14  
+| CON1-P06 | GND       |         
+| CON1-P07 | PWM0\_0   | IGPIO21 
+| CON1-P08 | UR2\_TX   | IGPIO3  
+| CON1-P09 | GND       |         
+| CON1-P10 | UR2\_RX   | IGPIO2  
+| CON1-P11 | GPIO17    | GPIO17  
+| CON1-P12 | AO\_BCK   | GPIO58  
+| CON1-P13 | I2C3\_SDA | GPIO25  
+| CON1-P14 | GND       |         
+| CON1-P15 | I2C3\_SCL | GPIO27  
+| CON1-P16 | UR2\_RTS  | IGPIO5  
+| CON1-P17 | VCC-3V3   |         
+| CON1-P18 | UR2\_CTS  | IGPIO4  
+| CON1-P19 | G\_MOSI   | GPIO7   
+| CON1-P20 | GND       |         
+| CON1-P21 | G\_MISO   | GPIO4   
+| CON1-P22 | IR\_TX    | IGPIO9  
+| CON1-P23 | G\_SCK    | GPIO5   
+| CON1-P24 | G\_CS     | GPIO6   
+| CON1-P25 | GND       |         
+| CON1-P26 | GPIO8     | GPIO8   
+| CON1-P27 | I2C4\_SDA | GPIO12  
+| CON1-P28 | I2C4\_SCL | GPIO11  
+| CON1-P29 | GPIO100   | GPIO100 
+| CON1-P30 | GND       |         
+| CON1-P31 | AI\_CK    | GPIO21  
+| CON1-P32 | SPDIF     | GPIO54  
+| CON1-P33 | AO\_CK    | GPIO59  
+| CON1-P34 | GND       |         
+| CON1-P35 | AO\_LRCK  | GPIO57  
+| CON1-P36 | AI\_BCK   | GPIO22  
+| CON1-P37 | AI\_LRCK  | GPIO23  
+| CON1-P38 | AI\_SDO   | GPIO24  
+| CON1-P39 | GND       |         
+| CON1-P40 | AO\_D0    | GPIO60
+|=====
+
+=== BPI-W2 Debug UART
+
+|=====
+| CON2-P1	| GND
+| CON2-P2 | UART0-RX
+| CON2-P3	| UART0-TX
+|=====
+
+== RGMII Interface with PIN define
+BPI-W2 support RGMII Interface with PIN define:
+
+image::/picture/rgmii_interface.png[rgmii_interface.png]
+
+voltage domain is RGMII.
+
+image::/picture/rgmii_interface_1.png[rgmii_interface_1.png]
+
+= Development
+== Source Code
+
+=== Linux 
+
+TIP: Linux 4.9.x Source code on github: https://github.com/BPI-SINOVOIP/BPI-W2-bsp
+
+TIP: HDMI-IN sample code: https://drive.google.com/open?id=17RXX_-mrZh2N6NgyVY6ofKs-NNC48bAM
+
+
+=== Android
+
+TIP: BPI-W2 Android 7 source code : https://github.com/BPI-SINOVOIP/BPI-1296-Android7
+
+TIP: BPI-W2 Android ６ source code : https://github.com/BPI-SINOVOIP/BPI-1296-Android6
+
+== Resources
+
+TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
+
+TIP: All banana pi link:https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[docement(SCH file,DXF file,and doc)]
+
+TIP: BPI-W2 hardware schematic diagram ：
+
+Google drive: https://drive.google.com/file/d/1Xn7-nlY0kVJacnRh_EpuS5Fw92_b6qqu/view?usp=sharing
+
+Baidu cloud: https://pan.baidu.com/s/1z2FgGpWY4nPGvocx8ymmew pinecode: r5tv
+
+TIP: BPI-W2 DXF file download : https://drive.google.com/file/d/1JDVRxcXdSi8cnX32plBmyrTiKiWDK_ev/view?usp=sharing
+
+TIP: BPI-W2 Realtek 1296 documents download link
+
+image::/picture/1296_doc.png[1296_doc.png]
+
+Google drive : https://drive.google.com/file/d/1PLlU5d0INA2U6Er5unEC7-FpnAmkSh7x/view?usp=sharing
+
+Baidu cloud : https://pan.baidu.com/s/1geV5JNl
+
+TIP: SATA-RSM-C052-X22XX spec
+
+Download link: https://drive.google.com/file/d/0B4PAo2nW2KfncWNYV1l5MkpiQTQ/view?usp=sharing
+
+TIP: link:http://forum.banana-pi.org/t/banana-pi-bpi-w2-ce-fcc-rohs-certification/9072[Banana Pi BPI-W2 CE FCC RoHS Certification]
+
+TIP: Banana Pi BPI-W2 play video with openwrt (kernel 4.9.119): https://www.youtube.com/watch?v=ZQxxMRzK84Q&feature=youtu.be
+
+== Amazon AWS Greengrass
+
+TIP: Banana Pi BPI-W2 passed Amazon AWS Greengrass: https://devices.amazonaws.com/detail/a3G0h000000OvNJEA0/Banana-Pi-BPI-W2
+
+= System Image
+NOTE: All image link: https://drive.google.com/drive/folders/1xBxYgKM40GrBa-qfgPDD-cRrUhWBo34u
+
+== Android
+
+NOTE: 2020-07-23 update
+
+**Android 7.1, kernel 4.1**
+
+link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/?p=%2FImages%2FBPI-W2%2FAndroid7&mode=list[Android Normal Version]: Normal android image without hwnat and openwrt enabled
+
+link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/?p=%2FImages%2FBPI-W2%2FAndroid7&mode=list[Android Router Version]: Router mode android image with hwnat and openwrt enabled, ethernet and wifi network must be configured in Openwrt system(Settings->More->Openwrt Settings). The port with bar code label is wan port and br-lan ip is 172.16.1.1.
+
+link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/?p=%2FImages%2FBPI-W2%2FAndroid7&mode=list[Android ATV version]: ATV version android image without hwnat and openwrt enabled. Click the right button to show the navigation bar If you use mouse for testing.
+
+**Android 6.0, kernel 4.1**
+
+link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/?p=%2FImages%2FBPI-W2%2FAndroid6&mode=list[Android 6.0 image] is only support normal android build without second ethernet port enabled. Android 6.0 is no longer maintained and this is the final release.
+
+NOTE: 2019-8-16 update This release is for banana pi W2 board, and it is based on Android6.0 & 7.1 Operation system with kernel 4.1
+
+**Android 6.0**
+
+Fetures Map: http://newwiki.banana-pi.org/en/BPI-W2/W2_Image_Map#_android_6_0_hdmi
+
+Google Drive : https://drive.google.com/open?id=1cblHB2rKnDOZmhxbHL79k3QlYfAHOdBe
+
+Baidu Drive : https://pan.baidu.com/s/1ZdI4Y7B-u7kp8XguGXFkuQ （PinCode：8noz）
+
+MD5 : 1a90335d798863e31f99c1fae615c43c
+
+**Android 7.1**
+
+Fetures Map: http://newwiki.banana-pi.org/en/BPI-W2/W2_Image_Map#_android_7_1_hdmi
+
+Google Drive : https://drive.google.com/open?id=1j1n10Wh9jE7TCDMutwLifPavt_PJ-5x3
+
+Baidu Drive : https://pan.baidu.com/s/12MkYp0oQ9cUN2N8J3WrHrg (PinCode：2cyy)
+
+MD5 : 713ddd26e6f2c085c464442e058cf390
+
+Forum pthread: http://forum.banana-pi.org/t/bpi-w2-new-image-android-6-0-7-1-for-emmc-20190816/9728
+
+NOTE: 2019-01-14 update : BPI-W2 Android7 new image support google GMS
+
+Baidu drive: https://pan.baidu.com/s/1_aT1jJHrOJdeEeGa6J1EYA
+
+Google drive: https://drive.google.com/open?id=1KhvanoNNZYI16vYatYCqWsnKS2Wyl37L
+
+Forum pthread : http://forum.banana-pi.org/t/bpi-w2-android7-new-image-support-gms-20190114/7688
+
+NOTE: 2019-05-09 update, This release is for banana pi W2 board which is based on RTD1296, Android 6.0 Operation system with kernel 4.1.17.
+
+BPI-W2 Android 6.0 Features Map :http://newwiki.banana-pi.org/en/BPI-W2/W2_Image_Map#_android_6_0_hdmi
+
+Google Drive : https://drive.google.com/open?id=1h3XhhmY1SQpzDOKCY3hqPoHJlJdkqhuY
+
+Baidu Drive : https://pan.baidu.com/s/13CNmfW5ZlSmzgrDLp6mptg （PinCode：m8qt）
+
+MD5 : 30226f82f85b88b7c345affa202268eb
+
+Forum pthread: http://forum.banana-pi.org/t/bpi-w2-new-image-release-android-6-0-2019-05-09/9207
+
+== Linux
+
+=== Ubuntu
+
+NOTE: 2019-6-18 update,This release is for banana pi M4 & W2 board, and it is based on Ubuntu Mate 18.04 & Ubuntu Server 16.04 Operation system with kernel 4.9.119.
+
+**BPI-M4/BPI-W2 Ubuntu Mate 18.04**
+
+Fetures Map: http://newwiki.banana-pi.org/en/BPI-M4/M4_Image_Map#_ubuntu_18_04_mate
+
+Google Drive : https://drive.google.com/open?id=1nPI2dy_KCW4h5korQdvj0iymHIDyxIPq
+
+Baidu Drive : https://pan.baidu.com/s/1tB_QZ6zgmKiYstcZwn51gg (PinCode：edrc)
+
+MD5 : 7409b48a46e0bbc2d0ae2e70a49bfb36
+
+**BPI-M4/BPI-W2 Ubuntu Server 16.04**
+
+Fetures Map: http://newwiki.banana-pi.org/en/BPI-M4/M4_Image_Map#_ubuntu_18_04_mate
+
+Google Drive : https://drive.google.com/open?id=1G4915FPOU4pDzbI0TCFH8wWXUGmNdlkF
+
+Baidu Drive : https://pan.baidu.com/s/1lkG6gyzn-KPbvrEhf6Q85w (PinCode：5jbo)
+
+MD5 : 328706256bec238df50f9bd6ab8dfd1b
+
+WARNING: Issue: if HDMI doesn't display, please try "ctrl + alt + F1" to change terminal then "ctrl + alt + F7" change to desktop display.
+
+Forum pthread: http://forum.banana-pi.org/t/bpi-m4-demo-image-release-ubuntu-mate-18-04-ubuntu-server-16-04-2019-06-18/9362
+
+NOTE: 2018-09-17 update.This release is for banana pi W2 board which is based on realtek RTD1296, and it is based on Ubuntu 18.04 operation system with kernel 4.9.119.
+
+W2 Features Map: http://newwiki.banana-pi.org/en/BPI-W2/W2_Image_Map
+
+Baidu Drive： https://pan.baidu.com/s/1iLOa1MOgtSqY6dVsQ_SyQg
+
+Google Drive： https://drive.google.com/open?id=1PQO9tA4w_wJvDIz64xJrXzSNS1g4GSlB
+
+Forum thread: http://forum.banana-pi.org/t/bananapi-w2-ubuntu-18-04-new-image-release-2018-09-17/6790
+
+http://forum.banana-pi.org/t/bpi-w2-new-image-how-to-make-and-run-the-64-bit-ubuntu-16-04-on-sd-card-2018-4-28/5546
+
+=== Debian
+
+NOTE: 2019-08-13 update BPI-M4/BPI-W2 Debian10 Buster Desktop New Demo Image ,This release is for banana pi M4 and W2 board, and it is based on Debian 10 Operation system with kernel 4.9.Debian 10 buster desktop(32bit)
+
+Fetures Map: http://newwiki.banana-pi.org/en/BPI-M4/M4_Image_Map#_debian_10_buster
+
+Google Drive : https://drive.google.com/open?id=1rVrZStsw2PINBhIxCzOLOtYLbtoECmEk
+
+Baidu Drive : https://pan.baidu.com/s/1WcrBkxm5OyBLedCBwaUz6Q (PinCode：e6m3)
+
+MD5 : 300b37cdfa092d72dceddd4f33825b40
+
+Forum Pthread: http://forum.banana-pi.org/t/bpi-m4-bpi-w2-debian10-buster-desktop-new-demo-image-20190813/9712
+
+WARNING: Issue: if HDMI doesn’t display, please try “ctrl + alt + F1” to change terminal then “ctrl + alt + F7” change to desktop display. +
+SW2: switch to 0，if insert SD, SD start；if doesn’t insert SD，EMMC start.
+
+NOTE: 2019-08-06 update,BPI-M4/BPI-W2 Debian 10 Buster Lite Demo Image ,This release is for banana pi M4 and W2 board, and it is based on Debian 10 Operation system with kernel 4.9.
+
+**Debian 10 buster AArch64 (64bit)**
+
+Fetures Map: http://newwiki.banana-pi.org/en/BPI-M4/M4_Image_Map#_debian_10_buster
+
+Google Drive : https://drive.google.com/open?id=1QyZX5AGUpEV2OZMXz3qkB8riXROXHdx3
+
+Baidu Drive : https://pan.baidu.com/s/1CGxGUi8rt06tHwfk134Seg (Pincode:7rcz)
+
+MD5 : 5a8b1eb36b782fdd742ba746c645593d
+
+**Debian 10 buster (32bit)**
+
+Fetures Map: http://newwiki.banana-pi.org/en/BPI-M4/M4_Image_Map#_Debian_10_buster
+
+Google Drive : https://drive.google.com/open?id=1WJlKTMPAipYnDFqIPl_dmR76oobuO5Wd
+
+Baidu Drive : https://pan.baidu.com/s/1lTtcMTWqE0jG_1PWGtWSqw (Pincode:gny6)
+
+MD5 : a59f2e6a298237a08bb523b53372d937
+
+NOTE: 2018-09-18 update.This release is for banana pi W2 board which is based on realtek RTD1296, and it is based on Debian 9 operation system with kernel 4.9.119.
+
+W2 Features Map: http://newwiki.banana-pi.org/en/BPI-W2/W2_Image_Map#_debian_9
+
+Baidu Drive： https://pan.baidu.com/s/1bmTektF0ufRL9_FOpdoO2w
+
+Google Drive： https://drive.google.com/open?id=1z1l56qX7BhsD44ha4IGDBhi-_ZqwCjoC
+
+Forum pthread: http://forum.banana-pi.org/t/banana-pi-bpi-w2-new-image-debian-9-linux-image-release-2018-09-18/6797
+
+== OpenWRT
+
+NOTE: 2019-10-04 update Banana Pi BPI-W2 (RTD1296) new image : Openwrt Lede with Kernel 4.9
+
+download link: https://drive.google.com/drive/folders/1p5tk6-8E498llDBYnabZHJtsEosUufnr
+
+forum pthread : http://forum.banana-pi.org/t/banana-pi-bpi-w2-rtd1296-new-image-openwrt-lede-with-kernel-4-9/10013
+
+NOTE: Image Link: Linux kernel 4.4
+
+Baidu Drive： https://pan.baidu.com/s/1Rs9F46wNJibORaeCfVh4wg PinCode：1w4w
+
+Google Drive： https://drive.google.com/file/d/10kfP142Jw0sA92uwaIYZt7CeXcDKelO1/view?usp=sharing
+
+Forum thread:
+http://forum.banana-pi.org/t/bpi-w2-new-image-burn-openwrt-with-linux-kernel-4-4-2018-4-25/5510
+
+== Third part image
+
+=== Raspbian
+
+NOTE: 2019-6-19 update,This release is for banana pi M4 & W2 board, and it is based on Raspbian 9.8 stretch & AArch64 Linux Mate & AArch Linux Lite Operation system with kernel 4.9.119.
+
+Fetures Map: http://newwiki.banana-pi.org/en/BPI-M4/M4_Image_Map#_raspbian_9_8_stretch
+
+Google Drive : https://drive.google.com/open?id=15cypBk4NKL0X8uD3Mffc__Sx05j39xCW
+
+Baidu Drive : https://pan.baidu.com/s/1gwD5ok9XLLQa0InU_-b7EA (PinCode：uuqn)
+
+MD5 : a397a9c4d078c2841f0c243c573dc9a8
+
+WARNING: Issue: if HDMI doesn't display, please try "ctrl + alt + F1" to change terminal then "ctrl + alt + F7" change to desktop display. +
+SW2: switch to 0，if insert SD, SD start；if doesn't insert SD，EMMC start.
+
+Forum pthread: http://forum.banana-pi.org/t/bpi-m4-bpi-w2-demo-image-release-raspbian-9-8-stretch-aarch64-linux-mate-aarch64-linux-lite-2019-06-19/9370
+
+NOTE: 2018-09-17 uptate ,This release is for banana pi W2 board which is based on realtek RTD1296, and it is based on Raspbian 9.4 operation system with kernel 4.9.119.
+
+BPI-W2 Features Map: http://newwiki.banana-pi.org/en/BPI-W2/W2_Image_Map#_raspbian_9_4
+
+Baidu Drive： https://pan.baidu.com/s/1aL5ZsHIRwM-1rvnZDiR3EA
+
+Google Drive： https://drive.google.com/open?id=11-WbfJK0jNVgutg9UVKfiIIJtfHXi-9j
+
+Forum pthread : http://forum.banana-pi.org/t/banana-pi-bpi-w2-new-image-raspbian-9-4-new-image-release-2018-09-17/6824
+
+=== AArch Linux
+
+NOTE: 2019-6-19 update,This release is for banana pi M4 & W2 board, and it is based on AArch64 Linux Mate & AArch linux liteOperation system with kernel 4.9.119.
+
+Google Drive : https://drive.google.com/open?id=1fsk5S4zQfo3tl97Nty_QA1uAEqgB63YK
+
+Baidu Drive : https://pan.baidu.com/s/1GvGsfs7t018EoRIv-au1GA (PinCode：o496)
+
+MD5 : d284b2326a36d2d9039fb8d7e20e2600
+
+NOTE: AArch64 Linux Lite
+
+Google Drive : https://drive.google.com/open?id=17V49oBoJZ18MKjSHD_LKjf1Z7qEokYn7
+
+Baidu Drive : https://pan.baidu.com/s/1WivDWZHu_GnWOxhVOjoqIQ (PinCode：uhcg)
+
+MD5 : 53bb6f8d00f8708dab96bc865eaddc5e
+
+WARNING: Issue: if HDMI doesn't display, please try "ctrl + alt + F1" to change terminal then "ctrl + alt + F7" change to desktop display. +
+SW2: switch to 0，if insert SD, SD start；if doesn't insert SD，EMMC start.
+
+Forum pthread: http://forum.banana-pi.org/t/bpi-m4-bpi-w2-demo-image-release-raspbian-9-8-stretch-aarch64-linux-mate-aarch64-linux-lite-2019-06-19/9370
+
+=== OpenSUSE
+
+NOTE: 2018-09-25 uptate,This release is for banana pi W2 board which is based on realtek RTD1296, and it is based on OpenSUSE operation system with kernel 4.9.119.
+
+BPI-W2 Features Map: http://newwiki.banana-pi.org/en/BPI-W2/W2_Image_Map
+
+Baidu Drive： https://pan.baidu.com/s/1UZl-UFUugPhCPaFHBB9_GA
+
+Google Drive: https://drive.google.com/open?id=1j_486I9v2VuPXslWyk9OlmOIPMxcxZGs
+
+Forum pthrad: http://forum.banana-pi.org/t/bananapi-bpi-w2-new-image-opensuse-release-2018-09-25/6851
+
+
+=== Kali Linux
+
+NOTE: 2018-09-25 update,This release is for banana pi W2 board which is based on realtek RTD1296, and it is based on Kali operation system with kernel 4.9.119.
+
+BPI-W2 Features Map: http://newwiki.banana-pi.org/en/BPI-W2/W2_Image_Map
+
+Baidu Drive： https://pan.baidu.com/s/1eslUG_xlHHsGwHk_Lq_bVw
+
+Google Drive：
+https://drive.google.com/open?id=1QQXs-YjZtwOfEEc73wfNtLy67ZZwVai7
+
+Forum pthread: http://forum.banana-pi.org/t/bananapi-bpi-w2-new-image-kali-rolling-release-2018-09-25/6855
+
+=== RPiTC
+
+NOTE: 2018-09-03 update :RPiTCv3_1.12-demo-bpi-w2-beta with Linux kernel 4.9.119
+
+google drive: https://drive.google.com/open?id=1sWjMuKncqDDsb3cGmg22oJs-U2fZjOv0
+
+baidu cloud: https://pan.baidu.com/s/1sd9hoOwyfAxWlGroDMOj4A
+
+more abot RPiTC : http://rpitc.blogspot.com/
+
+Forum pthread: http://forum.banana-pi.org/t/bpi-w2-new-iamge-rpitcv3-1-12-demo-bpi-w2-beta-2018-09-03/6686
+
+= FAQ
+
+Now we support to use bpi-copy to burn image to sd card, before this, we need to update our spi rom code, please watch the attachment to update your W2 spi rom code.
+
+**SPI ROM Tool:**
+
+Baidu Drive： https://pan.baidu.com/s/1017nmgw6ZVb5_NgLDz54HQ
+
+Google Drive: https://drive.google.com/open?id=1pq4MDKZi0KhyERB5xNGjTynhFWjXN_jm
+
+**SPI ROM Image: **
+
+Baidu Drive： https://pan.baidu.com/s/1rpfpWK8eoOdPhKwyWoR2Tw
+
+Google Drive: https://drive.google.com/open?id=1Ziz436kDL0kdojECB5bejVd9krzKp0z9
+
+**How-To Update W2 SPI ROM:**
+
+Baidu Drive: https://pan.baidu.com/s/1CZdY_4yFk5r5MSxoog9uOg
+
+Google Drive: https://drive.google.com/open?id=1kXaI5eYJ4cNLnhfr4rTwUVrENbMc1q-E
+
+= Easy to buy
+
+WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
