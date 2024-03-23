@@ -1,0 +1,450 @@
+= BPI-R4 Introduction
+
+Banana Pi BPI-R4 Router board with MediaTek MT7988A (Filogic 880) quad-core ARM Corex-A73 design ,4GB DDR4 RAM,8GB eMMC,128MB SPI-NAND flash onboard, also have 2x 10Gbe SFP, 4x Gbe network port,with USB3.2 port,M.2 support 4G/5G/NVME SSD.2x miniPCIe slots with PCIe3.0 2lane interface for Wi-Fi 7 NIC (Network Interface Card). It is a very high performance open source router development board.
+
+image::/picture/banana_pi_bpi-r4_banner_2.jpg[banana_pi_bpi-r4_banner_2.jpg]
+
+== MediaTek MT7988(Filogic 880)
+
+Mediatek Filogic 880. the 36Gbps Wi-Fi 7 access point/router/gateway platform delivers the fastest and most reliable connection experience
+
+The MediaTek MT7988A is a world-Leading network processing platform for high-performance and reliable networking experiences,both in wired and wireless applications. The MT7988A comprises a rich connection interface sets include 4 Gigabit Ethernet ports. 2 US下GMII interfaces. 4 PCIe Interfaces,and 2 USB 3.2 en1 Ports
+
+the MT7988A further enables seamless Wi-Fi 7 tri-band,2.4 GHz.5 GHz and 6 GHz,connectivity,with its Wi-Fi 7 companion chip that features 320-MHz bandwidth,4096-QAM ,MLO,MRU,and AFC.
+
+To answer the need of fast-evolving tunneling applications,the MT7988A comes with MediaTek Tunnel offload processor System(TOPS),which facilitates the processing of a wide range of tunneling protocols.The MT7988A optimizes networking performance with exquistitely tuned ISA of MediaTek TOPS,and is dedicated to lifting networking offloading performance to premium level.
+
+== Key Features
+
+- MediaTek MT7988A (Filogic 880) quad-core Arm Corex-A73,1.8GHz processor
+- 4GB DDR4
+- 8GB eMMC flash
+- 128MB SPI-NAND Flash
+- Micro SD card slot
+- 2x 10Gbe SFP slot (option 1x 10Gbe SFP and 1x SOC embedded 2.5Gbe PHY. NOTE: Need to modify hardware)
+- 4x Gbe network port
+- 1x USB3.2 slot
+- 1x M.2 KEY-B slot with USB3.2/PCIe3.0 interface for 5G
+- 1x M.2 KEY-M slot with PCIe3.0 1lane interface for NVME SSD
+- 2x miniPCIe slots with PCIe3.0 2lane interface for Wi-Fi 7 NIC (Network Interface Card)
+- 26 PIN GPIO Header for expanding application
+- POE function customizable (present version not support POE function)
+
+== Application direction
+
+- Internet service Router
+- Wifi 7 Wireless Router
+- 4G/5G Wireless Router
+- Wireless Repeater
+- Home security Gateway
+- Home Automation
+- Nas device
+- Network and communication applications
+
+== Getting Start
+
+TIP: link:/en/BPI-R4/GettingStarted_BPI-R4[Getting Started BPI-R4]
+
+= Hardware
+== Hardware Interface
+
+image::/picture/banana_pi_bpi-r4_interface.jpg[banana_pi_bpi-r4_interface.jpg]
+
+== BPI-R4 Photo
+
+link:/en/BPI-R4/Photo_BPI-R4[Banana Pi BPI-R4 Product photo gallery]
+
+== Hardware Spec
+
+[options="header",cols="1,3"]
+|====
+2+| **HardWare Specification of Banana Pi R4**
+| CPU              | MediaTek MT7988A (Filogic 880) quad-core Arm Corex-A73,1.8GHz processor
+| SDRAM            | 4 GB DDR4
+| On board Storage | MicroSD \(TF\) card,8GB eMMC onboard
+| GPIO             | 26 Pin GPIO,some of which can be used for specific functions including UART, I2C, SPI, PWM, I2S.
+| On board Network | 4 Port 10/100/1000Mbps Ethernet
+| SFP              | 2x10G SFP or 1x10G SFP and 1x 2.5GbE 
+| Wifi             | Wifi6/Wifi 7 
+| mini PCIE        | 2x miniPCIe slots with PCIe3.0 2lane interface for Wi-Fi 7 NIC (Network Interface Card) 
+| M.2 interface    | 1x M.2 KEY-B slot with USB3.2/PCIe3.0 interface for 5G,1x M.2 KEY-M slot with PCIe3.0 1lane interface for NVME SSD 
+| USB              | 1xUSB 3.2 slot
+| Buttons          | Reset button,WPS botton, boot switch 
+| Leds             | Power status Led and RJ45 Led 
+| DC Power         | 12V/5.2A or 19V 3.2A
+| Sizes            | 100.5x148mm same as link:/en/BPI-R64/BananaPi_BPI-R64[Banana Pi BPI-R64] and link:/en/BPI-R2/BananaPi_BPI-R2[Banana Pi BPI-R2]
+| Weight           | 250g 
+|====
+
+== GPIO Define 
+=== 26 Pin GPIO define
+[options="header",cols="3,1,1,4",width="70%"]
+|====
+4+| **BPI-R4 26 PIN Header(CON2) GPIO define of BPI-R4**
+|BPI-R4-CON2	|PIN		|PIN	|BPI-R4-CON2
+|3.3VD	|1		|2	|5VD
+|GPIO18/I2C_1_SDA	|3	|	4|	5VD
+|GPIO17/I2C_1_SCL	|5		|6	|GND
+|GPIO62/JTAG_JTRST_N/PWM6	|7		|8	|GPIO59/JTAG_JTDO/UART1_TX/UART2_TX
+|GND	|9		|10	|GPIO58/JTAG_JTDI/UART1_RX/UART2_RX
+|GPIO81/UART1_TXD	|11		|12	|GPIO51/PCM_CLK_I2S_BCLK
+|GPIO80/UART1_RXD	|13		|14	|GND
+|GPIO50/PCM_FS_I2S_LRCK	|15		|16	|GPIO61/JTAG_JTCLK/UART1_RTS/UART2_RTS
+|3.3VD	|17		|18	|GPIO60/JTAG_JTMS/UART1_CTS/UART2_CTS
+|GPIO30/SPI1_MOSI	|19		|20	|GND
+|GPIO29/SPI1_MISO|	21	|	22	|GPIO53/PCM_DTX_I2S_DOUT
+|GPIO31/SPI1_CLK	|23	|24	|GPIO28/SPI1_CSB
+|GND	|25		|26	|GPIO52/PCM_DRX_I2S_DIN
+|====
+
+=== BPI-R4 M.2 B-KEY(CN16)			
+
+[options="header",cols="3,1,1,3",width="70%"]
+|====
+4+| **BPI-R4 M.2 B-KEY(CN16) GPIO define of BPI-R4**
+|BPI-R4 M.2 B-KEY(CN16)	|PIN		|PIN	|BPI-R4 M.2 B-KEY(CN16)
+|NI	|1	|	2	|VCC_KEYB
+|GND	|3		|4	|VCC_KEYB
+|GND	|5	|	6	|NI(10K PullUp to 3.3V)
+|USBHUB_USB1_Dp	|7		|8	|NI(10K PullUp to 3.3V)
+|USBHUB_USB1_Dn|	9		|10|	LED
+|GND	|11		|12	|NOTCH
+|NOTCH	 |13		|14	|
+|	|15		|16	|
+|	|17		|18	|
+||	19	|	20	|NI
+|NI	|21		|22|	NI
+|NI(10K PullUp to 1.8V)|	23	|	24	|NI
+|NI	|25		|26|	NI(10K PullUp to 3.3V)
+|GND	|27		|28|	NI
+|USBHUB_USB1_RXn	|29		|30	|USIM_RST-1A
+|USBHUB_USB1_RXp	|31		|32	|USIM_CLK-1A
+|GND	|33	|	34	|USIM_DATA-1A
+|USBHUB_USB1_TXn	|35	|36|	USIM_VDD-1A
+|USBHUB_USB1_TXp	|37|		38|	NI
+|GND|	39	|	40|	NI
+|PCIE_1L_0_LN0_SOC_RXn	|41		|42	|NI
+|PCIE_1L_0_LN0_SOC_RXp|	43	|	44	|NI
+|GND	|45	|	46	|NI
+|PCIE_1L_0_LN0_SOC_TXn	|47		|48	|NI
+|PCIE_1L_0_LN0_SOC_TXp	|49		|50	|NGFF_PCIE_PERST_V3P3
+|GND	|51	|	52	|NGFF_PCIE_CLKREQ_V3P3
+|PCIE_1L_0_SOC_CKn	|53		|54	|NGFF_PCIE_PEWAKE_V3P3
+|PCIE_1L_0_SOC_CKp|	55	|	56|NI
+|GND	|57	|	58	|NI
+|NI	|59		|60	|NI
+|NI	|61		|62	|NI
+|NI|	63|		64	|NI
+|NI	|65	|	66|	USIM_DET-1A
+|NI	|67		|68|	32KOUT
+|NI	|69	|	70	|VCC_KEYB
+|GND|	71	|	72|	VCC_KEYB
+|GND	|73	|	74|	VCC_KEYB
+|NI	|75	| |		
+|====
+
+=== BPI-R4 M.2 M-KEY(CN18)			
+
+[options="header",cols="3,1,1,3",width="70%"]
+|====
+4+| **BPI-R4 M.2 M-KEY(CN18) GPIO define of BPI-R4**
+|BPI-R4 M.2 M-KEY(CN18)	|PIN		|PIN	|BPI-R4 M.2 M-KEY(CN18)
+|GND	|1		|2	|VDD33_M2
+|GND	|3		|4	|VDD33_M2
+|NI	|5	|	6	|NI
+|NI	|7		|8	|NI
+|GND	|9		|10	|LED
+|NI	|11		|12	|VDD33_M2
+|NI	|13		|14	|VDD33_M2
+|GND	|15		|16	|VDD33_M2
+|NI	|17		|18	|VDD33_M2
+|NI	|19		|20	|NI
+|GND	|21		|22	|NI
+|NI	|23		|24	|NI
+|NI	|25		|26	|NI
+|GND	|27		|28	|NI
+|NI	|29		|30|	NI
+|NI	|31		|32	|NI
+|GND|	33		|34	|NI
+|NI	|35		|36	|NI
+|NI	|37		|38	|NI
+|GND	|39		|40	|NI
+|PCIE_1L_1_LN0_SOC_RXn	|41		|42|	NI
+|PCIE_1L_1_LN0_SOC_RXp	|43	|	44|	NI
+|GND	|45		|46|	NI
+|PCIE_1L_1_LN0_SOC_TXn	|47	|	48	|NI
+|PCIE_1L_1_LN0_SOC_TXp	|49	|	50|	NGFF_KEYM_PCIE_PERST_3VP3
+|GND	|51	|	52|	NGFF_KEYM_PCIE_CLKREQ_V3P3
+|PCIE_1L_1_SOC_CKn	|53	|	54|	NGFF_KEYM_PCIE_WAKE_V3P3
+|PCIE_1L_1_SOC_CKp	|55		|56|	I2C_SDA_KEYM
+|GND	|57		|58	|I2C_SCL_KEYM
+|NOCTH	|59		|60	|NOCTH
+| |	61	|	62	|
+|	|63	|	64|	
+| |	65		|66	|
+|NI	|67		|68	|32KOUT
+|NI	|69		|70	|VDD33_M2
+|GND	|71		|72	|VDD33_M2
+|GND	|73	|	74	|VDD33_M2
+|GND	|75|	|		
+|====
+
+=== BPI-R4 miniPCIe(CN12)	
+ 
+[options="header",cols="3,1,1,3",width="70%"]
+|====
+4+| **BPI-R4 miniPCIe(CN12) GPIO define of BPI-R4**		
+|BPI-R4 miniPCIe(CN12)	|PIN		|PIN	|BPI-R4 miniPCIe(CN12)
+|PCIE_2L_0_WAKE_N(1.8V)	|1	|	2	|PCIe_3V3#2
+|NI	|3	|	4	|GND
+|NI	|5	|	6	|PCIe_12V#2
+|PCIE_2L_0_CLKREQ_N	|7		|8|	USIM_VDD-2
+|GND	|9		|10	|USIM_DATA-2
+|PCIE_2L_0_SOC_CKn	|11		|12	|USIM_CLK-2
+|PCIE_2L_0_SOC_CKp	|13		|14	|USIM_RST-2
+|GND	|15		|16 |	NI
+|PCIE_2L_0_LN1_SOC_RXn	|17		|18	|GND
+|PCIE_2L_0_LN1_SOC_RXp	|19		|20	|NI
+|GND	|21		|22	|PCIE_2L_0_PRESET_N(1.8V)
+|PCIE_2L_0_LN0_SOC_RXn	|23	|	24	|PCIe_3V3#2
+|PCIE_2L_0_LN0_SOC_RXp	|25	|	26	|GND
+|GND	|27		|28	|PCIe_12V#2
+|GND	|29		|30	|I2C_SCL_WiFi
+|PCIE_2L_0_LN0_SOC_TXn	|31		|32	|I2C_SDA_WiFi
+|PCIE_2L_0_LN0_SOC_TXp	|33		|34|	GND
+|GND	|35		|36	|USBHUB_USB3_Dn
+|GND	|37		|38	|USBHUB_USB3_Dp
+|PCIe_3V3#2	|39		|40	|GND
+|PCIe_3V3#2	|41		|42	|LTE_LED-2
+|GND	|43		|44	|USIM_DET-2
+|PCIE_2L_0_LN1_SOC_TXn	|45		|46	|NI
+|PCIE_2L_0_LN1_SOC_TXp	|47		|48	|PCIe_12V#2
+|GND	|49		|50	|GND
+|MT7996_EINT_RESETB(1.8V)	|51		|52	|PCIe_3V3#2
+|====
+ 
+=== BPI-R4 miniPCIe(CN14)		
+[options="header",cols="3,1,1,3",width="70%"]
+|====
+4+| **BPI-R4 miniPCIe(CN14) GPIO define of BPI-R4**		
+|BPI-R4 miniPCIe(CN14)	|PIN		|PIN	|BPI-R4 miniPCIe(CN14)
+|PCIE_2L_1_WAKE_N(1.8V)	|1		|2	|PCIe_3V3#1
+|NI	|3	|	4	|GND
+|NI	|5	|	6	|PCIe_12V#1
+|PCIE_2L_1_CLKREQ_N	|7		|8	|USIM_VDD-3
+|GND	|9		|10	|USIM_DATA-3
+|PCIE_2L_1_SOC_CKn	|11		|12	|USIM_CLK-3
+|PCIE_2L_1_SOC_CKp	|13		|14	|USIM_RST-3
+|GND	|15		|16	|NI
+|PCIE_2L_1_LN1_SOC_RXn	|17	|	18	|GND
+|PCIE_2L_1_LN1_SOC_RXp	|19		|20	|NI
+|GND	|21		|22	|PCIE_2L_1_PRESET_N(1.8V)
+|PCIE_2L_1_LN0_SOC_RXn	|23		|24	|PCIe_3V3#1
+|PCIE_2L_1_LN0_SOC_RXp	|25	|26	|GND
+|GND	|27		|28	|PCIe_12V#1
+|GND	|29		|30	|I2C_SCL_WiFi
+|PCIE_2L_1_LN0_SOC_TXn	|31		|32	|I2C_SDA_WiFi
+|PCIE_2L_1_LN0_SOC_TXp	|33		|34	|GND
+|GND	|35		|36	|USBHUB_USB2_Dn
+|GND	|37		|38|	USBHUB_USB2_Dp
+|PCIe_3V3#1	|39		|40	|GND
+|PCIe_3V3#1	|41		|42	|LTE_LED-3
+|GND	|43		|44	|USIM_DET-3
+|PCIE_2L_1_LN1_SOC_TXn	|45		|46|	NI
+|PCIE_2L_1_LN1_SOC_TXp	|47	|	48|	PCIe_12V#1
+|GND	|49		|50|	GND
+|NI	|51		|52|	PCIe_3V3#1
+|====
+ 
+=== BPI-R4 5V/12V OUT PIN		
+
+[options="header",cols="1,1",width="40%"]
+|====
+2+| **BPI-R4 5V/12V OUT(CN19,XH4A-2.54mm) of BPI-R4**
+|BPI-R4 5V/12V OUT	|PIN	
+|+12V	|1	
+|GND	|2	
+|GND	|3	
+|+5V	|4	
+|====		
+		
+=== BPI-R4 FAN PIN	
+[options="header",cols="1,1",width="40%"]
+|====
+2+| **BPI-R4 FAN(CN1,PH3A-2.00mm) of BPI-R4**
+|+5V	|1	
+|GND	|2	
+|PWM0	|3	
+|====	
+	
+=== BPI-R4 Debug UART PIN	
+[options="header",cols="1,1",width="40%"]
+|====
+2+| **BPI-R4 Debug UART(CON1，3PIN-2.54mm) of BPI-R4**		
+|BPI-R4 Debug UART	|PIN	
+|GND	|1	
+|RXD	|2	
+|TXD	|3	
+|====
+
+ 
+== WiFi7 iPA NIC Module support
+BPI-R4-NIC-BE14: MT7995AV+MT7976CN+MT7977IAN
+
+image::/picture/bpi-r4-nic-be14_2.jpg[bpi-r4-nic-be14_2.jpg]
+
+== Accessories
+. 10G SFP Module
++
+link:/en/BPI-R4/GettingStarted_BPI-R4#_10g_sfp_module[Getting_Started_with_BPI-R4#10G SFP Module]
+
+. 4G/5G Module
++
+link:/en/BPI-R4/GettingStarted_BPI-R4#_4g_5g_module[Getting_Started_with_BPI-R4#4G/5G Module]
+
+. SSD
++
+link:/en/BPI-R4/GettingStarted_BPI-R4#_storage[Getting_Started_with_BPI-R4#Storage]
+
+. Asia mPCIe WiFi6/WiFi6E
++
+link:https://docs.banana-pi.org/en/BPI-R4/GettingStarted_BPI-R4#_wi_fi7_nic[Getting_Started_with_BPI-R4#Wi-Fi7 NIC]
+
+= Development
+== Source Code
+
+TIP: source code on github: https://github.com/BPI-SINOVOIP/BPI-R4-bsp
+
+TIP: BPI-R4 OpenWRT BSP on github: https://github.com/BPI-SINOVOIP/BPI-R4-MT76-OPENWRT-V21.02
+
+WARNING: Note: BPI-R4-MT76-OPENWRT-V21.02 BSP support BPI-R4 and BE13500 wifi Card
+
+TIP: Official BPI-R4 kernel v5.4:
+https://github.com/BPI-SINOVOIP/BPI-R4-bsp-5.4
+
+TIP: Official BPI-R4 kernel v6.1: https://github.com/BPI-SINOVOIP/BPI-R4-bsp-6.1
+
+== Resources
+
+TIP: BPI-R4-Main-V11-ASSY
+
+Baidu Cloud: https://pan.baidu.com/s/1ZjcsbMKiiEEDV9lCzW0vrg?pwd=8888 (pincode:8888)
+
+Google Drive: https://drive.google.com/file/d/1FDr47zcd-b2n8qiXFb-DxcuQ-6ye8OCB/view?usp=sharing
+
+TIP: BPI-R4 DXF file 
+
+Baidu Cloud: https://pan.baidu.com/s/1ie_a4lYCjVwW6wD5vl1h-A?pwd=8888 PIN code: 8888
+
+Google Drive: https://drive.google.com/file/d/1UkZxCi-395Q15tGr12LhG8fgDjzacjGn/view?usp=sharing
+
+TIP: BPI-R4 Schematic diagram
+
+Baidu Cloud: https://pan.baidu.com/s/1XjSuch4karn6ACJSLwuimQ?pwd=8888 PIN code: 8888
+
+Google Drive: https://drive.google.com/file/d/1r-c2urU-DFVHpZ7cRk2qzKtVB8tg82mZ/view?usp=sharing
+
+TIP: MT7988A Wi-Fi7 Datasheet&Manual
+
+Baidu Cloud: https://pan.baidu.com/s/1-eSVD4DhyPAkfgrE9BtLmA?pwd=8888 PIN code:8888
+
+Google Drive: https://drive.google.com/drive/folders/1XiVchy0a4syYFVlTndhVCETNJ9x7KOYi?usp=sharing
+
+TIP: Kernel [PATCH net-next 8/8] net: ethernet: mtk_eth_soc: add basic support for MT7988 SoC: https://www.spinics.net/lists/kernel/msg4821673.html
+
+TIP: [PATCH 15/15] dt-bindings: net: dsa: mediatek,mt7530: add mediatek,mt7988-switch: https://lore.kernel.org/lkml/80a853f182eac24735338f3c1f505e5f580053ca.1680180959.git.daniel@makrotopia.org/
+
+TIP: Discuss on forum : https://forum.banana-pi.org/t/banana-pi-bpi-r4-wifi-7-router-board-with-mediatek-mt7988a-filogic-880-4g-ram-and-8g-emmc/15757
+
+TIP: MediaTek Filogic 880 platform ： https://www.mediatek.com/products/broadband-wifi/mediatek-filogic-880
+
+TIP: Key advantages of Wi-Fi 7 ： https://mediatek-marketing.files.svdcdn.com/production/documents/Key-Advantages-of-Wi-Fi-7_MediaTek-White-Paper-WF70222.pdf
+
+TIP: How MLO Smart Link Dispatching drives Wi-Fi 7: https://mediatek-marketing.files.svdcdn.com/production/documents/MLO-Infographic-How-Smart-Link-Dispatching-drives-Wi-Fi-7-White-Paper-Infographic-0223.pdf
+
+TIP: MLO in Wi-Fi 7: https://mediatek-marketing.files.svdcdn.com/production/documents/Wi-Fi-7-MLO-White-Paper-WF7MLOWP0622.pdf
+
+
+= System Image
+== OpenWRT
+=== OpenWRT MTK MP3.0 SDK for BE19000 Wifi Card
+NOTE: BPI-R4 bl2_emmc-r4.img
+
+Baidu Cloud: https://pan.baidu.com/s/1gumscZfpJsQr_AROzDevTg?pwd=8888 (pincode:8888)
+
+Google Drive: https://drive.google.com/file/d/1YVJcLRLvxET2349TCKocK4MtRG5PNbdp/view?usp=sharing
+
+NOTE: BPI-R4-mtk-bpi-r4-EMMC-20231030
+
+Baidu Cloud: https://pan.baidu.com/s/1TFYGjP13TEbtFEHpE2aG1Q?pwd=8888 (pincode:8888)
+
+Google Drive: https://drive.google.com/file/d/196J1V5q4s3GgAtCNQBCtzB9h6pGVcdTg/view?usp=sharing
+
+NOTE: BPI-R4-mtk-bpi-r4-NAND-20231030
+
+Baidu Cloud: https://pan.baidu.com/s/1NrA3LTEyP8Ht_Ysli-o8og?pwd=8888 (pincode:8888)
+
+Google Drive: https://drive.google.com/file/d/1P5dSSaPLQzlYjniHdC-jjKE0PJ2O-Py2/view?usp=sharing
+
+NOTE: BPI-R4-mtk-bpi-r4-SD-20231030
+
+Baidu Cloud: https://pan.baidu.com/s/1AW_DJ6pjEh87FJMx6pPYzw?pwd=8888 (pincode:8888)
+
+Google Drive: https://drive.google.com/file/d/146CUGBRC0ce5uN9nCM08Jegc51abAz1b/view?usp=sharing
+
+=== OpenWRT MTK MP3.1 wifi SDK or MT76 wifi driver for BE14000 Wifi Card
+
+Baidu Cloud: https://pan.baidu.com/s/1kguTbhlBVGvN7L9G3mgFQg?pwd=8888 (pincode:8888)
+
+Google Drive: https://drive.google.com/drive/folders/1DBPwMD-qDAIqPorqJwl3sf8TsAEh0BmF?usp=sharing
+
+**Note:**
+
+. MTK vendor's MP3.1 wifi image package name:  **BPI-R4-BE1350-WIFI_MP3_1-SDK-20240202.zip**
+. opensource MT76 wifi image package name :   **BPI-R4-BE1350-WIFI_MT76-20240202.zip**
+. MTK vendor's MP3.1 wifi driver sourcecode can't be open source. only release Image.  But supply all MT76 wifi driver sourcecode.(support Quectel RM500U-CN & RM520N-GL 5G Modules, EC25 EM05 4G Modules)
+
+== Debian 11
+NOTE: 2024-03-10-debian-11-bullseye-lite-bpi-r4-5.4-sd-emmc.img
+
+Baidu cloud: https://pan.baidu.com/s/1q2WogyCtNOcejWRG1_GhXg?pwd=8888 (pincode:8888)
+
+Google drive: https://drive.google.com/file/d/17JVoTtIZdcN-qSElTHpAKY2KlvYCgZPp/view?usp=sharing
+
+NOTE: 2024-03-10-debian-11-bullseye-lite-bpi-r4-6.1-sd-emmc.img
+
+Baidu cloud: https://pan.baidu.com/s/199IjDbuzScMiWnwcjRX_Rg?pwd=8888 (pincode:8888)
+
+Google drive: https://drive.google.com/file/d/1ZNwDi9Eg_6SQYyKQgETOhBW7_6ix4Fna/view?usp=sharing
+
+WARNING: **Note**:linux-5.4 kernel include MT76 wifi driver, it can only support BE14000 wifi card. it can support 2.4G, 5G and 6G, but debian 11's network-manager utility package can't support 6G wifi. So we are waiting for the latest package. +
+linux-6.1 kernel don't include MT76 wifi driver, it can't support BE14000 wifi card
+
+== Ubuntu 22.04
+
+NOTE: 2024-03-10-ubuntu-22.04-server-bpi-r4-5.4-aarch64-sd-emmc.img
+
+Baidu cloud: https://pan.baidu.com/s/1ou2ZHbyZEmquvHNhlZ6QHw?pwd=8888 (pincode:8888)
+
+Google drive: https://drive.google.com/file/d/1LBBBzHWV_vDAeXDztkYW1TjDnqQweMYj/view?usp=sharing
+
+NOTE: 2024-03-10-ubuntu-22.04-server-bpi-r4-6.1-aarch64-sd-emmc.img
+
+Baidu cloud: https://pan.baidu.com/s/1WzfQWnlaC9zoLVA0JN3RbA?pwd=8888 (pincode:8888)
+
+Google drive: 
+https://drive.google.com/file/d/1ZuLbFnFF7dDlbRw4Dhgkm4ROIl5KYKg7/view?usp=sharing
+
+WARNING: **Note**:linux-5.4 kernel include MT76 wifi driver, it can only support BE14000 wifi card. it can support 2.4G, 5G and 6G, but ubuntu-22.04's network-manager utility package can't support 6G wifi. So we are waiting for the latest package. +
+linux-6.1 kernel don't include MT76 wifi driver, it can't support BE14000 wifi card
+     
+= Easy to buy
+WARNING: SINOVOIP Aliexpress shop: 
+https://www.aliexpress.us/item/1005006256712337.html?gatewayAdapt=4itemAdapt
+
+WARNING: Bipai Aliexpress shop: 
+https://www.aliexpress.us/item/1005006256988361.html?gatewayAdapt=4itemAdapt
+
+WARNING: Taobao Shop: https://shop108780008.taobao.com/category-1744032218.htm?spm
+
+WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
