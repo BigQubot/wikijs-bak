@@ -1,0 +1,69 @@
+= BPI-CM5 Introduction
+
+image::/picture/banana_pi_bpi-cm5_wiki_1.jpg[banana_pi_bpi-cm5_wiki_1.jpg]
+Banana Pi BPI-CM5 is a computer module with Amlogic A311D2 quad-core Cortex-A73 and quad-core Cortex-A53 SOC, Mali-G52 GPU MP8 GPU,4GB LPDDR4/LPDDR4x (Max 8G),16G eMMC flash (Max 128G),Designed with Board to Board connectors for enhanced stability same as Raspberry Pi CM4 , which means that it should work with carrier boards designed for the Raspberry Pi CM4.
+
+== Key Features
+
+* Amlogic A311D2,quad-core Cortex-A73 and quad-core Cortex-A53 SOC
+* Mali-G52 GPU MP8 GPU
+* 4GB LPDDR4/LPDDR4x (Max 8G)
+* 16G eMMC flash (Max 128G)
+* Designed with Board to Board connectors for enhanced stability same as RasPi CM4
+* One on-board Gigabit Ethernet 
+* One PCIe2.0 interface expansion, can flexibly add related modules
+* One USB3.0 port up to 5Gbps
+* One USB2.0 high-speed USB/IO witch support USB OTG
+* Three HDMI2.1 receiver ports
+* one HDMI2.1 transmitter port with CEC
+* two 8-lane V-by-One output can support up to 4Kx2K resolution(Multiplexing with MIPI-DSI/eDP/LVDS)
+* two 4-lane MIPI-CSI camera interface with 16Mp ISP
+* support Android and Linux system.
+* Size: 55x40mm
+
+== Getting Start
+
+TIP: link:/en/BPI-CM5/GettingStarted_BPI-CM5[Getting Started BPI-CM5]
+
+= Hardware
+== Hardware Interface
+
+image::/picture/banana_pi_bpi-cm5_interface.jpg[banana_pi_bpi-cm5_interface.jpg]
+
+== BPI-CM5 Module PIN Out define
+
+== BPI-CM5 moudule base board interface
+
+we also design a full function IO board for BPI-CM5,so you can use it for developemnt . also you can easy to design a new base IO board for your product.
+
+image::/picture/banana_pi_bpi-cm5_io_interface.jpg[banana_pi_bpi-cm5_io_interface.jpg]
+
+== BPI-CM5 with IO Board specifications
+
+== Same size as RPI CM4
+
+BPI-CM5 computer module same size as Raspberry Pi CM4, 2x100 PIN can compatible RPI CM4 base board ,if you want use all function with BPI-CM5,you need use BPI-CM5 base board.
+
+= Development
+== Source code
+
+== Resources
+
+= System image
+
+== Android
+
+== Linux
+
+=== Ubuntu
+
+
+=== Debian
+
+
+== Third part image
+=== Armbian 
+
+= Easy to buy
+
+WARNING:  OEM&ODM please contact : judyhuang@banana-pi.com
