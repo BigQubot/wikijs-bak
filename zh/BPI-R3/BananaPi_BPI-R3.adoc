@@ -1,0 +1,273 @@
+= BPI-R3 Introduction
+
+Banana Pi BPI-R3 Router board with MediaTek MT7986(Filogic 830) Quad core ARM A53 + MT7531A chip design ,2G DDR RAM ,8G eMMC flash onboard. It is a very high performance open source router development board,support Wi-Fi 6 2.4G wifi use MT7975N and 5G wifi use MT7975P, support 2 SFP 2.5GbE port, and 5 GbE network port
+
+image::/picture/banana_pi_751.jpg[banana_pi_751.jpg]
+
+TIP: MediaTek MT7986(Filogic 830) design: link:/en/BPI-R3_Mini/BananaPi_BPI-R3_Mini[Banana Pi BPI-R3 Mini] Mini size Router development board +
+MediaTek MT7986(Filogic 830) design: link:/en/BPI-R3/BananaPi_BPI-R3[Banana Pi BPI-R3] Router development board
+
+=== Introduction Video
+
+YouTuBe Video: https://youtu.be/RO8J_sLEyBg
+
+=== MediaTek MT7986(Filogic 830)
+The MT7986(Filogic 830) integrates four Arm Cortex-A53 cores up to 2GHz with up to 18,000 DMIPs of processing power and 6Gbps of dual 4x4 Wi-Fi6 connectivity. It has two 2.5g Ethernet interfaces and serial peripheral interfaces (SPI). Filogic 830‘s built-in hardware acceleration engine enables fast and reliable Wi-Fi offloading and wireless network connection. In addition, the chip supports Mediatek FastPath™ technology, which is suitable for games, AR/VR and other low-latency applications.
+
+Wi-fi 6 has many advantages over its predecessors, including lower latency, larger bandwidth capacity and faster transmission rates. Wireless network devices supporting the 6GHz band mainly use 160MHz wide channel and 6GHz uncongested bandwidth to provide multigigabit transmission and low-latency wi-fi connection, providing reliable wireless network for streaming media, games, AR/VR and other applications.
+
+== Key Features
+- MediaTek MT7986(Filogic 830) Quad core ARM Cortex A53+MT7531 chip design
+- Wifi 6 4x4 2.4G Wifi(MT7975N) +4x4 5G Wifi(MT7975P)
+- 2G DDR RAM
+- 8G eMMC flash
+- 128MB SPI Nand
+- 2x SFP 2.5GbE
+- 5x GbE network port
+- POE support (optional)
+- Mini PCIe via USB
+- M.2 KEY-M PCIe inerface
+- Mciro SD card interface
+- 26 PIN GPIO
+
+== Application direction
+- Maker DIY
+- Internet service Router
+- Wireless Router
+- Wireless Repeater
+- Home security Gateway
+- Home Automation
+- Nas device
+- Network and communication applications
+
+== Getting Start
+
+TIP: link:/en/BPI-R3/GettingStarted_BPI-R3[Getting Started BPI-R3]
+
+= Hardware
+== Hardware Interface
+
+image::/picture/banana_pi_bpi-r3_interface.jpg[banana_pi_bpi-r3_interface.jpg]
+
+== BPI-R3 Photo
+
+link:/en/BPI-R3/Photo_BPI-R3[Banana Pi BPI-R3 Product photo gallery]
+
+== Jumper setting
+|=====
+5+|Jumper Setting of Banana pi BPI-R3
+| Jumper Setting	| SW1	 | SW2	| SW5	 | SW6
+| SPIM-NoR        | Low	 | Low	| Low	 | X
+| SPIM-Nand	      | High | Low	| High | X
+| eMMC	          | Low	 | High	| High | Low
+| SD card	        | High | High	| X	   | High
+|=====
+
+== Hardware Spec
+
+[options="header",cols="1,4"]
+|=====
+2+| **HardWare Specification of Banana Pi R3**
+| CPU              | MediaTek MT7986(Filogic 830) Quad core ARM Cortex A53+MT7531 chip design 
+| SDRAM            | 2 GB DDR4
+| On board Storage | MicroSD \(TF\) card,8GB eMMC onboard 
+| GPIO             | 26 Pin GPIO,some of which can be used for specific functions including UART, I2C, SPI, PWM, I2S. 
+| On board Network | 5 Port 10/100/1000Mbps Ethernet
+| SFP              | 2 SFP 2.5GbE
+| Wifi             | Wifi 6 4x4 2.4G Wifi(MT7975N) +4x4 5G Wifi(MT7975P)
+| mini PCIE        | Mini PCIe via USB
+| M.2 interface    | M.2 KEY-M PCIe inerface
+| USB              | 1 USB 3.0 host ,2 USB interface with slot.
+| Buttons          | Reset button,WPS botton, boot switch
+| Leds             | Power status Led and RJ45 Led
+| DC Power         | 12V/2A with DC in
+| Sizes            | 100.5x148mm same as Banana Pi BPI-R64 and Banana Pi BPI-R2
+| Weight           | 200g
+|=====
+
+== Accessories
+
+=== 4G
+BPI-R3 can use Quectel EC25E minipcie-slot
+
+=== SFP
+Notice:
+
+The SFP serdes of R3 are fixed 2.5Gbase-X, so only SFP that support this protocol can be used.
+
+And there is no debugging insertion detection function, so there will be no prompt when inserting any SFP module.
+
+image::/picture/r3-sfp-1000.png[r3-sfp-1000.png]
+
+The SFPs we have tested that work are as follows:
+
+. 2.5G Copper: SFP-2.5G-T-R-RM
+. 2.5G Optical Fiber: SFP-2.5G-BX0-U/SFP-2.5G-BX0-D
+. TP-LINK 2.5G Copper: TL-SM410U
+. TP-LINK 2.5G Optical Fiber: TL-SM411LSA-500m/TL-SM411LSA-500m
+
+=== WIFI6e
+ASIA.RF AW7916-NPD:
+
+Module: WiFi6E 3000 802.11ax G-band 2T2R and A-band 3T3R 2ss Dual Bands Dual Concurrents mPCIe Card AW7916-NPD(With BPI-M.2 to mPCIe Adapter)
+
+WiFi6E Module: https://asiarf.com/zh_cn/product/wi-fi-6e-mini-pcie-module-mt7916-aw7916-npd/
+
+BPI-M.2 to mPCIe Adapter:
+
+image::/picture/r3_m2-mpcie-adapter.png[r3_m2-mpcie-adapter.png]
+image::/picture/r3_7916npd_ifconfig.png[r3_7916npd_ifconfig.png]
+
+Test Items:
+
+As Client:
+
+image::/picture/r3_7916npd_client_iperf3.png[r3_7916npd_client_iperf3.png]
+
+= Development
+== Source Code
+TIP: Official BPI-R3 kernel v5.15 + firmware repo:
+https://github.com/BPI-SINOVOIP/BPI-R3-bsp-5.15
+
+TIP: Official OpenWrt 21.02 for BPI-R3 repo: https://github.com/BPI-SINOVOIP/BPI-R3-OPENWRT-V21.02.3 
+
+Instructions: https://forum.banana-pi.org/t/banana-pi-bpi-r3-openwrt-image/13236/4 
+
+Baidu link: https://pan.baidu.com/s/1JSQ7wJTCeK4JqWR_XB-LLQ?pwd=6vdb (Pincode: 6vdb) 
+
+Google link: https://drive.google.com/file/d/13nQMfM0_XTyWcILhNxv_9E4TIvb65RI0/view?usp=sharing
+
+TIP: Frank’s U-Boot repo:
+https://github.com/frank-w/u-boot/tree/2023-04-bpi
+
+TIP: Frank’s BPI-R3 kernel v6.1 repo
+https://github.com/frank-w/BPI-Router-Linux/tree/6.1-main
+
+TIP: Unofficial wiki (English): https://wiki.fw-web.de/doku.php?id=en:bpi-r3:start
+
+== Resources
+
+TIP: BPI-R3 DXF file : https://drive.google.com/file/d/1bc5mCtJlnPi84q7VZYaQkZhRUU4HUfUd/view?usp=sharing
+
+TIP: BPI-R3 schematic diagram
+
+Baidu Cloud: https://pan.baidu.com/s/1-GJNHAqNy7-JFTx22uoSfQ?pwd=8888 (pincode:8888)
+
+Google Drive: https://drive.google.com/file/d/1ED2z_e01Y0e6LDzMC_vLhCsTHEZTGwcg/view?usp=sharing
+
+TIP: MT7986A_Datasheet_1.15 : https://drive.google.com/file/d/1t_nuPTeoAcFb1dmEe4kJVlLWdHcAA6OB/view?usp=sharing
+
+TIP: MT7986A_Reference_Manual_for_BPI-R3 : https://drive.google.com/file/d/1biSJmxnIpNzQroYDg9mtPtSTAv4i0DFf/view?usp=sharing
+
+TIP: [Tutorial] Build, customize and use MediaTek open-source U-Boot and ATF : https://forum.banana-pi.org/t/tutorial-build-customize-and-use-mediatek-open-source-u-boot-and-atf/13785
+
+TIP: BPI-R3 OpenSource Routerboard how to burn and test image: https://www.youtube.com/watch?v=Xaf_SC7fPDM
+
+TIP: BPI-R3 CE,FCC,RoHS certificate : https://banana-pi.org/en/bpi-honor/
+
+TIP: Banana Pi BPI-R3 Review: Details, Pricing, & Features : https://androidpimp.com/embedded/banana-pi-bpi-r3-router-board/?fbclid=IwAR1G4cEco5iULwKG-C-n8MIiWOWZMhPborqmCzS2d3KIHx-eNQS-54lZnps
+
+TIP: Update OpenWrt to 22.03.3 SNAPSHOT: https://forum.banana-pi.org/t/bananapi-bpi-r3-update-openwrt-to-22-03-3-snapshot/14984
+
+TIP: 3D printed cases: https://forum.banana-pi.org/t/banana-bpi-r3-3d-printed-case/14246/43
+
+TIP: Cooling solutions topic: https://forum.banana-pi.org/t/bpi-r3-running-hot/14750
+
+TIP: Bananapi R3 review with WiFi / CPU benchmarks and power consumption numbers: https://wiki.junicast.de/en/junicast/review/bananapi-BPI-R3
+
+TIP: [BPI-R2/R64/R3] OpenWrt built on devices : https://openwrt.org/docs/guide-developer/toolchain/building_openwrt_on_openwrt
+
+TIP: [Tutorial] Reworking BPI-R3 nand Flash: https://forum.banana-pi.org/t/tutorial-reworking-bpi-r3-nand-flash/15492
+
+TIP: BananaPi BPI-R3, now with ROOTer support!: https://wirelessjoint.com/viewtopic.php?t=3852
+
+TIP: OpenWRT official for Sinovoip BananaPi BPi R3: https://openwrt.org/toh/sinovoip/bananapi_bpi-r3
+
+TIP: Setting up the Banana-R3 with OpenWRT: https://uglyscale.press/2023/09/13/setup-the-banana-r3-with-openwrt/
+
+= System Image
+== OpenWRT
+
+NOTE: Latest official OpenWRT snapshot image:
+
+https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=mediatek%2Ffilogic&id=bananapi_bpi-r3
+
+Discuss on OpenWRT forum: https://forum.openwrt.org/t/openwrt-support-for-banana-pi-bpi-r3/154294
+
+NOTE: 2022-07-20 udptae BPI-R3 OpenWRT 21.02 linux kernel 5.4, wifi 6 2.4G and 5G mac80211 opensource wifi driver working fine support nand flash ,SD card ,eMMC flash boot. for BPI-R3 production version hardware
+
+Google Drive: https://drive.google.com/file/d/13nQMfM0_XTyWcILhNxv_9E4TIvb65RI0/view?usp=share_link
+
+Baidu Cloud: https://pan.baidu.com/s/1-5tqHEacMw1wlTSEK1ey9A?pwd=8888 (pincode: 8888)
+
+NOTE: 2022-06-01udptae BPI-R3 OpenWRT 21.02 linux kernel 5.4, wifi 6 2.4G and 5G working fine support nand flash ,SD card ,eMMC flash boot. for BPI-R3 production version hardware
+
+Google drive : https://drive.google.com/file/d/18_xst-diDdCg7CeSum1M5FDbbo31jFJq/view?usp=drivesdk
+
+Baidu link: https://pan.baidu.com/s/1idqU1-bB4XD1LTGDAJxRGA?pwd=chez Pincode: chez
+
+Discuss on forum : https://forum.banana-pi.org/t/banana-pi-bpi-r3-openwrt-image/13236
+
+NOTE: 2022-09-28 udptae BPI-R3 OpenWRT 21.02 linux kernel 5.4, wifi 6 2.4G and 5G working fine support nand flash ,SD card ,eMMC flash boot, support EC25 LTE 4G +
+Modules for BPI-R3 production version hardware
+
+Google drive: https://drive.google.com/file/d/1oNcnIl8bDla9pPWUd-TFPXXphsCMsJt0/view?usp=sharing
+
+Baidu link: https://pan.baidu.com/s/1v4sKfAuax3AfHNtp_2RP_g?pwd=mebq (Pincode: mebq)
+
+== Linux
+
+=== Ubuntu
+
+NOTE: 2022-12-18-ubuntu-22.04-server-bpi-r3-aarch64-sd-emmc.img
+
+Baidu Cloud: https://pan.baidu.com/s/1PajBEeFkgzgBdmJa5KpHpA?pwd=8888 (pincode: 8888)
+
+Google Drive: https://drive.google.com/file/d/1m9TFmnICj45b61evvmz9ja0g7kH641SG/view?usp=share_link
+
+=== Debian
+
+NOTE: [BPI-R3] Debian Bullseye Image, this image is share by Frank:
+
+https://forum.banana-pi.org/t/bpi-r3-debian-bullseye-image/14541
+
+NOTE: 2022-12-18-debian-11-bullseye-lite-bpi-r3-5.15-sd-emmc.img, Kernel 5.15.77
+
+Baidu Cloud: https://pan.baidu.com/s/195HeMXjK-rmCEZTnYBCndA?pwd=8888 (pincode: 8888)
+
+Google Drive: https://drive.google.com/file/d/1NRR1hKsv6vE1bHOyRjcCGiHgmgaRxt72/view?usp=share_link
+
+NOTE: 2022-12-18-debian-10-buster-lite-bpi-r3-5.15-sd-emmc.img, Kernel 5.15.77
+
+Baidu Cloud: https://pan.baidu.com/s/1_OGb8ZMF4pWIbaKJ0z2JsA?pwd=8888 (pincode: 8888)
+
+Google Drive: https://drive.google.com/file/d/1Q9ZSCZ8_ZI6o5SG4_iOn-mQUaci6Qfrt/view?usp=share_link
+
+== Third part image
+
+=== Frank’s image
+
+NOTE: Frank’s Debian Bullseye image: https://forum.banana-pi.org/t/bpi-r3-debian-bullseye-image/14541
+
+NOTE: Frank’s Ubuntu 22.04 image:
+https://forum.banana-pi.org/t/bpi-r3-ubuntu-22-04-image/14956
+
+=== Arch linux
+
+NOTE: Image: https://forum.banana-pi.org/t/bpi-r3-imagebuilder-r3-archlinux-ready-for-testing/15089
+
+= FAQ
+**Failed to save the configuration**
+
+Enter "mtd erase /dev/mtd10"
+
+
+= Easy to buy
+
+WARNING: SINOVOIP Aliexpress Shop: https://www.aliexpress.us/item/3256804530142161.html
+
+WARNING: Bipai Aliexpress Shop: https://www.aliexpress.us/item/3256804530395673.html
+
+WARNING: Taobao Shop: https://shop108780008.taobao.com/category-1696287007.htm
+
+WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
