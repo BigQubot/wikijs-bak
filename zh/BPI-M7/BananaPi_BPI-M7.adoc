@@ -1,0 +1,343 @@
+= Overview
+
+Banana Pi BPI-M7 with Rockchip RK3588, 8/16/32G,RAM 64/128G eMMC,wifi6 support . 2x2.5G port ,1xHDMIout ,2x USB3.0,2xTYPE-C,2x MIPI CSI interface and 1x MIPI DSI interface, 1x M.2 KEY M interface,40 PIN GPIO ,Mini size just 92x62mm.
+
+image::/bpi-m7/banana_pi_bpi-m7_banner_1.jpg[banana_pi_bpi-m7_banner_1.jpg]
+
+TIP: Rockchip RK3588 design link:/en/BPI-M7/BananaPi_BPI-M7[Banana Pi BPI-M7] AI SBC design +
+Rockchip RK3588 design link:/en/BPI-AIM7/BananaPi_BPI-AIM7[Banana Pi BPI-AIM7] Core board fully compatible with Jetson Nano/TX2 NX +
+Rockchip RK3588 design link:/en/BPI-W3/BananaPi_BPI-W3[Banana Pi BPI-W3] LGA core board kit +
+Rockchip RK3588 design link:/BPI-RK3588_CoreBoardAndDevelopmentKit/BananaPi_BPI-RK3588_CoreBoardAndDevelopmentKit[BPI-RK3588 core board and kit Introduction] Core boards 
+
+Generally, BPI-M7 is applied for various applications,such as, ARM PCs, edge computing, cloud servers, AI, cloud computing, virtual/augmented reality, blockchain, smart NVRs and more.
+
+== Key Features:
+
+* 8K video encoding/decoding support
+* Abundant interfaces support
+* Dual 2.5G Ethernet support
+* WiFi 6 support
+* BT 5 support
+* Multiple video outputs support
+* Multiple operating systems support
+
+Generally, BPI-M7 is applied for various applications,such as, ARM PCs, edge computing, cloud servers, AI, cloud computing, virtual/augmented reality, blockchain, smart NVRs and more.
+
+TIP: With the powerful ecosystem and variety of extension modules, Banana Pi can help users easily go from ideas to prototype to mass production, making it an ideal creative platform for makers, dreamers and hobbyists.
+
+== Key Parameter
+
+* SoC: Rockchip RK3588
+* CPU: 4x Cortex-A76 @ 2.4GHz + 4x Cortex-A55 @ 1.8GHz, 8nm
+* GPU: ARM Mali-G610 MP4
+* NPU: Up to 6 TOPS (INT8), supports INT4/INT8/INT16 mixed computing
+* VPU/Codec:
+** Hardware Decode: 8K@60fps H.265/VP9/AVS2, 8K@30fps H.264 AVC/MVC, 4K@60fps AV1, 1080P@60fps MPEG-2/-1/VC-1/VP8
+** Hardware Encode: 8K@30fps H.265 / H.264
+* RAM: 8GB/16GB/32GB (max 32GB) 64bit LPDDR4/LPDDR4x, default 8GB LPDDR4x
+* Storage: 64GB/128GB eMMC, default 64GB eMMC
+* Operating Voltage: Wide input voltage, 5V to 20V (±5% tolerance)
+* Operating temperature: 0°C ~ 70°C
+* OS:
+** Official: Android 12.0, Debian 11, Buildroot
+** 3rd party: Armbian, Ubuntu 20.04, Ubuntu 22.04, Kylin OS
+* PCB: 12-layer
+* Weight: 200g 
+* Size: 92mm × 62mm
+
+== Getting Start
+
+TIP: link:/en/BPI-M7/GettingStarted_BPI-M7[Getting Started BPI-M7]
+
+= Hardware 
+
+== Hardware interface 
+
+image::/bpi-m7/banana_pi_bpi-m7_interface.jpg[banana_pi_bpi-m7_interface.jpg]
+
+TIP: There are two identical Type-C ports on Sige7,but only the Type-C (PD Only) port is for power input.
+
+== BPI-M7 Photo
+
+link:/en/BPI-M7/Photo_BPI-M7[Banana Pi BPI-M7 Product photo gallery]
+
+== Hardware Specifications
+
+[options="header",cols="1,5"]
+|====
+2+| HardWare Specification of Banana Pi BPI-M7 
+|SOC	|RockChip RK3588
+|CPU	|RK3588 Quad-Core Cortex-A76@ 2.4GHz+Quad-CoreCortex-A55@ 1.8GHz，8nm process
+|GPU	|GPU Mali-G610 MP4 (4x256KB L2 Cache) Supports OpenGL ES3.2/OpenCL2.2/Vulkan1.1
+.3+|NPU	|6 TOPS@INT8(3 NPU core) 
+|Supports INT4/INT8/INT16 mixed computing
+|Supports frameworks like TensorFlow, MXNet, PyTorch, Caffe, Tflite, Onnx NN, Android NN, etc
+.2+|VPU/Codec	|Hardware Decode: 8K@60fps H.265/VP9/AVS2、 8K@30fps H.264 AVC/MVC、 4K@60fps AV1、1080P@60fps MPEG-2/-1/VC-1/VP8
+|Hardware Encode:8K@30fps H.265 / H.264
+|ISP	|Integrated 48MP ISP with HDR&3DNR
+|RAM	|8GB/16GB/32GB（max 32GB ）64bit LPDDR4/LPDDR4x，default 8GB LPDDR4x
+|Flash	|32GB/64GB/128GB eMMC，default 64GB eMMC,Supports MicroSD card expansion
+|PCIe	|1x M.2 Key M (PCIe 3.0 4-lanes). Expandable SSD support for 2280/2260/2242/2230 M.2 SSD cards, default 2280
+.2+|Networking	|2x 2.5G Ethernet
+|Onboard IEEE 802.11a/b/g/n/ac/ax WIFI6 and BT5 (AP6275P)
+.3+|Video Out|1x HDMI 2.1, supports 8K@60fps
+|1x MIPI DSI up to 4K@60fps
+|1x DP 1.4 up to 8K@30fps
+|Video In	|2x 2-lane MIPI CSI, up to 2.5Gbps per lane
+.3+|Audio	|1x HDMI audio out
+|1x HP audio out
+|1x Type-C 3.1 (DP1.4) audio out
+.3+|USB	|1x USB 3.0 (USB 3.1 Gen 1), equivalent to USB 3.2 Gen 1/USB 3.0, up to 5Gbps
+|1x USB Type-C 3.1（DP1.4/OTG）
+|1x USB 2.0 High（480Mbps）/Full（12Mbps）/Low-Speed（1.5Mbps） modes
+.2+|40-pin	|Fully compatible with Raspberry Pi 40-pin header for connecting abundant add-on modules
+|Supports UART/SPI/I2C/I2S/PWM/ADC/5V Power/3.3V Power
+.3+|Other	|1x 5V fan interface
+|1x battery connector for low power RTC chip HYM8563TS
+|2x LEDs - blue LED blinks on system start, red LED user controllable
+|Power Input	|USB Type-C PD 2.0, 9V/2A, 12V/2A, 15V/2A
+|Buttons	|1x PWRON button for sleep/wake,1x Reset button for reboot,1x Maskrom button for maskrom burn-in mode
+.2+|OS Support	|Official: ：Android 12.0，Debian11，Buildroot
+|3rd Party：Armbian，Ubuntu 20.04，Ubuntu22.04，Kylin OS
+|Dimensions	|92 mm x 62mm
+|Operating temperature|0℃ ~ 80℃
+|====
+
+== GPIO define
+
+=== 40 Pin GPIO 
+[options="header",cols="1,5,1,1,5,1"]
+|====
+6+| 40 GPIO define of Banana Pi BPI-M7 
+|GPIO number	|function	|Pin	|Pin	|function|	GPIO number|
+| +3.3V	|1|2|+5.0V	|
+|139|	I2S1_SDO2_M0 / I2C7_SDA_M3 / UART8_CTSN_M0 / PWM15_IR_M1 / CAN1_TX_M1 / GPIO4_B3 /|3|4|
++5.0V	|
+|138	|I2S1_SDO1_M0 / I2C7_SCL_M3 / UART8_RTSN_M0 / PWM14_M1 / CAN1_RX_M1 / GPIO4_B2	|5|6|GND|	
+|115	|SPI1_CS1_M1 / I2C8_SDA_M4 / UART7_CTSN_M1 / PWM15_IR_M0 / GPIO3_C3	|7|8|GPIO0_B5 / UART2_TX_M0/ I2C1_SCL_M0 / I2S1_MCLK_M1 / JTAG_TCK_M2|	13 |
+| GND	|9|10|GPIO0_B6 /UART2_RX_M0/ I2C1_SDA_M0 / I2S1_SCLK_M1 / JTAG_TMS_M2	|14
+|113	|SPI1_CLK_M1 / UART7_RX_M1 / GPIO3_C1	|11|12|GPIO3_B5 / CAN1_RX_M0 / PWM12_M0 /UART3_TX_M1 / I2S2_SCLK_M1	|109
+|111	|SPI1_MOSI_M1 / I2C3_SCL_M1 / GPIO3_B7	|13|14|GND	|
+|112	|SPI1_MISO_M1 / I2C3_SDA_M1 / UART7_TX_M1 / GPIO3_C0|15|16|GPIO3_A4 / SPI4_CS1_M1 / I2S3_SDI / UART8_RTSN_M1	|100
+| |+3.3V	|17|18|GPIO4_C4 / PWM5_M2 / SPI3_MISO_M0	|148
+|42	|SPI0_MOSI_M2 / UART4_RX_M2 / GPIO1_B2	|19|20|GND	|
+|41	|SPI0_MISO_M2 / GPIO1_B1	|21|22|SARADC_IN4	|
+|43	|SPI0_CLK_M2 / UART4_TX_M2 / GPIO1_B3	|23|24|GPIO1_B4 / UART7_RX_M2 /SPI0_CS0_M2	|44
+|  |GND|25|26|GPIO1_B5 / UART7_TX_M2 / SPI0_CS1_M2|	45
+|150	|SPI3_CLK_M0 / I2C0_SDA_M1 / PWM7_IR_M3 / GPIO4_C6|27|28|GPIO4_C5 / PWM6_M2 / I2C0_SCL_M1 /|	
+|63	|UART1_CTSN_M1 / PWM15_IR_M3 / GPIO1_D7	|29|30|GND	|
+|47	|SPDIF_TX_M0 / UART1_RX_M1 / PWM13_M2 / GPIO1_B7|31|32|GPIO3_C2 / PWM14_M0 / UART7_RTSN_M1 / I2C8_SCL_M4 / SPI1_CS0_M1|	114
+|103|	PWM8_M0 / GPIO3_A7	|33|34|GND|	
+|110	|I2S2_LRCK_M1 / UART3_RX_M1 / PWM13_M0 / CAN1_TX_M0 / GPIO3_B6|35|36|GPIO3_B1 / PWM2_M1 / UART2_TX_M2	|105
+|0	|REFCLK_OUT / GPIO0_A0	|37|38|GPIO3_B2 /PWM3_IR_M1 / UART2_RX_M2 / I2S2_SDI_M1	|106
+| |GND	|39|40|GPIO3_B3 / UART2_RTSN / I2S2_SDO_M1	|107
+|====
+
+=== MIPI CSI0
+0.5mm FPC connector
+
+[options="header",cols="1,1,1"]
+|====
+3+| MIPI CSI0 define of Banana Pi BPI-M7 
+|Pin	|MIPI-CSI	|description
+|1,4,7,10,13,16,24,25,26,27,32,33	|GND	|Power Ground & Signal Ground
+|2	|MIPI_CSI0_RX_D3N	MIPI RX |Lane3 iuput N
+|3|	MIPI_CSI0_RX_D3P	MIPI RX |Lane3 iuput P
+|5|	MIPI_CSI0_RX_D2N	MIPI RX |Lane2 iuput N
+|6|	MIPI_CSI0_RX_D2P	MIPI RX |Lane2 iuput P
+|8|	MIPI_CSI0_RX_CLK1N	MIPI RX |Clock iuput N
+|9|	MIPI_CSI0_RX_CLK1P	MIPI RX |Clock iuput P
+|11|	MIPI_CSI0_RX_D1N	MIPI RX |Lane1 iuput N
+|12|	MIPI_CSI0_RX_D1P	MIPI RX |Lane1 iuput P
+|14	|MIPI_CSI0_RX_D0N	MIPI RX |Lane0 iuput N
+|15|	MIPI_CSI0_RX_D0P	MIPI RX |Lane0 iuput P
+|17|	MIPI_CSI0_RX_CLK0N	MIPI RX |Clock iuput N
+|18|	MIPI_CSI0_RX_CLK0P	MIPI RX |Clock iuput P
+|19|	MIPI_VSYNC	|
+|20|	MIPI_CAM3_CLKOUT	|1.8V, CLock ouput for Sensor
+|21|	MIPI_HSYNC	| 
+|22|	MIPI_CAM1_CLKOUT	|1.8V, CLock ouput for Sensor
+|23|	MIPI_CSI0_PDN0_H(GPIO1_B0)	|1.8V, GPIO
+|24|I2C3_SCL_M0_MIPI|	1.8V, I2C Clock, pulled up to 1.8V with 2.2K on Sige7
+|25|I2C3_SDA_M0_MIPI|	1.8V, I2C Clock, pulled up to 1.8V with 2.2K on Sige7
+|26|MIPI_CSI0_PDN1_H(GPIO1_A7)|	1.8V, GPIO
+|27|	CM_RST_L(GPIO4_A0)|	3.3V, GPIO
+|28,29	|VCC_RX	|3.3V Power ouput
+|30,31	|VCC_5V0	|5V Power ouput
+|====
+
+=== MIPI CSI1
+0.5mm FPC connector
+[options="header",cols="1,1,1"]
+|====
+3+| MIPI CSI1 GPIO define of Banana Pi BPI-M7 
+|Pin	|MIPI-CSI	|description
+|1,4,7,10,13,16,24,25,26,27,32,33	|GND|	Power Ground & Signal Ground
+|2|	MIPI_CSI1_RX_D3N	MIPI RX |Lane3 iuput N
+|3|	MIPI_CSI1_RX_D3P	MIPI RX |Lane3 iuput P
+|5|	MIPI_CSI1_RX_D2N	MIPI RX |Lane2 iuput N
+|6|	MIPI_CSI1_RX_D2P	MIPI RX |Lane2 iuput P
+|8|	MIPI_CSI1_RX_CLK1N	MIPI RX |Clock iuput N
+|9|	MIPI_CSI1_RX_CLK1P	MIPI RX |Clock iuput P
+|11|	MIPI_CSI1_RX_D1N	MIPI RX |Lane1 iuput N
+|12|	MIPI_CSI1_RX_D1P	MIPI RX |Lane1 iuput P
+|14|	MIPI_CSI1_RX_D0N	MIPI RX |Lane0 iuput N
+|15|	MIPI_CSI1_RX_D0P	MIPI RX |Lane0 iuput P
+|17|	MIPI_CSI1_RX_CLK0N	MIPI RX |Clock iuput N
+|18|	MIPI_CSI1_RX_CLK0P	MIPI RX |Clock iuput P
+|19|	MIPI_VSYNC	|
+|20|	MIPI_CAM3_CLKOUT / GPIO1_B7	|1.8V, CLock ouput for Sensor / GPIO
+|21|	MIPI_HSYNC	|
+|22|	MIPI_CAM0_CLKOUT	|1.8V, CLock ouput for Sensor
+|23|	MIPI_CSI1_PDN0_H(GPIO1_B0)	|1.8V, GPIO
+|24|	I2C3_SCL_M0_MIPI	|1.8V, I2C Clock, pulled up to 1.8V with 2.2K on Sige7
+|25|	I2C3_SDA_M0_MIPI	|1.8V, I2C Clock, pulled up to 1.8V with 2.2K on Sige7
+|26|	MIPI_CSI0_PDN1_H(GPIO1_A7)	|1.8V, GPIO
+|27|	CM2_RST_L(GPIO4_A0)	|3.3V, GPIO
+|28,29|	VCC_RX	|3.3V Power ouput
+|30,31|	VCC_5V0	|5V Power ouput
+|====
+
+=== MIPI DSI 
+0.5mm FPC connector (J23)
+
+[options="header",cols="1,1,1"]
+|====
+3+| MIPI CDI GPIO define of Banana Pi BPI-M7 
+|Pin	|MIPI-DSI	|description
+|1,4,7,10,13,16,27,33,34	|GND	|Power and Signal Ground
+|2|	MIPI_DPHY1_TX_D0N	MIPI1 |TX Lane0 ouput N
+|3|	MIPI_DPHY1_TX_D0P	MIPI1 |TX Lane0 ouput P
+|5|	MIPI_DPHY1_TX_D1N	MIPI1 |TX Lane1 ouput N
+|6|	MIPI_DPHY1_TX_D1P	MIPI1 |TX Lane1 ouput P
+|8|	MIPI_DPHY1_TX_CLKN	MIPI1| TX Clock ouput N
+|9|	MIPI_DPHY1_TX_CLKP	MIPI1| TX Clock ouput P
+|11|	MIPI_DPHY1_TX_D2N	MIPI1| TX Lane2 ouput N
+|12|	MIPI_DPHY1_TX_D2P	MIPI1| TX Lane2 ouput P
+|14|	MIPI_DPHY1_TX_D3N	MIPI1| TX Lane3 ouput N
+|15|	MIPI_DPHY1_TX_D3P	MIPI1| TX Lane3 ouput P
+|17|	LCD_PWM (PWM2_M2/GPIO4_C2)|	1.8V, GPIO/PWM
+|18,19|	VCC3V3_LCD|	3.3V Power ouput
+|20|	LCD_RESET (GPIO2_C1)|	1.8V, GPIO
+|21|	/NC	No Connection| 
+|22|LCD_BL_EN (GPIO3_A1)	|3.3V, GPIO
+|23|	I2C6_SCL_M0|1.8V, I2C Clock, pulled up to 1.8V with 2.2K on Sige7
+|24|	I2C6_SDA_M0|	1.8V, I2C Data, pulled up to 1.8V with 2.2K on Sige7
+|25|	TP_INT (GPIO0_D3)	|1.8V, GPIO
+|26|	TP_RST (GPIO0_C6)|	1.8V, GPIO
+|28,29|	VCC5V0_LCD|	5V Power ouput
+|31,32|	VCC_1V8|	1.8V Power ouput
+|====
+
+=== Fan 
+0.8mm connector(CN32)
+[options="header",cols="1,1,1"]
+|====
+3+| Fan GPIO define of Banana Pi BPI-M7 
+| 1| 	VCC_5V0	| 5V Power ouput
+| 2	| GND	| GND
+| 3	| PWM	| PWM cotrol
+|====
+
+= Accessories
+
+== Case design:
+
+image::/bpi-m7/banana_pi_bpi-m7_case_7.jpg[banana_pi_bpi-m7_case_7.jpg]
+
+== Display 10 HD
+
+image::/bpi-m7/banana_pi_bpi-m7_touch_screen_5.jpg[banana_pi_bpi-m7_touch_screen_5.jpg]
+
+link:https://docs.armsom.org/docs/getting-started/accessories/display-10-hd[BPI-M7 Display 10 HD]
+
+
+= Development 
+
+== Source code
+
+TIP: BPI-M7 kernel code: https://github.com/ArmSoM/linux-rockchip
+
+TIP: BPI-M7 uboot code ： https://github.com/ArmSoM/u-boot
+
+== Resources
+TIP: BPI-M7 Component diagram
+
+Baidu Cloud: https://pan.baidu.com/s/1Klh1xt_2Qkd8ZKZ6EIbEbg?pwd=8888 （pincode:8888)
+
+Google Drive: https://drive.google.com/drive/folders/13WhoyLEXPj6DJKkY3ceRTgJQR7U53NOn?usp=sharing
+
+TIP: BPI-M7 2D CAD
+
+Baidu Cloud: https://pan.baidu.com/s/1spHZGhDMC4TW9G9HTei7rA?pwd=8888 (pincode:8888)
+
+Google Drive: https://drive.google.com/drive/folders/1rh1abnNbTly3O69uWi0fQsSZdRvm6_oO?usp=sharing
+
+TIP: BPI-M7 Schematic
+
+Baidu Cloud: https://pan.baidu.com/s/17_2BTwBnIsmeCV5V7xNXRA?pwd=8888 （pincode:8888)
+
+Google Drive: https://drive.google.com/file/d/1-Fz3oNMEvrztWFvQs_RUv_kGpvyORcaI/view?usp=sharing
+
+TIP: Rockchip RK3588 datasheet :
+
+Baidu cloud: https://pan.baidu.com/s/1GeskKfLFwjgmz0pgt7sICg?pwd=8888 (pincode:8888)
+
+Google Drive: https://drive.google.com/drive/folders/1l1YmUdBaLuDkJma3CYZJWjYug9D-jV_4?usp=sharing
+
+TIP: BPI-M7 GPU and CPU performance test:
+https://www.youtube.com/watch?v=C4ofIZLixpM
+
+TIP: BPI-M7 Rockchip RK3588 open source SBC run istoreos demo:
+https://www.youtube.com/watch?v=I2SSCT1Xj_U
+
+TIP: BPI-M7 SBC ubuntu20.04 Linux system adaptation is complete:
+https://www.youtube.com/watch?v=60XQlSF3_20&t=10s
+
+TIP: BPI-M7 how o burn image video : 
+https://www.youtube.com/watch?v=80RULZRRM58
+
+= Image Release
+
+== Android
+== Linux
+=== Ubuntu
+NOTE: ubuntu-22.04.3-preinstalled-desktop-arm64-bpi-m7_armsom-sige7.img-20240131
+
+Baidu Cloud: https://pan.baidu.com/s/1qsXOSuaA14ODvFhetaLGIw?pwd=8888 (pincode:8888)
+
+Google drive: https://drive.google.com/drive/folders/1MXqanJ0zd62XpOwRxqmlx9xuqbonhIKW?usp=sharing
+
+NOTE: ubuntu-22.04.3-preinstalled-server-arm64-bpi-m7_armsom-sige7.img-20240131
+
+Baidu Cloud: https://pan.baidu.com/s/1RlTTgdbZdv5mqCy7iWi8Yw?pwd=8888 (pincode:8888)
+
+Google drive: https://drive.google.com/drive/folders/1JtsD2Djx7wGZa_dLYNC86JAE9N7p7v_s?usp=sharing
+
+=== Debian
+
+NOTE: BPI-M7_armsom-sige7-debian-bullseye-xfce4-arm64-20240129
+
+Baidu Cloud: https://pan.baidu.com/s/1ZLoUfPHYP9GF7aJ5uGEpcw?pwd=8888 (pincode:8888)
+
+Google drive: https://drive.google.com/file/d/1r9wXInxqDehEq2Qp98dozbKMCeMfKvLr/view?usp=sharing
+
+=== Armbian
+NOTE: Armbian-unofficial_24.5.0-trunk_BPI-M7_Armsom-sige7_jammy_legacy_5.10.160_gnome_desktop.img
+
+Baidu cloud: https://pan.baidu.com/s/1s4OqPrIIL2SR5df06cNE2g?pwd=8888 (pincode:8888) 
+
+Google drive: https://drive.google.com/drive/folders/1D06q5fLxPGs0dxLyJlhDoox0ylIPVhx9?usp=sharing
+
+= Easy to buy sample
+
+WARNING: SINOVOIP Aliexpressshop: 
+https://www.aliexpress.com/item/1005006504845998.html?spm
+
+WARNING: Bipai Aliexpress shop: 
+https://www.aliexpress.com/item/1005006504967822.html?spm
+
+WARNING: Taobao shop : 
+ https://item.taobao.com/item.htm?id=765236561383&spm=a1z10.5-c-s.w4002-25059194413.11.76fe5332n69l2T
+
+WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
