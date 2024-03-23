@@ -1,0 +1,346 @@
+= BPI-M2S Introduction
+
+BananaPi BPI-M2S new design with Amlogic A311D, Quad core ARM Cortex-A73 and dual core ARM Cortex-A53 CPU,ARM G52 MP4(6EE) GPU,NPU for AI at 5.0 TOPS, support Camera and MIPI-CSI interface ,HDMI output,2 Gigabit port, 4G RAM and 16 GB eMMC flash.
+
+image::/bpi-cm4/banana_pi_bpi-m2s_bannar.jpg[banana_pi_bpi-m2s_bannar.jpg]
+
+TIP: Amlogic A311D design : link:/en/BPI-M2_Super/BananaPi_BPI-M2_Super[Banana Pi BPI-M2S] single board compuer +
+Amlogic A311D design : link:/en/BPI-CM4/BananaPi_BPI-CM4[Banana Pi BPI-CM4] computer module
+
+BPI-M2S same size as link:/en/BPI-M2_Plus/BananaPi_BPI-M2_Plus[Banana Pi BPI-M2+] and link:/en/BPI-M2_Pro/BananaPi_BPI-M2_Pro[Banana Pi BPI-M2 Pro]
+
+NOTE:  Amlogic S922X variant BPI-M2S board is 2G ram, 16G eMMC, NOT support npu, mipi panel and mipi camera.
+
+YouTube viode: https://youtu.be/0s3seudNXdE
+
+== Key Features
+
+- Amlogic A311D Quad core ARM Cortex-A73 and dual core ARM Cortex-A53 CPU ,ARM G52 MP4(6EE) GPU
+- NPU for AI :Next generation, deep-neural-network applications, at 5.0 TOPS
+- 4GB LPDDR4 RAM
+- 16GB eMMC flash (Max 128G)
+- Support MIPI-DSI Dispaly Serial interface
+- Support MIPI-CSI Camera Serial interface
+- 2 Gigabit ethernet port
+- HDMI output
+- 40 PIN GPIO
+- Support Android and Linux system
+
+== Getting Start
+
+TIP: link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super[Getting Started BPI-M2_Super]
+
+= Hardware
+== Hardware Interface
+
+image::/picture/bpi-m2s_s922x_new.jpg[bpi-m2s_s922x_new.jpg]
+
+== BPI-M2S Photo
+
+link:/en/BPI-M2S/Photo_BPI-M2S[Banana Pi BPI-M2S Product photo gallery]
+
+== Hardware Spec
+
+[options="header",cols="1,4"]
+|=====
+2+| **HardWare Specification of Banana Pi M2 Super**
+| SoC | Amlogic A311D hexa-core processor with 4x Arm Cortex-A73 cores, 2x Arm Cortex-A53 cores, Arm Mali-G52 MP4 (6EE) GPU with OpenGL ES 3.2, Vulkan 1.0 and OpenCL 2.0 support, 5 TOPS NPU
+| System Memory | 4GB LPDDR4
+| Storage | 16GB eMMC flash (option up to 128GB), MicroSD card slot
+| Video interfaces | HDMI 2.1 output up to 4Kp60
+
+MIPI DSI connector for display
+
+MIPI CSI connector for camera
+
+| Networking | 2x Gigabit Ethernet ports one via RTL8211F GbE transceiver, the other through RTL8111H PCIe to Gigabit Ethernet transceiver
+| USB | 1x USB 2.0 Type-A port, 1x USB Type-C port
+| Expansion | 40-pin GPIO header
+| Debugging | 3-pin header for serial console
+| Misc | 3x buttons
+| Power Supply | Via USB-C port or pin header
+| Dimensions | 65 x 65mm
+|=====
+
+== GPIO Pin Define
+
+=== BPI-M2 Super 40PIN GPIO
+
+[options="header",cols="1,1,1,1"]
+|=====
+4+| **40 PIN GPIO of Banana pi BPI-M2 Super**
+| GPIO Pin Name	| Default ：GPIO	| Function2	| Function3
+| CON2-P01 | VCC-3V3  |               |                
+| CON2-P02 | DCIN     |               |                
+| CON2-P03 | GPIOX_17 | I2C_EE_M2_SDA | BT_EN          
+| CON2-P04 | DCIN     |               |                
+| CON2-P05 | GPIOX_18 | I2C_EE_M2_SCL | BT_WAKE_HOST   
+| CON2-P06 | GND      |               |                
+| CON2-P07 | GPIOX_5  | PWM_C         | WIFI_SD_CMD    
+| CON2-P08 | GPIOX_12 | UART_EE_A_TX  |                
+| CON2-P09 | GND      |               |                
+| CON2-P10 | GPIOX_13 | UART_EE_A_RX  |                
+| CON2-P11 | GPIOX_3  |               | WIFI_SD_D3     
+| CON2-P12 | GPIOA_1  |               | I2SB_SCLK      
+| CON2-P13 | GPIOX_4  |               | WIFI_SD_CLK    
+| CON2-P14 | GND      |               |                
+| CON2-P15 | GPIOX_7  |               | WIFI_WAKE_HOST 
+| CON2-P16 | GPIOX_0  |               | WIFI_SD_D0     
+| CON2-P17 | VCC-3V3  |               |                
+| CON2-P18 | GPIOX_1  |               | WIFI_SD_D1     
+| CON2-P19 | GPIOX_8  | SPI_A_MOSI    | BTPCM_DIN      
+| CON2-P20 | GND      |               |                
+| CON2-P21 | GPIOX_9  | SPI_A_MISO    | BTPCM_DOUT      
+| CON2-P22 | GPIOX_2  |               | WIFI_SD_D2      
+| CON2-P23 | GPIOX_11 | SPI_A_CLK     | BTPCM_CLK       
+| CON2-P24 | GPIOX_10 | SPI_A_CS      | BTPCM_SYNC      
+| CON2-P25 | GND      |               |                 
+| CON2-P26 | GPIOX_16 |               | BT_32K          
+| CON2-P27 | GPIOH_5  |               |                 
+| CON2-P28 | GPIOH_4  |               |                 
+| CON2-P29 | GPIOX_14 |               | BTUART_A_CTS_N  
+| CON2-P30 | GND      |               |                 
+| CON2-P31 | GPIOX_15 |               | BTUART_A_RTS_N  
+| CON2-P32 | GPIOX_19 |               | HOST_WAKE_BT    
+| CON2-P33 | GPIOX_6  |               | WIFI_PWREN      
+| CON2-P34 | GND      |               |                 
+| CON2-P35 | GPIOA_2  |               | I2SB_LRCLK      
+| CON2-P36 | GPIOAO_5 |               | IR_IN           
+| CON2-P37 | GPIOA_0  |               | I2S_MCLK_0      
+| CON2-P38 | GPIOA_4  |               | I2SB_DOUT_DIN_1 
+| CON2-P39 | GND      |               |                 
+| CON2-P40 | GPIOA_3  |               | I2SB_DOUT_DIN_0 
+|=====
+
+=== BPI-M2 Super Debug UART
+
+|=====
+| CON2-P1	| GND
+| CON2-P2	| UART0-RX
+| CON2-P3	| UART0-TX
+|=====
+
+=== BPI-M2S Camera(CN10)
+
+|=====
+| CSI Pin Name	| Default Function	| Function2：GPIO
+| CN10-P01 | GND            |  
+| CN10-P02 | MIPI_CSI_D3N   |  
+| CN10-P03 | MIPI_CSI_D3P   |  
+| CN10-P04 | GND            |  
+| CN10-P05 | MIPI_CSI_D2N   |  
+| CN10-P06 | MIPI_CSI_D2P   |  
+| CN10-P07 | GND            |  
+| CN10-P08 | MIPI_CSI_CLKBN |  
+| CN10-P09 | MIPI_CSI_CLKBP |  
+| CN10-P10 | GND            |  
+| CN10-P11 | MIPI_CSI_D1N   |  
+| CN10-P12 | MIPI_CSI_D1P   |  
+| CN10-P13 | GND            | 
+| CN10-P14 | MIPI_CSI_D0N   |  
+| CN10-P15 | MIPI_CSI_D0P   |  
+| CN10-P16 | GND            |  
+| CN10-P17 | MIPI_CSI_CLKAN |  
+| CN10-P18 | MIPI_CSI_CLKAP |  
+| CN10-P19 | NC             |  
+| CN10-P20 | CAM0_MCLK      |  
+| CN10-P21 | CAM0_IRCUT     |  
+| CN10-P22 | CAM0_SCL       |  
+| CN10-P23 | CAM0_SDA       |  
+| CN10-P24 | CAM0_RESET     |  
+| CN10-P25 | VCC1V8_DOVDD   |  
+| CN10-P26 | GND            |  
+| CN10-P27 | GND            |  
+| CN10-P28 | VCC33          |  
+| CN10-P29 | VCC33          |  
+| CN10-P30 | VCC33          | 
+|=====
+
+=== BPI-M2S LCD(CN9)
+|=====
+| DSI Pin Name	| Default Function	| Function2：GPIO
+| CN9-P01	| MIPI_D0_N	     |
+| CN9-P02	| MIPI_D0_P	     |
+| CN9-P03	| MIPI_D1_N 	   |
+| CN9-P04	| MIPI_D1_P	     |
+| CN9-P05	| MIPI_CLK_N	   |
+| CN9-P06	| MIPI_CLK_P	   |
+| CN9-P07	| MIPI_D2_N	     |
+| CN9-P08	| MIPI_D2_P	     |
+| CN9-P09	| MIPI_D3_N	     |
+| CN9-P10	| MIPI_D3_P	     |
+| CN9-P11	| TP_INT_3V3	   |
+| CN9-P12	| TP_RST_3V3	   |
+| CN9-P13	| I2C_M3_SCL_3V3 |	
+| CN9-P14	| I2C_M3_SDA_3V3 |
+| CN9-P15	| LCD_BL_EN_3V3	 |
+| CN9-P16	| LCD_PWM_3V3	   |
+| CN9-P17	| GND	           |
+| CN9-P18	| GND	           |
+| CN9-P19	| VLCD_5V	       |
+| CN9-P20	| VLCD_5V	       |
+|=====
+
+== PoE Wifi&BT
+
+image::/picture/banana_pi_bpi-m2s_with_poe_wifi_bt.jpg[banana_pi_bpi-m2s_with_poe_wifi_bt.jpg]
+
+BPI-M5 rtl8822cs WiFi&BT board,SDIO interface, 802.11 a/b/g/n/ac 2T2R WiFi and Bluectooch 5.0
+
+- discuss on forum : https://forum.banana-pi.org/t/bpi-m5-rtl8822cs-wifi-bt-board-sdio-interface-802-11-a-b-g-n-ac-2t2r-wifi-and-bluectooch-5-0/11846
+
+PoE support RT9600-5V PoE module
+
+link:https://wiki.banana-pi.org/en/BPI-9600_IEEE_802_3af_PoE_module[BPI-9600 IEEE 802.3af PoE module]
+
+= Development
+== Source Code
+
+=== Linux 
+
+TIP: Linux BSP source code : https://github.com/BPI-SINOVOIP/BPI-M2S-bsp
+
+=== Android
+
+TIP: Android 9: https://github.com/BPI-SINOVOIP/BPI-A311D-Android9
+
+TIP: BPI-M2S/CM4 Android9 Source Code
+
+Baidu Cloud: https://pan.baidu.com/s/1rANGEB-1MLPCBXqOR5aYCg?pwd=8888 PIN code: 8888
+
+Google Drive: https://drive.google.com/drive/folders/1INIABp_MbB5UcwfqujTngGLOZN7YGuWp?usp=share_link
+
+== Resources
+
+TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
+
+TIP: All banana pi link:https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[docement(SCH file,DXF file,and doc)]
+
+TIP: Banana PI BPI-M2S Amlogic A311D / S922X : https://www.youtube.com/watch?v=9eFXiOtzFl0
+
+TIP: BPI-M2S DXF file
+
+Baidu Cloud: https://pan.baidu.com/s/1eKLdicH0v_XBkUyX9aVRhw?pwd=ikme PIN code: ikme
+
+Google Drive: https://drive.google.com/file/d/1kZjWV91WUNK7rNJQw5HNUNMf5Lob2qsi/view?usp=share_link
+
+TIP: BPI-M2S Schematic diagram
+
+Baidu Cloud: https://pan.baidu.com/s/1i6VMpHsCEL6Nwxu282epLA?pwd=8888 PIN code: 8888
+
+Google Drive: https://drive.google.com/file/d/176LPTjQgcXXNNibSbRRXKqTYxZHQqLDu/view?usp=sharing
+
+TIP: Amlogic A311D datasheet: https://drive.google.com/file/d/1SRAY_RDxKhw819uyo9H13zNN2wlG6LDq/view?usp=sharing
+
+= System Image
+== Android
+
+NOTE: 2023-01-12-bpi-m2s-cm4-android9.img
+
+Baidu Cloud: https://pan.baidu.com/s/1YVl0T9rSNqM3D0I1BRUr7A?pwd=8888 PIN code: 8888
+
+Google Drive: https://drive.google.com/drive/folders/1u8flA6zsMOLnr75U4rvbph02z8YUKe2Y?usp=share_link
+
+== Linux
+
+=== Ubuntu
+
+NOTE: 2022-06-20-ubuntu-20.04-mate-desktop-bpi-m2s-aarch64-sd-emmc.img.zip
+
+Baidu Cloud: https://pan.baidu.com/s/1kRukI-H-xliNqIqVacXWRw?pwd=8888 PIN code: 8888
+
+Google Drive: https://drive.google.com/file/d/1P2YQUwdrREdiwidr8YtCvOdMmwLPerVu/view?usp=share_link
+
+MD5: 2945f225eadba1b350cd49f47817c0cd
+
+NOTE: 2022-06-20-ubuntu-20.04-server-bpi-m2s-aarch64-sd-emmc.img.zip
+
+Baidu Cloud: https://pan.baidu.com/s/1UoYR0k9YH9SE_A-MpqZ2fg?pwd=8888 PIN code: 8888
+
+Google Drive: https://drive.google.com/file/d/1y0DUVDhLyhw_C7p6SD2q1EjOZLEV_c_w/view?usp=share_link
+
+MD5: 9b17a00cbc17c46e414a906e659e7ca2
+
+=== Debian
+
+NOTE: 2022-06-20-debian-10-buster-bpi-m2s-aarch64-sd-emmc.img.zip
+
+Baidu Cloud: https://pan.baidu.com/s/1TTsdyy5I7HLWS_Tptg7r2w?pwd=8888 PIN code: 8888
+
+Google Drive: https://drive.google.com/file/d/116ZydpggYpZ1WoSyVsc4QuchdIa3vGyI/view?usp=share_link
+
+MD5: 9d39558ad37e5da47d7d144c8afec45e
+
+== Third part image
+=== Armbian
+
+NOTE: Armbian official support for BPI-M2S:
+https://www.armbian.com/bananapi-m2s/
+
+
+NOTE: Armbian_23.02.0-trunk_Bananapim2s_bullseye_current_6.0.14_minimal.img.xz
+
+Baidu Cloud: https://pan.baidu.com/s/1iEO_GcFa6Gy-cC0pnT4H3A?pwd=8888 PIN code: 8888
+
+Google Drive: https://drive.google.com/drive/folders/1TDXuFliLZr4BY7NO5m_ijL4FxjsZNY8a?usp=share_link
+
+Discuss on the forum: https://forum.banana-pi.org/t/banana-pi-bpi-m2s-new-image-release-armbian-bullseye-current-minimal/14635
+
+NOTE: Armbian_23.02.0-trunk_Bananapim2s_jammy_current_6.0.14_cinnamon_desktop.img.xz
+
+Baidu Cloud: https://pan.baidu.com/s/1aqvVJXy1MqSVUHL-DD5Rpw?pwd=8888 (pincode: 8888)
+
+Googel Drive: https://drive.google.com/drive/folders/1MPxwSg38uu0hVllUgqqmxKGsEMpfm-lM?usp=share_link
+
+Discuss on the forum: https://forum.banana-pi.org/t/banana-pi-bpi-m2s-new-image-release-armbian-jammy-current-cinnamon-desktop/14642
+
+NOTE: Armbian_23.02.0-trunk_Bananapim2s_bullseye_current_6.0.14.img.xz
+
+Baidu Cloud: https://pan.baidu.com/s/1j0GVw3-ULFnWUFhwxr7muQ?pwd=8888 (pincode: 8888)
+
+Google Drive: https://drive.google.com/drive/folders/1Psku14DtTONHJD-73G58sD7CEoWfk4tT?usp=share_link
+
+Discuss on the forum: https://forum.banana-pi.org/t/banana-pi-bpi-m2s-new-image-release-armbian-bullseye-current/14634
+
+NOTE: Armbian_23.02.0-trunk_Bananapim2s_jammy_current_6.0.14_minimal.img.xz
+
+Baidu Cloud: https://pan.baidu.com/s/1MevqHbBTX8S-fsXuy9SahA?pwd=8888 (pincode: 8888)
+
+Google Drive: https://drive.google.com/drive/folders/1Psku14DtTONHJD-73G58sD7CEoWfk4tT?usp=share_link
+
+Discuss on the forum: https://forum.banana-pi.org/t/banana-pi-bpi-m2s-new-image-release-armbian-jammy-current-minimal/14639
+
+NOTE: Armbian_23.02.0-trunk_Bananapim2s_bullseye_current_6.0.14_xfce_desktop.img.xz
+
+Baidu Cloud: https://pan.baidu.com/s/1ZcsXrj1lmYu6-ol6F0r-yA?pwd=8888
+
+Google Drive: https://drive.google.com/drive/folders/1ugybAUZ4W2ov2Xy0yMsc9aTrGIBXVomI?usp=share_link
+
+Discuss on the forum: https://forum.banana-pi.org/t/banana-pi-bpi-m2s-new-image-release-armbian-bullseye-current-desktop/14636
+
+NOTE: Armbian_23.02.0-trunk_Bananapim2s_jammy_current_6.0.14_gnome_desktop.img.xz
+
+Baidu Cloud: https://pan.baidu.com/s/107kO-hGlyWMJFD9vpvKA-g?pwd=8888 (pincode: 8888)
+
+Google Drive: https://drive.google.com/drive/folders/19mLva4UQgON8exl5xuF2T9HD-Wy2eH94?usp=share_link
+
+Discuss on the forum: https://forum.banana-pi.org/t/banana-pi-bpi-m2s-new-image-release-jammy-current-gnome-desktop/14640
+
+NOTE: 2023-01-6 Armbian_23.02.0-trunk_Bananapim2s_jammy_current_6.0.14.img.xz
+
+Baidu Cloud: https://pan.baidu.com/s/1xPL6t4sbJjv3DzwPddZ2GQ?pwd=8888
+
+Google Drive: https://drive.google.com/drive/folders/1vCpzC7sM42amOHqGcSjaZF6YovGg-xk3?usp=share_link
+
+Discuss on the forum: https://forum.banana-pi.org/t/banana-pi-bpi-m2s-new-image-release-armbian-jammy-current/14637
+
+
+= Easy to buy
+
+WARNING: Sinovoip Aliexpress shop: https://www.aliexpress.com/store/group/BPI-M2S/1100417230_40000003430398.html
+
+WARNING: Bipai Aliexpress shop : https://www.aliexpress.us/item/3256804873308120.html
+
+WARNING: Taobao shop : https://item.taobao.com/item.htm?spm=a1z10.3-c.w4002-5702805387.9.2c3c159aK33lv9&id=695345271372
+
+WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
