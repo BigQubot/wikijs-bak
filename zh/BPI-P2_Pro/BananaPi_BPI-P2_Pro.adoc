@@ -1,0 +1,181 @@
+= BPI-P2 Pro Introduction
+
+image::/picture/banana_pi_bpi-p2_pro_banner_1.jpg[banana_pi_bpi-p2_pro_banner_1.jpg]
+
+Banana Pi BPI-P2 pro（Armsom Pro） is a development board based on RK3308B-S chip. With a high-performance 4-core ARM Cortex-A35 processor, 512M RAM(16bit DDR2/DDR3/DDR3L/LPDDR2). and 8G eMMC onboard ,support PoE function.The chip has a wealth of interfaces, such as I2S,PCM,TDM, I2C,UART,SPDIF,HDMI ARC, etc., to meet the application of different products. RK3308 has a rich voice interface, its own eight ADC interface, multi-channel I2S and multi-channel PDM interface. This not only provides customers with a wealth of interface choices, but also can reduce the hardware design difficulty and hardware design cost of products.
+
+Banana Pi BPI-P2 Pro has 512MB DDR3 memory size, operating system and storage can use SD card or emmc. BPI-P2 Pro is available as an onboard storage version with 1Gb/2Gb/4Gb/8Gb NAND flash
+
+== Key Features
+
+- CPU: 64bits Quad-core Arm Cortex-A35 Rockchip RK3308B-S
+- 512 DDR3 SDRAM
+- 8G eMMC flash onboard
+- WiFi (AP6256) & BT onboard
+- 40 PIN GPIO, includes UART, SPI, I2C, IO etc
+- 100M LAN
+- IEEE 802.3af PoE standard PoE module support
+- Audio: Supports rich audio interfaces, such as MIC/PDM/SPDIF/I2S
+
+== Application direction
+
+- Maker DIY
+- IoT Smart Internet of Things
+- Intelligent speech recognition
+- Man-machine interface
+- Industrial control
+- Intelligent robot
+
+== Getting Start
+
+TIP: link:https://docs.armsom.org/docs/getting-started/link/armsom-p2pro/user-manual[Getting Started BPI-P2_Pro]
+
+= Hardware
+== Hardware Interface
+
+image::/picture/banana_pi_bpi-p2_pro.jpg[banana_pi_bpi-p2_pro.jpg]
+
+== BPI-P2 Pro photo
+
+link:/en/BPI-P2_Pro/Photo_BPI-P2_Pro[Banana Pi BPI-P2 Pro Product photo gallery]
+
+== Hardware Spec
+
+[options="header",cols="1,3"]
+|=====
+2+| **HardWare Specification of Banana Pi P2 Pro**
+| SOC                   | RockChip RK3308B-S
+| CPU                   | Quad-core ARM Cortex-A35 
+| GPU                   | none
+| ROM                   | 512MB
+| RAM                   | 8GB eMMC
+| TF Card               | TF card (Max 64GB)
+| Network               | 100M LAN
+| PoE power             | PoE function support，Output Voltage 5V, Output
+| WiFi                  | AP6256
+| Audio Output          | With built-in audio CODEC, including ADC×8 and DAC×2
+| Power Source          | TYPE C 5V/2A or PoE power
+| USB                   | 1xUSB 2.0
+1xType-C    
+| Others                | Fan、RTC、LED、debug
+| Button                | Power Button、Reset Button、 Recovery Button、Root Button
+| Low-level peripherals | 40 Pin + 12 Pin
+| uart GPIO\(1x3\) pin  | UART, ground
+| LED                   | Power led & Status led
+| Product size          | 65mm X 52.5mm 
+| Weight	              | 30g
+|=====
+
+== GPIO Pin Define
+
+=== BPI-P2 Pro 40PIN GPIO
+
+[options="header",cols="2,2,2,2,1,1,2,2,2,2",width="60%"]
+|====
+10+|**40 Pin GPIO define of Banana Pi BPI-P2 Pro**
+| RK3308 Pin No|Function3|Function2	|Function1|	Pin |	Pin	|Function1	|Function2|	Function3|RK3308	Pin No 
+| | | |VCC_IO	|	1	|2|		VCC5V0_SYS|		| |
+| | ||ADC_KEY_IN1	|	3	|4	|	VCC5V0_SYS|		 | | 
+|69	||	I2S0_SCLK_TX|	GPIO2_A5|	5|	6	|GPIO0_C1|	SPDIF_TX	||	17
+|70|	I2S0_SCLK_RX|	PDM_CLK	|GPIO2_A6|	7|	8|	GPIO2_A7|	I2S0_LRCK_TX	||	71
+|68	|I2S0_8CH_MCLK	|I2S0_MCLK|	GPIO2_A4|	9	|10|	GPIO2_B0|	I2S0_LRCK_RX||	72
+|73	|	|I2S0_SDO0|	GPIO2_B1	|11|	12	|GPIO2_B5	|PDM_SDI0|	I2S0_SDI0|	77
+|74	||	I2S0_SDO1|	GPIO2_B2	|13	|14	|GPIO2_B6|	PDM_SDI1	|I2S0_SDI1	|78
+|75	|	|I2S0_SDO2	|GPIO2_B3|	15|	16|	GPIO2_B7|	PDM_SDI2|	I2S0_SDI2|	79
+|76	|	|I2S0_SDO3|	GPIO2_B4|	17	|18	|GPIO2_C0|	PDM_SDI3|	I2S0_SDI3|	80
+|| ||GND		|19	|20	|	GND		| ||
+| | | |LINEOUT_L	|	21	|22	|	LINEOUT_R		| | |
+| | | |MICBIAS1		|23|	24	|	MICBIAS2	|	| |
+| | | |MICP1	|	25	|26		|MICN1		|	| |
+| | | |MICP2	|	27|	28	|	MICN2		|	| |
+|| | |MICP3	|	29|	30	|	MICN3		|	| |
+|| | |MICP4	|	31|	32	|	MICN4		|	| |
+|| || MICP5	|	33	|34		|MICN5	|	| |	
+|| | |MICP6	|	35	|36	|	MICN6		|	| |
+|| || MICP7	|	37|	38|		MICN7		|	| |
+|| | |MICP8	|	39|	40	|	MICN8		|	| |
+|====
+
+
+=== 12 PIN GPIO
+
+[options="header",cols="1,2,2,2,2,1",width="80%"]
+|=====
+| Pin# | Function1 | Function2 | Function3 | Function4 | RK3308B-S SOC Pin No.
+| 1  | GPIO2_A1 | SPI0_TX  | UART0_TX    |          | 65
+| 2  | GPIO0_B3 | I2C1_SDA |             |          | 11   
+| 3  | GPIO2_A0 | SPI0_RX  | UART0_RX    |          | 64
+| 4  | GPIO0_B4 | I2C1_SCL |             |          | 12       
+| 5  | GPIO1_D1 | UART1_TX | I2C0_SCL    | SPI2_CS  | 56
+| 6  |          | VCC_IO   |             |          |
+| 7  | GPIO1_D0 | UART1_TX | I2C0_SDA    | SPI2_CLK | 57
+| 8  |          | GND      |             |          |
+| 9  | GPIO1_C7 | SPI2_TX  | UART2_TX_M0 | JTAG_TMS | 57
+| 10 | GPIO0_B7 | PWM2     |             | I2C3_SDA | 15
+| 11 | GPIO1_C6 | SPI2_RX  | UART2_RX_M0 | JTAG_TCK | 54
+| 12 | GPIO0_C0 | PWM3     |             | IR_RX    | 16
+|=====
+=== POE
+TIP: We deign a IEEE 802.3at PoE module for BPI-P2 Zero ,easy to support PoE function,more spec ,please check BPI-9600 PoE module spec
+
+link:/en/BPI-9600/BananaPi_BPI-9600[BPI-9600 IEEE 802.3af PoE module]
+
+= Development
+== Source Code
+
+=== Linux
+
+TIP: linux-5.10.110 kernel BSP Source code on github : https://github.com/ArmSoM/armsom-p2pro-bsp
+
+== Resources
+
+TIP: RK3308 datasheet: https://drive.google.com/file/d/1TsKFmItM1FJ-ziEvUkbcZxUsbaKYhsRq/view?usp=sharing
+
+TIP: BPI-P2 PRO SCH, DXF,SMD file
+
+Baidu Cloud: https://pan.baidu.com/s/1AuWYgWQ8OBVPHfF-wdWaAA?pwd=8888 (pincode:8888)
+
+Google Drive: https://drive.google.com/drive/folders/1QC-3x8bdQePFz1z70rapNwB2Jlb5orvh?usp=sharing
+
+TIP: Banana-Pi BPi-P2 Pro RockChip RK3308 SBC Setup: https://uglyscale.press/2023/10/01/banana-pi-bpi-p2-pro-setup/
+
+= System Image
+
+NOTE: BPI-P2 pro Tools
+
+Baidu cloud : https://pan.baidu.com/s/1ocWvRUz4IFCoZBjSx7MavQ?pwd=arms Pincode:arms
+
+Google drive: https://drive.google.com/drive/folders/1WJxMzmInB1xr3DpDQXYblU0iM9RbsmPF?usp=drive_link
+
+== Linux
+
+=== Buildroot
+NOTE: Banana Pi BPI-P2 pro buildroot image update
+
+Baidu cloud: https://pan.baidu.com/s/1V8ixOF8vdtuPvzjMGwOcjA?pwd=8888 (pincode:8888)
+
+Google Drive: https://drive.google.com/drive/folders/1vgu6tVB1nxdnZNIkogGVaadIGdtbcRS0?usp=sharing
+
+=== Debian
+
+NOTE: Banana Pi BPI-P2 pro debian11 image update 2023-9-13
+
+Baidu Cloud: https://pan.baidu.com/s/15VnIC70ijKvKCjlS4pe4RQ?pwd=8888 (pincode:8888)
+
+Google Drive: https://drive.google.com/file/d/1IWvlzRcNH1Bkjw5Vl-_Kyr0Y86kVw_U6/view?usp=sharing
+
+
+== Third part image
+
+=== Armbian
+
+
+
+= Easy to buy
+WARNING: BPI Aliexpress shop： https://www.aliexpress.com/item/1005005928295640.html
+
+WARNING: SINOVOIP Aliexpress shop： https://www.aliexpress.us/item/1005005928204793.html
+
+WARNING: Taobao shop : https://item.taobao.com/item.htm?spm=a2126o.success.0.0.264d4831aZTy3l&id=732760740787
+
+WARNING: OEM&ODM Customized product: judyhuang@banana-pi.com
