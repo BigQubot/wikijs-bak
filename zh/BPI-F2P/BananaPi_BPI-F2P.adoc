@@ -1,0 +1,256 @@
+= BPI-F2P Introduction
+
+Banana Pi BPI-F2P use link:https://www.sunplus.com/[Sunplus] chip design, this is a industrial control board. use Plus1(sp7021) design same ase Banana Pi BPI-F2S, it support PoE function with PoE module,and support RS232 and RS485 . so you can use it do a Industrial control gateway.
+
+image::/picture/a_bpi-f2p.jpg[a_bpi-f2p.jpg]
+
+TIP: SunPlus sp7021 design: link:/en/BPI-F2S/BananaPi_BPI-F2S[Banana Pi BPI-F2S] FPGA development board +
+SunPlus sp7021 design: link:/en/BPI-F2P/BananaPi_BPI-F2P[Banana Pi BPI-F2P] SBC industrial control gateway board
+
+=== About SunPlus SP7021
+SunPlus sp7021 is a revolutionary SoC that has the power of a Linux-grade chip and the integration simplicity of a microcontroller.it with ARM Cortex-A7 Quad core,ARM926 real-time core,8051 low-power core
+
+Conceived by Sunplus Technology in collaboration with Tibbo Technology, PLUS1 takes all the sophisticated elements typically found in modern industrial-grade embedded Linux chips, adds a plethora of features targeting IoT and industrial control applications, and delivers the resulting design in a simple microcontroller-like package that needs few external components, simplifies the schematic diagram, and reduces the PCB complexity.
+
+SP7021 is a SoC solution of industrial control. It meets customers’full demand on function but with low cost so that will improve customers’ competitiveness in the market. SP7021 provides rich GPIOs, storage and USB interface. And it provides MIPI CSI interface for video input and HDMI interface for video output. It also provides FPGA interface for function extension. SP7021 also has 4 Ethernet ports providing customers a high competitive solution.
+
+== Key Features
+
+- Easy-to-use LQFP package.
+- Quad-core 1GHz Cortex-A7 CPU, plus A926 and 8051 cores.
+- Single 3.3V power*.
+- Integrated 128MB or 512MB DDR3 DRAM.
+- Eight 8-bit 5V-tolerant IO ports, plus one high-current port.
+- Flexible Peripheral Multiplexing (PinMux).
+- Dual PinMuxable Ethernet MACs.
+- Four PinMuxable Enhanced UARTs, plus one console UART.
+- Industrial operating temperature range: -40C ~ +85C.
+- Low EMI simplifies certification.
+- Modern, Yocto-based Linux distribution.
+- 10-year supply guarantee.
+- Robust ready-to-run modern Linux distribution available
+- And much more...
+
+== Application direction
+
+- IoT/Industrial Internet control
+- Smart Audio
+- Smart Payment system
+- Vehicular networking technology and applications
+
+== Getting Start
+
+TIP: link:/en/BPI-F2P/GettingStarted_BPI-F2P[Getting Started BPI-F2P]
+
+= Hardware
+== Hardware Interface
+
+image::/bpi-f2pf2s/banana_pi_bpi-f2p_interface.jpg[banana_pi_bpi-f2p_interface.jpg]
+
+The inner and outer diameter of the power plug adapter datasheet : https://drive.google.com/file/d/1k3AWmYOs2XE7lnRxCyytZu0Vpq_Bzcu_/view?usp=sharing
+
+image::/picture/dc090_size.png[dc090_size.png]
+
+== BPI-F2P Photo
+
+link:/en/BPI-F2P/Photo_BPI-F2P[Banana Pi BPI-F2P Product photo gallery]
+
+== Hardware Spec
+
+[options="header",cols="1,4"]
+|=====
+2+| **HardWare Specification of Banana Pi F2P**
+| SoC | Sunplus SP7021 “Plus1” with a quad-core Cortex-A7 processor @ 1.0 GHz, one Arm A926 microprocessor, an 8051 core to handle I/Os, and 128MB or 512MB DDR3 DRAM.
+| Storage | 8GB eMMC flash, microSD card slot
+| Video Output | HDMI 1.4 output
+| Camera I/F | MIPI CSI connector
+| Connectivity | 2x 10/100M Ethernet
+| USB | 2x USB 2.0 host ports, 1x micro USB port
+| Expansion | 2 USB header interface
+
+40-pin GPIO header compatible
+
+7.4V Lithium battery power supply interface
+
+RTC battery interface
+
+PoE function support
+| Debugging | 3-pin header for UART console, SWD ICE port
+| Security | TPM 2.0 via ST33TPH2EI2C secure element
+| Misc | Power switch, reset button, boot selection dip switch
+| Power Supply | 12VDC via power barrel jack
+| Dimensions | 130x85mm
+| Temperature Range | -40C ~ +85°C
+|=====
+
+== Wifi & BT support via expansion board
+=== SDIO interface Wifi&BT
+
+- WiFi&BT board, 802.11 a/b/g/n/ac 2T2R WiFi and Bluectooch 5.0, support BPI-M5 and BPI-F2P
+
+- Discuss on forum : http://forum.banana-pi.org/t/bpi-m5-wifi-bt-board-sdio-interface-802-11-a-b-g-n-ac-2t2r-wifi-and-bluectooch-5-0/11846
+
+=== Standard USB interface Wifi&BT
+
+- Banana Pi Wifi&BT 4.2 expansion Board, standard USB interface, so support all open source boards via USB port.IEEE 802.11b/g/n/ac(1T1R) USB WLANAnd BT Module
+
+image::/picture/usb_wifi_bt_board_3.jpg[usb_wifi_bt_board_3.jpg]
+
+- Discuss on forum : http://forum.banana-pi.org/t/banana-pi-wifi-bt-4-2-expansion-board-standard-usb-interface/12162
+
+== BPI-F2P-SUB baord
+
+We also design a expansion board for BPI-F2P , it support 2 SATA interface and 4G module support interface
+
+image::/picture/bpi-f2p-sub_4.jpg[bpi-f2p-sub_4.jpg]
+
+= Development
+== Source Code
+
+=== Linux
+
+TIP: Sunpuls github for Linux kernel 4.19 and 5.4 source code: https://github.com/sunplus-plus1
+
+TIP: BPI F2S/F2P BPS code with kernel 4.19 and 5.4 source code: https://github.com/BPI-SINOVOIP/BPI-F2S-bsp
+
+== Resources
+
+TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
+
+TIP: All banana pi link:https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[docement(SCH file,DXF file,and doc)]
+
+TIP: BPI-F2P schematic diagram : https://drive.google.com/file/d/1_S0dL2J3N-xeq6FKy3aPP-3HNdCwqLWt/view?usp=sharing
+
+TIP: BPI-F2P main board DXF file: https://drive.google.com/file/d/1fMyTq3Bp5AHhGHkwwn5JL_vy55Xxbmc9/view?usp=sharing
+
+TIP: BPI-F2P SUB board DXF file: https://drive.google.com/file/d/1URef-K9OI_5OIFStrkbJvGah-3BykDEW/view?usp=sharing
+
+TIP: Sunpulus wiki page documents(english): https://sunplus-tibbo.atlassian.net/wiki/spaces/doc/overview
+
+TIP: PLUS1 SP7021 Datasheet : https://drive.google.com/file/d/1MWFwgHMteMKVxgzyK5ClU9LOyh-M8xPA/view?usp=sharing
+
+TIP: SP7021 Released Document : https://sunplus-tibbo.atlassian.net/wiki/spaces/doc/overview
+
+TIP: Banana Pi BPI-F2P Sunplus SP7021 industrial control board PoE function test: https://www.youtube.com/watch?v=YQ5rVYHLHQI
+
+TIP: link:https://www.youtube.com/watch?v=eoSP7cO2ki4&feature=youtu.be[Banana Pi BPI-F2S setup & run fedora 31 (u-boot-2019.04 + kernel 4.19.37)]
+
+
+= System Image
+
+== Linux
+
+=== Ubuntu
+
+NOTE: BPI-F2P new image 2021-06-06 update:Ubuntu server 20.04.1 and Ubuntu mate 20.04.1 image，this image support boot from SD card and eMMC flash, this image boot fast than old image
+
+Google link : https://drive.google.com/file/d/1hu5zvw6lbiLUaw5BLRCUFo1HXaDR3ztM/view?usp=drivesdk
+
+Baidu link: https://pan.baidu.com/s/14PXSw4z_UGYWpnxhGbZuFg pincode: s895
+
+NOTE: 2021-06-06-ubuntu-server-20.04.1-armhf-ext4-v5.4.35-bpi-f2p.img.zip 
+
+Google link : https://drive.google.com/file/d/1f_C_BBM5g6lEVhNpWqIDJaxgivs8gt60/view?usp=drivesdk
+
+Baidu link: https://pan.baidu.com/s/1Uz8L12aS40WZyvmoP5wVhA pincode: nb98
+
+NOTE: BPI-F2P new image 2021-01-29 update:Ubuntu server 20.04.1 and Ubuntu mate 20.04.1 image，this image support boot from SD card and eMMC flash
+
+Google link https://drive.google.com/file/d/1eHOMRnR1YWVxIPkBe0vtWvoMJQ9g79J2/view?usp=drivesdk
+
+NOTE: 2021-01-29-ubuntu-server-20.04.1-armhf-ext4-v5.4.35-bpi-f2p.img.zip
+
+Google link : https://drive.google.com/file/d/1zHua_PLDInUG1bnplN-3uKZcTgX3AFno/view?usp=drivesdk
+
+Baidu link: https://pan.baidu.com/s/1JD3Yn9TYRd_nR8A1AJpqdQ Pincode：fv8e
+
+NOTE: BPI-F2P new image: Ubuntu server 20.04.1 and Ubuntu mate 20.04.1 image
+
+**BPI-F2P Ubuntu server 20.04.1 image:** https://drive.google.com/file/d/1nbHUcwl2Zh1ZKJlZ1223zM8YBr-onKEs/view?usp=drivesdk
+
+**BPI-F2P Ubutntu mate 20.04.1 image:** https://drive.google.com/file/d/1HFkckuPsuBploMnntMqPQ3cwqnqY6Y_-/view?usp=drivesdk
+
+Discuss on fourm: http://forum.banana-pi.org/t/bpi-f2p-new-image-ubuntu-server-20-04-1-and-ubuntu-mate-20-04-1-image/11608
+
+Support BPI-F2P-SUB baord . all function test fine
+
+NOTE: BPI-F2P new image: Ubuntu mate 18.04.2 2020-08-16
+
+Google driver: https://drive.google.com/file/d/1zVGCs4i8EUAZa4UL_TU0WHko5IXUlsGu/view?usp=drivesdk
+
+Baidu link : https://pan.baidu.com/s/1vsdH_PDQ_oJdP3WBEG43Pg Pincode：3qgs
+
+Discuss on forum: http://forum.banana-pi.org/t/bpi-f2p-new-image-ubuntu-mate-18-04-2-linux-kernel-5-4-2020-08-16/11442
+
+NOTE: 2019-12-25 update :ubuntu mate 18.04 desktop 2019-12-25 base on kernel 4.19.37
+
+Google link: https://drive.google.com/file/d/1_TJzJPMm89Fb9Fji1PddMPas-EEO-IGw/view
+
+Discuss on forum: http://forum.banana-pi.org/t/bpi-f2s-new-image-ubuntu-mate-18-04-desktop-2019-12-25/10454
+
+=== Debian
+
+NOTE: debian-10-buste-bpi-f2s-sd-emmc 2019-11-26 kernel 4.19
+
+Google download link: https://drive.google.com/file/d/1MpjDeUk4H-EXzaxpuywgbgRaM8YXoXjI/view
+
+Discuss on forum: http://forum.banana-pi.org/t/bpi-f2s-new-image-debian-10-buste-bpi-f2s-sd-emmc-2019-11-26/10270
+
+=== CentOS
+
+NOTE: CentOS userland armv7hl-RaspberryPi KDE 1908 sda 2019-12-25 base on kernel 4.19.37
+
+Google link: https://drive.google.com/file/d/1Is-BS7lvCUrRBkO7wCjn4q51eI7Yof-l/view
+
+Password: root/centos
+
+Discuss on forum: http://forum.banana-pi.org/t/bpi-f2s-new-image-centos-userland-armv7hl-raspberrypi-kde-1908-sda-2019-12-25/10452
+
+=== Kail Linux
+
+NOTE: 2019-12-25 update: Kail Linux 2019.4 nexmon 2019-12-25 base on kernel 4.19.37
+
+Google link: https://drive.google.com/file/d/19G49t288CKKLGokI-jQOs9h7rtsxGBGo/view?usp=drivesdk
+
+Password: root/toor
+
+Discuss on forum: http://forum.banana-pi.org/t/bpi-f2s-new-image-kail-linux-2019-4-nexmon-2019-12-25/10453
+
+=== Yocto Linux
+
+NOTE: This code is support by Tibbo/SunPlus
+
+Github link: https://github.com/tibbotech/yocto_layers
+
+== Third part image
+
+=== Fedora-Mate
+
+NOTE: Banana Pi BPI-F2S setup & run fedora 31 (u-boot-2019.04 + kernel 4.19.37)
+
+Google download : https://drive.google.com/open?id=1ATHmvKvYoBpM3uyQ2xK4pvKahlgCGHnq
+
+Discuss on forum: http://forum.banana-pi.org/t/bpi-f2s-new-image-fedora-mate-armhfp-31-1-9-sda-raw-xz-bpi-f2s-sd-emmc-img-2019-11-15/10206
+
+Boot logfile: https://github.com/BPI-SINOVOIP/BPI-files/blob/master/others/logfile/bpi-f2s/20191114/2019-11-14-Fedora-Mate-armhfp-31-1.9-sda.raw.xz-bpi-f2s-sd-emmc.img.txt
+
+Readme: https://github.com/BPI-SINOVOIP/BPI-files/blob/master/others/logfile/bpi-f2s/20191114/readme.txt
+
+=== Mozilla IoT gateway
+
+NOTE: Mozilla IoT rpi gateway 0.10.0 2019-12-25 base on kernel 4.19.37
+
+Google link: https://drive.google.com/file/d/1wPDeqQpKce-I81fQ638HE_ogl-MDkOOB/view?usp=drivesdk
+
+Mozilla gateway getting started guide: https://iot.mozilla.org/docs/gateway-getting-started-guide.html
+
+Discuss on forum : http://forum.banana-pi.org/t/bpi-f2s-new-image-mozilla-iot-rpi-gateway-0-10-0-2019-12-25/10455
+
+
+= Easy to buy
+
+WARNING: Aliexpress : https://www.aliexpress.com/item/4001268419883.html
+
+WARNING: Taobao: https://item.taobao.com/item.htm?ft=t&id=624363638904
+
+WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
