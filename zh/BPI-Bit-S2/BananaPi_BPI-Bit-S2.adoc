@@ -1,0 +1,239 @@
+= About BPI-Bit-S2
+
+image::/picture/bpi-bit-s2_banner.jpg[bpi-bit-s2_banner.jpg]
+
+BPI-Bit-S2 development board is a successor to BPI-Bit, inheriting most of the hardware functions.
+
+IO is compatible with micro:bit and can use most peripheral accessories of micro:bit.
+
+Support Webduino, Arduino, MicroPython & CircuitPython programming environment suitable for STEAM education.
+
+== Key features
+- ESP32-S2
+- 5x5 RGB LED matrix
+- 1 buzzer
+- 1 thermistor sensor
+- 2 photosensitive sensors
+- 2 programmable keys,1 BOOT key,1 Reset key
+- Type-C USB interface
+- Size 5x5cm
+- The Goldfinger Edge Connector definition is fully compatible with Micro: Bit
+
+== Feature comparison
+[options="header",cols="2,4,4"]
+|====
+3+|micro:bit vs BPI-Bit-S2
+| Product    | micro:bit V2.2X  | BPI-Bit-S2
+| MCU        | Nordic nRF52833  | Espressif ESP32-S2
+| Frequency  | 64MHz            | 240MHz               
+| RAM        | 128KB            | 320 KB                
+| FlASH ROM  | 512KB            | 4096 KB              
+| PSRAM      | None             | 2048 KB              
+| Wireless Communication | Bluetooth，microbit-radio | WIFI, IEEE 802.11 b/g/n, 2.4Ghz
+| LED        | 25 red LEDs      | 25 WS2812-3535 RGB LEDs
+| Key        | 2 programmable keys, 1 RST key | 2 programmable keys, 1 BOOT key, 1 RST key                                                          
+| Buzzer     | Yes              | Yes                  
+| Microphone | Yes              | None                   
+| USB Socket | Micro USB        | Type-C USB            
+| USB interface chip | nRF52833-QDAA or nRF52820-QDAA | MCU chip built-in    
+| Battery socket     | Yes          | None                  
+| IO                 | 19 pins golden finger IO, alligator clip bayonet, support touch sensing | 19 pins golden finger IO (compatible with micro:bit), alligator clip bayonet, support touch sensing 
+| Motion sensor | Yes           | None                 
+| Photosensitive sensor | None  | 2                    
+| Thermistor sensor | 1 on-core | 1 on-board 
+|====
+
+= Hardware interface
+
+image::/picture/bpi_bit_v2_interface_en.jpg[bpi_bit_v2_interface_en.jpg]
+
+[options="header",cols="2,6"]
+|====
+2+|BPI-Bit-S2 specification
+| MCU                   | ESP32-S2FN4R2，Xtensa® 32 bit LX7 Single-Core Processer                             
+| Frequency             | 240MHz MAX
+| operating temperature | -40℃~+85℃ 
+| ROM                   | 128 KB 
+| SRAM                  | 320 KB
+| FLASH ROM             | 4 MB 
+| PSRAM                 | 2 MB 
+| WIFI                  | IEEE 802.11 b/g/n ，2.4Ghz
+| GPIO                  | 19 available GPIO pins have been introduced
+| Peripheral functions  | ADC,TOUCH,PWM,SPI,I2C,I2S,Pulse counter, RMT,TWAI® Controller,SD/MMC,LCD_CAMERA    
+| External crystal      | 40Mhz
+| Buzzer                | 8.5x8.5mm buzzer
+| LED                   | 25 WS2812 rgb LED, single line GPIO control; 1 monochrome LED, controlled by GPIO0 
+| Photosensitive sensor | 2 photosensitive sensor
+| Thermistor sensor     | 1 thermistor sensor
+| IO                    | 19 pins Goldfinger IO,19 pins contacts on the back
+| Key                   | 2 programmable keys,1 BOOT key,1 Reset key
+| USB                   | USB Type-C interface，full speed USB OTG,USB-ACM
+| Operating voltage     | 3.3V  
+| Power                 | USB Type-C input 5V，or Goldfinger IO input 3.3V power supply   
+| Size	                |5 * 5 cm
+|====
+
+== On-board peripherals
+[options="header"cols="3,1,2"]
+|====
+3+| Peripheral GPIO allocation and signal type
+| Photosensitive sensor(L) | GPIO 12 | Analog Input
+| Photosensitive sensor(R) | GPIO 13 | Analog Input
+| Thermistor sensor        | GPIO 14 | Analog Input
+| Key A                    | GPIO 38 | Digital Input       
+| Key B                    | GPIO 33 | Digital Input       
+| Key BOOT                 | GPIO 0  | Digital Input       
+| Buzzer                   | GPIO 17 | PWM(Digital Output) 
+| RGB LEDs                 | GPIO 18 | Digital Output     
+|====
+
+== 5*5 RGB LED
+BPI-Bit-S2 have 25 WS2812 full color RGB LED, single GPIO ontrol.
+
+The three primary color pixels of each LED can achieve 8bit 256 level brightness display,
+
+and achieve 16777216 color full color display,
+
+scanning frequency is not less than 400Hz/s.
+
+[options="header",cols="1,1,1,1,1"]
+|====
+5+|5*5 LED Sequential List
+|20	|15	|10	|5	|0
+|21	|16	|11	|6	|1
+|22	|17	|12	|7	|2
+|23	|18	|13	|8	|3
+|24	|19	|14	|9	|4
+|====
+
+== Goldfinger GPIO define
+BPI-Bit-S2 Gold finger GPIO is defined to be compatible with Micro:Bit. GPIO expansion board accessories can be used with Micro: Bit.
+
+image::/picture/bpi_bit_v2_goldfinger.jpg[bpi_bit_v2_goldfinger.jpg]
+
+[options="header",cols="1,1,1"]
+|====
+3+|SPI,I2C
+|Function	|Pin Name	|GPIO Num
+|SPI_SCK	|P13	|GPIO36
+|SPI_MISO	|P14	|GPIO37
+|SPI_MOSI	|P15	|GPIO35
+|SPI_CS	  |P16	|GPIO34
+|I2C_SCL	|P19	|GPIO16
+|I2C_SDA	|P20	|GPIO15
+|====
+
+== Power
+BPI-Bit-S2 supports two power supply modes
+
+1. Type-C USB：Use USB cable power supply, connect USB interface of computer or other 5V USB charger to power the development board.
+
+2. Gold finger: At the bottom of the development board, the gold finger contains a power interface with both input and output functions. It uses 3.3V power supply, positive terminal is connected to 3V3, and negative terminal is connected to GND.
+
+= Software
+== Webduino
+
+image::/picture/webduino_logo.jpg[webduino_logo.jpg]
+
+link:https://webbit.webduino.io/blockly/?demo=default[webduino online building block programming platform]
+
+link:https://ota.webduino.io/WebBitInstaller/WebBitSetup.exe[webduino building block programming platform, Windows Installer]
+
+link:https://webbit.webduino.io/tutorials/doc/zh-cn/education/index.html[webduino online tutorials]
+
+== MicroPython
+
+image::/picture/mircopython.png[mircopython.png]
+
+MicroPython is a lean and efficient implementation of the Python 3 programming language that includes a small subset of the Python standard library and is optimised to run on microcontrollers and in constrained environments.
+
+Crowdfunded and open sourced in 2013 by Damien P. George.
+
+The most obvious difference between it and the use of C programs to develop microcontrollers is that there is no need for lengthy compilation when verifying code.
+
+Using serial communication software, enter commands through the REPL(read-eval-print-loop) to control the microcontroller, just like Python's REPL.
+
+It is also possible to use some tools to upload a python script file to run inside the microcontroller.
+
+Its implementation of Python3 includes the _thread library that supports multithreading and the asyncio library for writing concurrent code.
+
+MicroPython aims to be as compatible with normal Python as possible to allow you to transfer code with ease from the desktop to a microcontroller or embedded system.
+
+At the same time it also has some libraries specific for microcontrollers in order to take full advantage of the hardware features inside the microcontroller chip, such as timers, hardware interrupts, WiFi, etc., depending on the specific hardware.
+
+While having the above features, it is compact enough to fit and run within just 256k of code space and 16k of RAM.
+
+If you know Python you already know MicroPython.
+
+On the other hand, the more you learn about MicroPython the better you become at Python.
+
+== CircuitPython
+
+image::/picture/circuitpython_repo_header_logo.jpg[circuitpython_repo_header_logo.jpg]
+
+CircuitPython is an open source, educational derivative of MicroPython, support and developed by Adafruit Industries.
+
+Comparing ease of use, it goes a step further on the basis of MicroPython.
+
+When the development board running CircuitPython firmware is connected to the PC, the PC will immediately recognize it as a USB storage disk.
+
+And the python script file can be copied to this disk to allow the program to run on the development board.
+
+Modern operating systems and home PCs support USB storage disks, this allows users to use it out of the box.
+
+Of course, in order to use REPL, a serial communication software needs to be installed, or a text editor that supports this function, such as Mu editor.
+
+The CircuitPython community provides an extremely rich peripheral driver library, APIs documentation, and tutorials.
+
+Even if there is no programming foundation, no hardware foundation, you can quickly get started from scratch.
+
+CircuitPython does not support some microcontroller-specific libraries such as timer and hardware interrupt, nor does it support the multi-threaded _thread library. It only provides the asyncio library for writing concurrent code.
+
+The code is very compatible between microcontrollers supported by CircuitPython and single-board computers (SBCs) supported by Blinka. This is thanks to its efforts to unify APIs.
+
+link:https://circuitpython.org/board/bpi_bit_s2/[BPI-Bit-S2 CircuitPython Download Page]
+
+link:https://codewith.mu/[Mu Editor]
+
+**How to install tinyUF2 firmware:**
+
+To enable your BPI-Bit-S2 device to flash via USB-CDC.
+
+Connect it to the computer via USB, hold BOOT button, press RST button once, then release BOOT button.
+
+In the Install, Repair, or Update UF2 Bootloader section at the bottom of the page, follow its instructions to download and install tinyUF2 firmware.
+
+**How to install CircuitPython firmware：**
+
+Click the DOWNLOAD .UF2 NOW button on the right side of the page to download the firmware to the local, and then copy it to the disk in BPI-Bit-S2 UF2 Bootloader mode, and it can be used after automatic reset.
+
+== Arduino
+
+image::/picture/arduino_logo.png[arduino_logo.png]
+
+Arduino is an open source embedded hardware and software development platform for users to create interactive embedded projects.
+
+The Arduino integrated development environment (IDE) is the software core of this platform, using the C/C++ programming language to develop projects.
+
+The biggest feature of Arduino is to provide a unified API to develop all microcontrollers it supports, with very good code portability and reusability.
+
+In addition, it simplifies the process of building a development environment, and all the development environments of microcontrollers it supports can be installed and configured with a single click.
+
+It also provides simple one-click mechanisms to compile and upload programs to a microcontroller.
+
+Arduino IDE alsoprovides many example codes, supplemented by a large number of comments, which can help users get started quickly.
+
+A large number of excellent open source projects accumulated in the Arduino community are available for reference and learning, and there are quite a few driver libraries and APIs provided by chip manufacturers as well.
+
+- link:https://www.arduino.cc/en/software[Arduino IDE download link] | link:https://docs.espressif.com/projects/arduino-esp32/en/latest/installing.html#installing[Install and configure Arduino-ESP32 running environment]
+- link:https://docs.espressif.com/projects/arduino-esp32/en/latest/libraries.html#apis[Arduino-ESP32 APIs]
+
+= Documents
+link:https://github.com/BPI-STEAM/BPI-BIT-Lite-Doc/blob/main/sch/BPI-BIT-Lite-V0.2.pdf[BPI-Bit-S2 schematic]
+
+= Easy to buy sample
+WARNING: Aliexpress shop : https://www.aliexpress.us/item/3256804809903732.html
+
+WARNING: Taobao ship: https://item.taobao.com/item.htm?spm=a213gs.success.result.1.d1187a86CepiGC&id=693462857865
+
+WARNING: OEM & ODM : judyhuang@banana-pi.com
