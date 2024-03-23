@@ -1,0 +1,348 @@
+= BPI-M5 Introduction
+
+Banana Pi BPI-M5 is the next generation single board computer from Banana Pi in 2020. It is powered by Amlogic S905X3 quad-core Cortex-A55 (2.0 XXGHz) processor.Onboard 4GB LPDDR4 memory and 16GB EMMC storage, and supports 4 USB 3.0 interface, a gigabit network port.
+
+image::/picture/banana_pi_bpi-m5.jpg[banana_pi_bpi-m5.jpg]
+
+TIP: Amlogic S905x3 design : link:/en/BPI-M5/BananaPi_BPI-M5[Banana Pi BPI-M5] SBC same size as Raspberry Pi 4B +
+Amlogic S905x3 design: link:/en/BPI-M2_Pro/BananaPi_BPI-M2_Pro[Banana Pi BPI-M2_Pro] IoT board same size as BPI-M2+
+
+== Key Features
+
+- Amlogic S905X3 64-bit Quad core Cortex-A55 (2.0xxGHz)
+- Mali-G31 GPU
+- 4GB LPDDR4
+- 16GB eMMC flash
+- 4 USB 3.0
+- 1 GbE ethernet
+- HDMI output
+
+
+== Getting Start
+
+TIP: link:/en/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro[Getting Started BPI-M5/M2_Pro]
+
+= Hardware
+== Hardware Interface
+
+image::/picture/banana_pi_bpi-m5_interface1.jpg[banana_pi_bpi-m5_interface1.jpg]
+
+== BPI-M5 Photo
+
+link:/en/BPI-M5/Photo_BPI-M5[Banana Pi BPI-M5 Product photo gallery]
+
+== Hardware Spec
+
+[options="header",cols="1,3"]
+|=====
+2+| **HardWare Specification of Banana Pi M5**
+| CPU             | Amlogic S905X3 64-bit Quad-Core Cortex-A55 (2.0xxGHz)
+| GPU             | Mali-G31 MP2 GPU with 4 x Execution Engines (650Mhz)
+| Memory          | 4 GB LPDDR4 
+| Storage         | MicroSD slot with support for up to 256GB expansion and 16G eMMC flash with support for up to 64GB 
+| Network         | 10/100/1000 Mbit/s Ethernet ,Optional WiFi USB dongle
+| Video Output(s) | 1 x HDMI 2.1 (up to 4K@60Hz with HDR, CEC, EDID) 
+| Audio Output(s) | 3.5mm jack and 1 x HDMI digital output
+| USB ports       | USB 3.0 PORT (x4)
+| GPIO            | 40 Pin Header : GPIO (x28) and Power (+5V, +3.3V and GND). GPIO pins can be used for UART, I2C, SPI or PWM
+| Switches        | Reset, Power and U-boot
+| LED             | Power Status and Activity status
+| Power Source    | 5 volt @3A via Micro USB (TYPE C)
+| Size & Weight   | 85x56 mm, 48g
+| OS              | Android and Linux
+|=====
+
+== GPIO Pin Define
+
+=== BPI-M5 40PIN GPIO
+
+[options="header",cols="1,1,1"]
+|=====
+3+| **40 PIN GPIO of Banana pi BPI-M5**
+| GPIO Pin Name | Default Function	| Function2：GPIO
+| CON1-P01 | VCC-3V3    |            
+| CON1-P02 | VCC5V      |            
+| CON1-P03 | GPIOX_17   | I2C_M2_SDA 
+| CON1-P04 | VCC5V      |            
+| CON1-P05 | GPIOX_18   | I2C_M2_SCL 
+| CON1-P06 | GND        |            
+| CON1-P07 | GPIOX_5    | SDIO_CMD           
+| CON1-P08 | GPIOX_12   | UART_A_TX  
+| CON1-P09 | GND        |            
+| CON1-P10 | GPIOX_13   | UART_A_RX  
+| CON1-P11 | GPIOX_3    | SDIO_D3           
+| CON1-P12 | GPIOAO_8   | TDMB_SCLK  
+| CON1-P13 | GPIOX_4    | SDIO_CLK           
+| CON1-P14 | GND        |            
+| CON1-P15 | GPIOX_7    | PWM_F           
+| CON1-P16 | GPIOX_0    | SDIO_D0           
+| CON1-P17 | VCC-3V3    |            
+| CON1-P18 | GPIOX_1    | SDIO_D1           
+| CON1-P19 | GPIOX_8    | PCM_DIN           
+| CON1-P20 | GND        |            
+| CON1-P21 | GPIOX_9    | PCM_DOUT           
+| CON1-P22 | GPIOX_2    | SDIO_D2
+| CON1-P23 | GPIOX_11   | PCM_CLK    
+| CON1-P24 | GPIOX_10   | PCM_SYNC   
+| CON1-P25 | GND        |            
+| CON1-P26 | GPIOX_16   | PWM_E      
+| CON1-P27 | GPIOA_14   | I2C_M3_SDA 
+| CON1-P28 | GPIOA_15   | I2C_M3_SCL 
+| CON1-P29 | GPIOX_14   | UART_A_CTS 
+| CON1-P30 | GND        |            
+| CON1-P31 | GPIOX_15   | UART_A_RTS 
+| CON1-P32 | GPIOX_19   | PWM_B      
+| CON1-P33 | GPIOX_6    | PWM_A           
+| CON1-P34 | GND        |            
+| CON1-P35 | GPIOAO_7   | TDMB_FS    
+| CON1-P36 | GPIOH_5    | SPDIF_IN           
+| CON1-P37 | GPIOAO_9   | I2S_MCLK   
+| CON1-P38 | GPIOAO_10  | TDMB_DIN   
+| CON1-P39 | GND        |            
+| CON1-P40 | GPIOAO_4   | TDMB_DOUT  
+|=====
+
+=== BPI-M5 Debug UART
+
+|=====
+| CON2-P1	| GND
+| CON2-P2	| UART0-RX
+| CON2-P3	| UART0-TX
+|=====
+
+== Wifi & BT support via expansion board
+=== SDIO interface Wifi&BT
+- WiFi&BT board, 802.11 a/b/g/n/ac 2T2R WiFi and Bluetooth 5.0 , support BPI-M5 and BPI-F2P
+
+image::/picture/wifibt_module1_.jpeg[wifibt_module1_.jpeg]
+
+- How to use: https://docs.banana-pi.org/en/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro#_wifibt_support
+- Discuss on forum: http://forum.banana-pi.org/t/bpi-m5-wifi-bt-board-sdio-interface-802-11-a-b-g-n-ac-2t2r-wifi-and-bluectooch-5-0/11846
+- RT8822CS Bluetooth and WiFi adapter for Banana Pi BPI-M5: https://www.magazinmehatronika.com/en/rt8822cs-bluetooth-and-wifi-adapter-for-banana-pi-m5/?fbclid=IwAR0Oqm4TCa2SAXBTMJgRmWMJI-VQREqFxLh1-LnT_XzA5MAvYh_BL9-L7Xk
+- Easy to buy sample: https://www.aliexpress.com/item/1005002550783568.html?spm=5261.ProductManageOnline.0.0.34ed4edfgdV59j
+
+=== standard USB interface Wifi&BT
+- Banana Pi Wifi&BT 4.2 expansion Board, standard USB interface, so support all open source boards via USB port.IEEE 802.11b/g/n/ac(1T1R) USB WLANAnd BT Module
+
+image::/picture/usb_wifi_bt_board_3.jpg[usb_wifi_bt_board_3.jpg]
+
+- How to use: https://docs.banana-pi.org/en/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro#_wifibt_support
+- Discuss on forum: http://forum.banana-pi.org/t/banana-pi-wifi-bt-4-2-expansion-board-standard-usb-interface/12162
+
+= Development
+== Source Code
+
+=== BPI-M5 runs wiringpi gpio
+
+TIP: https://github.com/BPI-SINOVOIP/amlogic-wiringPi
+
+=== Android
+
+TIP: Android 9 source code
+
+https://github.com/BPI-SINOVOIP/BPI-S905X3-Android9
+
+TIP: BPI-M5/M2 PRO Android9 source code
+
+Baidu Cloud: https://pan.baidu.com/s/1TmmR_075b49lPSt1Phq0ag?pwd=8888 PIN code: 8888
+
+Google Drive: https://drive.google.com/drive/folders/1RuvazYcr46HKMvNBxSqQftdyWa0tK9f7?usp=share_link
+
+=== Linux 
+
+TIP: Linux BSP source code: https://github.com/BPI-SINOVOIP/BPI-M5-bsp
+
+== Resources
+
+- Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the 
+link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files ]
+- All banana pi 
+link:https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA[docement(SCH file,DXF file,and doc)]
+- link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/files/?p=%2FDocuments%2FBPI-M5%2FBPI-M5-SCH-V10-Release.pdf[BPI-M5 schematic diagram]
+- link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/files/?p=%2FDocuments%2FBPI-M5%2FBPI-M5-PCB-V10-DXF.rar[BPI-M5 PCB DXF file]
+- link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/files/?p=%2FDocuments%2FBPI-M5%2FS905X3_Public_Datasheet_Hardkernel.pdf[Amlogic S905x3 datasheet]
+- link:https://docs.banana-pi.org/en/Product_certification[Banana Pi BPI-M5 CE,FCC,RoHS Certification]
+- Install OpenGapps on Bananapi BPI-M5 Android 9.0: https://www.youtube.com/watch?v=fXOKmWfpqF8
+- BANANA Pi BPI-M5 REVIEW & BENCHMARKS: https://bret.dk/banana-pi-m5-review/
+- BANANA Pi M5 VS RASPBERRY Pi 4 BENCHMARKS : https://bret.dk/banana-pi-m5-vs-raspberry-pi-4/
+- BPI-M5 How to install Ubuntu server on external USB-disk: https://forum.banana-pi.org/t/bpi-m5-howto-install-ubuntu-server-on-external-usb-disk/15259
+- Install Armbian, OctoPrint and Klipper on the emmc of a Banana pi M5 - Linux and windows : https://www.youtube.com/watch?v=q5I6pzWCTrg
+- CoreELEC for Banana Pi BPI-M2 Pro and BPI-M5: https://wiki.coreelec.org/coreelec:bpi
+- U-Boot for BananaPi BPI-M2-PRO (S905X3): https://u-boot.readthedocs.io/en/latest/board/amlogic/bananapi-m2pro.html
+- How to flash Armbian to the eMMc of the Banana-Pi BPi-M5: https://uglyscale.press/2023/08/31/how-to-flash-armbian-to-emmc-of-banana-pi-bpi-m5/
+
+
+= System Image
+== Android
+
+NOTE: 2023-03-01 release, tablet variant image
+
+Baidu Cloud: https://pan.baidu.com/s/1cjzNgiE0-XJhvZgY0tQuHg?pwd=8888 PIN code: 8888
+
+Google Drive: https://drive.google.com/drive/folders/144OU7NMTxLUqxNN2tXESgAoE3VXYgA_F?usp=share_link
+
+NOTE: 2023-03-01 release, box variant image
+
+Baidu Cloud: https://pan.baidu.com/s/1SAfGM0WxOHW0vYCkjQUfbQ?pwd=8888 PIN code: 8888
+
+Google Drive: https://drive.google.com/drive/folders/1Ipg8vZvKN_0xX0Fu24BW5UcDAHGhP7oH?usp=share_link
+
+== Linux
+
+=== Ubuntu
+
+NOTE: 2023-08-30-ubuntu-20.04-server-bpi-m5-m2pro-aarch64-sd-emmc.img
+
+Baidu Cloud: https://pan.baidu.com/s/16nAyyW0IfTJqoYat2Qfcag?pwd=8888 PIN code: 8888
+
+Google Drive: https://drive.google.com/drive/folders/1y3i9uUgzmp03r9zzeuJkNszPZNl7D0OR?usp=sharing
+
+NOTE: 2023-08-30-ubuntu-20.04-mate-desktop-bpi-m5-m2pro-aarch64-sd-emmc.img
+
+Baidu Cloud: https://pan.baidu.com/s/1UgfUDdNE-SQHka64mrNAYw?pwd=8888 PIN code: 8888
+
+Google Drive: https://drive.google.com/drive/folders/1RMX8F1PMLO-UcPPJL4QwYvdPVhk-a_c_?usp=sharing
+
+=== Debian
+
+NOTE: 2023-08-30-debian-10-buster-xfce-bpi-m5-m2pro-aarch64-sd-emmc.img
+
+Baidu Cloud: https://pan.baidu.com/s/15XHAZKDFqJLA3BH1b9Slqw?pwd=8888 PIN code: 8888
+
+Google Drive: https://drive.google.com/drive/folders/1EDXxJs23xV5Je91ZhfPYDvBubhhmJN1n?usp=sharing
+
+NOTE: 2023-08-30-debian-10-buster-bpi-m5-m2pro-aarch64-sd-emmc.img
+
+Baidu Cloud: https://pan.baidu.com/s/1tFUbyPbrTJ5UGgM05w2k6A?pwd=8888 PIN code: 8888
+
+Google Drive: https://drive.google.com/drive/folders/1Y-GuZYovWRgBvt0z7FLnIuBJufVFflvv?usp=sharing
+
+== Third part image
+
+=== Raspbian
+
+NOTE: BPI-M5 BPI-M2 Pro new image: Raspbian image, 2023-05-03 update,please choose the right image
+
+Google driver: https://drive.google.com/drive/folders/1Rvr1l3LhnVcss0FD0_bAm3Jbi84vZBkT
+
+Baidu Cloud: https://pan.baidu.com/s/1T2DT3ruTRvRdFgIUrR1obg?pwd=8888 PIN code：8888
+
+NOTE: BPI-M5 BPI-M2 Pro new image: Raspbian image, 2022-4-09 update, Raspbian image for linux kernel 4.9 and 5.17. support 32bit and 64 bit,please choose the right image
+
+Google driver: https://drive.google.com/drive/folders/1VoiHH0IMU5iZRRdGg1-SpSu8pmwnjkmX
+
+Baidu Cloud: https://pan.baidu.com/s/1Y1S05nGQDOP8Pxu9eE6k_Q?pwd=8888
+
+Discuss on forum: https://forum.banana-pi.org/t/bpi-m5-bpi-m2-pro-new-image-rasbian-image-2022-4-09-update/13246
+
+=== Armbian
+
+NOTE: Image From Armbian Official website
+
+https://www.armbian.com/bananapi-m5/
+
+NOTE: Image From Bananapi Released on 2023-03-13, build from Armbian main branch source code, fix some bugs and support i2c, uart, spi and rtl8822cs overlays, you can enable the overlay in /boot/armbianEnv.txt
+
+Baidu Cloud: https://pan.baidu.com/s/1Wgg_0Z7Db6DSKqoIjf16PQ?pwd=8888 PIN code: 8888
+
+Google Drive: https://drive.google.com/drive/folders/1Yds8Rru_26S0wN2B-pIM6XkyxUXiceNl?usp=share_link
+
+=== EmuELEC
+
+NOTE: This is a porting of EmuELEC v4.5 for BPI-M5. I ported from odroid c4 official EmuELEC image. PS3 a XBOX ONE S gamepad controllers were tested and work fine.
+
+https://forum.banana-pi.org/t/emuelec-for-bpi-m5/12095
+
+=== CoreELEC
+
+NOTE: link:https://coreelec.org/[CoreELEC] official support Bananapi M5 and M2Pro since 19.2-Matrix_rc1
+
+Download: https://coreelec.org/#download
+
+Install Guide: https://coreelec.org/#install
+
+Source Code: https://github.com/CoreELEC/CoreELEC
+
+How to install: https://wiki.coreelec.org/coreelec:bpim2pro
+
+=== Volumio
+
+NOTE: Download
+
+Google drive: https://drive.google.com/drive/folders/1B7nsy4Jxt2lBgXoA6XEnaamEQvZyHI8f
+
+Baidu cloud: https://pan.baidu.com/s/1mj9OC8P2VSI5GAMnIKGBqA PIN code: mrrb
+
+User Guide: https://cdn.volumio.org/wp-content/uploads/2019/01/Quick-Start-Guide-Volumio.pdf
+
+Source code: https://github.com/Dangku/volumio-build
+
+Platform prebuild package: https://github.com/Dangku/volumio-platform-bananapi
+
+Development guilde: https://volumio.github.io/docs/User_Manual/Quick_Start_Guide.html
+
+=== Odroid Android image
+
+NOTE: Base on Odroid android source code and build for bananapi m5/m2pro
+
+Google Drive: https://drive.google.com/drive/folders/1u_CddlHvpAMu2VZJfIfUKTsFFyigCWig
+
+Install Guide: https://forum.odroid.com/viewtopic.php?f=204&t=38579
+
+Odroid ubuntu IMG for BPI-M5：
+https://forum.banana-pi.org/t/odroid-ubuntu-img-for-bpi-m5/12169
+
+=== Ubuntu Core 20
+
+NOTE: Ubuntu Core 20 demo image for bananapi m5/m2pro.
+
+Google drive: https://drive.google.com/drive/folders/1TdAQ-HdggKrOPmWi0chpHDJY0SMWlUaC
+
+Install Guide: https://ubuntu.com/core/docs/uc20/install
+
+=== Archlinux
+
+NOTE: Archlinux xfce and minimal demo image, kernel 4.9, image build refer to link:https://archdroid.org/[Archdroid]
+
+NOTE: Login: alarm/alarm, or root/root
+
+Google drive: https://drive.google.com/drive/folders/1rSSNgbseY2mwTMIauGR1yrXN8RPKzuk6
+
+Baidu link: https://pan.baidu.com/s/1Ck_H51jPUyAv98o73I8oAw PIN code: rbv2
+
+Discuss on forum: https://forum.banana-pi.org/t/bpi-m5-bpi-m2-pro-new-image-archlinux-2021-9-14/12595
+
+=== HuaWei OpenEuler
+
+NOTE: OpenEuler demo image, bpi kernel 4.9
+
+Baidu link: https://pan.baidu.com/s/12b7q3y-m3YRyD7GwhKE0QA PIN code: lv50
+
+SIG gitee link: https://gitee.com/openeuler/raspberrypi
+
+Discuss on fourm: http://forum.banana-pi.org/
+
+=== Manjaro for BPI-M5
+
+NOTE: Manjaro porting for BPI-M5 from Official Image for Odroid C4, the ported image use kernel 5.10. If anyone is interested on give it a try, the download link is below.
+
+Download Link: https://mega.nz/folder/BuZWkLhC#phC9KSsassB4bmkAegYykA
+
+Discuss on forum: https://forum.banana-pi.org/t/manjaro-for-bpi-m5/12726
+
+= FAQ
+
+link:/en/BPI-M5/How_to_install_Ubuntu_Server_20_04_to_M5_EMMC[How to install Ubuntu Server 20.04 to M5 EMMC]
+
+
+= Easy to buy
+
+WARNING: SINOVOIP Aliexpress shop: https://www.aliexpress.us/item/3256801685527943.html
+
+WARNING: Bipai Aliexpress shop: https://www.aliexpress.us/item/3256803496172400.html
+
+WARNING: Taobao Shop: https://item.taobao.com/item.htm?spm=a1z10.1-c-s.w4004-25059194388.8.13c23a90voeqk3&id=636199832159
+
+WARNING: Easy to buy RTL8822 wifi module sample : https://www.aliexpress.com/item/1005002550783568.html?spm=5261.ProductManageOnline.0.0.34ed4edfgdV59j
+
+WARNING: Mass order,please contact : judyhuang@banana-pi.com
