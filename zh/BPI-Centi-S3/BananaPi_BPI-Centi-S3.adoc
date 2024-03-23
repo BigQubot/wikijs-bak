@@ -1,0 +1,204 @@
+= BPI-Centi-S3 Introduction
+
+BPI-Centi-S3 is a small-sized ESP32-S3 development board with an
+1.9-inch LCD onboard, suitable for the development of Internet of Things
+application projects including color display, interactive control,
+wireless communication, and sensor data acquisition.
+
+Using the Espressif ESP32-S3 chip, it supports 2.4 GHz Wi-Fi and
+Bluetooth® Low Energy (Bluetooth® LE) dual-mode wireless communication.
+
+Within the compact board, it also provides an additional rotary encoder,
+a buzzer, a WS2812 color LED, and all other available pins for external
+peripherals connection to meet diverse needs.
+
+Support both USB and external 3.7V lithium battery power input. With the
+board’s designed battery voltage detection circuit, it can automatically
+detect and switch to USB power supply when both are connected. And also
+supports USB charging mode, convenient for power management.
+
+image::/picture/bpi-centi-s3.jpg[bpi-centi-s3.jpg]
+
+TIP: ESP32-S3 design link:/en/BPI-Centi-S3/BananaPi_BPI-Centi-S3[Banana Pi BPI-Centi-S3] IoT and  Maker DIY design +
+ESP32-S3 design link:/en/BPI-Leaf-S3/BananaPi_BPI-Leaf-S3[Banana Pi BPI-Leaf-S3] IoT and  Maker DIY design +
+ESP32-S3 design link:/en/BPI-PicoW-S3/BananaPi_BPI-PicoW-S3[Banana Pi BPI-Pico-S3] IoT and  Maker DIY design +
+Raspberry Pi RP2040 design link:/en/BPI-Pico-2040/BananaPi_BPI-Pico-2040[Banana Pi BPI-Pico-RP2040] IoT and  Maker DIY design 
+
+== Key Features
+
+* ESP32-S3, Xtensa® 32 bit LX7 Processor
+* 2M PSRAM, 8M FLASH
+* 2.4G WIFI, Bluetooth 5, Bluetooth mesh
+* GPIO, PWM, I2C, SPI, RMT, I2S, UART, USB, JTAG
+* 1 * ST7789 TFT LCD, 1.9-inch, 170*320 resolution, 8bit 8080 parallel
+port
+* 1 * Rotary Encoder
+* 1 * Buzzer
+* 1 * full color LED
+* 1 * SH 1mm 4-Pin I2C connector
+* 2 * SH 1mm 6-Pin
+* 1 * USB Type-C connector
+* 1 * MX 1.25mm 2-Pin battery connector, supports charging
+* 2 * M3 Screw Mounting Holes
+
+== Getting Start
+
+TIP: link:/en/BPI-Centi-S3/GettingStarted_BPI-Centi-S3[**Getting Start BPI-Centi-S3**]
+
+= Hardware
+
+== Hardware Interface Schematic Diagram
+
+image::/picture/bpi_centi_s3_drawio_1080.png[bpi_centi_s3_drawio_1080.png]
+
+== BPI-Centi-S3 Photo
+
+link:/en/BPI-Centi-S3/Photo_BPI-Centi-S3[Banana Pi BPI-Centi-S3 Product photo gallery]
+
+== Hardware Specifications
+
+[options="header",cols="1,3"]
+|===
+2+| **HardWare Specification of BPI-Centi-S3**
+|SoC |ESP32-S3, Xtensa® 32-bit LX7 dual-core processor
+
+|Clock Frequency |240MHz MAX
+
+|Internal ROM |384 KB
+
+|Internal SRAM |320 KB
+
+|Onboard FLASH ROM |8MB
+
+|On-chip PSRAM |2MB
+
+|WIFI |IEEE 802.11 b/g/n, 2.4Ghz frequency band, 150Mbps
+
+|bluetooth |Bluetooth 5, Bluetooth mesh
+
+|External crystal oscillator |40Mhz
+
+|RTC and Low­Power Management |Power Management Unit (PMU) +
+Ultra-­Low-­Power Coprocessor(ULP)
+
+|GPIO |9 available GPIOs have been exported to the SH socket
+
+|Support Peripherals |I2C, SPI, PWM, UART, RMT, I2S, SD
+
+|SH 1mm socket |1 * 4Pin, 2 * 6Pin
+
+|USB |1 * Full Speed USB 2.0 OTG, Type-C Female
+
+|USB Serial/JTAG Controller |1, USB full speed standard, CDC-ACM, JTAG
+
+|TFT LCD size |1.9 inches
+
+|TFT LCD resolution |170 * 320 RGB
+
+|TFT LCD control chip |ST7789V3
+
+|TFT LCD interface |8bit 8080 parallel port
+
+|Encoder |1 * Incremental Rotary Encoder, support pressing function
+
+|Buzzer |1
+
+|Color LED |1 * WS2812 2020 LED
+
+|Button |RST Button, BOOT Button
+
+|Screw Holes |2 * M3 Screw Holes
+
+|Machine working temperature |-20℃ ~ +60℃
+
+|Working voltage |3.3V
+
+|USB input voltage |3.3V~5.5V
+
+|Maximum discharge current |2A@3.3V DC/DC
+
+|Battery connector |MX 1.25mm 2-Pin
+
+|USB charging |Support
+
+|Maximum charging current |500mA
+|===
+
+== Hardware Dimensions
+
+image::/picture/bpi-centi-s3-v0.2_dimensions.jpg[bpi-centi-s3-v0.2_dimensions.jpg]
+
+
+
+== Pin Define
+
+[options="header"]
+|===
+2+| **Pin Define of BPI-Centi-S3 LCD**
+|ESP_LCD_BLK |GPIO2
+|ESP_LCD_RES |GPIO3
+|ESP_LCD_CS |GPIO4
+|ESP_LCD_D/C |GPIO5
+|ESP_LCD_WR |GPIO6
+|ESP_LCD_RD |GPIO7
+|ESP_LCD_D0 |GPIO8
+|ESP_LCD_D1 |GPIO9
+|ESP_LCD_D2 |GPIO10
+|ESP_LCD_D3 |GPIO11
+|ESP_LCD_D4 |GPIO12
+|ESP_LCD_D5 |GPIO13
+|ESP_LCD_D6 |GPIO14
+|ESP_LCD_D7 |GPIO15
+|ESP_TP_RESET |GPIO16
+|II2C_SCL |GPIO17
+|II2C_SDA |GPIO18
+|ESP_TP_INT |GPIO21
+|===
+
+[options="header"]
+|===
+2+| **Pin Define of BPI-Centi-S3 Peripheral**
+|RST button |RST(CHIP_PU)
+|BOOT button |GPIO0
+|BAT_ADC battery voltage detection |GPIO1
+|Buzzer |GPIO36
+|EC_KEY Rotary Encoder |GPIO35
+|EC_A Rotary Encoder |GPIO37
+|EC_B Rotary Encoder |GPIO47
+|WS2812B-2020 |GPIO48
+|===
+
+= Development
+
+== Source Code
+TIP: link:https://github.com/espressif/esp-idf/tree/v4.4.3[esp-idf 4.4.3 ]
+
+TIP: link:https://github.com/micropython/micropython/tree/v1.20.0[micropython 1.20.0]
+
+TIP: link:https://github.com/russhughes/st7789s3_esp_lcd[russhughes/st7789s3_esp_lcd]
+
+== Example code
+
+TIP: link:https://github.com/BPI-STEAM/BPI-Centi-S3-Doc/tree/main/micropython_example[GitHub: BPI-Centi-S3 MicroPython example]
+
+== Resources
+
+TIP: link:https://github.com/BPI-STEAM/BPI-Centi-S3-Doc/blob/main/sch/BPI-Centi-S3-V0.2-SCH-20230317.pdf[GitHub: BPI-Centi-S3 Schematic PDF]
+
+TIP:  https://www.espressif.com/sites/default/files/documentation/esp32-s3_datasheet_en.pdf[ESP32-S3 Datasheet]
+
+TIP:  https://www.espressif.com/sites/default/files/documentation/esp32-s3_technical_reference_manual_en.pdf[ESP32-S3 Technical Reference Manual]
+
+= Firmware
+
+NOTE: link:https://github.com/BPI-STEAM/BPI-Centi-S3-Doc/tree/main/micropython_st7789s3_firmware[GitHub: BPI-Centi-S3 micropython+st7789s3 firmware]
+
+= FAQ
+
+= Easy to buy
+
+WARNING: BPI Aliexpress shop: https://www.aliexpress.us/item/3256805325011805.html
+
+WARNING: SinoVoip Aliexpress shop : https://www.aliexpress.us/item/3256805324649378.html
+
+WARNING: Taobao shop : https://item.taobao.com/item.htm?spm=a213gs.success.result.1.5c287a86iZZWCW&id=714936265358
