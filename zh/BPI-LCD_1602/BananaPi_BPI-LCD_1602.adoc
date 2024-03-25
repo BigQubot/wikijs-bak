@@ -1,0 +1,188 @@
+= Produce Overview
+
+The RGB1602 Display module is specifically designed for Banana Pi. The module with 1602 LCD screen and it communicated with Banana Pi with I2C. In addition there are six programmable key and RGB LED on the module. User can use Python or C(wiringPi) to drive the module with simple and less code.
+
+== Produce Features
+. 1602 LCD screen
+. RGB LED on board
+. 6 programmable single key
+. Communicate with I2C
+. Can be controlled by the program backlit lights out
+
+== Port
+. Banana Pi connection port, also can use on raspberry pi.
+
+== Product Parameters
+. Working voltage: 5.0V
+. ASC II string can be sidplay
+. 4 wire to drive the 1602 LCD screen
+. Use MCP23017 to expand IO
+
+== Typical Application
+. Information monitoring
+. School educational
+. Human-computer interaction
+
+== Product Specification
+
+image::/picture/1602_lcd.png[1602_lcd.png]
+
+== Schematic diagram
+
+image::/picture/lcd_sch.jpg[lcd_sch.jpg]
+
+= How to use
+Just insert the module to Banana Pi, like the below picture:
+
+image::/picture/lcd_1.jpg[lcd_1.jpg]
+
+More information
+
+The MCP23017/MCP23S17 (MCP23X17) device family provides 16-bit, general purpose parallel I/O expansion for I2C bus or SPI applications. The two devices differ only in the serial interface.
+
+MCP23017 – I2C interface
+MCP23S17 – SPI interface
+The MCP23X17 consists of multiple 8-bit configuration registers for input, output and polarity selection. The system master can enable the I/Os as either inputs or outputs by writing the I/O configuration bits (IODIRA/B). The data for each input or output is kept in the corresponding input or output register. The polarity of the Input Port register can be inverted with the Polarity Inversion register. All registers can be read by the system master. The 16-bit I/O port functionally consists of two 8-bit ports (PORTA and PORTB). The MCP23X17 can be configured to operate in the 8-bit or 16-bit modes via IOCON.BANK.
+
+There are two interrupt pins, INTA and INTB, that can be associated with their respective ports, or can be logically OR’ed together so that both pins will activate if either port causes an interrupt. The interrupt output can be configured to activate under two conditions (mutually exclusive):
+
+1. When any input state differs from its corresponding Input Port register state. This is used to indicate to the system master that an input state has changed.
+2. When an input state differs from a preconfigured register value (DEFVAL register).
+The Interrupt Capture register captures port values at the time of the interrupt, thereby saving the condition that caused the interrupt. The Power-on Reset (POR) sets the registers to their default values and initializes the device state machine.The hardware address pins are used to determine the device address.
+
+
+== How to use this module on BPI-M3
+OS: BPI-M3 Ubuntu15.10 (Kernel3.4)
+
+Version: 1.0 HDMI
+
+image::/picture/on_m3.jpg[on_m3.jpg]
+
+Step 1: Download WiringPI
+```sh
+$ git clone https://github.com/BPI-SINOVOIP/BPI-WiringPi.git1 -b BPI_M3
+$ cd BPI-WiringPi 
+$ chmod +x ./build
+$ sudo ./build
+```
+Step 2 : Copy smaple code to 1602.c file
+```sh
+$ sudo vi 1602.c
+```
+Step 3 : Compile 1602.c
+```sh
+$ gcc -o 1602 1602.c -l wiringPi -lpthread -lwiringPiDev 
+```
+Step 4: Run 1602
+```sh
+$ sudo ./1602 
+```
+YouTube video demo : https://www.youtube.com/watch?v=-fPiRsNWurM
+
+More information please check ： http://www.microchip.com/wwwproducts/Devices.aspx?product=MCP23017
+
+= Test code
+```sh
+#include <stdio.h>
+#include <wiringPi.h>
+#include <pthread.h>
+#include <mcp23017.h>
+#include <lcd.h>
+#include <time.h> 
+int page=3;  
+int select=1;  
+int display;  
+int color=0;  
+pthread_t id;  
+void show()  
+{  
+   time_t timep;  
+   struct tm *ptm;  
+   digitalWrite ( 113, LOW);  
+   digitalWrite ( 114, LOW);  
+   digitalWrite ( 115, LOW);  
+   lcdPosition(display,0,0);  
+   switch(page)  
+   {  
+       case 0:  
+           if (select==1)  
+           {  
+               lcdPrintf(display,">>1.System Time ");  
+               lcdPrintf(display,"  2.LED RGB ");  
+           }  
+           else  
+           {  
+               lcdPrintf(display,"  1.System Time ");  
+               lcdPrintf(display,">>2.LED RGB ");  
+           }  
+           break;  
+       case 1:  
+           time(&timep);  
+           ptm=localtime(&timep);  
+           lcdPrintf(display,"   %04d/%02d/%02d   ",1900+ptm->tm_year, 1+ptm->tm_mon, ptm->tm_mday);  
+           lcdPrintf(display,"    %02d:%02d:%02d    ",ptm->tm_hour, ptm->tm_min, ptm->tm_sec);  
+           break;  
+       case 2:  
+           lcdPrintf(display," **LED RGB**");  
+           lcdPrintf(display,"     Color: %d   ",color);  
+           digitalWrite ( 113, color&0x01);  
+           digitalWrite ( 114, color&0x02);  
+           digitalWrite ( 115, color&0x04);  
+           color=(color+1)%8;  
+           delay(400);  
+           break;  
+       case 3:  
+             lcdPrintf(display,"RGB&1602 Module ");    
+             lcdPrintf(display,"for BPI-M3 ");  
+           break;  
+   }  
+   delay(100);  
+}  
+void key(void)  
+{  
+   int i;  
+   while(1)  
+   {  
+       for(i=108;i<113;i++)  
+       {  
+           if (digitalRead(i)>0)  
+           {  
+               switch(i)  
+               {  
+                   case 108:  
+                       page=0;  
+                       break;  
+                   case 109:  
+                       select=select%2+1;  
+                       break;  
+                   case 110:  
+                       page=3;  
+                       break;  
+                   case 111:  
+                       page=select;  
+                       break;  
+                   case 112:  
+                       select=select%2+1;  
+                       break;  
+               }  
+               delay(400);  
+           }  
+       }  
+       delay(100);  
+   }  
+}  
+int main()  
+{  
+   wiringPiSetup();  
+   mcp23017Setup (100, 0x20);  
+   pthread_create(&id,NULL,(void *)key,NULL);  
+   digitalWrite(107,1);  
+   digitalWrite(101,0);  
+   display=lcdInit(2,16,4,100,102,103,104,105,106,0,0,0,0);  
+   lcdHome(display);
+     for(int i=0;i<16;i++)                                                      
+         pinMode(100+i,OUTPUT);  
+   while(1)   
+       show();  
+}
+```
