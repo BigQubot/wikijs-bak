@@ -47,7 +47,12 @@ The device is not powered on. Press and hold the **DOWNLOAAO (FEL)** button, plu
 The device is powered on. Press and hold the **DOWNLOAD (FEL)** button, then press the Reset button, and then plug in the USB cable.
 
 +
+image::/picture/bpi-f3_burn_keys.jpg[bpi-f3_burn_keys.jpg]
++
+If the software recognition is successful, a "**VID:PID=**" display will appear. If there are multiple devices, please select the device you want to burn.
 
++
+image::/picture/bpi-f3_tianflasher_2.png[bpi-f3_tianflasher_2.png]
 . Select the **flash file**, the software will decompress it, please be patient and wait for a while.
 +
 image::/picture/bpi-f3_tianflasher_3.png[bpi-f3_tianflasher_3.png]
