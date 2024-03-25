@@ -1,0 +1,107 @@
+= Description
+
+The BPI-7402 series of modules are designed to extract power from a conventional twisted pair Category 5 Ethernet cable, conforming to the IEEE 802.3af and IEEE 802.3at Power-over-Ethernet(PoE) standard.it is 30W POE PD Module ( Isolation Model),The BPI-7402 signature and control circuit provides the PoE compatibility signature and power classification required by the Power Sourcing Equipment (PSE) before applying up to 30W power to the port.
+
+image::/picture/bpi-r64_poe.jpg[BPI-R64 POE.jpg]
+
+The DC/DC converter operates over a wide input voltage range and provides a regulatedoutput. The DC/DC converter also has built-in short-circuit output protection.
+
+== Features
+- IEEE802.3at and IEEE802.3af compliant
+- Maximum 30W output power
+- Input voltage range 36V to 57V
+- Integral high efficiency DC/DC converter.
+- Low output ripple and noise
+- High performance with low price
+- Short-circuit protection
+- Transformer isolation ,1000V isolation (input to output)
+- Easy to use, with a minimum number of external components.
+
+== Applications
+- IoT gateway
+- IP Cameras
+- Wireless access point
+- Security and alarm systems
+- VOIP telephone
+- Point of sale network terminal equipment
+
+= PBI-7402 PoE Hardware
+== Module size
+
+image::/picture/bpi-7402_size.png[bpi-7402_size.png]
+image::/picture/bpi-7402_5.png[bpi-7402_5.png]
+
+== Pin Description
+[options="header",cols="1,1,6"]
+|====
+3+|BPI-7402 at PoE module
+|Pin #	|Name	|Description
+|1	|VA1	|RX Input (1). This input pin is used in conjunction with VA2 and connects to the centre tap of the transformer connected to pins 1 & 2 of the RJ45 connector (RX) - it is not polarity sensitive.
+|2	|VA2	|TX Input (2). This input pin is used in conjunction with VA1 and connects to the centre tap of the transformer connected to pins 3 & 6 of the RJ45 connector (TX) - it is not polarity sensitive.
+|3	|VB1	|Direct Input (1). This input pin is used in conjunction with VB2 and connects to pin 4 & 5 of the RJ45 connector - it is not polarity sensitive.
+|4	|VB2	|Direct Input (2). This input pin is used in conjunction with VB1 and connects to pin 7 & 8 of the RJ45 connector - it is not polarity sensitive.
+|5	|AT-DET+	|Internal rectifier bridge output +
+|6	|GND	|Internal GND
+|7	|-VDC |DC Return. This pin is the return path for the +VDC output.
+|8	|-VDC	|DC Return. This pin is the return path for the +VDC output.
+|9	|+VDC	|DC Output. This pin provides the regulated output from the DC/DC converter.
+|10	|+VDC	|DC Output. This pin provides the regulated output from the DC/DC converter.
+|====
+
+== DC Electrical Characteristics
+
+image::/picture/bpi-7402_2.png[bpi-7402_2.png]
+
+Note
+
+. Typical figures are at 25°C with a nominal 48V supply and are for design aid only. Not Guaranteed
+. The output ripple and noise can be reduced with an external filter, see application note.
+. Continuous short circuit duration is applicable at 25'C ambient temperature in free air. At higher temperatures or with restricted
+airflow (e.g. in a sealed enclosure) the duration will need to be limited to avoid overheating.
+
+== Absolute Maximum Ratings
+[options="header",cols="1,2,1,1,1,1"]
+|====
+6+|BPI-7402 PoE module
+|　	|Parameter	|Symbol	|Min	|Max	|Units
+|1	|DC Supply Voltage	|VCC	|-0.3 |60	|V
+|2	|DC Supply Voltage Surge for 1ms	|VSURGE	|-0.6	|80	|V
+|3	|Storage Temperature	|TS	|-40	|100	|OC
+|====
+Note : Exceeding the above ratings may cause permanent damage to the product. Functional operation under these conditions is not implied. Maximum ratings assume free airflow.
+
+== Recommended Operating Conditions
+
+image::/picture/bpi-7402_1.png[bpi-7402_1.png]
+
+Note
+
+. With minimum load
+. See Section Operating Temperature Range +
+Extended use close to, or at the maximum operating temperature can reduce the life time of the device.
+
+= Typical Connection Diagram
+== 100M Internet
+
+image::/picture/bpi-7402_3.png[bpi-7402_3.png]
+
+== 1000M Internet
+
+image::/picture/bpi-7402_4.png[bpi-7402_4.png]
+
+== Power Classification
+The BPI-7402 classification is fixed at Class 4, this means that an IEEE802.3at Type 1 or an IEEE802.3af PSE will default to Class 0. However an IEEE802.3at PSE will recognise the Class 4 as a Type 2 PD.
+
+== AT Detection
+AT-DET output pin which is used to detect a Two Event Physical Layer classification as described in IEEE802.3at. If required the AT-DET pin can be connected directly to an opto-coupler.
+
+If the detects a Two Event Physical Layer classification, the (AT True) switch will close and Opto1 will turn ON. Opto1 will be connected across the isolation barrier and the output collector can be connected to a controller (with a pull-up resistor connected to the controller’s power rail). When Opto1 is ON the collector (output) will be Logic 0, the controller will then know that the PSE is capable of delivering over 15.4W. To complete the protocol the controller should then confirm that it is a Type 2 PD over the Data Link Layer.
+
+If the detects a Single Event Physical Layer classification, Opto1 will be OFF and the output collector will be Logic 1 (via pull-up resistor). The controller should then assume that the PSE is limited to delivering up to 15.4W.
+
+If the PSE does not support the Physical Layer classification, Opto1 will be OFF. The RT7402 will operate with non IEEE802.3at compliant POE+ PSE’s.
+
+**Note: There are several PSEs (including Cisco) that will only delivery ≤15.4W until they receive Type 2 PD confirmation, over the Data Link Layer.**
+
+= OEM&ODM
+Products can be customized according to customer needs
