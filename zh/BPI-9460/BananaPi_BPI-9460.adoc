@@ -1,0 +1,136 @@
+= Description
+
+The BPI-9460 series of modules are designed to extract power from a conventional twisted pair Category 5 Ethernet cable, conforming to the IEEE 802.3af Power-over-Ethernet(PoE) standard. The BPI-9460 signature and control circuit provides the PoE compatibility signature and power classification required by the Power Sourcing Equipment (PSE) before applying up to 15W power to the port. The RT9460 provides a Class 0 signature.The DC/DC converter operates over a wide input voltage range and provides a regulated output. The DC/DC converter also has built-in short-circuit output protection.
+
+= Applications
+- IP Cameras
+- Wireless access point
+- Security and alarm systems
+- VOIP telephone
+- Point of sale network terminal equipment
+
+= Features
+- IEEE802.3af compliant
+- Input voltage range 36V to 57V
+- Integral high efficiency DC/DC converter.
+- Low output ripple and noise
+- High performance with low price
+- Short-circuit protection
+- Adjustable Output
+- Optional multi-voltage output 3.3V 5V 12V 24V
+- Transformer isolation ,1500V isolation (input to output)
+- Easy to use, with a minimum number of external components.
+- Rohs compliantnt
+
+= Hardware
+== BPI-9460 Product Selector
+[cols="2,1,1,1,1,1"]
+|====
+|Part Number	|Nominal Output Voltage	|Output current	|Maximum Output Power*	|Marking	|Package
+|BPI-9460S-3.3V	|3.3V	|2A	  |10W**	|3.3V	|SIL
+|BPI-9460S -5V	|5V	  |2.4A	|13W**	|5V	  |SIL
+|BPI-9460S -12V	|12V	|1A	  |13W**	|12V	|SIL
+|BPI-9460S -24V	|24V	|0.5A	|13W**	|24V	|SIL
+|====
+- At 25°C with VIN = 48V
+- Maximum Output Power: means it not could be operated in continuous stage .only short-term of Boot up/Heavy loading
+
+== Absolute Maximum Ratings
+[cols="1,2,2,1,1,1"]
+|====
+|　	|Parameter	|Symbol	|Min	|Max	|Units
+|1	|DC Supply Voltage	|VCC	|-0.3	|60	|V
+|2	|DC Supply Voltage |Surge for 1ms	VSURGE	|-0.6	|80	|V
+|3	|Storage Temperature	|TS	|-40	|100	|OC
+|====
+Note : Exceeding the above ratings may cause permanent damage to the product. Functional operation under these conditions is not implied. Maximum ratings assume free airflow.
+
+== Recommended Operating Conditions
+[cols="1,3,1,1,1,1,1"]
+|====
+|　	|Parameter	|Symbol	|Min	|Typ	|Max	|Units
+|1	|Input Supply Voltage1	|VIN	|36	|48	|57	|V
+|2	|Under Voltage Lockout	|VLOCK	|30	|　	|36	|V
+|3	|Operating Temperature2	|TOP	|-20	|25	|70	|Ta / OC
+|====
+Note
+
+. With minimum load
+. See Section Operating Temperature Range +
+Extended use close to, or at the maximum operating temperature can reduce the life time of the device.
+
+== Pin Description
+[cols="1,1,6"]
+|====
+|Pin #	|Name	|Description
+|1	|VA1	|RX Input (1). This input pin is used in conjunction with VA2 and connects to the centre tap of the transformer connected to pins 1&2 of the RJ45 connector (RX) - it is not polarity sensitive.BPI-9460S this pin is direct Input +. This pin connects to the positive (+) output of the input bridge rectifier.
+|2	|VA2	|TX Input (2). This input pin is used in conjunction with VA1 and connects to the centre tap of the transformer connected to pins 3&6 of the RJ45 connector (TX) - it is not polarity sensitive.BPI-9460S this pin is direct Input -. This pin connects to the negative (-) output of the input bridge rectifier.
+|3	|VB1	|Direct Input (1). This input pin is used in conjunction with VB2 and connects to pin 4 & 5 of the RJ45 connector - it is not polarity sensitive.BPI-9460S this pin is direct Input +. This pin connects to the positive (+) output of the input bridge rectifier.
+|4	|VB2	|Direct Input (2). This input pin is used in conjunction with VB1 and connects to pin 7 & 8 of the RJ45 connector - it is not polarity sensitive.BPI-9460S this pin is direct Input -. This pin connects to the negative (-) output of the input bridge rectifier
+|5	|-VDC	|DC Return. This pin is the return path for the +VDC output.
+|6	|+VDC	|DC Output. This pin provides the regulated output from the DC/DC converter.
+|7	|ADJ	|Output Adjust. The output voltage can be adjusted from is nominal value, by connecting an external resistor from this pin to either the +VDC pin or the -VDC pin.
+|====
+
+== DC Electrical Characteristics
+
+image::/picture/9460.png[9460.png]
+
+. Typical figures are at 25°C with a nominal 48V supply and are for design aid only. Not Guaranteed
+. The output ripple and noise can be reduced with an external filter, see application note.
+. Continuous short circuit duration is applicable at 25'C ambient temperature in free air. At higher temperatures or with restricted airflow (e.g. in a sealed enclosure) the duration will need to be limited to avoid overheating.
+
+== RT9460S Typical Connection Diagram
+
+image::/picture/9460s_connect.png[9460s_connect.png]
+
+Reducing the output voltage, connect R2 between ADJ and +VDC
+[cols="2,1,1,1,1"]
+|====
+|　	|R2 Value	|output voltage	|R2 Value	|output voltage
+|BPI-9460-3.3V |open	|3.3V	|0R  	|2.8V
+|BPI-9460-5V	 |open	|5V	  |0R   |4.4V
+|BPI-9460-12V  |open	|12V	|0R	  |9.9V
+|BPI-9460-24V	 |open	|24V	|30K	|18.2V
+|====
+Increasing the output voltage, connect R1 between ADJ and -VDC
+[cols="2,1,1,1,1"]
+|====
+|　	|R1 Value	|output voltage	|R1 Value	|output voltage
+|BPI-9460-3.3V|open	|3.3V	|0R	|3.7V
+|BPI-9460-5V	|open	|5V	  |0R	|5.7V
+|BPI-9460-12V	|open	|12V	|0R	|12.8V
+|BPI-9460-24V	|open	|24V	|0R	|25.5V
+|====
+
+== Reliability MTBF
+About the life time ,we design according to the following: 1)life time of RT9460  : 100,000 hours @ 25°C
+
+== Safety test items & test report
+[cols="6,1"]
+|====
+|Test Requested	|Test result
+|Electric strength -1500Vrms at 50 to 60Hz for 60s, applied as specified in subclasuse 5.2.2 of IEC 60950	|Pass
+|====
+
+== Mechanical / Environmental Performance data
+[cols="1,2,6"]
+|====
+|　	|Item	|Requirement and Standard
+|1	|Resistance to Wave Soldering Heat	|max Preheat Temp range & time 120 ℃ / 180S,max soldering temp &time:265 ℃ / 4S
+|2	|Solder ability	|Solder able area shall have minimum of 95% solder coverage.And then into solder bath,Temperature at 245 ±5 ℃ , for 4-5sec.
+|3	|Hand Soldering Temperature Resistance	|T > =350 ℃ , 3sec at least.
+|4	|Thermal Shock	|subject to follow condition for 5 cycles.1 cycles:-55 ℃ , 30 minutes;+85 ℃ , 30 minutes
+|5	|Humidity(Temp Cycling)	|less than 95% (non-condensing) ( -20 to 70 ℃)
+|6	|Temperature Life	|temperature life at 85℃ for 96 hours.
+|7	|Salt Spray	|connectors to 5% salt-solution concentration, 35 ℃ ,Gold flash for 8 hours there will be no change in the gold layer
+|====
+
+= Module size
+== BPI-9460 PackageSize：(mm)
+
+image::/picture/poe_9460_1.jpg[poe_9460_1.jpg]
+
+== BPI-9460 PCB Package ：(mm)
+
+image::/picture/poe_9460_2.jpg[poe_9460_2.jpg]
