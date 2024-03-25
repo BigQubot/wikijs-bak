@@ -1,6 +1,9 @@
-= Overview
+= 产品概述
 
-Banana Pi BPI-M7 with Rockchip RK3588, 8/16/32G,RAM 64/128G eMMC,wifi6 support . 2x2.5G port ,1xHDMIout ,2x USB3.0,2xTYPE-C,2x MIPI CSI interface and 1x MIPI DSI interface, 1x M.2 KEY M interface,40 PIN GPIO ,Mini size just 92x62mm.
+Banana Pi BPI-M7 采用Rockchip RK3588，板载8/16/32G RAM内存和 64/128G eMMC存储，支持无线wifi6和蓝牙5.2。2x2.5G网络端口，1个HDMIout标准 输出口，2x USB3.0，2xTYPE-C，2x MIPI CSI接口和1x MIPI DSI接口，1x M.2 KEY M接口，40 PIN GPIO，迷你尺寸仅92x62mm
+
+香蕉派BPI-M7采用睿芯最新旗舰RK3588八核64位处理器，最高频率为2.4GHz, 6 TOPS NPU，最高内存为32GB。
+
 
 image::/bpi-m7/banana_pi_bpi-m7_banner_1.jpg[banana_pi_bpi-m7_banner_1.jpg]
 
@@ -9,63 +12,61 @@ Rockchip RK3588 design link:/en/BPI-AIM7/BananaPi_BPI-AIM7[Banana Pi BPI-AIM7] C
 Rockchip RK3588 design link:/en/BPI-W3/BananaPi_BPI-W3[Banana Pi BPI-W3] LGA core board kit +
 Rockchip RK3588 design link:/BPI-RK3588_CoreBoardAndDevelopmentKit/BananaPi_BPI-RK3588_CoreBoardAndDevelopmentKit[BPI-RK3588 core board and kit Introduction] Core boards 
 
-Generally, BPI-M7 is applied for various applications,such as, ARM PCs, edge computing, cloud servers, AI, cloud computing, virtual/augmented reality, blockchain, smart NVRs and more.
+== 关键特性:
 
-== Key Features:
+* 支持8K视频编解码
+* 丰富的接口支持
+* 双 2.5G 网络接口
+* 板载WiFi 6 无线网络
+* 蓝牙BT 5.2
+* 支持多种视频输出
+* 支持多种操作系统
 
-* 8K video encoding/decoding support
-* Abundant interfaces support
-* Dual 2.5G Ethernet support
-* WiFi 6 support
-* BT 5 support
-* Multiple video outputs support
-* Multiple operating systems support
+BPI-M7一般应用于ARM 电脑、边缘计算、云服务器、人工智能、云计算、虚拟/增强现实、区块链、智能nvr等领域。
 
-Generally, BPI-M7 is applied for various applications,such as, ARM PCs, edge computing, cloud servers, AI, cloud computing, virtual/augmented reality, blockchain, smart NVRs and more.
+TIP: 凭借强大的生态系统和各种扩展模块，香蕉派可以帮助用户轻松地从想法到原型到批量生产，使其成为创客，梦想家和爱好者的理想创意平台。
 
-TIP: With the powerful ecosystem and variety of extension modules, Banana Pi can help users easily go from ideas to prototype to mass production, making it an ideal creative platform for makers, dreamers and hobbyists.
+== 关键参数
 
-== Key Parameter
-
-* SoC: Rockchip RK3588
-* CPU: 4x Cortex-A76 @ 2.4GHz + 4x Cortex-A55 @ 1.8GHz, 8nm
+* 主控芯片: 瑞芯微(Rockchip) RK3588
+* CPU参数: 4x Cortex-A76 @ 2.4GHz + 4x Cortex-A55 @ 1.8GHz, 8nm
 * GPU: ARM Mali-G610 MP4
 * NPU: Up to 6 TOPS (INT8), supports INT4/INT8/INT16 mixed computing
 * VPU/Codec:
-** Hardware Decode: 8K@60fps H.265/VP9/AVS2, 8K@30fps H.264 AVC/MVC, 4K@60fps AV1, 1080P@60fps MPEG-2/-1/VC-1/VP8
-** Hardware Encode: 8K@30fps H.265 / H.264
-* RAM: 8GB/16GB/32GB (max 32GB) 64bit LPDDR4/LPDDR4x, default 8GB LPDDR4x
-* Storage: 64GB/128GB eMMC, default 64GB eMMC
-* Operating Voltage: Wide input voltage, 5V to 20V (±5% tolerance)
-* Operating temperature: 0°C ~ 70°C
-* OS:
-** Official: Android 12.0, Debian 11, Buildroot
-** 3rd party: Armbian, Ubuntu 20.04, Ubuntu 22.04, Kylin OS
-* PCB: 12-layer
-* Weight: 200g 
-* Size: 92mm × 62mm
+** 硬件解码: 8K@60fps H.265/VP9/AVS2, 8K@30fps H.264 AVC/MVC, 4K@60fps AV1, 1080P@60fps MPEG-2/-1/VC-1/VP8
+** 硬件编码: 8K@30fps H.265 / H.264
+* RAM内存: 8GB/16GB/32GB (max 32GB) 64bit LPDDR4/LPDDR4x, default 8GB LPDDR4x
+* 存储: 64GB/128GB eMMC, default 64GB eMMC
+* 工作电压: Wide input voltage, 5V to 20V (±5% tolerance)
+* 工作温度: 0°C ~ 70°C
+* 支持系统:
+** 官方支持: Android 12.0, Debian 11, Buildroot
+** 第三方支持：armbian, Ubuntu 20.04, Ubuntu 22.04, Kylin OS
+* PCB设计: 12-layer
+* 重量: 200g 
+* 尺寸: 92mm × 62mm
 
-== Getting Start
+== 快速上手
 
 TIP: link:/en/BPI-M7/GettingStarted_BPI-M7[Getting Started BPI-M7]
 
-= Hardware 
+= 硬件 
 
-== Hardware interface 
+== 硬件接口示意图 
 
 image::/bpi-m7/banana_pi_bpi-m7_interface.jpg[banana_pi_bpi-m7_interface.jpg]
 
-TIP: There are two identical Type-C ports on Sige7,but only the Type-C (PD Only) port is for power input.
+TIP: BPI-M7 上有两个相同的Type-C端口，但只有Type-C (PD only)端口用于电源输入
 
-== BPI-M7 Photo
+== BPI-M7 产品图片
 
 link:/en/BPI-M7/Photo_BPI-M7[Banana Pi BPI-M7 Product photo gallery]
 
-== Hardware Specifications
+== 硬件规格
 
 [options="header",cols="1,5"]
 |====
-2+| HardWare Specification of Banana Pi BPI-M7 
+2+| Banana Pi BPI-M7 硬件规格表
 |SOC	|RockChip RK3588
 |CPU	|RK3588 Quad-Core Cortex-A76@ 2.4GHz+Quad-CoreCortex-A55@ 1.8GHz，8nm process
 |GPU	|GPU Mali-G610 MP4 (4x256KB L2 Cache) Supports OpenGL ES3.2/OpenCL2.2/Vulkan1.1
