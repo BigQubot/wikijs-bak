@@ -1,83 +1,87 @@
 = BPI-R4 Introduction
 
-Banana Pi BPI-R4 Router board with MediaTek MT7988A (Filogic 880) quad-core ARM Corex-A73 design ,4GB DDR4 RAM,8GB eMMC,128MB SPI-NAND flash onboard, also have 2x 10Gbe SFP, 4x Gbe network port,with USB3.2 port,M.2 support 4G/5G/NVME SSD.2x miniPCIe slots with PCIe3.0 2lane interface for Wi-Fi 7 NIC (Network Interface Card). It is a very high performance open source router development board.
+香蕉派BPI-R4路由器板采用联发科MT7988A (Filogic 880)四核ARM Corex-A73方案设计，板载4GB DDR4内存,8GB eMMC存储,128MB SPI-NAND闪存，还具有2个10Gbe SFP光电口, 4x Gbe千兆网口，带USB3.2端口，M.2接口支持4G/5G/NVME SSD.2x miniPCIe插槽，带有PCIe3.0 2lane接口，支持Wi-Fi 7网卡(Network interface Card)。它是一个非常高性能的开源路由器开发板。
 
 image::/picture/banana_pi_bpi-r4_banner_2.jpg[banana_pi_bpi-r4_banner_2.jpg]
 
-== MediaTek MT7988(Filogic 880)
+== 联发科 MT7988(Filogic 880)芯片介绍
 
-Mediatek Filogic 880. the 36Gbps Wi-Fi 7 access point/router/gateway platform delivers the fastest and most reliable connection experience
+联发科Filogic 880,36Gbps Wi-Fi 7接入点/路由器/网关平台,提供最快和最可靠的网络连接体验.
 
-The MediaTek MT7988A is a world-Leading network processing platform for high-performance and reliable networking experiences,both in wired and wireless applications. The MT7988A comprises a rich connection interface sets include 4 Gigabit Ethernet ports. 2 US下GMII interfaces. 4 PCIe Interfaces,and 2 USB 3.2 en1 Ports
+联发科Filogic 880强大的四核 CPU 和 MediaTek 网络处理器 (NPU)：Filogic 880 的嵌入式 CPU 具有四核 Arm Cortex-A73，具有大型内部缓存和高达 1.8GHz 的速度，可提供接近 30K DMIPS 的同类领先性能。通过 NPU 卸载网络任务，设备制造商可以免费使用 CPE 来提供操作系统定制、内置服务和应用程序以扩展功能，这些功能现在是旗舰路由器/AP 设备的常规功能。
 
-the MT7988A further enables seamless Wi-Fi 7 tri-band,2.4 GHz.5 GHz and 6 GHz,connectivity,with its Wi-Fi 7 companion chip that features 320-MHz bandwidth,4096-QAM ,MLO,MRU,and AFC.
+联发科设计的片内网络处理单元 (NPU) 为 VLAN / PPTP / L2TP / GRE 提供硬件 QoS 加速和隧道卸载引擎。它超越了其他产品，可以同时使用 Wi-Fi 和以太网连接，确保全速性能，同时还卸载了主应用程序处理器。
 
-To answer the need of fast-evolving tunneling applications,the MT7988A comes with MediaTek Tunnel offload processor System(TOPS),which facilitates the processing of a wide range of tunneling protocols.The MT7988A optimizes networking performance with exquistitely tuned ISA of MediaTek TOPS,and is dedicated to lifting networking offloading performance to premium level.
+联发科 Filogic 880 平台具有高度可扩展性，具有高速内部和外部接口，包括 10Gbps PCI-Express、5Gbps USB、UART、SD、SPI、PWM、GPIO 和 OTP，可提供丰富的平台定制机会。
 
-== Key Features
+联发科MT7988A是世界领先的网络处理平台，可在有线和无线应用中提供高性能和可靠的网络体验。MT7988A包含丰富的连接接口集，包括4个千兆以太网端口。2个UNXGMII接口。4个PCIe接口和2个USB 3.2 接口，MT7988A进一步实现无缝Wi-Fi 7三频段，2.4 GHz.5GHz和6 GHz连接，其Wi-Fi 7配套芯片具有320mhz带宽，4096-QAM,MLO,MRU和AFC。
 
-- MediaTek MT7988A (Filogic 880) quad-core Arm Corex-A73,1.8GHz processor
-- 4GB DDR4
-- 8GB eMMC flash
-- 128MB SPI-NAND Flash
-- Micro SD card slot
-- 2x 10Gbe SFP slot (option 1x 10Gbe SFP and 1x SOC embedded 2.5Gbe PHY. NOTE: Need to modify hardware)
-- 4x Gbe network port
-- 1x USB3.2 slot
-- 1x M.2 KEY-B slot with USB3.2/PCIe3.0 interface for 5G
-- 1x M.2 KEY-M slot with PCIe3.0 1lane interface for NVME SSD
-- 2x miniPCIe slots with PCIe3.0 2lane interface for Wi-Fi 7 NIC (Network Interface Card)
-- 26 PIN GPIO Header for expanding application
-- POE function customizable (present version not support POE function)
+为了满足快速发展的隧道应用需求，MT7988A配备了联发科隧道卸载处理器系统(TOPS)，有助于处理各种隧道协议。MT7988A通过精心调整的联发科TOPS ISA优化网络性能，致力于将网络传输性能提升到高级水平。
 
-== Application direction
+== 关键特性
 
-- Internet service Router
-- Wifi 7 Wireless Router
-- 4G/5G Wireless Router
-- Wireless Repeater
-- Home security Gateway
-- Home Automation
-- Nas device
-- Network and communication applications
+* 联发科(MediaTek) MT7988A (Filogic 880) 四核 Arm Corex-A73,1.8GHz处理器
+* 4GB DDR4内存
+* 8GB eMMC 存储
+* 128MB SPI-NAND Flash存储
+* Micro SD 卡座
+* 2x 10Gbe SFP 光电口
+* 4x Gbe 千兆网口
+* 1x USB3.2 接口
+* 1x M.2 KEY-B 接口采用 USB3.2 接口连接5G模组
+* 1x M.2 KEY-M 接口采用 PCIe3.0 1lane 接口连接 NVME SSD硬盘
+* 2x miniPCIe 接口采用 PCIe3.0 2lane 接口连接 Wi-Fi 7 NIC (网络接口卡)
+* 26 PIN GPIO 扩展
 
-== Getting Start
+== 应用场景
+
+* 互联网服务路由器
+* Wifi 7 无线路由器
+* 4G/5G 无线路由器
+* 无线/有线中继通信网关
+* 家庭安全网关
+* 智能家居控制网关
+* Nas网关
+* 网络通信应用
+* 工业控制及整合通信应用
+
+== 快速上手
 
 TIP: link:/en/BPI-R4/GettingStarted_BPI-R4[Getting Started BPI-R4]
 
-= Hardware
-== Hardware Interface
+= 硬件
+== 硬件接口示意图
 
 image::/picture/banana_pi_bpi-r4_interface.jpg[banana_pi_bpi-r4_interface.jpg]
 
-== BPI-R4 Photo
+== BPI-R4 产品图片
 
 link:/en/BPI-R4/Photo_BPI-R4[Banana Pi BPI-R4 Product photo gallery]
 
-== Hardware Spec
+== 硬件规格
 
 [options="header",cols="1,3"]
 |====
-2+| **HardWare Specification of Banana Pi R4**
-| CPU              | MediaTek MT7988A (Filogic 880) quad-core Arm Corex-A73,1.8GHz processor
-| SDRAM            | 4 GB DDR4
-| On board Storage | MicroSD \(TF\) card,8GB eMMC onboard
-| GPIO             | 26 Pin GPIO,some of which can be used for specific functions including UART, I2C, SPI, PWM, I2S.
-| On board Network | 4 Port 10/100/1000Mbps Ethernet
-| SFP              | 2x10G SFP or 1x10G SFP and 1x 2.5GbE 
-| Wifi             | Wifi6/Wifi 7 
-| mini PCIE        | 2x miniPCIe slots with PCIe3.0 2lane interface for Wi-Fi 7 NIC (Network Interface Card) 
-| M.2 interface    | 1x M.2 KEY-B slot with USB3.2/PCIe3.0 interface for 5G,1x M.2 KEY-M slot with PCIe3.0 1lane interface for NVME SSD 
-| USB              | 1xUSB 3.2 slot
-| Buttons          | Reset button,WPS botton, boot switch 
-| Leds             | Power status Led and RJ45 Led 
-| DC Power         | 12V/5.2A or 19V 3.2A
-| Sizes            | 100.5x148mm same as link:/en/BPI-R64/BananaPi_BPI-R64[Banana Pi BPI-R64] and link:/en/BPI-R2/BananaPi_BPI-R2[Banana Pi BPI-R2]
-| Weight           | 250g 
+2+| **Banana Pi BPI-R4硬件规格表**
+| CPU主控              | 联发科 MT7988A (Filogic 880) 四核 Arm Corex-A73,1.8GHz 高性能处理器
+| SDRAM 内存            | 4 GB DDR4
+| 板载存储 | MicroSD \(TF\) 卡座, 板载8GB eMMC 
+| GPIO扩展             | 26 Pin GPIO,some of which can be used for specific functions including UART, I2C, SPI, PWM, I2S.
+| 有线网络 | 4 口 10/100/1000Mbps 千兆网口
+| SFP光电口              | 2x10G SFP光电口 或 1x10G SFP光电口加 1x 2.5GbE网口 
+| Wifi             | 支持 Wifi6/Wifi 7 模组扩展
+| mini PCIE接口        | 2x miniPCIe slots with PCIe3.0 2lane interface for Wi-Fi 7 NIC (Network Interface Card) 
+| M.2 接口    | 1x M.2 KEY-B slot with USB3.2/PCIe3.0 interface for 5G,1x M.2 KEY-M slot with PCIe3.0 1lane interface for NVME SSD 
+| USB接口              | 1xUSB 3.2 slot
+| 按键          | Reset button,WPS botton, boot switch 
+| Led指示灯             | Power status Led and RJ45 Led 
+| DC 供电         | 12V/5.2A or 19V 3.2A
+| 尺寸           | 100.5x148mm same as link:/en/BPI-R64/BananaPi_BPI-R64[Banana Pi BPI-R64] and link:/en/BPI-R2/BananaPi_BPI-R2[Banana Pi BPI-R2]
+| 重量           | 250g 
 |====
 
-== GPIO Define 
-=== 26 Pin GPIO define
+== GPIO 定义 
+=== 26 Pin GPIO 定义
 [options="header",cols="3,1,1,4",width="70%"]
 |====
 4+| **BPI-R4 26 PIN Header(CON2) GPIO define of BPI-R4**
@@ -288,12 +292,12 @@ link:/en/BPI-R4/Photo_BPI-R4[Banana Pi BPI-R4 Product photo gallery]
 |====
 
  
-== WiFi7 iPA NIC Module support
+== WiFi7 iPA NIC 模组支持
 BPI-R4-NIC-BE14: MT7995AV+MT7976CN+MT7977IAN
 
 image::/picture/bpi-r4-nic-be14_2.jpg[bpi-r4-nic-be14_2.jpg]
 
-== Accessories
+== 配件
 . 10G SFP Module
 +
 link:/en/BPI-R4/GettingStarted_BPI-R4#_10g_sfp_module[Getting_Started_with_BPI-R4#10G SFP Module]
@@ -310,8 +314,8 @@ link:/en/BPI-R4/GettingStarted_BPI-R4#_storage[Getting_Started_with_BPI-R4#Stora
 +
 link:https://docs.banana-pi.org/en/BPI-R4/GettingStarted_BPI-R4#_wi_fi7_nic[Getting_Started_with_BPI-R4#Wi-Fi7 NIC]
 
-= Development
-== Source Code
+= 开发
+== 软件源代码
 
 TIP: source code on github: https://github.com/BPI-SINOVOIP/BPI-R4-bsp
 
@@ -324,7 +328,7 @@ https://github.com/BPI-SINOVOIP/BPI-R4-bsp-5.4
 
 TIP: Official BPI-R4 kernel v6.1: https://github.com/BPI-SINOVOIP/BPI-R4-bsp-6.1
 
-== Resources
+== 参考资料
 
 TIP: BPI-R4-Main-V11-ASSY
 
@@ -365,7 +369,7 @@ TIP: How MLO Smart Link Dispatching drives Wi-Fi 7: https://mediatek-marketing.f
 TIP: MLO in Wi-Fi 7: https://mediatek-marketing.files.svdcdn.com/production/documents/Wi-Fi-7-MLO-White-Paper-WF7MLOWP0622.pdf
 
 
-= System Image
+= 系统镜像
 == OpenWRT
 === OpenWRT MTK MP3.0 SDK for BE19000 Wifi Card
 NOTE: BPI-R4 bl2_emmc-r4.img
@@ -438,8 +442,9 @@ https://drive.google.com/file/d/1ZuLbFnFF7dDlbRw4Dhgkm4ROIl5KYKg7/view?usp=shari
 WARNING: **Note**:linux-5.4 kernel include MT76 wifi driver, it can only support BE14000 wifi card. it can support 2.4G, 5G and 6G, but ubuntu-22.04's network-manager utility package can't support 6G wifi. So we are waiting for the latest package. +
 linux-6.1 kernel don't include MT76 wifi driver, it can't support BE14000 wifi card
      
-= Easy to buy
-WARNING: SINOVOIP Aliexpress shop: 
+= 样品购买
+
+WARNING: SINOVOIP Aliexpress shop: 
 https://www.aliexpress.us/item/1005006256712337.html?gatewayAdapt=4itemAdapt
 
 WARNING: Bipai Aliexpress shop: 
