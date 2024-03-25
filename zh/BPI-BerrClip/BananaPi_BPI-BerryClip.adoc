@@ -1,0 +1,115 @@
+= Product Overview
+
+The module is designed specifically for learning control the GPIO of Banana Pi. There are 6 LED, 1 button and 1 Beep on the module; All of them can use the GPIO of Banana Pi to control. The beginner can learn the INPUT mode of GPIO through the key and learn the OUTPUT mode through the LED or Beep
+
+== Product Feature
+. 6 multicolor LED
+. 1 single button on board
+. 1 Beep on board
+
+== Product specification
+
+image::/picture/berry_chip_1.png[berry_chip_1.png]
+
+== Port
+BananaPi 2X13 port，also can use on raspberry pi.
+
+== Product Parameters
+. Working voltage: 3.3V
+. LED max current allow 8mA
+. Beep max current allow 12mA
+
+= Typical Application
+. Hardware beginner learning
+. Education
+
+Insert the BerryClip in the Banana Pi, Pay attention don’t make the direction reversed! The correct direction of insert module is above the Banana Pi’s PCB.
+
+== Testbench
+
+. Setup the GPIO OUTPUT, Output LED High level, the LED will be lighten；
+. Setup the GPIO INPUT, press the button;
+. Test finish
+
+= Example and Test Code
+```sh
+#include <wiringPi.h>
+int LED1[]={7,0,3,12,13,14};
+int i;
+
+int initIO()
+{
+pinMode(7,OUTPUT);
+pinMode(0,OUTPUT);
+pinMode(3,OUTPUT);
+pinMode(12,OUTPUT);
+pinMode(13,OUTPUT);
+pinMode(14,OUTPUT);
+}
+int LED()
+{
+for(i=0;i<=6;i++)
+{
+digitalWrite(LED1[i],1);
+delay(500);
+digitalWrite(LED1[i],0);
+delay(500);
+}
+}
+int main()
+{
+int val;
+wiringPiSetup();
+ initIO();
+pinMode(10,INPUT);
+digitalWrite(11,1);
+while(1)
+{
+val=digitalRead(10);
+if(val==0)
+{
+LED();
+digitalWrite(11,1);
+i=0;
+}
+} 
+}
+```
+
+= How to use
+== BPI BerryClip 6 LED Module and how to use on BPI-M3
+OS: BPI-M3 Ubuntu15.10 (Kernel3.4)
+
+Version: 1.0 HDMI
+
+image::/picture/br1.jpg[br1.jpg]
+
+Step 1: Download WiringPI
+```sh
+$ git clone https://github.com/BPI-SINOVOIP/BPI-WiringPi.git -b BPI_M3
+$ cd BPI-WiringPi
+$ chmod +x ./build
+$ sudo ./build
+```
+Step 2 : Copy smaple code to BerryClip.c file
+```sh
+$ sudo vi BerryClip.c
+```
+Step 3 : Compile BerryClip.c
+```sh
+$ gcc -o BerryClip BerryClip.c -l wiringPi
+```
+Step 4 : Run BerryClip
+```sh
+$ sudo ./BerryClip
+```
+Step 5: Press the button to see if it works
+
+image::/picture/br2.jpg[br2.jpg]
+
+Video demo on youtube: https://www.youtube.com/watch?v=kIPbm86sqnw
+
+Forum pthread: http://forum.banana-pi.org/t/bpi-m3-bpi-berryclip-6-led-module-and-how-to-use/1077
+
+= Others
+Banana Pi BerryClip 6LED use on BPI-M2 demo : https://www.youtube.com/watch?v=E_LQXyNECNQ
