@@ -66,5 +66,40 @@ image::/picture/bpi-f3_tianflasher_4.png[bpi-f3_tianflasher_4.png]
 = Other Development
 == NetWork
 === GMAC
+. ifconfig -c
+
+
+. ifconfig -u -c
+
+
+. ifconfig -r
+
 
 === WiFi/BT
+**You have two ways to setup WiFi**
+
+. Use UI interface to setup WiFi
+
+. Use commands to setup WiFi
++
+```sh
+sudo nmcli dev
+sudo nmcli r wifi on
+sudo nmcli dev wifi
+sudo nmcli dev wifi connect "SSID" password "PASSWORD" ifname wlan0
+```
+
+**You have two ways to setup BT**
+
+. Use UI interface to setup BT
+
+. Use commands to setup BT
++
+```sh
+hciconfig
+sudo hciconfig hci0 up
+hciconfig hci0 noauth
+hcitool scan
+sudo rfcomm bind /dev/rfcomm0 xx:xx:xx:xx
+sudo cat >/dev/rfcomm0
+```
