@@ -1,0 +1,70 @@
+= Introduction
+
+== Step One: Download and compile BSP code
+Here I use BPI-M4 as an example:
+
+. Download bsp code,execute
++
+```sh
+git clone https://github.com/BPI-SINOVOIP/BPI-M4-bsp.git
+```
+
+. Build the bsp,execute
++
+```sh
+./build.sh
+```
+then choose "**1**".
+
++
+image::/picture/build_image_1.png[build_image_1.png]
+
+. After built bsp code, the boot and kernel files will be generated in "**SD/bpi-m4**".
++
+image::/picture/build_image_2.png[build_image_2.png]
+
+== Step Two: Install an image on SD card
+. You could install an image by following here: Install Linux & Android images on Banana pi SBC
+
+. Here I install an image under a ubuntu os
++
+```sh
+bpi-copy 2019-07-23-ubuntu-18.04-mate-desktop-preview-bpi-w2-m4-sd-emmc.img.zip /dev/sde
+```
++
+image::/picture/build_image_3.png[build_image_3.png]
+
+== Step Three: Make an image
+. Our bsp could not build an image directly, so we need to make an image from sd card which has been installed an image.
+
+. Plug sd card which we just installed an image into a ubuntu PC, then the PC will recognize "**BPI-BOOT**" and "**BPI-ROOT**".
+
+. Now we do some preparations before make an image:
++
+```sh
+cd /media
+ln -s <your account> pi
+mkdir <directory>
+cp <BPI-M4-Project>/SD/bpi-m4/*.tgz <BPI-M4-Project>/SD/bpi-m4/100MB/* image
+```
+
+. As you can see, I linked an account called "**pi**" under "**/media**", created an folder and copied all the bsp files into it.
+
+. Now we could use command
++
+```sh
+bpi-migrate -c bpi-w2-m4.conf -c ubuntu-18.04-mate-from-sd.conf
+```
++
+image::/picture/build_image_4.png[build_image_4.png]
+
+. This command will copy the os from the sd card, and replace new kernel and uboot you just built in the new image.
+
+== Note
+WARNING: How to find the board .conf files?
+
+You could see these files at here: https://github.com/BPI-SINOVOIP/BPI-files/tree/69594603ab8ceb102d77818982897c00c86d6d15/others/for-bpi-tools/conf/board
+
+WARNING: How to find the os .conf files?
+
+You could see these files at here: https://github.com/BPI-SINOVOIP/BPI-files/tree/c2f1fcaf34cf8e5b58b1e0093c7597b0d31ca0f6/others/for-bpi-tools/conf/os
