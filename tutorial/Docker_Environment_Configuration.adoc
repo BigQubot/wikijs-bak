@@ -1,0 +1,36 @@
+= Preface
+
+Taking BPI-M5 as example. Please prepare a Linux computer.
+
+= Install Docker
+```sh
+curl -fsSL https://test.docker.com -o test-docker.sh
+sudo sh test-docker.sh
+```
+After installation, the current user needs to be added to the Docker user group.
+
+```sh
+sudo groupadd docker
+sudo usermod -aG docker $USER
+```
+
+= Configure Docker
+First, obtain the image.
+
+```sh
+docker pull sinovoip/bpi-build-linux-4.4:ubuntu16.04
+```
+Create a file and run the image.
+
+```sh
+mkdir /home/bpi/image
+docker run -d -p 2222:22 -v /home/bpi/image:/root sinovoip/bpi-build-linux-4.4:ubuntu16.04
+```
+
+The "/home/bpi/image:/root" above maps the physical machine's "/home/bpi/image" to the "/root" directory, with port 2222
+
+After running, you can use "Docker Container ls" to view the dockers that have already been started.
+
+Then connect to Docker via SSH with the password root.
+
+Create a folder in Docker, which can also be seen on the physical machine.
