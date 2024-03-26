@@ -1,0 +1,45 @@
+NOTE: **Video** for how to get the log information of Banana Pi board (The baud rate of BPI-R2 PRO and BPI-W3 is 1500000, other boards' baud rate is 115200): https://drive.google.com/file/d/1_1T4jUztxONd8agL-thWuBdekD8WH6cO/view?usp=sharing
+
+== Preparation
+. A BPI development board, a TTL serial port cable, and an SD/TF card with a burned image (it can also be burned to eMMC).
+
+. MobaXterm download : https://mobaxterm.mobatek.net/download.html
+
+== Start
+Next, use BPI-M5 as a demonstration.
+
+. Open MobaXterm, then click on Session in the upper left corner and select Serial.
++
+image::/picture/log_export-1.jpg[log_export-1.jpg]
+image::/picture/log_export-2.jpg[log_export-2.jpg]
+
+. Connect one end of the TTL cable to the computer
++
+image::/picture/ttl_cable_connection-1.jpg[ttl_cable_connection-1.jpg]
+Insert the development board at the other end. (RX and TX need to be connected in reverse, VCC does not need to be connected)
++
+image::/picture/ttl.jpg[ttl.jpg]
+image::/picture/ttl_cable_connection-2.jpg[ttl_cable_connection-2.jpg]
+
+. Select the port at the Serial port, select the baud rate at Speed (bps), and then click OK.
+(Most development boards for BPI are 115200, with only BPI-R2 Pro and BPI-W3 being 1500000)
++
+image::/picture/log_export-3.jpg[log_export-3.jpg]
+
+. Plug in the power to the board and start it
++
+image::/picture/power_on.jpg[power_on.jpg]
+
+. Development board startup completed, enter account password
++
+image::/picture/log_export-4.jpg[log_export-4.jpg]
+
+. After completing the operation you want, you can now export the log.
+Click on Terminal in the upper left corner, then click on Save terminal tsxt
++
+image::/picture/log_export-5.jpg[log_export-5.jpg]
+Select the save location and change the save type to Plain Text File
++
+image::/picture/log_export-6.png[log_export-6.png]
+
+. Open the location you saved to see the log file.
