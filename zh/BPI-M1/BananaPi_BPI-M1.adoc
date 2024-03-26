@@ -121,7 +121,7 @@ CSI Camera Connector The CSI Camera Connector is a 40-pin FPC connector which ca
 | CON1 P40 | IPSOUT       |      
 |=====
 
-=== LVDS (LCD display interface)
+=== LVDS (LCD 显示屏接口定义)
 
 The LVDS Connector is a 40-pin FPC connector which can connect external LCD panel \(LVDS\) and touch screen \(I2C\) module as well. The pin definitions of this connector are shown as below. This is marked on the Banana Pi board as “CON2″.
 
