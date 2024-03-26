@@ -1,10 +1,9 @@
-= Introduction
+= 产品介绍
 
-The Banana Pi BPI-M1 is a business card-sized and low-power single-board computer featuring a high performance AllWinner A20 dual-core SoC at 1 GHz, 1 GB of DDR3 SDRAM, Gigabit Ethernet, SATA, USB, and HDMI connections. It can run a variety of operating systems including Android, Lubuntu, Ubuntu, Debian, and Raspbian.
+香蕉派 BPI-M1是一种商用卡片大小和低功耗的单板计算机，具有高性能全志A20双核处理器(1ghz)、1gb DDR3 SDRAM、千兆以太网、SATA、USB和HDMI连接。它可以运行多种操作系统，包括Android, Lubuntu, Ubuntu, Debian和Raspbian。
 
-It is the first open source hardware launched by the banana pie team, and also a classic product with the largest cumulative sales of banana pie.There are still a lot of business clients that apply to various projects.A20 chip
+香蕉派 BPI-M1是香蕉派团队推出的第一款开源硬件，也是香蕉派累积销量最多的一款经典产品。现在还有很多商业客户应用在各种项目上。
 
-Banana Pi is an open platform device, it is for anyone who wants to play and build with developer technology instead of simply using consumer technology. Backed by our community, starting a project and building servers is fun and rewarding.
 
 image::/picture/a_bpi-m1.jpg[a_bpi-m1.jpg]
 
@@ -12,9 +11,9 @@ TIP: Allwinner A20 design: link:/en/BPI-M1/BananaPi_BPI-M1[Banana Pi BPI-M1] SBC
 Allwinner A20 design: link:/en/BPI-M1_Plus/BananaPi_BPI-M1_Plus[Banana Pi BPI-M1+] SBC +
 Allwinner A20 design: link:/en/BPI-R1/BananaPi_BPI-R1[Banana Pi BPI-R1] Router
 
-== Key Features
+== 关键特性
 
-* Allwinner A20 Dual-core 1.0GHz CPU
+* 全志A20 Dual-core 1.0GHz CPU（A40i芯片可选）
 * Mali-400 MP2 with Open GL ES 2.0/1.1.
 * 1 GB DDR3 memory.
 * 1x SATA interface.
@@ -28,22 +27,22 @@ Allwinner A20 design: link:/en/BPI-R1/BananaPi_BPI-R1[Banana Pi BPI-R1] Router
 * DSI display interface
 * 26 PIN gpio
 
-== Getting Start
+== 快速上手
 
 link:/en/QuickStartBananaPiSBC[Quick Start Banana Pi SBC]
 
 link:/en/BPI-M1/GettingStarted_BPI-M1[Getting Started BPI-M1]
 
-= Hardware
-== Hardware Interface
+= 硬件
+== 硬件接口示意图
 
 image::/bpi-m1/banana_pi_bpi-m1_interface.jpg[banana_pi_bpi-m1_interface.jpg]
 
-== BPI-M1 Photo
+== BPI-M1 产品图片
 
 link:/en/BPI-M1/Photo_BPI-M1[Banana Pi BPI-M1 Product photo gallery]
 
-== Hardware Spec
+== 硬件规格
 
 [options="header",cols="1,3"]
 |=====
@@ -64,7 +63,7 @@ link:/en/BPI-M1/Photo_BPI-M1[Banana Pi BPI-M1 Product photo gallery]
 | Storage       | SATA 2.0,
 |=====
 
-== GPIO Pin Define
+== GPIO Pin 定义
 
 Banana Pi BPI-M1 has a 26-pin GPIO header . Following is the Banana Pi GPIO Pinout:
 
