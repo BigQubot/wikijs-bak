@@ -1,51 +1,49 @@
-= BPI-R3 Mini Introduction
+= BPI-R3 Mini 产品介绍
 
-Banana Pi BPI-R3 Mini Router board with MediaTek MT7986A(Filogic 830) quad core ARM A53 chip design ,2G DDR RAM ,8G eMMC flash onboard,It is a very high performance open source router development board,support Wi-Fi6 2.4G/5G with MT7976C, support 2x 2.5GbE ethernet port.
+香蕉派BPI-R3 Mini开源路由器开发板采用联发科MT7986 (Filogic 830)四核 ARMA53 + MT7531A芯片设计,板载2G DDR内存与8G eMMC存储,这是一个非常高性能开源路由器开发板,支持WIFI6, 2.4G Wifi无线使用MT7975N芯片, 5G Wifi使用MT7975P芯片,支持2个2.5网口。
 
 image::/picture/banana_pi_bpi-r3_mini_banner_1.jpg[banana_pi_bpi-r3_mini_banner_1.jpg]
 
 TIP: MediaTek MT7986(Filogic 830) design: link:/en/BPI-R3_Mini/BananaPi_BPI-R3_Mini[Banana Pi BPI-R3 Mini] Mini size Router development board +
 MediaTek MT7986(Filogic 830) design: link:/en/BPI-R3/BananaPi_BPI-R3[Banana Pi BPI-R3] Router development board
 
-=== MediaTek MT7986(Filogic 830)
+== 联发科 MT7986(Filogic 830)芯片介绍
 
-The MT7986A(Filogic 830) integrates four Arm Cortex-A53 cores up to 2GHz with up to 18,000 DMIPs of processing power and 6Gbps of dual 4x4 Wi-Fi6 connectivity. It has two 2.5g Ethernet interfaces and serial peripheral interfaces (SPI). Filogic 830‘s built-in hardware acceleration engine enables fast and reliable Wi-Fi offloading and wireless network connection. In addition, the chip supports Mediatek FastPath™ technology, which is suitable for games, AR/VR and other low-latency applications.
+联发科技Filogic 830 Filogic 830 整合四个主频高达2GHz 的Arm Cortex-A53 核心，处理能力高达18,000 DMIPs，双4x4 Wi-Fi 6/6E 连接速率可达6Gbps，并拥有两个2.5G 乙太网路介面和串列周边介面（SPI）。Filogic 830 内建硬体加速引擎，可实现快速且可靠的Wi-Fi卸载（offloading）及无线网路连结。此外，该晶片支援联发科技FastPath™ 技术，可适用于游戏、AR/VR 等低延迟应用。
 
-Wi-fi 6 has many advantages over its predecessors, including lower latency, larger bandwidth capacity and faster transmission rates. Wireless network devices supporting the 6GHz band mainly use 160MHz wide channel and 6GHz uncongested bandwidth to provide multigigabit transmission and low-latency wi-fi connection, providing reliable wireless network for streaming media, games, AR/VR and other applications.
+Wi-Fi 6E 与前几代相比具有许多优势，包括更低的延迟、更大的频宽容量和更快的传送速率。支援6GHz 频段的无线网路设备主要运用160MHz 宽通道和6GHz 的未拥塞频宽，以提供千兆级（multigigabit）传输和低延迟的Wi-Fi 连接，可为串流媒体、游戏、AR/VR 等应用提供可靠的无线连网。
 
-== Key Features
+== 关键特性
 
-- MediaTek MT7986A(Filogic 830) Quad core ARM Cortex A53
-- Wifi 6 2.4G/5G（MT7976C）
-- 2G DDR RAM
-- 8G eMMC flash
-- 128MB Nand flash
-- 2x 2.5GbE network port
-- 1x M.2 Key B USB interface
-- 1x M.2 KEY M PCIe interface
-- 1x USB2.0 interface
+* 联发科(MediaTek) MT7986(Filogic 830) 四核ARM Cortex A53 chip
+* Wifi 6 2.4G/5G（MT7976C）
+* 2G DDR 内存
+* 8G eMMC 存储
+* 128MB Nand 存储
+* 2x 2.5GbE 网络接口
+* 1xM.2 Key B 接口
+* 1xM.2 KEY M PCIe 接口
+* 1xUSB 接口
 
-== Application direction
+== 应用方向
+* 互联网服务路由器
+* 无线路由器
+* 无线中继器
+* 家庭安全网关
+* 家庭自动化
+* NAS设备
+* 网络和通信应用
 
-- Internet service Router
-- Wireless Router
-- Wireless Repeater
-- Home security Gateway
-- Home Automation
-- Nas device
-- Soft router
-- Network and communication applications
-
-== Getting Start
+== 快速上手
 
 TIP: link:/en/BPI-R3_Mini/GettingStarted_BPI-R3_Mini[Getting Started BPI-R3_Mini]
 
-= Hardware
-== Hardware Interface
+= 硬件
+== 硬件接口示意图
 
 image::/picture/bpi-r3_mini_interface.jpg[bpi-r3_mini_interface.jpg]
 
-== Hardware Spec
+== 硬件规格
 
 [options="header",cols="1,3"]
 |=====
@@ -65,24 +63,25 @@ image::/picture/bpi-r3_mini_interface.jpg[bpi-r3_mini_interface.jpg]
 | Weight	          | 100g
 |=====
 
-== SSD and 5G support
+== SSD硬盘和5G网络支持
 
 image::/picture/bpi-r3_mini_ssd_5g.jpg[bpi-r3_mini_ssd_5g.jpg]
 
-== Accessories
-=== Case design
+== 配件
+=== 外壳设计
 
 image::/picture/banana_pi_bpi-r3_mini_case_9.jpg[banana_pi_bpi-r3_mini_case_9.jpg]
 
-=== 5G module support
+=== 5G 网络模组
 - BPI-R3 mini can use Quectel RM500U-CN & RM520N-GL 5G Modules
 
-= Development
-== Source Code
+= 开发
+== 软件源代码：
+
 TIP: Opensource Driver BSP : 
 https://github.com/BPI-SINOVOIP/BPI-R3MINI-OPENWRT-V21.02.3
 
-== Resources
+== 参考资料
 
 TIP: BPI-R3 Mini DXF file 
 
@@ -102,7 +101,7 @@ TIP: MT7986A_Reference_Manual_for_BPI-R3 : https://drive.google.com/file/d/1biSJ
 
 TIP: Bananapi R3 review with WiFi / CPU benchmarks and power consumption numbers: https://wiki.junicast.de/en/junicast/review/bananapi-BPI-R3
 
-= System Image
+= 系统镜像
 
 == OpenWRT
 
@@ -126,7 +125,7 @@ Baidu Cloud: https://pan.baidu.com/s/1qAiIqHxhUwuRUp8CIcrPTw?pwd=8888 PIN ncode:
 
 
 
-= Easy to buy
+= 样品购买
 
 WARNING: BIPAI Aliexpress shop : https://www.aliexpress.com/item/1005005873750368.html?
 
