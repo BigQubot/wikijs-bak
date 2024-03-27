@@ -7,38 +7,37 @@ image::/picture/banana_pi_751.jpg[banana_pi_751.jpg]
 TIP: 联发科 MT7986(Filogic 830) 芯片设计: link:/zh/BPI-R3_Mini/BananaPi_BPI-R3_Mini[香蕉派 BPI-R3 Mini] 迷你尺寸高性能路由器开发板 +
 联发科 MT7986(Filogic 830) 芯片设计: link:/zh/BPI-R3/BananaPi_BPI-R3[香蕉派 BPI-R3] 高性能路由器开发板
 
-=== Introduction Video
+YouTuBe Introduction Video : https://youtu.be/RO8J_sLEyBg
 
-YouTuBe Video: https://youtu.be/RO8J_sLEyBg
+== 联发科 MediaTek MT7986(Filogic 830)芯片介绍
 
-=== MediaTek MT7986(Filogic 830)
-The MT7986(Filogic 830) integrates four Arm Cortex-A53 cores up to 2GHz with up to 18,000 DMIPs of processing power and 6Gbps of dual 4x4 Wi-Fi6 connectivity. It has two 2.5g Ethernet interfaces and serial peripheral interfaces (SPI). Filogic 830‘s built-in hardware acceleration engine enables fast and reliable Wi-Fi offloading and wireless network connection. In addition, the chip supports Mediatek FastPath™ technology, which is suitable for games, AR/VR and other low-latency applications.
+联发科技Filogic 830 Filogic 830 整合四个主频高达2GHz 的Arm Cortex-A53 核心，处理能力高达18,000 DMIPs，双4x4 Wi-Fi 6/6E 连接速率可达6Gbps，并拥有两个2.5G 乙太网路介面和串列周边介面（SPI）。Filogic 830 内建硬体加速引擎，可实现快速且可靠的Wi-Fi卸载（offloading）及无线网路连结。此外，该晶片支援联发科技FastPath™ 技术，可适用于游戏、AR/VR 等低延迟应用。
 
-Wi-fi 6 has many advantages over its predecessors, including lower latency, larger bandwidth capacity and faster transmission rates. Wireless network devices supporting the 6GHz band mainly use 160MHz wide channel and 6GHz uncongested bandwidth to provide multigigabit transmission and low-latency wi-fi connection, providing reliable wireless network for streaming media, games, AR/VR and other applications.
+Wi-Fi 6E 与前几代相比具有许多优势，包括更低的延迟、更大的频宽容量和更快的传送速率。支援6GHz 频段的无线网路设备主要运用160MHz 宽通道和6GHz 的未拥塞频宽，以提供千兆级（multigigabit）传输和低延迟的Wi-Fi 连接，可为串流媒体、游戏、AR/VR 等应用提供可靠的无线连网。
 
-== Key Features
-- MediaTek MT7986(Filogic 830) Quad core ARM Cortex A53+MT7531 chip design
+
+== 关键特征
+- 联发科 MediaTek MT7986(Filogic 830) 四核 ARM Cortex A53 + MT7531 芯片设计
 - Wifi 6 4x4 2.4G Wifi(MT7975N) +4x4 5G Wifi(MT7975P)
-- 2G DDR RAM
-- 8G eMMC flash
+- 2G DDR RAM 内存
+- 板载 8G eMMC 
 - 128MB SPI Nand
-- 2x SFP 2.5GbE
-- 5x GbE network port
-- POE support (optional)
+- 2x SFP 2.5GbE 光电口
+- 5x GbE 千兆网口
+- POE 网络供电支持（可选择）
 - Mini PCIe via USB
 - M.2 KEY-M PCIe inerface
 - Mciro SD card interface
 - 26 PIN GPIO
 
-== Application direction
-- Maker DIY
-- Internet service Router
-- Wireless Router
-- Wireless Repeater
-- Home security Gateway
-- Home Automation
-- Nas device
-- Network and communication applications
+== 主要应用场景
+* 互联网服务路由器
+* 无线路由器
+* 无线中继器
+* 家庭安全网关
+* 家庭自动化
+* NAS设备
+* 网络和通信应用
 
 == Getting Start
 
