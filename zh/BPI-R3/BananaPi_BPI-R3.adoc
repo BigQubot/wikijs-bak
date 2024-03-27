@@ -26,8 +26,8 @@ Wi-Fi 6E 与前几代相比具有许多优势，包括更低的延迟、更大�
 - 5x GbE 千兆网口
 - POE 网络供电支持（可选择）
 - Mini PCIe via USB
-- M.2 KEY-M PCIe inerface
-- Mciro SD card interface
+- M.2 KEY-M PCIe 接口
+- Mciro SD 卡座
 - 26 PIN GPIO
 
 == 主要应用场景
@@ -39,20 +39,20 @@ Wi-Fi 6E 与前几代相比具有许多优势，包括更低的延迟、更大�
 * NAS设备
 * 网络和通信应用
 
-== Getting Start
+== 快速上手
 
 TIP: link:/en/BPI-R3/GettingStarted_BPI-R3[Getting Started BPI-R3]
 
-= Hardware
-== Hardware Interface
+= 硬件
+== 硬件接口示意图
 
 image::/picture/banana_pi_bpi-r3_interface.jpg[banana_pi_bpi-r3_interface.jpg]
 
-== BPI-R3 Photo
+== BPI-R3 产品图集
 
 link:/en/BPI-R3/Photo_BPI-R3[Banana Pi BPI-R3 Product photo gallery]
 
-== Jumper setting
+== 跳针 /跳线设置
 |=====
 5+|Jumper Setting of Banana pi BPI-R3
 | Jumper Setting	| SW1	 | SW2	| SW5	 | SW6
@@ -62,11 +62,11 @@ link:/en/BPI-R3/Photo_BPI-R3[Banana Pi BPI-R3 Product photo gallery]
 | SD card	        | High | High	| X	   | High
 |=====
 
-== Hardware Spec
+== 硬件规格
 
 [options="header",cols="1,4"]
 |=====
-2+| **HardWare Specification of Banana Pi R3**
+2+| **Banana Pi BPI-R3 硬件规格表**
 | CPU              | MediaTek MT7986(Filogic 830) Quad core ARM Cortex A53+MT7531 chip design 
 | SDRAM            | 2 GB DDR4
 | On board Storage | MicroSD \(TF\) card,8GB eMMC onboard 
@@ -84,7 +84,7 @@ link:/en/BPI-R3/Photo_BPI-R3[Banana Pi BPI-R3 Product photo gallery]
 | Weight           | 200g
 |=====
 
-== Accessories
+== 配件
 
 === 4G
 BPI-R3 can use Quectel EC25E minipcie-slot
@@ -105,7 +105,7 @@ The SFPs we have tested that work are as follows:
 . TP-LINK 2.5G Copper: TL-SM410U
 . TP-LINK 2.5G Optical Fiber: TL-SM411LSA-500m/TL-SM411LSA-500m
 
-=== WIFI6e
+=== WIFI6e 扩展模块
 ASIA.RF AW7916-NPD:
 
 Module: WiFi6E 3000 802.11ax G-band 2T2R and A-band 3T3R 2ss Dual Bands Dual Concurrents mPCIe Card AW7916-NPD(With BPI-M.2 to mPCIe Adapter)
@@ -123,8 +123,8 @@ As Client:
 
 image::/picture/r3_7916npd_client_iperf3.png[r3_7916npd_client_iperf3.png]
 
-= Development
-== Source Code
+= 开发
+== 软件源代码
 TIP: Official BPI-R3 kernel v5.15 + firmware repo:
 https://github.com/BPI-SINOVOIP/BPI-R3-bsp-5.15
 
@@ -144,7 +144,7 @@ https://github.com/frank-w/BPI-Router-Linux/tree/6.1-main
 
 TIP: Unofficial wiki (English): https://wiki.fw-web.de/doku.php?id=en:bpi-r3:start
 
-== Resources
+== 参考文档
 
 TIP: BPI-R3 DXF file : https://drive.google.com/file/d/1bc5mCtJlnPi84q7VZYaQkZhRUU4HUfUd/view?usp=sharing
 
@@ -184,7 +184,8 @@ TIP: OpenWRT official for Sinovoip BananaPi BPi R3: https://openwrt.org/toh/sino
 
 TIP: Setting up the Banana-R3 with OpenWRT: https://uglyscale.press/2023/09/13/setup-the-banana-r3-with-openwrt/
 
-= System Image
+= 系统镜像
+
 == OpenWRT
 
 NOTE: Latest official OpenWRT snapshot image:
@@ -255,13 +256,13 @@ https://forum.banana-pi.org/t/bpi-r3-ubuntu-22-04-image/14956
 
 NOTE: Image: https://forum.banana-pi.org/t/bpi-r3-imagebuilder-r3-archlinux-ready-for-testing/15089
 
-= FAQ
+= 问答
 **Failed to save the configuration**
 
 Enter "mtd erase /dev/mtd10"
 
 
-= Easy to buy
+= 样品购买
 
 WARNING: SINOVOIP Aliexpress Shop: https://www.aliexpress.us/item/3256804530142161.html
 
