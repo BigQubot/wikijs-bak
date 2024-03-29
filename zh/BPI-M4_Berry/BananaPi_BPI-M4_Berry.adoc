@@ -1,13 +1,13 @@
-= BPI-M4 Berry Introduction
+= BPI-M4 Berry 介绍
 
-The BPI-M4 Berry development board stands as a powerful Single Board Computer (SBC), harnessing the capabilities of the Allwinner H618 System-on-Chip (SoC) to provide developers with impressive performance and a wealth of features. Similar to the Raspberry Pi 4b, the BPI-M4 Berry boasts comparable CPU prowess, LPDDR4 memory support, integrated WiFi and Bluetooth functionalities, and a familiar 40-pin header layout, alongside 4 USB interfaces and a GbE RJ45 port.
+BPI-M4 Berry开发板是一款功能强大的单板计算机（SBC），利用全志科技 H618 的功能为开发人员提供优秀的性能和丰富的功能。与Raspberry Pi 4 B类似，BPI-M4 Berry拥有相当的CPU性能，LPDDR 4内存支持，集成WiFi和蓝牙功能，以及熟悉的40针座布局，以及4个USB接口和GbE RJ45端口。
 
-Characterized by its robust performance, versatile features, and remarkable image processing capabilities, stands as an exemplary SBC development platform for professionals within the embedded and computing industries. Equipped with 8GB eMMC flash storage, high-performance decoding and encoding capabilities, and an array of interface options, it caters to a wide spectrum of application domains, including media processing, IoT, and entertainment. Whether catering to novices or seasoned developers, the BPI-M4 Berry development board offers an ideal toolset for realizing creative visions and project objectives.
+凭借其强大的性能、多功能特性和卓越的图像处理能力，它是嵌入式和计算行业专业人士的典范SBC开发平台。它配备了8 GB eMMC闪存、高性能解码和编码功能以及一系列接口选项，可满足媒体处理、物联网和娱乐等广泛应用领域的需求。无论是面向新手还是经验丰富的开发人员，BPI-M4 Berry开发板都为实现创造性愿景和项目目标提供了理想的工具集。
 
 image::/picture/bpi_m4_berry_banner_3.jpg[bpi_m4_berry_banner_3.jpg]
 
-TIP: Allwinner H618 design : link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry[Banana Pi BPI-M4 Berry] Same size as Raspberry Pi 4B +
-Allwinner H618 design : link:/en/BPI-M4_Zero/BananaPi_BPI-M4_Zero[Banana Pi BPI-M4 Zero] Same size as Raspberry Pi Zere W
+TIP: 全志科技 H618 设计 : link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry[Banana Pi BPI-M4 Berry] 大小和Raspberry Pi 4B 相似 +
+全志科技 H618 设计 : link:/en/BPI-M4_Zero/BananaPi_BPI-M4_Zero[Banana Pi BPI-M4 Zero] 大小和Raspberry Pi Zere W相似
 
 = Key Features
 
@@ -22,23 +22,23 @@ Allwinner H618 design : link:/en/BPI-M4_Zero/BananaPi_BPI-M4_Zero[Banana Pi BPI-
 * 1x 3.5mm Audio & TVE jack socket
 * 1x GbE Ethernet port
 
-== Getting Start
+== 快速入门
 
-TIP: link:/en/BPI-M4_Berry/GettingStarted_BPI-M4_Berry[Getting Started BPI-M4_Berry]
+TIP: link:/en/BPI-M4_Berry/GettingStarted_BPI-M4_Berry[入门 BPI-M4_Berry]
 
-= Hardware
-== Hardware Interface
+= 硬件
+== 硬件接口
 image::/picture/bpi-m4_berry_interface.jpg[bpi-m4_berry_interface.jpg]
 
-== BPI-M4 Berry Photo
+== BPI-M4 Berry 照片
 
 link:/en/BPI-M4_Berry/Photo_BPI-M4_Berry[Banana Pi BPI-M4 Berry Product photo gallery]
 
-== Hardware Spec
+== 硬件规格
 
 [options="header",cols="1,4",width="70%"]
 |=====
-2+| **HardWare Specification of Banana Pi BPI-M4 Berry**
+2+| **Banana Pi BPI-M4 Berry 的硬件规格**
 | CPU                               | Allwinner H618, Quad-core ARM Cortex™-A53 processor, 64-bit, up to 1.5GHz                    
 | GPU                               | ARM Mali G31 GPU                                                                             
 | Memory                            | 2 GB LPDDR4                                                                                  
