@@ -3,6 +3,7 @@
 Taking BPI-M5 as example. Please prepare a Linux computer.
 
 = Install Docker
+There is a one click installation script for installing Docker, and the installation command is as follows:
 ```sh
 curl -fsSL https://test.docker.com -o test-docker.sh
 sudo sh test-docker.sh
