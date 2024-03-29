@@ -34,3 +34,87 @@ After running, you can use "Docker Container ls" to view the dockers that have a
 Then connect to Docker via SSH with the password root.
 
 Create a folder in Docker, which can also be seen on the physical machine.
+
+= Compile image
+. First, pull the source code
+
++
+```sh
+git clone https://github.com/BPI-SINOVOIP/BPI-M5-bsp
+```
+
+. Go to the folder and pull the submiodule
+
++
+```sh
+cd BPI-M5-bsp
+git submodule update --init --recursive
+```
+
+. Start compiling
+
++
+```sh
+./build.sh bpi-m5 1
+ 
+...
+```
+
+. Then wait until the compilation is completed
+
+= Burn image
+
+
+= Install bpi-tool
+
+. Install bpi tools using the following command
++
+```sh
+curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash -
+```
++
+Note that if there is no response, the following one can also be used
++
+```sh
+git clone https://github.com/BPI-SINOVOIP/bpi-tools
+cd bpi-tools
+sudo cp ./bpi* /bin/
+```
+
+. Enter the lsblk command to view the SD card path. (My path is/dev/sdd)
+
+. Enter the code directory of the physical machine
++
+```sh
+cd ~/bpi/image/BPI-M5-bsp
+```
+
++
+```
+sudo ./build.sh bpi-m5 6
+This tool support following building mode(s):
+--------------------------------------------------------------------------------
+        1. Build all, uboot and kernel and pack to download images.
+        2. Build uboot only.
+        3. Build kernel only.
+        4. kernel configure.
+        5. Pack the builds to target download image, this step must execute after u-boot,
+           kernel and rootfs build out
+        6. Update local build to SD with BPI Image flashed
+        7. Clean all build.
+--------------------------------------------------------------------------------
+ Now building...
+ 
+scripts/mk_install_sd.sh
+--------------------------------------------------------------------------------
+  1. M5/M2Pro
+--------------------------------------------------------------------------------
+Please choose a target to install(1): 1
+ 
+Please type the SD device(/dev/sdX): /dev/sdd
+ 
+ type will be intalled to /dev/sdd, [Y/n] y
+ 
+Yes
+...
+```
