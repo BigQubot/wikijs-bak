@@ -11,16 +11,16 @@ TIP: 全志科技 H618 设计 : link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry[Bana
 
 = Key Features
 
-* Allwinner H618, Quad-core ARM Cortex™-A53 processor
+* 全志科技 H618, Quad-core ARM Cortex™-A53 processor
 * ARM Mali G31 GPU
 * WIFI & Bluetooth
 * 2G LPDDR4 RAM
-* 8G eMMC flash memory
-* 1x USB2.0 Type-C OTG, 5V power supply
+* 8G eMMC flash 存储器
+* 1x USB2.0 Type-C OTG, 5V 电源
 * 4x USB2.0 Type-A
 * 1x HDMI 2.0a
-* 1x 3.5mm Audio & TVE jack socket
-* 1x GbE Ethernet port
+* 1x 3.5mm 音频 & TVE 接口
+* 1x GbE 网口
 
 == 快速入门
 
@@ -39,24 +39,24 @@ link:/en/BPI-M4_Berry/Photo_BPI-M4_Berry[Banana Pi BPI-M4 Berry Product photo ga
 [options="header",cols="1,4",width="70%"]
 |=====
 2+| **Banana Pi BPI-M4 Berry 的硬件规格**
-| CPU                               | Allwinner H618, Quad-core ARM Cortex™-A53 processor, 64-bit, up to 1.5GHz                    
+| CPU                               | 全志科技 H618, Quad-core ARM Cortex™-A53 processor, 64-bit, up to 1.5GHz                    
 | GPU                               | ARM Mali G31 GPU                                                                             
 | Memory                            | 2 GB LPDDR4                                                                                  
 | Storage                           | 8G eMMC flash                                                                                
 | SD card                           | MicroSD card slot                                                                            
-| Wireless                          | 2.4G/5G WiFi and Bluetooth 4.2                                                               
-| Ethernet                          | 1x GbE Ethernet port(supports PoE with add-on PoE HAT)                                       
+| 无线                               | 2.4G/5G WiFi and Bluetooth 4.2                                                               
+| 以太网                             | 1x GbE Ethernet port(supports PoE with add-on PoE HAT)                                       
 | HDMI                              | 1x full-size HDMI 2.0a (up to 4K@60Hz with HDR10, CEC, DDC, SCDC), HDMI digital Audio output 
-| Audio                             | 1x 3.5mm Audio & TVE jack socket                                                             
+| 音频                               | 1x 3.5mm Audio & TVE jack socket                                                             
 | IR                                | 1x CIR                                                                                       
 | USB                               | 4x USB2.0 Type-A HOST, 1x USB2.0 Type-C OTG                                                  
-.2+| GPIO                              | 40-pin header, 28 pins GPIO and Power (+5V, +3.3V and GND)                                   
+.2+| GPIO                           | 40-pin header, 28 pins GPIO and Power (+5V, +3.3V and GND)                                   
 | UART, SPI, TWI/I²C, PWM, PCM/I²S                                                                                               
-| Buttons                           | Reset, FEL and User                                                                          
+| 按钮                               | Reset, FEL and User                                                                          
 | LED                               | Power Status and Activity status                                                             
-| Power                             | 5V@3A via USB Type-C                                                                         
-| Size                              | 85x56 mm                                                                                     
-| Weight                            | 60g                                            
+| 电源                               | 5V@3A via USB Type-C                                                                         
+| 大小                               | 85x56 mm                                                                                     
+| 重量                               | 60g                                            
 |=====
 
 == BPI-M4 Berry VS Raspberry Pi 4B
@@ -86,7 +86,7 @@ link:/en/BPI-M4_Berry/Photo_BPI-M4_Berry[Banana Pi BPI-M4 Berry Product photo ga
 |=====================================================================================================================================================================
 
 
-== GPIO Pin Define
+== GPIO 引脚定义
 
 === BPI-M4 Berry 40PIN GPIO
 
@@ -136,7 +136,7 @@ link:/en/BPI-M4_Berry/Photo_BPI-M4_Berry[Banana Pi BPI-M4 Berry Product photo ga
 | 40      | PG13     | H_I2S2_DOUT0 | H_I2S2_DIN1  |           |              
 |=====
 
-=== BPI-M4 Berry Debug UART
+=== BPI-M4 Berry 调试接口
 
 |=====
 |1|GND
@@ -144,8 +144,8 @@ link:/en/BPI-M4_Berry/Photo_BPI-M4_Berry[Banana Pi BPI-M4 Berry Product photo ga
 |3|UART0_TX
 |=====
 
-= Development
-== Source Code
+= 发展
+== 源代码
 === Android
 TIP: BPI-H618-Android12-Code
 
@@ -161,7 +161,7 @@ u-boot for H618 : https://github.com/BPI-SINOVOIP/pi-u-boot/tree/v2021.07-sunxi
 
 kernel for H618 : https://github.com/BPI-SINOVOIP/pi-linux/tree/pi-6.1-sunxi
 
-== Resources
+== 资料
 
 TIP: BPI-M4 Berry Allwinner H618 SBC burn Ubuntu desktop image, youtube video: https://www.youtube.com/watch?v=GAZsUDYL0DE
 
@@ -191,7 +191,7 @@ TIP: Bananapi BPI-M4 Berry support Waveshare 4inch 720x720 screen
 Test video:
 https://www.youtube.com/watch?v=CRcjx6_29rA&t=75s
 
-= System Image
+= 系统镜像
 == Android
 
 NOTE: 2024-01-14-bananapi-m4berry-android12-box.img
@@ -246,12 +246,12 @@ Baidu Cloud: https://pan.baidu.com/s/1jwB29x-zKi-MqVviwzxPPA?pwd=8888 (pincode:8
 
 Google Drive: https://drive.google.com/file/d/1JTBpCwhC9OL3vlk7Dl7duD9Yqmik4Rm9/view?usp=sharing
 
-= Easy to buy
+= 购买
 
-WARNING: SINOVOIP Aliexpress shop: https://www.aliexpress.us/item/1005006212355480.html?spm
+WARNING: SINOVOIP 全球速卖通商店: https://www.aliexpress.us/item/1005006212355480.html?spm
 
-WARNING: Bipai Aliexpress shop: https://www.aliexpress.us/item/1005006212128000.html?gatewayAdapt=glo2usa
+WARNING: Bipai 全球速卖通商店: https://www.aliexpress.us/item/1005006212128000.html?gatewayAdapt=glo2usa
 
-WARNING: Taobao Shop: https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-25059194413.11.489155c8Addsck&id=747425760994
+WARNING: 淘宝: https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-25059194413.11.489155c8Addsck&id=747425760994
 
-WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
+WARNING: OEM&ODM, 请联系: judyhuang@banana-pi.com
