@@ -9,7 +9,7 @@ image::/picture/banana_pi_bpi-m6_banner.jpg[banana_pi_bpi-m6_banner.jpg]
 
 VideoSmart™ VS680 solution, an industry-first edge computing SoC that combines a CPU, NPU, and GPU. This new multimodal platform with integrated neural network accelerator is purpose built with perceptive intelligence for applications including smart displays, smart cameras, set-top-boxes and media streamers.The Synaptics VideoSmart VS680 is a multimedia powerhouse that combines a Qdeo 4K-video engine, an audio processor capable of far-field keyword detection and voice recognition, and a proprietary SyNap deep-learning accelerator (DLA). it also integrates a higher-performance Imagination PowerVR Series9 GPU. Another new feature is an ISP with HDR capabilities that can handle two 4K cameras. Previous VideoSmart products target the streaming-video set-top-box (STB) market, but the VS680 aims for a broader range of smart-home devices. It s well suited to the Facebook Portal and other smart displays, which enable video calling. The audio processor can drive a smart speaker or sound bar, but when coupled with the DLA, it handles on-device voice-UI functions in addition to providing the front end to a cloud-based digital assistant. The DLA works with the dual ISP to run neural networks on video streams from front and rear cameras, enabling face ID, object recognition, and security monitoring, among other tasks. The Qdeo engine can drive two displays, allowing the device to power a 1080p touchscreen panel in an STB while simultaneously streaming to a 4K TV.
 
-VS680 chip official Developer Center: https://developer.senarytech.com/index.html
+TIP: VS680 chip official Developer Center: https://developer.senarytech.com/index.html
 
 == Key Features
 
@@ -27,16 +27,16 @@ VS680 chip official Developer Center: https://developer.senarytech.com/index.htm
 
 TIP: link:/en/BPI-M6/GettingStarted_BPI-M6[Getting Started BPI-M6]
 
-= Hardware =
-== Hardware Interface ==
+= Hardware
+== Hardware Interface
 
 image::/picture/banana_pi_bpi-m6_interface.jpg[banana_pi_bpi-m6_interface.jpg]
 
-== BPI-M6 Photo:
+== BPI-M6 Photo
 
 link:/en/BPI-M6/Photo_BPI-M6[Banana Pi BPI-M6 Product photo gallery]
 
-== Hardware Spec ==
+== Hardware Spec
 
 [options="header",cols="1,4"]
 |=====
@@ -60,8 +60,8 @@ link:/en/BPI-M6/Photo_BPI-M6[Banana Pi BPI-M6 Product photo gallery]
 | OS              | Android and Linux
 |=====
 
-== GPIO define ==
-=== 40 Pin GPIO define ===
+== GPIO define
+=== 40 Pin GPIO define
 [options="header",cols="1,2,3,4",width="70%"]
 |=====
 4+| **40 Pin GPIO define of Banana Pi M6**
@@ -88,7 +88,7 @@ link:/en/BPI-M6/Photo_BPI-M6[Banana Pi BPI-M6 Product photo gallery]
 |GND	|39		|40	|GPIO19/I2S1_DO0
 |=====
 
-=== M.2 E-KEY(CN10) ===
+=== M.2 E-KEY(CN10)
 
 [options="header",cols="1,2,3,4",width="70%"]
 |=====
@@ -194,7 +194,7 @@ TIP: https://github.com/BPI-SINOVOIP/pi-u-boot/tree/v2019.10-vs680
 
 = Development 
 
-== Resources ==
+== Resources
 TIP: Senary VS680(Synaptics SN3680) Product Brief: https://drive.google.com/file/d/15yEqizJ6J7_UkSqmkpJMMqUuXGJwptGk/view?usp=sharing
 
 TIP: The VS680 NPU is ranked first on AI benchmark website: https://ai-benchmark.com/ranking_IoT.html
@@ -226,28 +226,30 @@ TIP: Banana Pi Bpi M6 Raspberry Pi 5 Alternative Ersteinrichtung Firmware Image 
 TIP: BPI-M6 initiates user creation for the first time:
 https://www.youtube.com/watch?v=fjghokEmhFc
 
-= System Image =
-== Android ==
+= System Image 
+== Android
 
 NOTE: 2023-08-30 release aosp_dolphin_tablet-syna-image-lpddr4x
 
-* Baidu Cloud: https://pan.baidu.com/s/1unEibD-NI8-Ti5le2E6d7g?pwd=8888 PIN code:8888 
+Baidu Cloud: https://pan.baidu.com/s/1unEibD-NI8-Ti5le2E6d7g?pwd=8888 PIN code:8888 
 
-* Google Drive: https://drive.google.com/file/d/1egPBOusdlNGJDdp5muAjiv2MvMya0F-H/view?usp=sharing
+Google Drive: https://drive.google.com/file/d/1egPBOusdlNGJDdp5muAjiv2MvMya0F-H/view?usp=sharing
 
-== Linux ==
+== Linux
 
-=== Armbian ===
+=== Armbian
 
 NOTE: 2024-03-20 armbian-unoffcial_24.2.0 image for BPI-M6,support NPU yolov6 AI recognition
 
-* Baidu cloud: https://pan.baidu.com/s/1t9aDdKxTeUnawz_vBIni0g?pwd=8888 (pincode:8888)
-* Google drive: https://drive.google.com/drive/folders/1CZbac_R6VgfLBoJbIzbyCzwYCmQ_j8oQ?usp=sharing
+Baidu Cloud: https://pan.baidu.com/s/1t9aDdKxTeUnawz_vBIni0g?pwd=8888 PIN code:8888
+
+Google Drive: https://drive.google.com/drive/folders/1CZbac_R6VgfLBoJbIzbyCzwYCmQ_j8oQ?usp=sharing
 
 NOTE: 2024-02-29 armbian-unoffcial_24.2.0 image for BPI-M6
 
-* Baidu link: https://pan.baidu.com/s/1pZFEna3CwR-v8lS-7Z88vA?pwd=8888  PIN code:8888 
-* Google Drive: https://drive.google.com/drive/folders/1uh01OPtJ05Q_TAb-5HEcSMSiLTuSivKc?usp=sharing
+Baidu Cloud: https://pan.baidu.com/s/1pZFEna3CwR-v8lS-7Z88vA?pwd=8888  PIN code:8888 
+
+Google Drive: https://drive.google.com/drive/folders/1uh01OPtJ05Q_TAb-5HEcSMSiLTuSivKc?usp=sharing
 
 
 
@@ -255,9 +257,9 @@ NOTE: 2024-02-29 armbian-unoffcial_24.2.0 image for BPI-M6
 
 NOTE: 2024-01-25-ubuntu-20.04-mate-desktop-vpu-npu-bpi-m6-aarch64-sd.img
 
-* Baidu Cloud: https://pan.baidu.com/s/1IUDdKI0lT53-jFqUgqrdGA?pwd=8888 PIN code:8888
+Baidu Cloud: https://pan.baidu.com/s/1IUDdKI0lT53-jFqUgqrdGA?pwd=8888 PIN code:8888
 
-* Google Drive: https://drive.google.com/file/d/1mw0Fiwa0fmXyTs6c6DI9Z4bcQZEy83p2/view?usp=sharing
+Google Drive: https://drive.google.com/file/d/1mw0Fiwa0fmXyTs6c6DI9Z4bcQZEy83p2/view?usp=sharing
 
 
 = Easy to buy
