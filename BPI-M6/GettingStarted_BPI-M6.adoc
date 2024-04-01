@@ -77,3 +77,57 @@ image::/picture/etcher.jpg[etcher.jpg]
 After the image is burned, insert the SD card into the BPI-M6. Press and hold the SPI key while inserting the power supply.
 
 
+
+== HDMI
+VS680 HDMI TX functional properties:
+
+- Support hdmi v2.1
+- Support up to 2160p@60 YUV444
+- Support up to 1080p@60 with 12b deep color
+- Support up to HDCP 2.2
+- Support HBR output
+- Support HDR10 and HLG
+
+=== HDMI TX software configuration
+VS680 currently uses two display frameworks, FB and DRM
+
+Source code file for FB scheme: +
+**syna-release/linux_5_4/drivers/video/syna/source/**
+
+Source code file for DBM scheme: +
+**syna-release/linux_5_4/drivers/soc/berlin/modules/drm/**
+
+Enable the HDMI TX feature in the configuration file. The configuration file is located in the SDK's **syna-release/configs/product/vs680_a0_android_baseline_evk/vs680_a0_android_baseline_evk_defconfig**，with the following configuration:
+
+image::/picture/bpi-m6_hdmi_tx_software_configuration.png[bpi-m6_hdmi_tx_software_configuration.png]
+
+=== Enable HDCP
+```sh
+test_disp enable/disable hdcp
+test_disp setVersion 1 //set hdcp 1.4
+test_disp setVersion 2 //set hdcp 2.2
+```
+
+=== Resolution Configuration
+Supported standards: CEA-861-E video format
+
+Supported resolutions: +
+**3840x2160p60Hz/30Hz//24Hz** +
+**1920x1200@60hz** +
+**1920x1080p@60** +
+**1280x700p@60**
+	
+Configure resolution and format on the command line:
+
+test_disp setformat[Display ID] [Resolution ID] [BitDepth] [Color fmt] [Aspect Ratio][tgID][vout_mode]
+
+Examples:
+```sh
+test_disp setformat 0 64 2 0
+```
+
+
+
+== WIFI & BT
+
+== Camera
