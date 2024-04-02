@@ -1,5 +1,7 @@
 = BPI-M7 Display 10 HD
 
+image::/bpi-m7/banana_pi_bpi-m7_touch_screen_5.jpg[banana_pi_bpi-m7_touch_screen_5.jpg]
+
 The display model Banana Pi Display 10 HD1 is a ALL O‘ clock TFT LCD (Thin Film Transistor Liquid Crystal Display) module. This model is Composed of a TFT LCD panel, a driving circuit and a back light, and also has a 10.1 inch diagonally measured active display area with FHD(1200 horizontal by 1920 vertical pixel) resolution in a stripe arrangement. Display 16.7M colors by 8 bit R.G.B signal input.
 
 image::/bpi-m7/banana_pi_bpi-m7_touch_screen_4.jpg[banana_pi_bpi-m7_touch_screen_4.jpg]
@@ -55,4 +57,43 @@ image::/bpi-m7/banana_pi_bpi-m7_touch_screen_4.jpg[banana_pi_bpi-m7_touch_screen
 |33-38	|NC	|OPEN
 |39-40	|LEDA	|LED Anode
 |====
+
+= Enable Display Overlay
+
+== Ubuntu22.04 image to enable display overlay
+Use nano to open the /boot/firmware/ubuntuEnv.txt file:
+
+```sh
+sudo nano /boot/firmware/ubuntuEnv.txt
+```
+Find the "overlays=" keyword in the file, and add the following:
+
+```sh
+overlays=armsom-sige7-display-10hd
+```
+Shortcut keys: Ctrl + S to save, Ctrl + X to exit
+
+After editing, restart the device to change the Overlays settings to support the Display 10 HD.
+
+== Armbian image to enable display overlay
+
+Use nano to open the /boot/armbianEnv.txt file:
+
+```sh
+sudo nano /boot/armbianEnv.txt
+```
+
+Find or add the "overlays=" keyword in the file.
+
+```sh
+overlays=armsom-sige7-display-10hd
+```
+
+Shortcut keys: Ctrl + S to save, Ctrl + X to exit
+
+After editing, restart the device to change the Overlays settings to support the Display 10 HD.
+
+= Hardware connect 
+
+image::/bpi-m7/banana_pi_bpi-m7_touch_screen_6.jpg[banana_pi_bpi-m7_touch_screen_6.jpg]
 
