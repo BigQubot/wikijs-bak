@@ -19,22 +19,23 @@ TIP: More Infomation: link:/en/BPI-CM4/BananaPi_BPI-CM4[Banana Pi BPI-CM4]
 == Install Image with Usb Burning Tool
 . Open USB_Burning_Tool.exe, select menu File->Import image, and select android image.
 +
+image::/picture/cm4_android_install_1.png[cm4_android_install_1.png]
 
 . Short the usb boot test point on the main board, plugin type-c usb cable to PC or press the RST button if power adapter already connected, about two seconds later, the board will enter usb download mode and be identified correctly by PC. You can also enter usb download mode with adb command "adb reboot update" or console command "reboot update" if a bootable android already flashed, make sure typec usb connected to PC before doing this.
 +
-Cm4 usb download.jpg
+image::/picture/cm4_usb_download.jpg[cm4_usb_download.jpg]
 +
-M2s android install 3.png
+image::/picture/m2s_android_install_3.png[M2s android install 3.png]
 +
-M2s android install 2.png
+image::/picture/cm4_android_install_4.png[cm4_android_install_4.png]
 
 . Click the Start button of the download tool and wait for upgrade complete.
 +
-M2s android install 4.png
+image::/picture/cm4_android_install_3.png[cm4_android_install_3.png]
 
 . After Burning successfull, Unplug the type-c usb and connect to power supply adaptor to startup.
 +
-M2s android install 5.png
+image::/picture/cm4_android_install_2.png[cm4_android_install_2.png]
 
 . Click the Stop button to cancel the upgrade process and close the USB Buring Tool.
 
@@ -372,7 +373,7 @@ Please read the source code link:https://github.com/BPI-SINOVOIP/BPI-M2S-bsp/blo
 == Enable Camera
 The linux release image is camera disabled default, according to the following configuration, it can be enabled by yourself.
 
-. Update the link:/en/CM4/GettingStarted_BPI-CM4#_dtb_overlay[dtb overlays] env in /boot/env.txt to enable camera dtbo.
+. Update the link:/en/BPI-CM4/GettingStarted_BPI-CM4#_dtb_overlay[dtb overlays] env in /boot/env.txt to enable camera dtbo.
 +
 ```sh
  overlays="os08a10"
@@ -470,7 +471,7 @@ change the fb_rotate env in /boot/env.txt
 
 WARNING: Note: This WiringPi only support set 26pin gpio to output, input, pwm or software pwm, for io functions as i2c, spi, ..., you must enable dtb overlay in boot.ini
 
-. Build and install wiringPi, for debian, you must link:/en/CM4/GettingStarted_BPI-CM4#_enable_sudo_for_debian[install sudo] before build
+. Build and install wiringPi, for debian, you must link:/en/BPI-CM4/GettingStarted_BPI-CM4#_enable_sudo_for_debian[install sudo] before build
 +
 ```sh
  $ sudo apt-get update
