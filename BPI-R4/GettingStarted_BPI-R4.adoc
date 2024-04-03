@@ -492,16 +492,18 @@ root@R4CN:/#
 ```
 
 == 4G 5G Module
+=== M.2 4G/5G Module(USB Interface)
+BPI-R4 supports M.2 USB Interface Quectel 4G LTE EM05, RM500U-CN & RM520N-GL 5G Modules.
 
-BPI-R4 supports 4G LTE EC25. Quectel RM500U-CN & RM520N-GL 5G Modules.
+If you want to use M.2 Cellular Module on BPI-R4:
 
-If you want to use 5G on BPI-R4:
+. Install 4G/5G Cellular Module into CN16 Slot(M.2 KEYB)
+. Inset NANOSIM Card into SIMSlot(SIM1) with card tray(pay attention to the direction)
+. Install antenna on the module
+. After powering on, it will automatically dial
 
-. Insert 5G dongle into USB3.0.
-. Connect RG200U-CN to mini PCIe, connect SoC through USB2.0(speed limited).
-. Make an RG200U-CN LGA adapter board and insert it into M.2 KEY M.
+NOTE: The availability of 4G/5G depends on the local carrier frequency band.
 
-NOTE: Note: The availability of 4G/5G depends on the local carrier frequency band.
 
 image::/bpi-r4/bpi-r4_4g5g_1.jpg[bpi-r4_4g5g_1.jpg]
 
@@ -509,8 +511,9 @@ image::/bpi-r4/bpi-r4_4g5g_2.jpg[bpi-r4_4g5g_2.jpg]
 
 image::/bpi-r4/bpi-r4_4g5g_3.jpg[bpi-r4_4g5g_3.jpg]
 
-=== Quectel RM520N-GL
-```bash
+**Quectel RM520N-GL**
+```sh
+Quectel RM520N-GL
 wwan0     Link encap:Ethernet  HWaddr A6:35:F7:7A:9E:A7  
          inet6 addr: fe80::a435:f7ff:fe7a:9ea7/64 Scope:Link
          UP RUNNING NOARP  MTU:1500  Metric:1
@@ -549,8 +552,8 @@ round-trip min/avg/max = 30.712/40.003/53.459 ms
 root@R4CN:/#
 ```
 
-=== RM500U-CN
-```bash
+**RM500U-CN**
+```sh
 usb0      Link encap:Ethernet  HWaddr 5E:3B:9C:76:7C:46  
          inet addr:10.95.9.23  Bcast:10.95.9.255  Mask:255.255.255.0
          inet6 addr: fe80::5c3b:9cff:fe76:7c46/64 Scope:Link
@@ -580,8 +583,8 @@ round-trip min/avg/max = 38.725/44.573/55.105 ms
 root@R4CN:/#
 ```
 
-=== EM05-CE
-```bash
+**EM05-CE**
+```sh
 wwan0     Link encap:Ethernet  HWaddr F2:CC:52:10:2E:27  
          inet addr:10.21.103.116  Bcast:0.0.0.0  Mask:255.255.255.248
          inet6 addr: fe80::f0cc:52ff:fe10:2e27/64 Scope:Link
