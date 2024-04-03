@@ -74,18 +74,12 @@ TIP: Change Boot Jumper to boot from SD, Enable SD Card Device.
 
 image::/picture/bpi-r3-jumper-all-high.png[bpi-r3-jumper-all-high.png]
 
-== Install Image to eMMC
+== Install Image to NAND
 
-WARNING: Note: because SD card and EMMC device share one SOC's interface, you need flash one SD image firstly, then R3 boot from SD card, then flash nand image into Nand, then change boot strap to boot from nand,  you need flash EMMC image into EMMC. Finally you change bootstrap to boot from EMMC.
-
-WARNING: If there are bootable images in Nand, you can start directly from step five.
-
-Before burning image to eMMC, please prepare a SD card with flashed bootable image and a USB disk.
-
-Let's take OpenWrt image (mtk-bpi-r3-SD-WAN1-SFP1-20220619-single-image.img, mtk-bpi-r3-NAND-WAN1-SFP1-20220619-single-image.bin, bl2_emmc.img, mtk-bpi-r3-EMMC-WAN1-SFP1-20220619-single-image.img) for example, the steps are below:
+Let's take OpenWrt image (mtk-bpi-r3-SD-WAN1-SFP1-20220619-single-image.img, mtk-bpi-r3-NAND-WAN1-SFP1-20220619-single-image.bin) for example, the steps are below:
 
 . Insert the flashed SD card and power on to start the board.(the image "**mtk-bpi-r3-SD-WAN1-SFP1-20220619-single-image.img**" on the SD card can be OpenWrt or other linux OS like ubuntu...)
-. Copy Nand bootable and EMMC boot OpenWrt image(**mtk-bpi-r3-NAND-WAN1-SFP1-20220619-single-image.bin, bl2_emmc.img, mtk-bpi-r3-EMMC-WAN1-SFP1-20220619-single-image.img**) to USB disk, if the image is compressed please uncompress it before copying to USB disk.
+. Copy Nand bootable and EMMC boot OpenWrt image(**mtk-bpi-r3-NAND-WAN1-SFP1-20220619-single-image.bin**) to USB disk, if the image is compressed please uncompress it before copying to USB disk.
 . Plug in USB disk to the board, and mount the USB to /mnt or other directory as follows: (you can skip mounting if it is mounted automatically)
 +
 ```sh
@@ -108,7 +102,11 @@ TIP: Enable EMMC device, boot strap is from nand
 +
 image::/picture/bpi-r3-jumper-flash-nand.png[bpi-r3-jumper-flash-nand.png]
 
-. Repeat the third step to mount the USB drive to/mnt, and then execute the following command to burn the image to EMMC:
+== Install Image to eMMC
+NOTE: Switch the button to NAND and then start BPI-R3
+
+. Insert the USB drive with **bl2_emmc.img** and **mtk-bpi-r3-EMMC-xxx.img** into BPI-R3.
+. Mount the USB drive to/mnt, and then execute the following command to burn the image to EMMC:
 +
 ```sh
 mount -t vfat /dev/sda1 /mnt
