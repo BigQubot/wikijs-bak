@@ -1,19 +1,19 @@
-= BPI-M2S Introduction
+= BPI-M2S 介绍
 
-BananaPi BPI-M2S new design with Amlogic A311D, Quad core ARM Cortex-A73 and dual core ARM Cortex-A53 CPU,ARM G52 MP4(6EE) GPU,NPU for AI at 5.0 TOPS, support Camera and MIPI-CSI interface ,HDMI output,2 Gigabit port, 4G RAM and 16 GB eMMC flash.
+香蕉派 BPI-M2S全新设计，搭载Amlogic A311 D、四核ARM Cortex-A73和双核ARM Cortex-A53 CPU、ARM G52 MP4（6 EE）GPU、NPU for AI at 5.0 TOPS、支持摄像头和MIPI-CSI接口、HDMI输出、2个千兆端口、4G RAM和16 GB eMMC闪存。
 
-image::/bpi-cm4/banana_pi_bpi-m2s_bannar.jpg[banana_pi_bpi-m2s_bannar.jpg]
+image::/picture/banana_pi_bpi-m2s_bannar.jpg[banana_pi_bpi-m2s_bannar.jpg]
 
-TIP: Amlogic A311D design : link:/en/BPI-M2_Super/BananaPi_BPI-M2_Super[Banana Pi BPI-M2S] single board compuer +
-Amlogic A311D design : link:/en/BPI-CM4/BananaPi_BPI-CM4[Banana Pi BPI-CM4] computer module
+TIP: Amlogic A311D design : link:/zh/BPI-M2_Super/BananaPi_BPI-M2_Super[香蕉派 BPI-M2S] single board compuer +
+Amlogic A311D design : link:/zh/BPI-CM4/BananaPi_BPI-CM4[香蕉派 BPI-CM4] computer module
 
-BPI-M2S same size as link:/en/BPI-M2_Plus/BananaPi_BPI-M2_Plus[Banana Pi BPI-M2+] and link:/en/BPI-M2_Pro/BananaPi_BPI-M2_Pro[Banana Pi BPI-M2 Pro]
+BPI-M2S 和 link:/zh/BPI-M2_Plus/BananaPi_BPI-M2_Plus[香蕉派 BPI-M2+]， link:/zh/BPI-M2_Pro/BananaPi_BPI-M2_Pro[香蕉派 BPI-M2 Pro]大小相同。
 
-NOTE:  Amlogic S922X variant BPI-M2S board is 2G ram, 16G eMMC, NOT support npu, mipi panel and mipi camera.
+NOTE:  Amlogic S922X variant BPI-M2S 是2G RAM，16 G eMMC，不支持npu，mipi面板和mipi摄像头。
 
-YouTube viode: https://youtu.be/0s3seudNXdE
+YouTube 视频: https://youtu.be/0s3seudNXdE
 
-== Key Features
+== 关键特征
 
 - Amlogic A311D Quad core ARM Cortex-A73 and dual core ARM Cortex-A53 CPU ,ARM G52 MP4(6EE) GPU
 - NPU for AI :Next generation, deep-neural-network applications, at 5.0 TOPS
@@ -26,24 +26,24 @@ YouTube viode: https://youtu.be/0s3seudNXdE
 - 40 PIN GPIO
 - Support Android and Linux system
 
-== Getting Start
+== 快速入门
 
-TIP: link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super[Getting Started BPI-M2_Super]
+TIP: link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super[快速入门 BPI-M2_Super]
 
-= Hardware
-== Hardware Interface
+= 硬件
+== 硬件接口
 
 image::/picture/bpi-m2s_s922x_new.jpg[bpi-m2s_s922x_new.jpg]
 
-== BPI-M2S Photo
+== BPI-M2S 图片
 
 link:/en/BPI-M2S/Photo_BPI-M2S[Banana Pi BPI-M2S Product photo gallery]
 
-== Hardware Spec
+== 硬件规格
 
 [options="header",cols="1,4"]
 |=====
-2+| **HardWare Specification of Banana Pi M2 Super**
+2+| **香蕉派 M2 Super 硬件规格**
 | SoC | Amlogic A311D hexa-core processor with 4x Arm Cortex-A73 cores, 2x Arm Cortex-A53 cores, Arm Mali-G52 MP4 (6EE) GPU with OpenGL ES 3.2, Vulkan 1.0 and OpenCL 2.0 support, 5 TOPS NPU
 | System Memory | 4GB LPDDR4
 | Storage | 16GB eMMC flash (option up to 128GB), MicroSD card slot
@@ -62,7 +62,7 @@ MIPI CSI connector for camera
 | Dimensions | 65 x 65mm
 |=====
 
-== GPIO Pin Define
+== GPIO引脚定义
 
 === BPI-M2 Super 40PIN GPIO
 
@@ -112,7 +112,7 @@ MIPI CSI connector for camera
 | CON2-P40 | GPIOA_3  |               | I2SB_DOUT_DIN_0 
 |=====
 
-=== BPI-M2 Super Debug UART
+=== BPI-M2 Super 调试接口
 
 |=====
 | CON2-P1	| GND
@@ -120,7 +120,7 @@ MIPI CSI connector for camera
 | CON2-P3	| UART0-TX
 |=====
 
-=== BPI-M2S Camera(CN10)
+=== BPI-M2S 相机(CN10)
 
 |=====
 | CSI Pin Name	| Default Function	| Function2：GPIO
@@ -193,8 +193,8 @@ PoE support RT9600-5V PoE module
 
 link:https://wiki.banana-pi.org/en/BPI-9600_IEEE_802_3af_PoE_module[BPI-9600 IEEE 802.3af PoE module]
 
-= Development
-== Source Code
+= 发展
+== 源代码
 
 === Linux 
 
@@ -210,7 +210,7 @@ Baidu Cloud: https://pan.baidu.com/s/1rANGEB-1MLPCBXqOR5aYCg?pwd=8888 PIN code: 
 
 Google Drive: https://drive.google.com/drive/folders/1INIABp_MbB5UcwfqujTngGLOZN7YGuWp?usp=share_link
 
-== Resources
+== 资源
 
 TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
 
@@ -232,7 +232,7 @@ Google Drive: https://drive.google.com/file/d/176LPTjQgcXXNNibSbRRXKqTYxZHQqLDu/
 
 TIP: Amlogic A311D datasheet: https://drive.google.com/file/d/1SRAY_RDxKhw819uyo9H13zNN2wlG6LDq/view?usp=sharing
 
-= System Image
+= 系统镜像
 == Android
 
 NOTE: 2023-01-12-bpi-m2s-cm4-android9.img
@@ -271,7 +271,7 @@ Google Drive: https://drive.google.com/file/d/116ZydpggYpZ1WoSyVsc4QuchdIa3vGyI/
 
 MD5: 9d39558ad37e5da47d7d144c8afec45e
 
-== Third part image
+== 第三方镜像
 === Armbian
 
 NOTE: Armbian official support for BPI-M2S:
@@ -335,12 +335,12 @@ Google Drive: https://drive.google.com/drive/folders/1vCpzC7sM42amOHqGcSjaZF6Yov
 Discuss on the forum: https://forum.banana-pi.org/t/banana-pi-bpi-m2s-new-image-release-armbian-jammy-current/14637
 
 
-= Easy to buy
+= 购买方式
 
-WARNING: Sinovoip Aliexpress shop: https://www.aliexpress.com/store/group/BPI-M2S/1100417230_40000003430398.html
+WARNING: 中国大陆速卖通商店 : https://www.aliexpress.com/store/group/BPI-M2S/1100417230_40000003430398.html
 
-WARNING: Bipai Aliexpress shop : https://www.aliexpress.us/item/3256804873308120.html
+WARNING: Bipai 速卖通商店: https://www.aliexpress.us/item/3256804873308120.html
 
-WARNING: Taobao shop : https://item.taobao.com/item.htm?spm=a1z10.3-c.w4002-5702805387.9.2c3c159aK33lv9&id=695345271372
+WARNING: 淘宝店 : https://item.taobao.com/item.htm?spm=a1z10.3-c.w4002-5702805387.9.2c3c159aK33lv9&id=695345271372
 
-WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
+WARNING: OEM&ODM, 请联系: judyhuang@banana-pi.com
