@@ -1,13 +1,13 @@
-= BPI-WiFi6 Router Introduction
+= 香蕉派 BPI-WiFi6 路由器介绍
 
-Banana Pi BPI-Wifi6 Router design with Triductor TR6560 + TR5220 wifi SOC, it is a standard wifi6 router solution. Built-in high-performance dual-core ARM Cortex-A9 processor for WIFI message forwarding or intelligent business processing, built-in high-performance LSW and hardware NAT, supporting up to 5Gbps message forwarding,Integrated 5*GE PHY, provides 1000Mbps network access capability, and supports two WAN ports. Support hardware intelligent QoS. Support dual-band 2.4G 40M 2*2 +5G160M2.2 DBDC WIFI,Wifi protocol version support to IEEE 802.11ax, backward compatible 802.11a /b/g/n/ac, can support the highest rate of 3Gbps, 2G will reach 573.5Mbps, while 5G will reach 2401.9Mbps， support PoE interface ,add PoE module to support PoE function.
+Banana Pi BPI-WiFi 6路由器采用Tripuctor TR 6560 + TR 5220 wifi SOC设计，是一款标准的WiFi 6路由器解决方案。内置高性能双核ARM Cortex-A9处理器，可用于WiFi消息转发或智能业务处理，内置高性能LSW和硬件NAT，支持最高5Gbps消息转发，集成5*GE PHY，提供1000 Mbps网络接入能力，支持两个WAN端口。支持硬件智能QoS。支持双频2.4G 40M 2*2 + 5G 160M2.2 DBDC WiFi，Wifi协议版本支持到IEEE 802.11ax，向下兼容802.11a /b/g/n/ac，可支持最高速率3Gbps，2G将达到573.5Mbps，而5G将达到2401.9Mbps，支持PoE接口，增加PoE模块支持PoE功能。
 
 image::/bpi-wifi6/banana_pi_bpi-wifi6_wiki_1.jpg[banana_pi_bpi-wifi6_wiki_1.jpg]
 
 TIP: Triductor TR6560 + TR5220 wifi design: link:/en/BPI-WiFi6_Router/BananaPi_BPI-WiFi6_Router[Banana Pi BPI-Wifi6 Router] low cost wifi6 Router board +
 Triductor TR6560 + TR5220 wifi design: link:/en/BPI-WiFi6_Mini/BananaPi_BPI-WiFi6_Mini[Banana Pi BPI-Wifi6 Mini Router] low cost Mini wifi6 Router board same size as: link:/en/BPI-R3_Mini/BananaPi_BPI-R3_Mini[Banana Pi BPI-R3 mini]
 
-== Key Features
+== 主要特征
 
 - Dual core ARM Cortex-A9 1.2G Hz
 - Integrated 5*GE PHY
@@ -17,18 +17,18 @@ Triductor TR6560 + TR5220 wifi design: link:/en/BPI-WiFi6_Mini/BananaPi_BPI-WiFi
 - Support WPA,WPA2, WPA3 encryption and decryption, pay Chinese WAPI standard
 - PoE function support
 
-== Getting Start
+== 快速入门
 
 TIP: link:/en/BPI-WiFi6_Router/GettingStarted_BPI-WiFi6_Router[Getting Started BPI-WiFi6_Router]
 
-= Hardware
-== Hardware Interface
+= 硬件
+== 接口示意图
 
 image::/bpi-wifi6/banana_pi_bpi-wifi6_interface.jpg[banana_pi_bpi-wifi6_interface.jpg]
 
-== GPIO Pin Define
+== GPIO 引脚定义
 
-=== BPI-WiFi6 Router Debug UART
+=== 调试接口
 
 [options="header",cols="1,1"]
 |=====
@@ -41,14 +41,14 @@ image::/bpi-wifi6/banana_pi_bpi-wifi6_interface.jpg[banana_pi_bpi-wifi6_interfac
 | PIN5	| TXD
 |=====
 
-== PoE support
-Easy to add PoE function suppport on BPI-Wifi6 router,The PoE module port is reserved on the board. If the PoE module is welded to the board, the PoE network cable power supply function is supported.
+== PoE 支持
+在BPI-Wifi 6路由器上提供PoE功能支持，板上有预留PoE模块端口。将PoE模块焊接到板上，则支持PoE网线供电功能。
 
 image::/picture/banana_pi_bpi-wifi6_with_poe.jpg[banana_pi_bpi-wifi6_with_poe.jpg]
 
-IMPORTANT: Note : use BPI-RT5400-12V PoE module.
+NOTE: 使用 BPI-RT5400-12V PoE模块。
 
-== BPI-WIfi6 router product design
+== BPI-WIfi6 路由器产品设计
 We have design a case for BPI-Wifi6 Router board ,so you can use this board directly as a standard wifi6 router
 
 image::/bpi-wifi6/bpi-wifi6_router_product.jpg[bpi-wifi6_router_product.jpg]
