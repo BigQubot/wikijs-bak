@@ -15,47 +15,36 @@ TIP: link:/en/BPI-F3/SpacemiT_K1[SpacemiT K1 8 core RISC-V chip Brief]
 
 TIP: link:/en/BPI-F3/SpacemiT_K1_datasheet[SpacemiT K1 8 core RISC-V chip datasheet]
 
-== Key Features
+== 主要特点
+- 8核RISC-V芯片，CPU集成2.0 TOPs AI算力
+- 单核通用计算能力相当于Cortex-A55的1.3倍
+- 支持32位LPDDR4/4X，最大16GB内存
+- 4K解码和编码
+- 5通道PCIE2.1扩展能力
+- 1x USB 3.0+2x USB 2.0接口
+- 12x UART串行端口
+- 工作温度范围：-40°C至85°C
 
-* 8 core RISC-V chip, CPU integrates 2.0 TOPs AI computing power
+== 应用方向
+- NAS
+- 笔记本电脑
+- 智能机器人
+- 工业控制
+- AI边缘计算
 
-* Single-core general computing power equivalent to 1.3 times Cortex-A55
-
-* Supports 32-bit LPDDR4/4X, with a maximum of 16GB of memory
-
-* 4K decoding and encoding
-
-* 5-lane PCIE2.1 expansion capability
-
-* 1x USB 3.0 + 2x USB 2.0 interfaces
-
-* 12x UART serial ports
-
-* Operating temperature range: -40°C to 85°C 
-
-== Application direction
-
-* NAS
-* Laptop
-* Intelligent robotics
-* Industrial control
-* AI edge computing
-
-
-
-== Getting Start
+== 快速入门
 
 TIP: link:/en/BPI-F3/GettingStarted_BPI-F3[Getting Started BPI-F3]
 
-= Hardware
+= 硬件
 
-== Hardware Interface
+== 硬件接口示意图
 
 image::/bpi-f3/bananna_pi_bpi-f3_interface.jpg[bananna_pi_bpi-f3_interface.jpg]
 
 image::/bpi-f3/bpi-f3_sch.png[bpi-f3_sch.png]
 
-== Hardware Spec
+== 硬件规格
 [options="header",cols="1,4",width="70%"]
 |=====
 2+| **HardWare Specification of Banana Pi BPI-F3 RISC-V SBC**
@@ -87,19 +76,19 @@ image::/bpi-f3/bpi-f3_sch.png[bpi-f3_sch.png]
 | Weight                            | 200g                                            
 |=====
 
-== GPIO Pin Define
+== GPIO 引脚定义
 
 
 
-= Development
+= 发展
 
-== Source Code
+== 源代码
 
-=== Linux BSP Source Code
+=== Linux 源代码
 
 
 
-== Resources
+== 开发
 
 TIP: BPI-F3 run Ubuntu Linux test 8 Core CPU performance and AI function: https://www.youtube.com/watch?v=Ym-VcJgaGIY
 
@@ -109,7 +98,7 @@ https://www.youtube.com/watch?v=ejV5KFww8Xo
 TIP: BPI-F3 run visual AI+ large models simultaneously:
 https://www.youtube.com/watch?v=Kn7GYiOxato
 
-= System Image
+= 系统镜像
 
 == Linux
 
@@ -119,5 +108,5 @@ https://www.youtube.com/watch?v=Kn7GYiOxato
 
 
 
-= Easy to buy
+= 购买途径
 
