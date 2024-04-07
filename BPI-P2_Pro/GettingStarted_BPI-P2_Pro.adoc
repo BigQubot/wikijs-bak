@@ -7,11 +7,10 @@ TIP: link:/en/BPI-P2_Pro/BananaPi_BPI-P2_Pro[Banana Pi BPI-P2 Pro]
 = Development
 == Prepare
 - 5V/3A type-c power supply
-- Minimum 8GB MicroSD card/TF
+- Minimum 8GB SD/TF card
 - Baud rate: 1500000
 
 == Install Image to sd card 
-NOTE: Only applicable to the **Dibian** image.
 
 . Download link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FUpdate-SD-Tools.zip[Rockchip SD Disk Tool].
 . Insert card reader to Windows PC, 8GB sdcard size at least.
