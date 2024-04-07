@@ -8,14 +8,13 @@ TIP: Triductor TR6560 + TR5220 wifi design: link:/en/BPI-WiFi6_Router/BananaPi_B
 Triductor TR6560 + TR5220 wifi design: link:/en/BPI-WiFi6_Mini/BananaPi_BPI-WiFi6_Mini[Banana Pi BPI-Wifi6 Mini Router] low cost Mini wifi6 Router board same size as: link:/en/BPI-R3_Mini/BananaPi_BPI-R3_Mini[Banana Pi BPI-R3 mini]
 
 == 主要特征
-
-- Dual core ARM Cortex-A9 1.2G Hz
-- Integrated 5*GE PHY
-- Support 1000M/100M/10M rate mode self-negotiation and standard MIB statistics
-- Support IEEE802.11a/b/g/n/ac/ax wireless LAN communication protocol
-- Support Wi-Fi AP mode and STA mode
-- Support WPA,WPA2, WPA3 encryption and decryption, pay Chinese WAPI standard
-- PoE function support
+- 双核ARM Cortex-A9 1.2G Hz
+- 集成5*GE PHY
+- 支持1000M/100M/10M速率模式自协商和标准MIB统计
+- 支持IEEE802.11a/b/g/n/ac/ax无线局域网通信协议
+- 支持Wi-Fi AP模式和STA模式
+- 支持WPA、WPA2、WPA3加解密，支持中国WAPI标准
+- PoE功能支持
 
 == 快速入门
 
@@ -49,24 +48,24 @@ image::/picture/banana_pi_bpi-wifi6_with_poe.jpg[banana_pi_bpi-wifi6_with_poe.jp
 NOTE: 使用 BPI-RT5400-12V PoE模块。
 
 == BPI-WIfi6 路由器产品设计
-We have design a case for BPI-Wifi6 Router board ,so you can use this board directly as a standard wifi6 router
+我们设计了一个BPI-Wifi 6路由器板的案例，所以你可以直接使用这个作为标准的Wifi6路由器。
 
 image::/bpi-wifi6/bpi-wifi6_router_product.jpg[bpi-wifi6_router_product.jpg]
 
-IMPORTANT: Note : the Router product just support 1Wan + 3 Lan port ,not 4 LAN port
+NOTE: 此路由器产品只支持1Wan + 3 LAN端口，不支持4 LAN端口。
 
-OEM&ODM support : this board support customized service. You can quickly produce your own wifi6 router products. And develop your own software on it
+TIP: OEM&ODM支持：此板支持定制服务。您可以快速生产自己的wifi6路由器产品。并在上面开发自己的软件。
 
-= Development
+= 发展
 TIP: Please refer to github bsp's pdf document: 创耀_TGP3.0开发手册_2023.4.20.pdf ----- gtihub website: https://github.com/BPI-SINOVOIP/THG6500-TAX2-OPENWRT-BSP
 
-== Source Code
+== 源代码
 TIP: Source code on github: https://github.com/BPI-SINOVOIP/THG6500-TAX2-OPENWRT-BSP
 
-== Resources
+== 开发资源
 TIP: Banana Pi BPI wfi6 router with Triductor TR6560 + TR5220 wifi SOC test PoE and OpenWRT: https://www.youtube.com/watch?v=Nf03ssN8ez0
 
-= System Image
+= 系统镜像
 
 == OpenWRT
 
@@ -80,11 +79,11 @@ Google Drive: https://drive.google.com/file/d/1MAzZjgSX4qVRCx40_qKOY9skHklWtcqm/
 
 
 
-= Easy to buy
-WARNING: BPI Aliexpress shop : https://www.aliexpress.com/store/group/BPI-Wifi-6/1101951077_40000004162529.html?spm=a2g0o.store_pc_saleItems.0.0.77487862alHitN
+= 购买链接
+WARNING: BPI 速卖通商店 : https://www.aliexpress.com/store/group/BPI-Wifi-6/1101951077_40000004162529.html?spm=a2g0o.store_pc_saleItems.0.0.77487862alHitN
 
-WARNING: SinoVoip Aliexpress shop : https://www.aliexpress.com/store/group/BPI-WIfi-6/1100417230_40000004365851.html?spm=a2g0o.store_pc_saleItems.0.0.1b4430d9kDRD79
+WARNING: SinoVoip 速卖通商店 : https://www.aliexpress.com/store/group/BPI-WIfi-6/1100417230_40000004365851.html?spm=a2g0o.store_pc_saleItems.0.0.1b4430d9kDRD79
 
-WARNING: Taobao shop : https://item.taobao.com/item.htm?spm=a2126o.success.0.0.729a4831qQlwiq&id=725082757481&qq-pf-to=pcqq.group
+WARNING: 淘宝 : https://item.taobao.com/item.htm?spm=a2126o.success.0.0.729a4831qQlwiq&id=725082757481&qq-pf-to=pcqq.group
 
-WARNING: OEM&ODM please contact : judyhuang@banana-pi.com
+WARNING: OEM&ODM 请联系 : judyhuang@banana-pi.com
