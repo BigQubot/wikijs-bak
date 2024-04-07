@@ -1,0 +1,19 @@
+= Introduction
+
+The BPI-P2pro is powered by the Rockchip RK3308B-S, which comes with a 64-bit quad-core ARM Cortex-A35 processor, USB, Ethernet, Bluetooth, wireless connectivity and a voice detection engine.With rich audio interfaces (such as MIC/PDM/SPDIF/I2S),RK3308 is ideal product for IoT and voice applications. The BPI-p2pro uses 512MB DDR3 RAM and uses eMMC (optional) or SD card as the storage of operating system.
+
+TIP: link:/en/BPI-P2_Pro/BananaPi_BPI-P2_Pro[Banana Pi BPI-P2 Pro]
+
+= Development
+== Prepare
+- 5V/3A type-c power supply
+- Minimum 8GB MicroSD card/TF
+
+== Install Image to sd card 
+NOTE: Only applicable to the **Dibian** image.
+
+. Download link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FUpdate-SD-Tools.zip[Rockchip SD Disk Tool].
+. Insert card reader to Windows PC, 8GB sdcard size at least.
+. Run SD_Firmware_Tool, check the “SD card startup” box and select the correct removable disk device, Choose firmware image, then Click Create button to make it and wait until it is finshed.
++
+image::/picture/bpi-p2_pro_debian.png[bpi-p2_pro_debian.png]
