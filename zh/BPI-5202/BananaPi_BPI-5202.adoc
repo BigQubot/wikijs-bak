@@ -35,17 +35,30 @@ Loongson 2K1000LA design: link:/en/BPI-5202/BananaPi_BPI-5202[Banana Pi BPI-5202
 
 == 嵌入式工控机的应用场景
 
+工业互联网及物联网的迅速发展，既是一场众多的计算机软硬件厂家（也包括通讯方案和产品厂家，其本质也是计算机系统，甚至是嵌入式系统的软硬件厂家）尝试进入利润相对较高的行业监控市场的前赴后继的尝试；也是一场开启“民觉民智”，普及专业知识的启蒙运动。这个已经持续了十数年的大风暴，使普罗大众对监视和控制的应用需求和想象，扩展到了各行各业的每个角落
+
+“云—管—边—端”的概念，是以互联网思维和术语，对监视控制原理做了经典的总结与归纳；但从技术发展历史看，它远非全新概念和新技术，实际上是数十年来各行业监控应用所采用的主流模式和架构
 
 
-- Cloud: The computer system that implements the monitoring center system and more advanced application software and algorithms. The "cloud" here includes both the "public cloud" on the Internet and the "private cloud" on the enterprise LAN. Build "cloud" computer systems, currently mainly high-end X86+Windows/Linux servers, and their clusters
-- Tube: Provide various efficient, reliable, convenient and cost-effective wired/wireless channels for both sides of the equipment. There are not only "pipes" between the "cloud" and "edge", such as wide area Ethernet, 4G/5G, etc.; between the "edge" and "end" of the application site, there are also pipes suitable for on-site application scenarios. The existence of wired/wireless "pipes", such as local Ethernet, serial port, high-speed power line carrier (HPLC), LoRa, ZigBee, WIFI, etc.
-- Edge: A computer system used to perform on-site computing tasks. The main role of "edge" was assumed by traditional industrial computers in the early days, or by general desktops and servers when the requirements were not so strict; now there is a trend of building embedded industrial computers with mid-to-high-end ARM architecture embedded systems
-- Terminal: The device (secondary device) used to monitor and control the main device (primary device) in industrial applications, and the device (secondary device) to monitor various main devices in the Internet of Things environment. The main role of "end" was realized by low-end embedded single-chip microcomputer system in the early stage; at present, it is gradually transitioning to low-end embedded system (main frequency below 1GMHz) as the mainstream solution
+* 云：实现监控中心系统及更多高级应用软件和算法的计算机系统。这里的“云”，既包括互联网上的“公有云”，也包括企业局域网上的“私有云”。构建“云”的计算机系统，目前主要为高端X86+Windows/Linux服务器，及其集群
+* 管：为设备两侧提供各种效率、可靠、便捷、高性价比的有线/无线通道。不仅在“云”和”边“之间有“管”的存在，例如广域以太网网、4G/5G等；在应用现场的“边”和“端”之间，也有适合现场应用场景的有线/无线的“管”的存在，比如局域以太网、串口、高速电力线载波（HPLC）、LoRa、ZigBee、WIFI等
+* 边：用于完成现场计算任务的计算机系统。边”的主要角色，早期由传统工控机、或者在要求不那么严格时，用一般的台式机及服务器来承担；目前开始出现以中高端ARM架构嵌入式系统构建嵌入式工控机的趋势
+* 端：用于实现对行业应用中对主设备（一次设备）进行监视和控制的装置（二次设备）、以及物联网环境中对各类主设备进行监控的设备（二次设备）。“端”的主要角色，早期由低端的嵌入式单片机系统实现；目前以逐渐过渡到以中低端嵌入式系统（主频1GMHz以下）为主流方案
 
-From the above analysis, it is not difficult to see that the application of industrial computer is mainly located at the "edge" level. As a specific application of "edge", the embedded industrial computer mainly carries the following two types of functions:
+从以上的分析不难看出，工控机的应用，主要定位在“边”的层面。作为“边”的具体应用，嵌入式工控机主要承载以下两种类型的功能：
 
-- Automatic operations, such as gateways, NVRs, routers, firewalls, etc., are realized through specially designed industrial-grade low-end embedded computer systems. Some have simple character/bitmap-based display and special button parameter configuration and status display functions
-- Interactive operation class, complete monitoring and system (including HMI human-computer interaction interface) and other functions, realized through a specially designed industrial-grade mid-to-high-end embedded computer system, with the interactive ability of vector graphics system
+* 自动运行类，如网关、NVR、路由器、防火墙等，通过特别设计的工业级中低档嵌入式计算机系统实现。部分具有简单的基于字符/位图的展示和特殊按键的参数配置和状态显示功能
+* 交互运行类，完成监控和系统（含HMI人机交互界面）等功能，通过特别设计的工业级中高档嵌入式计算机系统实现，具有矢量化图形系统的交互能力
+
+从以上的分析不难看出，工控机的应用，主要定位在“边”的层面。作为“边”的具体应用，嵌入式工控机主要承载以下两种类型的功能：
+
+* 自动运行类，如网关、NVR、路由器、防火墙等，通过特别设计的工业级中低档嵌入式计算机系统实现。部分具有简单的基于字符/位图的展示和特殊按键的参数配置和状态显示功能
+* 交互运行类，完成监控和系统（含HMI人机交互界面）等功能，通过特别设计的工业级中高档嵌入式计算机系统实现，具有矢量化图形系统的交互能力
+
+嵌入式系统的CPU种类很多:
+
+* ARM系列，国外的有：恩智浦（NXP）、高通（QUALCOMM）、德州仪器（TI）、三星（SAMSUNG）；国内的有：飞腾、全志、瑞星微、海思等
+* 龙芯（LoongArch）系列，龙芯家族中的2系列，主要面向“边“及高级“端”的应用；1系列，主要面向中低级“端”的应用。
 
 == Typical Application Scenarios of Embedded Industrial Computers
 - The edge "brain" of intelligent power distribution room, computer room power environment, pumping station, intelligent park, intelligent campus, intelligent manufacturing, etc., realizes the connection with on-site data acquisition unit, measurement and control device, protection equipment, PLC equipment, CNC equipment, and robot equipment Access, protocol analysis, alarm processing, conversion, integrated transmission and control
