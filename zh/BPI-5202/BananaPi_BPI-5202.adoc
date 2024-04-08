@@ -17,26 +17,23 @@ Loongson 2K1000LA design: link:/en/BPI-5202/BananaPi_BPI-5202[Banana Pi BPI-5202
 
 [options="header",cols="1,2,4,5"]
 |====
-| Nomber | Key elements                   | Traditional industrial computer (Windows+X86)                               | Embedded industrial computer (Linux+LoongArch/ARM)                                     
-| 1      | performance                    | Commercial-grade Celeron or commercial/industrial-grade Core i3~I5          | Industrial grade, higher performance than Celeron, weaker than I3                      
-| 2      | safety                         | Vulnerable, vulnerable to viruses and hackers                               | Stable system, few upgrades, high security                                             
-| 3      | real-time                      | Poor real-time responsiveness                                               | Real-time responsiveness can meet the requirements                                     
-| 4      | reliability                    | High power consumption requires strong heat dissipation and low reliability | Low power consumption does not need to consider heat dissipation, high reliability     
-| 5      | Scalability                    | It is complicated to expand various interfaces on the motherboard           | It is more convenient to expand various interfaces on the core board/development board 
-| 6      | industrial grade               | It is more difficult to realize real industrial grade products              | It is easier to realize real industrial grade products                                 
-| 7      | Customization                  | Customization efficiency is low and cost is high                            | Application-oriented fast and efficient customization and iteration                    
-| 8      | performance                    | Insufficient or excess performance for industrial applications              | Application-specific solutions with the best performance                               
-| 9      | overall price                  | higher                                                                      | Application-specific, price advantage                                                  
-| 10     | Operation and maintenance cost | High power consumption and high operation and maintenance costs             | Low power consumption and low cost, green and environmental protection                 
-| 11     | life cycle                     | Frequent replacement, difficult to guarantee inventory                      | Long CPU life cycle, guaranteed inventory                                              
+|序号	|关键要素	|传统工控机（Windows+X86）	|嵌入式工控机（Linux+LoongArch/ARM）
+|1	|性能	|商用级赛扬或商业/工业级酷睿i3~I5	|工业级，性能高于赛扬，弱于I3
+|2	|安全性	|漏洞多，易受病毒和黑客攻击	|系统稳定、较少升级，安全性高
+|3	|实时性	|实时响应能力较差	|实时响应能力能够满足要求
+|4	|可靠性	|高功耗必须强散热，可靠性低	|低功耗无需考虑散热，可靠性高
+|5	|扩展性	|在主板上扩展各类接口复杂	|在核心板/开发板上扩展各类接口较为方便
+|6	|工业级	|实现真正工业级产品较为困难	|实现真正工业级产品较为容易
+|7	|定制化	|定制化效率低、成本高	|面向应用快速高效订制与迭代
+|8	|性能	|对工业应用而言性能不足或过剩	|针对应用，具有最佳性能方案
+|9	|总体价格	|较高	|针对应用，具有价格优势
+|10	|运维成本	|功耗高、运维成本高	|低功耗低成本，绿色环保
+|11	|生命周期	|换代频繁，库存难以保证	|CPU生命周期较长，可保证库存
 |====
 
-Embedded industrial computer has become a strong competitor of traditional industrial computer. In the future, the former will form an overwhelming advantage over the latter, there is no suspense
+嵌入式工控机已经成为传统工控机的强力竞争对手。在未来，前者形成对后者的压倒性优势，毫无悬念
 
-== Application Scenarios of Embedded Industrial Computers
-The rapid development of the industrial Internet and the Internet of Things is not only a battle for many computer software and hardware manufacturers (including communication solutions and product manufacturers, which are essentially computer systems, even embedded system software and hardware manufacturers) trying to enter the relatively high-profit industry. It is a successive attempt to monitor the industry market; it is also an enlightenment movement to open up "people's awareness of people's wisdom" and popularize professional knowledge. This big storm, which has lasted for more than ten years, has expanded the general public's demand and imagination for monitoring and control applications to every corner of all walks of life
-
-The concept of "cloud-pipe-edge-end" is a classic summary and induction of the principles of surveillance and control based on Internet thinking and terms; The mainstream model and architecture adopted by monitoring applications in various industries for decades
+== 嵌入式工控机的应用场景
 
 
 
