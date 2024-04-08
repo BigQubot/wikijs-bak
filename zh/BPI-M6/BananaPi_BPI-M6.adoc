@@ -1,42 +1,43 @@
-= BPI-M6 Introduction
+= BPI-M6 介绍
 
-Banana Pi BPI-M6 is the next generation single board computer from Banana Pi in 2022,It is powered by Synaptics VS680 quad-core Cortex-A73 (2.1GHz) and One Cortex-M3 processor,Imagination GE9920 GPU.and NPU Up to 6 .75Tops. Onboard 4GB LPDDR4 memory and 16GB EMMC storage, and supports 4 USB 3.0 interface, a gigabit network port.onboard 1 HDMI-rx port and 1 Hdmi-tx port.
+Banana Pi BPI-M6是香蕉派在2022年推出的下一代单板计算机，它由Synaptics VS 680四核Cortex-A73（2.1GHz）和一个Cortex-M3处理器，Imagination GE 9920 GPU和NPU高达6.75 Tops。板载4GB LPDDR 4内存和16 GB EMMC存储，并支持4个USB 3.0接口，1个千兆网口，板载1个HDMI-TX端口和1个Hdmi-RX端口。
+
 
 image::/picture/banana_pi_bpi-m6_banner.jpg[banana_pi_bpi-m6_banner.jpg]
 
 
-== About VideoSmart VS680
+== 关于 VideoSmart VS680
 
-VideoSmart™ VS680 solution, an industry-first edge computing SoC that combines a CPU, NPU, and GPU. This new multimodal platform with integrated neural network accelerator is purpose built with perceptive intelligence for applications including smart displays, smart cameras, set-top-boxes and media streamers.The Synaptics VideoSmart VS680 is a multimedia powerhouse that combines a Qdeo 4K-video engine, an audio processor capable of far-field keyword detection and voice recognition, and a proprietary SyNap deep-learning accelerator (DLA). it also integrates a higher-performance Imagination PowerVR Series9 GPU. Another new feature is an ISP with HDR capabilities that can handle two 4K cameras. Previous VideoSmart products target the streaming-video set-top-box (STB) market, but the VS680 aims for a broader range of smart-home devices. It s well suited to the Facebook Portal and other smart displays, which enable video calling. The audio processor can drive a smart speaker or sound bar, but when coupled with the DLA, it handles on-device voice-UI functions in addition to providing the front end to a cloud-based digital assistant. The DLA works with the dual ISP to run neural networks on video streams from front and rear cameras, enabling face ID, object recognition, and security monitoring, among other tasks. The Qdeo engine can drive two displays, allowing the device to power a 1080p touchscreen panel in an STB while simultaneously streaming to a 4K TV.
+VideoSmart™ VS680 ，业界首款结合CPU、NPU和GPU的边缘计算SoC。Synaptics VideoSmart VS680是一款多媒体处理器，它结合了Qdeo 4K视频引擎、能够进行远场关键字检测和语音识别的音频处理器以及专有的SyNap深度学习加速器（DLA）。它还集成了更高性能的Imagination PowerVR Series9 GPU。另一个新功能是具有HDR功能的ISP，可以处理两个4K摄像头。以前的VideoSmart产品针对的是流媒体视频机顶盒（STB）市场，但VS680的目标是更广泛的智能家居设备。它非常适合Facebook门户和其他智能显示器，可以进行视频通话。音频处理器可以驱动智能扬声器或条形音箱，但当与DLA耦合时，它除了为基于云的数字助理提供前端之外，还可以处理设备上的语音UI功能。DLA与双ISP合作，在前后摄像头的视频流上运行神经网络，实现人脸识别、对象识别和安全监控等任务。Qdeo引擎可以驱动两个显示器，允许设备为机顶盒中的1080p触摸屏面板供电，同时流媒体传输到4K电视。
 
-VS680 chip official Developer Center: https://developer.senarytech.com/index.html
+VS680芯片官方开发者中心: https://developer.senarytech.com/index.html
 
-== Key Features
+== 主要特点
 
-- Synaptics VideoSmart VS680 quad-core Cortex-A73 (2.1GHz) and One Cortex-M3 processor
+- Synaptics VideoSmart VS 680四核Cortex-A73（2.1GHz）和一个Cortex-M3处理器
 - Imagination GE9920 GPU
-- NPU for AI up to 6 .75Tops
-- 4GB LPDDR4
-- 16GB eMMC flash
-- M.2 Key E(PCIe + MIPI CSI)
-- 4 USB 3.0
-- 1 GbE ethernet
-- 1 HDMIin and 1 HDMIout
+- AI的NPU高达6.75 Tops
+- 4GB LPDDR 4
+- 16 GB eMMC闪存
+- M.2 Key E（PCIe + MIPI CSI）
+- 4个USB 3.0
+- 1 GbE以太网
+- 1个HDMI输入和1个HDMI输出
 
-== Getting Start
+== 快速入门
 
 TIP: link:/en/BPI-M6/GettingStarted_BPI-M6[Getting Started BPI-M6]
 
-= Hardware =
-== Hardware Interface ==
+= 硬件
+== 硬件接口示意图
 
 image::/picture/banana_pi_bpi-m6_interface.jpg[banana_pi_bpi-m6_interface.jpg]
 
-== BPI-M6 Photo:
+== BPI-M6 照片:
 
 link:/en/BPI-M6/Photo_BPI-M6[Banana Pi BPI-M6 Product photo gallery]
 
-== Hardware Spec ==
+== 硬件规格
 
 [options="header",cols="1,4"]
 |=====
@@ -60,7 +61,7 @@ link:/en/BPI-M6/Photo_BPI-M6[Banana Pi BPI-M6 Product photo gallery]
 | OS              | Android and Linux
 |=====
 
-== GPIO define ==
+== GPIO 引脚定义 ==
 === 40 Pin GPIO define ===
 [options="header",cols="1,2,3,4",width="70%"]
 |=====
@@ -174,22 +175,22 @@ link:/en/BPI-M6/Photo_BPI-M6[Banana Pi BPI-M6 Product photo gallery]
 |=====
 
 
-= Source code
+= 源代码
 
-== Armbian Source code
+== Armbian 源代码
 TIP: https://github.com/BPI-SINOVOIP/armbian-build/commit/9163a04ca984461bec2516e9be0acd8a990863b9
 
 TIP: https://github.com/BPI-SINOVOIP/armbian-build/tree/v23.12.18
 
-== Linux Source code 
-
+== Linux 源代码
 TIP: https://github.com/BPI-SINOVOIP/pi-linux/tree/pi-5.4-vs680-hdmi-rx
  
 TIP: https://github.com/BPI-SINOVOIP/pi-u-boot/tree/v2019.10-vs680-hdmi-rx
 
-= Development 
+= 发展
 
-== Resources ==
+== 开发资料
+
 TIP: Senary VS680(Synaptics SN3680) Product Brief: https://drive.google.com/file/d/15yEqizJ6J7_UkSqmkpJMMqUuXGJwptGk/view?usp=sharing
 
 TIP: The VS680 NPU is ranked first on AI benchmark website: https://ai-benchmark.com/ranking_IoT.html
@@ -221,47 +222,49 @@ TIP: Banana Pi Bpi M6 Raspberry Pi 5 Alternative Ersteinrichtung Firmware Image 
 TIP: BPI-M6 initiates user creation for the first time:
 https://www.youtube.com/watch?v=fjghokEmhFc
 
-= System Image =
-== Android ==
+= 系统镜像
+== Android
 
 NOTE: 2023-08-30 release aosp_dolphin_tablet-syna-image-lpddr4x
 
-* Baidu Cloud: https://pan.baidu.com/s/1unEibD-NI8-Ti5le2E6d7g?pwd=8888 PIN code:8888 
+Baidu Cloud: https://pan.baidu.com/s/1unEibD-NI8-Ti5le2E6d7g?pwd=8888 PIN code:8888 
 
-* Google Drive: https://drive.google.com/file/d/1egPBOusdlNGJDdp5muAjiv2MvMya0F-H/view?usp=sharing
+Google Drive: https://drive.google.com/file/d/1egPBOusdlNGJDdp5muAjiv2MvMya0F-H/view?usp=sharing
 
-== Linux ==
+== Linux
 
-=== Armbian ===
+=== Armbian
 
 NOTE: 2024-03-20 armbian-unoffcial_24.2.0 image for BPI-M6,support NPU yolov6 AI recognition
 
-* Baidu cloud: https://pan.baidu.com/s/1t9aDdKxTeUnawz_vBIni0g?pwd=8888 (pincode:8888)
-* Google drive: https://drive.google.com/drive/folders/1CZbac_R6VgfLBoJbIzbyCzwYCmQ_j8oQ?usp=sharing
+Baidu cloud: https://pan.baidu.com/s/1t9aDdKxTeUnawz_vBIni0g?pwd=8888 (pincode:8888)
+
+Google drive: https://drive.google.com/drive/folders/1CZbac_R6VgfLBoJbIzbyCzwYCmQ_j8oQ?usp=sharing
 
 NOTE: 2024-02-29 armbian-unoffcial_24.2.0 image for BPI-M6
 
-* Baidu link: https://pan.baidu.com/s/1pZFEna3CwR-v8lS-7Z88vA?pwd=8888  PIN code:8888 
-* Google Drive: https://drive.google.com/drive/folders/1uh01OPtJ05Q_TAb-5HEcSMSiLTuSivKc?usp=sharing
+Baidu link: https://pan.baidu.com/s/1pZFEna3CwR-v8lS-7Z88vA?pwd=8888  PIN code:8888 
+
+Google Drive: https://drive.google.com/drive/folders/1uh01OPtJ05Q_TAb-5HEcSMSiLTuSivKc?usp=sharing
 
 
 
-=== Ubuntu ===
+=== Ubuntu
 
 NOTE: 2024-01-25-ubuntu-20.04-mate-desktop-vpu-npu-bpi-m6-aarch64-sd.img
 
-* Baidu Cloud: https://pan.baidu.com/s/1IUDdKI0lT53-jFqUgqrdGA?pwd=8888 PIN code:8888
+Baidu Cloud: https://pan.baidu.com/s/1IUDdKI0lT53-jFqUgqrdGA?pwd=8888 PIN code:8888
 
-* Google Drive: https://drive.google.com/file/d/1mw0Fiwa0fmXyTs6c6DI9Z4bcQZEy83p2/view?usp=sharing
+Google Drive: https://drive.google.com/file/d/1mw0Fiwa0fmXyTs6c6DI9Z4bcQZEy83p2/view?usp=sharing
 
 
-= Easy to buy
+= 购买链接
 
-WARNING: SINOVOIP Aliexpress Shop: https://www.aliexpress.us/item/3256805894958914.html
+WARNING: SINOVOIP 全球速卖通商店: https://www.aliexpress.us/item/3256805894958914.html
 
-WARNING: BIPAI Aliexpress Shop: https://www.aliexpress.us/item/3256805895088983.html
+WARNING: BIPAI 全球速卖通商店: https://www.aliexpress.us/item/3256805895088983.html
 
-WARNING: Taobao Shop: https://item.taobao.com/item.htm?spm=a213gs.success.result.1.27e34831MXYuie&id=740957817652&qq-pf-to=pcqq.group
+WARNING: 淘宝: https://item.taobao.com/item.htm?spm=a213gs.success.result.1.27e34831MXYuie&id=740957817652&qq-pf-to=pcqq.group
 
-WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
+WARNING: OEM&ODM, 请联系: judyhuang@banana-pi.com
 
