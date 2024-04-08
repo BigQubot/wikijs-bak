@@ -60,26 +60,27 @@ Loongson 2K1000LA design: link:/en/BPI-5202/BananaPi_BPI-5202[Banana Pi BPI-5202
 * ARM系列，国外的有：恩智浦（NXP）、高通（QUALCOMM）、德州仪器（TI）、三星（SAMSUNG）；国内的有：飞腾、全志、瑞星微、海思等
 * 龙芯（LoongArch）系列，龙芯家族中的2系列，主要面向“边“及高级“端”的应用；1系列，主要面向中低级“端”的应用。
 
-== Typical Application Scenarios of Embedded Industrial Computers
-- The edge "brain" of intelligent power distribution room, computer room power environment, pumping station, intelligent park, intelligent campus, intelligent manufacturing, etc., realizes the connection with on-site data acquisition unit, measurement and control device, protection equipment, PLC equipment, CNC equipment, and robot equipment Access, protocol analysis, alarm processing, conversion, integrated transmission and control
-- Embedded SCADA system (C/S, B/S mode)
-- 100ms level soft PLC
-- Industrial control/IoT field small data server
-- Enterprise workshop-level industrial kanban/OEE kanban, lightweight MES front-end data acquisition and display that meet the requirements of "intelligent transformation and digital transformation"
-- Development and operation platform for third-party algorithms and models based on industry applications
-- Access and push of video front-end equipment, video recording and linkage, video AI analysis interface and comprehensive linkage of analysis results
-- On-site network security and audit
+== 嵌入式工控机的典型应用场景
+* 智能配电房、机房动力环境、泵站、智慧园区、智慧校园、智能制造等现场的边缘“大脑”，实现与现场数采单元、测控装置、保护设备、PLC设备、CNC设备、机器人设备的接入、协议解析、报警处理、转换、整合传输与控制
+* 嵌入式SCADA系统（C/S、B/S模式）
+* 100ms级别的软PLC
+* 工控/物联网现场小型数据服务器
+* 满足“智改数转”要求的企业车间级工业看板/OEE看板、轻量级MES前端数采和展示
+* 基于行业应用的第三方算法、模型的开发与运行平台
+* 视频前端设备的接入与推送、视频录像与联动、视频AI分析接口及分析结果的综合联动
+* 现场网络安全及审计
 
-= BPI-5202 Loongson 2K1000LA Embedded single board industrial computer
+= BPI-5202 龙芯2K1000LA嵌入式单板工控机
 
-== BPI-5202 PCBA Hardware deign
-BPI-5202 with Loongson 2K1000LA chip design As a simple embedded general controller hardware and software development platform, the basic configuration has 2 independent MAC Ethernet ports, 2 RS485 ports, 1 RS232 ports and 2 CAN2.0 ports, the configuration is flexible. Widely used in military, electric power, petroleum, factories and mines, and the Internet of Things industry automation monitoring occasions, to provide application developers with a full range of hardware solutions, and support BSP+docker development environment. Provide strong edge computing support. Developers can quickly utilize the development platform, develop and productize
+== BPI-5202 PCBA 硬件设计
 
-=== PCBA Hardware interface
+BPI-5202作为单纯的嵌入式通用控制器软硬件开发平台，采用龙芯2K1000LA芯片设计，基本配置中有2个独立MAC以太网端口、2个RS485端口+1个RS232端口+2个CAN2.0端口，配置灵活，广泛适用于军工、电力、石油、厂矿、及物联网行业的自动化监控场合，为应用开发者提供功能齐全的硬件解决方案，并支持BSP+docker开发环境。提供较强算力的边缘计算支持。开发者可以快速利用开发平台，进行开发并产品化
+
+=== PCBA 硬件接口
 
 image::/indu-board/bpi-5020_en_int.jpg[bpi-5020_en_int.jpg]
 
-=== PCBA Spec
+=== PCBA 硬件规格
 
 [cols="2,6"]
 |====
