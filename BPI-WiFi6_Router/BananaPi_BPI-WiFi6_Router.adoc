@@ -46,16 +46,16 @@ Easy to add PoE function suppport on BPI-Wifi6 router,The PoE module port is res
 
 image::/picture/banana_pi_bpi-wifi6_with_poe.jpg[banana_pi_bpi-wifi6_with_poe.jpg]
 
-IMPORTANT: Note : use BPI-RT5400-12V PoE module.
+NOTE: Use BPI-RT5400-12V PoE module.
 
 == BPI-WIfi6 router product design
 We have design a case for BPI-Wifi6 Router board ,so you can use this board directly as a standard wifi6 router
 
 image::/bpi-wifi6/bpi-wifi6_router_product.jpg[bpi-wifi6_router_product.jpg]
 
-IMPORTANT: Note : the Router product just support 1Wan + 3 Lan port ,not 4 LAN port
+NOTE: The Router product just support 1Wan + 3 Lan port ,not 4 LAN port
 
-OEM&ODM support : this board support customized service. You can quickly produce your own wifi6 router products. And develop your own software on it
+TIP: OEM&ODM support : this board support customized service. You can quickly produce your own wifi6 router products. And develop your own software on it
 
 = Development
 TIP: Please refer to github bsp's pdf document: 创耀_TGP3.0开发手册_2023.4.20.pdf ----- gtihub website: https://github.com/BPI-SINOVOIP/THG6500-TAX2-OPENWRT-BSP
