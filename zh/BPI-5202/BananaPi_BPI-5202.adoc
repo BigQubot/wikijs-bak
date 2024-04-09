@@ -104,7 +104,7 @@ image::/indu-board/bpi-5020_en_int.jpg[bpi-5020_en_int.jpg]
 
 BPI-5202扩展口采用2.54mm 间距，2x10P 排针座，用来扩展IO接口。
 
-
+image::/bpi-5202/banana_pi_bpi-5202_excend_sch.png[banana_pi_bpi-5202_excend_sch.png]
 
 BPI-5202支持模块化设计，提供丰富的扩展接口，可以采用基本单元 + 5个扩展单元，支持按需配置。扩展IO单元模块包括：
 
@@ -308,3 +308,4 @@ NOTE: 1)BPI-5202系列嵌入式边缘计算工控机采用DC24V供电。
 2,BPI-5202作为二次开发的基础平台，为应用开发者提供各类开发工具和协议解析数据库接口，大大缩短各类行业应用产品的开发周、降低开发难度
 
 3,BPI-5202为完整工控产品，客户可以直接用来进行工业控制，提供完全的产品级支持。
+image::/bpi-5202/banana_pi_bpi-5202_excend_sch.png[banana_pi_bpi-5202_excend_sch.png]
