@@ -134,39 +134,40 @@ Banana Pi BPI-6202 扩展网关设计
 image::/indu-board/banana_pi_bpi-6202_gateway_1.jpg[banana_pi_bpi-6202_gateway_1.jpg]
 
 
-== BPI-6202 product
-=== About BPI-6202 Product
-BPI-6202 is a cost-effective general-purpose embedded single-board industrial computer developed by Banana Pi community and Jiskaida Company for various industrial control fields. Compared with J1800/J1900 and other similar embedded products, it has the following advantages :
+= BPI-6202 工业控制网关产品级解决方案
 
-Industrial-grade products, strong performance and low power consumption: industrial-grade standards, performance surpasses Celeron; low power consumption without heat dissipation, long-term operation
-Anti-interference design, suitable for harsh working conditions: power supply/network port/serial port are all designed according to EMC3~4 level
-Single-board structure, more reliable without plugging: integrate the functions of the core board and the bottom board, with higher reliability and longer life
-The integration of the industrial chain ensures high quality and low price. By optimizing the industrial chain links, the quality of mass production is guaranteed and the cost is extremely reduced.
-Innovative combination to meet different needs, open hardware information, single board/machine/industrial control software, optional
-Long life cycle, long-term stable supply, the original CPU factory promises to supply for 10 years, guaranteeing the maximum return on R&D investment
-Because BPI-6202 has strong computing power and more resources, in addition to completing the above functions, it can also provide various data interfaces, providing an ideal computing environment and secondary development capabilities for more industry application optimization algorithms.
+== 关于BPI-6202 产品
 
-The appearance of the BPI-6202 including the chassis is shown in the figure below.
+BPI-6202，是Banana Pi 社区与吉斯凯达公司面向各种工业控制领域需求研发的、高性价比的通用嵌入式单板工控机，对标J1800/J1900及其它同类嵌入式产品，具有如下优势：
+
+* 工业级产品，性能强功耗低：工规级标准，性能超越赛扬；低功耗无散热，长期运行
+* 抗干扰设计，适应恶劣工况：电源/网口/串口均按EMC3~4级设计
+* 单板式结构，无接插更可靠：集核心板功能与底板功能一体，可靠性更高、寿命更长
+* 产业链整合，确保质优价廉，通过优化产业链环节，保障量产品质，极致降低成本
+* 创新性组合，满足不同需求，开放硬件资料、单板件/整机/工控软件，任意选择
+* 长生命周期，长期稳定供货，CPU原厂承诺10年供货，保证研发投入的最大回报
+
+由于BPI-6202具有较强的算力和较多的资源，，在完成上述功能外，还能够提供各种数据接口，为更多的行业应用优化算法提供理想的计算环境和二次开发能力。
+
+含机壳的CS6202外观如下图所示。
 
 image::/indu-board/industrial_computer_zh_3.png[industrial_computer_zh_3.png]
 
-=== BPI-6202 interface description
+== BPI-6202 工业级网关接口说明
 
 image::/indu-board/bpi_industrial_product_interface_6.png[bpi_industrial_product_interface_6.png]
 
 [options="header",cols="1,2,6"]
 |====
-| No | interface     | illustrate                                                                                                                                                                                  
-| 1  | HDMI 1.4   | HDMI video cable to connect the video output port and the monitor. +
-**Note**: The HDMI video cable is not included in the installation accessory package and needs to be purchased by the user. Please choose a shielded cable with a length less than 3M 
-| 2  | USB 2.0             | Use the USB interface to connect the keyboard/mouse/touch screen, and connect the U disk. +
-**Note**: The USB interface does not support hot swapping of storage devices.                                                                                  
-| 3  | Ethernet port       | Use a network cable to connect the Ethernet port of the device to the switch, supporting 1 x 1000M + 1 x 100M                                                                                                                                        
-| 4  | RS232/RS485         | Phoenix terminal, RS232 x 1+ RS485 x 2, connect the cable terminal to the Phoenix terminal interface of CS6202, and make sure that the peer device and BPI-6202 are connected to the ground wire.                                                    
-| 5  | DC power            | Phoenix terminal, using 24V DC power supply                                                                                                                                                                                                          
-| 6  | WiFi Antenna Mount  | SMA-K (external thread + internal hole), if you need to use the antenna to connect to the network, connect the antenna device to the BPI-6202 through the antenna interface. Standard 1 antenna, Wifi antenna, 4G+WiFi;                              
-| 7  | 4G/5G Antenna Mount | A standard 4G antenna is provided. If you need to expand 5G, you need to use a customized chassis and configure 4 additional antennas                                                                                                                
-| 8  | 3 indicator lights  | From top to bottom, they are: system running light, which flashes regularly during normal operation; reserved light (programmable and controllable); 4G/5G running light, showing cellular communication status                                      
+|序号|	端口|	说明
+|1	|HDMI 1.4接口	|如需输出视频，使用HDMI视频线缆连接视频输出端口和显示器。说明:HDMI视频线缆不在安装附件包中，需要用户自行购买，请选择长度小于3M的屏蔽线
+|2	|USB接口	|使用USB接口连接键盘/鼠标/触摸屏、以及连接U盘。说明：USB接口不支持存储设备热插拔。
+|3	|以太网口	|使用网线连接设备以太网口到交换机,支持1 x 1000M + 1 x 100M
+|4	|RS232/RS485串口	|凤凰端子，RS232 x 1+ RS485 x 2,将线缆端子与CS6202的凤凰端子接口相连接，并确保对端设备和BPI-6202都已经连接地线。
+|5	|直流电源端子	|凤凰端子，采用24V直流供电
+|6	|WiFi天线座	|SMA-K（外螺纹+内孔),如需使用天线连接网络，将天线设备通过天线接口连接至BPI-6202。标配1根天线,Wifi天线，4G+WiFi；
+|7	|4G/5G天线座	|标配一根4G天线，如需扩展5G，需采用定制机箱并另外配置4根天线
+|8	|3个指示灯	|自上至下，分别为：系统运行灯，正常运行时定时闪烁;预留灯(编程可控）;4G/5G运行灯，显示蜂窝通讯状态
 |====
 
 === BPI-6202 product key feature
