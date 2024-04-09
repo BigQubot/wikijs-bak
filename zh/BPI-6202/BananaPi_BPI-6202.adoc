@@ -5,80 +5,96 @@ Allwinner A40i design link:/en/BPI-AIM7/BananaPi_BPI-AIM7[Banana Pi BPI-M2 Ultra
 Allwinner A40i design link:/en/BPI-6202/BananaPi_BPI-6202[Banana Pi BPI-6202] Industrial control gateway +
 Loongson 2K1000LA design: link:/en/BPI-5202/BananaPi_BPI-5202[Banana Pi BPI-5202] Embedded single board industrial computer
 
-== Definition and application scenarios of embedded industrial computer
-Industrial Personal Computer (IPC for short) is a reinforced and enhanced microcomputer that appeared in the 1990s and is widely used in industrial field monitoring and control. Industrial personal computers often operate in harsh environments. Data security requirements are also higher, so industrial computers are usually specially designed for reinforcement, dust-proof, moisture-proof, corrosion-proof, radiation-proof, etc. Up to now, the X86+Windows (Wintel) architecture is still the mainstream solution for industrial computers. It can be defined as a traditional industrial computer. Generally speaking
+== 嵌入式工控机的定义与应用场景
 
-While the traditional industrial computer plays an important role in the automation and informatization of the industrial control field, its inherent weakness has always plagued manufacturers, integrators and users. Everyone is looking for a better solution
+工控机（Industrial Personal Computer，简称IPC），是上世纪90年代开始出现的、广泛应用于工业现场监视与控制的加固、增强型微型计算机，工控机常常会在环境比较恶劣的环境下运行，对数据的安全性要求也更高，所以工控机通常会进行加固、防尘、防潮、防腐蚀、防辐射等特别设计 截止到目前，X86+Windows（Wintel）架构，依然是工控机的主流方案，可被定义为传统工控机。一般而言
 
-In the past ten years, the embedded system has developed rapidly. With its low power consumption, low cost and continuously improved high performance, it has become the only solution for mobile devices (mobile phones, PADs); The ideal choice for data acquisition and processing in various industries. The embedded system of ARM architecture has the characteristics of flexible and efficient customization of software and hardware solutions. At present, a complete industrial chain ecosystem has been formed, which can provide users with solutions that meet their actual needs and have certain advances. Products with extended margins and more competitive prices; when user needs gradually exceed the capabilities of current products, they can continuously provide new products that meet user requirements through rapid program design and iteration, and can realize "needs— —Technology—Scheme—Product—Market—User—Demand” a virtuous circle of rising
+在传统工控机在工控领域的自动化和信息化方面发挥重要作用的同时，其先天弱势也一直困扰着厂家、集成商和用户。大家都在寻找更好的方案
 
-Compared with the traditional industrial computer, the specially designed system based on the embedded computer architecture is called the embedded industrial computer.
+近十年来，嵌入式系统发展迅速，以其具有的低功耗、低成本及不断提升的高性能等特点，已经成为移动设备（手机、PAD）的唯一方案；也成为包括工业控制在内的各行业实现数据采集处理的理想选择ARM架构的嵌入式系统，具有的灵活高效的软硬件方案定制特点，目前已经形成完整的产业链生态圈，能够为用户提供满足其现实需求、并有一定超前扩展余度的产品，且价格更有竞争优势的产品；当用户需求逐渐超出目前产品的能力时，又能够通过快速的方案设计与迭代，不断提供满足用户要求的新产品，能够实现“需求——技术——方案——产品——市场——用户——需求“不断上升的良性循环
 
-The main features of traditional industrial computer and embedded industrial computer are compared as follows:
+相对于传统工控机，经特殊设计的基于嵌入式计算机架构的系统，被称为嵌入式工控机
 
-[options="header",cols="1,2,4,4"]
-|=====
-| Nomber | Key elements                   | Traditional industrial computer (Windows+X86)                               | Embedded industrial computer (Linux+LoongArch/ARM)                                     
-| 1      | performance                    | Commercial-grade Celeron or commercial/industrial-grade Core i3~I5          | Industrial grade, higher performance than Celeron, weaker than I3                      
-| 2      | safety                         | Vulnerable, vulnerable to viruses and hackers                               | Stable system, few upgrades, high security                                             
-| 3      | real-time                      | Poor real-time responsiveness                                               | Real-time responsiveness can meet the requirements                                     
-| 4      | reliability                    | High power consumption requires strong heat dissipation and low reliability | Low power consumption does not need to consider heat dissipation, high reliability     
-| 5      | Scalability                    | It is complicated to expand various interfaces on the motherboard           | It is more convenient to expand various interfaces on the core board/development board 
-| 6      | industrial grade               | It is more difficult to realize real industrial grade products              | It is easier to realize real industrial grade products                                 
-| 7      | Customization                  | Customization efficiency is low and cost is high                            | Application-oriented fast and efficient customization and iteration                    
-| 8      | performance                    | Insufficient or excess performance for industrial applications              | Application-specific solutions with the best performance                               
-| 9      | overall price                  | higher                                                                      | Application-specific, price advantage                                                  
-| 10     | Operation and maintenance cost | High power consumption and high operation and maintenance costs             | Low power consumption and low cost, green and environmental protection                 
-| 11     | life cycle                     | Frequent replacement, difficult to guarantee inventory                      | Long CPU life cycle, guaranteed inventory                                              
-|=====
-Embedded industrial computer has become a strong competitor of traditional industrial computer. In the future, the former will form an overwhelming advantage over the latter, there is no suspense.
+传统工控机与嵌入式工控机的主要特点对比如下：
 
-== Application Scenarios of Embedded Industrial Computers
+[options="header",cols="1,2,4,5"]
+|====
+|序号	|关键要素	|传统工控机（Windows+X86）	|嵌入式工控机（Linux+LoongArch/ARM）
+|1	|性能	|商用级赛扬或商业/工业级酷睿i3~I5	|工业级，性能高于赛扬，弱于I3
+|2	|安全性	|漏洞多，易受病毒和黑客攻击	|系统稳定、较少升级，安全性高
+|3	|实时性	|实时响应能力较差	|实时响应能力能够满足要求
+|4	|可靠性	|高功耗必须强散热，可靠性低	|低功耗无需考虑散热，可靠性高
+|5	|扩展性	|在主板上扩展各类接口复杂	|在核心板/开发板上扩展各类接口较为方便
+|6	|工业级	|实现真正工业级产品较为困难	|实现真正工业级产品较为容易
+|7	|定制化	|定制化效率低、成本高	|面向应用快速高效订制与迭代
+|8	|性能	|对工业应用而言性能不足或过剩	|针对应用，具有最佳性能方案
+|9	|总体价格	|较高	|针对应用，具有价格优势
+|10	|运维成本	|功耗高、运维成本高	|低功耗低成本，绿色环保
+|11	|生命周期	|换代频繁，库存难以保证	|CPU生命周期较长，可保证库存
+|====
 
-The rapid development of the industrial Internet and the Internet of Things is not only a battle for many computer software and hardware manufacturers (including communication solutions and product manufacturers, which are essentially computer systems, even embedded system software and hardware manufacturers) trying to enter the relatively high-profit industry. It is a successive attempt to monitor the industry market; it is also an enlightenment movement to open up "people's awareness of people's wisdom" and popularize professional knowledge. This big storm, which has lasted for more than ten years, has expanded the general public's demand and imagination for monitoring and control applications to every corner of all walks of life
+嵌入式工控机已经成为传统工控机的强力竞争对手。在未来，前者形成对后者的压倒性优势，毫无悬念
 
-The concept of "cloud-pipe-edge-end" is a classic summary and induction of the principles of surveillance and control based on Internet thinking and terms; The mainstream model and architecture adopted by monitoring applications in various industries for decades
+== 嵌入式工控机的应用场景
 
-image::/indu-board/industrial_computer_zh_1.png[industrial_computer_zh_1.png]
+工业互联网及物联网的迅速发展，既是一场众多的计算机软硬件厂家（也包括通讯方案和产品厂家，其本质也是计算机系统，甚至是嵌入式系统的软硬件厂家）尝试进入利润相对较高的行业监控市场的前赴后继的尝试；也是一场开启“民觉民智”，普及专业知识的启蒙运动。这个已经持续了十数年的大风暴，使普罗大众对监视和控制的应用需求和想象，扩展到了各行各业的每个角落
 
-- Cloud: The computer system that implements the monitoring center system and more advanced application software and algorithms. The "cloud" here includes both the "public cloud" on the Internet and the "private cloud" on the enterprise LAN. Build "cloud" computer systems, currently mainly high-end X86+Windows/Linux servers, and their clusters
-- Tube: Provide various efficient, reliable, convenient and cost-effective wired/wireless channels for both sides of the equipment. There are not only "pipes" between the "cloud" and "edge", such as wide area Ethernet, 4G/5G, etc.; between the "edge" and "end" of the application site, there are also pipes suitable for on-site application scenarios. The existence of wired/wireless "pipes", such as local Ethernet, serial port, high-speed power line carrier (HPLC), LoRa, ZigBee, WIFI, etc.
-- Edge: A computer system used to perform on-site computing tasks. The main role of "edge" was assumed by traditional industrial computers in the early days, or by general desktops and servers when the requirements were not so strict; now there is a trend of building embedded industrial computers with mid-to-high-end ARM architecture embedded systems
-- Terminal: The device (secondary device) used to monitor and control the main device (primary device) in industrial applications, and the device (secondary device) to monitor various main devices in the Internet of Things environment. The main role of "end" was realized by low-end embedded single-chip microcomputer system in the early stage; at present, it is gradually transitioning to low-end embedded system (main frequency below 1GMHz) as the mainstream solution
+“云—管—边—端”的概念，是以互联网思维和术语，对监视控制原理做了经典的总结与归纳；但从技术发展历史看，它远非全新概念和新技术，实际上是数十年来各行业监控应用所采用的主流模式和架构
 
-From the above analysis, it is not difficult to see that the application of industrial computer is mainly located at the "edge" level. As a specific application of "edge", the embedded industrial computer mainly carries the following two types of functions:
+image::/bpi-5202/industrial_computer_zh_1.png[industrial_computer_zh_1.png]
 
-- Automatic operations, such as gateways, NVRs, routers, firewalls, etc., are realized through specially designed industrial-grade low-end embedded computer systems. Some have simple character/bitmap-based display and special button parameter configuration and status display functions
-- Interactive operation class, complete monitoring and system (including HMI human-computer interaction interface) and other functions, realized through a specially designed industrial-grade mid-to-high-end embedded computer system, with the interactive ability of vector graphics system
+* 云：实现监控中心系统及更多高级应用软件和算法的计算机系统。这里的“云”，既包括互联网上的“公有云”，也包括企业局域网上的“私有云”。构建“云”的计算机系统，目前主要为高端X86+Windows/Linux服务器，及其集群
+* 管：为设备两侧提供各种效率、可靠、便捷、高性价比的有线/无线通道。不仅在“云”和”边“之间有“管”的存在，例如广域以太网网、4G/5G等；在应用现场的“边”和“端”之间，也有适合现场应用场景的有线/无线的“管”的存在，比如局域以太网、串口、高速电力线载波（HPLC）、LoRa、ZigBee、WIFI等
+* 边：用于完成现场计算任务的计算机系统。边”的主要角色，早期由传统工控机、或者在要求不那么严格时，用一般的台式机及服务器来承担；目前开始出现以中高端ARM架构嵌入式系统构建嵌入式工控机的趋势
+* 端：用于实现对行业应用中对主设备（一次设备）进行监视和控制的装置（二次设备）、以及物联网环境中对各类主设备进行监控的设备（二次设备）。“端”的主要角色，早期由低端的嵌入式单片机系统实现；目前以逐渐过渡到以中低端嵌入式系统（主频1GMHz以下）为主流方案
 
-== Typical Application Scenarios of Embedded Industrial Computers
+从以上的分析不难看出，工控机的应用，主要定位在“边”的层面。作为“边”的具体应用，嵌入式工控机主要承载以下两种类型的功能：
 
-- The edge "brain" of intelligent power distribution room, computer room power environment, pumping station, intelligent park, intelligent campus, intelligent manufacturing, etc., realizes the connection with on-site data acquisition unit, measurement and control device, protection equipment, PLC equipment, CNC equipment, and robot equipment Access, protocol analysis, alarm processing, conversion, integrated transmission and control
-- Embedded SCADA system (C/S, B/S mode)
-- 100ms level soft PLC
-- Industrial control/IoT field small data server
-- Enterprise workshop-level industrial kanban/OEE kanban, lightweight MES front-end data acquisition and display that meet the requirements of "intelligent transformation and digital transformation"
-- Development and operation platform for third-party algorithms and models based on industry applications
-- Access and push of video front-end equipment, video recording and linkage, video AI analysis interface and comprehensive linkage of analysis results
-- On-site network security and audit
+* 自动运行类，如网关、NVR、路由器、防火墙等，通过特别设计的工业级中低档嵌入式计算机系统实现。部分具有简单的基于字符/位图的展示和特殊按键的参数配置和状态显示功能
+* 交互运行类，完成监控和系统（含HMI人机交互界面）等功能，通过特别设计的工业级中高档嵌入式计算机系统实现，具有矢量化图形系统的交互能力
+
+从以上的分析不难看出，工控机的应用，主要定位在“边”的层面。作为“边”的具体应用，嵌入式工控机主要承载以下两种类型的功能：
+
+* 自动运行类，如网关、NVR、路由器、防火墙等，通过特别设计的工业级中低档嵌入式计算机系统实现。部分具有简单的基于字符/位图的展示和特殊按键的参数配置和状态显示功能
+* 交互运行类，完成监控和系统（含HMI人机交互界面）等功能，通过特别设计的工业级中高档嵌入式计算机系统实现，具有矢量化图形系统的交互能力
+
+嵌入式系统的CPU种类很多:
+
+* ARM系列，国外的有：恩智浦（NXP）、高通（QUALCOMM）、德州仪器（TI）、三星（SAMSUNG）；国内的有：飞腾、全志、瑞星微、海思等
+* 龙芯（LoongArch）系列，龙芯家族中的2系列，主要面向“边“及高级“端”的应用；1系列，主要面向中低级“端”的应用。
+
+== 嵌入式工控机的典型应用场景
+
+* 智能配电房、机房动力环境、泵站、智慧园区、智慧校园、智能制造等现场的边缘“大脑”，实现与现场数采单元、测控装置、保护设备、PLC设备、CNC设备、机器人设备的接入、协议解析、报警处理、转换、整合传输与控制
+
+* 嵌入式SCADA系统（C/S、B/S模式）
+* 100ms级别的软PLC
+* 工控/物联网现场小型数据服务器
+* 满足“智改数转”要求的企业车间级工业看板/OEE看板、轻量级MES前端数采和展示
+* 基于行业应用的第三方算法、模型的开发与运行平台
+* 视频前端设备的接入与推送、视频录像与联动、视频AI分析接口及分析结果的综合联动
+* 现场网络安全及审计
 
 image::/indu-board/industrial_computer_zh_2.png[industrial_computer_zh_2.png]
 
-= Getting Start
+= 快速上手
 
 TIP: link:/en/BPI-6202/GettingStarted_BPI-6202[Getting Started BPI-6202]
 
-= BPI-6202 Embedded Single Board Industrial Computer
-BPI-6202 as a simple embedded general controller hardware and software development platform, it provides fully functional hardware solutions for application developers, and supports BSP+docker development environment. Provide strong edge computing support. Developers can quickly utilize the development platform, develop and productize
+
+= BPI-6202 嵌入式单板工控机介绍
+
+BPI-6202作为一个简单的嵌入式通用控制器软硬件开发平台，为应用开发者提供功能齐全的硬件解决方案，并支持BSP+docker开发环境。提供强大的边缘计算支持。开发人员可以快速利用开发平台，进行开发和产品化
 
 
 
-== BPI-6202 PCBA design
-=== PCBA interface
+== BPI-6202 PCBA 硬件设计
+
+=== PCBA 接口示意图
 
 image::/indu-board/banana_pi_bpi-6202_int.jpg[banana_pi_bpi-6202_int.jpg]
 
-=== PCBA spec
+=== PCBA 硬件规格
 [cols="1,3"]
 |====
 | CPU and OS               | Allwinner A40I ARM Cortex-A7 quad cord 1.2GHz，Ubuntu/Mate                                                                                   
@@ -90,32 +106,30 @@ image::/indu-board/banana_pi_bpi-6202_int.jpg[banana_pi_bpi-6202_int.jpg]
 | Power                    | DC：24V                                         
 |====
 
-=== PCBA with SSD and 4G support
+=== PCBA 支持 SSD硬盘接口和 4G 网络
 
 image::/indu-board/industrial_computer_zh_int.png[industrial_computer_zh_int.png]
 
-=== 20 Pin GPIO expansion port
+=== 20 Pin GPIO 扩展定义
 
 image::/indu-board/bpi-6202_gpio.png[bpi-6202_gpio.png]
 
-BPI-6202 also support expansion board ,The expansion port adopts 2.54mm pitch, 2x10P row pin seat, which is used to expand 10 interfaces.
 
+BPI-6202支持模块化设计，提供丰富的扩展接口，可以采用基本单元 + 5个扩展单元，支持按需配置。扩展IO单元模块包括：
 
-The BPI-6202 supports modular design, provides rich expansion interfaces, and can use the basic unit + 5 expansion units to support on-demand configuration. Extended IO unit modules include:
+* 7 x RS485模块，带隔离
+* 16 x DI模块（开关输入模块），无源输入（最多支持5个模块混插）
+* 16 x DO模块(开关输出模块)，继电器输出（最多支持5个模块混插）
+* 8 x DI+8 x DO O模块(开关输入/输出模块)，继电器输出（最多支持5个模块混插）
+* 8 x AI + 4 x AO 模块（模拟量输入输出模块），支持0-5V、0-20mA输入
+* 可根据需求定制Lora、ZigBee、433M无线传输模块、电力线载波模块、以及其它功能模块
+* 支持第三方自行定制功能板卡，并与BPI-6202实现通信
 
-- 7 x RS485 module with isolation
-- 16 x DI module (switch input module), passive input (up to 5 modules can be mixed)
-- 16 x DO module (switch output module), relay output (up to 5 modules can be mixed)
-- 8 x DI+8 x DO O module (switch input/output module), relay output (up to 5 modules can be mixed)
-- 8 x AI + 4 x AO module (analog input/output module), support 0-5V, 0-20mA input
-- Customized Lora, ZigBee, 433M wireless transmission modules, power line carrier modules, and other functional modules,
-- The function board can be customized by third parties and can communicate with BPI-6202
-
-All boards are connected via internal bus(485 or SPI) in the box
+所有电路板都通过内部总线(485或SPI)连接在盒子里
 
 image::/indu-board/banana_pi_bpi-6202_gateway_5.jpg[banana_pi_bpi-6202_gateway_5.jpg]
 
-Banana Pi BPI-6202 expansion gateway design
+Banana Pi BPI-6202 扩展网关设计
 
 image::/indu-board/banana_pi_bpi-6202_gateway_1.jpg[banana_pi_bpi-6202_gateway_1.jpg]
 
