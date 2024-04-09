@@ -1,41 +1,40 @@
 = BPI-M4 Zero 介绍
 
-Banana Pi BPI-M4 Zero is the successor model of M2 Zero. It has a huge improvement in performance. The SOC is upgraded to H618 and the CPU frequency is increased by 25%. The memory is upgraded to DDR4, the capacity is quadrupled, and 8G eMMC is added. It supports 5G WiFi, and the USB interface has also been upgraded to type-C.
+Banana Pi BPI-M4 Zero是M2 Zero的继任者。它在性能上有很大的提高。SOC升级至H618，CPU频率提升25%。内存升级为DDR4，容量翻了四倍，并增加了8 G eMMC。支持5G WiFi，USB接口也升级到了type-C。
 
-It has same form factor and 40-pin connector as the Raspberry Pi Zero W, and it can fit most of the RPI Zero W cases and accessories.
+它具有与Raspberry Pi Zero W相同的外形和40针连接器，可以安装大多数RPI Zero W外壳和配件。
 
 image::/picture/bpi_m4_zero_banner_1.jpg[bpi_m4_zero_banner_1.jpg]
 
 TIP: Allwinner H618 design : link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry[Banana Pi BPI-M4 Berry] Same size as Raspberry Pi 4B +
 Allwinner H618 design : link:/en/BPI-M4_Zero/BananaPi_BPI-M4_Zero[Banana Pi BPI-M4 Zero] Same size as Raspberry Pi Zere W
 
-= Key Features
-
-* Allwinner H618, Quad-core ARM Cortex™-A53 processor
+= 主要特点
+* Allwinner H618，四核ARM Cortex™-A53处理器
 * ARM Mali G31 GPU
-* 2.4G/5G WIFI & Bluetooth 4.2
+* 2.4G/5G WiFi和蓝牙4.2
 * 2G LPDDR4 RAM
-* 8G eMMC flash memory
-* 1x USB2.0 Type-C OTG, 5V power supply
+* 8 G eMMC闪存
+* 1x USB2.0 Type-C OTG，5V电源
 * 1x USB2.0 Type-C
 * 1x miniHDMI 2.0a
-* 1x 24-pin FPC connector
-** 1x USB2.0 (in FPC connector)
-** 1x 100Mbps Ethernet (in FPC connector)
+* 1x 24-pin FPC连接器
+** 1个USB2.0（在FPC连接器中）
+** 1x 100 Mbps以太网（在FPC连接器中）
 
-== Getting Start
+== 快速入门
 
 TIP: link:/en/BPI-M4_Zero/GettingStarted_BPI-M4_Zero[Getting Started BPI-M4_Zero]
 
-= Hardware
-== Hardware Interface
+= 硬件
+== 硬件接口示意图
 image::/picture/bpi-m4_zero_interface.jpg[bpi-m4_zero_interface.jpg]
 
-== BPI-M4 Zero Photo
+== BPI-M4 Zero 图片
 
 link:/en/BPI-M4_Zero/Photo_BPI-M4_Zero[Banana Pi BPI-M4 Zero Product photo gallery]
 
-== Hardware Spec
+== 硬件规格
 
 [options="header",cols="1,4",width="70%"]
 |=====
@@ -65,7 +64,7 @@ link:/en/BPI-M4_Zero/Photo_BPI-M4_Zero[Banana Pi BPI-M4 Zero Product photo galle
 
 
 
-== GPIO Pin Define
+== GPIO 引脚定义
 
 === BPI-M4 Berry 40PIN GPIO
 
@@ -154,8 +153,8 @@ link:/en/BPI-M4_Zero/Photo_BPI-M4_Zero[Banana Pi BPI-M4 Zero Product photo galle
 |3|UART0_TX
 |=====
 
-= Development
-== Source Code
+= 发展
+== 源代码
 === Android
 TIP: BPI-H618-Android12-Code
 
@@ -163,16 +162,14 @@ Baidu Cloud: https://pan.baidu.com/s/1yMlLXauxZywujH8WkYqEcQ?pwd=8888 PIN code:8
 
 Google Drive: https://drive.google.com/drive/folders/1qQxQik4GJjOF1aEOs9a1YVFxJBPlyFnc?usp=sharing
 
-=== Linux BSP Source Code
-
+=== Linux BSP 源代码
 TIP: Linux BSP source code
 
 u-boot for H618 : https://github.com/BPI-SINOVOIP/pi-u-boot/tree/v2021.07-sunxi
 
 kernel for H618 : https://github.com/BPI-SINOVOIP/pi-linux/tree/pi-6.1-sunxi
 
-== Resources
-
+== 开发资料
 TIP: BPI-M4 Zero Hardware introduction video: https://www.youtube.com/watch?v=23J_TfsB480
 
 TIP: BPI-M4 Zero DXF file
@@ -195,7 +192,7 @@ Baidu Cloud: https://pan.baidu.com/s/10Rk4xLMOhIkk-gIoQx9DQw?pwd=8888 PIN code:8
 
 Google Drive: https://drive.google.com/file/d/1N6oWF9PHTcxXC1JY4x3Malr3twFv2wWZ/view?usp=sharing
 
-= System Image
+= 系统镜像
 == Android
 
 NOTE: 2024-01-14-bananapi-m4zero-android12-box.img.
@@ -252,12 +249,12 @@ Baidu Cloud: https://pan.baidu.com/s/1x2ByNdQJHRxRxRIo5Ui1lA?pwd=8888 (pincode:8
 
 Google Drive: https://drive.google.com/file/d/19BjUfWAH8pQdVtxN1Ow6QERlSm5o5g5e/view?usp=sharing
 
-= Easy to buy
+= 购买链接
 
-WARNING: SINOVOIP Aliexpress Shop: https://www.aliexpress.us/item/1005006325178305.html
+WARNING: SINOVOIP 全球速卖通商店: https://www.aliexpress.us/item/1005006325178305.html
 
-WARNING: Bipai Aliexpress Shop: https://www.aliexpress.us/item/1005006325280213.html
+WARNING: Bipai 全球速卖通商店: https://www.aliexpress.us/item/1005006325280213.html
 
-WARNING: Taobao Shop: https://item.taobao.com/item.htm?spm=a21dvs.23580594.0.0.4fee3d0dOP5VBH&ft=t&id=754939469582 
+WARNING: 淘宝: https://item.taobao.com/item.htm?spm=a21dvs.23580594.0.0.4fee3d0dOP5VBH&ft=t&id=754939469582 
 
-WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
+WARNING: OEM&ODM, 请联系: judyhuang@banana-pi.com
