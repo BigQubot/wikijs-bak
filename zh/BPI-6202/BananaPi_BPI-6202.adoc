@@ -170,151 +170,166 @@ image::/indu-board/bpi_industrial_product_interface_6.png[bpi_industrial_product
 |8	|3个指示灯	|自上至下，分别为：系统运行灯，正常运行时定时闪烁;预留灯(编程可控）;4G/5G运行灯，显示蜂窝通讯状态
 |====
 
-=== BPI-6202 product key feature
-. The industrial product and application development platform, BPI-6202 embedded single-board industrial computer, can play the following roles:：
+== BPI-6202 工业控制网关主要特点
+* 1,工业成品与应用开发平台,BPI-6202嵌入式单板工控机，可以扮演如下角色：
 
-- Finished product of industrial control application: With its rich hardware resources (network, serial port, 4G/5G/WiFi, HDMI/USB display interaction, SSD hard disk) and application software (protocol gateway/video gateway, C/S+B/S mode SCADA, application publishing, PLC programming, gateway security and auditing functions), directly applied to the engineering site
-- Basic platform for secondary development of industry applications: Provide development environment, interface and application environment based on Linux + Ngnix/HTTPS+ C/Python/Java/JS + MySQL/Sqlite/InfluxDB + Docker to meet the needs of various application developers
-- Small data application server: provide edge computing/control nodes that are safe, reliable, cheap, and have sufficient computing power and storage capacity (large-capacity SSD hard disk)
-- Open source project of hardware/operating system: provide complete hardware board-level open source to ecological partners, provide complete hardware information and basic operating system such as schematic diagram and PCB diagram of 6202 single-board industrial computer, and support users in 6202 single-board industrial computer On the basis of self-development of more single-board application systems
-. Industrial grade standard:
+** 工控应用成品：以其所具有的丰富硬件资源（网络、串口、4G/5G/WiFi、HDMI/USB显示交互、SSD硬盘）和应用软件（协议网关/视频网关、C/S+B/S模式的SCADA、应用发布、PLC编程、网关安全及审计等功能），直接应用于工程现场
+** 行业应用二次开发的基础平台：提供基于Linux + Ngnix/HTTPS+ C/Python/Java/JS + MySQL/Sqlite/InfluxDB + Docker的开发环境、接口及应用环境，满足各类应用开发者需要
+** 小型数据应用服务器：提供安全可靠、价格低廉、具有充裕算力和存储能力（大容量SSD硬盘）的边缘计算/控制节点
 
-- Industrial-grade low-power fanless design, long-term stable operation on site
-- Support -40℃~+70℃ wide temperature operation
-- Implementation of GB/T17626, GB/T15153, IEC61850-3, EN61000-6-5 standards, EMC class III
-. Scalable function
+* 2,工业级标准:
 
-- Support board expansion for customized enclosures, including electrical IO modules (AI/AO/DI/DO modules), extended serial port modules, extended Ethernet switching modules, HPLC communication modules, CAN communication modules, Zigbee communication modules, Lora communication modules, and Customized modules for other industry applications, using the internal high-speed bus to communicate with the 6202 main board
-. Data + video on-site integration
+** 工业级低功耗无风扇设计，现场长期稳定运行
+** 支持-40℃~+70℃宽温运行
+** 执行GB/T17626、GB/T15153、IEC61850-3、EN61000-6-5标准，EMC III级
 
-- 300+ international/national/industry/enterprise protocol libraries accumulated over the years, plug and connect, improve access efficiency, and analyze data accurately
-- Video RTSP/RTMP, Onvif/GB28181 function, streaming media server function, H.264/H.265 playback function, data linkage short video linkage alarm recording function, camera AI analysis event capture/upload function (released recently), data OSD printing code function (released soon)
-- Solve the long-term problems and pain points that video surveillance is independent of data surveillance and requires video manufacturers' front-end + back-end binding solutions
-. Lightweight PLC function (released recently)
+* 3,可扩展功能
 
-- Through the IEC61131-3 programming language, PLC programming can be performed for all data in the gateway, and the lightweight PLC function can be realized through the electrical IO module
-. Multiple communication methods
+** 支持定制外壳的板卡扩展，包括电气IO模块（AI / AO /DI /DO模块）、扩展串口模块、扩展以太网交换模块、HPLC通信模块、CAN通信模块、Zigbee通信模块、Lora通信模块，以及其他行业应用的定制模块，采用内部高速总线与6202主板通信
 
-- Support 2 independent IP network ports (1G+100M) * Support 2 RS485 serial ports + 1 RS232 Console
-- Support WIFI, 4G/5G communication
-- Scalable support CAN, ZigBee, Lora communication
-. HMIand upper computer function integration
+* 4,数据+视频现场整合
 
-- Connect the touch screen/large screen-keyboard-mouse through the HDMI/USB interface, and the application can realize friendly HMI interaction
-- With the built-in full-featured SCADA system (C/S architecture and B/S architecture), it replaces the on-site X86+Windows architecture host computer system, suitable for unattended environments, and has a very high cost performance
-. Multi-core architecture, abundant resources, and sufficient computing power
+** 多年积累的300+国际/国家/行业/企业协议库，即插即连，提高接入效率，解析数据准确
+** 视频RTSP/RTMP，Onvif/GB28181功能，流媒体服务器功能，H.264/H.265播放功能，数据联动短视频联动报警录像功能，摄像头AI分析事件捕获/上传功能（近期发布），数据OSD打码功能（近期发布）
+** 解决长期以来视频监控独立于数据监控、需要视频厂家前端+后端绑定方案痼疾和痛点
 
-- Allwinner A40i ARM Cortex-A7 Quad Core 1.2GHz + 2G DDR3 + 8G eMMC
-- Support Built-in large-capacity SSD hard disk
-- Abundant computing resources ensure more edge computing capabilities
-- Built-in dongle encryption chip
-- Built-in special encryption chip for national network communication
-. A variety of secondary development interfaces
+* 5,轻量级PLC功能（近期发布）
 
-- C, expression, ladder diagram, Java, Python, SqLite programming interface
-- Docker function
+** 通过IEC61131-3编程语言，可针对网关内所有数据进行PLC方式编程，通过电气IO模块，实现轻量级PLC功能
 
-=== Internal logical structure
+* 6,多种南向/北向通信方式
+
+** 支持2个独立IP网口（1G+100M）*支持2路RS485串口+1路RS232 Console
+** 支持WIFI、4G/5G通信
+** 可扩展支持CAN、ZigBee、Lora通信
+
+* 7,HMI及上位机功能集成
+
+** 通过HDMI/USB接口连接触摸屏/大屏-键盘-鼠标，应用程序可实现友好的HMI交互
+** 配合内置的全功能SCADA系统（C/S架构和B/S架构），取代现场X86+Windows架构的上位机计算机系统，适合无人值守环境，具有极高的性价比
+
+* 8,多核架构、资源丰富、算力充裕
+
+** 全志A40i ARM Cortex-A7四核1.2GHz + 2G DDR3 + 8G eMMC
+** 内置大容量SSD硬盘
+** 丰富的计算资源，确保更多的边缘计算能力
+** 内置软件狗加密芯片
+** 内置国网通信专用加密芯片
+
+* 9,多种二次开发接口
+
+** C、表达式、梯形图、Java、Python、SqLite编程接口
+** Docker功能
+
+== 网关内部逻辑结构
 
 image::/indu-board/industrial_computer_zh_4.png[industrial_computer_zh_4.png]
 
-=== External connection
+== 外部连接方式
 
 image::/indu-board/industrial_computer_zh_6.png[industrial_computer_zh_6.png]
 
-=== Technical Description
-BPI-6202 embedded single-board industrial computer, equipped with 2 independent MAC Ethernet ports (1G+100M), 2 RS485+1 RS232 ports, HDMI/USB, can be installed with large-capacity SDD hard disk, powerful and low price , Small size, easy guide rail installation, providing the most cost-effective on-site industrial control solution. As the master control node of edge computing, CS6202 makes full use of the powerful functions of embedded multi-core computing, which can access, process and display a large amount of on-site data; replace the conventional gateway + small monitoring system to achieve the optimal solution.
+== 技术说明
 
-BPI-6202 is widely used in new energy, electric power, petroleum, rail transit, enterprise lightweight MES/industrial kanban, and IoT monitoring site automation application scenarios.
+BPI-6202嵌入式单板工控机，配置2个独立MAC以太网端口（1G+100M）、2个RS485+1个RS232端口、HDMI/USB，可加装大容量SDD硬盘，功能强大、价格低廉、尺寸小，导轨安装方便，提供最具性价比的现场工控解决方案。作为边缘计算的主控节点，CS6202充分利用了嵌入式多核计算的强劲功能，能够接入、处理并展示大量的现场数据；取代常规的网关+小型监控系统，实现最优的解决方案。
 
-BPI-6202 has a built-in 300+ protocol interpretation library and real-time database, which can be connected to various protection devices, measurement and control devices, IEDs and other equipment at home and abroad, and supports IEC61850. Special protocols can be customized according to user requirements; an open API is provided to facilitate users to develop protocol software by themselves, and the protocol software can be downloaded independently.
+BPI-6202广泛适用于新能源、电力、石油、轨道交通、企业轻量级MES/工业看板、及物联网监控现场的自动化应用场景。
 
-BPI-6202 supports the access of hundreds of devices, data protocol analysis, conversion and unified transmission.
+BPI-6202内置300+规约解释库和实时数据库，可连接国内外各种保护装置、测控装置、IEDs等设备，并支持IEC61850。可根据用户要求定制特殊规约；提供开放的API，方便用户自行开发规约软件，规约软件可独立下载。
 
-BPI-6202 has powerful video processing functions, supports RTSP/RTMP video push-pull streaming, Onvif/GB28181 protocol stack and other video surveillance transmission protocols, realizes compatible access to multi-manufacturer video front-end equipment (IPC, NVR), and configures large-capacity hard disk Later, it can replace NVR to realize video recording and playback functions. The unique linkage function based on data + video provides the industry's only solution for the perfect integration of data + video.
+BPI-6202支持数百台设备的接入，数据协议解析、转换与统一传输。
 
-BPI-6202 supports complete C/S architecture SCADA system functions below 2048 points through HDMI display interface and USB keyboard and mouse (or touch screen); CS6202 provides B/S SCADA functions through Ngnix+Https, through C/S+ B/S mode hybrid configuration tool, flexible choice of C/S and B/S style
+BPI-6202具有强大的视频处理功能，支持RTSP/RTMP视频推拉流、Onvif/GB28181协议栈等视频监控传输协议，实现对多厂家视频前端设备（IPC、NVR）的兼容接入，配置大容量硬盘后可取代NVR，实现视频录像及回放功能。独有的基于数据+视频的联动功能，提供了业界唯一的数据+视频完美融合的解决方案。
 
-BPI-6202 supports the following configuration methods:
+BPI-6202通过HDMI显示接口和USB键盘鼠标（或触摸屏），支持2048点以下完整的C/S架构SCADA系统功能；CS6202通过Ngnix+Https，提供B/S方式的SCADA功能，通过C/S+B/S模式的混合组态工具，可灵活选择C/S及B/S风格的
 
-- Built-in WEB management, query/configure the working parameters of the device through the web page
-- Dedicated configuration software to configure device parameters
-- Cloud remote management, configure and diagnose the gateway through the cloud, and realize firmware and application upgrades
+BPI-6202支持如下配置方式：
 
-BPI-6202 uses the original iCoupler® digital isolation technology, RS485 automatic direction control, and RS485 zero-delay transmission technology. The equipment has strong adaptability and good compatibility, and can adapt to various harsh industrial sites and IoT sites, ensuring the reliability of communication and various IO semaphores.
+* 内置WEB管理，通过网页查询／配置设备的工作参数
+* 专用的配置软件配置设备参数
+* 云端远程管理，通过云端对网关进行配置和诊断，实现固件和应用程序的升级
 
-NOTE: The power supply of BPI-6202 is DC24V
+BPI-6202使用了独创的iCoupler®数字隔离技术、RS485自动方向控制、RS485零延时传送技术，在设计上充分考虑了工业现场应用的特殊性，遵循EMI/EMC设计规范，对不同类型的RS485设备适应性强、兼容性好，能够适应各种严酷的工业现场和物联网现场，保障通信以及各种IO信号量的可靠。
 
-=== The main function
-. Built-in 300+ communication protocol library (see protocol list for details), including: MQTT and other IoT protocols, BACNET, OPC UA, IEC 60870-5-101/103/104, CDT, SPABUS, standard MODBUS and dozens One variant, plug and play; special protocols can be quickly customized according to needs, and a secondary development environment can be provided
-. Support various PLC connections such as Siemens/AB/Schneider/Mitsubishi
-. Support access to mainstream CNC equipment and mainstream robot equipment
-. Support IEC61850 Server/Client function, realize the two-way conversion between traditional protocol and 61850
-. Video stream acquisition, transmission, distribution, PTZ control, local streaming server functions
-. Encrypted transmission, breakpoint resume
-. Built-in RTC, providing high-precision time reference
-. 4G/5G/WIFI function
-. HDMI/USB interface, with the UI operation of the embedded SCADA system, can directly drive the kanban/big screen
-. Local device configuration management, cloud device configuration management
-. Telnet, SNMP service
-. Strong electromagnetic compatibility design, in line with relevant international standards, has good anti-interference ability
-. It can carry out secondary development, provide complete protocol development tools, various API interfaces, freely customize protocols, and deploy various industry application apps
-. Guide rail installation, beautiful appearance, convenient screen assembly
-. Full-featured SCADA function, including C/S mode and B/S mode
-. Container (Docker) function
-. Built-in network security module, support black and white list and protocol security control, audit, log function
+NOTE: 注：BPI-6202的供电，为DC24V
 
-=== Technical specifications
+== BPI-5202网关主要功能
+
+* 1)内置300+通讯规约库（详见协议列表清单），包括：MQTT及其它物联网协议、BACNET、OPC UA、IEC 60870-5-101/103/104、CDT、SPABUS、标准MODBUS及数十个变种，即插即通；可根据需求快速定制特殊协议，可提供二次开发环境
+* 2)支持西门子/AB/施耐德/三菱等各类PLC连接
+* 3)支持主流CNC设备接入、主流机器人设备接入
+* 4)支持IEC61850 Server/Client功能，实现传统规约与61850的双向转换
+* 5)视频流获取、传输、分发，云台控制、本地流媒体服务器功能
+* 6)加密传输、断点续传
+* 7)内置RTC，提供高精度时间参考
+* 8)4G/5G/WIFI功能
+* 9)HDMI/USB接口，配合嵌入式SCADA系统的UI操作，可直接驱动看板/大屏
+* 10)本地设备配置管理，云端设备配置管理
+* 11)Telnet、SNMP服务
+* 12)强电磁兼容性设计，符合国际相关标准，具有良好的抗干扰能力
+* 13)可进行二次开发，提供完整的协议开发工具、各种API接口，可自由定制协议、部署各种行业应用app
+* 14)导轨式安装，造型美观，组屏方便
+* 15)全功能SCADA功能，包括C/S模式和B/S模式
+* 16)容器（Docker）功能
+* 17)内置网络安全模块，支持黑白名单及协议安全控制、审计、日志功能
+
+== 技术规格
 [cols="1,5"]
 |====
-| CPU and OS                  | Allwinner A40I ARM Cortex-A7 quad cord 1.2GHz，Ubuntu/Mate
-| Memory                      | 2GB DDR3，8GB EMMC ；support SSD hardisk
-| Storage                     | 8GB EMMC ；support SSD Hardisk
-| communication function      | Ethernet port: 1 x 1000M + 1 x 100M, independent MAC, 2 x RS485 with isolation + 1 x RS232 Consoel with isolation, 4G/5G full Netcom + WiFi
-| Extended function module    | Horizontal expansion capability is reserved, and the expansion of various functional modules can be customized. The initial stage includes: RS485: with isolation; DI: passive input type, the module provides 24V isolated power supply; DO: relay output type, NC, COM, NO nodes; AI: 0-5V/4-20mA, 2-wire/3-wire input, the board provides 24V isolated power supply; AO: 0-5V/4-20mA, 2-wire/3-wire output, external 24V isolated power supply; AI + AO: 0-5V/4-20mA, 2-wire/3-wire input/output. The power supply is the same as above; other custom modules 
-| HDMI                        | HDMI1.4, support 1080p@60fps ; USB supports keyboard, mouse; or resistive/capacitive display interface
-| Data processing capability  | Equipment access capability: <=128 units (adjustable according to bandwidth and sampling period); analog value<10000; digital value<10000; control value<10000; expression calculation definition, alarm processing
-| video processing capability | Video RTSP/RTMP, Onvif, GB28181; video recording and playback; data trigger clip video recording and uploading; video AI event return and linkage, data OSD coding; local streaming service; H.264/H.265 playback
-| SCADA function              | Full-featured SCADA system, processing points: 2048 points, C/S or B/S mode
-| development environment     | Edge computing secondary development environment such as C/expression/ladder diagram/Java/Python 
-| encryption chip             | Software license authorization encryption chip (SMEC98SP); special encryption chip for State Grid communication (SC1161Y)                                        
-| Power                       | DC：24V                                       
+|处理器及OS	|全志A40I ARM Cortex-A7 四核1.2GHz，Ubuntu/Mate
+|内存	|2GB DDR3，8GB EMMC ；可配大容量SSD硬盘
+|基本通信功能	|以太网口：1 x 1000M + 1 x 100M，独立MAC,2 x RS485，带隔离 + 1 x RS232 Consoel带隔离,4G/5G全网通+WiFi
+|扩展功能模块	|预留横向扩展能力，可定制各种功能模块的扩展，先期包括：RS485：带隔离;DI：无源输入型，模块提供24V隔离电源;DO：继电器输出型，NC、COM、NO节点;AI：0-5V/4-20mA，2线/3线输入，板卡提供24V隔离电源;AO：0-5V/4-20mA，2线/3线输出，外部提供24V隔离电源;AI + AO：0-5V/4-20mA，2线/3线输入/出。电源同上;其它定制模块
+|HMI接口	|HDMI1.4，支持1080p@60fps;USB支持键盘、鼠标；或电阻/电容显示屏接口
+|数据处理能力	|设备接入能力：<=128台（根据带宽和采样周期可调）;模拟量<10000;数字量<10000;控制量<10000;表达式计算定义、报警处理
+|视频处理能力	|视频RTSP/RTMP、Onvif、GB28181;视频录像、回放;数据触发片段视频录像、上传;视频AI事件回传并联动、数据OSD打码;本地流媒体服务;H.264/H.265播放
+|SCADA功能	|全功能SCADA系统，处理点数：2048点，C/S或B/S模式
+|开发环境	|C/表达式/梯形图/Java/Python等边缘计算二次开发环境
+|加密芯片	|软件许可证授权加密芯片（SMEC98SP）;国网通信专用加密芯片（SC1161Y）
+|电源 |	DC：24V
 |====
-== Environmental Specifications
+
+== 环境规格
+
 [cols="1,3"]
 |====
-| No                            | illustrate                                                                                   
-| Operating temperature         | -40~+60℃                                                                                     
-| Storage temperature           | -40~+75℃                                                                                     
-| Working humidity (RH)         | 5%~95% non-condensing                                                                        
-| Storage Humidity (RH)         | 5%~95% non-condensing                                                                        
-| Altitude                      | <5000m                                                                                       
-| lightning protection          | Built-in lightning protection components, support outdoor use, meet high-level EMC standards 
-| Degree of protection          | IP40                                                                                         
-| Cooling method                | Natural heat dissipation without fan                                                         
-| Electromagnetic Compatibility | EMC class III, GB/T17626, GB/T15153, IEC61850-3, EN61000-6-5                                 
-| Safety                        | GB/T7621-2008                                                                                
-| certified                     | CE，FCC,RoHS                               
+|项目	|说明
+|工作温度	|-40~+60℃
+|存储温度	|-40~+75℃
+|工作湿度（RH）	|5%~95%无冷凝
+|存储湿度（RH）	|5%~95%无冷凝
+|海拔高度	|<5000m
+|防雷	|内置防雷元件，支持户外使用，符合高等级EMC标准
+|防护等级	|IP40
+|散热方式	|无风扇自然散热
+|电磁兼容	|EMC III级，GB/T17626、GB/T15153、IEC61850-3、EN61000-6-5
+|安规	|GB/T7621-2008
+|认证	|CE认证
 |====
-=== Physical Specifications
+
+== 物理规格
 [cols="1,5"]
 |====
-|Size(WxDxH)	|36mm x105mm x 145mm，DIN-rail installation, the width of customized expansion is 30mm x n+6 (n≥2, the width of customized expansion)
-|Weight	|0.5kg
-|Power consumption	|Typical power consumption: 5W, maximum power consumption: 10W
+|尺寸（宽x深x高）	|36mm x105mm x 145mm，导轨式安装,定制扩展的宽度为30mm x n+6（n≥2，为定制扩展时的宽度）
+|重量	|0.5kg
+|功耗	|典型功耗：5W ,最大功耗：10W
 |====
 
-= Source code
-TIP: BPI-CS6202 BSP source code: https://github.com/BPI-SINOVOIP/bpi-cs6202
+= 软件开发
+== 软件源代码
 
-= Resource
-TIP: BPI-6202 Schematic diagram
+TIP: BPI-CS6202 BSP 软件源代码: https://github.com/BPI-SINOVOIP/bpi-cs6202
+
+== 参考文档
+
+TIP: BPI-6202 原理图
 
 Baidu Cloud: https://pan.baidu.com/s/1aKr_53jHmsH4bRMKxJU6Eg?pwd=8888 (pincode:8888)
 
 Google Drive: https://drive.google.com/file/d/1gxg68TW2lFCxtRckjYkzm53WFViIVDco/view?usp=sharing
 
-= System Image
+== 系统镜像
+
 NOTE: 2023-09-06 ubuntu-mate-20.04.1-desktop
 
 Baidu Cloud: https://pan.baidu.com/s/1CZblAEA9BwQyhpgALmQ4QA?pwd=8888 (pincode:8888）
@@ -327,12 +342,16 @@ Google Drive: https://drive.google.com/drive/folders/1O-8tFB2IuiiHIZsLNMW0hDNflY
 
 Baidu Cloud: https://pan.baidu.com/s/1yqR6MqY6TWlnP7gddMormg?pwd=8888 （pincode:8888)
 
-= Cooperation method
-. BPI-6206 is an open-source hardware product. The Banana Pi community provides all BSP board-level support codes and supports Docker containers in the codes. Customers with technical development capabilities can directly carry out secondary application development on BPI-6202.
-. BPI-6202 as a basic platform for secondary development, it provides various development tools and protocol analysis database interfaces for application developers, greatly shortening the development week of various industry application products and reducing the difficulty of development.
-. BPI-6202 is a complete industrial control product, customers can directly use it for industrial control and provide complete product-level support.
+= 合作方式
 
-= Easy to buy sample
+1,BPI-6206为一款开源硬件产品，Banana Pi 社区提供所有的BSP板级支持代码，并在代码中支持Docker容器。 有技术开发能力的客户，直接在BPI-6202上进行二次应用开发。
+
+2,BPI-6202作为二次开发的基础平台，为应用开发者提供各类开发工具和协议解析数据库接口，大大缩短各类行业应用产品的开发周、降低开发难度
+
+3,BPI-6202为完整工控产品，客户可以直接用来进行工业控制，提供完全的产品级支持。
+
+= 样品购买
+
 WARNING: BIPAI Aliexpress shop: https://www.aliexpress.us/item/3256805770014268.html?spm=5261
 
 WARNING: SINOVOIP Aliexpress shop: https://www.aliexpress.us/item/3256805769921309.html?gatewayAdapt=glo2usa4itemAdapt
