@@ -61,6 +61,7 @@ Loongson 2K1000LA design: link:/en/BPI-5202/BananaPi_BPI-5202[Banana Pi BPI-5202
 * 龙芯（LoongArch）系列，龙芯家族中的2系列，主要面向“边“及高级“端”的应用；1系列，主要面向中低级“端”的应用。
 
 == 嵌入式工控机的典型应用场景
+
 * 智能配电房、机房动力环境、泵站、智慧园区、智慧校园、智能制造等现场的边缘“大脑”，实现与现场数采单元、测控装置、保护设备、PLC设备、CNC设备、机器人设备的接入、协议解析、报警处理、转换、整合传输与控制
 * 嵌入式SCADA系统（C/S、B/S模式）
 * 100ms级别的软PLC
@@ -84,45 +85,57 @@ image::/indu-board/bpi-5020_en_int.jpg[bpi-5020_en_int.jpg]
 
 [cols="2,6"]
 |====
-| CPU&OS                   | Loongson 2K1000LAi dual core 1.0GHz,Loongnix、LoongOS、LxAMP、kylinos V10     
-| RAM                      | 4G DDR3，support SSD Hardisk                     
-| communication function   | Ethernet port: 1 x 1000M + 1 x 100M, independent MAC, 2 x RS485 with isolation + 1 x RS232 Consoel with isolation, 4G/5G full Netcom + WiFi                                                                 
-| Extended function module | Horizontal expansion capability is reserved, and the expansion of various functional modules can be customized. The initial stage includes: RS485: with isolation; DI: passive input type, the module provides 24V isolated power supply; DO: relay output type, NC, COM, NO nodes; AI: 0-5V/4-20mA, 2-wire/3-wire input, the board provides 24V isolated power supply; AO: 0-5V/4-20mA, 2-wire/3-wire output, external 24V isolated power supply; AI + AO: 0-5V/4-20mA, 2-wire/3-wire input/output. The power supply is the same as above; other custom modules 
-| HDMI                     | HDMI1.4, support 1080p@60fps ; USB supports keyboard, mouse; or resistive/capacitive display interface                                                     
-| encryption chip          | Software license authorization encryption chip (SMEC98SP); special encryption chip for State Grid communication (SC1161Y)                                
-| Power                    | DC：24V input,24V isolated output for IO board , 500mA                                                                        
-|====                              
+| 处理器及OS	| 龙芯2K1000LAi 双核1.0GHz,Loongnix、LoongOS、LxAMP、麒麟V10
+| 内存	| 4G DDR3，可配大容量SSD硬盘
+| 基本通信功能	| 以太网口：2 x 1000M自适应，独立MAC,2 x RSRS485+1 x RS232+ 2 x CAN 2.0，带隔离,4G全网通
+| 扩展功能模块	| 5个扩展槽位，以下模块任意组合,7 x RS485：带隔离（最多支持1个板卡扩展）;16 x DI：无源输入型，模块提供24V隔离电源;16 x DO：光耦继电器输出型，最大负载60V/500MA;8 x DI + 8 DO：继电器输出型，NC、COM、NO节点;8 x AI + 4 xAO：0-5V/4-
+20mA;其它定制模块
 
-=== 20 Pin GPIO expansion port
-BPI-5202 also support expansion board same as BPI-6202,The expansion port adopts 2.54mm pitch, 2x10P row pin seat, which is used to expand 10 interfaces.
+| HMI接口	| HDMI
+| USB	| USB支持键盘、鼠标；或电阻/电容显示屏接口
+| 电源	| DC24V电源输入,24V隔离输出，IO板使用，500mA
+                                                       
+|==== 
+         
+
+=== 硬件扩展
+
+为满足现场复杂的电气量接入需求，BPI-5202设计了5个可扩展IO槽位，每个IO槽位可根据需要配置为16xDI、16xDO、8xDI+8xDO、8xAI+4AO中的任意一种IO板卡，配合提供灵活多变的配置组合方式，并可以根据用户和项目的需求，定制各种功能板卡.
+
+BPI-5202扩展口采用2.54mm 间距，2x10P 排针座，用来扩展IO接口。
 
 
-The BPI-5202 supports modular design, provides rich expansion interfaces, and can use the basic unit + 5 expansion units to support on-demand configuration. Extended IO unit modules include:
 
-- 7 x RS485 module with isolation
-- 16 x DI module (switch input module), passive input (up to 5 modules can be mixed)
-- 16 x DO module (switch output module), relay output (up to 5 modules can be mixed)
-- 8 x DI+8 x DO O module (switch input/output module), relay output (up to 5 modules can be mixed)
-- 8 x AI + 4 x AO module (analog input/output module), support 0-5V, 0-20mA input
-- Customized Lora, ZigBee, 433M wireless transmission modules, power line carrier modules, and other functional modules,
-- The function board can be customized by third parties and can communicate with BPI-5202
+BPI-5202支持模块化设计，提供丰富的扩展接口，可以采用基本单元 + 5个扩展单元，支持按需配置。扩展IO单元模块包括：
 
-All boards are connected via internal bus(485 or SPI) in the box
+* 7 x RS485模块，带隔离
+* 16 x DI模块（开关输入模块），无源输入（最多支持5个模块混插）
+* 16 x DO模块(开关输出模块)，继电器输出（最多支持5个模块混插）
+* 8 x DI+8 x DO O模块(开关输入/输出模块)，继电器输出（最多支持5个模块混插）
+* 8 x AI + 4 x AO 模块（模拟量输入输出模块），支持0-5V、0-20mA输入
+* 可根据需求定制Lora、ZigBee、433M无线传输模块、电力线载波模块、以及其它功能模块
+* 支持第三方自行定制功能板卡，并与BPI-5202实现通信
+
+所有电路板都通过内部总线(485或SPI)连接在盒子里
 
 image::/indu-board/banana_pi_bpi-6202_gateway_5.jpg[banana_pi_bpi-6202_gateway_5.jpg]
 
-Banana Pi BPI-5202 expansion gateway design
+Banana Pi BPI-5202 全功能扩展网关设计
 
 image::/indu-board/banana_pi_bpi-6202_gateway_1.jpg[banana_pi_bpi-6202_gateway_1.jpg]
 
-== BPI-5202 Product
-BI-5202 embedded edge computing industrial computer, is based on Loongson 2K1000 (LA) research and development, at the same time connected to dozens of field electrical/Internet of things equipment/video front-end equipment of the domestic autonomous controllable industrial computer. The external chassis and interface position can be flexibly customized according to the field working conditions. BI-5202 integrates the following functions:
+== BPI-5202 工业控制网关产品介绍
 
-300+ Industry general/industry specific protocol library
+BI-5202嵌入式边缘计算工控机，是基于龙芯2K1000 (LA)研发的，同时连接数十台现场电气/物联网设备/视频前端设备的国产自主可控工控机。外部机箱及接口位置可根据现场工况灵活定制。BI-5202集成了以下功能:
 
-* Video access transmission/control/recording/linkage
-* Edge computing programming ability
-* Full-featured SCADA for C/S architecture
+* 300+工业通用/行业专用协议库
+* 视频接入传输/控制/录像/联动功能
+* 电气IO量采集控制功能（AI/AO/DI/DO）
+* 边缘计算编程功能
+* 工业防火墙功能
+* PLC编程功能
+* C/S架构SCADA系统功能
+* B/S架构SCADA系统功能
 
 BPI-5202 is based on the domestic autonomous controllable platform, and completely replaces the original on-site WinTel architecture industrial computer scheme in the autonomous controllable application of key technologies of automation systems and information systems in various industries.
 
