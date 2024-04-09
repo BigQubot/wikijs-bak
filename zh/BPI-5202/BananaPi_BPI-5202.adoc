@@ -137,63 +137,174 @@ BI-5202嵌入式边缘计算工控机，是基于龙芯2K1000 (LA)研发的，�
 * C/S架构SCADA系统功能
 * B/S架构SCADA系统功能
 
-BPI-5202 is based on the domestic autonomous controllable platform, and completely replaces the original on-site WinTel architecture industrial computer scheme in the autonomous controllable application of key technologies of automation systems and information systems in various industries.
+BPI-5202为导轨式安装方式，外观如下图所示。
 
-Successfully passed the "2021 Domestic independent ecological industrial control system and product Test Evaluation" held by the "National Industrial Information Security Development Research Center" and the "National Industrial Control System Use Product Safety Quality Inspection and Testing Center" in 2021, and was recommended.
+image::/bpi-5202/banana_pi_bpi-5202_8.jpg[banana_pi_bpi-5202_8.jpg]
 
-BPI-5202, the basic configuration has 2 independent IP Ethernet ports, 2 RS485 ports, 1 RS232 port, 2 CAN network ports, 4G/5G/WIFI, flexible configuration, widely used in power, oil, factories and mining, and the Internet of things industry automation monitoring occasions. It is the main homegrown autonomous controllable edge computing gateway in CS series.
+== BPI-5202产品典型应用场景
 
-BPI-5202 built-in 300+ protocol interpretation library and real-time database, can connect a variety of domestic and foreign protection devices, measurement and control devices, IEDs and other devices, and support IEC61850. Special specifications can be customized according to user requirements; Provide open API, convenient for users to develop their own protocol software, protocol software can be downloaded independently.
+适用于国产化自主可控需求中涉及多通道/多协议接入、数据处理与整合、监控、SCADA和轻量级PLC的应用场景：
 
-BPI-5202 can support the access of dozens of devices, data protocol analysis, conversion and unified transmission.
+* 变电站/配电间自动化系统中各类（串口/网口/IO电气量）数据采集单元、测控装置、保护设备的接入、协议解析、报警处理、转换、整合传输与控制
+* 机房动力环境监控、泵房监控系统中各类（串口/网口/IO电气量）自动化控制设备、PLC、变频器设备的接入、协议解析、报警处理、转换、整合传输与控制
+* 智慧城市、智慧园区、智慧校园系统中各类（串口/网口/电气量IO）物联网传感器设备、控制设备的接入、协议解析、报警处理、转换、整合传输与控制
+* 智能配电房、机房动力环境、泵站、智慧园区、智慧校园、智能制造等现场的视频前段设备接入
+配合后台API和平台，为应用开发商和用户提供不依赖视频厂家SDK和后台系统的低成本、易开发的独立安全的视频监控整合方案
 
-BPI-5202 has powerful video processing capabilities, including RTSP/RTMP video push-pull streaming, Onvif/GB28181 protocol stack and other video surveillance transmission functions, to achieve compatible access to multi-manufacturer video front-end equipment (IPC, NVR), after configuring a large capacity hard disk can replace NVR, video recording and playback functions. Provides the industry's only data + video perfect integration solution.
+== BPI-5202主要特点
 
-The BPI-5202 supports full SCADA system functions up to 2048 points via HDMI display interface and USB keyboard and mouse (or touch screen).
+* 1,工业成品与应用开发平台, BPI-5202嵌入式通用工业控制器，有三个不同的角色：
 
-BPI-5202 supports three configuration modes:
+** 作为工业成品：以其所具有的功能（轻量级PLC、协议网关、视频网关、综合网关、嵌入式SCADA系统等各种角色），直接应用于工程项目现场
+** 作为二次开发的基础平台，为应用开发者提供各类开发工具和协议解析数据库接口，大大缩短各类行业应用产品的开发周、降低开发难度
+作为单纯的国产化自主可控的嵌入式通用控制器软硬件平台，为应用开发者提供较强算力的边缘计算支持
+* 2,工业级标准:
 
-* Built-in WEB management, query/configure the working parameters of the device through the browser
-* Dedicated configuration software configures device parameters
-* Cloud remote management, gateway to gateway configuration and diagnosis, firmware and application upgrades
+** 工业级低功耗设计，现场长期稳定运行
+** 支持-40℃~+85℃宽温运行（高温环境下需选配合适的散热片/风扇）
+** 执行GB/T17626、GB/T15153、IEC61850-3、EN61000-6-5标准，EMC III级
+** 支持双机冗余
+* 3,可扩展功能
 
-BPI-5202 adopts the original iCoupler® digital isolation technology, RS485 automatic direction control, RS485 zero delay transmission technology, fully considering the particularness of industrial field applications in design, following EMI/EMC design specifications, and adapting to various harsh industrial sites and iot sites. Ensure the reliability of communication and various IO semaphore.
+** 支持定制外壳的板卡扩展，包括电气IO模块（AI / AO /DI /DO模块）、扩展串口模块、扩展以太网交换模块、HPLC通信模块、CAN通信模块、Zigbee通信模块、Lora通信模块，以及其他行业应用的定制模块，采用内部高速总线与6202主板通信
 
-The appearance of the BPI-5202 including the chassis is shown in the figure below.
+* 4,数据+视频现场整合
 
-image::/indu-board/industrial_computer_zh_3.png[industrial_computer_zh_3.png]
+** 多年积累的300+国际/国家/行业/企业协议库，即插即连，提高接入效率，解析数据准确
+** 视频RTSP/RTMP，Onvif/GB28181功能，流媒体服务器功能，H.264/H.265播放功能，数据联动短视频联动报警录像功能，摄像头  AI分析事件捕获/上传功能（近期发布），数据OSD打码功能（近期发布）
+** 解决长期以来视频监控独立于数据监控、需要视频厂家前端+后端绑定方案痼疾和痛点
 
-=== BPI-5202 interface description
+* 5,轻量级PLC功能
 
-image::/indu-board/bpi_industrial_product_interface_6.png[bpi_industrial_product_interface_6.png]
+** 通过IEC61131-3编程语言，可针对网关内所有数据进行PLC方式编程，通过电气IO模块，实现轻量级PLC功能
 
-[options="header",cols="1,1,6"]
+* 6,多种南向/北向通信方式
+
+** 支持2个独立MAC千兆自适应网口
+** 支持2个RS485和1个RS232串口；通过机箱扩展和扩展板，可以多支持7个RS485
+** 支持2路CAN接口；
+** 支持扩展WIFI、4G/5G通信
+
+* 7,HMI及上位机功能集成
+
+** 通过HDMI/USB接口连接触摸屏/大屏-键盘-鼠标，应用程序可实现友好的HMI交互
+** 配合内置的全功能SCADA系统（C/S架构和B/S架构），取代现场X86+Windows架构的上位机计算机系统，适合无人值守环境，具有极高的性价比
+
+* 8,多核架构、资源丰富、算力充裕
+** 龙芯高性能处理器2K1000LA，主频1.0GHz，4G DDR3
+** 1 x M.2 SATA硬盘接口，可接入SSD硬盘
+** 1 x mini PCIE接口，可接入4G模块、Wifi模块或AI算力卡；
+** 内置软件狗加密芯片
+** 可信平台模块，保障设备与通信安全
+
+* 9,多种二次开发接口
+
+** C、表达式、梯形图、Java、Python、SqLite编程接口
+** Docker功能
+
+== 内部逻辑结构
+
+image::/bpi-5202/bpi-5020_1.png[bpi-5020_1.png]
+
+== 外部连接方式
+
+image::/bpi-5202/banana_pi_bpi-5202_way.png[banana_pi_bpi-5202_way.png]
+
+== BPI-5202技术说明
+
+为满足各关键行业项目对国产化自主可控产品的需要，而特别设计的BPI-5202，基本配置中有2个独立MAC以太网端口、2个RS485端口+1个RS232端口+2个CAN2.0端口，配置灵活，广泛适用于军工、电力、石油、厂矿、及物联网行业的自动化监控场合
+
+为满足现场复杂的电气量接入需求，BPI-5202设计了5个可扩展IO槽位，每个IO槽位可根据需要配置为16xDI、16xDO、8xDI+8xDO、8xAI+4AO中的任意一种IO板卡，配合提供灵活多变的配置组合方式，并可以根据用户和项目的需求，定制各种功能板卡
+
+BPI-5202内置300+规约解释库和实时数据库，可连接国内外各种保护装置、测控装置、IEDs等设备，并支持IEC61850。可根据用户要求定制特殊规约；提供开放的API，方便用户自行开发规约软件，规约软件可独立下载
+
+BPI-5202支持近百台设备的接入，数据协议解析、转换与统一传输
+
+BPI-5202具有强大的视频处理能力，包括RTSP/RTMP视频推拉流、Onvif/GB28181协议栈等视频监控传输功能，实现对多厂家视频前端设备（IPC、NVR）的兼容接入，配置大容量硬盘后可取代NVR，实现视频录像及回放功能。独有的基于数据+视频的联动功能，提供了业界唯一的数据+视频完美融合的解决方案
+
+BPI-5202通过HDMI显示接口和USB键盘鼠标（或触摸屏），支持2048点以下完整的SCADA系统功能
+
+BPI-5202支持三种配置方式：
+
+* 内置WEB管理，通过浏览器查询／配置设备的工作参数
+* 专用的配置软件配置设备参数
+* 云端远程管理，通过云端对参数进行配置和诊断，实现固件和应用程序的升级
+
+BPI-5202使用了先进的数字隔离技术、RS485自动方向控制、RS485零延时传送技术，在设计上充分考虑了工业现场应用的特殊性，遵循EMI/EMC设计规范，适应各种严酷的工业现场和物联网现场，保障通信以及各种IO信号量的可靠
+
+NOTE: 1)BPI-5202系列嵌入式边缘计算工控机采用DC24V供电。
+
+== BPI-5202产品主要功能
+
+* 1)内置300+通讯规约库（详见协议列表清单），包括：MQTT及其它物联网协议、BACNET、OPC UA、IEC 60870-5-101/103/104、CDT、SPABUS、标准MODBUS及数十个变种，即插即通；可根据需求快速定制特殊协议，可提供二次开发环境
+* 2)支持西门子/AB/施耐德/三菱等各类PLC连接
+* 3)支持IEC61850 Server/Client功能，实现传统规约与61850的双向转换
+* 4)视频流获取、传输、分发，云台控制、本地流媒体服务器功能
+* )加密传输、断点续传
+* 6)内置RTC，提供高精度时间参考
+* 7)模块化设计，基本单元 + 5个扩展单元，支持按需配置。扩展IO单元模块包括：
+* 7 x RS485模块，带隔离
+** 16 x DI模块（开关输入模块），无源输入（最多支持5个模块混插）
+** 16 x DO模块(开关输出模块)，继电器输出（最多支持5个模块混插）
+** 8 x DI+8 x DO O模块(开关输入/输出模块)，继电器输出（最多支持5个模块混插）
+** 8 x AI + 4 x AO 模块（模拟量输入输出模块），支持0-5V、0-20mA输入
+** 可根据需求定制Lora、ZigBee、433M无线传输模块、电力线载波模块、以及其它功能模块
+** 支持第三方自行定制功能板卡，并与CS5202LS-IC实现通信
+* 8)HDMI/USB接口，配合嵌入式SCADA系统的UI操作
+* 9)本地设备配置管理，云端设备配置管理
+* 10)Telnet、SNMP服务
+* 11)电磁兼容性设计，符合国际相关标准，具有良好的抗干扰能力
+* 12)可进行二次开发，提供完整的协议开发包，可定制各种协议
+* 13)全功能SCADA功能
+* 14)导轨式安装方式，造型美观，组屏方便
+
+== BPI-5202 主要技术规格
+[cols="2,6"]
 |====
-| No | interface     | illustrate                                                                                                                                                                                  
-| 1  | HDMI 1.4   | HDMI video cable to connect the video output port and the monitor. +
-**Note**: The HDMI video cable is not included in the installation accessory package and needs to be purchased by the user. Please choose a shielded cable with a length less than 3M 
-| 2  | USB 2.0             | Use the USB interface to connect the keyboard/mouse/touch screen, and connect the U disk. +
-**Note**: The USB interface does not support hot swapping of storage devices.                                                                                  
-| 3  | Ethernet port       | Use a network cable to connect the Ethernet port of the device to the switch, supporting 1 x 1000M + 1 x 100M                                                                                                                                        
-| 4  | RS232/RS485         | Phoenix terminal, RS232 x 1+ RS485 x 2, connect the cable terminal to the Phoenix terminal interface of CS6202, and make sure that the peer device and BPI-6202 are connected to the ground wire.                                                    
-| 5  | DC power            | Phoenix terminal, using 24V DC power supply                                                                                                                                                                                                          
-| 6  | WiFi Antenna Mount  | SMA-K (external thread + internal hole), if you need to use the antenna to connect to the network, connect the antenna device to the BPI-6202 through the antenna interface. Standard 1 antenna, Wifi antenna, 4G+WiFi;                              
-| 7  | 4G/5G Antenna Mount | A standard 4G antenna is provided. If you need to expand 5G, you need to use a customized chassis and configure 4 additional antennas                                                                                                                
-| 8  | 3 indicator lights  | From top to bottom, they are: system running light, which flashes regularly during normal operation; reserved light (programmable and controllable); 4G/5G running light, showing cellular communication status                                      
+|项目|	说明
+|处理器及OS	|龙芯2K1000LAi 双核1.0GHz,Loongnix、LoongOS、LxAMP、麒麟V10
+|内存	|4G DDR3，可配大容量SSD硬盘
+|基本通信功能 |	以太网口：2 x 1000M自适应，独立MAC;2 x RSRS485+1 x RS232+ 2 x CAN 2.0，带隔离;4G全网通
+|扩展功能模块	|可选
+|USB	|USB支持键盘、鼠标；或电阻/电容显示屏接口
+|数据处理能力	|设备接入能力：<=64台（根据带宽和采样周期可调）;模拟量<8192;数字量<8192;控制量<8192;表达式计算定义、报警处理
+|视频处理能力|	视频RTSP/RTMP、Onvif、GB28181;视频录像、回放;数据触发片段视频录像、上传;AI摄像头图像AI分析事件捕获、数据OSD打码;本地流媒体服务;H.264/H.265播放
+|HMI接口	|HDMI
+|SCADA功能	|全功能SCADA系统，处理点数：2048点
+|开发环境|	C/表达式/梯形图/Java/Python等边缘计算二次开发环境
+|加密芯片|	无
+|电源 |	DC24V电源输入,24V隔离输出，IO板使用，500mA
 |====
 
-=== BPI-5202 product key feature
+== 环境规格
+[cols="2,6"]
+|====
+|项目	|说明
+|工作温度	|-40~+60℃
+|存储温度	|-40~+75℃
+|工作湿度（RH）	|5%~95%无冷凝
+|存储湿度（RH）|	5%~95%无冷凝
+|海拔高度	|<5000m
+|防雷	|内置防雷元件，支持户外使用，符合高等级EMC标准
+|防护等级	|IP40
+|散热方式	|无风扇自然散热
+|电磁兼容|	EMC III级，GB/T17626、GB/T15153、IEC61850-3、EN61000-6-5
+|安规	|GB/T7621-2008
+|认证	|CE认证
+|====
 
-=== Internal logical structure
+== 物理规格
+[cols="2,6"]
+|====
+|尺寸（宽x深x高）	|36mm x105mm x 145mm，导轨式安装,定制扩展的宽度为30mm x n+6（n≥2，为定制扩展时的宽度）
+|重量	|0.5kg
+|功耗	|典型功耗：5W ,最大功耗：10W
+|====
 
-image::/indu-board/bpi-5020_1.png[bpi-5020_1.png]
+= 合作方式
 
-=== External connection
+1,BPI-5202为一款开源硬件产品，Banana Pi 社区提供所有的BSP板级支持代码，并在代码中支持Docker容器。 有技术开发能力的客户，直接在BPI-6202上进行二次应用开发。
 
-image::/indu-board/industrial_computer_zh_6.png[industrial_computer_zh_6.png]
+2,BPI-5202作为二次开发的基础平台，为应用开发者提供各类开发工具和协议解析数据库接口，大大缩短各类行业应用产品的开发周、降低开发难度
 
-
-= Cooperation method
-. BPI-5206 is an open-source hardware product. The Banana Pi community provides all BSP board-level support codes and supports Docker containers in the codes. Customers with technical development capabilities can directly carry out secondary application development on BPI-6202.
-. BPI-5202 as a basic platform for secondary development, it provides various development tools and protocol analysis database interfaces for application developers, greatly shortening the development week of various industry application products and reducing the difficulty of development.
-. BPI-5202 is a complete industrial control product, customers can directly use it for industrial control and provide complete product-level support.
+3,BPI-5202为完整工控产品，客户可以直接用来进行工业控制，提供完全的产品级支持。
