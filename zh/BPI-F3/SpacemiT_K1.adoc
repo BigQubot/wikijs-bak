@@ -4,27 +4,35 @@ image::/bpi-f3/spacemit_k1zh.png[spacemit_k1zh.png]
 
 进迭时空 K1 开源硬件开发板: link:/zh/BPI-F3/BananaPi_BPI-F3[香蕉派 BPI-F3]
 
-Base on RISC-V open instruction set architecture,we are committed to create more energy efficient and more commonly used AI processor platform,promote global open source and open ecological computing power construction.
+基于RISC-V开放指令集架构，致力于打造更节能、更通用的AI处理器平台，推动全球开源、开放生态计算能力建设。
 
-K1 is mainly used for single board computer,network storage,cloud computer,smart robort,industrial control,edge computer,etc.
+K1主要用于单板计算机、网络存储、云计算机、智能机器人、工业控制、边缘计算机等。
 
-== Excellent CPU Performance
-Octa-core RISC-V AI CPU,provided 50KDMIPS CPU computing power and 2.0 TOPS AI computing power.The computing power for single core in K1 is 30% ahead of ARM A55.
+== 卓越的CPU性能
 
-== Powerful Vector Computing Power
-The world's first RISC-V AI CPU supports RVA22 Profile and 256-bit RVV 1.0 standard, provides 2 times SIMD parallel processing capability than Neon.
+8核RISC-V AI CPU，提供50KDMIPS CPU算力和2.0TOPS AI算力
 
-== General AI Computing Power
-Provides AI computing power by CPU core fusion,achieve rapid integration with all mainstream AI ecosystems.
+单核CPU算力领先ARM A55 30%以上
 
-== Leading Computing Power Efficiency
-Lean and superior micro-architecture,the computing power efficiency is 20% higher than A55.
+== 强大的向量算力
 
-== Rich IO Capabilities
-Integrates multiple interfaces including PCIe,USB,GMAC,SPI,etc,provides comprehensive selection of peripheral connections.
+全球首款支持RVA22 Profile、支持256bit RVV 1.0标准的RISC-V CPU，
+提供2倍于Neon的SIMD并行处理算力
 
-== Meet industry standards
-CPU can provide stable continuous power output under temperatures from -40 degree to -85 degree，which can meet the demanding needs of industrial applications.
+== 通用的AI算力
+
+以CPU核融合方式提供AI算力，实现与所有主流AI生态的快速对接
+
+== 领先的算力能效
+RISC-V架构的精简和卓越的微架构设计，算力能效比ARM A55高20%
+
+== 丰富的IO能力
+
+集成多套PCIe、USB、GMAC、SPI等接口，提供全面的外设连接选型
+
+== 符合工业级标准
+
+CPU在-40˚C～85˚C的环境温度下仍能提供稳定可靠的持续算力输出，满足工业应用的苛刻环境需求
 
 = KEY STONE K1 RISC-V AI CPU Features
 == Processor
