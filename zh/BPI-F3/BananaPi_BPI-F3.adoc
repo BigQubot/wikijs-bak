@@ -47,33 +47,33 @@ image::/bpi-f3/bpi-f3_sch.png[bpi-f3_sch.png]
 == 硬件规格
 [options="header",cols="1,4",width="70%"]
 |=====
-2+| **HardWare Specification of Banana Pi BPI-F3 RISC-V SBC**
-| CPU                               |  SpacemiT K1 8 core RISC-V chip
+2+| ** Banana Pi BPI-F3 RISC-V 开源硬件开发板硬件规格**
+| CPU主控                               | 进迭时空（SpacemiT） K1 8 core RISC-V 芯片
 
-| AI                                |  2.0Tops from RlSC-V Core                                                                            
-| Memory                            | 4 GB LPDDR4                                                                                  
-| Storage                           | 16G eMMC flash,4M SPI NOR,32M SPI NAD                                                                              
-| SD card                           | MicroSD card slot                                                                            
-| Wireless                          | 2.4G/5G WiFi and Bluetooth 4.2                                                               
-| Ethernet                          | 2x GbE Ethernet port(supports PoE with add-on PoE HAT)                                       
+| AI                                |  2.0 Tops 算力                                                                          
+| 内存                            | 4 GB LPDDR4                                                                                  
+| 存储                           | 16G eMMC flash,4M SPI NOR,32M SPI NAD                                                                              
+| SD 接口                           | MicroSD card slot                                                                            
+| Wireless无线                          | 2.4G/5G WiFi and Bluetooth 4.2                                                               
+| 有线网络接口                       | 2x GbE Ethernet port(supports PoE with add-on PoE HAT)                                       
 | HDMI                              | 1x full-size HDMI digital Audio output 
 
 | Audio                             | Speaker，Mic， Earphone   
 
-| Camera                             | MIPI-CSI, Dual-shot support                                                                                   
+| 摄像头                             | MIPI-CSI, Dual-shot support                                                                                   
 | USB                               | 4x USB 3.0 Type-A HOST, 1x USB 2.0 Type-C OTG    
 
 | PCIe                              | PCIE2.1 2lane * 2. PCIEB 2lane connect M.2 KEY M；PCIEC 1lane connect MINI PCIE
 | GPIO                              | 26-pin header 
                                                                                         
-| Buttons                           | Reset, Power and Burn 
+| 按键                          | Reset, Power and Burn 
 
-| IR                                | IR-Rx
+| IR红外                                | IR-Rx
 
-| LED                               | Power Status                                                            
-| Power                             | DC in and TYPE-C in                                                                    
-| Size                              | 148x100 mm                                                                                     
-| Weight                            | 200g                                            
+| LED 指示灯                              | Power Status                                                            
+| 供电                             | DC in and TYPE-C in                                                                    
+| 尺寸                              | 148x100 mm                                                                                     
+| 重量                            | 200g                                            
 |=====
 
 == GPIO 引脚定义
