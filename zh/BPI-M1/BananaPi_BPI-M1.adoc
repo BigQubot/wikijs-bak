@@ -47,11 +47,11 @@ link:/en/BPI-M1/Photo_BPI-M1[Banana Pi BPI-M1 Product photo gallery]
 [options="header",cols="1,3"]
 |=====
 2+| **HardWare Specification of Banana Pi M1**
-| CPU           | A20 ARM Cortex -A7 Dual-Core
+| CPU 主控          | A20 ARM Cortex -A7 Dual-Core
 | GPU           | ARM Mali 400 MP2; Complies with OpenGL ES 2.0/1.1
-| Memory        | 1GB DDR3
-| Flash         | None
-| Network       | 10/100/1000 Ethernet 8P8C (1000BASE-T)
+| Memory 内存       | 1GB DDR3
+| Flash 存储        | None
+| 有线网口     | 10/100/1000 Ethernet 8P8C (1000BASE-T)
 | WIFI&BT       | None
 | Video Input   | A CSI input connector allows for the connection of a designed camera module
 | Video Outputs | HDMI, CVBS, LVDS/RGB
