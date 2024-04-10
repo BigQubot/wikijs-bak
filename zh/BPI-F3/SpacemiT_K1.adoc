@@ -1,0 +1,82 @@
+= SpacemiT K1 is an octa-core 64-bit RISC-V AI CPU.
+
+image::/bpi-f3/spacemit_k1zh.png[spacemit_k1zh.png]
+
+SpacemiT K1 Open source SBC : link:/en/BPI-F3/BananaPi_BPI-F3[Banana Pi BPI-F3]
+
+Base on RISC-V open instruction set architecture,we are committed to create more energy efficient and more commonly used AI processor platform,promote global open source and open ecological computing power construction.
+
+K1 is mainly used for single board computer,network storage,cloud computer,smart robort,industrial control,edge computer,etc.
+
+== Excellent CPU Performance
+Octa-core RISC-V AI CPU,provided 50KDMIPS CPU computing power and 2.0 TOPS AI computing power.The computing power for single core in K1 is 30% ahead of ARM A55.
+
+== Powerful Vector Computing Power
+The world's first RISC-V AI CPU supports RVA22 Profile and 256-bit RVV 1.0 standard, provides 2 times SIMD parallel processing capability than Neon.
+
+== General AI Computing Power
+Provides AI computing power by CPU core fusion,achieve rapid integration with all mainstream AI ecosystems.
+
+== Leading Computing Power Efficiency
+Lean and superior micro-architecture,the computing power efficiency is 20% higher than A55.
+
+== Rich IO Capabilities
+Integrates multiple interfaces including PCIe,USB,GMAC,SPI,etc,provides comprehensive selection of peripheral connections.
+
+== Meet industry standards
+CPU can provide stable continuous power output under temperatures from -40 degree to -85 degree，which can meet the demanding needs of industrial applications.
+
+= KEY STONE K1 RISC-V AI CPU Features
+== Processor
+* K1 is an octa-core X60(TM) intelligent computing processor
+* Eight-stage dual-issue in-order pipelin
+* Supports 256-bit RVV1.0 standard.
+* CPU combines 2.0 TOPS AI computing power.
+* 1MB of shared L2 Cache for every eight cores.
+
+== Integration of RISC-V and AI techonology
+* X60TM extends 16 AI instructions, including matrix multiplication and sliding window calculation.
+* It's an open system with instruction sets and operator libraries that can run all AI algorithm from AlexNet to Llama-2-7b.
+* Follows the development method of general-purpose CPUs, a programming model can cover the entire process of AI development.
+
+== Security Architecture
+* Supports RISC-V PMP security specifications and ePMP security extensions.
+* Supports secure boot, secure storage, signature verifications.
+* Supports algorithms like AES, SHA, RSA, SM2, SM3, SM4,etc.
+* Supports product lifecycle security management.
+* Memory
+* 32bit LPDDR4 - 2400MT
+* 32bit LPDDR4X - 2666MT
+* Max to 16 GB.
+* Bandwidth max to 10.6GB/s
+
+== Storage
+* Supports SPI flash
+* Supports eMMC 5.1
+* Supports SDIO3.0 SD card.
+* Supprts SSD:NVMe over PCle
+
+== Multimedia and Display
+* Supports 3D graphics engine,compatibility with OpenCL 3.0, OpenGLES 3.2, Vulkan 1.2
+* Supports 4K H.265/H.264/VP9/VP8, and other encoding/decoding formats.
+* * Dual-screen display support, with a maximum resolution of 1920*1440@60fps. -By MIPI-DSI,HDMI output.
+* Supports triple camera inputs, with a single camera of up to 16MP.
+* Supports stereo sound output.
+
+== Interface
+* 5×PCIe2.1(Combination of x2+x2+x1，5Gbps/Lane)
+* 1×USB3.0（Combo PCIe2.1 x1）
+* 2×USB2.0（OTG + Host）
+* 2×GMAC（RGMII&1000M）
+* 4×SPI、7×I2C、12×UART、2×CAN-FD、30×PWM
+
+== Operation Systems
+* Bianbu OS
+* Linux(Mainstream distribution versions)
+* RTOS
+
+== Package
+* Package type:FCCSP
+* Pin pitch:0.65mm
+== Power Consumption
+* TDP: 3~5W
