@@ -34,57 +34,62 @@ RISC-V架构的精简和卓越的微架构设计，算力能效比ARM A55高20%
 
 CPU在-40˚C～85˚C的环境温度下仍能提供稳定可靠的持续算力输出，满足工业应用的苛刻环境需求
 
-= KEY STONE K1 RISC-V AI CPU Features
-== Processor
-* K1 is an octa-core X60(TM) intelligent computing processor
-* Eight-stage dual-issue in-order pipelin
-* Supports 256-bit RVV1.0 standard.
-* CPU combines 2.0 TOPS AI computing power.
-* 1MB of shared L2 Cache for every eight cores.
+= KEY STONE K1 RISC-V AI CPU 特性
 
-== Integration of RISC-V and AI techonology
-* X60TM extends 16 AI instructions, including matrix multiplication and sliding window calculation.
-* It's an open system with instruction sets and operator libraries that can run all AI algorithm from AlexNet to Llama-2-7b.
-* Follows the development method of general-purpose CPUs, a programming model can cover the entire process of AI development.
+== 处理器
+* K1是八核X60™ 智算处理器
+* 双发顺序9级流水线
+* 支持256-bit RVV1.0标准
+* CPU融合2.0 TOPS AI算力
+* 八核共享1MB L2 Cache
 
-== Security Architecture
-* Supports RISC-V PMP security specifications and ePMP security extensions.
-* Supports secure boot, secure storage, signature verifications.
-* Supports algorithms like AES, SHA, RSA, SM2, SM3, SM4,etc.
-* Supports product lifecycle security management.
-* Memory
+== RISC-V融合 AI技术
+* X60™扩展了16条AI指令，包含矩阵乘法和滑窗计算等指令
+* 开放指令集和算子库，可运行从AlexNet到Llama-2-7b的所有AI算法
+* 遵循通用CPU程序的开发方式，一个编程模型覆盖AI开发全过程
+
+== RISC-V安全架构 
+
+* 支持RISC-V PMP安全规范和ePMP安全扩展
+* 支持安全启动、安全存储、签名校验
+* 支持AES/SHA/RSA/SM2/SM3/SM4等算法
+* 支持产品生命周期安全管理
+
+== 内存
 * 32bit LPDDR4 - 2400MT
 * 32bit LPDDR4X - 2666MT
-* Max to 16 GB.
-* Bandwidth max to 10.6GB/s
+* 最大支持16 GB
+* 带宽可达10.6 GB/s
 
-== Storage
-* Supports SPI flash
-* Supports eMMC 5.1
-* Supports SDIO3.0 SD card.
-* Supprts SSD:NVMe over PCle
+== 存储
 
-== Multimedia and Display
-* Supports 3D graphics engine,compatibility with OpenCL 3.0, OpenGLES 3.2, Vulkan 1.2
-* Supports 4K H.265/H.264/VP9/VP8, and other encoding/decoding formats.
-* * Dual-screen display support, with a maximum resolution of 1920*1440@60fps. -By MIPI-DSI,HDMI output.
-* Supports triple camera inputs, with a single camera of up to 16MP.
-* Supports stereo sound output.
+* 支持SPI闪存
+* 支持eMMC 5.1
+* 支持SDIO3.0 SD卡
+* 支持SSD：NVMe over PCIe
 
-== Interface
-* 5×PCIe2.1(Combination of x2+x2+x1，5Gbps/Lane)
+== 多媒体和显示
+* 支持3D图形引擎OpenCL 3.0/OpenGLES 3.2/Vulkan 1.2
+* 支持4K H.265/H.264/VP9/VP8等编解码格式
+* 支持双屏异显，最高可达1920 ×1440@60fps
+** 通过MIPI-DSI、HDMI输出
+* 支持三摄输入，单摄最高支持16MP
+** -MIPI-CSI 8Lanes（4+2+2 或 4+4）
+* 支持三麦输入，立体声输出
+
+== 接口
+* 5×PCIe2.1（x2 + x2 + x1组合、5Gbps/Lane）
 * 1×USB3.0（Combo PCIe2.1 x1）
 * 2×USB2.0（OTG + Host）
 * 2×GMAC（RGMII&1000M）
 * 4×SPI、7×I2C、12×UART、2×CAN-FD、30×PWM
 
-== Operation Systems
+== 操作系统
 * Bianbu OS
-* Linux(Mainstream distribution versions)
+* Linux主流发行版本
 * RTOS
 
-== Package
-* Package type:FCCSP
-* Pin pitch:0.65mm
-== Power Consumption
-* TDP: 3~5W
+== 封装
+* 封装类型：FCCSP17*17 
+* 管脚间距：0.65mm
+* 功耗 TDP：3～5W
