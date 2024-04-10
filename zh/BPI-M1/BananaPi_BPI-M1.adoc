@@ -73,7 +73,7 @@ IMPORTANT: Note: 5V1,5V2 only support output,not support input
 
 === CSI Camera Connector specification:
 
-CSI Camera Connector The CSI Camera Connector is a 40-pin FPC connector which can connect external camera module with proper signal pin mappings. The pin definitions of the CSI interface are shown as below. This is marked on the Banana Pi board as “CON1″.
+CSI摄像头连接器CSI摄像机连接器是一个40引脚的FPC连接器，可以通过适当的信号引脚映射连接外部摄像机模块。CSI接口的引脚定义如下所示。这在香蕉派板上标记为“CON1″”。
 
 [options="header",cols="2,1,1"]
 |=====
