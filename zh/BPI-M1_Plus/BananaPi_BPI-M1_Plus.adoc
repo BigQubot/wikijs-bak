@@ -1,6 +1,12 @@
 = BPI-M1 Plus Introduction
 
-Banana Pi BPI-M1 Plus upgrade is an open-source single-board computer that adds more connectivity to the classic board. It features the same high performance AllWinner A20 dual-core SoC at 1GHz, 1GB of DDR3 SDRAM, Gigabit Ethernet, SATA, USB, and HDMI connections found in classic BPI-M1+ ; but the Banana Pi M1+ features onboard WiFi g/b/n. The board supports all classic projects and even more because of the onboard WIFi chip. Like its sibling, it can run operating systems including Android, Lubuntu, Ubuntu, Debian, and Raspbian.
+Banana Pi BPI-M1+是一款开源硬件单板电脑，为BPI-M1经典版本增加了更多的连接性。
+
+Banana PI BPI-M1+是一款高性能双核开源硬件单板计算机，Banana PI BPI-M1+是一款比树莓派 2B 更强悍的双核Android4.4与Linux产品。
+
+Banana PI BPI-M1+兼容性强大,可以跑android系统,Debian linux,Ubuntu linux, Raspberry Pi系统
+
+Banana PI BPI-M1+硬件：1Ghz ARM7双核处理器，1GB DDR3内存，千兆以太网口，板载SDIO接口的WIFI模块SATA Socket，流畅运行Android4.4。Banana PI BPI-M1+体积如信用卡大小，轻松运行《雷神之锤三：竞技场》这样的游戏，支持1080P高清视频输出，GPIO兼容Raspberry Pi 2 。
 
 image::/picture/a_bpi-m1+.jpg[a_bpi-m1+.jpg]
 
@@ -8,14 +14,14 @@ TIP: Allwinner A20 design: link:/en/BPI-M1/BananaPi_BPI-M1[Banana Pi BPI-M1] SBC
 Allwinner A20 design: link:/en/BPI-M1_Plus/BananaPi_BPI-M1_Plus[Banana Pi BPI-M1+] SBC +
 Allwinner A20 design: link:/en/BPI-R1/BananaPi_BPI-R1[Banana Pi BPI-R1] Router
 
-Banana Pi M1+ is our upgraded M1 board. We feel like the onboard WiFi adds a lot more features to the board and makes it more convient for users to set up their linx desktop or router projects. Banana Pi is an open platform device, it is for anyone who wants to play and build with developer technology instead of simply using consumer technology. Backed by our community, starting a project and building servers is fun and rewarding. With a Banana Pi, we want you to explore and experience the world of DIY projects and portable computing. We welcome all companies, DIYers, and tech loving people within our community! Together, we can make a difference, we can discover our passions, inspire others, and build a practical project.
+香蕉派M1+是我们升级的M1板。我们觉得板载WiFi增加了很多功能，让用户更方便地设置他们的linx桌面或路由器项目。香蕉派是一款开放平台设备，它适合任何想要使用开发者技术而不是简单使用消费者技术来玩和构建的人。在我们社区的支持下，开始一个项目和构建服务器是有趣和有益的。有了香蕉派，我们希望你探索和体验DIY项目和便携式计算的世界。我们欢迎所有的公司、diy者和热爱技术的人加入我们的社区!只要我们齐心协力，我们就能有所作为，我们可以发现自己的激情，激励他人，并建立一个实际的项目。
 
-= Key Features
+= 关键特性
 
-- Allwinner A20 Dual-core 1.0GHz CPU
+- 全志科技 A20 Dual-core 1.0GHz CPU
 - Mali-400 MP2 with Open GL ES 2.0/1.1.
-- 1 GB DDR3 memory.
-- Wifi support onboard
+- 1 GB DDR3 内存.
+- 板载 Wifi  
 - 1x SATA interface.
 - 1x Gigabit LAN
 - 1x USB otg and 2x USB 2.0
@@ -28,7 +34,7 @@ Banana Pi M1+ is our upgraded M1 board. We feel like the onboard WiFi adds a lot
 - 40 PIN gpio
 - 3.7V lithium battery interface
 
-== Getting Start
+== 快速上手
 
 TIP: link:/en/BPI-M1_Plus/GettingStarted_BPI-M1_Plus[Getting Started BPI-M1_Plus]
 
