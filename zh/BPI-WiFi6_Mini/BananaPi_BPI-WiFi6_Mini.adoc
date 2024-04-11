@@ -41,6 +41,30 @@ TIP: Please refer to github bsp's pdf document: Triductor_TGP3.0开发手册_202
 
 TIP: github 软件源代码: https://github.com/BPI-SINOVOIP/THG6500-TAX2-OPENWRT-BSP
 
+
+= 配件
+
+== 外壳设计
+
+香蕉派BPI-Wifi6 Mini 尺寸很小，仅仅 65x65mm，尺寸和接口与 link:/zh/BPI-R3_Mini/BananaPi_BPI-R3_Mini[香蕉派 BPI-R3 Mini]完全一样，可以共用外壳
+
+image::/picture/banana_pi_bpi-r3_mini_case_9.jpg[banana_pi_bpi-r3_mini_case_9.jpg]
+
+== 4G 模组支持
+
+香蕉派BPI-wifi6迷你路由器有测试 quectel EM05 4G模块支持
+
+测试视频 youtube: https://www.youtube.com/watch?v=Q4nxK475KdM
+
+技术讨论:
+https://forum.banana-pi.org/t/banana-pi-bpi-wifi6-mini-test-quectel-em05-4g-module-funtion/17758
+
+== 5G 模组支持
+
+香蕉派BPI-wifi6迷你路由器有测试 quectel RM500U 5G模组支持
+
+
+
 = 问答
 
 * BPI-Wifi6 mini与BPI-R3 mini尺寸相同，可使用BPI-R3 mini外壳吗？
