@@ -1,11 +1,15 @@
 = BPI-Wifi6 Mini Introduction
 
-Banana Pi BPI-Wifi6 Mini Open source Router design with Triductor TR6560 + TR5220 wifi SOC, it is a mini size wifi6 router solution. Built-in high-performance dual-core ARM Cortec A9 processor for WIFI message forwarding or intelligent business processing, built-in high-performance LSW and hardware NAT, supporting up to 5Gbps message forwarding,Integrated 5*GE PHY, provides 1000Mbps network access capability, and supports two WAN ports. Support hardware intelligent QoS. Support dual-band 2.4G 40M 2*2 +5G160M2.2 DBDC WIFI,Wifi protocol version support to IEEE 802.11ax, backward compatible 802.11a /b/g/n/ac, can support the highest rate of 3Gbps, 2G will reach 573.5Mbps, while 5G will reach 2401.9Mbp
+香蕉派BPI-Wifi6 Mini 路由器设计采用了创耀科技TR6560 + TR5220 wifi无线芯片设计，是一款标准的wifi6 迷你路由器解决方案。内置高性能双核ARM Cortec A9处理器，用于WIFI消息转发或智能业务处理，内置高性能LSW和硬件NAT，最大支持5Gbps的报文转发，支持2个GE口,支持1个RGMII扩展口，为用户提供1000Mbps的网络接入能力，支持双WAN口。支持硬件智能QoS.支持双频带2.4G 40M 2*2 +5G160M2.2 DBDC WIFI,Wifi协议版本支持至IEEE 802.11ax,后向兼容802.11 a/b/g/n/ac,最高可支持3Gbps的速率，2G最高达573.5Mbps,5G 最高达2401.9Mbps.
+
+香蕉派BPI-Wifi6 Mini 路由器支持 M.2 接口，可以支持加 4G/5G 模组支持4G/5G应用。
+
+香蕉派BPI-Wifi6 Mini 尺寸很小，仅仅 65x65mm，尺寸和接口与 link:/zh/BPI-R3_Mini/BananaPi_BPI-R3_Mini[香蕉派 BPI-R3 Mini]完全一样，可以共用外壳
 
 image::/bpi-wifi6/banana_pi_bpi-wifi6_mini_wiki_1.jpg[banana_pi_bpi-wifi6_mini_wiki_1.jpg]
 
-TIP: Triductor TR6560 + TR5220 wifi design: link:/en/BPI-WiFi6_Router/BananaPi_BPI-WiFi6_Router[Banana Pi BPI-Wifi6 Router] low cost wifi6 Router board +
-Triductor TR6560 + TR5220 wifi design: link:/en/BPI-WiFi6_Mini/BananaPi_BPI-WiFi6_Mini[Banana Pi BPI-Wifi6 Mini Router] low cost Mini wifi6 Router board same size as: link:/en/BPI-R3_Mini/BananaPi_BPI-R3_Mini[BPI-R3 mini]
+TIP: 创耀科技 TR6560 + TR5220 wifi6 芯片方案设计: link:/zh/BPI-WiFi6_Router/BananaPi_BPI-WiFi6_Router[香蕉派 BPI-Wifi6 路由器] low cost wifi6 Router board +
+创耀科技  TR6560 + TR5220 wifi6 芯片方案设计: link:/zh/BPI-WiFi6_Mini/BananaPi_BPI-WiFi6_Mini[Banana Pi BPI-Wifi6 Mini 迷你路由器] low cost Mini wifi6 Router board same size as: link:/zh/BPI-R3_Mini/BananaPi_BPI-R3_Mini[香蕉派 BPI-R3 mini]
 
 == Key Features
 * Dual core ARM Cortex-A9 1.2G Hz
