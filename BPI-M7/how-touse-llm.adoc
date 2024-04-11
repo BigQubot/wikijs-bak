@@ -1,3 +1,15 @@
+= Usage Environment
+
+Banana Pi RK3588 developemnt board design:
+
+Rockchip RK3588 design link:/en/BPI-M7/BananaPi_BPI-M7[Banana Pi BPI-M7] AI SBC design +
+Rockchip RK3588 design link:/en/BPI-AIM7/BananaPi_BPI-AIM7[Banana Pi BPI-AIM7] Core board fully compatible with Jetson Nano/TX2 NX +
+Rockchip RK3588 design link:/en/BPI-W3/BananaPi_BPI-W3[Banana Pi BPI-W3] LGA core board kit +
+Rockchip RK3588 design link:/BPI-RK3588_CoreBoardAndDevelopmentKit/BananaPi_BPI-RK3588_CoreBoardAndDevelopmentKit[BPI-RK3588 core board and kit Introduction] Core boards 
+
+
+Source Code repository: https://github.com/ArmSoM/rknn-llm
+
 = Introduction to RKLLM
 
 RKLLM software stack can help users to quickly deploy AI models to Rockchip chips. The overall framework is as follows:
@@ -185,15 +197,5 @@ Specific compilation methods can also refer to example/build_demo.sh in the RKLL
 
 Since the current publicly available firmware kernel driver version does not support the RKLLM tool, it is necessary to update the kernel. The rknpu driver package supports two main kernel versions: kernel-5.10 and kernel-6.1. For kernel-5.10, it is recommended to use a specific version number 5.10.198, repo: GitHub - rockchip-linux/kernel at develop-5.10; for kernel-6.1, it is recommended to use a specific version number 6.1.57. The specific version number can be confirmed in the Makefile under the kernel root directory. The update steps are as follows: a. Download the compressed package rknpu_driver_0.9.6_20240322.tar.bz2. b. Unzip the package and overwrite the rknpu driver code in the current kernel code directory. c. Recompile the kernel. d. Burn the newly compiled kernel into the device.
 
-= Usage Environment
 
-Banana Pi RK3588 developemnt board design:
-
-Rockchip RK3588 design link:/en/BPI-M7/BananaPi_BPI-M7[Banana Pi BPI-M7] AI SBC design +
-Rockchip RK3588 design link:/en/BPI-AIM7/BananaPi_BPI-AIM7[Banana Pi BPI-AIM7] Core board fully compatible with Jetson Nano/TX2 NX +
-Rockchip RK3588 design link:/en/BPI-W3/BananaPi_BPI-W3[Banana Pi BPI-W3] LGA core board kit +
-Rockchip RK3588 design link:/BPI-RK3588_CoreBoardAndDevelopmentKit/BananaPi_BPI-RK3588_CoreBoardAndDevelopmentKit[BPI-RK3588 core board and kit Introduction] Core boards 
-
-
-Code repository: https://github.com/ArmSoM/rknn-llm
 
