@@ -38,12 +38,12 @@ Allwinner A20 design: link:/en/BPI-R1/BananaPi_BPI-R1[Banana Pi BPI-R1] Router
 
 TIP: link:/en/BPI-M1_Plus/GettingStarted_BPI-M1_Plus[Getting Started BPI-M1_Plus]
 
-= Hardware
-== Hardware Interface
+= 硬件
+== 硬件接口示意图
 
 image::/picture/bpi-m1_plus_interface_.jpg[bpi-m1_plus_interface_.jpg]
 
-== Hardware Spec
+== 硬件规格
 
 [options="header",cols="1,3"]
 |=====
@@ -64,11 +64,11 @@ image::/picture/bpi-m1_plus_interface_.jpg[bpi-m1_plus_interface_.jpg]
 | OS            | Android 4.4, Android 4.2, Raspbian, Lubuntu, Open Suse, Debian
 |=====
 
-== GPIO Pin Define
+== GPIO Pin 定义
 
-=== BPI-M1 Plus 40PIN GPIO
+=== BPI-M1+ 40PIN GPIO 定义
 
-Banana Pi BPI-M1+ has a 40-pin GPIO header . Following is the Banana Pi GPIO Pinout:
+香蕉派 BPI-M1+有 一个40针的GPIO接口。以下是Banana Pi GPIO PIN 定义:
 
 image::/picture/gpio_define.png[gpio_define.png]
 
@@ -118,9 +118,9 @@ image::/picture/gpio_define.png[gpio_define.png]
 | CON3-P40 | SPDIF\_DO  | PB13 
 |=====
 
-=== CSI Camera Connector specification:
+=== CSI 摄像机连接器规格:
 
-The CSI Camera Connector is a 40-pin FPC connector which can connect external camera module with proper signal pin mappings.The pin definitions of the CSI interface are shown as below. This is marked on the Banana Pi board as “CON1″.
+CSI摄像机连接器是一个40引脚的FPC连接器，可以通过适当的信号引脚映射连接外部摄像机模块。CSI接口的引脚定义如下所示。这在香蕉派板上标记为“CON1″”
 
 [options="header",cols="1,1,1"]
 |=====
@@ -168,9 +168,9 @@ The CSI Camera Connector is a 40-pin FPC connector which can connect external ca
 | CON1 P40     | IPSOUT                    |
 |=====
 
-=== LVDS \(LCD display interface\)
+=== LVDS \(LCD 显示屏接口\)
 
-The LVDS Connector is a 40-pin FPC connector which can connect external LCD panel \(LVDS\) and touch screen \(I2C\) module as well.The pin definitions of this connector are shown as below. This is marked on the Banana Pi board as “CON2″.
+LVDS连接器是一个40引脚的FPC连接器，可以连接外部LCD面板\(LVDS\)和触摸屏\(I2C\)模块。该连接器的引脚定义如下所示。这在香蕉派板上被标记为“CON2″”。
 
 [options="header",cols="1,2,1,1"]
 |=====
@@ -218,9 +218,9 @@ The LVDS Connector is a 40-pin FPC connector which can connect external LCD pane
 | CON2 P40 | LCD0-D16            |           | PD16 
 |=====
 
-=== BPI-M5 Debug UART
+=== BPI-M5 调试 UART 串口
 
-The jumper J11header CON4 is the UART interface.For developers of Banana Pi, this is an easy way to get the UART console output to check the system status and log message.
+跳线J11 header CON4是UART接口。对于Banana Pi的开发人员来说，这是一种获取UART控制台输出以检查系统状态和日志消息的简单方法。
 
 [options="header",cols="1,1,1"]
 |=====
@@ -230,8 +230,8 @@ The jumper J11header CON4 is the UART interface.For developers of Banana Pi, thi
 |CON4-P01	| GND	      |     
 |=====
 
-= Development
-== Source Code
+= 开发
+== 软件源代码
 
 === Linux
 
@@ -260,7 +260,7 @@ TIP: BPI-M1+ DXF file download link : link:https://drive.google.com/folderview?i
 TIP: BPI-M1+ 3D design file download link :
 link:https://drive.google.com/folderview?id=0B4PAo2nW2Kfnfl95clI4ZzRKUmRENWhMcmwzUlVrYW1Ic3BXZENtUjJQcjk5TXc0RHBKdlU&usp=sharing&tid=0B4PAo2nW2Kfndjh6SW9MS2xKSWs[google drive]
 
-== Resources
+== 参考文档
 - Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
 - All banana pi link:https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[docement(SCH file,DXF file,and doc)]
 
@@ -274,7 +274,8 @@ link:https://drive.google.com/folderview?id=0B4PAo2nW2Kfnfl95clI4ZzRKUmRENWhMcmw
 - Building the cluster on BPI: https://www.hackster.io/Penguinfly/banana-pi-cluster-47d566
 - Allwinner chip online datasheet and documents: http://dl.linux-sunxi.org/
 
-= System Image
+= 系统镜像
+
 == Android
 
 NOTE: 2018-07-28 update android 4.4 LCD version image
@@ -331,7 +332,7 @@ NOTE: Opwrt for Allwinner Soc : https://wiki.openwrt.org/doc/hardware/soc/soc.al
 === BPI BSP for OpenWRT
 NOTE: How to build OpenWRT image from github : https://bananapi.gitbooks.io/bpi-m1/content/en/howtobuildopenwrtimagefromgithub.html
 
-== Third part image
+== 第三方镜像
 === Armbian
 
 NOTE: Armbian_23.02.0-trunk_Bananapim1plus_jammy_edge_6.1.11_xfce_desktop.img.xz
@@ -403,7 +404,8 @@ http://mirror.lakka.tv/nightly/
 NOTE: Simplenas image : https://simplenas.com/download/other/banana-pi-m1
 
 
-= Easy to buy
+= 样品购买
+
 WARNING: SINOVOIP Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M1-Plus/1100417230_40000003434385.html
 
 WARNING: Bipai Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M1-Plus/1101951077_40000003414810.html
