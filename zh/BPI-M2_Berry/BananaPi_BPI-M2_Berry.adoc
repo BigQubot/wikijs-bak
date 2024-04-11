@@ -1,6 +1,6 @@
-= BPI-M2 Berry Introduction
+= BPI-M2 Berry 介绍
 
-Banana Pi BPI-M2 Berry is a quad-core mini single board computer built with Allwinner A40i SoC. It features 1GB of RAM . It also has onboard WiFi and BT. On the ports side, the BPI-M2 Ultra has 4 USB A 2.0 ports, 1 USB OTG port, 1 HDMI port, 1 audio jack, and last but not least, a SATA port.
+Banana Pi BPI-M2 Berry是一款采用Allwinner A40i SoC构建的四核迷你单板计算机。它具有1GB RAM。它还配备了WiFi和BT。在端口方面，BPI-M2 Ultra有4个USB A 2.0端口，1个USB OTG端口，1个HDMI端口，1个音频插孔，1个SATA端口。
 
 image::/picture/banana_pi_bpi-m2_berry.jpg[banana_pi_bpi-m2_berry.jpg]
 
@@ -8,62 +8,62 @@ TIP: 全志科技 A40i design link:/zh/BPI-M2_Berry/BananaPi_BPI-M2_Berry[香蕉
 全志科技 A40i 方案设计 link:/zh/BPI-M2_Ultra/BananaPi_BPI-M2_Ultra[香蕉派 BPI-M2 Ultra] 单板计算机开发板 +
 全志科技 A40i 方案设计 link:/zh/BPI-6202/BananaPi_BPI-6202[香蕉派 BPI-6202] 工业控制网关  
 
-Also being a member of the Banana Pi family, the M2 Berry is a direct upgrade from the Banana Pi M1/M1+ that support SATA from the SoC. The SATA performance on the V40 is fitting for media related projects such as storage servers. Backed by our community, starting a project and building servers is fun and rewarding. We welcome all companies, DIYers, and tech loving people within our community! Together, we can make a difference, we can discover our passions, inspire others, and build a practical project.
+作为Banana Pi家族的一员，M2 Berry是Banana Pi M1/M1+的直接升级，支持SoC的SATA。V40上的SATA性能适合与媒体相关的项目，如存储服务器。在我们社区的支持下，开始一个项目和构建服务器是有趣和有益的。我们欢迎所有的公司，DIY者和热爱技术的人在我们的社区！我们可以一起发挥作用，我们可以发现我们的激情，激励他人，并建立一个实际的项目。
 
-All size is same as raspberry pi 3,so you can use raspberry pi 3 case for BPI-M2 Berry.
+所有尺寸与树莓派3相同，因此您可以将树莓派3外壳用于BPI-M2 Berry。
 
-== Key Features
-
-- Allwinner A40i/R40/V40 Quad Core ARM Cortex A7 CPU
-- 1GB DDR3 SDRAM.
-- WiFi & BT onboard
-- SATA Interface
+== 主要特点
+- 全志科技 A40i/R40/V40四核ARM Cortex A7 CPU
+- 1GB DDR3 SDRAM。
+- WiFi & BT
+- SATA接口
 - 4*USB 2.0
-- MIPI DSI interface
-- CSI camera interface
+- MIPI DSI接口
+- CSI摄像头接口
 
-== Getting Start
+== 快速入门
 
 TIP: link:/en/BPI-M2_Ultra_Berry/GettingStarted_BPI-M2_Ultra_Berry[Getting Started BPI-M2_Berry]
 
-= Hardware
-== Hardware Interface
+= 硬件
+== 硬件接口示意图
 
 image::/picture/bpi-m2_berry.jpg[bpi-m2_berry.jpg]
 
-== BPI-M2 Berry Photo
+== BPI-M2 Berry 图片
 
 link:/en/BPI-M2_Ultra_Berry/Photo_BPI-M2_Berry[Banana Pi BPI-M2 Berry Product photo gallery]
 
-== Hardware Spec
+== 硬件规格
 
 [options="header",cols="1,5"]
 |=====
-2+| **HardWare Specification of Banana Pi M2_Berry**
-| Soc              | Allwinner A40i/R40/V40
-| CPU              | quad-core cortex -A7,the most power efficient CPU core ARM's ever development
-| GPU              | dual-core MALI-400 MP2 and runs at 500MHz, capable of 1.1 Gpixel/s throughput. Graphics capabilities are slightly higher than the original Xbox’s level of performance. The GPU provides OpenGL ES 2.0, hardware-accelerated OpenVG, 1080p45 H.264 high-profile encode and decode. 
-| SDRAM            | 1GB DDR3 with 733MHz\(shared with GPU\)
-| SATA             | suppoort SATA interface
-| GPIO             | 40 Pins Header, 28×GPIO, some of which can be used for specific functions including UART, I2C, SPI, PWM, I2S.
-| On board Network | 10/100/1000Mbps Ethernet \(Realtek RTL8211E/D\)
-| Wifi Module      | WiFi 802.11 b/g/n \(AP 6212 module on board\)
-| Bluetooth        | BT4.0 
-| On board Storage | MicroSD \(TF\) card,No eMMC onboard
-| Display          | 4-lane MIPI DSI display,or RGB panel or LVDS panel,TV-out on HDMI V1.4
-| Video            | Multi-format FHD video decoding, including Mpeg1/2, Mpeg4, H.263, H.264, etc H.264 decode up to 1080P60,support video encodeing: High-deinition\(HD\)H.264 video encoder is up to 1080P@45fps 
-| Audio outputs    | HDMI, analog audio \(via 3.5 mm TRRS jack\), I2S audio \(also potentially for audio input\) 
-| Camera           | A CSI input connector Camera: Supports 8-bit YUV422 CMOS sensor interface,Supports CCIR656 protocol for NTSC and PAL,Supports 5M pixel camera sensor ,Supports video capture solution up to 1080p@30fps
+2+| **香蕉派 M2_Berry 硬件规格**
+| Soc              | 全志科技 A40i/R40/V40
+| CPU              | 四核cortex -A7，ARM有史以来开发的最节能的CPU核心
+| GPU              | 双核MALI-400 MP2，运行频率为500 MHz，吞吐量为1.1 Gpixel/s。图形功能略高于原来的Xbox的性能水平。GPU提供OpenGL ES 2.0、硬件加速OpenVG、1080 p45 H.264高配置编码和解码。 
+| SDRAM            | 1 GB DDR3，733 MHz\（与GPU共享\）
+| SATA             | 支持SATA接口
+| GPIO             | 40引脚头，28×GPIO，其中一些可用于特定功能，包括UART，I2C，SPI，PWM，I2S。
+| 网络              | 10/100/1000Mbps 以太网口 \(Realtek RTL8211E/D\)
+| Wifi 模块         | WiFi 802.11 b/g/n \(AP 6212 module on board\)
+| 蓝牙              | BT4.0 
+| 存储              | MicroSD \(TF\) card,没有 eMMC。
+| 显示              | 4-通道MIPI DSI显示器，或RGB面板或LVDS面板，HDMI V1.4上的电视输出
+| 视频              | 支持多种格式的FHD视频解码，包括Mpeg 1/2，Mpeg4，H.263，H.264等H.264解码，最高支持1080 P60，支持视频编码：高清H.264视频编码器最高支持1080P@45fps
+| 音频输出          | HDMI、模拟音频\（通过3.5 mm TRRS插孔\）、I2S音频\（也可能用于音频输入\）
+| 相机             | CSI输入连接器摄像头：支持8位YUV422 CMOS传感器接口，支持CCIR656协议的NTSC和PAL，支持500万像素摄像头传感器，支持高达1080p@30fps的视频捕获解决方案
 | USB              | 4 USB 2.0 host, 1 USB 2.0 OTG 
-| Buttons          | Reset button, Power button, U-boot button 
-| Leds             | Power status Led and RJ45 Led
-| IR               | No onboard IR receiver
-| DC Power         | 5V/2A with micro USB port
-| Battery          | No 3.7V lithium battery power support                   | Sizes	          | 85mmX56mm,same size as raspberry pi 3
-| Weight	         | 40g 
+| 按键              | 复位按钮、电源按钮、U-boot按钮
+| Leds             | 电源状态LED和RJ45 LED
+| IR               | 没有红外接收器
+| DC 电源           | 5V/2A with micro USB port
+| 电池              | 无3.7V锂电池供电支持                   
+| 尺寸	            | 85mmX56mm,和raspberry pi 3尺寸相同
+| 重量   	          | 40g 
 |=====
 
-== GPIO Pin Define
+== GPIO 引脚定义
 
 === BPI-M2 Berry 40PIN GPIO
 
@@ -201,18 +201,18 @@ link:/en/BPI-M2_Ultra_Berry/Photo_BPI-M2_Berry[Banana Pi BPI-M2 Berry Product ph
 | CON2 P01	| GND
 |=====
 
-= Development
-== Source Code
+= 发展
+== 源代码
 
-== Resources
+== 开发资料
 
-TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
+TIP: 由于谷歌的安全更新，一些旧的链接将无法工作，如果你想使用的图像不能从link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[新的链接bpi-image文件]下载。
 
-TIP: All banana pi link:https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[docement(SCH file,DXF file,and doc)]
+TIP: 香蕉派所有文件link:https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[(SCH file,DXF file,and doc)]
 
-TIP: Schematics: link:https://drive.google.com/drive/folders/0B4PAo2nW2KfnflVqbjJGTFlFTTd1b1o1OUxDNk5ackVDM0RNUjBpZ0FQU19SbDk1MngzZWM?resourcekey=0-ZRCiv304nGzvq-w7lwnpjg&usp=sharing[google driver]
+TIP: 原理图: link:https://drive.google.com/drive/folders/0B4PAo2nW2KfnflVqbjJGTFlFTTd1b1o1OUxDNk5ackVDM0RNUjBpZ0FQU19SbDk1MngzZWM?resourcekey=0-ZRCiv304nGzvq-w7lwnpjg&usp=sharing[google driver]
 
-TIP: Dimensional diagram link:https://drive.google.com/file/d/0B4PAo2nW2Kfnci1xaHd5eWtseEU/view?usp=sharing[BPI-M2 Berry dxf file]
+TIP: 尺寸图: link:https://drive.google.com/file/d/0B4PAo2nW2Kfnci1xaHd5eWtseEU/view?usp=sharing[BPI-M2 Berry dxf file]
 
 TIP: Allwinner R40/V40 datasheet
 
@@ -228,7 +228,7 @@ TIP: Banana pi BPI-M2 Berry link:https://bananapi.gitbooks.io/bpi-m2-ultra-open-
 
 TIP: BPI-M2 Ultra/Berry Touch work : https://forum.banana-pi.org/t/discuss-bpi-m2-ultra-touch-doesnt-work/15980
 
-= System Image
+= 系统镜像
 == Android
 
 NOTE: 2017-08-25 update,HDMI-Version,LCD5-Version LCD7-Version
@@ -339,7 +339,7 @@ MD5: cff677aa94ca5345fc6e26379cfe4e95
 
 Forum pthread : http://forum.banana-pi.org/t/bpi-m2-ultra-bpi-m2-berry-new-image-2017-08-28-debian-sd-emmc-img/3745/2
 
-== Third part image
+== 第三方镜像
 
 === Raspbian
 
@@ -437,12 +437,12 @@ NOTE: Kali linux,crux linux,archlinux,centos linux for BPI-M2 Ultra & BPI-M2 Ber
 Download: http://forum.banana-pi.org/c/Banana-pi-BPI-M2-Ultra/M2Uimage
 
 
-= Easy to buy
+= 购买链接
 
-WARNING: SINOVOIP Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M2-Berry/1100417230_40000003434388.html
+WARNING: SINOVOIP 全球速卖通商店: https://www.aliexpress.com/store/group/BPI-M2-Berry/1100417230_40000003434388.html
 
-WARNING: Bipai Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M2-Berry/1101951077_40000003547464.html
+WARNING: Bipai 全球速卖通商店: https://www.aliexpress.com/store/group/BPI-M2-Berry/1101951077_40000003547464.html
 
-WARNING: Taobao Shop: https://shop108780008.taobao.com/category-1694930635.htm
+WARNING: 淘宝: https://shop108780008.taobao.com/category-1694930635.htm
 
-WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
+WARNING: OEM&ODM, 请联系: judyhuang@banana-pi.com
