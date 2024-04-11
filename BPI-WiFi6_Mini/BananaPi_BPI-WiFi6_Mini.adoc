@@ -35,6 +35,28 @@ TIP: Please refer to github bsp's pdf document: Triductor_TGP3.0开发手册_202
 == Source Code
 TIP: Source code on github: https://github.com/BPI-SINOVOIP/THG6500-TAX2-OPENWRT-BSP
 
+= Accessories
+
+== Case design
+
+Banana Pi BPI-wifi6 mini same size as link:/en/BPI-R3_Mini/BananaPi_BPI-R3_Mini[Banana Pi BPI-R3 Mini] , so can use same case as BPI-R3 mini
+
+image::/picture/banana_pi_bpi-r3_mini_case_9.jpg[banana_pi_bpi-r3_mini_case_9.jpg]
+
+== 4G module
+Banana Pi BPI-wifi6 mini have test quectel EM05 4G module support
+
+Test demo veide on youtube: https://www.youtube.com/watch?v=Q4nxK475KdM
+
+Discus on forum :
+https://forum.banana-pi.org/t/banana-pi-bpi-wifi6-mini-test-quectel-em05-4g-module-funtion/17758
+
+== 5G module 
+
+Banana Pi BPI-wifi6 mini have test quectel RM500U 5G module support
+
+
+
 = FAQ
 * BPI-Wifi6 mini is same size as BPI-R3 Mini,can use BPI-R3 Mini case 
 ** Answer: yes.
