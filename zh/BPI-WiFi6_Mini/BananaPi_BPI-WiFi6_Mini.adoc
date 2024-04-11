@@ -11,39 +11,42 @@ image::/bpi-wifi6/banana_pi_bpi-wifi6_mini_wiki_1.jpg[banana_pi_bpi-wifi6_mini_w
 TIP: 创耀科技 TR6560 + TR5220 wifi6 芯片方案设计: link:/zh/BPI-WiFi6_Router/BananaPi_BPI-WiFi6_Router[香蕉派 BPI-Wifi6 路由器] 低成本 wifi6 Router board +
 创耀科技  TR6560 + TR5220 wifi6 芯片方案设计: link:/zh/BPI-WiFi6_Mini/BananaPi_BPI-WiFi6_Mini[香蕉派 BPI-Wifi6 Mini 迷你路由器] 低成本小尺寸 wifi6 路由器尺寸与接口与: link:/zh/BPI-R3_Mini/BananaPi_BPI-R3_Mini[香蕉派 BPI-R3 mini] 完全一样
 
-== Key Features
-* Dual core ARM Cortex-A9 1.2G Hz
-* Integrated 5*GE PHY
-* Support 1000M/100M/10M rate mode self-negotiation and standard MIB 
-* Supports IEEE802.11a/b/g/n/ac/ax wireless LAN communication protocol
-* Support Wifi AP mode and STA mode
-* Support WPA,WPA2, WPA3 encryption and decryption, pay Chinese WAPI standard
-* M.2 Key B interfce (USB 4G LTE/5G NR) 
+== 关键特性
 
-== Getting Start
+* 双核ARM Cortex-A9 1.2G Hz
+* 集成2*GE PHY
+* 支持1000M/100M/10M速率模式自协商和标准MIB统计
+* 支持IEEE802.11a/b/g/n/ac/ax无线局域网通信协议
+* 支持Wi-Fi AP模式和STA模式
+* 支持WPA、WPA2、WPA3加解密，支持中国WAPI标准
+* 支持M.2接口，可以扩展4G/5G应用
+
+== 快速上手
 
 TIP: link:/en/BPI-WiFi6_Mini/GettingStarted_WiFi6_Mini[Getting Started BPI-WiFi6_Mini]
 
-= Hardware
-== Hardware Interface
+= 硬件
+== 硬件接口示意图
 
 image::/bpi-wifi6/banana_pi_bpi-wifi6_mini_inerface.jpg[banana_pi_bpi-wifi6_mini_inerface.jpg]
 
-== Hardware Spec
+== 硬件规格
 
-= Development
+= 开发
 
 TIP: Please refer to github bsp's pdf document: Triductor_TGP3.0开发手册_2023.4.20.pdf ----- gtihub website: https://github.com/BPI-SINOVOIP/THG6500-TAX2-OPENWRT-BSP
 
-== Source Code
-TIP: Source code on github: https://github.com/BPI-SINOVOIP/THG6500-TAX2-OPENWRT-BSP
+== 软件源代码
 
-= FAQ
-* BPI-Wifi6 mini is same size as BPI-R3 Mini,can use BPI-R3 Mini case 
-** Answer: yes.
+TIP: github 软件源代码: https://github.com/BPI-SINOVOIP/THG6500-TAX2-OPENWRT-BSP
+
+= 问答
+
+* BPI-Wifi6 mini与BPI-R3 mini尺寸相同，可使用BPI-R3 mini外壳吗？
+** 回答: 是的，可以共用
 
 
-= Easy to buy
+= 样品购买
 
 WARNING: SINOVOIP Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M1/1100417230_40000003426518.html
 
