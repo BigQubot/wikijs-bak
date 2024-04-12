@@ -48,23 +48,23 @@ image::/picture/bpi-p2_zero_interface.jpg[bpi-p2_zero_interface.jpg]
 | 网络                   | 100M LAN 
 | PoE 供电               | PoE 功能支持
 | WIFI                  | K016/SDIO AP6212（option AP6181、AP6335）
-| Video decoding        | 1080p@60fps,H.264 Video encoding 1080p@30fps,H.264
-| Video input           | A CSI input connector Camera 
-| Video Outputs         | mini HDMI 1.4,1080P@30fps, DHCP 
-| Audio Output          | Mini HDMI 
-| Power Source          | Micro USB with 5V/2A or PoE power
+| 视频解码               | 1080p@60fps,H.264 视频编码 1080p@30fps,H.264
+| 视频输入               | 一个 CSI 输入连接摄像头
+| 视频输出               | mini HDMI 1.4,1080P@30fps, DHCP 
+| 音频输出               | Mini HDMI 
+| 电源                   | Micro USB with 5V/2A or PoE power
 | USB 2.0 Ports         | one USB 2.0 OTG
-| Buttons               | Power Button, Reset Button  
+| 按键                   | 电源按键、复位按键
 | Low-level peripherals | 40 Pins Header,compatible with Raspberry Pi 3 
 | uart GPIO\(1x3\) pin  | UART, ground 
 | LED                   | Power led & Status led 
 | IR                    | N/A                                               
-| Supported OS	        | android linux	
-| Product size	        | 65mm X 52.5mm
-| Weight                |	30g
+| 支持的操作系统 	       | 安卓，Linux
+| 尺寸        	        | 65mm X 52.5mm
+| 重量                  |	30g
 |=====
 
-== GPIO Pin Define
+== GPIO 引脚定义
 
 === BPI-P2 Zero 40PIN GPIO
 
@@ -114,9 +114,9 @@ image::/picture/bpi-p2_zero_interface.jpg[bpi-p2_zero_interface.jpg]
 | CON2-P40 | PA20-EINT20 | PA20-EINT20 |           
 |=====
 
-=== CSI Camera Connector specification
+=== CSI 摄像头连接器规格
 
-The CSI Camera Connector is a 24-pin FPC connector which can connect external camera module with proper signal pin mappings. The pin definitions of the CSI interface are shown as below. This is marked on the Banana Pi board as “CSI″.
+CSI摄像头连接器是一款24针FPC连接器，可通过正确的信号引脚映射连接外部摄像头模块。CSI接口的引脚定义如下所示。这在Banana Pi板上被标记为“CSI”。
 
 [options="header",cols="1,1,1"]
 |=====
@@ -155,13 +155,13 @@ The CSI Camera Connector is a 24-pin FPC connector which can connect external ca
 | CON3 P01	| GND	      |     
 |=====
 
-== PoE support
-We deign a IEEE 802.3af PoE module for BPI-P2 Zero ,easy to support PoE function,more spec ,please check BPI-9600 PoE module spec.
+== PoE 支持
+我们为BPI-P2 Zero设计了一个IEEE 802.3af PoE模块，易于支持PoE功能，更多规格，请查看BPI-9600 PoE模块规格。
 
-link:/en/BPI-9600_IEEE_802_3af_PoE_module[BPI-9600 IEEE 802.3af PoE module]
+link:/en/BPI-9600/BananaPi_BPI-9600[BPI-9600 IEEE 802.3af PoE module]
 
-= Development
-== Source Code
+= 发展
+== 源代码
 
 === Linux 
 
@@ -177,7 +177,7 @@ Download link: https://drive.google.com/open?id=0B_YnvHgh2rwjdWNEQzg1UDl1bUE
 
 Forum pthread: http://forum.banana-pi.org/t/bpi-m2-android-4-4-source-code-download-link/3159
 
-== Resources
+== 开发资料
 
 TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
 
@@ -302,12 +302,12 @@ Baidu Cloud: https://pan.baidu.com/s/1RKJzzpMOHnFW0nj8I-NJIA?pwd=rk22 PinCode: r
 MD5: f4dfbe234c21a6038f50f699780d4e03
 
 
-= Easy to buy
+= 购买链接
 
-WARNING: SINOVOIP Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-P2-Zero/1100417230_40000003593412.html
+WARNING: SINOVOIP 全球速卖通商店: https://www.aliexpress.com/store/group/BPI-P2-Zero/1100417230_40000003593412.html
 
-WARNING: Bipai Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-P2-Zero/1101951077_40000003551096.html
+WARNING: Bipai 全球速卖通商店: https://www.aliexpress.com/store/group/BPI-P2-Zero/1101951077_40000003551096.html
 
-WARNING: Taobao Shop: https://shop108780008.taobao.com/category-1694930632.htm
+WARNING: 淘宝 : https://shop108780008.taobao.com/category-1694930632.htm
 
-WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
+WARNING: OEM&ODM, 请联系: judyhuang@banana-pi.com
