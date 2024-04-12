@@ -16,23 +16,23 @@ TIP: 全志科技 H3 design: link:/en/BPI-M2_Plus/BananaPi_BPI-M2_Plus[香蕉派
 - 512MB DDR 3 SDRAM.
 - WiFi (AP6212/K016) & BT onboard.
 - Mini HDMI.
-- 40 PIN GPIO,includes UART, SPI, I2C, IO etc
+- 40引脚GPIO，包括 UART, SPI, I2C, IO etc
 - 100M LAN
-- IEEE 802.3af PoE standard PoE module support
-- 8G eMMC flash onboard.
+- IEEE 802.3af PoE标准PoE模块支持
+- 8G eMMC 闪存.
 
-== Getting Start
+== 快速入门
 
 TIP: link:/en/BPI-P2_Zero/GettingStarted_BPI-P2_Zero[Getting Started BPI-P2_Zero]
 
-= Hardware
-BPI-P2 Zero, just 3 change on BPI-M2 Zero . other hadware design same as BPI-M2 Zero.so all software is same .
+= 硬件
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BPI-P2 Zero，仅在BPI-M2 Zero上进行3次变更。其他硬件设计与BPI-M2 Zero.so相同，所有软件都相同。
 
-. Add 8G eMMC flash support onboard, easy to do IoT gateway.
-. BPI-P2 Zero with 100M LAN interface ,BPI-M2 Zero with PIN define for 100M lan , use way is same.
-. PoE function support on board.
+. 板载增加8 G eMMC闪存支持，轻松做物联网网关。
+. BPI-P2 Zero带100 M LAN接口，BPI-M2 Zero带PIN定义为100 M LAN，使用方式相同。
+. 板载PoE功能支持。
 
-== Hardware Interface
+== 硬件接口示意图
 
 image::/picture/bpi-p2_zero_interface.jpg[bpi-p2_zero_interface.jpg]
 
