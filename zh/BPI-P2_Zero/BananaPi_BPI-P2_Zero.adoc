@@ -36,20 +36,18 @@ TIP: link:/en/BPI-P2_Zero/GettingStarted_BPI-P2_Zero[Getting Started BPI-P2_Zero
 
 image::/picture/bpi-p2_zero_interface.jpg[bpi-p2_zero_interface.jpg]
 
-== Hardware Spec
+== 硬件规格
 
 [options="header",cols="1,3"]
 |=====
-2+| **HardWare Specification of Banana Pi P2 Zero**
-| Module                | Banana Pi BPI-P2 Zero 
-| CPU                   | Allwinner H3/H2+ Quad-core Cortex-A7 H265/HEVC
-| GPU                   | Mali400MP2 GPU @600MHz,Supports OpenGL ES 2.0
-| Memory \(SDRAM\)      | 512M DDR3(shared with GPU)
-| Onboard Storage       | TF card \(Max. 64GB\) 
-| Onboard Network       | 100M LAN 
-| PoE power             | PoE function support
-| Onboard flash         | 8G eMMC 
-| Onboard WIFI          | K016/SDIO AP6212（option AP6181、AP6335）
+2+| **香蕉派 P2 Zero 硬件规格**
+| CPU                   | 全志科技 H3/H2+ 四核 Cortex-A7 H265/HEVC
+| GPU                   | Mali400MP2 GPU @600MHz,支援 OpenGL ES 2.0
+| 内存 \(SDRAM\)         | 512M DDR3(与 GPU 共享)
+| 存储                   | SD/TF卡（最大64GB），8G eMMC 
+| 网络                   | 100M LAN 
+| PoE 供电               | PoE 功能支持
+| WIFI                  | K016/SDIO AP6212（option AP6181、AP6335）
 | Video decoding        | 1080p@60fps,H.264 Video encoding 1080p@30fps,H.264
 | Video input           | A CSI input connector Camera 
 | Video Outputs         | mini HDMI 1.4,1080P@30fps, DHCP 
