@@ -319,6 +319,7 @@ From the above analysis, it is not difficult to see that the application of indu
 image::/indu-board/industrial_computer_zh_2.png[industrial_computer_zh_2.png]
 
 = Cooperation method
+
 . BPI-6206 is an open-source hardware product. The Banana Pi community provides all BSP board-level support codes and supports Docker containers in the codes. Customers with technical development capabilities can directly carry out secondary application development on BPI-6202.
 . BPI-6202 as a basic platform for secondary development, it provides various development tools and protocol analysis database interfaces for application developers, greatly shortening the development week of various industry application products and reducing the difficulty of development.
 . BPI-6202 is a complete industrial control product, customers can directly use it for industrial control and provide complete product-level support.
