@@ -37,7 +37,7 @@ The rapid development of the industrial Internet and the Internet of Things is n
 
 The concept of "cloud-pipe-edge-end" is a classic summary and induction of the principles of surveillance and control based on Internet thinking and terms; The mainstream model and architecture adopted by monitoring applications in various industries for decades
 
-
+image::/bpi-5202/industrial_computer_en_1.png[industrial_computer_en_1.png]
 
 - Cloud: The computer system that implements the monitoring center system and more advanced application software and algorithms. The "cloud" here includes both the "public cloud" on the Internet and the "private cloud" on the enterprise LAN. Build "cloud" computer systems, currently mainly high-end X86+Windows/Linux servers, and their clusters
 - Tube: Provide various efficient, reliable, convenient and cost-effective wired/wireless channels for both sides of the equipment. There are not only "pipes" between the "cloud" and "edge", such as wide area Ethernet, 4G/5G, etc.; between the "edge" and "end" of the application site, there are also pipes suitable for on-site application scenarios. The existence of wired/wireless "pipes", such as local Ethernet, serial port, high-speed power line carrier (HPLC), LoRa, ZigBee, WIFI, etc.
@@ -58,6 +58,8 @@ From the above analysis, it is not difficult to see that the application of indu
 - Development and operation platform for third-party algorithms and models based on industry applications
 - Access and push of video front-end equipment, video recording and linkage, video AI analysis interface and comprehensive linkage of analysis results
 - On-site network security and audit
+
+image::/indu-board/industrial_computer_zh_2.png[industrial_computer_zh_2.png]
 
 = BPI-5202 Loongson 2K1000LA Embedded single board industrial computer
 
