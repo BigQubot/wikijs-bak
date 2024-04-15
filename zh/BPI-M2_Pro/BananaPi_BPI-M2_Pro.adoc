@@ -1,15 +1,16 @@
-= BPI-M2 Pro Introduction
+= BPI-M2 Pro 介绍
 
-Banana Pi BPI-M2 Pro is the next generation single board computer from Banana Pi in 2021. It is powered by Amlogic S905X3 quad-core Cortex-A55 (2.0 XXGHz) processor.Onboard 2GB LPDDR4 memory and 16GB EMMC storage, and supports 2 USB 3.0 interface, a gigabit network port. RT8821CU wifi&BT onboard. 1 HDMI output
+香蕉派 BPI-M2 Pro是Banana Pi在2021年推出的下一代单板计算机。搭载晶晨S905 X3四核Cortex-A55（2.0 XXGHz）处理器，板载2GB LPDDR 4内存和16 GB EMMC存储，支持2个USB 3.0接口，1个千兆网口，RT 8821 CU wifi&BT板载，1个HDMI输出。
 
-BPI-M2 Pro same size as Banana Pi BPI-M2+ , and interface is also same .So can use BPI-M2+ case.
+BPI-M2 Pro与 BPI-M2+尺寸相同，接口也相同。因此可以使用BPI-M2+外壳。
+
 
 image::/picture/banana_pi_bpi-m2_pro_banner.jpg[banana_pi_bpi-m2_pro_banner.jpg]
 
-TIP: Amlogic S905x3 design : link:/en/BPI-M5/BananaPi_BPI-M5[Banana Pi BPI-M5] SBC same size as Raspberry Pi 4B +
-Amlogic S905x3 design: link:/en/BPI-M2_Pro/BananaPi_BPI-M2_Pro[Banana Pi BPI-M2_Pro] IoT board same size as BPI-M2+
+TIP: 晶晨(Amlogic) S905x3 设计 : link:/en/BPI-M5/BananaPi_BPI-M5[Banana Pi BPI-M5] SBC 尺寸和 Raspberry Pi 4B 相同 +
+晶晨(Amlogic) S905x3 设计: link:/en/BPI-M2_Pro/BananaPi_BPI-M2_Pro[Banana Pi BPI-M2_Pro] 与BPI-M2+尺寸相同的IoT板
 
-== Key Features
+== 主要特点
 
 - Amlogic S905X3 64-bit Quad core Cortex-A55 (2.0xxGHz)
 - Mali-G31 GPU
@@ -20,42 +21,42 @@ Amlogic S905x3 design: link:/en/BPI-M2_Pro/BananaPi_BPI-M2_Pro[Banana Pi BPI-M2_
 - 1 GbE ethernet
 - HDMI output
 
-== Getting Start
+== 快速入门
 
 TIP: link:/en/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro[Getting Started BPI-M5/M2_Pro]
 
-= Hardware
-== Hardware Interface
+= 硬件
+== 硬件接口示意图
 
 image::/picture/bpi-m2_pro_interface.jpg[bpi-m2_pro_interface.jpg]
 
-== BPI-M2 Pro Photo
+== BPI-M2 Pro 照片
 
 link:/en/BPI-M5_M2_Pro/Photo_BPI-M2_Pro[Banana Pi BPI-M2 Pro Product photo gallery]
 
-== Hardware Spec
+== 硬件规格
 
 [options="header",cols="1,3"]
 |=====
-2+| **HardWare Specification of Banana Pi M2 Pro**
+2+| **香蕉派 M2 Pro 硬件规格**
 | CPU             | Amlogic S905X3 64-bit Quad-Core Cortex-A55 (2.0xxGHz)
 | GPU             | Mali-G31 MP2 GPU with 4 x Execution Engines (650Mhz)
-| Memory          | 2 GB LPDDR4
-| Storage         | MicroSD slot with support for up to 256GB expansion and 16G eMMC flash with support for up to 64GB         
-| Network         | 10/100/1000 Mbit/s Ethernet
-| Wifi&BT         | Dual-band 802.11 b/g/n/ac WiFi 5 1×1 and Bluetooth 4.2 via Realtek RTL8821CU
-| Video Output(s) | 1 x HDMI 2.1 (up to 4K@60Hz with HDR, CEC, EDID) 
-| Audio Output(s) | 1 x HDMI digital output 
-| USB ports       | 2x USB 3.0 host ports, 1x micro USB OTG port
+| 内存          | 2 GB LPDDR4
+| 存储         | 支持高达256GB扩展的MicroSD插槽和支持高达64GB的16G eMMC闪存         
+| 网络         | 10/100/1000 Mbit/s 以太网
+| Wifi&BT         | 通过Realtek RTL 8821 CU ，双频802.11 b/g/n/ac WiFi 5 1×1 和蓝牙4.2
+| 视频输出 | 1 x HDMI 2.1 (up to 4K@60Hz with HDR, CEC, EDID) 
+| 音频输出 | 1 x HDMI digital output 
+| USB 端口      | 2x USB 3.0 host ports, 1x micro USB OTG port
 | GPIO            | 40 Pin Header : GPIO (x28) and Power (+5V, +3.3V and GND). GPIO pins can be used for UART, I2C, SPI or PWM 
-| Switches        | Reset, Power and U-boot
-| LED             | Power Status and Activity status
-| Power Source    | 5 volt @3A / 5 volt @2A via DC port 
-| Size & Weight   | 65mm×65mm, 58g
+| 按键        | Reset, Power and U-boot
+| LED             | 电源状态和活动状态
+| 电源    | 5 volt @3A / 5 volt @2A via DC port 
+| 尺寸，重量   | 65mm×65mm, 58g
 | OS              | Android and Linux
 |=====
 
-== GPIO Pin Define
+== GPIO 引脚定义
 
 === BPI-M2 Pro 40PIN GPIO
 
@@ -105,7 +106,7 @@ link:/en/BPI-M5_M2_Pro/Photo_BPI-M2_Pro[Banana Pi BPI-M2 Pro Product photo galle
 | CON1-P40 | GPIOAO_4         | TDMB_DOUT  |           
 |=====
 
-=== BPI-M2 Pro Debug UART
+=== BPI-M2 Pro 调试接口
 
 |=====
 | CON2-P1	| GND
@@ -113,8 +114,8 @@ link:/en/BPI-M5_M2_Pro/Photo_BPI-M2_Pro[Banana Pi BPI-M2 Pro Product photo galle
 | CON2-P3	| UART0-TX
 |=====
 
-= Development
-== Source Code
+= 发展
+== 源代码
 
 === Runs wiringpi gpio
 
@@ -134,7 +135,7 @@ Google Drive: https://drive.google.com/drive/folders/1RuvazYcr46HKMvNBxSqQftdyWa
 
 TIP: Linux BSP source code: https://github.com/BPI-SINOVOIP/BPI-M5-bsp
 
-== Resources
+== 开发资料
 
 TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
 
@@ -166,7 +167,7 @@ TIP: How to flash Armbian to the eMMc of the Banana-Pi BPi-M5: https://uglyscale
 
 TIP: Banana Pi BPI-M2 pro recenzija https://www.magazinmehatronika.com/banana-pi-bpi-m2-pro-recenzija/
 
-= System Image
+= 系统镜像
 == Android
 
 NOTE: 2023-03-01 release, tablet variant image
@@ -212,7 +213,7 @@ Baidu Cloud: https://pan.baidu.com/s/1tFUbyPbrTJ5UGgM05w2k6A?pwd=8888 (pincode: 
 Google Drive: https://drive.google.com/drive/folders/1Y-GuZYovWRgBvt0z7FLnIuBJufVFflvv?usp=sharing
 
 
-== Third part image
+== 第三方镜像
 
 === Raspbian
 
@@ -222,7 +223,7 @@ Google driver: https://drive.google.com/drive/folders/1Rvr1l3LhnVcss0FD0_bAm3Jbi
 
 Discuss on forum : https://pan.baidu.com/s/1T2DT3ruTRvRdFgIUrR1obg?pwd=8888 PinCode：8888
 
-NOTE: BPI-M5 BPI-M2 Pro new image:Rasbian image, 2022-4-09 update, Rasbian image for linux kernel 4.9 and 5.17. support 32bit and 64 bit,please choose the right image
+NOTE: BPI-M5 BPI-M2 Pro新镜像：Rasbian镜像，2022-4-09更新，用于Linux内核4.9和5.17的Rasbian镜像。支持32位和64位，请选择正确的图像
 
 Google driver: https://drive.google.com/drive/folders/1oqamIMl5Kmb3LVYMPFw-1tilvwKQI6n-
 
@@ -238,7 +239,7 @@ Baidu Cloud: https://pan.baidu.com/s/13awWxoAeV7HuE0-2BViTIA?pwd=8888 (pincode: 
 
 Google Drive: https://drive.google.com/drive/folders/1g585lGESqTVEenAPFDC-fAswXPilMIfD?usp=sharing
 
-NOTE: Image From Banana Pi team Released on 2023-03-13, build from Armbian main branch source code, fix some bugs and support i2c, uart, spi and rtl8822cs overlays, you can enable the overlay in /boot/armbianEnv.txt
+NOTE: 镜像来自香蕉派团队发布于2023-03-13，基于Armbian主分支源代码构建，修复了一些bug并支持i2c，uart，spi和rtl 8822 cs覆盖，您可以在/boot/armbianEnv. txt中启用覆盖
 
 Baidu Cloud: https://pan.baidu.com/s/1Wgg_0Z7Db6DSKqoIjf16PQ?pwd=8888 (pincode: 8888)
 
@@ -312,18 +313,19 @@ Discuss on fourm : http://forum.banana-pi.org/
 
 === Manjaro for BPI-M5
 
-NOTE: Manjaro porting for BPI-M5 from Official Image for Odroid C4, the ported image use kernel 5.10. If anyone is interested on give it a try, the download link is below.
+NOTE: Manjaro从Odroid C4的官方镜像移植到BPI-M5，移植的镜像使用内核5.10。如果任何人有兴趣在给予它一个尝试，下载链接在下面。
 
 Download Link: https://mega.nz/folder/BuZWkLhC#phC9KSsassB4bmkAegYykA
 
 discuss on forum : https://forum.banana-pi.org/t/manjaro-for-bpi-m5/12726
 
 
-= Easy to buy
-WARNING: SINOVOIP Aliexpress Shop : https://pt.aliexpress.com/item/1005002661831086.html?spm=a2g0o.store_pc_allProduct.8148356.1.4fd039a06wVleh
+= 购买链接
 
-WARNING: Bipai Aliexpress Shop: https://www.aliexpress.us/item/3256803510875489.html?
+WARNING: SINOVOIP 全球速卖通商店 : https://pt.aliexpress.com/item/1005002661831086.html?spm=a2g0o.store_pc_allProduct.8148356.1.4fd039a06wVleh
 
-WARNING: Taobao Shop: https://item.taobao.com/item.htm?spm=a1z10.1-c-s.w4004-25059194388.12.6ce13a905RQ02D&id=645540739177
+WARNING: Bipai 全球速卖通商店: https://www.aliexpress.us/item/3256803510875489.html?
 
-WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
+WARNING: 淘宝: https://item.taobao.com/item.htm?spm=a1z10.1-c-s.w4004-25059194388.12.6ce13a905RQ02D&id=645540739177
+
+WARNING: OEM&ODM, 请联系: judyhuang@banana-pi.com
