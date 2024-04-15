@@ -35,26 +35,26 @@ image::/picture/bpi-m2_magic_interface.jpg[bpi-m2_magic_interface.jpg]
 [options="header",cols="1,3"]
 |=====
 2+| **HardWare Specification of Banana Pi M2 Magic**
-| CPU             | Allwinner R16 ARM Cortex-A7 Quad-Core
+| CPU             | 全志科技 R16 ARM Cortex-A7 Quad-Core
 | GPU             | PowerVR SGX544MP1 Comply with OpenGL ES 2.0 OpenCL 1x, DX9_3
-| Memory          | 512MB LPDDR3 (shared with GPU)
-| Storage         | On Board 8GB eMMC Flash, Micro SD-Card slot
-| Network         | Wi-Fi 802.11 b/g/n (AP6212) + Bluetooth BT4.0
-| Video Input(s)  | A CSI input connector allows for the connection of a designed camera module
-| Video Output(s) | MIPI Display Serial Interface (DSI) for raw LCD Panel
-| Audio Input(s)  | On board microphone
-| Audio Output(s) | 3.5mm jack
+| 内存          | 512MB LPDDR3 (shared with GPU)
+| 存储         | On Board 8GB eMMC Flash, Micro SD-Card slot
+| 网络         | Wi-Fi 802.11 b/g/n (AP6212) + 蓝牙 BT4.0
+| 视频输入  | 一个CSI连接的摄像头模块
+| 视频输出 | 用于LCD面板的MIPI显示串行接口（DSI）
+| 音频输入  | 板载麦克风
+| 音频输出 | 3.5mm jack
 | USB ports       | USB 2.0 PORT (x1), USB OTG (x1)
-| Remote          | Not IR Receiver 
-| GPIO            | 40 Pin Header : GPIO (x28) and Power (+5V, +3.3V and GND). Some of I/O Pin can be used for specific functions as UART, I2C, SPI or PWM
-| Switches        | Reset, Power and U-boot
+| 远程          | 非 IR 接收器 
+| GPIO            | 40 Pin Header：GPIO（x28）and Power（+5V，+3.3V and GND）.部分I/O引脚可用于特定功能，如UART、I2C、SPI或PWM
+| 按键        | Reset, Power and U-boot
 | LED             | Power Status and 8P8C 
-| Power Source    | 5 volt @2A via DC Power and/or Micro USB (OTG) 
-| Size & Weight   | 51x51mm, 48g 
+| 电源    | 5 volt @2A via DC Power and/or Micro USB (OTG) 
+| 尺寸和重量   | 51x51mm, 48g 
 | OS              | Android and Linux 
 |=====
 
-== GPIO Pin Define
+== GPIO 引脚定义
 
 === BPI-M2 Magic 40PIN GPIO
 
