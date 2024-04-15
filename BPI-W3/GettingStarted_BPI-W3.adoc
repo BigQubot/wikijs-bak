@@ -52,7 +52,7 @@ image::/picture/w3_android_2.png[w3_android_2.png]
 
 . Press the “**upgrade**” button to start the upgrade.
 +
-image::/picture/w3_android_4.png[w3_android_4.png]
+image::/picture/w3_android_3.png[w3_android_3.png]
 
 . If the upgrade fails, you can try to erase the Emmc by pressing the EraseFlash button first, and then upgrade image again.
 
@@ -105,17 +105,17 @@ image::/picture/r2-pro_usb-tool-1.jpg[r2-pro_usb-tool-1.jpg]
 ```
 . Open RKDevTool.exe, Switch to the “**Upgrade Firmware**” page. Press the “**Firmware**” button to open the image file to be upgraded. The upgrade tool displays detailed firmware information.
 +
-
+image::/picture/w3_debian_1.png[w3_debian_1.png]
 
 . While holding down the MASKROM key, connect w3 to PC using a type-c cable.(If there is already an image in emmc, hold down the MASKROM key while pressing the REST key.)
 
 +
 image::/picture/r2-pro_usb-tool-4.jpg[r2-pro_usb-tool-4.jpg]
-
+image::/picture/w3_debian_2.png[w3_debian_2.png]
 
 . Press the “**upgrade**” button to start the upgrade.
 +
-
+image::/picture/w3_debian_3.png[w3_debian_3.png]
 
 . If the upgrade fails, you can try to erase the Emmc by pressing the EraseFlash button first, and then upgrade image again.
 
