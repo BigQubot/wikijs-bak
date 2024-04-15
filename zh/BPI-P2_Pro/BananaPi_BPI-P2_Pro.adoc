@@ -4,27 +4,26 @@ image::/picture/banana_pi_bpi-p2_pro_banner_1.jpg[banana_pi_bpi-p2_pro_banner_1.
 
 香蕉派 BPI-P2 pro（Armsom Pro）是一款基于RK 3308 B-S芯片的开发板。采用高性能4核ARM Cortex-A35处理器，512 M RAM（16位DDR2/DDR3/DDR3L/LPDDR 2）。和8 G eMMC板载，支持PoE功能。该芯片具有丰富的接口，如I2 S，PCM，TDM，I2C，UART，SPDIF，HDMI ARC等，以满足不同产品的应用。RK 3308具有丰富的语音接口，自带8路ADC接口、多路I2 S和多路PDM接口。这不仅为客户提供了丰富的接口选择，还可以降低产品的硬件设计难度和硬件设计成本。
 
-香蕉派 BPI-P2 Pro拥有512 MB DDR3内存大小，操作系统和存储可以使用SD卡或emmc。BPI-P2 Pro可作为板载存储版本提供，配备1Gb/2Gb/4Gb/8 Gb NAND闪存
+香蕉派 BPI-P2 Pro拥有512 MB DDR3内存大小，操作系统和存储可以使用SD卡或eMMC。BPI-P2 Pro可作为板载存储版本提供，配备1Gb/2Gb/4Gb/8Gb NAND闪存
 
 == 主要特点
-
-- CPU: 64bits Quad-core Arm Cortex-A35 Rockchip RK3308B-S
+- CPU: 64位四核ARM Cortex-A35 瑞芯微 RK3308B-S
 - 512 DDR3 SDRAM
-- 8G eMMC flash onboard
-- WiFi (AP6256) & BT onboard
-- 40 PIN GPIO, includes UART, SPI, I2C, IO etc
-- 100M LAN
-- IEEE 802.3af PoE standard PoE module support
-- Audio: Supports rich audio interfaces, such as MIC/PDM/SPDIF/I2S
+- 板载8 G eMMC闪存
+- WiFi（AP 6256）& BT板载
+- 40 PIN GPIO，包括SPI，I2C，IO等
+- 百兆以太网
+- IEEE 802.3af PoE标准PoE模块支持
+- 音频: 支持丰富的音频接口，如MIC/PDM/SPDIF/I2S
 
 == 应用方向
 
-- Maker DIY
-- IoT Smart Internet of Things
-- Intelligent speech recognition
-- Man-machine interface
-- Industrial control
-- Intelligent robot
+- 创客DIY
+- IoT智能物联网
+- 智能语音识别
+- 人机界面
+- 工业控制
+- 智能机器人
 
 == 快速入门
 
@@ -50,20 +49,20 @@ link:/en/BPI-P2_Pro/Photo_BPI-P2_Pro[Banana Pi BPI-P2 Pro Product photo gallery]
 | ROM                   | 512MB
 | RAM                   | 8GB eMMC
 | TF Card               | TF card (Max 64GB)
-| Network               | 100M LAN
-| PoE power             | PoE function support，Output Voltage 5V, Output
+| 网络              | 100M LAN
+| PoE power             | PoE功能支持，输出电压5V，输出
 | WiFi                  | AP6256
-| Audio Output          | With built-in audio CODEC, including ADC×8 and DAC×2
-| Power Source          | TYPE C 5V/2A or PoE power
+| 音频输出          | 内置音频CODEC，包括ADC×8和DAC×2
+| 电源         | TYPE C 5V/2A or PoE power
 | USB                   | 1xUSB 2.0
 1xType-C    
 | Others                | Fan、RTC、LED、debug
-| Button                | Power Button、Reset Button、 Recovery Button、Root Button
+| 按键               | Power、Reset、Recovery、Root
 | Low-level peripherals | 40 Pin + 12 Pin
 | uart GPIO\(1x3\) pin  | UART, ground
 | LED                   | Power led & Status led
-| Product size          | 65mm X 52.5mm 
-| Weight	              | 30g
+| 尺寸         | 65mm X 52.5mm 
+| 重量	              | 30g
 |=====
 
 == GPIO 引脚定义
@@ -116,18 +115,18 @@ link:/en/BPI-P2_Pro/Photo_BPI-P2_Pro[Banana Pi BPI-P2 Pro Product photo gallery]
 | 12 | GPIO0_C0 | PWM3     |             | IR_RX    | 16
 |=====
 === POE
-TIP: We deign a IEEE 802.3at PoE module for BPI-P2 Zero ,easy to support PoE function,more spec ,please check BPI-9600 PoE module spec
+TIP: 我们为BPI-P2 Zero设计了一款IEEE 802.3at PoE模块，易于支持PoE功能，更多规格，请查看BPI-9600 PoE模块规格。
 
 link:/en/BPI-9600/BananaPi_BPI-9600[BPI-9600 IEEE 802.3af PoE module]
 
-= Development
-== Source Code
+= 发展
+== 原理图
 
 === Linux
 
 TIP: linux-5.10.110 kernel BSP Source code on github : https://github.com/ArmSoM/armsom-p2pro-bsp
 
-== Resources
+== 开发资料
 
 TIP: RK3308 datasheet: https://drive.google.com/file/d/1TsKFmItM1FJ-ziEvUkbcZxUsbaKYhsRq/view?usp=sharing
 
@@ -139,7 +138,7 @@ Google Drive: https://drive.google.com/drive/folders/1QC-3x8bdQePFz1z70rapNwB2Jl
 
 TIP: Banana-Pi BPi-P2 Pro RockChip RK3308 SBC Setup: https://uglyscale.press/2023/10/01/banana-pi-bpi-p2-pro-setup/
 
-= System Image
+= 系统镜像
 
 NOTE: BPI-P2 pro Tools
 
@@ -165,17 +164,16 @@ Baidu Cloud: https://pan.baidu.com/s/15VnIC70ijKvKCjlS4pe4RQ?pwd=8888 (pincode:8
 Google Drive: https://drive.google.com/file/d/1IWvlzRcNH1Bkjw5Vl-_Kyr0Y86kVw_U6/view?usp=sharing
 
 
-== Third part image
-
+== 第三方镜像
 === Armbian
 
 
 
-= Easy to buy
-WARNING: BPI Aliexpress shop： https://www.aliexpress.com/item/1005005928295640.html
+= 购买链接
+WARNING: BPI 全球速卖通商店： https://www.aliexpress.com/item/1005005928295640.html
 
-WARNING: SINOVOIP Aliexpress shop： https://www.aliexpress.us/item/1005005928204793.html
+WARNING: SINOVOIP 全球速卖通商店： https://www.aliexpress.us/item/1005005928204793.html
 
-WARNING: Taobao shop : https://item.taobao.com/item.htm?spm=a2126o.success.0.0.264d4831aZTy3l&id=732760740787
+WARNING: 淘宝 : https://item.taobao.com/item.htm?spm=a2126o.success.0.0.264d4831aZTy3l&id=732760740787
 
-WARNING: OEM&ODM Customized product: judyhuang@banana-pi.com
+WARNING: OEM&ODM ，请联系: judyhuang@banana-pi.com
