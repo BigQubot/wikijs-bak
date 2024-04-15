@@ -1,82 +1,82 @@
-= BPI-F2S Introduction
+= BPI-F2S 介绍
 
-Banana Pi BPI-F2S is the first board with Banana Pi team and link:https://www.sunplus.com/[SunPlus], this is a industrial-grade board. use Plus1(sp7021) design. this is a industrial-grade board. we also design a Xilinx Artix-7 FPGA extend board.
+香蕉派 BPI-F2S是Banana Pi团队与 link:https://www.sunplus.com/[凌阳(SunPlus)] 合作的第一款板卡，这是一款工业级板卡。采用Plus 1（sp 7021）设计。这是工业级的板子设计了Xilinx Artix-7 FPGA 扩展板。
 
 image::/fpga/bpi-f2s_with_fpga_4.jpg[bpi-f2s_with_fpga_4.jpg]
 
-TIP: SunPlus sp7021 design: link:/en/BPI-F2S/BananaPi_BPI-F2S[Banana Pi BPI-F2S] FPGA development board +
-SunPlus sp7021 design: link:/en/BPI-F2P/BananaPi_BPI-F2P[Banana Pi BPI-F2P] SBC industrial control gateway board
+TIP: 凌阳(SunPlus) sp7021 设计: link:/en/BPI-F2S/BananaPi_BPI-F2S[Banana Pi BPI-F2S] FPGA 开发板 +
+凌阳(SunPlus) sp7021 设计: link:/en/BPI-F2P/BananaPi_BPI-F2P[Banana Pi BPI-F2P] SBC工控网关板
 
-=== About SunPlus SP7021
+=== 关于 SunPlus SP7021
 
-SunPlus sp7021 is a revolutionary SoC that has the power of a Linux-grade chip and the integration simplicity of a microcontroller.it with ARM Cortex-A7 Quad core,ARM926 real-time core,8051 low-power core
+SunPlus sp 7021是一款革命性的SoC，具有Linux级芯片的强大功能和microcontroller.it的集成简单性，采用ARM Cortex-A7四核，ARM926实时内核，8051低功耗内核。
 
-Conceived by Sunplus Technology in collaboration with Tibbo Technology, PLUS1 takes all the sophisticated elements typically found in modern industrial-grade embedded Linux chips, adds a plethora of features targeting IoT and industrial control applications, and delivers the resulting design in a simple microcontroller-like package that needs few external components, simplifies the schematic diagram, and reduces the PCB complexity.
+PLUS 1由凌阳科技与Tibbo Technology合作构思，采用了现代工业级嵌入式Linux芯片中常见的所有复杂元素，增加了针对物联网和工业控制应用的大量功能，并在一个简单的微处理器式封装中提供了最终设计，该封装需要很少的外部元件，简化了原理图，降低了PCB的复杂性。
 
-SP7021 is a SoC solution of industrial control. It meets customers’full demand on function but with low cost so that will improve customers’ competitiveness in the market. SP7021 provides rich GPIOs, storage and USB interface. And it provides MIPI CSI interface for video input and HDMI interface for video output. It also provides FPGA interface for function extension. SP7021 also has 4 Ethernet ports providing customers a high competitive solution.
+SP7021是一种工业控制的SoC解决方案。以较低的成本满足客户对功能的全面需求，从而提高客户的市场竞争力。SP7021提供丰富的GPIO、存储和USB接口。提供MIPI CSI接口用于视频输入，HDMI接口用于视频输出。并提供FPGA接口进行功能扩展。SP7021还具有4个以太网端口，为客户提供极具竞争力的解决方案。
 
-== Key Features
+== 主要特点
+- 易于使用的LQFP封装。
+- 四核1GHz Cortex-A7 CPU，加上A926和8051核心。
+- 3.3V电源。
+- 集成128 MB或512 MB DDR3 DRAM。
+- 8个8位5V耐受IO端口，外加一个高电流端口。
+- 灵活外设多路复用（PinMux）。
+- 双引脚复用以太网MAC。
+- 四个PinMuxable增强型UART，外加一个控制台UART。
+- 工业工作温度范围：-40 ℃ ~+85 ℃。
+- 低EMI简化认证。
+- 现代的、基于Linux的Linux发行版。
+- 10年供应保障。
+- 提供强大的可随时运行的现代Linux发行版
 
-- Easy-to-use LQFP package.
-- Quad-core 1GHz Cortex-A7 CPU, plus A926 and 8051 cores.
-- Single 3.3V power*.
-- Integrated 128MB or 512MB DDR3 DRAM.
-- Eight 8-bit 5V-tolerant IO ports, plus one high-current port.
-- Flexible Peripheral Multiplexing (PinMux).
-- Dual PinMuxable Ethernet MACs.
-- Four PinMuxable Enhanced UARTs, plus one console UART.
-- Industrial operating temperature range: -40C ~ +85C.
-- Low EMI simplifies certification.
-- Modern, Yocto-based Linux distribution.
-- 10-year supply guarantee.
-- Robust ready-to-run modern Linux distribution available
+== 应用方向
 
-== Application direction
+- 物联网/工业互联网控制
+- 智能音响
+- 智慧支付系统
+- FPGA教育与开发
+- 车联网技术及应用
 
-- IoT/Industrial Internet control
-- Smart Audio
-- Smart Payment system
-- FPGA education and development
-- Vehicular networking technology and applications
-
-= Hardware
-== Hardware Interface
+= 硬件
+== 硬件接口示意图
 
 image::/picture/banana_pi_bpi-f2s_6.jfif[banana_pi_bpi-f2s_6.jfif]
 
-WARNING: Note : 40 PIN GPIO compitable Raspberry Pi
+TIP: 40 PIN GPIO兼容树莓派
 
-== Hardware Spec
+== 硬件规格
 
 [options="header",cols="1,4"]
 |=====
-2+| **HardWare Specification of Banana Pi F2S**
-| SoC |Sunplus SP7021 “Plus1” with a quad-core Cortex-A7 processor @ 1.0 GHz, one Arm A926 microprocessor, an 8051 core to handle I/Os, and 128MB or 512MB DDR3 DRAM.
-| Storage | 8GB eMMC flash, microSD card slot
-| Video Output | HDMI 1.4 output
-| Camera I/F | MIPI CSI connector
-| Connectivity | 2x 10/100M Ethernet
+2+| **香蕉派 F2S 硬件规格**
+| SoC |凌阳SP 7021“Plus 1”配备四核Cortex-A7处理器@1.0 GHz，一个Arm A926微处理器，一个8051内核来处理I/O，以及128 MB或512 MB DDR3 DRAM。
+| 存储 | 8GB eMMC flash, microSD card slot
+| 视频输出 | HDMI 1.4 output
+| 摄像机 I/F | MIPI CSI 连接器
+| 网络 | 2x 10/100M 以太网
 | USB | 2x USB 2.0 host ports, 1x micro USB port
 | Expansion | 40-pin GPIO header compatible with Raspberry Pi header
 
 2x 50-pin FPGA interface for Trenz Electronic TE0725LP-01-100-2D Artix 7 FPGA board
 
 Unpopulated, undocumented 50-pin header that’s appears to be routed to one of the headers for the optional FPGA board
-| Debugging | 3-pin header for UART console, 10-pin JTAG header, SWD ICE port
-| Security | TPM 2.0 via ST33TPH2EI2C secure element
-| Misc | Power switch, reset button, boot selection dip switch
-| Power Supply | 12VDC via power barrel jack
-| Dimensions | 135x80mm
-| Temperature Range | -40C ~ +85°C
+| 调试 | UART控制台的3针接头、10针JTAG接头、SWD ICE端口
+| 安全 | TPM 2.0通过ST33TPH2EI2C安全元件
+| 按键 | 电源开关、复位按钮、启动选择开关
+| 电源 | 12VDC via power barrel jack
+| 尺寸 | 135x80mm
+| 温度范围 | -40C ~ +85°C
 |=====
 
-== SOC education and training practice suite
+== SOC教育和培训实践套件
 
-SunPlus SP7021 development suite is a set of development platform with high integration of single chip based on sunplus 7021 SOC.With high performance, low Characteristics of power consumption;Embedded Linux Embed system, suitable for voice image processing, communication, portable industrial control equipment and other applications.With high performance processor, especially suitable for AI artificial intelligence, machine vision and other applications requiring strong computing power;Expandable FPGA module, can Layout, small board area, easy to field test application
+凌阳SP 7021开发套件是一套基于凌阳7021 SOC的高集成度单片机开发平台，具有高性能、低功耗的特点;嵌入式Linux嵌入式系统，适用于语音图像处理、通讯、便携式工控设备等应用。配合高性能处理器，特别适用于AI人工智能，机器视觉等需要强大计算能力的应用;可扩展FPGA模块，可版图设计，板面积小，便于现场测试应用。
+
 
 image::/picture/bpi-f2s_with_fpga_4.jpg[bpi-f2s_with_fpga_4.jpg]
 
-=== Kit include
+=== 套件包含
 
 . BPI-F2S sunplus board
 . FPGA baord: Xilinx Artix-7 XC7A100T,32 MByte QSPI Flash memory,power by single 3.3v
@@ -84,7 +84,7 @@ image::/picture/bpi-f2s_with_fpga_4.jpg[bpi-f2s_with_fpga_4.jpg]
 . Debug tooling
 . 12v/2A adapter
 
-=== FPGA kit documents
+=== FPGA 套件文档
 
 TIP: Online development doc: https://sunplus-tibbo.atlassian.net/wiki/spaces/doc/pages/470777857/SP7021+Plus+Xilinx+FPGA+SOC+Platform+UserGuide
 
@@ -92,33 +92,34 @@ TIP: Sunplus official website for BPI-F2S FPGA development Kit: http://www.cqplu
 
 TIP: Function demo : https://www.youtube.com/watch?v=602gQo_Qcrs
 
-== FPGA Module with Xilinx Artix-7 100T (Variant 2D), 2 x 50 Pin, 1.8V only supply
+== FPGA模块，带Xilinx Artix-7 100 T（Variant 2D），2 x 50引脚，仅1.8 V电源
+
 
 image::/picture/xilinx_artix-7_fpga_9.jfif[xilinx_artix-7_fpga_9.jfif]
 
-Now with the Trenz Electronic TE0725LP-01-100-2D is a low cost small-sized FPGA module integrating a Xilinx Artix-7 (15T-100T) and 32 MByte Flash memory for configuration and operation. The 2 x 50 pin headers with a 2.54 mm standard pitch are perfect for breadboard or low cost dual layer PCB.
+现在Trenz Electronic TE 0725 LP-01-100-2D是一款低成本小型FPGA模块，集成了Xilinx阿蒂克斯-7（15 T-100 T）和32 MB闪存，用于配置和操作。标准间距为2.54 mm的2 x 50针接头非常适合试验板或低成本双层PCB。
 
-Trenz HyperBus enabled reference designs are typically bundled with a FREE evaluation edition of the commercially proven, low-cost, low-circuit area, high performance, HyperBus Memory Controller (HBMC) IP supplied by Synaptic Laboratories Ltd. Synaptic Labs HBMC IP is commercially proven in both Intel and Xilinx projects, and was selected by Intel. This FREE HBMC IP evaluation license never expires, and no customer registration or NIC ID is required. You can check for and obtain the latest version of the FREE evaluation HBMC IP from S/Labs website for Xilinx and Intel.
+Trenz支持HyperBus的参考设计通常与Synaptic Laboratories Ltd.提供的经过商业验证的低成本、低电路面积、高性能HyperBus内存控制器（HBMC）IP的免费评估版捆绑在一起。Synaptic Labs HBMC IP在英特尔和Xilinx项目中都经过商业验证，并被英特尔选中。这个免费的HBMC IP评估许可证永远不会过期，并且不需要客户注册或NIC ID。您可以从Xilinx和Intel的S/Labs网站查看并获取最新版本的免费评估HBMC IP。
 
-=== Key Features
+=== 主要特点
 
 - Xilinx Artix-7 XC7A100T-2CSG324C/XC7A100T-2CSG324I
-- Commercial temperature grade (industrial on request)
-- 32 MByte Flash memory
-- 2 x 50 pin headers with 2.54 mm pitch, ideal for breadboard use
-- 1.8 V single supply with on board voltage regulators
-- 95 I/O's (42 + 42 + 3 + 8)
-- 25 MHz system clock (100 MHz can be customized on request)
+- 商业温度等级（工业要求）
+- 32 MB闪存
+- 2 x 50针接头，间距为2.54 mm，非常适合试验板使用
+- 1.8 V单电源供电，内置稳压器 
+- 95个I/O（42 + 42 + 3 + 8）
+- 25 MHz系统时钟（可根据要求定制100 MHz）
 - I2C EEPROM
-- 7.3 x 3.5 cm form factor
-- JTAG/UART connector
-- One user LED
-- Optional HyperRAM (8 bis 32 MByte) or HyperFlash
+- 7.3 x 3.5 cm外形尺寸
+- JTAG/UART连接器
+- 一个用户LED
+- 可选HyperRAM（8 bis 32 MB）或HyperFlash
 - HyperRAM from Cypress : http://www.cypress.com/products/hyperram-memory
 - HyperFlash from Cypress： http://www.cypress.com/products/hyperflash-nor-flash-memory
  
-= Development
-== Source Code
+= 发展
+== 源代码
 
 === Linux
 
@@ -126,7 +127,7 @@ TIP: Sunpuls github for Linux kernel 4.19 and 5.4 source code: https://github.co
 
 TIP: BPI-F2S BPS code with kernel 5.4.35 : https://github.com/BPI-SINOVOIP/BPI-F2S-bsp
 
-== Resources
+== 开发资料
 
 TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
 
@@ -153,7 +154,7 @@ TIP: Xilinx AI Platform tutorials: https://github.com/Xilinx/Edge-AI-Platform-Tu
 TIP: Xilinx edge AI platform : https://www.xilinx.com/products/design-tools/ai-inference/edge-ai-platform.html
 
 
-= System Image
+= 系统镜像
 == Linux
 
 === Ubuntu
@@ -198,8 +199,7 @@ NOTE: This code is support by Tibbo/SunPlus
 
 Github link: https://github.com/tibbotech/yocto_layers
 
-== Third part image
-
+== 第三方j镜像
 === Fedora-Mate
 
 NOTE: Banana Pi BPI-F2S setup & run fedora 31 (u-boot-2019.04 + kernel 4.19.37)
@@ -224,10 +224,10 @@ Discuss on forum : http://forum.banana-pi.org/t/bpi-f2s-new-image-mozilla-iot-rp
 
 
 
-= Easy to buy
+= 购买链接
 
-WARNING: Aliexpress online shop: https://pt.aliexpress.com/store/group/Banana-PI-F2S-Board/302756_517091763.html?spm=a2g03.12010612.0.0.6124277eh17sp6
+WARNING: 全球速卖通商店: https://pt.aliexpress.com/store/group/Banana-PI-F2S-Board/302756_517091763.html?spm=a2g03.12010612.0.0.6124277eh17sp6
 
-WARNING: Taobao shop : https://item.taobao.com/item.htm?ft=t&id=610642319814
+WARNING: 淘宝 : https://item.taobao.com/item.htm?ft=t&id=610642319814
 
-WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
+WARNING: OEM&ODM, 请联系: judyhuang@banana-pi.com
