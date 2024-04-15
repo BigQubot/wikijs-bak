@@ -40,9 +40,9 @@ image::/picture/r2-pro_usb-tool-1.jpg[r2-pro_usb-tool-1.jpg]
  Selected=1
  LangPath=Language\
 ```
-. Open RKDevTool.exe, Switch to the “**upgrade firmware**” page. Press the “**firmware**” button to open the image file to be upgraded. The upgrade tool displays detailed firmware information.
+. Open RKDevTool.exe, Switch to the “**Upgrade Firmware**” page. Press the “**Firmware**” button to open the image file to be upgraded. The upgrade tool displays detailed firmware information.
 +
-
+image::/picture/w3_android_1.png[w3_android_1.png]
 . Disconnect the power adapter , connect the type-c cable to the bpi-w3 and PC.
 
 . There have two usb download mode for image upgrade.
