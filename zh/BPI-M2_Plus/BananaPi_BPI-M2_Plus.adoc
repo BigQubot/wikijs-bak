@@ -1,66 +1,63 @@
-= BPI-M2 Plus Introduction
+= BPI-M2 Plus 介绍
 
-Banana PI BPI-M2+ is the open source hardware platform, use Alliwnner H3 (option H2+ chip and H5 chip ) chip on board. and mini size only 65mm*65mm,
+Banana PI BPI-M2+是开源硬件平台，采用Alliwnner H3（可选H2+芯片和H5芯片）板载芯片。尺寸仅为65 mm * 65 mm。拥有1Ghz ARM 7四核处理器，1GB DDR3 SDRAM，8 G eMMC闪存板上，SDIO wifi和BT 4.0模块板上，1千兆以太网。
 
-PBI-M2 hardware: 1Ghz ARM7 quad-core processor, 1GB DDR3 SDRAM, 8G eMMC flash on board,and SDIO wifi&BT 4.0 module on board.1 Gigabit ethrnet.
+BPI-M2+系列运行Android，Debian Linux，Ubuntu linux，Raspberry Pi镜像和其他镜像。香蕉PI，它可以很容易地运行与游戏它支持1080 P高清视频输出和4K支持，GPIO兼容树莓派B+。
 
-BPI-M2+ series run Android,Debian linux,Ubuntu linux, Raspberry Pi image and others image. Banana PI,it can easily run with the game it support 1080P high definition video output and 4K support, the GPIO compatible with Raspberry Pi B+.
-
-NOTE: Banana Pi BPI-M2+ not support sata port, so you need use USB for hardisk.
+NOTE: 香蕉派 BPI-M2+不支持sata端口，所以你需要使用USB硬盘。
 
 image::/bpi-m2+/bananapi-bpi-m2+_banner.jpg[bananapi-bpi-m2+_banner.jpg]
 
-TIP: Allwinner H3 design: link:/en/BPI-M2_Plus/BananaPi_BPI-M2_Plus[Banana Pi BPI-M2+] SBC with eMMC onboard +
-Allwinner H3 design: link:/en/BPI-M2_Zero/BananaPi_BPI-M2_Zero[Banana Pi BPI-M2 Zero] same size as Raspberry Pi Zero W +
-Allwinner H3 design: link:/en/BPI-P2_Zero/BananaPi_BPI-P2_Zero[Banana Pi BPI-P2 Zero] for IoT design
+TIP: 全志科技 H3 设计: link:/en/BPI-M2_Plus/BananaPi_BPI-M2_Plus[Banana Pi BPI-M2+] 板载eMMC的SBC +
+全志科技 H3 设计: link:/en/BPI-M2_Zero/BananaPi_BPI-M2_Zero[Banana Pi BPI-M2 Zero] 尺寸和Raspberry Pi Zero W相同 +
+全志科技 H3 设计: link:/en/BPI-P2_Zero/BananaPi_BPI-P2_Zero[Banana Pi BPI-P2 Zero] 物联网设计
 
-== Key Features
-
-- Allwinner H3 Quad-core 1.2GHz Cortex-A7 (option H2+ H5).
+== 主要特点
+- 全志科技 H3四核1.2GHz Cortex-A7（选项H2+ H5）。
 - 1GB DDR3
-- 8GB eMMC onboard
-- HDMI out
-- WiFi and BT onboard
-- 10/100/1000Mbps Ethernet Port
-- CSI camera interface
+- 板载8 GB eMMC
+- HDMI输出
+- WiFi和BT板载
+- 10/100/1000 Mbps以太网端口
+- CSI摄像头接口
 
-== Getting Start
+== 快速入门
 
 TIP: link:/en/BPI-M2_Plus/GettingStarted_BPI-M2_Plus[Getting Started BPI-M2_Plus]
 
-= Hardware
-== Hardware Interface
+= 硬件
+== 硬件接口示意图
 
 image::/bpi-m2+/banana_pi_bpi-m2+_interface.jpg[banana_pi_bpi-m2+_interface.jpg]
 
-== BPI-M2+ Photo
+== BPI-M2+ 照片
 
 link:/en/BPI-M2_Plus/Photo_BPI-M2_Plus[Banana Pi BPI-M2+ Product photo gallery]
 
 
-== Hardware Spec
+== 硬件规格
 
 [options="header",cols="1,4"]
 |=====
-2+| **HardWare Specification of Banana Pi M2+(Plus)**
-| CPU           | H3 Quad-core Cortex-A7 H.265/HEVC 4K
-| GPU           | Mali400MP2 GPU @600 MHz,Supports OpenGL ES 2.0
-| Memory        | 1GB DDR3 (shared with GPU
-| Flash         | 8GB eMMC flash onboard
-| Network       | 10/100/1000 Ethernet
+2+| **香蕉派 M2+(Plus) 硬件规格**
+| CPU           | 全志科技 H3 四核 Cortex-A7 H.265/HEVC 4K
+| GPU           | Mali400MP2 GPU @600 MHz,支持 OpenGL ES 2.0
+| 存储        | 1GB DDR3 (与 GPU 共享
+| 闪存         | 板载 8GB eMMC 闪存
+| 网络       | 10/100/1000 以太网
 | WIFI&BT       | K016/SDIO AP6212 for Wifi &BT 4.0（option AP6181 AP6335）
-| Video Input   | A CSI input connector Camera:1 Supports 8-bit YUV422 CMOS sensor interface,2 Supports CCIR656 protocol for NTSC and PAL, 3 Supports SM pixel camera sensor, 4 Supports video capture solution up to 1080p@30fps 
-| Video Outputs | Supports HDMI output with HDCP, Supports HDMI CEC, Supports HDMI 30 function, Integrated CVBS, Supports simultaneous output of HDMI and CVBS
-| Audio Outputs | HDMI
-| Power         | 5V/2A DC input can supply power, but USB OTG input don’t supply power
-| USB 2.0 ports | two USB 2.0 HOST, one USB 2.0 OTG
-| GPIO          | 40 Pins Header,compatible with Raspberry Pi B+   
-| LED           | Power led & Status led
+| 视频输入   | 一个CSI输入接口摄像头：1支持8位YUV422 CMOS传感器接口，2支持CCIR656协议，支持NTSC和PAL制式，3支持SM像素摄像头传感器，4支持最高1080p@30fps的视频采集解决方案
+| 视频输出 | 支持HDMI输出，支持HDMI CEC，支持HDMI 30功能，集成CVBS，支持HDMI和CVBS同时输出
+| 音频输出 | HDMI
+| 电源         | 5V/2A直流输入可供电，USB OTG输入不供电
+| USB 2.0 ports | 两个 USB 2.0 HOST, 一个 USB 2.0 OTG
+| GPIO          | 40针接头，与Raspberry Pi B+兼容  
+| LED           | 电源LED和状态LED
 | IR            | IR input on board  
 | OS            | Android, Ubuntu, Debian, Raspberry Pi Image               
 |=====
 
-== GPIO Pin Define
+== GPIO 引脚定义
 
 === BPI-M2 Plus 40PIN GPIO
 
@@ -110,7 +107,7 @@ link:/en/BPI-M2_Plus/Photo_BPI-M2_Plus[Banana Pi BPI-M2+ Product photo gallery]
 | CON2-P40 | PA20-EINT20 | PA20-EINT20 |          
 |=====
 
-=== CSI Camera Connector specification
+=== CSI 摄像头连接器规格
 
 [options="header",cols="1,1,1"]
 |=====
@@ -142,7 +139,7 @@ link:/en/BPI-M2_Plus/Photo_BPI-M2_Plus[Banana Pi BPI-M2+ Product photo gallery]
 | CN3-P24	| CSI0-DOVDD |
 |=====
 
-=== BPI-M2 Plus Debug UART
+=== BPI-M2 Plus 调试接口
 
 |=====
 | CON3 P03	| UART0-TXD |	PA4
@@ -150,58 +147,57 @@ link:/en/BPI-M2_Plus/Photo_BPI-M2_Plus[Banana Pi BPI-M2+ Product photo gallery]
 | CON3 P01	| GND	      |    
 |=====
 
-== Hardware V1.2 Version
-BPI-M2+ V1.2 hardware version add PMU Voltage regulation design
+== 硬件 V1.2 版本
+BPI-M2+ V1.2硬件版本增加PMU调压设计
 
-How to check BPI-M2+ V1.2 hardware version:
+如何查看BPI-M2+ V1.2硬件版本：
 
 image::/picture/v1.2_hardware_2.jpg[v1.2_hardware_2.jpg]
 
-BPi-M2+ V1.2 modification
+**BPi-M2+ V1.2修改:**
 
-. PL0 Instead the drop-down 10K，As a hardware version identification（V1.1 is pull up）
-. PL1 Change to voltage regulation GPIO
+. PL 0代替下拉10 K，作为硬件版本标识（V1.1是上拉）
+. PL 1更改为电压调节GPIO
 
 image::/picture/v1.2_hardware_3.png[v1.2_hardware_3.png]
 
-voltage regulation schematic diagram:
+电压调节原理图:
 
 image::/picture/v1.2_hardware_4.png[v1.2_hardware_4.png]
 
-= Development
-== Source Code
-
+= 发展
+== 源代码
 === Linux
 
 TIP: Linux kernel 4.4 on github : https://github.com/BPI-SINOVOIP/BPI-M2P-bsp-4.4
 
 TIP: Linux kernel 3.4 on github : https://github.com/BPI-SINOVOIP/BPI-M2P-bsp
 
-== Resources
+== 开发资料
 
-TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
+TIP: 由于谷歌的安全更新，一些旧的链接将无法工作，如果你想使用的图像不能从link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[新 link bpi-image 链接]下载
 
 TIP: All banana pi link:https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[docement(SCH file,DXF file,and doc)]
 
-TIP: How To Change The Boot Logo: http://forum.banana-pi.org/t/how-to-change-the-boot-logo/7660
+TIP: 如何更改启动log: http://forum.banana-pi.org/t/how-to-change-the-boot-logo/7660
 
-TIP: BPI-M2+ V1.2 schematic diagram:
+TIP: BPI-M2+ V1.2 原理图:
 
 Google drive: link:https://drive.google.com/drive/folders/0B4PAo2nW2KfnflVqbjJGTFlFTTd1b1o1OUxDNk5ackVDM0RNUjBpZ0FQU19SbDk1MngzZWM?resourcekey=0-ZRCiv304nGzvq-w7lwnpjg&usp=sharing[google driver]
 
 Baidu cloud : https://pan.baidu.com/s/1vjBURLzFF2LYCe8CBcs9Mg
 
-TIP: BPI-M2+ V1.1 schematic diagram: https://drive.google.com/file/d/0B4PAo2nW2KfnMW5sVkxWSW9qa28/view?usp=sharing
+TIP: BPI-M2+ V1.1 原理图: https://drive.google.com/file/d/0B4PAo2nW2KfnMW5sVkxWSW9qa28/view?usp=sharing
 
-TIP: DXF file google download link :link:https://drive.google.com/file/d/0B4PAo2nW2KfnaDRVLUpvV3hIVUk/view?usp=sharing[BPI-M2+ DXF file]
+TIP: DXF file google 下载链接: link:https://drive.google.com/file/d/0B4PAo2nW2KfnaDRVLUpvV3hIVUk/view?usp=sharing[BPI-M2+ DXF file]
 
-TIP: 3D design file google download link: link:https://drive.google.com/file/d/0B4PAo2nW2KfnVV8zaDhYazRvOU0/view?usp=sharing[BPI-M2+ 3D design]
+TIP: 3D 设计文件 google 下载链接: link:https://drive.google.com/file/d/0B4PAo2nW2KfnVV8zaDhYazRvOU0/view?usp=sharing[BPI-M2+ 3D design]
 
-TIP: BPI-M2+ BT Lab test :link:https://bananapi.gitbooks.io/bpi-m2-/content/en/bpi-m2+bt40testreport.html[BPI-M2+ BT Lab test report]
+TIP: BPI-M2+ BT Lab test : link:https://bananapi.gitbooks.io/bpi-m2-/content/en/bpi-m2+bt40testreport.html[BPI-M2+ BT Lab test report]
 
-TIP: BPI-M2+ WIFI Lab test :link:https://bananapi.gitbooks.io/bpi-m2-/content/en/bpi-m2+wifilabtest.html[BPI-M2+ WIFI Lab test report]
+TIP: BPI-M2+ WIFI Lab test : link:https://bananapi.gitbooks.io/bpi-m2-/content/en/bpi-m2+wifilabtest.html[BPI-M2+ WIFI Lab test report]
 
-TIP: Validation test :link:https://bananapi.gitbooks.io/bpi-m2-/content/en/bpi-m2+validationtestreport.html[BPI-M2+ validation test report]
+TIP: Validation test : link:https://bananapi.gitbooks.io/bpi-m2-/content/en/bpi-m2+validationtestreport.html[BPI-M2+ validation test report]
 
 TIP: CE FCC RoHS : link:https://bananapi.gitbooks.io/bpi-m2-/content/en/bpim2+cefccrohscertification.html[BPI-M2+ CE,FCC,RoHS]
 
@@ -211,11 +207,11 @@ Allwinner H3 chip doc baidu link: https://pan.baidu.com/s/1qTULll2CR02d0Hw9itq1r
 
 Allwinner H2+ chip doc baidu link: https://pan.baidu.com/s/1TGMYr3rhizfhlg5hl6hLyg
 
-TIP: Banana Pi M2 Plus - Unboxing e apresentacao da placa.: https://www.youtube.com/watch?v=_87uHfyMIUA&feature=youtu.be
+TIP: Banana Pi M2 Plus - Unboxing e apresentacao da placa: https://www.youtube.com/watch?v=_87uHfyMIUA&feature=youtu.be
 
 TIP: Sinovoip Banana Pi M2+ - linux-sunxi.org wiki : http://linux-sunxi.org/Sinovoip_Banana_Pi_M2%2B
 
-= System Image
+= 系统镜像
 == Android
 === Android 7.0
 NOTE: 2018-10-20 android 7.0 share by https://www.facebook.com/vitor1104
@@ -344,7 +340,7 @@ image::/picture/opensuse_m2+.png[opensuse_m2+.png]
 
 Image download : http://download.opensuse.org/ports/armv7hl/factory/images/
 
-== Third part image
+== 第三方镜像
 
 === Raspbian
 
@@ -476,12 +472,12 @@ Forum pthread : http://forum.banana-pi.org/t/bpi-m2-zero-new-image-retropie-for-
 NOTE: Retrorangepi support BPI-M2+ BPI-M2 Zero : http://retrorangepi.download/download/index2.html
 
 
-= Easy to buy
+= 购买链接
 
-WARNING: SINOVOIP Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M2-Plus/1100417230_40000003593415.html
+WARNING: SINOVOIP 全球速卖通商店: https://www.aliexpress.com/store/group/BPI-M2-Plus/1100417230_40000003593415.html
 
-WARNING: Bipai Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M2-Plus/1101951077_40000003585461.html
+WARNING: Bipai 全球速卖通商店: https://www.aliexpress.com/store/group/BPI-M2-Plus/1101951077_40000003585461.html
 
-WARNING: Taobao Shop: https://shop108780008.taobao.com/category-1694930633.htm
+WARNING: 淘宝: https://shop108780008.taobao.com/category-1694930633.htm
 
-WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
+WARNING: OEM&ODM, 请联系: judyhuang@banana-pi.com
