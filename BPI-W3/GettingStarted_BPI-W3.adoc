@@ -43,27 +43,18 @@ image::/picture/r2-pro_usb-tool-1.jpg[r2-pro_usb-tool-1.jpg]
 . Open RKDevTool.exe, Switch to the “**Upgrade Firmware**” page. Press the “**Firmware**” button to open the image file to be upgraded. The upgrade tool displays detailed firmware information.
 +
 image::/picture/w3_android_1.png[w3_android_1.png]
-. Disconnect the power adapter , connect the type-c cable to the bpi-w3 and PC.
 
-. There have two usb download mode for image upgrade.
+. While holding down the MASKROM key, connect w3 to PC using a type-c cable.(If there is already an image in emmc, hold down the MASKROM key while pressing the REST key.)
 
-- **Uboot Usb Download Mode (loader mode)** +
-It's supposed to use this way if board already flashed a bootable uboot before.
-- **Maskrom Usb Download Mode(maskrom mode)** +
-Press the Recovery button or Maskrom button beside 3pin uart header and hold, connect the power adapter or press the RST button if power adapter already connected, about two seconds later, release the button. PC will Identify the device if RK usb driver installed correctly.
 +
 image::/picture/r2-pro_usb-tool-4.jpg[r2-pro_usb-tool-4.jpg]
-The download tool also show the download mode if device connected.
-+
-
+image::/picture/w3_android_2.png[w3_android_2.png]
 
 . Press the “**upgrade**” button to start the upgrade.
 +
-
+image::/picture/w3_android_4.png[w3_android_4.png]
 
 . If the upgrade fails, you can try to erase the Emmc by pressing the EraseFlash button first, and then upgrade image again.
-+
-
 
 
 = Linux
@@ -88,6 +79,45 @@ NOTE: **Debian** images use this method.
 +
 image::/picture/w3_debian.jpg[w3_debian.jpg]
 
+== Install Image to eMMC 1
+
+
+
+
+== Install Image to eMMC 2
+NOTE: **Debian** images use this method.
+
+. Download and install link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FDriverAssitant_v5.11.zip[Rockchip USB driver]
++
+image::/picture/driver_install_2.png[driver_install_2.png]
+
+. Download link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FUpdate-EMMC-Tools.zip[Rockchip USB Download Tool] +
+This tool defaults language is Chinese. you can change it to English after extract the package. Open **RKDevTool_Release_v2.84/config.ini** with an text editor (like notepad). The starting lines are:
++
+image::/picture/r2-pro_usb-tool-1.jpg[r2-pro_usb-tool-1.jpg]
++
+```sh
+ #Language Selection: Selected=1(Chinese); Selected=2(English)
+ [Language]
+ Kinds=2
+ Selected=1
+ LangPath=Language\
+```
+. Open RKDevTool.exe, Switch to the “**Upgrade Firmware**” page. Press the “**Firmware**” button to open the image file to be upgraded. The upgrade tool displays detailed firmware information.
++
+
+
+. While holding down the MASKROM key, connect w3 to PC using a type-c cable.(If there is already an image in emmc, hold down the MASKROM key while pressing the REST key.)
+
++
+image::/picture/r2-pro_usb-tool-4.jpg[r2-pro_usb-tool-4.jpg]
+
+
+. Press the “**upgrade**” button to start the upgrade.
++
+
+
+. If the upgrade fails, you can try to erase the Emmc by pressing the EraseFlash button first, and then upgrade image again.
 
 == Build Linux BSP Source Code
 
