@@ -1,57 +1,56 @@
-= BPI-M64 Introduction
+= BPI-M64 介绍
 
-Banana Pi BPI-M64 is a 64-bit quad-core mini single board computer. It features 2GB of RAM and 8GB eMMC. It also has onboard WiFi and BT. On the ports side, the BPI-M64 has 2 USB A 2.0 ports, 1 USB OTG port, 1 HDMI port, 1 audio jack, and lastly a DC power port. The processor is pin-to-pin comptialbe with R18, so it comes with two versions: M64 and M64-R18.
+香蕉派 BPI-M64是一款64位四核迷你单板计算机。它具有2GB的RAM和8GB的eMMC。它还配备了WiFi和BT。在端口方面，BPI-M64有2个USB A 2.0端口，1个USB OTG端口，1个HDMI端口，1个音频插孔，最后一个DC电源端口。该处理器与R18引脚兼容，因此它有两个版本：M64和M64-R18。
 
 image::/picture/bpi-m64_960x360.jpg[bpi-m64_960x360.jpg]
 
-Also being a member of the Banana Pi family, the M64 is a big jump from the octa-core BPI-M3. This is because this Banana Pi BPI is named after its 64-bit SoC. BPI-M64 will be reserved for an upcoming board
+作为香蕉派家族的一员，M64是八核BPI-M3的一个大飞跃。这是因为这款香蕉派 BPI以其64位SoC命名。BPI-M64将保留用于即将推出的板。
 
-BPI-M64 is an open platform device, it is for anyone who wants to play and build with developer technology instead of simply using consumer technology. Backed by our community, starting a project and building servers is fun and rewarding. We welcome all companies, DIYers, and tech loving people within our community! Together, we can make a difference, we can discover our passions, inspire others, and build a practical project.
+BPI-M64是一个开放平台设备，它适合任何想要使用开发人员技术而不是简单地使用消费者技术的人。在我们社区的支持下，开始一个项目和构建服务器是有趣和有益的。我们欢迎所有的公司，DIY者和热爱技术的人在我们的社区！我们可以一起发挥作用，我们可以用我们的激情，去激励他人，并建立一个实际的项目。
 
-== Key Features
-
-- Allwinner A64 1.2 Ghz Quad-Core ARM Cortex A53 64-Bit Processor.
+== 主要特点
+- Allwinner A64 1.2 Ghz四核ARM Cortex A53 64位处理器。
 - 2 GB DDR3 SDRAM
 - 8G EMMC
-- 10/100/1000Mbps Ethernet
-- WiFi (AP6212) & Bluetooth
-- MIPI LCD interface
-- Camera interface
+- 10/100/1000Mbps 以太网口
+- WiFi (AP6212) & 蓝牙
+- MIPI LCD 接口
+- Camera 接口
 
-== Getting Start
+== 快速入门
 
 TIP: link:/en/BPI-M64/GettingStarted_BPI-M64[Getting Started BPI-M64]
 
-= Hardware
-== Hardware Interface
+= 硬件
+== 硬件接口示意图
 
 image::/picture/bpi-m64_interface.jpg[bpi-m64_interface.jpg]
 
-== Hardware Spec
+== 硬件规格
 
 [options="header",cols="1,4"]
 |=====
-2+| **HardWare Specification of Banana Pi M64**
+2+| **香蕉派 M64 硬件规格**
 | CPU             | Allwinner 64 Bit Quad Core ARM Cortex A53 1.2 GHz CPU
 | GPU             | Dual core Mali 400 MP2 GPU
-| Memory          | 2GB LPDDR3 (shared with GPU)
-| Storage         | MicroSD slot with support for up to 256GB expansion and 8G eMMC flash with support for up to 64GB
-| Network         | 10/100/1000 Mbit/s Ethernet + Wi-Fi 802.11 b/g/n + Bluetooth 4.0
-| Video Input(s)  | A CSI input connector allows for the connection of a designed camera module
-| Video Output(s) | 1080p capable HDMI port and multi-channel audio output (NO H./X.265 capabilities)
-| Audio Input(s)  | On board microphone
-| Audio Output(s) | 3.5mm jack and HDMI
-| USB ports       | USB 2.0 PORT (x2), USB OTG (x1)
-| Remote          | IR Receiver
+| 内存         | 2GB LPDDR3 (与 GPU 共享)
+| 存储         | MicroSD插槽支持最高256GB扩展，8G eMMC闪存支持最高64GB
+| 网络         | 10/100/1000 Mbit/s 以太网口 + Wi-Fi 802.11 b/g/n + 蓝牙 BT4.0
+| 视频输入  | 一个 CSI 输入连接器的摄像头模块
+| 视频输出 | 支持1080 p的HDMI端口和多声道音频输出（无H./ X.265功能）
+| 音频输入 | 板载麦克风
+| 音频输出 | 3.5mm jack and HDMI
+| USB 端口      | USB 2.0 PORT (x2), USB OTG (x1)
+| 远程         | IR Receiver
 | GPIO            | 40 Pin Header : GPIO (x28) and Power (+5V, +3.3V and GND). GPIO pins can be used for UART, I2C, SPI or PWM
-| Switches        | Reset, Power and U-boot
+| 按键        | Reset, Power and U-boot
 | LED             | Power Status and 8P8C    
-| Power Source    | 5 volt @2A via DC Power and/or Micro USB (OTG)
-| Size & Weight   | 92x60mm, 48g             
+| 电源    | 5 volt @2A via DC Power and/or Micro USB (OTG)
+| 尺寸，重量   | 92x60mm, 48g             
 | OS              | Android and Linux 
 |=====
 
-== GPIO Pin Define
+== GPIO 引脚定义
 
 === BPI-M64 40PIN GPIO
 
@@ -101,11 +100,11 @@ image::/picture/bpi-m64_interface.jpg[bpi-m64_interface.jpg]
 | CON2-P40 | PL8       | PL8  |       
 |=====
 
-=== CSI Camera Connector specification
+=== CSI 摄像头连接器规格
 
 [options="header",cols="1,1,1"]
 |=====
-3+| **CSI camer PIN define of Banana pi BPI-M64**
+3+| **香蕉派 BPI-M64 CSI 摄像机接口定义**
 | CSI Pin Name	| Default Function	| Function2：GPIO
 | CN5-P01 | NC         | 　    
 | CN5-P02 | GND        | 　    
@@ -133,11 +132,11 @@ image::/picture/bpi-m64_interface.jpg[bpi-m64_interface.jpg]
 | CN5-P24	| CSI0-AFVCC |    
 |=====
 
-=== MIPI DSI (Display Serial Interface)
+=== MIPI DSI (显示器串行接口)
 
 [options="header",cols="1,1,1"]
 |=====
-3+| **MIPI DSI display PIN define of Banana pi BPI-M64**
+3+| **香蕉派 BPI-M64 MIPI DSI 显示屏接口定义**
 | DSI Pin Name	| Default Function	| Function2：GPIO
 | CN6-P01 | VCC       | 　   
 | CN6-P02 | IPSOUT    | 　   
@@ -181,7 +180,7 @@ image::/picture/bpi-m64_interface.jpg[bpi-m64_interface.jpg]
 | CN6-P40 | GND       |      
 |=====
 
-=== BPI-M64 Debug UART
+=== BPI-M64 调试接口
 
 |=====
 | CON2 P03	| UART0-TXD	| PB8
@@ -189,8 +188,8 @@ image::/picture/bpi-m64_interface.jpg[bpi-m64_interface.jpg]
 | CON2 P01	| GND	      |    
 |=====
 
-= Development
-== Source Code
+= 发展
+== 源代码
 
 === Linux
 
@@ -220,7 +219,7 @@ Github: https://github.com/techping/BPI-robot-1
 
 Discuss on forum: http://forum.banana-pi.org/t/discuss-robot-operating-system-ros-on-banana-pi/10967
 
-== Resources
+== 开发资料
 
 TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
 
@@ -260,10 +259,10 @@ BPI-M64 Validation test : https://bananapi.gitbooks.io/bpi-m64/content/en/bpi-m6
 
 CE FCC RoHS : http://forum.banana-pi.org/t/bpi-m64-ce-fcc-rohs-certification/2747
 
-== Basic Development
+== 基本发展
 === Win 10 IoT
 
-TIP: Banana pi BPI-M64 IOT certifying pass by Microsoft: windows 10 iot core
+TIP: 香蕉派 BPI-M64 IOT认证通过微软：windows 10 iot核心
 
 BPI-M64 for Win10 IoT : https://catalog.azureiotsolutions.com/details?title=Allwinner_Banana_Pi_BPI_M64&source=all-devices-page
 
@@ -273,55 +272,56 @@ Link: https://azure.microsoft.com/en-us/documentation/articles/iot-hub-tested-co
 
 Get start: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-iot-core-banana-pi-bpi-m64-csharp.md
 
-test on BPI-M64
+Test on BPI-M64
 
 image::/picture/win10_2.jpg[win10_2.jpg]
 
 Discuss on forum: http://forum.banana-pi.org/t/banana-pi-bpi-m64-iot-certifying-pass-by-microsoft-windows-10-iot-core/2090
 
-=== Windows 10 IoT Core for BPI-M64 Release Note
+=== 适用于BPI-M64的Windows 10 IoT核心版发布说明
 
-TIP: The Unified Extensible Firmware Interface (UEFI]) is a specification that defines a software interface between an operating system and platform firmware. UEFI replaces the Basic Input/Output System (BIOS) firmware interface originally present in all IBM PC-compatible personal computers AllWinner UEFI Firmware Release Notes
+TIP: 统一可扩展固件接口（UEFI）是一种规范，定义了操作系统和平台固件之间的软件接口。UEFI取代了最初存在于所有IBM PC兼容个人计算机中的基本输入/输出系统（BIOS）固件接口AllWinner UEFI固件发行说明
 
-TIP: This document describes how to build AllWinner UEFI Firmware and bring a AllWinner dev board up with it. The AllWinner UEFI Firmware, as the major boot system for AllWinner-Windows platform, is based on the EDK2 framework which is open-source and with some AllWinner platform software packages injected.
+TIP: 本文介绍了如何构建AllWinner UEFI Firmware并将其与AllWinner开发板一起使用。AllWinner UEFI Firmware作为AllWinner-Windows平台的主要靴子系统，基于EDK 2框架，该框架是开源的，并注入了一些AllWinner平台软件包。
 
-TIP: Some updates:
+TIP: 一些更新:
 
-. Update the OS version to build v.10.0.15063.0 \(Creators Update\)
-. New page style of Device Portal, visit https://deviceipaddr:8080 to check it
-. Built-in Cortana assistant, need to be enabled in settings page in default app and Device Portal
-. Support on-screen keyboard, need to be enabled in Device Portal
-. Enable 100M Ethernet and fix some bugs
-. Support built-in UART bus in A64 SoC\(not built in the ffu, later provide driver binary and deployment helper\)
-. Support built-in IR module in A64 SoC\(not built in the ffu, later provide source code and dev doc for developers in community\)
+. 更新操作系统版本以构建v.10.0.15063.0 \（创建者更新\）
+. 设备门户的新页面样式，请访问 https://deviceipaddr:8080 查看
+. 内置Cortana助手，需要在默认应用程序和设备门户的设置页面中启用
+. 支持屏幕键盘，需要在设备门户中启用
+. 启用100M以太网并修复一些bug
+. 支持A64 SoC内建DVBUS\（FFU中未内建，后期提供驱动二进制文件和部署助手\）
+. 支持A64 SoC内置IR模块\（FFU中未内置，后期提供源码和开发文档给社区开发者\）
 
-TIP: Known Issues:
 
-. Kernel debug is enabled by default. This will slow the bring-up process. If a kernel debug is not necessary for you, visit Device Portal and navigate to Processes->Run Command page
-. run this command to disable : Bcdedit /store C:\EFIESP\EFI\Microsoft\boot\BCD /set {default} debug off
-. An PnP bug in audio device may cause a blue screen when acting software shutdown
-. Ethernet device may not start with problem code 12 at the first time to bring up
+TIP: 已知问题:
 
-TIP: And another bomb! I uploaded core driver binaries and packaging toolchains on GitHub!
+. 默认情况下启用内核调试。这将减缓成长过程。如果您不需要内核调试，请访问设备门户并导航到进程→运行命令页面
+. 运行此命令以禁用: Bcdedit /store C:\EFIESP\EFI\Microsoft\boot\BCD /set {default} debug off
+. 音频设备中的一个Pencil错误可能会导致软件关闭时出现蓝屏
+. 以太网设备可能无法在第一时间启动问题代码12
 
-Here is the repo address: https://github.com/Leeway213/BSP-aw1689
+TIP: 在GitHub上上传了核心驱动程序二进制文件和打包工具链！
 
-And also some driver source code here with A64 datasheet in readme: https://github.com/Leeway213/driver-samples
+以下是repo地址: https://github.com/Leeway213/BSP-aw1689
 
-Welcome makers developers and anyone-elsers to post your feedback.
+还有一些驱动程序源代码，在这里与A64的自述文件: https://github.com/Leeway213/driver-samples
+
+欢迎开发者和任何人发表您的反馈意见。
 
 === Microsoft Azure IoT
-TIP: We have test BPI-M64 with Microsoft Azure IoT with aarch64 Ubuntu 18.04 Linux
+TIP: 我们使用aarch 64 Ubuntu 18.04 Linux测试了BPI-M64与Microsoft Azure IoT。
 
 Microsoft Azure IoT Edge using DPS with TPM 2.0 SLB9670 : https://www.youtube.com/watch?v=k9_GSQgKlqk&feature=youtu.be
 
 Microsoft Azure IoT Edge using DPS with TPM 2.0 ST33 i2c : https://www.youtube.com/watch?v=2MrO1-esjwI&feature=youtu.be
 
-== Amazon AWS Greengrass
+== 亚马逊 AWS Greengrass
 
 TIP: Banana Pi BPI-M64 passed Amazon AWS Greengrass: https://devices.amazonaws.com/detail/a3G0h000000OvPoEAK/Banana-Pi-BPI-M64
 
-= System Image
+= 系统镜像
 == Android
 NOTE: 2020-07-10 update, Android 7.1, base on kernel 3.10
 
@@ -386,7 +386,7 @@ Forum pthread: http://forum.banana-pi.org/t/banana-pi-bpi-m64-new-images-android
 
 NOTE: 2018-9-17 update android 6.0,HDMI & LCD7
 
-Features Map :http://newwiki.banana-pi.org/en/BPI-M64/M64_Image_Map#_android_6_0
+Features Map : http://newwiki.banana-pi.org/en/BPI-M64/M64_Image_Map#_android_6_0
 
 **HDMI Version Image Links:**
 
@@ -405,7 +405,7 @@ Forum pthread : http://forum.banana-pi.org/t/banana-pi-bpi-m64-new-images-releas
 
 NOTE: 2018-08-17 update,android 8.1,HDMI & LCD7
 
-This release is for banana pi M64 board which is based on Allwinner A64, We have two images release，Android 8.1 is based on kernel 4.9
+此版本是香蕉PI M64板是基于Allwinner A64，我们有两个图像版本，Android 8.1是基于内核4.9
 
 Features Map: http://newwiki.banana-pi.org/en/BPI-M64/M64_Image_Map#_android_8_1
 
@@ -496,7 +496,7 @@ MD5: 4b7e163d260e58a39ba8905e7ed39943
 
 Forum pthread: http://forum.banana-pi.org/t/bpi-r18-avs-new-image-ubuntu-16-04-4-with-linux-kernel-4-4-89-2018-4-17/5435
 
-NOTE: 2018-09-18 This release is for banana pi M64 board which is based on Allwinner A64, We release three Images, Ubuntu 16.04 Desktop & Android is based on kernel 3.10.
+NOTE: 2018-09-18 此版本是香蕉派 M64是基于Allwinner A64，我们发布三个图像，Ubuntu 16.04桌面和Android是基于内核3.10.
 
 Features Map : http://docs.banana-pi.org/en/BPI-M64/M64_Image_Map#_ubuntu_desktop_16_04
 
@@ -562,7 +562,7 @@ MD5: 9ddf067457ebaf193de63c5c7141446a
 
 Forum pthread: http://forum.banana-pi.org/t/bpi-m64-new-image-2017-08-13-debian-8-jessie-mate-desktop-preview-aarch64-bpi-m64-sd-emmc/3694
 
-== Third part image
+== 第三方镜像
 
 === Raspbian
 
@@ -642,7 +642,7 @@ Forum pthread: http://forum.banana-pi.org/t/bananapi-bpi-m64-new-image-manjaro-a
 
 NOTE: FreeBSD on Allwinner (sunxi) systems for banana pi
 
-Banana pi as the official partner of Allwinner , must banana pi product use Allwinner chip design . such as A20/A31S/H3/H2+/A64/A83T , and FreeBSD have support many Allwinner . so easy to use on banana pi board.
+香蕉派作为全志科技的官方合作伙伴，香蕉派的产品必须采用全志科技的芯片设计。例如A20/A31 S/H3/H2+/A64/A83T，FreeBSD已经支持许多Allwinner。所以很容易在香蕉派上使用。
 
 - Allwinner A20 (sun7i), a dual-core Cortex-A7 BPI-M1/BPI-M1+/BPI-R1
 - Allwinner A31 and A31s (sun6i), a quad-core Cortex-A7 BPI-M2
@@ -682,7 +682,7 @@ NOTE: BPI-M64 win10 IoT: https://catalog.azureiotsolutions.com/details?title=All
 
 = FAQ
 
-WARNING:  How-to use ubuntu system to support lcd7**?
+WARNING:  如何使用ubuntu系统支持lcd7**？
 
 . "vi /media/pi/BPI-BOOT/bananapi/bpi-m64/linux/lcd7/uEnv.txt"
 . If you use HC070TG lcd7 screen, change "touch=gt9xxnew_ts" But if you use S070WV20 lcd7 screen, you don't need to change.
@@ -692,6 +692,6 @@ WARNING:  How-to use ubuntu system to support lcd7**?
 image::/picture/bpi-m64_lcd7.png[bpi-m64_lcd7.png]
 
 
-= Easy to buy
+= 购买链接
 
-WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
+WARNING: OEM&ODM, 请联系: judyhuang@banana-pi.com
