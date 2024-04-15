@@ -25,29 +25,29 @@ image::/picture/bpi-f2_interface.jfif[bpi-f2_interface.jfif]
 2+| **香蕉派 F2 硬件规格**
 | Soc              | Freescale IMX6
 | CPU              | ARM Cortex-A9 MPCore 4xCPU processor(with TrustZone)
-| GPU              | OpenGL ES 2.0 3D graphics accelerator with forshaders,2D graphics accelerator,and didicated OpenVG 1.1 accelerator 
-| SDRAM            | 2G DDR3
-| PCIE             | 1 mini PCIE interface 
-| CAN bus          | 1 CAN bus interface
-| SATA             | Support 1*SATA interface
-| GPIO             | 40 Pins Header, 28×GPIO, some of which can be used for specific functions including UART, I2C, SPI, PWM, I2S.      
-| On board Network | 10/100/1000 Mbit/s Ethernet 
-| Wifi Module      | N/A
-| Bluetooth        | N/A
-| On board Storage | MicroSD \(TF\) card,8G eMMC onboard (option 8-64G) 
-| Display          | HDMI out, LVDS out
-| Video            | HDMI out, LVDS out
-| Audio outputs    | 1 * 3.5 headset jack
-| Camera           | 1 * DVP camera interface and 1* MIP camera interface 
+| GPU              | OpenGL ES 2.0 3D图形加速器，带有forshader、2D图形加速器和专用OpenVG 1.1加速器
+| 内存            | 2G DDR3
+| PCIE             | 1 mini PCIE 接口
+| CAN 总线         | 1 CAN 总线接口
+| SATA             | 支持1*SATA接口
+| GPIO             | 40针引脚，28×GPIO，其中一些可用于特定功能，包括UART，I2C，SPI，PWM，I2S。
+| 网络 | 10/100/1000 Mbit/s Ethernet 
+| Wifi     | N/A
+| 蓝牙        | N/A
+| 存储 | MicroSD \(TF\) card,8G eMMC onboard (option 8-64G) 
+| 显示          | HDMI out, LVDS out
+| 视频            | HDMI out, LVDS out
+| 音频输出    | 1 * 3.5 headset jack
+| 相机          | 1 * DVP camera interface and 1* MIP camera interface 
 | Audio input      | N/A 
 | USB              | 2 * USB 2.0 1* USB Otg
-| Buttons          | Power & Reset
+| 按键         | Power & Reset
 | Leds             | 3* RGB leds
 | IR	             | N/A
-| DC Power	       | 12V/2A with DC port
-| Battery	         | No 3.7V lithium battery power support
-| Sizes	           | 
-| Weight	         | 80g
+| DC 电源       | 12V/2A with DC port
+| 电池       | No 3.7V lithium battery power support
+| 尺寸          | 
+| 重量	         | 80g
 |=====
 
 
