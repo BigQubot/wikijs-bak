@@ -1,13 +1,13 @@
 = BPI-M4 Zero 介绍
 
-Banana Pi BPI-M4 Zero是M2 Zero的继任者。它在性能上有很大的提高。SOC升级至H618，CPU频率提升25%。内存升级为DDR4，容量翻了四倍，并增加了8 G eMMC。支持5G WiFi，USB接口也升级到了type-C。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;香蕉派 BPI-M4 Zero是M2 Zero的继任者。它在性能上有很大的提高。SOC升级至H618，CPU频率提升25%。内存升级为DDR4，容量翻了四倍，并增加了8 G eMMC。支持5G WiFi，USB接口也升级到了type-C。
 
-它具有与Raspberry Pi Zero W相同的外形和40针连接器，可以安装大多数RPI Zero W外壳和配件。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;它具有与Raspberry Pi Zero W相同的外形和40针连接器，可以安装大多数RPI Zero W外壳和配件。
 
 image::/picture/bpi_m4_zero_banner_1.jpg[bpi_m4_zero_banner_1.jpg]
 
-TIP: Allwinner H618 design : link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry[Banana Pi BPI-M4 Berry] Same size as Raspberry Pi 4B +
-Allwinner H618 design : link:/en/BPI-M4_Zero/BananaPi_BPI-M4_Zero[Banana Pi BPI-M4 Zero] Same size as Raspberry Pi Zere W
+TIP: 全志科技 H618 设计 : link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry[Banana Pi BPI-M4 Berry] 尺寸和 Raspberry Pi 4B 相同 +
+全志科技 H618 设计 : link:/en/BPI-M4_Zero/BananaPi_BPI-M4_Zero[Banana Pi BPI-M4 Zero] 尺寸和 Raspberry Pi Zere W 相同
 
 = 主要特点
 * Allwinner H618，四核ARM Cortex™-A53处理器
@@ -38,24 +38,24 @@ link:/en/BPI-M4_Zero/Photo_BPI-M4_Zero[Banana Pi BPI-M4 Zero Product photo galle
 
 [options="header",cols="1,4",width="70%"]
 |=====
-2+| **Hardware Specification of Banana pi BPI-M4 Zero**
-| CPU                                             | Allwinner H618, Quad-core ARM Cortex™-A53 processor, 64-bit, up to 1.5GHz
+2+| **香蕉派 BPI-M4 Zero 硬件规格**
+| CPU                                             | 全志科技 H618，四核ARM Cortex™-A53处理器，64位，高达1.5GHz
 | GPU                                             | ARM Mali G31 GPU
-| Memory                                          | 2 GB LPDDR4
-| Storage                                         | 8G eMMC flash
+| 内存                                         | 2 GB LPDDR4
+| 存储                                        | 8G eMMC flash
 | SD card                                         | MicroSD card slot, SDIO3.0
-| Wireless                                        | 2.4G/5G WiFi and Bluetooth 4.2
-| HDMI                                            | 1x miniHDMI 2.0a (up to 4K@60Hz with HDR10, CEC, DDC, SCDC), HDMI digital Audio output
+| 无线                                        | 2.4G/5G WiFi and Bluetooth 4.2
+| HDMI                                            | 1 x miniHDMI 2.0a（最高4K@60Hz，支持HDR 10，CEC，DDC，SCDC），HDMI数字音频输出
 | USB                                             | 1x USB2.0 Type-C HOST, 1x USB2.0 Type-C OTG
 .2+| 40-pin header                                   | 28 pins GPIO and Power (+5V, +3.3V and GND)
 | UART, SPI, TWI/I²C, PWM, PCM/I²S
-.2+| 24-pin FPC                                      | 0.5mm pitch FPC connector， 1x USB2.0, 1x IR, 1x 100Mbps Ethernet
+.2+| 24-pin FPC                                      | 0.5mm间距FPC连接器，1x USB2.0，1x IR，1x 100Mbps以太网
 | 9 pins GPIO, UART,TWI/I²C, PWM, PCM/I²S
-| Buttons                                         | Reset, FEL
-| LED                                             | Power Status and Activity status
-| Power                                           | 5V@3A via USB Type-C
-| Size                                            | 65mm × 30mm
-| Weight                                          |                                          
+| 按键                                         | Reset, FEL
+| LED                                             | 电源状态和活动状态
+| 电源                                           | 5V@3A via USB Type-C
+| 尺寸                                           | 65mm × 30mm
+| 重量                                         |                                          
 |=====
 
 
