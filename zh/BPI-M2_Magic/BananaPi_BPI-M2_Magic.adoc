@@ -1,36 +1,36 @@
-= BPI-M2 Magic Introduction
+= BPI-M2 Magic 介绍
 
-Banana PI BPI-M2 Magic (BPi-M2M) is an efficient quad core solution designed for internet-of-things applications,Use allwinner R16 chip design ,also can use Allwinner A33 chip on board, which outperforms competitors in terms of its system performance, scalability, and energy-efficiency; it can be used for home entertainment, home automation, and high wireless performance and so on.
+香蕉派 BPI-M2 Magic（BPi-M2M）是一款专为物联网应用设计的高效四核解决方案，采用全志科技 R16芯片设计，也可板载全志科技 A33芯片，在系统性能、可扩展性和能效方面优于竞争对手;可用于家庭娱乐、家庭自动化和高无线性能等。
 
 image::/picture/bpi-m2m.png[bpi-m2m.png]
 
-BPI-M2 Magic integrate four ARM Cortex-A7 CPU cores and Mali400MP2 graphics architecture, It also includes a variety of peripherals, BPI-M2 Magic with 512M DDR3，including 4 lane-MIPI DSI, LVDS, USB2.0 OTG/HOST,802.11 b/g/n wifi & BT4.0 onboard.
+BPI-M2 Magic集成了四个ARM Cortex-A7 CPU核心和Mali 400 MP2图形架构，它还包括各种外设，BPI-M2 Magic具有512 M DDR3，包括4通道MIPI DSI，LVDS，USB2.0 OTG/HOST，802.11 b/g/n wifi & BT4.0板载。
 
-IMPORTANT: BPI-M2 Magic not HDMI interface. Not support RJ45 interface
+IMPORTANT: BPI-M2 Magic没有HDMI接口。不支持RJ45接口
 
-BPI-M2 Magic can run with Android smoothly, it also can run Debian, Ubuntu linux, Raspberry Pi image and others OS. It can easily run with the game it support 1080P high definition video output, the GPIO compatible with Raspberry Pi B+ and can run the ROM Image
+BPI-M2 Magic可以流畅的运行在Android上，也可以运行Debian，Ubuntu Linux，Raspberry Pi镜像等操作系统。它可以轻松的运行游戏，支持1080 P高清视频输出，GPIO兼容Raspberry Pi B+，可以运行ROM镜像
 
-Allwinner R16 chip and A33 chip is PIN to PIN compatibility, so BPI-M2 Magic just replace R16 ,A33 chip onboard, easy to DIY new product.
+全志科技 R16芯片和A33芯片是PIN对PIN兼容的，所以BPI-M2 Magic只需替换R16、A33芯片即可板载，轻松DIY新品。
 
-== Key Features
+== 主要特点
 
-- Allwinner R16/A33 Quad Core ARM Cortex A7 CPU.
-- 512MB DDR3 SDRAM.
-- WiFi (AP6212) & Bluetooth onboard.
-- 8G eMMC flash
-- CSI camera interface
-- DSI display interface
+- 全志科技 R16/A33四核ARM Cortex A7 CPU
+- 512MB DDR3 SDRAM
+- WiFi（AP 6212）和蓝牙
+- 8 G eMMC闪存
+- CSI摄像头接口
+- DSI显示接口
 
-== Getting Start
+== 快速入门
 
 TIP: link:/en/BPI-M2_Magic/GettingStarted_BPI-M2_Magic[Getting Started BPI-M2_Magic]
 
-= Hardware
-== Hardware Interface
+= 硬件
+== 硬件接口示意图
 
 image::/picture/bpi-m2_magic_interface.jpg[bpi-m2_magic_interface.jpg]
 
-== Hardware Spec
+== 硬件规格
 
 [options="header",cols="1,3"]
 |=====
@@ -104,7 +104,7 @@ image::/picture/bpi-m2_magic_interface.jpg[bpi-m2_magic_interface.jpg]
 | CON1-P40 | AP-PCM-DOUT | PG12        
 |=====
 
-=== CSI Camera Connector specification
+=== CSI摄像头连接器规格
 
 [options="header",cols="1,1,1"]
 |=====
@@ -136,7 +136,7 @@ image::/picture/bpi-m2_magic_interface.jpg[bpi-m2_magic_interface.jpg]
 | CN3-P24	| CSI0-AFVCC |     
 |=====
 
-=== MIPI DSI \(Display Serial Interface\)
+=== MIPI DSI (显示器串行接口)
 
 [options="header",cols="1,1,1"]
 |=====
@@ -167,7 +167,7 @@ image::/picture/bpi-m2_magic_interface.jpg[bpi-m2_magic_interface.jpg]
 | CN2-P23	| PS	       |    
 | CN2-P24	| PS         |    
 |=====
-=== BPI-M2 Magic Debug UART
+=== BPI-M2 Magic 调试接口
 
 |=====
 | CON3-P1	| GND
@@ -175,14 +175,17 @@ image::/picture/bpi-m2_magic_interface.jpg[bpi-m2_magic_interface.jpg]
 | CON3-P3	| UART0-TX
 |=====
 
-= Development
-== Source Code
+= 发展
+== 源代码
 
 === Android 6.0 source code
 TIP: google driver : https://drive.google.com/file/d/1FhHAVjNWTi8Uq-LNMn0liqcHS4cSN5xY/view?usp=drivesdk
 
+== 开发资料
 
-== Hardware means of production
+TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
+
+TIP: All banana pi link:https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[docement(SCH file,DXF file,and doc)]
 
 TIP: BPI-M2 Magic Gerber/Boom/Assembly document: 
 
@@ -194,26 +197,16 @@ TIP: BPI-M2 Magic SCH : link:https://drive.google.com/drive/folders/0B4PAo2nW2Kf
 
 TIP: BPI-M2 Magic DXF file public : https://drive.google.com/file/d/0B4PAo2nW2KfnalhDRG5EclU1dHM/view?usp=sharing
 
-== Resources
-
-TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
-
-TIP: All banana pi link:https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[docement(SCH file,DXF file,and doc)]
-
 TIP: Allwinner R16 chip Datasheet-V1.4 (1): https://drive.google.com/file/d/0B4PAo2nW2KfnVW9FSUpPX2FLcU0/view?usp=sharing
 
 TIP: Allwinner_R16_User_Manual_V1.2： https://drive.google.com/file/d/0B4PAo2nW2KfnUjZUNVdyN1RkVlE/view?usp=sharing
 
-
-
 TIP: AXP223 Datasheet V1.0_en : https://drive.google.com/file/d/0B4PAo2nW2KfnckxWZFBBMUNWSUk/view?usp=sharing
 
-
-
-= System Image
+= 系统文件
 == Android
 === Android 6.0 LCD7-Version
-NOTE: 2019-08-06 update ,BPI-M2 Magic Android 6 new image release ,This release is for banana pi M2m board with BPI 7" panel, and it is based on Android 6.0 Operation system with kernel 3.4.
+NOTE: 2019-08-06 update ,BPI-M2 Magic Android 6 new image release。此版本适用于BPI 7”面板的Banana Pi M2m板，它基于Android 6.0操作系统，内核为3.4。
 
 Fetures Map: http://docs.banana-pi.org/en/BPI-M2_Magic/M2M_Image_Map#_kernel_3_4
 
@@ -246,7 +239,7 @@ Download: link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2
 
 MD5: 80f6bef4628eef0da8c5800819cc1cfd
 
-NOTE: 2019-05-11 update This release is for banana pi M2 Magic board which is based on R16, and it is based on Ubuntu 16.04 Operation system with kernel 3.4.
+NOTE: 2019-05-11 update 。此版本是基于R16的香蕉派 M2 Magic，它基于Ubuntu 16.04操作系统，内核为3.4。
 
 BPI-M2M Ubuntu Server 16.04 Features Map : http://docs.banana-pi.org/en/BPI-M2_Magic/M2M_Image_Map
 
@@ -260,9 +253,9 @@ MD5 : 9dcd344f0a6433bc649301930599d45b
 
 **CD7 Emmc version image:**
 
-WARNING: Notes : Because sd pins and uart0 pins are the same, so we have to use uart2 as debug console before, and I release this image is just in order to release uart2 to use and set uart0 as debug console.
+WARNING: 注释 : 因为sd管脚和uart0管脚是一样的，所以我们之前必须使用uart2作为调试控制台，我发布这个镜像只是为了发布uart2使用和设置uart0作为调试控制台。
 
-How to burn image：you just need to use m2m boot from a sd image, then use sd image to install this emmc image on emmc.
+如何刻录镜像：你只需要使用m2m从sd镜像靴子，然后使用sd镜像在emmc上安装这个emmc镜像。
 
 Google Drive : https://drive.google.com/open?id=1vJqO2O47Ekq9diny7kZQKBQLXylCGuTG
 
@@ -272,7 +265,7 @@ MD5 : 9f576cfaeb0329648b14b541ff2f5dd4
 
 Forum pthread: http://forum.banana-pi.org/t/bpi-m2m-r16-new-image-release-ubuntu-server-16-04-2019-05-09/9205
 
-NOTE: Unbutu 16.04 2018-08-25 Image Link: This release is for banana pi M2 Magic board which is based on R16, and it is based on Ubuntu 16.04 Operation system with kernel 3.4.
+NOTE: Unbutu 16.04 2018-08-25 Image Link: 此版本是基于R16的Banana Pi M2 Magic板，它基于Ubuntu 16.04操作系统，内核为3.4。
 
 BPI-M2M Ubuntu 16.04 Features Map: http://docs.banana-pi.org/en/BPI-M2_Magic/M2M_Image_Map
 
@@ -308,6 +301,6 @@ Google downlad : https://drive.google.com/open?id=13iVMJJVY6i8GJjMjoAyk62IDW83Ma
 Forum pthread: http://forum.banana-pi.org/t/bpi-m2-magic-new-image-2017-11-15-tina-astar-m2magic-card0-burn-by-phoenixcard/4184
 
 
-= Easy to buy
+= 购买链接
 
-WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
+WARNING: OEM&ODM, 请联系: judyhuang@banana-pi.com
