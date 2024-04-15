@@ -71,7 +71,7 @@ image::/picture/bpi-m1_26_pin.png[bpi-m1_26_pin.png]
 
 IMPORTANT: Note: 5V1,5V2 only support output,not support input
 
-=== CSI Camera Connector specification:
+=== CSI 摄像头连接器规格
 
 CSI摄像头连接器CSI摄像机连接器是一个40引脚的FPC连接器，可以通过适当的信号引脚映射连接外部摄像机模块。CSI接口的引脚定义如下所示。这在香蕉派板上标记为“CON1″”。
 
@@ -173,7 +173,7 @@ The LVDS Connector is a 40-pin FPC connector which can connect external LCD pane
 
 === UART specification
 
-The jumper J11 is the UART interface. For developers of Banana Pi, this is an easy way to get the UART console output to check the system status and log message.
+跳线J11为UART接口。对于香蕉派的开发人员来说，这是一种简单的方法，可以获取控制台输出来检查系统状态和日志消息。
 
 [options="header",cols="1,1,1,1"]
 |=====
@@ -183,7 +183,7 @@ The jumper J11 is the UART interface. For developers of Banana Pi, this is an ea
 | J11 Pin2 | RXD      | UART0-RX  | PB23
 |=====
 
-The jumper J12 provides the power source including 3.3V and 5V. There is a pair of UART TX/RX signals output here.
+跳线J12提供包括3.3V和5V的电源。这里有一对双TX/RX信号输出。
 
 [options="header",cols="1,1,1,1"]
 |=====
@@ -199,14 +199,14 @@ The jumper J12 provides the power source including 3.3V and 5V. There is a pair 
 | J12 Pin8 | GND      |           | 
 |=====
 
-=== All GPIO define list
+=== 所有 GPIO 定义列表
 
 image::/picture/bpi-m1_all_pin.png[bpi-m1_all_pin.png]
 
 
-= Development
+= 发展
 
-== Source code
+== 源代码
 
 TIP: Linux kernel 3.4 Source code : https://github.com/BPI-SINOVOIP/BPI-M1-bsp
 
@@ -214,7 +214,7 @@ TIP: Android 4.4 source code. LCD7 type: https://github.com/BPI-SINOVOIP/BPI-A20
 
 TIP: Android 4.2.2 source code. HDMI type: https://github.com/BPI-SINOVOIP/BPI-A20-Android
 
-== Hardware means of production
+== 五金生产资料
 
 TIP: BPI-M1 Gerber/Boom/Assembly document: 
 
@@ -228,9 +228,9 @@ TIP: BPI-M1 DXF file download link: link:{https://drive.google.com/folderview?id
 
 TIP: BPI-M1 3D design file download link: link:{https://drive.google.com/folderview?id=0B4PAo2nW2Kfnfl95clI4ZzRKUmRENWhMcmwzUlVrYW1Ic3BXZENtUjJQcjk5TXc0RHBKdlU&usp=sharing&tid=0B4PAo2nW2Kfndjh6SW9MS2xKSWs}[google drive]
 
-== Documents
+== 开发资料
 
-TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
+TIP: 由于谷歌的安全更新，一些旧的链接将无法工作，如果你想使用的图像不能从 link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[新 link bpi-image 文件]下载。
 
 TIP: All banana pi link:https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[docement(SCH file,DXF file,and doc)]
 
@@ -253,7 +253,7 @@ TIP: Building the cluster on BPI https://www.hackster.io/Penguinfly/banana-pi-cl
 
 TIP: Allwinner documents. allwinner chip online datasheet and documents: http://dl.linux-sunxi.org/
 
-= Image Release
+= 系统镜像
 == Android 4.4
 
 NOTE: 2018-07-28 update android 4.4 LCD version image
@@ -368,7 +368,7 @@ NOTE: How to build OpenWRT image from github : https://bananapi.gitbooks.io/bpi-
 
 FreeBSD on Allwinner (sunxi) systems for banana pi
 
-Banana pi as the official partner of Allwinner , must banana pi product use Allwinner chip design . such as A20/A31S/H3/H2+/A64/A83T , and FreeBSD have support many Allwinner . so easy to use on banana pi board.
+香蕉派作为全志的官方合作伙伴，香蕉派的产品必须采用全志的芯片设计。例如A20/A31 S/H3/H2+/A64/A83T，FreeBSD已经支持许多Allwinner。所以很容易在香蕉派板上使用。
 
 - Allwinner A20 (sun7i), a dual-core Cortex-A7 BPI-M1/BPI-M1+/BPI-R1
 - Allwinner A31 and A31s (sun6i), a quad-core Cortex-A7 BPI-M2
@@ -390,7 +390,7 @@ NOTE: Image and how to : https://bananapi.gitbooks.io/bpi-m1/content/en/arch_lin
 
 == Gentoo Linux
 
-- Gentoo Linux have officeal support banana pi BPI-M1, so you also can use on BPI-M1+,and BPI-R1, all is base on allwinner A20 chip.
+- Gentoo Linux有官方支持香蕉派BPI-M1，所以你也可以在BPI-M1+，和BPI-R1上使用，都是基于全志 A20芯片的。
 
 NOTE: Gentoo linux wiki : https://wiki.gentoo.org/wiki/Banana_Pi_the_Gentoo_Way
 
@@ -425,12 +425,12 @@ NOTE: Simplenas image : https://simplenas.com/download/other/banana-pi-m1
 
 = FAQ
 
-= Easy to buy
+= 购买链接
 
-WARNING: SINOVOIP Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M1/1100417230_40000003426518.html
+WARNING: SINOVOIP 全球速卖通商店: https://www.aliexpress.com/store/group/BPI-M1/1100417230_40000003426518.html
 
-WARNING: Bipai Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M1/1101951077_40000003418620.html
+WARNING: Bipai 全球速卖通商店: https://www.aliexpress.com/store/group/BPI-M1/1101951077_40000003418620.html
 
-WARNING: Taobao Shop: https://shop108780008.taobao.com/category-1694930629.htm
+WARNING: 淘宝: https://shop108780008.taobao.com/category-1694930629.htm
 
-WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
+WARNING: OEM&ODM, 请联系: judyhuang@banana-pi.com
