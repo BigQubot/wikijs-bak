@@ -1,4 +1,4 @@
-= BPI-M1 Plus Introduction
+= BPI-M1 Plus 介绍
 
 Banana Pi BPI-M1+是一款开源硬件单板电脑，为BPI-M1经典版本增加了更多的连接性。
 
@@ -218,7 +218,7 @@ LVDS连接器是一个40引脚的FPC连接器，可以连接外部LCD面板\(LVD
 | CON2 P40 | LCD0-D16            |           | PD16 
 |=====
 
-=== BPI-M5 调试 UART 串口
+=== BPI-M1+ 调试 UART 串口
 
 跳线J11 header CON4是UART接口。对于Banana Pi的开发人员来说，这是一种获取UART控制台输出以检查系统状态和日志消息的简单方法。
 
