@@ -89,7 +89,7 @@ NOTE: **Ubuntu**
 ```sh
 mount /dev/sda1 /mnt
 cd /mnt
-sudo dd if=w3-xxxx.img of=/dev/mmcblk0 bs=10M
+sudo dd if=w3-ubuntu-xxxx.img of=/dev/mmcblk0 bs=10M
 ```
 
 NOTE: **Armbian**
