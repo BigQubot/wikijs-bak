@@ -80,9 +80,37 @@ NOTE: **Debian** images use this method.
 image::/picture/w3_debian.jpg[w3_debian.jpg]
 
 == Install Image to eMMC 1
+NOTE: **Ubuntu**
 
+. Copy the image to a USB drive. Start w3 with an SD card and insert a USB drive at the same time.
 
+. Execute
++
+```sh
+mount /dev/sda1 /mnt
+cd /mnt
+sudo dd if=w3-xxxx.img of=/dev/mmcblk0 bs=10M
+```
 
+NOTE: **Armbian**
+
+. Insert the SD card with the burned image into w3, then power on and start.
+
+. Execute
++
+```sh
+sudo armbian-config
+```
++
+image::/picture/w3_armbian_1.png[w3_armbian_1.png]
+image::/picture/w3_armbian_2.png[w3_armbian_2.png]
+image::/picture/w3_armbian_3.png[w3_armbian_3.png]
+image::/picture/w3_armbian_4.png[w3_armbian_4.png]
+image::/picture/w3_armbian_5.png[w3_armbian_5.png]
+image::/picture/w3_armbian_6.png[w3_armbian_6.png]
+image::/picture/w3_armbian_7.png[w3_armbian_7.png]
+
+. The last step is to shut down the computer. At this time, disconnect the power supply, remove the SD card, and power on again to boot from eMMC.
 
 == Install Image to eMMC 2
 NOTE: **Debian** images use this method.
