@@ -1,58 +1,55 @@
-= BPI-M3 Introduction
+= BPI-M3 介绍
 
-Banana Pi M3 is a super charged single board computer with an Octa-core processor and 2GB of RAM. Along side the elite processing unit, it features Gigabit Ethernet, 2 USB, SATA, WiFi, Bluetooth, and HDMI connection. It can run on a variety of operating systems including Android, Lubuntu, Ubuntu, Debian, and Raspbian.
+香蕉派 M3是一款超级充电的单板计算机，具有Octa核心处理器和2GB RAM。沿着的精英处理单元，它具有千兆以太网，2 USB，SATA，WiFi，蓝牙和HDMI连接。它可以在各种操作系统上运行，包括Android，Lubuntu，Ubuntu，Debian和Raspbian。
 
-Being a brother of the power hungry M2, the M3 does not want to rest while his brother goes to acquire two more cores. The M3 secretly mastered the powerful art of Octa-core to best even the M2. Unlike his careless brother, the M3 did not lose his SATA port.
-
-Banana Pi is an open platform device, it is for anyone who wants to play and build with developer technology instead of simply using consumer technology. Backed by our community, starting a project and building servers is fun and rewarding. We welcome all companies, DIYers, and tech loving people within our community! Together, we can make a difference, we can discover our passions, inspire others, and build a practical project.
+香蕉派是一个开放平台设备，它适合任何想要使用开发人员技术而不是简单地使用消费者技术的人。在我们社区的支持下，开始一个项目和构建服务器是有趣和有益的。我们欢迎所有的公司，DIY者和热爱技术的人在我们的社区！我们可以一起发挥作用，我们可以用我们的激情，去激励他人，并建立一个实际的项目。
 
 image::/picture/bpi-m3_960x360.jpg[bpi-m3_960x360.jpg]
 
-== Key Features
+== 主要特点
+- 全志科技 A83T八核1.8GHz强劲CPU。
+- 2 GB LPDDR 3内存。
+- 8 GB eMMC存储空间。
+- HDMI输出
+- IR控制
+- WiFi和蓝牙
+- MIPI DSI接口
+- CSI摄像头接口
 
-- Allwinner A83T Octa-core 1.8GHz Powerful CPU.
-- 2 GB LPDDR3 memory.
-- 8 GB eMMC storage.
-- HDMI out
-- IR control
-- WiFi & Bluetooth onboard.
-- MIPI DSI ingerface
-- CSI camera interface
-
-== Getting Start
+== 快速入门
 
 TIP: link:/en/BPI-M3/GettingStarted_BPI-M3[Getting Started BPI-M3]
 
-= Hardware
-== Hardware Interface
+= 硬件
+== 硬件接口示意图
 
 image::/picture/m3-hdw-label.jpg[m3-hdw-label.jpg]
 
-== Hardware Spec
+== 硬件规格
 
 [options="header",cols="1,4"]
 |=====
-2+| **HardWare Specification of Banana Pi M3**
-| CPU             | Allwinner A83T ARM Cortex-A7 Octa-Core 1.8 GHz, 512KB L1 cache and 1MB L2 cache
+2+| **香蕉派 M3 硬件规格**
+| CPU             | 全志科技 A83 T ARM Cortex-A7八核1.8 GHz，512 KB L1缓存和1 MB L2缓存
 | GPU             | PowerVR SGX544MP1 Comply with OpenGL ES 2.0 OpenCL 1x, DX9_3
-| Memory          | 2 GB LPDDR3 (shared with GPU)
-| Storage         | On Board 8GB eMMC Flash, Micro SD-Card slot, SATA 2.0 Port (USB-to-SATA bridge)
-| Network         | 10/100/1000 Mbit/s Ethernet (Realtek RTL8211E/D) + Wi-Fi 802.11 b/g/n (AP6212) + Bluetooth BT4.0
-| Video Input(s)  | A CSI input connector allows for the connection of a designed camera module
-| Video Output(s) | HDMI 1.4 (Type A Full), MIPI Display Serial Interface (DSI) for raw LCD Panel
-| Audio Input(s)  | On board microphone
-| Audio Output(s) | 3.5mm jack and HDMI
-| USB ports       | USB 2.0 PORT (x2), USB OTG (x1)
-| Remote          | IR Receiver (x1)
+| 内存          | 2 GB LPDDR3 (与 GPU 共享)
+| 存储        | 板载8GB eMMC闪存，Micro SD卡插槽，SATA 2.0端口（USB到SATA桥接）
+| 网络         | 10/100/1000 Mbit/s 以太网 (Realtek RTL8211E/D) + Wi-Fi 802.11 b/g/n (AP6212) + 蓝牙 BT4.0
+| 视频输入  | 一个 CSI 输入连接器的摄像头模块
+| 视频输出 | HDMI 1.4 (Type A Full), MIPI Display Serial Interface (DSI) for raw LCD Panel
+| 音频输入  | 板载麦克风
+| 音频输出 | 3.5mm jack and HDMI
+| USB 端口       | USB 2.0 PORT (x2), USB OTG (x1)
+| 远程         | IR Receiver (x1)
 | GPIO            | 40 Pin Header : GPIO (x28) and Power (+5V, +3.3V and GND). Some of I/O Pin can be used for specific functions as UART, I2C, SPI or PWM 
-| Switches        | Reset, Power and U-boot
+| 按键       | Reset, Power and U-boot
 | LED             | Power Status and 8P8C
-| Power Source    | 5 volt @2A via DC Power and/or Micro USB (OTG)
-| Size & Weight   | 92x60mm, 48g
+| 电源    | 5 volt @2A via DC Power and/or Micro USB (OTG)
+| 尺寸，重量   | 92x60mm, 48g
 | OS              | Android and Linux 
 |=====
 
-== GPIO Pin Define
+== GPIO 引脚定义
 
 === BPI-M3 40PIN GPIO
 
@@ -102,11 +99,11 @@ image::/picture/m3-hdw-label.jpg[m3-hdw-label.jpg]
 | CON1-P40 | PE19      | PE19          |       
 |=====
 
-=== CSI Camera Connector specification
+=== CSI摄像头连接器规格
 
 [options="header",cols="1,1,1"]
 |=====
-3+| **CSI camera GPIO of Banana pi BPI-M3**
+3+| **香蕉派 BPI-M3 CSI摄像机 GPIO**
 | CSI Pin Name | Default Function	| Function2：GPIO
 | CN7-P01 | IPSOUT     |      
 | CN7-P02 | AFVCC      |      
@@ -150,11 +147,11 @@ image::/picture/m3-hdw-label.jpg[m3-hdw-label.jpg]
 | CN7-P40 | CSI-D2     | PE6  
 |=====
 
-=== Display specification
+=== 显示规格
 
 [options="header",cols="1,1,1"]
 |=====
-3+| **MIPI DSI PIN define of Banana pi BPI-M3**
+3+| **香蕉派 BPI-M3 MIPI DSI 引脚定义**
 | CSI Pin Name | Default Function	| Function2：GPIO
 | CN6-P01 | VCC-MIPI |           
 | CN6-P02 | IPSOUT   |           
@@ -198,7 +195,7 @@ image::/picture/m3-hdw-label.jpg[m3-hdw-label.jpg]
 | CN6-P40 | GND        |             
 |=====
 
-=== BPI-M3 Debug UART
+=== BPI-M3 调试接口
 
 |=====
 | CON2 P03 | UART0-TXD | PB9
@@ -206,8 +203,8 @@ image::/picture/m3-hdw-label.jpg[m3-hdw-label.jpg]
 | CON2 P01 | GND	     |     
 |=====
 
-= Development
-== Source Code
+= 发展
+== 源代码
 
 === Linux 
 
@@ -217,7 +214,7 @@ TIP: BPI-M3 Linux BSP code : https://github.com/BPI-SINOVOIP/BPI-M3-bsp
 
 TIP: BPI-M3 android 5.1 source code ： https://drive.google.com/open?id=0B\_YnvHgh2rwjaGhIeUE0eERTZU0
 
-== Resources
+== 开发资料
 
 TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
 
@@ -247,7 +244,7 @@ TIP: BPI-M3 quality guarantee
 
 - BPI-M3 CE,FCC RoHS Certification : http://forum.banana-pi.org/t/bpi-m3-ce-fcc-rohs-certification/984
 
-== Basic Development
+== 基本发展
 
 link:https://bananapi.gitbooks.io/bpi-m3/content/en/howtosetupdockerenvtobuildgithubsourcecod.html[How to setup docker env. to build github source code]
 
@@ -257,7 +254,7 @@ link:https://bananapi.gitbooks.io/bpi-m3/content/en/bpi-m3crosscompileteach.html
 
 link:https://bananapi.gitbooks.io/bpi-m3/content/en/bpi-m3fixrootmydeviceissueforsecurityalert.html[BPI-M3 fix rootmydevice issue for Security Alert]
 
-== Software
+== 软件
 === Linux 
 
 TIP: How to burn Linux image to eMMC : https://bananapi.gitbooks.io/bpi-m3/content/en/howtoburnlinuximagetoemmc.html
@@ -275,7 +272,7 @@ https://bananapi.gitbook.io/bpi-m3/zh/how_to_burn_android_image_to_emmc
 
 TIP: BPI-M3 How to control GPIO on Android : https://bananapi.gitbook.io/bpi-m3/zh/howtosetupdockerenvtobuildgithubsourcecod
 
-= System Image
+= 系统镜像
 == Android
 
 NOTE: 2018-06-05 update
@@ -390,8 +387,7 @@ Baidu Drive : https://pan.baidu.com/s/1yQYG1iOEIrJADV_j-qvdwQ
 
 Forum pthread : http://forum.banana-pi.org/t/bananapi-bpi-m3-new-image-new-emmc-ubuntu16-04-debian9-release-2018-07-18/6294
 
-== Third part image
-
+== 第三方j镜像
 === Raspbian
 
 NOTE: 2021-08-03 release, Raspbian Stretch with kernel 3.4.39
@@ -459,7 +455,7 @@ Forum pthread: http://forum.banana-pi.org/t/armbian-with-4-17-y-for-m3/6174
 
 NOTE: FreeBSD on Allwinner (sunxi) systems for banana pi
 
-Banana pi as the official partner of Allwinner , must banana pi product use Allwinner chip design . such as A20/A31S/H3/H2+/A64/A83T , and FreeBSD have support many Allwinner . so easy to use on banana pi board.
+香蕉派作为全志的官方合作伙伴，香蕉派的产品必须采用全志的芯片设计。例如A20/A31 S/H3/H2+/A64/A83T，FreeBSD已经支持许多Allwinner。所以很容易在香蕉派上使用。
 
 - Allwinner A20 (sun7i), a dual-core Cortex-A7 BPI-M1/BPI-M1+/BPI-R1
 - Allwinner A31 and A31s (sun6i), a quad-core Cortex-A7 BPI-M2
@@ -487,11 +483,11 @@ http://mirror.lakka.tv/nightly/
 http://forum.banana-pi.org/c/bpi-m3/M2image
 
 
-= Easy to buy
-WARNING: SINOVOIP Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M3/1100417230_40000003593419.html
+= 购买链接
+WARNING: SINOVOIP 全球速卖通商店: https://www.aliexpress.com/store/group/BPI-M3/1100417230_40000003593419.html
 
-WARNING: Bipai Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M3/1101951077_40000003551100.html
+WARNING: Bipai 全球速卖通商店: https://www.aliexpress.com/store/group/BPI-M3/1101951077_40000003551100.html
 
-WARNING: Taobao Shop: https://shop108780008.taobao.com/category-1694930638.htm
+WARNING: 淘宝: https://shop108780008.taobao.com/category-1694930638.htm
 
-WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
+WARNING: OEM&ODM, 请联系: judyhuang@banana-pi.com
