@@ -1,16 +1,16 @@
-= BPI-M2 Zero Introduction
+= BPI-M2 Zero 介绍
 
-The Banana Pi M2 Zero is an ultra compact single board computer which measures only 65mm*30mm. Its external interfaces are the same as the Raspberry Pi Zero W, and it will fit almost all cases and accessories for the Zero W. It uses the quad-core Cortex A7 Allwinner H3/H2+processor, with 512MB RAM. It's ideal for light-weight systems and space-limited applications. Like other members of the Banana Pi family, it supports both Linux and Android operating systems.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;香蕉派 M2 Zero是一款超紧凑型单板计算机，尺寸仅为65 mm * 30 mm。它的外部接口与Raspberry Pi Zero W相同，它将适合Zero W的几乎所有外壳和配件。它采用了四核Cortex A7 Allwinner H3/H2+处理器，512 MB RAM。它是轻型系统和空间有限应用的理想选择。与Banana Pi家族的其他成员一样，它支持Linux和Android操作系统。
 
-As Allwinner H2+ chip is EOL, so BPI-M2 Zero will use H3 chip defaults. but image for H2+ also support H3, so all image is same. support H2+ and H3 chip.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;由于Allwinner H2+芯片已停产，因此BPI-M2 Zero将使用H3芯片默认值。但是H2+的图像也支持H3，所以所有图像都是相同的。支持H2+和H3芯片。
 
 image::/picture/banana_pi_bpi-m2_zero.jpg[banana_pi_bpi-m2_zero.jpg]
 
-TIP: Allwinner H3 design: link:/en/BPI-M2_Plus/BananaPi_BPI-M2_Plus[Banana Pi BPI-M2+] SBC with eMMC onboard +
-Allwinner H3 design: link:/en/BPI-M2_Zero/BananaPi_BPI-M2_Zero[Banana Pi BPI-M2 Zero] same size as Raspberry Pi Zero W +
-Allwinner H3 design: link:/en/BPI-P2_Zero/BananaPi_BPI-P2_Zero[Banana Pi BPI-P2 Zero] for IoT design
+TIP: 全志科技 H3 设计: link:/en/BPI-M2_Plus/BananaPi_BPI-M2_Plus[Banana Pi BPI-M2+] 板载eMMC的SBC +
+全志科技 H3 设计: link:/en/BPI-M2_Zero/BananaPi_BPI-M2_Zero[Banana Pi BPI-M2 Zero] 尺寸和 Raspberry Pi Zero W 相同 +
+全志科技 H3 设计: link:/en/BPI-P2_Zero/BananaPi_BPI-P2_Zero[Banana Pi BPI-P2 Zero] 物联网设计
 
-= Key Features
+= 主要特点
 
 - CPU: Allwinner H3/H2+, Quad-core Cortex-A7.
 - 512MB DDR 3 SDRAM.
@@ -18,53 +18,53 @@ Allwinner H3 design: link:/en/BPI-P2_Zero/BananaPi_BPI-P2_Zero[Banana Pi BPI-P2 
 - Mini HDMI.
 - 40 Pin Raspberry Pi-compatible GPIO, including UART, SPI, I2C, etc.
 
-== Getting Start
+== 快速入门
 
 TIP: link:/en/BPI-M2_Zero/GettingStarted_BPI-M2_Zero[Getting Started BPI-M2_Zero]
 
-= Hardware
-== Hardware Interface
+= 硬件
+== 硬件接口示意图
 
 image::/bpi-m2zero/banana_pi_bpi-m2_zero_interface.jpg[banana_pi_bpi-m2_zero_interface.jpg]
 
-== BPI-M2 Zero Photo
+== BPI-M2 Zero 照片
 
 link:/en/BPI-M2_Zero/Photo_BPI-M2_Zero[Banana Pi BPI-M2 Zero Product photo gallery]
 
-== Hardware Spec
+== 硬件规格
 
 [options="header",cols="1,3"]
 |=====
-2+| **HardWare Specification of Banana Pi M2 Zero**
+2+| **香蕉派 M2 Zero 硬件规格**
 | CPU                   | Allwinner H3/H2+ Quad-core Cortex-A7 H265/HEVC 1080P
 | GPU                   | Mali400MP2 GPU @600MHz,Supports OpenGL ES 2.0
-| Memory \(SDRAM\)      | 512M DDR3(shared with GPU)
-| Onboard Storage       | TF card \(Max. 64GB\)
-| Onboard Network       | NOPE (but can extension with PIN define)
+| 内存 \(SDRAM\)      | 512M DDR3(与GPU共享)
+| 存储       | TF card \(Max. 64GB\)
+| 网络       | NOPE (but can extension with PIN define)
 | PoE power             | NOPE
-| Onboard flash         | NOPE 
-| Onboard WIFI          | K016/SDIO AP6212（option AP6181、AP6335）
-| Video decoding        | 1080p@60fps,H.264 Video encoding 1080p@30fps,H.264
-| Video input           | A CSI input connector Camera
-| Video Outputs         | mini HDMI 1.4,1080P@30fps, DHCP
-| Audio Output          | Mini HDMI
-| Power Source          | Micro USB with 5V/2A
+| flash         | NOPE 
+| 板载 WiFi          | K016/SDIO AP6212（option AP6181、AP6335）
+| 视频解码        | 1080p@60fps,H.264 视频编码 1080p@30fps,H.264
+| 视频输入           | 一个 CSI 输入连接器摄像头
+| 视频输出         | mini HDMI 1.4,1080P@30fps, DHCP
+| 音频输出         | Mini HDMI
+| 电源          | Micro USB with 5V/2A
 | USB 2.0 Ports         | one USB 2.0 OTG
-| Buttons               | Power Button, Reset Button
+| 按键              | 电源按键、复位按键
 | Low-level peripherals | 40 Pins Header,compatible with Raspberry Pi 3
 | uart GPIO\(1x3\) pin  | UART, ground
 | LED                   | Power led & Status led 
 | IR                    | N/A   
-| Supported OS          | android linux    
-| Product size	        | 65mm × 30mm
-| Weight	              | 15g
+| 支持的操作系统         | Android，Linux    
+| 尺寸	        | 65mm × 30mm
+| 重量              | 15g
 |=====
 
-== GPIO Pin Define
+== GPIO 引脚定义
 
 === BPI-M2 Zero 40PIN GPIO
 
-Banana Pi BPI-M2 zero has a 40-pin GPIO header that matches that of the Model Raspberry Pi 3. Following is the Banana Pi GPIO Pinout:
+香蕉派 BPI-M2 zero有一个40引脚的GPIO接口，与 Raspberry Pi 3的相同。
 
 [options="header",cols="1,1,1,1"]
 |=====
@@ -112,13 +112,13 @@ Banana Pi BPI-M2 zero has a 40-pin GPIO header that matches that of the Model Ra
 | CON2-P40 | PA20-EINT20 | PA20-EINT20 |           
 |=====
 
-=== CSI Camera Connector specification:
+=== CSI 摄像头连接器规格
 
-The CSI Camera Connector is a 24-pin FPC connector which can connect external camera module with proper signal pin mappings. The pin definitions of the CSI interface are shown as below. This is marked on the Banana Pi board as “CSI″.
+CSI摄像头连接器是一款24针FPC连接器，可通过正确的信号引脚映射连接外部摄像头模块。
 
 [options="header",cols="1,1,1"]
 |=====
-3+| **24 PIN CSI Camera connector of Banana pi BPI-M2 Zero**
+3+| **香蕉派 BPI-M2 Zero 24 PIN CSI 相机连接器**
 |CSI Pin Name	|Default Function	|Function2：GPIO
 | CN3-P01 | NC         |      
 | CN3-P02 | GND        |      
@@ -146,8 +146,9 @@ The CSI Camera Connector is a 24-pin FPC connector which can connect external ca
 | CN3-P24	| CSI0-DOVDD |
 |=====
 
-=== BPI-M2 Zero Debug UART
-The jumper CON3 is the UART interface. For developers of Banana Pi, this is an easy way to get the UART console output to check the system status and log message.
+=== BPI-M2 Zero 调试接口
+
+跳线CON 3是UART接口。对于香蕉派的开发人员来说，这是一种简单的方法，可以获取控制台输出来检查系统状态和日志消息。
 
 |=====
 3+| **jumper CON3 of Banana pi BPI-M2 Zero**
@@ -157,8 +158,8 @@ The jumper CON3 is the UART interface. For developers of Banana Pi, this is an e
 |CON3 P01	|GND        |
 |=====
 
-= Development
-== Source Code
+= 发展
+== 源代码
 
 === Linux 
 
@@ -189,7 +190,7 @@ Download link: https://drive.google.com/open?id=0B_YnvHgh2rwjdWNEQzg1UDl1bUE
 
 Forum thread: http://forum.banana-pi.org/t/bpi-m2-android-4-4-source-code-download-link/3159
 
-== Resources
+== 开发资料
 
 NOTE: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
 
@@ -225,9 +226,9 @@ NOTE: BANANA PI BPI-M2-ZERO BENCHMARKS & REVIEW : https://bret.dk/banana-pi-bpi-
 
 NOTE: Configuracion y uso de GPIO BPI-M2 Zero 1.5.2 : https://forum.banana-pi.org/t/configuracion-y-uso-de-gpio-bpi-m2-zero-1-5-2/15113
 
-== Basic Development
-=== How to use zero 10/100 Ethernet
-BPI-M2 zero not RJ45 interface ,but it support 100M network with PIN define.
+== 基础开发
+=== 如何使用Zero 的 10/100兆网口
+BPI-M2 zero不支持RJ45接口，但支持100 M网络，PIN自定义。
 
 image::/picture/rj45_pin.jpg[rj45_pin.jpg]
 
@@ -245,12 +246,12 @@ image::/picture/zero_eth_test.jpg[zero_eth_test.jpg]
 
 === Zero power with GPIO 5V input
 
-BPI-M2 Zero 40 PIN GPIO have support 5V input , so you can use 5V input PIN to power zero board .
+BPI-M2 Zero 40 PIN GPIO支持5V输入，所以你可以使用5V输入PIN来为零板供电。
 
 image::/picture/zero_gpio_5v.jpg[zero_gpio_5v.jpg]
 
 = System Image
-CAUTION: Note: all image support H2+ and H3 chip on board for BPI-M2 Zero
+CAUTION: Note: 所有图像支持H2+和H3芯片的BPI-M2 Zero
 
 == Android
 
@@ -463,12 +464,12 @@ https://forum.banana-pi.org/t/nuevas-imagenes-bpi-m2-zero/13414
 NOTE: LibreElec 10 (Kodi Matrix) at BPI-M2 Zero with Youtube, HBO Max and (probably) Netflix:
 http://forum.banana-pi.org/t/libreelec-10-kodi-matrix-at-bpi-m2-zero-with-youtube-hbo-max-and-probably-netflix/12474
 
-= Easy to buy
+= 购买链接
 
-WARNING: SINOVOIP Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M2-Zero/1100417230_40000003593410.html
+WARNING: SINOVOIP 全球速卖通商店: https://www.aliexpress.com/store/group/BPI-M2-Zero/1100417230_40000003593410.html
 
-WARNING: Bipai Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M2-Zero/1101951077_40000003414813.html
+WARNING: Bipai 全球速卖通商店: https://www.aliexpress.com/store/group/BPI-M2-Zero/1101951077_40000003414813.html
 
-WARNING: Taobao Shop: https://shop108780008.taobao.com/category-1694930631.htm
+WARNING: 淘宝: https://shop108780008.taobao.com/category-1694930631.htm
 
-WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
+WARNING: OEM&ODM, 请联系: judyhuang@banana-pi.com
