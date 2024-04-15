@@ -1,70 +1,71 @@
-= BPI-F2P Introduction
+= BPI-F2P 介绍
 
-Banana Pi BPI-F2P use link:https://www.sunplus.com/[Sunplus] chip design, this is a industrial control board. use Plus1(sp7021) design same ase Banana Pi BPI-F2S, it support PoE function with PoE module,and support RS232 and RS485 . so you can use it do a Industrial control gateway.
+香蕉派 BPI-F2 P采用 link:https://www.sunplus.com/[凌阳(Sunplus)]芯片设计，这是一款工业控制板。使用Plus 1（sp 7021）设计了与Banana Pi相同的BPI-F2 S，它支持PoE功能，带有PoE模块，支持RS232和RS485。所以你可以用它做一个工业控制网关。
 
 image::/picture/a_bpi-f2p.jpg[a_bpi-f2p.jpg]
 
-TIP: SunPlus sp7021 design: link:/en/BPI-F2S/BananaPi_BPI-F2S[Banana Pi BPI-F2S] FPGA development board +
-SunPlus sp7021 design: link:/en/BPI-F2P/BananaPi_BPI-F2P[Banana Pi BPI-F2P] SBC industrial control gateway board
+TIP: 凌阳(Sunplus) sp7021 设计: link:/en/BPI-F2S/BananaPi_BPI-F2S[Banana Pi BPI-F2S] FPGA 开发板 +
+凌阳(Sunplus) sp7021 设计: link:/en/BPI-F2P/BananaPi_BPI-F2P[Banana Pi BPI-F2P] SBC工控网关板
 
-=== About SunPlus SP7021
-SunPlus sp7021 is a revolutionary SoC that has the power of a Linux-grade chip and the integration simplicity of a microcontroller.it with ARM Cortex-A7 Quad core,ARM926 real-time core,8051 low-power core
+=== 关于 SunPlus SP7021
 
-Conceived by Sunplus Technology in collaboration with Tibbo Technology, PLUS1 takes all the sophisticated elements typically found in modern industrial-grade embedded Linux chips, adds a plethora of features targeting IoT and industrial control applications, and delivers the resulting design in a simple microcontroller-like package that needs few external components, simplifies the schematic diagram, and reduces the PCB complexity.
+SunPlus sp7021是一款革命性的SoC，具有Linux级芯片的强大功能和微控制器的集成简单性。它具有ARM Cortex-A7四核、ARM926实时核和8051低功耗核。
 
-SP7021 is a SoC solution of industrial control. It meets customers’full demand on function but with low cost so that will improve customers’ competitiveness in the market. SP7021 provides rich GPIOs, storage and USB interface. And it provides MIPI CSI interface for video input and HDMI interface for video output. It also provides FPGA interface for function extension. SP7021 also has 4 Ethernet ports providing customers a high competitive solution.
+PLUS1由Sunplus Technology与Tibbo Technology合作构思，采用了现代工业级嵌入式Linux芯片中常见的所有复杂元素，添加了大量针对物联网和工业控制应用的功能，并在一个简单的类似微控制器的封装中提供了所需的设计，该封装几乎不需要外部组件，简化了原理图，降低了PCB的复杂性。
 
-== Key Features
+SP7021是工业控制的SoC解决方案。它以低成本满足客户对功能的全面需求，从而提高客户在市场上的竞争力。SP7021提供丰富的GPIO、存储和USB接口。并为视频输入提供MIPI CSI接口，为视频输出提供HDMI接口。同时提供FPGA接口进行功能扩展。SP7021还具有4个以太网端口，为客户提供了极具竞争力的解决方案。
 
-- Easy-to-use LQFP package.
-- Quad-core 1GHz Cortex-A7 CPU, plus A926 and 8051 cores.
-- Single 3.3V power*.
-- Integrated 128MB or 512MB DDR3 DRAM.
-- Eight 8-bit 5V-tolerant IO ports, plus one high-current port.
-- Flexible Peripheral Multiplexing (PinMux).
-- Dual PinMuxable Ethernet MACs.
-- Four PinMuxable Enhanced UARTs, plus one console UART.
-- Industrial operating temperature range: -40C ~ +85C.
-- Low EMI simplifies certification.
-- Modern, Yocto-based Linux distribution.
-- 10-year supply guarantee.
-- Robust ready-to-run modern Linux distribution available
-- And much more...
+== 主要特点
 
-== Application direction
+- 易于使用的LQFP封装。
+- 四核1GHz Cortex-A7 CPU，加上A926和8051核心。
+- 3.3V电源
+- 集成128 MB或512 MB DDR3 DRAM。
+- 8个8位5V耐受IO端口，外加一个高电流端口。
+- 灵活外设多路复用（PinMux）。
+- 双引脚复用以太网MAC。
+- 四个PinMuxable增强型UART，外加一个控制台UART。
+- 工业工作温度范围：-40 ℃ ~+85 ℃。
+- 低EMI简化认证。
+- 现代的、基于Linux的Linux发行版。
+- 10年供应保障。
+- 提供强大的可随时运行的现代Linux发行版
+- 和更多...
 
-- IoT/Industrial Internet control
-- Smart Audio
-- Smart Payment system
-- Vehicular networking technology and applications
 
-== Getting Start
+== 应用方向
 
+- 物联网/工业互联网控制
+- 智能音响
+- 智慧支付系统
+- 物联网技术及应用
+
+== 快速r入门
 TIP: link:/en/BPI-F2P/GettingStarted_BPI-F2P[Getting Started BPI-F2P]
 
-= Hardware
-== Hardware Interface
+= 硬件
+== 硬件接口示意图
 
 image::/bpi-f2pf2s/banana_pi_bpi-f2p_interface.jpg[banana_pi_bpi-f2p_interface.jpg]
 
-The inner and outer diameter of the power plug adapter datasheet : https://drive.google.com/file/d/1k3AWmYOs2XE7lnRxCyytZu0Vpq_Bzcu_/view?usp=sharing
+电源插头适配器的内径和外径 : https://drive.google.com/file/d/1k3AWmYOs2XE7lnRxCyytZu0Vpq_Bzcu_/view?usp=sharing
 
 image::/picture/dc090_size.png[dc090_size.png]
 
-== BPI-F2P Photo
+== BPI-F2P 照片
 
 link:/en/BPI-F2P/Photo_BPI-F2P[Banana Pi BPI-F2P Product photo gallery]
 
-== Hardware Spec
+== 硬件规格
 
 [options="header",cols="1,4"]
 |=====
-2+| **HardWare Specification of Banana Pi F2P**
-| SoC | Sunplus SP7021 “Plus1” with a quad-core Cortex-A7 processor @ 1.0 GHz, one Arm A926 microprocessor, an 8051 core to handle I/Os, and 128MB or 512MB DDR3 DRAM.
-| Storage | 8GB eMMC flash, microSD card slot
-| Video Output | HDMI 1.4 output
-| Camera I/F | MIPI CSI connector
-| Connectivity | 2x 10/100M Ethernet
+2+| **香蕉派 F2P 硬件规格**
+| SoC | 凌阳SP 7021“Plus 1”配备四核Cortex-A7处理器@1.0 GHz，一个Arm A926微处理器，一个8051内核来处理I/O，以及128 MB或512 MB DDR3 DRAM。
+| 存储 | 8GB eMMC flash, microSD card slot
+| 视频输出 | HDMI 1.4 output
+| 摄像头 I/F | MIPI CSI connector
+| 网络 | 2x 10/100M 以太网
 | USB | 2x USB 2.0 host ports, 1x micro USB port
 | Expansion | 2 USB header interface
 
@@ -75,15 +76,15 @@ link:/en/BPI-F2P/Photo_BPI-F2P[Banana Pi BPI-F2P Product photo gallery]
 RTC battery interface
 
 PoE function support
-| Debugging | 3-pin header for UART console, SWD ICE port
-| Security | TPM 2.0 via ST33TPH2EI2C secure element
-| Misc | Power switch, reset button, boot selection dip switch
-| Power Supply | 12VDC via power barrel jack
-| Dimensions | 130x85mm
-| Temperature Range | -40C ~ +85°C
+| 调试 | 3个用于USB控制台的引脚接头，SWD ICE端口
+| 安全 | TPM 2.0通过ST33TPH2EI2C安全元件
+| 按键 | 电源开关、复位按钮、启动选择开关
+| 电源 | 12VDC via power barrel jack
+| 尺寸 | 130x85mm
+| 温度范围 | -40C ~ +85°C
 |=====
 
-== Wifi & BT support via expansion board
+== 通过扩展板支持Wifi和BT
 === SDIO interface Wifi&BT
 
 - WiFi&BT board, 802.11 a/b/g/n/ac 2T2R WiFi and Bluectooch 5.0, support BPI-M5 and BPI-F2P
@@ -92,7 +93,7 @@ PoE function support
 
 === Standard USB interface Wifi&BT
 
-- Banana Pi Wifi&BT 4.2 expansion Board, standard USB interface, so support all open source boards via USB port.IEEE 802.11b/g/n/ac(1T1R) USB WLANAnd BT Module
+- 香蕉派 Wifi&BT 4.2扩展板，标准USB接口，支持所有开源板通过USB端口。IEEE 802.11b/g/n/ac（1 T1 R）USB WLAN和BT模块
 
 image::/picture/usb_wifi_bt_board_3.jpg[usb_wifi_bt_board_3.jpg]
 
@@ -100,12 +101,12 @@ image::/picture/usb_wifi_bt_board_3.jpg[usb_wifi_bt_board_3.jpg]
 
 == BPI-F2P-SUB baord
 
-We also design a expansion board for BPI-F2P , it support 2 SATA interface and 4G module support interface
+我们还为BPI-F2P设计了一个扩展板，它支持2个SATA接口和4G模块支持接口
 
 image::/picture/bpi-f2p-sub_4.jpg[bpi-f2p-sub_4.jpg]
 
-= Development
-== Source Code
+= 发展
+== 原理图
 
 === Linux
 
@@ -113,7 +114,7 @@ TIP: Sunpuls github for Linux kernel 4.19 and 5.4 source code: https://github.co
 
 TIP: BPI F2S/F2P BPS code with kernel 4.19 and 5.4 source code: https://github.com/BPI-SINOVOIP/BPI-F2S-bsp
 
-== Resources
+== 开发资料
 
 TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
 
@@ -136,13 +137,13 @@ TIP: Banana Pi BPI-F2P Sunplus SP7021 industrial control board PoE function test
 TIP: link:https://www.youtube.com/watch?v=eoSP7cO2ki4&feature=youtu.be[Banana Pi BPI-F2S setup & run fedora 31 (u-boot-2019.04 + kernel 4.19.37)]
 
 
-= System Image
+= 系统镜像
 
 == Linux
 
 === Ubuntu
 
-NOTE: BPI-F2P new image 2021-06-06 update:Ubuntu server 20.04.1 and Ubuntu mate 20.04.1 image，this image support boot from SD card and eMMC flash, this image boot fast than old image
+NOTE: BPI-F2 P新镜像2021-06-06更新：Ubuntu server 20.04.1和Ubuntu mate 20.04.1镜像，此镜像支持从SD卡和eMMC启动，此镜像启动比旧镜像快
 
 Google link : https://drive.google.com/file/d/1hu5zvw6lbiLUaw5BLRCUFo1HXaDR3ztM/view?usp=drivesdk
 
@@ -154,7 +155,7 @@ Google link : https://drive.google.com/file/d/1f_C_BBM5g6lEVhNpWqIDJaxgivs8gt60/
 
 Baidu link: https://pan.baidu.com/s/1Uz8L12aS40WZyvmoP5wVhA pincode: nb98
 
-NOTE: BPI-F2P new image 2021-01-29 update:Ubuntu server 20.04.1 and Ubuntu mate 20.04.1 image，this image support boot from SD card and eMMC flash
+NOTE: BPI-F2 P新镜像2021-01-29更新：Ubuntu server 20.04.1和Ubuntu mate 20.04.1镜像，此镜像支持从SD卡和eMMC启动
 
 Google link https://drive.google.com/file/d/1eHOMRnR1YWVxIPkBe0vtWvoMJQ9g79J2/view?usp=drivesdk
 
@@ -172,7 +173,7 @@ NOTE: BPI-F2P new image: Ubuntu server 20.04.1 and Ubuntu mate 20.04.1 image
 
 Discuss on fourm: http://forum.banana-pi.org/t/bpi-f2p-new-image-ubuntu-server-20-04-1-and-ubuntu-mate-20-04-1-image/11608
 
-Support BPI-F2P-SUB baord . all function test fine
+支持BPI-F2P-Bubaord。所有功能测试正常
 
 NOTE: BPI-F2P new image: Ubuntu mate 18.04.2 2020-08-16
 
@@ -247,10 +248,10 @@ Mozilla gateway getting started guide: https://iot.mozilla.org/docs/gateway-gett
 Discuss on forum : http://forum.banana-pi.org/t/bpi-f2s-new-image-mozilla-iot-rpi-gateway-0-10-0-2019-12-25/10455
 
 
-= Easy to buy
+= 购买链接
 
-WARNING: Aliexpress : https://www.aliexpress.com/item/4001268419883.html
+WARNING: 全球速卖通商店: https://www.aliexpress.com/item/4001268419883.html
 
-WARNING: Taobao: https://item.taobao.com/item.htm?ft=t&id=624363638904
+WARNING: 淘宝: https://item.taobao.com/item.htm?ft=t&id=624363638904
 
-WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
+WARNING: OEM&ODM, 请联系: judyhuang@banana-pi.com
