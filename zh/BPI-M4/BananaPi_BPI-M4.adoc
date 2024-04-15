@@ -1,55 +1,56 @@
-= BPI-M4 Introduction
+= BPI-M4 介绍
 
-Banana Pi BPI-M4 use Realtek RTD1395 chp design ,it is a 64-bit quad-core A53 mini single board computer. It features 1 GB/2GB of RAM and 8 GB eMMC. It also has onboard WiFi for b/g/n/ac and BT 4.2. On the ports side, the BPI-M4 has 4 USB 2.0 ports, 1 USB TYPE C port, 1 HDMI port, 1 audio jack. support M.2 Key E PCIE 2.0 interface.
+香蕉派 BPI-M4采用Realtek RTD 1395芯片设计，是一款64位四核A53迷你单板机。它具有1 GB/2GB RAM和8 GB eMMC。它也有板载WiFi的b/g/n/ac和BT 4.2。在端口方面，BPI-M4有4个USB 2.0端口，1个USB TYPE C端口，1个HDMI端口，1个音频插孔。支持M.2 Key E PCIE 2.0接口。
 
 image::/picture/banana_pi_bpi-m4.jpg[banana_pi_bpi-m4.jpg]
 
-=== Realtek RTD1395
-The RTD1395 is equipped with a high-performance quad-core CPU,ARM cortex-A53,with 512K L2 cache embedded. the RTD1395 also integrates and efficient ARM Mali-470 Graphic Processing Unit(GPU) to accelerate 2D and 3D graphics processing. For acceleration of this OSD and 2K user interface,the built-in Streaming Engine of the RTD1395 provides commonly used drawing functions.the CPU is dedicated to applications ,while most of the functions of the RTD1395 is dedicated to manipulating,decoding video streams in vaious formats.e.g. decoding 4K2K H.265,Full HD MPEG1/2/4/H.264/H.264 MVC,AVC/VC-1,VP8,VP9,AVS,AVS plus,HD JPEG,etc. Video DSP can also handle encoding of up to Full HD with H.264 format.Video decoding and encoding can run simultaneously.
+=== 关于 Realtek RTD1395
 
-== Key Features
+RTD 1395配备高性能四核CPU ARM cortex-A53，内置512 K二级缓存。RTD 1395还集成了高效的ARM Mali-470图形处理单元（GPU），以加速2D和3D图形处理。为了加速这种OSD和2K用户界面，RTD 1395的内置流媒体引擎提供了常用的绘图功能。CPU专用于应用程序，而RTD 1395的大部分功能专用于处理，解码各种格式的视频流。例如解码4K 2K H.265，Full HD MPEG 1/2/4/H.264/H.264 MVC，AVC/VC-1，VP 8，VP 9，AVS，AVS plus，HD JPEG等。视频DSP还可以处理H.264格式的全高清编码。视频解码和编码可以同时运行。
 
-- Realtek RTD1395 ARM Cortex-A53 Quad-Core 64 Bit
-- Mali 470 MP4 GPU OpenGL ES 1.1/2.0 H.264 H.265,2K4K
-- Onboard1 GB DDR4 (option 2 GB)
-- 8G eMMC flash (max 64 GB)
-- 10/100 Mbit/s Ethernet and RTL8821 module support Wi-Fi 802.11 b/g/n/AC + Bluetooth 4.2
-- USB 2.0 TYPE C
-- M.2 Key E slot PCIE 2.0 and USB 2.0
-- PoE function support
+== 主要特点
 
-== Getting Start
+- Realtek RTD 1395 ARM Cortex-A53四核64位
+- Mali 470 MP4 GPU OpenGL ES 1.1/2.0 H.264 H.265，2K4K
+- 板载1 GB DDR4（可选2 GB）
+- 8 G eMMC闪存（最大64 GB）
+- 10/100 Mbit/s以太网和RTL 8821模块支持Wi-Fi 802.11 b/g/n/AC +蓝牙4.2
+- USB 2.0 Type C
+- M.2钥匙E插槽PCIE 2.0和USB 2.0
+- PoE功能支持
+
+== 快速入门
 
 TIP: link:/en/BPI-M4/GettingStarted_BPI-M4[Getting Started BPI-M4]
 
-= Hardware
-== Hardware Interface
+= 硬件
+== 硬件接口示意图
 
 image::/picture/banana_pi_bpi-m4_interface.jpg[banana_pi_bpi-m4_interface.jpg]
 
-== Hardware Spec
+== 硬件规格
 
-[option="header",cols="1,3"]
+[options="header",cols="1,3"]
 |=====
-2+| **HardWare Specification of Banana Pi M4**
+2+| **香蕉派 M4 硬件规格**
 | CPU             | Realtek RTD1395 ARM Cortex-A53 Quad-Core 64 Bit
 | GPU             | Mali 470 MP4 GPU OpenGL ES 1.1/2.0
-| Memory          | 1 GB DDR4 (option 2 GB)
-| Storage         | MicroSD slot with support for up to 256GB expansion and 8G eMMC flash with support for up to 64GB
-| Network         | 10/100 Mbit/s Ethernet + Wi-Fi 802.11 b/g/n/AC + Bluetooth 4.2
-| Video Output(s) | HDMI port and multi-channel audio output support 1080P H.264 H.265 2K/4K 
-| Audio Output(s) | 3.5mm jack and HDMI
+| 内存          | 1 GB DDR4 (option 2 GB)
+| 存储         | MicroSD插槽支持最高256GB扩展，8G eMMC闪存支持最高64GB
+| 网络        | 10/100 Mbit/s 以太网 + Wi-Fi 802.11 b/g/n/AC + 蓝牙 BT 4.2
+| 视频输出 | HDMI端口和多声道音频输出支持1080 P H.264 H.265 2K/4K
+| 音频输出 | 3.5mm jack and HDMI
 | PCIE            | M.2 Key E slot PCIE 2.0 and USB 2.0
-| USB ports       | USB 2.0 PORT (x4), USB 2.0 TYPE C(x1)
+| USB 端口      | USB 2.0 PORT (x4), USB 2.0 TYPE C(x1)
 | GPIO            | 40 Pin Header : GPIO (x28) and Power (+5V, +3.3V and GND). GPIO pins can be used for UART, I2C, SPI or PWM 
-| Switches        | Reset, Power and U-boot
-| LED             | Power Status and Activity status
-| Power Source    | 5 volt @2A via Micro USB (TYPE C) or PoE support
-| Size & Weight   | 92x60mm, 48g
+| 按键       | Reset, Power and U-boot
+| LED             | 电源状态和活动状态
+| 电源    | 5 volt @2A via Micro USB (TYPE C) or PoE support
+| 尺寸，重量   | 92x60mm, 48g
 | OS              | Android and Linux
 |=====
 
-== GPIO Pin Define
+== GPIO 引脚定义
 
 === BPI-M4 40PIN GPIO
 
@@ -99,7 +100,7 @@ image::/picture/banana_pi_bpi-m4_interface.jpg[banana_pi_bpi-m4_interface.jpg]
 | CON1-P40 | AO_SD     | GPIO-6 
 |=====
 
-=== BPI-M4 Debug UART
+=== BPI-M4 调试接口
 The header CON2 is the UART interface. For developers of Banana Pi, this is an easy way to get the UART console output to check the system status and log message.
 |=====
 |CON2-P1	| GND	
@@ -108,16 +109,15 @@ The header CON2 is the UART interface. For developers of Banana Pi, this is an e
 |=====
 - Banana Pi BPI-M4: How to get I2C and SPI running (tutorial): https://forum.banana-pi.org/t/banana-pi-bpi-m4-how-to-get-i2c-and-spi-running-tutorial/12824/6
 
-= Development
-== Source Code
-
+= 发展
+== 源代码
 === Linux 
 
 TIP: Supports Banana Pi BPI-M4 (RTD1395) (Kernel 4.9.119)
 
 Source code on github: https://github.com/BPI-SINOVOIP/BPI-M4-bsp
 
-== Resources
+== 开发资料
 TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
 
 TIP: All banana pi link:https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[docement(SCH file,DXF file,and doc)]
@@ -154,8 +154,8 @@ TIP: BPI-M4 USB host dying (uvcvideo and usb rtl8821cu) (solution): https://foru
 
 TIP: Banana Pi BPI-M4: How to get I2C and SPI running (tutorial): https://forum.banana-pi.org/t/banana-pi-bpi-m4-how-to-get-i2c-and-spi-running-tutorial/12824
 
-= System Image
-All image link: https://drive.google.com/drive/folders/1xBxYgKM40GrBa-qfgPDD-cRrUhWBo34u
+= 系统镜像
+NOTE: 所有镜像链接: https://drive.google.com/drive/folders/1xBxYgKM40GrBa-qfgPDD-cRrUhWBo34u
 
 == Android
 
@@ -164,7 +164,7 @@ NOTE: 2020-10-20 update, Android 8.1 with kernel 4.9.119.
 
 link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/?p=%2FImages%2FBPI-M4%2Fandroid8&mode=list[Download Android 8.1 image]
 
-WARNING: IMPORTANT: Note: BPI-M4 Android8 image is only support 2GB ddr board because 1GB ddr is not stable and smooth for Android8
+WARNING: 重要注意：BPI-M4 Android 8图像只支持2GB DDR板，因为1GB DDR对于Android 8来说不稳定和流畅
 
 
 == Linux
@@ -202,7 +202,7 @@ Baidu Drive : https://pan.baidu.com/s/1lkG6gyzn-KPbvrEhf6Q85w PIN code：5jbo
 
 MD5 : 328706256bec238df50f9bd6ab8dfd1b
 
-WARNING: Issue: if HDMI doesn't display, please try "ctrl + alt + F1" to change terminal then "ctrl + alt + F7" change to desktop display.
+WARNING: 问题：如果HDMI不显示，请尝试“Ctrl + Alt + F1”更改终端，然后“Ctrl + Alt + F7”更改为桌面显示。
 
 
 === Debian
@@ -220,9 +220,9 @@ Baidu Drive : https://pan.baidu.com/s/1WcrBkxm5OyBLedCBwaUz6Q PIN code：e6m3
 
 MD5 : 300b37cdfa092d72dceddd4f33825b40
 
-WARNING: Issue: if HDMI doesn’t display, please try “ctrl + alt + F1” to change terminal then “ctrl + alt + F7” change to desktop display.
+WARNING: 问题：如果HDMI不显示，请尝试“Ctrl + Alt + F1”更改终端，然后“Ctrl + Alt + F7”更改为桌面显示。
 
-WARNING: SW2: switch to 0，if insert SD, SD start；if doesn’t insert SD，EMMC start.
+WARNING: SW 2：切换到0，如果插入SD，则SD启动;如果未插入SD，则EMMC启动。
 
 NOTE: 2019-08-06 update,Debian 10 Buster Lite Demo Image,kernel 4.9.
 
@@ -268,9 +268,9 @@ Baidu Drive : https://pan.baidu.com/s/1WivDWZHu_GnWOxhVOjoqIQ PIN code：uhcg
 
 MD5 : 53bb6f8d00f8708dab96bc865eaddc5e
 
-WARNING: Issue: if HDMI doesn't display, please try "ctrl + alt + F1" to change terminal then "ctrl + alt + F7" change to desktop display.
+WARNING: 问题：如果HDMI不显示，请尝试“Ctrl + Alt + F1”更改终端，然后“Ctrl + Alt + F7”更改为桌面显示。
 
-WARNING: SW2: switch to 0，if insert SD, SD start；if doesn't insert SD，EMMC start.
+WARNING: SW 2：切换到0，如果插入SD，则SD启动;如果未插入SD，则EMMC启动。
 
 == Third part image
 
@@ -294,14 +294,14 @@ Baidu Drive : https://pan.baidu.com/s/1gwD5ok9XLLQa0InU_-b7EA PIN code：uuqn
 
 MD5 : a397a9c4d078c2841f0c243c573dc9a8
 
-WARNING: Issue: if HDMI doesn't display, please try "ctrl + alt + F1" to change terminal then "ctrl + alt + F7" change to desktop display.
+WARNING: 问题：如果HDMI不显示，请尝试“Ctrl + Alt + F1”更改终端，然后“Ctrl + Alt + F7”更改为桌面显示。
 
-WARNING: SW2: switch to 0，if insert SD, SD start；if doesn't insert SD，EMMC start.
+WARNING: SW 2：切换到0，如果插入SD，则SD启动;如果未插入SD，则EMMC启动。
 
 = FAQ
 - Easy to buy sample on aliexpress shop : https://pt.aliexpress.com/store/product/Banana-Pi-BPI-M4-Realtek-RTD1395-ARM-64-bit-Board/302756_33036948250.html?spm=2114.12010611.8148356.1.fcef30d9EoKVYY
 
 
-= Easy to buy
+= 购买链接
 
-WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
+WARNING: OEM&ODM, 请联系: judyhuang@banana-pi.com
