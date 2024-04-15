@@ -103,11 +103,11 @@ NOTE: Note: All linux Image suuport dual display HDMI and MIPI-DSI together, MIP
 
 **HDMI Display**
 
-
+image::/picture/hdmi.jpg[hdmi.jpg]
 
 **MIPI-DSI panel Display**
 
-
+image::/picture/mipi-dsi.jpg[mipi-dsi.jpg]
 
 == Wlan&BT
 J14 M.2 KEY E Slot is used for connect Wlan&BT adapter, default image support RTL8822CE(PCIE+USB) and RTL8822CS(SDIO+UART).
@@ -428,21 +428,21 @@ Display on desktop using gst-launch-1.0
 # gst-launch-1.0 v4l2src device=/dev/video11 ! video/x-raw,format=NV12,width=3840,height=2160, framerate=30/1 ! xvimagesink
 ```
 +
-1200px-Gst-luanch.jpeg
+image::/picture/1200px-gst-luanch.jpg[1200px-gst-luanch.jpg]
 
 . USB3.0 Camera
 +
 After connecting the usb3.0 camera, open the Qt V4L2 test Utility application for testing
 +
-V4L2.png
+image::/picture/v4l2.png[v4l2.png]
 +
 Then open the video node: video21:
 +
-Video21.png
+image::/picture/video21.png[video21.png]
 +
 Then click the camera button, you will see the camera screen:
 +
-1200px-Capture.png
+image::/picture/1200px-capture.png[1200px-capture.png]
 
 == NPU usage
 **DEMO video**: https://www.youtube.com/watch?v=y7mYxn3rq0U
