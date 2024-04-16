@@ -1,84 +1,86 @@
-= BPI-R2 Pro Introduction
+= BPI-R2 Pro 介绍
 
-Banana Pi BPI-R2 Pro is the next generation smart router developement board from Banana Pi in 2021. It is powered by Rockchip RK 3568 processor.Onboard 2GB LPDDR4 memory and 16GB eMMC storage, and supports 2 USB 3.0 interface, 5 gigabit network port. M.2 key-E and mini PCIe interface, 2 mipi DSI interface(one can change to LVDS by software), 1 CSI camera interface,1 HDMI output.
+香蕉派 BPI-R2 Pro是香蕉派在2021年推出的下一代智能路由器开发板。搭载瑞芯微 RK3568处理器，内置2GB LPDDR4内存和16GB eMMC存储，支持2个USB 3.0接口，5个千兆网口。M.2 key-E和mini PCIe接口，2个mipi DSI接口（其中一个可通过软件更改为LVDS），1个CSI摄像头接口，1个HDMI输出。
 
 image::/picture/banana_pi_bpi-r2_pro_ban_.jpg[banana_pi_bpi-r2_pro_ban_.jpg]
 
-TIP: Rockchip RK3568 design : link:/en/BPI-R2_Pro/BananaPi_BPI-R2_Pro[Banana Pi BPI-R2 Pro] Router board +
-Rockchip RK3568 design : link:/en/BPI-CM2/BananaPi_BPI-CM2[Banana Pi BPI-CM2] Computer module kit +
-Rockchip RK3568 design : link:/en/BPI-KVM/BananaPi_BPI-KVM[Banana Pi BPI-KVM] PiKVM for KVM over IP 
+TIP: 瑞芯微(Rockchip) RK3568 设计 : link:/en/BPI-R2_Pro/BananaPi_BPI-R2_Pro[Banana Pi BPI-R2 Pro] 路由器板 +
+瑞芯微(Rockchip) RK3568 设计 : link:/en/BPI-CM2/BananaPi_BPI-CM2[Banana Pi BPI-CM2] 计算机模块套件 +
+瑞芯微(Rockchip) RK3568 设计 : link:/en/BPI-KVM/BananaPi_BPI-KVM[Banana Pi BPI-KVM] 用于KVM over IP的PiKVM
 
-Banana Pi BPI-CM2 Computer module also design with Rockchip RK3568,if you want to customize your own products, you just need to develop baseboards based on BPI-CM2 and quickly mass produce your products based on RK3568 solution.
+香蕉派 BPI-CM2计算机模块也采用瑞芯微RK3568设计，如果您想定制自己的产品，您只需要开发基于BPI-CM2的底板，并快速批量生产基于RK 3568解决方案的产品。
 
-NOTE: BPI-R2 Pro same size as Banana Pi BPI-R2 , and interface is also same .so can use BPI-R2 case.
+NOTE: BPI-R2 Pro与Banana Pi BPI-R2尺寸相同，接口也相同，因此可以使用BPI-R2外壳。
 
-== Rockchip RK3568
-RK3568 has built-in MICRO-research NPU of Rockchip, 0.8Tops computing power and integrated high performance AI accelerator RKNN NPU. Rockchip also provides developers with an easy-to-use model transformation tool, RKNN-Toolkit, which supports one-click transformation of Caffe/TensorFlow/TF-Lite/ONNX/PyTorch/Keras/Darknet mainstream architecture models.
+== 关于 Rockchip RK3568
 
-RK3568 has rich interface expansion capabilities. Supports a variety of peripheral high-speed interfaces, supporting four USB2.0 ports, 4xUSB2.0 HOST+ 1xUSB3.0 HOST+ 1xusB3.0 OTG. Support gigabit Ethernet *2, multi-camera support, support MIPI CSI 4Lanes, can be divided into 2x2Lanes two groups of independent use support 16bit DVP interface, support BT1120 input, support VC mode. RK3568 has a complete display interface, support HDMI 2.0 output support dual channel MIPI DSI, dual channel LVDS, can drive 2.5K LCD screen, can directly drive ink screen, support eDp. RK3568 has plenty of peripherals, supporting 10x UART, 6x I2C, 16x PWM, 4x SPI, 8xSARADC and MINI PCIE.
+RK3568内置瑞芯微MICRO-research NPU，0.8Tops算力，集成高性能AI加速器RKNN NPU。瑞芯微还为开发者提供了易用的模型转换工具RKNN-Toolkit，支持一键转换Caffe/TensorFlow/TF-Lite/ONNX/PyTorch/Keras/Darknet主流架构模型。
 
-Rockchip RK3568 chip is a general PURPOSE SoC designed for consumer industry applications. The CPU uses 4-core A55 architecture processor, integrated G52 GRAPHICS processor, built-in independent NPU, and runs Android 11 and Linux. RK3568 is mainly customized for tablet PC, speaker with screen, Android pen, dictionary pen and other consumer products, as well as face payment POS machine, e-book, cloud terminal, video phone, NAS storage and other industry products
+RK3568具有丰富的接口扩展能力。支持多种外设高速接口，支持4个USB2.0端口，4xUSB2.0 HOST + 1xUSB3.0 HOST + 1xUSB3.0 OTG。支持两个千兆以太网，支持多摄像头，支持MIPI CSI 4Lanes，可分为2x2Lanes两组独立使用支持16bit DVP接口，支持BT1120输入，支持VC模式。RK3568具有完整的显示接口，支持HDMI2.0输出支持双通道MIPI DSI，双通道LVDS，可驱动2.5K LCD屏，可直接驱动墨水屏，支持eDp。RK3568具有丰富的外设，支持10 x UART，6 x I2C，16 x PWM，4 x SPI，8 x SARADC和MINI PCIE。
 
-Rockchip RK3568 chip is a high-range general-purpose SoC, made in 22nm process technology, integrated 4-core ARM architecture A55 processor and Mali G52 2EE graphics processor, supporting 4K decoding and 1080P encoding. RK3568 supports various types of peripheral interfaces such as SATA/PCIE/USB3.0, it has a built-in independent NPU, and can be used for lightweight AI applications. RK3568 supports both Android 11 and Linux systems, and targets at industrial customization markets such as IoT gateways, NVR storage, industrial control panels, industrial equipment, industrial control boxes, karaoke, cloud terminals, and vehicle control center.
+瑞芯微RK3568芯片是一款专为消费行业应用而设计的通用SoC。CPU采用4核A55架构处理器，集成G52 GRAPHICS处理器，内置独立NPU，运行Android 11和Linux。RK3568主要为平板电脑、带屏音箱、安卓笔、字典笔等消费类产品定制，以及人脸支付POS机、电子书、云终端、可视电话、NAS存储等行业产品。
 
-== Key Features
+瑞芯微RK 3568芯片是一款高端通用SoC，采用22 nm制程工艺制造，集成4核ARM架构A55处理器和Mali G52 2 EE图形处理器，支持4K解码和1080 P编码。RK 3568支持SATA/PCIE/USB3.0等多种外设接口，内置独立NPU，可用于轻量级AI应用。RK 3568同时支持Android 11和Linux系统，面向物联网网关、NVR存储、工控屏、工业设备、工控盒、卡拉OK、云终端、车控中心等行业定制市场。
 
-- Rockchip RK3568 Quad-core ARM Cortex-A55 CPU
+== 主要特点
+
+- 瑞芯微RK 3568四核ARM Cortex-A55 CPU
 - Mali-G52 1-Core-2EE
-- 2G LPDDR4 SDRAM (option 4G)
-- Mini PCIE interface and M.2 key-e interface
-- support 1 SATA interface
-- MicroSD slot supports up to 256GB expansion
-- 16G eMMC flash (option 16/32/64G)
-- 2 MIPI display interface support
-- 1 CSI camera interface
-- 5 port 10/100/1000 Mb Ethernet port
-- 2 USB 3.0 and 1 USB 2.0 otg port
+- 2G LPDDR 4 SDRAM（可选4G）
+- Mini PCIE接口和M.2 key-e接口
+- 支持1个SATA接口
+- MicroSD插槽支持高达256 GB的扩展
+- 16 G eMMC闪存（可选16/32/64 G）
+- 2 MIPI显示接口支持
+- 1个CSI摄像头接口
+- 5个 10/100/1000Mb以太网端口
+- 2个USB 3.0和1个USB 2.0 otg端口
 
-== Getting Start
+
+== 快速入门
 
 TIP: link:/en/BPI-R2_Pro/GettingStarted_BPI-R2_Pro[Getting Started BPI-R2_Pro]
 
-= Hardware
-== Hardware Interface
+= 硬件
+== 硬件接口示意图
 
 image::/picture/banana_pi_bpi-r2_pro_int_750.jpg[banana_pi_bpi-r2_pro_int_750.jpg]
 
-== BPI-R2 Pro photo
+== BPI-R2 Pro 图片
 
 link:/en/BPI-R2_Pro/Photo_BPI-R2_Pro[Banana Pi BPI-R2 Pro Product photo gallery]
 
-== Hardware Spec
+== 硬件规格
 
-[option="header",cols="1,5"]
+[options="header",cols="1,5"]
 |=====
-2+| **HardWare Specification of Banana Pi R2 Pro**
-| CPU              | Rockchip RK3568 Quad-core ARM Cortex-A55 CPU 2GHz
+2+| **香蕉派 R2 Pro 硬件规格**
+| CPU              | 瑞芯微RK3568 四核ARM Cortex-A55 CPU 2GHz
 | GPU              | Mali-G52 1-Core-2EE OpenGL ES3.2 Vu1kn 1.1 OpenCL 2.0
-| Memory           | 2G DDR3 SDRAM (option 4G)
-| Storage          | Onboard 16GB eMMC Flash, Micro SD-Card slot, SATA 3.0 Port,SPI flash
-| Network          | 5 x 10/100/1000 Mbit/s Ethernet
-| Display(s)       | 1 HDMI port, 2 DSI interface(1 DSI can change to LVDS by software)
-| Camera           | 1 CSI camera interface
-| Video decoder(s) | H.265 HEVC/MVC Main10 Profile yuv420@L5.1 up to 4096x2304@60fps,H.264 AVC/MVC Main10 Profile yuv400/yuv420/yuv422/@L5.1 up to 4096x2304@60fps 
-| Video encoder(s) | H.264/AVC BP/MP/HP@level4.2，up to 1920x1080@100fps, H.265/HEVC MP@level4.1, up to 1920x1080@100fps (4096x4096@10fps with TILE)
-| Audio Output(s)  | HDMI & I2S & Speaker & Headphone 
-| USB port         | USB 3.0 PORT (x2), micro USB OTG (x1)
+| 内存           | 2G DDR3 SDRAM (option 4G)
+| 存储        | 板载16GB eMMC闪存，Micro SD卡插槽，SATA 3.0端口，SPI闪存
+| 网络          | 5 x 10/100/1000 Mbit/s 以太网
+| 显示       | 1个HDMI接口，2个DSI接口（1个DSI可通过软件转换为LVDS）
+| 相机           | 1 CSI camera interface
+| 视频解码器 | H.265 HEVC/MVC Main10 Profile yuv420@L5.1 up to 4096x2304@60fps,H.264 AVC/MVC Main10 Profile yuv400/yuv420/yuv422/@L5.1 up to 4096x2304@60fps 
+| 视频编码器 | H.264/AVC BP/MP/HP@level4.2，up to 1920x1080@100fps, H.265/HEVC MP@level4.1, up to 1920x1080@100fps (4096x4096@10fps with TILE)
+| 音频输出  | HDMI & I2S & Speaker & Headphone 
+| USB 端口         | USB 3.0 PORT (x2), micro USB OTG (x1)
 | mini PCIE        | 1 mini pcie interface & 1 M.2 key-e interface
-| Remote           | IR Receiver (x1)
+| 远程           | IR Receiver (x1)
 | GPIO             | 40 Pin Header : GPIO (x28) and Power (+5V, +3.3V and GND). Some of I/O Pin can be used for specific functions as UART, I2C, SPI or PWM        
-| Switches         | Reset button, Power button, U-boot button 
+| 按键       | Reset, Power, U-boot
 | LED              | Power Status and 8P8C
-| Power Source     | 12 volt @2A via DC Power and/or Micro USB (OTG)
-| Size & Weight    | 148 mm × 100.5mm 100g
+| 电源     | 12 volt @2A via DC Power and/or Micro USB (OTG)
+| 尺寸，重量    | 148 mm × 100.5mm 100g
 | OS               | OpenWRT, Linux and others OS
 |=====
 
-== GPIO Pin Define
+== GPIO 引脚定义
 
 === BPI-R2 Pro 40PIN GPIO
 
-[option="header",cols="1,1,1,1"]
+[options="header",cols="1,1,1,1"]
 |=====
 4+| **40 PIN GPIO of Banana pi BPI-R2 Pro**
 | GPIO Pin Name	| Default ：GPIO	| Function2	| Function3
@@ -286,15 +288,15 @@ link:/en/BPI-R2_Pro/Photo_BPI-R2_Pro[Banana Pi BPI-R2 Pro Product photo gallery]
 | CN9-P24	| VCC12V_LCD1 |
 |=====
 
-Running on android11 system, connecting with 2x dsi panel + 1x eDP panel: https://www.youtube.com/watch?v=HpDAmNVDwXI
+运行在android11系统上，连接2x dsi面板+ 1x eDP面板: https://www.youtube.com/watch?v=HpDAmNVDwXI
 
-== Custom production
-RK3568 custom board, industrial control board
+== 定制生产
+RK3568定制板、工控板
 
 image::/picture/rk3568_industrial_control_development_board_interface.jpg[rk3568_industrial_control_development_board_interface.jpg]
 
-= Development
-== Source Code
+= 发展
+== 源代码
 === Linux
 
 TIP: linux-4.19.xx kernel BSP Source code on github ： https://github.com/BPI-SINOVOIP/BPI-R2PRO-BSP/
@@ -307,7 +309,7 @@ TIP: BPI-R2 PRO Android11 Source Code : +
 Baidu Cloud: https://pan.baidu.com/s/1c2vw-df4hh55VB3gSsM6Uw?pwd=8888 (Pincode: 8888)
 
 
-== Resources
+== 开发资料
 
 TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
 
@@ -325,13 +327,13 @@ TIP: BPI-R2 Pro CE,FCC,RoHS certificate : https://banana-pi.org/en/bpi-honor/
 
 TIP: Install google play on Bananapi BPI-R2 pro Android 11/12: https://www.youtube.com/watch?v=pMKBVcJhsx4
 
-= System Image
+= 系统镜像
 == All image
-NOTE: Note: the network disk include linux-4.19.xx and linux-5.10.66 kernel version, linux-5.10.66 kernel version can support DSA feature.
+NOTE: 网盘包含Linux-4.19.xx和linux-5.10.66内核版本，linux-5.10.66内核版本可支持DSA功能。
 
-All image for BPI-R2 Pro google ： https://drive.google.com/drive/folders/1gHNGVL_uq8L4t987k-nzg6MKWDSmDcfC
+Google ： https://drive.google.com/drive/folders/1gHNGVL_uq8L4t987k-nzg6MKWDSmDcfC
 
-All image for BPI-R2 Pro : Baidu ： https://pan.baidu.com/s/1u5bIp0fMJPre-j0bXGfDWA?pwd=i8q6 Pincode: i8q6
+Baidu ： https://pan.baidu.com/s/1u5bIp0fMJPre-j0bXGfDWA?pwd=i8q6 Pincode: i8q6
 
 == Android
 
@@ -413,10 +415,10 @@ NOTE: kernel 5.10.66, support DSA feature, OpenWRT
 Baidu : https://pan.baidu.com/s/19B6AYrHfbIFgRytTpW8Mbg?pwd=6me6 Pincode: 6me6
 
 
-= Easy to buy
+= 购买链接
 
-WARNING: Aliexpress shop : https://www.aliexpress.com/item/1005004224551525.html?spm=a2g0o.store_pc_newArrival.8148356.1.2d8330d9Jco2ZH
+WARNING: 全球速卖通商店 : https://www.aliexpress.com/item/1005004224551525.html?spm=a2g0o.store_pc_newArrival.8148356.1.2d8330d9Jco2ZH
 
-WARNING: Taobao shop : https://item.taobao.com/item.htm?spm=a2oq0.12575281.0.0.282d1debCwvgH0&ft=t&id=673191560298
+WARNING: 淘宝 : https://item.taobao.com/item.htm?spm=a2oq0.12575281.0.0.282d1debCwvgH0&ft=t&id=673191560298
 
 WARNING: BPI-R2 Pro RK3568 OEM&ODM : judyhuang@banana-pi.com
