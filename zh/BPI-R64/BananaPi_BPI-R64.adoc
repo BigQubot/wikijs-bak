@@ -1,119 +1,120 @@
-= BPI-R64 Introduction
+= BPI-R64 介绍
 
-Banana Pi R64 is a router based development board, which can run on a variety of open source operating systems including OpenWrt,Linux. It design with Mediatek MT7622 64 bit chip, has 4 Gigabit LAN ports, 1 Gigabit WAN, and AC wifi AP function. 1G DDR RAM and 8G eMMC onboard
+香蕉派 R64是一款基于路由器的开发板，它可以在各种开源操作系统上运行，包括OpenSort，Linux。它采用联发科MT7622 64位芯片设计，具有4个千兆局域网端口，1个千兆广域网端口，以及AC WiFi AP功能，板载1G DDR RAM和8G eMMC。
 
-image::/picture/banana_pi_bpi-r64.png[banana_pi_bpi-r64.png]
+image::/picture/banana_pi_bpi-r64.jpg[banana_pi_bpi-r64.jpg]
 
-TIP: Mediatek MT7622 chip design : link:/en/BPI-R64/BananaPi_BPI-R64[Banana Pi BPI-R64] Router board +
-Mediatek MT7622 chip design : link:https://docs.banana-pi.org/en/BPI-MNF/BananPI_CPI-MNF[Banana Pi BPI-MNF] 5G + 4G LTE+Wifi AC+Gigabit Multiplex aggregate route
+TIP: 联发科 MT7622 芯片设计 : link:/en/BPI-R64/BananaPi_BPI-R64[Banana Pi BPI-R64] 路由器板 +
+联发科 MT7622 芯片设计 : link:https://docs.banana-pi.org/en/BPI-MNF/BananPI_CPI-MNF[Banana Pi BPI-MNF] 5G + 4G LTE+Wifi AC+千兆复用聚合路由
 
-IMPORTANT: Note: this board doesn't have HDMI interface
+IMPORTANT: 注意：此板不具有HDMI接口。
 
-=== MTK MT7622
-Highly integrated 4x4 802.11n and Bluetooth 5.0 platform with dedicated Network Accelerator MediaTek MT7622 is the world’s first with 4x4n 802.11n/Bluetooth 5.0 system-on-chip designed and built for premium networking devices across several applications including routers/repeaters, home automation gateways, wireless audio, and wireless storage. The highly versatile chipset provides a single platform for popular 4X4 dual-band and tri-band routers/repeaters, providing maximum flexibility for manufacturers looking to build top-tier networking devices. The platform pairs high performance and extensively integrated functionality with a cost-effective approach.
+=== 关于 MTK MT7622
 
-The MT7622 contains MediaTek’s Adaptive Network technology that allows for easy setup, network self-healing, roaming, band steering, Smart quality of service, advanced security and more. For audio and voice control applications, essential audio interfaces such as I2S, TDM and S/PDIF are included. And for Home Automation Gateways there is a rich array of slow I/O in addition to the integrated Wi-Fi, Bluetooth and Zigbee co-existence.
+高度集成的4x 4 802.11n和蓝牙5.0平台，配备专用网络加速器联发科MT 7622是全球首款采用4x 4 802.11n/蓝牙5.0系统级芯片的产品，专为高端网络设备而设计和制造，适用于多种应用，包括路由器/中继器、家庭自动化网关、无线音频和无线存储。高度通用的芯片组为流行的4X 4双频和三频路由器/中继器提供单一平台，为希望构建顶级网络设备的制造商提供最大的灵活性。该平台将高性能和广泛集成的功能与具有成本效益的方法相结合。
 
-Powered by a 64-bit dual-core ARM Cortex-A53 processor clocked at 1.35GHz, the MT7622 provides a host of advanced connectivity options like SGMII/RGMII, PCIe, and USB, and 4X4 802.11n FEM integration. Extending the platform with 802.11ac to meet additional markets is simply done via MT7615 SoC.
+MT7622包含联发科的自适应网络技术，允许轻松设置，网络自我修复，漫游，波段转向，智能服务质量，先进的安全性和更多。对于音频和语音控制应用，包括基本的音频接口，如I2S，TDM和S/PDIF。对于家庭自动化网关，除了集成的Wi-Fi，蓝牙和Zigbee共存外，还有丰富的慢速I/O阵列。
 
-The MT7622 introduces several best-in-class features such as Bluetooth 5.0 and a dedicated Network Accelerator engine with the MediaTek Wi-Fi Warp Accelerator, storage accelerator (SATA 3.0/eSATA Gen2) and HNAT HQoS calculations are offloaded from the CPU, lowering overall power-use and freeing up resources to avoid any potential slow-downs.
+MT7622采用1.35GHz的64位双核ARM Cortex-A53处理器，提供了一系列高级连接选项，如SGMII/RGMII、PCIe和USB，以及4X 4 802.11n FEM集成。只需通过MT7615 SoC即可使用802.11ac扩展平台以满足更多市场的需求。
 
-The advantage of the MediaTek Wi-Fi Warp Accelerator is two-fold. Firstly it connects the Gigabit+ class 802.11ac networking through to the Gigabit switch/WAN connection via multi-Gigabit internal pathways, ensuring no bottleneck. Secondly, its specialized design not only offloads the CPU from many-user throughput and QoS calculations, it does so at lower power. The result is the MediaTek Wi-Fi Warp Accelerator maintains a sustained high-performance when even supporting multiple, simultaneous heavy users.
+MT7622引入了多项同类最佳的功能，如蓝牙5.0和一个专用的网络加速器引擎，该引擎带有联发科Wi-Fi Warp加速器、存储加速器（SATA 3.0/eSATA Gen 2）和HNAT HQoS计算，可从CPU卸载，从而降低整体功耗并释放资源，避免任何潜在的速度减慢。
 
-Integrated Bluetooth allows for a direct, local wireless connection via App for easy configuration of the router/Wi-Fi settings. The latest Bluetooth 5.0 quadruples range and doubles speed versus previous 4.x technologies, allowing new and innovative possibilities.
+MediaTek Wi-Fi Warp Accelerator的优势是双重的。首先，它通过多千兆内部路径将千兆+级802.11ac网络连接到千兆交换机/WAN连接，确保没有瓶颈。其次，它的特殊设计不仅可以减轻CPU处理多用户吞吐量和QoS计算的负担，而且功耗更低。结果是联发科Wi-Fi Warp Accelerator即使在支持多个同时的重度用户时也能保持持续的高性能。
 
-== Key Features
+集成的蓝牙允许通过应用程序直接进行本地无线连接，以便轻松配置路由器/Wi-Fi设置。与之前的4.x技术相比，最新的蓝牙5.0的覆盖范围扩大了四倍，速度提高了一倍，带来了新的创新可能性。
 
-- MediaTek MT7622,1.35GHZ 64 bit dual-core ARM Cortex-A53
+== 主要特点
+
+- 联发科MT 7622，1.35GHZ 64位双核ARM Cortex-A53
 - 1G DDR3 SDRAM
-- Mini PCIE interface support 4G module
-- built-in 4x4n 802.11n/Bluetooth 5.0 system-on-chip
-- MTK7615 4x4ac wifi (option)
-- support 1 SATA interface
-- MicroSD slot supports up to 256GB expansion
-- 8G eMMC flash (option 16/32/64G)
-- 128MB nand flash
-- 5 port 10/100/1000 Mb Ethernet port
-- 1 USB 3.0
+- Mini PCIE接口支持4G模块
+- 内置4x 4 n 802.11n/蓝牙5.0片上系统
+- MTK 7615 4x 4ac wifi（可选）
+- 支持1个SATA接口
+- MicroSD插槽支持高达256 GB的扩展
+- 8 G eMMC闪存（可选16/32/64 G）
+- 128 MB闪存
+- 5端口10/100/1000 Mb以太网端口
+- 1个USB 3.0
 - Slow I/O:ADC, Audio Amplifier, GPIO, I2C, I2S, IR, PMIC I/F, PWM, RTC, SPI, UART
-- POE function support
+- POE功能支持
 
-== Getting Start
+== 快速入门
 
 TIP: link:/en/BPI-R64/GettingStarted_BPI-R64[Getting Started BPI-R64]
 
 TIP: Frank wiki : http://fw-web.de/dokuwiki/doku.php?id=en:bpi-r64:start
 
-= Hardware
-== Hardware Interface
+= 硬件
+== 硬件接口示意图
 
 image::/picture/banana_pi_bpi-r64_interface.jpg[banana_pi_bpi-r64_interface.jpg]
 
-== BPI_R64 Photo
+== BPI_R64 照片
 
 link:/en/BPI-R64/Photo_BPI-R64[Banana Pi BPI-R64 Product photo gallery]
 
-the inner and outer diameter of the power plug adapter datasheet: https://drive.google.com/file/d/1k3AWmYOs2XE7lnRxCyytZu0Vpq_Bzcu_/view?usp=sharing
+电源插头适配器的内径和外径: https://drive.google.com/file/d/1k3AWmYOs2XE7lnRxCyytZu0Vpq_Bzcu_/view?usp=sharing
 
 image::/picture/dc090_size.png[dc090_size.png]
 
-== Hardware Spec
+== 硬件规格
 
 [options="header",cols="1,4"]
 |=====
-2+| **HardWare Specification of Banana Pi R64**
+2+| **香蕉派 R64 硬件规格**
 | CPU	| MediaTek MT7622,1.35GHZ 64 bit dual-core ARM Cortex-A53
-| SDRAM	            | 1 GB DDR3
+| 内存	            | 1 GB DDR3
 | SATA	            | support 1 SATA interface
-| GPIO	            | 40 Pins Header, 28×GPIO, some of which can be used for specific functions including UART, I2C, SPI, PWM, I2S.
-| On board Network	| 5 10/100/1000Mbps Ethernet
-| Wifi	            | built-in 4x4n 802.11n (800Mbps) sysem-on-chip and MTK7615 4x4ac wifi Module (1733Mbps) (option)
-| Bluetooth	        | Bluetooth 5.0 system-on-chip
-| On board Storage	| MicroSD \(TF\) card,8GB eMMC onboard
+| GPIO	            | 40 Pins Header, 28×GPIO, 其中一些可用于特定功能，包括 UART, I2C, SPI, PWM, I2S.
+| 网络	| 5 10/100/1000Mbps Ethernet
+| Wifi	            | 内置4x4n 802.11n（800Mbps）片上系统和MTK7615 4x4ac wifi模块（1733Mbps）（可选）
+| 蓝牙	        | Bluetooth 5.0 system-on-chip
+| 存储	| MicroSD \(TF\) card,8GB eMMC onboard
 | Mini PCIE	        | 1 mini pcie interface for 4G
 | USB	              | 1 USB 3.0 host
-| Buttons	          | Reset button
+| 按键          | Reset 按键
 | Leds	            | Power status Led and RJ45 Led
 | IR	              | PIN define with GPIO
-| DC Power	        | 12V/2A with DC in
+| 电源	        | 12V/2A with DC in
 | POE	              | support POE module interface,can add POE module
-| Sizes	            | 148 mm × 100.5mm same as Banana Pi BPI-R3 and Banana Pi BPI-R2
-| Weight	          | 100g
+| 尺寸	            | 148 mm × 100.5mm same as Banana Pi BPI-R3 and Banana Pi BPI-R2
+| 重量	          | 100g
 |=====
 
-== PoE support
-We design PoE function for BPI-R64 ,so easy to add PoE module to support PoE function,PoE modue can support IEEE 802.3bt PoE standard ,Max support 12V/3A to power BPI-R64
+== PoE 支持
+我们为BPI-R64设计了PoE功能，所以很容易添加PoE模块来支持PoE功能，PoE模块可以支持IEEE 802.3bt PoE标准，最大支持12 V/3A为BPI-R64供电。
 
 image::/picture/bpi-r64_poe.jpg[bpi-r64_poe.jpg]
 
-more PoE module spec
+更多PoE模块规格
 
 link:/en/BPI-7402/BananaPi_BPI-7402[BPI-7402 IEEE 802.3at PoE module]
 
-== 4G support
-. use pcie interface standard module ,and use SIM card slot onboard
+== 4G 支持
+. 使用pcie接口标准模块，并使用板载SIM卡插槽
 +
 image::/picture/4g_onboard.jpg[4g_onboard.jpg]
 +
-. use 4G extend module via USB port
+. 通过USB端口使用4G扩展模块
 +
 USB 4G module : https://docs.banana-pi.org/en/4G_module_via_USB
 
 == BPI-MT7615 802.11 ac wifi 4x4 dual-band
-We have design a MT7615 802.11 ac wifi module ,can use on BPI-R64
+我们设计了一款MT 7615 802.11 ac wifi模块，可以在BPI-R64上使用
 
-MT7615 is a highly integrated Wi-Fi single chip which support 1733 Mbps PHY rate,It fully compies with IEEE 802.11ac and IEEE802.11 a/b/n standards,offering feature-rich wireless connecivity at high standards,and delivering reliable,cost-effective throughput from and extended distance.
+MT7615是一款高度集成的Wi-Fi单芯片，支持1733 Mbps的PHY速率，完全符合IEEE 802.11ac和IEEE 802.11 a/b/n标准，提供高标准的功能丰富的无线连接，并提供可靠的，具有成本效益的吞吐量和扩展距离。
 
 link:/en/BPI-MT7615_802_11_ac_wifi_4x4_dual-band_module[BPI-MT7615 802.11 ac wifi 4x4 dual-band module]
 
 link:/en/BPI-R64_%2B_MT7615_function_test[BPI-R64 + MT7615 function test]
 
-== GPIO Pin Define
+== GPIO 引脚定义
 
 image::/picture/r64_gpio_40.jpg[r64_gpio_40.jpg]
 
-= Development
-== Source Code
+= 发展
+== 源代码
 
 === Linux
 
@@ -131,7 +132,7 @@ TIP: Banana Pi BPI-R64 (MT7622) openwrt (Kernel 4.19) : https://github.com/BPI-S
 
 TIP: OpenWRT: https://github.com/openwrt/openwrt/tree/master/target/linux/mediatek/mt7622
 
-== Resources
+== 开发资料
 
 TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
 
@@ -183,8 +184,8 @@ TIP: [BPI-R2/R64/R3] OpenWrt built on devices : https://openwrt.org/docs/guide-d
 
 TIP: Banana Pi BPI-R64 passed Amazon AWS Greengrass: https://devices.amazonaws.com/detail/a3G0h000000OvObEAK/Banana-Pi-BPI-R64
 
-= System Image
-NOTE: Download and setup separate ATF image for booting directly into kernel or u-boot
+= 系统镜像
+NOTE: 下载并设置单独的ATF映像，以便直接引导到内核或u-boot。
 
 https://forum.banana-pi.org/t/bpi-r64-download-and-setup-separate-atf-image-for-booting-directly-into-kernel-or-u-boot/12806
 
@@ -312,17 +313,15 @@ Forum Pthread: http://forum.banana-pi.org/t/bpi-r64-ubuntu-16-04-aarch64-linux-l
 
 = FAQ
 
-Easy to buy sample: BPI official Aliexpress shop
-
 == TTL Voltage
 The debug-uart TTL is tolerant to 3.3V.
 
 = Easy to buy
 
-WARNING: SINOVOIP Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-R64-MTK7622/1100417230_40000003430450.html
+WARNING: SINOVOIP 全球速卖通商店: https://www.aliexpress.com/store/group/BPI-R64-MTK7622/1100417230_40000003430450.html
 
-WARNING: Bipai Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-R64-MTK7622/1101951077_40000002157510.html
+WARNING: Bipai 全球速卖通商店: https://www.aliexpress.com/store/group/BPI-R64-MTK7622/1101951077_40000002157510.html
 
-WARNING: Taobao Shop: https://shop108780008.taobao.com/category-1694930645.htm
+WARNING: 淘宝: https://shop108780008.taobao.com/category-1694930645.htm
 
-WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
+WARNING: OEM&ODM, 请联系: judyhuang@banana-pi.com
