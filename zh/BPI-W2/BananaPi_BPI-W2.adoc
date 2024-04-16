@@ -1,74 +1,73 @@
-= BPI-W2 Introduction
+= BPI-W2 介绍
 
-The Banana Pi BPI-W2 is a router based development board, which can run on a variety of open source operating systems including OpenWrt, Android, and linux. It has 1 Gigabit LAN ports, 1 Gigabit WAN. it design with Realtek RTD1296, Quad-core ARM Cortex-A53. with 2G DDR4 and 8G eMMC flash onboard.
+香蕉派 BPI-W2是一款基于路由器的开发板，可以在各种开源操作系统上运行，包括OpenSort，Android和Linux。它有1千兆局域网端口，1千兆广域网。采用Realtek RTD1296、四核ARM Cortex-A53设计。内置2G DDR4和8 G eMMC闪存。
 
 image::/picture/banana_pi_bpi-w2.jpg[banana_pi_bpi-w2.jpg]
 
-== Key Features
+== 主要特点
 
-- Realtek RTD1296, Quad-core ARM Cortex-A53
+- 瑞昱(Realtek) RTD1296，四核ARM Cortex-A53
 - Mali T820 MP3 GPU
 - 2G DDR4 SDRAM
-- 8G eMMC flash
-- Mini PCIE 2.0 , 1.1 interface ,SDIO,M.2 intereface
-- MicroSD slot supports up to 256GB expansion
-- 2xMIC in/Audio out
-- 2 SATA interface
-- 1XGigabit LAN 1x Gigabit WAN
-- 1xUSB 3.0 2xUSB 2.0
-- HDMI in & HDMI out
+- 8G eMMC闪存
+- Mini PCIE 2.0、1.1接口,SDIO、M.2接口
+- MicroSD插槽最高支持256GB的扩展
+- 2个MIC输入/音频输出
+- 2个SATA接口
+- 1个千兆LAN 1个千兆WAN
+- 1个USB 3.0  2个USB 2.0
+- HDMI输入和HDMI输出
 - Mini DP
-- TYPE C
+- Type-c
 
-== Getting Start
+== 快速入门
 
 TIP: link:/en/BPI-W2/GettingStarted_BPI-W2[Getting Started BPI-W2]
 
-= Hardware
-== Hardware Interface
-
+= 硬件
+== 硬件接口示意图
 image::/picture/w2interface.jpg[w2interface.jpg]
 
-the inner and outer diameter of the power plug adapter datasheet: https://drive.google.com/file/d/1k3AWmYOs2XE7lnRxCyytZu0Vpq_Bzcu_/view?usp=sharing
+电源插头适配器的内径和外径: https://drive.google.com/file/d/1k3AWmYOs2XE7lnRxCyytZu0Vpq_Bzcu_/view?usp=sharing
 
 image::/picture/dc090_size.png[dc090_size.png]
 
-== Hardware Spec
+== 硬件规格
 
-[options="header",cols="1,5"]
+[options="header",cols="2,5"]
 |=====
-2+| **HardWare Specification of Banana Pi W2**
-| Soc                                 | Realtek RTD1296 quad-core ARM A53
+2+| **香蕉派 W2 硬件规格**
+| Soc                                 | 瑞昱(Realtek) RTD1296 四核 ARM A53
 | GPU                                 | Mali T820 MP3 GPU
-| SDRAM                               | 2GB DDR4 \(shared with GPU\)
-| Power                               | 12V @ 2A via DC power 5.0mmx2.0mm jack                                                 
-| Low-level peripherals               | 40 Pins Header, 28×GPIO, some of which can be used for specific functions including UART, I2C, SPI, PWM, I2S.
-| Onboard Network                     | 2x 10/100/1000Mbps Ethernet
-| Wifi/Bluetooth                      | Option,not support onboard WIFI
+| 内存                                | 2GB DDR4 \(shared with GPU\)
+| 电源                                | 12V @ 2A via DC power 5.0mmx2.0mm jack
+| Low-level peripherals               | 40 Pins Header, 28×GPIO,其中一些可用于特定功能，包括 UART, I2C, SPI, PWM, I2S.
+| 网络                     | 2x 10/100/1000Mbps 以太网
+| Wifi/蓝牙                 | 可选，不支持板载WIFI
 | RGMII                               | 1 RGMII interface with PIN
-| On board Storage                    | MicroSD \(TF\) card; 2 native SATA 3 6Gbps ;eMMC;SIM card slot                              
-| Display                             | HDMI \(Type A\) output with HDCP 1.4, resolutions up 1920x1200； MIPI DP                     
-| Video decoder/encode                | The Video DSP of RTD1296 is dedicated to manipulating,decoding and encoding of video streams in various formats, e.g. decoding 4K2K H.265,Full HD MPEG1/2/4/H.264/H.264 MVC,AVC/VC-1,VP8,AVS,AVS Plus,HD jpeg,etc.Video decoding and encoding can run simultaneously. support 3D de-intrlacing,video scaling up to 4K2K and so on. 
-| Aideo decoding                      | Audio decoding is carried out by an Audio DSP that is capable of decoding a set of audio formats,e.g. DTS HD,Dolby Digital Plus,TrueHD,and other popular formats.the Audio DSP also performs audio post processing                                   
-| Audio                               | support two audio device HDMI and headphone, also support Audio In/Out with PIN define. support 2 MIC in 
+| 存储                   | MicroSD \(TF\) card; 2 native SATA 3 6Gbps ;eMMC;SIM 卡槽                            
+| 显示                          | HDMI \(Type A\) 输出，支持HDCP 1.4，分辨率高达1920 x1200; MIPI DP   
+| 视频解码/编码               | RTD1296的视频DSP专用于各种格式的视频流的操作、解码和编码，例如解码4K 2K H.265、Full HD MPEG 1/2/4/H.264/H.264 MVC、AVC/VC-1、VP 8、AVS、AVS Plus、HD jpeg等。视频解码和编码可以同时运行。支持3D解交织，视频缩放高达4K 2K等。
+| Aideo 解码                      | 音频解码由音频DSP执行，音频DSP能够解码一组音频格式，例如HDTV、Dolby Digital Plus、TrueHD和其他流行格式。音频DSP还执行音频后处理。
+| 音频                               | 支持两种音频设备：HDMI和耳机，也支持音频输入/输出与PIN定义。支持2个MIC，
 | HDMI Out/In                         | 1* HDMI 2.0a out port and 1* HDMI 2.0a In port 
-| Audio outputs/Inputs                | HDMI, I2S audio,Audio micro out, Audio out/in with PIN define
+| 音频输出/输入                | HDMI, I2S audio,Audio micro out, Audio out/in with PIN define
 | M.2 KEY E：PCIE 2.0/USB 2.0          | 1 pcie 2.0 interface 
 | M.2 KEY E:PCIe 1.1 / SDIO / USB 2.0 | 1 pcie 1.1 and SDIO interface
 | USB 3.0                             | 1x USB 3.0 host
 | USB 2.0                             | 2x USB 2.0 OTG, 1 with standard USB port , 1 define with PIN 
-| M.2 KEY B                           | 1 * M.2 interface USB 2.0 for 4G with Micro SIM card slot       
+| M.2 KEY B                           | 1 * M.2 接口 USB 2.0 for 4G with Micro SIM card slot       
 | Mini DP	                            | 1* Mini DP
-| TYPE C	                            | 1 type C interface
-| RTC battery                         |	RTC battery power interface
-| Buttons	                            | Reset button, Power button, U-boot button
+| TYPE C	                            | 1 type C 接口
+| RTC 电池                       |	RTC 电池电源接口
+| 按键                                 | Reset button, Power button, U-boot button
 | Leds	                              | Red, Green, Blue
 | Other	                              | IR reciever
-| Sizes	                              | 148 mm × 100.5mm
-| Weight	                            | 100g
+| 尺寸	                               | 148 mm × 100.5mm
+| 重量	                               | 100g
 |=====
 
-== GPIO Pin Define
+== GPIO 引脚定义
 
 === BPI-W2 40PIN GPIO
 
@@ -118,7 +117,7 @@ image::/picture/dc090_size.png[dc090_size.png]
 | CON1-P40 | AO\_D0    | GPIO60
 |=====
 
-=== BPI-W2 Debug UART
+=== BPI-W2 调试接口
 
 |=====
 | CON2-P1	| GND
@@ -126,17 +125,17 @@ image::/picture/dc090_size.png[dc090_size.png]
 | CON2-P3	| UART0-TX
 |=====
 
-== RGMII Interface with PIN define
-BPI-W2 support RGMII Interface with PIN define:
+== RGMII接口与PIN定义
+BPI-W2支持RGMII接口，PIN定义：
 
 image::/picture/rgmii_interface.png[rgmii_interface.png]
 
-voltage domain is RGMII.
+电压域是RGMII。
 
 image::/picture/rgmii_interface_1.png[rgmii_interface_1.png]
 
-= Development
-== Source Code
+= 发展
+== 源代码
 
 === Linux 
 
@@ -151,7 +150,7 @@ TIP: BPI-W2 Android 7 source code : https://github.com/BPI-SINOVOIP/BPI-1296-And
 
 TIP: BPI-W2 Android ６ source code : https://github.com/BPI-SINOVOIP/BPI-1296-Android6
 
-== Resources
+== 开发资料
 
 TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
 
@@ -185,8 +184,8 @@ TIP: Banana Pi BPI-W2 play video with openwrt (kernel 4.9.119): https://www.yout
 
 TIP: Banana Pi BPI-W2 passed Amazon AWS Greengrass: https://devices.amazonaws.com/detail/a3G0h000000OvNJEA0/Banana-Pi-BPI-W2
 
-= System Image
-NOTE: All image link: https://drive.google.com/drive/folders/1xBxYgKM40GrBa-qfgPDD-cRrUhWBo34u
+= 系统镜像
+NOTE: 所有镜像链接: https://drive.google.com/drive/folders/1xBxYgKM40GrBa-qfgPDD-cRrUhWBo34u
 
 == Android
 
@@ -194,15 +193,15 @@ NOTE: 2020-07-23 update
 
 **Android 7.1, kernel 4.1**
 
-link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/?p=%2FImages%2FBPI-W2%2FAndroid7&mode=list[Android Normal Version]: Normal android image without hwnat and openwrt enabled
+link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/?p=%2FImages%2FBPI-W2%2FAndroid7&mode=list[Android Normal Version]: 正常的android图像没有hwnat和openwrt启用
 
-link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/?p=%2FImages%2FBPI-W2%2FAndroid7&mode=list[Android Router Version]: Router mode android image with hwnat and openwrt enabled, ethernet and wifi network must be configured in Openwrt system(Settings->More->Openwrt Settings). The port with bar code label is wan port and br-lan ip is 172.16.1.1.
+link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/?p=%2FImages%2FBPI-W2%2FAndroid7&mode=list[Android Router Version]: 路由器模式android图像与hwnat和openwrt启用，以太网和wifi网络必须在Openwrt系统中配置（设置→更多→Openwrt设置）.带条形码标签的端口为wan端口，br-lan ip为172.16.1.1。
 
-link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/?p=%2FImages%2FBPI-W2%2FAndroid7&mode=list[Android ATV version]: ATV version android image without hwnat and openwrt enabled. Click the right button to show the navigation bar If you use mouse for testing.
+link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/?p=%2FImages%2FBPI-W2%2FAndroid7&mode=list[Android ATV version]: ATV版本的Android图像没有hwnat和openwrt启用。如果您使用鼠标进行测试，请单击右键显示导航栏。
 
 **Android 6.0, kernel 4.1**
 
-link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/?p=%2FImages%2FBPI-W2%2FAndroid6&mode=list[Android 6.0 image] is only support normal android build without second ethernet port enabled. Android 6.0 is no longer maintained and this is the final release.
+link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/?p=%2FImages%2FBPI-W2%2FAndroid6&mode=list[Android 6.0 image] 是只支持正常的Android构建，没有第二个以太网端口启用. Android 6.0不再维护，这是最终版本。
 
 NOTE: 2019-8-16 update This release is for banana pi W2 board, and it is based on Android6.0 & 7.1 Operation system with kernel 4.1
 
@@ -236,9 +235,9 @@ Google drive: https://drive.google.com/open?id=1KhvanoNNZYI16vYatYCqWsnKS2Wyl37L
 
 Forum pthread : http://forum.banana-pi.org/t/bpi-w2-android7-new-image-support-gms-20190114/7688
 
-NOTE: 2019-05-09 update, This release is for banana pi W2 board which is based on RTD1296, Android 6.0 Operation system with kernel 4.1.17.
+NOTE: 2019-05-09 update, 此版本适用于基于RTD1296，Android 6.0操作系统，内核为4.1.17的banana pi W2板。
 
-BPI-W2 Android 6.0 Features Map :http://newwiki.banana-pi.org/en/BPI-W2/W2_Image_Map#_android_6_0_hdmi
+BPI-W2 Android 6.0 Features Map : http://newwiki.banana-pi.org/en/BPI-W2/W2_Image_Map#_android_6_0_hdmi
 
 Google Drive : https://drive.google.com/open?id=1h3XhhmY1SQpzDOKCY3hqPoHJlJdkqhuY
 
@@ -252,7 +251,7 @@ Forum pthread: http://forum.banana-pi.org/t/bpi-w2-new-image-release-android-6-0
 
 === Ubuntu
 
-NOTE: 2019-6-18 update,This release is for banana pi M4 & W2 board, and it is based on Ubuntu Mate 18.04 & Ubuntu Server 16.04 Operation system with kernel 4.9.119.
+NOTE: 2019-6-18 update,此版本适用于Banana Pi M4和W2板，基于Ubuntu Mate 18.04和Ubuntu Server 16.04操作系统，内核为4.9.119。
 
 **BPI-M4/BPI-W2 Ubuntu Mate 18.04**
 
@@ -274,11 +273,11 @@ Baidu Drive : https://pan.baidu.com/s/1lkG6gyzn-KPbvrEhf6Q85w (PinCode：5jbo)
 
 MD5 : 328706256bec238df50f9bd6ab8dfd1b
 
-WARNING: Issue: if HDMI doesn't display, please try "ctrl + alt + F1" to change terminal then "ctrl + alt + F7" change to desktop display.
+WARNING: 如果HDMI不显示，请尝试“Ctrl + Alt + F1”更改终端，然后“Ctrl + Alt + F7”更改为桌面显示。
 
 Forum pthread: http://forum.banana-pi.org/t/bpi-m4-demo-image-release-ubuntu-mate-18-04-ubuntu-server-16-04-2019-06-18/9362
 
-NOTE: 2018-09-17 update.This release is for banana pi W2 board which is based on realtek RTD1296, and it is based on Ubuntu 18.04 operation system with kernel 4.9.119.
+NOTE: 2018-09-17 update.此版本适用于基于realtek RTD 1296的banana pi W2板，它基于Ubuntu 18.04操作系统，内核为4.9.119。
 
 W2 Features Map: http://newwiki.banana-pi.org/en/BPI-W2/W2_Image_Map
 
@@ -292,7 +291,7 @@ http://forum.banana-pi.org/t/bpi-w2-new-image-how-to-make-and-run-the-64-bit-ubu
 
 === Debian
 
-NOTE: 2019-08-13 update BPI-M4/BPI-W2 Debian10 Buster Desktop New Demo Image ,This release is for banana pi M4 and W2 board, and it is based on Debian 10 Operation system with kernel 4.9.Debian 10 buster desktop(32bit)
+NOTE: 2019-08-13 更新BPI-M4/BPI-W2 Debian 10 Buster Desktop新的演示图像，这个版本是香蕉pi M4和W2板，它是基于Debian 10操作系统与内核4.9. Debian 10 buster desktop（32位）
 
 Fetures Map: http://newwiki.banana-pi.org/en/BPI-M4/M4_Image_Map#_debian_10_buster
 
@@ -304,10 +303,11 @@ MD5 : 300b37cdfa092d72dceddd4f33825b40
 
 Forum Pthread: http://forum.banana-pi.org/t/bpi-m4-bpi-w2-debian10-buster-desktop-new-demo-image-20190813/9712
 
-WARNING: Issue: if HDMI doesn’t display, please try “ctrl + alt + F1” to change terminal then “ctrl + alt + F7” change to desktop display. +
-SW2: switch to 0，if insert SD, SD start；if doesn’t insert SD，EMMC start.
+WARNING: 问题：如果HDMI不显示，请尝试“Ctrl + Alt + F1”更改终端，然后“Ctrl + Alt + F7”更改为桌面显示。 +
+SW 2：切换到0，如果插入SD，则SD启动;如果未插入SD，则EMMC启动。
 
-NOTE: 2019-08-06 update,BPI-M4/BPI-W2 Debian 10 Buster Lite Demo Image ,This release is for banana pi M4 and W2 board, and it is based on Debian 10 Operation system with kernel 4.9.
+
+NOTE: 2019-08-06 更新，BPI-M4/BPI-W2 Debian 10 Buster Lite演示图像，此版本适用于banana pi M4和W2板，它基于Debian 10操作系统，内核4.9。
 
 **Debian 10 buster AArch64 (64bit)**
 
@@ -329,7 +329,7 @@ Baidu Drive : https://pan.baidu.com/s/1lTtcMTWqE0jG_1PWGtWSqw (Pincode:gny6)
 
 MD5 : a59f2e6a298237a08bb523b53372d937
 
-NOTE: 2018-09-18 update.This release is for banana pi W2 board which is based on realtek RTD1296, and it is based on Debian 9 operation system with kernel 4.9.119.
+NOTE: 2018-09-18 更新。此版本适用于基于realtek RTD 1296的banana pi W2板，基于Debian 9操作系统，内核为4.9.119。
 
 W2 Features Map: http://newwiki.banana-pi.org/en/BPI-W2/W2_Image_Map#_debian_9
 
@@ -360,7 +360,7 @@ http://forum.banana-pi.org/t/bpi-w2-new-image-burn-openwrt-with-linux-kernel-4-4
 
 === Raspbian
 
-NOTE: 2019-6-19 update,This release is for banana pi M4 & W2 board, and it is based on Raspbian 9.8 stretch & AArch64 Linux Mate & AArch Linux Lite Operation system with kernel 4.9.119.
+NOTE: 2019-6-19 更新，此版本是香蕉pi M4 & W2板，它是基于Raspbian 9.8 stretch & AArch64 Linux Mate & AArchLinux Lite操作系统与内核4.9.119.
 
 Fetures Map: http://newwiki.banana-pi.org/en/BPI-M4/M4_Image_Map#_raspbian_9_8_stretch
 
@@ -370,12 +370,12 @@ Baidu Drive : https://pan.baidu.com/s/1gwD5ok9XLLQa0InU_-b7EA (PinCode：uuqn)
 
 MD5 : a397a9c4d078c2841f0c243c573dc9a8
 
-WARNING: Issue: if HDMI doesn't display, please try "ctrl + alt + F1" to change terminal then "ctrl + alt + F7" change to desktop display. +
-SW2: switch to 0，if insert SD, SD start；if doesn't insert SD，EMMC start.
+WARNING: 问题：如果HDMI不显示，请尝试“Ctrl + Alt + F1”更改终端，然后“Ctrl + Alt + F7”更改为桌面显示。 +
+SW 2：切换到0，如果插入SD，则SD启动;如果未插入SD，则EMMC启动。
 
 Forum pthread: http://forum.banana-pi.org/t/bpi-m4-bpi-w2-demo-image-release-raspbian-9-8-stretch-aarch64-linux-mate-aarch64-linux-lite-2019-06-19/9370
 
-NOTE: 2018-09-17 uptate ,This release is for banana pi W2 board which is based on realtek RTD1296, and it is based on Raspbian 9.4 operation system with kernel 4.9.119.
+NOTE: 2018-09-17 更新，此版本是香蕉PI W2板是基于realtek RTD 1296，它是基于Raspbian 9.4操作系统与内核4.9.119.
 
 BPI-W2 Features Map: http://newwiki.banana-pi.org/en/BPI-W2/W2_Image_Map#_raspbian_9_4
 
@@ -387,7 +387,7 @@ Forum pthread : http://forum.banana-pi.org/t/banana-pi-bpi-w2-new-image-raspbian
 
 === AArch Linux
 
-NOTE: 2019-6-19 update,This release is for banana pi M4 & W2 board, and it is based on AArch64 Linux Mate & AArch linux liteOperation system with kernel 4.9.119.
+NOTE: 2019-6-19 更新，此版本适用于香蕉pi M4和W2板，基于AArch64 Linux Mate和AArchlinux liteOperation系统，内核为4.9.119。
 
 Google Drive : https://drive.google.com/open?id=1fsk5S4zQfo3tl97Nty_QA1uAEqgB63YK
 
@@ -403,14 +403,14 @@ Baidu Drive : https://pan.baidu.com/s/1WivDWZHu_GnWOxhVOjoqIQ (PinCode：uhcg)
 
 MD5 : 53bb6f8d00f8708dab96bc865eaddc5e
 
-WARNING: Issue: if HDMI doesn't display, please try "ctrl + alt + F1" to change terminal then "ctrl + alt + F7" change to desktop display. +
-SW2: switch to 0，if insert SD, SD start；if doesn't insert SD，EMMC start.
+WARNING: 问题：如果HDMI不显示，请尝试“Ctrl + Alt + F1”更改终端，然后“Ctrl + Alt + F7”更改为桌面显示。 +
+SW 2：切换到0，如果插入SD，则SD启动;如果未插入SD，则EMMC启动。
 
 Forum pthread: http://forum.banana-pi.org/t/bpi-m4-bpi-w2-demo-image-release-raspbian-9-8-stretch-aarch64-linux-mate-aarch64-linux-lite-2019-06-19/9370
 
 === OpenSUSE
 
-NOTE: 2018-09-25 uptate,This release is for banana pi W2 board which is based on realtek RTD1296, and it is based on OpenSUSE operation system with kernel 4.9.119.
+NOTE: 2018-09-25 更新，此版本是香蕉pi W2板是基于realtek RTD 1296，它是基于OpenSUSE操作系统与内核4.9.119.
 
 BPI-W2 Features Map: http://newwiki.banana-pi.org/en/BPI-W2/W2_Image_Map
 
@@ -423,7 +423,7 @@ Forum pthrad: http://forum.banana-pi.org/t/bananapi-bpi-w2-new-image-opensuse-re
 
 === Kali Linux
 
-NOTE: 2018-09-25 update,This release is for banana pi W2 board which is based on realtek RTD1296, and it is based on Kali operation system with kernel 4.9.119.
+NOTE: 2018-09-25 更新，此版本是针对基于realtek RTD 1296的banana pi W2板，它基于Kali操作系统，内核为4.9.119。
 
 BPI-W2 Features Map: http://newwiki.banana-pi.org/en/BPI-W2/W2_Image_Map
 
@@ -448,7 +448,7 @@ Forum pthread: http://forum.banana-pi.org/t/bpi-w2-new-iamge-rpitcv3-1-12-demo-b
 
 = FAQ
 
-Now we support to use bpi-copy to burn image to sd card, before this, we need to update our spi rom code, please watch the attachment to update your W2 spi rom code.
+现在我们支持使用bpi-copy将图像刻录到sd卡，在此之前，我们需要更新我们的spi rom代码，请观看附件以更新您的W2 spi rom代码。
 
 **SPI ROM Tool:**
 
@@ -468,6 +468,6 @@ Baidu Drive: https://pan.baidu.com/s/1CZdY_4yFk5r5MSxoog9uOg
 
 Google Drive: https://drive.google.com/open?id=1kXaI5eYJ4cNLnhfr4rTwUVrENbMc1q-E
 
-= Easy to buy
+= 购买链接
 
-WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
+WARNING: OEM&ODM, 请联系: judyhuang@banana-pi.com
