@@ -69,7 +69,7 @@ NOTE: **Please low level format the SD and clear all data of SD. It's very impor
 +
 image::/picture/low_level_format_sd_card.png[low_level_format_sd_card.png]
 
-- Linux PC, please write SD card to zero.
+- Linux PC, you can use the "**mksf**" command for formatting, or use the "**dd**" command to write zeros.
 
 **Burn image to SD card on windows computer**
 
