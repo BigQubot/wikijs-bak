@@ -61,6 +61,16 @@ image::/picture/r4_emmcboot.jpg[r4_emmcboot.jpg]
   System halt!
 
 == How to burn image to SD card
+NOTE: **Please low level format the SD and clear all data of SD. It's very important.** +
+**Otherwise, you will encounter a "jffs2" error during the startup process.
+**
+
+- Please follow the following diagram for Windows PC.
++
+image::/picture/low_level_format_sd_card.png[low_level_format_sd_card.png]
+
+- Linux PC, please write SD card to zero.
+
 **Burn image to SD card on windows computer**
 
 link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
@@ -91,9 +101,8 @@ to install image on your TF card
  
 **Change Boot Jumper to boot from SD, Enable SD Card Device.**
 
-NOTE: Note: please low level format the SD and clear all data of SD. it's very important.
-
 == How to burn image to onboard Nand
+NOTE: **NAND has an image burned at the factory. If you want to use it, simply switch to the corresponding boot and then power on to start.**
 
 NOTE: When you want to Update Nand device, Firstly Change boot switch to boot from SD device and insert one SD with SD boot Image, then after boot up,you need flash one Nand image into Nand device. Finally you change bootstrap to boot from Nand device.
 
