@@ -225,61 +225,64 @@ utput_mode=10 disp.screen1_output_type=3 disp.screen1_output_mode=10
 ```
 
 === 如何从github构建OpenWRT镜像
-We test it with deepin2014(base on ubuntu14.04)
+我们使用deepin2014（基于ubuntu14.04）进行测试
 
-. install depend package :
+. 安装依赖包 :
 +
 ```sh
  apt-get install subversion build-essential libncurses5-dev zlib1g-dev gawk 
 git ccache gettext libssl-dev xsltproc unzip subversion file
 ```
 +
-. get openwrt source code
-
+. 获取openwrt源代码
 +
 ```sh
 git clone https://github.com/BPI-SINOVOIP/BPI-OpenWRT.git
 ```
 +
-. enter openwrt dir:
+. 输入openwrt目录：
 +
 ```sh
 cd BPI-OpenWRT
 ```
 +
-. update package and install
+. 更新软件包并安装
 +
 ```sh
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 ```
 +
-. Enter the customization interface:
+. 进入自定义界面：
 +
 image::/picture/r1_openwrt_1.jpg[r1_openwrt_1.jpg]
 +
-please choose your need:
-+
-Target System default is BananaPi，its the only choice on that matte.，Please change the device selection under Target Profile. The OpenWrt image supports M1, M1+ and R1.
-+
-example : i need web and add chinese support
+--
+请选择您的需求：
+
+目标系统默认为BananaPi，这是唯一选择。请在目标配置文件下更改设备选择。OpenSSL镜像支持M1、M1+和R1。
+
+示例：我需要网络和添加中文支持
+
+--
 +
 ```sh
 LuCI—> 1. Collections  ---> <*> luci  add Luci support ，it mean web GUI support，it is defaultes
 LuCI—>2. Modules  ---> <*> luci-i18n-chinese   add chinese also you can choose others.
 ```
 +
-. Make ,you can add V=s to see more message ,also add -j4 to use quad core to work .
+. Make ,你可以添加V=s来查看更多信息，也可以添加-j4来使用四核来工作。
 +
 ```sh
 make
 ```
 +
-when compile finish bin/sunxi/ dir have a image，file name：openwrt-sunxi-BPI-XX-sdcard-vfat-ext4.img，i compile is BPI-R1，so name is ：openwrt-sunxi-BPI-R1-sdcard-vfat-ext4.img，
+当编译完成bin/sunxi/ dir有一个镜像，文件名：openwrt-sunxi-BPI-XX-sdcard-vfat-ext4.img，我编译的是BPI-R1，所以名字是：openwrt-sunxi-BPI-R1-sdcard-vfat-ext4.img，
 
-. use USB Image Tool(http://www.alexpage.de/) burn image to sd，insert BPI and booting it.
 
-. running ：
+. 使用 link:http://www.alexpage.de/[USB刻录工具] 刻录映像到sd，插入BPI并启动它。
+
+. 运行 ：
 +
 image::/picture/r1_openwrt_2.png[r1_openwrt_2.png]
 
