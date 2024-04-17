@@ -1,14 +1,18 @@
-= Banana Pi BPI-CM2 Introduction
+= 香蕉派 BPI-CM2 介绍
 
-Banana Pi BPI-CM2 is a computer module with Rockchip RK3568 Quad-core ARM Cortex-A55 CPU, Mali-G52 1-Core-2EE GPU,2GB LPDDR4/LPDDR4x ,16G eMMC flash (Max 128G),Designed with Board to Board connectors for enhanced stability same as Raspberry Pi CM4 , which means that it should work with carrier boards designed for the Raspberry Pi CM4.
+香蕉派 BPI-CM 2是一款计算机模块，采用Rockchip RK3568四核ARM Cortex-A55 CPU，Mali-G52 1-Core-2EE GPU，2GB LPDDR4/LPDDR 4x，16G eMMC闪存（最大128G），采用板对板连接器设计，与Raspberry Pi CM4一样增强了稳定性，这意味着它应该与为Raspberry Pi CM4设计的载板一起工作。
 
-Rockchip RK3568 provides a wealth of interface resources. In addition to the board-to-board connectors compatible with the Raspberry PI, other interfaces are also drawn from the board-to-board interface, so that you can design your own base board and use of the rich interface resources of the RK3568.
+TIP: 瑞芯微(Rockchip) RK3568 设计 : link:/en/BPI-R2_Pro/BananaPi_BPI-R2_Pro[Banana Pi BPI-R2 Pro] 路由器板 +
+瑞芯微(Rockchip) RK3568 设计 : link:/en/BPI-CM2/BananaPi_BPI-CM2[Banana Pi BPI-CM2] 计算机模块套件 +
+瑞芯微(Rockchip) RK3568 设计 : link:/en/BPI-KVM/BananaPi_BPI-KVM[Banana Pi BPI-KVM] 用于KVM over IP的PiKVM
 
-TIP: Rockchip RK3568 design : link:/en/BPI-R2_Pro/BananaPi_BPI-R2_Pro[Banana Pi BPI-R2 Pro] Router board +
-Rockchip RK3568 design : link:/en/BPI-CM2/BananaPi_BPI-CM2[Banana Pi BPI-CM2] Computer module kit +
-Rockchip RK3568 design : link:/en/BPI-KVM/BananaPi_BPI-KVM[Banana Pi BPI-KVM] PiKVM for KVM over IP
+== 关于 Rockchip RK3568
 
-== Rockchip RK3568
+RK3568内置瑞芯微MICRO-research NPU，0.8Tops算力，集成高性能AI加速器RKNN NPU。瑞芯微还为开发者提供了易用的模型转换工具RKNN-Toolkit，支持一键转换Caffe/TensorFlow/TF-Lite/ONNX/PyTorch/Keras/Darknet主流架构模型。
+
+RK3568具有丰富的接口扩展能力。支持多种外设高速接口，支持4个USB2.0端口，4xUSB2.0 HOST+ 1xUSB3.0 HOST+ 1xUSB3.0 OTG。支持2个千兆以太网，支持多摄像头，支持MIPI CSI 4Lanes，可分为2x2 Lanes两组独立使用支持16 bit DVP接口，支持BT 1120输入，支持VC模式。RK 3568具有完整的显示接口，支持HDMI 2.0输出支持双通道MIPI DSI，双通道LVDS，可驱动2.5K LCD屏，可直接驱动墨水屏，支持eDp。RK3568具有丰富的外设，支持10 x UART，6 x I2C，16 x PWM，4 x SPI，8 x SARADC和MINI PCIE。
+
+瑞芯微RK3568芯片是一款高端通用SoC，采用22nm制程工艺制造，集成4核ARM架构A55处理器和Mali G52 2EE图形处理器，支持4K解码和1080P编码。RK3568支持SATA/PCIE/USB3.0等多种外设接口，内置独立NPU，可用于轻量级AI应用。RK3568同时支持Android 11和Linux系统，面向物联网网关、NVR存储、工控屏、工业设备、工控盒、卡拉OK、云终端、车控中心等行业定制市场。
 
 RK3568 has built-in MICRO-research NPU of Rockchip, 0.8Tops computing power and integrated high performance AI accelerator RKNN NPU. Rockchip also provides developers with an easy-to-use model transformation tool, RKNN-Toolkit, which supports one-click transformation of Caffe/TensorFlow/TF-Lite/ONNX/PyTorch/Keras/Darknet mainstream architecture models.
 
