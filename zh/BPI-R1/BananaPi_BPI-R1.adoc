@@ -1,63 +1,61 @@
-= BPI-R1 Introduction
+= BPI-R1 介绍
 
-The Banana Pi R1 is a router based Banana Pi running on the same SoC as the M1 Classic Pi.
+BPI-R1是一款开放式硬件路由器，可以在各种开源操作系统上运行，包括OpenSort、Android和Bananian。BPI-R1具有超薄的路由器外形，带有2.5英寸硬盘的托架。它还具有4个千兆LAN端口，1个千兆WAN和300 Mbs无线功能。
 
-The R1 is a open hardware router that can run on a variety of open source operating systems including OpenWrt, Android, and Bananian. The R1 has slim router form factor with a bay for 2.5" HDDs. It also has 4 Gigabit LAN ports, 1 Gigabit WAN, and 300Mbs wireless N capabilities.
-
-Banana Pi is an open platform device, it is for anyone who wants to play and build with developer technology instead of simply using consumer technology. Backed by our community, starting a project and building servers is fun and rewarding. We welcome all companies, DIYers, and tech loving people within our community! Together, we can make a difference, we can discover our passions, inspire others, and build a practical project.
+香蕉派是一个开放平台设备，它适合任何想要使用开发人员技术而不是简单地使用消费者技术的人。在我们社区的支持下，开始一个项目和构建服务器是有趣和有益的。我们欢迎所有的公司，DIY者和热爱技术的人在我们的社区！我们可以一起发挥作用，我们可以发现我们的激情，激励他人，并建立一个实际的项目。
 
 image::/picture/bpi-r1_960x360.jpg[bpi-r1_960x360.jpg]
 
-TIP: Allwinner A20 design: link:/en/BPI-M1/BananaPi_BPI-M1[Banana Pi BPI-M1] SBC  +
-Allwinner A20 design: link:/en/BPI-M1_Plus/BananaPi_BPI-M1_Plus[Banana Pi BPI-M1+] SBC +
-Allwinner A20 design: link:/en/BPI-R1/BananaPi_BPI-R1[Banana Pi BPI-R1] Router
+TIP: 全志科技 A20 设计: link:/en/BPI-M1/BananaPi_BPI-M1[Banana Pi BPI-M1] SBC  +
+全志科技 A20 设计: link:/en/BPI-M1_Plus/BananaPi_BPI-M1_Plus[Banana Pi BPI-M1+] SBC +
+全志科技 A20 设计: link:/en/BPI-R1/BananaPi_BPI-R1[Banana Pi BPI-R1] 路由器
 
-== Key Features
+== 主要特点
 
-- Allwinner A20 Dual-core 1.0GHz CPU
-- Mali-400 MP2 with Open GL ES 2.0/1.1.
-- 1 GB DDR3 memory.
-- 1x SATA interface.
-- 4x Gigabit LAN 1x Gigabit WAN
+- Allwinner A20 双核 1.0GHz CPU
+- Mali-400 MP2 with Open GL ES 2.0/1.1
+- 1 GB DDR3内存。
+- 1个 SATA接口。
+- 4个千兆LAN 1个千兆WAN
 
-== Getting Start
+
+== 快速入门
 
 TIP: link:/en/BPI-R1/GettingStarted_BPI-R1[Getting Started BPI-R1]
 
-= Hardware
-== Hardware Interface
+= 硬件
+== 硬件接口示意图
 
 image::/picture/bpi-r1_front.png[bpi-r1_front.png]
 image::/picture/bpi-r1_back.jpg[bpi-r1_back.jpg]
 
-== Hardware Spec
-
+== 硬件规格
 [options="header",cols="1,4"]
 |=====
-2+| **HardWare Specification of Banana Pi R1**
-| CPU           | A20 ARM Cortex -A7 Dual-Core
+2+| **香蕉派 BPI-R1 硬件规格**
+| CPU           | 全志科技 A20 ARM Cortex -A7 双核
 | GPU           | ARM Mali400MP2Complies with OpenGL ES 2.0/1.1
-| Memory        | 1GB DDR3
-| Network       | 10/100/1000 Ethernet 8P8C, Wi-Fi
-| Video Input   | A CSI input connector allows for the connection of a designed camera module 
-| Video Outputs | HDMI, CVBS, LVDS/RGB
-| Audio Outputs | 3.5mm jack and HDMI
-| Power Source  | 5 volt via Micro USB (DC in only) and / or Micro USB OTG
-| USB 2.0 ports | 2(direct from Allwinner A20 chip)
+| 内存        | 1GB DDR3
+| 网络       | 10/100/1000 以太网口 8P8C, Wi-Fi
+| 视频输入   | 一个CSI输入连接器的摄像头模块
+| 视频输出 | HDMI, CVBS, LVDS/RGB
+| 音频输出 | 3.5mm jack and HDMI
+| 电源  | 5 volt via Micro USB (DC in only) and / or Micro USB OTG
+| USB 2.0 端口 | 2(direct from Allwinner A20 chip)
 | GPIO          | GPIO, UART, I2C BUS, SPI BUS, WITH TWO CHIP SELECTS, CAN bus, ADC, PWM, +3.3V, +5V, GND
 | LED           | Power Key & 8P8C 
-| Storage       | SATA 2.0 
+| 存储       | SATA 2.0 
 | OS            | Android 4.4, Android 4.2, Raspbian, Lubuntu, Open Suse, Debian
 |=====
 
-== GPIO Pin Define
+== GPIO 引脚定义
 
 === BPI-R1 40PIN GPIO
 
 image::/picture/gpio_define.png[gpio_define.png]
 
-= Development
-== Resources
+= 发展
+== 开发资料
 
 TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
 
@@ -75,71 +73,72 @@ TIP: linux-sunxi wiki: http://linux-sunxi.org/Lamobo_R1
 
 TIP: NetBSD/evbarm on Allwinner Technology SoCs : https://wiki.netbsd.org/ports/evbarm/allwinner/#index1h1
 
-TIP: Manual for HW setup and basic router functionalities: https://docs.google.com/document/d/1LVuukSuby7aCuAaQezFn-kM8ZQM-I0kuGiI_XnT0sDg/edit?usp=sharing
+TIP: 硬件设置和基本路由器功能手册: https://docs.google.com/document/d/1LVuukSuby7aCuAaQezFn-kM8ZQM-I0kuGiI_XnT0sDg/edit?usp=sharing
 
 TIP: David Bentham / openwrt-bpi-r1-prebuilt
 
-- Stable 1.2.1 release:
-- Kernel upgraded to 4.1.17
-- Added Parted package
-- Lots of package upgrades and bug fixes...
-- VM build system - OpenwrtBuild-BPI-R1-VM-V1.0.torrent if you wish to spin up your own version from scratch!
+- 稳定的1.2.1版本：
+- 内核升级到4.1.17
+- 添加了Parted package
+- 大量的软件包升级和bug修复.
+- VM构建系统- OpenwrtBuild-BPI-R1-VM-V1.0.torrent
 - Github link: https://github.com/db260179/openwrt-bpi-r1
 
-TIP: Allwinner chip documents: http://dl.linux-sunxi.org/
+TIP: 全志科技芯片文档: http://dl.linux-sunxi.org/
 
-== Basic Development
-=== Compulsive modification of HDMI output resolution
-The final solution of compulsive modification of HDMI output resolution.
+== 基本发展
+=== HDMI输出分辨率的强制修改
 
-As you may have discovered the common configuration method in raspberry pi (such as alteration of /boot/config.txt) does not work on BPI, neither does the modification of cmdline.txt and uEnv.txt especially for some display with converter(HDMI->VGA or HDMI ->IDVI) or some old display devices.
+HDMI输出分辨率强制修改的最终解决方案。
 
-Today,we are introducing a new solution to modify the resolution of HDMI, no other risks if you do it according to this document step by step:
+正如您可能已经发现的，raspberry pi中的常见配置方法（例如更改/boot/config. txt）在BPI上不起作用，也不修改config.txt和uEnv.txt，特别是对于一些带有转换器（HDMI→VGA或HDMI →IDVI）的显示器或一些旧的显示设备。
 
-. install compile sunxi-tools depended-upon packages
+今天，我们介绍一种新的解决方案来修改HDMI的分辨率，如果你按照这个文档一步一步来做，没有其他风险：
+
+. 安装编译sunxi-tools依赖包
 +
 ```sh
 sudo apt-get install libusb-1.0-0-dev
 ```
 +
-. get sunxi-tools new code from github:
+. 从github获取sunxi-tools的新代码：
 +
 ```sh
 git clone https://github.com/linux-sunxi/sunxi-tools.git
 ```
 +
-. compile sunxi-tools
+. 编译sunxi-tools
 +
 ```sh
 cd sunxi-tools
 make
 ```
 +
-. backup script.bin
+. 备份 script.bin
 +
 ```sh
 sudo cp /boot/bananapi/script.bin /boot/bananapi/script.bak
 ```
 +
-. copy script.bin to current dir
+. 复制script.bin到当前目录
 +
 ```sh
 cp /boot/bananapi/script.bin ./
 ```
 +
-. use bin2fex change bin to fex
+. 使用bin2fex将bin更改为fex
 +
 ```sh
 bin2fex ./script.bin ./script.fex
 ```
 +
-. edit script.fex file:
+. 编辑 script.fex文件：
 +
 ```sh
 nano script.fex
 ```
 +
-see this below:
+请参考下面的内容：
 +
 ```sh
 [disp_init]
@@ -170,7 +169,7 @@ lcd1_hue = 50
 just change screen0_output_mode = 5, note , other not do any change.
 ```
 +
-A20 support as below: HDMI/TV mode numbers:
+A20支持如下：HDMI/TV模式编号：
 +
 ```sh
 0 480i
@@ -200,24 +199,24 @@ A20 support as below: HDMI/TV mode numbers:
 Press Ctrl + x ， Y ，Enter save and exit edit:
 ```
 +
-. use fex2bin change fex to bin
+. 使用bin2fex将fex更改为bin
 +
 ```sh
 fex2bin ./script.fex ./script.bin
 ```
 +
-copy script.bin to /boot
+复制 script.bin 到 /boot
 +
 ```sh
 sudo cp ./script.bin /boot/bananapi/
 ```
 +
-. reboot and make a try
+. 重新启动并尝试
 +
 ```sh
 sudo reboot
 ```
-another easy way: just edit uEnv.txt file to change it:
+另一个简单的方法：只需编辑uEnv.txt文件来更改它：
 +
 ```sh
 bootargs=enforcing=1 console=ttyS0,115200 console=tty1 root=/dev/mmcblk0p2 rootwait init=/init vmalloc=384M ion_
@@ -225,7 +224,7 @@ ma_list="120m,176m,512m" loglevel=8 bootmenutimeout=10 datadev=mmcblk0p2 disp.sc
 utput_mode=10 disp.screen1_output_type=3 disp.screen1_output_mode=10
 ```
 
-=== How to build OpenWRT image from github
+=== 如何从github构建OpenWRT镜像
 We test it with deepin2014(base on ubuntu14.04)
 
 . install depend package :
@@ -284,7 +283,7 @@ when compile finish bin/sunxi/ dir have a image，file name：openwrt-sunxi-BPI-
 +
 image::/picture/r1_openwrt_2.png[r1_openwrt_2.png]
 
-= System Image
+= 系统镜像
 == Android
 
 NOTE: 2018-07-28 update android 4.4 HDMI version image
@@ -295,7 +294,7 @@ Baidu Drive: https://pan.baidu.com/s/1dorsPZAqCbL1oC6J4zQyvQ
 
 Google Drive: https://drive.google.com/open?id=1ztI_dB0veEPkEaB7XV7OdEb3YE2mwywm
 
-Forum pthtread :http://forum.banana-pi.org/t/bananapi-m1-m1p-r1-new-image-release-20180728/6357
+Forum pthtread : http://forum.banana-pi.org/t/bananapi-m1-m1p-r1-new-image-release-20180728/6357
 
 NOTE: Banana pi PBI-R1 android 4.4 image : https://drive.google.com/file/d/0BxpbZWFFuHmyUHRYeE9uenFTVmc/view
 
@@ -303,7 +302,7 @@ NOTE: Banana pi PBI-R1 android 4.4 image : https://drive.google.com/file/d/0Bxpb
 
 === Ubuntu kernel 3.4
 
-NOTE: 2022-04-16 Banana Pi new image: Ubuntu 16.04 with Allwinner BSP, use MPV play 1080P video,Allwinner BSP kernel 3.4 , BPI-M2 Ultra/Berry use kernel 3.10
+NOTE: 2022-04-16 香蕉派新镜像：Ubuntu 16.04采用Allwinner BSP，使用MPV播放1080 P视频，Allwinner BSP内核3.4，BPI-M2 Ultra/Berry使用内核3.10
 
 Google driver: https://drive.google.com/drive/folders/1DEO7JdMfDhHynC83K7JMxgnNxf1gV82S
 
@@ -461,16 +460,16 @@ http://forum.banana-pi.org/t/bpi-r1-new-image-kanux-beta-3-3-0-preview-bpi-m1-m1
 === Arch linux
 NOTE: Archlinux 28-12-2017 4.6.5 sunxi mainline kernel
 
-Kernel borrowed from armbian: BPI-R1 new image: Armbian_5.17_bpi-r1_Debian_jessie_4.6.5_desktop-build-by-bpi-r1.img
+内核借用自armbian：BPI-R1新镜像：Armbian_5.17_bpi-r1_Debian_jessie_4.6.5_desktop-build-by-bpi-r1.img
 
-Archlinux upgraded from official bpi image.
+Archlinux从官方bpi镜像升级。
 
-The kernel issues related to kernel / userspace mismatch seem to be gone (such as systemd-sysctl input / output error etc).
+与内核/用户空间不匹配相关的内核问题似乎已经消失（例如systemd-sysctl输入/输出错误等）。
 
 Image download link: http://mkaczanowski.com/files/archlinux-bpi-r1-2017-28-2017-4.6.5-sunxi-mainline.img
 
 === FreeBSD
-NOTE: Banana pi as the official partner of Allwinner , must banana pi product use Allwinner chip design . such as A20/A31S/H3/H2+/A64/A83T , and FreeBSD have support many Allwinner . so easy to use on banana pi board.
+NOTE: 香蕉派作为全志的官方合作伙伴，香蕉派的产品必须采用全志的芯片设计。例如A20/A31 S/H3/H2+/A64/A83T，FreeBSD已经支持许多Allwinner。所以很容易在香蕉派上使用。
 
 - Allwinner A20 (sun7i), a dual-core Cortex-A7 : BPI-M1/BPI-M1+/BPI-R1
 - Allwinner A31 and A31s (sun6i), a quad-core Cortex-A7 : BPI-M2
@@ -489,6 +488,6 @@ NOTE: Forum pthread: http://forum.banana-pi.org/t/asterisk-for-banana-pi-bpi-r1-
 NOTE: You can fine others image at forum : http://forum.banana-pi.org/c/bpi-r1
 
 
-= Easy to buy
+= 购买链接
 
-WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
+WARNING: OEM&ODM, 请联系: judyhuang@banana-pi.com
