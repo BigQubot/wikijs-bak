@@ -1,27 +1,27 @@
-= BPI-W3 Core board and development Kit Introduction
+= BPI-W3 核心板和开发套件
 
-Banana Pi BPI-W3 adopts Rockchip RK3588 design, adopts core board + baseboard development board suite, supports 8G memory,32G eMMC storage, supports 32G maximum memory and 128G maximum EMMC storage, can be convenient for all kinds of development and flexible base plate customization quickly mass production of products.
+香蕉派 BPI-W3采用瑞芯微 RK3588设计，采用核心板+基板开发板套件，支持8G内存、32G eMMC存储，支持32G最大内存和128G最大eMMC存储，可方便各类开发和灵活的基板定制快速量产产品。
 
 
-TIP: Rockchip RK3588 design link:/en/BPI-M7/BananaPi_BPI-M7[Banana Pi BPI-M7] +
-Rockchip RK3588 design link:/en/BPI-AIM7/BananaPi_BPI-AIM7[Banana Pi BPI-AIM7] +
-Rockchip RK3588 design link:/en/BPI-W3/BananaPi_BPI-W3[Banana Pi BPI-W3] +
-Rockchip RK3588 design link:/BPI-RK3588_CoreBoardAndDevelopmentKit/BananaPi_BPI-RK3588_CoreBoardAndDevelopmentKit[BPI-RK3588 core board and kit Introduction] 
+TIP: 瑞芯微(Rockchip) RK3588 方案 link:/en/BPI-M7/BananaPi_BPI-M7[Banana Pi BPI-M7] +
+瑞芯微(Rockchip) RK3588 方案 link:/en/BPI-AIM7/BananaPi_BPI-AIM7[Banana Pi BPI-AIM7] +
+瑞芯微(Rockchip) RK3588 方案 link:/en/BPI-W3/BananaPi_BPI-W3[Banana Pi BPI-W3] +
+瑞芯微(Rockchip) RK3588 方案 link:/BPI-RK3588_CoreBoardAndDevelopmentKit/BananaPi_BPI-RK3588_CoreBoardAndDevelopmentKit[BPI-RK3588 核心板和开发套件] 
 
-== Rockchip RK3588 chip
+== 关于瑞芯微(Rockchip) RK3588 芯片
 
-RK3588 is a new generation of flagship high-end processor launched by SWMC. It adopts 8nm process design and is equipped with eight-core CPU of quad core A76+ quad core A55, Arm high-performance GPU, and built-in NPU with 6T computing power. Have strong visual processing ability, can support structure light, TOF and other fast face unlock schemes; Support rich display interface, up to 8K display processing capacity; With strong expansibility, support PCI 3.0, SATA3.0, double TypeC/USB3.1 and other high-speed interfaces, can do AI computing power, image data processing and other expansion. Apply to ARMPC, high-end tablet, edge computing server, VIRTUAL reality, NVR, 8K TV, etc.The most important is pCI-E and SATA USB3.1 these IO are complete.
+RK3588是SWMC推出的新一代旗舰高端处理器。采用8nm工艺设计，搭载四核A76+四核A55的八核CPU，Arm高性能GPU，内置6T算力NPU。具有较强的视觉处理能力，可支持结构光、TOF等快速人脸解锁方案;支持丰富的显示接口，最高可达8 K显示处理能力;具有较强的扩展性，支持PCI 3.0、SATA3.0、双TypeC/USB3.1等高速接口，可做AI算力、图像数据处理等扩展。适用于ARMPC、高端平板电脑、边缘计算服务器、虚拟现实、NVR、8K电视等，最重要的是PCI-E和SATA USB3.1这些IO齐全。
 
-= Hardware
-== Hardware Interface
+= 硬件
+== 硬件接口示意图
 
 image::/picture/bpi-rk3588_board_core_3.jpg[bpi-rk3588_board_core_3.jpg]
 
-== Hardware Spec
+== 硬件规格
 
 [options="header",cols="1,5"]
 |=====
-2+| **HardWare Specification of BPI-RK3588 Gold finger interface core board**
+2+| **BPI-RK3588 金手指接口核心板硬件规格**
 | SoC                   | RockChip RK3588                                                                                                                                                             
 | CPU                   | quad ARM Cortex-A76 and quad Cortex-A55 consists of an eight-core CPU processor                                                                                             
 | GPU                   | ARM Mali-G610 MP4,support OpenGL ES 1.1/2.0/3.2，OpenCL 2.2，Vulkan 1.1 Embedded high-performance 2D acceleration hardware                                                    
@@ -36,20 +36,20 @@ image::/picture/bpi-rk3588_board_core_3.jpg[bpi-rk3588_board_core_3.jpg]
 |=====
 
 
-== Development Kit
+== 开发板
 
-The core board gold hand pin interface led to the RK3588 all IO definition, can support RK3588 all definition interface, can be easily modified to support the application you want, flexible customization.
+核心板金手引脚接口引至RK3588全IO定义，可支持RK3588全定义接口，可轻松修改支持你想要的应用，灵活定制。
 
 image::/picture/bpi-rk3588_board_kit_5.jpg[bpi-rk3588_board_kit_5.jpg]
 
-= Development
-== Source Code
+= 发展
+== 源代码
 
 Baidu Cloud: https://pan.baidu.com/s/1BdAXvAlvI_WIehImVnn17w?pwd=8888 (pincode:8888)
 
 Google Drive: https://drive.google.com/drive/folders/1yP3XfO1NkheHoMP4eVUZFT3NgRNhFenf?usp=sharing
 
-= System Image
+= 系统镜像
 
 == Android
 
@@ -64,6 +64,6 @@ Baidu Cloud: https://pan.baidu.com/s/1YsT-ceLLjqbjaLr9x-xlzQ?pwd=8888 （pincode
 
 Google Drive: https://drive.google.com/file/d/1rtF1T8eHGq_jwLd7Zcx8FCPTnLvuxjZZ/view?usp=sharing
 
-= OEM&ODM
+= 购买链接
 
-WARNING: please contact judyhuang@banana-pi.com
+WARNING: 请联系 judyhuang@banana-pi.com
