@@ -14,41 +14,35 @@ RK3568具有丰富的接口扩展能力。支持多种外设高速接口，支�
 
 瑞芯微RK3568芯片是一款高端通用SoC，采用22nm制程工艺制造，集成4核ARM架构A55处理器和Mali G52 2EE图形处理器，支持4K解码和1080P编码。RK3568支持SATA/PCIE/USB3.0等多种外设接口，内置独立NPU，可用于轻量级AI应用。RK3568同时支持Android 11和Linux系统，面向物联网网关、NVR存储、工控屏、工业设备、工控盒、卡拉OK、云终端、车控中心等行业定制市场。
 
-RK3568 has built-in MICRO-research NPU of Rockchip, 0.8Tops computing power and integrated high performance AI accelerator RKNN NPU. Rockchip also provides developers with an easy-to-use model transformation tool, RKNN-Toolkit, which supports one-click transformation of Caffe/TensorFlow/TF-Lite/ONNX/PyTorch/Keras/Darknet mainstream architecture models.
+== 应用方向
 
-RK3568 has rich interface expansion capabilities. Supports a variety of peripheral high-speed interfaces, supporting four USB2.0 ports, 4xUSB2.0 HOST+ 1xUSB3.0 HOST+ 1xusB3.0 OTG. Support gigabit Ethernet *2, multi-camera support, support MIPI CSI 4Lanes, can be divided into 2x2Lanes two groups of independent use support 16bit DVP interface, support BT1120 input, support VC mode. RK3568 has a complete display interface, support HDMI 2.0 output support dual channel MIPI DSI, dual channel LVDS, can drive 2.5K LCD screen, can directly drive ink screen, support eDp. RK3568 has plenty of peripherals, supporting 10x UART, 6x I2C, 16x PWM, 4x SPI, 8xSARADC and MINI PCIE.
+- 创客DIY
+- 因特网服务网关
+- 机器人控制
+- 工业控制和工业自动化网关
+- NAS设备
+- 网络和通信应用
 
-Rockchip RK3568 chip is a high-range general-purpose SoC, made in 22nm process technology, integrated 4-core ARM architecture A55 processor and Mali G52 2EE graphics processor, supporting 4K decoding and 1080P encoding. RK3568 supports various types of peripheral interfaces such as SATA/PCIE/USB3.0, it has a built-in independent NPU, and can be used for lightweight AI applications. RK3568 supports both Android 11 and Linux systems, and targets at industrial customization markets such as IoT gateways, NVR storage, industrial control panels, industrial equipment, industrial control boxes, karaoke, cloud terminals, and vehicle control center.
+== 主要特点
 
-== Application direction
+- 瑞芯微RK 3568四核ARM Cortex-A55 CPU
+- Mali-G52 1-Core-2EE GPU
+- 2GB LPDDR4/LPDDR 4x（最大8G）
+- 16G eMMC闪存（最大128G）
+- 支持Android和Linux系统。
+- 尺寸：55x 40 mm
 
-* Maker DIY 
-* Internet service gateway
-* Robot control
-* Industrial control and industrial automation gateway
-* NAS device
-* Network and communication applications
-
-== Key Features
-
-* Rockchip RK3568 Quad-core ARM Cortex-A55 CPU
-* Mali-G52 1-Core-2EE GPU
-* 2GB LPDDR4/LPDDR4x (Max 8G)
-* 16G eMMC flash (Max 128G)
-* Support Android and Linux system.
-* Size: 55x40mm
-
-= Hardware
-== Hardware Interface
+= 硬件
+== 硬件接口示意图
 
 image::/picture/banana_pi_bpi-cm2_interface.jpg[banana_pi_bpi-cm2_interface.jpg]
 
 
-= Development
+= 发展
 
-== Resources
+== 开发资料
 NOTE: https://www.cnx-software.com/2020/12/16/rockchip-rk3566-and-rk3568-datasheets-and-features-comparison/[Rockchip RK3566 and RK3568 datasheets and features comparison]
 
-= Easy to buy
+= 购买链接
 
-WARNING: OEM&ODM please contact : judyhuang@banana-pi.com
+WARNING: OEM&ODM 请联系 : judyhuang@banana-pi.com
