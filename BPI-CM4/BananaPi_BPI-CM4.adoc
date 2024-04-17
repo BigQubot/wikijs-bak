@@ -385,7 +385,7 @@ Google Drive: https://drive.google.com/drive/folders/1_k0RYmuZoBBk4GCaDDOD112FDO
 
 === Armbian
 
-BPI-CM4 is currently on platinum support from armbian. Download the latest images from here: https://www.armbian.com/bananapicm4io/
+NOTE: BPI-CM4 is currently on platinum support from armbian. Download the latest images from here: https://www.armbian.com/bananapicm4io/
 
 Armbian is a simple, light, and fast Linux operating system optimized for development boards, offering a user-friendly experience for newcomers and professionals.
 
@@ -393,9 +393,11 @@ The system is designed to minimize SD card wear. It can be accessed via serial, 
 
 The system can also be built and customized via the https://github.com/armbian/build[armbian build utility].
 
-=== BPI-CM4 with VIM3 rootfs image
+=== VIM3 rootfs
 
-BPI-CM4 use vim3 rootfs image, you can run the npu demo from khadas wiki on this image, username/password: khadas/khadas or root/khadas
+NOTE: BPI-CM4 use vim3 rootfs image, you can run the npu demo from khadas wiki on this image
+
+Username/Password: khadas/khadas or root/khadas
 
 Baidu Link: https://pan.baidu.com/s/1zLQJGf4YQ_45ZLKotKWhhw?pwd=xvvc PIN code:xvvc
 
