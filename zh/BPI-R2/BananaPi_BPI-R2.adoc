@@ -1,66 +1,67 @@
-= BPI-R2 Introduction
+= BPI-R2 介绍
 
-The Banana Pi R2 is a router based development board, which can run on a variety of open source operating systems including OpenWrt, Android, and Linux. It has 4 Gigabit LAN ports, 1 Gigabit WAN, and 300Mbs wireless N capabilities.
+香蕉派 BPI-R2是一款基于路由器的开发板，可以在各种开源操作系统上运行，包括OpenSort、Android和Linux。它具有4个千兆LAN端口，1个千兆WAN和300 Mbs无线功能。
 
-BPI-R2 integrate a Quad-code ARM Cortex-A7 MPcore operating up to 1.3GHz, The Router also includes a variety of peripherals, including HDMI TX, MIPI DSI, PCIe2.0, USB2.0 OTG, USB3.0 Port, SATA port，5 Gbps Port Gigabit Ethernet port, 802.11a/b/g/n wifi & BT4.1 onboard, also support 802.11ac/n WLAN connection thru mini PCI-e port
+BPI-R2集成了四核 ARM Cortex-A7 MPcore，工作频率高达1.3GHz，还有各种外设，包括HDMI TX，MIPI DSI，PCIe2.0，USB2.0 OTG，USB3.0 Port，SATA端口，5 Gbps Port千兆以太网端口，802.11a/b/g/n wifi和BT4.1板载，还支持通过迷你PCI-e端口连接802.11ac/n WLAN
 
 image::/picture/banana_pi_bpi-r2.jpg[banana_pi_bpi-r2.jpg]
 
-== Key Features
+== 主要特点
 
-- MediaTek MT7623N, Quad-core ARM Cortex-A7
+- 联发科 MT7623N，四核ARM Cortex-A7
 - Mali 450 MP4 GPU
 - 2G DDR3 SDRAM
-- Mini PCIE interface.
-- support 2 SATA interface
-- MicroSD slot supports up to 256GB expansion
-- 8G eMMC flash (option 16/32/64G)
-- MIPI display interface support
-- 5 port 10/100/1000 Mb Ethernet port
-- (2) USB 3.0 and (1) USB 2.0 otg port
-- 1080P high-definition video playback
-- HDMI port and multi-channel audio output
-- WIFI&Bluetooth 4.1 with 802.11B/G/N onboard
+- Mini PCIE接口
+- 支持2个SATA接口
+- MicroSD插槽支持高达256 GB的扩展
+- 8 G eMMC闪存（可选16/32/64 G）
+- MIPI显示接口
+- 5个 10/100/1000 Mb以太网端口
+- 2个USB 3.0和1个USB 2.0 OTG端口
+- 1080P 高清视频播放
+- HDMI端口和多声道音频输出
+- WIFI和蓝牙4.1与802.11B/G/N板载
 
-== Getting Start
+
+== 快速入门
 
 TIP: link:/en/BPI-R2/GettingStarted_BPI-R2[Getting Started BPI-R2]
 
 TIP: link:http://fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:start[Getting Start with Frank Wiki]
 
-TIP: Howto build 19.07.3 openwrt image for bpi r2: http://forum.banana-pi.org/t/howto-build-19-07-3-openwrt-image-for-bpi-r2/11503
+TIP: 如何为BPI-R2构建19.07.3 openwrt映像: http://forum.banana-pi.org/t/howto-build-19-07-3-openwrt-image-for-bpi-r2/11503
 
-= Hardware
-== Hardware Interface
+= 硬件
+== 硬件接口示意图
 
 image::/picture/bpi-r2_new_intface.jpg[bpi-r2_new_intface.jpg]
 
-== Hardware Spec
+== 硬件规格
 
 [options="header",cols="1,3"]
 |=====
-2+| **HardWare Specification of Banana Pi R2**
+2+| **香蕉派 BPI-R2 硬件规格**
 | CPU              | MediaTek MT7623N, Quad-core ARM Cortex-A7
 | GPU              | Mali 450 MP4 GPU
-| Memory           | 2G DDR3 SDRAM
-| Storage          | Onboard 8GB eMMC Flash, Micro SD-Card slot, Two SATA 2.0 Port
-| Network          | 5 x 10/100/1000 Mbit/s Ethernet (MT7530)
-| WIFI&BT          | Wi-Fi 802.11 b/g/n 2.4G/5G + Bluetooth BT4.1(MT6625L)
-| Display(s)       | HDMI (Type A) output with HDCP 1.4, resolutions up 1920x1200； MIPI Display Serial Interface (DSI) interface(4 data lanes)
-| Video decoder(s) | Multi-format FHD video decoding, including Mpeg1/2, Mpeg4, H.263, H.264, etc. H.264 high-profile 1080p@60fps, HEVC/H.265 1080P@60fps   
-| Audio Output(s)  | HDMI & I2S
-| USB port         | USB 3.0 PORT (x2), USB OTG (x1)
-| mini PCIE        | 1 mini pcie interface & 1 pcie pin define interface
-| Remote           | IR Receiver (x1)
+| 内存           | 2G DDR3 SDRAM
+| 存储          | 板载8GB eMMC闪存，Micro SD卡插槽，两个SATA 2.0端口
+| 网络          | 5 x 10/100/1000 Mbit/s 以太网口 (MT7530)
+| WIFI&BT          | Wi-Fi 802.11 b/g/n 2.4G/5G + 蓝牙 BT4.1(MT6625L)
+| 显示       | HDMI（Type A）输出，支持HDCP 1.4，分辨率高达1920 x1200; MIPI显示串行接口（DSI）接口（4个数据通道）
+| 视频解码器 | 多格式FHD视频解码，包括Mpeg 1/2、Mpeg4、H.263、H.264等。H.264高规格1080P@60fps，HEVC/H.265 1080P@60fps
+| 音频输出  | HDMI & I2S
+| USB 端口         | USB 3.0 PORT (x2), USB OTG (x1)
+| mini PCIE        | 1 mini pcie 接口 & 1 pcie pin define 接口
+| 远程           | IR Receiver (x1)
 | GPIO             | 40 Pin Header : GPIO (x28) and Power (+5V, +3.3V and GND). Some of I/O Pin can be used for specific functions as UART, I2C, SPI or PWM 
-| Switches         | Reset button, Power button, U-boot button
+| 按键         | Reset, Power, U-boot
 | LED              | Power Status and 8P8C
-| Power Source     | 5 volt @2A via DC Power and/or Micro USB (OTG)
-| Size & Weight    | 148p;mm × 100.5mm 100g same ase Banana Pi BPI-R64 and Banana Pi BPI-R3
+| 电源     | 5 volt @2A via DC Power and/or Micro USB (OTG)
+| 尺寸，重量    | 148mm × 100.5mm ; 100g 
 | OS               | OpenWRT, Debian, Ubuntu, Raspbian and others OS
 |=====
 
-== GPIO Pin Define
+== GPIO 引脚定义
 
 === BPI-R2 40PIN GPIO
 
@@ -112,9 +113,9 @@ image::/picture/gpio_define.png[gpio_define.png]
 | CON1-P40 | I2S0\_DATA\_OUT | GPI049 
 |=====
 
-How to use Banana PI BPI-R2's GPIO-s: http://forum.banana-pi.org/t/how-to-use-banana-pi-bpi-r2s-gpio-s/4480
+如何使用香蕉派 BPI-R2的GPIO: http://forum.banana-pi.org/t/how-to-use-banana-pi-bpi-r2s-gpio-s/4480
 
-=== MIPI DSI \(Display SerialInterface\)
+=== MIPI DSI (显示串行接口)
 [options="header",cols="1,1,1"]
 |=====
 3+| **MIPI DSI of Banana pi BPI-R2**
@@ -161,7 +162,7 @@ How to use Banana PI BPI-R2's GPIO-s: http://forum.banana-pi.org/t/how-to-use-ba
 | CN6-P40 | GND        |         
 |=====
 
-=== BPI-R2 Debug UART
+=== BPI-R2 调试接口
 
 |=====
 | CON2P03  | UTXD2	
@@ -171,16 +172,16 @@ How to use Banana PI BPI-R2's GPIO-s: http://forum.banana-pi.org/t/how-to-use-ba
 
 == BPI-MT7615 802.11 ac wifi 4x4 dual-band
 
-We have design a MT7615 802.11 ac wifi module ,can use on BPI-R2
+我们设计了一款 MT7615 802.11 ac wifi模块，可以在BPI-R2上使用。
 
-MT7615 is a highly integrated Wi-Fi single chip which support 1733 Mbps PHY rate,It fully compies with IEEE 802.11ac and IEEE802.11 a/b/n standards,offering feature-rich wireless connecivity at high standards,and delivering reliable,cost-effective throughput from and extended distance.
+MT7615是一款高度集成的Wi-Fi单芯片，支持1733 Mbps的PHY速率，完全符合IEEE 802.11ac和IEEE 802.11 a/b/n标准，提供高标准的功能丰富的无线连接，并提供可靠的，具有成本效益的吞吐量和扩展距离。
 
 link:/en/BPI-MT7615_802_11_ac_wifi_4x4_dual-band_module[BPI-MT7615 802.11 ac wifi 4x4 dual-band module]
 
 link:/en/BPI-R64_2B_MT7615_function_test[BPI-R64 + MT7615 function test]
 
-= Development
-== Source Code
+= 发展
+== 源代码
 === OpenWRT
 TIP: OpenWRT 18.06 source code on Github: https://github.com/BPI-SINOVOIP/BPI-R2-OPENWRT-18.06
 
@@ -200,7 +201,7 @@ TIP: BPI-R2 github BSP : https://github.com/BPI-SINOVOIP/BPI-R2-bsp
 
 TIP: BPI-R2 FreeBSD support/ZRouter.org support : https://gist.github.com/rayddteam/3461964e69f1fcc727b1b68ec9d6d0c8
 
-== Resources
+== 开发资料
 
 TIP: Because of the Google security update some of the old links will not work if the images you want to use cannot be downloaded from the link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[new link bpi-image Files]
 
@@ -224,34 +225,34 @@ TIP: Banana Pi BPI-R2 Razberry board OpenHab2: https://community.openhab.org/t/b
 
 TIP: Gitbook online documents: https://bananapi.gitbooks.io/banana-pi-bpi-r2-open-source-smart-router/content/
 
-TIP: The best news is that the final patchset version for HNAT framework was accepted ( kernel 4.16) and it's based on nftables.: https://www.spinics.net/lists/netfilter-devel/msg50973.html
+TIP: HNAT框架的最终补丁集版本被接受（内核4.16），它基于nftables。: https://www.spinics.net/lists/netfilter-devel/msg50973.html
 
-TIP: How to build an Ubuntu/Debian SD image from scratch : http://forum.banana-pi.org/t/how-to-build-an-ubuntu-debian-sd-image-from-scratch/6805
+TIP: 如何从头开始构建Ubuntu/Debian SD映像 : http://forum.banana-pi.org/t/how-to-build-an-ubuntu-debian-sd-image-from-scratch/6805
 
-TIP: Best Banana Pi R2 Operating System Options: https://www.electromaker.io/blog/article/best-banana-pi-r2-operating-system-options
+TIP: 最佳的香蕉派 BPI-R2 操作系统选项: https://www.electromaker.io/blog/article/best-banana-pi-r2-operating-system-options
 
-TIP: Make a Banana Pi R2 Router: Banana Pi R2 OpenWRT Installation and Review: https://www.electromaker.io/tutorial/blog/make-a-banana-pi-r2-router-banana-pi-r2-openwrt-installation-and-review
+TIP: 制作Banana Pi R2路由器：Banana Pi R2 OpenWRT安装和评测: https://www.electromaker.io/tutorial/blog/make-a-banana-pi-r2-router-banana-pi-r2-openwrt-installation-and-review
 
 TIP: MTK chip mailline Linux effort : https://mtk.bcnfs.org/doku.php?id=linux_mainline_effort
 
 TIP: BPI-R2 and SSD1306 oled screen : http://forum.banana-pi.org/t/bpi-r2-and-ssd1306-oled-screen/11917
 
-TIP: How to configure BPi-R2 as one-armed “router on a stick”: http://forum.banana-pi.org/t/how-to-configure-bpi-r2-as-one-armed-router-on-a-stick/12022/6
+TIP: 如何将BPi-R2配置为单臂“router on a stick”: http://forum.banana-pi.org/t/how-to-configure-bpi-r2-as-one-armed-router-on-a-stick/12022/6
 
-TIP: New netfilter flow table based HNAT: http://forum.banana-pi.org/t/new-netfilter-flow-table-based-hnat/12049
+TIP: 一种新的基于Netfilter流表的HNAT: http://forum.banana-pi.org/t/new-netfilter-flow-table-based-hnat/12049
 
 TIP: OpenWRT official wiki for BPI-R2 : https://openwrt.org/toh/sinovoip/sinovoip_banana_pi_r2
 
 TIP: 802.11ax 4x4 (mt7915) with BPI-R2 : http://forum.banana-pi.org/t/802-11ax-4x4-mt7915-with-r2/12082
 
-TIP: [Tutorial] Build, customize and use MediaTek open-source U-Boot and ATF : https://forum.banana-pi.org/t/tutorial-build-customize-and-use-mediatek-open-source-u-boot-and-atf/13785
+TIP: 构建、定制和使用联发科开源U-Boot和ATF: https://forum.banana-pi.org/t/tutorial-build-customize-and-use-mediatek-open-source-u-boot-and-atf/13785
 
 TIP: [BPI-R2/R64/R3] OpenWrt built on devices : https://openwrt.org/docs/guide-developer/toolchain/building_openwrt_on_openwrt
 
 TIP: BPI-R2 based DIY NAS/Router : https://bburky.com/NAS/ +
 Forum pthread: http://forum.banana-pi.org/t/bpi-r2-based-diy-nas-router/6787
 
-= System Image
+= 系统镜像
 == Android
 NOTE: Android 6.0
 
@@ -326,7 +327,7 @@ More downloads: https://gitlab.com/pantacor/pvr/tags/004
 http://forum.banana-pi.org/t/bpi-r2-new-image-basic-alpine-router-platform-with-wifi-accesspoint-on-pantavisor-005-2018-06-17/6032
 
 === yocto Linux
-NOTE: This image just for test. yocto with kernel 4 4,and GPU working fine.this GPU binary is from yocto SDK with kernel 3.18 , we test it with github kernel 4.4 , just change rootfs. if working fine .so , maybe can use on kernel 4.14. just need to test . and have weston commond to test more.
+NOTE: 这个镜像只是为了测试。yocto内核4.4，GPU工作正常。这个GPU二进制文件来自yocto SDK内核3.18，我们用github内核4.4测试它，只需更改rootfs。如果工作正常的话，也许可以在内核4.14上使用。只需要测试一下。
 
 Test image : https://drive.google.com/open?id=1le2rroD3Dgc4HkEUmGyDLZix-Llrzeen
 
@@ -338,25 +339,25 @@ Forum pthread : http://forum.banana-pi.org/t/banana-pi-bpi-r2-new-image-gpu-deco
 
 NOTE: Update 2019-03-12, Note : this image is shared by http://www.morequick.net/. not support by BPI team
 
-Main features:
+主要特点：
 
- Highly streamlined embedded design system, running in memory
- Mutilple Language (en/zh_CN currently)
- DNS Proxy/Cache
- DDNS
- VLAN Extension for WAN
- Multiple WAN (each ethernet port can be defined)
- DHCP Server
- FTP Server
- PPPoE Server
- Samber Server
- VPN client/Server (PPTP VPN, IPsecVPN, OpenVPN)
- Cloud Login
- Firewall
- IP-MAC Locking
- Port Mapping/DMZ/UPnP
- Diagnose Tools …
- 
+- 高度精简的嵌入式设计系统，在内存中运行
+- 多语言（en/zh_CN currently）
+- DNS代理/缓存
+- DDNS
+- WAN的VLAN扩展
+- 多个WAN（可定义每个以太网端口）
+- DHCP服务器
+- FTP服务器
+- PPPoE服务器
+- Samber服务器
+- VPN客户端/服务器（PPTP VPN，IPsecVPN，OpenVPN）
+- 云登录
+- 防火墙
+- IP-MAC锁定
+- 端口映射/DMZ/升级
+- 诊断工具...
+
 Image dwonload: https://drive.google.com/file/d/1Ws2IUiCGSKKQ2dCM5XJBV-pog-hk17PM/view?usp=sharing
 
 MD5: 09b58f050166ed5d09803e1de56d7890
@@ -433,7 +434,7 @@ Forum pthread: http://forum.banana-pi.org/t/banana-pi-bpi-r2-new-image-openmptcp
 
 
 
-= Easy to buy
-WARNING: link:https://pt.aliexpress.com/item/32823351577.html?spm=a2g0o.productlist.0.0.2eae7ca9svmJo4&algo_pvid=15a4e8a9-24e6-4f14-a486-4540ed19184a&algo_expid=15a4e8a9-24e6-4f14-a486-4540ed19184a-3&btsid=0bb47a1a16092043501194341e8477&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_[official aliexpress shop]
+= 购买链接
+WARNING: link:https://pt.aliexpress.com/item/32823351577.html?spm=a2g0o.productlist.0.0.2eae7ca9svmJo4&algo_pvid=15a4e8a9-24e6-4f14-a486-4540ed19184a&algo_expid=15a4e8a9-24e6-4f14-a486-4540ed19184a-3&btsid=0bb47a1a16092043501194341e8477&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_[官方速卖通商店]
 
-WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
+WARNING: OEM&ODM, 请联系: judyhuang@banana-pi.com
