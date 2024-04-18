@@ -1,55 +1,58 @@
-= BPI-CM5 Introduction
+= BPI-CM5 介绍
 
 image::/picture/banana_pi_bpi-cm5_wiki_1.jpg[banana_pi_bpi-cm5_wiki_1.jpg]
-Banana Pi BPI-CM5 is a computer module with Amlogic A311D2 quad-core Cortex-A73 and quad-core Cortex-A53 SOC, Mali-G52 GPU MP8 GPU,4GB LPDDR4/LPDDR4x (Max 8G),16G eMMC flash (Max 128G),Designed with Board to Board connectors for enhanced stability same as Raspberry Pi CM4 , which means that it should work with carrier boards designed for the Raspberry Pi CM4.
 
-== Key Features
+香蕉派 BPI-CM5是一款计算机模块，采用Amlogic A311 D2四核Cortex-A73和四核Cortex-A53 SOC，Mali-G52 GPU MP8 GPU，4GB LPDDR4/LPDDR4x（最大8G），16G eMMC闪存（最大128G），设计有板对板连接器，可增强与Raspberry Pi CM4相同的稳定性，这意味着它可以和为Raspberry Pi CM4设计的载板一起工作。
 
-* Amlogic A311D2,quad-core Cortex-A73 and quad-core Cortex-A53 SOC
-* Mali-G52 GPU MP8 GPU
-* 4GB LPDDR4/LPDDR4x (Max 8G)
-* 16G eMMC flash (Max 128G)
-* Designed with Board to Board connectors for enhanced stability same as RasPi CM4
-* One on-board Gigabit Ethernet 
-* One PCIe2.0 interface expansion, can flexibly add related modules
-* One USB3.0 port up to 5Gbps
-* One USB2.0 high-speed USB/IO witch support USB OTG
-* Three HDMI2.1 receiver ports
-* one HDMI2.1 transmitter port with CEC
-* two 8-lane V-by-One output can support up to 4Kx2K resolution(Multiplexing with MIPI-DSI/eDP/LVDS)
-* two 4-lane MIPI-CSI camera interface with 16Mp ISP
-* support Android and Linux system.
-* Size: 55x40mm
 
-== Getting Start
+== 主要特点
+
+- Amlogic A311 D2、四核Cortex-A73和四核Cortex-A53 SOC
+- Mali-G52 GPU MP8 GPU
+- 4GB LPDDR4/LPDDR 4x（最大8 G）
+- 16 G eMMC闪存（最大128 G）
+- 与RasPi CM4一样，采用板对板连接器设计，增强了稳定性
+- 一个板载千兆以太网
+- 一个PCIe2.0接口扩展，可灵活添加相关模块
+- 一个USB3.0端口，最高可达5Gbps
+- 一个USB2.0高速USB/IO交换机，支持USB OTG
+- 三个HDMI 2.1接收器端口
+- 一个HDMI 2.1发射器端口，带CEC
+- 两个8通道V-by-One输出可支持高达4Kx 2K的分辨率（MIPI-DSI/eDP/LVDS多路复用）
+- 两个4通道MIPI-CSI摄像头接口，带16 Mp ISP
+- 支持Android和Linux系统。
+- 尺寸：55x 40 mm
+
+
+== 快速入门
 
 TIP: link:/en/BPI-CM5/GettingStarted_BPI-CM5[Getting Started BPI-CM5]
 
-= Hardware
-== Hardware Interface
+= 硬件
+== 硬件接口示意图
 
 image::/picture/banana_pi_bpi-cm5_interface.jpg[banana_pi_bpi-cm5_interface.jpg]
 
-== BPI-CM5 Module PIN Out define
+== BPI-CM5 模块引脚定义
 
-== BPI-CM5 moudule base board interface
+== BPI-CM5 模块基板接口
 
-we also design a full function IO board for BPI-CM5,so you can use it for developemnt . also you can easy to design a new base IO board for your product.
+我们还为BPI-CM 5设计了一个全功能IO板，所以你可以用它来开发。您也可以很容易地为您的产品设计一个新的基础IO板。
 
 image::/picture/banana_pi_bpi-cm5_io_interface.jpg[banana_pi_bpi-cm5_io_interface.jpg]
 
-== BPI-CM5 with IO Board specifications
+== BPI-CM5 IO板规格
 
-== Same size as RPI CM4
+== 尺寸
 
-BPI-CM5 computer module same size as Raspberry Pi CM4, 2x100 PIN can compatible RPI CM4 base board ,if you want use all function with BPI-CM5,you need use BPI-CM5 base board.
+BPI-CM5计算机模块与Raspberry Pi CM4尺寸相同，2x 100 PIN可以兼容RPI CM4基板，如果您想使用BPI-CM5的所有功能，则需要使用BPI-CM5基板。
 
-= Development
-== Source code
+= 发展
+== 源代码
 
-== Resources
+== 开发资料
 
-= System image
+= 系统镜像
 
 == Android
 
@@ -64,6 +67,6 @@ BPI-CM5 computer module same size as Raspberry Pi CM4, 2x100 PIN can compatible 
 == Third part image
 === Armbian 
 
-= Easy to buy
+= 购买链接
 
-WARNING:  OEM&ODM please contact : judyhuang@banana-pi.com
+WARNING:  OEM&ODM 请联系 : judyhuang@banana-pi.com
