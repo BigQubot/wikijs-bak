@@ -23,6 +23,39 @@ OpenWRT one is the first board design with OpenWRT opensource communtity.and des
 
 == Hardware spec
 
+[options="header",cols="1,5"]
+|====
+2+| HardWare Specification of OpenWRT one
+|SoC |MediaTek MT7981B (Filogic 820) dual-core Cortex-A53 processor @ 1.3 GHz
+|System Memory | 1GB DDR4
+.4+|Storage
+|128 MB SPI NAND flash for U-boot and Linux
+|4 MB SPI NOR flash for write-protected (by default) recovery bootloader (reflashing can be enabled with a jumper)
+|Two types of flash devices are used to make the board almost unbrickable
+|M.2 2242/2230 socket for NVMe SSD (PCIe gen 2 x1)
+.4+|Networking
+|2.5GbE RJ45 port
+|Gigabit Ethernet RJ45 port
+|Dual-band WiFI 6 via MediaTek MT7976C (2×2 2.4 GHz + 3×3/2×2 + zero-wait DFS 5Ghz)
+|3x MMCX antenna connectors
+.2+|USB
+|1x USB 2.0 Type-A host port
+|USB Type-C (device, console) port using Holtek HT42B534-2 UART to USB chip
+|Expansion | MikroBUS socket for expansion modules
+|Debugging | Console via USB-C port or 3-pin header, 10-pin JTAG/SWD header for main SoC
+|RTC | support RTC onboard
+.5+|Misc
+|Reset and User buttons
+|Boot select switch: NAND (regular) or NOR (recovery)
+|2x PWM LEDs, 2x Ethernet LED (GPIO driven)
+|EM6324 External hardware watchdog
+|NXP PCF8563TS (I2C) RTC with battery backup holder for CR1220 coin-cell
+.2+|Power Supply 
+|12V USB-PD on USB-C port (might have changed to up to 15V)
+|Optional 802.3at/af PoE via RT5040 module
+|Dimensions | 148 x 100.5 mm compatible with Banana Pi BPI-R4 case design
+|Certifications | FCC/EC/RoHS compliance
+|====
 
 
 == OpenWRT One photo
