@@ -1,44 +1,45 @@
-= BPI-CM4IO Introduction
+= BPI-CM4IO 介绍
 
-BananaPi BPI-CM4IO board is design for link:/en/BPI-CM4/BananaPi_BPI-CM4[Banana Pi BPI-CM4] or RPi-CM4.
+香蕉派 BPI-CM4 IO板是为 link:/en/BPI-CM4/BananaPi_BPI-CM4[香蕉派 BPI-CM4]或RPi-CM4设计的。
 
 image::/bpi-cm4/cm4-io_board_1.jpg[cm4-io_board_1.jpg]
 
-TIP:  Rockchip RK3568 design link:/en/BPI-CM2/BananaPi_BPI-CM2[Banana Pi BPI-CM2] computer module +
-Amlogic A311D design : link:/en/BPI-CM4/BananaPi_BPI-CM4[Banana Pi BPI-CM4] computer module +
-Amlogic A311D2 design : link:/en/BPI-CM5/BananaPi_BPI-CM5[Banana Pi BPI-CM5] computer module
+TIP:  瑞芯微(Rockchip) RK3568 方案 link:/en/BPI-CM2/BananaPi_BPI-CM2[Banana Pi BPI-CM2] 计算机模块 +
+瑞芯微(Rockchip) RK3568 方案 : link:/en/BPI-CM4/BananaPi_BPI-CM4[Banana Pi BPI-CM4] 计算机模块 +
+瑞芯微(Rockchip) RK3568 方案 : link:/en/BPI-CM5/BananaPi_BPI-CM5[Banana Pi BPI-CM5] 计算机模块
 
-== Key Features
+== 主要特点
 
-* Support MIPI DSI Display interface
-* Support MIPI CSI Camera interface
-* Minipcie
-* HDMI output
-* 26 PIN GPIO 
-* USB TypeC OTG
-* TF Card slot
-* SIM Card Slot
-* RJ45(1 Gigabyte Ethernet)
-* USB 2.0 *2
-* UART Debug Interface
-* AD Key
-* Size: 100x72mm
+- 支持MIPI DSI显示接口
+- 支持MIPI CSI摄像头接口
+- mini PCIe
+- HDMI输出
+- 26 PIN GPIO
+- USB TypeC OTG
+- TF卡槽
+- SIM卡槽
+- RJ45（1 Gigabyte 以太网）
+- USB 2.0 *2
+- UART调试接口
+- AD密钥
+- 规格：100x72mm
 
-= Hardware
 
-== BPI-CM4 moudule base board interface
+= 硬件
+
+== BPI-CM4 模块基板接口
 
 image::/bpi-cm4/banana_pi_bpi-cm4_io_interface.jpg[banana_pi_bpi-cm4_io_interface.jpg]
 
-== BPI-CM4 Photo
+== BPI-CM4 照片
 
 link:/en/BPI-CM4/Photo_BPI-CM4[Banana Pi BPI-CM4 Product photo gallery]
 
-== BPI-CM4 Module PIN Out define
+== BPI-CM4 模块引脚输出定义
 
-[option="header",cols="1,1,1,1"]
+[options="header",cols="1,1,1,1"]
 |=====
-4+| **HardWare Specification of Banana Pi M2+(Plus)**
+4+| **BPI-CM4 IO GPIO**
 | GPIO Pin Name | Default Function | Function2：GPIO | Function3
 | CON2-P01      | VCC-3V3          |                |          
 | CON2-P02      | DCIN             |                |          
@@ -68,7 +69,7 @@ link:/en/BPI-CM4/Photo_BPI-CM4[Banana Pi BPI-CM4 Product photo gallery]
 | CON2-P26      | I2SC_DOUT_DIN_0  | GPIOA-3        |
 |=====
 
-=== UART specification
+=== 调试接口
 
 [option="header",cols="1,1,1"]
 |=====
@@ -77,8 +78,8 @@ link:/en/BPI-CM4/Photo_BPI-CM4[Banana Pi BPI-CM4 Product photo gallery]
 | CON1-P3       | UART0-TX         |     
 |=====
 
-= Development
-== Resources
+= 发展
+== 开发资料
 TIP: https://drive.google.com/file/d/1IErCKqfWdU7gL7kUod2-wlpG7uE9EiVZ/view?usp=sharing[BPI-CM4 Base board Schematic]
 
 TIP: https://drive.google.com/file/d/1-K3ESgU63S4ynwwNbe0p3Ol1ajOsufQ8/view?usp=sharing[BPI-CM4 Base board DXF file]
