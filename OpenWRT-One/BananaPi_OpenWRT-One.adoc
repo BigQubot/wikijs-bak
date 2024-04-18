@@ -12,6 +12,16 @@ link:https://www.mediatek.com/products/home-networking/mt7681[MediaTek MT7681] i
 
 == Key Features
 
+* OpenWRT official board and support
+* MediaTek MT7981B (Filogic 810) SoC
+* Dual-band WiFI 6 via MediaTek MT7976C (2×2 2.4 GHz + 3×3/2×2 + zero-wait DFS 5Ghz)
+* 1GB DDR4 
+* 1 x 2.5GbE RJ45 port and |1 x Gigabit Ethernet RJ45 port
+* 128 MB SPI NAND and 4 MB SPI NOR flash are used to make the board almost unbrickable
+* M.2 2242/2230 socket for NVMe SSD (PCIe gen 2 x1)
+* RTC support 
+* PoE support
+* MikroBUS socket for expansion modules
 
 == Application direction
 
