@@ -6,8 +6,9 @@ OpenWrt One is a device based on the MediaTek Filogic 810 SoC that has WiFi 6, d
 
 OpenWRT one is the first board design with OpenWRT opensource communtity.and designed in collaboration with Banana Pi that will also handle manufacturing and distribution of the router board. The OpenWrt One/AP-24.XY router should provide a source of income for the project, for example, to cover the cost of hosting and OpenWrt conferences, with Banana Pi selling the board through their distribution network, and for every device sold, donating to the Software Freedom Conservancy (SDC) with the funds earmarked for OpenWrt.
 
-== MediaTek MT7981B(Filogic 810)
+== MediaTek MT7981(Filogic 810)
 
+link:https://www.mediatek.com/products/home-networking/mt7681[MediaTek MT7681] is a compact Wi-Fi System-on-Chip (SoC) for IoT devices that includes an embedded TCP/IP stack. Using the MT7681 an IoT device can connect to other smart devices or to cloud applications and services. Connectivity on the MT7681 is achieved using Wi-Fi in either Wi-Fi station or access point (AP) modes. MT7681 provides five GPIO pins and one UART port. In addition, PWM is supported in software for applications such as LED dimming.
 
 == Key Features
 
