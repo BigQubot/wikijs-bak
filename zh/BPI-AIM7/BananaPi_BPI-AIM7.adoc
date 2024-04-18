@@ -1,6 +1,7 @@
-= BPI-AIM7 Introduction
+= BPI-AIM7 介绍
 
-BPI-AIM7 uses Rockchip RK3588, a new generation flagship eight-core 64-bit processor with a main frequency of up to 2.4GHz, 6 TOPS computing power NPU, and can be equipped with up to 32GB of large memory. While the interface is fully compatible with Jetson Nano, the PCIe interface has been upgraded to PCIe3.0 4-lane and PCIe2.1 1-lan.
+BPI-AIM7采用瑞芯微 RK3588，新一代旗舰八核64位处理器，主频高达2.4GHz，6TOPS算力NPU，最高可配备32GB大内存。虽然该接口与Jetson Nano完全兼容，但PCIe接口已升级为PCIe3.0 4通道和PCIe2.1 1-lan。
+
 
 image::/bpi-aim7/banana_pi_bpi-aim7_banner.png[banana_pi_bpi-aim7_banner.png]
 
@@ -9,49 +10,57 @@ TIP: 瑞芯微（Rockchip） RK3588 设计 link:/zh/BPI-M7/BananaPi_BPI-M7[香�
 瑞芯微（Rockchip） RK3588 设计 link:/zh/BPI-W3/BananaPi_BPI-W3[香蕉派 BPI-W3] LGA 核心板开发套件 +
 瑞芯微（Rockchip） RK3588 设计 link:/zh/BPI-RK3588_CoreBoardAndDevelopmentKit/BananaPi_BPI-RK3588_CoreBoardAndDevelopmentKit[BPI-RK3588 系列核心板] 核心板设计 
 
-BPI-AIM7 can be applied to ARM PC, edge computing, cloud server, artificial intelligence, cloud computing, virtual/augmented reality, blockchain, smart NVR and other fields
 
+== 应用场景
+- ARM PC
+- 边缘计算
+- 云服务器
+- 人工智能
+- 云计算
+- 虚拟/增强现实
+- 区块链
+- 智能NVR等领域
 
-== Key Features
+== 主要特点
 
-* SOC: Rockchip RK3588
-* CPU: RK3588 quad-core Cortex-A76 @ 2.4GHz + quad-core Cortex-A55 @ 1.8GHz, 8nm process
-* GPU: ARM Mali-G610 MP4
-* NPU: Computing power up to 6 TOPS (INT8), supports INT4/INT8/INT16 mixed computing
-* VPU/Codec:
-** Hardware decoding: 8K@60fps H.265/VP9/AVS2, 8K@30fps H.264 AVC/MVC, 4K@60fps AV1, 1080P@60fps MPEG-2/-1/VC-1/VP8
-** Hardware encoding: 8K@30fps H.265 / H.264
-* RAM: 8GB/16GB/32GB (max 32GB) 64bit LPDDR4x, default LPDDR4x 8GB
-* Flash: 32GB/64GB/128GB eMMC, default eMMC 32GB
-* Interface type: 260pin SO-DIMM connector, compatible with Jetson TX2 NX
-* Working voltage: 5V DC
-* Temperature: Operating temperature: 0°C to 80°C, Storage temperature: -20°C to 85°C
-* Humidity: Relative humidity: Operation: 10% to 90%, Storage: 5% to 95%
-* operating system:
-** Rockchip official support: Android 12.0, Debian11, Buildroot
-** Third-party support: Armbian 23.07, Ubuntu 20.04, Ubuntu22.04, Kylin OS
-* PCB: 12-layer PCB board design
-* Size: 69.6 mm x 45 mm
+- SOC：瑞芯微(Rockchip) RK3588
+- CPU：RK3588 四核 Cortex-A76 @ 2.4GHz + 四核 Cortex-A55 @ 1.8 GHz，8 nm工艺
+- GPU：ARM Mali-G610 MP4
+- NPU：计算能力高达6 TOPS（INT8），支持INT4/INT8/INT16混合计算
+- VPU/编解码器：
+* 硬件解码：8K@60fps H.265/VP9/AVS2，8K@30fps H.264 AVC/MVC，4K@60fps AV1，1080P@60fps MPEG-2/-1/VC-1/VP8
+* 硬件编码：8K@30fps H.265 / H.264
+- RAM：8 GB/16 GB/32 GB（最大32 GB）64位LPDDR 4x，默认LPDDR 4x 8 GB
+- 闪存：32 GB/64 GB/128 GB eMMC，默认eMMC 32 GB
+- 接口类型：260 pin SO-DIMM连接器，兼容Jetson TX 2 NX
+- 工作电压：5V DC
+- 温度：工作温度：0°C至80°C，储存温度：-20 ° C至85°C
+- 湿度：相对湿度：操作：10%至90%，储存：5%至95%
+- 操作系统：
+* 瑞芯微官方支持：Android 12.0，Debian 11，Buildroot
+* 第三方支持：Armbian 23.07，Ubuntu 20.04，Ubuntu 22.04，Kylin OS
+- PCB：12层PCB板设计
+- 尺寸：69.6 mm x 45 mm
 
-== Support Large Language Model (LLM)
+== 支持大型语言模型（LLM）
 
-Boasting up to 6 TOPs AI performance, AIM7 supports Large Language Model (LLM) such as GPT, LLaMA, ChatGLM, and Bloom. It also enables multi-chip parallel acceleration for handling very large model inferences.
+AIM7拥有高达6个TOP的AI性能，支持大型语言模型（LLM），如GPT，LLaMA，ChatGLM和Bloom。它还支持多芯片并行加速，以处理非常大的模型推理。
 
 image::/bpi-aim7/banana_pi_bpi-aim7_llm_support.png[banana_pi_bpi-aim7_llm_support.png]
 
-== Getting Start
+== 快速入门
 
 TIP: link:/en/BPI-AIM7/GettingStarted_BPI-AIM7[Getting Started BPI-AIM7]
 
-= Hardware
+= 硬件
 
-== Hardware Interface
+== 硬件接口示意图
 
 image::/bpi-aim7/banana_pi_bpi-aim7.jpg[banana_pi_bpi-aim7.jpg]
 
-NOTE: All pins of AIM7 are compatible with NVIDIA Jetson TX2 & NVIDIA Jetson Nano, with the same dimensions
+NOTE: AIM7的所有引脚均兼容NVIDIA Jetson TX2和NVIDIA Jetson Nano，尺寸相同
 
-== Hardware Spec
+== 硬件规格
 
 [options="header",cols="1,2,2"]
 |=====
@@ -78,7 +87,7 @@ NOTE: All pins of AIM7 are compatible with NVIDIA Jetson TX2 & NVIDIA Jetson Nan
 
 |=====
 
-== GPIO Pin Define
+== GPIO 引脚定义
 
 === All Pin define
 [options="header",cols="2,1,1,2",width="70%"]
@@ -216,7 +225,7 @@ NOTE: All pins of AIM7 are compatible with NVIDIA Jetson TX2 & NVIDIA Jetson Nan
 |VDD_IN_9	|259	|260|	VDD_IN_10
 |=====
 
-=== Video input interface
+=== 视频输入接口
 
 Two MIPI DC (DPHY/CPHY) combo PHY
 
@@ -229,7 +238,7 @@ Four MIPI CSI DPHY
 * Each MIPI DPHY V1.2, 2 lanes, 2.5 Gbps per lane
 * Support combine 2 DPHY together to one 4-lan
 
-==== CSI pin descriptions:
+==== CSI引脚描述：
 
 [options="header",cols="1,2,2,2",width="90%"]
 |=====
@@ -270,7 +279,7 @@ Four MIPI CSI DPHY
 |66	|MIPI_DPHY0_RX_D3P|	Camera, CSI 4 Data 3+	|Input	MIPI D/C-PHY
 |=====
 
-==== Camera control pin descriptions
+==== 摄像头控制引脚说明
 
 [options="header",cols="1,2,4,2,2",width="90%"]
 |=====
@@ -602,9 +611,9 @@ i2s pin descriptions
 |220	|I2S2_SDO_M1	|I2S Audio Port 1 Data Out	|Output	|CMOS – 1.8V
 |222	|I2S2_SDI_M1	|I2S Audio Port 1 Data In	|Input	|CMOS – 1.8V
 |=====
-= Development
+= 发展
 
-== Source Code
+== 源代码
 
 === Linux BSP Source Code
 
@@ -620,7 +629,7 @@ TIP: Android BSP source code
 
 
 
-== Resources
+== 开发资料
 
 TIP: Rockchip RK3588 datasheet:
 
@@ -631,7 +640,7 @@ Google drive: https://drive.google.com/drive/folders/1l1YmUdBaLuDkJma3CYZJWjYug9
 TIP: BPI-AIM7 AI computer module boot with NVIDIA Jetson Nano base board
 https://www.youtube.com/watch?v=jAYCIUlWb34
 
-= System Image
+= 系统镜像
 
 BPI-AIM7 Official Operating System
 
@@ -668,5 +677,5 @@ Firmware location: 3. Linux image/armbian/ArmSoM-AIM7
 
 
 
-= Easy to buy
+= 购买链接
 
