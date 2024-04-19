@@ -136,7 +136,7 @@ to check if the USB drive is mounted. (If already mounted, you can skip step thr
 . Mount the USB drive to mnt.
 +
 ```sh
-mount /dev/sda1 /mnt
+sudo mount /dev/sda1 /mnt
 cd /mnt
 ```
 
@@ -146,11 +146,6 @@ cd /mnt
 sudo dd if=bpi-m7-xxx.img of=/dev/mmcblk0 bs=10M
 ```
 
-. If the image you placed on the USB drive has not been decompressed.Execute
-+
-```sh
-unzip -p bpi-m7-xxx.img.zip |pv| dd of=/dev/mmcblk0 bs=10M
-```
 
 . Disconnect the power and remove the SD card. Power on again and start up from the EMMC.
 
