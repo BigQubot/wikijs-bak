@@ -77,7 +77,7 @@ image::/picture/r2-pro_usb-tool-1.jpg[r2-pro_usb-tool-1.jpg]
 - **Uboot Usb Download Mode (loader mode)** +
 It's supposed to use this way if board already flashed a bootable uboot before.
 - **Maskrom Usb Download Mode(maskrom mode)** +
-Press the Recovery button or Maskrom button beside 3pin uart header and hold, connect the power adapter or press the RST button if power adapter already connected, about two seconds later, release the button. PC will Identify the device if RK usb driver installed correctly.
+Press the RESET button or Maskrom button to connect the power adapter. If the power adapter is already connected, hold down the Maskrom button while pressing the RESET button, release the RESET button, and then release the Maskrom button. If the RK USB driver is installed correctly, the PC will recognize the device.
 +
 image::/picture/r2-pro_usb-tool-4.jpg[r2-pro_usb-tool-4.jpg]
 The download tool also show the download mode if device connected.
