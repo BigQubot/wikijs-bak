@@ -1,0 +1,73 @@
+= OpenWRT One 产品介绍
+
+OpenWrt One/AP-24.XY 路由器板基于联发科MT7981B (Filogic 810) SoC和联发科MT7976C双频WiFi 6芯片组设计，是OpenWRT开源社区官方第一块开发板
+
+OpenWrt One是一款基于联发科Filogic 810 SoC的设备，具有WiFi 6、双频、3×3/2×2、1 × 2.5 G WAN网络接口、1 个千兆LAN 网络接口、板载1GB DDR4 内存 、128 MiB NAND、16 MiB NOR、M.2 SSD接口和USB 2.0接口。
+
+OpenWRT one是第一块OpenWRT开源社区的官方开发板。并与香蕉派开源社区（Banana  Pi ）合作设计，Banana Pi 还将负责路由器板的制造和分销。OpenWrt One/AP-24。XY路由器也将为OpenWRT开源项目提供收入来源，例如，支付主办和OpenWrt会议的费用，香蕉派通过他们的分销网络出售该板，每售出一台设备，将指定用于OpenWrt的资金捐赠给软件自由保护协会(SDC)。
+
+== 联发科 MT7981B(Filogic 810)
+
+link:https://www.mediatek.com/products/home-networking/mt7681[联发科MT7681] 是一款适用于物联网设备的紧凑型Wi-Fi片上系统(SoC)，包含嵌入式TCP/IP堆栈。使用MT7681，物联网设备可以连接到其他智能设备或云应用程序和服务。MT7681上的连接使用Wi-Fi在Wi-Fi站或接入点(AP)模式下实现。MT7681提供5个GPIO引脚和1个UART端口。此外，在应用软件中也支持PWM
+
+== 关键特性
+
+* OpenWRT 官方开发板
+* 联发科 MT7981B (Filogic 810) SoC主控芯片
+* 联发科MT7976C 双频 WiFI 6 芯片组  (2×2 2.4 GHz + 3×3/2×2 + zero-wait DFS 5Ghz)
+* 1GB DDR4 内存
+* 1 x 2.5GbE 网口和  1 x 千兆网口
+* 128 MB SPI NAND 和 4 MB SPI NOR flash 保证板载系统的不可破法性。
+* M.2 2242/2230 接口支持 NVMe SSD (PCIe gen 2 x1)
+* RTC 实时时钟
+* PoE 网络供电支持（可选）
+* MikroBUS 扩展模块插座
+
+
+== 应用场景
+
+* 创客 DIY 
+* OpenWRT 软件学习与开发
+* IoT物联网应用
+* Wifi6 无线路由应用 
+* Nas 
+* 网络通信应用
+
+= 硬件
+
+== 硬件接口示意图
+
+== 硬件规格
+[options="header",cols="1,5"]
+|====
+2+| OpenWRT One 开发板硬件规格
+|SoC主控|联发科 MT7981B (Filogic 820) 双核 Cortex-A53 处理器 @ 1.3 GHz主频
+|内存 |1GB DDR4
+.4+|存储
+|128 MB SPI NAND 闪存用于 U-boot 和 Linux系统
+|4 MB SPI NOR 闪存，用于写保护（默认）恢复引导加载程序（可以通过跳线启用重新刷新）
+|使用两种类型的闪存设备使板子几乎坚不可摧
+|M.2 2242/2230 接口支持 NVMe SSD 硬盘(PCIe gen 2 x1)
+.4+|网络
+|1 x 2.5GbE RJ45 端口
+|1 x 千兆RJ45 端口
+|双频 WiFI 6 无线网络由 MediaTek MT7976C 支持(2×2 2.4 GHz + 3×3/2×2 + zero-wait DFS 5Ghz)
+|3x MMCX 天线接口
+.2+|USB接口
+|1x USB 2.0 Type-A 主机端口
+|使用 Holtek HT42B534-2 UART 转 USB 芯片的 USB Type-C（设备、控制台）端口
+|扩展 |MikroBUS 扩展模块插座
+|调试 |通过 USB-C 端口或 3 针接头连接的控制台，用于主 SoC 的 10 针 JTAG/SWD 接头
+|RTC实时时钟|支持板载 RTC 实时时钟
+.5+|其他
+|重置和用户按钮
+|启动选择开关：NAND（常规）或NOR（恢复）
+|2x PWM LED、2x 以太网 LED（GPIO 驱动）
+|EM6324 外部硬件看门狗
+|NXP PCF8563TS (I2C) RTC，带 CR1220 纽扣电池备用电池座
+.2+|供电
+|USB-C 端口上的 12V USB-PD（可能已更改为最高 15V）
+|通过 Banana Pi RT5040  模块可选 802.3at/af PoE网络供电
+|尺寸 |148 x 100.5 mm 兼容 Banana Pi BPI-R4 外壳设计
+|认证 |FCC/EC/RoHS 证书
+
