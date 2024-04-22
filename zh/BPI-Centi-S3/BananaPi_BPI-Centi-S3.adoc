@@ -1,65 +1,55 @@
-= BPI-Centi-S3 Introduction
+= BPI-Centi-S3 介绍
 
-BPI-Centi-S3 is a small-sized ESP32-S3 development board with an
-1.9-inch LCD onboard, suitable for the development of Internet of Things
-application projects including color display, interactive control,
-wireless communication, and sensor data acquisition.
+BPI-Centi-S3是一款小型ESP32-S3开发板，内置1.9英寸LCD，适用于彩色显示、交互控制、无线通信、传感器数据采集等物联网应用项目的开发。
 
-Using the Espressif ESP32-S3 chip, it supports 2.4 GHz Wi-Fi and
-Bluetooth® Low Energy (Bluetooth® LE) dual-mode wireless communication.
+采用Espressif ESP32-S3芯片，支持2.4 GHz Wi-Fi和Bluetooth® Low Energy（Bluetooth® LE）双模无线通信。
 
-Within the compact board, it also provides an additional rotary encoder,
-a buzzer, a WS2812 color LED, and all other available pins for external
-peripherals connection to meet diverse needs.
+在紧凑型板内，还提供了一个额外的旋转编码器，蜂鸣器，WS 2812彩色LED和所有其他可用的引脚用于外部外围设备连接，以满足不同的需求。
 
-Support both USB and external 3.7V lithium battery power input. With the
-board’s designed battery voltage detection circuit, it can automatically
-detect and switch to USB power supply when both are connected. And also
-supports USB charging mode, convenient for power management.
+支持USB和外接3.7V锂电池电源输入。主板设计的电池电压检测电路，可以自动检测并切换到USB电源时，两者都连接。并且还支持USB充电模式，方便电源管理。
 
 image::/picture/bpi-centi-s3.jpg[bpi-centi-s3.jpg]
 
-TIP: ESP32-S3 design link:/en/BPI-Centi-S3/BananaPi_BPI-Centi-S3[Banana Pi BPI-Centi-S3] IoT and  Maker DIY design +
-ESP32-S3 design link:/en/BPI-Leaf-S3/BananaPi_BPI-Leaf-S3[Banana Pi BPI-Leaf-S3] IoT and  Maker DIY design +
-ESP32-S3 design link:/en/BPI-PicoW-S3/BananaPi_BPI-PicoW-S3[Banana Pi BPI-Pico-S3] IoT and  Maker DIY design +
-Raspberry Pi RP2040 design link:/en/BPI-Pico-2040/BananaPi_BPI-Pico-2040[Banana Pi BPI-Pico-RP2040] IoT and  Maker DIY design 
+TIP: 乐鑫信息科技(ESP32-S3) 方案 link:/en/BPI-Centi-S3/BananaPi_BPI-Centi-S3[Banana Pi BPI-Centi-S3] 物联网和创客DIY设计 +
+乐鑫信息科技(ESP32-S3) 方案 link:/en/BPI-Leaf-S3/BananaPi_BPI-Leaf-S3[Banana Pi BPI-Leaf-S3] 物联网和创客DIY设计 +
+乐鑫信息科技(ESP32-S3) 方案 link:/en/BPI-PicoW-S3/BananaPi_BPI-PicoW-S3[Banana Pi BPI-Pico-S3] 物联网和创客DIY设计 +
+Raspberry Pi RP2040 方案 link:/en/BPI-Pico-2040/BananaPi_BPI-Pico-2040[Banana Pi BPI-Pico-RP2040] 物联网和创客DIY设计
 
-== Key Features
+== 主要特点
 
-* ESP32-S3, Xtensa® 32 bit LX7 Processor
-* 2M PSRAM, 8M FLASH
-* 2.4G WIFI, Bluetooth 5, Bluetooth mesh
-* GPIO, PWM, I2C, SPI, RMT, I2S, UART, USB, JTAG
-* 1 * ST7789 TFT LCD, 1.9-inch, 170*320 resolution, 8bit 8080 parallel
-port
-* 1 * Rotary Encoder
-* 1 * Buzzer
-* 1 * full color LED
-* 1 * SH 1mm 4-Pin I2C connector
-* 2 * SH 1mm 6-Pin
-* 1 * USB Type-C connector
-* 1 * MX 1.25mm 2-Pin battery connector, supports charging
-* 2 * M3 Screw Mounting Holes
+- ESP32-S3，Xtensa® 32位LX7处理器
+- 2M PSRAM，8M FLASH
+- 2.4G WIFI，蓝牙5，蓝牙网
+- GPIO，PWM，I2C，SPI，RMT，I2S，UART，USB，JTAG
+- 1 * ST 7789 TFT LCD，1.9英寸，170*320分辨率，8位8080并口
+- 1 * 旋转编码器
+- 1 * 蜂鸣器
+- 1 * 全彩LED
+- 1 * SH 1 mm 4-Pin I2C连接器
+- 2 * SH 1mm 6-Pin
+- 1 * USB Type-C接口
+- 1 * MX 1.25mm 2针电池接口，支持充电
+- 2 * M3螺丝安装孔
 
-== Getting Start
+== 快速入门
 
 TIP: link:/en/BPI-Centi-S3/GettingStarted_BPI-Centi-S3[**Getting Start BPI-Centi-S3**]
 
-= Hardware
+= 硬件
 
-== Hardware Interface Schematic Diagram
+== 硬件接口示意图
 
 image::/picture/bpi_centi_s3_drawio_1080.png[bpi_centi_s3_drawio_1080.png]
 
-== BPI-Centi-S3 Photo
+== BPI-Centi-S3 照片
 
 link:/en/BPI-Centi-S3/Photo_BPI-Centi-S3[Banana Pi BPI-Centi-S3 Product photo gallery]
 
-== Hardware Specifications
+== 硬件规格
 
 [options="header",cols="1,3"]
 |===
-2+| **HardWare Specification of BPI-Centi-S3**
+2+| **香蕉派 BPI-Centi-S3 硬件规格**
 |SoC |ESP32-S3, Xtensa® 32-bit LX7 dual-core processor
 
 |Clock Frequency |240MHz MAX
@@ -124,13 +114,13 @@ Ultra-­Low-­Power Coprocessor(ULP)
 |Maximum charging current |500mA
 |===
 
-== Hardware Dimensions
+== 硬件尺寸
 
 image::/picture/bpi-centi-s3-v0.2_dimensions.jpg[bpi-centi-s3-v0.2_dimensions.jpg]
 
 
 
-== Pin Define
+== 引脚定义
 
 [options="header"]
 |===
@@ -157,7 +147,7 @@ image::/picture/bpi-centi-s3-v0.2_dimensions.jpg[bpi-centi-s3-v0.2_dimensions.jp
 
 [options="header"]
 |===
-2+| **Pin Define of BPI-Centi-S3 Peripheral**
+2+| **BPI-Centi-S3 外设的引脚定义**
 |RST button |RST(CHIP_PU)
 |BOOT button |GPIO0
 |BAT_ADC battery voltage detection |GPIO1
@@ -168,20 +158,20 @@ image::/picture/bpi-centi-s3-v0.2_dimensions.jpg[bpi-centi-s3-v0.2_dimensions.jp
 |WS2812B-2020 |GPIO48
 |===
 
-= Development
+= 发展
 
-== Source Code
+== 源代码
 TIP: link:https://github.com/espressif/esp-idf/tree/v4.4.3[esp-idf 4.4.3 ]
 
 TIP: link:https://github.com/micropython/micropython/tree/v1.20.0[micropython 1.20.0]
 
 TIP: link:https://github.com/russhughes/st7789s3_esp_lcd[russhughes/st7789s3_esp_lcd]
 
-== Example code
+== 示例代码
 
 TIP: link:https://github.com/BPI-STEAM/BPI-Centi-S3-Doc/tree/main/micropython_example[GitHub: BPI-Centi-S3 MicroPython example]
 
-== Resources
+== 开发资料
 
 TIP: link:https://github.com/BPI-STEAM/BPI-Centi-S3-Doc/blob/main/sch/BPI-Centi-S3-V0.2-SCH-20230317.pdf[GitHub: BPI-Centi-S3 Schematic PDF]
 
@@ -193,12 +183,11 @@ TIP:  https://www.espressif.com/sites/default/files/documentation/esp32-s3_techn
 
 NOTE: link:https://github.com/BPI-STEAM/BPI-Centi-S3-Doc/tree/main/micropython_st7789s3_firmware[GitHub: BPI-Centi-S3 micropython+st7789s3 firmware]
 
-= FAQ
 
-= Easy to buy
+= 购买链接
 
-WARNING: BPI Aliexpress shop: https://www.aliexpress.us/item/3256805325011805.html
+WARNING: BPI 全球速卖通商店: https://www.aliexpress.us/item/3256805325011805.html
 
-WARNING: SinoVoip Aliexpress shop : https://www.aliexpress.us/item/3256805324649378.html
+WARNING: SinoVoip 全球速卖通商店 : https://www.aliexpress.us/item/3256805324649378.html
 
-WARNING: Taobao shop : https://item.taobao.com/item.htm?spm=a213gs.success.result.1.5c287a86iZZWCW&id=714936265358
+WARNING: 淘宝 : https://item.taobao.com/item.htm?spm=a213gs.success.result.1.5c287a86iZZWCW&id=714936265358
