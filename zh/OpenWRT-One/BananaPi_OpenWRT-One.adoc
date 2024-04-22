@@ -4,7 +4,7 @@ OpenWrt One/AP-24.XY 路由器板基于联发科MT7981B (Filogic 810) SoC和联�
 
 OpenWrt One是一款基于联发科Filogic 810 SoC的设备，具有WiFi 6、双频、3×3/2×2、1 × 2.5 G WAN网络接口、1 个千兆LAN 网络接口、板载1GB DDR4 内存 、128 MiB NAND、16 MiB NOR、M.2 SSD接口和USB 2.0接口。
 
-OpenWRT one 采用联发科技 MT7981B SoC 采用双 ARM Cortex-a53 内核，主频为 1.3 GHz，配有 1 GB DDR4 RAM 和 128 MB SPI NAND 存储，还集成了 4 MB 额外受保护存储作为系统备份，双存储硬件保证板载系统的不可破法性，最后还集成了 M.2。 2230/2242 NVMe PCIe 2 X1 端口可用于添加外部存储。并有一个用于内部时钟的电池座，OpenWRT One 提供了一个 USB 2.0 Type-A 和一个 mikroBUS 扩展端口，为大量技术可能性
+OpenWRT one 采用联发科技 MT7981B SoC 采用双 ARM Cortex-a53 内核，主频为 1.3 GHz，配有 1 GB DDR4 RAM 和 128 MB SPI NAND 存储，还集成了 4 MB 额外受保护存储作为系统备份，双存储硬件保证板载系统的不可破法性，最后还集成了 M.2。 2230/2242 NVMe PCIe 2 X1 端口可用于添加外部存储。并有一个用于内部时钟的电池座，OpenWRT One 提供了一个 USB 2.0 Type-A 和一个 mikroBUS 扩展端口，为大量技术可能性提供更多接口
 
 OpenWRT one是第一块OpenWRT开源社区的官方开发板。并与香蕉派开源社区（Banana  Pi ）合作设计，Banana Pi 还将负责路由器板的制造和分销。OpenWrt One/AP-24。XY路由器也将为OpenWRT开源项目提供收入来源，例如，支付主办和OpenWrt会议的费用，香蕉派通过他们的分销网络出售该板，每售出一台设备，将指定用于OpenWrt的资金捐赠给软件自由保护协会(SDC)。
 
