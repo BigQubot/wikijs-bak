@@ -61,6 +61,8 @@ image::/picture/r4_emmcboot.jpg[r4_emmcboot.jpg]
   System halt!
 
 == How to burn image to SD card
+IMPORTANT: After booting the SD image using Ubuntu and Debian 6.1 kernels, the image in NAND will not start and link:[needs to be burned again].
+
 NOTE: **Please low level format the SD and clear all data of SD. It's very important.** +
 **Otherwise, you will encounter a "jffs2" error during the startup process.
 **
