@@ -1,160 +1,184 @@
-= Overview
+= 介绍
 
-This is a link:/en/BPI_4.0_Server[BPI 4.0 Server] base on link:/en/BPI-R64/BananaPi_BPI-R64[Banana Pi BPI-R64] design,use MTK7622 quad-core 64-bit A53 chip design, with the main frequency up to 1.35g. Onboard 1-2g DDR memory and 8g eMMC storage.Can support OpenWRT,Linux operating system, in-depth customization of xiaocao technology integrated communication software platform.Provide a complete fusion communication, multi - link communication solution.And supports IoT extensions.Free access to IoT applications.
+这是一款基于 link:/en/BPI-R64/BananaPi_BPI-R64[香蕉派 BPI—R64]设计的 link:/en/BPI_4.0_Server[BPI 4.0服务器]，采用MTK7622四核64位A53芯片设计，主频高达1.35g。板载1—2g DDR内存和8g eMMC存储。可支持OpenWRT、Linux操作系统、深度定制的小草科技综合通信软件平台。提供完整的融合通信、多链路通信解决方案。并支持物联网扩展。免费接入物联网应用。
 
-- Module 1 : Base on BPI-R2,ithas 4 x 4G LTE interface ,can support max 5 port 4G LTE module ,support OpenWRT and OpenMPTcpRouter protocol. have one PCIe for 2.4G/5.8G wifi AC, can support MT7615 wifi module. and we also design a 5G inerface , easy to add 5G module onboard to support 5G. and have 5 Gigabit Wan/Lan port to spport router function
-- Module 2 : Base on BPI-R64 ,support 5 4G LTE and 1 M.2 5G interface.support OpenWRT and OpenMPTcpRouter protocol. have one PCIe for 2.4G/5.8G wifi AC, can support MT7615 wifi module. and we also design a 5G inerface , easy to add 5G module onboard to support 5G. and have 5 Gigabit Wan/Lan port to spport router function
-- Module 3 ：Base on BPI-R64,support 3 4G LTE inerface and 2 M.2 5G interface,support OpenWRT and OpenMPTcpRouter protocol. have one PCIe for 2.4G/5.8G wifi AC, can support MT7615 wifi module. and we also design a 5G inerface , easy to add 5G module onboard to support 5G. and have 5 Gigabit Wan/Lan port to spport router function
-
-TIP: Mediatek MT7622 chip design : link:/en/BPI-R64/BananaPi_BPI-R64[Banana Pi BPI-R64] Router board +
-Mediatek MT7622 chip design : link:https://docs.banana-pi.org/en/BPI-MNF/BananPI_CPI-MNF[Banana Pi BPI-MNF] 5G + 4G LTE+Wifi AC+Gigabit Multiplex aggregate route
+- 模块1：基于BPI-R2，具有4 x 4G LTE接口，可支持最大5口4G LTE模块，支持OpenWRT和OpenMPTcpRouter协议。有一个PCIe 2.4G/5.8G wifi AC，可支持MT 7615 wifi模块。我们还设计了一个5G接口，便于在板载上添加5G模块以支持5G。并具有5个千兆WAN/LAN端口，支持路由器功能
+- 模块2：基于BPI-R64，支持5个4G LTE和1个M.2 5G interface.support OpenWRT和OpenMPTcpRouter协议。有一个PCIe 2.4G/5.8G wifi AC，可支持MT 7615 wifi模块。我们还设计了一个5G接口，便于在板载上添加5G模块以支持5G。并具有5个千兆WAN/LAN端口，支持路由器功能
+- 模块3：基于BPI-R64，支持3个4G LTE接口和2个M.2 5G接口，支持OpenWRT和OpenMPTcpRouter协议。有一个PCIe 2.4G/5.8G wifi AC，可支持MT 7615 wifi模块。我们还设计了一个5G接口，便于在板载上添加5G模块以支持5G。并具有5个千兆WAN/LAN端口，支持路由器功能
 
 
-= Hardware
-== Main fcunction
-- MediaTek MT7622E,1.35GHZ 64 bit dual-core ARM Cortex-A53
-- 1x5G port , via M.2 inerface USB 3.0 or PCIe bus.
-- 4x4G LTE , support Multiple Merges protocol.
-- 5xGigabit port. support VPN ,router function.
-- Wifi 802.11 b/g/n/ac function support.
-- IoT expanding application with 26 PIN GPIO
-- (1-2)G DDR and 8G eMMC flash
-- M.2 key B interface
+TIP: 联发科(Mediatek) MT7622 芯片设计 : link:/en/BPI-R64/BananaPi_BPI-R64[Banana Pi BPI-R64] 路由器板 +
+联发科(Mediatek) MT7622 芯片设计 : link:https://docs.banana-pi.org/en/BPI-MNF/BananPI_CPI-MNF[Banana Pi BPI-MNF] 5G + 4G LTE + Wifi AC + 千兆复用聚合路由
 
-== PCBA inerface
+
+= 硬件
+== 主要功能
+
+- 联发科MT 7622 E，1.35GHZ 64位双核ARM Cortex-A53
+- 1个5G端口，通过M.2接口USB 3.0或PCIe总线。
+- 4x 4G LTE，支持Multiple Merges协议
+- 5个千兆端口。支持VPN、路由器功能。
+- Wifi 802.11 B/g/n/ac功能支持。
+- 物联网扩展应用与26引脚GPIO
+- （1-2）G DDR和8 G eMMC闪存
+- M.2键B接口
+
+== PCBA 接口
 
 === 3 Port 4G
 
 image::/bpi-mnf/bpi-mnf_3_card_1.jpg[bpi-mnf_3_card_1.jpg]
 
-Hardware spec:
+=== 硬件规格
 
 [options="header",cols="2,4"]
 |=====
-2+| **HardWare Specification of Banana Pi BPI-MNF 3 Card**
-|size |150(w)×108(d)× 13(h)mm
+2+| **香蕉派 BPI-MNF 3 Card 硬件规格**
+|尺寸 |150(w)×108(d)× 13(h)mm
 |Memery | 1G
-|eMMC | onboard 8G eMMC flash
-|network port  |4 X10/100/1000Mbps LAN口 1个WAN口
-|WiFi | support 802.11 b/g/n 2.4G
+|eMMC | 板载 8G eMMC flash
+|网络  |4 X10/100/1000Mbps LAN口 1个WAN口
+|WiFi | 支持 802.11 b/g/n 2.4G
 |SIM slot |3 x 4G SIM slot and 1 x 5G SIM slot
 |4G | support 3 4G module 
 |5G  |support 1 5G module, support  5G NSA and SA 
-|LTE |support FDD/TDD LTE FDD LTE：B1/B3 TDD LTE：B38/B39/B40/B41 UMTS：B1
-|    |TD-SCDMA：B34/B39 GSM/GPRS/EDGE：850/900/1800/1900MHz
-|  |CDMA2000：800MHz CDMA1x：800MHz
-|Operating temperature | -20°C ~70°C
-|Operating humidity |0%~85%
-|Power| 10-27V DC 
+.3+|LTE |支持 FDD/TDD LTE FDD LTE：B1/B3 TDD LTE：B38/B39/B40/B41 UMTS：B1
+        |TD-SCDMA：B34/B39 GSM/GPRS/EDGE：850/900/1800/1900MHz
+        |CDMA2000：800MHz CDMA1x：800MHz
+|工作温度| -20°C ~70°C
+|工作湿度|0%~85%
+|电源| 10-27V DC 
 
 |=====
 === 5 port 4G
-=== Hardware interface
+=== 硬件接口示意图
 image::/bpi-mnf/bpi-mnf_5_card_1.jpg[bpi-mnf_5_card_1.jpg]
 
-=== Hardware spec
+=== 硬件规格
 
+[options="header",cols="2,4"]
 |=====
-2+| **HardWare Specification of Banana Pi BPI-MNF 5 Card**
-|Size |210(w)×146(d)× 20(h)mm
+2+| **香蕉派 BPI-MNF 5 Card 硬件规格**
+|尺寸 |210(w)×146(d)× 20(h)mm
 |Memery | 1G
-|eMMC | onboard 8G eMMC flash
-|network port |4 x 10/100/1000Mbps LAN and  1 x WAN 
-|WiFi |support 802.11 b/g/n 2.4G
-|SIM slot | 5 x 4G SIM slot、1 x 5G SIM slot
-|4G | support 4 4G module 
-|5G  |support 1 5G module, support  5G NSA and SA 
-|Operating temperature | -20°C ~70°C
-|Operating humidity |0%~85%
-|Power| 10-27V DC 
+|eMMC | 板载 8G eMMC flash
+|网络 |4 x 10/100/1000Mbps LAN 和 1 x WAN 
+|WiFi |支持 802.11 b/g/n 2.4G
+|SIM 插槽 | 5 x 4G SIM 插槽、1 x 5G SIM 插槽
+|4G | 支持 4 x 4G 模块
+|5G  |支持 1 x 5G 模块, 支持  5G NSA 和 SA 
+|工作温度| -20°C ~70°C
+|工作湿度 |0%~85%
+|电源| 10-27V DC 
 |=====
 
 === 6 Port 4G
-=== Hardware interface
+=== 硬件接口示意图
 image::/bpi-mnf/bpi-mnf_6_card_1.jpg[bpi-mnf_6_card_1.jpg]
 
+=== 硬件规格
+
+[options="header",cols="2,4"]
 |=====
-2+| **HardWare Specification of Banana Pi BPI-MNF 5 Card**
-|Size |	210(w)×160(d)×20(h)mm
+2+| **香蕉派 BPI-MNF 5 Card 硬件规格**
+|尺寸 |	210(w)×160(d)×20(h)mm
 |Memery | 1G
-|eMMC | onboard 8G eMMC flash
-|network port |4 x 10/100/1000Mbps LAN and  1 x WAN 
-|WiFi |support 802.11 b/g/n 2.4G and 5.8G,support AP/Station
-|SIM slot | 6 x 4G SIM slot、1 x 5G SIM slot
-|4G | support 6 4G module 
-|5G  |support 1 5G module, support  5G NSA and SA 
-|Operating temperature | -20°C ~70°C
-|Operating humidity |0%~85%
-|Power| 10-27V DC 
+|eMMC | 支持 8G eMMC flash
+|网络 |4 x 10/100/1000Mbps LAN and  1 x WAN 
+|WiFi |支持 802.11 b/g/n 2.4G 和 5.8G,支持 AP/Station
+|SIM 插槽 | 6 x 4G SIM 插槽、1 x 5G SIM 插槽
+|4G | 支持 6 x 4G 模块
+|5G  |支持 1 x 5G 模块, 支持 5G NSA 和 SA 
+|工作温度 | -20°C ~70°C
+|工作湿度 |0%~85%
+|电源| 10-27V DC 
 |=====
 
-== 5G interface
-We have design 5G interface on board ,Use M.2 PCIe interface for 5G.So easy to add 5G module to support 5G application. Also add standard 5G sim slot onbaord.
+== 5G 接口
 
-. Simcom 5G module
-. Quectel 5G module Specification : https://drive.google.com/file/d/1g8kUucKQ3XBrnZVwWw2k9Wb0cHS0fkub/view?usp=sharing
-. Quectel 5G module test : https://www.youtube.com/watch?v=pRQRWRrgcQI&fbclid=IwAR3yPpDbtCw8o0OUQVVAp57jw-1zs6Ia6yI3itBjS0HILxND1x2ISMlS3CM
+我们已经在板上设计了5G接口，使用M.2 PCIe接口用于5G。因此可以轻松添加5G模块以支持5G应用。还增加了标准的5G SIM卡插槽板载.
 
-== 4G interface
-This board design in 4-6 port 4G LTE module interface ,support PCIe interface 4G module. If not use wifi AC module ,can support 5 pcs 4G module,so you can use it do many 4G application.
+. Simcom 5G 模块
+. Quectel 5G 模块规范 : https://drive.google.com/file/d/1g8kUucKQ3XBrnZVwWw2k9Wb0cHS0fkub/view?usp=sharing
+. Quectel 5G 模块测试 : https://www.youtube.com/watch?v=pRQRWRrgcQI&fbclid=IwAR3yPpDbtCw8o0OUQVVAp57jw-1zs6Ia6yI3itBjS0HILxND1x2ISMlS3CM
 
-It can support 4G CARDS of different operators, and automatically switch to another operator when the 4G signal is not stable, so as to guarantee the communication quality(QOS)
+== 4G 接口
 
-It also support OpenMPTcpRouter project.
+此板设计在4-6端口4G LTE模块接口，支持PCIe接口4G模块。如果不使用wifi AC模块，可以支持5个4G模块，所以你可以用它做很多4G应用。
 
-== WiFi support
-Not design wifi onboard. But easy to add wifi support onboard via PCIe wifi card.
+可支持不同运营商的4G组网，在4G信号不稳定时自动切换到另一运营商，保障通信质量（QOS）
 
-We also design a BPI-MT7615 802.11 ac wifi 4x4 dual-band module for this board and test all driver on this.
+它还支持OpenMPTcpRouter项目。
 
-== Pin define for IoT
-This board have 26 PIN define on board, easy to add IoT module for IoT application.
 
-Easy to support zigbee,NB-IoT,LoRA,Z-Wave.....
+== WiFi 支持
 
-= Software support
-== Soruce code on github
+没有设计wifi板载。但可以通过PCIe WiFi卡添加板载WiFi支持。
+
+我们还为该板设计了一个BPI-MT7615 802.11 ac wifi 4x 4双频模块，并在此模块上测试了所有驱动程序。
+
+== IoT定义引脚
+
+此板具有26个PIN定义板上，易于添加物联网模块的物联网应用。
+
+轻松支持zigbee、NB-IoT、LoRA、Z-Wave等
+
+
+= 软件支持
+== 源代码
+
 https://github.com/BPI-SINOVOIP/BPI-R64-openwrt
 
 == Openmptcprouter
 
 https://github.com/Ysurac/openmptcprouter
 
-Please use commond : make -j5 to build OpenWRT image, also have 5G driver include.
 
-== Reference
-- Banana Pi do all hardware design and BSP development,xiaocao support application layer development : aixiaocao website: https://www.aixiaocao.com/
-- Banana Pi BPI:4.0 service: BPI-R64 for 4G/5G gateway deign : https://www.youtube.com/watch?v=AoC2TBWFLmo
+请使用commond：make -j5来构建OpenWRT镜像，并附带5G驱动。
 
-- Openmptcprouter support :  https://www.openmptcprouter.com/download
+== 参考
 
-== Product application direction
-It can be applied to communication vehicles, command vehicles, smart police cars, medical rescue vehicles, engineering and emergency vehicles (water, electricity, gas, fire trucks, etc.), cargo transport and passenger vehicles, high-speed rail, mobile finance and other scenarios.
+- 香蕉皮做所有硬件设计和BSP开发，小草支持应用层开发：aixiaocao网站： https://www.aixiaocao.com/
+
+- Banana Pi BPI：4.0服务：BPI-R64用于4G/5G网关设计： https://www.youtube.com/watch?v=AoC2TBWFLmo
+
+- Openmptcprouter支持： https://www.openmptcprouter.com/download
 
 
-== Product feature
-. 5G high-speed access, 5G technology has higher throughput, providing a higher possibility for the Internet of everything, real-time.
-. 4g Multiple Merges support, network speed guarantee: multi-channel cable, 4-channel 4G wireless link can be aggregated to form a high-speed, stable and safe high-capacity upstream and downstream channel. Support 4G wireless network mixing of all mobile/unicom/telecom operators, and support dedicated line /DAL cable link and satellite link.
-. High stability and convenience: the data transmitted by the front end can better optimize and configure the load of the links, so as to effectively avoid the link congestion caused by blind data transmission, maximize the use of all available channels, and form a stable communication link.
-. High security: after the original data is unpacked and encrypted by the fusion device, it is sent to the server through different channels. The load of each link is dynamically adjusted according to the communication capacity of each channel. The terminal and server are also equipped with VPN to protect the data up to 4 times.
-. Industrial-grade AP access: industrial-grade AP module is built in the device, suitable for WIFI device access/bridge and other scenarios in various environments.
-. Enrich the IoT extension interface,support Zigbee,Z-Wave,NB-IoT,LoRA,PLC....
 
-== Technical highlights of multi-card aggregation intelligent fusion Communication equipment
-. Enhance the bandwidth to provide reliable connection: by combining multiple wired and cellular network resources through channel connection at the same time, provide broadband function, make use of the operator's diversity of link aggregation and link flow control technology to achieve seamless fault switching, and guarantee the system to provide continuous and uninterrupted broadband service.
-. Secure communication: ensure data encryption and protect the diversified network resources of transactions with IPSec, VPN and distributed computing across multiple paths, operators and routes.
-. 4G multi-carrier support technology: support multiple operators network, can ensure that only one network can work under normal circumstances.
-. Realize true 4G multiplex aggregation: stable aggregation link, complete big data transmission with low latency, and real-time transmission of hd video signal without pressure.
+== 产品应用方向
 
-== Server management platform
-== Support System
+可应用于通信车、指挥车、智能警用汽车、医疗救护车、工程及应急车辆（水、电、气、消防车等），货运和客运车辆、高铁、移动的金融等场景。
+
+
+== 产品特点
+
+- 5G高速接入，5G技术具有更高的吞吐量，为万物互联、实时提供了更高的可能性。
+- 支持4G多路合并，网速保障：多路有线、4路4G无线链路可聚合形成高速、稳定、安全的大容量上下行通道。支持所有移动的/联通/电信运营商的4G无线网络混合，支持专线/DAL有线链路和卫星链路。
+- 高稳定性和方便性：前端传输的数据可以更好地优化配置链路的负载，从而有效避免数据盲传造成的链路拥塞，最大限度地利用所有可用信道，形成稳定的通信链路。
+- 安全性高：原始数据经过融合设备解包加密后，通过不同的通道发送到服务器。根据各信道的通信容量动态调整各链路的负载。终端和服务器还配备了VPN，以保护数据多达4倍。
+- 工业级AP接入：设备内置工业级AP模块，适用于各种环境下的WIFI设备接入/桥接等场景。
+- 丰富物联网扩展接口，支持Zigbee、Z-Wave、NB-IoT、LoRA、PLC等。
+
+== 多卡聚合智能融合通信设备的技术亮点
+
+- 增强带宽提供可靠连接：通过同时通道连接将多个有线和蜂窝网络资源进行组合，提供宽带功能，利用运营商的链路聚合和链路流量控制技术的多样性，实现无缝故障切换，保证系统提供连续不间断的宽带服务。
+- 安全通信：通过IPSec、VPN和跨多路径、多运营商、多路由的分布式计算，确保数据加密，保护交易的多样化网络资源。
+- 4G多载波支持技术：支持多个运营商网络，可以保证正常情况下只有一个网络可以工作。
+- 实现真正的4G复用聚合：聚合链路稳定，低时延完成大数据传输，高清视频信号实时传输无压力。
+
+== 服务器管理平台
+
+== 支持系统
+
 . OpenWRT
 . OpenMPTCPRouter
 . Linux
 
-= Cooperative partner
+= 购买链接
+
 WARNING: Ai xiao cao : https://www.aixiaocao.com/
 
-WARNING: OEM&ODM please contact : judyhuang@banana-pi.com
+WARNING: OEM&ODM 请联系 : judyhuang@banana-pi.com
 
-WARNING: Easy to buy 5G development board: https://www.aliexpress.com/item/1005001721150316.html?spm=2114.12010611.8148356.1.782430d9pjtdYW
+WARNING: 轻松购买5G开发板: https://www.aliexpress.com/item/1005001721150316.html?spm=2114.12010611.8148356.1.782430d9pjtdYW
