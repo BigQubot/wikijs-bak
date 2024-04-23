@@ -1,45 +1,46 @@
-= Introduction
+= 介绍
 
-The Banana Pi BPI-PicoW-S3 is a series of low-powered microcontrollers designed for IoT development and Maker DIY board.same size as Raspberry Pi Pico board,It supports 2.4 GHz Wi-Fi and Bluetooth® LE dual-mode wireless communication, the peripheral is compatible with low-power hardware design, and the power consumption is only 10uA in deep sleep mode.In terms of programming, the PicoW-S3 supports ESP-IDF, Arduino, micropython and other methods.
+香蕉派 BPI-PicoW-S3是一款专为物联网开发和创客DIY板设计的低功耗微控制器系列，与树莓派Pico板尺寸相同，支持2.4 GHz Wi-Fi和Bluetooth® LE双模无线通信，外设兼容低功耗硬件设计，深度睡眠模式下功耗仅为10 uA。在编程方面，PicoW-S3支持ESP-IDF、Arduino、Micropython和其他方法。
 
 image::/picture/bpi-picow-s3_banner.png[bpi-picow-s3_banner.png]
 
-TIP: ESP32-S3 design link:/en/BPI-Centi-S3/BananaPi_BPI-Centi-S3[Banana Pi BPI-Centi-S3] IoT and  Maker DIY design +
-ESP32-S3 design link:/en/BPI-Leaf-S3/BananaPi_BPI-Leaf-S3[Banana Pi BPI-Leaf-S3] IoT and  Maker DIY design +
-ESP32-S3 design link:/en/BPI-PicoW-S3/BananaPi_BPI-PicoW-S3[Banana Pi BPI-Pico-S3] IoT and  Maker DIY design +
-Raspberry Pi RP2040 design link:/en/BPI-Pico-2040/BananaPi_BPI-Pico-2040[Banana Pi BPI-Pico-RP2040] IoT and  Maker DIY design 
+TIP: 乐鑫信息科技(ESP32-S3) 方案 link:/en/BPI-Centi-S3/BananaPi_BPI-Centi-S3[Banana Pi BPI-Centi-S3] 物联网和创客DIY设计 +
+乐鑫信息科技(ESP32-S3) 方案 link:/en/BPI-Leaf-S3/BananaPi_BPI-Leaf-S3[Banana Pi BPI-Leaf-S3] 物联网和创客DIY设计 +
+乐鑫信息科技(ESP32-S3) 方案 link:/en/BPI-PicoW-S3/BananaPi_BPI-PicoW-S3[Banana Pi BPI-Pico-S3] 物联网和创客DIY设计 +
+Raspberry Pi RP2040 方案 link:/en/BPI-Pico-2040/BananaPi_BPI-Pico-2040[Banana Pi BPI-Pico-RP2040] 物联网和创客DIY设计
 
-== Key Features
+== 主要特点
 
 * ESP32-S3, Xtensa® 32 bit LX7
 * In-packge PSRAM 2MB, Extereal FLASH 8MB
-* Ultra-low power 10uA
+* 超低功耗 10uA
 * 2.4G WIFI, Bluetooth 5, Bluetooth mesh
 * GPIO, ADC, TOUCH, PWM, I2C, SPI, RMT, I2S, UART, LCD, CAMERA, USB, JTAG
 * microUSB
 * Neopixel LED
 
-== Espressif ESP32-S3
+== 关于 Espressif ESP32-S3
 
-Esp32-S3 is an MCU chip that integrates 2.4 GHz Wi-Fi and Bluetooth 5 (LE) and supports Long Range mode. The ESP32-S3 runs on an Xtensa® 32-bit LX7 dual-core processor with a high frequency of 240 MHz, 512 KB built-in SRAM (TCM), 45 programmable GPIO pins, and a rich communication interface. Esp32-s3 supports larger capacity of high-speed Octal SPI flash and off-chip RAM, and supports user-configured data caching and instruction caching.
+Esp 32-S3是一款MCU芯片，集成了2.4 GHz Wi-Fi和蓝牙5（LE），支持长距离模式。ESP 32-S3运行在Xtensa® 32位LX 7双核处理器上，具有240 MHz的高频，512 KB内置SRAM（TCM），45个可编程GPIO引脚，以及丰富的通信接口。Esp 32-s3支持更大容量的高速八进制SPI闪存和片外RAM，并支持用户配置的数据缓存和指令缓存。
 
-What follows is a description of the most important features of ESP32-S3.
+以下是对ESP 32-S3最重要特性的描述
 
-* Wi-Fi + Bluetooth 5 (LE) Wireless Connectivity: ESP32-S3 supports a 2.4 GHz Wi-Fi (802.11 b/g/n) with 40 MHz of bandwidth support. The Bluetooth Low Energy subsystem supports long range through Coded PHY and advertisement extension. It also supports higher transmission speed and data throughput, with 2 Mbps PHY. Both Wi-Fi and BLE have superior RF performance that is maintained even at high temperatures.
+- Wi—Fi+蓝牙5（LE）无线连接：ESP32—S3支持2.4 GHz Wi—Fi（802.11 b/g/n），支持40 MHz带宽。蓝牙低功耗子系统通过编码PHY和广告扩展支持长距离。它还支持更高的传输速度和数据吞吐量，具有2 Mbps PHY。Wi—Fi和BLE都具有即使在高温下也能保持的上级RF性能。
 
-* AI Acceleration Support: ESP32-S3 has additional support for vector instructions in the MCU, which provides acceleration for neural network computing and signal processing workloads. The software libraries for the above-mentioned optimized functions will become available very soon, in the form of updates to ESP-DSP and ESP-NN.
+- AI加速支持：ESP32—S3对MCU中的向量指令提供了额外的支持，为神经网络计算和信号处理工作负载提供了加速。上述优化功能的软件库将很快以ESP—DSP和ESP—NN更新的形式提供。
 
-* Rich IO interfaces: ESP32-S3 has 45 programmable GPIOs and common peripheral interfaces such as SPI, I2S, I2C, PWM, RMT, ADC, UART, SD/MMC host controller and TWAITM controller. Fourteen of the GPIOs can be configured as capacitive touch inputs for HMI interaction. In addition, ESP32-S3 is equipped with an ultra-low power coprocessor (ULP) and supports multiple low-power modes, making it widely applicable to various low-power application scenarios.
+- 丰富的IO接口：ESP32—S3具有45个可编程GPIO和通用外设接口，如SPI、I2S、I2C、PWM、RMT、ADC、UART、SD/MMC主机控制器和TWAITM控制器。其中14个GPIO可配置为用于HMI交互的电容式触摸输入。此外，ESP32—S3搭载超低功耗协处理器（ULP），支持多种低功耗模式，广泛适用于各种低功耗应用场景。
 
-* Security mechanism: ESP32-S3 provides comprehensive security mechanism and protection measures for iot devices to prevent all kinds of malicious attacks and threats. It supports Flash encryption based on AES-XTS algorithm, secure startup based on RSA algorithm, digital signature and HMAC. Esp32-s3 also includes a new "World Controller" module, which provides two non-interfering execution environments to implement a trusted execution environment or permission separation mechanism.
+- 安全机制：ESP32—S3为物联网设备提供全面的安全机制和防护措施，防止各种恶意攻击和威胁。支持基于AES—XTS算法的Flash加密、基于RSA算法的安全启动、数字签名和HMAC。Esp32—s3还包括一个新的“World Controller”模块，它提供了两个互不干扰的执行环境，以实现可信执行环境或权限分离机制。
 
-== Getting Start
+
+== 快速入门
 
 TIP: link:/en/BPI-PicoW-S3/GettingStarted_BPI-PicoW-S3[**Getting Started BPI-PicoW-S3**]
 
-= Hardware
+= 硬件
 
-== Hardware interface
+== 硬件接口示意图
 
 image::/picture/bpi_picow_s3_pic.jpg[bpi_picow_s3_pic.jpg]
 
