@@ -210,9 +210,9 @@ link:/en/BPI-W3/Photo_BPI-W3[Banana Pi BPI-W3 Product photo gallery]
 |=====
 
 = BPI-3588-LGA 核心板模组
-NOTE: Banana Pi BPI-W3 base on BPI-RK3588 LGA Core board and development Kit use BPI-RK3588-LGA core board. so you can easy to do new design with BPI-W3, just need to development a new base board.
+NOTE: 香蕉派BPI-W3基于BPI-RK3588 LGA核心板，开发工具包使用BPI-RK3588-LGA核心板。因此，您可以很容易地做新的设计与BPI-W3，只需要开发一个新的基础板。
 
-BPI-3588-LGA core board uses the Rockchip RK3588 flagship chip,integrating a 6Tops NPU and a high-performance quad-core Mali-G610 MP4 GPU. It adopts LGA 506pin package method, which can expand a variety of display interfaces and industrial application interfaces. With open baseboard design materials and open-source SDKs, it can be efficiently developed. It supports multiple operating systems such as Android, Ubuntu, Debian, and Buildroot. It provides robust, stable, reliable, and expandable product support for various AI application scenarios, and is widely applicable to fields such as edge computing, artificial intelligence,cloud computing, VR/AR, blockchain, smart security, intelligent industrial control, and smart home.
+BPI-3588-LGA核心板采用瑞芯微RK3588旗舰芯片，集成6Tops NPU和高性能四核Mali-G610 MP4 GPU。采用LGA 506pin封装方式，可扩展多种显示接口和工业应用接口。使用开放的基板设计材料和开源sdk，可以有效地开发它。它支持多种操作系统，如Android、Ubuntu、Debian和builroot。为各种AI应用场景提供鲁棒、稳定、可靠、可扩展的产品支持，广泛适用于边缘计算等领域
 
 image::/picture/banana_pi_bpi-rk3588-lga_1.jpg[banana_pi_bpi-rk3588-lga_1.jpg]
 
