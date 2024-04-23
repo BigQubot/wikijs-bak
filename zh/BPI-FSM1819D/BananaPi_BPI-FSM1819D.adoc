@@ -77,83 +77,85 @@ image::/picture/bpi-fsm1819d_board.jpg[bpi-fsm1819d_board.jpg]
               |加速/减速	|mm/s2
 |====
 
-== Servo module communication specifications
+== 伺服模块通信规范
+
 [options="header",cols="2,3",width="70%"]
 |====
-2+|Communication specification
+2+|通信规范
 |number	|spec
-.3+|RS232	|base on modbus RTU
-          |Baud rate: 19200 bit/s
-          |Maximum conductor length: 10 m
-.3+|High-Speed Serial (Specially used to observe waveforms)	|Based on custom protocols
-                                                            |Baud rate: 115200 - 750000 bit/s
-                                                            |Maximum conductor length:2 m
+.3+|RS232	|基于Modbus RTU
+          |波特率: 19200 bit/s
+          |最大导体长度： 10 m
+.3+|高速串行（专用于观察波形）	|基于自定义协议
+                           |波特率: 115200 - 750000 bit/s
+                           |最大导线长度:2 m
 |====
 
 
-== Servo module I/O specifications
+== 伺服模块 I/O规格
 
 [options="header",cols="2,2,3"]
 |====
-3+|Servo module I/O specifications
+3+|伺服模块I/O规格
 |Item	|standard	|explain
-.3+|analog input	|voltage range	    |simulate ±10 VDC Finite difference
-                  |zero attenuation	  |100 Hz
-                  |bandwidth (-3 dB) 	|500 Hz
-.2+|Pulse & Direction	|signal|RS 422 line receiver
-                      |Maximum input frequency	|1.6 MHz (will be increased to 5MHz in the future)
-|Digital input (8 channels)	|signal	|Configurable, light isolated, drain input.
-.3+|(General IO configurable related pin function)|voltage	|24 V
-                                                  |Maximum input current |10 mA
-                                                  |Transfer delay time	 |1 ms
-|Digital output (6 channels)	|signal	|Configurable, light isolated, drain input.
-.3+|(General IO configurable related pin function)	|voltage	|24 V
-                                                    |Maximum input current	|40 mA
-                                                    |Transfer delay time	|1 ms
-|Main I/O function signal	|function	|explain
-.6+|input signal（Ports can be configured）	|forward limit	|Positive limit switch
-                                           |Negative limit	|Negative limit switch
-                                           |Return Origin	|Origin switch
-                                           |Motor enable	|External enable signal
-                                           |ALM-RST	|External clear alarm signal
-                                           |speed limitation	|Torque control with speed limit input
-.6+|Output signal (port configurable)	|Servo positioning complete	|Servo execution positioning complete signal
-                                      |SERVO stoped	|Servo execution stop signal
-                                      |SERVO ALARM	|Servo error alarm signal
-                                      |Servo brake	|Servo brake control signal
-                                      |Servo phase seeking complete	|Servo phase seeking complete signal
-                                      |Servo return to zero complete	|Servo return to zero complete signal
+.3+|模拟输入	|电压范围 |模拟±10 VDC有限差分
+                  |零衰减	  |100 Hz
+                  |带宽 (-3 dB) 	|500 Hz
+.2+|脉冲和方向	|信号|RS 422线路接收机
+             |最大输入频率	|1.6 MHz (will未来将增加到5MHz）
+|数字输入（8通道）	|信号	|可配置、光隔离、漏极输入。
+.3+|（通用IO可配置相关引脚功能）|电压	|24 V
+                            |最大输入电流|10 mA
+                            |传输延迟时间	 |1 ms
+| 数字输出（6通道）	|信号 |可配置，光隔离，漏极输入。
+.3+|（通用IO可配置相关引脚功能）	|电压	|24 V
+                             |最大输入电流	|40 mA
+                             |传输延迟时间	|1 ms
+|主I/O功能信号	|功能	|explain
+.6+|输入信号（可配置端口）	|正极限	|正限位开关
+                                           |负极限	|负限位开关
+                                           |返回原点	|原点开关
+                                           |电机启用	|外部使能信号
+                                           |ALM-RST	|外部清除报警信号
+                                           |速度限制	|带速度限制输入的扭矩控制
+.6+|输出信号（端口可配置）	|伺服定位完成	|伺服执行定位完成信号
+                       |伺服停止|伺服执行停止信号
+                       |伺服报警|伺服错误报警信号
+                       |伺服制动装置|伺服制动控制信号
+                       |伺服寻相完成|伺服寻相完成信号
+                       |伺服归零完成|伺服归零完成信号
 |====
 
-== Servo module supports motor feedback specifications
+== 伺服模块支持电机反馈规格
 
 [options="header",cols="2,2,3"]
 |====
-3+|Supported motor feedback specifications
-|motor feedback	|specifications	|explain
-.3+|summary	|Driver output voltage	|5 VDC
-            |Maximum output current of the driver	|250 mA
-            |Maximum cable length	|AWG 28 – 3 m； AWG 24 – 10 m
-.3+|incremental encoder|	signal	|With (or without) a zero/hall signal AB quadrature signal encoder differential output
-                       |AB Orthogonal maximum input frequency	|1.6 MHz (Orthogonality conditions) (It will be increased to 5MHz in the future)
-                       |Minimum zero pulse width	|1 µs
-                       |Hall sensor	|signal	|single-ended
-.6+|Sinusoidal encoder (will be added in next version)	|signal	|Sine-cosine difference, with or without Hall
-                                                        |signal level	|1 Vpp @ 2.5 V
-                                                        |Maximum input frequency	|270 kHz
-                                                        |input impedance	|120 Ω
-                                                        |interpolation	|Max to 16384 (14 bit)
-                                                        |Effective interpolation	|Max to 4096 (12 bit)
+3+|支持的电机反馈规格
+|电机反馈	|规格|explain
+.3+|总结|驱动器输出电压	|5 VDC
+            |驱动器的最大输出电流	|250 mA
+            |最大电缆长度	|AWG 28 – 3 m； AWG 24 – 10 m
+.3+|增量编码器|	信号	|带（或不带）零/霍尔信号AB正交信号编码器差分输出
+                       |AB正交最大输入频率	|1.6 MHz (正交性条件) (It未来将增加到5MHz）
+                       |最小零脉冲宽度	|1 µs
+|霍尔传感器	|信号	|single-ended
+.6+|正弦编码器（将在下一版本中添加）	|信号 |正弦余弦差，有或没有霍尔
+                                 |信号电平	|1 Vpp @ 2.5 V
+                                 |最大输入频率	|270 kHz
+                                 |输入阻抗|120 Ω
+                                 |插值	|Max to 16384 (14 bit)
+                                 |有效内插|Max to 4096 (12 bit)
 |====
 
-== Motor signal feedback wire pin definition
-The motor feedback interface is wired according to the type of feedback device used in practical applications. See the pin outlet table below for details.
+== 电机信号反馈线引脚定义
 
-The motor temperature sensor uses 12/25 pins and has been pulled up to 5V through the module interior.
+电机反馈接口根据实际应用中使用的反馈装置类型进行接线。有关详细信息，请参见下面的引脚出口表。
+
+电机温度传感器使用12/25引脚，并通过模块内部被拉高至5V。
 
 [options="header",cols="1,1,2,1,1,2"]
 |====
-6+|Motor signal feedback wire pin definition
+6+|电机信号反馈线引脚定义
 |Pin define	|Module pin	|function	|Pin define	|Module pin	|function
 |1	|97	a|- incremental encoder A+
 - SSI encoder data+|14	|98	|incremental encoder A-
@@ -173,12 +175,13 @@ The motor temperature sensor uses 12/25 pins and has been pulled up to 5V throug
 |13	|3、4	|5V power	|26	|/	|shield
 |====
 
-== Servo module I/O port pin definition
-The digital/analog inputs and outputs are wired according to the requirements of your application. To keep the digital I/O isolated, the ground of your 24V loop is connected to pins 1 and 19, which drive the digital input pins and require you to provide a 24V signal.
+== 伺服模块I/O端口引脚定义
+
+数字/模拟输入和输出根据您的应用要求进行接线。为了保持数字I/O隔离，24V环路的接地连接到引脚1和19，这两个引脚驱动数字输入引脚，并要求您提供24V信号。
 
 [options="header",cols="1,2,3,3"]
 |====
-4+|Servo module I/O port pin definition
+4+|伺服模块I/O端口引脚定义
 | Pin define | Module pin | function | explain                               | 1  | 64                        | Digital input to the public ground  | user provides a 24V input signa ground 
 | 2  | 107                       | Equivalent encoder output Z+        | Equivalent encoder output signal Z forward direction       
 | 3  | /                         | /                                   |
@@ -217,77 +220,82 @@ The digital/analog inputs and outputs are wired according to the requirements of
 | 36 | 67                        | Digital output 4                    | Optically isolated programmable digital output， can be read with OUT4
 |====
 
-== Servo module protection function and use environment requirements
+== 伺服模块保护功能及使用环境要求
 [options="header",cols="2,5",width="70%"]
 |====
-2+|Servo module protection function and use environment requirements
+2+|伺服模块保护功能及使用环境要求
 |item	 |spec
-|Protection function	|Overcurrent, undervoltage and overvoltage, overtemperature, missing feedback, STO signal not connected, position following error, speed over, parameter error, etc.
-|Anti-flying car protection function	|When the motor is seeking phase, the external pulse input signal function (pulse & direction) and the receiving motion command function (RS232) are shielded to prevent motor accidents.
+|保护功能	|过流、欠压、过压、超温、反馈缺失、STO信号未连接、位置跟随错误、超速、参数错误等。
+|防飞车保护功能	|电机寻相时，屏蔽外部脉冲输入信号功能（脉冲和方向）和接收运动指令功能（RS232），防止电机事故。
 |====
 
-= Development
-== BPI-FSM8191D servo motor controller installation
-=== General installation instructions
-Follow the steps below to install and configure the driver module.
+= 发展
+== BPI-FSM8191D伺服电机控制器安装
+=== 安装说明
+. 按照以下步骤安装和配置驱动程序模块。
+. 根据所需的工作功率，选择合适的电源基板。
+. 完成所有电气连接：
+- 将伺服模块安装到模块转换底板上
+- 将开关基板连接到电源板
+- 电机
+- 电机反馈
+- 安全扭矩开关（STO）或使用跳线短路
+- 输入输出控制信号
+- AC输入电源
+. 使用USB/232电缆将驱动器连接到PC。
+. 电源驱动器和PC。
+. 连接到现场总线设备（可选）。
+. 打开Forecast TechServoStudio.exe（无需安装）。
+. 使用Forecast TechServoStudio配置和调试驱动器。
 
-. According to the required operating power, select the appropriate power base plate.
-. Complete all electrical links：
-- Install the servo module onto the module switching base plate
-- Connect the switching base plate to the power plate
-- motor
-- motor feedback
-- Safe torque switching (STO), or shorting with a jumper
-- IO control signal
-- AC input power supply
-. Connect the drive to the PC using a USB/232 cable.
-. Power drives and PC。
-. Connect to a fieldbus device (optional).
-. Open FortiorTechServoStudio.exe（no need installation ）.
-. use FortiorTechServoStudio Configure and debug drives.
-
-=== FortiorTechServoStudio testing software
+=== FortiorTechServoStudio 测试软件
 **FortiorTechServoStudio**
+Forecast TechServoStudio是随伺服模块提供的图形用户界面（GUI），用于安装、配置和调试驱动器。Forecast TechServoStudio可用于在线调试驱动器参数并执行特定的驱动器操作。
 
-FortiorTechServoStudio is a graphical user interface (GUI) that comes with the servo module to install, configure, and debug the drive. FortiorTechServoStudio can be used to debug drive parameters online and perform specific drive operations.
+
 
 image::/picture/fortiortechservostudio_1.jpg[fortiortechservostudio_1.jpg]
+FortiorTechServoStudio支持两种初始系统配置方法：
 
-FortiorTechServoStudio support two methods for initial system configuration:
+- 使用【常规-备份和恢复】，点击“默认参数”完成初始参数配置，然后在【电机】中配置电机参数，在【反馈】中配置编码器分辨率。
 
-- Using [General - Backup and Recovery], click "Default Parameters" to complete the initial parameter configuration, then configure the motor parameters in [Motor], and configure the encoder resolution in [Feedback].
-- With [General - Backup and Recovery], the motor "Import Parameters" import previously configured motor parameter data.
+- 使用[常规-备份和恢复]，电机“导入参数”导入先前配置的电机参数数据。
 
-FortiorTechServoStudio main interface consists of 5 functional areas:
+FortiorTechServoStudio主界面由5个功能区组成：
 
-. Toolbar, containing common quick function buttons。 +
-Offline|Online – Toggle FortiorTechServoStudio online/offline and display the connection status. See section [Drive Online and Offline] 。 +
-Enable|Disable – Enable/disable the drive and display the enable status of the drive +
-Save – Saves the parameters in the current drive RAM to the drive memory. It is recommended to use the Save button after configuring parameters to save parameter values in memory. +
-No FLT — Clear drive faults. This bit turns red when the drive fails, and the motor can clear the fault.
-. information bar: +
-Stop —Stop the motor and disable the drive. +
-Help —FortiorTechServoStudio software online help. This feature is not enabled in this version of the software. +
-About —Information about the software version. In this version, the function is not available.
-. sidebar: +
-include FortiorTechServoStudio A navigation menu of the interface. +
-The sidebar can be hidden or displayed with this arrow button. +
-. Main operating interface: Displays interactive interfaces for viewing, setting, and testing parameters and configuring drives. These interfaces are described in detail in other sections of this manual +
-Fault display: If there is no fault, the background of the status bar is green. If there is a fault, it is red. Click this area to open the [Fault] screen. +
-Warning: If there is no warning, the background of the status bar is green; If there is a warning, it is red. +
-Drive status: When the drive is enabled, the background of the status bar is green and Drive Active is displayed. When the drive is not enabled, it is red and ".
-. Status bar: Displays the drive status. +
-Fault display: If there is no fault, the background of the status bar is green. If there is a fault, it is red. Click this area to open the [Fault] screen. +
-Warning: If there is no warning, the background of the status bar is green; If there is a warning, it is red (currently, no distinction is made between warning and fault). +
-Drive status: When the drive is enabled, the background of the status bar is green and Drive Active is displayed. If the Drive is not enabled, it is red and Drive Inactive is displayed. +
-Run mode: The background of this segment is gray. Displays the current running mode. +
-Curr：Displays the current running current +
-Vel：Displays the current motor speed. +
-Pos：Displays the current position of the motor. +
-Online/Offline：Connection status between the upper computer and the drive
+. 按钮，包含常用的快捷功能按钮。 +
+线下|联机-切换Forecast TechServoStudio联机/脱机并显示连接状态。请参阅[联机和脱机驱动器]部分。 +
+使|Disable -启用/禁用驱动器并显示驱动器的启用状态 +
+保存-将当前驱动器RAM中的参数保存到驱动器存储器中。建议在配置参数后使用保存按钮将参数值保存到内存中。 +
+无FLT -清除驱动器故障。当变频器出现故障时，此位变为红色，电机可以清除故障。
 
-= Upper computer
-Banana Pi BPI-FSM1819D Servo motor controller Debugging tutorial: https://www.youtube.com/watch?v=At7HOSH51MA
+. 信息栏： +
+停止-停止电机并禁用驱动器。 +
+帮助-Forecast TechServoStudio软件在线帮助。此版本的软件未启用此功能。 +
+关于-有关软件版本的信息。在此版本中，该功能不可用。
 
-= Referenced document
-Banana Pi BPI-FSM1819D Servo module Hardware introduction and get started quickly: https://www.youtube.com/watch?v=eIMwual-9D8
+. 侧边栏： +
+包括Forecast TechServoStudio A界面的导航菜单。 +
+可以使用此箭头按钮隐藏或显示边栏。
+
+. 主操作界面：显示交互式界面，用于查看、设置和测试参数以及配置驱动器。这些接口在本手册的其他章节中有详细描述 +
+故障显示：若无故障，状态栏背景为绿色。如果有故障，则为红色。点击此区域打开[故障]屏幕。 +
+警告：如果没有警告，则状态栏的背景为绿色;如果有警告，则为红色。 +
+驱动器状态：当驱动器启用时，状态栏的背景为绿色，并显示驱动器活动。当驱动器未启用时，它是红色和“。
+
+. 状态栏：显示驱动器状态。 +
+故障显示：若无故障，状态栏背景为绿色。如果有故障，则为红色。点击此区域打开[故障]屏幕。 +
+警告：如果没有警告，则状态栏背景为绿色;如果有警告，则为红色（目前不区分警告和故障）。 +
+驱动器状态：当驱动器启用时，状态栏的背景为绿色，并显示驱动器活动。如果驱动器未启用，则显示红色，并显示驱动器未激活。 +
+运行模式：此段的背景为灰色。显示当前运行模式。 +
+Curr：显示当前运行电流 +
+Vel：显示当前电机速度。 +
+Pos：显示电机的当前位置。 +
+联机/脱机：上位机与驱动器的连接状态
+
+= 上位机
+
+香蕉派 BPI-FSM1819D伺服电机控制器调试教程: https://www.youtube.com/watch?v=At7HOSH51MA
+
+= 参考文件
+香蕉派 BPI-FSM1819D伺服模块硬件介绍及快速上手: https://www.youtube.com/watch?v=eIMwual-9D8
