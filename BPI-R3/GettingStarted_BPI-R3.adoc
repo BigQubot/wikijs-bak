@@ -110,6 +110,7 @@ NOTE: Switch the button to NAND and then start BPI-R3
 +
 ```sh
 mount -t vfat /dev/sda1 /mnt
+cd /mnt
 echo 0 > /sys/block/mmcblk0boot0/force_ro
 dd if=bl2_emmc.img of=/dev/mmcblk0boot0
 dd if=mtk-bpi-r3-EMMC-WAN1-SFP1-20220619-single-image.img of=/dev/mmcblk0
