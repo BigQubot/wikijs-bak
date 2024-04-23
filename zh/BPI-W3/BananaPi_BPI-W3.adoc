@@ -218,10 +218,25 @@ image::/picture/banana_pi_bpi-rk3588-lga_1.jpg[banana_pi_bpi-rk3588-lga_1.jpg]
 
 == LGA 核心板关键特性
 
-- Rockchip RK3588 quad ARM Cortex-A76 and quad Cortex-A55 consists of an eight-core CPU processor
-- ARM Mali-G610 MP4,
-- NPU for AI : 6Tops@INT8
-- 8G RAM and 32G eMMC flash onboard
+* SOC主控: 瑞芯微（Rockchip） RK3588
+* CPU: RK3588 quad-core Cortex-A76 @ 2.4GHz + quad-core Cortex-A55 @ 1.8GHz, 8nm process
+* GPU: ARM Mali-G610 MP4
+* NPU: Computing power up to 6 TOPS (INT8), supports INT4/INT8/INT16 mixed computing
+* VPU/Codec:
+** 硬件解码: 8K@60fps H.265/VP9/AVS2, 8K@30fps H.264 AVC/MVC, 4K@60fps AV1, 1080P@60fps MPEG-2/-1/VC-1/VP8
+** 硬件编码: 8K@30fps H.265 / H.264
+* RAM内存: 4GB/8GB/16GB (最大支持 32GB) 64bit LPDDR4/LPDDR4x, 默认为LPDDR4x 8GB
+* Flash存储: 16GB/32GB/64GB/128GB eMMC, default eMMC 32GB
+* 操作电压: 4V (±5% voltage variation)
+* 操作温度: 0°C ~ 70°C
+* 模组接口定义: LGA package, 506 pins in total
+* 支持系统:
+** 瑞芯芯片官方支持:Android 12.0, Debian 11, builroot
+** 第三方镜像支持 : Armbian, Ubuntu 20.04, Ubuntu 22.04, Kylin OS
+* PCB层数: 12-layer PCB design
+* 重量: 约13.4g
+* 尺寸: 45mm × 50mm × 4.5mm (top: 2.2mm + PCB: 1.2mm + bottom: 1.1mm)
+
 
 == BPI-3588-LGA 核心板规格
 
