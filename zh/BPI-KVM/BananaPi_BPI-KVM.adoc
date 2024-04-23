@@ -1,89 +1,90 @@
-= BPI-KVM Introduction
+= BPI-KVM 介绍
 
-Banana Pi BPI-KVM KVM over IP Industrial control gateway design with Rockchip RK3568. BPI-KVM is an IP KVM device designed for remote monitoring and control of industrial devices. It can connect the video, mouse, and keyboard of the industrial control computer of the production line machine to the remote console over a network to realize remote management of the machine. The device also provides a port for connecting to the local console. Supports local management of machines.
+香蕉派 BPI-KVM KVM over IP采用瑞芯微RK 3568的工业控制网关设计。BPI-KVM是一款IP KVM设备，专为工业设备的远程监控而设计。它可以将生产线机器的工控机的视频、鼠标、键盘通过网络连接到远程控制台，实现机器的远程管理。该设备还提供了一个用于连接到本地控制台的端口。支持机器的本地管理。
 
-To improve connection availability, BPI-KVM uses dual network ports to ensure effective use of the system.BPI-KVM also provides optional wireless access and supports the latest Wi-Fi 6 communication protocol.
+为了提高连接可用性，BPI-KVM采用双网络端口，以确保系统的有效使用。BPI-KVM还提供可选的无线接入，并支持最新的Wi-Fi 6通信协议。
 
-BPI-KVM supports a variety of video interface specifications, including VGA, HDMI, DVI, DP, and USB and traditional PS/2 mouse and keyboard interfaces, which can easily connect various types of workstations and industrial computers, reduce the need for various peripheral protocol conversion accessories and connection cables, and reduce the complexity of installation and maintenance. Makes the site cleaner and helps improve the overall stability of the system.
+BPI-KVM支持多种视频接口规格，包括VGA、HDMI、DVI、DP、USB和传统PS/2键鼠接口，可轻松连接各类工作站和工控机，减少对各种外设协议转换配件和连接线缆的需求，降低安装和维护的复杂性。使网站更干净，并有助于提高系统的整体稳定性。
 
-The BPI-KVM provides two RS-232 and two RS-485 serial communication interfaces. With the support of the interface communication protocol, you can flexibly control more external devices through the device connected to the RS485/RS232 serial port. In addition, the iKVM also provides 4 digital input and 1 digital output interface, which can be used to access the three-color lamp circuit of the product machine to obtain the status information of the machine simultaneously; Access Permission Control (Interlock) button interface is also available, supporting near & remote control permissions when enabling or disabling.
-
-TIP: Rockchip RK3568 design : link:/en/BPI-R2_Pro/BananaPi_BPI-R2_Pro[Banana Pi BPI-R2 Pro] Router board +
-Rockchip RK3568 design : link:/en/BPI-CM2/BananaPi_BPI-CM2[Banana Pi BPI-CM2] Computer module kit +
-Rockchip RK3568 design : link:/en/BPI-KVM/BananaPi_BPI-KVM[Banana Pi BPI-KVM] PiKVM for KVM over IP
+BPI-KVM提供两个RS-232和两个RS-485串行通信接口。在接口通信协议的支持下，您可以通过RS485/RS232串口连接的设备灵活控制更多的外部设备。此外，iKVM还提供了4路数字输入和1路数字输出接口，可用于接入产品机器的三色灯电路，同时获取机器的状态信息;还提供了访问权限控制（Interlock）按钮接口，支持启用或禁用时的近端和远端控制权限。
 
 
-== Key Features
-* Compact and lightweight design to save space;
-* supports a variety of video interface specifications, including VGA, HDMI, DVI, DP, USB and traditional PS/2 mouse and keyboard interface, compatible with various interfaces of the machine;
-* Powerful video codec capability, support dynamic bit rate adjustment, strengthen fps(frames per second), provide high-quality video display, video transmission more smooth;
-* built-in independent computing module, can carry some lightweight calculation at the edge, such as edge detection, fault identification, etc., expand the application of AI intelligent algorithms;
-* universal application processor, can be flexibly equipped with other applications;
-* High reliability design, support DDR and CPU Cache full link ECC;
-* provides high-speed RS-232 interface and RS-485 interface;
-* The local control terminal supports USB keyboard and mouse operation;
-* two built-in 10/100/1000 Mbps network adapters provide LAN redundancy or dual IP operation
-* supports multiple platform server environments: Windows, Mac, Sun, Linux, and VT100 serial devices
+TIP: 瑞芯微(Rockchip) RK3568 设计 : link:/en/BPI-R2_Pro/BananaPi_BPI-R2_Pro[Banana Pi BPI-R2 Pro] 路由器板 +
+瑞芯微(Rockchip) RK3568 设计 : link:/en/BPI-CM2/BananaPi_BPI-CM2[Banana Pi BPI-CM2] 计算机模块套件 +
+瑞芯微(Rockchip) RK3568 设计 : link:/en/BPI-KVM/BananaPi_BPI-KVM[Banana Pi BPI-KVM] 用于KVM over IP的PiKVM
 
-== Getting Start
 
-= Hardware
-== Hardware Interface
+== 主要特点
+
+- 紧凑轻巧的设计，节省保存空间;
+- 支持多种视频接口规格，包括VGA、HDMI、DVI、DP、USB及传统PS/2键鼠接口，兼容本机各种接口;
+- 强大的视频编解码能力，支持动态码率调整，强化fps（每秒帧数），提供高质量的视频显示，视频传输更流畅;
+- 内置独立计算模块，可以在边缘进行一些轻量级的计算，如边缘检测、故障识别等，拓展AI智能算法的应用;
+- 通用应用处理器，可灵活配备其他应用;
+- 高可靠性设计，支持DDR和CPU Cache全链路ECC;
+- 提供高速RS-232接口和RS-485接口;
+- 本地控制端支持USB键盘和鼠标操作;
+- 两个内置10/100/1000 Mbps网络适配器提供LAN冗余或双IP操作
+- 支持多种平台服务器环境：Windows、Mac、Sun、Linux和VT 100串行设备
+
+== 快速入门
+
+= 硬件
+== 硬件接口示意图
 
 image::/indu-board/banana_pi_bpi-kvm_interface.jpg[banana_pi_bpi-kvm_interface.jpg]
 
-NOTE: Video support HDMI,VGA,DP and DVI,support 4 expansion board
+NOTE: 视频支持HDMI、VGA、DP和DVI，支持4个扩展板。
 
-== Hardware Spec
+== 硬件规格
 
 [options="header",cols="1,3"]
 |=====
-2+| **BPI-KVM HardWare Specification**
+2+| **BPI-KVM 硬件规格**
 
 |Soc	|Rockchip RK3568 Quad-core ARM Cortex-A55 CPU 2GHz
 |GPU	|Mali-G52 1-Core-2EE OpenGL ES3.2 Vu1kn 1.1 OpenCL 2.0
 |SDRAM	|2G DDR4
 |eMMC	|16G eMMC flash
-|KVM Port	|1*VIDEO (HDMI/VGA/DVI/DP) 1*USB3.0 TypeA
-|Local controller Port	|1*VIDEO (HDMI/VGA/DVI/DP) 2*USB2.0 Type A 2*PS/2
-|network	|2 * giga RJ45 port
-|serial port	|2*RS232 1*RS485
-|Virtual Media	|1*USB3.0 Type A
-|Digital IO port|	Digital IO input*4 digital IO output*1
-|control	|1*PS/2
-|Power	| 1*DC slot
-|Mouse/keyboard|	USB,PS/2
-|Sizes	|16.00 x 12.50 x 3.15 cm
-|Weight|	600g
+|KVM 端口	|1*VIDEO (HDMI/VGA/DVI/DP) 1*USB3.0 TypeA
+|本地控制器端口	|1*VIDEO (HDMI/VGA/DVI/DP) 2*USB2.0 Type A 2*PS/2
+|网络	|2 * giga RJ45 port
+|串行端口	|2*RS232 1*RS485
+|虚拟媒体	|1*USB3.0 Type A
+|数字IO端口|	Digital IO input*4 digital IO output*1
+|控制	|1*PS/2
+|电源| 1*DC slot
+|鼠标/键盘|	USB,PS/2
+|尺寸	|16.00 x 12.50 x 3.15 cm
+|重量|	600g
 |=====
 
-== Interface topology
+== 接口拓扑
 
 image::/indu-board/banana_pi_bpi-kvm_5.png[banana_pi_bpi-kvm_5.png]
 
-= Reference
+= 参考
 
-* Discuss on forum: https://forum.banana-pi.org/c/bpiindu/bpi-kvm
-* News from cnx-software : https://www.cnx-software.com/2023/07/21/banana-pi-bpi-kvm-a-kvm-over-ip-solution-based-on-rockchip-rk3568-soc/
+* 论坛讨论: https://forum.banana-pi.org/c/bpiindu/bpi-kvm
+* 来自cnx-software的新闻 : https://www.cnx-software.com/2023/07/21/banana-pi-bpi-kvm-a-kvm-over-ip-solution-based-on-rockchip-rk3568-soc/
 * GitHub: https://github.com/pikvm
 
-= BPI-KVM Product
+= BPI-KVM 产品
 
-Banana Pi work closely with ikasinfo to provide total solutions to customers. IKASinfo is a Chongqing-based national high-tech enterprise committed to driving the manufacturing industry towards Industry 4.0. With branches in major cities in China and abroad, IKAS has developed cutting-edge technologies, including intelligent decision-making algorithms based on "ROPN + AI" technology, which have been empowering the semiconductor industry and gradually adopted in other sectors.
+Banana Pi与ikasinfo密切合作，为客户提供整体解决方案。IKASinfo是一家总部位于重庆的国家高新技术企业，致力于推动制造业向工业4.0迈进。IKAS在国内外主要城市设有分支机构，开发了尖端技术，包括基于“ROPN + AI”技术的智能决策算法，这些技术一直在为半导体行业赋能，并逐渐被其他行业采用。
 
 image::/indu-board/banana_pi_bpi-kvm_1.jpg[banana_pi_bpi-kvm_1.jpg]
 
-== Application direction
+== 应用方向
 
-* Smart Manufacturing: Smart Equipment,Smart Manufacturing,Smart Yield
-* Smart Energy : Data Asset Management(DAM),Equipment Health Management(EHM),Operation Safety Management
+- 智能制造：智能装备、智能制造、智能产量
+- 智慧能源：数据资产管理（DAM）、设备健康管理（EHM）、运营安全管理
 
-== BPI-KVM total solutions
+== BPI-KVM 整体解决方案
 
 image::/bp-kvm_design.jpg[bp-kvm_design.jpg]
 
-= Cooperation
- 
-. Banana Pi community provides the hardware, as well as the source code of the BSP software, on which users can develop their own applications
-. We work closely with link:https://www.ikasinfo.com/[IKASinfo]  to provide total solutions to our customers
-. If you want to do OEM&ODM ,please contact : judyhuang@banana-pi.com
+= 合作
+- 香蕉派社区提供硬件，以及BSP软件的源代码，用户可以在其上开发自己的应用程序
+- 我们与 link:https://www.ikasinfo.com/[IKASinfo] 紧密合作，为客户提供全面的解决方案
+- 如果您想做OEM&ODM，请联系: judyhuang@banana-pi.com
