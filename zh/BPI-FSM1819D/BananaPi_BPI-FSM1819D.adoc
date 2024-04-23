@@ -1,78 +1,80 @@
-= Product overview
+= 介绍
 
-BPI-FSM8191D servo motor controller is an industrial-grade servo motor control product created by Bananapai open source community and Fortior technology. It is a servo module used to drive rotary servo motor, linear servo motor and torque motor. In practical applications, it is composed of main control board and power board, providing motor control core algorithm and various communication functions. BPI-FSM8191D servo module main control board, configured with two application ports and a power board interface, the servo module pin contains a number of signal interfaces, which can meet the debugging of most servo functions. In different application scenarios, the servo power board can be customized to provide power input and output, power supply and energy consumption requirements. The power board has a rich debugging interface, which fully meets the needs of developers for different power and power supplies.
+BPI-FSM8191D伺服电机控制器是香蕉派开源社区和Fortior技术共同打造的工业级伺服电机控制产品。它是一个伺服模块，用于驱动旋转伺服电机，直线伺服电机和力矩电机。在实际应用中，它由主控板和电源板组成，提供电机控制核心算法和各种通信功能。BPI-FSM8191D伺服模块主控板，配置有两个应用端口和一个电源板接口，伺服模块引脚包含多个信号接口，可以满足大部分伺服功能的调试。在不同的应用场景下，伺服电源板可以定制提供电源输入输出、电源和能耗需求。电源板具有丰富的调试接口，充分满足开发人员对不同电源和电源的需求。
 
-= Application direction
-- New energy industry: die cutting machine, laminating machine, cutting and laminating machine, pole ear welding, coating machine, shell machine, top welding, helium detector, liquid injection machine, forming cabinet, replenishing machine, sealing welding machine, parting cabinet, Pack line, etc.
-- Semiconductor industry: cleaning equipment, lithography machine, etching machine, repair testing equipment, scribing machine, wafer probe testing equipment, sorting machine, chip placement machine, bonding machine and other equipment
-- New display industry: solid crystal machine, rerepair machine, dispensing machine, laminating equipment, bonding equipment, backlight assembly equipment, defoaming equipment, cutting equipment, AOI equipment and other basic complete set of process equipment.
-- Optical industry: welding machine, focusing machine, pendulum machine, assembly machine, imaging detection, etc.
+= 应用方向
 
-= Hardware
+- 新能源产业：模切机、覆膜机、分切覆膜机、极耳焊接机、涂层机、外壳机、顶焊、氦气检测仪、注液机、成型柜、补料机、封焊机、分型柜、包装线等。
+- 半导体行业：清洗设备、光刻机、蚀刻机、修复测试设备、划片机、晶圆探针测试设备、分选机、贴片机、邦定机等设备
+- 新型显示产业：固晶机、返修机、点胶机、贴合设备、邦定设备、背光组装设备、贴片设备、切割设备、AOI设备等基础成套工艺设备。
+- 光学行业：焊接机、调焦机、摆光机、装配机、成像检测等。
+
+
+= 硬件
 
 image::/picture/bpi-fsm1819d_board.jpg[bpi-fsm1819d_board.jpg]
 
-= Hardware Specifications
-== Common servo controller electrical specifications made of modules
+= 硬件规格
+== 常用伺服控制器电气规格模块组成
 
 [options="header",cols="2,3,1"]
 |====
-3+| Servo controller electrical specifications 
+3+| 伺服控制器电气规格
 | Number | spec |              
-.3+| Power circuit input power supply（L1,L2,L3）  | Rated Voltage（VAC line-line）±10%   | 240          
-                                                  | frequency(Hz)  | 50 
-                                                  | 240VAC         | Single phase/three phase     
-| Control circuit input power supply（L1C,L2C） | 240±10VAC | Single phase 
-| Logic input fuse(delay)   | 240VAC(A)    | 0.5          
-| STO (Safe torque cut-off) | STP DC(VDC)  | 24±10%       
-| STO Fuse (delay)          | 240VAC(A)    | 1.5          
-.5+| Motor outputs (U,V,W)  | Continuous output power supply (Arms)| 4.5                                 | Continuous output power supply （Apeak）  | 6.63          
-                            | Peak output current in 2 seconds（Arms）  | 14              
-                            | Peak output current in 2 seconds（Apeak） | 20           
-                            | PWM frequency（kHz）                      | 16   
-.2+| Soft boot              | maximum surge current（A）| 7            
-                            | Maximum charging time(ms) | 250                
-.2+| tripping voltage       | under voltage tripping(rated)(VDC)| 50                                     | overvoltage tripping(VDC) | 420             
-| over-temperature | Power board overtemperature Indicates the fault temperature（Stable temperature）（℃） | 100±5%       
-.3+| regenerative brake | Internal busbar capacitance（uF）    |
-                        |VLOW（Regenerative circuit off）（VDC）|380 (can set)
-                        |VMAX（Regenerative circuit on）（VDC）	|400 (can set)
+.3+| 电源电路输入电源（L1,L2,L3）  | 额定电压（VAC line-line）±10%   | 240         
+                                | 频率(Hz)  | 50 
+                                 | 240VAC         | 单相/三相
+| 控制电路输入电源（L1C,L2C） | 240±10VAC | 单相
+| 逻辑输入保险丝（延时）   | 240VAC(A)    | 0.5          
+| STO (安全扭矩切断) | STP DC(VDC)  | 24±10%       
+| STO 保险丝 (延时)          | 240VAC(A)    | 1.5          
+.5+| 电机输出 (U,V,W)  | 连续输出电源 (Arms)| 4.5                                                     | 连续输出电源 （Apeak）  | 6.63          
+                      | 2秒内的峰值输出电流（Arms）  | 14              
+                      | 2秒内的峰值输出电流（Apeak） | 20           
+                      | PWM 频率（kHz）                      | 16   
+.2+| Soft boot              | 最大浪涌电流（A）| 7            
+                            | 最大充电时间(ms) | 250                
+.2+| 跳闸电压     | 欠压跳闸（额定）(VDC)| 50                                                    | 过电压跳闸(VDC) | 420             
+| 超温 | 电源板过热指示故障温度（稳定温度）（℃） | 100±5%       
+.3+| 再生制动 | 内部母线电容（uF）    |
+             |VLOW（再生电路关闭）（VDC）|380 (can set)
+             |VMAX（再生电路开启）（VDC）	|400 (can set)
 |====
 
-== Servo module control specifications
+== 伺服模块控制规格
 
 [options="header",cols="1,2,3"]
 |====
-3+|Interface options: Analog voltage/pulse instruction /RS232 control specification
+3+|接口选项：模拟电压/脉冲指令/RS232控制规格
 |Item	|spec	|explain
-.2+|motor	|Ac and DC	 |Rotary servo motor, linear servo motor
-          |Auto Config |Automatic configuration of motor phase and phase line Settings
-|running mode	|Selectable mode	|Torque control, speed control, position control
-.6+|torque control	|Input instruction/output instruction	|Speed command/PCOC
-                    |performance	|refresh rate62.5us (16kHz)
-                    |Step response time	|
-                    |control method	|DQ, PI
-                    |reference command	|simulate±10VDC，serial RS232
-                    |auto adjust	|Manually adjust the current loop parameters
-.5+|speed control	|Input instruction/output instruction	|Speed command / PCOC
-                  |performance	|refresh rate: 125 μs (8 kHz)
-                  |Optional speed control method	|PI
-                  |filter | First-order low-pass filter, two-cascaded first-order low-pass filter
-                  |reference command	|simulation±10 VDC, serial RS232 or USB
-.4+|position control	|Input instruction/output instruction	|Position command/speed command
-                      |performance	|refresh rate:250us（4kHz）
-                      |control method	|PID and acceleration feedforward
-                      |reference command	|Pulse & direction with electronic drive，serial ，serial RS232
-|status display	|modality	|Fase 7 LED (Red)，Display drive status (alarm, running, enable, etc.)
-|electronic gear	|method	|User defined gear ratio
-.2+|GUI	|UI	|base on Windows serial port software
-        |function	|Set connection, drive information, power information, motor, feedback, I/O selection/configuration, motion Settings/adjustments, fault history/status display, etc.
-.3+|Rotate toward unit	|position	|pulse（Counts）
-                        |speed	|per minute （rpm）
-                        |Acceleration/deceleration	|rps/s
-.3+|line unit	|position	|pulse（Counts）、mm
-              |speed	|mm/s
-              |Acceleration/deceleration	|mm/s2
+.2+|电机	|Ac and DC	 |旋转伺服电机、直线伺服电机
+          |自动配置 |自动配置电机相位和相线设置
+|运行模式	|可选择模式	|转矩控制、速度控制、位置控制
+.6+|转矩控制	|输入指令/输出指令	|速度命令/PCOC
+                    |性能	|刷新率 rate62.5us (16kHz)
+                    |阶跃响应时间	|
+                    |控制方式	|DQ, PI
+                    |参考命令	|simulate±10VDC，serial RS232
+                    |自动调节	|手动调整当前循环参数
+.5+|速度控制	|输入指令/输出指令	|速度命令 / PCOC
+                  |性能	|刷新率: 125 μs (8 kHz)
+                  |可选速度控制方法	|PI
+                  |滤波器 | 一阶低通滤波器，两个级联的一阶低滤波器
+                  |参考命令	|simulation±10 VDC, serial RS232 or USB
+.4+|位置控制	|输入指令/输出指令	|位置指令/速度指令
+             |性能	|刷新率:250us（4kHz）
+             |控制方式	|PID和加速度前馈
+             |参考命令|Pulse & direction with electronic drive，serial ，serial RS232
+|状态显示 |形式	|Fase 7 LED（红色），显示驱动器状态（报警、运行、启用等）
+|电子齿轮	|方法|用户定义的齿轮比
+.2+|GUI	|UI	|基于Windows串口软件
+        |功能	|设置连接、驱动器信息、电源信息、电机、反馈、I/O选择/配置、运动设置/调整、故障历史/状态显示等。
+.3+|向单位旋转	|位置	|（Counts）
+                        |速度|每分钟（rpm）
+                        |加速/减速	|rps/s
+.3+|线单元	|位置	|（Counts）、mm
+              |速度	|mm/s
+              |加速/减速	|mm/s2
 |====
 
 == Servo module communication specifications
