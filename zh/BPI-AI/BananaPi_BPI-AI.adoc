@@ -1,38 +1,40 @@
-= BPI-AI Introduction
+= BPI-AI 介绍
 
-BPI-AI(also name Web:AI for Webduino) design with K210 RISC-V chip design.
+BPI-AI（也被Webduino称为Web:AI）设计，采用K210 RISC-V芯片设计。
 
-An integrated artificial intelligence SOC chip solution that can accommodate neural network models, using a new risc-v instruction set for the field of artificial intelligence and edge computing. 
+集成的人工智能SOC芯片解决方案，可容纳神经网络模型，使用面向人工智能和边缘计算领域的全新risc-v指令集。
 
-The main target market is the AIoT and STEAM education market, it support screen and camera. 
+主要目标市场是AIoT和STEAM教育市场，它支持屏幕和摄像头。
 
-So easy to do many AI application, cowork with Webduino team. and support Webduino blockly for STEAM education.
+与Webduino团队合作，轻松做很多AI应用。并支持Webduino用于STEAM教育。
 
-Also support Arduino IDE,MixPy.
+支持Arduino IDE，MixPy。
 
-== Type Applications
 
-* AI for Edge Computing
-* Smart Building
-* Medical equipment
-* Automation & Process Control
-* Robot
-* IoT applications
-* STEAM education
+== 应用方向
 
-== Key Features
+- 向边缘计算的AI
+- 能建筑
+- 疗设备
+- 动化和过程控制
+- 器人
+- 物联网应用
+- TEAM教育
 
-* 64-bit RISC-V CPU Dual-Core, up to 400MHz
-* IMAFDC (RV64GC) ISA extension
-* Hardware FPU (Float Point Unit), Double Precision
-* 32 KB I-Cache per core and 32 KB D-Cache per core
-* 8MB On-Chip SRAM 128Kbit One-Time Programmable Memory (OTP) ,Read Only Memory (ROM)
-* DMA
-* Camera and screen interface
-* WiFI (ESP8285)
-* JTAG, OpenOCD support
 
-== About Kendryte K210 chip
+== 主要特点
+
+- 64位RISC-V CPU双核，最高400MHz
+- IMAFDC（RV64GC）ISA扩展
+- 硬件FPU（浮点单元），双精度
+- 每个核心32 KB I-Cache和每个核心32 KB D-Cache
+- 8 MB片内SRAM 128 Kbit一次性可编程存储器（OTP），只读存储器（ROM）
+- DMA
+- 摄像头和屏幕接口
+- WiFi（ESP8285）
+- JTAG, OpenOCD支持
+
+==  Kendryte K210 chip
 
 The Kendryte K210 is a system-on-chip (SoC) that integrates machine vision and machine hearing. 
 
