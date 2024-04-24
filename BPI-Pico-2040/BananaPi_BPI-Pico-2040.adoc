@@ -48,7 +48,7 @@ link:/en/BPI-Pico-2040/Photo_BPI-Pico-RP2040[Banana Pi BPI-Pico-RP2040 Product p
 | On-board FLASH              | 2MB                                      
 | GPIO                        | 26 GPIO                                  
 | ADC                         | 4 analogue inputs                        
-| PIO                         | I2C                                      
+.6+| GPIO                         | I2C                                     
 | SPI,DSPI,QSPI              
 | UART                       
 | SDIO (SD card)             
