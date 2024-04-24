@@ -13,14 +13,13 @@ BPI-AI（也被Webduino称为Web:AI）设计，采用K210 RISC-V芯片设计。
 
 == 应用方向
 
-- 向边缘计算的AI
-- 能建筑
-- 疗设备
-- 动化和过程控制
-- 器人
+- 面向边缘计算的AI
+- 智能建筑
+- 医疗设备
+- 自动化和过程控制
+- 机器人
 - 物联网应用
-- TEAM教育
-
+- STEAM教育
 
 == 主要特点
 
@@ -34,73 +33,70 @@ BPI-AI（也被Webduino称为Web:AI）设计，采用K210 RISC-V芯片设计。
 - WiFi（ESP8285）
 - JTAG, OpenOCD支持
 
-==  Kendryte K210 chip
+== 关于Kendryte K210 芯片
 
-The Kendryte K210 is a system-on-chip (SoC) that integrates machine vision and machine hearing. 
+Kendryte K210是一款集成了机器视觉和机器听觉的片上系统（SoC）。
 
-Using TSMC’s ultra-low-power 28nm advanced process with dual-core 64-bit processors for better power performance, stability and reliability. 
+采用台积电超低功耗28nm先进工艺，搭载双核64位处理器，实现更好的功耗性能、稳定性和可靠性。
 
-The program strives for zero threshold development and can be deployed in the user’s products in the shortest time, giving the product artificial intelligence.
+该方案力求零门槛开发，能在最短时间内部署到用户的产品中，赋予产品人工智能。
 
-The Kendryte K210 is located in the SoC of the AI and IoT markets and is a very convenient MCU.
+Kendryte K210定位于AI和IoT市场的SoC，是一款非常方便的MCU。
 
-Kendryte Chinese means surveying intelligence, while surveying intelligence is taken from surveying and searching. 
+Kendryte中文意思是测量智能，而测量智能取自测量和搜索。
 
-The main application field of this chip is in the field of Internet of Things, and it is developed in the field of Internet of Things. 
+这款芯片的主要应用领域是在物联网领域，是在物联网领域发展起来的。
 
-Therefore, this chip mainly provides artificial intelligence solutions, which are explored in the field of artificial intelligence.
+因此，这款芯片主要提供人工智能解决方案，在人工智能领域进行探索。
 
-= Hardware
-== Hardware Interface
+= 硬件
+== 硬件接口示意图
 
 image::/picture/bpi-ai_interface.jpg[bpi-ai_interface.jpg]
 
-== Hardware Spec
+== 硬件规格
 
 [options="header",cols="1,4"]
 |=====
-2+| **HardWare Specification of Banana Pi BPI-AI**
-| CPU                     | Kendryte K210 64-bit RISC-V CPU Dual-Core, up to 400MHz,with neural processing unit (NPU)                                                          
-| Memory                  | SPI flash and The accelerator has its own memory, with 6MB of static RAM given over to the dual-core CPU and a further 2MB for the NPU coprocessor.
-| Camera                  | 5 million pixel cameras                                                                                                                            
-| WIFI                    | ESP8285 wifi module support 802.11.b/g/n                                                                                                           
-| Audio Output(s)         | Built-in MEMS microphone supports 3W speaker output                                                                                                
-| LCD Screen              | 8bit MCU 2.3 LCD,DPI 320x240                                                                                                                       
-| Socket                  | Compatible with BPI: BIT Micro:bit Goldfinger,TF card ,Speaker,lithium battery interface                                                           
-| Development environment | Arduino IDE, MaixPy IDE ,Webduino                                                                                                                  
-| Switches                | Reset, A/B key                                                                                                                                     
-| Power Source            | 5volt@2A via Micro USB ,lithium battery interface(3.7-4.2V)                                                                                        
-| Size & Weight           | 51.6mm×67mm, 58g 
+2+| **香蕉派 BPI-AI 硬件规格**
+| CPU                     | Kendryte K210 64位RISC-V CPU双核，高达400MHz，带神经处理单元（NPU）                                                         
+| 存储器                 | SPI闪存和加速器有自己的内存，6MB的静态RAM给双核CPU，还有2MB的NPU协处理器。
+| 相机                  | 500万像素摄像头                                                                                                                      
+| WIFI                    | ESP8285 wifi 模块支持 802.11.b/g/n                                                                                                           
+| 音频输出         | 内置MEMS麦克风，支持3W扬声器输出                                                                                              
+| LCD 屏幕        | 8bit MCU 2.3 LCD,DPI 320x240                                                                                                                       
+| 插座                 | 兼容BPI：BIT Micro：bit金手指，TF卡，音箱，锂电池接口                                                          
+| 开发环境 | Arduino IDE, MaixPy IDE ,Webduino                                                                                                                   
+| 开关               | Reset, A/B key                                                                                                                                     
+| 电源          | 5volt@2A通过Micro USB，锂电池接口（3.7-4.2V）                                                                   
+| 尺寸/重量     | 51.6mm×67mm, 58g 
 |=====
 
 
-= Development
-== Source Code
+= 发展
+== 源代码
 
-TIP: K210 chip official Source code on github: https://github.com/kendryte
+TIP: K210 芯片官方源代码: https://github.com/kendryte
 
-TIP: Web:AI for maixpy : https://github.com/webduinoio/webai-maixpy
+TIP: Web:AI 关于 maixpy : https://github.com/webduinoio/webai-maixpy
 
 
-== Resources
+== 开发资料
 
 === BPI:AI(Web:AI) for Webduino
 
-TIP: Web:AI initialization Settings teaching ： https://www.youtube.com/watch?v=ZSGkZUQQXcI
+TIP: Web:AI 初始化设置示教 ： https://www.youtube.com/watch?v=ZSGkZUQQXcI
 
-=== Documents
-TIP: K210 chip datasheet(English): https://drive.google.com/file/d/1AavU-bCoyA2BWSDB3NQBp41A7CvdJvBL/view?usp=sharing
+=== 文件
+TIP: K210 芯片封装（英文版）: https://drive.google.com/file/d/1AavU-bCoyA2BWSDB3NQBp41A7CvdJvBL/view?usp=sharing
 
-TIP: K210 chip datasheet(Chinese): https://drive.google.com/file/d/1_xQ3waq4ENHIlfJ7ujrfRSAClNAk6beL/view?usp=sharing
+TIP: K210 芯片封装（中文版）: https://drive.google.com/file/d/1_xQ3waq4ENHIlfJ7ujrfRSAClNAk6beL/view?usp=sharing
 
-TIP: K210 SDK（drive）、documents、compiler、OpenOCD Debugging software : https://kendryte.com/downloads/
+TIP: K210 SDK（驱动），文档，编译器，OpenOCD编译器软件 : https://kendryte.com/downloads/
 
 TIP: jacklab K210 wiki page : http://wiki.jackslab.org/K210
 
 
-= FAQ
 
-
-
-= Easy to buy
-WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
+= 购买链接
+WARNING: OEM&ODM, 请联系: judyhuang@banana-pi.com
