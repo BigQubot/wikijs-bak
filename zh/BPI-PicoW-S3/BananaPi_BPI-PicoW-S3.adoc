@@ -46,75 +46,76 @@ image::/picture/bpi_picow_s3_pic.jpg[bpi_picow_s3_pic.jpg]
 
 image::/picture/bpi-picow-s3-v0.4-io.png[bpi-picow-s3-v0.4-io.png]
 
-== BPI-M7 Photo
+== BPI-PicoW-S3 图片
 
 link:/en/BPI-PicoW-S3/Photo_BPI-PicoW-S3[Banana Pi BPI-PicoW-S3 Product photo gallery]
 
-== Hardware spec
+== 硬件规格
 
 [options="header",cols="1,3"]
 |=====
-2+| **HardWare Specification of BPI-PicoW-S3**
+2+| **BPI-PicoW-S3 硬件规格**
 | SoC                           | ESP32-S3, Xtensa® 32-bit LX7 dual core                                                                                      
-| Basic frequency               | 240MHz MAX                                                                                                                  
-| Operating temperature         | -40℃~+85℃                                                                                                                   
-| On-chip ROM                   | 384KB                                                                                                                       
-| On-chip SRAM                  | 512KB                                                                                                                       
-| Extereal FLASH                | 8MB                                                                                                                         
-| In-packge PSRAM               | 2MB                                                                                                                         
+| 基本频率                       | 240MHz MAX                                                                                                                  
+| 工作温度         | -40℃~+85℃                                                                                                                   
+| 芯片上 ROM                   | 384KB                                                                                                                       
+| 芯片上 SRAM                  | 512KB                                                                                                                       
+| 外部 FLASH                | 8MB                                                                                                                         
+| 封装内PSRAM             | 2MB                                                                                                                         
 | WIFI                          | IEEE 802.11 b/g/n, 2.4Ghz band, 150Mbps                                                                                     
-| Bluetooth                     | Bluetooth 5, Bluetooth mesh                                                                                                 
-| GPIO                          | BPI-PicoW-S3 has led out 27 available GPIOs                                                                                 
-| ADC                           | 2 × 12-bit SAR ADC supporting 18 analog channel inputs                                                                      
-| TOUCH Capacitive Touch Sensor | 14                                                                                                                          
+| 蓝牙                | 蓝牙5，蓝牙网                                                                                                
+| GPIO                          | BPI-PicoW-S3 有27个可用 GPIO                                                                               
+| ADC                           | 2 × 12位SAR ADC，支持18路模拟通道输入                                                
+| TOUCH电容式触摸传感器 | 14                                                                                                                          
 | SPI                           | 4                                                                                                                           
-| I2C                           | 2. Support master or slave mode                                                                                             
-| I2S                           | 2, input and output of serial stereo data                                                                                   
-| LCD                           | 1, support 8-bit ~16-bit parallel RGB, I8080, MOTO6800 interface                                                            
-| CAMERA                        | 1, supports 8-bit ~16-bit DVP image sensor interface                                                                        
-| UART                          | 3, supports asynchronous communication (RS232 and RS485) and IrDA                                                           
-| PWM                           | 8 independent channels, 14-bit precision                                                                                    
+| I2C                           | 2. 支持主/从模式                                                                                          
+| I2S                           | 2, 串行立体声数据输入输出                                                                                  
+| LCD                           | 1, 支持8位~16位并行RGB、I8080、MOTO 6800接口                                             
+| CAMERA                        | 1, 支持8位~16位DVP图像传感器接口                                          
+| UART                          | 3, 支持异步通信（RS232和RS485）和IrDA                                               
+| PWM                           | 8 独立通道，14位精度                                          
 | MCPWM                         | 2                                                                                                                           
-| USB                           | 1 × Full Speed ​​USB 2.0 OTG, MicroUSB Female                                                                               
-| USB Serial/JTAG Controller    | 1, USB full speed standard, CDC-ACM, JTAG                                                                                   
-| Temperature sensor            | 1, the measurement range is –20 °C to 110 °C, for monitoring the internal temperature of the chip                           
-| SD/MMC                        | 1 × SDIO host interface, with 2 card slots, supports SD card 3.0 and 3.01, SDIO 3.0, CE-ATA 1.1, MMC 4.41, eMMC 4.5 and 4.51
-| TWAI® Controller              | 1, compatible with ISO11898-1 (CAN specification 2.0)                                                                       
-| Generic DMA Controller        | 5 receive channels and 5 transmit channels                                                                                  
-| RMT                           | 4-channel transmit, 4-channel receive, shared 384 x 32-bit RAM                                                              
-| Pulse Counter                 | 4 pulse count controllers (units), each unit has 2 independent channels                                                     
-| Timer                         | 4 × 54-bit general-purpose timers, 16-bit clock prescaler, 1 × 52-bit system timer, 3 × watchdog timers                     
-| External crystal              | 40Mhz                                                                                                                       
-| RTC and Low Power Management  | Power Management Unit (PMU) + Ultra Low Power Coprocessor (ULP)                                                             
-| Low power consumption current | 10uA                                                                                                                        
-| Working Voltage               | 3.3V                                                                                                                        
-| Input voltage                 | 3.3V~5.5V                                                                                                                   
-| Maximum discharge current     | 2A@3.3V DC/DC                                                                                                               
-| Controllable full color LED   | 1                                                                                                                           
-| Controllable monochrome LED   | 1 
+| USB                           |1 ×全速USB 2.0 OTG，MicroUSB母头
+
+| USB串行/JTAG控制器    | 1, USB full speed standard, CDC-ACM, JTAG                                                                                   
+| 温度传感器            | 1, 测量范围为-20 °C至110 °C，用于监控芯片内部温度                          
+| SD/MMC                        | 1 × SDIO主机接口，2个卡槽，支持SD卡3.0和3.01，SDIO 3.0，CE-ATA 1.1，MMC 4.41，eMMC 4.5和4.51
+
+| TWAI® Controller              | 1, 符合ISO 11898 -1（CAN规范2.0）                                                    
+| 通用DMA控制器        | 5个接收通道和5个发送通道                                                                            
+| RMT                           | 4-通道发送，4通道接收，共享384 x 32位RAM                                                    
+| 脉冲计数器                 | 4个脉冲计数控制器（单元），每个单元有2个独立通道                                                  
+| 定时器                         | 4个54位通用定时器、16位时钟预分频器、1个52位系统定时器、3个看门狗定时器                   
+| 外部晶体             | 40Mhz                                                                                                                       
+| RTC和低功耗管理  | 电源管理单元（PMU）+超低功耗协处理器（ULP）                                              
+|电源管理单元（PMU）+超低功耗协处理器（ULP） | 10uA                                                                                                                        
+|工作电压              | 3.3V                                                                                                                        
+| 输入电压                 | 3.3V~5.5V                                                                                                                   
+|最大放电电流     | 2A@3.3V DC/DC                                                                                                               
+| 可控全彩LED   | 1                                                                                                                           
+| 可控单色LED   | 1 
 |=====
 
-== Hardware Size
+== 硬件尺寸
 
-The pin spacing is compatible with universal boards (hole boards, dot matrix boards) and breadboards, which is convenient for debugging applications.
+引脚间距兼容通用板（孔板、点阵板）和试验板，便于调试应用。
 
 image::/picture/bpi-pico-s3-board-dimension.png[bpi-pico-s3-board-dimension.png]
 
 [options="header",cols="1,3"]
 |=====
-2+| **BPI-PicoW-S3 size Spec**
-|Pin spacing|	2.54mm
-|Hole Spacing	|11.4mm/ 47mm
-|Hole size|	Inner diameter 2.1mm/Outer diameter 3.4mm
-|Mainboard size|	21 × 51.88(mm)/0.83 x 2.04(inches)
-|Thickness|	1.2mm
+2+| **BPI-PicoW-S3 尺寸规格**
+|端号间距|	2.54mm
+|孔间距	|11.4mm/ 47mm
+|孔尺寸|	内孔2.1mm/外孔3.4mm
+|主板尺寸|	21 × 51.88(mm)/0.83 x 2.04(inches)
+|厚度|	1.2mm
 |=====
 
-== Pin define
-
+== 引脚定义
 [options="header",cols="1,1,1",width=60%]
 |=====
-|**Peripheral Interface**|**Signal**|**Pins**
+|**外围接口**|**信号**|**Pins**
 .2+|ADC|ADC1_CH0~9|GPIO 1~10
        |ADC2_CH0~9|GPIO 11~20
 |Touch Sensor|TOUCH1~14|GPIO 1~14
@@ -170,16 +171,16 @@ image::/picture/bpi-pico-s3-board-dimension.png[bpi-pico-s3-board-dimension.png]
 |Monochrome LED 2+|Any GPIO
 |=====
 
-= Development
+= 发展
 
-== Source Code
+== 源代码
 TIP: link:https://github.com/adafruit/esp-idf[esp-idf]
 
 TIP: link:https://github.com/adafruit/circuitpython[circuitpython]
 
 TIP: link:https://github.com/adafruit/tinyuf2[tinyuf2]
 
-== Resources
+== 开发资料
 
 TIP:  https://github.com/BPI-STEAM/BPI-PicoW-Doc/blob/main/sch/BPI-PicoW-V0.4.pdf[BPI-PicoW-S3 schematic]
 
@@ -191,13 +192,13 @@ TIP:  https://www.espressif.com/sites/default/files/documentation/esp32-s3_techn
 
 NOTE: https://circuitpython.org/board/bpi_picow_s3/[CircuitPython Firmware Download Page]
 
-= Easy to buy sample
+= 购买链接
 
-WARNING: Official AliExpress: https://www.aliexpress.com/item/1005004775634442.html
+WARNING: 官方速卖通: https://www.aliexpress.com/item/1005004775634442.html
 
-WARNING: SinoVoip Aliexpress : https://www.aliexpress.com/item/1005004775859077.html
+WARNING: SinoVoip 速卖通 : https://www.aliexpress.com/item/1005004775859077.html
 
-WARNING: Official Taobao: https://item.taobao.com/item.htm?spm=a2126o.success.0.0.25b04831CHV1Nc&id=684134360199
+WARNING: 官方淘宝店: https://item.taobao.com/item.htm?spm=a2126o.success.0.0.25b04831CHV1Nc&id=684134360199
 
-WARNING: OEM&OEM customized service: sales@banana-pi.com
+WARNING: OEM&OEM 定制服务: sales@banana-pi.com
 
