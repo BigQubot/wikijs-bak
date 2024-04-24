@@ -7,8 +7,8 @@
 - 模块3：基于BPI-R64，支持3个4G LTE接口和2个M.2 5G接口，支持OpenWRT和OpenMPTcpRouter协议。有一个PCIe 2.4G/5.8G wifi AC，可支持MT 7615 wifi模块。我们还设计了一个5G接口，便于在板载上添加5G模块以支持5G。并具有5个千兆WAN/LAN端口，支持路由器功能
 
 
-TIP: 联发科(Mediatek) MT7622 芯片设计 : link:/en/BPI-R64/BananaPi_BPI-R64[Banana Pi BPI-R64] 路由器板 +
-联发科(Mediatek) MT7622 芯片设计 : link:https://docs.banana-pi.org/en/BPI-MNF/BananPI_CPI-MNF[Banana Pi BPI-MNF] 5G + 4G LTE + Wifi AC + 千兆复用聚合路由
+TIP: 联发科(Mediatek) MT7622 芯片设计 : link:/zh/BPI-R64/BananaPi_BPI-R64[Banana Pi BPI-R64] 路由器板 +
+联发科(Mediatek) MT7622 芯片设计 : link:/zh/BPI-MNF/BananPI_CPI-MNF[Banana Pi BPI-MNF] 5G + 4G LTE + Wifi AC + 千兆复用聚合路由
 
 
 = 硬件
