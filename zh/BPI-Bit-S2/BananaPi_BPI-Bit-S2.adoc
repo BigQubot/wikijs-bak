@@ -1,49 +1,51 @@
-= About BPI-Bit-S2
+= 关于 BPI-Bit-S2
 
 image::/picture/bpi-bit-s2_banner.jpg[bpi-bit-s2_banner.jpg]
 
-BPI-Bit-S2 development board is a successor to BPI-Bit, inheriting most of the hardware functions.
+BPI-Bit-S2开发板是BPI-Bit的继承者，继承了大部分硬件功能。
 
-IO is compatible with micro:bit and can use most peripheral accessories of micro:bit.
+IO与micro：bit兼容，可以使用micro：bit的大部分外围配件。
 
-Support Webduino, Arduino, MicroPython & CircuitPython programming environment suitable for STEAM education.
+支持适合STEAM教育的Webduino、Arduino、MicroPython和CircuitPython编程环境。
 
-== Key features
-- ESP32-S2
-- 5x5 RGB LED matrix
-- 1 buzzer
-- 1 thermistor sensor
-- 2 photosensitive sensors
-- 2 programmable keys,1 BOOT key,1 Reset key
-- Type-C USB interface
-- Size 5x5cm
-- The Goldfinger Edge Connector definition is fully compatible with Micro: Bit
+== 主要特点
 
-== Feature comparison
+- ESP32—S2
+- 5x5 RGB LED矩阵
+- 1个蜂鸣器
+- 1个热敏电阻传感器
+- 2个光敏传感器
+- 2个可编程键，1个启动键，1个复位键
+- Type—C USB接口
+- 尺寸5x5cm
+- Goldfinger Edge连接器定义与Micro：Bit完全兼容
+
+
+== 功能比较
 [options="header",cols="2,4,4"]
 |====
 3+|micro:bit vs BPI-Bit-S2
-| Product    | micro:bit V2.2X  | BPI-Bit-S2
+| 产品| micro:bit V2.2X  | BPI-Bit-S2
 | MCU        | Nordic nRF52833  | Espressif ESP32-S2
-| Frequency  | 64MHz            | 240MHz               
+| 频率  | 64MHz            | 240MHz               
 | RAM        | 128KB            | 320 KB                
 | FlASH ROM  | 512KB            | 4096 KB              
 | PSRAM      | None             | 2048 KB              
-| Wireless Communication | Bluetooth，microbit-radio | WIFI, IEEE 802.11 b/g/n, 2.4Ghz
-| LED        | 25 red LEDs      | 25 WS2812-3535 RGB LEDs
-| Key        | 2 programmable keys, 1 RST key | 2 programmable keys, 1 BOOT key, 1 RST key                                                          
-| Buzzer     | Yes              | Yes                  
-| Microphone | Yes              | None                   
-| USB Socket | Micro USB        | Type-C USB            
-| USB interface chip | nRF52833-QDAA or nRF52820-QDAA | MCU chip built-in    
-| Battery socket     | Yes          | None                  
-| IO                 | 19 pins golden finger IO, alligator clip bayonet, support touch sensing | 19 pins golden finger IO (compatible with micro:bit), alligator clip bayonet, support touch sensing 
-| Motion sensor | Yes           | None                 
-| Photosensitive sensor | None  | 2                    
-| Thermistor sensor | 1 on-core | 1 on-board 
+|无线通信 | 蓝牙、微型无线电 | WIFI, IEEE 802.11 b/g/n, 2.4Ghz
+| LED        | 25 个红色 LEDs      | 25个WS2812-3535 RGB LEDs
+| 按键      | 2个可编程键，1个可编程键 | 2个可编程键，1个靴子键，1个解锁键 
+| 蜂鸣器     | Yes              | Yes                  
+| 麦克风 | Yes              | None                   
+| USB插座 | Micro USB        | Type-C USB            
+| usb接口芯片 | nRF52833-QDAA or nRF52820-QDAA | MCU芯片内置   
+| 电池插槽    | Yes          | None                  
+| IO                 | 19针金手指IO，鳄鱼夹卡口，支持触摸感应| 19针金手指IO（兼容micro：bit），鳄鱼夹卡口，支持触摸感应
+| 运动传感器 | Yes           | None                 
+| 光敏传感器 | None  | 2                    
+| 热敏电阻传感器 | 1 on-core | 1 on-board 
 |====
 
-= Hardware interface
+= 硬件接口示意图
 
 image::/picture/bpi_bit_v2_interface_en.jpg[bpi_bit_v2_interface_en.jpg]
 
@@ -51,54 +53,51 @@ image::/picture/bpi_bit_v2_interface_en.jpg[bpi_bit_v2_interface_en.jpg]
 |====
 2+|BPI-Bit-S2 specification
 | MCU                   | ESP32-S2FN4R2，Xtensa® 32 bit LX7 Single-Core Processer                             
-| Frequency             | 240MHz MAX
-| operating temperature | -40℃~+85℃ 
+| 频率             | 240MHz MAX
+| 工作温度 | -40℃~+85℃ 
 | ROM                   | 128 KB 
 | SRAM                  | 320 KB
 | FLASH ROM             | 4 MB 
 | PSRAM                 | 2 MB 
 | WIFI                  | IEEE 802.11 b/g/n ，2.4Ghz
-| GPIO                  | 19 available GPIO pins have been introduced
-| Peripheral functions  | ADC,TOUCH,PWM,SPI,I2C,I2S,Pulse counter, RMT,TWAI® Controller,SD/MMC,LCD_CAMERA    
-| External crystal      | 40Mhz
-| Buzzer                | 8.5x8.5mm buzzer
-| LED                   | 25 WS2812 rgb LED, single line GPIO control; 1 monochrome LED, controlled by GPIO0 
-| Photosensitive sensor | 2 photosensitive sensor
-| Thermistor sensor     | 1 thermistor sensor
-| IO                    | 19 pins Goldfinger IO,19 pins contacts on the back
-| Key                   | 2 programmable keys,1 BOOT key,1 Reset key
-| USB                   | USB Type-C interface，full speed USB OTG,USB-ACM
-| Operating voltage     | 3.3V  
-| Power                 | USB Type-C input 5V，or Goldfinger IO input 3.3V power supply   
-| Size	                |5 * 5 cm
+| GPIO                  | 引入了19个可用GPIO引脚
+| 外围功能  | ADC,TOUCH,PWM,SPI,I2C,I2S,Pulse counter, RMT,TWAI® Controller,SD/MMC,LCD_CAMERA    
+| 外部晶振      | 40Mhz
+| 蜂鸣器                | 8.5x8.5mm buzzer
+| LED                   | 25个WS2812 rgb LED，单线GPIO控制；1个单色LED，由GPIO0控制 
+| 光敏传感器| 2个光敏传感器
+| 热敏电阻传感器     | 1个热敏电阻传感器
+| IO                    | 19针金手指IO，背面19针触点
+| 按键                  | 2个可编程键，1个BOOT键，1个复位键
+| USB                   | USB Type-C接口，全速USB OTG，USB-ACM
+| 工作电压     | 3.3V  
+| 电源                | USB Type-C input 5V，or Goldfinger IO input 3.3V power supply   
+| 尺寸	                |5 * 5 cm
 |====
 
-== On-board peripherals
+== 板载外设
 [options="header"cols="3,1,2"]
 |====
-3+| Peripheral GPIO allocation and signal type
-| Photosensitive sensor(L) | GPIO 12 | Analog Input
-| Photosensitive sensor(R) | GPIO 13 | Analog Input
-| Thermistor sensor        | GPIO 14 | Analog Input
-| Key A                    | GPIO 38 | Digital Input       
-| Key B                    | GPIO 33 | Digital Input       
-| Key BOOT                 | GPIO 0  | Digital Input       
-| Buzzer                   | GPIO 17 | PWM(Digital Output) 
-| RGB LEDs                 | GPIO 18 | Digital Output     
+3+| 外设GPIO分配和信号类型
+| 光敏传感器（L）| GPIO 12 | 模拟输入
+| 光敏传感器（R） | GPIO 13 | 模拟输入
+| 热敏电阻传感器        | GPIO 14 | 模拟输入
+| 按键 A                    | GPIO 38 | 数字输入  
+| 按键 B                    | GPIO 33 | 数字输入       
+| 按键 BOOT                 | GPIO 0  | 数字输入       
+| 蜂鸣器                  | GPIO 17 | PWM(数字输出) 
+| RGB LEDs                 | GPIO 18 | 数字输出     
 |====
 
 == 5*5 RGB LED
-BPI-Bit-S2 have 25 WS2812 full color RGB LED, single GPIO ontrol.
 
-The three primary color pixels of each LED can achieve 8bit 256 level brightness display,
+BPI-Bit-S2有25个WS 2812全彩RGB LED，单GPIO控制。
 
-and achieve 16777216 color full color display,
-
-scanning frequency is not less than 400Hz/s.
+每个LED的三基色像素可实现8bit 256级亮度显示，并实现16777216色全彩显示，扫描频率不低于400 Hz/s。
 
 [options="header",cols="1,1,1,1,1"]
 |====
-5+|5*5 LED Sequential List
+5+|5*5 LED 顺序列表
 |20	|15	|10	|5	|0
 |21	|16	|11	|6	|1
 |22	|17	|12	|7	|2
@@ -106,15 +105,16 @@ scanning frequency is not less than 400Hz/s.
 |24	|19	|14	|9	|4
 |====
 
-== Goldfinger GPIO define
-BPI-Bit-S2 Gold finger GPIO is defined to be compatible with Micro:Bit. GPIO expansion board accessories can be used with Micro: Bit.
+== 金手指GPIO定义
+BPI-Bit-S2金手指GPIO被定义为与Micro：Bit兼容。GPIO扩展板附件可与Micro：Bit配合使用。
+
 
 image::/picture/bpi_bit_v2_goldfinger.jpg[bpi_bit_v2_goldfinger.jpg]
 
 [options="header",cols="1,1,1"]
 |====
 3+|SPI,I2C
-|Function	|Pin Name	|GPIO Num
+|作用|引脚名称|GPIO编号
 |SPI_SCK	|P13	|GPIO36
 |SPI_MISO	|P14	|GPIO37
 |SPI_MOSI	|P15	|GPIO35
@@ -123,49 +123,51 @@ image::/picture/bpi_bit_v2_goldfinger.jpg[bpi_bit_v2_goldfinger.jpg]
 |I2C_SDA	|P20	|GPIO15
 |====
 
-== Power
-BPI-Bit-S2 supports two power supply modes
+== 电源
+BPI-Bit-S2支持两种电源模式
 
-1. Type-C USB：Use USB cable power supply, connect USB interface of computer or other 5V USB charger to power the development board.
+. Type-C USB：使用USB电缆供电，连接电脑的USB接口或其他5V USB充电器为开发板供电。
 
-2. Gold finger: At the bottom of the development board, the gold finger contains a power interface with both input and output functions. It uses 3.3V power supply, positive terminal is connected to 3V3, and negative terminal is connected to GND.
+. 金手指：在开发板的底部，金手指包含一个电源接口，具有输入和输出功能。 采用3.3V电源，正极接3V 3，负极接GND。
 
-= Software
+= 软件
+
 == Webduino
 
 image::/picture/webduino_logo.jpg[webduino_logo.jpg]
 
-link:https://webbit.webduino.io/blockly/?demo=default[webduino online building block programming platform]
+link:https://webbit.webduino.io/blockly/?demo=default[webduino在线积木编程平台
+]
 
-link:https://ota.webduino.io/WebBitInstaller/WebBitSetup.exe[webduino building block programming platform, Windows Installer]
+link:https://ota.webduino.io/WebBitInstaller/WebBitSetup.exe[webduino构建块编程平台，Windows安装程序]
 
-link:https://webbit.webduino.io/tutorials/doc/zh-cn/education/index.html[webduino online tutorials]
+link:https://webbit.webduino.io/tutorials/doc/zh-cn/education/index.html[webduino在线教程]
 
 == MicroPython
 
 image::/picture/mircopython.png[mircopython.png]
 
-MicroPython is a lean and efficient implementation of the Python 3 programming language that includes a small subset of the Python standard library and is optimised to run on microcontrollers and in constrained environments.
+MicroPython是Python 3编程语言的精简高效实现，包括Python标准库的一小部分，并经过优化，可在微控制器和受限环境中运行。
 
-Crowdfunded and open sourced in 2013 by Damien P. George.
+众筹和开源于2013年由达米恩·P·乔治。
 
-The most obvious difference between it and the use of C programs to develop microcontrollers is that there is no need for lengthy compilation when verifying code.
+它与使用C程序开发微控制器之间最明显的区别是，在验证代码时不需要冗长的编译。
 
-Using serial communication software, enter commands through the REPL(read-eval-print-loop) to control the microcontroller, just like Python's REPL.
+使用串行通信软件，通过REPL（读取eval打印循环）输入命令来控制微控制器，就像Python的REPL一样。
 
-It is also possible to use some tools to upload a python script file to run inside the microcontroller.
+也可以使用一些工具上传python脚本文件，以便在微控制器内运行。
 
-Its implementation of Python3 includes the _thread library that supports multithreading and the asyncio library for writing concurrent code.
+它对Python3的实现包括支持多线程的_thread库和用于编写并发代码的asyncio库。
 
-MicroPython aims to be as compatible with normal Python as possible to allow you to transfer code with ease from the desktop to a microcontroller or embedded system.
+MicroPython的目标是尽可能与普通Python兼容，使您能够轻松地将代码从桌面传输到微控制器或嵌入式系统。
 
-At the same time it also has some libraries specific for microcontrollers in order to take full advantage of the hardware features inside the microcontroller chip, such as timers, hardware interrupts, WiFi, etc., depending on the specific hardware.
+同时，它还具有一些特定于微控制器的库，以充分利用微控制器芯片内部的硬件功能，如定时器、硬件中断、WiFi等，具体取决于特定的硬件。
 
-While having the above features, it is compact enough to fit and run within just 256k of code space and 16k of RAM.
+虽然具有上述功能，但它足够紧凑，只需256k的代码空间和16k的RAM即可安装和运行。
 
-If you know Python you already know MicroPython.
+如果你知道Python，你就已经知道MicroPython了。
 
-On the other hand, the more you learn about MicroPython the better you become at Python.
+另一方面，你对MicroPython了解得越多，你对Python的了解就越好。
 
 == CircuitPython
 
