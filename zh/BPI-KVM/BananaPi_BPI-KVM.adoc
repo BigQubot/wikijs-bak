@@ -9,9 +9,9 @@ BPI-KVM支持多种视频接口规格，包括VGA、HDMI、DVI、DP、USB和传�
 BPI-KVM提供两个RS-232和两个RS-485串行通信接口。在接口通信协议的支持下，您可以通过RS485/RS232串口连接的设备灵活控制更多的外部设备。此外，iKVM还提供了4路数字输入和1路数字输出接口，可用于接入产品机器的三色灯电路，同时获取机器的状态信息;还提供了访问权限控制（Interlock）按钮接口，支持启用或禁用时的近端和远端控制权限。
 
 
-TIP: 瑞芯微(Rockchip) RK3568 设计 : link:/en/BPI-R2_Pro/BananaPi_BPI-R2_Pro[Banana Pi BPI-R2 Pro] 路由器板 +
-瑞芯微(Rockchip) RK3568 设计 : link:/en/BPI-CM2/BananaPi_BPI-CM2[Banana Pi BPI-CM2] 计算机模块套件 +
-瑞芯微(Rockchip) RK3568 设计 : link:/en/BPI-KVM/BananaPi_BPI-KVM[Banana Pi BPI-KVM] 用于KVM over IP的PiKVM
+TIP: 瑞芯微(Rockchip) RK3568 设计 : link:/zh/BPI-R2_Pro/BananaPi_BPI-R2_Pro[Banana Pi BPI-R2 Pro] 路由器板 +
+瑞芯微(Rockchip) RK3568 设计 : link:/zh/BPI-CM2/BananaPi_BPI-CM2[Banana Pi BPI-CM2] 计算机模块套件 +
+瑞芯微(Rockchip) RK3568 设计 : link:/zh/BPI-KVM/BananaPi_BPI-KVM[Banana Pi BPI-KVM] 用于KVM over IP的PiKVM
 
 
 == 主要特点
