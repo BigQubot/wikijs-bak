@@ -1,37 +1,38 @@
-= Product Overview
+= 产品介绍
 
-The module is designed specifically for learning control the GPIO of Banana Pi. There are 6 LED, 1 button and 1 Beep on the module; All of them can use the GPIO of Banana Pi to control. The beginner can learn the INPUT mode of GPIO through the key and learn the OUTPUT mode through the LED or Beep
+该模块是专门为学习控制香蕉Pi的GPIO而设计的。模块上有6个LED，1个按钮和1个蜂鸣声；它们都可以使用香蕉Pi的GPIO进行控制。初学者可以通过按键学习GPIO的INPUT模式，通过LED或蜂鸣声学习OUTPUT模式。
 
-== Product Feature
-. 6 multicolor LED
-. 1 single button on board
-. 1 Beep on board
+== 主要特点
+- 6个LED
+- 1个单按钮
+- 1个蜂鸣声
 
-== Product specification
+== 产品规格
 
 image::/picture/berry_chip_1.png[berry_chip_1.png]
 
-== Port
-BananaPi 2X13 port，also can use on raspberry pi.
+== 端口
+香蕉派 2X13端口，也可用于树莓派。
 
-== Product Parameters
-. Working voltage: 3.3V
-. LED max current allow 8mA
-. Beep max current allow 12mA
+== 产品参数
+- 工作电压：3.3V
+- LED最大电流允许8mA
+- 蜂鸣最大电流允许12mA
 
-= Typical Application
-. Hardware beginner learning
-. Education
+= 典型应用
+- 硬件初学者学习
+- 教育
 
-Insert the BerryClip in the Banana Pi, Pay attention don’t make the direction reversed! The correct direction of insert module is above the Banana Pi’s PCB.
+将BerryClip插入香蕉皮中，注意方向不要颠倒！插入模块的正确方向是在Banana Pi的PCB上方。
 
 == Testbench
 
-. Setup the GPIO OUTPUT, Output LED High level, the LED will be lighten；
-. Setup the GPIO INPUT, press the button;
-. Test finish
+. 设置GPIO OUTPUT，输出LED高电平，LED亮起;
+. 设置GPIO输入，按下按钮;
+. 试验结束
 
-= Example and Test Code
+
+= 示例和测试代码
 ```sh
 #include <wiringPi.h>
 int LED1[]={7,0,3,12,13,14};
@@ -76,34 +77,35 @@ i=0;
 }
 ```
 
-= How to use
-== BPI BerryClip 6 LED Module and how to use on BPI-M3
-OS: BPI-M3 Ubuntu15.10 (Kernel3.4)
+= 如何使用
+== BPI BerryClip 6 LED 模块以及如何在BPI-M3上使用
 
-Version: 1.0 HDMI
+操作系统：Ubuntu 15.10（Kernel3.4）
+
+版本：1.0 HDMI
 
 image::/picture/br1.jpg[br1.jpg]
 
-Step 1: Download WiringPI
+步骤1：下载WiringPI
 ```sh
 $ git clone https://github.com/BPI-SINOVOIP/BPI-WiringPi.git -b BPI_M3
 $ cd BPI-WiringPi
 $ chmod +x ./build
 $ sudo ./build
 ```
-Step 2 : Copy smaple code to BerryClip.c file
+第2步：将示例代码复制到BerryClip.c文件
 ```sh
 $ sudo vi BerryClip.c
 ```
-Step 3 : Compile BerryClip.c
+第三步：编译BerryClip.c
 ```sh
 $ gcc -o BerryClip BerryClip.c -l wiringPi
 ```
-Step 4 : Run BerryClip
+第4步：运行BerryClip
 ```sh
 $ sudo ./BerryClip
 ```
-Step 5: Press the button to see if it works
+第五步：按下按钮，看看它是否工作
 
 image::/picture/br2.jpg[br2.jpg]
 
@@ -111,5 +113,5 @@ Video demo on youtube: https://www.youtube.com/watch?v=kIPbm86sqnw
 
 Forum pthread: http://forum.banana-pi.org/t/bpi-m3-bpi-berryclip-6-led-module-and-how-to-use/1077
 
-= Others
-Banana Pi BerryClip 6LED use on BPI-M2 demo : https://www.youtube.com/watch?v=E_LQXyNECNQ
+= 其他
+Banana Pi BerryClip 6LED 用于BPI-M2演示 : https://www.youtube.com/watch?v=E_LQXyNECNQ
