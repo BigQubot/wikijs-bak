@@ -1,57 +1,59 @@
-= Produce Overview
+= 产品介绍
 
-The Matrix LED module is specifically designed for Banana Pi. The module with 8X8 Matrix LED. User can custom display content through programming. Pay attention, the module do not include driver board. You have to cooperate with 
-Infinity cascade IO expand module
+Matrix LED模块专为香蕉派设计。该模块具有8X8矩阵LED。用户可以通过编程自定义显示内容。注意，模块不包括驱动板。你必须配合无限级联IO扩展模块。
 
-== Produce Features
-. Full color RGB
-. Square LED point source
-. Ultrathin
-. Plug and Play
-. No wire needed
+== 产品特点
+- 全色RGB
+- 方形LED点光源
+- 超薄
+- 即插即用
+- 无需电线
 
-== Port
-need work with IO extend module.
+== 端口
+需要与IO扩展模块工作。
 
 image::/picture/io_ext_board_2.jpg[io_ext_board_2.jpg]
 
-Banana Pi connection port，also can use on raspberry pi.
+香蕉派连接端口，也可以用在树莓派上。
 
-== 5.Product Parameters
-. Dot Size: 5.0mm
-. Pixel Array: 8×8
-. Luminous Intensity: 40mcd
-. Package Dimension: 60mm×60mm
-. Reverse Voltage(Max): 5V
-. Forward Current(Max): 25mA
-. Peak Forward Current(Max): 100mA
-. Power Dissipation(Max): 100mW
-. Operating Temperature(Max):-35~+85℃
-. Storage Temperature(Max): -35~+85℃
-. Lead Solder Temperature(Max): 260℃ for 5 seconds
+== 产品参数
+- 点尺寸：5.0mm
+- 像素阵列：8×8
+- 发光强度：40mcd
+- 包装尺寸：60mm×60mm
+- 反向电压（最大）：5V
+- 正向电流（最大）：25mA
+- 峰值正向电流（最大）：100mA
+- 功耗（最大）：100mW
+- 工作温度（最高）：-35~+85℃
+- 储存温度（最高）：-35~+85℃
+- 铅焊料温度（最高）：260℃，持续5秒
 
-== Typical Application
-. Scroll the display
-. LOGO display
-. Dynamic signage
-* Product Specification：**
+== 典型应用
+. 滚动显示
+. 电子显示器
+. 动态标示
+* 产品规格：**
+
 
 image::/picture/rgb_led_matrix_sepc.jpg[rgb_led_matrix_sepc.jpg]
 
-= How to use
-== How to use on BPI-M1
-For the Banana Pi ,just Insert these two module like the picture Below
+= 如何使用
+== 如何在BPI-M1上使用
+
+对于向日葵，只需插入这两个模块，如下图所示
 
 image::/picture/8x8_rgb_led_matrix_7.jfif[8x8_rgb_led_matrix_7.jfif]
 
-== How to use on BPI-M3
-OS: BPI-M3 Ubuntu15.10 (Kernel3.4)
+== 如何在BPI-M3上使用
 
-Version: 1.0 HDMI
+操作系统：Ubuntu 15.10（Kernel3.4）
+
+版本：1.0 HDMI
 
 image::/picture/rgb_led_on_m3.jpg[rgb_led_on_m3.jpg]
 
-Step 1: Download WiringPI
+步骤1：下载WiringPI
 
 ```sh
 $ git clone https://github.com/BPI-SINOVOIP/BPI-WiringPi.git1 -b BPI_M3
@@ -59,15 +61,15 @@ $ cd BPI-WiringPi
 $ chmod +x ./build
 $ sudo ./build
 ```
-Step 2 : Copy smaple code to Blue_RGB8*8.c file
+步骤2：将示例代码复制到Blue_RGB8*8.c文件中
 ```sh
 $ sudo vi Blue_RGB8*8.c 
 ```
-Step 3 : Compile Blue_RGB8*8.c
+第三步：编译Blue_RGB8*8.c
 ```sh
 $ gcc -o Blue_RGB8*8 Blue_RGB8*8.c -l wiringPi 
 ```
-Step 4: Run Blue_RGB8*8
+第四步：运行Blue_RGB8*8
 ```sh
 $ sudo ./Blue_RGB8*8 
 ```
@@ -75,7 +77,7 @@ youtube Video Demo how to install hardware: https://www.youtube.com/watch?v=K6mR
 
 youtube Video Demo for display : https://www.youtube.com/watch?v=ynxjzZiSGDo
 
-= Sample Code:
+= 示例代码：
 ```sh
 #include <stdio.h>
 #include <wiringPi.h>
@@ -221,4 +223,4 @@ digitalWrite(Column[column],0);
 }
 }
 ```
-Link to BPI forum: http://forum.banana-pi.org/t/bpi-m3-bpi-8x8-led-matrix-module-and-how-to-use/1096
+BPI论坛链接: http://forum.banana-pi.org/t/bpi-m3-bpi-8x8-led-matrix-module-and-how-to-use/1096
