@@ -1,87 +1,87 @@
-= Produce Overview
+= 产品介绍
 
-The RGB1602 Display module is specifically designed for Banana Pi. The module with 1602 LCD screen and it communicated with Banana Pi with I2C. In addition there are six programmable key and RGB LED on the module. User can use Python or C(wiringPi) to drive the module with simple and less code.
+RGB1602显示模块专为香蕉派设计。该模块采用1602液晶显示屏，通过I2C总线与Banana Pi进行通信。此外，模块上还有六个可编程按键和RGB LED。用户可以使用Python或C（Python Pi）来驱动模块，代码简单且较少。
 
-== Produce Features
-. 1602 LCD screen
-. RGB LED on board
-. 6 programmable single key
-. Communicate with I2C
-. Can be controlled by the program backlit lights out
+== 主要特点
 
-== Port
-. Banana Pi connection port, also can use on raspberry pi.
+- 1602液晶显示屏
+- 板上RGB LED
+- 6个可编程单键
+- 与I2C通信
+- 可通过程序控制背光灯熄灭
 
-== Product Parameters
-. Working voltage: 5.0V
-. ASC II string can be sidplay
-. 4 wire to drive the 1602 LCD screen
-. Use MCP23017 to expand IO
+== 端口
+- 香蕉派连接端口，也可以用在树莓派上。
 
-== Typical Application
-. Information monitoring
-. School educational
-. Human-computer interaction
+== 产品参数
+- 工作电压：5.0V
+- ASC II字符串可以是sidplay
+- 4线驱动1602 LCD屏幕
+- 使用MCP23017扩展IO
 
-== Product Specification
+
+== 应用方向
+- 信息监测
+- 学校教育
+- 人机交互
+
+== 产品规格
 
 image::/picture/1602_lcd.png[1602_lcd.png]
 
-== Schematic diagram
+== 原理图
 
 image::/picture/lcd_sch.jpg[lcd_sch.jpg]
 
-= How to use
-Just insert the module to Banana Pi, like the below picture:
+= 如何使用
+只需将模块插入Banana Pi，如下图所示：
 
 image::/picture/lcd_1.jpg[lcd_1.jpg]
 
-More information
+更多信息
 
-The MCP23017/MCP23S17 (MCP23X17) device family provides 16-bit, general purpose parallel I/O expansion for I2C bus or SPI applications. The two devices differ only in the serial interface.
+MCP23017/MCP23S17（MCP23X17）设备系列为I2C总线或SPI应用程序提供16位通用并行I/O扩展。这两种设备的区别仅在于串行接口。
 
-MCP23017 – I2C interface
-MCP23S17 – SPI interface
-The MCP23X17 consists of multiple 8-bit configuration registers for input, output and polarity selection. The system master can enable the I/Os as either inputs or outputs by writing the I/O configuration bits (IODIRA/B). The data for each input or output is kept in the corresponding input or output register. The polarity of the Input Port register can be inverted with the Polarity Inversion register. All registers can be read by the system master. The 16-bit I/O port functionally consists of two 8-bit ports (PORTA and PORTB). The MCP23X17 can be configured to operate in the 8-bit or 16-bit modes via IOCON.BANK.
+MCP23017 – I2C接口 MCP23S17 – SPI接口 MCP23X17由多个8位配置寄存器组成，用于输入、输出和极性选择。系统主机可以通过写入I/O配置位（IODIRA/B）来启用I/O作为输入或输出。每个输入或输出的数据都保存在相应的输入或输出寄存器中。输入端口寄存器的极性可以使用极性反转寄存器进行反转。系统主机可以读取所有寄存器。16位I/O端口在功能上由两个8位端口（PORTA和PORTB）组成。MCP23X17可以配置为通过IOCON在8位或16位模式下操作。银行。
 
-There are two interrupt pins, INTA and INTB, that can be associated with their respective ports, or can be logically OR’ed together so that both pins will activate if either port causes an interrupt. The interrupt output can be configured to activate under two conditions (mutually exclusive):
+有两个中断引脚INTA和INTB，它们可以与各自的端口相关联，或者可以逻辑地“或”运算在一起，这样，如果任何一个端口导致中断，两个引脚都会激活。中断输出可以配置为在两种条件下（互斥）激活：
 
-1. When any input state differs from its corresponding Input Port register state. This is used to indicate to the system master that an input state has changed.
-2. When an input state differs from a preconfigured register value (DEFVAL register).
-The Interrupt Capture register captures port values at the time of the interrupt, thereby saving the condition that caused the interrupt. The Power-on Reset (POR) sets the registers to their default values and initializes the device state machine.The hardware address pins are used to determine the device address.
+. 当任何输入状态与其对应的输入端口寄存器状态不同时。这用于向系统主机指示输入状态已经改变。
+. 当输入状态与预先配置的寄存器值（DEFVAL寄存器）不同时。中断捕获寄存器在中断时捕获端口值，从而保存导致中断的条件。开机复位（POR）将寄存器设置为其默认值，并初始化设备状态机。硬件地址引脚用于确定设备地址。
 
 
-== How to use this module on BPI-M3
-OS: BPI-M3 Ubuntu15.10 (Kernel3.4)
+== 如何在BPI-M3上使用此模块
 
-Version: 1.0 HDMI
+操作系统：Ubuntu 15.10（Kernel3.4）
+
+版本：1.0 HDMI
 
 image::/picture/on_m3.jpg[on_m3.jpg]
 
-Step 1: Download WiringPI
+步骤1：下载WiringPI
 ```sh
 $ git clone https://github.com/BPI-SINOVOIP/BPI-WiringPi.git1 -b BPI_M3
 $ cd BPI-WiringPi 
 $ chmod +x ./build
 $ sudo ./build
 ```
-Step 2 : Copy smaple code to 1602.c file
+步骤2：将示例代码复制到1602.c文件
 ```sh
 $ sudo vi 1602.c
 ```
-Step 3 : Compile 1602.c
+步骤3：编译1602.c
 ```sh
 $ gcc -o 1602 1602.c -l wiringPi -lpthread -lwiringPiDev 
 ```
-Step 4: Run 1602
+步骤4：运行1602
 ```sh
 $ sudo ./1602 
 ```
 YouTube video demo : https://www.youtube.com/watch?v=-fPiRsNWurM
 
-More information please check ： http://www.microchip.com/wwwproducts/Devices.aspx?product=MCP23017
+更多信息请查看 ： http://www.microchip.com/wwwproducts/Devices.aspx?product=MCP23017
 
-= Test code
+= 测试代码
 ```sh
 #include <stdio.h>
 #include <wiringPi.h>
