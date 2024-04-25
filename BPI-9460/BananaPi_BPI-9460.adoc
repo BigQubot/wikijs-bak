@@ -40,7 +40,7 @@ The BPI-9460 series of modules are designed to extract power from a conventional
 |====
 |　	|Parameter	|Symbol	|Min	|Max	|Units
 |1	|DC Supply Voltage	|VCC	|-0.3	|60	|V
-|2	|DC Supply Voltage |Surge for 1ms	VSURGE	|-0.6	|80	|V
+|2	|DC Supply Voltage Surge for 1ms	|VSURGE	|-0.6	|80	|V
 |3	|Storage Temperature	|TS	|-40	|100	|OC
 |====
 Note : Exceeding the above ratings may cause permanent damage to the product. Functional operation under these conditions is not implied. Maximum ratings assume free airflow.
@@ -53,10 +53,8 @@ Note : Exceeding the above ratings may cause permanent damage to the product. Fu
 |2	|Under Voltage Lockout	|VLOCK	|30	|　	|36	|V
 |3	|Operating Temperature2	|TOP	|-20	|25	|70	|Ta / OC
 |====
-Note
 
-. With minimum load
-. See Section Operating Temperature Range +
+Note: With minimum load,See Section Operating Temperature Range +
 Extended use close to, or at the maximum operating temperature can reduce the life time of the device.
 
 == Pin Description
