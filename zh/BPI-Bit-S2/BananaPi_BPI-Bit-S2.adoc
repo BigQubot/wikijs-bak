@@ -173,69 +173,73 @@ MicroPython的目标是尽可能与普通Python兼容，使您能够轻松地将
 
 image::/picture/circuitpython_repo_header_logo.jpg[circuitpython_repo_header_logo.jpg]
 
-CircuitPython is an open source, educational derivative of MicroPython, support and developed by Adafruit Industries.
+CircuitPython是MicroPython的开源教育衍生产品，由Adafuit Industries支持和开发。
 
-Comparing ease of use, it goes a step further on the basis of MicroPython.
+比较易用性，它在MicroPython的基础上更进一步。
 
-When the development board running CircuitPython firmware is connected to the PC, the PC will immediately recognize it as a USB storage disk.
+当运行CircuitPython固件的开发板连接到PC时，PC会立即将其识别为USB存储盘。
 
-And the python script file can be copied to this disk to allow the program to run on the development board.
+并且python脚本文件可以复制到这个磁盘上，以允许程序在开发板上运行。
 
-Modern operating systems and home PCs support USB storage disks, this allows users to use it out of the box.
+现代操作系统和家用电脑支持USB存储盘，这允许用户开箱即用。
 
-Of course, in order to use REPL, a serial communication software needs to be installed, or a text editor that supports this function, such as Mu editor.
+当然，为了使用REPL，需要安装串行通信软件，或者安装支持此功能的文本编辑器，例如Mu编辑器。
 
-The CircuitPython community provides an extremely rich peripheral driver library, APIs documentation, and tutorials.
+CircuitPython社区提供了极其丰富的外围驱动程序库、API文档和教程。
 
-Even if there is no programming foundation, no hardware foundation, you can quickly get started from scratch.
+即使没有编程基础，没有硬件基础，你也可以很快从头开始。
 
-CircuitPython does not support some microcontroller-specific libraries such as timer and hardware interrupt, nor does it support the multi-threaded _thread library. It only provides the asyncio library for writing concurrent code.
+CircuitPython不支持某些特定于微控制器的库，如定时器和硬件中断，也不支持多线程库。它只提供用于编写并发代码的异步库。
 
-The code is very compatible between microcontrollers supported by CircuitPython and single-board computers (SBCs) supported by Blinka. This is thanks to its efforts to unify APIs.
+该代码在CircuitPython支持的微控制器和Blinka支持的单板计算机（SBC）之间非常兼容。这要归功于它为统一API所做的努力。
 
-link:https://circuitpython.org/board/bpi_bit_s2/[BPI-Bit-S2 CircuitPython Download Page]
+link:https://circuitpython.org/board/bpi_bit_s2/[BPI-Bit-S2 CircuitPython 下载页面]
 
-link:https://codewith.mu/[Mu Editor]
+link:https://codewith.mu/[Mu 编辑器]
 
-**How to install tinyUF2 firmware:**
+**如何安装tinyUF2固件:**
 
-To enable your BPI-Bit-S2 device to flash via USB-CDC.
+使您的BPI-Bit-S2设备能够通过USB-CDC进行闪存。
 
-Connect it to the computer via USB, hold BOOT button, press RST button once, then release BOOT button.
+通过USB将其连接到计算机，按住BOOT按钮，按一次RST按钮，然后松开BOOT按钮。
 
-In the Install, Repair, or Update UF2 Bootloader section at the bottom of the page, follow its instructions to download and install tinyUF2 firmware.
+在页面底部的安装、修复或更新UF2引导程序部分，按照其说明下载并安装tinyUF2固件。
 
-**How to install CircuitPython firmware：**
 
-Click the DOWNLOAD .UF2 NOW button on the right side of the page to download the firmware to the local, and then copy it to the disk in BPI-Bit-S2 UF2 Bootloader mode, and it can be used after automatic reset.
+**如何安装CircuitPython固件：**
+
+点击页面右侧的DOWNLOAD .UF2 NOW按钮，将固件下载到本地，然后以BPI-Bit-S2 UF2 Bootloader模式复制到磁盘，自动复位后即可使用。
+
 
 == Arduino
 
 image::/picture/arduino_logo.png[arduino_logo.png]
 
-Arduino is an open source embedded hardware and software development platform for users to create interactive embedded projects.
+Arduino是一个开源的嵌入式硬件和软件开发平台，供用户创建交互式嵌入式项目。
 
-The Arduino integrated development environment (IDE) is the software core of this platform, using the C/C++ programming language to develop projects.
+Arduino集成开发环境（IDE）是该平台的软件核心，使用C/C++编程语言开发项目。
 
-The biggest feature of Arduino is to provide a unified API to develop all microcontrollers it supports, with very good code portability and reusability.
+Arduino最大的特点是提供一个统一的API来开发它支持的所有微控制器，具有非常好的代码可移植性和可重用性。
 
-In addition, it simplifies the process of building a development environment, and all the development environments of microcontrollers it supports can be installed and configured with a single click.
+此外，它简化了构建开发环境的过程，它支持的所有微控制器的开发环境都可以一键安装和配置。
 
-It also provides simple one-click mechanisms to compile and upload programs to a microcontroller.
+它还提供了简单的一键机制来编译程序并将程序上传到微控制器。
 
-Arduino IDE alsoprovides many example codes, supplemented by a large number of comments, which can help users get started quickly.
+Arduino IDE还提供了许多示例代码，并辅以大量注释，可以帮助用户快速入门。
 
-A large number of excellent open source projects accumulated in the Arduino community are available for reference and learning, and there are quite a few driver libraries and APIs provided by chip manufacturers as well.
+Arduino社区积累了大量优秀的开源项目可供参考和学习，芯片制造商也提供了相当多的驱动程序库和API。
 
-- link:https://www.arduino.cc/en/software[Arduino IDE download link] | link:https://docs.espressif.com/projects/arduino-esp32/en/latest/installing.html#installing[Install and configure Arduino-ESP32 running environment]
+
+- link:https://www.arduino.cc/en/software[Arduino IDE 下载链接] | link:https://docs.espressif.com/projects/arduino-esp32/en/latest/installing.html#installing[安装并配置Arduino-ESP 32运行环境]
 - link:https://docs.espressif.com/projects/arduino-esp32/en/latest/libraries.html#apis[Arduino-ESP32 APIs]
 
-= Documents
-link:https://github.com/BPI-STEAM/BPI-BIT-Lite-Doc/blob/main/sch/BPI-BIT-Lite-V0.2.pdf[BPI-Bit-S2 schematic]
+= 文件
+link:https://github.com/BPI-STEAM/BPI-BIT-Lite-Doc/blob/main/sch/BPI-BIT-Lite-V0.2.pdf[BPI-Bit-S2 原理图]
 
-= Easy to buy sample
-WARNING: Aliexpress shop : https://www.aliexpress.us/item/3256804809903732.html
+= 购买链接
 
-WARNING: Taobao ship: https://item.taobao.com/item.htm?spm=a213gs.success.result.1.d1187a86CepiGC&id=693462857865
+WARNING: 速卖通商店 : https://www.aliexpress.us/item/3256804809903732.html
 
-WARNING: OEM & ODM : judyhuang@banana-pi.com
+WARNING: 淘宝店: https://item.taobao.com/item.htm?spm=a213gs.success.result.1.d1187a86CepiGC&id=693462857865
+
+WARNING: OEM & ODM，请联系 : judyhuang@banana-pi.com
