@@ -1,107 +1,107 @@
-= Description
+= 介绍
 
-The BPI-7402 series of modules are designed to extract power from a conventional twisted pair Category 5 Ethernet cable, conforming to the IEEE 802.3af and IEEE 802.3at Power-over-Ethernet(PoE) standard.it is 30W POE PD Module ( Isolation Model),The BPI-7402 signature and control circuit provides the PoE compatibility signature and power classification required by the Power Sourcing Equipment (PSE) before applying up to 30W power to the port.
+BPI-7402系列模块设计用于从传统的双绞线5类以太网电缆中提取电力，符合IEEE 802.3af和IEEE 802.3at以太网供电（PoE）standard.it是30W POE PD模块（隔离模型），BPI-7402签名和控制电路提供供电设备（PSE）所需的PoE兼容性签名和电源分类在向端口施加高达30W的功率之前。
 
 image::/picture/bpi-r64_poe.jpg[BPI-R64 POE.jpg]
 
-The DC/DC converter operates over a wide input voltage range and provides a regulatedoutput. The DC/DC converter also has built-in short-circuit output protection.
+DC/DC转换器在宽输入电压范围内工作，并提供可调节的输出。DC/DC转换器还具有内置短路输出保护。
 
-== Features
-- IEEE802.3at and IEEE802.3af compliant
-- Maximum 30W output power
-- Input voltage range 36V to 57V
-- Integral high efficiency DC/DC converter.
-- Low output ripple and noise
-- High performance with low price
-- Short-circuit protection
-- Transformer isolation ,1000V isolation (input to output)
-- Easy to use, with a minimum number of external components.
+== 主要特点
 
-== Applications
-- IoT gateway
-- IP Cameras
-- Wireless access point
-- Security and alarm systems
-- VOIP telephone
-- Point of sale network terminal equipment
+- 符合IEEE 802.3at和IEEE 802.3af标准
+- 最大输出功率30 W
+- 输入电压范围36 V至57 V
+- 集成高效DC/DC转换器。
+- 低输出涟漪和噪声
+- 高性能低价格
+- 短路保护
+- Transformer隔离，1000 V隔离（输入到输出）
+- 易于使用，外部元件数量最少。
 
-= PBI-7402 PoE Hardware
-== Module size
+== 应用方向
+
+- IoT网关
+- IP摄像机
+- 无线接入点
+- 安全和报警系统
+- VOIP电话
+- 销售点网络终端设备
+
+
+= PBI-7402 PoE 硬件
+== 模块尺寸
 
 image::/picture/bpi-7402_size.png[bpi-7402_size.png]
 image::/picture/bpi-7402_5.png[bpi-7402_5.png]
 
-== Pin Description
+== 引脚描述
 [options="header",cols="1,1,6"]
 |====
 3+|BPI-7402 at PoE module
-|Pin #	|Name	|Description
-|1	|VA1	|RX Input (1). This input pin is used in conjunction with VA2 and connects to the centre tap of the transformer connected to pins 1 & 2 of the RJ45 connector (RX) - it is not polarity sensitive.
-|2	|VA2	|TX Input (2). This input pin is used in conjunction with VA1 and connects to the centre tap of the transformer connected to pins 3 & 6 of the RJ45 connector (TX) - it is not polarity sensitive.
-|3	|VB1	|Direct Input (1). This input pin is used in conjunction with VB2 and connects to pin 4 & 5 of the RJ45 connector - it is not polarity sensitive.
-|4	|VB2	|Direct Input (2). This input pin is used in conjunction with VB1 and connects to pin 7 & 8 of the RJ45 connector - it is not polarity sensitive.
-|5	|AT-DET+	|Internal rectifier bridge output +
-|6	|GND	|Internal GND
-|7	|-VDC |DC Return. This pin is the return path for the +VDC output.
-|8	|-VDC	|DC Return. This pin is the return path for the +VDC output.
-|9	|+VDC	|DC Output. This pin provides the regulated output from the DC/DC converter.
-|10	|+VDC	|DC Output. This pin provides the regulated output from the DC/DC converter.
+|Pin #	|名字	|描述
+|1	|VA1	|RX输入（1）。该输入引脚与VA2一起使用，并连接到与RJ45连接器（RX）引脚1和2相连的变压器的中心抽头-它对极性不敏感。
+|2	|VA2	|TX输入（2）。该输入引脚与VA1一起使用，并连接到与RJ45连接器（TX）引脚3和6相连的变压器的中心抽头-它对极性不敏感。
+|3	|VB1	|直接输入（1）。此输入引脚与VB2一起使用，并连接到RJ45连接器的引脚4和5-它对极性不敏感。
+|4	|VB2	|直接输入（2）。此输入引脚与VB1一起使用，并连接到RJ45连接器的引脚7和8——它对极性不敏感。
+|5	|AT-DET+	|内部整流桥输出+
+|6	|GND	|内部 GND
+|7	|-VDC |直流回路。此引脚是+VDC输出的回路。
+|8	|-VDC	|直流回路。此引脚是+VDC输出的返回路径。
+|9	|+VDC	|直流输出。此引脚提供DC/DC转换器的稳压输出。
+|10	|+VDC	|直流输出。此引脚提供DC/DC转换器的稳压输出。
 |====
 
-== DC Electrical Characteristics
+== DC电气特性
 
 image::/picture/bpi-7402_2.png[bpi-7402_2.png]
+注意：
 
-Note
+. 典型的数字是在25°C和标称48V电源的情况下，仅用于设计辅助。不保证
+. 输出纹波和噪声可以通过外部滤波器来降低，请参阅应用说明。
+. 连续短路持续时间适用于环境温度为25摄氏度的自由空气中。在较高温度或气流受限的情况下（例如在密封外壳中），需要限制持续时间以避免过热。
 
-. Typical figures are at 25°C with a nominal 48V supply and are for design aid only. Not Guaranteed
-. The output ripple and noise can be reduced with an external filter, see application note.
-. Continuous short circuit duration is applicable at 25'C ambient temperature in free air. At higher temperatures or with restricted
-airflow (e.g. in a sealed enclosure) the duration will need to be limited to avoid overheating.
-
-== Absolute Maximum Ratings
+== 绝对最大额定值
 [options="header",cols="1,2,1,1,1,1"]
 |====
 6+|BPI-7402 PoE module
-|　	|Parameter	|Symbol	|Min	|Max	|Units
+|　	|参数	|符号	|Min	|Max	|单位
 |1	|DC Supply Voltage	|VCC	|-0.3 |60	|V
 |2	|DC Supply Voltage Surge for 1ms	|VSURGE	|-0.6	|80	|V
 |3	|Storage Temperature	|TS	|-40	|100	|OC
 |====
-Note : Exceeding the above ratings may cause permanent damage to the product. Functional operation under these conditions is not implied. Maximum ratings assume free airflow.
+注：超过上述额定值可能会对产品造成永久性损坏。不暗示在这些条件下的功能操作。最大额定值假定为自由气流。
 
-== Recommended Operating Conditions
+
+== 推荐工作条件
 
 image::/picture/bpi-7402_1.png[bpi-7402_1.png]
+注意： 最小负载，参见“工作温度范围+”部分。接近或在最高工作温度下长期使用会缩短器械的使用寿命。
 
-Note
-
-. With minimum load
-. See Section Operating Temperature Range +
-Extended use close to, or at the maximum operating temperature can reduce the life time of the device.
-
-= Typical Connection Diagram
-== 100M Internet
+= 连接示意图
+== 100M 以太网
 
 image::/picture/bpi-7402_3.png[bpi-7402_3.png]
 
-== 1000M Internet
+== 1000M 以太网
 
 image::/picture/bpi-7402_4.png[bpi-7402_4.png]
 
-== Power Classification
-The BPI-7402 classification is fixed at Class 4, this means that an IEEE802.3at Type 1 or an IEEE802.3af PSE will default to Class 0. However an IEEE802.3at PSE will recognise the Class 4 as a Type 2 PD.
+== 功率分级
+BPI-7402分类固定为Class4，这意味着IEEE802.3at Type 1或IEEE802.3af PSE将默认为Class0。然而，IEEE802.3at PSE将4类识别为2类PD。
 
-== AT Detection
-AT-DET output pin which is used to detect a Two Event Physical Layer classification as described in IEEE802.3at. If required the AT-DET pin can be connected directly to an opto-coupler.
 
-If the detects a Two Event Physical Layer classification, the (AT True) switch will close and Opto1 will turn ON. Opto1 will be connected across the isolation barrier and the output collector can be connected to a controller (with a pull-up resistor connected to the controller’s power rail). When Opto1 is ON the collector (output) will be Logic 0, the controller will then know that the PSE is capable of delivering over 15.4W. To complete the protocol the controller should then confirm that it is a Type 2 PD over the Data Link Layer.
+== AT检测
 
-If the detects a Single Event Physical Layer classification, Opto1 will be OFF and the output collector will be Logic 1 (via pull-up resistor). The controller should then assume that the PSE is limited to delivering up to 15.4W.
+AT-DET输出引脚，用于检测IEEE802.3at中描述的双事件物理层分类。如果需要，AT-DET引脚可以直接连接到光耦合器。
 
-If the PSE does not support the Physical Layer classification, Opto1 will be OFF. The RT7402 will operate with non IEEE802.3at compliant POE+ PSE’s.
+如果检测到双事件物理层分类，（AT True）开关将闭合，Opto1将接通。Opto1连接在隔离栅上，输出集电极可以连接到控制器（上拉电阻器连接到控制器的电源轨）。当Opto1打开时，收集器（输出）将为逻辑0，控制器将知道PSE能够提供超过15.4W的功率。为了完成协议，控制器应确认它是数据链路层上的类型2 PD。
 
-**Note: There are several PSEs (including Cisco) that will only delivery ≤15.4W until they receive Type 2 PD confirmation, over the Data Link Layer.**
+如果检测到单事件物理层分类，Opto1将关闭，输出集电极将为逻辑1（通过上拉电阻器）。控制器然后应该假设PSE被限制为提供高达15.4W的功率。
+
+如果PSE不支持物理层分类，Opto1将关闭。RT7402将使用不符合IEEE802.3at的POE+PSE。
+
+**注：有几个PSE（包括Cisco）在通过数据链路层接收到2类PD确认之前，只能交付≤15.4W的功率。**
+
 
 = OEM&ODM
-Products can be customized according to customer needs
+产品可根据客户需求定制
