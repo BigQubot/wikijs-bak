@@ -1,72 +1,72 @@
-= Description
+= 产品介绍
 
-Banana Pi 0.96’ OLED display module is designed by 52pi which is made by 128x64 yellow and blue OLED pixels , diagonal is only 0.96 inch . The controller is SSD1306, communicates via 4-wire SPI, the display have its own backlight, no backlight LED is required ,This reduces the power required to run the OLED and is why the display has such high contrast , extremely wide viewing angle and extremely operating temperature
+香蕉派 0.96 OLED显示模块采用52pi设计，由128x64黄色和蓝色OLED像素制成，对角线仅为0.96英寸。控制器是SSD1306，通过4线SPI通信，显示器有自己的背光，不需要背光LED，这降低了运行OLED所需的功率，这就是为什么显示器具有如此高的对比度，极宽的视角和极高的工作温度。
 
-= Product Overview
+
+= 产品示意图
 
 image::/picture/oled_1.png[oled_1.png]
 
-== Mechanical specifications
-. Outline Drawing: 370x300(mm)a
-. Number of pixels: 128x64
-. Panel size:26.70x19.26x1.45(mm)
-. Active area: 21.74x10.864(mm)
-. Pixel pitch 0.17x0.17(mm)
-. Pixel size: 0.154x0.154(mm)
-. Weight: 15g
+== 机械规格
+- 外形图：370x300（mm）
+- 像素数：128x64
+- 面板尺寸：26.70x19.26x1.45（mm）
+- 有效面积：21.74x10.864（mm）
+- 像素间距0.17x0.17（mm）
+- 像素尺寸：0.154x0.154（mm）
+- 重量：15g
 
-== Active area & pixel construction
+== 活动区域和像素构建
 
 image::/picture/oled_2.png[oled_2.png]
 
-== Product Features
-. Ultra low power supply
-. Maximum current 100uA
-. Keep up current 12.25uA
-. Hardware keep up display
-. 3.3V work voltage ,([MIN 1.6V] ,[MAX:3.6V])
-. Internal DC/DC voltage converter
-. SPI driver support , AT 64MHz[TYP] 125MHZ[OB]
-. FP frequency: 64fps[TYP] 368fps[OB]
+== 产品功能
+- 超低功耗电源
+- 最大电流100 uA
+- 保持电流12.25uA
+- 硬件保持显示
+- 3.3V工作电压，（[MIN 1.6V]，[MAX：3.6V]）
+- 内部DC/DC电压转换器
+- SPI驱动器支持，AT 64 MHz [TYP] 125 MHZ [OB]
+- FP 频率：64fps[TYP] 368fps[OB]
 
-== Hardware conection
+
+== 硬件连接
 
 image::/picture/oled_3.png[oled_3.png]
 
-== Schematic diagram
+== 原理图
 
 image::/picture/oled_4.png[oled_4.png]
 
-== Method Of Use
-Directly mounted on Banana pi BPI-M1 BPI-M1+ BPI-M2 BPI-R1
+== 使用方法
+直接安装在香蕉派上，BPI-M1、BPI-M1+、BPI-M2、BPI-R1
 
 image::/picture/bpi-oled_3.jfif[bpi-oled_3.jfif]
 
-= How to use
-== Test OLED module on BPI-M3
-image: BPI-M3 Ubuntu15.10 (Kernel3.4)
+= 如何使用
+== BPI-M3上测试OLED模块
+镜像：BPI-M3 Ubuntu 15.10（Kernel3.4）
 
 image::/picture/oled_on_bpi_m3.jpg[oled_on_bpi_m3.jpg]
 
-Version: 1.0 HDMI
+版本：1.0 HDMI
 
-Step 1:
-
-Version V1.0 doesn't include SPI Function. The boot.fex should be recompiled. Open SPI function
+步骤一：版本V1.0不包括SPI功能。应该重新编译boot.fex。打开SPI功能
 
 ( https://github.com/BPI-SINOVOIP/BPI-M3-bsp/commit/62ff19944249b7a9efdee53f7760cb446c8984d9 )
 
-Version V2.0 is going to support the spi-function by default.
+V2.0版本将默认支持spi函数。
 
-Step 2 : Copy smaple code to OLED.c file
+步骤二：将示例代码复制到OLED.c文件
 ```sh
 $ sudo vi OLED.c
 ```
-Step 3 : Compile OLED.c
+步骤三：编译OLED.c
 ```sh
 $ gcc -o OLED OLED.c -l wiringPi
 ```
-Step 4 : Run OLED
+步骤四：运行OLED
 ```sh
 $ sudo ./OLED
 ```
@@ -76,7 +76,7 @@ https://www.youtube.com/watch?v=c7_3sIQNRNk
 
 https://www.youtube.com/watch?v=4xpCLDNxZb4&feature=youtu.be
 
-== Example and test code:
+== 示例和测试代码：
 ```sh
 #include <stdio.h>
 #include <stdlib.h>
@@ -506,4 +506,4 @@ LCD_P6x8Str(0,1,"BananaPI 0.96 OLED");
 LCD_P8x16Str(0,6,"Hello BPI-M3");
 }
 ```
-Forum pthread: http://forum.banana-pi.org/t/bpi-m3-bpi-0-96-oled-module-and-how-to-use/1084
+论坛讨论: http://forum.banana-pi.org/t/bpi-m3-bpi-0-96-oled-module-and-how-to-use/1084
