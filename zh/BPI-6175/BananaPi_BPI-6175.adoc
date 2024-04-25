@@ -1,124 +1,128 @@
-= Description
+= 介绍
 
-BPI-6175 is a single channel Power Sourcing Equipment (PSE) module designed for ,use in Power over Ethernet (PoE) applications for a wide range of power levels from 15.4W (IEEE802.3af) up to 75W (IEEE802.3bt) proprietary power levels. The BPI-6175 is capable of delivering up 75W ,BPI-6175 is aimed at applications requiring PSE functionality such as CCTV DVR, home networking and industrial ethernet. BPI-6175 is a self-contained module, requiring just a few external components to provide a great deal of control and feedback over each Powered Device (PD) that is connected to the PSE.
+BPI-6175是一款单通道供电设备（PSE）模块，专为以太网供电（PoE）应用而设计，适用于从15.4W（IEEE802.3af）到75 W（IEEE802.3bt）的各种功率电平。BPI-6175能够提供高达75 W的功率，BPI-6175针对需要PSE功能的应用，如CCTV DVR、家庭网络和工业以太网。BPI-6175是一个独立的模块，只需要几个外部元件就可以对连接到PSE的每个受电设备（PD）提供大量的控制和反馈。
 
-= Features
-- Small package
-- Compliant with IEEE802.3 bt & at & af
-- Low cost
-- Output power up to 75W 
-- Minimal (low cost) external
-- components required
-- Over-current and short circuit protection
-- Available in Industrial Temperature version.
 
-= Applications
-- PoE power supply system
+= 主要特点
+- 小包装
+- 符合IEEE802.3 bt & at & af
+- 低成本
+- 输出功率高达75W
+- 最小（低成本）外部
+- 所需的组件
+- 过流和短路保护
+- 提供工业温度版本。
 
-= Signature and Classification
-The BPI-6175 will automatically perform the Signature and Classification, the timing sequence for a Type 1 Powered Device (PD) and the timing sequence for a Type 2 PD. In the ‘IEEE802.3bt’ classification the first pulse is much longer. This is to indicate to the PD that implements the bt specification’s lower Maintain Power Signature (MPS) requirements (see section 5.6 below for details of MPS). Additionally if is set in ‘BT 1 pair’ or ‘BT Type 3’ modes the will produce a third class pulse looking for a change in class current presented. If the current changes correctly will produce 1 further pulse which indicates to the PD the requested power (>30W) has been granted. After classification is complete the will begin to power up its output with the current limit selected based on the detected class and mode of the module.
+= 应用
+PoE供电系统
+
+= 签名和分类
+BPI-6175将自动执行签名和分类、1类受电设备（PD）的时序和2类PD的时序。在“IEEE802.3bt”分类中，第一脉冲长得多。这是为了向执行bt规范的较低维持功率特征（MPS）要求的PD指示（MPS的详细信息，请参见下文第5.6节）。此外，如果设置为“BT 1对”或“BT类型3”模式，将产生第三类脉冲，以查找当前类别电流的变化。如果电流正确地改变，则将产生1个另外的脉冲，其向PD指示所请求的功率（> 30 W）已经被授予。分类完成后，将开始以基于检测到的模块类别和模式选择的电流限值对其输出上电。
 
 image::/picture/bpi-6175_poe_1.png[bpi-6175_poe_1.png]
 
-== Signature Detection
-To ensure that the RT6175 does not apply power to a non PoE enabled device the Port output first checks for a valid PoE signature. The PD should present a nominal 25kΩ (23.75kΩ to 26.25kΩ) Signature resistance; if the BPI-6175 does not see a valid signature then it will disconnect, wait approximately 2 seconds then try again, see Figure 7 below.
+== 签名检测
+为了确保RT 6175不向非PoE设备供电，端口输出首先检查有效的PoE签名。PD应呈现标称25 k Ω（23.75 k Ω至26.25 k Ω）的签名电阻;如果BPI-6175未看到有效签名，则其将断开连接，等待约2秒，然后重试，参见下图。
 
 image::/picture/bpi-6175_poe_2.png[bpi-6175_poe_2.png]
 
-== Classification
-On completion of a valid signature, the BPI-6175 will then interrogate the PD to see if a classification signature is present. The classification signature is used to determine the amount of power the PD will draw and limits the output power accordingly (see Table 2). It is optional for the PD to present a classification signature and the RT6175 will default to Class 0 if the PD does not present one.
+== 分类
+完成有效签名后，BPI-6175将询问PD，以查看是否存在分类签名。分类特征用于确定PD将汲取的功率量，并相应地限制输出功率（见表2）。PD是否提供分类签名是可选的，如果PD不提供分类签名，则RT 6175将默认为Class 0。
 
-Table shows the measured current limits that the RT6175 uses to assign a classification value.
+表显示了RT 6175用于分配分类值的实测电流限值。
+
 
 [cols="1,1"]
 |====
-|Measured Current	|Classification
+|测量电流	|分类
 |0mA to 6.5mA   	|Class 0
 |>6.5mA to 14.5mA	|Class 1
 |>14.5mA to 23mA	|Class 2
 |>23mA to 33mA	  |Class 3
 |>33mA to 48mA	  |Class 4
 |====
-Input Protection:The BPI-6175 has built-in Tranzorb diode across its input, to protect the module from transients from the power supply.
+输入保护：BPI—6175在其输入端内置Tranzorb二极管，以保护模块免受电源瞬变的影响。
 
-== Maintain Power Signature
-On successful completion of a valid signature (and classification) the BPI-6175 will apply main power to the Port output.. Once main power has been applied, the BPI-6175 with constantly monitor the PD to ensure that it is still connected; this is referred to as the Maintain Power Signature (MPS). The BPI-6175 uses the dc detection method of MPS and will remove power if the current drawn falls below the detect threshold. If the RT6175 Port output current is ≥10mA the output will remain on. If the Port output current is ≤ 5mA the output will be turned off and the BPI-6175 will return to the signature cycle (looking for a valid signature).
+== 保持功率特征
+成功完成有效签名（和分类）后，BPI-6175将向端口输出提供主电源。一旦主电源接通，BPI-6175将持续监测PD，以确保其仍处于连接状态;这被称为维持电源信号（MPS）。BPI-6175使用MPS的直流检测方法，如果电流低于检测阈值，则会断电。如果RT 6175端口输出电流≥ 10 mA，输出将保持开启。如果端口输出电流≤ 5 mA，输出将关闭，BPI-6175将返回签名周期（寻找有效签名）。
 
-= Output Current Limits
-The BPI-6175 has two over current limits - Current Limit 1* and Current Limit 2*. The BPI-6175 will allow the Port output to exceed Current Limit 1 (but not Current Limit 2) for a short duration – TLIM1*. If the Port output continues to exceed Current Limit 1; the output power will be removed If the output exceeds Current Limit 2, the BPI-6175 will remove power (without waiting for TLIM)
 
-= Output Power
-The BPI-6175 is capable of delivering up to 75W, when supplied with its maximum input voltage of 57V. Please note this is not the power available at the input of the Powered Device (PD). There are cable, connector and polarity protection losses to be taking into account.
+= 输出电流限制
+BPI-6175有两个过电流限制-电流限制1* 和电流限制2*。BPI-6175将允许端口输出在短时间内超过电流限制1（但不是电流限制2）-TLIM 1 *。如果端口输出继续超过电流限制1;输出功率将被移除如果输出超过电流限制2，BPI-6175将移除功率（无需等待TLIM）
 
-= Output Short-Circuit Protection
-In addition to the over-current protection the BPI-6175 has built-in output short-circuit protection.If the Port output is shorted, the RT6175 will limit the current and remove the power
+= 输出功率
+该BPI-6175是能够提供高达75 W时，其最大输入电压为57 V。请注意，这不是受电设备（PD）输入端的可用功率。需要考虑电缆、连接器和极性保护损耗。
 
-== Absolute Maximum Ratings1
+= 输出短路保护
+除了过流保护外，BPI-6175还内置输出短路保护。如果端口输出短路，RT 6175将限制电流并切断电源。
+
+== 绝对最大额定值1
 [cols="1,2,1,1,1,1"]
 |====
-| |Parameter	|Symbol	|Min	|Max	|Units
-|1	|DC Supply Voltage	|VDD	|-0.3	|60	|V
-|2	|Storage Temperature	|TS	|-40	|+100	|OC
+| |参数	|符号	|Min	|Max	|单位
+|1	|DC电源电压	|VDD	|-0.3	|60	|V
+|2	|储存温度	|TS	|-40	|+100	|OC
 |====
 
-== Recommended Operating Conditions
+== 推荐工作条件
 [cols="4,2,1,1,1,1"]
 |====
-|Parameter	|Symbol	|Min	|Typ	|Max	|Units
-.3+|Input Supply Voltage	VDD|VDD (Type1)	|45	|	|57	|V
+|参数|符号	|Min	|Typ	|Max	|单位
+.3+|输入供应电压VDD|VDD (Type1)	|45	|	|57	|V
 |(Type2)	|50	|	|57	|V
 |VDD (Type3)	|54	|	|57	|V
-|Standard Operating Temperature -	|TOP	|-20	|25	|70	|Ta / OC
-|Industrial Operating Temperature -	|	|-40	|25	|85|
+|标准工作温度-	|TOP	|-20	|25	|70	|Ta / OC
+|工业工作温度-	|	|-40	|25	|85|
 |====
 
-= Pin Description
+= 引脚描述
 [cols="1,1,6"]
 |====
-|1	|VIN+	|Main Power Supply. This pin connects to an isolated 45V to 57V supply; relative to the 0V.
-|2	|0V	|0V. This pin is the return path for the isolated VIN+ power supply.
-|3	|NC	|Unconnected
-|4	|Port+	|Port Output.
-|5	|Port-	|Port Output Return. This pin is the return path for Port+
-.4+|6	.4+|R1_PIN	|Connect the resistor to the input 0v to configure the working mode of the module.
-            |Not connected Module working mode: BT, Max output power 75w
-            |Connected 47.5K Module working mode: AT Max output power 30W
-            |Connected 16.5K Module working mode: AF Max output power 15.4W
+|1	|VIN+	|主电源。该引脚连接到隔离的45V至57V电源；相对于0V。
+|2	|0V	|0伏。此引脚是隔离VIN+电源的返回路径。
+|3	|NC	|未连接
+|4	|Port+	|端口输出。
+|5	|Port-	|端口输出返回。此引脚是端口+的返回路径
+.4+|6	.4+|R1_PIN	|将电阻连接到输入0v，以配置模块的工作模式。
+            |模块工作模式：BT，最大输出功率75w
+            |连接47.5K模块工作模式：AT最大输出功率30W
+            |连接16.5K模块工作模式：AF最大输出功率15.4W
 |====
 
-= How to use
-== BPI-6175 Poe at/af pse Connection 100M Internet
+= 如何使用
+== BPI-6175 Poe at/a-pse连接100M互联网
 
 image::/picture/bpi-6175_poe_3.png[bpi-6175_poe_3.png]
 
-== RT6175 Poe bt pse Connection 1000M Internet
+== RT6175 Poe bt pse连接1000M互联网
 
 image::/picture/bpi-6175_poe_4.png[bpi-6175_poe_4.png]
 
-== Input Power Supplies
-The RT6175 only requires one power supply; to conform to the IEEE802.3at bt specification, this supply must be isolated from mains ground
+== 输入电源
+RT6175只需要一个电源；为了符合IEEE802.3at bt规范，该电源必须与电源接地隔离。
 
-== Reliability MTBF
 
-About the life time ,we design according to the following: 1)life time of RT6175  : 100,000 hours @ 25°C
+== 可靠性MTBF
 
-== Mechanical / Environmental Performance data
+关于使用寿命，我们按照以下几点进行设计：1）RT 6175的使用寿命：100，000小时@25 °C
+
+== 机械/环境性能数据
 [cols="1,2,7"]
 |====
-|　 |Item	|Requirement and Standard
-|1	|Resistance to Wave	|max Preheat Temp range & time 120 ℃ / 180S
-Soldering Heat	max soldering temp &time:265 ℃ / 4S
-|2	|Solder ability	|Solder able area shall have minimum of 95% solder coverage.And then into solder bath,Temperature at 245 ±5 ℃ , for 4-5sec.
-|3	|Hand Soldering Temperature Resistance	|T > =350 ℃ , 3sec at least.
-|4	|Thermal Shock	|subject to follow condition for 5 cycles.1 cycles: -55 ℃ , 30 minutes +85 ℃ , 30 minutes
-|5	|Humidity(Temp Cycling)	|less than 95% (non-condensing) ( -20 to 70 ℃)
-|6	|Temperature Life|temperature life at 85℃ for 96 hours.
-|7	|Salt Spray	|connectors to 5% salt-solution concentration, 35 ℃,Gold flash for 8 hours there will be no change in the gold layer
+|　 |项目	|要求和标准
+|1	|抗波性	|最大预热温度范围和时间120 ℃ /180 S焊接热最大焊接温度和时间：265 ℃ /4 S
+|2	|焊锡能力|可焊区域应至少有95%的焊料覆盖，然后放入焊料槽，温度为245 ±5 ℃，时间为4- 5秒。
+|3	|手工焊接温度电阻	|T > =350 ℃ , 至少3sec。
+|4	|热冲击	|在以下条件下进行5个循环。1个循环：—55 ℃，30分钟+85 ℃，30分钟
+|5	|湿度（温度循环）	|小于95%（非冷凝）（-20至70 ℃）
+|6	|温度寿命|在85℃下的温度寿命为96小时。
+|7	|盐雾	|连接器以5%的盐溶液浓度，35 ℃，闪金8小时，金层不会有变化
 |====
 
-= BPI-6175 Package Size:(mm )
+= BPI-6175 包装尺寸:(mm )
 
 image::/picture/bpi-6175_poe_5.png[bpi-6175_poe_5.png]
 
 = OEM&ODM
-Products can be customized according to customer needs
+
+产品可根据客户需求定制
