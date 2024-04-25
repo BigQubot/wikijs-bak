@@ -1,106 +1,112 @@
-= Description
+= 介绍
 
-The BPI-9600 series of modules are designed to extract power from a conventional twisted pair Category 5 Ethernet cable, conforming to the IEEE 802.3af Power-over-Ethernet(PoE) standard. The BPI-9600 signature and control circuit provides the PoE compatibility signature and power classification required by the Power Sourcing Equipment (PSE) before applying up to 15W power to the port. The BPI-9600 provides a Class 0 signature.
+BPI-9600系列模块设计用于从传统的双绞线5类以太网电缆中提取电力，符合IEEE 802.3af以太网供电（PoE）标准。BPI-9600签名和控制电路提供供电设备（PSE）在向端口施加高达15W的功率之前所需的PoE兼容性签名和功率分类。BPI-9600提供0类签名。
 
-The DC/DC converter operates over a wide input voltage range and provides a regulated output. The DC/DC converter also has built-in short-circuit output protection.
+DC/DC转换器在宽输入电压范围内工作，并提供稳压输出。DC/DC转换器还具有内置短路输出保护。
+
 
 image::/picture/poe_9600_mode_1.jpg[poe_9600_mode_1.jpg]
 
-= Features
-- IEEE802.3af compliant
-- Input voltage range 36V to 57V
-- Integral high efficiency DC/DC converter.
-- Low output ripple and noise
-- High performance with low price
-- Short-circuit protection
-- Adjustable Output
-- Optional multi-voltage output 3.3V 5V 12V 24V
-- Transformer isolation ,1500V isolation (input to output)
-- Easy to use, with a minimum number of external components.
+= 主要特点
 
-= Applications
-- IoT gateway
-- IP Cameras
-- Wireless access point
-- Security and alarm systems
-- VOIP telephone
-- Point of sale network terminal equipment
+- 符合IEEE802.3af标准
+- 输入电压范围36 V至57 V
+- 集成高效DC/DC转换器。
+- 低输出纹波和噪声
+- 高性能低价格
+- 短路保护
+- 可调输出
+- 可选多电压输出3.3V，5V，12V，24V
+- Transformer隔离，1500V隔离（输入到输出）
+- 易于使用，外部元件数量最少。
 
-= PBI-9600 PoE Hardware
-== Module size
+
+= 应用
+
+- IoT网关
+- IP摄像机
+- 无线接入点
+- 安全和报警系统
+- VOIP电话
+- 销售点网络终端设备
+
+= PBI-9600 PoE 硬件
+== 模块尺寸
 
 image::/picture/bpi-9600_size.png[bpi-9600_size.png]
 
-== Product Selector
+== 产品选择器
 [options="header",cols="3,2,2,2,2"]
 |====
-5+|BPI-9600 PoE module
-|Part Number |Nominal Output Voltage |Maximum Output Power |Marking |Package
+5+|BPI-9600 PoE 模块
+|编号|额定输出电压|最大输出功率|标记|包
 |BPI-9600-3.3V	|3.3V	|6.6W	|3.3V	|SIL
 |BPI-9600 -5V	  |5V	  |10W	|5V	  |SIL
 |BPI-9600 -12V	|12V	|12W	|12V	|SIL
 |BPI-9600 -24V	|24V	|12W	|24V	|SIL
 |====
 
-At 25°C with VIN = 48V
+25°C时，VIN = 48V
 
-== Pin Description
+== 引脚描述
 [options="header",cols="1,1,6"]
 |====
 3+|BPI-9600 PoE module
-|Pin #	|Name	|Description
-|1	|VA1	|RX Input (1). This input pin is used in conjunction with VA2 and connects to the centre tap of the transformer connected to pins 1 & 2 of the RJ45 connector (RX) - it is not polarity sensitive.
-|2	|VA2	|TX Input (2). This input pin is used in conjunction with VA1 and connects to the centre tap of the transformer connected to pins 3 & 6 of the RJ45 connector (TX) - it is not polarity sensitive.
-|3	|VB1	|Direct Input (1). This input pin is used in conjunction with VB2 and connects to pin 4 & 5 of the RJ45 connector - it is not polarity sensitive.
-|4	|VB2	|Direct Input (2). This input pin is used in conjunction with VB1 and connects to pin 7 & 8 of the RJ45 connector - it is not polarity sensitive.
-|5	|-VDC	|DC Return. This pin is the return path for the +VDC output.
-|6	|+VDC	|DC Output. This pin provides the regulated output from the DC/DC converter.
+|Pin #	|名称	|描述
+|1	|VA1	|RX输入（1）。该输入引脚与VA2一起使用，并连接到与RJ45连接器（RX）引脚1和2相连的变压器的中心抽头-它对极性不敏感。
+|2	|VA2	|TX输入（2）。该输入引脚与VA1一起使用，并连接到与RJ45连接器（TX）引脚3和6相连的变压器的中心抽头-它对极性不敏感。
+|3	|VB1	|直接输入（1）。此输入引脚与VB2一起使用，并连接到RJ45连接器的引脚4和5-它对极性不敏感。
+|4	|VB2	|直接输入（2）。此输入引脚与VB1一起使用，并连接到RJ45连接器的引脚7和8-它不对极性敏感。
+|5	|-VDC	|直流回路。此引脚是+VDC输出的返回路径。
+|6	|+VDC	|直流输出。此引脚提供DC/DC转换器的稳压输出。
 |====
 
-== Absolute Maximum Ratings
+== 绝对最大额定值
 [options="header",cols="1,2,1,1,1,1"]
 |====
-6+|BPI-9600 PoE module
-|　	|Parameter	|Symbol	|Min	|Max	|Units
-|1	|DC Supply Voltage	|VCC	|-0.3	|60	|V
-|2	|DC Supply Voltage Surge for 1ms	|VSURGE	|-0.6	|80	|V
-|3	|Storage Temperature	|TS	|-40	|100	|OC
+6+|BPI-9600 PoE 模块
+|　	|参数	|符号	|Min	|Max	|单位
+|1	|DC电源电压	|VCC	|-0.3	|60	|V
+|2	|直流电源电压浪涌1ms	|VSURGE	|-0.6	|80	|V
+|3	|储存温度	|TS	|-40	|100	|OC
 |====
-Note 1: Exceeding the above ratings may cause permanent damage to the product. Functional operation under these conditions is not implied. Maximum ratings assume free airflow.
 
-== Recommended Operating Conditions
+注1：超过上述额定值可能会对产品造成永久性损坏。不暗示在这些条件下的功能操作。最大额定值假定为自由气流。
+
+== 推荐工作条件
 [options="header",cols="1,2,1,1,1,1,1,1"]
 |====
 8+|BPI-9600 PoE module
-|   |Parameter	|Symbol	|Min	|Typ	|Max	|Units	|Units
-|1	|Input Supply Voltage1	|VIN	  |36	  |48	|57	|V	      |V
-|2	|Under Voltage Lockout	|VLOCK	|30	  |   |36 |V	      |V
-|3	|Operating Temperature2	|TOP	  |-20	|25	|70	|Ta / OC	|BPI-9600
+|   |参数	|符号 |Min	|Typ	|Max	|单位	|单位
+|1	|输入电源电压1	|VIN	  |36	  |48	|57	|V	      |V
+|2	|欠压锁定	|VLOCK	|30	  |   |36 |V	      |V
+|3	|工作温度2	|TOP	  |-20	|25	|70	|Ta / OC	|BPI-9600
 |====
 
-Note:
+注意：
 
-. With minimum load
-. See Section Operating Temperature Range +
-Extended use close to, or at the maximum operating temperature can reduce the life time of the device.
+. 最小负载
+. 参见“工作温度范围”部分 +
+接近或在最高工作温度下长期使用会缩短器械的使用寿命。
 
-== DC Electrical Characteristics
+== DC电气特性
 
 image::/picture/bpi-9600_10.png[bpi-9600_10.png]
 
-Note:
+注意：
 
-. Typical figures are at 25°C with a nominal 48V supply and are for design aid only. Not Guaranteed
-. The output ripple and noise can be reduced with an external filter, see application note.
-. Continuous short circuit duration is applicable at 25'C ambient temperature in free air. At higher temperatures or with restricted
-airflow (e.g. in a sealed enclosure) the duration will need to be limited to avoid overheating.
+. 典型数值为25°C、标称48 V电源时的数值，仅用于辅助设计。不能保证
+. 输出涟漪和噪声可以通过外部滤波器降低，请参见应用笔记。
+. 连续短路持续时间适用于25'C环境温度下的自由空气。在较高的温度下或在气流受限的情况下（例如，在密封外壳中），需要限制持续时间以避免过热。
 
-= Typical Connection Diagram
+
+= 连接示意图
 
 image::/picture/bpi-9600_sch_1.png[bpi-9600_sch_1.png]
 
-= Resources
-Banana pi BPI-P2 Zero IEEE 802.3af PoE function test: https://www.youtube.com/watch?v=RCrDmhjxfCU&feature=youtu.be
+= 开发资源
+
+香蕉派 BPI-P2 Zero IEEE 802.3af PoE功能测试: https://www.youtube.com/watch?v=RCrDmhjxfCU&feature=youtu.be
 
 = OEM&ODM
-Products can be customized according to customer needs
+产品可根据客户需求定制
