@@ -33,7 +33,7 @@ IO与micro：bit兼容，可以使用micro：bit的大部分外围配件。
 | PSRAM      | None             | 2048 KB              
 |无线通信 | 蓝牙、微型无线电 | WIFI, IEEE 802.11 b/g/n, 2.4Ghz
 | LED        | 25 个红色 LEDs      | 25个WS2812-3535 RGB LEDs
-| 按键      | 2个可编程键，1个可编程键 | 2个可编程键，1个靴子键，1个解锁键 
+| 按键      | 2个可编程键，1个可编程键 | 2个可编程键，1个启动键，1个解锁键 
 | 蜂鸣器     | Yes              | Yes                  
 | 麦克风 | Yes              | None                   
 | USB插座 | Micro USB        | Type-C USB            
