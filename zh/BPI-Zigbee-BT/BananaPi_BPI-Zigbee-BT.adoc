@@ -1,69 +1,68 @@
-= Introduction
+= 介绍
 
-BPI Zigbee BT5.0 IoT module use Silicon Labs’Mighty Gecko MGM12P32F1024GE-V2 module onboard design.
+BPI Zigbee BT5.0物联网模块采用Silicon Labs的Mighty Gecko MGM 12 P32 F1024 GE-V2模块板载设计。
+Silicon Labs的Mighty Gecko MGM 12 P模块将我们的EFR 32 MG 12 Mighty Gecko SoC集成到一个小型模块中，用于zigbee、Thread和蓝牙低功耗（LE）网络。该模块具有1024 kB的闪存和256 kB的RAM，非常适合需要多种协议的应用。模块可实现最快的上市时间，是低容量（<100 K）应用的理想选择。经过全面认证的模块集成了系统级实现zigbee、Thread和BLE网络所需的所有组件（晶体、RF无源器件和天线）。这些模块具有+10 dBm和+17 dBm版本，可满足zigbee和Thread网络中使用的IEEE 802.15.4 2.4 GHz以及BLE网络中使用的2GFSK的WW监管要求。
 
-Silicon Labs’Mighty Gecko MGM12P module integrates our EFR32MG12 Mighty Gecko SoC into a small form factor module for zigbee, Thread and Bluetooth low energy (LE) networks. With 1024 kB of Flash and 256 kB of RAM, this module is ideal for applications that require multiple protocols. Modules enable the fastest time to market and are ideal for lower volume (< 100K) applications. The fully certified modules integrate all components (Crystals, RF passives and Antenna) required for a system-level implementation of zigbee, Thread and BLE networks. With +10 dBm and +17 dBm versions, the modules can meet the WW regulatory requirements for IEEE 802.15.4 2.4 GHz used in both zigbee and Thread networks as well 2GFSK used in BLE networks.
 
-= MGM12P Module Benefits
-- Built on Silicon Labs Mighty Gecko SoC family
-- Up to 122 dBm link budget
-- Internal chip antenna and external antenna (U.FL) variants
-- Provides rapid time-to-market with onboard stack, antenna and regulatory certifications
-- Supported by Silicon Labs reliable, secure and flexible mesh protocol stacks
-- Supports multi-protocol with BLE and zigbee
-- Uses same development tools as the Mighty Gecko ICs; Simplicity Studio, Energy Monitor, Packet Trace
-- Can support SoC or network co-processor architectures
-- Provides customers with an easy upgrade path to a discrete SoC design
-- Footprint compatible with MGM111 modules
+= MGM12P模块的优点
+- 基于Silicon Labs的强大Gecko SoC系列
+- 高达122 dBm的链路预算
+- 内部芯片天线和外部天线（U.FL）变体
+- 通过板载堆叠、天线和监管认证，提供快速上市时间
+- 由Silicon Labs提供可靠、安全和灵活的网状协议栈支持
+- 支持BLE和zigbee的多协议
+- 使用与Mighty Gecko IC相同的开发工具；Simplicity Studio、能量监视器、数据包跟踪
+- 可以支持SoC或网络协同处理器架构
+- 为客户提供一条简单的升级路径，以实现离散SoC设计
+- 与MGM111模块兼容的占地面积
 
-= MGM12P Module Specifications
-- **Zigbee and Thread Radio:**
+= MGM12P模块规格
+- **Zigbee和Thread Radio：**
 * 2.4 GHz IEEE 802.15.4
 * 250 kbps O-QPSK DSSS
-* Down to -105 dBm Receive Sensitivity
-* Up to +17 dBm Programmable Output Power
-* 10.8 mA RX current
-* 10.0 mA Active-mode TX at 0 dBm
+* 接收灵敏度低至-105 dBm
+* 最高+17 dBm可编程输出功率
+* 10.8 mA RX电流
+* 10.0 mA主动模式TX（0 dBm）
 
-- **Bluetooth:**
-* Compatible with Bluetooth 5 Specification 
+
+- **蓝牙：**
+* 兼容蓝牙5规范
 * 1 Mbps GFSK
-* Down to -101.6 dBm receive Sensitivity
-* Up to +18 dBm Programmable Output Power
-* 10.3 mA RX Current
-* 9.5 mA TX at 0 dBm
+* 低至-101.6 dBm的接收灵敏度
+* 高达+18 dBm的可编程输出功率
+* 10.3 mA RX电流
+* 9.5 mA TX，0 dBm
 
-- **Rich Analog and Digital Peripherals:**
-
-* AES256/128 Hardware Crypto Accelerator with ECC, SHA-1, SHA-2
-* ADC (12-bit, 1 Msps)
-* Current DAC (4-bit, Current Source or Sink)
-* VDAC and IDAC
-* 3 X Operational Amplifier
-* Low-Energy Sensor Interface
-* Multi-channel Capacitive Sense interface
-* 2 X Analog Comparator
-* Low Energy UART
-* 4 X USART (UART, SPI, IrDA, I2S)
-* 1²C (Address recognition down to EM3)
-* Timers: RTCC, LE Timer & Pulse Counter
-* 12-channel Peripheral Reflex System
+- **丰富的模拟和数字外设：**
+* 带ECC、SHA-1、SHA-2的AES256/128硬件加密加速器
+* ADC（12位，1 Msps）
+* 电流DAC（4位，电流源或电流汇）
+* VDAC和IDAC
+* 3 X运算放大器
+* 低能量传感器接口
+* 多通道电容感应接口
+* 2 X模拟比较器
+* 低能耗UART
+* 4个USART（UART、SPI、IrDA、I2S）
+* 1²C（地址识别至EM3）
+* 定时器：RTCC、LE定时器和脉冲计数器
+* 12通道外周反射系统
 * 25 GPIO
 
-- **Microcontroller:**
+- **微控制器：**
 * ARM Cortex®-M4
-* Up to 40 MHz Clock Speed
-* Low Active Mode Current: 70 µA/MHz
-* 1024 kB of Programmable Flash
+* 高达40 MHz时钟速度
+* 低有源模式电流：70µA/MHz
+* 1024 kB的可编程闪存
 * 256 kB RAM SRAM
+- **节能低功耗模式：**
+* 能量模式2（深度睡眠）电流：2.0µA
+* 超快唤醒：来自EM3的3µS
+* 1.8至3.8 V的宽电源电压范围
+- **尺寸：**
+* 12.9毫米x 17.8毫米x 2.1毫米
 
-- **Energy Efficient Low Power Modes:**
-* Energy Mode 2 (Deep Sleep) Current: 2.0 µA
-* Ultra-fast wake up: 3 µS from EM3
-* Wide Supply Voltage range of 1.8 to 3.8 V
-
-- **Dimensions:**
-* 12.9 mm x 17.8 mm x 2.1 mm
 
 = Documentation
 Mighty Gecko MGM12P : https://www.silabs.com/products/wireless/mesh-networking/mighty-gecko-modules/mgm12p-mighty-gecko-module
