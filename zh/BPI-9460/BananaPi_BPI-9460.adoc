@@ -1,136 +1,139 @@
-= Description
+= 介绍
 
-The BPI-9460 series of modules are designed to extract power from a conventional twisted pair Category 5 Ethernet cable, conforming to the IEEE 802.3af Power-over-Ethernet(PoE) standard. The BPI-9460 signature and control circuit provides the PoE compatibility signature and power classification required by the Power Sourcing Equipment (PSE) before applying up to 15W power to the port. The RT9460 provides a Class 0 signature.The DC/DC converter operates over a wide input voltage range and provides a regulated output. The DC/DC converter also has built-in short-circuit output protection.
+BPI-9460系列模块设计用于从传统的双绞线5类以太网电缆中提取电力，符合IEEE 802.3af以太网供电（PoE）标准。BPI-9460签名和控制电路在向端口施加高达15 W的功率之前提供供电设备（PSE）所需的PoE兼容性签名和功率分类。RT9460提供0类特征。DC/DC转换器可在宽输入电压范围内工作，并提供稳压输出。DC/DC转换器还具有内置短路输出保护。
 
-= Applications
-- IP Cameras
-- Wireless access point
-- Security and alarm systems
-- VOIP telephone
-- Point of sale network terminal equipment
+= 应用方向
 
-= Features
-- IEEE802.3af compliant
-- Input voltage range 36V to 57V
-- Integral high efficiency DC/DC converter.
-- Low output ripple and noise
-- High performance with low price
-- Short-circuit protection
-- Adjustable Output
-- Optional multi-voltage output 3.3V 5V 12V 24V
-- Transformer isolation ,1500V isolation (input to output)
-- Easy to use, with a minimum number of external components.
-- Rohs compliantnt
+- IP摄像机
+- 无线接入点
+- 安全和报警系统
+- VOIP电话
+- 销售点网络终端设备
 
-= Hardware
-== BPI-9460 Product Selector
+= 主要特点
+
+- 符合IEEE802.3af标准
+- 输入电压范围36 V至57 V
+- 集成高效DC/DC转换器。
+- 低输出波纹和噪声
+- 高性能低价格
+- 短路保护
+- 可调输出
+- 可选多电压输出3.3V 5V 12 V 24V
+- Transformer隔离，1500 V隔离（输入到输出）
+- 易于使用，外部元件数量最少。
+- 符合RoHS标准
+
+
+= 硬件
+== BPI-9460 产品选择
 [cols="2,1,1,1,1,1"]
 |====
-|Part Number	|Nominal Output Voltage	|Output current	|Maximum Output Power*	|Marking	|Package
+|部件编号|额定输出电压|输出电流|最大输出功率 *|标记|包
 |BPI-9460S-3.3V	|3.3V	|2A	  |10W**	|3.3V	|SIL
 |BPI-9460S -5V	|5V	  |2.4A	|13W**	|5V	  |SIL
 |BPI-9460S -12V	|12V	|1A	  |13W**	|12V	|SIL
 |BPI-9460S -24V	|24V	|0.5A	|13W**	|24V	|SIL
 |====
-- At 25°C with VIN = 48V
-- Maximum Output Power: means it not could be operated in continuous stage .only short-term of Boot up/Heavy loading
+- 25°C时，VIN = 48 V
+- 最大输出功率：表示不能连续工作，只能在启动/重载的短期内工作
 
-== Absolute Maximum Ratings
+== 绝对最大额定值
 [cols="1,2,2,1,1,1"]
 |====
-|　	|Parameter	|Symbol	|Min	|Max	|Units
-|1	|DC Supply Voltage	|VCC	|-0.3	|60	|V
-|2	|DC Supply Voltage |Surge for 1ms	VSURGE	|-0.6	|80	|V
-|3	|Storage Temperature	|TS	|-40	|100	|OC
+|　	|参数	|符号	|Min	|Max	|单位
+|1	|DC电源电压	|VCC	|-0.3	|60	|V
+|2	|直流电源电压浪涌1ms	|VSURGE	|-0.6	|80	|V
+|3	|储存温度	|TS	|-40	|100	|OC
 |====
-Note : Exceeding the above ratings may cause permanent damage to the product. Functional operation under these conditions is not implied. Maximum ratings assume free airflow.
+注：超过上述额定值可能会对产品造成永久性损坏。不建议在这些条件下的功能操作。最大额定值假定为自由气流。
 
-== Recommended Operating Conditions
+== 推荐工作条件
 [cols="1,3,1,1,1,1,1"]
 |====
-|　	|Parameter	|Symbol	|Min	|Typ	|Max	|Units
-|1	|Input Supply Voltage1	|VIN	|36	|48	|57	|V
-|2	|Under Voltage Lockout	|VLOCK	|30	|　	|36	|V
-|3	|Operating Temperature2	|TOP	|-20	|25	|70	|Ta / OC
+|　	|参数	|符号	|Min	|Typ	|Max	|单位
+|1	|输入电源电压1|VIN	|36	|48	|57	|V
+|2	|欠压锁定	|VLOCK	|30	|　	|36	|V
+|3	|工作温度2	|TOP	|-20	|25	|70	|Ta / OC
 |====
-Note
+注意:最小负载,参见“工作温度范围”部分。接近或在最高工作温度下长期使用会缩短器械的使用寿命。
 
-. With minimum load
-. See Section Operating Temperature Range +
-Extended use close to, or at the maximum operating temperature can reduce the life time of the device.
-
-== Pin Description
+== 引脚描述
 [cols="1,1,6"]
 |====
-|Pin #	|Name	|Description
-|1	|VA1	|RX Input (1). This input pin is used in conjunction with VA2 and connects to the centre tap of the transformer connected to pins 1&2 of the RJ45 connector (RX) - it is not polarity sensitive.BPI-9460S this pin is direct Input +. This pin connects to the positive (+) output of the input bridge rectifier.
-|2	|VA2	|TX Input (2). This input pin is used in conjunction with VA1 and connects to the centre tap of the transformer connected to pins 3&6 of the RJ45 connector (TX) - it is not polarity sensitive.BPI-9460S this pin is direct Input -. This pin connects to the negative (-) output of the input bridge rectifier.
-|3	|VB1	|Direct Input (1). This input pin is used in conjunction with VB2 and connects to pin 4 & 5 of the RJ45 connector - it is not polarity sensitive.BPI-9460S this pin is direct Input +. This pin connects to the positive (+) output of the input bridge rectifier.
-|4	|VB2	|Direct Input (2). This input pin is used in conjunction with VB1 and connects to pin 7 & 8 of the RJ45 connector - it is not polarity sensitive.BPI-9460S this pin is direct Input -. This pin connects to the negative (-) output of the input bridge rectifier
-|5	|-VDC	|DC Return. This pin is the return path for the +VDC output.
-|6	|+VDC	|DC Output. This pin provides the regulated output from the DC/DC converter.
-|7	|ADJ	|Output Adjust. The output voltage can be adjusted from is nominal value, by connecting an external resistor from this pin to either the +VDC pin or the -VDC pin.
+|Pin #	|名字	|描述
+|1	|VA1	|RX输入（1）。该输入引脚与VA2一起使用，并连接到与RJ45连接器（RX）引脚1和2相连的变压器的中心抽头-它对极性不敏感。BPI-9460S此引脚为直接输入。该引脚连接到输入桥式整流器的正极（+）输出。
+|2	|VA2	|TX输入（2）。该输入引脚与VA1一起使用，并连接到与RJ45连接器（TX）引脚3和6相连的变压器的中心抽头-它对极性不敏感。BPI-9460S此引脚为直接输入-。该引脚连接到输入桥式整流器的负（-）输出。
+|3	|VB1	|直接输入（1）。此输入引脚与VB2一起使用，并连接到RJ45连接器的引脚4和5-它对极性不敏感。BPI-9460S此引脚为直接输入。该引脚连接到输入桥式整流器的正极（+）输出。
+|4	|VB2	|直接输入（2）。此输入引脚与VB1一起使用，并连接到RJ45连接器的引脚7和8——它对极性不敏感。BPI-9460S此引脚为直接输入-。该引脚连接到输入桥式整流器的负（-）输出
+|5	|-VDC	|直流回路。此引脚是+VDC输出的返回路径。
+|6	|+VDC	|直流输出。此引脚提供DC/DC转换器的稳压输出。
+|7	|ADJ	|输出调整。通过将外部电阻器从该引脚连接到+VDC引脚或-VDC引脚，可以从标称值调整输出电压。
 |====
 
-== DC Electrical Characteristics
+== DC 电气特性
 
 image::/picture/9460.png[9460.png]
 
-. Typical figures are at 25°C with a nominal 48V supply and are for design aid only. Not Guaranteed
-. The output ripple and noise can be reduced with an external filter, see application note.
-. Continuous short circuit duration is applicable at 25'C ambient temperature in free air. At higher temperatures or with restricted airflow (e.g. in a sealed enclosure) the duration will need to be limited to avoid overheating.
+. 典型数值为25°C、标称48 V电源时的数值，仅用于辅助设计。不能保证
+. 输出涟漪和噪声可以通过外部滤波器降低，请参见应用笔记。
+. 连续短路持续时间适用于25'C环境温度下的自由空气。在较高的温度下或在气流受限的情况下（例如，在密封外壳中），需要限制持续时间以避免过热。
 
-== RT9460S Typical Connection Diagram
+
+== RT9460S 接线示意图
 
 image::/picture/9460s_connect.png[9460s_connect.png]
 
-Reducing the output voltage, connect R2 between ADJ and +VDC
+降低输出电压，将R2连接在ADJ和+VDC之间
 [cols="2,1,1,1,1"]
 |====
-|　	|R2 Value	|output voltage	|R2 Value	|output voltage
+|　	|R2 值	|输出电压	|R2 值	|输出电压
 |BPI-9460-3.3V |open	|3.3V	|0R  	|2.8V
 |BPI-9460-5V	 |open	|5V	  |0R   |4.4V
 |BPI-9460-12V  |open	|12V	|0R	  |9.9V
 |BPI-9460-24V	 |open	|24V	|30K	|18.2V
 |====
-Increasing the output voltage, connect R1 between ADJ and -VDC
+
+增加输出电压，将R1连接在ADJ和-VDC之间
 [cols="2,1,1,1,1"]
 |====
-|　	|R1 Value	|output voltage	|R1 Value	|output voltage
+|　	|R1 值	|输出电压	|R1 值	|输出电压
 |BPI-9460-3.3V|open	|3.3V	|0R	|3.7V
 |BPI-9460-5V	|open	|5V	  |0R	|5.7V
 |BPI-9460-12V	|open	|12V	|0R	|12.8V
 |BPI-9460-24V	|open	|24V	|0R	|25.5V
 |====
 
-== Reliability MTBF
-About the life time ,we design according to the following: 1)life time of RT9460  : 100,000 hours @ 25°C
+== 可靠性MTBF
 
-== Safety test items & test report
+关于使用寿命，我们按照以下几点进行设计：1）RT 9460的使用寿命：100，000小时@25 °C
+
+
+== 安全测试项目及测试报告
 [cols="6,1"]
 |====
-|Test Requested	|Test result
-|Electric strength -1500Vrms at 50 to 60Hz for 60s, applied as specified in subclasuse 5.2.2 of IEC 60950	|Pass
+|要求的试验	|测试结果
+|电气强度-1500Vrms，50至60 Hz，持续60 s，按照IEC 60950第5.2.2小节的规定应用	|通过
 |====
 
-== Mechanical / Environmental Performance data
+== 机械/环境性能数据
 [cols="1,2,6"]
 |====
-|　	|Item	|Requirement and Standard
-|1	|Resistance to Wave Soldering Heat	|max Preheat Temp range & time 120 ℃ / 180S,max soldering temp &time:265 ℃ / 4S
-|2	|Solder ability	|Solder able area shall have minimum of 95% solder coverage.And then into solder bath,Temperature at 245 ±5 ℃ , for 4-5sec.
-|3	|Hand Soldering Temperature Resistance	|T > =350 ℃ , 3sec at least.
-|4	|Thermal Shock	|subject to follow condition for 5 cycles.1 cycles:-55 ℃ , 30 minutes;+85 ℃ , 30 minutes
-|5	|Humidity(Temp Cycling)	|less than 95% (non-condensing) ( -20 to 70 ℃)
-|6	|Temperature Life	|temperature life at 85℃ for 96 hours.
-|7	|Salt Spray	|connectors to 5% salt-solution concentration, 35 ℃ ,Gold flash for 8 hours there will be no change in the gold layer
+|　	|项目	|要求和标准
+|1	|耐波峰焊热	|最大预热温度范围和时间120 ℃ /180 S，最大焊接温度和时间：265 ℃ / 4S
+|2	|焊锡能力	|可焊区域应至少有95%的焊料覆盖，然后放入焊料槽，温度为245 ±5 ℃，时间为4- 5秒。
+|3	|手工焊接温度电阻 |T > =350 ℃ ,至少3sec。
+|4	|热冲击	|在以下条件下进行5个循环。1个循环：-55 ℃，30分钟;+85 ℃，30分钟
+|5	|湿度（温度循环）	|小于95%（非冷凝）（-20至70 ℃）
+|6	|温度寿命	|在85℃下的温度寿命为96小时。
+|7	|盐雾	|连接器以5%的盐溶液浓度，35 ℃，闪金8小时，金层不会有变化
 |====
 
-= Module size
-== BPI-9460 PackageSize：(mm)
+= 模块尺寸
+== BPI-9460 包装尺寸：(mm)
 
 image::/picture/poe_9460_1.jpg[poe_9460_1.jpg]
 
-== BPI-9460 PCB Package ：(mm)
+== BPI-9460 PCB 封装 ：(mm)
 
 image::/picture/poe_9460_2.jpg[poe_9460_2.jpg]
