@@ -1,0 +1,46 @@
+= Introduction
+
+BPI-4G module extension board with 1 Non-standard micro USB port,you can connect banana pi board with this port ,use 4G function development . also support PIN define ,and connect to BPI-R2. user also can choose 4G module onboard and use the universal 4G module in the market.
+
+image::/picture/bpi-4g_5.jpg[bpi-4g_5.jpg]
+
+= Using 4G module with BananaPi
+
+. link:/en/BPI-4G_module/using_4G_module_with_BananaPi[Using 4G module with BananaPi]
+. Unboxing High Quality Banana Pi Bpi-Ec25 4g Full-Netcom Wireless Communication Module : https://www.youtube.com/watch?v=sXYQbzyFGYI
+
+= Hardware
+== Hardware interface
+
+BPI-4G module (4G on board )
+
+image::/picture/bpi-4g_onboard.jpg[bpi-4g_onboard.jpg]
+
+BPI-4G module (use USB 4G expansion board ):
+
+image::/picture/bpi-4g_usb.jpg[bpi-4g_usb.jpg]
+
+BPI-4G module back:
+
+image::/picture/bpi-4g_back.jpg[bpi-4g_back.jpg]
+
+== Hardware spec
+BPI-4G module (4G on board )
+
+= How to use 4G
+4G board connect banana pi SBC with USB line ,and connect BPI-R2 with PIN define
+
+image::/picture/bpi-4g_use_way.jpg[bpi-4g_use_way.jpg]
+
+= BPI 4.0:customization
+If you have any 4G customization , we can support you.
+
+image::/picture/oem_4g.jpg[oem_4g.jpg]
+
+4 4G module board via USB interface.
+
+image::/picture/4g_module_1.jpg[4g_module_1.jpg]
+
+use this module on BPI-R2
+
+image::/picture/4g_multi-network_fusion_1.jpg[4g_multi-network_fusion_1.jpg]
