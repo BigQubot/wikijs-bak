@@ -34,59 +34,50 @@ ppp1_success_log.txt ： http://forum.banana-pi.org/uploads/default/original/2X/
 = FAQ
 . You could get ppp1.sh from here : https://pan.baidu.com/s/1yu0nTNQKPNPzprVPjhOPUA
 
-[red]#Red# [yellow]#6# [blue]#bananapi# #Nectar#
-`q`
-[blue]*1*
-
-[blue]`**q**`
-
-[blue]__qq__
-
-. [blue]`Q: What should I do, if you meet this "expect (OK) ^M alarm Failed "`
+. **Q: What should I do, if you meet this "expect (OK) ^M alarm Failed "**
 +
-[blue]#Q: What should I do, if you meet this "expect (OK) ^M alarm Failed "#
-+
-**Q: What should I do, if you meet this "expect (OK) ^M alarm Failed "**
-+
-**`Q: What should I do, if you meet this "expect (OK) ^M alarm Failed "`**
-
-
-
 Usb 4g 8.PNG
 +
 **A**:The root cause is the Modem.service has used the module usbserial, so the 4G module can’t use usbserial; we can solve the problem by using command "systemctl disable ModemManager.service " or "systemctl stop ModemManager.service "
 
-
-
-
-> Q：How to test the communication between SIM card and 4G module？
-
+. Q：How to test the communication between SIM card and 4G module？
++
 A:Use minicom， ”minicom -D /dev/ttyUSB2”，and then use AT commands to test, such as ”at”，”at+csq”，“at+ccid”，if you get response without error，that means the communication is OK.
 
-. **Q**: How to install libqmi?
+. **Q: How to install libqmi?**
 +
 A: Download from here: http://www.linuxfromscratch.org/blfs/view/cvs/general/libqmi.html 1 ; then make and make install.
++
 If you meet this:
++
 Usb 4g 9.PNG
++
 you need to install libgudev-1.0-dev， then make and make install again.
 
-. Q：How to use qmi-wwan？
+. *Q：How to use qmi-wwan？*
++
 A：There is a very easy way to use，I’ve put quectel-CM in home path of root，just execute “./quectel-CM &”，then execute “dhclient wwan0”，now you have finished the configurations.
 
-. Q：How to use GPS？
+. *Q：How to use GPS？*
++
 A：BPI-4G module supports GPS and BeiDou，execute “minicom -D /dev/ttyUSB2”，then input AT commands like this：
++
 Usb 4g 10.PNG
-if you want to use BeiDou，just input AT commands like this：
++
+If you want to use BeiDou，just input AT commands like this：
++
 Usb 4g 10.PNG
 
 . Here are kernel configurations and driver patch for kernel 4.14.
++
 config : http://forum.banana-pi.org/uploads/default/original/2X/5/54a89518b88857f06fd44757d3413e700338b269
++
 patch : http://forum.banana-pi.org/uploads/default/original/2X/5/5739bb02c8dc5817ed8ba6ec466b4bdb70cf37fa
 
 . Support areas:
-EC25-E support: EMEA/Thailand/India/South Korea
-EC25-AU support: Australia
-EC25-V/-A support：North America
+- EC25-E support: EMEA/Thailand/India/South Korea
+- EC25-AU support: Australia
+- EC25-V/-A support：North America
 
 . Openwrt Supported:
 A. Clone the source code from this link : BPI-R2 OpenWrt(LEDE) Souce code : 2018-04-11
