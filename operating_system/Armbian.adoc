@@ -1,0 +1,29 @@
+= Compile
+
+Today I will introduce you how to compile armbian images.
+
+. visit armbian website: https://www.armbian.com/
++
+Here you could download the latest images for bpi board, and you could also visit github to download code.
+
+. armbian github website: https://github.com/armbian/build/tree/master
++
+```sh
+git clone https://github.com/armbian/build.git --branch sunxi-4.18
+```
++
+image::/picture/armbian_clone.png[armbian_clone.png]
++
+```sh
+git branch
+```
+After execute this command you will see the branch is sunxi-4.18
++
+image::/picture/armbian_branch.png[armbian_branch.png]
++
+```sh
+cd build
+./compile.sh
+```
+
+NOTE: How to Install Armbian on an SBC - Desktop Set up: https://www.youtube.com/watch?v=pnxUctyqx4c
