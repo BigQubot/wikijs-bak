@@ -48,12 +48,19 @@ ppp1_success_log.txt ： http://forum.banana-pi.org/uploads/default/original/2X/
 +
 **Q: What should I do, if you meet this "expect (OK) ^M alarm Failed "**
 +
+**`Q: What should I do, if you meet this "expect (OK) ^M alarm Failed "`**
+
+
+
 Usb 4g 8.PNG
 +
 **A**:The root cause is the Modem.service has used the module usbserial, so the 4G module can’t use usbserial; we can solve the problem by using command "systemctl disable ModemManager.service " or "systemctl stop ModemManager.service "
 
-. Q：How to test the communication between SIM card and 4G module？
-+
+
+
+
+> Q：How to test the communication between SIM card and 4G module？
+
 A:Use minicom， ”minicom -D /dev/ttyUSB2”，and then use AT commands to test, such as ”at”，”at+csq”，“at+ccid”，if you get response without error，that means the communication is OK.
 
 . **Q**: How to install libqmi?
