@@ -1,0 +1,62 @@
+= Harware
+
+BPI-MT7615 802.11 ac wifi 4x4 dual-band module base on MTK MT7615 chip design.
+
+image::/picture/mtk_mt7615_7.jpg[mtk_mt7615_7.jpg]
+
+== About MTK MT7615 chip
+MT7615 is a highly integrated Wi-Fi single chip which support 1733 Mbps PHY rate,It fully compies with IEEE 802.11ac and IEEE802.11 a/b/n standards,offering feature-rich wireless connecivity at high standards,and delivering reliable,cost-effective throughput from and extended distance.
+
+Optimized RF architectue and baseband algorithms provide superb performance and low power consumption. Intelligent MAC design deploys a high efficient offload engine ,and hardware data processing accelerators which completely offloads Wi-Fi task of the host processor.MT7615 is designed to support standard based features in the areas of the host processor.MT7615 is designed to support standard based features in the areas of security quality of service and international regulations.giving end users the greatest performance any time and in any circumstance.
+
+MT7615 supports concurrent dual-band operation at 5GHz and 2.4GHz band(DBDC,Dual-Band-Dual-Concurrent0.It enables diversified applications that require one link at 2.4GHz band,and the other at less crowded 5GHz band simultaneously.
+
+With the advent of 802.11ac,multiuser MIMO(MU-MIMO) is defined. Mt7615 supports MU-MIMO with defferent configurations.An AP is able to use its antenna drrays to transmit multiple frames to defferent clients at the same time and over the same frequency spectrum.
+
+== Features
+- Support 4x4 4SS 11ac wave2 MU-MIMO and 160MHz channels
+- Mu-MIMO configurations of
+* 4 Users:4*1SS
+* 3 users:2*1ss+1*2ss or 3*1ss
+* 2 users:2*2ss or 1*1ss+1*2ss or 2*1ss
+- support 5,10,20,40,80,80+80,and 160MHz channels
+- Embedded ARM cortex R4 processor for full host CPU offload.
+- Embedded 32-bit RISC microprocessor.
+- iNIC Gen2 with full Wi-Fi offload
+- Highly integrated RF with 40nm low power process.
+- 4T4R with support of up to 1733Mbps PHY rate.
+- Configurable 4x4/3x3 or 2x2n+2x2ac DBDC
+- Noise mitigation:
+* Supports backgound scan funtion for fast channel switching.
+* Supports spectrum analysis for non-Wi-Fi signals
+- Intellgent power saving
+- Hardware-based Airtime Fairness(QoS)
+- Integrate high effciency internal 2.4G/5G PAs
+- Intelligent Calibration(iCal)reduces the production time
+- Supports external PA/LNA/TRSW design
+- WoWLAN via GPIO(client mode),spports Host Sleep(AP mode)
+- Compact 12mm*12mm DRQFN118 package with PCIe Gen2 interface.
+
+== Hardware interface
+
+image::/picture/mtk_mt7615_interface.jpg[mtk_mt7615_interface.jpg]
+
+== Operation Systems support
+- Linux
+- OpenWRT
+- Android
+
+= BPI-R64 + MT7615 function test
+
+link:/en//BPI-MT7615/BPI-R64_and_MT7615_function_test[BPI-R64 + MT7615 function test]
+
+link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/files/?p=%2FDocuments%2FBPI-7615%20wifi%20module%2FMTK7615_RF_Test%20Report_20200516.pdf[BPI-7615 wifi module Lab test report]
+
+= Software
+- Driver is already in mainline linux (not only next): https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/net/wireless/mediatek/mt76
+- Discuss on forum: http://forum.banana-pi.org/t/bpi-mt7615-802-11-ac-wifi-4x4-dual-band-pcie-module-mass-production-version/10037
+- 802.11ax 4x4 (mt7915) with R2 : http://forum.banana-pi.org/t/802-11ax-4x4-mt7915-with-r2/12082
+
+= Easy to buy sample
+- Aliexrpess ship : https://www.aliexpress.com/item/4000260974924.html?spm=2114.12010612.8148356.1.4f31785eThQhPe
+- taobao： https://item.taobao.com/item.htm?spm=a1z10.5-c.w4002-5702696656.12.6dc114d6AF6T4X&id=605860629225
