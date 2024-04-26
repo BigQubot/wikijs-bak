@@ -46,7 +46,7 @@ A:Use minicom， ”minicom -D /dev/ttyUSB2”，and then use AT commands to tes
 
 . **Q: How to install libqmi?**
 +
-A: Download from here: http://www.linuxfromscratch.org/blfs/view/cvs/general/libqmi.html 1 ; then make and make install.
+A: Download from here: http://www.linuxfromscratch.org/blfs/view/cvs/general/libqmi.html ; then make and make install.
 +
 If you meet this:
 +
@@ -80,30 +80,41 @@ patch : http://forum.banana-pi.org/uploads/default/original/2X/5/5739bb02c8dc581
 - EC25-V/-A support：North America
 
 . Openwrt Supported:
+
 A. Clone the source code from this link : BPI-R2 OpenWrt(LEDE) Souce code : 2018-04-11
+
 B. Add qmi-wwan driver to this project :
-Execute “./scripts/feeds/ install minicom” to install minicom to openwrt project
-Execute “./scripts/feeds/ install python” to install python to openwrt project
-Execute “make menuconfig”
-Add minicom “Utilities —> Terminal —> minicom”
-Add python “Languages —> Python”
-Add driver “Network —> wwan …Genetic OpenWrt 3G/4G proto handler”
-Add "Kernel modules —> USB Support —>
-kmod-usb-core
-kmod-usb-net —> kmod-usb-net-qmi-wwan
-kmod-usb-ohci
-kmod-usb-serial —> kmod-usb-serial-option , kmod-usb-serial-wwan
-kmod-usb-uhci
-kmod-usb2-*
-Use these source files to replace your openwrt project source files (“build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/linux-mediatek_32/linux-4.9.44/drivers/usb(or net)/…”) :
+
+- Execute “./scripts/feeds/ install minicom” to install minicom to openwrt project
+- Execute “./scripts/feeds/ install python” to install python to openwrt project
+- Execute “make menuconfig”
+- Add minicom “Utilities —> Terminal —> minicom”
+- Add python “Languages —> Python”
+- Add driver “Network —> wwan …Genetic OpenWrt 3G/4G proto handler”
+- Add "Kernel modules —> USB Support —>
+- kmod-usb-core
+- kmod-usb-net —> kmod-usb-net-qmi-wwan
+- kmod-usb-ohci
+- kmod-usb-serial —> kmod-usb-serial-option , kmod-usb-serial-wwan
+- kmod-usb-uhci
+- kmod-usb2-*
+- Use these source files to replace your openwrt project source files (“build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/linux-mediatek_32/linux-4.9.44/drivers/usb(or net)/…”) :
++
 Usb 4g 12.PNG
+
 C. Image & Stuff Link :
++
 Baidu Drive : https://pan.baidu.com/s/1e6bvsznfFW3PuaONz0OR1Q
++
 Google Drive : https://drive.google.com/file/d/1Zjj0TiZOFGlmAGmRmErqnwdSosUrLUPZ/view?usp=sharing
+
 D. Cross-Compile quectel-CM
 Copy “quectel-CM” to Linux host PC，and change “Makefile” under the “quectel-CM”，change tools like this：The tools are under openwrt project，you can find them according to the following picture.
++
 Usb 4g 13.jpg
++
 If ping Domain name fail，add “nameserver 8.8.8.8” to /etc/resolv.conf
++
 Usb 4g 14.PNG
 Usb 4g 15.PNG
 
