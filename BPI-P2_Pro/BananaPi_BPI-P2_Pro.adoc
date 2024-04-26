@@ -115,7 +115,8 @@ link:/en/BPI-P2_Pro/Photo_BPI-P2_Pro[Banana Pi BPI-P2 Pro Product photo gallery]
 | 11 | GPIO1_C6 | SPI2_RX  | UART2_RX_M0 | JTAG_TCK | 54
 | 12 | GPIO0_C0 | PWM3     |             | IR_RX    | 16
 |=====
-=== POE
+
+== POE
 TIP: We deign a IEEE 802.3at PoE module for BPI-P2 Zero ,easy to support PoE function,more spec ,please check BPI-9600 PoE module spec
 
 link:/en/BPI-9600/BananaPi_BPI-9600[BPI-9600 IEEE 802.3af PoE module]
