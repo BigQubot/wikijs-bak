@@ -35,8 +35,19 @@ ppp1_success_log.txt ： http://forum.banana-pi.org/uploads/default/original/2X/
 . You could get ppp1.sh from here : https://pan.baidu.com/s/1yu0nTNQKPNPzprVPjhOPUA
 
 [red]#Red# [yellow]#6# [blue]#bananapi# #Nectar#
+`q`
+[blue]*1*
 
-. **Q**: What should I do, if you meet this "expect (OK) ^M alarm Failed "
+[blue]`**q**`
+
+[blue]__qq__
+
+. [blue]`Q: What should I do, if you meet this "expect (OK) ^M alarm Failed "`
++
+[blue]#Q: What should I do, if you meet this "expect (OK) ^M alarm Failed "#
++
+[blue]#Q:# What should I do, if you meet this "expect (OK) ^M alarm Failed "
++
 Usb 4g 8.PNG
 +
 **A**:The root cause is the Modem.service has used the module usbserial, so the 4G module can’t use usbserial; we can solve the problem by using command "systemctl disable ModemManager.service " or "systemctl stop ModemManager.service "
