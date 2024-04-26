@@ -3,31 +3,31 @@
 == Get startting
 Forum pthread for discuss : http://forum.banana-pi.org/t/how-to-use-bpi-4g-lte-module-with-bpi-r2/5223/4
 
-Usb 4g 1.jpg
+image::/picture/usb_4g_1.jpg[usb_4g_1.jpg]
 
 . Firstly, use R2 connects LTE module by USB or 14pin Headers. then execute command "lsusb" to have a look if R2 have drove the module. The red box is the id of 4G module.
 +
-Usb 4g 2.PNG
+image::/picture/usb_4g_2.png[usb_4g_2.png]
 +
 After seeing this, execute command "ls /dev/ttyUSB*" to make sure the 4G module have been recognised as USB devs.
 +
-Usb 4g 3.PNG
+image::/picture/usb_4g_3.png[usb_4g_3.png]
 
 . Execute the "./ppp1.sh &"
 +
-Usb 4g 4.PNG
+image::/picture/usb_4g_4.png[usb_4g_4.png]
 +
 then execute command “ifconfig -a”，you will see ppp0
 +
-Usb 4g 5.PNG
+image::/picture/usb_4g_5.jpg[usb_4g_5.jpg]
 
 . Execute command ”wget -O speedtest-cli https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py” to download speed test tool.
 +
-Usb 4g 6.PNG
+image::/picture/usb_4g_6.png[usb_4g_6.png]
 
 . Execute command "chmod +x speedtest-cli", then execute "./speedtest-cli"
 +
-Usb 4g 7.PNG
+image::/picture/usb_4g_7.png[usb_4g_7.png]
 +
 ppp1_success_log.txt ： http://forum.banana-pi.org/uploads/default/original/2X/e/eb7d46a0971c25f6337116d60e76590ce298b676.txt
 
@@ -36,7 +36,7 @@ ppp1_success_log.txt ： http://forum.banana-pi.org/uploads/default/original/2X/
 
 . **Q: What should I do, if you meet this "expect (OK) ^M alarm Failed "**
 +
-Usb 4g 8.PNG
+image::/picture/usb_4g_8.png[usb_4g_8.png]
 +
 **A**:The root cause is the Modem.service has used the module usbserial, so the 4G module can’t use usbserial; we can solve the problem by using command "systemctl disable ModemManager.service " or "systemctl stop ModemManager.service "
 
@@ -50,7 +50,7 @@ A: Download from here: http://www.linuxfromscratch.org/blfs/view/cvs/general/lib
 +
 If you meet this:
 +
-Usb 4g 9.PNG
+image::/picture/usb_4g_9.png[usb_4g_9.png]
 +
 you need to install libgudev-1.0-dev， then make and make install again.
 
@@ -62,11 +62,11 @@ A：There is a very easy way to use，I’ve put quectel-CM in home path of root
 +
 A：BPI-4G module supports GPS and BeiDou，execute “minicom -D /dev/ttyUSB2”，then input AT commands like this：
 +
-Usb 4g 10.PNG
+image::/picture/usb_4g_10.png[usb_4g_10.png]
 +
 If you want to use BeiDou，just input AT commands like this：
 +
-Usb 4g 10.PNG
+image::/picture/usb_4g_10.png[usb_4g_10.png]
 
 . Here are kernel configurations and driver patch for kernel 4.14.
 +
@@ -100,7 +100,7 @@ B. Add qmi-wwan driver to this project :
 - kmod-usb2-*
 - Use these source files to replace your openwrt project source files (“build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/linux-mediatek_32/linux-4.9.44/drivers/usb(or net)/…”) :
 +
-Usb 4g 12.PNG
+image::/picture/usb_4g_12.png[usb_4g_12.png]
 
 C. Image & Stuff Link :
 +
@@ -111,12 +111,12 @@ Google Drive : https://drive.google.com/file/d/1Zjj0TiZOFGlmAGmRmErqnwdSosUrLUPZ
 D. Cross-Compile quectel-CM
 Copy “quectel-CM” to Linux host PC，and change “Makefile” under the “quectel-CM”，change tools like this：The tools are under openwrt project，you can find them according to the following picture.
 +
-Usb 4g 13.jpg
+image::/picture/usb_4g_13.jpg[usb_4g_13.jpg]
 +
 If ping Domain name fail，add “nameserver 8.8.8.8” to /etc/resolv.conf
 +
-Usb 4g 14.PNG
-Usb 4g 15.PNG
+image::/picture/usb_4g_14.png[usb_4g_14.png]
+image::/picture/usb_4g_15.png[usb_4g_15.png]
 
 . If you use mPCIE interface 4G module to connect R2 by 14 pin header，use these cmds to enable 4G module，after you did these steps，USB0 port will be disable.
 +
