@@ -24,33 +24,39 @@ Play Tina need a 64 - bit Linux PC, we recommend using Ubuntu 12.04 or 14.04 64 
 sudo apt-get install build-essential subversion git-core libncurses5-dev zlib1g-dev gawk flex quilt libssl-dev xsltproc libxml-parser-perl mercurial bzr ecj cvs unzip
 
 
-You can refer to detailed [OpenWrt's WIKI](https://wiki.openwrt.org/doc/howto/buildroot.exigence)
+You can refer to detailed link:https://wiki.openwrt.org/doc/howto/buildroot.exigence[OpenWrt's WIKI]
 
 download source code
 
 use repo tool to download this code , tool download method is as follows:
 
-
-$ curl https://raw.githubusercontent.com/tinalinux/repo/stable/repo > ~/bin/repo $ chmod +x ~/bin/repo
-
+```sh
+curl https://raw.githubusercontent.com/tinalinux/repo/stable/repo > ~/bin/repo $ chmod +x ~/bin/repo
+```
 
 Then add "repo" to the environment variables, it is better to put the following sentences. Bashrc inside
 
 
-$ export PATH=~/binPATH
-
+```sh
+export PATH=~/binPATH
+```
 
 Download the repo, the next download Tina's source code, as follows:
 
-
-$ repo init -u https://github.com/tinalinux/manifest -b r40-v1.y -m r40/v1.y.xml $ repo sync $ repo start r40-v1.y --all
-
+```sh
+repo init -u https://github.com/tinalinux/manifest -b r40-v1.y -m r40/v1.y.xml
+repo sync
+repo start r40-v1.y --all
+```
 
 after downloading the source code, execute the following commands in Tina with directory compiled:
 
-
-$ source build/envsetup.sh $ lunch azalea_m2ultra-tina $ make -j4 $ pack [-d]
-
+```sh
+source build/envsetup.sh
+lunch azalea_m2ultra-tina
+make -j4
+pack [-d]
+```
 
 Tina SDK need to perform "source "and "lunch" commond before every compile,Then perform other operations.
 
