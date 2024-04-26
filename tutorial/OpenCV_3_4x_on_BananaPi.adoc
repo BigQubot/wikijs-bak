@@ -1,0 +1,71 @@
+= Using Python To Install OpenCV 3.4x on Banana Pi M2P(H3)
+
+Install OpenCV 3.4x on Banana Pi M2P(H3) we use Banana Pi BPI-M2+ to this test.I will show you how to install OpenCV on BPI M2P(H3) in this thread.
+
+image::/picture/opencv1.jpg[opencv1.jpg]
+
+
+. Install Dependency Packages**
++
+```sh
+apt-get update
+apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libhdf5-serial-dev protobuf-compiler
+apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev
+apt-get install build-essential cmake pkg-config libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev
+apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev v4l-utils libxvidcore-dev libx264-dev ffmpeg
+apt-get install libgtk2.0-dev libatlas-base-dev gfortran python2.7-dev python3-dev checkinstall
+```
+
+. Download OpenCV Code
++
+```sh
+git clone https://github.com/opencv/opencv.git --branch 3.4.0
+git clone https://github.com/opencv/opencv_contrib.git --branch 3.4.0
+```
+
+. cmake OpenCV Code
++
+```sh
+cd <path>/opencv
+mkdir build
+cd build
+cmake -D CMAKE_BUILD_TYPE=Release  -D CMAKE_INSTALL_PREFIX=/usr/local -D PYTHON_INCLUDE_DIR=/usr/bin/python -D OPENCV_EXTRA_MODULES_PATH=<path>/opencv_contrib/modules ..
+```
++
+image::/picture/opencv_2.png[opencv_2.png]
+
+. Using python to test camera
++
+```sh
+python readvideo.py
+```
++
+```sh
+import numpy as np
+import cv2
+cap = cv2.VideoCapture(1) #/dev/video1
+while(True):
+   # Capture frame-by-frame
+   ret, frame = cap.read()
+   # Our operations on the frame come here
+   #gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+   # Display the resulting frame
+   cv2.imshow('frame',frame)
+   if cv2.waitKey(1) & 0xFF == ord('q'):
+       break
+# When everything done, release the capture
+cap.release()
+cv2.destroyAllWindows()
+```
+
+**FAQ:** +
+If you meet problem like this：
+
+image::/picture/opencv3.png[opencv3.png]
+
+replace "/usr/bin/python" by "/usr/bin/python2.7" Or use "ln -s /usr/bin/python2.7 /usr/bin/python"
+
+Forum pthread: http://forum.banana-pi.org/t/using-python-to-install-opencv-3-4x-on-banana-pi-m2p-h3/6657
+
+= Documents
+Banana Pi BPI-M2 Zero with OpenCV : https://bluexmas.tistory.com/category/OS/Banana%20Pi%20%EF%BC%8FBPI-Bit?page=2
