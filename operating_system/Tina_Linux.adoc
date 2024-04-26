@@ -70,19 +70,19 @@ Burning method is as follows:
 
 If you use Linux system，Direct use LiveSuit for flash. Method of use is as follows:
 
-1.LiveSuit we place it at tina SDK tools/aw\_tools dir
+. LiveSuit we place it at tina SDK tools/aw\_tools dir
 
-2.unzip LiveSuit 64bit version，run./LiveSuit.sh
+. unzip LiveSuit 64bit version，run./LiveSuit.sh
 
-3.LiveSuit will install at ~/Bin dir，use dpkg -i install aw driver,driver also at ~/Bin dir.
+. LiveSuit will install at ~/Bin dir，use dpkg -i install aw driver,driver also at ~/Bin dir.
 
-4.run LiveSuit，choose tina image
+. run LiveSuit，choose tina image
 
-5.Hold the BPI-M2 Ultra uboot key， insert the usb ，you can begin burn image
+. Hold the BPI-M2 Ultra uboot key， insert the usb ，you can begin burn image
 
-if use Windows system ,plsase use burn tool : phoenixsuit
+If use Windows system ,plsase use burn tool : phoenixsuit
 
-we place it at tools/aw\_tools dir
+We place it at tools/aw\_tools dir
 
 == How to configuration Tina
 
