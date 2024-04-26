@@ -147,23 +147,28 @@ link:/zh/BPI-Bit/BananaPi_BPI-Bit[香蕉派 BPI-Bit][乐鑫信息科技 ESP32 ST
 = 软件 & 开发工具
 == 嵌入式开发系统
 
-TIP: link:https://wiki.banana-pi.org/Armbian[Armbian]
+TIP: link:/en/operating_system/Armbian[Armbian]
 
-TIP: link:https://wiki.banana-pi.org/Tina_Linux[Tina Linux]
+TIP: link:/en/operating_system/Tina_Linux[Tina Linux]
 
-TIP: link:https://wiki.banana-pi.org/Mainline_Linux_uboot_2019.07[Mainline Linux uboot 2019.07]
+TIP: link:/en/operating_system/Mainline_Linux_uboot[Mainline Linux uboot 2019.07]
 
-== 开发工具
+== 教程
 
-TIP: link:https://wiki.banana-pi.org/Using_4G_module_with_BananaPi[Using 4G module with BananaPi]
+TIP: link:/en/tutorial/how_to_build_a_image_with_bsp[How_to_build_a_image_with_BSP]
 
-TIP: link:https://wiki.banana-pi.org/WiFi/AP/BT/BLE_on_BananaPi[WiFi/AP/BT/BLE on BananaPi]
+TIP: link:/en/tutorial/Docker_Environment_Configuration[Docker Environment Configuration]
 
-TIP: link:https://wiki.banana-pi.org/OpenCV_3.4x_on_BananaPi[OpenCV 3.4x on BananaPi]
+TIP: link:/en/tutorial/How_to_use_DHT_Sensor_via_BananaPi[How to use DHT Sensor via Banana Pi]
 
-TIP: link:https://wiki.banana-pi.org/How_to_bulid_a_image_with_BSP[How to bulid a image with BSP]
+TIP: link:/en/tutorial/how_to_get_the_log_information_for_BananaPi_board[How to get the log information for Banana Pi board]
 
-TIP: link:https://wiki.banana-pi.org/How_to_use_DHT_Sensor_via_banana_pi[How to use DHT Sensor via banana pi]
+TIP: link:/en/BPI-4G_module/using_4G_module_with_BananaPi[Using 4G module with BananaPi]
+
+TIP: link:/en/tutorial/WiFi_AP_BT_BLE_on_BananaPi[WiFi/AP/BT/BLE on BananaPi]
+
+TIP: link:/en/tutorial/OpenCV_3_4x_on_BananaPi[OpenCV 3.4x on BananaPi]
+
 
 == 开源社区软件源代码
 
