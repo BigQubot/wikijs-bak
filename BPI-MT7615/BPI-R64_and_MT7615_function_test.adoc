@@ -1,0 +1,80 @@
+= Test environment and software
+
+MT7615 module have support BPI-R2, BPI-R64, and We have tested the parametric performance of module 7615 in the laboratory.To achieve the optimal
+
+BPI-R64+MT7615 test wifi function with openwrt
+
+== List of items required
+. BPI-R64
+. BPI-MT7615 module
+. 12V/2A adapter
+. USB serial port line（3.3V）
+. TF card
+. 5.8GHz wifi antenna，1-4 pcs
+. Openwrt image: https://docs.banana-pi.org/en/BPI-R64/BananaPi_BPI-R64#_system_image
+
+== Environment set up
+Use tooling(windows Win32DiskImager）burn BPI-R64 openwrt image to TF card，Then insert the TF card slot；MT7615 module insert to BPI-R64 mPCIe interface CN25，connect UART debug line and wifi antenna, then power on to boot.
+
+image::/picture/7615_test_1.jpg[7615_test_1.jpg]
+
+== Configure Network
+When the boot is complete, type in the serial port : ifconfig rai0 up to boot MT7615 Then configure rai0 IP address，such as :ifconfig rai0 192.168.11.11
+
+
+image::/picture/7615_test_2.png[7615_test_2.png]
+
+image::/picture/7615_test_14.png[7615_test_14.png]
+
+
+Use PC to connect MTK_AP2 SSID，Then configure the IP manually
+
+image::/picture/7615_test_3.jpg[7615_test_3.jpg]
+
+
+= Performance test
+Since there is only one antenna for wifi, the connection speed is only 433Mbps. During the test, there are no walls or other barriers between the notebook and MT7615, and MT7615 is in the channel with less interference.
+
+image::/picture/7615_test_4.png[7615_test_4.png]
+
+== 0.5 meter distance test
+Distance 0.5 m test: MT7615 distance 0.5 m from laptop 5.1.1.signal strength
+
+image::/picture/7615_test_5.jpg[7615_test_5.jpg]
+
+Iperf speed test
+
+image::/picture/7615_test_6.jpg[7615_test_6.jpg]
+
+== 5 speed distance test
+Signal strength
+
+image::/picture/7615_test_7.jpg[7615_test_7.jpg]
+
+Iperf speed test
+
+image::/picture/7615_test_8.png[7615_test_8.png]
+
+== 10 speed distance test
+Signal strength
+
+image::/picture/7615_test_9.jpg[7615_test_9.jpg]
+
+Iperf speed test
+
+image::/picture/7615_test_10.jpg[7615_test_10.jpg]
+
+= Power consumption testing
+The dc power supply is set to 12V output
+
+When BPI-R64 power，330mA
+
+image::/picture/7615_test_11.jpg[7615_test_11.jpg]
+
+When open MT7615 anc pc connect wifi，390mA
+
+image::/picture/7615_test_12.jpg[7615_test_12.jpg]
+
+When iperf test speed，480mA
+
+image::/picture/7615_test_13.jpg[7615_test_13.jpg]
