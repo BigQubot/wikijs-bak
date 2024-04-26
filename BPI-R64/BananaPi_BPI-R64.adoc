@@ -97,16 +97,17 @@ image::/picture/4g_onboard.jpg[4g_onboard.jpg]
 +
 . use 4G extend module via USB port
 +
-USB 4G module : https://docs.banana-pi.org/en/4G_module_via_USB
+USB 4G module : https://docs.banana-pi.org/en/BPI-4G_module/4G_module_via_USB
 
 == BPI-MT7615 802.11 ac wifi 4x4 dual-band
 We have design a MT7615 802.11 ac wifi module ,can use on BPI-R64
 
 MT7615 is a highly integrated Wi-Fi single chip which support 1733 Mbps PHY rate,It fully compies with IEEE 802.11ac and IEEE802.11 a/b/n standards,offering feature-rich wireless connecivity at high standards,and delivering reliable,cost-effective throughput from and extended distance.
 
-link:/en/BPI-MT7615_802_11_ac_wifi_4x4_dual-band_module[BPI-MT7615 802.11 ac wifi 4x4 dual-band module]
 
-link:/en/BPI-R64_%2B_MT7615_function_test[BPI-R64 + MT7615 function test]
+link:/en/BPI-MT7615/BananaPi_MT7615[BPI-MT7615 802.11 ac wifi 4x4 dual-band module]
+
+link:/en//BPI-MT7615/BPI-R64_and_MT7615_function_test[BPI-R64 + MT7615 function test]
 
 == GPIO Pin Define
 
