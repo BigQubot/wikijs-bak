@@ -90,11 +90,12 @@ link:/en/BPI-R3/Photo_BPI-R3[Banana Pi BPI-R3 Product photo gallery]
 BPI-R3 can use Quectel EC25E minipcie-slot
 
 === SFP
-Notice:
+注意事项：
 
-The SFP serdes of R3 are fixed 2.5Gbase-X, so only SFP that support this protocol can be used.
+R3的SFP serdes是固定的2.5Gbase-X，因此只能使用支持此协议的SFP。
 
-And there is no debugging insertion detection function, so there will be no prompt when inserting any SFP module.
+而且没有调试插入检测功能，所以在插入任何SFP模块时都不会有提示。
+
 
 image::/picture/r3-sfp-1000.png[r3-sfp-1000.png]
 
@@ -105,16 +106,36 @@ The SFPs we have tested that work are as follows:
 . TP-LINK 2.5G Copper: TL-SM410U
 . TP-LINK 2.5G Optical Fiber: TL-SM411LSA-500m/TL-SM411LSA-500m
 
+
+**购买链接:** +
+**SFP 电模块：**
+
+- SINOVOIP 速卖通商店: https://www.aliexpress.com/item/3256805015251590.html?gatewayAdapt=4itemAdapt
+
+- Bipai 速卖通商店: https://www.aliexpress.com/item/3256805015329676.html?gatewayAdapt=4itemAdapt
+
+- 淘宝官方店: 
+
+**SFP 光模块：**
+
+- SINOVOIP 速卖通商店: https://www.aliexpress.com/item/3256805416517044.html?gatewayAdapt=4itemAdapt
+
+- Bipai 速卖通商店: https://www.aliexpress.com/item/3256805416773989.html?gatewayAdapt=4itemAdapt
+
+- 淘宝官方店: 
+
+
 === WIFI6e 扩展模块
 ASIA.RF AW7916-NPD:
 
-Module: WiFi6E 3000 802.11ax G-band 2T2R and A-band 3T3R 2ss Dual Bands Dual Concurrents mPCIe Card AW7916-NPD(With BPI-M.2 to mPCIe Adapter)
+模块: WiFi6E 3000 802.11ax G-band 2T2R and A-band 3T3R 2ss Dual Bands Dual Concurrents mPCIe Card AW7916-NPD(With BPI-M.2 to mPCIe Adapter)
 
-WiFi6E Module: https://asiarf.com/product/wi-fi-6e-mini-pcie-module-mt7916-aw7916-npd/
+WiFi6E 模块: https://asiarf.com/product/wi-fi-6e-mini-pcie-module-mt7916-aw7916-npd/
 
 BPI-M.2 to mPCIe Adapter:
 
-image::/picture/r3_m2-mpcie-adapter.png[r3_m2-mpcie-adapter.png]
+image::/picture/bpi-r3_wifi6_module_2.jpg[bpi-r3_wifi6_module_2.jpg]
+image::/picture/bpi-r3_wifi6_module.jpg[bpi-r3_wifi6_module.jpg]
 image::/picture/r3_7916npd_ifconfig.png[r3_7916npd_ifconfig.png]
 
 Test Items:
@@ -122,6 +143,14 @@ Test Items:
 As Client:
 
 image::/picture/r3_7916npd_client_iperf3.png[r3_7916npd_client_iperf3.png]
+
+**购买链接:** 
+
+- SINOVOIP 速卖通商店: https://www.aliexpress.com/item/3256806501559230.html?gatewayAdapt=4itemAdapt
+
+- Bipai 速卖通商店: https://www.aliexpress.com/item/3256806501611160.html?gatewayAdapt=4itemAdapt
+
+- 淘宝官方店: 
 
 = 开发
 == 软件源代码
