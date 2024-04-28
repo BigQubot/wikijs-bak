@@ -30,6 +30,15 @@ Prepare 8G/above TF card, USB-Serial interface.
 
 Using your USB-Serial Connect debug console on BPI-R3.
 
+**Debug Uart 3.3v TTL,Baud: 115200.**
+
+Default IP address for LAN port:**192.168.1.1**
+
+User name/password: **pi/bananapi ,root/bananapi**. +
+Or the user is **root without a password**.
+ 
+WIFI: **Operwrt**
+ 
 image::/picture/r3_debug_console.jpg[r3_debug_console.jpg]
 
 R3 bootstrap and device select Jumper Setting
