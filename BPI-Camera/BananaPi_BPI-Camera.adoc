@@ -1,0 +1,48 @@
+= Hardware Specification
+
+The camera V3 module is specifically designed for BPi-M3.It include two CMOS sensor module, one is OV5640(5M Pixel),and the other is OV8865(8M Pixel),so you can choose one or two campera for this board.
+
+= Hardware
+
+Camera can support 2 scene. One is OV5640 and one is OV8865
+
+== Hardware interface
+image::/picture/camera.jpg[camera.jpg]
+
+
+== Cable line
+image::/picture/600px-lcd_connect_line.jpg[600px-lcd_connect_line.jpg]
+
+
+= Schematic diagram
+image::/picture/bpi-m3_camera_sch.png[bpi-m3_camera_sch.png]
+
+
+= How to use
+Connect the camera module and BPi-M3 with a 40PIN FFC cable, like the pictures below :
+
+image::/picture/bpi-m3_camera_1.jpg[bpi-m3_camera_1.jpg]
+image::/picture/bpi-m3_camera_2.jpg[bpi-m3_camera_2.jpg]
+image::/picture/bpi-m3_camera_3.png[bpi-m3_camera_3.png]
+
+
+= BPI-M2+ support OV5640 camera module
+Note: For BPI-M2+ , camera is not same as BPI-M2,BPI-M1.... , it support OV5640 module, not need extend board. you just can direct use OV5640 modue on CSI interface.
+
+If you have BPI-M1/M1+/M2 camera module ,you can remove camera module from extend bard ,and can use on BPI-M2+.
+
+image::/picture/camera_1.jpg[camera_1.jpg]
+
+Connect way:
+
+image::/picture/camera_2.jpg[camera_2.jpg]
+
+How to use this module on BPI-M2+ : https://docs.banana-pi.org/en/BPI-M2_Plus/GettingStarted_BPI-M2_Plus#_camara_function
+
+
+= Resources
+TIP: BPI camera SCH download: https://drive.google.com/file/d/0B4PAo2nW2KfnOEFTMjZ2aEVGUVU/view?usp=sharing
+
+TIP: OV5640 datasheet download: https://drive.google.com/file/d/0B4PAo2nW2KfnbE03bldrdXdSQ1E/view?usp=sharing
+
+TIP: OV8865 datasheet download: https://drive.google.com/file/d/0B4PAo2nW2KfnUy1yOTB2YllBSGM/view?usp=sharing
