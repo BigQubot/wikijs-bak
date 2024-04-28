@@ -504,7 +504,7 @@ root@R4CN:/#
 
 == 4G 5G Module
 === M.2 4G/5G Module(USB Interface)
-BPI-R4 supports M.2 USB Interface **Quectel 4G LTE EM05, RM500U-CN ,RM500Q-GL& RM520N-GL 5G** Modules.
+BPI-R4 supports M.2 USB Interface 4G LTE/5G Modules: **Quectel  EM05, RM500U-CN ,RM500Q-GL& RM520N-GL ** 
 
 If you want to use M.2 Cellular Module on BPI-R4:
 
@@ -629,7 +629,7 @@ Theoretically, it also supports PCIe cellular modules, but it has not been teste
 
 
 === miniPCIe 4G/5G Module(USB Interface)
-BPI-R4 supports MiniPCIe USB Interface **Quectel 4G LTE Module：EC25**
+BPI-R4 supports MiniPCIe USB Interface 4G LTE Module :**Quectel EC25**
 
 If you want to use MiniPCIe Cellular Module on BPI-R4:
 
