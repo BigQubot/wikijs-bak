@@ -26,8 +26,13 @@ Wi-fi 6 has many advantages over its predecessors, including lower latency, larg
 
 . Prepare USB-Serial interface
 . Using your USB-Serial Connect debug console on BPI-R3 MINI 
-+
-WARNING: Note: Debug Uart 3.3v TTL
+
+- **Debug Uart 3.3v TTL,Baud: 115200.**
+- Default IP address for LAN port: **192.168.1.1**
+- User name/password: **pi/bananapi ,root/bananapi**. +
+ Or the user is **root without a password**.
+- WIFI: **Operwrt**
+
 +
 image::/picture/bpi-r3-mini-back.png[bpi-r3-mini-back.png]
 
@@ -267,6 +272,8 @@ If use EM05 or others,you will most likely need to modify the driver.
 . After powering on, it will automatically dial
 
 WARNING: Note: The availability of 4G/5G depends on the local carrier frequency band.
+
+image::/picture/bpi-r3_mini_cellular.jpg[bpi-r3_mini_cellular.jpg]
 
 **RM520N-GL**
 ```sh
