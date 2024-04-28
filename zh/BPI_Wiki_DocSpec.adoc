@@ -31,7 +31,7 @@ WARNING: 请严格注意图片存储路径
 image::/picture/bpi-xxxx.png[bpi-xxxx.png]
 ```
 
-= 部分编写细节
+= 编写细节
 标题::
 在文字前面加上**=和空格**即可，按等号数量来区别几级标题。
 +
@@ -123,6 +123,8 @@ IMPORTANT: 6
 设置表格各列占比，**[cols="1,1"]**
 +
 设置表格占比，**[width=50%]**
++
+NOTE: 表格中放链接，但是无法放图片。
 +
 ```
 [options="header",width=50%]
