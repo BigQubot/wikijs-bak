@@ -235,9 +235,14 @@ https://docs.banana-pi.org/en/BPI-R2_Pro/GettingStarted_BPI-R2_Pro#_build_androi
 == Prepare
 
 . Double male USB data cable for image download into EMMC
-. MicroUSB cable or usb to ttl cable if you need debug, default baudrate is 1500000.
+. MicroUSB cable or usb to ttl(3.3v) cable if you need debug, default baudrate is 1500000.
 . Windows or Linux PC.
 . Download the Linux Release Image Linux Release Image, and confirm that the md5 checksum is correct before flashing.
+
+. Default IP address for LAN port: **192.168.1.1**
+
+. User name/password: **pi/bananapi ,root/bananapi**. +
+Or the user is **root without a password**.
 
 NOTE:  Note: The below picture is for BPI-R2PRO's Debug Connecting, the blue usb cable is Double male USB data cable for image download, the white MicroUSB cable is linux serial console, please install CH340E's USB convert serial driver.
 
