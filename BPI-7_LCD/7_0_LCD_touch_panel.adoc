@@ -1,0 +1,37 @@
+= BPI 7.0 LCD touch panel
+
+This module have RGB and MIPI interface on baord ,so it support BPI-M1,BPI-M1+,BPI-M2,BPI-M3,BPI-M64，BPI-M2U，BPI-M2B,BPI-R1.
+
+
+image::/picture/touch_panle_1.jpg[touch_panle_1.jpg]
+
+= Hardware
+== Hardware interface
+Back:
+
+image::/picture/touch_pannle_3.jpg[touch_pannle_3.jpg]
+
+BPI touch panel support RGB inteface and MIPI interface
+
+image::/picture/touch.png[touch.png]
+
+Cable line
+
+image::/picture/600px-lcd_connect_line.jpg[600px-lcd_connect_line.jpg]
+
+Note:
+
+. If you use it on BPI-M1,BPI-M1+,BPI-M2，BPI-R1 please choose RGB interface 
+. If you use it on BPI-M3,please choose MIPI interface. 3. the cable line is same for RGB or MIPI interface.
+
+= How to use
+== Android
+image::/picture/touch_panel_for_android.jpg[touch_panel_for_android.jpg]
+
+== Linux
+image::/picture/touch_panel_for_linux.jpg[touch_panel_for_linux.jpg]
+
+Video demo on youtube: https://www.youtube.com/watch?v=tSqELzDR410&feature=youtu.be
+
+= How to buy
+Easy to buy sample : https://pt.aliexpress.com/item/32617771640.html?spm=a2g03.12010612.8148356.1.4ac979b9lPFssw
