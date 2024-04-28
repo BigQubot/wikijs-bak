@@ -36,7 +36,7 @@ image::/picture/r4_emmcboot.jpg[r4_emmcboot.jpg]
 
 . If the console said "system halt!", it means that the bootup storage does not cotain any OS
 +
-
+```bash
   F0: 102B 0000
   FA: 5100 0000
   FA: 5100 0000 [0200]
@@ -59,6 +59,7 @@ image::/picture/r4_emmcboot.jpg[r4_emmcboot.jpg]
   MK: 0000 0000 [0000]
   T0: 0000 00D7 [0101]
   System halt!
+```
 
 == How to burn image to SD card
 IMPORTANT: After booting the SD image using Ubuntu and Debian 6.1 kernels, the image in NAND will not start and link:/en/BPI-R4/GettingStarted_BPI-R4#_how_to_burn_image_to_onboard_nand[needs to be burned again].
@@ -839,7 +840,7 @@ You can insert the BPI-R4-NIC into CN12 and CN14 at the bottom of BPI-R4-Main, a
 
 The BPI-R4-NIC module requires 12V power supply, so the power supply on the BPI-R4-Main must be turned on before powering on (SW4 is turned to the "ON" position, and the 12V LED will lights up when power on)
 
-NOTE: The 12V power supply will be supplied to the BPI-R4-NIC through PIN6/8/48 of the miniPCI socket. When plugging in other modules, be sure to turn off SW4 if you cannot confirm whether the module can withstand 12V.
+IMPORTANT:  The 12V power supply will be supplied to the BPI-R4-NIC through PIN6/8/48 of the miniPCI socket. When plugging in other modules, be sure to turn off SW4 if you cannot confirm whether the module can withstand 12V.
 
 image::/bpi-r4/bpi-r4-minipcieslot.jpg[bpi-r4-minipcieslot.jpg]
 
