@@ -1,0 +1,74 @@
+= BPI 10.1 HDMI touch panel
+
+This module have HDMI interface on baord ,so it support BPI-M1,BPI-M1+,BPI-M2,BPI-M3,BPI-M64，BPI-M2U，BPI-M2B BPI-R1.
+
+
+image::/picture/bpi_10.1_hdmi_screen_1.jpg[bpi_10.1_hdmi_screen_1.jpg]
+
+= Hardware
+== Hardware spec
+LCD module for Banana Pi board via an conversion board to connect to the LCD connector designed specifically for interfacing to LCD.
+
+Banana pi LCD Connector :The LCD Connector is a stander Type-A HDMI connector which can connect to HDMI-TX.
+
+it support two touch panel
+
+=== 1024*600 touch panel
+[option="header",cols="2,2",width="70%"]
+|====
+2+|HardWare Specification of 10.1 HDMI panel
+|TFT LCD MODULE	|HC101TK20050
+|TP MODULE	|GT9271
+|Panel Size 	|10.1 inches
+|Resolution	|1024 (RGB) x 600
+|Display Interface	|HDMI
+|TP Interface	|USB-HID
+|Color Depth	|16.7M
+|Viewing Direction	|6 o’clock
+|Active Area(mm)	|222.72(H)x125.28(V)
+|OutlineDimension(mm)	|235(W)×143(H)×5.0( D)
+|Display Format	|RGB vertical stripe
+|Display Mode	|Normally White
+|Operation Temperature	|-20~70℃
+|Weight (g)	|TBD
+|====
+
+=== 1280*800 touch panel
+
+[option="header",cols="2,2",width="70%"]
+|====
+2+|HardWare Specification of 10.1 HDMI panel
+|TFT LCD MODULE	|HC101I35025NB
+|TP MODULE	|ILI2511
+|Panel Size 	|10.1 inches
+|Resolution	|1280 (RGB) x 800
+|Display Interface	|HDMI
+|TP Interface	|USB-HID
+|Color Depth	|16.7M
+|Viewing Direction	|6 o’clock
+|Active Area(mm)	|216.96(W) × 135.60(H)
+|OutlineDimension(mm)	|229.46(W) ×149.1(H) ×2.50(D)
+|Display Format	|RGB vertical stripe
+|Display Mode |Normally White
+|Operation Temperature	|-20~70℃
+|Weight (g)	|TBD
+|====
+
+== Hardware interface
+Back:
+
+image::/picture/bpi_10.1_hdmi_screen_2.jpg[bpi_10.1_hdmi_screen_2.jpg]
+
+BPI 10.1 touch panel support HDMI interface
+
+image::/picture/bpi_10.1_hdmi_screen_13.jpg[bpi_10.1_hdmi_screen_13.jpg]
+
+== Cable line
+image::/picture/hdmi.jpg[hdmi.jpg]
+
+= How to use
+We have finished all Banana pi boards driver , it support Android,Linux and windows.
+
+image::/picture/bpi_10.1_hdmi_screen_4.jpg[bpi_10.1_hdmi_screen_4.jpg]
+
+Banana pi BPI-10 1 HDMI touch screen demo with Linux: https://www.youtube.com/watch?v=R4OKR4vj1Ow&feature=youtu.be
