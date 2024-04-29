@@ -27,3 +27,13 @@ cd build
 ```
 
 NOTE: How to Install Armbian on an SBC - Desktop Set up: https://www.youtube.com/watch?v=pnxUctyqx4c
+
+
+  Due to the compatibility of the BPI-R4 with Qualcomm/Unisoc modules,
+  the EC25 module cannot directly access the DNS server and connect to 
+  the internet due to software differences. Therefore, manual configuration 
+  is required to modify the default.script file via serial port.
+
+---
+
+  Due to the compatibility of the BPI-R4 with Qualcomm/Unisoc modules, the EC25 module cannot directly access the DNS server and connect to the internet due to software differences. Therefore, manual configuration is required to modify the default.script file via serial port.
