@@ -641,6 +641,8 @@ If you want to use MiniPCIe Cellular Module on BPI-R4:
 
 **CN14 (SIM3) is also available**
 
+  Due to the compatibility of the BPI-R4 with Qualcomm/Unisoc modules, the EC25 module cannot directly access the DNS server and connect to the internet due to software differences. Therefore, manual configuration is required to modify the default.script file via serial port.
+
 NOTE: The availability of 4G depends on the local carrier frequency band.
 
 image::/bpi-r4/bpi-r4_ec25.png[bpi-r4_ec25.png,width=800]
