@@ -1,0 +1,72 @@
+= Overview
+
+Banana Pi BPI-M5 Pro adopts the second-generation 8nm high-performance AIOT platform Rockchip RK3576, with a 6 TOPS computing power NPU and support for up to 32GB of large memory. It supports 8K video encoding and decoding, offers rich interfaces including dual gigabit Ethernet ports, WiFi 6 & BT5, and various video outputs. Compatible with multiple operating systems, it is suitable for ARM-based PCs, edge computing devices, personal mobile internet devices, and other digital multimedia applications.
+
+== Key Parameter
+
+* SoC: Rockchip RK3576
+* CPU: Integrated with four Cortex-A72 cores @ 2.2GHz and four Cortex-A53 cores @ 1.8GHz, along with a separate NEON co-processor.
+* GPU: ARM Mali G52 MC3 GPU
+* NPU: Up to 6 TOPs computing power (INT8), supports INT4/INT8/INT16 mixed operations.
+* VPU/Encoding & Decoding:
+** Hardware Decoding: Supports H.264, H.265, VP9, AV1, and AVS2 up to 8K@30fps or 4K@120fps.
+** Hardware Encoding: Supports H.264 and H.265 up to 4K@60fps, high-quality JPEG encoder/decoder supports up to 4K@60fps.
+* RAM: 8/16GB 32-bit LPDDR4x, default is 16GB. RK3576 supports a maximum of 16GB.
+* Flash: 32/128GB eMMC, default is 128GB eMMC.
+* Operating Voltage: Wide input voltage range, from 4.5V to 23V (voltage error ±5%).
+* Operating Temperature: 0°C to 80°C
+* Operating Systems:
+** Official Rockchip Support: Android 14, Debian 11, Buildroot
+** Third-party Support: Armbian
+* PCB: 8-layer PCB board design
+* Weight: 43g
+* Dimensions: 92mm × 62mm
+
+= Hardware
+== Hardware interface
+
+== Hardware spec
+
+[options="header",cols="2,5"]
+|====
+2+| HardWare Specification of Banana Pi BPI-M5 Pro
+|Category |	Functional Parameters
+|SOC	|RockChip RK3576
+|CPU	|RK3576 Quad-core Cortex-A72@ 2.2GHz and Quad-core Cortex-A53@ 1.8GHz, 8nm process
+.3+|GPU	|ARM Mali G52 MC3 GPU
+|Fully compatible with OpenGL ES 1.1, 2.0 and 3.2, OpenCL up to 2.0 and Vulkan 1.1
+|Dedicated 2D hardware engine with MMU will maximize Improves display performance and provides very smooth operation.
+.3+|NPU	|6 TOPS@INT8
+|Supports INT4, INT8, INT16, FP16, BF16 and TF32 hybrid operations
+|Supports deep learning frameworks: TensorFlow, Caffe, Tflite, Pytorch , Onnx NNAndroid NN, etc.
+.2+|VPU/Codec	|video decoder supports H.264, H.265, VP9, AV1 and AVS2 etc. up to 8K@30fps or4K@120fps
+|video encoder supports H.264 and H.265 up to 4K@60fps, high-qualityJPEG encoder/decoder supports up to 4K@60fps
+|ISP	|1 channel ISP, 16 million pixels
+|RAM	|8GB/16GB（max 16GB ）64bit LPDDR4/LPDDR4x，default 16GB LPDDR4x
+.2+|Flash	|32GB/128GB eMMC，default 128GB eMMC
+|Supports MicroSD card expansion
+|PCIe	|1x M.2 Key M interface (PCIe 2.0, 1-lane), expandable SSD: Type 2280/2260/2242/2230, currently defaulting to 2280
+.2+|Network	|2x Gigabit Ethernet port
+|Onboard IEEE 802.11a/b/g/n/ac/ax WIFI6 and BT5 (rtl8852bs)
+.3+|Video Output	|1x HDMI OUT2.1, supports 4K@120fps
+|1x MIPI DSI, maximum resolution up to 2K@60fps
+|1x DP1.4, maximum resolution up to 4K@120fps
+|Video In	|2x 2-lane MIPI CSI, up to 2.5Gbps per lane
+.2+|Audio	|1x HDMI audio output
+|1x HP-OUT audio output
+.2+|USB Ports	|2x USB2.0, supports High-Speed (480Mbps), Full-Speed (12Mbps), and Low-Speed (1.5Mbps) modes
+|1x USB Type-C 2.0, supports OTG, supports high-speed (480Mbps), full-speed (12Mbps) and low-speed (1.5Mbps) modes
+.2+|40-pin	|Compatible with Raspberry Pi 40-pin GPIO, supports various accessory peripherals
+|Supports UART/SPI/I2C/I2S/PWM/5V Power/3.3V Power
+.3+|Other	|1x 5V fan interface
+|1x battery connector for low power RTC chip LK8563S
+|2x LEDs - green LED blinks on system start, red LED user controllable
+|Power Input	|USB Type-C PD 2.0, 9V/2A, 12V/2A, 15V/2A
+.3+|Buttons	|1x PWRON button for sleep/wake
+|1x Reset button for reboot
+|1x Maskrom button for maskrom burn-in mode
+.2+|OS Support	|Official：Android 14.0，Debian11，Buildroot
+|3rd Party：Armbian
+|Dimensions	|92 mm x 62mm
+|Operating temperature|0℃ ~ 80℃
+|====
