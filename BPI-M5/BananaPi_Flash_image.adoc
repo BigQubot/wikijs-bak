@@ -1,0 +1,37 @@
+The Rockchip chip IC system images of the Banana Pi series products include a variety of root file systems. We can choose the corresponding image to download according to our needs.
+
+NOTE: The system image includes the linux kernel, basic programs, etc., and is necessary to run Banana Pi series products, so we need to install the image for the product before running the product.
+
+= Obtain system image
+
+Visit the Google Drive resource introduction page to obtain the system image 
+link: https://drive.google.com/drive/folders/1aCoC6-5zoMaNBGwwgr_pYIs219aFijFM[Google Drive link]
+
+TIP:  1.The default account/password of the official image is armsom/armsom.
+
+TIP: 2. The Debian system is a system compiled using the SDK officially provided by RK. It is more suitable for users with ISP, GPU, codec, and NPU requirements. Use RKDevTool to burn to eMMC, or use SDDiskTool to burn to SD card.
+
+TIP: Ubuntu, Armbian, Openwrt are more choices provided by ArmSoM for open source enthusiasts.
+
+= Burn Ubuntu, Armbian, Openwrt system
+
+== Burn card reader to microSD
+
+Flash the operating system image to microSD via Etcher
+
+This method is suitable for burning the system to the SD card, and is available for Windows, MacOS, and Linux x64 operating systems.
+
+PREPARATION:
+
+ 1. A microSD card
+ 2. An SD card reader
+ 3. Download the Ubuntu / Armbian / Openwrt system image of the corresponding product
+ 4. Insert the SD card into the SD card reader, and then insert the SD card reader into the USB port of the computer
+ 
+Flash the operating system image to microSD via Etcher
+
+* Download balenaEtcher from balena official website and select the specified host system to download. The program format of Linux here is AppImage.
+* Insert the MicroSD card to be burned into the MicroSD card reader
+* Open the etcher window, first select Flash from file, find your image download location, and double-click to select it.
+
+
