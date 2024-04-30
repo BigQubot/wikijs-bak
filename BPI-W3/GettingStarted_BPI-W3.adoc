@@ -6,19 +6,22 @@ TIP: More Infomation: link:/en/BPI-W3/BananaPi_BPI-W3[Banana Pi BPI-W3]
 
 = Development Prepare
 
-Before starting to use your ArmSoM-W3 get the following items ready:
-
-- BPI-W3
-- Power supply（choose one of three）:
-+
---
-12 volt @2/3A via DC Power 
-
-USB C PD Charger (15W & above) 
-
-12 volt PoE
---
-- If you wish to boot from sd card：MicroSD Card/TF Card: Class 10 or Above, minimum 8GB SDHC
+== Tool Preparation
+* BPI-W3 main board
+* Power supply (choose one of three)
+** USB Type-C PD 2.0 supporting 9V/2A, 12V/2A, 15V/2A and 20V/2A
+** DC 12V adapter, 2.5mm
+** PoE 12V
+* System installation (choose one of two)
+** MicroSD /TF card boot
+*** MicroSD card/TF card, Class 10 or above, at least 8GB SDHC, and card reader
+*** Here are some high speed TF cards tested and verified by the ArmSoM team:
+**** SanDisk 32GB TF (MicroSD) (developer recommended)
+**** SanDisk 32GB TF (MicroSD) Car Recorder & Security Monitoring Special Storage Card (recommended for long-term operation)
+**** Sandisk TF 8G Class10 microSD
+**** Sandisk TF 128G Class10 microSD XC TF 128G 48MB/S
+** Onboard eMMC boot
+*** USB A to C data cable, to write images to the ArmSoM-W3 eMMC or use fastboot/adb commands over the type C port. You need a USB A to type C data cable connecting the ArmSoM-W3 and PC.
 
 = Burn image
 
