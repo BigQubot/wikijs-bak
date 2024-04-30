@@ -89,7 +89,101 @@ image::/bpi-f3/bpi-f3_sch.png[bpi-f3_sch.png]
 
 == GPIO Pin Define
 
+=== 26 PIN GPIO
+[options="header",cols="1,3,3,1"]
+|====
+|PIN|Function|Function|PIN
+|1 |VCC3V3_SYS |VCC5V0_OUT |2
+|3 |AP_I2C4_SDA_3V3 |VCC5V0_OUT |4
+|5 |AP_I2C4_SCL_3V3 |GND |6
+|7 |GPIO_70_3V3 |R_UART0_TXD_3V3 |8
+|9 |GND |R_UART0_RXD_3V3 |10
+|11 |GPIO_71_3V3 |GPIO_74_3V3 |12
+|13 |GPIO_72_3V3 |GND |14
+|15 |GPIO_73_3V3 |GPIO_91_3V3 |16
+|17 |VCC3V3_SYS |GPIO_92_3V3 |18
+|19 |SPI3_MOSI_3V3 |GND |20
+|21 |SPI3_MISO_3V3 |GPIO_49_3V3 |22
+|23 |SPI3_SCLK_3V3 |SPI3_CS_3V3 |24
+|25 |GND |GPIO_50_3V3 |2
+|====
 
+=== MIPI DSI screen connection socket
+Holding a 1080P screen (JL-M101N013-P12WU-M402632), the screen socket model is FH35C-31S-0.3SHW (50)
+
+[options="header",cols="1,4,4,1"]
+|====
+|PIN|Function|Function|PIN
+|1 |MIPI_DSI1_LANE0_DN |MIPI_DSI1_LANE0_DP |2
+|3 |GND |MIPI_DSI1_LANE1_DN |4
+|5 |MIPI_DSI1_LANE1_DP |GND |6
+|7 |MIPI_DSI1_CLK_N |MIPI_DSI1_CLK_P |8
+|9 |GND |MIPI_DSI1_LANE2_DN |10
+|11 |MIPI_DSI1_LANE2_DP |GND |12
+|13 |MIPI_DSI1_LANE3_DN |MIPI_DSI1_LANE3_DP |14
+|15 |GND |MIPI_LCD_ADC_1V8 |16
+|17 |LCD_PWR_EN_1V8 |LCD_RST_1V8 |18
+|19 |LCD_BL_EN_1V8 |LCD_BL_PWM_1V8 |20
+|21 |GND |TP_INT_1V8 |22
+|23 |TP_RST_1V8 |AP_I2C6_SCL |24
+|25 |AP_I2C6_SDA |LCD_VCC18 |26
+|27 |GND |GND |28
+|29 |LCD_VCC5V0 |LCD_VCC5V0 |30
+|31 |LCD_VCC5V0||
+|====
+
+=== Camera module base
+
+By default, it supports a 16M camera module, which can be modified
+After blocking the configuration, hold the 8M camera module and adopt a uniform spacing
+0.4mm 30 pin socket (model QG1330421Y-M08-7H).
+
+**16M camera：**
+[options="header",cols="1,3,3,1"]
+|====
+|PIN|Function|Function|PIN
+|1 |GND |GND |2
+|3 |GND |FS_DUALCAM |4
+|5 |CAM_MCLK0 |GND |6
+|7 |GND |CAMERA0_RST |8
+|9 |MIPI_CSI1_DN0 |CAMERA0_PDN |10
+|11 |MIPI_CSI1_DP0 |CAM_I2C0_SDA |12
+|13 |GND |CAM_I2C0_SCL |14
+|15 |MIPI_CSI1_CLKN |CSI_DVDD12 |16
+|17 |MIPI_CSI1_CLKP |CSI_VCCIO18 |18
+|19 |GND |GND |20
+|21 |MIPI_CSI1_DN1 |CSI_AVDD28 |22
+|23 |MIPI_CSI1_DP1 |CSI_AFVCC28 |24
+|25 |GND |GND |26
+|27 |MIPI_CSI1_DN2 |MIPI_CSI1_DP3 |28
+|29 |MIPI_CSI1_DP2 |MIPI_CSI1_DN3 |30
+|====
+
+**8M camera:**
+[options="header",cols="1,3,3,1"]
+|====
+|PIN|Function|Function|PIN
+|1 |MIPI_CSI3_DP3 |CAM_MCLK1 |2
+|3 |MIPI_CSI3_DN3 |CAMERA1_RST |4
+|5 |GND |CAMERA1_PDN |6
+|7 |MIPI_CSI3_DP2 |GND |8
+|9 |MIPI_CSI3_DN2 |CAM_I2C1_SDA |10
+|11 |GND |CAM_I2C1_SCL |12
+|13 |MIPI_CSI3_DP1 |GND |14
+|15 |MIPI_CSI3_DN1 |CSI_VCCIO18 |16
+|17 |GND |CSI_AVDD28 |18
+|19 |MIPI_CSI3_CLKP |CSI_AFVCC28 |20
+|21 |MIPI_CSI3_CLKN |CSI_DVDD12 |22
+|23 |GND |FLASH_LED0+ |24
+|25 |MIPI_CSI3_DP0 |FLASH_LED1+ |26
+|27 |MIPI_CSI3_DN0 |GND |28
+|29 |GND |GND |30
+|====
+
+== POE support
+We design PoE function for BPI-R64 ,so easy to add PoE module to support PoE function.After welding the POE module, it is powered by the RJ45-2 interface.
+
+image::/bpi-f3/bpi-f3_poe_power_supply.jpg[bpi-f3_poe_power_supply.jpg]
 
 = Development
 
