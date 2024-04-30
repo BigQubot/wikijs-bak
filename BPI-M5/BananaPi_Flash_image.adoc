@@ -17,7 +17,7 @@ TIP: Ubuntu, Armbian, Openwrt are more choices provided by ArmSoM for open sourc
 
 == Burn card reader to microSD
 
-Flash the operating system image to microSD via Etcher
+=== Flash the operating system image to microSD via Etcher
 
 This method is suitable for burning the system to the SD card, and is available for Windows, MacOS, and Linux x64 operating systems.
 
@@ -28,10 +28,76 @@ PREPARATION:
  3. Download the Ubuntu / Armbian / Openwrt system image of the corresponding product
  4. Insert the SD card into the SD card reader, and then insert the SD card reader into the USB port of the computer
  
-Flash the operating system image to microSD via Etcher
+=== Flash the operating system image to microSD via Etcher
 
-* Download balenaEtcher from balena official website and select the specified host system to download. The program format of Linux here is AppImage.
+* Download balenaEtcher from link: https://etcher.balena.io/[balena official website] and select the specified host system to download. The program format of Linux here is AppImage.
 * Insert the MicroSD card to be burned into the MicroSD card reader
 * Open the etcher window, first select Flash from file, find your image download location, and double-click to select it.
 
+image::/bpi-m5pro/flash_imae_1.png[flash_imae_1.png]
 
+* Then click Select target and select the MicroSD card you want to burn.
+* Click Flash, wait for the burning to be successful, it will take some time.
+* If the burning is successful, it will be displayed as shown in the figure.
+
+image::/bpi-m5pro/flash_imae_2.png[flash_imae_2.png]
+
+NOTE: BURNING FAILED
+ 1. The windows burning image needs to be "run as administrator". Some Linux users may need to modify it to run as executable through the chmod command.
+ 2. If there is an error in flashing the operating system image, please try again.
+ 
+=== Flash the operating system image to microSD via Win32DiskImager
+
+* link:https://win32diskimager.org/[Download] Flash tool Win32DiskImager
+* Open Win32DiskImager
+* Click the folder icon button and select the image you want to flash
+* After completing the above operations, click the Write button to start flashing the image, and then wait for the writing of the image to complete.
+
+== USB cable burning to eMMC
+
+=== Tool acquisition and installation
+
+Burning the image to eMMC requires the use of RKDevTool burning tool and RK Driver Assistant (DriverAssitant)
+
+Click to enter the link: link:https://drive.google.com/drive/folders/1xobYSZsGutYoqUHfN6SUJeQGqvtlfkmF[google drive link]
+
+image::/bpi-m5pro/google-flash-tool.png[google-flash-tool.png]
+
+=== Install DriverAssitant
+
+Unzip the DriverAssitant software compressed package and double-click DriverInstall.exe to enter the driver installation interface.
+
+Click Driver Installation to start installing the driver. If you are not sure whether an older version of the driver has been installed before, first click Driver Uninstall to remove the old version of the driver, and then click Driver Installation.
+
+image::/bpi-m5pro/install-driver-assitant.png[install-driver-assitant.png]
+
+=== Install RKDevTool
+Rockchip's dedicated USB burning tool, Windows platform, can use the USB interface to download the system image to the product.
+
+After decompressing the compressed package, you can use it without installation. Double-click RKDevTool.exe to enter the software interface.
+
+The software mainly has three parts, namely downloading the image (the image can be burned according to the address), upgrading the firmware and advanced functions.
+
+=== Burning image in MASKROM/Loader mode
+This mode is suitable for products that have not been burned into the system or the burned system is damaged and cannot run (adaptable to all conditions)
+
+We open the RKDevTool burning tool and set the product to enter burning mode.
+
+Please refer to the relevant instructions of the product to operate. The methods of entering Maskrom mode for different products are basically the same.
+
+1. Prepare Type-C cable for image burning
+2. Disconnect all connections that may provide power to the product, such as power cords, USB cables, etc.
+3. Use a Type-C cable to connect one end to the product's OTG interface and the other end to the computer's USB interface, then open the software RKDevTool
+4. Press and hold the MASKROM/Recovery button, and then use DC to power the product
+5. Wait for the software prompt to find a MASKROM/LOADER device (as shown in the picture below), then release the button
+6. If unsuccessful, repeat steps 2-5.
+
+Start burning the system
+
+image::/bpi-m5pro/rkdevtool-install-emmc.png[rkdevtool-install-emmc.png]
+
+* 1.Select the Download Image item
+* 2.Confirm that the board has entered Maskrom mode
+* 3.Click on a blank cell to select the MiniLoaderAll and Image files to be used. The corresponding MiniLoaderAll and Image are stored in google drive.
+* 4.Select the target medium EMMC in the Storage option, select Force writing by address, and click Execute.
+* 5.Wait for the writing to complete, and then the device will automatically restart, as shown on the right side of the picture above Download image OK
