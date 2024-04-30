@@ -3,3 +3,41 @@
 Banana Pi BPI-M5 Pro adopts the second-generation 8nm high-performance AIOT platform Rockchip RK3576, with a 6 TOPS computing power NPU and support for up to 32GB of large memory. It supports 8K video encoding and decoding, offers rich interfaces including dual gigabit Ethernet ports, WiFi 6 & BT5, and various video outputs. Compatible with multiple operating systems, it is suitable for ARM-based PCs, edge computing devices, personal mobile internet devices, and other digital multimedia applications.
 
 TIP: More Infomation: link:/en/BPI-M5/BananaPi_BPI-M5-Pro[Banana Pi BPI-M5 Pro]
+
+= Prepare 
+
+== Tool Preparation
+
+* Banana Pi BPI-M5 Pro mainboard
+* Power supply: USB Type-C PD
+** Supports 9V/2A, 12V/2A, 15V/2A
+* System installation (choose one):
+** MicroSD card/TF card boot
+*** MicroSD card/TF card, Class 10 or above, at least 8GB SDHC, and a card reader
+*** The following are high-speed TF cards verified and tested by the ArmSoM team:
+**** SanDisk 32GB TF (MicroSD) (recommended for developers)
+**** SanDisk 32GB TF (MicroSD) for dashcams & surveillance cameras (recommended for long-term use)
+**** SanDisk TF 8G Class10 microSD
+**** SanDisk TF 128G Class10 microSD XC TF 128G 48MB/S
+* Onboard eMMC boot
+** USB Type-C data cable, to write the image from the type-C port on sige5, you need a Type-C data cable to connect sige5 and PC.
+
+== Optional Accessories
+
+* USB keyboard and mouse
+* HDMI monitor and HDMI cable
+** BPI-M5 Pro comes with a full-size HDMI port, supporting up to 8K@60 display.
+** HDMI EDID is used to determine the optimal display resolution. On monitors and TVs that support 1080p (or 4K/8K), this resolution will be chosen. If 1080p is not supported, EDID will find the next available resolution.
+* Ethernet cable (network cable)
+** BPI-M5 Pro supports Ethernet networking, with a maximum of 2.5Gb.
+** The network cable is used to connect sige5 to the local network and the Internet.
+* Camera module
+** BPI-M5 Pro supports camera function.
+** It is recommended to use the imx415 module, which can be purchased from the official store on Taobao.
+* LCD display
+** BPI-M5 Pro supports LCD display function.
+** It is recommended to use the Display 10.1 HD, which can be purchased from the official store on Taobao.
+* Audio cable
+** A 0.8mm vertical socket can be used.
+* USB-A to USB-C data cable
+
