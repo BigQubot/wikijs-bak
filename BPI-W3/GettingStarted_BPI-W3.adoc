@@ -462,52 +462,6 @@ root@linaro-alip:~# date
 root@linaro-alip:~# hwclock -w
 ```
 
-== Audio
-. View sound cards in the system.
-+
-```sh
-root@linaro-alip:/# aplay -l
-**** List of PLAYBACK Hardware Devices ****
-card 0: rockchipdp0 [rockchip,dp0], device 0: rockchip,dp0 spdif-hifi-0 [rockchip,dp0 spdif-hifi-0]
- Subdevices: 1/1
- Subdevice #0: subdevice #0
-card 1: rockchipes8316 [rockchip-es8316], device 0: fe470000.i2s-ES8316 HiFi es8316.7-0011-0 [fe470000.i2s-ES8316 HiFi es8316.7-0011-0]
-  Subdevices: 1/1
-  Subdevice #0: subdevice #0
-card 3: rockchiphdmi0 [rockchip-hdmi0], device 0: rockchip-hdmi0 i2s-hifi-0 [rockchip-hdmi0 i2s-hifi-0]
-  Subdevices: 1/1
-  Subdevice #0: subdevice #0
-card 4: rockchiphdmi1 [rockchip-hdmi1], device 0: rockchip-hdmi1 i2s-hifi-0 [rockchip-hdmi1 i2s-hifi-0]
-  Subdevices: 1/1
-  Subdevice #0: subdevice #0
-```
-. Specify the sound card to play audio fiile.
-+
-```sh
-aplay -D hw:0,0 /mnt/test.wav
-```
-
-== Overlays
-The device tree Overlays make it possible to support multiple hardware configurations with a single kernel, without the need to explicitly load or mask kernel modules.
-
-=== Ubuntu 22.04 Mirror Enable Overlay
-The path for storing the overlay file of Ubuntu 22.04 image on the board side is:**/boot/firmware/dtbs/rockchip/overlay/*.dtbo**
-
-Find the keyword "**overlays=**" in the **/boot/firmware/ubuntuEnv.txt** file. The following is an example of using two overlay layers for BPI-W3.
-```sh
-overlays=bananapi-w3-camera-imx415-4k bananapi-w3-display-mipi-dsi
-```
-After editing, restart the device to change the overlay settings.
-
-=== Armbian Mirror Enable Overlay
-The path for storing the overlay file of Armbian image on the board side is:**/boot/dtbs/rockchip/overlay/*.dtbo**
-
-Find the keyword "**overlays=**" in the **/boot/armbianEnv.txt** file. The following is an example of using two overlay layers for BPI-W3.
-```sh
-overlays=bananapi-w3-camera-imx415-4k bananapi-w3-display-mipi-dsi
-```
-After editing, restart the device to change the overlay settings.
-
 = Others
 == NPU usage
 
