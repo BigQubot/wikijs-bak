@@ -23,6 +23,27 @@ TIP: More Infomation: link:/en/BPI-W3/BananaPi_BPI-W3[Banana Pi BPI-W3]
 ** Onboard eMMC boot
 *** USB A to C data cable, to write images to the ArmSoM-W3 eMMC or use fastboot/adb commands over the type C port. You need a USB A to type C data cable connecting the ArmSoM-W3 and PC.
 
+== Optional Accessories
+* USB keyboard & mouse
+* HDMI display and HDMI cable
+** The BPI-W3 is equipped with a full-size HDMI port, with maximum support for 8K@60 display.
+** HDMI EDID is used to determine the best display resolution. This resolution will be selected on displays and TVs that support 1080p (or 4K/8K). If not for 1080p, EDID will find the next available resolution.
+* Ethernet cable
+** The BPI-W3 supports ethernet internet access, up to 2.5G.
+** The network cable is used to connect the BPI-W3 to the local network and internet.
+* Camera module
+** The BPI-W3 supports camera capabilities.
+** It is recommended to use the imx415 module, available through the Baanana Pi Official store.
+* LCD display
+** The BPI-W3 supports LCD display capabilities.
+** It is recommended to use the Display 10.1 HD, available through the Official store.
+* Audio cable
+** Standard 3.5mm jack can be used to play audio via speakers or headphones.
+* WiFi/Bluetooth card
+** supports common wireless modules on the market, please check the Wireless section of the supported list.
+** It is recommended to use RTL8852be, AP6256
+* USB-A to USB-C data cable
+
 = Burn image
 
 TIP: Choosing the Burning Method : link:/en/BPI-M5/BananaPi_Flash_image[Rockchip chip Flash System Image]
