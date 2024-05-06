@@ -196,15 +196,15 @@ After connecting to the MINI PCIE interface and inserting the SIM card, it can b
 
 == Source Code
 
-=== Armbian BSP Source Code
+=== Linux BSP Source Code
 
-https://github.com/BPI-SINOVOIP/pi-opensbi/tree/v1.3-k1
+TIP: https://github.com/BPI-SINOVOIP/pi-opensbi/tree/v1.3-k1
 
-https://github.com/BPI-SINOVOIP/pi-u-boot/tree/v2022.10-k1
+TIP: u-booy: https://github.com/BPI-SINOVOIP/pi-u-boot/tree/v2022.10-k1
 
-https://github.com/BPI-SINOVOIP/pi-linux/tree/linux-6.1.15-k1
+TIP: https://github.com/BPI-SINOVOIP/pi-linux/tree/linux-6.1.15-k1
 
-https://github.com/BPI-SINOVOIP/armbian-build/tree/v24.04.30
+TIP: Armbian: https://github.com/BPI-SINOVOIP/armbian-build/tree/v24.04.30
 
 == Resources
 
@@ -217,10 +217,25 @@ TIP: BPI-F3 run visual AI+ large models simultaneously:
 https://www.youtube.com/watch?v=Kn7GYiOxato
 
 = System Image
+== Tools
+
+
 
 == Linux
 
+=== Official image
+NOTE: 2024-4-30 release,bianbu 23.10 image
 
+Google Drive: https://drive.google.com/drive/folders/1H9sx6_5dUsZfkoZk0hY-4KWto2hpUrme
+
+Baidu Cloud: https://pan.baidu.com/s/14I8K7Mj90z5R4Rsset0mEw?pwd=8888 pincode:8888
+
+=== Armbian
+NOTE: 2024-04-30-Armbian-unofficial_24.5.0-trunk_Bananapi-F3
+
+Google Drive: https://drive.google.com/drive/folders/1H9sx6_5dUsZfkoZk0hY-4KWto2hpUrme
+
+Baidu Cloud: https://pan.baidu.com/s/14I8K7Mj90z5R4Rsset0mEw?pwd=8888 pincode:8888
 
 = FAQ
 
