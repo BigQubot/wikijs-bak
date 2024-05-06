@@ -66,18 +66,7 @@ image::/picture/bpi-f3_tianflasher_4.png[bpi-f3_tianflasher_4.png]
 . Burn completed, power on again.
 
 = Other Development
-== NetWork
-=== GMAC
-. ifconfig -c
-
-
-. ifconfig -u -c
-
-
-. ifconfig -r
-
-
-=== WiFi/BT
+== WiFi/BT
 **You have two ways to setup WiFi**
 
 . Use UI interface to setup WiFi
