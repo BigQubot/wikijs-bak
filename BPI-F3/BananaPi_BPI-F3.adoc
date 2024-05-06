@@ -196,9 +196,15 @@ After connecting to the MINI PCIE interface and inserting the SIM card, it can b
 
 == Source Code
 
-=== Linux BSP Source Code
+=== Armbian BSP Source Code
 
+https://github.com/BPI-SINOVOIP/pi-opensbi/tree/v1.3-k1
 
+https://github.com/BPI-SINOVOIP/pi-u-boot/tree/v2022.10-k1
+
+https://github.com/BPI-SINOVOIP/pi-linux/tree/linux-6.1.15-k1
+
+https://github.com/BPI-SINOVOIP/armbian-build/tree/v24.04.30
 
 == Resources
 
