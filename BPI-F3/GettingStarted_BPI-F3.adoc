@@ -20,6 +20,8 @@ link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by 
 
 image::/picture/etcher.jpg[etcher.jpg]
 
+NOTE: Remember to connect to the HDMI screen when starting, and then create your own account.
+
 == Install Image to eMMC 1
 **Install driver software**
 
@@ -67,7 +69,7 @@ image::/picture/bpi-f3_tianflasher_4.png[bpi-f3_tianflasher_4.png]
 
 == Install Image to eMMC 2
 
-In addition to using titantool, you can also use the dd command to burn the image to emmc.
+NOTE: In addition to using titantools, you can also use the dd command to burn the image to emmc.
 
 . Firstly, insert the SD card that has been burned into the image into F3 and power it on to start.
 . Copy the image to a USB drive and insert F3.(Taking “**bianbu-23.10-nas-k1-v1.0rc1-release-20240429192450.img**“ as an example)
