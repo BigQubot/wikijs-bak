@@ -8,10 +8,10 @@ TIP: More Infomation: link:/en/BPI-F3/BananaPi_BPI-F3[Banana Pi BPI-F3 Main Page
 == Prepare
 . Prepare a TTL cable, a 12V PD power supply, USB cable, and a minimum of 8G TF card.
 . Please link:/en/BPI-F3/BananaPi_BPI-F3#_system_image[download] the SD and EMMC images to be burned.
-. Please note that the image ending with "**img. zip**" is the **SD card image**, while the image ending with "**. zip**" is the **EMMC image**. **Please do not make the wrong selection when burning.**
+. Please note that the image ending with "**bianbu-k1-xxx.img.zip**" is the **SD card image**, while the image ending with "**bianbu-k1-xxx.zip**" is the **EMMC image**. **Please do not make the wrong selection when burning.**
 
 == Install Image to SDcard
-WARNING: Please select the image ending in "**.img.zip**" for **Bianbu**. Don't choose the wrong one! +
+WARNING: Please select the image ending in "**bianbu-k1-xxx.img.zip**" for **Bianbu**. Don't choose the wrong one! +
 The **Armbian** image currently only supports SD card startup.
 
 link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
@@ -25,7 +25,7 @@ image::/picture/etcher.jpg[etcher.jpg]
 NOTE: Remember to connect to the HDMI screen when starting, and then create your own account.
 
 == Install Image to eMMC 1
-WARNING: Please select the image ending in "**.zip**" for **Bianbu**. Don't choose the wrong one! +
+WARNING: Please select the image ending in "**bianbu-k1-xxx.zip**" for **Bianbu**. Don't choose the wrong one! +
 The **Armbian** image currently only supports SD card startup.
 
 **Install driver software**
