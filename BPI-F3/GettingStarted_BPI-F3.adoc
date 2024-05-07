@@ -11,7 +11,7 @@ TIP: More Infomation: link:/en/BPI-F3/BananaPi_BPI-F3[Banana Pi BPI-F3 Main Page
 . Please note that the image ending with "**img. zip**" is the **SD card image**, while the image ending with "**. zip**" is the **EMMC image**. **Please do not make the wrong selection when burning.**
 
 == Install Image to SDcard
-WARNING: Please select the image ending in "**.img. zip**" for **bianbu**. Don't choose the wrong one! +
+WARNING: Please select the image ending in "**.img.zip**" for **Bianbu**. Don't choose the wrong one! +
 The **Armbian** image currently only supports SD card startup.
 
 link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
@@ -25,7 +25,7 @@ image::/picture/etcher.jpg[etcher.jpg]
 NOTE: Remember to connect to the HDMI screen when starting, and then create your own account.
 
 == Install Image to eMMC 1
-WARNING: Please select the image ending in "**. zip**" for **bianbu**. Don't choose the wrong one! +
+WARNING: Please select the image ending in "**.zip**" for **Bianbu**. Don't choose the wrong one! +
 The **Armbian** image currently only supports SD card startup.
 
 **Install driver software**
@@ -73,7 +73,7 @@ image::/picture/bpi-f3_tianflasher_4.png[bpi-f3_tianflasher_4.png]
 . Burn completed, power on again.
 
 == Install Image to eMMC 2
-WARNING: Please select the image ending in "**. zip**" for **bianbu**. Don't choose the wrong one! +
+WARNING: Please select the image ending in "**.zip**" for **Bianbu**. Don't choose the wrong one! +
 The **Armbian** image currently only supports SD card startup.
 
 NOTE: In addition to using titantools, you can also use the dd command to burn the image to emmc.
