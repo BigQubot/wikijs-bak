@@ -80,13 +80,6 @@ pi@k1:~$ lsblk
 NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
 sda           8:0    1 14.8G  0 disk
 └─sda1        8:1    1 14.8G  0 part
-mmcblk2     179:0    0 14.6G  0 disk
-├─mmcblk2p1 179:1    0  256K  0 part
-├─mmcblk2p2 179:2    0  128K  0 part
-├─mmcblk2p3 179:3    0  384K  0 part
-├─mmcblk2p4 179:4    0    2M  0 part
-├─mmcblk2p5 179:5    0  256M  0 part
-└─mmcblk2p6 179:6    0 14.3G  0 part
 mmcblk0     179:8    0 14.8G  0 disk
 ├─mmcblk0p1 179:9    0  256K  0 part
 ├─mmcblk0p2 179:10   0  128K  0 part
@@ -94,6 +87,7 @@ mmcblk0     179:8    0 14.8G  0 disk
 ├─mmcblk0p4 179:12   0    2M  0 part
 ├─mmcblk0p5 179:13   0  256M  0 part
 └─mmcblk0p6 179:14   0    8G  0 part /
+mmcblk2     179:8    0 14.6G  0 disk
 ```
 "sda1" refers to a USB drive, "mmcblk0" refers to an SD card, and "mmcblk2" refers to an EMMC.
 . Mount the USB drive to mnt first.
