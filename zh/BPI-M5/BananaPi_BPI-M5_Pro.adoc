@@ -1,0 +1,33 @@
+= 概述
+
+Banana Pi BPI-M5 Pro采用第二代8nm高性能AIOT平台瑞芯微RK3576，拥有6 TOPS算力NPU，支持最高32GB大内存。支持8K视频编解码，提供双千兆网口、WiFi 6 & BT5、多种视频输出等丰富接口。兼容多种操作系统，适用于基于ARM的PC、边缘计算设备、个人移动互联网设备和其他数字多媒体应用。
+
+image::/bpi-m5pro/banana_pi_bpi-m5_pro_1.jpg[banana_pi_bpi-m5_pro_1.jpg]
+
+== 关键参数
+
+* 芯片：瑞芯微RK3576
+* CPU：集成四个 Cortex-A72 内核 @ 2.2GHz 和四个 Cortex-A53 内核 @ 1.8GHz，以及一个单独的 NEON 协处理器。
+* GPU：ARM Mali G52 MC3 GPU
+* NPU：高达6TOPs算力（INT8），支持INT4/INT8/INT16混合运算。
+* VPU/编码和解码：
+** 硬件解码：支持 H.264、H.265、VP9、AV1 和 AVS2，最高可达 8K@30fps 或 4K@120fps。
+** 硬件编码：支持H.264和H.265最高4K@60fps，高质量JPEG编码器/解码器最高支持4K@60fps。
+* RAM：8/16GB 32 位 LPDDR4x，默认为 16GB。 RK3576最大支持16GB。
+* 闪存：32/128GB eMMC，默认为128GB eMMC。
+* 工作电压：宽输入电压范围，从4.5V到23V（电压误差±5%）。
+* 工作温度：0°C 至 80°C
+* 操作系统：
+** 瑞芯微官方支持：Android 14、Debian 11、Buildroot
+** 第三方支持：Armbian
+* PCB：8层PCB板设计
+* 重量：43克
+* 尺寸：92mm×62mm
+
+== RK3576 芯片框架图
+
+image::/bpi-m5pro/rk3576_chip.png[rk3576_chip.png]
+
+= 快速上手
+
+TIP: link:/en/BPI-M5/GettingStarted_BPI-M5_Pro[Getting Started BPI-M5 Pro]
