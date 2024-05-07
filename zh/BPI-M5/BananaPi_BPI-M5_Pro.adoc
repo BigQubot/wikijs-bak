@@ -42,4 +42,57 @@ image::/bpi-m5pro/banana_pi_bpi-m5_pro_interface.jpg[banana_pi_bpi-m5_pro_interf
 link:/en/BPI-M5/Photo_BPI-M5_Pro[香蕉派 BPI-M5 Pro 产品图集]
 
 == 硬件规格
+[options="header",cols="1,4"]
+|====
+2+| Banana Pi BPI-M5 Pro 硬件规格
+|Category |	Functional Parameters
+| 类别 |功能参数
+|SOC主控 |瑞芯微RK3576
+|CPU处理器|RK3576 四核 Cortex-A72@ 2.2GHz 和四核 Cortex-A53@ 1.8GHz，8nm 工艺
+.3+|GPU图形处理器
+|ARM Mali G52 MC3 GPU
+|完全兼容 OpenGL ES 1.1、2.0 和 3.2、OpenCL 高达 2.0 和 Vulkan 1.1
+|带有MMU的专用2D硬件引擎将最大限度地提高显示性能并提供非常流畅的操作。
+.3+|NPU 神经网络处理单元|6 TOPS@INT8
+|支持INT4、INT8、INT16、FP16、BF16和TF32混合运算
+|支持深度学习框架：TensorFlow、Caffe、Tflite、Pytorch、Onnx NNAndroid NN等。
 
+.2+|视觉处理单元/编解码器
+|视频解码器支持H.264、H.265、VP9、AV1和AVS2等，最高可达8K@30fps或4K@120fps
+|视频编码器支持 H.264 和 H.265 最高 4K@60fps，高质量 JPEG 编码器/解码器最高支持 4K@60fps
+|ISP|1路ISP，1600万像素
+|内存|8GB/16GB（最大16GB）64位LPDDR4/LPDDR4x，默认16GB LPDDR4x
+.2+|存储|32GB/128GB eMMC，默认128GB eMMC
+|支持MicroSD卡扩展
+|PCIe|1x M.2 Key M接口（PCIe 2.0，1-lane），可扩展SSD：类型2280/2260/2242/2230，当前默认为2280
+.2+|网络
+|2 个千兆位以太网端口
+|板载 IEEE 802.11a/b/g/n/ac/ax WIFI6 和 BT5 (rtl8852bs)
+.3+|视频输出
+|1x HDMI OUT2.1，支持4K@120fps
+|1x MIPI DSI，最高分辨率可达2K@60fps
+|1x DP1.4，最高分辨率可达4K@120fps
+|视频输入|2x 2 通道 MIPI CSI，每通道高达 2.5Gbps
+.2+|声音
+|1 个 HDMI 音频输出
+|1x HP-OUT 音频输出
+.2+|USB端口
+|2x USB2.0，支持高速（480Mbps）、全速（12Mbps）和低速（1.5Mbps）模式
+|1x USB Type-C 2.0，支持OTG，支持高速（480Mbps）、全速（12Mbps）和低速（1.5Mbps）模式
+.2+|40针 GPIO|兼容Raspberry Pi 40针GPIO，支持各种配件外设
+|支持UART/SPI/I2C/I2S/PWM/5V电源/3.3V电源
+.3+|其他
+|1x 5V 风扇接口
+|1x 低功耗 RTC 芯片 LK8563S 电池连接器
+|2x LED - 绿色 LED 在系统启动时闪烁，红色 LED 用户可控
+|电源输入|USB Type-C PD 2.0、9V/2A、12V/2A、15V/2A
+.3+|按键
+|1x PWRON 按钮用于睡眠/唤醒
+|1x 用于重启的重置按钮
+|1x Maskrom 按钮，用于 Maskrom 烧机模式
+.2+|操作系统支持
+|官方：Android 14.0，Debian11，Buildroot
+|第三方：Armbian
+|尺寸|92 毫米 x 62 毫米
+|工作温度|0℃～80℃
+|====
