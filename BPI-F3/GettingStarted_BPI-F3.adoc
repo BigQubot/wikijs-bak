@@ -97,7 +97,7 @@ mmcblk0     179:8    0 14.8G  0 disk
 . Mount the USB drive to mnt first.
 +
 ```sh
-mount /dev/sda1 /mnt
+sudo mount /dev/sda1 /mnt
 cd /mnt
 ```
 . Then use the dd command to burn the image to emmc
