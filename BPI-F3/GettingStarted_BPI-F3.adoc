@@ -160,6 +160,7 @@ cd /mnt
 . Execute the following command:
 +
 ```sh
+echo 0 | sudo tee /sys/block/mmcblk2boot0/force_ro
 sudo dd if=bootinfo_emmc.bin of=/dev/mmcblk2boot0
 sudo dd if=FSBL.bin of=/dev/mmcblk2boot0 seek=512 bs=1
 sync
