@@ -67,41 +67,6 @@ image::/picture/bpi-f3_tianflasher_4.png[bpi-f3_tianflasher_4.png]
 
 . Burn completed, power on again.
 
-== Install Image to eMMC 2
-
-NOTE: In addition to using titantools, you can also use the dd command to burn the image to emmc.
-
-. Firstly, insert the SD card that has been burned into the image into F3 and power it on to start.
-. Copy the image to a USB drive and insert F3.(Taking “**bianbu-23.10-nas-k1-v1.0rc1-release-20240429192450.img**“ as an example)
-. After startup, use the "lsblk" command to view.
-+
-```sh
-pi@k1:~$ lsblk
-NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
-sda           8:0    1 14.8G  0 disk
-└─sda1        8:1    1 14.8G  0 part
-mmcblk0     179:8    0 14.8G  0 disk
-├─mmcblk0p1 179:9    0  256K  0 part
-├─mmcblk0p2 179:10   0  128K  0 part
-├─mmcblk0p3 179:11   0  384K  0 part
-├─mmcblk0p4 179:12   0    2M  0 part
-├─mmcblk0p5 179:13   0  256M  0 part
-└─mmcblk0p6 179:14   0    8G  0 part /
-mmcblk2     179:8    0 14.6G  0 disk
-```
-"sda1" refers to a USB drive, "mmcblk0" refers to an SD card, and "mmcblk2" refers to an EMMC.
-. Mount the USB drive to mnt first.
-+
-```sh
-sudo mount /dev/sda1 /mnt
-cd /mnt
-```
-. Then use the dd command to burn the image to emmc
-+
-```sh
-sudo dd if=bianbu-23.10-nas-k1-v1.0rc1-release-20240429192450.img of=/dev/mmcblk2 bs=10M
-```
-. After waiting for the burning to complete, disconnect the power and remove the SD card and USB drive. Power on again to start from the EMMC.
 
 = Other Development
 == WiFi/BT
