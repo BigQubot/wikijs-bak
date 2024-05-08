@@ -98,16 +98,17 @@ image::/picture/4g_onboard.jpg[4g_onboard.jpg]
 +
 . 通过USB端口使用4G扩展模块
 +
-USB 4G module : https://docs.banana-pi.org/en/4G_module_via_USB
+USB 4G module : https://docs.banana-pi.org/en/BPI-4G_module/4G_module_via_USB
 
 == BPI-MT7615 802.11 ac wifi 4x4 dual-band
 我们设计了一款MT 7615 802.11 ac wifi模块，可以在BPI-R64上使用
 
 MT7615是一款高度集成的Wi-Fi单芯片，支持1733 Mbps的PHY速率，完全符合IEEE 802.11ac和IEEE 802.11 a/b/n标准，提供高标准的功能丰富的无线连接，并提供可靠的，具有成本效益的吞吐量和扩展距离。
 
-link:/en/BPI-MT7615_802_11_ac_wifi_4x4_dual-band_module[BPI-MT7615 802.11 ac wifi 4x4 dual-band module]
+link:/en/BPI-MT7615/BananaPi_MT7615[BPI-MT7615 802.11 ac wifi 4x4 dual-band module]
 
-link:/en/BPI-R64_%2B_MT7615_function_test[BPI-R64 + MT7615 function test]
+link:/en/BPI-MT7615/BPI-R64_and_MT7615_function_test[BPI-R64 + MT7615 function test]
+
 
 == GPIO 引脚定义
 
