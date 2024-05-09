@@ -52,7 +52,7 @@ image::/bpi-f3/bpi-f3_sch.png[bpi-f3_sch.png]
 
 | AI                                |  2.0 Tops 算力                                                                          
 | 内存                            | 4 GB LPDDR4(最大支持 8G LPDDR4)                                                                        
-| 存储                           | 16G eMMC flash.可选 4M SPI NOR,32M SPI NAD                                                                              
+| 存储                           | 16G eMMC flash.可选 4M SPI NOR,32M SPI NAND                                                                              
 | SD 接口                           | MicroSD card slot(大于 256MB)                                                                       
 | Wireless无线                          | 2.4G/5G WiFi and Bluetooth 4.2                                                               
 | 有线网络接口                       | 2x GbE Ethernet port(supports PoE with add-on PoE HAT)                                       
