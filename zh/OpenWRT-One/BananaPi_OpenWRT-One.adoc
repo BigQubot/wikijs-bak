@@ -19,7 +19,7 @@ link:https://www.mediatek.com/products/home-networking/mt7681[联发科MT7681] �
 * 联发科MT7976C 双频 WiFI 6 芯片组  (2×2 2.4 GHz + 3×3/2×2 + zero-wait DFS 5Ghz)
 * 1GB DDR4 内存
 * 1 x 2.5GbE 网口和  1 x 千兆网口
-* 128 MB SPI NAND 和 4 MB SPI NOR flash 保证板载系统的不可破法性。
+* 128 MB SPI NAND 和 16 MB SPI NOR flash 保证板载系统的不可破法性。
 * M.2 2242/2230 接口支持 NVMe SSD (PCIe gen 2 x1)
 * RTC 实时时钟
 * PoE 网络供电支持（可选）
@@ -48,7 +48,7 @@ link:https://www.mediatek.com/products/home-networking/mt7681[联发科MT7681] �
 |内存 |1GB DDR4
 .4+|存储
 |128 MB SPI NAND 闪存用于 U-boot 和 Linux系统
-|4 MB SPI NOR 闪存，用于写保护（默认）恢复引导加载程序（可以通过跳线启用重新刷新）
+|16 MB SPI NOR 闪存，用于写保护（默认）恢复引导加载程序（可以通过跳线启用重新刷新）
 |使用两种类型的闪存设备使板子几乎坚不可摧
 |M.2 2242/2230 接口支持 NVMe SSD 硬盘(PCIe gen 2 x1)
 .4+|网络
