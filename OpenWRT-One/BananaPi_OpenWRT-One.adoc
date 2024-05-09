@@ -51,7 +51,7 @@ image::/openwrt-one/banna_pi_openwrt_one_interface.jpg[banna_pi_openwrt_one_inte
 |System Memory | 1GB DDR4
 .4+|Storage
 |128 MB SPI NAND flash for U-boot and Linux
-|4 MB SPI NOR flash for write-protected (by default) recovery bootloader (reflashing can be enabled with a jumper)
+|16 MB SPI NOR flash for write-protected (by default) recovery bootloader (reflashing can be enabled with a jumper)
 |Two types of flash devices are used to make the board almost unbrickable
 |M.2 2242/2230 socket for NVMe SSD (PCIe gen 2 x1)
 .4+|Networking
