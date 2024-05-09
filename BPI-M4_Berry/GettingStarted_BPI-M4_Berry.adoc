@@ -149,6 +149,8 @@ Validating [========================] 100% eta 0s
 sudo bananapi-config
 ```
 
+(For those who use the minimal version of the image, please take a look link:/en/BPI-M4_Berry/GettingStarted_BPI-M4_Berry/install_bananapi-configuration[here first].)
+
 . Follow the instructions below to install the Linux system image on the eMMC.
 .. Select `Ststem`.
 +
@@ -290,6 +292,17 @@ image::/picture/bpi_m4_berry_nomachine_4.jpg[bpi_m4_berry_nomachine_4.jpg]
 
 
 IMPORTANT: TIP: If no device is connected to the HDMI interface, the NoMachine remote desktop will display a black screen. It is recommended to keep the HDMI connection or connect an HDMI decoy device.
+
+
+== Install bananapi-configuration
+The minimum version image does not have the bananapi configure command installed by default. You can refer to the following command for installation.
+
+```sh
+wget https://banana-pi.org/bananapi-config_1.0.0_all.deb
+sudo apt install iperf3 expect pv unzip build-essential html2text html2text software-properties-common 
+sudo dpkg -i /your-path/bananapi-config_1.0.0_all.deb
+sudo bananapi-config
+```
 
 == WiFi
 Use the nmcli command to scan WiFi hotspots, connect to hotspots, and create AP hotspots.
