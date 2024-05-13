@@ -611,9 +611,16 @@ i2s pin descriptions
 |220	|I2S2_SDO_M1	|I2S Audio Port 1 Data Out	|Output	|CMOS – 1.8V
 |222	|I2S2_SDI_M1	|I2S Audio Port 1 Data In	|Input	|CMOS – 1.8V
 |=====
-= 发展
 
-== 源代码
+= BPI-AIM7 硬件项目
+
+== BPI-AIM7 AI 智能边缘计算网关
+
+image::/bpi-aim7/banana_pi_bpi-aim7_for_edge_6.jpg[banana_pi_bpi-aim7_for_edge_6.jpg]
+
+= 开发
+
+== 系统软件源代码
 
 === Linux BSP Source Code
 
