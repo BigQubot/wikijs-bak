@@ -67,3 +67,23 @@ image::/picture/bpi-p2_pro_tool_emmc_2.png[bpi-p2_pro_tool_emmc_2.png]
 image::/picture/bpi-p2_pro_tool_emmc_3.png[bpi-p2_pro_tool_emmc_3.png]
 
 . If the upgrade fails, you can try to erase the Emmc by pressing the EraseFlash button first, and then upgrade image again.
+
+== WiFi
+
+If you can't check "**wlan0**" with "**ifconfig**", that may not have loaded the driver.
+
+. First, execute 
++
+```sh
+find / -name bcmdhd.ko
+```
+Query driver's path.
+
+. Then install.
++
+```sh
+insmod /system/lib/modules/bcmdhd.ko
+```
++
+image::/bpi-p2pro/bpi-p2_pro_loading_wifi_driver.png[bpi-p2_pro_loading_wifi_driver.png]
+. After executing, "**ifconfig**" can see "**wlan0**".
