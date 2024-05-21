@@ -45,9 +45,9 @@ TIP: More Infomation: link:/en/BPI-M7/BananaPi_BPI-M7[Banana Pi BPI-M7]
 ** Available for 0.8mm vertical socket
 * USB-A to USB-C data cable
 
-== Android
+= Android
  
-=== Install Image with Usb Download Tool
+== Install Image with Usb Download Tool
  
 . Download and install link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FDriverAssitant_v5.11.zip[Rockchip USB driver]
 +
@@ -91,8 +91,8 @@ The download tool also show the download mode if device connected.
  
  
  
-== Linux
-=== Install Image to sd card 1
+= Linux
+== Install Image to sd card 1
 NOTE: Use this method for **Ubuntu** and **Armbian** images.
  
 Install Image with Balena Etcher. +
@@ -107,7 +107,7 @@ image::/picture/etcher.jpg[etcher.jpg]
 BPI-M7 how o burn image video : https://www.youtube.com/watch?v=80RULZRRM58
 
 
-=== Install Image to sd card 2
+== Install Image to sd card 2
  
 NOTE: **Debian** images use this method.
 
@@ -118,7 +118,7 @@ NOTE: **Debian** images use this method.
 image::/picture/bpi-m7_debian_burning.png[bpi-m7_debian_burning.png]
 
  
-=== Install Image to eMMC
+== Install Image to eMMC
 
 NOTE: Please prepare an SD card with the image burned.And a USB drive containing image.
 
