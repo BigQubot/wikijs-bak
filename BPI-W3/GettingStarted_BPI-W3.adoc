@@ -44,13 +44,133 @@ TIP: More Infomation: link:/en/BPI-W3/BananaPi_BPI-W3[Banana Pi BPI-W3]
 ** It is recommended to use RTL8852be, AP6256
 * USB-A to USB-C data cable
 
-= Burn image
+= Android
 
-TIP: Choosing the Burning Method : link:/en/BPI-M5/BananaPi_Flash_image[Rockchip chip Flash System Image]
+== Install Image with Usb Download Tool
 
-= Interface Settings
+. Download and install link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FDriverAssitant_v5.11.zip[Rockchip USB driver]
++
+image::/picture/driver_install_2.png[driver_install_2.png]
 
-For the first time using the BPI-W3 development kit, please first get familiar with the Peripheral Interfaces to better understand the subsequent content.
+. Download link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FUpdate-EMMC-Tools.zip[Rockchip USB Download Tool] +
+This tool defaults language is Chinese. you can change it to English after extract the package. Open **RKDevTool_Release_v2.84/config.ini** with an text editor (like notepad). The starting lines are:
++
+image::/picture/r2-pro_usb-tool-1.jpg[r2-pro_usb-tool-1.jpg]
++
+```sh
+#Language Selection: Selected=1(Chinese); Selected=2(English)
+[Language]
+Kinds=2
+Selected=1
+LangPath=Language\
+```
+. Open RKDevTool.exe, Switch to the “**Upgrade Firmware**” page. Press the “**Firmware**” button to open the image file to be upgraded. The upgrade tool displays detailed firmware information.
++
+image::/picture/w3_android_1.png[w3_android_1.png]
+ 
+. While holding down the MASKROM key, connect w3 to PC using a type-c cable.(If there is already an image in emmc, hold down the MASKROM key while pressing the REST key.)
+ 
++
+image::/picture/r2-pro_usb-tool-4.jpg[r2-pro_usb-tool-4.jpg]
+image::/picture/w3_android_2.png[w3_android_2.png]
+ 
+. Press the “**upgrade**” button to start the upgrade.
++
+image::/picture/w3_android_3.png[w3_android_3.png]
+ 
+. If the upgrade fails, you can try to erase the Emmc by pressing the EraseFlash button first, and then upgrade image again.
+ 
+ 
+= Linux
+== Install Image to sd card 1
+NOTE: Use this method for **Ubuntu** and **Armbian** images.
+ 
+Install Image with Balena Etcher. +
+link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
+ 
+. Click on "**Flash from file**" to select image. 
+. Click on "**Select target**" to select USB device. 
+. Click on "**Flash!**" Start burning.
+ 
+image::/picture/etcher.jpg[etcher.jpg]
+ 
+== Install Image to sd card 2
+NOTE: **Debian** images use this method.
+ 
+. Download link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FUpdate-SD-Tools.zip[Rockchip SD Disk Tool].
+. Insert card reader to Windows PC, 8GB sdcard size at least.
+. Run SD_Firmware_Tool, check the “SD card startup” box and select the correct removable disk device, Choose firmware image, then Click Create button to make it and wait until it is finshed.
++
+image::/picture/w3_debian.jpg[w3_debian.jpg]
+ 
+== Install Image to eMMC 1
+NOTE: **Ubuntu**
+ 
+. Copy the image to a USB drive. Start w3 with an SD card and insert a USB drive at the same time.
+ 
+. Execute
++
+```sh
+mount /dev/sda1 /mnt
+cd /mnt
+sudo dd if=w3-ubuntu-xxxx.img of=/dev/mmcblk0 bs=10M
+```
+ 
+NOTE: **Armbian**
+ 
+. Insert the SD card with the burned image into w3, then power on and start.
+ 
+. Execute
++
+```sh
+sudo armbian-config
+```
++
+image::/picture/w3_armbian_1.png[w3_armbian_1.png]
+image::/picture/w3_armbian_2.png[w3_armbian_2.png]
+image::/picture/w3_armbian_3.png[w3_armbian_3.png]
+image::/picture/w3_armbian_4.png[w3_armbian_4.png]
+image::/picture/w3_armbian_5.png[w3_armbian_5.png]
+image::/picture/w3_armbian_6.png[w3_armbian_6.png]
+image::/picture/w3_armbian_7.png[w3_armbian_7.png]
+ 
+. The last step is to shut down the computer. At this time, disconnect the power supply, remove the SD card, and power on again to boot from eMMC.
+ 
+== Install Image to eMMC 2
+NOTE: **Debian** images use this method.
+ 
+. Download and install link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FDriverAssitant_v5.11.zip[Rockchip USB driver]
++
+image::/picture/driver_install_2.png[driver_install_2.png]
+
+. Download link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FUpdate-EMMC-Tools.zip[Rockchip USB Download Tool] +
+This tool defaults language is Chinese. you can change it to English after extract the package. Open **RKDevTool_Release_v2.84/config.ini** with an text editor (like notepad). The starting lines are:
++
+image::/picture/r2-pro_usb-tool-1.jpg[r2-pro_usb-tool-1.jpg]
++
+```sh
+#Language Selection: Selected=1(Chinese); Selected=2(English)
+[Language]
+Kinds=2
+Selected=1
+LangPath=Language\
+```
+. Open RKDevTool.exe, Switch to the “**Upgrade Firmware**” page. Press the “**Firmware**” button to open the image file to be upgraded. The upgrade tool displays detailed firmware information.
++
+image::/picture/w3_debian_1.png[w3_debian_1.png]
+ 
+. While holding down the MASKROM key, connect w3 to PC using a type-c cable.(If there is already an image in emmc, hold down the MASKROM key while pressing the REST key.)
+ 
++
+image::/picture/r2-pro_usb-tool-4.jpg[r2-pro_usb-tool-4.jpg]
+image::/picture/w3_debian_2.png[w3_debian_2.png]
+ 
+. Press the “**upgrade**” button to start the upgrade.
++
+image::/picture/w3_debian_3.png[w3_debian_3.png]
+ 
+. If the upgrade fails, you can try to erase the Emmc by pressing the EraseFlash button first, and then upgrade image again.
+
 
 == 2.5G Ethernet
 
