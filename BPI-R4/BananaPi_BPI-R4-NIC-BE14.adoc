@@ -1,0 +1,42 @@
+= Description
+
+BPI-R4-NIC-BE14 is a 51x82mm WiFi7 module with MediaTek MT7995AV supports Wi-Fi7 technology and feature IEEE802.11a/b/g/n/ac/ax/be compliant,2.4GHz 2x2, 5GHz 3x3 3ss, and 6GHz 3x3 3ss BE13500 Wi-Fi subsystem. The MT7995AV offers feature-rich wireless connectivity at high standards and delivers reliable, cost-effective throughput from an extended distance.
+
+The optimized Wi-Fi baseband algorithms provide superb performance. The intelligent MAC design deploys a highly efficient offload engine and hardware data processing accelerators, which fully offload Wi-Fi task of the host processor. The MT7995AV is designed to support standard-based features in the areas of security, quality of service, and international regulations, giving end users the greatest performance at any time and in any circumstances.
+
+= Photo
+
+image::/picture/bpi-r4-nic-be14_2.jpg[bpi-r4-nic-be14_2.jpg]
+
+= Features
+== Platform
+• MediaTek MT7995AV chipset
+• 32-bit RISC-V MCU for Wi-Fi protocols and Wi-Fi offload
+• Embedded SRAM and ROM
+• UART interface with hardware flow control
+• 2 PCIe 3.0 Interface, 2-lane
+
+== WALN
+• IEEE 802.11 a/b/g/n/ac/ax/be compliant
+• Frequency band 2.4GHz
+- Bandwidth: 20 and 40MHz
+- 2T2R
+• Frequency band 5GHz
+- Bandwidth: 20, 40,80, and 160MHz
+- 3T3R 3ss
+• Frequency band 6GHz
+- Bandwidth: 20, 40,80,160 and 320MHz
+- 3T3R 3ss
+• Tr-Band Triple Concurrent (TBTC)
+• PHY rate :up to 13700 Mbps/9500 Mbps
+• MU-MIMO TX and RX
+• MU-OFDMA TX and RX
+• STBC, LDPC, TX beamformer and RX beamformee
+• Greenfield mode, mixed mode, and legacy mode
+• Security: WFA WPA, WPA2, WPA3 personal, WPS2.0
+• QoS: WFA WMM and WMM-PS
+
+= Block Diagram
+
+image::/bpi-r4/be14-block_diagram.jpg[be14-block_diagram.jpg]
+
