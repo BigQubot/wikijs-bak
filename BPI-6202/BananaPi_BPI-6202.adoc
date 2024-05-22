@@ -22,9 +22,41 @@ image::/indu-board/banana_pi_bpi-6202_int.jpg[banana_pi_bpi-6202_int.jpg]
 | CPU and OS               | Allwinner A40I ARM Cortex-A7 quad cord 1.2GHz，Ubuntu/Mate                                                                                   
 | Memory                   | 2GB DDR3，8GB EMMC ；support SSD hardisk                                                                                                      
 | Storage                  | 8GB EMMC ；support SSD Hardisk                                                                                                               
-| communication function   | Ethernet port: 1 x 1000M + 1 x 100M, independent MAC, 2 x RS485 with isolation + 1 x RS232 Consoel with isolation, 4G/5G full Netcom + WiFi 
+| communication function   a| - Ethernet port: 1 x 1000M + 1 x 100M independent MAC
+- 2 x RS485 with isolation + 1 x RS232 Consoel with isolation
+- 4G/5G full Netcom + WiFi 
+
+|Extended function modules  a|reserve horizontal expansion capabilities and can customize the expansion of various functional modules, initially including:
+
+- RS485: with isolation
+- DI: Passive input type, the module provides 24V isolated power supply
+- DO: relay output type, NC, COM, NO nodes
+- AI: 0-5V/4-20mA, 2-wire/3-wire input, the board provides 24V isolated power supply
+- AO: 0-5V/4-20mA, 2-wire/3-wire output, external 24V isolated power supply
+- AI + AO: 0-5V/4-20mA, 2-wire/3-wire input/output. Power supply as above
+- Other customized modules
+| HDMI interface    a|- HDMI1.4, supports 1080p@60fps
+- USB supports keyboard, mouse; or resistive/capacitive display interface
+
+|Data processing capability   a|- Device access capability: <=128 units (adjustable according to bandwidth and sampling period)
+- Analog quantity <8192
+- Digital quantity <8192
+- Control volume <8192
+- Expression calculation definition and alarm processing
+| Video processing capabilities a|- Video RTSP/RTMP, Onvif, GB28181
+- Video recording and playback
+- Data triggers segment video recording and uploading
+- Video AI event return and linkage, data OSD coding
+- Local streaming services
+- H.264/H.265 playback
+|SCADA function | Full-featured SCADA system, processing points: 2048 points, C/S or B/S mode
+|Development environment |C/Expression/Ladder Diagram/Java/Python and other edge computing secondary development environments
+|Encryption chip    a|- Software license authorization encryption chip (SMEC98SP)
+- Special encryption chip for State Grid communications (SC1161Y)
+
 | Extended function module | Signal definition display                                                                                                                   
-| HDMI                     | HDMI1.4, support 1080p@60fps ; USB supports keyboard, mouse; or resistive/capacitive display interface                                      
+| HDMI                     | HDMI1.4, support 1080p@60fps +
+USB supports keyboard, mouse; or resistive/capacitive display interface                                      
 | Power                    | DC：24V                                         
 |====
 
@@ -122,7 +154,9 @@ Connect the cable terminal to the Phoenix terminal interface of CS6202-EI, and e
 - Through the IEC61131-3 programming language, PLC programming can be performed for all data in the gateway, and the lightweight PLC function can be realized through the electrical IO module
 . Multiple communication methods
 
-- Support 2 independent IP network ports (1G+100M) * Support 2 RS485 serial ports + 1 RS232 Console
+- Support 2 independent IP network ports (1G+100M) 
+- Support 4 RS485 serial ports + 1 RS232 Console + 1 CAN
+- Support 1 CAN port
 - Support WIFI, 4G/5G communication
 - Scalable support CAN, ZigBee, Lora communication
 . HMIand upper computer function integration
