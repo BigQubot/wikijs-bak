@@ -17,7 +17,7 @@ image::/indu-board/banana_pi_bpi-6202_int.jpg[banana_pi_bpi-6202_int.jpg]
 
 == PCBA spec
 
-[cols="1,3"]
+[cols="1,4"]
 |====
 | CPU and OS               | Allwinner A40I ARM Cortex-A7 quad cord 1.2GHz，Ubuntu/Mate                                                                                   
 | Memory                   | 2GB DDR3，8GB EMMC ；support SSD hardisk                                                                                                      
@@ -55,6 +55,22 @@ image::/indu-board/banana_pi_bpi-6202_int.jpg[banana_pi_bpi-6202_int.jpg]
 - Special encryption chip for State Grid communications (SC1161Y)
                             
 | Power                    | DC：24V                                         
+|====
+
+== Terminal signal wiring
+
+image::/indu-board/industrial_computer_zh_7.png[industrial_computer_zh_7.png]
+
+|====
+| Pin | signal | Pin | signal
+| 1	|RS485-A1	|2	|RS485-A2
+|3	|RS485-B1	|4	|RS485-B2
+|5	|RS485-A3	|6	|RS485-A4
+|7	|RS485-B3	|8	|RS485-B4
+|9	|CAN0-H	|10	|Con232-Tx
+|11	|CAN0-L	|12	|Con232-Rx
+|13	|GND	|14	|GND
+|15	|N/A	|16	|N/A
 |====
 
 == PCBA with SSD and 4G support
@@ -222,22 +238,6 @@ NOTE: The power supply of BPI-6202 is DC24V
 . Container (Docker) function
 . Built-in network security module, support black and white list and protocol security control, audit, log function
 
-== Technical specifications
-[cols="1,5"]
-|====
-| CPU and OS                  | Allwinner A40I ARM Cortex-A7 quad cord 1.2GHz，Ubuntu/Mate
-| Memory                      | 2GB DDR3，8GB EMMC ；support SSD hardisk
-| Storage                     | 8GB EMMC ；support SSD Hardisk
-| communication function      | Ethernet port: 1 x 1000M + 1 x 100M, independent MAC, 2 x RS485 with isolation + 1 x RS232 Consoel with isolation, 4G/5G full Netcom + WiFi
-| Extended function module    | Horizontal expansion capability is reserved, and the expansion of various functional modules can be customized. The initial stage includes: RS485: with isolation; DI: passive input type, the module provides 24V isolated power supply; DO: relay output type, NC, COM, NO nodes; AI: 0-5V/4-20mA, 2-wire/3-wire input, the board provides 24V isolated power supply; AO: 0-5V/4-20mA, 2-wire/3-wire output, external 24V isolated power supply; AI + AO: 0-5V/4-20mA, 2-wire/3-wire input/output. The power supply is the same as above; other custom modules 
-| HDMI                        | HDMI1.4, support 1080p@60fps ; USB supports keyboard, mouse; or resistive/capacitive display interface
-| Data processing capability  | Equipment access capability: <=128 units (adjustable according to bandwidth and sampling period); analog value<10000; digital value<10000; control value<10000; expression calculation definition, alarm processing
-| video processing capability | Video RTSP/RTMP, Onvif, GB28181; video recording and playback; data trigger clip video recording and uploading; video AI event return and linkage, data OSD coding; local streaming service; H.264/H.265 playback
-| SCADA function              | Full-featured SCADA system, processing points: 2048 points, C/S or B/S mode
-| development environment     | Edge computing secondary development environment such as C/expression/ladder diagram/Java/Python 
-| encryption chip             | Software license authorization encryption chip (SMEC98SP); special encryption chip for State Grid communication (SC1161Y)                                        
-| Power                       | DC：24V                                       
-|====
 
 == Environmental Specifications
 
@@ -266,21 +266,6 @@ NOTE: The power supply of BPI-6202 is DC24V
 |Power consumption	|Typical power consumption: 5W, maximum power consumption: 10W
 |====
 
-== Terminal signal wiring
-
-image::/indu-board/industrial_computer_zh_7.png[industrial_computer_zh_7.png]
-
-|====
-| Pin | signal | Pin | signal
-| 1	|RS485-A1	|2	|RS485-A2
-|3	|RS485-B1	|4	|RS485-B2
-|5	|RS485-A3	|6	|RS485-A4
-|7	|RS485-B3	|8	|RS485-B4
-|9	|CAN0-H	|10	|Con232-Tx
-|11	|CAN0-L	|12	|Con232-Rx
-|13	|GND	|14	|GND
-|15	|N/A	|16	|N/A
-|====
 
 = Source code
 TIP: BPI-CS6202 BSP source code: https://github.com/BPI-SINOVOIP/bpi-cs6202
