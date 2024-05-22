@@ -24,7 +24,7 @@ TIP: link:/en/BPI-6204/GettingStarted_BPI-6204[Getting Started BPI-6204]
 | CPU and OS               | Allwinner A40I ARM Cortex-A7 quad cord 1.2GHz，Ubuntu/Mate                                                                                   
 | Memory                   | 2GB DDR3，8GB EMMC ；support SSD hardisk                                                                                                      
 | Storage                  | 8GB EMMC ；support SSD Hardisk                                                                                                               
-| communication function   a| - Ethernet port: 1 x 1000M + 1 x 100M independent MAC
+| Communication function   a| - Ethernet port: 1 x 1000M + 1 x 100M independent MAC
 - 2 x RS485 with isolation + 1 x RS232 Consoel with isolation
 - 4G/5G full Netcom + WiFi 
 
@@ -64,15 +64,15 @@ TIP: link:/en/BPI-6204/GettingStarted_BPI-6204[Getting Started BPI-6204]
 image::/indu-board/industrial_computer_zh_7.png[industrial_computer_zh_7.png]
 
 |====
-| Pin | signal | Pin | signal
-| 1	|RS485-A1	|2	|RS485-A2
-|3	|RS485-B1	|4	|RS485-B2
-|5	|RS485-A3	|6	|RS485-A4
-|7	|RS485-B3	|8	|RS485-B4
-|9	|CAN0-H	|10	|Con232-Tx
-|11	|CAN0-L	|12	|Con232-Rx
-|13	|GND	|14	|GND
-|15	|N/A	|16	|N/A
+| Pin | Signal    | Pin | Signal
+| 1	  | RS485-A1	| 2	  | RS485-A2
+| 3	  | RS485-B1	| 4	  | RS485-B2
+| 5	  | RS485-A3	| 6	  | RS485-A4
+| 7	  | RS485-B3	| 8	  | RS485-B4
+| 9	  | CAN0-H	  | 10	|Con232-Tx
+| 11	| CAN0-L	  |12	  |Con232-Rx
+| 13	| GND	      | 14	|GND
+| 15	| N/A	      | 16	|N/A
 |====
 
 
@@ -81,12 +81,13 @@ image::/indu-board/industrial_computer_zh_7.png[industrial_computer_zh_7.png]
 == About BPI-6204 Product
 BPI-6204 is a cost-effective general-purpose embedded single-board industrial computer developed by Banana Pi community and Jiskaida Company for various industrial control fields. Compared with J1800/J1900 and other similar embedded products, it has the following advantages :
 
-Industrial-grade products, strong performance and low power consumption: industrial-grade standards, performance surpasses Celeron; low power consumption without heat dissipation, long-term operation
-Anti-interference design, suitable for harsh working conditions: power supply/network port/serial port are all designed according to EMC3~4 level
-Single-board structure, more reliable without plugging: integrate the functions of the core board and the bottom board, with higher reliability and longer life
-The integration of the industrial chain ensures high quality and low price. By optimizing the industrial chain links, the quality of mass production is guaranteed and the cost is extremely reduced.
-Innovative combination to meet different needs, open hardware information, single board/machine/industrial control software, optional
-Long life cycle, long-term stable supply, the original CPU factory promises to supply for 10 years, guaranteeing the maximum return on R&D investment
+- Industrial-grade products, strong performance and low power consumption: industrial-grade standards, performance surpasses Celeron; low power consumption without heat dissipation, long-term operation
+- Anti-interference design, suitable for harsh working conditions: power supply/network port/serial port are all designed according to EMC3~4 level
+- Single-board structure, more reliable without plugging: integrate the functions of the core board and the bottom board, with higher reliability and longer life
+- The integration of the industrial chain ensures high quality and low price. By optimizing the industrial chain links, the quality of mass production is guaranteed and the cost is extremely reduced.
+- Innovative combination to meet different needs, open hardware information, single board/machine/industrial control software, optional
+- Long life cycle, long-term stable supply, the original CPU factory promises to supply for 10 years, guaranteeing the maximum return on R&D investment
+
 Because BPI-6204 has strong computing power and more resources, in addition to completing the above functions, it can also provide various data interfaces, providing an ideal computing environment and secondary development capabilities for more industry application optimization algorithms.
 
 The appearance of the BPI-6204 including the chassis is shown in the figure below.
@@ -100,7 +101,7 @@ The appearance of the BPI-6204 including the chassis is shown in the figure belo
 
 [options="header",cols="1,2,6"]
 |====
-| No | interface     | illustrate                                                                                                                                                                                  
+|  | Interface     | Illustrate                                                                                                                                                                                  
 | 1  | HDMI 1.4   | HDMI video cable to connect the video output port and the monitor. +
 **Note**: The HDMI video cable is not included in the installation accessory package and needs to be purchased by the user. Please choose a shielded cable with a length less than 3M 
 | 2  | USB 2.0             | Use the USB interface to connect the keyboard/mouse/touch screen, and connect the U disk. +
@@ -216,18 +217,18 @@ NOTE: The power supply of BPI-6204 is DC24V
 
 [cols="1,3"]
 |====
-|                        | illustrate                                                                                   
+|                        | Illustrate                                                                                   
 | Operating temperature         | -40~+85℃                                                                                     
 | Storage temperature           | -40~+75℃                                                                                     
 | Working humidity (RH)         | 5%~95% non-condensing                                                                        
 | Storage Humidity (RH)         | 5%~95% non-condensing                                                                        
 | Altitude                      | <5000m                                                                                       
-| lightning protection          | Built-in lightning protection components, support outdoor use, meet high-level EMC standards 
+| Lightning protection          | Built-in lightning protection components, support outdoor use, meet high-level EMC standards 
 | Degree of protection          | IP40                                                                                         
 | Cooling method                | Natural heat dissipation without fan                                                         
 | Electromagnetic Compatibility | EMC class III, GB/T17626, GB/T15153, IEC61850-3, EN61000-6-5                                 
 | Safety                        | GB/T7621-2008                                                                                
-| certified                     | CE，FCC,RoHS                               
+| Certified                     | CE，FCC,RoHS                               
 |====
 
 == Physical Specifications
@@ -246,7 +247,7 @@ NOTE: The power supply of BPI-6204 is DC24V
 = System Image
 
 
-= embedded industrial computer
+= Embedded industrial computer
 
 == Definition and application scenarios of embedded industrial computer
 
@@ -286,10 +287,10 @@ The concept of "cloud-pipe-edge-end" is a classic summary and induction of the p
 
 image::/indu-board/industrial_computer_zh_1.png[industrial_computer_zh_1.png]
 
-- Cloud: The computer system that implements the monitoring center system and more advanced application software and algorithms. The "cloud" here includes both the "public cloud" on the Internet and the "private cloud" on the enterprise LAN. Build "cloud" computer systems, currently mainly high-end X86+Windows/Linux servers, and their clusters
-- Tube: Provide various efficient, reliable, convenient and cost-effective wired/wireless channels for both sides of the equipment. There are not only "pipes" between the "cloud" and "edge", such as wide area Ethernet, 4G/5G, etc.; between the "edge" and "end" of the application site, there are also pipes suitable for on-site application scenarios. The existence of wired/wireless "pipes", such as local Ethernet, serial port, high-speed power line carrier (HPLC), LoRa, ZigBee, WIFI, etc.
-- Edge: A computer system used to perform on-site computing tasks. The main role of "edge" was assumed by traditional industrial computers in the early days, or by general desktops and servers when the requirements were not so strict; now there is a trend of building embedded industrial computers with mid-to-high-end ARM architecture embedded systems
-- Terminal: The device (secondary device) used to monitor and control the main device (primary device) in industrial applications, and the device (secondary device) to monitor various main devices in the Internet of Things environment. The main role of "end" was realized by low-end embedded single-chip microcomputer system in the early stage; at present, it is gradually transitioning to low-end embedded system (main frequency below 1GMHz) as the mainstream solution
+- **Cloud**: The computer system that implements the monitoring center system and more advanced application software and algorithms. The "cloud" here includes both the "public cloud" on the Internet and the "private cloud" on the enterprise LAN. Build "cloud" computer systems, currently mainly high-end X86+Windows/Linux servers, and their clusters
+- **Tube**: Provide various efficient, reliable, convenient and cost-effective wired/wireless channels for both sides of the equipment. There are not only "pipes" between the "cloud" and "edge", such as wide area Ethernet, 4G/5G, etc.; between the "edge" and "end" of the application site, there are also pipes suitable for on-site application scenarios. The existence of wired/wireless "pipes", such as local Ethernet, serial port, high-speed power line carrier (HPLC), LoRa, ZigBee, WIFI, etc.
+- **Edge**: A computer system used to perform on-site computing tasks. The main role of "edge" was assumed by traditional industrial computers in the early days, or by general desktops and servers when the requirements were not so strict; now there is a trend of building embedded industrial computers with mid-to-high-end ARM architecture embedded systems
+- **Terminal**: The device (secondary device) used to monitor and control the main device (primary device) in industrial applications, and the device (secondary device) to monitor various main devices in the Internet of Things environment. The main role of "end" was realized by low-end embedded single-chip microcomputer system in the early stage; at present, it is gradually transitioning to low-end embedded system (main frequency below 1GMHz) as the mainstream solution
 
 From the above analysis, it is not difficult to see that the application of industrial computer is mainly located at the "edge" level. As a specific application of "edge", the embedded industrial computer mainly carries the following two types of functions:
 
