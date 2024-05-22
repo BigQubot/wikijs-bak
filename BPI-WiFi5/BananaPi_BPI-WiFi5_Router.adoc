@@ -32,6 +32,25 @@ BPI-Wifi5 Router adopts the national silicon Chang chip SF19A2890S +AN8855R (Gig
 
 == Hardware spec
 
+[options="header",cols="2,5",width="70%"]
+|=====
+2+| Banana Pi BPI-Wifi5 Router Specification **
+|CPU	|Siflower SF19A2890 MIPS dual core 1.2GHz
+|Switch |AN8855R Gigabit switch chip
+|RAM	|64MB DDR2 RAM
+|Flash	|16MB
+.4+|Interface|	1*10/100/1000Mbps adaptive WAN interface
+|3*10/100/1000Mbps adaptive LAN interface
+|1* DC 12V/1A Power Port 
+|1*Reset/WPS key
+.2+|Wireless speed|2.4G WiFi：2*2 (300Mbps)
+|5G WiFi：2*2 (866.7Mbps)
+.2+|Wireless frequency	|2.4G：2.4GHz～2.4835GHz 
+|5G：5.150GHz～5.85GHz
+|Antenna|	External 4*5dBi omnidirectional high-gain antenna
+|Size| 
+|=====
+
 == GPIO Pin Define
 
 == BPI-WIfi5 router product design
@@ -41,6 +60,7 @@ BPI-Wifi5 Router adopts the national silicon Chang chip SF19A2890S +AN8855R (Gig
 == Source Code
 
 == Resources
+* Siflower official document : https://siflower.github.io/
 
 = System Image
 
