@@ -17,60 +17,15 @@ image::/indu-board/banana_pi_bpi-6202_int.jpg[banana_pi_bpi-6202_int.jpg]
 
 == PCBA spec
 
-[cols="1,4"]
+[cols="1,3"]
 |====
 | CPU and OS               | Allwinner A40I ARM Cortex-A7 quad cord 1.2GHz，Ubuntu/Mate                                                                                   
 | Memory                   | 2GB DDR3，8GB EMMC ；support SSD hardisk                                                                                                      
 | Storage                  | 8GB EMMC ；support SSD Hardisk                                                                                                               
-| communication function   a| - Ethernet port: 1 x 1000M + 1 x 100M independent MAC
-- 2 x RS485 with isolation + 1 x RS232 Consoel with isolation
-- 4G/5G full Netcom + WiFi 
-
-|Extended function modules  a|reserve horizontal expansion capabilities and can customize the expansion of various functional modules, initially including:
-
-- RS485: with isolation
-- DI: Passive input type, the module provides 24V isolated power supply
-- DO: relay output type, NC, COM, NO nodes
-- AI: 0-5V/4-20mA, 2-wire/3-wire input, the board provides 24V isolated power supply
-- AO: 0-5V/4-20mA, 2-wire/3-wire output, external 24V isolated power supply
-- AI + AO: 0-5V/4-20mA, 2-wire/3-wire input/output. Power supply as above
-- Other customized modules
-| HDMI interface    a|- HDMI1.4, supports 1080p@60fps
-- USB supports keyboard, mouse; or resistive/capacitive display interface
-
-|Data processing capability   a|- Device access capability: <=128 units (adjustable according to bandwidth and sampling period)
-- Analog quantity <8192
-- Digital quantity <8192
-- Control volume <8192
-- Expression calculation definition and alarm processing
-| Video processing capabilities a|- Video RTSP/RTMP, Onvif, GB28181
-- Video recording and playback
-- Data triggers segment video recording and uploading
-- Video AI event return and linkage, data OSD coding
-- Local streaming services
-- H.264/H.265 playback
-|SCADA function | Full-featured SCADA system, processing points: 2048 points, C/S or B/S mode
-|Development environment |C/Expression/Ladder Diagram/Java/Python and other edge computing secondary development environments
-|Encryption chip    a|- Software license authorization encryption chip (SMEC98SP)
-- Special encryption chip for State Grid communications (SC1161Y)
-                            
+| communication function   | Ethernet port: 1 x 1000M + 1 x 100M, independent MAC, 2 x RS485 with isolation + 1 x RS232 Consoel with isolation, 4G/5G full Netcom + WiFi 
+| Extended function module | Signal definition display                                                                                                                   
+| HDMI                     | HDMI1.4, support 1080p@60fps ; USB supports keyboard, mouse; or resistive/capacitive display interface                                      
 | Power                    | DC：24V                                         
-|====
-
-== Terminal signal wiring
-
-image::/indu-board/industrial_computer_zh_7.png[industrial_computer_zh_7.png]
-
-|====
-| Pin | signal | Pin | signal
-| 1	|RS485-A1	|2	|RS485-A2
-|3	|RS485-B1	|4	|RS485-B2
-|5	|RS485-A3	|6	|RS485-A4
-|7	|RS485-B3	|8	|RS485-B4
-|9	|CAN0-H	|10	|Con232-Tx
-|11	|CAN0-L	|12	|Con232-Rx
-|13	|GND	|14	|GND
-|15	|N/A	|16	|N/A
 |====
 
 == PCBA with SSD and 4G support
@@ -133,9 +88,7 @@ image::/indu-board/industrial_computer_zh_6.png[industrial_computer_zh_6.png]
 | 2  | USB 2.0             | Use the USB interface to connect the keyboard/mouse/touch screen, and connect the U disk. +
 **Note**: The USB interface does not support hot swapping of storage devices.                                                                                  
 | 3  | Ethernet port       | Use a network cable to connect the Ethernet port of the device to the switch, supporting 1 x 1000M + 1 x 100M                                                                                                                                        
-| 4  | RS232/RS485/CAN         | 4 x RS485 + 1 x CAN + 1 x RS232 Console.
-Connect the cable terminal to the Phoenix terminal interface of CS6202-EI, and ensure that both the peer device and CS6202-EI are connected to the ground wire.
-
+| 4  | RS232/RS485         | Phoenix terminal, RS232 x 1+ RS485 x 2, connect the cable terminal to the Phoenix terminal interface of CS6202, and make sure that the peer device and BPI-6202 are connected to the ground wire.                                                    
 | 5  | DC power            | Phoenix terminal, using 24V DC power supply                                                                                                                                                                                                          
 | 6  | WiFi Antenna Mount  | SMA-K (external thread + internal hole), if you need to use the antenna to connect to the network, connect the antenna device to the BPI-6202 through the antenna interface. Standard 1 antenna, Wifi antenna, 4G+WiFi;                              
 | 7  | 4G/5G Antenna Mount | A standard 4G antenna is provided. If you need to expand 5G, you need to use a customized chassis and configure 4 additional antennas                                                                                                                
@@ -167,9 +120,7 @@ Connect the cable terminal to the Phoenix terminal interface of CS6202-EI, and e
 - Through the IEC61131-3 programming language, PLC programming can be performed for all data in the gateway, and the lightweight PLC function can be realized through the electrical IO module
 . Multiple communication methods
 
-- Support 2 independent IP network ports (1G+100M) 
-- Support 4 RS485 serial ports + 1 RS232 Console + 1 CAN
-- Support 1 CAN port
+- Support 2 independent IP network ports (1G+100M) * Support 2 RS485 serial ports + 1 RS232 Console
 - Support WIFI, 4G/5G communication
 - Scalable support CAN, ZigBee, Lora communication
 . HMIand upper computer function integration
@@ -238,13 +189,29 @@ NOTE: The power supply of BPI-6202 is DC24V
 . Container (Docker) function
 . Built-in network security module, support black and white list and protocol security control, audit, log function
 
+== Technical specifications
+[cols="1,5"]
+|====
+| CPU and OS                  | Allwinner A40I ARM Cortex-A7 quad cord 1.2GHz，Ubuntu/Mate
+| Memory                      | 2GB DDR3，8GB EMMC ；support SSD hardisk
+| Storage                     | 8GB EMMC ；support SSD Hardisk
+| communication function      | Ethernet port: 1 x 1000M + 1 x 100M, independent MAC, 2 x RS485 with isolation + 1 x RS232 Consoel with isolation, 4G/5G full Netcom + WiFi
+| Extended function module    | Horizontal expansion capability is reserved, and the expansion of various functional modules can be customized. The initial stage includes: RS485: with isolation; DI: passive input type, the module provides 24V isolated power supply; DO: relay output type, NC, COM, NO nodes; AI: 0-5V/4-20mA, 2-wire/3-wire input, the board provides 24V isolated power supply; AO: 0-5V/4-20mA, 2-wire/3-wire output, external 24V isolated power supply; AI + AO: 0-5V/4-20mA, 2-wire/3-wire input/output. The power supply is the same as above; other custom modules 
+| HDMI                        | HDMI1.4, support 1080p@60fps ; USB supports keyboard, mouse; or resistive/capacitive display interface
+| Data processing capability  | Equipment access capability: <=128 units (adjustable according to bandwidth and sampling period); analog value<10000; digital value<10000; control value<10000; expression calculation definition, alarm processing
+| video processing capability | Video RTSP/RTMP, Onvif, GB28181; video recording and playback; data trigger clip video recording and uploading; video AI event return and linkage, data OSD coding; local streaming service; H.264/H.265 playback
+| SCADA function              | Full-featured SCADA system, processing points: 2048 points, C/S or B/S mode
+| development environment     | Edge computing secondary development environment such as C/expression/ladder diagram/Java/Python 
+| encryption chip             | Software license authorization encryption chip (SMEC98SP); special encryption chip for State Grid communication (SC1161Y)                                        
+| Power                       | DC：24V                                       
+|====
 
 == Environmental Specifications
 
 [cols="1,3"]
 |====
 | No                            | illustrate                                                                                   
-| Operating temperature         | -40~+85℃                                                                                     
+| Operating temperature         | -40~+60℃                                                                                     
 | Storage temperature           | -40~+75℃                                                                                     
 | Working humidity (RH)         | 5%~95% non-condensing                                                                        
 | Storage Humidity (RH)         | 5%~95% non-condensing                                                                        
@@ -265,7 +232,6 @@ NOTE: The power supply of BPI-6202 is DC24V
 |Weight	|0.5kg
 |Power consumption	|Typical power consumption: 5W, maximum power consumption: 10W
 |====
-
 
 = Source code
 TIP: BPI-CS6202 BSP source code: https://github.com/BPI-SINOVOIP/bpi-cs6202
