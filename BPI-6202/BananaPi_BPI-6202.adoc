@@ -1,6 +1,8 @@
 = Embedded industrial computer overview
 
-BPI-6202 as a simple embedded general controller hardware and software development platform, it provides fully functional hardware solutions for application developers, and supports BSP+docker development environment. Provide strong edge computing support. Developers can quickly utilize the development platform, develop and productize
+BPI-6202 as a simple embedded general controller hardware and software development platform, it provides fully functional hardware solutions for application developers, and supports BSP+docker development environment. Provide strong edge computing support. Developers can quickly utilize the development platform, develop and productize.
+
+BPI-6204 is an upgraded version of BPI-6202. The hardware is upgraded from RS485 x 2 + RS232 x 1 to RS485 x 4 + RS232 x 1+CAN x 1.
 
 TIP: Allwinner A40i design link:/en/BPI-M2_Berry/BananaPi_BPI-M2_Berry[Banana Pi BPI-M2 Berry] SBC design +
 Allwinner A40i design link:/en/BPI-AIM7/BananaPi_BPI-AIM7[Banana Pi BPI-M2 Ultra] SBC design +
