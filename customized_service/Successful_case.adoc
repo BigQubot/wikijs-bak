@@ -1,24 +1,26 @@
 = Allwinner A40i for Industrial control gateway design
 
-Industrial control gateway 1.jpg
+image::/bpi-4_0-oem-odm/industrial_control_gateway_1.jpg[industrial_control_gateway_1.jpg]
+
 
 More about this project ,please see :
 
 Awinner A40I for Industrial control gateway design
 
 = Realtek RTD1296 Intelligent voice, video processing platform
-RTD 1296 design 1.JPG
+image::/bpi-4_0-oem-odm/rtd_1296_design_1.jpg[rtd_1296_design_1.jpg]
 
-RTD 1296 design case.jpg
+image::/bpi-4_0-oem-odm/rtd_1296_design_case.jpg[rtd_1296_design_case.jpg]
 
 More about this project ,please see :
 
 Realtek RTD1296 Intelligent voice, video processing platform
 
 = MediaTek MT7622 5G + 4G LTE+Wifi AC+Gigabit Multiplex aggregate route
-BPI-R64 4g 1.JPG
 
-5G gateway 2.jpg
+image::/bpi-4_0-oem-odm/bpi-r64_4g_1.jpg[bpi-r64_4g_1.jpg]
+
+image::/bpi-4_0-oem-odm/5g_gateway_2.jpg[5g_gateway_2.jpg]
 
 . MediaTek MT7622,1.35GHZ 64 bit dual-core ARM Cortex-A53
 . (1-2)G DDR and 8G eMMC flash
@@ -36,28 +38,32 @@ link:https://docs.banana-pi.org/en/BPI-MNF/BananPI_CPI-MNF[5G + 4G LTE+Wifi AC+G
 Discuss on forum : http://forum.banana-pi.org/t/bpi-4-0-bpi-r64-for-5g-4g-lte-wifi-ac-gigabit-for-converged-communication-gateway/9555
 
 = ESP32 Sweet fume machine Intelligent sleep meter
-Sweet fume machine 4.jpg
+
+image::/bpi-4_0-oem-odm/sweet_fume_machine_4.jpg[sweet_fume_machine_4.jpg]
 
 Use ESP32 design , suppor WiFi and BT to connect network.
 
 More Spec ,please see :
 
 = 4G LTE router design
-Banana pi 4g router 1.jpg
+
+image::/bpi-4_0-oem-odm/banana_pi_4g_router_1.jpg[banana_pi_4g_router_1.jpg]
 
 More Spec,please see : http://forum.banana-pi.org/t/bpi-4-0-4g-lte-router-design/9277
 
 = DOJO smart home
-Dogo.png
+image::/bpi-4_0-oem-odm/dogo.png[dogo.png]
 
 Dojo official webstie: https://dojo.bullguard.com/
 
 = Magic mirror
-Magic mirror 2.JPG
+
+image::/bpi-4_0-oem-odm/magic_mirror_2.jpg[magic_mirror_2.jpg]
 
 PCBA base on BPI-M3 with allwinner A83T chip design
 
-Magic mirror 1.jpg
+image::/bpi-4_0-oem-odm/magic_mirror_1.jpg[magic_mirror_1.jpg]
+
 
 Forum discuss: http://forum.banana-pi.org/t/banana-pi-bpi-4-0-oem-odm-project-magic-mirror-base-bpi-m3-allwinner-a83t-chip-design/7410
 
@@ -66,15 +72,15 @@ This is base on BPI-R2, with 4 4G module desin. We can work with our customers t
 
 == 4G Multi-network fusion server
 
-4G Multiple 2.jpg
+image::/bpi-4_0-oem-odm/4g_multiple_2.jpg[4g_multiple_2.jpg]
 
 Chassis design file : https://drive.google.com/file/d/1C9LuXVgexsUN3K8DqApFNG4FLpwn54Ms/view?usp=sharing
 
 == 4G Multi-network fusion terminal
 
-4G Multiple 1.jpg
+image::/bpi-4_0-oem-odm/4g_multiple_1.jpg[4g_multiple_1.jpg]
 
-product website: https://www.aixiaocao.com/
+Product website: https://www.aixiaocao.com/
 
 == OpenMPTCProuter
 NOTE: 2018-10-12 update, OpenMPTCProuter use MultiPath TCP (MPTCP) to aggregate multiple Internet connections and OpenWrt. and have official support BPI-R2.
@@ -88,15 +94,15 @@ Forum pthread: http://forum.banana-pi.org/t/banana-pi-bpi-r2-new-image-openmptcp
 = MultiQB Home multimedia gateway
 What we do : hardware design, BSP software design, tooling design, quantity production, product certification
 
-MultiQB front.jpg
+image::/bpi-4_0-oem-odm/multiqb_front.jpg[multiqb_front.jpg]
 
 Pcba inside:
 
-P图 - 副本.jpg
+image::/bpi-4_0-oem-odm/multiqb_front_pcba.jpg[multiqb_front_pcba.jpg]
 
 Case design:
 
-QQ图片20151112174344.png
+image::/bpi-4_0-oem-odm/multiqb_front_case.png[multiqb_front_case.png]
 
 == Hardware Specs
 
@@ -127,11 +133,11 @@ QQ图片20151112174344.png
 = KANO Pixel Kit
 What we do : hardware design, quantity production
 
-KANO 1.jpg
+image::/bpi-4_0-oem-odm/kano_1.jpg[kano_1.jpg]
 
 This product is for STEAM education with KANO scratch app:
 
-Blockly web.jpg
+image::/bpi-4_0-oem-odm/blockly_web.jpg[blockly_web.jpg]
 
 The link:https://kano.me/store/uk/products/pixel-kit[Kano Pixel Kit] is a fun build-it-yourself, programme-it-yourself digital display, aimed at youngsters who are just getting interested in coding and playing with technology.
 
@@ -144,71 +150,71 @@ http://upflow.co/l/LHkO/2017/08/kano-pixel-kit-review.html
 = eBlocker
 What we do : hardware design, BSP software design, PCBA support, product certification
 
-NEW eBlocker Family Shop money back.png
+image::/bpi-4_0-oem-odm/new_eblocker_family_shop_money_back.png[new_eblocker_family_shop_money_back.png]
 
 eBlocker works as effectively as it does easily: unpack it, plug it in, ready. Without additional software installation and configuration. All you need is a free Ethernet port in your home network and off you go.
 
 eBlocker official website : https://www.eblocker.com/en/
 
-Video demo:https://www.eblocker.com/wp-content/uploads/2016/02/whatiseblocker-1280x720.mp4
+Video demo: https://www.eblocker.com/wp-content/uploads/2016/02/whatiseblocker-1280x720.mp4
 
-Image download link:https://www.eblocker.com/en/download/
+Image download link: https://www.eblocker.com/en/download/
 
 = 3G Information security terminal
 What we do ： hardware design, BSP software design, tooling design, quantity production, product certification
 
-IMG 3036.JPG
+image::/bpi-4_0-oem-odm/img_3036.jpg[img_3036.jpg]
 
 PCBA inside:
 
-A20 for 4G.JPG
+image::/bpi-4_0-oem-odm/a20_for_4g.jpg[a20_for_4g.jpg]
 
 = 4G Industrial safety tablets
 What we do : hardware design, BSP software design, tooling design, quantity production, product certification
 
-IMG 3085.JPG
+image::/bpi-4_0-oem-odm/img_3085.jpg[img_3085.jpg]
 
 PCBA inside:
 
-A20 for 4G mid.JPG
+image::/bpi-4_0-oem-odm/a20_for_4g_mid.jpg[a20_for_4g_mid.jpg]
 
 = MTK MT6737 4G watch
 hardware design, All software design, tooling design, quantity production, product certification
 
-4G watch 1.JPG
+image::/bpi-4_0-oem-odm/4g_watch_1.jpg[4g_watch_1.jpg]
 
 MTK MT6737 4G watch UI, we do can customization.
 
-4G watch 6.JPG
+image::/bpi-4_0-oem-odm/4g_watch_6.jpg[4g_watch_6.jpg]
 
 Use MTK MT6737 design 4G watch project for China Mobile.This product has passed the certification of China mobile.
 
 4G watch PCBA:
 
-4g watch pcba.jpg
+image::/bpi-4_0-oem-odm/4g_watch_pcba.jpg[4g_watch_pcba.jpg]
 
 4G watch PCBA with shielding case:
 
-4g watch pcba 1.jpg
+image::/bpi-4_0-oem-odm/4g_watch_pcba_1.jpg[4g_watch_pcba_1.jpg]
 
 4G watch Spec
 
 System Physical Standard Configuration:
 
-4g watch spec 1.png
+image::/bpi-4_0-oem-odm/4g_watch_spec_1.png[4g_watch_spec_1.png]
 
 System hardware configuration:
 
-4g watch spec 2.png
+image::/bpi-4_0-oem-odm/4g_watch_spec_2.png[4g_watch_spec_2.png]
 
 Interface Configuration:
 
-4G watch spec 3.png
+image::/bpi-4_0-oem-odm/4g_watch_spec_3.png[4g_watch_spec_3.png]
 
 Software Configuration：
 
-4G watch spec 4.png
+image::/bpi-4_0-oem-odm/4g_watch_spec_4.png[4g_watch_spec_4.png]
 
 Necessary Accessories：
 
-4G watch spec 5.png
+image::/bpi-4_0-oem-odm/4g_watch_spec_5.png[4g_watch_spec_5.png]
