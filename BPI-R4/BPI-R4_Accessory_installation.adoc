@@ -41,3 +41,18 @@ https://docs.banana-pi.org/en/BPI-R4/BananaPi_BPI-R4-NIC-BE14
 
 
 = Accessory installation
+. First, insert the BPI-R4-NIC-BE14 (BE14 for short) into the miniPCIe socket under the BPI-R4-MAIN and secure it with two M2*5 screws.
+. Then attach two 13*10*2mm and one 14*14*2mm thermally conductive silicone pads to the three ICs of BE14 respectively.
+. Insert the 6 coaxial cables into the corresponding U.FL sockets. (Use the same length of wire on the same side)
+. Remember to turn SW4 to the ON position.
+. Install the board into the bottom case and adjust the position of the antenna so that it is not pressed. Use four M2.5x6 screws to secure it.
+. Install the heat sink. If it has a fan, plug in the fan power cord.
+. Connect the 6 antennas to ANT2/3/4/6/7/8 respectively.
+. To facilitate debugging, you can purchase a serial port extension cable. In this way, there is no need to disassemble the shell for subsequent debugging. (Extension cords need to be purchased by yourself, we do not provide this)
+. Insert the 5G module into the M.2 KEY B interface and secure it with M2*5 screws.
+. Insert the four SMA female pins (L=100MM IPEX-4 generation) coaxial cables and fix them on the shell ANT1/5 and the two SMA holes on the front panel.
+. Insert the upper cover into the bottom case along the guide rails, and fix the covers on both sides with 8 black flat-head M3x6 screws.
+(It is not recommended to insert the SIM card tray when no card is installed, as it is very likely to damage the SIM card holder)
+. Install 4 silicone feet on the bottom.
+. Install the WiFi and 5G antennas into the corresponding SMA seats respectively.
+. Assembly is complete. Next, you can plug in the SFP module, TF card, network cable, U disk, etc. according to your needs. Then power on and start.
