@@ -68,6 +68,41 @@ image::/picture/bpi-p2_pro_tool_emmc_3.png[bpi-p2_pro_tool_emmc_3.png]
 
 . If the upgrade fails, you can try to erase the Emmc by pressing the EraseFlash button first, and then upgrade image again.
 
+== 100M Ethernet
+
+If you are using wired Ethernet access, please insert the network cable into the RJ45 port on ArmSoM-P2pro, and the network port light flashes,indicating hardware connected properly.
+
+Manually configure Ethernet
+
+Switch to root user
+```sh 
+sudo su
+```
+
+Check if Ethernet is working properly with the ifconfig command, and it will display the network card eth0 and Ethernet IP address. In addition, use the ping tool to determine if the network is connected.
+```sh 
+ifconfig
+ping www.baidu.com  
+```
+If unable to ping, please try
+
+```sh 
+$ sudo dhclient eth0
+```
+== Debug Serial Port
+
+The debug serial port location is pin 9 and 11 of the 12-pin header
+
+[options="header",cols="1,1,1"]
+|=====
+|P2pro	|Connection	|Serial Module
+|GND (pin 8)|	<--->	|GND
+|TX (pin 9)	|<--->	|RX
+|RX (pin 11)	|<--->	|TX
+|=====
+
+image::/bpi-p2pro/p2_pro-debug.png[p2_pro-debug.png]
+
 == WiFi
 
 If you can't check "**wlan0**" with "**ifconfig**", that may not have loaded the driver.
@@ -87,3 +122,59 @@ insmod /system/lib/modules/bcmdhd.ko
 +
 image::/bpi-p2pro/bpi-p2_pro_loading_wifi_driver.png[bpi-p2_pro_loading_wifi_driver.png]
 . After executing, "**ifconfig**" can see "**wlan0**".
+
+== BT
+```sh
+# 1. Activate Bluetooth
+root@linaro-alip:/# service bluetooth start
+# 2. Enter bluetoothctl
+root@linaro-alip:/# bluetoothctl
+# 3. Enter the following command to connect
+root@linaro-alip:/# power on
+root@linaro-alip:/# agent on
+root@linaro-alip:/# default-agent
+root@linaro-alip:/# scan on
+root@linaro-alip:/# pair yourDeviceMAC
+```
+
+== Voice
+
+View sound cards in the system:
+```sh
+root@linaro-alip:~# aplay -l
+**** List of PLAYBACK Hardware Devices ****
+card 0: rockchiprk3308a [rockchip,rk3308-acodec], device 0: dailink-multicodecs ff560000.acodec-0 [dailink-multicodecs ff560000.acodec-0]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 7: Loopback [Loopback], device 0: Loopback PCM [Loopback PCM]
+  Subdevices: 8/8
+  Subdevice #0: subdevice #0
+  Subdevice #1: subdevice #1
+  Subdevice #2: subdevice #2
+  Subdevice #3: subdevice #3
+  Subdevice #4: subdevice #4
+  Subdevice #5: subdevice #5
+  Subdevice #6: subdevice #6
+  Subdevice #7: subdevice #7
+card 7: Loopback [Loopback], device 1: Loopback PCM [Loopback PCM]
+  Subdevices: 8/8
+  Subdevice #0: subdevice #0
+  Subdevice #1: subdevice #1
+  Subdevice #2: subdevice #2
+  Subdevice #3: subdevice #3
+  Subdevice #4: subdevice #4
+  Subdevice #5: subdevice #5
+  Subdevice #6: subdevice #6
+  Subdevice #7: subdevice #7
+
+```
+
+play music
+
+```sh
+root@linaro-alip:/# aplay -D plughw:0,0  ./usr/share/sounds/alsa/Rear_Right.wav
+```
+
+== USB Interface
+BPI-P2 pro provides a USB 2.0 port.
+
