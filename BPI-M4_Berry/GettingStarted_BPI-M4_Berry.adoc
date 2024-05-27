@@ -705,7 +705,7 @@ gpio mode 2 up
 ```
 The LED light is lit up again
 +
-image::/picture/m4_berry_gpio_led_1.jpg[m4_berry_gpio_led_1.jpg]
+image::/picture/m4_berry_gpio_led_2.jpg[m4_berry_gpio_led_2.jpg]
 
 . Finally, set the GPIO port to dropdown mode
 +
@@ -714,7 +714,7 @@ gpio mode 2 down
 ```
 The LED light goes out again
 +
-image::/picture/m4_berry_gpio_led_2.jpg[m4_berry_gpio_led_2.jpg]
+image::/picture/m4_berry_gpio_led_1.jpg[m4_berry_gpio_led_1.jpg]
 
 === I2C
 According to the schematic diagram, the available i2cs are i2c3 and i2c4
