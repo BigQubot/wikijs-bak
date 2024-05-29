@@ -197,3 +197,12 @@ hcitool scan
 sudo rfcomm bind /dev/rfcomm0 xx:xx:xx:xx
 sudo cat >/dev/rfcomm0
 ```
+
+== Armbian Compilation
+Perform the following three steps to complete the armbian image.
+
+```sh
+git clone git@github.com:BPI-SINOVOIP/armbian-build.git -b v24.04.30 v24.04.30
+cd v24.04.30
+./compile.sh build BOARD=bananapif3 BRANCH=legacy BUILD_DESKTOP=yes BUILD_MINIMAL=no DESKTOP_APPGROUPS_SELECTED= DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base KERNEL_CONFIGURE=no RELEASE=mantic
+```
