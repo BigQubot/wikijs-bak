@@ -1,4 +1,4 @@
-NOTE: **Video** for how to get the log information of Banana Pi board (The baud rate of BPI-R2 PRO and BPI-W3 is 1500000, other boards' baud rate is 115200): https://drive.google.com/file/d/1_1T4jUztxONd8agL-thWuBdekD8WH6cO/view?usp=sharing
+NOTE: **Video** for how to get the log information of Banana Pi board (The baud rate of RK chip is 1500000, other boards' baud rate is 115200): https://drive.google.com/file/d/1_1T4jUztxONd8agL-thWuBdekD8WH6cO/view?usp=sharing
 
 == Preparation
 . A BPI development board, a TTL serial port cable, and an SD/TF card with a burned image (it can also be burned to eMMC).
@@ -22,7 +22,7 @@ image::/picture/ttl.jpg[ttl.jpg]
 image::/picture/ttl_cable_connection-2.jpg[ttl_cable_connection-2.jpg]
 
 . Select the port at the Serial port, select the baud rate at Speed (bps), and then click OK.
-(Most development boards for BPI are 115200, with only BPI-R2 Pro and BPI-W3 being 1500000)
+(Most development boards for BPI are 115200, with only RK chip being 1500000)
 +
 image::/picture/log_export-3.jpg[log_export-3.jpg]
 
