@@ -105,9 +105,9 @@ cd /mnt
 mtd erase /dev/mtd0
 dd if=mtk-bpi-r3-NAND-WAN1-SFP1-20220619-single-image.bin of=/dev/mtdblock0
 ```
-. Remove SD card, and change bootstrap to boot from nand flash and change SD/EMMC switch jumper to EMMC, restart the board from Nand Flash.
+. Remove SD card, and change bootstrap to boot from nand flash and change SD/EMMC switch jumper to NAND, restart the board from Nand Flash.
 +
-TIP: Enable EMMC device, boot strap is from nand
+TIP: Enable device, boot strap is from nand
 +
 image::/picture/bpi-r3-jumper-flash-nand.png[bpi-r3-jumper-flash-nand.png]
 
