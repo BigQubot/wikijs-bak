@@ -158,7 +158,6 @@ image::/picture/r3_7916npd_client_iperf3.png[r3_7916npd_client_iperf3.png]
 link:https://docs.banana-pi.org/en/BPI-R3/GettingStarted_BPI-R3#_pwm_fan_control[PWM FAN control]
 
 
-
 **Easy to buy:** 
 
 - SINOVOIP Aliexpress Shop: https://www.aliexpress.com/item/3256805581533519.html?gatewayAdapt=4itemAdapt
@@ -167,6 +166,14 @@ link:https://docs.banana-pi.org/en/BPI-R3/GettingStarted_BPI-R3#_pwm_fan_control
 
 - Taobao Shop: https://item.taobao.com/item.htm?ft=t&id=726562119098
 
+
+=== POE
+
+We have reserved a POE interface in BPI-R3, which can be customized if you have needs.
+
+Add a network management chip, solder the POE module, and replace the 2.5G SFP WAN interface with RJ45 (power is provided through this network port)
+
+image::/bpi-r3/banana_pi_bpi-r3_with_poe.jpg[banana_pi_bpi-r3_with_poe.jpg]
 
 = Development
 == Source Code
