@@ -208,6 +208,13 @@ After connecting to the MINI PCIE interface and inserting the SIM card, it can b
 
 == Source Code
 
+=== Bianbu linux 
+
+* Bianbu source code： https://gitee.com/bianbu-linux/linux-6.1
+* Bianbu uboot code: https://gitee.com/bianbu-linux/uboot-2022.10
+* Bianbu OpenSBI code: https://gitee.com/bianbu-linux/opensbi
+
+
 === Linux BSP Source Code
 
 TIP: pi-opensbi: https://github.com/BPI-SINOVOIP/pi-opensbi/tree/v1.3-k1
@@ -252,6 +259,7 @@ TIP: Linux PC: https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2
 == Linux
 
 === Bianbu
+
 NOTE: Bianbu-23.10-k1-v1.0rc3-release-20240525131412.img
 
 Baidu cloud: https://pan.baidu.com/s/1H0ww8qVIgHRuuA43JszF6g?pwd=8888 (pincode: 8888)
