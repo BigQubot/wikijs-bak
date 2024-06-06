@@ -708,6 +708,9 @@ Please insert one M.2 KeyM SSD(PCIe interface) into KeyM slot(CN18).
 
 NOTE: No compatibility testing has been done and there is no guarantee that all SSDs can be used.
 
+NOTE: Knowning issue: Due to the influence of R228 and R230, after inserting certain SSD, it will affect the reading and writing of I2C. These two resistors will be removed in subsequent production batches.
+
+
 image::/bpi-r4/bpi-r4-m2_keym-ssd_connnect.jpg[bpi-r4-m2_keym-ssd_connnect.jpg]
 
 ```bash
