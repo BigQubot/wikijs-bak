@@ -187,9 +187,18 @@ image::/bpi-f3/bpi-f3_poe_power_supply.jpg[bpi-f3_poe_power_supply.jpg]
 将模块插入mini PCIE接口，并插入SIM卡即可使用。
 
 
-= 发展
+= 开发
 
 == 源代码
+
+=== Bianbu linux 
+
+TIP: Bianbu source code： https://gitee.com/bianbu-linux/linux-6.1 
+
+TIP: Bianbu uboot code: https://gitee.com/bianbu-linux/uboot-2022.10
+
+TIP: Bianbu OpenSBI code: https://gitee.com/bianbu-linux/opensbi
+
 
 === Linux BSP 源代码
 
