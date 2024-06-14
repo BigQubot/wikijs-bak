@@ -112,6 +112,7 @@ TIP: Enable device, boot strap is from nand
 image::/picture/bpi-r3-jumper-flash-nand.png[bpi-r3-jumper-flash-nand.png]
 
 == Install Image to eMMC
+WARNING: Note: SD card and EMMC device share one SOC interface
 NOTE: Switch the button to NAND and then start BPI-R3
 
 . Insert the USB drive with **bl2_emmc.img** and **mtk-bpi-r3-EMMC-xxx.img** into BPI-R3.
