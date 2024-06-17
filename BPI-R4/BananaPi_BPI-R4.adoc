@@ -157,6 +157,12 @@ link:https://docs.banana-pi.org/en/BPI-R4/GettingStarted_BPI-R4#_wi_fi7_nic[Gett
 
 link:/en/BPI-R4/BananaPi_BPI-R4-NIC-BE14[Banana Pi BPI-R4-NIC-BE14 Specification]
 
+== POE 
+
+If you want to use POE function, you can customize it. You need to replace the 10G SFP LAN with 2.5Gbps RJ45 and solder the RT5400B module.
+
+image::/bpi-r4/banana_pi_bpi-r4_poe_1.jpg[banana_pi_bpi-r4_poe_1.jpg]
+
 = Development
 == Source Code
 
