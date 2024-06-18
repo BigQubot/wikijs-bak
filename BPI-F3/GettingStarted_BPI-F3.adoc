@@ -111,7 +111,8 @@ cd /mnt
 ```sh
 sudo dd if=bianbu-23.10-nas-k1-v1.0rc1-release-20240429192450.img of=/dev/mmcblk2 bs=10M
 ```
-NOTE: If you enter the **lsblk** command, you can see **BOOT**. Then you can skip step 6.
+NOTE: If you enter the **lsblk** command, you can see **BOOT**. You can go directly to step 9.
+
 . Update EMMC's boot0 partition.
 +
 ```sh
