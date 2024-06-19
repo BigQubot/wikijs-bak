@@ -113,9 +113,9 @@ sudo dd if=bianbu-23.10-nas-k1-v1.0rc1-release-20240429192450.img of=/dev/mmcblk
 ```
 NOTE: If you enter the **lsblk** command, you can see **BOOT**. You can go directly to step 9.
 
-. Next, update the EMMC boot0 partition. Some mirror boot partitions are hidden by default, so you need to modify the cmdline. Mount boottfs:
+. Next, update the boot0 partition of EMMC. However, some image boot partitions are hidden by default, so you need to modify the cmdline. Mount boottfs:
 +
-```sh
+```shs
 sudo mount /dev/mmcblk0p5 /boot
 sudo nano /boot/env_k1-x.txt
 ```
