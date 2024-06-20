@@ -66,7 +66,7 @@ image::/bpi-f3/bpi-f3_sch.png[bpi-f3_sch.png]
 | AI                                |  2.0Tops from RlSC-V Core                                                                            
 | Memory                            | 4 GB LPDDR4 (Supports up to 8G LPDDR4)                                                                                 
 | Storage                           | 16G eMMC flash.optional 4M SPI NOR,32M SPI NAND                                                                              
-| SD card                           | MicroSD card slot (Greater than 256MB)                                                                           
+| SD card                           | MicroSD card slot (Use SD card larger than 256M, no upper limit)                                                                           
 | Wireless                          | 2.4G/5G WiFi and Bluetooth 4.2                                                               
 | Ethernet                          | 2x GbE Ethernet port(supports PoE with add-on PoE HAT)                                       
 | HDMI                              | 1x full-size HDMI digital Audio output(HDMI1.4,up to 1080p@60fps ) 
