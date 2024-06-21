@@ -72,6 +72,7 @@ image::/picture/etcher.jpg[etcher.jpg]
 After the image is burned, insert the SD card into the BPI-M6. Press and hold the SPI key while inserting the power supply.
 
 === Install Image to eMMC
+NOTE: Before burning the image to emmc, it is recommended to erase the emc first. You can link:https://docs.banana-pi.org/en/BPI-M6/GettingStarted_BPI-M6#_install_image_with_usb_burning_tool[refer to here].
 
 . First, prepare a bootable SD card and a link:https://docs.banana-pi.org/en/BPI-M6/BananaPi_BPI-M6#_spi[new SPI file].
 . Open SenarySocSystemTool and switch to Spi Flash.
