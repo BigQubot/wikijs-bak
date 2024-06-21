@@ -438,43 +438,6 @@ TIP: OpenWRT 官方支持文档: https://openwrt.org/inbox/toh/sinovoip/bananapi
 
 = 系统镜像
 == OpenWRT
-=== OpenWRT MTK MP3.0 SDK for BE19000 Wifi Card
-NOTE: BPI-R4 bl2_emmc-r4.img
-
-Baidu Cloud: https://pan.baidu.com/s/1gumscZfpJsQr_AROzDevTg?pwd=8888 (pincode:8888)
-
-Google Drive: https://drive.google.com/file/d/1YVJcLRLvxET2349TCKocK4MtRG5PNbdp/view?usp=sharing
-
-NOTE: BPI-R4-mtk-bpi-r4-EMMC-20231030
-
-Baidu Cloud: https://pan.baidu.com/s/1TFYGjP13TEbtFEHpE2aG1Q?pwd=8888 (pincode:8888)
-
-Google Drive: https://drive.google.com/file/d/196J1V5q4s3GgAtCNQBCtzB9h6pGVcdTg/view?usp=sharing
-
-NOTE: BPI-R4-mtk-bpi-r4-NAND-20231030
-
-Baidu Cloud: https://pan.baidu.com/s/1NrA3LTEyP8Ht_Ysli-o8og?pwd=8888 (pincode:8888)
-
-Google Drive: https://drive.google.com/file/d/1P5dSSaPLQzlYjniHdC-jjKE0PJ2O-Py2/view?usp=sharing
-
-NOTE: BPI-R4-mtk-bpi-r4-SD-20231030
-
-Baidu Cloud: https://pan.baidu.com/s/1AW_DJ6pjEh87FJMx6pPYzw?pwd=8888 (pincode:8888)
-
-Google Drive: https://drive.google.com/file/d/146CUGBRC0ce5uN9nCM08Jegc51abAz1b/view?usp=sharing
-
-=== OpenWRT MTK MP3.1 wifi SDK or MT76 wifi driver for BE14000 Wifi Card
-
-Baidu Cloud: https://pan.baidu.com/s/1kguTbhlBVGvN7L9G3mgFQg?pwd=8888 (pincode:8888)
-
-Google Drive: https://drive.google.com/drive/folders/1DBPwMD-qDAIqPorqJwl3sf8TsAEh0BmF?usp=sharing
-
-**Note:**
-
-. MTK vendor's MP3.1 wifi image package name:  **BPI-R4-BE1350-WIFI_MP3_1-SDK-20240202.zip**
-. opensource MT76 wifi image package name :   **BPI-R4-BE1350-WIFI_MT76-20240202.zip**
-. MTK vendor's MP3.1 wifi driver sourcecode can't be open source. only release Image.  But supply all MT76 wifi driver sourcecode.(support Quectel RM500U-CN & RM520N-GL 5G Modules, EC25 EM05 4G Modules)
-
 === OpenWRT MTK MP4.0 wifi SDK wifi driver for BE14000 Wifi Card
 
 Baidu Cloud: https://pan.baidu.com/s/1y4-OZbPbqeM_um1gxKLSHg?pwd=8888 (pincode: 8888)
@@ -484,8 +447,25 @@ Google Drive: https://drive.google.com/file/d/1U0tnvoaxDujO1q5QNxnw0i2d93X2zi9r/
 **Note:**
 
 . Kernel version: 5.4.271
-. MTK vendor's MP4.0 wifi image package name:  BPI-R4-BE1350-WIFI_MP4_0-SDK-20240620， fixed MP3.1 wifi SDK wifi route performance issue.
-. MTK vendor's MP4.0 wifi driver sourcecode can't be open source. only release Image.(support Quectel RM500U-CN & RM520N-GL 5G Modules, EC25 EM05 4G Modules)
+. MTK vendor’s MP4.0 wifi image package name: BPI-R4-BE1350-WIFI_MP4_0-SDK-20240620， fixed MP3.1 wifi SDK wifi route performance issue.
+. MTK vendor’s MP4.0 wifi driver sourcecode can’t be open source. only release Image.(support Quectel RM500U-CN & RM520N-GL 5G Modules, EC25 EM05 4G Modules)
+
+=== OpenWRT MTK MP3.1 wifi SDK or MT76 wifi driver for BE14000 Wifi Card
+Baidu Cloud: https://pan.baidu.com/s/1kguTbhlBVGvN7L9G3mgFQg?pwd=8888 (pincode:8888)
+
+Google Drive: https://drive.google.com/drive/folders/1DBPwMD-qDAIqPorqJwl3sf8TsAEh0BmF?usp=sharing
+
+**Note:**
+
+. MTK vendor’s MP3.1 wifi image package name: BPI-R4-BE1350-WIFI_MP3_1-SDK-20240202.zip
+. opensource MT76 wifi image package name : BPI-R4-BE1350-WIFI_MT76-20240202.zip
+. MTK vendor’s MP3.1 wifi driver sourcecode can’t be open source. only release Image. But supply all MT76 wifi driver sourcecode.(support Quectel RM500U-CN & RM520N-GL 5G Modules, EC25 EM05 4G Modules)
+
+=== OpenWRT MTK MP3.0 SDK for BE19000 Wifi Card
+
+Baidu Cloud: https://pan.baidu.com/s/1r9lB098eT3dSAIBsNMPGQw?pwd=8888 (pincode: 8888)
+
+Google drive: https://drive.google.com/drive/folders/1Sh_eal09Zlm5RPZZ3C9gfACP42wl7AK8?usp=sharing
 
 === SFP replaced with 2.5Gbps version using images
 NOTE: BPI-R4 2.5Gbps RJ45
