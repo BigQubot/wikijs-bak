@@ -71,7 +71,32 @@ image::/picture/etcher.jpg[etcher.jpg]
 
 After the image is burned, insert the SD card into the BPI-M6. Press and hold the SPI key while inserting the power supply.
 
+=== Install Image to eMMC
+NOTE: Now our Armbian image supports burning to eMMC.
 
+. First, prepare a bootable SD card and a link:https://docs.banana-pi.org/en/BPI-M6/BananaPi_BPI-M6#_spi[new SPI file].
+. Open SenarySocSystemTool and switch to Spi Flash.
+
+. Change the path to the path where the spi file you downloaded is located.
+
+. Press the USB button next to type-c and connect to the computer using the type-c cable.Click to start burning.
+
+. Copy the image to a USB drive, insert it into the M6, then insert the SD card, and power on.
+
+. Mount the USB drive.
++
+```sh
+mount /dev/sda1 /mnt
+cd /mnt
+```
+
+. Then use the dd command to burn the image to emmc
++
+```sh
+dd if=Armbian-bpi-senarytech-trunk_Bananapim6-xxx.img of=/dev/mmcblk0
+```
+
+. Wait for the burning to complete. Turn off the power, remove the SD card (if an SD card is inserted, the SD card will be started first), and then turn on the power while holding down the SPI key. Then the eMMC can be started.
 
 == HDMI
 VS680 HDMI TX functional properties:
