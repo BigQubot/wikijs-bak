@@ -50,6 +50,9 @@ SW1-C is that SPI-Nand or SPI-Nor Device is connected to CPU's SPI bus; +
 SW1-D is that SD Card or EMMC device is connected tp CPU's EMMC bus.
 
 == Install Image to SD card
+NOTE: **Please low level format the SD and clear all data of SD. It’s very important.
+Otherwise, you will encounter a "jffs2" error during the startup process.**
+
 **Windows PC**
 
 Install Image with Balena Etcher. +
