@@ -166,6 +166,28 @@ or
 $ sudo dhclient enP4p65s0
 ```
 
+== WIFI
+```sh
+# Open the WIFI
+nmcli r wifi on
+# Scan WIFI
+nmcli dev wifi
+# Connect to WIFI network
+nmcli dev wifi connect "wifi_name" password "wifi_password"
+```
+
+== BT
+```sh
+service bluetooth start
+bluetoothctl
+
+power on
+agent on
+default-agent
+scan on
+pair yourDeviceMAC
+```
+
 == HDMI
 BPI-M7 has an HDMI output port which supports CEC and HDMI 2.1, maximum resolution up to 8Kp60.
 
@@ -210,8 +232,23 @@ card 2: rockchiphdmi0 [rockchip-hdmi0], device 0: rockchip-hdmi0 i2s-hifi-0 [roc
 
 == Fan
 The BPI-M7 features a 5V fan using a 0.8mm connector
+
+Currently, the fan has five default states:
+
+|====
+|Temperature State |PWM |Speed
+|>50°	|0	|0
+|50°-55°	|1	|50
+|55°-60°	|2	|100
+|60°-65°	|3	|150
+|65°-70°	|4	|200
+|70°<	|5	|250
+|====
+
+
 ```sh 
-armsom@armsom-sige7:/# echo 100 > /sys/devices/platform/pwm-fan/hwmon/hwmon8/pwm1  
+# Check the current speed
+cat /sys/class/hwmon/hwmon9/pwm1 
 ```
 == Type-C
 The BPI-M7 features a full-featured USB Type‐C 3.1 port which supports up to 4Kp60 DP display.
