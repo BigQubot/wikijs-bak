@@ -50,6 +50,8 @@ We don't have a 3-pin debugging interface on BPI-M7, so if you want to use ttl l
 
 Connect pins 6, 8, and 10 on the 40pin.
 
+image::/bpi-m7/bpi-m7_debug_interface_diagram.png[bpi-m7_debug_interface_diagram.png]
+
 The serial port baud rate is **1500000**. **Don't make the wrong choice.**
 
 = Android
@@ -112,6 +114,8 @@ link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by 
 image::/picture/etcher.jpg[etcher.jpg]
 
 Insert the SD card into BPI-M7 and plug in the power adapter. Then press the power button, if there is still no response, press the RST button.
+
+NOTE: Please connect the HDMI monitor when desktop mirroring is started. You need to create a user on the desktop.
 
 BPI-M7 how o burn image video : https://www.youtube.com/watch?v=80RULZRRM58
 
