@@ -45,6 +45,13 @@ TIP: More Infomation: link:/en/BPI-M7/BananaPi_BPI-M7[Banana Pi BPI-M7]
 ** Available for 0.8mm vertical socket
 * USB-A to USB-C data cable
 
+== Debug interface
+We don't have a 3-pin debugging interface on BPI-M7, so if you want to use ttl line debugging, you can only connect to 40pin.
+
+Connect pins 6, 8, and 10 on the 40pin.
+
+The serial port baud rate is **1500000**. **Don't make the wrong choice.**
+
 = Android
  
 == Install Image with Usb Download Tool
