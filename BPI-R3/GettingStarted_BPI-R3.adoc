@@ -136,6 +136,34 @@ TIP: Enable EMMC device, boot strap is from EMMC.
 +
 image::/picture/bpi-r3-jumper-boot-emmc.png[bpi-r3-jumper-boot-emmc.png]
 
+== Install Image to NOR
+
+
+. Insert the flashed SD card and power on to start the board.(the image "**mtk-bpi-r3-SD-WAN1-SFP1-20220619-single-image.img**" on the SD card can be OpenWrt or other linux OS like ubuntu...)
++
+NOTE: To boot from SD card, pull the C jumper to enable SPI-NOR.
+
+. Copy NOR bootable OpenWrt image(**mtk-bpi-r3-NOR-WAN1-SFP1-20220619-single-image.bin**) to USB disk, if the image is compressed please uncompress it before copying to USB disk.
+. Plug in USB disk to the board, and mount the USB to /mnt or other directory as follows: (you can skip mounting if it is mounted automatically)
++
+```sh
+mount -t vfat /dev/sda1 /mnt 
+```
+change your directory to the mounting point, here is : 
++
+```sh
+cd /mnt
+```
+. Execute following command to enable and copy image to nand flash:
++
+```sh
+mtd erase /dev/mtd0
+dd if=mtk-bpi-r3-NOR-WAN1-SFP1-20220619-single-image.bin of=/dev/mtdblock0
+```
+. Remove the SD card and change the jumper to NOR boot.
++
+image::/picture/bpi-r3-jumper-flash-nor.png[bpi-r3-jumper-flash-nor.png]
+
 == Network-Configuration
 Network-Configuration refer to: http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:network:start
 
