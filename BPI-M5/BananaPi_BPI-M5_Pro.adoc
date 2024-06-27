@@ -61,8 +61,8 @@ link:/en/BPI-M5/Photo_BPI-M5_Pro[Banana Pi BPI-M5 Pro Product photo gallery]
 .2+|VPU/Codec	|video decoder supports H.264, H.265, VP9, AV1 and AVS2 etc. up to 8K@30fps or4K@120fps
 |video encoder supports H.264 and H.265 up to 4K@60fps, high-qualityJPEG encoder/decoder supports up to 4K@60fps
 |ISP	|1 channel ISP, 16 million pixels
-|RAM	|8GB/16GB（max 16GB ）64bit LPDDR4/LPDDR4x，default 16GB LPDDR4x
-.2+|Flash	|32GB/128GB eMMC，default 128GB eMMC
+|RAM	|8GB/16GB（max 16GB ）32bit LPDDR4/LPDDR4x，default 8GB LPDDR4x
+.2+|Flash	|32GB/128GB eMMC，default 68GB eMMC
 |Supports MicroSD card expansion
 |PCIe	|1x M.2 Key M interface (PCIe 2.0, 1-lane), expandable SSD: Type 2280/2260/2242/2230, currently defaulting to 2280
 .2+|Network	|2x Gigabit Ethernet port
@@ -70,11 +70,13 @@ link:/en/BPI-M5/Photo_BPI-M5_Pro[Banana Pi BPI-M5 Pro Product photo gallery]
 .3+|Video Output	|1x HDMI OUT2.1, supports 4K@120fps
 |1x MIPI DSI, maximum resolution up to 2K@60fps
 |1x DP1.4, maximum resolution up to 4K@120fps
-|Video In	|2x 2-lane MIPI CSI, up to 2.5Gbps per lane
-.2+|Audio	|1x HDMI audio output
+|Video In	|2x 4-lane MIPI CSI, up to 2.5Gbps per lane
+.3+|Audio	|1x HDMI audio output
 |1x HP-OUT audio output
-.2+|USB Ports	|2x USB2.0, supports High-Speed (480Mbps), Full-Speed (12Mbps), and Low-Speed (1.5Mbps) modes
-|1x USB Type-C 2.0, supports OTG, supports high-speed (480Mbps), full-speed (12Mbps) and low-speed (1.5Mbps) modes
+|1x USB Type-C 3.0 (DP1.4) audio output
+.3+|USB Ports	|1x USB3.0 (supports USB3.1 Gen1), up to 5Gbps data rate
+|1x USB Type-C 3.0 (DP1.4/OTG)
+|1x USB2.0, supports high-speed (480Mbps), full-speed (12Mbps) and low-speed (1.5Mbps) modes
 .2+|40-pin	|Compatible with Raspberry Pi 40-pin GPIO, supports various accessory peripherals
 |Supports UART/SPI/I2C/I2S/PWM/5V Power/3.3V Power
 .3+|Other	|1x 5V fan interface
@@ -84,7 +86,7 @@ link:/en/BPI-M5/Photo_BPI-M5_Pro[Banana Pi BPI-M5 Pro Product photo gallery]
 .3+|Buttons	|1x PWRON button for sleep/wake
 |1x Reset button for reboot
 |1x Maskrom button for maskrom burn-in mode
-.2+|OS Support	|Official：Android 14.0，Debian11，Buildroot
+.2+|OS Support	|Official：Android 14.0，Debian12，Buildroot
 |3rd Party：Armbian
 |Dimensions	|92 mm x 62mm
 |Operating temperature|0℃ ~ 80℃
@@ -270,17 +272,20 @@ NOTE: Banana Pi (ArmSoM) team uses Debian bullseye as the official operating sys
 
 Network disk address: https://drive.google.com/drive/folders/1aCoC6-5zoMaNBGwwgr_pYIs219aFijFM[Google Drive link]
 
-Debain bullseye Firmware location: 3. Linux image/debian/ArmSoM-sige5
+Debain bullseye ::
+Firmware location: 3. Linux image/debian/ArmSoM-sige5
+
+Android 14::
+Firmware location: 4. Android image/ArmSoM-Sige5
+
+OpenWRT::
+Firmware location: 3. Linux image/openwrt/ArmSoM-Sige5
 
 == Third Party System
 
 === Ubuntu
 
 Image location: 3. Linux Images/ubuntu/ArmSoM-sige5 
-
-=== istoreos
-
-Firmware location: 3. Linux image/openwrt/ArmSoM-sige5 
 
 === armbian
 
