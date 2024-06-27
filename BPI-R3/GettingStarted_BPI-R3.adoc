@@ -142,6 +142,8 @@ image::/picture/bpi-r3-jumper-boot-emmc.png[bpi-r3-jumper-boot-emmc.png]
 . Insert the flashed SD card and power on to start the board.(the image "**mtk-bpi-r3-SD-WAN1-SFP1-20220619-single-image.img**" on the SD card can be OpenWrt or other linux OS like ubuntu...)
 +
 NOTE: To boot from SD card, pull the C jumper to enable SPI-NOR.
++
+image::/picture/bpi-r3_jumper_sd_card_boot_burn_nor.png[bpi-r3_jumper_sd_card_boot_burn_nor.png]
 
 . Copy NOR bootable OpenWrt image(**mtk-bpi-r3-NOR-WAN1-SFP1-20220619-single-image.bin**) to USB disk, if the image is compressed please uncompress it before copying to USB disk.
 . Plug in USB disk to the board, and mount the USB to /mnt or other directory as follows: (you can skip mounting if it is mounted automatically)
