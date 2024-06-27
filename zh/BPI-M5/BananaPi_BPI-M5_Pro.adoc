@@ -1,6 +1,6 @@
 = 概述
 
-Banana Pi BPI-M5 Pro采用第二代8nm高性能AIOT平台瑞芯微RK3576，拥有6 TOPS算力NPU，支持最高32GB大内存。支持8K视频编解码，提供双千兆网口、WiFi 6 & BT5、多种视频输出等丰富接口。兼容多种操作系统，适用于基于ARM的PC、边缘计算设备、个人移动互联网设备和其他数字多媒体应用。
+Banana Pi BPI-M5 Pro采用第二代8nm高性能AIOT平台瑞芯微RK3576，拥有6 TOPS算力NPU，支持最高16GB大内存。支持4K视频编解码，提供双千兆网口、WiFi 6 & BT5、多种视频输出等丰富接口。兼容多种操作系统，适用于基于ARM的PC、边缘计算设备、个人移动互联网设备和其他数字多媒体应用。
 
 image::/bpi-m5pro/banana_pi_bpi-m5_pro_banner_3.jpg[banana_pi_bpi-m5_pro_banner_3.jpg]
 
@@ -56,16 +56,16 @@ link:/en/BPI-M5/Photo_BPI-M5_Pro[香蕉派 BPI-M5 Pro 产品图集]
 |ARM Mali G52 MC3 GPU
 |完全兼容 OpenGL ES 1.1、2.0 和 3.2、OpenCL 高达 2.0 和 Vulkan 1.1
 |带有MMU的专用2D硬件引擎将最大限度地提高显示性能并提供非常流畅的操作。
-.3+|NPU 神经网络处理单元|6 TOPS@INT8
+.3+|NPU 神经网络处理单元
+|6 TOPS@INT8
 |支持INT4、INT8、INT16、FP16、BF16和TF32混合运算
 |支持深度学习框架：TensorFlow、Caffe、Tflite、Pytorch、Onnx NNAndroid NN等。
-
 .2+|视觉处理单元/编解码器
 |视频解码器支持H.264、H.265、VP9、AV1和AVS2等，最高可达8K@30fps或4K@120fps
 |视频编码器支持 H.264 和 H.265 最高 4K@60fps，高质量 JPEG 编码器/解码器最高支持 4K@60fps
 |ISP|1路ISP，1600万像素
-|内存|8GB/16GB（最大16GB）64位LPDDR4/LPDDR4x，默认16GB LPDDR4x
-.2+|存储|32GB/128GB eMMC，默认128GB eMMC
+|内存|8GB/16GB（最大16GB）32位LPDDR4/LPDDR4x，默认8GB LPDDR4x
+.2+|存储|32GB/128GB eMMC，默认64GB eMMC
 |支持MicroSD卡扩展
 |PCIe|1x M.2 Key M接口（PCIe 2.0，1-lane），可扩展SSD：类型2280/2260/2242/2230，当前默认为2280
 .2+|网络
@@ -76,12 +76,14 @@ link:/en/BPI-M5/Photo_BPI-M5_Pro[香蕉派 BPI-M5 Pro 产品图集]
 |1x MIPI DSI，最高分辨率可达2K@60fps
 |1x DP1.4，最高分辨率可达4K@120fps
 |视频输入|2x 2 通道 MIPI CSI，每通道高达 2.5Gbps
-.2+|声音
-|1 个 HDMI 音频输出
+.3+|声音
+|1x HDMI音频输出
 |1x HP-OUT 音频输出
-.2+|USB端口
-|2x USB2.0，支持高速（480Mbps）、全速（12Mbps）和低速（1.5Mbps）模式
-|1x USB Type-C 2.0，支持OTG，支持高速（480Mbps）、全速（12Mbps）和低速（1.5Mbps）模式
+|1x USB Type-C 3.0 (DP1.4)音频输出
+.3+|USB端口
+|1x USB3.0（支持USB3.1 Gen1），高达5Gbps数据速率
+|1x USB Type-C 3.0（DP1.4/OTG）
+|1x USB2.0，支持高速（480Mbps）、全速（12Mbps）和低速（1.5Mbps）模式
 .2+|40针 GPIO|兼容Raspberry Pi 40针GPIO，支持各种配件外设
 |支持UART/SPI/I2C/I2S/PWM/5V电源/3.3V电源
 .3+|其他
