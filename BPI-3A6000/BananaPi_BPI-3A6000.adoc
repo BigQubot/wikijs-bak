@@ -51,18 +51,18 @@ link:/en/BPI-3A6000/Photo_BPI-3A6000[Banana Pi BPI-3A6000 Photo]
 [options="header",cols="1,4"]
 |====
 2+| Banana Pi BPI-3A6000 Hardware Specifications
-| 参数名称	| 规格介绍
-.2+| 处理器	
-|支持龙芯第四代 3A6000 4 核 8 线程处理器，2.0-2.5GHz
-|大容量三级缓存(64KB/256KB/16MB)
-.4+| 内存	| 2 根内存插槽
-|支持 DDR4 3200 内存速率
-|最大可扩展至 32GB 内存
-|仅支持 SODIMM
-|存储系统	|支持 1 个 M.2 2280 NVMe SSD (PCIE3.0 x4 )
-|显示系统	|双 HDMI 显示接口，桥片内置 GPU，1GB 显存，最大分辨率 1920x1080
-.2+|无线连接	|支持双频无线 WiFi 5G/2.4G，支持 802.11AC
-|支持蓝牙 5.0（RTL8822CE 无线网卡暂时不支持蓝牙功能）
+| Type	| Specifications
+.2+| CPU	
+|the fourth generation of Loongson 3A6000 4-core 8-thread processor, 2.0-2.5GHz
+|Large capacity Level 3 cache (64KB/256KB/16MB)
+.4+| RAM	| 2 x memory slots
+|Supports the DDR4 3200 memory rate
+|Maxs support 32GB memory
+|only support SODIMM
+|Flash	|support 1 个 M.2 2280 NVMe SSD (PCIE3.0 x4 )
+|Display	| 2 x HDMI display interface，Built-in bridge GPU，1GB video memory，maximum resolution 1920x1080
+.2+|WIfi	|support dual-band wireless WiFi 5G/2.4G，support 802.11AC
+|support Bluetooth 5.0（RTL8822CE wireless network card does not support Bluetooth）
 .6+|外部设备接口	|2 个 USB 3.0 接口，机箱前面板
 |1 个 TypeC 接口，支持数据传输且有对外供电能力（PD3.0 快充协议），机箱前面板
 |4 个 USB2.0 接口，机箱后面板
@@ -99,7 +99,7 @@ link:/en/BPI-3A6000/Photo_BPI-3A6000[Banana Pi BPI-3A6000 Photo]
 
 = 产品及解决方案
 
-除了完成PCBA设计与生产，Banana Pi 开源社区还能提供龙芯 Mini PC 整机，方便用户快速的完成标准产品设计。采用CNC铝制外壳
+In addition to PCBA design and production, Banana Pi open source community can also provide Loongson Mini PC complete machine, so that users can quickly complete the standard product design. CNC aluminum housing
 
 image::/3a6000/banana_pi_bpi-3a6000_pc_7.jpg[banana_pi_bpi-3a6000_pc_7.jpg]
 
