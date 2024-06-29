@@ -65,15 +65,15 @@ link:/en/BPI-3A6000/Photo_BPI-3A6000[Banana Pi BPI-3A6000 Photo]
 |Display	| 2 x HDMI display interface，Built-in bridge GPU，1GB video memory，maximum resolution 1920x1080
 .2+|WIfi	|support dual-band wireless WiFi 5G/2.4G，support 802.11AC
 |support Bluetooth 5.0（RTL8822CE wireless network card does not support Bluetooth）
-.6+|外部设备接口	|2 个 USB 3.0 接口，机箱前面板
-|1 个 TypeC 接口，支持数据传输且有对外供电能力（PD3.0 快充协议），机箱前面板
-|4 个 USB2.0 接口，机箱后面板
-|2 个 HDMI 接口位于机箱后面板
-|2 个 RJ-45 千兆网络接口，位于机箱后面板（靠近音频接口的 RJ45 暂不支持使用）
-|1 个 3.5mm 耳机/麦克风音频接口，位于机箱后面板
-.2+|预留调试接口|	1 个 TTL 电平 UART 调试接口，2.54mm 插针，位于机箱内部
-|1 个 LA-JTAG 接口，主要用于CPU 调试，位于机箱内部
-|机箱尺寸	|156mm x 154mm x 42 mm(长 x 宽 x 高)，*不含脚垫
+.6+|External interface	|2 x USB 3.0 
+|1 x TypeC PD，Support data transmission and external power supply (PD3.0 fast charge protocol)
+|4 x USB2.0 
+|2 x HDMI
+|2 x RJ-45 Gigabit network
+|1 x 3.5mm Headphone/microphone audio
+.2+|Reserved debugging interface|	1 x TTL level UART debugging interface，2.54mm
+|1 x LA-JTAG interface，Mainly used for CPU debugging
+|Size	|156mm x 154mm x 42 mm(长 x 宽 x 高)
 .2+|电源功耗	|最大整机功耗：不大于 80W
 |适配器规格：DC19V 3.42A， 5.5/2.5mm
 |散热系统	|1 个专用定制散热模组
