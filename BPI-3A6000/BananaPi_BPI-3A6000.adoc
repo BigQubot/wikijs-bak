@@ -7,7 +7,7 @@ BPI-3A6000 can be applied to enterprise office, personal minicomputs, high-perfo
 
 BPI-3A6000 Longson minicomputeruses mini case design, unique high density heat dissipation structure design, high performance, high density and high reliability in one; It is easy to move and saves space when it meets various application scenarios.
 
-== application scenarios
+== Application scenarios
 
 In addition to conventional computing applications, the BPI-3A6000 can also be pre-installed with the following industrial control applications, including but not limited to:
 
@@ -19,7 +19,7 @@ In addition to conventional computing applications, the BPI-3A6000 can also be p
 * C/S architecture SCADA system functions
 * B/S architecture SCADA system functions
 
-== product feature
+== Product feature
 * Mini size 
 ** The volume of the whole machine is less than 1L, which is 40 times smaller than the desktop
 ** Small size, easy to carry, easy to organize, one hand
@@ -81,32 +81,32 @@ link:/en/BPI-3A6000/Photo_BPI-3A6000[Banana Pi BPI-3A6000 Photo]
 |Operating system support is subject to change without notice
 |====
 
-== 环境规格
+== Environmental spec
 [options="header",cols="1,4"]
 |====
-|项目	|说明
-|工作温度|	0℃~+70℃
-|存储温度	|-40~+80℃
-|工作湿度（RH）|5%~95%无冷凝
-|存储湿度（RH）	|5%~95%无冷凝
-|海拔高度	|<5000m
-|防雷	|内置防雷元件，支持户外使用，符合高等级EMC标准
-|防护等级	|IP40
-|散热方式	|风扇散热
-.2+|电磁兼容	|EMC III级，
+|Item	|explain
+|operating temperature|	0℃~+70℃
+|storage temperature	|-40~+80℃
+|operating humidity（RH）|5%~95% non-condensing
+|Storage Humidity（RH）	|5%~95% non-condensing
+|altitude	|<5000m
+|lightning protection|Built-in lightning protection element, support outdoor use, in line with high-level EMC standards
+|level of protection	|IP40
+|heat-dissipating method	|Fans&Heatsink
+.2+|electromagnetic compatibility	|EMC III grade，
 |GB/T17626、GB/T15153、IEC61850-3、EN61000-6-5
-|安规	|GB/T7621-2008
-|认证	|CE认证
+|safety standard	|GB/T7621-2008
+|CE certification	|CE & FCC &RoHS
 |====
 
-= 产品及解决方案
+= Product
 
 In addition to PCBA design and production, Banana Pi open source community can also provide Loongson Mini PC complete machine, so that users can quickly complete the standard product design. CNC aluminum housing
 
 image::/3a6000/banana_pi_bpi-3a6000_pc_7.jpg[banana_pi_bpi-3a6000_pc_7.jpg]
 
 
-== 前面板接口示意图
+== Interface on the front panel
 
 image::/3a6000/banana_pi_bpi-3a6000_pc_5 new.jpg[banana_pi_bpi-3a6000_pc_5 new.jpg]
 
