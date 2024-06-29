@@ -74,11 +74,11 @@ link:/en/BPI-3A6000/Photo_BPI-3A6000[Banana Pi BPI-3A6000 Photo]
 .2+|Reserved debugging interface|	1 x TTL level UART debugging interface，2.54mm
 |1 x LA-JTAG interface，Mainly used for CPU debugging
 |Size	|156mm x 154mm x 42 mm(长 x 宽 x 高)
-.2+|电源功耗	|最大整机功耗：不大于 80W
-|适配器规格：DC19V 3.42A， 5.5/2.5mm
-|散热系统	|1 个专用定制散热模组
-.2+|兼容操作系统	|Loongnix/UOS/Kylin OS；
-|操作系统支持情况如有变更，恕不另行通知
+.2+|Power Supply	|Maximum power consumption: no more than 80W
+|Adapter spec：DC19V 3.42A， 5.5/2.5mm
+|cooling system	|1 x special custom cooling module
+.2+|operating system	|Loongnix/UOS/Kylin OS；
+|Operating system support is subject to change without notice
 |====
 
 == 环境规格
