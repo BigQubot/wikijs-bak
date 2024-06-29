@@ -117,36 +117,37 @@ image::/3a6000/banana_pi_bpi-3a6000_pc_5 new.jpg[banana_pi_bpi-3a6000_pc_5 new.j
 |3	|PD，TYPE-C	|4	|Power 
 |====
 
-interface specification:
+interface explanation:
 
 [options="header",cols="1,1,1,3"]
 |====
 |Name	|type|	quantity	|explain
-|USB3.0接口	|TYPE-C	|1	|标准 Type-C 型母座，内置信号为USB3.0，支持正反插，支持 PD 协议快充,最大支持15W
-|USB3.0接口	|TYPE-A	|2	|标准USB3.0 TYPE-A接口
-电源开关	|电源开关	|1	|长按3秒，触发开关机功能
+|USB3.0	|TYPE-C	|1	|standard Type-C,support PD protocol fast charge, maximum support 15W
+|USB3.0	|TYPE-A	|2	|standard USB3.0 TYPE-A
 |====
 
-== 后面板接口示意图
+== Interface on the rear panel
 
 image::/3a6000/banana_pi_bpi-3a6000_pc_6.jpg[banana_pi_bpi-3a6000_pc_6.jpg]
 
 [options="header",cols="1,2,1,2"]
 |====
-|标识号|	接口名称	|标识号	|接口名称
-|1 |wifi天线接口	|	2	|电源输入接口
-|3/4	|USB 接口	|5	|HDMI输出接口
-|6	|以太网接口	|7|	音频+MIC接口
+|ID|	interface	|ID	|interface
+|1 |Wifi antenna interface	|	2	|Power input interface
+|3/4	|USB 2.0 	|5	|HDMI out
+|6	|Network	|7|	Audio +MIC interface
 |====
 
-接口说明
+interface explanation:
 
 [options="header",cols="1,1,1,4"]
 |====
-|名称	|类型	|数量	|说明
-|电源输入接口	|5.5/2.5mm	|1|	DC 19V/65W，3.42A
-|USB 接口	|USB 2.0 TYPE-A|	4	|USB接口支持存储设备热插拔。
-|HDMI输出接口	|HDMI 1.4	|2	|如需输出视频，使用HDMI视频线缆连接视频输出端口和显示器。
-|LAN接口	|RJ-45	|2	|使用网线连接设备以太网口到交换机。支持1000M/100M/10M自适应，BIOS暂不支持LAN2
-|音频接口	|Mic/耳机插孔	|1	|标准 3.5mm 音频接口，输入输出
+|Name	|type|	quantity	|explain
+|Power input	|5.5/2.5mm	|1|	DC 19V/65W，3.42A
+|USB	|USB 2.0 TYPE-A|	4	|USB supports hot swap of storage devices
+|HDMI out	|HDMI 1.4	|2	|To output video, use an HDMI video cable to connect the video output port to the display.
+|LAN	|RJ-45	|2	|Supports 1000M/100M/10M auto-adaptation, But the BIOS does not support LAN2 now
+|Audio	|Mic/headset jack	|1	|standard 3.5mm Audio interface, input/output
 |====
+
+
