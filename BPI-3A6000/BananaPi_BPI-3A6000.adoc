@@ -1,3 +1,150 @@
-== header
 
-content
+= BPI-3A6000 Mini PC
+
+BPI-3A6000 is a Mini PC developed by Banana Pi open source community Loongson 4th-generation 3A6000 processor + Loongson 7A2000 bridge chip.
+
+BPI-3A6000 can be applied to enterprise office, personal minicomputs, high-performance industrial computer, as well as education, medical, finance, edge computing and other fields. It has the advantages of high performance computing, portability, low energy consumption and easy management. The Loongson BPI-3A6000 MINIPC supports two DDR4 SODIMM slots, the memory rate is 3200M, a single memory supports 8GB/16GB/32GB, and the maximum memory capacity is 32GB. Storage Supports one M.2 2280-size NVME SSD slot and one 2.5-inch SATA disk expansion.
+
+BPI-3A6000 Longson minicomputeruses mini case design, unique high density heat dissipation structure design, high performance, high density and high reliability in one; It is easy to move and saves space when it meets various application scenarios.
+
+== application scenarios
+
+In addition to conventional computing applications, the BPI-3A6000 can also be pre-installed with the following industrial control applications, including but not limited to:
+
+* 300+ Industry general/industry specific protocol library
+* Video access transmission/control/recording/linkage function
+* Computational programming capabilities
+* Industrial firewall function
+* Soft PLC programming function
+* C/S architecture SCADA system functions
+* B/S architecture SCADA system functions
+
+== product feature
+* Mini size 
+** The volume of the whole machine is less than 1L, which is 40 times smaller than the desktop
+** Small size, easy to carry, easy to organize, one hand
+** Can support wall hanging, can be hung behind the monitor/TV series, save desktop space
+* High performance
+** Using the fourth generation of Loongson 3A6000 CPU+7A2000 bridge
+** Supports two DDR4 SODIMM slots
+** Supports memory rates up to 3200Mbps
+** Supports multiple CPU cores, up to 4 physical cores and 8 logical cores
+* High reliability
+** Advanced memory fault-tolerant ECC function (currently not supported by existing BIOS)
+** The use of all copper fin cooling architecture, so that the CPU performance is fully developed, full load performance is still reliable
+** Support intelligent speed adjustment function, the fan speed dynamically adjusts with the system temperature, effectively reducing the system noise and power consumption
+* Interface rich
+** Multiple interface types, can meet the needs of multiple scenarios at the same time
+** Dual display interface to achieve dual 1080P output at the same time, create a multi-screen working environment, improve efficiency and entertainment experience
+** NVMe and SATA interface dual hard disk design, easy to expand, increase storage space
+
+= Hardware
+
+== PCBA Hardware interface
+
+== Product photo
+
+link:/en/BPI-3A6000/Photo_BPI-3A6000[Banana Pi BPI-3A6000 Photo]
+
+== Hardware spec
+
+[options="header",cols="1,4"]
+|====
+2+| Banana Pi BPI-3A6000 Hardware Specifications
+| 参数名称	| 规格介绍
+.2+| 处理器	
+|支持龙芯第四代 3A6000 4 核 8 线程处理器，2.0-2.5GHz
+|大容量三级缓存(64KB/256KB/16MB)
+.4+| 内存	| 2 根内存插槽
+|支持 DDR4 3200 内存速率
+|最大可扩展至 32GB 内存
+|仅支持 SODIMM
+|存储系统	|支持 1 个 M.2 2280 NVMe SSD (PCIE3.0 x4 )
+|显示系统	|双 HDMI 显示接口，桥片内置 GPU，1GB 显存，最大分辨率 1920x1080
+.2+|无线连接	|支持双频无线 WiFi 5G/2.4G，支持 802.11AC
+|支持蓝牙 5.0（RTL8822CE 无线网卡暂时不支持蓝牙功能）
+.6+|外部设备接口	|2 个 USB 3.0 接口，机箱前面板
+|1 个 TypeC 接口，支持数据传输且有对外供电能力（PD3.0 快充协议），机箱前面板
+|4 个 USB2.0 接口，机箱后面板
+|2 个 HDMI 接口位于机箱后面板
+|2 个 RJ-45 千兆网络接口，位于机箱后面板（靠近音频接口的 RJ45 暂不支持使用）
+|1 个 3.5mm 耳机/麦克风音频接口，位于机箱后面板
+.2+|预留调试接口|	1 个 TTL 电平 UART 调试接口，2.54mm 插针，位于机箱内部
+|1 个 LA-JTAG 接口，主要用于CPU 调试，位于机箱内部
+|机箱尺寸	|156mm x 154mm x 42 mm(长 x 宽 x 高)，*不含脚垫
+.2+|电源功耗	|最大整机功耗：不大于 80W
+|适配器规格：DC19V 3.42A， 5.5/2.5mm
+|散热系统	|1 个专用定制散热模组
+.2+|兼容操作系统	|Loongnix/UOS/Kylin OS；
+|操作系统支持情况如有变更，恕不另行通知
+|====
+
+== 环境规格
+[options="header",cols="1,4"]
+|====
+|项目	|说明
+|工作温度|	0℃~+70℃
+|存储温度	|-40~+80℃
+|工作湿度（RH）|5%~95%无冷凝
+|存储湿度（RH）	|5%~95%无冷凝
+|海拔高度	|<5000m
+|防雷	|内置防雷元件，支持户外使用，符合高等级EMC标准
+|防护等级	|IP40
+|散热方式	|风扇散热
+.2+|电磁兼容	|EMC III级，
+|GB/T17626、GB/T15153、IEC61850-3、EN61000-6-5
+|安规	|GB/T7621-2008
+|认证	|CE认证
+|====
+
+= 产品及解决方案
+
+除了完成PCBA设计与生产，Banana Pi 开源社区还能提供龙芯 Mini PC 整机，方便用户快速的完成标准产品设计。采用CNC铝制外壳
+
+image::/3a6000/banana_pi_bpi-3a6000_pc_7.jpg[banana_pi_bpi-3a6000_pc_7.jpg]
+
+
+== 前面板接口示意图
+
+image::/3a6000/banana_pi_bpi-3a6000_pc_5 new.jpg[banana_pi_bpi-3a6000_pc_5 new.jpg]
+
+[options="header",cols="1,3,1,4"]
+|====
+|标识号	|接口名称	|标识号	|接口名称
+|1	|USB 3.0接口，TYPE-C	|2	|USB 3.0接口，TYPE-A
+|3	|PD接口，TYPE-C	|4	|电源开关
+|====
+
+接口说明:
+
+[options="header",cols="1,1,1,3"]
+|====
+|名称	|类型|	数量	|说明
+|USB3.0接口	|TYPE-C	|1	|标准 Type-C 型母座，内置信号为USB3.0，支持正反插，支持 PD 协议快充,最大支持15W
+|USB3.0接口	|TYPE-A	|2	|标准USB3.0 TYPE-A接口
+电源开关	|电源开关	|1	|长按3秒，触发开关机功能
+|====
+
+== 后面板接口示意图
+
+image::/3a6000/banana_pi_bpi-3a6000_pc_6.jpg[banana_pi_bpi-3a6000_pc_6.jpg]
+
+[options="header",cols="1,2,1,2"]
+|====
+|标识号|	接口名称	|标识号	|接口名称
+|1 |wifi天线接口	|	2	|电源输入接口
+|3/4	|USB 接口	|5	|HDMI输出接口
+|6	|以太网接口	|7|	音频+MIC接口
+|====
+
+接口说明
+
+[options="header",cols="1,1,1,4"]
+|====
+|名称	|类型	|数量	|说明
+|电源输入接口	|5.5/2.5mm	|1|	DC 19V/65W，3.42A
+|USB 接口	|USB 2.0 TYPE-A|	4	|USB接口支持存储设备热插拔。
+|HDMI输出接口	|HDMI 1.4	|2	|如需输出视频，使用HDMI视频线缆连接视频输出端口和显示器。
+|LAN接口	|RJ-45	|2	|使用网线连接设备以太网口到交换机。支持1000M/100M/10M自适应，BIOS暂不支持LAN2
+|音频接口	|Mic/耳机插孔	|1	|标准 3.5mm 音频接口，输入输出
+|====
