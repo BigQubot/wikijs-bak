@@ -50,9 +50,11 @@ image::/bpi-f3/bpi-f3_sch.png[bpi-f3_sch.png]
 [options="header",cols="1,4",width="70%"]
 |=====
 2+| ** Banana Pi BPI-F3 RISC-V 开源硬件开发板硬件规格**
-| CPU主控                               | 进迭时空（SpacemiT） K1 8 core RISC-V 芯片
+| CPU                               |  SpacemiT K1 Otca-core X60(RV64GCVB),RVA22,RVV1.0
 
-| AI                                |  2.0 Tops 算力                                                                          
+| AI                                |  2.0Tops from RlSC-V Core   
+
+| GPU  | IMG BXE-2-32@819MHz,32KB SLCOpenGL ES1.1/3.2EGL1.50penCL 3.0Vulkan 1.3                                                                       
 | 内存                            | 4 GB LPDDR4(最大支持 8G LPDDR4)                                                                        
 | 存储                           | 16G eMMC flash.可选 4M SPI NOR,32M SPI NAND                                                                              
 | SD 接口                           | MicroSD card slot(大于 256MB)                                                                       
