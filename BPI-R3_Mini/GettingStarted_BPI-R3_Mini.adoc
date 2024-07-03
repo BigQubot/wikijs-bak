@@ -112,6 +112,19 @@ dd if=mtk-bpi-r3mini-NAND-20230719-single-image.bin of=/dev/mtdblock0
 +
 WARNING: Note: Enable Nand device, boot strap is from Nand.
 
+=== jffs2 error solution
+
+After you finish burning emmc, switch to emmc boot, but the serial port keeps outputting jffs2 errors. You can use the following method to solve it.
+
+. First, switch back to NAND boot. Execute the following command to write zero to emmc.
++
+```sh
+dd if=/dev/zero of=/dev/mmcblk0
+```
+. Then re-burn the emmc according to the link:/en/BPI-R3_Mini/GettingStarted_BPI-R3_Mini#_install_image_to_onboard_emmc[document].
+
+
+
 === Network-Configuration
 Network-Configuration refer to: http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:network:start
 
