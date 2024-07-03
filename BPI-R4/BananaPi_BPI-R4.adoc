@@ -154,6 +154,10 @@ Google Drive:
 https://drive.google.com/file/d/11zz_1jqCga19YYkuLtFbnCrUOjiEm4_R/view?usp=sharing
 
 == mPCIe WiFi6/WiFi6E/Wifi7
+=== WiFi6e
+ASIA.RF AW7916-NPD: WiFi6E 3000 802.11ax G-band 2T2R and A-band 3T3R 2ss Dual Bands Dual Concurrents mPCIe Card AW7916-NPD
+
+WiFi6E Module: https://asiarf.com/product/wi-fi-6e-mini-pcie-module-mt7916-aw7916-npd/
 
 === WiFi7:BPI-R4-NIC-BE14
 
@@ -168,6 +172,8 @@ link:/en/BPI-R4/BananaPi_BPI-R4-NIC-BE14[Banana Pi BPI-R4-NIC-BE14 Specification
 If you want to use POE function, you can customize it. You need to replace the 10G SFP LAN with 2.5Gbps RJ45 and solder the RT5400B module.
 
 image::/bpi-r4/banana_pi_bpi-r4_poe_1.jpg[banana_pi_bpi-r4_poe_1.jpg]
+
+
 
 = Development
 == Source Code
