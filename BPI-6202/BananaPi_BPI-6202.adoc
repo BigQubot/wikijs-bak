@@ -261,7 +261,9 @@ NOTE: The power supply of BPI-6202 is DC24V
 |====
 
 = Source code
-TIP: BPI-CS6202 BSP source code: https://github.com/BPI-SINOVOIP/bpi-cs6202
+TIP: BPI-CS6204 BSP source code: https://github.com/BPI-SINOVOIP/bpi-cs6202
+
+WARNING: The BSP on GitHub has been updated into a 6204 version. If it is a user who purchased 6202 before, please extract the previous version.
 
 = Resource
 
