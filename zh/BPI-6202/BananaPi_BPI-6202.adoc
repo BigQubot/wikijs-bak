@@ -6,7 +6,7 @@ BPI-6204是BPI-6202的升级版。接口从RS485 x 2 + RS232 x 1升级为RS485 x
 
 TIP: 全志科技 A40i design link:/zh/BPI-M2_Berry/BananaPi_BPI-M2_Berry[香蕉派 BPI-M2 Berry] 单板计算机开发板 +
 全志科技 A40i 方案设计 link:/zh/BPI-M2_Ultra/BananaPi_BPI-M2_Ultra[香蕉派 BPI-M2 Ultra] 单板计算机开发板 +
-全志科技 A40i 方案设计 link:/zh/BPI-6202/BananaPi_BPI-6202[香蕉派 BPI-6202] 工业控制网关  +
+全志科技 A40i 方案设计 link:/zh/BPI-6202/BananaPi_BPI-6202[香蕉派 BPI-6202/6204] 工业控制网关  +
 中科龙芯 2K1000LA 方案设计: link:/zh/BPI-5202/BananaPi_BPI-5202[香蕉派 BPI-5202] 嵌入式工业控制网关计算机
 
 == 快速上手
@@ -268,7 +268,9 @@ NOTE: 注：BPI-6202的供电，为DC24V
 
 == 软件源代码
 
-TIP: BPI-CS6202 BSP 软件源代码: https://github.com/BPI-SINOVOIP/bpi-cs6202
+TIP: BPI-CS6204 BSP 软件源代码: https://github.com/BPI-SINOVOIP/bpi-cs6202
+
+WARNING: Github上的BSP已更新成6204版本，如果是以前购买6202的用户请提取前一个版本。
 
 == 参考文档
 
