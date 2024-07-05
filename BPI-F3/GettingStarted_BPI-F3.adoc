@@ -169,7 +169,12 @@ sync
 ```
 . After waiting for the burning to complete, disconnect the power and remove the SD card and USB drive. Power on again to start from the EMMC.
  
- 
+== Solution for 2G DDR version unable to start
+. Open Titan Tools and click on the mass production tool.
+. Select the number writing tool. If your software does not have this, please update it.
+. Select Configure custom fields and change ddr_cs_num from fixed to scan. Click Save and then return. (If you do not see the ddr_cs_num option, please click Restore Default first)
+. While holding down the FDL button, connect the type-c cable to the board. After the board is recognized, click Start writing.
+
 = Other Development
 == WiFi/BT
 **You have two ways to setup WiFi**
