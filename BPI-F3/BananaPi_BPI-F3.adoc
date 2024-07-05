@@ -219,6 +219,10 @@ TIP: Bianbu OpenSBI code: https://gitee.com/bianbu-linux/opensbi
 
 * link:https://bianbu-linux.spacemit.com/en/[Bianbu linux Introduction and development manual]
 
+=== OpenWrt
+
+TIP: OpenWrt source code: https://archive.spacemit.com/openwrt/releases/23.05.2/
+
 === Linux BSP Source Code
 
 TIP: pi-opensbi: https://github.com/BPI-SINOVOIP/pi-opensbi/tree/v1.3-k1
@@ -286,6 +290,13 @@ Bianbu NAS is a NAS operating system that includes applications (openmediavault,
 Bianbu Desktop/NAS image download： https://archive.spacemit.com/image/k1/version/bianbu/
 
 usename&password: bianbu
+
+== OpenWrt
+
+BSP based on native OpenWrt 23.05 integrated Spacemit Stone series chips, including supervisory program interface (OpenSBI), boot loader (U-Boot/UEFI), Linux kernel, root file system (including various middleware and libraries), and examples. Its goal is to provide customers with soft routing and NAS scheme support, and can develop drivers or applications.
+
+Spcemit official online documents : https://bianbu-linux.spacemit.com/openwrt-docs
+
 
 == Debian
 NOTE: 2024-06-14-Armbian-bpi-SpacemiT_24.5.0-trunk_Bananapif3_sid_legacy_6.1.15_xfce_desktop.img
