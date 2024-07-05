@@ -253,30 +253,19 @@ TIP: Linux PC: https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2
 
 == Linux
 
-=== Bianbu
-NOTE: Bianbu-23.10-k1-v1.0rc3-release-20240525131412.img
+=== Bianbu desktop
 
-百度网盘: https://pan.baidu.com/s/1H0ww8qVIgHRuuA43JszF6g?pwd=8888 (pincode: 8888)
+Bianbu是一个针对RISC-V架构的处理器做了深度优化的操作系统，基于Ubuntu社区源码构建，有Bianbu Desktop和Bianbu NAS等版本，适用于不同的产品领域。
 
-谷歌网盘: https://drive.google.com/drive/folders/1eEfMkzNzHyDwz3_Ox8i2acvU4W5CowiW?usp=sharing
+Bianbu Desktop 是一个桌面操作系统，简洁、快速、安全，支持 RISC-V 单板电脑、笔记本和台式机等。
 
-账户/密码: root/bianbu
+=== Bianbu NAS
 
-NOTE: Bianbu-23.10-nas-k1-v1.0rc1-release-20240429192450.img
+Bianbu NAS 是一个 NAS 操作系统，包含应用（openmediavault、docker 和常用软件）、框架、库、运行时、Linux 内核、引导加载程序（U-Boot）和监管程序接口（OpenSBI）等。其目标是为客户提供 NAS 软件参考设计，并且可以开发驱动或应用。
 
-百度网盘: https://pan.baidu.com/s/15owwUEjIU_i26cI1iigAew?pwd=8888 (pincode: 8888)
+Bianbu Desktop/NAS 镜像下载： https://archive.spacemit.com/image/k1/version/bianbu/
 
-谷歌网盘: https://drive.google.com/drive/folders/1LQoioz6N5YQpSOxY47OmetnPX4yggtT0?usp=sharing
-
-账户/密码: root/bianbu
-
-NOTE: Bianbu-23.10-desktop-k1-v1.0rc1-release-20240429194149.img
-
-百度网盘: https://pan.baidu.com/s/1zvFkX92f5gpZdKjP-vGJvA?pwd=8888 (pincode: 8888)
-
-谷歌网盘: https://drive.google.com/drive/folders/1kCHiMwjnhvZaRBy5vkj6UlPeAlpRQ14P?usp=sharing
-
-账户/密码: root/bianbu
+usename&password: bianbu
 
 === Debian
 NOTE: 2024-06-14-Armbian-bpi-SpacemiT_24.5.0-trunk_Bananapif3_sid_legacy_6.1.15_xfce_desktop.img
