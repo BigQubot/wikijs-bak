@@ -275,29 +275,17 @@ TIP: Linux PC: https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2
 
 == Bianbu
 
-NOTE: Bianbu-23.10-k1-v1.0rc3-release-20240525131412.img
+=== Bianbu desktop
 
-Baidu cloud: https://pan.baidu.com/s/1H0ww8qVIgHRuuA43JszF6g?pwd=8888 (pincode: 8888)
+Bianbu Desktop is a simple, fast and secure desktop operating system that supports RISC-V single-board computers, notebooks and desktops.
 
-Google drive: https://drive.google.com/drive/folders/1eEfMkzNzHyDwz3_Ox8i2acvU4W5CowiW?usp=sharing
+=== Bianbu NAS
 
-Account/Password: root/bianbu
+Bianbu NAS is a NAS operating system that includes applications (openmediavault, docker, and common software), frameworks, libraries, runtime, Linux kernel, boot loader (U-Boot), and supervisor interface (OpenSBI). The goal is to provide customers with NAS software reference designs, and drivers or applications can be developed.
 
-NOTE: Bianbu-23.10-nas-k1-v1.0rc1-release-20240429192450.img
+Bianbu Desktop/NAS image download： https://archive.spacemit.com/image/k1/version/bianbu/
 
-Baidu cloud: https://pan.baidu.com/s/15owwUEjIU_i26cI1iigAew?pwd=8888 (pincode: 8888)
-
-Google drive: https://drive.google.com/drive/folders/1LQoioz6N5YQpSOxY47OmetnPX4yggtT0?usp=sharing
-
-Account/Password: root/bianbu
-
-NOTE: Bianbu-23.10-desktop-k1-v1.0rc1-release-20240429194149.img
-
-Baidu cloud: https://pan.baidu.com/s/1zvFkX92f5gpZdKjP-vGJvA?pwd=8888 (pincode: 8888)
-
-Google drive: https://drive.google.com/drive/folders/1kCHiMwjnhvZaRBy5vkj6UlPeAlpRQ14P?usp=sharing
-
-Account/Password: root/bianbu
+usename&password: bianbu
 
 == Debian
 NOTE: 2024-06-14-Armbian-bpi-SpacemiT_24.5.0-trunk_Bananapif3_sid_legacy_6.1.15_xfce_desktop.img
