@@ -214,6 +214,8 @@ TIP: kernel: https://github.com/BPI-SINOVOIP/pi-linux/tree/linux-6.1.15-k1
 
 TIP: Armbian: https://github.com/BPI-SINOVOIP/armbian-build/tree/v24.04.30
 
+TIP: OpenWrt : https://archive.spacemit.com/openwrt/releases/23.05.2/
+
 == RISC-V IME 开源指令集规范
 
 SpacemiT K1 RISC-V IME 开源指令集规范源代码
@@ -266,6 +268,12 @@ Bianbu NAS 是一个 NAS 操作系统，包含应用（openmediavault、docker �
 Bianbu Desktop/NAS 镜像下载： https://archive.spacemit.com/image/k1/version/bianbu/
 
 usename&password: bianbu
+
+== OpenWrt
+
+基于原生OpenWrt 23.05集成Spacemit Stone 系列芯片的 BSP，包含监管程序接口（OpenSBI）、引导加载程序（U-Boot/UEFI）、Linux 内核、根文件系统（包含各种中间件和库）以及示例等。其目标是为客户提供软路由和NAS方案支持，并且可以开发驱动或应用。
+
+进迭时空官方在线文档: https://bianbu-linux.spacemit.com/openwrt-docs
 
 === Debian
 NOTE: 2024-06-14-Armbian-bpi-SpacemiT_24.5.0-trunk_Bananapif3_sid_legacy_6.1.15_xfce_desktop.img
