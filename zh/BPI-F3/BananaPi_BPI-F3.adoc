@@ -245,6 +245,12 @@ https://www.youtube.com/watch?v=Kn7GYiOxato
 
 TIP: Banana Pi BPI-F3 Review : Octa Core RISC-V SBC Running Bianbu OS : https://www.youtube.com/watch?v=GZGryhBnkV0
 
+TIP: BPI-F3 DEB1 scenario power consumption data
+
+Google drive: https://docs.google.com/spreadsheets/d/1oJ0YDgqEfiiA7U7illFNQR_MZ7CEzPa9/edit?usp=sharing&ouid=101692257577438398584&rtpof=true&sd=true
+
+Baidu cloud: https://pan.baidu.com/s/1RYM3_njC3EAmId7f_Ix3Zw?pwd=8888 (pincode: 8888)
+
 = 系统镜像
 == 工具
 
@@ -274,6 +280,18 @@ usename&password: bianbu
 基于原生OpenWrt 23.05集成Spacemit Stone 系列芯片的 BSP，包含监管程序接口（OpenSBI）、引导加载程序（U-Boot/UEFI）、Linux 内核、根文件系统（包含各种中间件和库）以及示例等。其目标是为客户提供软路由和NAS方案支持，并且可以开发驱动或应用。
 
 进迭时空官方在线文档: https://bianbu-linux.spacemit.com/openwrt-docs
+
+NOTE: openwrt-spacemit-k1-nas-MUSE-N1-ext4-pack
+
+Baidu cloud: https://pan.baidu.com/s/1HJT04OiSGKmMa4y4RvVv9g?pwd=8888 (pincode: 8888)
+
+Google drive:  https://drive.google.com/drive/folders/1UQHHIu6MnOFvrqAhE5PR-fHMnH8RyAf6?usp=sharing
+
+NOTE: openwrt-spacemit-k1-sbc-debX-ext4-pack
+
+Baidu cloud: https://pan.baidu.com/s/1XOkGOen0fc3RBEH--Jb3_A?pwd=8888 (pincode: 8888)
+
+Google drive: https://drive.google.com/drive/folders/1IfRSpXBn9TXcyNzAxJvBASZE-PBHVeaQ?usp=sharing
 
 === Debian
 NOTE: 2024-06-14-Armbian-bpi-SpacemiT_24.5.0-trunk_Bananapif3_sid_legacy_6.1.15_xfce_desktop.img
