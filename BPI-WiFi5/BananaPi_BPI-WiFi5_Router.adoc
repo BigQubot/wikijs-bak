@@ -74,18 +74,18 @@ link:/en/BPI-Wifi5/Photo_BPI-Wifi5[Banana Pi BPI-Wifi5 Router Product photo gall
 [options="header",cols="2,6",width="80%"]
 |=====
 2+|
-|WAN port settings|Automatically obtain IP address; Fixed IP address; PPPoE dial-up
-|LAN port settings|Automatically set LAN port address; Manually set LAN port address
-|MAC address settings|Use router MAC address; MAC address cloning; Customize MAC address
-|DHCP server |Modify address pool start address; Modify address pool end address; Modify address lease
+|WAN port settings|Automatically obtain IP address, Fixed IP address, PPPoE dial-up
+|LAN port settings|Automatically set LAN port address, Manually set LAN port address
+|MAC address settings|Use router MAC address, MAC address cloning, Customize MAC address
+|DHCP server |Modify address pool start address, Modify address pool end address, Modify address lease
 2+|IP and MAC binding settings
-|IPV6|Turn on/off IPV6; WAN settings; LAN settings
-|wifi
-|Wi-Fi SSID and password settings; Wireless broadcast; Encryption; Channel bandwidth settings; Switch mode; Modify bandwidth; Modify signal strength
+|IPV6|Turn on/off IPV6, WAN settings, LAN settings
+|wifi|Wi-Fi SSID and password settings, Wireless broadcast
+Encryption, Channel bandwidth settings, Switch mode, Modify bandwidth, Modify signal strength
 |Guest network | Guest network SSID, speed limit, access time, and whether to access the intranet
 2+|WDS Wireless Bridging
-|Advanced features|Virtual server; DMZ host; UPnP settings; Routing function; DDNS
-|System Settings | System status; Time settings; Password management; Configuration management; System log; LAN settings; DHCP binding;Backup; Factory reset
+|Advanced features|Virtual server, DMZ host, UPnP settings, Routing function, DDNS
+|System Settings | System status, Time settings, Password management, Configuration management, System log, LAN settings, DHCP binding, Backup, Factory reset
 |=====
 
 
