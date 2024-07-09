@@ -218,3 +218,12 @@ git clone git@github.com:BPI-SINOVOIP/armbian-build.git -b v24.04.30 v24.04.30
 cd v24.04.30
 ./compile.sh build BOARD=bananapif3 BRANCH=legacy BUILD_DESKTOP=yes BUILD_MINIMAL=no DESKTOP_APPGROUPS_SELECTED= DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base KERNEL_CONFIGURE=no RELEASE=mantic
 ```
+
+== FAN
+```sh
+echo 0 > /sys/class/pwm/pwmchip1/export
+echo 100000 > /sys/class/pwm/pwmchip1/pwm0/period
+echo 50000 > /sys/class/pwm/pwmchip1/pwm0/duty_cycle
+echo normal > /sys/class/pwm/pwmchip1/pwm0/polarity
+echo 1 > /sys/class/pwm/pwmchip1/pwm0/enable
+```
