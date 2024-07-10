@@ -67,9 +67,9 @@ NOTE: On the BPI-M1 Super, there are two Type-C interfaces that look identical, 
 
 == Hardware Pin Definitions
 
-[options="header",cols="1,1.1.1.1.1"]
+[options="header",cols="1,4,1,1,4,1"]
 |=====
-6+|  40 Pin GPIO define of Banana Pi BPI-M1 Super 
+6+| **HardWare Specification of Banana Pi BPI-M1 Super**
 | GPIO |number	|Function	|Pin	|Pin	Function	|GPIO number
 |	|+3.3V	|1 | 2 | +5.0V	|
 |130	|I2C1_SDA_M0 / UART3_RTSN / I2S1_SDI3 / GPIO4_A2_d /	|3|4| +5.0V	|
@@ -78,47 +78,19 @@ NOTE: On the BPI-M1 Super, there are two Type-C interfaces that look identical, 
 ||GND	 |9|10|GPIO0_B6/UART0_RX_M0/ JTAG_MCU_TMS_M1/JTAG_CPU_TMS_M1 / GPIO4_C7_u	|151
 |0	|GPIO0_A0	|11|12|I2S1_SCLK / UART1_RTSN / GPIO4_A5_d	|133
 | | |13 | 14 | GND	|
-| | |15 |16|+3.3V	
-| | |17 | 18 | | 
-138	SPI0_MOSI / PDM_SDI0 / I2S1_SDO3 / GPIO4_B2_d	
-19
-20
-GND	
-41	SPI0_MISO / PDM_SDI2 / I2S1_SDI1 / GPIO4_B3_d	
-21
-22
-43	SPI0_CLK / I2S1_SDI0 / GPIO4_B4_d	
-23
-24
-SPI0_CSN0 / PWR_CTRL1 /SPI0_CS0_M2	44
-GND	
-25
-26
-PWM6_M0 / SPI0_CSN1 / PDM_SDI3 / GPIO4_C1_d	145
-150	I2C0_SDA_M0 / PWM0_M0 / GPU_AVS / GPIO4_C3_d	
-27
-28
-ARM_AVS / PWM1_M0 / I2C0_SCL_M0 / GPIO4_C4_d	148
-29
-30
-GND	
-31
-32
-GPIO4_C0/PWM5_M0 / FEPHY_LED_LINK_M0 / UART3_TX_M1	144
-103	GPIO4_B7 / PWM4_M0 / FEPHY_LED_SPD_M0 / UART3_RX_M1	
-33
-34
-GND	
-134	UART1_TX_M0 / I2S1_LRCK / GPIO4_A6_d	
-35
-36
-37
-38
-GPIO3_B2 / SPI0_CLK / I2S1_SDI0	106
-GND	
-39
-40
-GPIO4_A7_d / UART1_RX_M0 / I2S1_SDO0	107
+| | |15 |16|  | 
+| |+3.3V | 17 | 18 | | 
+|138	|SPI0_MOSI / PDM_SDI0 / I2S1_SDO3 / GPIO4_B2_d	|19|20|GND	|
+|41	|SPI0_MISO / PDM_SDI2 / I2S1_SDI1 / GPIO4_B3_d	|21|22| |
+|43	|SPI0_CLK / I2S1_SDI0 / GPIO4_B4_d| 23 |24 |SPI0_CSN0 / PWR_CTRL1 /SPI0_CS0_M2|	44
+| |GND	|25|26|PWM6_M0 / SPI0_CSN1 / PDM_SDI3 / GPIO4_C1_d	|145
+|150	|I2C0_SDA_M0 / PWM0_M0 / GPU_AVS / GPIO4_C3_d	|27|28|ARM_AVS / PWM1_M0 / I2C0_SCL_M0 / GPIO4_C4_d	|148
+| | |29 | 30|GND	|
+| || 31|32|GPIO4_C0/PWM5_M0 / FEPHY_LED_LINK_M0 / UART3_TX_M1	|144
+|103|	GPIO4_B7 / PWM4_M0 / FEPHY_LED_SPD_M0 / UART3_RX_M1	|33|34|GND	|
+|134	|UART1_TX_M0 / I2S1_LRCK / GPIO4_A6_d	|35|36||
+| | |37|38|GPIO3_B2 / SPI0_CLK / I2S1_SDI0 |	106
+| |GND	|39|40|GPIO4_A7_d / UART1_RX_M0 / I2S1_SDO0|	107
 |=====
 
 
