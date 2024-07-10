@@ -1,0 +1,71 @@
+= Overview
+
+Banana Pi BPI-M1 Super utilizes the Rockchip RK3528, a new-generation intelligent set-top box and multimedia application chip. It is applicable to IPTV/OTT boxes, cloud terminals, and integrated products. It is a high-performance, low-power 4K player with decoding capability supporting up to 8K. Additionally, it also supports the AVS2 and HDR VIVID standards.
+
+== Key Parameter
+* SoC: Rockchip RK3528
+* CPU: RK3528 Quad-core Cortex-A53
+* GPU: ARM Mali-450 GPU
+* VPU/Decoding:
+** Hardware Decoding: Supports 60fps playback of 4K ultra-high-definition video with up to 10-bit pixels. Supports video standards including H.265, H.264, AVS2, etc.
+** Hardware Encoding: Supports 60fps capture of 1080p high-definition video. Supports H.265 and H.264 encoding.
+* RAM: 4GB 32-bit LPDDR4x, default 4GB (RK3528 supports maximum 4GB)
+* Flash: 32GB eMMC, default eMMC 32GB
+* Operating System:
+** Officially Supported by Rockchip: Android 9.0_box, Debian11, Buildroot
+** Third-party Support: Armbian
+* Dimensions: 92mm × 62mm x 14.6mm
+
+== Getting started
+
+
+= Hardware 
+
+== Hardware interface
+
+NOTE: On the BPI-M1 Super, there are two Type-C interfaces that look identical, but only one of them (Type-C DC IN) serves as the power input interface.
+
+
+== Hardware spec
+
+[options="header",cols="1,4"]
+|=====
+2+| **HardWare Specification of Banana Pi BPI-M1 Super**
+| Category	| Functional Parameters
+| SOC	| RockChip RK3528 Quad-core Cortex-A53
+.2+| GPU	| ARM Mali-450 GPU
+| Supports OpenGL ES 1.1/2.0 and OpenVG.
+.2+| VPU/Codec	| video decoder：supports 60fps playback of 4K ultra-high-definition video with up to 10-bit pixels. It supports H.265, H.264, AVS2, etc. video standards.
+| video encoder：supports 60fps capture of 1080p high-definition video. It supports H.265 and H.264 encoding.
+| RAM | 4GB 32-bit LPDDR4x, default 4GB, maximum supported 4GB
+.2+| Flash	 | 32GB eMMC, default eMMC 32GB
+| supports MicroSD card expansion
+.3+| Network	| 1x 2.5G Ethernet port
+| 1x Gigabit Ethernet port
+| Onboard IEEE 802.11a/b/g/n/ac/ax WIFI6 and BT5 (rtl8852bs)
+| Video Output| 1x HDMI OUT2.0b, supports 4K@60fps
+.2+| Audio	| 1x HDMI audio output
+| 1x HP-OUT audio output
+.2+| USB Ports	| 2x USB2.0, supports High-Speed (480Mbps), Full-Speed (12Mbps), and Low-Speed (1.5Mbps) modes
+| 1x USB Type-C 2.0, supports OTG, supports high-speed (480Mbps), full-speed (12Mbps) and low-speed (1.5Mbps) modes
+.2+| 40-pin	| Compatible with Raspberry Pi 40-pin GPIO, supports various accessory peripherals
+| Supports UART/SPI/I2C/I2S/PWM/5V Power/3.3V Power
+.3+| Others	 
+| 1x 5V fan interface
+| 1x battery input connector for low-power RTC chip HYM8563TS
+| 2x LED lights, green light starts blinking when system is normal, red light controlled by user
+| Power	| Supports USB Type-C, 9V/2A, 12V/2A, 15V/2A
+.2+| Buttons 	
+| 1x Reset button, supports reboot
+| 1x Maskrom button, supports entering maskrom burning mode
+.2+| System	
+| Officially Supported by Rockchip: Android 9.0_box, Debian11, Buildroot
+| Third-party Support: Armbian, Istoreos
+| Dimensions	| 92 mm x 62mm
+| Operating Temperature	| 0℃ ~ 80℃
+|=====
+
+
+
+
+
