@@ -171,14 +171,25 @@ sync
  
 == Solution for 2G DDR version unable to start
 . Open Titan Tools and click on the mass production tool.
-
++
+image::/bpi-f3/bpi-f3_2g_changes_1.png[bpi-f3_2g_changes_1.png]
 . Select the number writing tool. If your software does not have this, please update it.
-
-. Select Configure custom fields and change ddr_cs_num from fixed to scan. Click Save and then return. (If you do not see the ddr_cs_num option, please click Restore Default first)
-
++
+image::/bpi-f3/bpi-f3_2g_changes_2.png[bpi-f3_2g_changes_2.png]
+. Select Configure custom fields and change ddr_cs_num from fixed to scan. Click Save and then return. 
++
+image::/bpi-f3/bpi-f3_2g_changes_3.png[bpi-f3_2g_changes_3.png]
+image::/bpi-f3/bpi-f3_2g_changes_4.png[bpi-f3_2g_changes_4.png]
+(If you do not see the ddr_cs_num option, please click Restore Default first)
++
+image::/bpi-f3/bpi-f3_2g_changes_7.png[bpi-f3_2g_changes_7.png]
 . Select ddr_cs_num. Change 2 to 1.
-
++
+image::/bpi-f3/bpi-f3_2g_changes_5.png[bpi-f3_2g_changes_5.png]
 . While holding down the FDL button, connect the type-c cable to the board. After the board is recognized, click Start writing.
++
+image::/bpi-f3/bpi-f3_2g_changes_6.png[bpi-f3_2g_changes_6.png]
+
 
 = Other Development
 == WiFi/BT
