@@ -67,6 +67,8 @@ NOTE: On the BPI-M1 Super, there are two Type-C interfaces that look identical, 
 
 == Hardware Pin Definitions
 
+=== 40 PIN GPIO define
+
 [options="header",cols="1,4,1,1,4,1"]
 |=====
 6+| **HardWare Specification of Banana Pi BPI-M1 Super**
@@ -93,5 +95,36 @@ NOTE: On the BPI-M1 Super, there are two Type-C interfaces that look identical, 
 | |GND	|39|40|GPIO4_A7_d / UART1_RX_M0 / I2S1_SDO0|	107
 |=====
 
+=== FAN
 
+0.8mm connector(CON3102)
 
+[options="header",cols="1,3"]
+|=====
+|Pin	Assignment	|Description
+|1	|VCC_5V0	5V Power ouput
+|2	|GND	GND
+|3	|PWM	PWM control
+|=====
+
+=== HPOUT
+
+0.8mm connector(CON3101)
+
+[options="header",cols="1,2,2"]
+|=====
+|Pin	|Assignment	|Description
+|1	|AOR	|right channel
+|2	|AOL	|left channel
+|3	|GND	|GND
+|=====
+
+=== VRTC
+
+0.8mm connector(CON2200)
+[options="header",cols="1,2,2"]
+|=====
+|Pin	|Assignment	|Description
+|1	|+	|Positive pole
+|2	|-	|Negative pole
+|=====
