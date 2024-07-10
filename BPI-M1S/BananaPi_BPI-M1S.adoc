@@ -69,7 +69,7 @@ NOTE: On the BPI-M1 Super, there are two Type-C interfaces that look identical, 
 
 [options="header",cols="1,1.1.1.1.1"]
 |=====
-6+| ** 40 Pin GPIO define of Banana Pi BPI-M1 Super**
+6+|  40 Pin GPIO define of Banana Pi BPI-M1 Super 
 | GPIO |number	|Function	|Pin	|Pin	Function	|GPIO number
 |	|+3.3V	|1 | 2 | +5.0V	|
 |130	|I2C1_SDA_M0 / UART3_RTSN / I2S1_SDI3 / GPIO4_A2_d /	|3|4| +5.0V	|
@@ -78,10 +78,8 @@ NOTE: On the BPI-M1 Super, there are two Type-C interfaces that look identical, 
 ||GND	 |9|10|GPIO0_B6/UART0_RX_M0/ JTAG_MCU_TMS_M1/JTAG_CPU_TMS_M1 / GPIO4_C7_u	|151
 |0	|GPIO0_A0	|11|12|I2S1_SCLK / UART1_RTSN / GPIO4_A5_d	|133
 | | |13 | 14 | GND	|
-| | |15 |16
-+3.3V	
-17
-18
+| | |15 |16|+3.3V	
+| | |17 | 18 | | 
 138	SPI0_MOSI / PDM_SDI0 / I2S1_SDO3 / GPIO4_B2_d	
 19
 20
