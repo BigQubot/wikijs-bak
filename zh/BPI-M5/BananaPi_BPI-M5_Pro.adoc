@@ -16,8 +16,8 @@ TIP: 瑞芯微（Rockchip） RK3588 设计 link:/zh/BPI-M7/BananaPi_BPI-M7[香�
 * VPU/编码和解码：
 ** 硬件解码：支持 H.264、H.265、VP9、AV1 和 AVS2，最高可达 8K@30fps 或 4K@120fps。
 ** 硬件编码：支持H.264和H.265最高4K@60fps，高质量JPEG编码器/解码器最高支持4K@60fps。
-* RAM：8/16GB 32 位 LPDDR4x，默认为 16GB。 RK3576最大支持16GB。
-* 闪存：32/128GB eMMC，默认为128GB eMMC。
+* RAM：8/16GB 32 位 LPDDR4x，默认为 8GB。 RK3576最大支持16GB。
+* 闪存：32/128GB eMMC，默认为64GB eMMC。
 * 工作电压：宽输入电压范围，从4.5V到23V（电压误差±5%）。
 * 工作温度：0°C 至 80°C
 * 操作系统：
