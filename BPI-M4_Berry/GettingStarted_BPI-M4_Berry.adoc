@@ -298,9 +298,9 @@ IMPORTANT: TIP: If no device is connected to the HDMI interface, the NoMachine r
 The minimum version image does not have the bananapi configure command installed by default. You can refer to the following command for installation.
 
 ```sh
-wget https://banana-pi.org/bananapi-config_1.0.0_all.deb
+wget https://banana-pi.org/bananapi-config_1.0.3_all.deb
 sudo apt install iperf3 expect pv unzip build-essential html2text html2text software-properties-common 
-sudo dpkg -i /your-path/bananapi-config_1.0.0_all.deb
+sudo dpkg -i /your-path/bananapi-config_1.0.3_all.deb
 sudo bananapi-config
 ```
 
