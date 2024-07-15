@@ -1,0 +1,101 @@
+
+
+
+
+image::/bananapi_log.png[bananapi_log.png]
+
+
+
+
+
+= BPI-WiFi5 Router Introduction
+
+Banana Pi BPI-Wifi5 Router use Siflower SF19A2890S and AN8855R Gigabit switch chip design. the  It is a high performance wireless router for small and micro businesses, homes and other networking environments. 
+
+image::/bpi-wifi5/banana_pi_bpi-wifi5_router_4.jpg[banana_pi_bpi-wifi5_router_4.jpg]
+
+BPI-Wifi5 Router dual-band wireless router, 2.4G 2T2R, 5.8G 2T2R coexist at the same time. The use of four omnidirectional high-gain antennas, with strong signal penetration and wider coverage, which makes the already strong signal more powerful, data transmission is also smoother. MU-MIMO multi-device transceiver technology has low latency and multiple devices are stably connected simultaneously, thus ensuring a good experience for multiple devices.
+
+BPI-Wifi5 Router adopts the national silicon Chang chip SF19A2890S +AN8855R (Gigabit switch chip) solution, providing gigabit network interface, 1 gigabit WAN port and 3 gigabit LAN ports, supporting 2.4G and 5G, wireless transmission rate of 1200Mbps; Supports rich software features, providing the ideal high-performance product for small and micro businesses and families.
+
+
+NOTE: Banana Pi Work closely with Siflower to make this product a fully open source wireless routing product. 
+ 
+== Key Features
+
+* Supports a maximum 1.2Gbps wireless rate with full gigabit ports
+* supports IEEE802.11a /b/g/n/ac
+* Supports 4x5 dBi external omnidirectional high-gain antennas
+* 5.8G Uses an external independent FEM to increase the wireless coverage of 5.8G
+* Mini Size, light machine
+* Support EasyMesh R2/Support TR069 operator docking
+* Support industrial low latency, high reliability Wi-Fi communication scheme, provides US-level data transmission jitter solutions to support WAPI (SM4) encryption to meet the controlled control needs of Xinchuang products
+* Production-level system support, direct productization
+** Intelligent QoS policy
+*** The Mac-based network traffic rate limiting mechanism can effectively control the upstream/downstream traffic of a single PC and limit the excessive use of network bandwidth by P2P software
+*** Supports upstream and downstream QoS policies to meet flexible service configuration requirements
+** Comprehensive system monitoring
+*** Monitors Intranet traffic in real time for traffic monitoring and statistics
+*** provides a variety of security logs, including real-time logs of internal and external network attacks, address binding logs, traffic alert logs, and session logs, for network administrators to monitor the network in real time
+*** Operating status and security status
+* OpenWRT support 
+* Open Source ，free DIY
+
+
+= Hardware
+
+== PCBA Hardware inerface
+
+image::/bpi-wifi5/bpi-wifi5_router_interface.jpg[bpi-wifi5_router_interface.jpg]
+
+
+== Hardware spec
+
+[options="header",cols="2,5",width="70%"]
+|=====
+2+| Banana Pi BPI-Wifi5 Router Specification
+|CPU	|Siflower SF19A2890 MIPS dual core 1.2GHz
+|Switch |AN8855R Gigabit switch chip
+|RAM	|64MB DDR2 RAM
+|Flash	|16MB
+.4+|Interface|	1*10/100/1000Mbps adaptive WAN interface
+|3*10/100/1000Mbps adaptive LAN interface
+|1* DC 12V/1A Power Port 
+|1*Reset/WPS key
+.2+|Wireless speed|2.4G WiFi：2*2 (300Mbps)
+|5G WiFi：2*2 (866.7Mbps)
+.2+|Wireless frequency	|2.4G：2.4GHz～2.4835GHz 
+|5G：5.150GHz～5.85GHz
+|Antenna|	External 4*5dBi omnidirectional high-gain antenna
+|Power| DC 12V/1A
+|Size| 
+|=====
+
+== Software Functional Specifications
+
+[options="header",cols="2,6",width="80%"]
+|=====
+2+|
+|WAN port settings|Automatically obtain IP address, Fixed IP address, PPPoE dial-up
+|LAN port settings|Automatically set LAN port address, Manually set LAN port address
+|MAC address settings|Use router MAC address, MAC address cloning, Customize MAC address
+|DHCP server |Modify address pool start address, Modify address pool end address, Modify address lease
+2+|IP and MAC binding settings
+|IPV6|Turn on/off IPV6, WAN settings, LAN settings
+|wifi|Wi-Fi SSID and password settings, Wireless broadcast
+Encryption, Channel bandwidth settings, Switch mode, Modify bandwidth, Modify signal strength
+|Guest network | Guest network SSID, speed limit, access time, and whether to access the intranet
+2+|WDS Wireless Bridging
+|Advanced features|Virtual server, DMZ host, UPnP settings, Routing function, DDNS
+|System Settings | System status, Time settings, Password management, Configuration management, System log, LAN settings, DHCP binding, Backup, Factory reset
+|=====
+
+
+== BPI-WIfi5 router product design
+
+image::/bpi-wifi5/banana_pi_bpi-wifi5_router_kit_3.jpg[banana_pi_bpi-wifi5_router_kit_3.jpg]
+
+
+= Easy to buy sample 
+
+OEM&ODM please contact : judyhuang@banana-pi.com 
