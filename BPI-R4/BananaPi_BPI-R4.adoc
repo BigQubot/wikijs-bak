@@ -278,6 +278,18 @@ Baidu cloud: https://pan.baidu.com/s/13jUs5pezA8Q4c9oKaHdEYA?pwd=8888 (pincode: 
 
 Google drive: https://drive.google.com/file/d/1nLGEi-iXj2RZepaS0-cRnfOGiEkSMOHG/view?usp=sharing
 
+== Debian 12
+NOTE: 2024-07-18-debian-12-bookworm-bpi-r4-5.4-sd-emmc.img
+
+Baidu cloud: https://pan.baidu.com/s/18ST6aBYBZ9wSGut44webbQ?pwd=8888 (pincode: 8888)
+
+Google drive: https://drive.google.com/file/d/1AJJ4fg-Q8jR5XmVomVdYV8bPOth4BzJf/view?usp=sharing
+
+Official BPI-R4 kernel v5.4 BSP repo: https://github.com/BPI-SINOVOIP/BPI-R4-bsp-5.4
+
+WARNING: **Note:** +
+linux-5.4 kernel include MT76 wifi driver, it can only support BE14000 wifi card. it can support 2.4G, 5G and 6G, but debian 12's network-manager utility package can support 6G wifi.
+
 == Debian 11
 NOTE: 2024-03-10-debian-11-bullseye-lite-bpi-r4-5.4-sd-emmc.img
 
@@ -291,8 +303,21 @@ Baidu cloud: https://pan.baidu.com/s/199IjDbuzScMiWnwcjRX_Rg?pwd=8888 (pincode:8
 
 Google drive: https://drive.google.com/file/d/1ZNwDi9Eg_6SQYyKQgETOhBW7_6ix4Fna/view?usp=sharing
 
-WARNING: **Note**:linux-5.4 kernel include MT76 wifi driver, it can only support BE14000 wifi card. it can support 2.4G, 5G and 6G, but debian 11's network-manager utility package can't support 6G wifi. So we are waiting for the latest package. +
+WARNING: **Note:** +
+linux-5.4 kernel include MT76 wifi driver, it can only support BE14000 wifi card. it can support 2.4G, 5G and 6G, but debian 11's network-manager utility package can't support 6G wifi. So we are waiting for the latest package. +
 linux-6.1 kernel don't include MT76 wifi driver, it can't support BE14000 wifi card
+
+== Ubuntu 24.04
+NOTE: 2024-07-18-ubuntu-24.04-server-bpi-r4-5.4-aarch64-sd-emmc.img
+
+Baidu cloud: https://pan.baidu.com/s/19hb0Zoq0DzzJPVIQfr9dkg?pwd=8888 (pincode: 8888)
+
+Google drive: https://drive.google.com/file/d/1yLkdD-4Hf2Z2ukAH5mwKTzkI0ap-i8pw/view?usp=sharing
+
+Official BPI-R4 kernel v5.4 BSP repo: https://github.com/BPI-SINOVOIP/BPI-R4-bsp-5.4
+
+WARNING: **Note:** +
+linux-5.4 kernel include MT76 wifi driver, it can only support BE14000 wifi card. it can support 2.4G, 5G and 6G, but ubuntu-24.04's network-manager utility package can support 6G wifi.
 
 == Ubuntu 22.04
 
@@ -309,7 +334,8 @@ Baidu cloud: https://pan.baidu.com/s/1WzfQWnlaC9zoLVA0JN3RbA?pwd=8888 (pincode:8
 Google drive: 
 https://drive.google.com/file/d/1ZuLbFnFF7dDlbRw4Dhgkm4ROIl5KYKg7/view?usp=sharing
 
-WARNING: **Note**:linux-5.4 kernel include MT76 wifi driver, it can only support BE14000 wifi card. it can support 2.4G, 5G and 6G, but ubuntu-22.04's network-manager utility package can't support 6G wifi. So we are waiting for the latest package. +
+WARNING: **Note:** +
+linux-5.4 kernel include MT76 wifi driver, it can only support BE14000 wifi card. it can support 2.4G, 5G and 6G, but ubuntu-22.04's network-manager utility package can't support 6G wifi. So we are waiting for the latest package. +
 linux-6.1 kernel don't include MT76 wifi driver, it can't support BE14000 wifi card
      
 = Easy to buy
