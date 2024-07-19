@@ -88,6 +88,50 @@ Encryption, Channel bandwidth settings, Switch mode, Modify bandwidth, Modify si
 |System Settings | System status, Time settings, Password management, Configuration management, System log, LAN settings, DHCP binding, Backup, Factory reset
 |=====
 
+== Antenna characteristics
+
+[options="header",cols="2,1,3,1,1",width="80%"]
+|=====
+5+|Banana Pi BPI-WiFi5 antenna characteristics
+.19+|TX Power/EVM|	        |	                  |TX Power|	EVM
+	            .6+| 2.4G    	|802.11a/b/g 1Mbps  |20dBm   |28db 
+                            |802.11a/b/g 54Mbps	|18dBm	 |-25db
+		                        |802.11n20 MCS0     |20.5dBm |-17db
+                            |802.11n20 MCS7     |17dBm   |-27db
+                            |802.11n40 MCS0     |20.5dBm |-18db
+                            |802.11n40 MCS7	    |16.5dBm |-27.5db
+	          .12+|5G	        |802.11a/b/g 6Mbps  |25dBm   |-18.5db
+                            |802.11a/b/g 54Mbps	|25dBm   |-25db
+		                        |802.11n20 MCS0     |25dBm   |-18.5db
+                            |802.11n20 MCS7     |21.5dBm |-28db
+                            |802.11n40 MCS0     |24.5dBm |-18.5db
+                            |802.11n40 MCS7	    |21dBm   |-30db
+                            |802.11ac20 MCS0    |25dBm   |-18.5db
+                            |802.11ac20 MCS8    |19.5dBm |-31db
+                            |802.11ac40 MCS0    |24.5dBm |-19.5db
+                            |802.11ac40 MCS9    |20.2dBm |-32.5db
+                            |802.11ac80 MCS0    |24dBm   |-20db
+                            |802.11ac80 MCS9	  |20dBm	 |-33.5db
+5+|
+.18+|RX sensitivity .6+|2.4G|802.11a/b/g 6Mbps  2+|-98dBm
+                            |802.11a/b/g 54Mbps	2+|-76dBm
+		                        |802.11n20 MCS0     2+|-91dBm
+                            |802.11n20 MCS7     2+|-73dBm
+                            |802.11n40 MCS0     2+|-73dBm
+                            |802.11n40 MCS7	    2+|-70dBm
+	                  .12+|5G	|802.11a/b/g 6Mbps  2+|-92dBm
+                            |802.11a/b/g 54Mbps	2+|-76dBm
+		                        |802.11n20 MCS0     2+|-91dBm
+                            |802.11n20 MCS7     2+|-73dBm
+                            |802.11n40 MCS0     2+|-89dBm
+                            |802.11n40 MCS7	    2+|-70dBm
+		                        |802.11ac20 MCS0    2+|-92dBm
+                            |802.11ac20 MCS9    2+|-71dBm
+                            |802.11ac40 MCS0    2+|-89dBm
+                            |802.11ac40 MCS9    2+|-67dBm
+                            |802.11ac80 MCS0    2+|-86dBm
+                            |802.11ac80 MCS9	  2+|-63dBm
+|=====
 
 == BPI-WIfi5 router product design
 
