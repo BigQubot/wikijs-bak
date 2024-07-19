@@ -1,12 +1,12 @@
 = BPI-WiFi5 Router Introduction
 
-Banana Pi BPI-Wifi5 Router use Siflower SF19A2890S2 and AN8855R Gigabit switch chip design. the  It is a high performance wireless router for small and micro businesses, homes and other networking environments. 
+Banana Pi BPI-Wifi5 Router use Siflower SF19A2890S2 design. the  It is a high performance wireless router for small and micro businesses, homes and other networking environments. 
 
 image::/bpi-wifi5/banana_pi_bpi-wifi5_router_4.jpg[banana_pi_bpi-wifi5_router_4.jpg]
 
-BPI-Wifi5 Router dual-band wireless router, 2.4G 2T2R, 5.8G 2T2R coexist at the same time. The use of four omnidirectional high-gain antennas, with strong signal penetration and wider coverage, which makes the already strong signal more powerful, data transmission is also smoother. MU-MIMO multi-device transceiver technology has low latency and multiple devices are stably connected simultaneously, thus ensuring a good experience for multiple devices.
+BPI-Wifi5 Router dual-band wireless router, 2.4G 2T2R, 5.8G 2T2R coexist at the same time. The use of four omni-directional high-gain antennas, with strong signal penetration and wider coverage, which makes the already strong signal more powerful, data transmission is also smoother. MU-MIMO multi-device transceiver technology has low latency and multiple devices are stably connected simultaneously, thus ensuring a good experience for multiple devices.
 
-BPI-Wifi5 Router adopts the national silicon Chang chip SF19A2890S2 +AN8855R (Gigabit switch chip) solution, providing gigabit network interface, 1 gigabit WAN port and 3 gigabit LAN ports, supporting 2.4G and 5G, wireless transmission rate of 1200Mbps; Supports rich software features, providing the ideal high-performance product for small and micro businesses and families.
+BPI-Wifi5 Router adopts the national silicon Chang chip SF19A2890S2 solution, providing gigabit network interface, 1 gigabit WAN port and 3 gigabit LAN ports, supporting 2.4G and 5G, wireless transmission rate of 1200Mbps; Supports rich software features, providing the ideal high-performance product for small and micro businesses and families.
 
 TIP: Triductor TR6560 + TR5220 wifi design: link:/en/BPI-WiFi6_Router/BananaPi_BPI-WiFi6_Router[Banana Pi BPI-Wifi6 Router] low cost wifi6 Router board +
 Triductor TR6560 + TR5220 wifi design: link:/en/BPI-WiFi6_Mini/BananaPi_BPI-WiFi6_Mini[Banana Pi BPI-Wifi6 Mini Router] low cost Mini wifi6 Router board same size as: link:/en/BPI-R3_Mini/BananaPi_BPI-R3_Mini[Banana Pi BPI-R3 mini] + 
@@ -18,14 +18,14 @@ NOTE: Banana Pi Work closely with Siflower to make this product a fully open sou
 
 * Supports a maximum 1.2Gbps wireless rate with full gigabit ports
 * supports IEEE802.11a /b/g/n/ac
-* Supports 4x5 dBi external omnidirectional high-gain antennas
+* Supports 2*3.5dBi@4G,2*5dBi@5G external omni-directional high-gain antennas
 * 5.8G Uses an external independent FEM to increase the wireless coverage of 5.8G
 * Mini Size, light machine
 * Support EasyMesh R2/Support TR069 operator docking
-* Support industrial low latency, high reliability Wi-Fi communication scheme, provides US-level data transmission jitter solutions to support WAPI (SM4) encryption to meet the controlled control needs of Xinchuang products
+* Support industrial low latency, high reliability Wi-Fi communication scheme, provides US-level data transmission jitter solutions to support WAPI (SM4) encryption 
 * Production-level system support, direct productization
 ** Intelligent QoS policy
-*** The Mac-based network traffic rate limiting mechanism can effectively control the upstream/downstream traffic of a single PC and limit the excessive use of network bandwidth by P2P software
+*** The Mac-Based network traffic rate limiting mechanism can effectively control the upstream/downstream traffic of a single PC and limit the excessive use of network bandwidth by P2P software
 *** Supports upstream and downstream QoS policies to meet flexible service configuration requirements
 ** Comprehensive system monitoring
 *** Monitors Intranet traffic in real time for traffic monitoring and statistics
@@ -55,7 +55,7 @@ link:/en/BPI-WiFi5/Photo_BPI-WiFi5[Banana Pi BPI-WiFi5 Router Product photo gall
 |CPU	|Siflower SF19A2890S2 MIPS dual core 1.2GHz
 |Switch |AN8855R Gigabit switch chip
 |RAM	|64MB DDR2 RAM
-|Flash	|16MB
+|Flash	|8MB
 .4+|Interface|	1*10/100/1000Mbps adaptive WAN interface
 |3*10/100/1000Mbps adaptive LAN interface
 |1* DC 12V/1A Power Port 
@@ -64,7 +64,7 @@ link:/en/BPI-WiFi5/Photo_BPI-WiFi5[Banana Pi BPI-WiFi5 Router Product photo gall
 |5G WiFi：2*2 (866.7Mbps)
 .2+|Wireless frequency	|2.4G：2.4GHz～2.4835GHz 
 |5G：5.150GHz～5.85GHz
-|Antenna|	External 4*3.5dBi omnidirectional high-gain antenna
+|Antenna|	External 2*3.5dBi@4G,2*5dBi@5G omni-directional high-gain antenna
 |Power| DC 12V/1A
 |Size| 97mm x 65mm
 |=====
@@ -77,24 +77,22 @@ link:/en/BPI-WiFi5/Photo_BPI-WiFi5[Banana Pi BPI-WiFi5 Router Product photo gall
 |WAN port settings|Automatically obtain IP address, Fixed IP address, PPPoE dial-up
 |LAN port settings|Automatically set LAN port address, Manually set LAN port address
 |MAC address settings|Use router MAC address, MAC address cloning, Customize MAC address
-|DHCP server |Modify address pool start address, Modify address pool end address, Modify address lease
-2+|IP and MAC binding settings
+|DHCP server |Modify address pool start address, Modify address pool end address, Modify address lease.IP and MAC binding settings
 |IPV6|Turn on/off IPV6, WAN settings, LAN settings
 |wifi|Wi-Fi SSID and password settings, Wireless broadcast
 Encryption, Channel bandwidth settings, Switch mode, Modify bandwidth, Modify signal strength
-|Guest network | Guest network SSID, speed limit, access time, and whether to access the intranet
-2+|WDS Wireless Bridging
+|Guest network | Guest network SSID, speed limit, access time, and whether to access the intranet.WDS Wireless Bridging
 |Advanced features|Virtual server, DMZ host, UPnP settings, Routing function, DDNS
 |System Settings | System status, Time settings, Password management, Configuration management, System log, LAN settings, DHCP binding, Backup, Factory reset
 |=====
 
-== Antenna characteristics
+== Wireless Features
 
 [options="header",cols="2,1,3,1,1",width="80%"]
 |=====
 5+|Banana Pi BPI-WiFi5 antenna characteristics
 .19+|TX Power/EVM|	        |	                  |TX Power|	EVM
-	            .6+| 2.4G    	|802.11a/b/g 1Mbps  |20dBm   |28db 
+	            .6+| 2.4G    	|802.11a/b/g 1Mbps  |20dBm   |-28db 
                             |802.11a/b/g 54Mbps	|18dBm	 |-25db
 		                        |802.11n20 MCS0     |20.5dBm |-17db
                             |802.11n20 MCS7     |17dBm   |-27db
