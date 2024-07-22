@@ -6,7 +6,8 @@ image::/bpi-wifi5/banana_pi_bpi-wifi5_router_4.jpg[banana_pi_bpi-wifi5_router_4.
 
 BPI-Wifi5 Router dual-band wireless router, 2.4G 2T2R, 5.8G 2T2R coexist at the same time. The use of four omni-directional high-gain antennas, with strong signal penetration and wider coverage, which makes the already strong signal more powerful, data transmission is also smoother. MU-MIMO multi-device transceiver technology has low latency and multiple devices are stably connected simultaneously, thus ensuring a good experience for multiple devices.
 
-BPI-Wifi5 Router adopts the national silicon chip SF19A2890S2 solution, providing gigabit network interface, 1 gigabit WAN port and 3 gigabit LAN ports, supporting 2.4G and 5G, wireless transmission rate of 1200Mbps; Supports rich software features, providing the ideal high-performance product for small and micro businesses and families.
+BPI-Wiﬁ5 Router adopts the national silicon chip SF19A2890S2 solution,   providing 1 gigabit WAN port and 3 gigabit LAN ports, supporting 2.4G and 5G, Its wireless transmission rate of 1200Mbps.
+And it supports rich software features, providing the ideal high-performance  product for small and micro businesses and families.
 
 TIP: Triductor TR6560 + TR5220 wifi design: link:/en/BPI-WiFi6_Router/BananaPi_BPI-WiFi6_Router[Banana Pi BPI-Wifi6 Router] low cost wifi6 Router board +
 Triductor TR6560 + TR5220 wifi design: link:/en/BPI-WiFi6_Mini/BananaPi_BPI-WiFi6_Mini[Banana Pi BPI-Wifi6 Mini Router] low cost Mini wifi6 Router board. Same size as: link:/en/BPI-R3_Mini/BananaPi_BPI-R3_Mini[Banana Pi BPI-R3 mini] + 
@@ -64,7 +65,7 @@ link:/en/BPI-WiFi5/Photo_BPI-WiFi5[Banana Pi BPI-WiFi5 Router Product photo gall
 |5G WiFi：2*2 (866.7Mbps)
 .2+|Wireless frequency	|2.4G：2.4GHz～2.4835GHz 
 |5G：5.150GHz～5.85GHz
-|Antenna|	External 2*3.5dBi@4G,2*5dBi@5G omni-directional high-gain antenna
+|Antenna|	External 2*3.5dBi @ 4G, 2*5dBi @ 5G omni-directional high-gain antenna
 |Power| DC 12V/1A
 |Size| 97mm x 65mm
 |=====
@@ -92,24 +93,24 @@ Encryption, Channel bandwidth settings, Switch mode, Modify bandwidth, Modify si
 |=====
 5+|Banana Pi BPI-WiFi5 antenna characteristics
 .19+|TX Power/EVM|	        |	                  |TX Power|	EVM
-	            .6+| 2.4G    	|802.11a/b/g 1Mbps  |20dBm   |-28db 
-                            |802.11a/b/g 54Mbps	|18dBm	 |-25db
-		                        |802.11n20 MCS0     |20.5dBm |-17db
-                            |802.11n20 MCS7     |17dBm   |-27db
-                            |802.11n40 MCS0     |20.5dBm |-18db
-                            |802.11n40 MCS7	    |16.5dBm |-27.5db
-	          .12+|5G	        |802.11a/b/g 6Mbps  |25dBm   |-18.5db
-                            |802.11a/b/g 54Mbps	|25dBm   |-25db
-		                        |802.11n20 MCS0     |25dBm   |-18.5db
-                            |802.11n20 MCS7     |21.5dBm |-28db
-                            |802.11n40 MCS0     |24.5dBm |-18.5db
-                            |802.11n40 MCS7	    |21dBm   |-30db
-                            |802.11ac20 MCS0    |25dBm   |-18.5db
-                            |802.11ac20 MCS8    |19.5dBm |-31db
-                            |802.11ac40 MCS0    |24.5dBm |-19.5db
-                            |802.11ac40 MCS9    |20.2dBm |-32.5db
-                            |802.11ac80 MCS0    |24dBm   |-20db
-                            |802.11ac80 MCS9	  |20dBm	 |-33.5db
+	            .6+| 2.4G    	|802.11a/b/g 1Mbps  |20dBm   |-28dB
+                            |802.11a/b/g 54Mbps	|18dBm	 |-25dB
+		                        |802.11n20 MCS0     |20.5dBm |-17dB
+                            |802.11n20 MCS7     |17dBm   |-27dB
+                            |802.11n40 MCS0     |20.5dBm |-18dB
+                            |802.11n40 MCS7	    |16.5dBm |-27.5dB
+	          .12+|5G	        |802.11a/b/g 6Mbps  |25dBm   |-18.5dB
+                            |802.11a/b/g 54Mbps	|25dBm   |-25dB
+		                        |802.11n20 MCS0     |25dBm   |-18.5dB
+                            |802.11n20 MCS7     |21.5dBm |-28dB
+                            |802.11n40 MCS0     |24.5dBm |-18.5dB
+                            |802.11n40 MCS7	    |21dBm   |-30dB
+                            |802.11ac20 MCS0    |25dBm   |-18.5dB
+                            |802.11ac20 MCS8    |19.5dBm |-31dB
+                            |802.11ac40 MCS0    |24.5dBm |-19.5dB
+                            |802.11ac40 MCS9    |20.2dBm |-32.5dB
+                            |802.11ac80 MCS0    |24dBm   |-20dB
+                            |802.11ac80 MCS9	  |20dBm	 |-33.5dB
 5+|
 .18+|RX sensitivity .6+|2.4G|802.11a/b/g 6Mbps  2+|-98dBm
                             |802.11a/b/g 54Mbps	2+|-76dBm
