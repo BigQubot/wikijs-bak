@@ -170,6 +170,8 @@ sync
 . After waiting for the burning to complete, disconnect the power and remove the SD card and USB drive. Power on again to start from the EMMC.
  
 == Solution for 2G DDR version unable to start
+WARNING: There are currently issues with the linux-1.0.35_beta version. Please use the Windows version of the tool first.
+
 . Open Titan Tools and click on the mass production tool.
 +
 image::/bpi-f3/bpi-f3_2g_changes_1.png[bpi-f3_2g_changes_1.png]
@@ -190,6 +192,8 @@ image::/bpi-f3/bpi-f3_2g_changes_5.png[bpi-f3_2g_changes_5.png]
 +
 image::/bpi-f3/bpi-f3_2g_changes_6.png[bpi-f3_2g_changes_6.png]
 After clicking "Start writing number", you may be asked to enter again. Re-enter 1 and press Enter. Wait for the number to be written successfully.
+
+
 
 = Other Development
 == WiFi/BT
