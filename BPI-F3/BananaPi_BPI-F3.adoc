@@ -1,6 +1,6 @@
 = BPI-F3 Introduction
 
-Banana Pi BPI-F3 is a industrial grade RISC-V development board, it design with SpacemiT K1 8 core RISC-V chip, CPU integrates 2.0 TOPs AI computing power. 4G DDR and 16G eMMC onboard.2x GbE Ethernet prot, 4x USB 3.0 and PCIe for M.2 interface, support HDMI and Dual MIPI-CSI Camera.
+Banana Pi BPI-F3 is a industrial grade RISC-V development board, it design with SpacemiT K1 8 core RISC-V chip, CPU integrates 2.0 TOPs AI computing power. 2/4/8/16G DDR and 8/16/32/128G eMMC onboard.2x GbE Ethernet prot, 4x USB 3.0 and PCIe for M.2 interface, support HDMI and Dual MIPI-CSI Camera.
 
 
 image::/bpi-f3/banana_pi_bpi-f3_banner_3.jpg[banana_pi_bpi-f3_banner_3.jpg]
@@ -43,8 +43,6 @@ TIP: link:https://developer.spacemit.com/[SpacemiT official development center]
 * Industrial control
 * AI edge computing
 
-
-
 == Getting Start
 
 TIP: link:/en/BPI-F3/GettingStarted_BPI-F3[Getting Started BPI-F3]
@@ -65,8 +63,8 @@ image::/bpi-f3/bpi-f3_sch.png[bpi-f3_sch.png]
 
 | AI                                |  2.0Tops from RlSC-V Core   
 | GPU  | IMG BXE-2-32@819MHz,32KB SLCOpenGL ES1.1/3.2EGL1.50penCL 3.0Vulkan 1.3
-| Memory                            | 4 GB LPDDR4 (Supports up to 8G LPDDR4)                                                                                 
-| Storage                           | 16G eMMC flash.optional 4M SPI NOR,32M SPI NAND                                                                              
+| Memory                            | 2/4/8/16 GB LPDDR4 (Supports up to 16G LPDDR4)                                                                                 
+| Storage                           | 8/16/32/128 GB eMMC flash.(optional 4M SPI NOR,32M SPI NAND)                                                                              
 | SD card                           | MicroSD card slot (Use SD card larger than 256M, no upper limit)                                                                           
 | Wireless                          | 2.4G/5G WiFi and Bluetooth 4.2                                                               
 | Ethernet                          | 2x GbE Ethernet port(supports PoE with add-on PoE HAT)                                       
@@ -81,7 +79,7 @@ image::/bpi-f3/bpi-f3_sch.png[bpi-f3_sch.png]
 PCIEB 2lane connect M.2 KEY M( Support JMB582 expansion card to SATA ) +
 PCIEC 1lane connect MINI PCIE
 | GPIO                              | 26-pin header 
-                                                                                        
+                                                                                       
 | Buttons                           | Reset, Power and Burn 
 
 | IR                                | IR-Rx
