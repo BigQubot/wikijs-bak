@@ -4,9 +4,9 @@ image::/openwrt-one/banana_pi_openwrt_one_1.jpg[banana_pi_openwrt_one_1.jpg]
 
 The “OpenWrt One/AP-24.XY” router board based on MediaTek MT7981B (Filogic 820) SoC and MediaTek MT7976C dual-band WiFi 6 chipset.It is the first official development board of the OpenWRT open source community
 
-OpenWrt One is a device based on the MediaTek Filogic 820 SoC that has WiFi 6, dual-band, 3×3/2×2, 1 x 2.5Gbit WAN, 1 x 1Gbit LAN, 1GB DDR4 RAM, 128 MiB NAND, 16 MiB NOR, M.2 SSD and USB 2.0.
+OpenWrt One is a device based on the MediaTek Filogic 820 SoC that has WiFi 6, dual-band, 3×3/2×2, 1 x 2.5Gbit WAN, 1 x 1Gbit LAN, 1GB DDR4 RAM, 256 MiB NAND, 16 MiB NOR, M.2 SSD and USB 2.0.
 
-OpenWRT one uses Mediatek's MT7981B SoC with a dual-arm Cortex-a53 core at 1.3 GHz, 1 GB DDR4 RAM and 128 MiB SPI NAND storage. It also integrates 16 MiB of additional protected storage as a system backup, dual storage hardware to ensure that the onboard system is unhackable, and finally integrated M.2. 2230/2242 NVMe PCIe 2 X1 ports can be used to add external storage. And with a battery holder for an internal clock, OpenWRT One offers a USB 2.0 Type-A and a mikroBUS expansion port to provide more interfaces to a host of technical possibilities
+OpenWRT one uses Mediatek's MT7981B SoC with a dual-arm Cortex-a53 core at 1.3 GHz, 1 GB DDR4 RAM and 256 MiB SPI NAND storage. It also integrates 16 MiB of additional protected storage as a system backup, dual storage hardware to ensure that the onboard system is unhackable, and finally integrated M.2. 2230/2242 NVMe PCIe 2 X1 ports can be used to add external storage. And with a battery holder for an internal clock, OpenWRT One offers a USB 2.0 Type-A and a mikroBUS expansion port to provide more interfaces to a host of technical possibilities
 
 OpenWRT one is the first board design with OpenWRT opensource communtity.and designed in collaboration with Banana Pi that will also handle manufacturing and distribution of the router board. The OpenWrt One/AP-24.XY router should provide a source of income for the project, for example, to cover the cost of hosting and OpenWrt conferences, with Banana Pi selling the board through their distribution network, and for every device sold, donating to the Software Freedom Conservancy (SDC) with the funds earmarked for OpenWrt.
 
@@ -21,7 +21,7 @@ MediaTek MT7981B is a compact Wi-Fi System-on-Chip (SoC) for IoT devices that in
 * Dual-band WiFI 6 via MediaTek MT7976C (2×2 2.4 GHz + 3×3 5Ghz)
 * 1GB DDR4 
 * 1 x 2.5GbE RJ45 port and |1 x Gigabit Ethernet RJ45 port
-* 128 MiB SPI NAND and 16 MiB SPI NOR flash are used to make the board almost unbrickable
+* 256 MiB SPI NAND and 16 MiB SPI NOR flash are used to make the board almost unbrickable
 * M.2 2242/2230 socket for NVMe SSD (PCIe gen 2 x1)
 * RTC support 
 * PoE support
@@ -51,7 +51,7 @@ image::/openwrt-one/banna_pi_openwrt_one_interface.jpg[banna_pi_openwrt_one_inte
 |SoC |MediaTek MT7981B (Filogic 820) dual-core Cortex-A53 processor @ 1.3 GHz
 |System Memory | 1GB DDR4
 .4+|Storage
-|128 MB SPI NAND flash for U-boot and Linux
+|256 MB SPI NAND flash for U-boot and Linux
 |16 MB SPI NOR flash for write-protected (by default) recovery bootloader (reflashing can be enabled with a jumper)
 |Two types of flash devices are used to make the board almost unbrickable
 |M.2 2242/2230 socket for NVMe SSD (PCIe gen 2 x1)
