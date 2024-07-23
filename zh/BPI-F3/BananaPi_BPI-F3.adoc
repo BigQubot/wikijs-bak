@@ -1,6 +1,6 @@
 = BPI-F3 产品介绍
 
-香蕉派BPI-F3是一款工业级 8核RISC-V开源硬件开发板，它采用进迭时空（SpacemiT） K1 8核RISC-V芯片设计，CPU集成2.0 TOPs AI计算能力。4G DDR和16G eMMC。2个GbE以太网接口，4个USB 3.0和PCIe M.2接口，支持HDMI和双MIPI-CSI摄像头。
+香蕉派BPI-F3是一款工业级 8核RISC-V开源硬件开发板，它采用进迭时空（SpacemiT） K1 8核RISC-V芯片设计，CPU集成2.0 TOPs AI计算能力。2/4/8/16G DDR和8/16/32/128G eMMC。2个GbE以太网接口，4个USB 3.0和PCIe M.2接口，支持HDMI和双MIPI-CSI摄像头。
 
 
 image::/bpi-f3/banana_pi_bpi-f3_banner_4.jpg[banana_pi_bpi-f3_banner_4.jpg]
@@ -55,10 +55,10 @@ image::/bpi-f3/bpi-f3_sch.png[bpi-f3_sch.png]
 | AI                                |  2.0Tops from RlSC-V Core   
 
 | GPU  | IMG BXE-2-32@819MHz,32KB SLCOpenGL ES1.1/3.2EGL1.50penCL 3.0Vulkan 1.3                                                                       
-| 内存                            | 4 GB LPDDR4(最大支持 8G LPDDR4)                                                                        
-| 存储                           | 16G eMMC flash.可选 4M SPI NOR,32M SPI NAND                                                                              
-| SD 接口                           | MicroSD card slot(大于 256MB)                                                                       
-| Wireless无线                          | 2.4G/5G WiFi and Bluetooth 4.2                                                               
+| 内存                            | 2/4/8/16 GB LPDDR4(最大支持 16G LPDDR4)                                                                        
+| 存储                           | 8/16/32/128G eMMC flash.可选 4M SPI NOR,32M SPI NAND                                                                              
+| SD 接口                           | MicroSD card slot(大于 256MB即可，无上限)                                                                       
+| 无线                          | 2.4G/5G WiFi and Bluetooth 4.2                                                               
 | 有线网络接口                       | 2x GbE Ethernet port(supports PoE with add-on PoE HAT)                                       
 | HDMI                              | 1x full-size HDMI digital Audio output 
 
