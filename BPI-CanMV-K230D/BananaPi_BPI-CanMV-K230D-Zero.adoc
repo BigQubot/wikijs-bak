@@ -51,17 +51,17 @@ link:/en/BPI-K230D/Photo_BPI-CanMV-K230D[Banana Pi CanMV-K230D-Zero Product phot
 |XuanTie C908 dual-core RISC-V CPU;
 |CPU1: 1.6GHz, supports RVV1.0;
 |CPU2: 800MHz
-|KPU|Third-generation KPU, supports various data typTypical network performance: Restnet50 >= 85fp670fps@INT8; YoloV5s >= 38fps@INT8
-|DPU|Built-in 3D structured light depth engine, maximu1920*1080
+|KPU|Third-generation KPU, supports various data types such as INT8/INT16; Typical network performance: Restnet50 >= 85fp@INT8，Mobilenet_V2>=670fps@INT8; YoloV5s >= 38fps@INT8
+|DPU|Built-in 3D structured light depth engine, maximum up to 1920*1080
 |VPU|Built-in H.264/H.265 hardware encoder/decoder
-|Video Input |2 lane MIPI-CSI * 1 + 4 lane MIPI-CSI * 1; Maxim
+|Video Input |2 lane MIPI-CSI * 1 + 4 lane MIPI-CSI * 1; Maximun resolution up to 4K
 |Display Out |MIPI DSI interface, support up to 1080P display
 |RAM |128MB LPDDR4@2666Mbps
 |Storage|Onboard TF card expansion interface, supports up to 1TB
-|USB|1 channel USB 2.0 interface, supports OTG funcion 
-|Network |2.4G Wi-Fi and BT
-|Audio |Onboard microphone*1
-|GPIO |ExpansionPort40Pin expandable GPIO; supports I2C/UART/I2Sexpansion conversion
+|USB|1 channel USB 2.0 interface, supports OTG function 
+|Network |2.4G Wi-Fi 
+|Audio |Onboard microphone * 1
+|GPIO |40Pin expandable GPIO; supports I2C/UART/I2S/SPI/PWM/ADC/JTAG expansion conversion
 |Butttons |Function button * 1; Reset button * 1
 |Power Supply| USB Type-C 5V@2A
 |Dimensions |Length: 65mm Width: 30mm Height: 7mm
