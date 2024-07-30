@@ -1,0 +1,51 @@
+= 概述
+
+Banana Pi BPI-CanMV-K230D-Zero 采用嘉楠科技 K230D RISC-V芯片设计,探索 RISC-V Vector1.0 的前沿技术，选择嘉楠科技的 Canmv K230D Zero 开发板。这款创新的开发板是由嘉楠科技与香蕉派开源社区联合设计研发，搭载了先进的勘智 K230D 芯片。
+K230D 芯片拥有双核玄铁 C908 RISC-V CPU，集成自主研发的第三代 KPU，内置 128MB LPDDR4 内存，提供了高性能的本地推理运算支持。Canmv K230D Zero 的设计旨在支持各种 DIY 项目、物联网设备和嵌入式系统，其丰富的开发资源和小巧的尺寸使其成为市场上最具竞争力的开发板之一。无论是编程学习、边缘 AI 音视频产品创新，还是性能评估，Canmv K230D Zero 都助您开启创新之旅。
+
+BPI-CanMV-K230D Zero开发板采用的是嘉楠科技Kendryte®系列AIoT芯片中的最新一代SoC芯片K230。该芯片采用全新的多异构单元加速计算架构，集成了2个RISC-V高能效计算核心，内置新一代KPU（Knowledge Process Unit）智能计算单元，具备多精度AI算力，广泛支持通用的AI计算框架，部分典型网络的利用率超过了70%。
+
+该芯片同时具备丰富多样的外设接口，以及2D、2.5D等多个标量、向量、图形等专用硬件加速单元，可以对多种图像、视频、音频、AI等多样化计算任务进行全流程计算加速，具备低延迟、高性能、低功耗、快速启动、高安全性等多项特性。
+
+== 关键特性
+
+== 快速上手
+
+TIP: link:/en/BPI-CanMV-K230D/GettingStarted_BPI-CanMV-K230D-Zero[快速上手ed BPI-CanMV-K230D Zero开发板]
+
+= 硬件
+
+== 硬件接口示意图
+
+image::/bpi-k230d/banana_pi_bpi-canmv-k230d-zero_interface.jpg[banana_pi_bpi-canmv-k230d-zero_interface.jpg]
+
+== BPI-CanMV-K230D-Zero 产品图片
+
+link:/en/BPI-K230D/Photo_BPI-CanMV-K230D[Banana Pi CanMV-K230D-Zero 产品图集]
+
+== 硬件规格
+[options="header",cols="1,5"]
+|====
+2+|香蕉派 BPI-CanMV-K230D-Zero 硬件规格
+|参数 |说明
+.3+|CPU
+|玄铁 C908 双核 RISC-V CPU；
+|CPU1: 1.6GHz, 支持 RVV1.0；
+|CPU2: 800MHz；
+.3+|KPU|第三代 KPU，支持 INT8/INT16 等多种数据类型；
+|典型网络性能：Restnet50>=85fps@INT8,
+|Mobilenet_v2>=670fps@INT8;YoloV5s>=38fps@INT8
+|DPU |内置 3D 结构光深度引擎，最大分辨率支持到 1920*1080
+|VPU |内置 H.264/H.265 硬件编解码器
+|图像输入 |2 lane MIPI-CSI x1 + 4 lane MPIP-CSI x1; 最大分辨率至 4K 高清
+|显示输出 |MIPI DSI 接口，最高支持 1080P 显示输出
+|运行内存 |128MB LPDDR4@2666Mbps
+|存储扩展| 板载 TF 卡扩展接口，最大支持至 1TB
+|USB |1 路 USB 2.0 接口，支持 OTG 功能
+|网络 |2.4G Wi-Fi&BT
+|音频 |板载麦克风 x1
+|GPIO|扩展 40Pin 可扩展 GPIO；支持 I2C/UART/I2S/SPI/PWM/ADC/JTAG 扩展转换
+|按键 |功能按键 x1；复位按键 x1
+|电源 |USB Type-C 5V@2A
+|尺寸 |长：65mm 宽：30mm 高：7mm
+|====
