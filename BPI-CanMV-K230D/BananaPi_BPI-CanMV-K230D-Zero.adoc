@@ -1,10 +1,22 @@
 = Overview
 
-Banana Pi BPI-CanMV-K230D-Zero AIoT SBC design with Canaan K230D RISC-V chip.the latest generation SoC chip in Kanaan's Kendryte® series AIoT chips. The chip adopts a new multi-heterogeneous cell accelerated computing architecture, integrates two RISC-V energy-efficient computing cores, built-in a new generation of Knowledge Process Unit (KPU) intelligent computing unit, with multi-precision AI computing power, widely supports the general AI computing framework, and the utilization rate of some typical networks exceeds 70%.
+Banana Pi BPI-CanMV-K230D-Zero AIoT SBC design with Canaan K230D RISC-V chip.This board is designed be Canaan Technology and Banana Pi open source hardware community,
+
+featuring with the advanced Kendryte K230D chip. The K230D chip boasts a dual-core XuanTie C908
+RISC-V CPU and integrates a self-developed third-generation KPU, with 128MB of LPDDR4 memory,
+providing high-performance local AI inference computing support. The Canmv K230D Zero is designed
+to support a variety of DIY projects, AIoT devices, and embedded systems, with its rich development
+resources and compact size making it one of the most competitive development boards on the market.
+Whether for learning programming, innovating AI audio and video products, or performance
+evaluation, the Canmv K230D Zero helps you embark on a journey of innovation.
+
+the latest generation SoC chip in Kanaan's Kendryte® series AIoT chips. The chip adopts a new multi-heterogeneous cell accelerated computing architecture, integrates two RISC-V energy-efficient computing cores, built-in a new generation of Knowledge Process Unit (KPU) intelligent computing unit, with multi-precision AI computing power, widely supports the general AI computing framework, and the utilization rate of some typical networks exceeds 70%.
 
 The chip also has a variety of peripheral interfaces, as well as 2D, 2.5D and other scalar, vector, graphics and other dedicated hardware acceleration units, can be a variety of images, video, audio, AI and other diverse computing tasks for the whole process of computing acceleration, with low latency, high performance, low power consumption, fast start, high security and many other features.
 
 == Key Features
+
+
 
 == Getting Start
 
@@ -22,9 +34,30 @@ link:/en/BPI-K230D/Photo_BPI-CanMV-K230D[Banana Pi CanMV-K230D-Zero Product phot
 
 == Hardware spec
 
+[options="header",cols="1,5"]
+|====
+2+| HardWare Specification of Banana Pi BPI-M7 
+|Parameter |Description
+.3+|CPU
+|XuanTie C908 dual-core RISC-V CPU;
+|CPU1: 1.6GHz, supports RVV1.0;
+|CPU2: 800MHz
+|KPU|Third-generation KPU, supports various data typTypical network performance: Restnet50 >= 85fp670fps@INT8; YoloV5s >= 38fps@INT8
+|DPU|Built-in 3D structured light depth engine, maximu1920*1080
+|VPU|Built-in H.264/H.265 hardware encoder/decoder
+|Video Input |2 lane MIPI-CSI * 1 + 4 lane MIPI-CSI * 1; Maxim
+|Display Out |MIPI DSI interface, support up to 1080P display
+|RAM |128MB LPDDR4@2666Mbps
+|Storage|Onboard TF card expansion interface, supports up to 1TB
+|USB|1 channel USB 2.0 interface, supports OTG funcion 
+|Network |2.4G Wi-Fi and BT
+|Audio |Onboard microphone*1
+|GPIO |ExpansionPort40Pin expandable GPIO; supports I2C/UART/I2Sexpansion conversion
+|Butttons |Function button * 1; Reset button * 1
+|Power Supply| USB Type-C 5V@2A
+|Dimensions |Length: 65mm Width: 30mm Height: 7mm
 
-
-
+|====
 
 == GPIO Pin define
 
