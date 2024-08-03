@@ -4,6 +4,20 @@
 
 == 关键特性
 
+* 高能效比，兼具灵活性
+• 16路高清视频智能分析
+• 支持INT4/INT8/FP16/BF16/FP32混合精度计算
+* 超强多媒体能力
+• 支持16 路高清硬解、10路高清硬编
+• 支持多路VI输入、音频输入，支持ISP
+• 支持双目深度、图像拼接、鱼眼展开等硬加速
+* 丰富外设，宽温低功耗，部署更灵活
+• 支持SATA/USB/GbE/HDMI/CAN/SDIO等
+• 功耗更低，宽温设计，适应性更强
+* 兼容NV Orin Nano/NX系列模组，性价比领先
+• Pin To Pin兼容，Pinlist/Pinmux更丰富
+• 4GB/8GB/16GB LPDDR4配置可选
+
 == 快速入门
 
 = 硬件
@@ -13,6 +27,33 @@
 == 产品图片
 
 == 硬件规格
+
+[options="header",cols="1,4",width="70%"]
+|=====
+2+| **Banana Pi BPI-SM9 16-ENC-A3计算模组硬件规格**
+|产品型号 |SM9 16-ENC-A3
+|处理器 |8 核 ARM CA53 1.6GHz
+|算力 |16路高清视频智能分析
+|内存 |8GB LPDDR4x 64bits 4266Mbps
+|存储| 32GB eMMC 5.1
+|视频解码 |H.264&H.265: 16x 1080P@30fps，支持 8192 * 8192 / 8K / 4K / 1080P / 720P / D1 / CIF
+|视频编码 |H.264&H.265: 10x 1080P@30fps，支持 8K / 4K / 1080P / 720P / D1 / CIF
+|图片编解码 |JPEG：1080P@480fps，最大支持 32768 * 32768
+.2+|音视频输入
+|6x VI
+|2x I2S 2x 双声道输入和输出(可选)
+|ISP |2x8Mp30, 2f-HDR, 3DNR / LDC / 3A / Dehaze 
+|CV |IVE/VPSS + DPU(双目深度) + Stitch(图像拼接) + Dewarp(鱼眼展开)
+|PCIE |PCIe Gen3 1 x2 + 1 x2 RC&EP
+|USB |2x USB3.0, 2x USB2.0
+|网络 |2x GbE
+|显示接口 |1x HDMI 2.0
+|其他接口 |2x SATA3.0, 1x CAN, 1x SD/SDIO, 4x UART, 4x I2C, 6x PWM, 2x SPI, ADC, GPIOs
+|电源| DC 5V
+|工作温度 |-20℃ ~ +70℃
+|连接器 |260-pin SO-DIMM
+|尺寸 |69.6mm x 45mm x 6mm
+|=====
 
 == GPIO 引脚定义
 
