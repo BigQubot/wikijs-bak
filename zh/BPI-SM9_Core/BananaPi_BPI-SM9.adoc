@@ -55,7 +55,51 @@
 |尺寸 |69.6mm x 45mm x 6mm
 |=====
 
-== GPIO 引脚定义
+== 接品定义
+[options="header",cols="1,1",width="70%"]
+|=====
+2+| **Banana Pi BPI-M4 Berry 的硬件规格**
+|JETSON ORIN NANO	|SM9
+|GBE0	|GBE0
+|	|GBE1
+|RSVD	|
+|DP	|
+|	| HDMI
+|CSI0-1C2D	|CSI0-1C2D
+|CSI1-1C2D	|CSI1-1C2D
+|CSI2-1C2D	|CSI2-1C2D
+|CSI3-1C2D	|CSI3-1C2D
+|	|CSI4-1C2D
+|	|CSI5-1C2D
+|	|SDMMC
+|	|PCIe0-2lane
+|PCIe0-4lane	|
+|PCIe1-2lane	|PCIe1-2lane（2*SATA）
+|PCIe2-2lane	|
+|USB0-3.0（2.0）	|USB0-3.0（2.0）
+|USB1-3.0（2.0）	|USB1-3.0（2.0）
+|USB2-3.0（2.0）|	
+|UART0	|UART4
+|UART1	|UART1
+|UART2	|UART2
+|SPI0	|SPI0
+|SPI1	|SPI1
+|I2C0	|I2C0
+|I2C1	|I2C1
+|I2C2	|I2C2
+|CAM_I2C	|CAM_I2C
+|I2S0	|I2S0
+|I2S1	|I2S1
+|	|I2S2（UART0）
+|CAN	|CAN
+|CAM0_MCLK	|CAM0_MCLK
+|CAM1_MCLK	|CAM1_MCLK
+|	|CAM2_MCLK
+|	|CAM3_MCLK
+|GPIO*14	|GPIO*14
+
+|=====
+
 
 = 开发
 
