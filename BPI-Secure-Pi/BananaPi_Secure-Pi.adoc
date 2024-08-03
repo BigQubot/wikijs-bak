@@ -1,10 +1,8 @@
 = OverView
 
-Banana Pi BPI-Secure-Pi is proud to introduce the SP2302, the latest addition to its line of high-performance embedded systems. Powered by the innovative Secure Pi module SP2301, it is designed to address the complex demands of IoT applications requiring advanced security measures. With its robust features and compact design, SP2302 is poised to revolutionize the industry.
+Banana Pi BPI-Secure-Pi SP2302 SBC, based on the SP2301 core board, is an advanced single-board computer integrating Megahunt's Secure MPU MH1905with a Linux OS, designed for robust industrial-grade applications. Similar to the Raspberry Pi, it includes a 40-pin header for broad expansion capabilities, 100Mbps Ethernet, WiFi/BLE for versatile connectivity, and multiple interfaces including four USB ports and HDMI output. Ideal for developers seeking a reliable platform for IoT solutions, the SP2302 offers enhanced performance and security, making it perfect for a wide range of applications from automation to Industrial embedded systems.
 
-== SP2302 chip 
-
-The SP2302 integrates all the powerful features of the SP2301 module while extending its capabilities to cater to a broader range of applications. It combines cutting-edge technology with a versatile array of features to deliver unparalleled performance and security in a compact form factor.
+The BPI-Secure-Pi, building on the secure foundation of the Secure MPU MH1905, is tailored to deliver unparalleled security for your industrial development projects. MH1905 has passed the rigorous Financial-class PCI PTS 6.X Security certification, significantly reducing the burden and time for achieving compliance for high-standard applications. The BPI-Secure-Pi ensures trusted boot processes through secure boot technology and provides robust protection against physical attack strategies such as Differential Power Analysis (DPA) and Simple Power Analysis (SPA). Additionally, it includes advanced hardware cryptography acceleration, supporting a wide range of algorithms including AES, DES, SHA, RSA and ECC. These features make the BPI-Secure-Pi an exceptionally secure platform, ideal for handling sensitive data and performing secure transactions in any IoT or embedded application.
 
 == Key Features
 
@@ -71,6 +69,7 @@ The SP2302 sets a new standard in embedded system security with its comprehensiv
 
 * Schematic diagram
 * DXF file
+* MH1905 datasheet
 
 = Image release
 
