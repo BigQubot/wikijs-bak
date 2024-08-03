@@ -1,0 +1,38 @@
+= OverView
+
+Banana Pi BPI-Secure-Pi is proud to introduce the SP2302, the latest addition to its line of high-performance embedded systems. Powered by the innovative Secure Pi module SP2301, it is designed to address the complex demands of IoT applications requiring advanced security measures. With its robust features and compact design, SP2302 is poised to revolutionize the industry.
+
+== SP2302 chip 
+
+The SP2302 integrates all the powerful features of the SP2301 module while extending its capabilities to cater to a broader range of applications. It combines cutting-edge technology with a versatile array of features to deliver unparalleled performance and security in a compact form factor.
+
+== Key Features
+
+* High-Performance Processing and Memory:
+** Processor: MH1905 Processor, Cortex-A5 up to 1.2GHz
+** Memory: 512MB DDR3L, 512MB NAND Flash
+* Enhanced Connectivity and Interface Options:
+** Network Communication: Robust options including Ethernet, WiFi, and Bluetooth for versatile connectivity needs.
+** HDMI Interface: For high-definition output.
+** MIPI Camera Interface: Supports advanced imaging solutions.
+* Compact and Robust Design:
+** Dimensions: 120mm x 70mm
+** Power Supply: Type C USB
+** Grade: Available in both Commercial and Industrial grades
+* Board Parameters and Features:
+** Ethernet: 10/1000M interface for high-speed network connectivity.
+** USB Ports: Four USB2.0 ports for extensive peripheral connectivity.
+** Compatible GPIO Pin: Compatible GPIO Pins to Raspberry Pi 2 & 3
+** Communication: Includes UART interface for serial communication.
+** Wireless: Dual-band 2.4GHz / 5GHz WiFi and Bluetooth module.
+** Expansion: Micro SD slot and a variety of sensors (Voltage, Glitch, Temperature, Clock).
+
+== Advanced Security Features
+The SP2302 sets a new standard in embedded system security with its comprehensive suite of protective features:
+
+** PCI PTS 6.X Security Certification: Meets financial-class security standards.
+** Secure Boot and Active Shielding: Ensures trusted boot processes and resistance against physical attacks.
+** Anti-DPA/SPA Technologies: Protects against power analysis attacks.
+** TAMPER Protection: Up to 10 channels, safeguarding against tampering.
+** Hardware Cryptography Acceleration: Supports multiple algorithms including AES, DES, SHA, RSA, ECC, and more, ensuring rapid and secure data encryption and authentication.
+
