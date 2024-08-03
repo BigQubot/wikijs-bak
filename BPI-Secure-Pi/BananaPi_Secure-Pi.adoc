@@ -41,6 +41,21 @@ The SP2302 sets a new standard in embedded system security with its comprehensiv
 == Hardware interface
 
 == Hardware spec
+[options="header",cols="1,4",width="70%"]
+|=====
+2+| **HardWare Specification of Banana Pi BPI-M4 Berry**
+|CPU |MH1905 processor - Cortex-A5 @ up to 1.2GHz+ 32bit RISC Core@up to 200MHz
+|Memory | 512MB DDR3L, 512MB NAND Flash
+|Wireless| Wi-Fi and BLE
+.2+|USB |1x USB2.0 Type-C OTG, 5V power supply
+|4x USB2.0 Type-A Host
+|Network| 10/100Mbps Ethernet interface
+.2+|HDMI| HDMI interface
+|MIPI LCD interface
+|Camera | CSI camera interface
+|Audio|Audio Input and output interface
+|GPIO | Raspberry Pi 40 pin to pin compatible layouts
+|=====
 
 = Development
 
