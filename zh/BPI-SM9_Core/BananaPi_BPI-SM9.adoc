@@ -66,6 +66,26 @@ link:/en/BPI-sm9/Photo_BPI-sm9[Banana Pi BPI-SM9 产品图片]
 |尺寸 |69.6mm x 45mm x 6mm
 |=====
 
+== 核心板算力指标 
+
+[options="header",cols="1,4",width="70%"]
+|=====
+2+| **Banana Pi BPI-SM9 算力指标**
+|操作系统 |Ubuntu20.04 或 Linux 系统 V4.19 以上 
+|处理器 |BM1688：8 核 ARM A53，1.6GHz 主频 
+|数据处理能力 |支持 FP32/FP16/INT8，可同时进行 16 路高清视频解码与智能分析 
+.3+|内存 
+|BM1688：8GB，CV186AH：4GB 
+|LPDDR4，位宽 64bits 
+|数据速率 4266Mbps 
+|存储 |eMMC 32GB 
+.2+|视频解码和编码 
+|解码：H.264 & H.265: 16 路 1080P @30fps，最大分辨率8192 * 8192 
+|编码：H.264 & H.265: 12 路 1080P @30fps，最大分辨率8K 
+|图片编解码 |JPEG：1080P@480fps，最大分辨率 32768*32768 
+|=====
+
+
 == 接口定义并与JETSON ORIN NANO比较
 [options="header",cols="1,1",width="70%"]
 |=====
