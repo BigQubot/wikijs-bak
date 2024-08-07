@@ -1,2 +1,152 @@
-== Overview
+= Overview
 
+Banana Pi BPI-SM9 16-ENC-A3 deep learning computing module is equipped with the highly integrated computing technology processor BM1688, which has low power consumption, strong computing power, rich interfaces and good compatibility. Support INT4/INT8/FP16/BF16/FP32 mixed precision calculation, can support 16 high-definition video real-time analysis, flexible response to images, speech, natural language and other scenes, can be integrated in intelligent server, edge intelligent computer box, industrial computer, drone, AIOT and other types of products.
+
+== SOPHGO BM1688
+
+The SOPHGO processor BM1688 is a highly integrated deep learning vision processor for deep learning reasoning and computer vision. Support 16 TOPS INT8, support mixed precision calculation. It can be integrated in microserver, intelligent computing module, industrial computer, professional network camera, AIOT and other types of products. Efficient adaptation of all deep learning algorithms in the market, image classification, object detection, instance segmentation, semantic segmentation, behavior analysis, text recognition, natural language processing, speech recognition, speech synthesis, search and recommendation applications, for various industries to enable intelligent computing; And integrated image processing hardware: support HDR wide dynamic, 3D noise reduction, 3A, fog removal and other image enhancement, to provide customers with professional video image quality.
+
+Toolchain supports the model format of ONNX/Caffe/TFLite framework; TensorFlow/Pytorch/Paddle/TensorRTBM1684/BM1684X compatible
+
+
+== 关键特性
+
+* 高能效比，兼具灵活性
+• 16路高清视频智能分析
+• 支持INT4/INT8/FP16/BF16/FP32混合精度计算
+* 超强多媒体能力
+• 支持16 路高清硬解、10路高清硬编
+• 支持多路VI输入、音频输入，支持ISP
+• 支持双目深度、图像拼接、鱼眼展开等硬加速
+* 丰富外设，宽温低功耗，部署更灵活
+• 支持SATA/USB/GbE/HDMI/CAN/SDIO等
+• 功耗更低，宽温设计，适应性更强
+* 兼容NV Orin Nano/NX系列模组，性价比领先
+• Pin To Pin兼容，Pinlist/Pinmux更丰富
+• 4GB/8GB/16GB LPDDR4配置可选
+
+== 快速入门
+
+= 硬件
+
+== 计算模组硬件接口
+
+== BPI-SM9 产品图集
+
+link:/en/BPI-sm9/Photo_BPI-sm9[Banana Pi BPI-SM9 产品图片]
+
+== 产品图片
+
+== 计算模组硬件规格
+
+[options="header",cols="1,4",width="70%"]
+|=====
+2+| **Banana Pi BPI-SM9 16-ENC-A3计算模组硬件规格**
+|产品型号 |SM9 16-ENC-A3
+|处理器 |8 核 ARM CA53 1.6GHz
+|算力 |16路高清视频智能分析
+|内存 |8GB LPDDR4x 64bits 4266Mbps
+|存储| 32GB eMMC 5.1
+|视频解码 |H.264&H.265: 16x 1080P@30fps，支持 8192 * 8192 / 8K / 4K / 1080P / 720P / D1 / CIF
+|视频编码 |H.264&H.265: 10x 1080P@30fps，支持 8K / 4K / 1080P / 720P / D1 / CIF
+|图片编解码 |JPEG：1080P@480fps，最大支持 32768 * 32768
+.2+|音视频输入
+|6x VI
+|2x I2S 2x 双声道输入和输出(可选)
+|ISP |2x8Mp30, 2f-HDR, 3DNR / LDC / 3A / Dehaze 
+|CV |IVE/VPSS + DPU(双目深度) + Stitch(图像拼接) + Dewarp(鱼眼展开)
+|PCIE |PCIe Gen3 1 x2 + 1 x2 RC&EP
+|USB |2x USB3.0, 2x USB2.0
+|网络 |2x GbE
+|显示接口 |1x HDMI 2.0
+|其他接口 |2x SATA3.0, 1x CAN, 1x SD/SDIO, 4x UART, 4x I2C, 6x PWM, 2x SPI, ADC, GPIOs
+|电源| DC 5V
+|工作温度 |-20℃ ~ +70℃
+|连接器 |260-pin SO-DIMM
+|尺寸 |69.6mm x 45mm x 6mm
+|=====
+
+== 核心板算力指标 
+
+[options="header",cols="1,4",width="70%"]
+|=====
+2+| **Banana Pi BPI-SM9 算力指标**
+|操作系统 |Ubuntu20.04 或 Linux 系统 V4.19 以上 
+|处理器 |BM1688：8 核 ARM A53，1.6GHz 主频 
+|数据处理能力 |支持 FP32/FP16/INT8，可同时进行 16 路高清视频解码与智能分析 
+.3+|内存 
+|BM1688：8GB，CV186AH：4GB 
+|LPDDR4，位宽 64bits 
+|数据速率 4266Mbps 
+|存储 |eMMC 32GB 
+.2+|视频解码和编码 
+|解码：H.264 & H.265: 16 路 1080P @30fps，最大分辨率8192 * 8192 
+|编码：H.264 & H.265: 12 路 1080P @30fps，最大分辨率8K 
+|图片编解码 |JPEG：1080P@480fps，最大分辨率 32768*32768 
+|=====
+
+
+== 接口定义并与JETSON ORIN NANO比较
+[options="header",cols="1,1",width="70%"]
+|=====
+2+| **Banana Pi BPI-SM9 接口定义**
+|JETSON ORIN NANO	|SM9
+|GBE0	|GBE0
+|	|GBE1
+|RSVD	|
+|DP	|
+|	| HDMI
+|CSI0-1C2D	|CSI0-1C2D
+|CSI1-1C2D	|CSI1-1C2D
+|CSI2-1C2D	|CSI2-1C2D
+|CSI3-1C2D	|CSI3-1C2D
+|	|CSI4-1C2D
+|	|CSI5-1C2D
+|	|SDMMC
+|	|PCIe0-2lane
+|PCIe0-4lane	|
+|PCIe1-2lane	|PCIe1-2lane（2*SATA）
+|PCIe2-2lane	|
+|USB0-3.0（2.0）	|USB0-3.0（2.0）
+|USB1-3.0（2.0）	|USB1-3.0（2.0）
+|USB2-3.0（2.0）|	
+|UART0	|UART4
+|UART1	|UART1
+|UART2	|UART2
+|SPI0	|SPI0
+|SPI1	|SPI1
+|I2C0	|I2C0
+|I2C1	|I2C1
+|I2C2	|I2C2
+|CAM_I2C	|CAM_I2C
+|I2S0	|I2S0
+|I2S1	|I2S1
+|	|I2S2（UART0）
+|CAN	|CAN
+|CAM0_MCLK	|CAM0_MCLK
+|CAM1_MCLK	|CAM1_MCLK
+|	|CAM2_MCLK
+|	|CAM3_MCLK
+|GPIO*14	|GPIO*14
+
+|=====
+
+== BPI-SM9开发者套件
+
+
+= 开发
+
+== 软件源代码
+
+* sophon-demo： https://github.com/sophgo/sophon-demo/tree/release 
+* sophon-stream： https://github.com/sophgo/sophon-stream 
+
+
+== 资料
+* 算能处理器BM1688规格书： https://www.sophgo.com/sophon-u/product/introduce/bm1688.html
+* 算能科技在线教程： https://www.sophgo.com/curriculum/online.html
+* 算能科技在线案例： https://www.sophgo.com/case-center/index.html
+
+= 系统镜像
+
+= 快速购买
