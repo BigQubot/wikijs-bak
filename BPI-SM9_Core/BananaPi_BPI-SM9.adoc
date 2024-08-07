@@ -18,12 +18,12 @@ Toolchain supports the model format of ONNX/Caffe/TFLite framework; TensorFlow/P
 • 支持16 路高清硬解、10路高清硬编
 • 支持多路VI输入、音频输入，支持ISP
 • 支持双目深度、图像拼接、鱼眼展开等硬加速
-* 丰富外设，宽温低功耗，部署更灵活
-• 支持SATA/USB/GbE/HDMI/CAN/SDIO等
-• 功耗更低，宽温设计，适应性更强
-* 兼容NV Orin Nano/NX系列模组，性价比领先
-• Pin To Pin兼容，Pinlist/Pinmux更丰富
-• 4GB/8GB/16GB LPDDR4配置可选
+* Rich peripherals, wide temperature and low power consumption, more flexible deployment
+• support SATA/USB/GbE/HDMI/CAN/SDIO...
+• Lower power consumption, wide temperature design, more adaptable
+* Compatible with NV Orin Nano/NX series modules, leading cost performance
+• Pin To Pin compatibility，more plentiful Pinlist/Pinmux
+• 4GB/8GB/16GB LPDDR4
 
 == Getting Started
 
