@@ -2,6 +2,8 @@
 
 Banana Pi BPI-SM9 16-ENC-A3 deep learning computing module is equipped with the highly integrated computing technology processor BM1688 8 Core ARM CA53 1.6GHz, 8GB LPDDR4，32GB eMMC onboard.which has low power consumption, strong computing power, rich interfaces and good compatibility. Support INT4/INT8/FP16/BF16/FP32 mixed precision calculation, can support 16 high-definition video real-time analysis, flexible response to images, speech, natural language and other scenes, can be integrated in intelligent server, edge intelligent computer box, industrial computer, drone, AIOT and other types of products.
 
+image::/bpi-sm9/bananapi-bpi-sm9_banner_1.jpg[bananapi-bpi-sm9_banner_1.jpg]
+
 == SOPHGO BM1688
 
 The SOPHGO processor BM1688 is a highly integrated deep learning vision processor for deep learning reasoning and computer vision. Support 16 TOPS INT8, support mixed precision calculation. It can be integrated in microserver, intelligent computing module, industrial computer, professional network camera, AIOT and other types of products. Efficient adaptation of all deep learning algorithms in the market, image classification, object detection, instance segmentation, semantic segmentation, behavior analysis, text recognition, natural language processing, speech recognition, speech synthesis, search and recommendation applications, for various industries to enable intelligent computing; And integrated image processing hardware: support HDR wide dynamic, 3D noise reduction, 3A, fog removal and other image enhancement, to provide customers with professional video image quality.
@@ -30,6 +32,8 @@ Toolchain supports the model format of ONNX/Caffe/TFLite framework; TensorFlow/P
 = Hardware 
 
 == Module hardware interface
+
+image::/bpi-sm9/bananapi-bpi-sm9_interface.jpg[bananapi-bpi-sm9_interface.jpg]
 
 == BPI-SM9 photo
 
