@@ -11,13 +11,13 @@ Toolchain supports the model format of ONNX/Caffe/TFLite framework; TensorFlow/P
 
 == Key Features
 
-* 高能效比，兼具灵活性
-• 16路高清视频智能分析
-• 支持INT4/INT8/FP16/BF16/FP32混合精度计算
-* 超强多媒体能力
-• 支持16 路高清硬解、10路高清硬编
-• 支持多路VI输入、音频输入，支持ISP
-• 支持双目深度、图像拼接、鱼眼展开等硬加速
+* High energy efficiency and flexibility
+• 16 HD video intelligent analysis
+• Support INT4/INT8/FP16/BF16/FP32 mixed precision calculation
+* Super multimedia capability
+• Support 16 HD hard solution, 10 HD hard knitting
+• Supports multiple VI input, audio input, Support ISP
+• Support binocular depth, image stitching, fisheye expansion and other hard acceleration
 * Rich peripherals, wide temperature and low power consumption, more flexible deployment
 • support SATA/USB/GbE/HDMI/CAN/SDIO...
 • Lower power consumption, wide temperature design, more adaptable
