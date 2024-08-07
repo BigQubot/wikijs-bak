@@ -9,7 +9,7 @@ The SOPHGO processor BM1688 is a highly integrated deep learning vision processo
 Toolchain supports the model format of ONNX/Caffe/TFLite framework; TensorFlow/Pytorch/Paddle/TensorRTBM1684/BM1684X compatible
 
 
-== 关键特性
+== Key Features
 
 * 高能效比，兼具灵活性
 • 16路高清视频智能分析
@@ -25,19 +25,18 @@ Toolchain supports the model format of ONNX/Caffe/TFLite framework; TensorFlow/P
 • Pin To Pin兼容，Pinlist/Pinmux更丰富
 • 4GB/8GB/16GB LPDDR4配置可选
 
-== 快速入门
+== Getting Started
 
-= 硬件
+= Hardware 
 
-== 计算模组硬件接口
+== Module hardware interface
 
-== BPI-SM9 产品图集
+== BPI-SM9 photo
 
-link:/en/BPI-sm9/Photo_BPI-sm9[Banana Pi BPI-SM9 产品图片]
+link:/en/BPI-sm9/Photo_BPI-sm9[Banana Pi BPI-SM9 Product photo gallery]
 
-== 产品图片
 
-== 计算模组硬件规格
+== computing module hardware spec
 
 [options="header",cols="1,4",width="70%"]
 |=====
