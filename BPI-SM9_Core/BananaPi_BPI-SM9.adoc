@@ -41,28 +41,28 @@ link:/en/BPI-sm9/Photo_BPI-sm9[Banana Pi BPI-SM9 Product photo gallery]
 [options="header",cols="1,4",width="70%"]
 |=====
 2+| **Banana Pi BPI-SM9 16-ENC-A3计算模组硬件规格**
-|产品型号 |SM9 16-ENC-A3
-|处理器 |8 核 ARM CA53 1.6GHz
-|算力 |16路高清视频智能分析
-|内存 |8GB LPDDR4x 64bits 4266Mbps
-|存储| 32GB eMMC 5.1
-|视频解码 |H.264&H.265: 16x 1080P@30fps，支持 8192 * 8192 / 8K / 4K / 1080P / 720P / D1 / CIF
-|视频编码 |H.264&H.265: 10x 1080P@30fps，支持 8K / 4K / 1080P / 720P / D1 / CIF
-|图片编解码 |JPEG：1080P@480fps，最大支持 32768 * 32768
-.2+|音视频输入
+|Module |SM9 16-ENC-A3
+|CPU|8 core ARM CA53 1.6GHz
+|hashrate |16 HD video intelligent analysis
+|RAM |8GB LPDDR4x 64bits 4266Mbps
+|Flash| 32GB eMMC 5.1
+|Video decode |H.264&H.265: 16x 1080P@30fps，support 8192 * 8192 / 8K / 4K / 1080P / 720P / D1 / CIF
+|Video incode |H.264&H.265: 10x 1080P@30fps，support 8K / 4K / 1080P / 720P / D1 / CIF
+|Picture codec |JPEG：1080P@480fps，max support 32768 * 32768
+.2+|Audio and video input
 |6x VI
-|2x I2S 2x 双声道输入和输出(可选)
+|2x I2S 2x Dual channel input and output (optional)
 |ISP |2x8Mp30, 2f-HDR, 3DNR / LDC / 3A / Dehaze 
-|CV |IVE/VPSS + DPU(双目深度) + Stitch(图像拼接) + Dewarp(鱼眼展开)
+|CV |IVE/VPSS + DPU(Binocular depth) + Stitch(image stitching) + Dewarp
 |PCIE |PCIe Gen3 1 x2 + 1 x2 RC&EP
 |USB |2x USB3.0, 2x USB2.0
-|网络 |2x GbE
-|显示接口 |1x HDMI 2.0
-|其他接口 |2x SATA3.0, 1x CAN, 1x SD/SDIO, 4x UART, 4x I2C, 6x PWM, 2x SPI, ADC, GPIOs
-|电源| DC 5V
-|工作温度 |-20℃ ~ +70℃
-|连接器 |260-pin SO-DIMM
-|尺寸 |69.6mm x 45mm x 6mm
+|Network |2x GbE
+|Display |1x HDMI 2.0
+|Others |2x SATA3.0, 1x CAN, 1x SD/SDIO, 4x UART, 4x I2C, 6x PWM, 2x SPI, ADC, GPIOs
+|Power| DC 5V
+|Operating temperature |-20℃ ~ +70℃
+|connector |260-pin SO-DIMM
+|size |69.6mm x 45mm x 6mm
 |=====
 
 == 核心板算力指标 
