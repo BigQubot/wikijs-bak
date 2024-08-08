@@ -616,7 +616,27 @@ i2s pin descriptions
 |222	|I2S2_SDI_M1	|I2S Audio Port 1 Data In	|Input	|CMOS – 1.8V
 |=====
 
-= BPI-AIM7 硬件项目
+= BPI-AIM7 开发套件
+
+== 开发套件硬件规格
+
+* USB ports: 4x USB 3.0 Type-A
+* Display: 1x DisplayPort, 1x HDMI-out
+* Networking: Gigabit Ethernet
+* GPIO: 40-pin expansion header
+* Power connectors: DC Barrel jack for 5V power input, 5 V via Power over Ethernet
+* Expansion: M.2 (E-key, PCIe/USB/SDIO/UART), microSD
+* MIPI DSI: 1x 4 lanes MIPI DSI up to 4K@60 fps (x4)
+* MIPI CSI0/1: 2x 2 lanes MIPI CSI，Maximum 2.5Gbps per lane.
+* MIPI CSI2/3: 1x 4 lanes MIPI CSI，Maximum 2.5Gbps per lane.
+* Firmware: Flashing and device mode via USB Type-C
+* Dimensions: 100 x 80 x 29 mm (3.94 x 3.15 x 1.14 in)
+
+image::/bpi-aim7/banana_pi_bpi-aim7_kit_6.jpg[banana_pi_bpi-aim7_kit_6.jpg]
+
+== 开发套件硬件接口
+
+image::/bpi-aim7/banana_pi_bpi-aim7_kit_interface.jpg[banana_pi_bpi-aim7_kit_interface.jpg]
 
 == BPI-AIM7 AI 智能边缘计算网关
 
