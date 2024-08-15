@@ -1,5 +1,7 @@
 = Overview
 
+image::/bpi-m1_super/banana_pi_bpi-m1_super_banner_1.png[banana_pi_bpi-m1_super_banner_1.png]
+
 Banana Pi BPI-M1S utilizes the Rockchip RK3528, a new-generation intelligent set-top box and multimedia application chip. It is applicable to IPTV/OTT boxes, cloud terminals, and integrated products. It is a high-performance, low-power 4K player with decoding capability supporting up to 8K. Additionally, it also supports the AVS2 and HDR VIVID standards.
 
 == Key Parameter
@@ -22,6 +24,8 @@ Banana Pi BPI-M1S utilizes the Rockchip RK3528, a new-generation intelligent set
 = Hardware 
 
 == Hardware interface
+
+image::/bpi-m1_super/banana_pi_bpi-m1_super_inerface.jpg[banana_pi_bpi-m1_super_inerface.jpg]
 
 NOTE: On the BPI-M1S, there are two Type-C interfaces that look identical, but only one of them (Type-C DC IN) serves as the power input interface.
 
