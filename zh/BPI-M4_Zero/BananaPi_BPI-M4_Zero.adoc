@@ -1,10 +1,10 @@
 = BPI-M4 Zero 介绍
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;香蕉派 BPI-M4 Zero是M2 Zero的继任者。它在性能上有很大的提高。SOC升级至H618，CPU频率提升25%。内存升级为DDR4，容量翻了四倍，并增加了8 G eMMC。支持5G WiFi，USB接口也升级到了type-C。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;香蕉派 BPI-M4 Zero是M2 Zero的继任者。它在性能上有很大的提高。SOC升级至H618，CPU频率提升25%。内存升级为DDR4，容量翻了八倍，并增加了32 G eMMC。支持5G WiFi，USB接口也升级到了type-C。
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;它具有与Raspberry Pi Zero W相同的外形和40针连接器，可以安装大多数RPI Zero W外壳和配件。
 
-image::/picture/bpi_m4_zero_banner_1.jpg[bpi_m4_zero_banner_1.jpg]
+image::/bpi-m4zero/bpi_m4_zero_banner_1.jpg[bpi_m4_zero_banner_1.jpg]
 
 TIP: 全志科技 H618 设计 : link:/zh/BPI-M4_Berry/BananaPi_BPI-M4_Berry[Banana Pi BPI-M4 Berry] 尺寸和 Raspberry Pi 4B 相同 +
 全志科技 H618 设计 : link:/zh/BPI-M4_Zero/BananaPi_BPI-M4_Zero[Banana Pi BPI-M4 Zero] 尺寸和 Raspberry Pi Zere W 相同
@@ -28,7 +28,7 @@ TIP: link:/en/BPI-M4_Zero/GettingStarted_BPI-M4_Zero[Getting Started BPI-M4_Zero
 
 = 硬件
 == 硬件接口示意图
-image::/picture/bpi-m4_zero_interface.jpg[bpi-m4_zero_interface.jpg]
+image::/bpi-m4zero/bpi-m4_zero_interface.jpg[bpi-m4_zero_interface.jpg]
 
 == BPI-M4 Zero 图片
 
@@ -41,8 +41,8 @@ link:/en/BPI-M4_Zero/Photo_BPI-M4_Zero[Banana Pi BPI-M4 Zero Product photo galle
 2+| **香蕉派 BPI-M4 Zero 硬件规格**
 | CPU                                             | 全志科技 H618，四核ARM Cortex™-A53处理器，64位，高达1.5GHz
 | GPU                                             | ARM Mali G31 GPU
-| 内存                                         | 2 GB LPDDR4
-| 存储                                        | 8G eMMC flash
+| 内存                                         | 4 GB LPDDR4
+| 存储                                        | 32G eMMC flash
 | SD card                                         | MicroSD card slot, SDIO3.0
 | 无线                                        | 2.4G/5G WiFi and Bluetooth 4.2
 | HDMI                                            | 1 x miniHDMI 2.0a（最高4K@60Hz，支持HDR 10，CEC，DDC，SCDC），HDMI数字音频输出
