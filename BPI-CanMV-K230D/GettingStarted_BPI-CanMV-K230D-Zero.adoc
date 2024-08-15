@@ -11,52 +11,39 @@ TIP: More Infomation: link:/en/BPI-CanMV-K230D/BananaPi_BPI-CanMV-K230D-Zero[Ban
 = Development
 == Prepare
 
-xxxxxx
+. Two USB to type-c cables, k230D board, SD card
 
-xxxxxx
+== Install Image to SD under Windows
 
-xxxxxx
 
-== Android
-=== Prepare
+In Windows, you can use the Rufus tool to burn the TF card (Download address of the Rufus tool: http://rufus.ie/downloads/).
 
-. xxx
-. xxx
-. xxx
-. xxx
+. Insert the TF card into the PC, start the Rufus tool, click the "Select" button on the tool interface, and select the firmware to be burned.
 
-=== Install Image with xxx
+. Click the "Start" button to start burning. The burning process will be displayed with a progress bar, and the prompt "Ready" will be displayed after the burning is completed.
 
-. xxx
-. xxx
-. xxx
-. xxx
+== Install Image to SD under Linux
 
-=== Install Image with xxx
+Before inserting the TF card into the host, enter:
 
-. xxx
-. xxx
-. xxx
-. xxx
+```
+ls -l /dev/sd\*
+```
+View the current storage device.
 
-== Linux
-=== Prepare
+After inserting the TF card into the host, enter again:
+```
+ls -l /dev/sd\*
+```
+View the storage device at this time, the newly added is the TF card device node.
 
-. xxx
-. xxx
-. xxx
-. xxx
+Assuming /dev/sdc is the TF card device node, execute the following command to burn the TF card:
+```
+sudo dd if=sysimage-sdcard.img of=/dev/sdc bs=1M oflag=sync
+```
 
-=== Install Image with xxx
+== Start the device
 
-. xxx
-. xxx
-. xxx
-. xxx
+After successfully burning the firmware, connect the development board to the computer, and you can see a virtual USB **CanMV** and a virtual serial port.
 
-=== Install Image with xxx
-
-. xxx
-. xxx
-. xxx
-. xxx
+WARNING: You need to connect two USBs at the same time. If you do not see the corresponding virtual USB disk and virtual serial port, check whether they are connected correctly.
