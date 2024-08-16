@@ -278,6 +278,37 @@ link:/en/BPI-M7/display-10-hd[BPI-M7 Display 10 HD]
 
 - Taobao Shop: https://item.taobao.com/item.htm?ft=t&id=787591056231
 
+== FAN
+
+[options="header",cols="1,1",width="70%"]
+|=====
+|ITEM	|SPECIFICATION/CONDITION
+|Bearing Type	|Hydraulic
+|Rating Voltage	|DC 5V
+|Rated Voltage	|2.5~5.5 VDC
+|Start-Up Voltage	|2.5 VDC (Temp 25°C)
+|Rated Current	|310 mA (Max 340 mA)
+|Rated Speed	|10000 RPM ±10%
+.2+|Air Flow	|2.0 CFM (Min 1.80 CFM)
+|0.056 m³/MIN (Min 0.051 m³/MIN)
+.2+|Static Pressure	|26.75 mm-H2O (Min 21.67 mm-H2O)
+|1.05 inch-H2O (Min 0.85 inch-H2O)
+|Noise Level	|54 dB(A) (Max 56.5 dB(A))
+|Protection Type	|
+|Resistance Protected	.2+|YES
+|Reverse Connect Protection	
+|Auto Start	.3+|NO
+|Tachometer Output
+|Lock Rotor Alarm Output
+|Pulse Width Modulation	.2+|YES
+|Signal Feedback	
+|Thermal Speed Controlled	|NO
+|Connection Lead Type	|UL10064 AWG#32, 105±5mm outside the frame, Red (Positive), Black (Negative), Blue (PWM Speed Control)
+|Housing	|JST 04SUR-32S OR EQUIVALENT (Blue, Black, Red)
+|Label	|DC5V-0.45A
+|Pin Terminal	|NO
+|=====
+
 == Hailo 8 for AI
 
 image::/bpi-m7/bpi-m7-hailo8.jpg[bpi-m7-hailo8.jpg]
