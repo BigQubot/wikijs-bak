@@ -73,7 +73,7 @@ image::/openwrt-one/banna_pi_openwrt_one_interface.jpg[banna_pi_openwrt_one_inte
 |EM6324 External hardware watchdog
 |NXP PCF8563TS (I2C) RTC with battery backup holder for CR1220 coin-cell
 .2+|Power Supply 
-|12V USB-PD on USB-C port (might have changed to up to 15V)
+|15V USB-PD on USB-C port
 |Optional 802.3at/af PoE via RT5040 module
 |Dimensions | 148 x 100.5 mm compatible with Banana Pi BPI-R4 case design
 |Certifications | FCC/EC/RoHS compliance
