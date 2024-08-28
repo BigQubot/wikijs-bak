@@ -1,0 +1,85 @@
+= Overview
+
+Banana Pi BPI-CM5 Pro is a computing module powered by the Rockchip RK3576 second-generation 8nm high-performance AIOT platform. It integrates a quad-core Cortex-A72 @ 2.2GHz and a quad-core Cortex-A53 @ 1.8GHz, along with a dedicated NEON co-processor, a 6 TOPS NPU, and supports up to 16GB of large memory. It supports 4K video encoding and decoding, features a rich set of interfaces, and supports various operating systems.
+
+== Key Specifications
+
+* SOC: Rockchip RK3576
+* CPU: Integrates quad-core Cortex-A72 @ 2.2GHz, quad-core Cortex-A53 @ 1.8GHz, and a dedicated NEON co-processor.
+* GPU: ARM Mali G52 MC3 GPU.
+* NPU: Up to 6 TOPS (INT8) computing power, supporting INT4/INT8/INT16 mixed precision computation.
+* VPU/Video Codec:
+** Decoding: Supports H.264, H.265, VP9, AV1, and AVS2 up to 8K@30fps or 4K@120fps, and high-quality JPEG decoding up to 4K@60fps.
+** Encoding: Supports H.264 and H.265，JPEG up to 4K@60fps.
+* RAM: 8/16GB 32bit LPDDR5, default is 8GB, with RK3576 supporting up to 16GB.
+* Flash: 32/64/128GB eMMC, default is 64GB eMMC.
+* Operating Voltage: Wide input voltage range from 4.5V to 23V (voltage tolerance ±5%).
+* Operating Temperature: 0℃ ~ 80℃
+* Weight: 12g
+* Dimensions:
+** CM5: 55 x 40 mm
+** CM5-IO: 100 x 80 x 29 mm (3.94 x 3.15 x 1.14 inches)
+
+== Getting started
+
+= Hardware
+
+== Hardware Interface
+
+TIP: Designed as a board-to-board connector.
+
+TIP: Due to the RK3576 chip's PIN limitations, it supports only 1 HDMI and 1 DSI, whereas the Raspberry Pi CM4 supports up to 2 HDMI and 2 DSI.
+
+TIP: BPI-CM5 has an additional PCIe and USB3 compared to the Raspberry Pi CM4.
+
+
+You can use the Raspberry Pi CM4 baseboard.
+
+
+== BPI-CM5 Pro Block Diagram
+
+image::/bpi-cm5_pro/banana_pi_bpi-cm5_pro_block_diagram.png[banana_pi_bpi-cm5_pro_block_diagram.png]
+
+== Hardware Spec
+
+[options="header",cols="1,5"]
+|====
+2+| HardWare Specification of Banana Pi BPI-CM5 Pro
+|Item |	Function
+|CPU	| RK3576 Quad-core Cortex-A72@2.2GHz and Quad-core Cortex-A53@1.8GHz, 8nm process
+.2+|GPU	| ARM Mali G52 MC3 GPU
+|Fully compatible with OpenGL ES 1.1, 2.0, and 3.2, OpenCL up to 2.0, and Vulkan 1.1. Dedicated 2D hardware engine with MMU maximizes display performance and provides very smooth operation.
+.3+|NPU |	6 TOPS@INT8
+|Supports INT4, INT8, INT16, FP16, BF16, and TF32 mixed precision
+|Supports deep learning frameworks: TensorFlow, Caffe, Tflite, Pytorch, Onnx, NNAndroid NN, etc.
+.2+|VPU/Codec	
+| Hardware decoding: Supports H.264, H.265, VP9, AV1, and AVS2 up to 8K@30fps or 4K@120fps, and high-quality JPEG decoding up to 4K@60fps.
+|Hardware encoding: Supports H.264 and H.265，JPEG up to 4K@60fps.
+|ISP	|ISP, 16MP
+|RAM	|8GB/16GB (up to 16GB) 32-bit LPDDR5, default LPDDR5 8GB
+.2+|Flash	|32/64/128GB eMMC, default eMMC 64GB
+|Supports MicroSD card expansion
+.3+|Display	
+|1x HDMI OUT 2.1, supports 4K@120fps
+|1x MIPI DSI resolution up to 2K@60fps
+|1x DP 1.4 resolution up to 4K@120fps
+.2+|Camera	
+|1x 4Lanes MIPI CSI, up to 2.5Gbps per lane
+|1x 2Lanes MIPI CSI, up to 2.5Gbps per lane
+.2+|Network	
+|1x GMAC, provides RGMII/RMII interface
+|Supports 10/100/1000Mbps data transfer rates
+|PCIe	| 2x PCIe 2.0 1-lane
+.2+|USB	
+|1x USB 3.0
+|1x USB 2.0
+.3+|Audio	
+|SPDIF_Tx x1
+|AUDIO_R/L x1
+|i2s x1
+.3+|Others	
+｜UART DEBUG x1
+｜FAN x1
+｜RTC x1
+|====
+
