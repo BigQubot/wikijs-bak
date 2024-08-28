@@ -26,6 +26,8 @@ Banana Pi BPI-CM5 Pro is a computing module powered by the Rockchip RK3576 secon
 
 == Hardware Interface
 
+image::/bpi-cm5_pro/banana_pi_bpi-cm5_pro_interface.jpg[banana_pi_bpi-cm5_pro_interface.jpg]
+
 TIP: Designed as a board-to-board connector.
 
 TIP: Due to the RK3576 chip's PIN limitations, it supports only 1 HDMI and 1 DSI, whereas the Raspberry Pi CM4 supports up to 2 HDMI and 2 DSI.
