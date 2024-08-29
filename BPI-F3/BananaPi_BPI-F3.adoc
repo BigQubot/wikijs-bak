@@ -11,11 +11,9 @@ SpacemiT K1 is an octa-core 64-bit RISC-V AI CPU. Base on RISC-V open instructio
 
 SpacemiT K1 is mainly used for single board computer,network storage,cloud computer,smart robort,industrial control,edge computer,etc.
 
-TIP: link:/en/BPI-F3/SpacemiT_K1[SpacemiT K1 8 core RISC-V chip Brief]
-
-TIP: link:/en/BPI-F3/SpacemiT_K1_datasheet[SpacemiT K1 8 core RISC-V chip datasheet]
-
-TIP: link:https://developer.spacemit.com/[SpacemiT official development center]
+TIP: link:/en/BPI-F3/SpacemiT_K1[SpacemiT K1 8 core RISC-V chip Brief] +
+link:/en/BPI-F3/SpacemiT_K1_datasheet[SpacemiT K1 8 core RISC-V chip datasheet] +
+link:https://developer.spacemit.com/[SpacemiT official development center]
 
 == Key Features
 
@@ -239,6 +237,10 @@ TIP: u-boot: https://github.com/BPI-SINOVOIP/pi-u-boot/tree/v2022.10-k1
 TIP: kernel: https://github.com/BPI-SINOVOIP/pi-linux/tree/linux-6.1.15-k1
 
 TIP: Armbian: https://github.com/BPI-SINOVOIP/armbian-build/tree/v24.04.30
+
+=== ArchLinux
+
+TIP: https://github.com/jellyterra/bpi-f3-archlinux
 
 == RISC-V IME set Specification 
 
