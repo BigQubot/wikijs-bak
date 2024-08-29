@@ -64,11 +64,50 @@ link:/en/BPI-M4_Zero/Photo_BPI-M4_Zero[Banana Pi BPI-M4 Zero Product photo galle
 
 === BPI-M4 Zero 40PIN GPIO
 
-[options="header",cols="1,2,3,3,3,3",width="70%"]
+[options="header",cols="1,2,2,2",width="70%"]
 |=====
-6+| **40 PIN GPIO of Banana pi BPI-M4 Berry**
-| Pin Num | Pin Name | ALT0         | ALT1         | ALT2      | ALT3         
-
+4+| **40 PIN GPIO of Banana pi BPI-M4 Berry**
+| Pin Num | Pin Name | |
+| 1  | 3.3V | |
+| 2  | 5V | |
+| 3  | TWI0_SDA | PI6_ENT6 |
+| 4  | 5V | |
+| 5  | TWI0_SCL | PI5_ENT5 |
+| 6  | GND | |
+| 7  | PWM2 | PI12_EINT12 |
+| 8  | UART4_TX | PI13_EINT13 |
+| 9  | GND | |
+| 10 | UART4_RX | PI14_EINT14 |
+| 11 | PH2 | UART5_TX |
+| 12 | H_IISO_BCLK | PI1 | DMIC_D0
+| 13 | PH3 | UART5_RX |
+| 14 | GND | |
+| 15 | PH11 | |
+| 16 | UART4_RTS | PI15_EINT15 |
+| 17 | 3.3V | |
+| 18 | UART4_CTS | PI16_EINT16 |
+| 19 | PH7 | SPI_MOSI |
+| 20 | GND | | 
+| 21 | PH8 | SPI_MISO | 
+| 22 | 3.3V | |
+| 23 | PH6 | SPI_CLK |
+| 24 | PH5 | SPI_CS0 |
+| 25 | GND | |
+| 26 | PH9 | SPI_CS1 |
+| 27 | TWI1_SDA | PI8_ENT8 |
+| 28 | TE1_SLC | PI7_ENT7 |
+| 29 | PI10 | |
+| 30 | GND | |
+| 31 | PI9 | |
+| 32 | SPDIF_OUT | |
+| 33 | IR_RX | |
+| 34 | GND | |
+| 35 | H_IIS0_LRCLK | PI2 | DMIC_D1
+| 36 | 3.3V | |
+| 37 | H_IIS0_MCLK | PI0 | DMIC_CLK
+| 38 | H_IIS0_DIN0 | PI4 | DMIC_D3
+| 39 | GND | |
+| 40 | H_IIS0_DOUT0 | PI3 | DMIC_D2
 |=====
 
 === 24 PIN FPC
