@@ -11,11 +11,9 @@ SpacemiT K1是一款八核64位RISC-V AI CPU。基于RISC-V开放指令集架构
 
 SpacemiT K1主要用于单板计算机、网络存储、云计算机、智能机器人、工业控制、边缘计算机等。
 
-TIP: link:/zh/BPI-F3/SpacemiT_K1[进迭时空（SpacemiT）K1 8 核 RISC-V 芯片介绍]
-
-TIP: link:/en/BPI-F3/SpacemiT_K1_datasheet[进迭时空（SpacemiT）K1 8 核 RISC-V 芯片规格]
-
-TIP: link:https://developer.spacemit.com/[进迭时空（SpacemiT）官方开发者中心]
+TIP: link:/zh/BPI-F3/SpacemiT_K1[进迭时空（SpacemiT）K1 8 核 RISC-V 芯片介绍] +
+link:/en/BPI-F3/SpacemiT_K1_datasheet[进迭时空（SpacemiT）K1 8 核 RISC-V 芯片规格] +
+link:https://developer.spacemit.com/[进迭时空（SpacemiT）官方开发者中心]
 
 == 主要特点
 - 8核RISC-V芯片，CPU集成2.0 TOPs AI算力
@@ -215,6 +213,10 @@ TIP: kernel: https://github.com/BPI-SINOVOIP/pi-linux/tree/linux-6.1.15-k1
 TIP: Armbian: https://github.com/BPI-SINOVOIP/armbian-build/tree/v24.04.30
 
 TIP: OpenWrt : https://archive.spacemit.com/openwrt/releases/23.05.2/
+
+=== ArchLinux
+
+TIP: https://github.com/jellyterra/bpi-f3-archlinux
 
 == RISC-V IME 开源指令集规范
 
