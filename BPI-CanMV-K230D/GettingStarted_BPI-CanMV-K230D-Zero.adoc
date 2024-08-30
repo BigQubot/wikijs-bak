@@ -42,8 +42,15 @@ Assuming /dev/sdc is the TF card device node, execute the following command to b
 sudo dd if=sysimage-sdcard.img of=/dev/sdc bs=1M oflag=sync
 ```
 
-== Start the device
+== User the device
 
 After successfully burning the firmware, connect the development board to the computer, and you can see a virtual USB **CanMV** and a virtual serial port.
 
 WARNING: You need to connect two USBs at the same time. If you do not see the corresponding virtual USB disk and virtual serial port, check whether they are connected correctly.
+
+Open CanMV IDE (link:https://github.com/kendryte/canmv_ide/releases[GitHub], link:https://developer.canaan-creative.com/resource[developer community]), or link:https://github.com/openmv/openmv-ide/releases[OpenMV IDE]. (Please download the latest version of the software)
+
+Connect K230D to the computer, click the connect button in the lower left corner of the interface, and wait for the connection to complete.
+
+image::/bpi-k230d/bpi-canmv-k230d_zero_connection.png[bpi-canmv-k230d_zero_connection.png]
+Write your own script, or open an existing one. Click Run.
