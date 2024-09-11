@@ -54,3 +54,310 @@ image::/bpi-cm5_pro/bpi-cm5_pro_debug_port.png[bpi-cm5_pro_debug_port.png]
 |TX (pin 8)|	--->|	RX
 |RX (pin 10)	|--->	|TX
 |====
+
+== Ethernet Port
+
+1,First, insert one end of the Ethernet cable into the CM5 Kit's Ethernet port, and connect the other end to the router, ensuring that the network is functioning properly.
+
+2,After the system starts, an IP address will be automatically assigned to the Ethernet card via DHCP, with no additional configuration needed.
+
+3,To view the IP address in the Linux system on the CM5 Kit, use the following command:
+
+```sh
+root@armsom-cm5:/# ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host noprefixroute
+       valid_lft forever preferred_lft forever
+2: end0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether c6:9c:b0:7e:2b:1f brd ff:ff:ff:ff:ff:ff permaddr aa:a6:84:1b:0d:21
+    inet 192.168.10.78/24 brd 192.168.10.255 scope global dynamic noprefixroute enP4p65s0
+       valid_lft 86221sec preferred_lft 86221sec
+    inet6 fe80::5bb0:d96f:926d:b334/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever
+3: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN group default qlen 1000
+    link/ether cc:64:1a:33:b5:40 brd ff:ff:ff:ff:ff:ff
+4: wlan1: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN group default qlen 1000
+    link/ether ce:64:1a:33:b5:40 brd ff:ff:ff:ff:ff:ff
+    
+```
+
+After the CM5 Kit starts up, there are three ways to check the IP address:
+
+* Connect an HDMI monitor, log into the system, and use the terminal to enter the ip a command to check the IP address.
+* Connect a [debug serial port](#Debugging Serial Port) and use the terminal to enter the ip a command to check the IP address.
+* If you do not have a debug serial port or an HDMI monitor, you can also check the IP address of the CM5 Kit's Ethernet port through the router's management interface. However, sometimes the IP address may not be visible on the router. If the IP address is not visible, troubleshoot as follows:
+** First, check if the Linux system has started normally. If the green light on the CM5 Kit is steady, it has generally started correctly.
+** Check if the Ethernet cable is securely connected, or try a different cable.
+** Try using a different router, as issues have been encountered where routers cannot properly assign IP addresses or the assigned IP address does not show up on the router.
+** If no other router is available, you will need to connect an HDMI monitor or use a debug serial port to check the IP address.
+
+TIP: Note that DHCP automatic IP assignment on the CM5 Kit does not require any configuration.
+
+4,Use the ping tool to check network connectivity.
+
+** The command to test network connectivity is shown below. You can interrupt the ping command by pressing Ctrl+C.
+
+```sh
+root@armsom-cm5:~$ ping www.baidu.com
+PING www.a.shifen.com (183.2.172.185): 56 data bytes
+64 bytes from 183.2.172.185: icmp_seq=0 ttl=53 time=8.370 ms
+64 bytes from 183.2.172.185: icmp_seq=1 ttl=53 time=8.917 ms
+64 bytes from 183.2.172.185: icmp_seq=2 ttl=53 time=8.511 ms
+64 bytes from 183.2.172.185: icmp_seq=3 ttl=53 time=8.673 ms
+^C
+--- www.a.shifen.com ping statistics ---
+4 packets transmitted, 4 packets received, 0% packet loss
+round-trip min/avg/max/stddev = 8.370/8.618/8.917/0.203 ms
+
+```
+== WiFi
+
+The CM5 Kit includes an onboard WiFi module, so no external network devices are required. It uses the standard 4th generation antenna.
+
+=== Connect to WiFi using the server image via command line
+
+1,First, log in to the Linux system. You can do this in one of three ways:
+
+* If the CM5 Kit is connected to a network cable, you can remotely log in via SSH.
+* If the CM5 Kit is connected to a debug serial port, you can use a serial terminal to log in.
+* If the CM5 Kit is connected to an HDMI display, you can log in using the terminal displayed on the HDMI screen.
+
+2,Use the nmcli dev wifi command to scan for nearby WiFi hotspots.
+
+```sh
+# 1. Enable WiFi
+root@armsom-cm5:/# nmcli r wifi on
+# 2. Scan for WiFi
+root@armsom-cm5:/# nmcli dev wifi
+# 3. Connect to a WiFi network
+root@armsom-cm5:/# nmcli dev wifi connect "wifi_name" password "wifi_password"
+```
+image::/bpi-cm5_pro/banana_pi_bpi-cm5_pro_wifi_setting.png[banana_pi_bpi-cm5_pro_wifi_setting.png]
+
+3,Use the nmcli command to connect to the scanned WiFi network:
+
+* Replace wifi_name with the name of the WiFi hotspot you want to connect to.
+* Replace wifi_password with the password for that WiFi hotspot.
+
+```sh
+root@armsom-cm5:~$ nmcli dev wifi connect "wifi_name" password "wifi_password"
+Device 'wlan0' successfully activated with "wlan0b6d10bba-e1d5-4b6d-a17f-7d5ab44bbb6f".
+```
+4,Use the ip addr show wlan0 command to view the IP address of the WiFi connection.
+```sh
+root@armsom-cm5:~$ ip addr show wlan0
+4: wlan0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether b8:2d:28:5a:52:6a brd ff:ff:ff:ff:ff:ff
+    inet 192.168.10.9/24 brd 192.168.10.255 scope global dynamic noprefixroute wlan0
+       valid_lft 86321sec preferred_lft 86321sec
+    inet6 fe80::850d:3119:e0:afa3/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever
+```
+
+5,Use the "ping" command to test network connectivity over WiFi. You can interrupt the ping command using Ctrl+C.
+```sh
+root@armsom-cm5:~$ ping www.baidu.com
+PING www.a.shifen.com (183.2.172.185): 56 data bytes
+64 bytes from 183.2.172.185: icmp_seq=0 ttl=53 time=8.370 ms
+64 bytes from 183.2.172.185: icmp_seq=1 ttl=53 time=8.917 ms
+64 bytes from 183.2.172.185: icmp_seq=2 ttl=53 time=8.511 ms
+64 bytes from 183.2.172.185: icmp_seq=3 ttl=53 time=8.673 ms
+^C
+--- www.a.shifen.com ping statistics ---
+4 packets transmitted, 4 packets received, 0% packet loss
+round-trip min/avg/max/stddev = 8.370/8.618/8.917/0.203 ms
+```
+=== Connect to WiFi using the server image via graphical interface
+
+1,Log in to the Linux system. You can do this in one of three ways:
+
+* If the CM5 Kit is connected to a network cable, you can remotely log in via SSH.
+* If the CM5 Kit is connected to a debug serial port, you can use a serial terminal to log in (use MobaXterm, as Minicom cannot display the graphical interface).
+* If the CM5 Kit is connected to an HDMI display, you can log in using the terminal displayed on the HDMI screen.
+
+2,In the command line, enter the nmtui command to open the WiFi connection interface.
+
+image::/bpi-cm5_pro/banana_pi_bpi-cm5_pro_wifi_setting_2.png[banana_pi_bpi-cm5_pro_wifi_setting_2.png]
+```sh
+root@armsom-cm5:~$ nmtui
+
+```
+
+3,Select "Activate a connection" and press Enter.
+
+image::/bpi-cm5_pro/banana_pi_bpi-cm5_pro_wifi_setting_3.png[banana_pi_bpi-cm5_pro_wifi_setting_3.png]
+
+4,Select the WiFi hotspot you want to connect to and enter the password. Once connected, an asterisk (*) will appear next to the connected WiFi network.
+
+image::/bpi-cm5_pro/banana_pi_bpi-cm5_pro_wifi_setting_4.png[banana_pi_bpi-cm5_pro_wifi_setting_4.png]
+
+5,Use the ip addr show wlan0 command to view the WiFi connection's IP address.
+
+```sh
+root@armsom-cm5:~$ ip addr show wlan0
+4: wlan0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether b8:2d:28:5a:52:6a brd ff:ff:ff:ff:ff:ff
+    inet 192.168.10.9/24 brd 192.168.10.255 scope global dynamic noprefixroute wlan0
+       valid_lft 86316sec preferred_lft 86316sec
+    inet6 fe80::a422:3494:3147:92d/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever
+
+```
+6,Use the ping command to test WiFi network connectivity. You can interrupt the ping command using Ctrl+C.
+```sh
+root@armsom-cm5:~$ ping www.baidu.com
+PING www.a.shifen.com (183.2.172.185): 56 data bytes
+64 bytes from 183.2.172.185: icmp_seq=0 ttl=53 time=8.370 ms
+64 bytes from 183.2.172.185: icmp_seq=1 ttl=53 time=8.917 ms
+64 bytes from 183.2.172.185: icmp_seq=2 ttl=53 time=8.511 ms
+64 bytes from 183.2.172.185: icmp_seq=3 ttl=53 time=8.673 ms
+^C
+--- www.a.shifen.com ping statistics ---
+4 packets transmitted, 4 packets received, 0% packet loss
+round-trip min/avg/max/stddev = 8.370/8.618/8.917/0.203 ms
+```
+
+=== Test method for desktop image
+
+1,Click the network configuration icon on the desktop (make sure the network cable is disconnected when testing WiFi).
+
+2,After successfully connecting to WiFi, you can open a browser to check if you can access the internet.
+
+image::/bpi-cm5_pro/banana_pi_bpi-cm5_pro_wifi_setting_5.jpg[banana_pi_bpi-cm5_pro_wifi_setting_5.jpg]
+
+== Bluetooth
+```sh
+# 1. Activate Bluetooth
+root@armsom-cm5:/# service bluetooth start
+# 2. Enter bluetoothctl
+root@armsom-cm5:/# bluetoothctl
+# 3. Enter the following commands to connect
+root@armsom-cm5:/# power on
+root@armsom-cm5:/# agent on
+root@armsom-cm5:/# default-agent
+root@armsom-cm5:/# scan on
+root@armsom-cm5:/# pair yourDeviceMAC
+```
+
+== HDMI
+
+The BPI-CM5 Pro Kit supports HDMI up to 4Kp120.
+
+* Use an HDMI cable to connect the CM5 Kit to an HDMI display.
+* After booting the Linux system, if the HDMI display has an image output, it indicates that the HDMI interface is working normally.
+
+TIP: Note: Many laptops have an HDMI port, but it usually only supports output, not HDMI input. This means it cannot display the HDMI output from other devices on the laptop screen. If you plan to connect the development board's HDMI to a laptop's HDMI port, please first confirm that your laptop supports HDMI input. If HDMI does not display anything, please check if the system you are using has a desktop version, as the server version will only display a terminal.
+
+HDMI to VGA Display Test
+
+1,You will need the following accessories:
+
+* HDMI to VGA adapter
+* A VGA cable and a monitor that supports VGA input
+
+2,The HDMI to VGA display test is shown below:
+
+image::/bpi-cm5_pro/banana_pi_bpi-cm5_pro_hdmi_setting.jpg[banana_pi_bpi-cm5_pro_hdmi_setting.jpg]
+
+TIP: When using HDMI to VGA display, there is no need to configure anything on the CM5 Kit or Linux system. As long as the HDMI interface on the development board displays correctly, it should work. If you encounter issues, please check the HDMI to VGA adapter, VGA cable, and monitor.
+
+== USB
+=== USB Mouse or Keyboard Connection Test
+
+* Insert a USB keyboard into the CM5 Kit's USB port.
+* Connect the CM5 Kit to an HDMI display.
+* If the mouse or keyboard can operate the system normally, it indicates that the USB port is working correctly (the mouse can only be used in a desktop version of the system).
+
+=== USB Storage Device Connection Test
+
+* Insert a USB flash drive or USB external hard drive into the CM5 Kit's USB port.
+* Run the following command. If you see an output for sdX, it indicates that the USB drive is recognized successfully:
+```sh
+root@armsom-cm5:/# cat /proc/partitions | grep "sd*"
+major minor  #blocks  name
+   8        0  122880000 sda
+```
+
+* Use the mount command to mount the USB drive to /mnt/, and then you can view the files on the USB drive:
+```sh
+root@armsom-cm5:/# sudo mount /dev/sda1 /test/
+```
+* After mounting, use the df -h command to check the USB drive’s capacity and mount point:
+```sh
+root@armsom-cm5:/test# df -h | grep "sd"
+/dev/sda        4.7G  4.7G     0  100% /test
+```
+
+=== USB Camera
+
+* Prepare a USB camera that supports the UVC protocol, then insert the USB camera into the CM5 Kit's USB port.
+
+* Use the v4l2-ctl command to see the device node information for the USB camera, which will be /dev/video0:
+```sh
+root@armsom-cm5:/# v4l2-ctl --list-devices
+Logitech HD Webcam C93 (usb-xhci-hcd.5.auto-1):
+        /dev/video40
+        /dev/video41
+        /dev/media4
+```
+* On a desktop system, you can use Cheese/V4L2 Test Bench to directly open the USB camera:
+
+image::/bpi-cm5_pro/banana_pi_bpi-cm5_pro_usb_camera_setting.jpg[banana_pi_bpi-cm5_pro_usb_camera_setting.jpg]
+
+You can also use terminal commands to open the camera preview:
+```sh
+root@armsom-cm5:/# gst-launch-1.0 v4l2src device=/dev/video0 io-mode=4 ! videoconvert ! video/x-raw,format=NV12,width=1920,height=1080 ! xvimagesink;
+```
+
+Command to take a photo:
+```sh```
+root@armsom-cm5:/# gst-launch-1.0 v4l2src device=/dev/video0 io-mode=4 ! videoconvert ! video/x-raw,format=NV12,width=1920,height=1080 ! jpegenc ! multifilesink location=/home/armsom/test.jpg;
+```
+
+Command to record a video:
+
+```sh
+gst-launch-1.0 v4l2src num-buffers=512 device=/dev/video0 io-mode=4 ! videoconvert ! video/x-raw, format=NV12, width=1920, height=1080, framerate=30/1 ! tee name=t ! queue ! mpph264enc ! queue ! h264parse ! mpegtsmux ! filesink location=/home/armsom/test.mp4
+```
+image::/bpi-cm5_pro/banana_pi_bpi-cm5_pro_usb_camera_1.jpg[banana_pi_bpi-cm5_pro_usb_camera_1.jpg]
+
+== M.2 Key M
+
+The BPI-CM5 Ror Kit features an M.2 Key M connector:
+
+* On the back of the product, there is an M.2 Key M connector. The board includes a standard M.2 2280 mounting hole for deploying an M.2 2280 NVMe SSD.
+
+TIP: Note: This M.2 interface does not support M.2 SATA SSDs.
+
+```sh
+root@armsom-cm5:/# mkdir temp
+root@armsom-cm5:/# mount /dev/nvme0n1 temp
+```
+
+== Audio
+
+Check the sound cards in the system.
+```sh
+root@armsom-cm5:/# aplay -l
+**** List of PLAYBACK Hardware Devices ****
+card 0: rockchipes8388c [rockchip,es8388-codec], device 0: 2a610000.sai-ES8323 HiFi ES8323 HiFi-0 [2a610000.sai-ES8323 HiFi ES8323 HiFi-0]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 1: rockchipdp0 [rockchip-dp0], device 0: rockchip-dp0 spdif-hifi-0 [rockchip-dp0 spdif-hifi-0]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 2: rockchiphdmi [rockchip-hdmi], device 0: rockchip-hdmi i2s-hifi-0 [rockchip-hdmi i2s-hifi-0]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+```
+
+Play audio
+
+```sh
+root@armsom-cm5:/# aplay -D plughw:1,0 ./usr/share/sounds/alsa/Front_Right.wav
+```
+
+
