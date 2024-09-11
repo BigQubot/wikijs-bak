@@ -25,6 +25,8 @@ Rockchip RK3576 deisgn link:/en/BPI-M5/BananaPi_BPI-M5_Pro[Banana Pi BPI-M5 Pro]
 
 == Getting started
 
+TIP: link:/en/BPI-CM5_pro/GettingStarted_BPI-CM5_Pro[Getting Started BPI-CM5 Pro]
+
 = Hardware
 
 == Hardware Interface
@@ -188,6 +190,8 @@ image::/bpi-cm5_pro/bpi-cm5-pro-io_interface.jpg[bpi-cm5-pro-io_interface.jpg]
 = Development
 
 == Source code
+
+* Armbian : https://github.com/armbian/build
 
 * BPI-CM5 Pro Kernel : https://github.com/armbian/linux-rockchip
 
