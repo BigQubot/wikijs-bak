@@ -117,7 +117,31 @@ image::/bpi-cm5_pro/bpi-cm5-pro-io_interface.jpg[bpi-cm5-pro-io_interface.jpg]
 
 === 40 PIN GPIO define
 
-
+[options="header",cols="1,5,1,1,5,1"]
+|====
+6+| 40 GPIO define of Banana Pi BPI-CM5 Pro
+|GPIO number	|Function|	Pin	|Pin	|Function	|GPIO number
+| |+3.3V|1 |2 |+5.0V	|
+|140	|CAN1_RX_M2 / I2C3_SDA_M0 / UART2_RX_M1 / GPIO4_B4_d|3|4|+5.0V	|
+|141	|CAN1_TX_M2 / I2C3_SCL_M0 / UART2_TX_M1 / GPIO4_B5_d|5|6|GND	|-
+|20	|PWM0_CH0_M0 / GPIO0_C4_d	|7|8|UART0_TX_M0/ GPIO0_D4_u	28|
+|-	|GND|9|10|UART0_RX_M0/ GPIO0_D5_u	29|
+|-	|-	|11|12|-	|-
+|-	|-	|13|14|GND	|
+|-	|-	|15|16|GPIO2_D1_d / UART4_RX_M0 / I2C6_SDA_M2 / PWM2_CH1_M2	|
+|89 |+3.3V	|17|18|GPIO2_D0_d / UART4_TX_M0 / I2C6_SCL_M2 / PWM2_CH0_M2	|88
+|97	|I2C7_SDA_M1 / SPI3_MOSI_M0 / UART3_RX_M0 / GPIO3_A1_d	|19|20|GND	|-
+|98	|CAN1_TX_M3 / SPI3_MISO_M0 / SPDIF_RX1_M1 / UART3_CTSN_M0 / SPDIF_RX1_M1/ GPIO3_A2_d|21|22|SARADC_VIN4|-
+|96	|I2C7_SCL_M1 / SPI3_CLK_M0 / UART3_TX_M0 / GPIO3_A0_d	|23|24|GPIO3_A3_d / CAN1_RX_M3 / SPI3_CSN0_M0 / UART3_RTSN_M0 / SPDIF_TX1_M1	|99
+|-	|GND	|25|26|-	|-
+|111	|I2C4_SDA_M3 / UART2_RX_M2 / GPIO3_B7_d	|27|28|GPIO2_D6_d / PWM10_M0 / GPIO3_B5_d	|109
+|112	|I2C4_SCL_M3 / UART2_TX_M2 / GPIO3_C0_d	|29|30|GND	|-
+|126	|SPI3_MOSI_M1 / PWM2_CH6_M3 / GPIO3_D6_d|31|32|-	|-
+|-|	-	|33|34|GND|	-
+|-|	-	|35|36|-|	-
+|-|	-	|37|38|-|	-
+|-	|GND	|39|40|-	|-
+|====
 
 = Development
 
