@@ -1,1 +1,56 @@
-Preparing for CM5-IO Usage
+= Introduction
+
+Banana Pi BPI-CM5 Pro is a computing module powered by the Rockchip RK3576 second-generation 8nm high-performance AIOT platform. It integrates a quad-core Cortex-A72 @ 2.2GHz and a quad-core Cortex-A53 @ 1.8GHz, along with a dedicated NEON co-processor, a 6 TOPS NPU, and supports up to 16GB of large memory. It supports 4K video encoding and decoding, features a rich set of interfaces, and supports various operating systems.
+
+TIP: Rockchip RK3576 design link:/en/BPI-CM5_Pro/BananaPi_BPI-CM5_Pro[Banana Pi BPI-CM5 Pro] AI Computer module design 
+
+= Prepare
+
+== Tools Preparation
+
+* Power supply
+* System Installation (Choose one)
+** eMMC Boot
+*** USB Type-C cable: Use a Type-C cable to write the image to the CM5 Kit through the Type-C port. You will need a Type-C cable to connect the CM5 Kit to your PC.
+** MicroSD/TF Card Boot
+*** MicroSD/TF card: Class 10 or above, at least 8GB SDHC, and a card reader.
+*** Below are high-speed TF cards tested and verified by the ArmSoM team:
+**** SanDisk 32GB TF (MicroSD) (Recommended for developers)
+**** SanDisk 32GB TF (MicroSD) Dashcam & Surveillance-specific storage card (Recommended for long-term operation)
+**** SanDisk TF 8G Class10 microSD
+**** SanDisk TF 128G Class10 microSD XC TF 128G 48MB/S
+
+You can set up the CM5 Kit as an interactive desktop computer or as a headless computer that can only be accessed over the network. To set up the CM5 Kit as a headless computer, configure the hostname, user account, network connection, and SSH during the initial OS installation. If you plan to use the CM5 Kit directly, you will need the following additional accessories:
+
+Optional Accessories
+
+* Keyboard & Mouse
+* HDMI monitor and HDMI cable
+* Ethernet cable
+* Camera module
+** For a 4-lane camera, it's recommended to use the camera-module1.
+** For a 2-lane camera, use the Raspberry Pi camera-module-v2.
+* LCD display
+** It's recommended to use the Display 10 HD.
+* Audio cable, 0.8mm vertical socket.
+* RTC battery, 0.8mm vertical socket.
+* Fan, 0.8mm vertical socket.
+* Power Supply：Supports DC 12V adapter, 2.5mm
+
+= Interface Usage
+
+If you are using the CM5 Kit for the first time, please familiarize yourself with the hardware interfaces of each product, which will help you better understand the following content.
+
+== Debugging Serial Port
+
+Connect the USB to TTL serial cable as shown below:
+
+image::/bpi-cm5_pro/bpi-cm5_pro_debug_port.png[bpi-cm5_pro_debug_port.png]
+
+[options="header",cols="1,1,1"]
+|====
+|CM5-IO	|Connect	|Serial Module
+|GND (pin 6)|	--->	|GND
+|TX (pin 8)|	--->|	RX
+|RX (pin 10)	|--->	|TX
+|====
