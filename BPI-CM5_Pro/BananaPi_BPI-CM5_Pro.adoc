@@ -143,6 +143,48 @@ image::/bpi-cm5_pro/bpi-cm5-pro-io_interface.jpg[bpi-cm5-pro-io_interface.jpg]
 |-	|GND	|39|40|-	|-
 |====
 
+=== FAN GPIO define
+
+0.8mm connector(CN32)
+
+[options="header",cols="1,2,2"]
+|====
+|Pin	|Assignment	|Description
+|1	|VCC_5V0	|5V Power ouput
+|2	|GND	|GND
+|3	|PWM	|PWM control
+|====
+
+=== HPOUT
+
+0.8mm connector(CN3)
+[options="header",cols="1,2,2"]
+|====
+|Pin	|Assignment	|Description
+|1	|AOR	|right channel
+|2	|AOL	|left channel
+|3	|GND	|GND
+|====
+
+=== VRTC
+
+0.8mm connector(J27)
+[options="header",cols="1,2,2"]
+|====
+|Pin	|Assignment	|Description
+|1	|+	|Positive pole
+|2	|-	|Negative pole
+|====
+
+=== PoE In(J5)
+[options="header",cols="1,2,2"]
+|====
+|Pin	|Assignment	|Description
+|1	|VC1	|TX1
+|2	|VC2	|RX1
+|3	|VC3	|TX2
+|4	|VC4	|RX2
+|====
 = Development
 
 == Source code
