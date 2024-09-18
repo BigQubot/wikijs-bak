@@ -255,7 +255,8 @@ image::/picture/bpi_m4_berry_mobaxterm_2.jpg[bpi_m4_berry_mobaxterm_2.jpg]
 +
 image::/picture/bpi_m4_berry_mobaxterm_3.jpg[bpi_m4_berry_mobaxterm_3.jpg]
 
-. Open the SSH terminal and enter the login username/password: `pi/bananapi` or `root/bananapi`. There will be no prompt when entering the password. Please enter it normally and press Enter when finished.
+. Open the SSH terminal and enter the login username/password: `pi/bananapi` or `root/1234`(Unless you changed your password
+). There will be no prompt when entering the password. Please enter it normally and press Enter when finished.
 +
 image::/picture/bpi_m4_berry_mobaxterm_4.jpg[bpi_m4_berry_mobaxterm_4.jpg]
 
