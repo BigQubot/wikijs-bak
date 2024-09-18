@@ -71,19 +71,18 @@ link:/en/BPI-WiFi5/Photo_BPI-WiFi5[香蕉派 BPI-WiFi5 路由器产品图片]
 
 == 软件功能规格
 
-[options="header",cols="2,6",width="80%"]
+[options="header",cols="2,8",width="80%"]
 |=====
 2+|
-|WAN port settings|Automatically obtain IP address, Fixed IP address, PPPoE dial-up
-|LAN port settings|Automatically set LAN port address, Manually set LAN port address
-|MAC address settings|Use router MAC address, MAC address cloning, Customize MAC address
-|DHCP server |Modify address pool start address, Modify address pool end address, Modify address lease.IP and MAC binding settings
-|IPV6|Turn on/off IPV6, WAN settings, LAN settings
-|wifi|Wi-Fi SSID and password settings, Wireless broadcast
-Encryption, Channel bandwidth settings, Switch mode, Modify bandwidth, Modify signal strength
-|Guest network | Guest network SSID, speed limit, access time, and whether to access the intranet.WDS Wireless Bridging
-|Advanced features|Virtual server, DMZ host, UPnP settings, Routing function, DDNS
-|System Settings | System status, Time settings, Password management, Configuration management, System log, LAN settings, DHCP binding, Backup, Factory reset
+|WAN端口设置|自动获取IP地址、固定IP地址、PPPoE拨号
+|LAN端口设置|自动设置LAN端口地址，手动设置LAN端口地址
+|MAC 地址设置|使用路由器MAC地址，MAC地址克隆，自定义MAC地址
+|DHCP 服务 |修改地址池起始地址、修改地址池结束地址、修改地址租期。IP和MAC绑定设置
+|IPV6|打开/关闭IPV6，广域网设置，局域网设置
+|wifi|Wi-Fi SSID和密码设置，无线广播，加密，信道带宽设置，切换模式，修改带宽，修改信号强度
+|访客网络 | 访客网络SSID、限速、访问时间、是否访问内网。WDS无线桥接
+|高级功能|虚拟服务器，DMZ主机，UPnP设置，路由功能，DDNS
+|系统设置 | 系统状态，时间设置，密码管理，配置管理，系统日志，局域网设置，DHCP绑定，备份，出厂重置
 |=====
 
 == 无线规格
