@@ -1,3 +1,160 @@
-== header
+= BPI-WiFi5 Router Introduction
 
-content
+Banana Pi BPI-Wifi5 Router use Siflower SF19A2890S2 design. the  It is a high performance wireless router for small and micro businesses, homes and other networking environments. 
+
+image::/bpi-wifi5/banana_pi_bpi-wifi5_router_4.jpg[banana_pi_bpi-wifi5_router_4.jpg]
+
+BPI-Wifi5 Router dual-band wireless router, 2.4G 2T2R, 5.8G 2T2R coexist at the same time. The use of four omni-directional high-gain antennas, with strong signal penetration and wider coverage, which makes the already strong signal more powerful, data transmission is also smoother. MU-MIMO multi-device transceiver technology has low latency and multiple devices are stably connected simultaneously, thus ensuring a good experience for multiple devices.
+
+BPI-Wiﬁ5 Router adopts the national silicon chip SF19A2890S2 solution,   providing 1 gigabit WAN port and 3 gigabit LAN ports, supporting 2.4G and 5G, Its wireless transmission rate of 1200Mbps.
+And it supports rich software features, providing the ideal high-performance  product for small and micro businesses and families.
+
+TIP: Triductor TR6560 + TR5220 wifi design: link:/en/BPI-WiFi6_Router/BananaPi_BPI-WiFi6_Router[Banana Pi BPI-Wifi6 Router] low cost wifi6 Router board +
+Triductor TR6560 + TR5220 wifi design: link:/en/BPI-WiFi6_Mini/BananaPi_BPI-WiFi6_Mini[Banana Pi BPI-Wifi6 Mini Router] low cost Mini wifi6 Router board. Same size as: link:/en/BPI-R3_Mini/BananaPi_BPI-R3_Mini[Banana Pi BPI-R3 mini] + 
+Siflower SF19A2890S2 + AN8855R design link:/en/BPI-WiFi5/BananaPi_BPI-WiFi5_Router[Banana Pi BPI-Wifi5 Router] low cost wifi5 Router board
+
+NOTE: Banana Pi Work closely with Siflower to make this product a fully open source wireless routing product. 
+ 
+== Key Features
+
+* Supports a maximum 1.2Gbps wireless rate with full gigabit ports
+* supports IEEE802.11a /b/g/n/ac
+* Supports 2*3.5dBi@4G,2*5dBi@5G external omni-directional high-gain antennas
+* 5.8G Uses an external independent FEM to increase the wireless coverage of 5.8G
+* Mini Size, light machine
+* Support EasyMesh R2/Support TR069 operator docking
+* Support industrial low latency, high reliability Wi-Fi communication scheme, provides US-level data transmission jitter solutions to support WAPI (SM4) encryption 
+* Production-level system support, direct productization
+** Intelligent QoS policy
+*** The Mac-Based network traffic rate limiting mechanism can effectively control the upstream/downstream traffic of a single PC and limit the excessive use of network bandwidth by P2P software
+*** Supports upstream and downstream QoS policies to meet flexible service configuration requirements
+** Comprehensive system monitoring
+*** Monitors Intranet traffic in real time for traffic monitoring and statistics
+*** provides a variety of security logs, including real-time logs of internal and external network attacks, address binding logs, traffic alert logs, and session logs, for network administrators to monitor the network in real time
+*** Operating status and security status
+* OpenWRT support 
+* Open Source ，free DIY
+
+== Getting Start
+TIP: link:/en/BPI-WiFi5_Router/GettingStarted_BPI-WiFi5_Router[Getting Started BPI-WiFi5 Router]
+
+= Hardware
+
+== PCBA Hardware Interface
+
+image::/bpi-wifi5/bpi-wifi5_router_interface.jpg[bpi-wifi5_router_interface.jpg]
+
+== BPI-WiFi5 Router Photo
+
+link:/en/BPI-WiFi5/Photo_BPI-WiFi5[Banana Pi BPI-WiFi5 Router Product photo gallery]
+
+== Hardware Spec
+
+[options="header",cols="2,5",width="70%"]
+|=====
+2+| Banana Pi BPI-Wifi5 Router Specification
+|CPU	|Siflower SF19A2890S2 MIPS dual core 1.2GHz
+|Switch |AN8855R Gigabit switch chip
+|RAM	|64MB DDR2 RAM
+|Flash	|8MB
+.4+|Interface|	1*10/100/1000Mbps adaptive WAN interface
+|3*10/100/1000Mbps adaptive LAN interface
+|1* DC 12V/1A Power Port 
+|1*Reset/WPS key
+.2+|Wireless speed|2.4G WiFi：2*2 (300Mbps)
+|5G WiFi：2*2 (866.7Mbps)
+.2+|Wireless frequency	|2.4G：2.4GHz～2.4835GHz 
+|5G：5.150GHz～5.85GHz
+|Antenna|	External 2*3.5dBi @ 4G, 2*5dBi @ 5G omni-directional high-gain antenna
+|Power| DC 12V/1A
+|Size| 97mm x 65mm
+|=====
+
+== Software Functional Specifications
+
+[options="header",cols="2,6",width="80%"]
+|=====
+2+|
+|WAN port settings|Automatically obtain IP address, Fixed IP address, PPPoE dial-up
+|LAN port settings|Automatically set LAN port address, Manually set LAN port address
+|MAC address settings|Use router MAC address, MAC address cloning, Customize MAC address
+|DHCP server |Modify address pool start address, Modify address pool end address, Modify address lease.IP and MAC binding settings
+|IPV6|Turn on/off IPV6, WAN settings, LAN settings
+|wifi|Wi-Fi SSID and password settings, Wireless broadcast
+Encryption, Channel bandwidth settings, Switch mode, Modify bandwidth, Modify signal strength
+|Guest network | Guest network SSID, speed limit, access time, and whether to access the intranet.WDS Wireless Bridging
+|Advanced features|Virtual server, DMZ host, UPnP settings, Routing function, DDNS
+|System Settings | System status, Time settings, Password management, Configuration management, System log, LAN settings, DHCP binding, Backup, Factory reset
+|=====
+
+== Wireless Features
+
+[options="header",cols="2,1,3,1,1",width="80%"]
+|=====
+5+|Banana Pi BPI-WiFi5 antenna characteristics
+.19+|TX Power/EVM|	        |	                  |TX Power|	EVM
+	            .6+| 2.4G    	|802.11a/b/g 1Mbps  |20dBm   |-28dB
+                            |802.11a/b/g 54Mbps	|18dBm	 |-25dB
+		                        |802.11n20 MCS0     |20.5dBm |-17dB
+                            |802.11n20 MCS7     |17dBm   |-27dB
+                            |802.11n40 MCS0     |20.5dBm |-18dB
+                            |802.11n40 MCS7	    |16.5dBm |-27.5dB
+	          .12+|5G	        |802.11a/b/g 6Mbps  |25dBm   |-18.5dB
+                            |802.11a/b/g 54Mbps	|25dBm   |-25dB
+		                        |802.11n20 MCS0     |25dBm   |-18.5dB
+                            |802.11n20 MCS7     |21.5dBm |-28dB
+                            |802.11n40 MCS0     |24.5dBm |-18.5dB
+                            |802.11n40 MCS7	    |21dBm   |-30dB
+                            |802.11ac20 MCS0    |25dBm   |-18.5dB
+                            |802.11ac20 MCS8    |19.5dBm |-31dB
+                            |802.11ac40 MCS0    |24.5dBm |-19.5dB
+                            |802.11ac40 MCS9    |20.2dBm |-32.5dB
+                            |802.11ac80 MCS0    |24dBm   |-20dB
+                            |802.11ac80 MCS9	  |20dBm	 |-33.5dB
+5+|
+.18+|RX sensitivity .6+|2.4G|802.11a/b/g 6Mbps  2+|-98dBm
+                            |802.11a/b/g 54Mbps	2+|-76dBm
+		                        |802.11n20 MCS0     2+|-91dBm
+                            |802.11n20 MCS7     2+|-73dBm
+                            |802.11n40 MCS0     2+|-73dBm
+                            |802.11n40 MCS7	    2+|-70dBm
+	                  .12+|5G	|802.11a/b/g 6Mbps  2+|-92dBm
+                            |802.11a/b/g 54Mbps	2+|-76dBm
+		                        |802.11n20 MCS0     2+|-91dBm
+                            |802.11n20 MCS7     2+|-73dBm
+                            |802.11n40 MCS0     2+|-89dBm
+                            |802.11n40 MCS7	    2+|-70dBm
+		                        |802.11ac20 MCS0    2+|-92dBm
+                            |802.11ac20 MCS9    2+|-71dBm
+                            |802.11ac40 MCS0    2+|-89dBm
+                            |802.11ac40 MCS9    2+|-67dBm
+                            |802.11ac80 MCS0    2+|-86dBm
+                            |802.11ac80 MCS9	  2+|-63dBm
+|=====
+
+== BPI-WIfi5 Router Product Design
+
+image::/bpi-wifi5/banana_pi_bpi-wifi5_router_kit_3.jpg[banana_pi_bpi-wifi5_router_kit_3.jpg]
+
+=== new case design
+
+image::/bpi-wifi5/banana_pi_bpi-wifi5_router_1_case_.jpg[banana_pi_bpi-wifi5_router_1_case_.jpg]
+
+BPI-Wifi5 router support OEM&ODM , Customers can do all kinds of customization
+
+= Development
+
+== Source Code
+
+* Siflower official github: https://github.com/Siflower/1806_SDK
+
+== Resources
+* Siflower official document : https://siflower.github.io/
+
+= System Image
+
+= FAQ
+
+= Easy to buy sample 
+
+OEM&ODM please contact : judyhuang@banana-pi.com 
