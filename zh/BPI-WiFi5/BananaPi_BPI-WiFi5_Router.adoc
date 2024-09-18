@@ -37,39 +37,39 @@ NOTE: 香蕉派与矽昌(Siflower)紧密合作，使该产品成为完全开源�
 == 快速上手
 TIP: link:/en/BPI-WiFi5_Router/GettingStarted_BPI-WiFi5_Router[Getting Started BPI-WiFi5 Router]
 
-= Hardware
+= 硬件
 
-== PCBA Hardware Interface
+== PCBA 硬件接口示意图
 
 image::/bpi-wifi5/bpi-wifi5_router_interface.jpg[bpi-wifi5_router_interface.jpg]
 
-== BPI-WiFi5 Router Photo
+== BPI-WiFi5 路由器产品图集
 
-link:/en/BPI-WiFi5/Photo_BPI-WiFi5[Banana Pi BPI-WiFi5 Router Product photo gallery]
+link:/en/BPI-WiFi5/Photo_BPI-WiFi5[香蕉派 BPI-WiFi5 路由器产品图片]
 
-== Hardware Spec
+== 硬件规格
 
 [options="header",cols="2,5",width="70%"]
 |=====
-2+| Banana Pi BPI-Wifi5 Router Specification
-|CPU	|Siflower SF19A2890S2 MIPS dual core 1.2GHz
-|Switch |AN8855R Gigabit switch chip
-|RAM	|64MB DDR2 RAM
-|Flash	|8MB
-.4+|Interface|	1*10/100/1000Mbps adaptive WAN interface
-|3*10/100/1000Mbps adaptive LAN interface
-|1* DC 12V/1A Power Port 
-|1*Reset/WPS key
-.2+|Wireless speed|2.4G WiFi：2*2 (300Mbps)
+2+| Banana Pi BPI-Wifi5 路由器硬件规格
+|CPU主控	|Siflower SF19A2890S2 MIPS dual core 1.2GHz
+|交换芯片 |AN8855R Gigabit switch chip
+|RAM内存	|64MB DDR2 RAM
+|Flash存储	|8MB
+.4+|接口|	1*10/100/1000Mbps 自适应WAN广域网接口
+|3*10/100/1000Mbps 自适应LAN网络接口
+|1* DC 12V/1A 供电口
+|1*Reset/WPS 按键
+.2+|无线速率|2.4G WiFi：2*2 (300Mbps)
 |5G WiFi：2*2 (866.7Mbps)
-.2+|Wireless frequency	|2.4G：2.4GHz～2.4835GHz 
+.2+|Wireless 频率	|2.4G：2.4GHz～2.4835GHz 
 |5G：5.150GHz～5.85GHz
-|Antenna|	External 2*3.5dBi @ 4G, 2*5dBi @ 5G omni-directional high-gain antenna
-|Power| DC 12V/1A
-|Size| 97mm x 65mm
+|天线|	外接2*3.5dBi @ 4G, 2*5dBi @ 5G全向高增益天线
+|供电| DC 12V/1A
+|尺寸| 97mm x 65mm
 |=====
 
-== Software Functional Specifications
+== 软件功能规格
 
 [options="header",cols="2,6",width="80%"]
 |=====
