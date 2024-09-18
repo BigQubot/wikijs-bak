@@ -18,23 +18,23 @@ NOTE: 香蕉派与矽昌(Siflower)紧密合作，使该产品成为完全开源�
 
 * 支持最大1.2Gbps无线速率与全千兆有线网络端口
 * 支持 IEEE802.11a /b/g/n/ac无线网络标准
-* Supports 2*3.5dBi@4G,2*5dBi@5G external omni-directional high-gain antennas
-* 5.8G Uses an external independent FEM to increase the wireless coverage of 5.8G
-* Mini Size, light machine
-* Support EasyMesh R2/Support TR069 operator docking
-* Support industrial low latency, high reliability Wi-Fi communication scheme, provides US-level data transmission jitter solutions to support WAPI (SM4) encryption 
-* Production-level system support, direct productization
-** Intelligent QoS policy
-*** The Mac-Based network traffic rate limiting mechanism can effectively control the upstream/downstream traffic of a single PC and limit the excessive use of network bandwidth by P2P software
-*** Supports upstream and downstream QoS policies to meet flexible service configuration requirements
-** Comprehensive system monitoring
-*** Monitors Intranet traffic in real time for traffic monitoring and statistics
-*** provides a variety of security logs, including real-time logs of internal and external network attacks, address binding logs, traffic alert logs, and session logs, for network administrators to monitor the network in real time
-*** Operating status and security status
-* OpenWRT support 
-* Open Source ，free DIY
+* 支持 2*3.5dBi@4G,2*5dBi@5G 外部全向高增益天线
+* 5.8G 采用外接独立FEM，增加5.8G无线覆盖
+* 迷你尺寸，轻型机器
+* 支持EasyMesh R2/支持TR069网管协议
+* 支持工业低延迟、高可靠性Wi-Fi通信方案，提供美国级数据传输抖动解决方案，支持WAPI (SM4)加密
+* 生产级系统支持，直接产品化。
+** 智能QoS策略
+*** 基于mac的网络流量限速机制可以有效控制单个PC的上下行流量，限制P2P软件对网络带宽的过度使用
+*** 支持上下行QoS策略，满足灵活的业务配置需求
+** 综合监视系统
+*** 实时监控内网流量，进行流量监控和统计
+*** 提供丰富的安全日志，包括内外部网络攻击的实时日志、地址绑定日志、流量告警日志、会话日志等，供网络管理员实时监控网络
+*** 运行状态和安全状态
+* OpenWRT 支持
+* 完全开源，自由 DIY
 
-== Getting Start
+== 快速上手
 TIP: link:/en/BPI-WiFi5_Router/GettingStarted_BPI-WiFi5_Router[Getting Started BPI-WiFi5 Router]
 
 = Hardware
