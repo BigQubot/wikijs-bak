@@ -32,3 +32,28 @@
 
 Loongnix 桌面版 Livecd 安装镜像，支持安装 "mate 桌面环境" 或者 "cartoon 桌面环境"。
 
+* 引导
+
+主机启动后，出现” LOONGSON龙芯 “字样，按 F2 键进入BIOS，如图：
+
+image::/3a6000/docs_linux_1.jpg[docs_linux_1.jpg]
+
+用键盘 上↑下 ↓ 键，移动到”启动管理“项，如图：
+
+image::/3a6000/docs_linux_2.jpg[docs_linux_2.jpg]
+
+按”Enter“键，进入”启动管理菜单“，
+
+两种安装引导方式：光盘引导、U盘引导，选择其中一种安装方式引导。
+
+用键盘 上↑下 ↓ 键，移动到”UEFI GeneraluDisk“项，如图：
+
+image::/3a6000/docs_linux_3.jpg[docs_linux_3.jpg]
+
+按”Enter“键，开始引导安装。
+
+引导安装，如图：
+
+
+
+
