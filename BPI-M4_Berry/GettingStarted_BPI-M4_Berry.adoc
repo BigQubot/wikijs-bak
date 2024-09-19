@@ -270,7 +270,7 @@ image::/picture/bpi_m4_berry_mobaxterm_4.jpg[bpi_m4_berry_mobaxterm_4.jpg]
 . After the download is completed, install it through the following command. Note that the file name is based on the actual downloaded file name.
 +
 ```bash
-sudo dpkg -i nomachine_8.9.1_1_arm64.deb
+sudo dpkg -i nomachine_8.13.1_1_arm64.deb
 ```
 
 . PC side also needs to download and install NoMachine. link:https://download.nomachine.com[NoMachine download page] Select the installation package suitable for the PC operating system, download it locally and complete the installation.
