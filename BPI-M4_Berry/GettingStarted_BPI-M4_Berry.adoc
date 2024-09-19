@@ -293,14 +293,11 @@ image::/bpi-m4berry/banana_pi_bpi-m4_berry_10.jpg[banana_pi_bpi-m4_berry_10.jpg]
 IMPORTANT: TIP: If no device is connected to the HDMI interface, the NoMachine remote desktop will display a black screen. It is recommended to keep the HDMI connection or connect an HDMI decoy device.
 
 
-== Install bananapi-configuration
-The minimum version image does not have the bananapi configure command installed by default. You can refer to the following command for installation.
+== armbian-config
+From now on, you can use commands directly to enter armbian configure without installing it.
 
 ```sh
-wget https://banana-pi.org/bananapi-config_1.0.3_all.deb
-sudo apt install iperf3 expect pv unzip build-essential html2text html2text software-properties-common 
-sudo dpkg -i /your-path/bananapi-config_1.0.3_all.deb
-sudo bananapi-config
+sudo armbian-config
 ```
 
 == WiFi
