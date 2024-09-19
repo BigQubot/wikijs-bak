@@ -54,6 +54,135 @@ image::/3a6000/docs_linux_3.jpg[docs_linux_3.jpg]
 
 引导安装，如图：
 
+image::/3a6000/docs_linux_4.jpg[docs_linux_4.jpg]
+
+* 许可协议
+
+Livecd 安装镜像进入图形界面后，自动启动 Loongnix 安装器程序并弹出《Loongnix 操作系统最终用户许可协议》，如图：
+
+image::/3a6000/docs_linux_5.jpg[docs_linux_5.jpg]
+
+在许可协议页面，阅读 Loongnix 操作系统最终用户许可协议，勾选 "我已阅读并同意许可协议" 后，点击"下一步" 。
+
+* 选择语言
+
+安装程序自动检测并选中符合您当前环境的安装器语言，缺省为“简体中文”，您也可切换成其他语言。如图：
+
+image::/3a6000/docs_linux_6.jpg[docs_linux_6.jpg]
+
+选择语言后，点击 "下一步"。
+
+* 选择地区、系统语言
+
+选择地区、区域、系统语言、数字和日期地域，也可以直接在地图中点击需要选择的区域。 安装程序默认检测符合当前环境的设置，如图：
+
+image::/3a6000/docs_linux_7.jpg[docs_linux_7.jpg]
+
+设置好后，点击 "下一步"。
+
+* 选择键盘布局
+
+安装器会自动检测出适合您当前环境的键盘类型。如下图：
+
+image::/3a6000/docs_linux_8.jpg[docs_linux_8.jpg]
+
+点击 "下一步"。
+
+* 选择分区
+
+安装器提供三种安装系统的分区方式: 取代一个分区、抹除磁盘(新手推荐)、
+
+默认分区格式：
+
+[options="header",cols="1,1"]
+|====
+|分区 	|文件系统 
+|/boot 	|ext3 
+|/	|XFS
+|交换分区	|swap
+|====
+
+** (i) 取代一个分区安装 
+
+选择“取代一个分区”，Loongnix 系统将替代一个分区，该分区至少需要 10G 才可安装，如图：
+
+image::/3a6000/docs_linux_9.jpg[docs_linux_9.jpg]
+
+** (ii) 抹除磁盘安装 
+
+选择“擦除磁盘”，Loongnix 系统将抹除磁盘，进行全盘安装，如图：
+
+image::/3a6000/docs_linux_10.jpg[docs_linux_10.jpg]
+
+** (iii) 手动分区安装 
+
+选择手动分区，如图：
+
+image::/3a6000/docs_linux_11.jpg[docs_linux_11.jpg]
+
+点击 "下一步"，用户可以自定义分区。
+
+需要注意的是：第一个分区必须先分 /boot 分区，文件系统类型建议为 ext3，
+
+需要注意的是：如果 BIOS 为 uefi bios，需要增加 /boot/efi 分区，/boot/efi 分区需要为 fat32 格式，大小 300M 左右。
+
+image::/3a6000/docs_linux_12.jpg[docs_linux_12.jpg]
+
+分区按需求配置完后，点击“下一步”。
+
+* 新建第一个用户
+
+新建一个用户用来登录操作系统，设置用户名和密码，如图: 
+
+image::/3a6000/docs_linux_13.jpg[docs_linux_13.jpg]
+
+完成后，点击“下一步”。
+
+* 安装基本系统
+
+设置完所有的配置选项之后，进入 "摘要" 页面。 
+
+"摘要" 页面用于显示开始安装后会发生的配置概览。再次确认无误后，点击 "安装"，如图：
+
+image::/3a6000/docs_linux_14.1.jpg[docs_linux_14.1.jpg]
+
+下图是正在安装系统的界面，请耐心等候。。。。。。
+
+image::/3a6000/docs_linux_15.jpg[docs_linux_15.jpg]
+
+
+* 桌面选择
+
+用户在安装 Loongnix 操作系统时，需要在 "桌面环境选择" 界面，选择安装 "mate 桌面环境" 或者 "cartoon 桌面环境"，推荐使用“cartoon 桌面环境”。 
+
+** (i) 选择 "mate 桌面环境" 
+
+点击 "桌面环境" 列表中的 "mate 桌面环境"，弹出 mate 桌面环境对话框。点击 "确认" 按钮后，进行下一步操作，如图：
+
+image::/3a6000/docs_linux_16.jpg[docs_linux_16.jpg]
+
+** (2) 选择 "cartoon 桌面环境" 
+
+点击 "桌面环境" 列表中的 "cartoon 桌面环境"，弹出转动的 "齿轮" 动图，需要等待 3～5 分钟。3～5 分钟后 cartoon 桌面环境安装完成，弹出 cartoon 桌面环境对话框。
+
+image::/3a6000/docs_linux_17.jpg[docs_linux_17.jpg]
+
+点击 "确认" 按钮后，进行下一步操作，如图：
+
+image::/3a6000/docs_linux_18.jpg[docs_linux_18.jpg]
+
+点击“安装”。
+
+* 完成安装
+
+下图是 Loongnix 系统安装完成的界面：
+
+image::/3a6000/docs_linux_19.jpg[docs_linux_19.jpg]
+
+勾选 "现在重启"，点击 "完成"。
+
+= 统信桌面操作系统V20安装指导
+
 
 
 
