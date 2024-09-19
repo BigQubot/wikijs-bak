@@ -263,7 +263,7 @@ image::/picture/bpi_m4_berry_mobaxterm_4.jpg[bpi_m4_berry_mobaxterm_4.jpg]
 == NoMachine Remote Desktop
 . Make sure BPI-M4 Berry is connected to the Internet and use the following command to download the nomachine DEB installation package in the system.
 
-   wget https://download.nomachine.com/download/8.9/Arm/nomachine_8.9.1_1_arm64.deb
+   wget https://download.nomachine.com/download/8.9/Arm/nomachine_8.13.1_1_arm64.deb
 
 . Or open link:https://downloads.nomachine.com/download/?spm=wolai.workspace.0.0.13805ed2aUTx1q&id=114&distro=ARM[NoMachine for ARM - arm64 download page] in a PC browser, download the DEB installation package, and then copy it to BPI-M4 Berry user directory through SSH or USB disk.
 
