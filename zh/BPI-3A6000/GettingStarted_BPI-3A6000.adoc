@@ -1,0 +1,28 @@
+= Loongnix GNU/Linux 20系统安装指导
+== 安装盘制作
+
+* 下载系统镜像 iso 文件
+
+在官方网站上下载最新版本的 Loongnix 操作系统镜像iso文件。
+
+下载地址： http://pkg.loongnix.cn/loongnix/isos/
+
+* DVD安装盘制作
+
+刻录光盘时，安装映像必须使用 DVD光盘（不能使用普通 CD 光盘），并且 DVD 光盘的容量必须大于iso文件（2.9GB）的大小，然后使用刻录工具刻录镜像（推荐 Loongnix 自带刻录工具 brasero）。
+
+* U盘安装盘制作
+
+制作 LiveUSB 安装盘，需要准备: 
+
+** 1.一个 4GB 以上的 U 盘；
+** 2. 一台正常运行的 Linux 主机。 
+
+在 linux 主机上插入 U 盘，可通过 fdisk ‐l 或者 lsblk 命令查看系统识别的U盘设备，/dev/sdb。
+启动终端，使用dd命令进行镜像制作，命令（需要root用户权限）如下：
+
+```sh
+# dd if=Loongnix-20.5.livecd.loongarch64.iso of=/dev/sdb bs=8M 
+# sync
+```
+完成后拔掉 U 盘。
