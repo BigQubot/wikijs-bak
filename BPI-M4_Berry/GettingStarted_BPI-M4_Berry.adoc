@@ -394,14 +394,17 @@ sudo hwclock -r #View hardware clock
 * link:https://chrony-project.org/documentation.html[Chrony reference documentation]
 
 == View hardware temperature
-You can use the following four commands to find out what hardware the corresponding sensor is checking.
+. You can use the following four commands to find out what hardware the corresponding sensor is checking.
+
 ```bash
 cat /sys/class/thermal/thermal_zone0/type
 cat /sys/class/thermal/thermal_zone1/type
 cat /sys/class/thermal/thermal_zone2/type
 cat /sys/class/thermal/thermal_zone3/type
 ```
-Then use the following command to check the temperature separately.
+
+
+. Then use the following command to check the temperature separately.
 ```bash
 cat /sys/class/thermal/thermal_zone0/temp
 cat /sys/class/thermal/thermal_zone1/temp
@@ -412,7 +415,6 @@ The value of the queried temperature needs to be divided by 1000, and the unit i
 
 For example, divide the cpu temperature by 1000 to obtain 54.17 degrees Celsius.
 
-+
 image::/bpi-m4berry/banana_pi_bpi-m4_berry_temp1.jpg[banana_pi_bpi-m4_berry_temp1.jpg]
 
 === Modify HDMI output resolution
