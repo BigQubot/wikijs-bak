@@ -323,8 +323,7 @@ nmcli radio wifi off # Turn off wifi
 nmcli radio wifi on # Turn on wifi
 ```
 
-* link:https://developer-old.gnome.org/NetworkManager/unstable/nmcli.html[nmcli command reference document]
-* link:https://developer-old.gnome.org/NetworkManager/unstable/nmcli-examples.html[nmcli command reference examples]
+
 
 == Set static IP, DNS
 . To set a static IP, you need to maintain the connection first. If you want to set an Ethernet static IP, you must first maintain the Ethernet connection; if you want to set a wireless network static IP, you must first maintain a connection to a WIFI.
