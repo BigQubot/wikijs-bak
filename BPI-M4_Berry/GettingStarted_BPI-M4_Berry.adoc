@@ -418,17 +418,6 @@ For example, divide the cpu temperature by 1000 to obtain 54.17 degrees Celsius.
 
 image::/bpi-m4berry/banana_pi_bpi-m4_berry_temp1.jpg[banana_pi_bpi-m4_berry_temp1.jpg]
 
-=== Modify HDMI output resolution
-When using the Ubuntu&Debian desktop operating system, you can find the Displays column in Settings and modify the resolution.
-
-* Ubuntu Desktop
-+
-image::/picture/bpi_m4_berry_ubuntu_2.jpg[bpi_m4_berry_ubuntu_2.jpg]
-
-* Debian Desktop
-+
-image::/picture/bpi_m4_berry_debian_desktop_2.jpg[bpi_m4_berry_debian_desktop_2.jpg,640]
-
 == Use USB disk
 . Prepare a USB disk that has been partitioned normally and insert it into the USB interface of BPI-M4 Berry.
 . In the Ubuntu desktop version, you can see that the USB disk has been recognized and can be opened in the file manager, or partition management can be performed through the GParted tool.
