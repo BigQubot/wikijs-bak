@@ -614,7 +614,7 @@ Usually you can complete editing, save, and exit the editor in this order:
 
 === on/off boot logo
 
-. `sudo nano "/boot/bananapiEnv.txt"`,rewrite `bootlogo=true` as `bootlogo=false`.
+. `sudo nano "/boot/armbianEnv.txt"`,rewrite `bootlogo=true` as `bootlogo=false`.
 +
 image::/picture/bpi_m4_berry_mobaxterm_8.jpg[bpi_m4_berry_mobaxterm_8.jpg]
 
