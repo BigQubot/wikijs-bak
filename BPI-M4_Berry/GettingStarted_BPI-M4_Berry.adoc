@@ -561,6 +561,11 @@ scp [optionals] file_source file_target
 
 . file_target will copy the past path and rename it if a specific file name is entered at the end.
 
+Run the following command on linux to ensure that the ssh service is enabled.
+```
+sudo systemctl start ssh
+```
+
 Take copying local files from a Windows system to a Linux system as an example. In the Windows terminal, enter:
 ```cmd
 PS D:\temp\temp_4> scp ".\hello.txt" pi@192.168.3.12:"/home/pi/Downloads/"
