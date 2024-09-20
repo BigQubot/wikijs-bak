@@ -154,25 +154,27 @@ sudo armbian-config
 . Follow the instructions below to install the Linux system image on the eMMC.
 .. Select `Ststem`.
 +
-image::/picture/bpi_m4_berry_mobaxterm_12.jpg[bpi_m4_berry_mobaxterm_12.jpg]
+image::/bpi-m4berry/bpi_m4_berry_mobaxterm_a1.jpg[bpi_m4_berry_mobaxterm_a1.jpg]
+
 .. Select `Install`.
 +
-image::/picture/bpi_m4_berry_mobaxterm_13.jpg[bpi_m4_berry_mobaxterm_13.jpg]
+image::/bpi-m4berry/bpi_m4_berry_mobaxterm_a2.jpg[bpi_m4_berry_mobaxterm_a2.jpg]
 .. Select `Boot from eMMC`.
 +
-image::/picture/bpi_m4_berry_mobaxterm_14.jpg[bpi_m4_berry_mobaxterm_14.jpg]
+image::/bpi-m4berry/bpi_m4_berry_mobaxterm_a3.jpg[bpi_m4_berry_mobaxterm_a3.jpg]
 .. Select `Yes`.
 +
-image::/picture/bpi_m4_berry_mobaxterm_15.jpg[bpi_m4_berry_mobaxterm_15.jpg]
+image::/bpi-m4berry/bpi_m4_berry_mobaxterm_a4.jpg[bpi_m4_berry_mobaxterm_a4.jpg]
 .. Select `ext4`.
 +
-image::/picture/bpi_m4_berry_mobaxterm_16.jpg[bpi_m4_berry_mobaxterm_16.jpg]
+image::/bpi-m4berry/bpi_m4_berry_mobaxterm_a5.jpg[bpi_m4_berry_mobaxterm_a5.jpg]
 .. Wait a few minutes. Do not power off or restart the board at this time.
 +
-image::/picture/bpi_m4_berry_mobaxterm_17.jpg[bpi_m4_berry_mobaxterm_17.jpg]
+image::/bpi-m4berry/bpi_m4_berry_mobaxterm_a6.jpg[bpi_m4_berry_mobaxterm_a6.jpg]
 .. The last step is to shut down the board. At this time, disconnect the power supply, remove the SD card, and connect the power again, to boot from eMMC.
 +
-image::/picture/bpi_m4_berry_mobaxterm_18.jpg[bpi_m4_berry_mobaxterm_18.jpg]
+image::/bpi-m4berry/bpi_m4_berry_mobaxterm_a7.jpg[bpi_m4_berry_mobaxterm_a7.jpg]
+
 
 
 
@@ -561,11 +563,6 @@ scp [optionals] file_source file_target
 
 . file_target will copy the past path and rename it if a specific file name is entered at the end.
 
-Run the following command on linux to ensure that the ssh service is enabled.
-```
-sudo systemctl start ssh
-```
-
 Take copying local files from a Windows system to a Linux system as an example. In the Windows terminal, enter:
 ```cmd
 PS D:\temp\temp_4> scp ".\hello.txt" pi@192.168.3.12:"/home/pi/Downloads/"
@@ -614,29 +611,29 @@ Usually you can complete editing, save, and exit the editor in this order:
 
 === on/off boot logo
 
-. `sudo nano "/boot/armbianEnv.txt"`,rewrite `bootlogo=true` as `bootlogo=false`.
+. `sudo nano "/boot/bananapiEnv.txt"`,rewrite `bootlogo=true` as `bootlogo=false`.
 +
-image::/bpi-m4berry/bpi_m4_berry_mobaxterm_n1.jpg[bpi_m4_berry_mobaxterm_n1.jpg]
+image::/picture/bpi_m4_berry_mobaxterm_8.jpg[bpi_m4_berry_mobaxterm_8.jpg]
 
 . Press keyboard shortcuts Ctrl+O to write file.
 +
-image::/bpi-m4berry/bpi_m4_berry_mobaxterm_n2.jpg[bpi_m4_berry_mobaxterm_n2.jpg]
+image::/picture/bpi_m4_berry_mobaxterm_9.jpg[bpi_m4_berry_mobaxterm_9.jpg]
 
 . No need to change path, Press Enter to save it.
 +
-image::/bpi-m4berry/bpi_m4_berry_mobaxterm_n3.jpg[bpi_m4_berry_mobaxterm_n3.jpg]
+image::/picture/bpi_m4_berry_mobaxterm_10.jpg[bpi_m4_berry_mobaxterm_10.jpg]
 
 . Press keyboard shortcuts Ctrl+X exit nano.
 +
-image::/bpi-m4berry/bpi_m4_berry_mobaxterm_n4.jpg[bpi_m4_berry_mobaxterm_n4.jpg]
+image::/picture/bpi_m4_berry_mobaxterm_11.jpg[bpi_m4_berry_mobaxterm_11.jpg]
 
 . `reboot` , the startup logo would not display.
 
 === Replace boot logo
 
-. `sudo nano "/boot/armbianEnv.txt"`,rewrite `bootlogo=false` as `bootlogo=true`.
+. `sudo nano "/boot/bananapiEnv.txt"`,rewrite `bootlogo=false` as `bootlogo=true`.
 
-. The storage path of the boot logo file is: `/usr/share/plymouth/themes/armbian/watermark.png`.
+. The storage path of the boot logo file is: `/usr/share/plymouth/themes/bananapi/watermark.png`.
 
 . Prepare a `png` image, preferably a pattern with a transparent layer, and rename it to `watermark.png`.
 +
@@ -647,7 +644,7 @@ image::/bpi-m4berry/bpi_m4_berry_mobaxterm_n4.jpg[bpi_m4_berry_mobaxterm_n4.jpg]
 . Copy it to the target path with root privileges.
 +
 ```
-sudo cp "/home/pi/watermark.png" "/usr/share/plymouth/themes/armbian/watermark.png"
+sudo cp "/home/pi/watermark.png" "/usr/share/plymouth/themes/bananapi/watermark.png"
 ```
 
 . Use this command to apply the changes and wait for tens of seconds for it to complete the build.
