@@ -150,6 +150,7 @@ TIP: Here are some tips for your design reference: +
 .BPI-W3 MIPI CSI
 [%collapsible]
 ====
+0.5mm FPC Connector (J23)
 [options="header",cols="1,2,2"]
 |=====
 | Pin#                                   | MIPI-CSI                   | Description                                        
@@ -176,8 +177,12 @@ TIP: Here are some tips for your design reference: +
 | 28,29 | VCC_RX                         | 3.3V Power ouput 
 | 30,31 | VCC_5V0                        | 5V Power ouput
 |=====
+====
 
-=== BPI-W3 MIPI DSI
+
+.BPI-W3 MIPI DSI
+[%collapsible]
+====
 0.5mm FPC Connector (J23)
 [options="header",cols="1,2,2"]
 |=====
@@ -203,18 +208,23 @@ TIP: Here are some tips for your design reference: +
 | 25                      | TP_INT (GPIO0_D3)          | 1.8V, GPIO         | 26                      | TP_RST (GPIO0_C6)          | 1.8V, GPIO
 | 28,29                   | VCC5V0_LCD                 | 5V Power ouput
 | 31,32                   | VCC_1V8                    | 1.8V Power ouput 
-
 |=====
+====
 
-=== BPI-W3 Debug UART
+.BPI-W3 Debug UART
+[%collapsible]
+====
 3.3V level signals, 1500000bps
 |=====
 | UART2_RX_M0	| intput
 | UART2_TX_M0	| output
 | GND	        | 0V
 |=====
+====
 
-=== PoE In
+.PoE In 
+[%collapsible]
+====
 1.25mm Connector
 |=====
 | VC1 | TX1
@@ -222,8 +232,11 @@ TIP: Here are some tips for your design reference: +
 | VC3	| TX2
 | VC4	| RX2
 |=====
+====
 
-=== PoE Out
+.PoE out
+[%collapsible]
+====
 2.0mm Connector
 |=====
 | VDD_POE	12V | Power ouput
@@ -231,8 +244,11 @@ TIP: Here are some tips for your design reference: +
 | GND	Ground  | pin
 |	GND	Ground  | pin
 |=====
+====
 
-=== Fan
+.FAN 
+[%collapsible]
+====
 1.25mm Connector
 
 |=====
@@ -240,7 +256,7 @@ TIP: Here are some tips for your design reference: +
 |	VCC_5V0	5V | Power ouput
 |	PWM1_M0/GPIO0_C0 | 1.8V, PWM/GPIO
 |=====
-
+====
 
 = BPI-3588-LGA Core board
 NOTE: Banana Pi BPI-W3 base on BPI-RK3588 LGA Core board and development Kit use BPI-RK3588-LGA core board. so you can easy to do new design with BPI-W3, just need to development a new base board.
