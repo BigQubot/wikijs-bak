@@ -1,12 +1,12 @@
 = BPI-W3 Introduction
 
-
+.硬件规格
 [%collapsible]
 ====
 |=====
-2+| Webduino & Arduino & Micro:bit boards Accessories
-
-| link:/en/BPI-bit_acrylic_shell/BananaPi_BPI-bit_acrylic_shell[BPI-bit acrylic shell compatible LEGO bricks]| link:/en/BPI-gpio_expansion_board/BananaPi_BPI-gpio_expansion_board[BPI gpio expansion board][BPI:bit/micro:bit] 
+2+| W3硬件规格
+| SOC           | RockChip RK3588                                     
+| CPU           | Quad Core A76+ Quad Core A55 ,use 8nm , 2.4GHz     
 |=====
 ====
 
