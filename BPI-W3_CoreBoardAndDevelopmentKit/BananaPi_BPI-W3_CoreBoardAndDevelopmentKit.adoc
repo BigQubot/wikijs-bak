@@ -11,9 +11,11 @@ It can be applied to diversified fields such as ARM PCs, edge computing, cloud s
 BPI-LM7 core board uses the Rockchip RK3588 flagship chip,integrating a 6Tops NPU and a high-performance quad-core Mali-G610 MP4 GPU. It adopts LGA 506pin package method, which can expand a variety of display interfaces and industrial application interfaces. With open baseboard design materials and open-source SDKs, it can be efficiently developed. It supports multiple operating systems such as Android, Ubuntu, Debian, and Buildroot. It provides robust, stable, reliable, and expandable product support for various AI application scenarios, and is widely applicable to fields such as edge computing, artificial intelligence,cloud computing, VR/AR, blockchain, smart security, intelligent industrial control, and smart home.
 
 
-TIP: Rockchip RK3588 design link:/en/BPI-M7/BananaPi_BPI-M7[Banana Pi BPI-M7] AI SBC design +
-Rockchip RK3588 design link:/en/BPI-AIM7/BananaPi_BPI-AIM7[Banana Pi BPI-AIM7] Core board fully compatible with Jetson Nano/TX2 NX +
+TIP: Rockchip RK3588 design link:/en/BPI-W3_CoreBoardAndDevelopmentKit/BananaPi_BPI-W3_CoreBoardAndDevelopmentKit[Banana Pi BPI-LM7] LGA core board +
 Rockchip RK3588 design link:/en/BPI-W3/BananaPi_BPI-W3[Banana Pi BPI-W3] LGA core board kit +
+Rockchip RK3588 design link:/en/BPI-M7/BananaPi_BPI-M7[Banana Pi BPI-M7] AI SBC design +
+Rockchip RK3588 design link:/en/BPI-AIM7/BananaPi_BPI-AIM7[Banana Pi BPI-AIM7] Core board fully compatible with Jetson Nano/TX2 NX +
+
 Rockchip RK3588 design link:/BPI-RK3588_CoreBoardAndDevelopmentKit/BananaPi_BPI-RK3588_CoreBoardAndDevelopmentKit[BPI-RK3588 core board and kit Introduction] Core boards 
 
 == Key Featurers
@@ -216,13 +218,10 @@ Most function pins have multiplexed relationships. For easy configuration, pleas
 
 NOTE: It is not recommended to use the LM7 for 8K display,because the HDMI output 8K places very high layout routing requirements that are basically unachievable with a core board + base board design approach.
 
-Here are some tips for your design reference:
-
-* A one-piece board design must be adopted.Please pay attention that there is no layer change across the entire HDMI signal path.
-
-* Strictly follow the hardware reference design guidelines for impedance control, trace length matching, etc.
-
-* The HDMI connector is required to support HDMI 2.1 protocol ,8K compatible.
+TIP: Here are some tips for your design reference: +
+1 A one-piece board design must be adopted.Please pay attention that there is no layer change across the entire HDMI signal path. +
+2 Strictly follow the hardware reference design guidelines for impedance control, trace length matching, etc. +
+3 The HDMI connector is required to support HDMI 2.1 protocol ,8K compatible.
 
 = BPI-W3 for BPI-LM7 development kit
 
