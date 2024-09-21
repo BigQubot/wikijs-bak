@@ -1,15 +1,5 @@
 = BPI-W3 Introduction
 
-.硬件规格
-[%collapsible]
-====
-|=====
-2+| W3硬件规格
-| SOC           | RockChip RK3588                                     
-| CPU           | Quad Core A76+ Quad Core A55 ,use 8nm , 2.4GHz     
-|=====
-====
-
 
 Banana Pi BPI-W3 single board computer is designed and developed by bananapi team for professional and enterprise users, powered by Rockchip RK3588 SoC quad ARM Cortex-A76 and quad Cortex-A55 consists of an eight-core CPU processor with dynamic frequency scaling up to 2.4GHz. Embedded high -performance 3D and 2D image acceleration module, AI accelerator NPU with a built -in 6 TOPS computing power.
 
@@ -107,6 +97,9 @@ TIP: Here are some tips for your design reference: +
 == BPI-W3 GPIO Pin Define
 
 === BPI-W3 40PIN GPIO
+.BPI-W3 40PIN GPIO
+[%collapsible]
+====
 [options="header",cols="1,1,1,1,1,1,1,1,1,1",width=50%]
 |=====
 10+| **40 PIN GPIO of Banana pi BPI-W3**
