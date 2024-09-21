@@ -83,6 +83,9 @@ Encode：8K@30fps H.265 / H.264
 
 == BPI-LM7 3588 LGA Core board Function parameter
 
+.LGA Core board Function parameter
+[%collapsible]
+====
 [options="header",cols="1,1,1,3,3"]
 |=====
 | Category	| Function	| quantity	2+|parameter
@@ -196,6 +199,7 @@ Combo PIPE PHY2 support one of the following interfaces
 - Support 16 on-chip PWMs(PWM0~PWM15) with interrupt-based operation
 - Optimized for IR application for PWM3, PWM7, PWM11, PWM15
 |=====
+====
 
 The interface quantities in the table are the maximum theoretical values for the hardware design or CPU.
 
