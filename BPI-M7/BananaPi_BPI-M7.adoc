@@ -107,7 +107,9 @@ link:/en/BPI-M7/Photo_BPI-M7[Banana Pi BPI-M7 Product photo gallery]
 
 == GPIO define
 
-=== 40 Pin GPIO 
+.40 Pin GPIO
+[%collapsible]
+====
 [options="header",cols="1,5,1,1,5,1"]
 |====
 6+| 40 GPIO define of Banana Pi BPI-M7 
@@ -134,8 +136,11 @@ link:/en/BPI-M7/Photo_BPI-M7[Banana Pi BPI-M7 Product photo gallery]
 |0	|REFCLK_OUT / GPIO0_A0	|37|38|GPIO3_B2 /PWM3_IR_M1 / UART2_RX_M2 / I2S2_SDI_M1	|106
 | |GND	|39|40|GPIO3_B3 / UART2_RTSN / I2S2_SDO_M1	|107
 |====
+====
 
-=== MIPI CSI0
+.MIPI CSI0 Camera interface 
+[%collapsible]
+====
 0.5mm FPC connector
 
 [options="header",cols="1,1,1"]
@@ -167,8 +172,11 @@ link:/en/BPI-M7/Photo_BPI-M7[Banana Pi BPI-M7 Product photo gallery]
 |28,29	|VCC_RX	|3.3V Power ouput
 |30,31	|VCC_5V0	|5V Power ouput
 |====
+====
 
-=== MIPI CSI1
+.MIPI CSI1 Camera interface 
+[%collapsible]
+====
 0.5mm FPC connector
 [options="header",cols="1,1,1"]
 |====
@@ -199,8 +207,11 @@ link:/en/BPI-M7/Photo_BPI-M7[Banana Pi BPI-M7 Product photo gallery]
 |28,29|	VCC_RX	|3.3V Power ouput
 |30,31|	VCC_5V0	|5V Power ouput
 |====
+====
 
-=== MIPI DSI 
+.MIPI DSI display define
+[%collapsible]
+====
 0.5mm FPC connector (J23)
 
 [options="header",cols="1,1,1"]
@@ -230,8 +241,11 @@ link:/en/BPI-M7/Photo_BPI-M7[Banana Pi BPI-M7 Product photo gallery]
 |28,29|	VCC5V0_LCD|	5V Power ouput
 |31,32|	VCC_1V8|	1.8V Power ouput
 |====
+====
 
-=== Fan 
+.FAN define
+[%collapsible]
+====
 0.8mm connector(CN32)
 [options="header",cols="1,1,1"]
 |====
@@ -240,7 +254,7 @@ link:/en/BPI-M7/Photo_BPI-M7[Banana Pi BPI-M7 Product photo gallery]
 | 2	| GND	| GND
 | 3	| PWM	| PWM cotrol
 |====
-
+====
 = Accessories
 
 == Case design:
