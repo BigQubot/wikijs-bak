@@ -95,6 +95,10 @@ TIP: 这里有一些建议供您的设计参考: +
 == BPI-W3 GPIO 引脚定义
 
 === BPI-W3 40PIN GPIO
+
+.40PIN GPIO 定义
+[%collapsible]
+====
 [options="header",cols="1,1,1,1,1,1,1,1,1,1",width=50%]
 |=====
 10+| **40 PIN GPIO of Banana pi BPI-W3**
@@ -140,8 +144,11 @@ TIP: 这里有一些建议供您的设计参考: +
 | 39  | GND        |            |             |               |             |              |              |             |     
 | 40  | GPIO3_B3   |            |             | UART2_RTSN    |             | I2S2_SDO_M1  |              |             | 107 
 |=====
+====
 
-=== BPI-W3 MIPI CSI
+.MIPI CSI 摄像头接口定义
+[%collapsible]
+====
 0.5mm FPC Connector
 
 [options="header",cols="1,2,2"]
@@ -170,8 +177,11 @@ TIP: 这里有一些建议供您的设计参考: +
 | 28,29 | VCC_RX                         | 3.3V Power ouput 
 | 30,31 | VCC_5V0                        | 5V Power ouput
 |=====
+====
 
-=== BPI-W3 MIPI DSI
+.MIPI DSI 显示GPIO接口定义
+[%collapsible]
+====
 0.5mm FPC Connector (J23)
 [options="header",cols="1,2,2"]
 |=====
@@ -197,18 +207,23 @@ TIP: 这里有一些建议供您的设计参考: +
 | 25                      | TP_INT (GPIO0_D3)          | 1.8V, GPIO         | 26                      | TP_RST (GPIO0_C6)          | 1.8V, GPIO
 | 28,29                   | VCC5V0_LCD                 | 5V Power ouput
 | 31,32                   | VCC_1V8                    | 1.8V Power ouput 
-
 |=====
+====
 
-=== BPI-W3 Debug UART
+.Debug UART 调试口
+[%collapsible]
+====
 3.3V level signals, 1500000bps
 |=====
 | UART2_RX_M0	| intput
 | UART2_TX_M0	| output
 | GND	        | 0V
 |=====
+====
 
-=== PoE In
+.网线供电输入 POE in 
+[%collapsible]
+====
 1.25mm Connector
 |=====
 | VC1 | TX1
@@ -216,8 +231,11 @@ TIP: 这里有一些建议供您的设计参考: +
 | VC3	| TX2
 | VC4	| RX2
 |=====
+====
 
-=== PoE Out
+.网线供电输出 POE out
+[%collapsible]
+====
 2.0mm Connector
 |=====
 | VDD_POE	12V | Power ouput
@@ -225,8 +243,11 @@ TIP: 这里有一些建议供您的设计参考: +
 | GND	Ground  | pin
 |	GND	Ground  | pin
 |=====
+====
 
-=== 风扇
+.FAN 风扇 GPIO 定义
+[%collapsible]
+====
 1.25mm Connector
 
 |=====
@@ -234,6 +255,7 @@ TIP: 这里有一些建议供您的设计参考: +
 |	VCC_5V0	5V | Power ouput
 |	PWM1_M0/GPIO0_C0 | 1.8V, PWM/GPIO
 |=====
+====
 
 = BPI-3588-LGA 核心板模组
 
