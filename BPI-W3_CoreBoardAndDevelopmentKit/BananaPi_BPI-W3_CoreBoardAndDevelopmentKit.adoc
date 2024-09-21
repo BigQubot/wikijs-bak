@@ -207,6 +207,22 @@ Most function pins have multiplexed relationships. For easy configuration, pleas
 
 * BPI-LM7 package: https://drive.google.com/drive/folders/1RE9zdHrXYvkfIilVn0lBXsq9PvaCmE_I
 
+== BPI-W3 Development Kit hardware Resources
+
+* BPI-W3 schmatics: https://drive.google.com/drive/folders/1RE9zdHrXYvkfIilVn0lBXsq9PvaCmE_I
+* BPI-W3 PCB PADs: https://drive.google.com/drive/folders/1RE9zdHrXYvkfIilVn0lBXsq9PvaCmE_I
+* BPI-W3 2D : https://drive.google.com/drive/folders/1RE9zdHrXYvkfIilVn0lBXsq9PvaCmE_I
+* PBI-W3 SMD : https://drive.google.com/drive/folders/1RE9zdHrXYvkfIilVn0lBXsq9PvaCmE_I
+
+NOTE: It is not recommended to use the LM7 for 8K display,because the HDMI output 8K places very high layout routing requirements that are basically unachievable with a core board + base board design approach.
+
+Here are some tips for your design reference:
+
+* A one-piece board design must be adopted.Please pay attention that there is no layer change across the entire HDMI signal path.
+
+* Strictly follow the hardware reference design guidelines for impedance control, trace length matching, etc.
+
+* The HDMI connector is required to support HDMI 2.1 protocol ,8K compatible.
 
 = BPI-W3 for BPI-LM7 development kit
 
@@ -214,101 +230,11 @@ Most function pins have multiplexed relationships. For easy configuration, pleas
 
 image::/picture/banana_pi_bpi-w3_interface_800.jpg[banana_pi_bpi-w3_interface_800.jpg]
 
+
+
 = Development
-== Source Code
 
-TIP: Banana Pi linux-5.10.110 kernel BSP Source code on github ： https://github.com/BPI-SINOVOIP/BPI-W3-BSP
-
-TIP: Armsom github source code : https://github.com/ArmSoM/armsom-w3-bsp
-
-TIP: BPI-W3 kernel: https://github.com/ArmSoM/linux-rockchip
-
-TIP: BPI-W3 uboot : https://github.com/ArmSoM/u-boot
-
-TIP: RKNN-LLM Code repository: https://github.com/ArmSoM/rknn-llm
-
-TIP: Android 12 source code : https://drive.google.com/file/d/1wvgcUFk12VZyXGSFJLGsak_KG_ltz0lH/view?usp=drivesdk
-
-== Resources
-
-TIP: Rockchip RK3588 datasheet
-
-Baidu cloud: https://pan.baidu.com/s/1GeskKfLFwjgmz0pgt7sICg?pwd=8888 (pincode:8888)
-
-Google drive: https://drive.google.com/drive/folders/1l1YmUdBaLuDkJma3CYZJWjYug9D-jV_4?usp=sharing
-
-TIP: Banana PI BPI-W3 SCH, DXF, SMD file
-
-Baidu cloud: https://pan.baidu.com/s/1ETL7U4R54Cd5cDg8usp-JQ?pwd=pb48 (pincode:pb48)
-
-Google drive: https://drive.google.com/drive/folders/1d_vtW5aDH3dPAco-dHIwm16r25JUYWS8?usp=sharing
-
-TIP: Banana Pi BPI-W3 coare board 3588-LGA Core board all pin list file(5.core board (LGA) pin List)
-
-Baidu cloud: https://pan.baidu.com/s/1ZqDRkk0NVEjpHxsQNHbleQ?pwd=8888 (pincode:8888)
-
-Google drive: https://docs.google.com/spreadsheets/d/1yj6fLbJET5cLjJG-cD3R5_b7S4umTFXI/edit?usp=sharing&ouid=101692257577438398584&rtpof=true&sd=true
-
-TIP: Banana Pi Core board design for RK3588 : BPI-RK3588 Core board and development Kit
-
-Rockchip RK3588 datasheet : https://drive.google.com/file/d/1KAq1_kKqPtkq8Vlq-h_yUPUZLrgqSKHI/view?usp=sharing
-
-Banana Pi BPI-W3 RK3588 NPU6T AI RKNN Toolkit2 and RKNPU2 demo ： https://www.youtube.com/watch?v=AEU87YUZz8Y
-
-TIP: BPI-W3 Rk3588 development github blog: https://github.com/ArmSoM/Embedded-Technology-Blog
-
-TIP: BPI-W3 ubuntu20.04 Linux system adaptation is complete: https://www.youtube.com/watch?v=xVDkWv_Q9xY
-
-TIP: How to use RKLLM AI function: link:/en/BPI-M7/how-touse-llm[Banana Pi BPI-M7 RKLLM Development ]
-
-== BPI-W3 Tools
-Baidu cloud : https://pan.baidu.com/s/1SD3shbfQui4N19IVTXpmXQ?pwd=8888 Pincode:8888
-
-Google drive: https://drive.google.com/file/d/1v1ixTDcjOqBPn6eyiNSH5yOBNWPUA8Ig/view?usp=sharing
-
-= System Image
-
-== Android
-
-NOTE: BPI-W3_armsom-w3-emmc-android12-rkr12-20231103.img
-
-Baidu cloud: https://pan.baidu.com/s/1rAfTRARQRDwaZnulPOu0Fg?pwd=8888 (pincode:8888)
-
-Google drive: https://drive.google.com/file/d/1y_tEuc0rslUtNn4SVZoyPTh9tAqAcKp4/view?usp=sharing
-
-NOTE: BPI-W3_armsom-w3-emmc-android12-TV-rkr12-20230525.img
-
-Baidu cloud: https://pan.baidu.com/s/1p8gOK3gNTN-f0Fxb6c6CFw?pwd=8888 (pincode:8888)
-
-Google drive: https://drive.google.com/file/d/1knzU875x6FQdYNef3DSaFExbMn6IXjf4/view?usp=sharing
-
-
-== Linux
-
-=== Debian
-
-NOTE: BPI-W3_armsom-w3-debian-bullseye-xfce4-arm64-20231204.img
-
-Baidu cloud: https://pan.baidu.com/s/1OB6qzCmwhaXTnabs0_jmeQ?pwd=8888 (pincode:8888)
-
-Google drive: https://drive.google.com/drive/folders/1E9ynf6LSThnb7HLDC09IqAJDdOo4TWK4?usp=sharing
-
-=== Ubuntu
-
-NOTE: Ubuntu-22.04.3-preinstalled-desktop-arm64-bpi-w3_armsom-w3.img
-
-Baidu Cloud: https://pan.baidu.com/s/1lKyEvNJXKkf13xwDg1e4Hw?pwd=8888 (pincode:8888)
-
-Google Drive: https://drive.google.com/drive/folders/162vkWVjWJCsPRG7XjONzCIkdPkro5zY1?usp=sharing
-
-NOTE: Ubuntu-22.04.3-preinstalled-server-arm64-bpi-w3_armsom-w3.img
-
-Baidu cloud: https://pan.baidu.com/s/1cqbpgk5ykp_-1uv9ZpxoZg?pwd=8888 (pincode:8888)
-
-Google drive: https://drive.google.com/drive/folders/1-GxlXelKY11b-sbiNARzA0DZ-bb328l-?usp=sharing
-
-
-== Third part image
+Please see  link:/en/BPI-W3/BananaPi_BPI-W3[Banana Pi BPI-W3] BPI-LM7 LGA core board development kit
 
 
 = Easy to buy sample
