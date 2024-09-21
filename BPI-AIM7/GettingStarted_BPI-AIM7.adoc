@@ -1,3 +1,62 @@
-== header
+= Introduction
 
-content
+BPI-AIM7 uses Rockchip RK3588, a new generation flagship eight-core 64-bit processor with a main frequency of up to 2.4GHz, 6 TOPS computing power NPU, and can be equipped with up to 32GB of large memory. While the interface is fully compatible with Jetson Nano, the PCIe interface has been upgraded to PCIe3.0 4-lane and PCIe2.1 1-lan.
+
+Rockchip RK3588 design link:/en/BPI-AIM7/BananaPi_BPI-AIM7[Banana Pi BPI-AIM7] Core board fully compatible with Jetson Nano/TX2 NX
+
+
+= Prepare 
+
+== Tool Preparation
+
+* Power supply
+* System Installation (Choose one)
+** Onboard eMMC boot
+*** USB Type-C data cable: Write the image to the AIM development kit from the Type-C port. You will need a Type-C data cable to connect the AIM development kit to a PC.
+** MicroSD/TF card boot
+*** MicroSD/TF card: Class 10 or above, at least 8GB SDHC, and a card reader.
+*** The following are high-speed TF cards tested and verified by the ArmSoM team:
+**** SanDisk 32GB TF (MicroSD) (Recommended for developers)
+**** SanDisk 32GB TF (MicroSD) Dashcam & Security Surveillance Card (Recommended for long-term operation)
+**** SanDisk TF 8G Class10 microSD
+**** SanDisk TF 128G Class10 microSD XC TF 128G 48MB/S
+
+You can set up the AIM development kit as an interactive desktop computer or a headless computer that can only be accessed via the network. To set up the AIM development kit as a headless computer, configure the hostname, user account, network connection, and SSH when installing the OS for the first time. If you want to use the AIM development kit directly, you will need the following additional accessories:
+
+Optional Items
+
+* Keyboard & Mouse
+* HDMI monitor and HDMI cable
+* DP monitor and DP cable
+* Ethernet cable
+* Camera module
+** It is recommended to use the camera-module1.
+* LCD display
+** It is recommended to use the Display 10 HD.
+
+== Power Supply
+
+The table below shows the power specifications required to power the AIM development kit. You can use any high-quality power supply that provides the correct power mode.
+
+[options="header",cols="1,2,1"]
+|=====
+|Model	|Recommended Power (Voltage/Current)	|Power Mode
+|AIM7 + AIM-IO	|5V/3A, 9V/2A, 12V/2A, 15V/2A	|DC adapter, 2.5mm
+|AIM5 + AIM-IO	|5V/3A, 9V/2A, 12V/2A, 15V/2A	|DC adapter, 2.5mm
+|=====
+
+= System Image Burning
+
+The AIM development kit supports multiple system images, and you can choose the appropriate image to download according to your needs.
+
+NOTE: A system image includes the Linux kernel, basic programs, etc., which are essential for running the AIM development kit, so you need to install the image before running the product.
+
+== Obtaining the System Image
+
+Visit the Baidu Cloud resource page to obtain the system image: 
+
+Baidu Cloud Link: https://pan.baidu.com/share/init?surl=4qfAZM3QqgJPuFVjKRSBUw&pwd=arms
+
+NOTE: 1,The default account/password for the official image is armsom/armsom, linaro/linaro, root/1234. +
+2,The Debian system is adapted and compiled using the SDK provided by RK, making it more suitable for users with ISP, GPU, codec, and NPU needs. It can be burned to eMMC using RKDevTool or to an SD card using SDDiskTool. +
+3,Ubuntu, Armbian, and OpenWrt are additional options provided by ArmSoM for open-source enthusiasts.
