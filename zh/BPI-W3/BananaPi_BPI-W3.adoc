@@ -211,6 +211,7 @@ link:/en/BPI-W3/Photo_BPI-W3[Banana Pi BPI-W3 Product photo gallery]
 |=====
 
 = BPI-3588-LGA 核心板模组
+
 NOTE: 香蕉派BPI-W3基于BPI-RK3588 LGA核心板，开发工具包使用BPI-RK3588-LGA核心板。因此，您可以很容易地做新的设计与BPI-W3，只需要开发一个新的基础板。
 
 采用Rockchip最新旗舰RK3588，八核64位处理器，最高主频高达2.4GHz，6 TOPS NPU。最高支持32GB大内存。支持8K视频编解码，LGA封装，传输能力更强，稳定性更强。集成6Tops NPU和高性能四核Mali-G610 MP4 GPU。采用LGA 506pin封装方式，可扩展多种显示接口和工业应用接口。使用开放的基板设计材料和开源sdk，可以有效地开发它。它支持多种操作系统，如Android、Ubuntu、Debian和builroot。为各种AI应用场景提供鲁棒、稳定、可靠、可扩展的产品支持，广泛适用于边缘计算等领域.
@@ -240,147 +241,7 @@ image::/picture/banana_pi_bpi-rk3588-lga_1.jpg[banana_pi_bpi-rk3588-lga_1.jpg]
 * 重量: 约13.4g
 * 尺寸: 45mm × 50mm × 4.5mm (top: 2.2mm + PCB: 1.2mm + bottom: 1.1mm)
 
-
-== BPI-3588-LGA 核心板规格
-
-[options="header",cols="1,4"]
-|=====
-2+| **BPI-3588-LGA spec**
-| CPU                            | Quad Core Cortex-A76@2.4GHz +Quad Core Cortex-A55@1.8GHz, 8nm                           
-| GPU                            | ARM Mali-G610 MP4 GPU,Support OpenGL ES3.2 / OpenCL 2.2 / Vulkan1.1                     
-| NPU                            | 6 TOPS@INT8,Support INT4/INT8/INT16 mixed operation Support framework switching of TensorFlow/MXNet/PyTorch/Caffe
-| ISP                            | 48-Megapixel ISP,It implements a lot of algorithm accelerators, such as HDR, 3A, LSC, 3DNR, 2DNR, sharpening, dehaze, fisheye correction, gamma correction and so on. 
-| Encode&Decode                  | Decode：8K@60fps H.265/VP9/AVS2,8K@30fps H.264 AVC/MVC, 4K@60fps AV1, 1080P@60fps MPEG-2/-1/VC-1/VP8 +
-Encode：8K@30fps H.265 / H.264            
-     
-| RAM                            | 4GB/8GB/16GB（up to 32GB）64-bit LPDDR4/LPDDR4x, Defalut LPDDR4x 8GB                    
-| Flash                          | 16GB/32GB/64GB/128GB/256GB eMMC, support MicroSD card slot, Defaut eMMC 32GB           
-| Operating Systems              | Android 12.0, Ubuntu 20.04, Ubuntu 22.04, Debian11, Buildroot, Armbian, Kylin OS
-| Power supply                   | 4.0V 
-| Interface Type                 | LGA 506pin 
-| Size                           | 45mm×50mm×4.5mm(top: 2.2mm+PCB: 1.2mm +bottom: 1.1mm)
-| Operating temperature          | 0℃ ~ 70℃ 
-| Storage temperature            | -20℃ ~ 70℃
-|=====
-
-
-
-== 功能参数
-
-[options="header",cols="1,1,1,3,3"]
-|=====
-| Category	| Function	| quantity	2+|parameter
-.4+|Video Input Interface | MIPI DC(DPHY/CPHY) combo PHY	| 2 a|	- Support to use DPHY or CPHY +
-- Each MIPI DPHY V2.0, 4lanes, 4.5Gbps per lane +
-- Each MIPI CPHY V1.1, 3lanes, 2.5Gsps per lane .2+a| Support camera input combination: 
-
-- 2 MIPI DCPHY + 4 MIPI CSI DPHY(2 lanes) 
-
-- 2 MIPI DCPHY + 1 MIPI CSI DPHY(4 lanes) + 2 MIPI CSI DPHY(2 lanes) 
-
-- 2 MIPI DCPHY + 2 MIPI CSI DPHY(4 lanes)
-| MIPI CSI DPHY	| 4	 a|
-- Each MIPI DPHY V1.2, 2lanes, 2.5Gbps per lane
-- Support to combine 2 DPHY together to one 4lanes
-| DVP | ≤1	 2+a|
-- One 8/10/12/16-bit standard DVP interface, up to 150MHz input data
-- Support BT.601/BT.656 and BT.1120 VI interface
-- Support the polarity of pixel_clk, hsync, vsync configurable
-| HDMI RX	| 1  2+a|
-- HDMI 2.0 RX PHY, 4 lanes, no sideband channels
-- Data rate support in HDMI 2.0 mode, 6Gbps down to 3.4Gbps
-- Data rate support in HDMI 1.4 mode, 3.4Gbps down to 250Mbps
-- Support HDCP2.3 and HDCP1.4
-.4+| Display interface | HDMI/eDP TX interface | ≤2	 2+a|
-- Support two HDMI/eDP TX combo interface, but HDMI and eDP can not work at the same time for each interface
-- Support x1, x2 and x4 configuration for each interface
-- Support up to 7680x4320@60Hz for HDMI TX, and 4K@60Hz for eDP
-- Support HDCP2.3 for HDMI TX, and HDCP1.3 for eDP
-| DP TX	| 2	 2+a|
-- Support 2 DP TX 1.4a interface which combo with USB3.1 Gen1
-- Support up to 7680x4320@30Hz
-- Support Single Stream Transport(SST)
-- Support HDCP2.3, HDCP 1.3
-| MIPI DSI | 2 2+a|
-- Support 2 MIPI DPHY 2.0 or CPHY 1.1 interface
-- Support 4 data lanes and 4.5Gbps maximum data rate per lane for DPHY
-- Support 3 data trios and 2.0Gsps maximum data rate per trio for CPHY
-- Support dual MIPI display: left-right mode, RGB(up to 10bit) format
-| BT.1120 video output | ≤1	2+a|
-- Support up to 1920x1080@60Hz, RGB(up to 8bit) format
-- Up to 150MHz data rate
-.3+|Audio Interface	| I2S	| ≤4 2+a|	
-- I2S0/I2S1, 8 channels TX and 8 channels RX path, audio resolution from 16bits to 32bits, Sample rate up to 192KHz
-- I2S2/I2S3, 2 channels TX and 2 channels RX path, audio resolution from 16bits to 32bits, Sample rate up to 192KHz
-- Support up to 7680x4320@60Hz for HDMI TX, and 4K@60Hz for eDP
-- Support HDCP2.3 for HDMI TX, and HDCP1.3 for eDP
-| SPDIF	| ≤2 2+a|	
-- Support two 16-bit audio data store together in one 32-bit wide location
-- Support biphase format stereo audio data output
-| PDM	 | ≤2	2+a|
-- Up to 8 channels, Audio resolution from 16bits to 24bits, Sample rate up to 192KHz
-- Support PDM master receive mode
-| Network interface	| GMAC | ≤2	2+a|
-- Support 10/100/1000-Mbps data transfer rates with the RGMII interfaces
-- Support both full-duplex and half-duplex operation
-.10+| Connectivity interface | SDIO	| ≤1	2+a|
-- Compatible with SDIO3.0 protocol
-- 4-bit data bus widths
-|USB 2.0 Host	|2	2+a|
-- Compatible with USB 2.0 specification
-- Supports high-speed(480Mbps), full-speed(12Mbps) and low-speed(1.5Mbps) mode
-|SATA	| ≤3 a|
-- Support three SATA3.0 controller, Combo PIPE PHYs with PCIe2.1/USB3.1
-- Compatible with Serial ATA 3.1 and AHCI revision 1.3.1
-.3+a|Combo PIPE PHY0 support one of the following interfaces
-
-- SATA
-- PCIe2.1
-
-Combo PIPE PHY1 support one of the following interfaces
-
-- SATA
-- PCIe2.1
-
-Combo PIPE PHY2 support one of the following interfaces
-
-- SATA
-- PCIe2.1
-- USB3.1 Gen1
-| USB3.1 Gen1	| ≤3	a|
-- Support USB3.1 Gen1,equal to USB3.2 Gen1 and USB3.0,up to 5Gbps datarate
-- Embedded 2 USB3.1 OTG interfaces which combo with DP TX (USB3OTG_0 and USB3OTG_1)
-- Embedded 1 USB3.1 Host interface which combo with Combo PIPE PHY2 (USB3OTG_2)
-| PCIe2.1	| ≤3 a|	
-- Compatible with PCI Express Base Specification Revision 2.1
-- Support 5Gbps data rate
-|PCIe3.0	|≤4	2+a|
-- Compatible with PCI Express Base Specification Revision 3.0
-- Support data rates: 2.5Gbps(PCIe1.1), 5Gbps(PCIe2.1), 8Gps(PCIe3.0)
-- Support aggregation and bifurcation with 1x 4lanes, 2x 2lanes, 4x 1lanes and 1x 2lanes + 2x 1lanes
-|SPI	|≤5	2+a|
-- Support two chip-select output
-- Support serial-master and serial-slave mode, software-configurable
-|I2C	|≤9	2+a|
-- Support 7bits and 10bits address mode
-- Data on the I2C-bus can be transferred at rates of up to 100k bits/s in the Standard-mode, up to 400k bits/s in the Fast-mode
-|UART	|≤10	2+a|
-- Embedded two 64-byte FIFO for TX and RX operation respectively
-- Support 5bit, 6bit, 7bit, 8bit serial data transmit or receive
-- Support auto flow control mode for all UART
-|CAN	|≤3	2+a|
-- Support transmit or receive CAN standard frame, extended frame
-- Support transmit or receive data frame, remote frame, overload frame, error frame and frame interval
-.3+|Others interface	|GPIO	|Multiple	2+a|
-- All of GPIOs can be used to generate interrupt
-- Support configurable drive strength
-|ADC	|≤8	2+a|
-- 8 single-ended input channels, up to 1MS/s sampling rate
-|PWM	|≤16	2+a|
-- Support 16 on-chip PWMs(PWM0~PWM15) with interrupt-based operation
-- Optimized for IR application for PWM3, PWM7, PWM11, PWM15
-|=====
-
+更多资料请参考 link:/zh/BPI-LM7/LM7[香蕉派 BPI-LM7] LGA 核心板
 
 = 开发
 == 源代码
