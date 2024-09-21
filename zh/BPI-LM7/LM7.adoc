@@ -208,18 +208,21 @@ The interface quantities in the table are the maximum theoretical values for the
 Most function pins have multiplexed relationships. For easy configuration, please refer to the Pin Function Table for the LM7.
 
 
-== BPI-LM7 硬件设计资料
 
-* BPI-LM7 Pin Function Table : https://docs.google.com/spreadsheets/d/1hcwwZbGElfGMAEaGHhuznplZgvGaaYRy/edit?gid=1984233668#gid=1984233668
+== BPI-LM7 核心板资料
 
-* BPI-LM7 package: https://drive.google.com/drive/folders/1RE9zdHrXYvkfIilVn0lBXsq9PvaCmE_I
+获取开发套件原理图、PCB、DXF等硬件资料，快速投入开发
 
-== BPI-W3 开发者套件资料资料
+* BPI-LM7 引脚功能表格: https://pan.baidu.com/share/init?surl=AQzunn1xkaZuGPDZ2xm8HA&pwd=arms
+* ArmSoM-LM7 封装 : https://pan.baidu.com/share/init?surl=Nc6Vn69qGHjM7OoVajX6lw&pwd=arms
 
-* BPI-W3 schmatics: https://drive.google.com/drive/folders/1RE9zdHrXYvkfIilVn0lBXsq9PvaCmE_I
-* BPI-W3 PCB PADs: https://drive.google.com/drive/folders/1RE9zdHrXYvkfIilVn0lBXsq9PvaCmE_I
-* BPI-W3 2D : https://drive.google.com/drive/folders/1RE9zdHrXYvkfIilVn0lBXsq9PvaCmE_I
-* PBI-W3 SMD : https://drive.google.com/drive/folders/1RE9zdHrXYvkfIilVn0lBXsq9PvaCmE_I
+== BPI-W3硬件资料
+
+* BPI-W3 原理图： https://pan.baidu.com/s/14Q2V7cpsuSdQslvESCSbwg?pwd=arms#list/path=%2F
+* BPI-W3 PCB文件： https://pan.baidu.com/share/init?surl=yDK_N6rX1hzJPMUGxGBDug&pwd=arms
+* BPI－W3 2D文件： https://pan.baidu.com/share/init?surl=e0YIAYYj4hwJQxsiJEKkcw&pwd=arms
+* BPI-W3 SWD文件： https://pan.baidu.com/share/init?surl=voD9aF5iUpnYs4saAi6ITQ&pwd=arms
+
 
 NOTE: 不建议使用LM7进行8K显示，因为HDMI输出8K对布局路由的要求非常高，这基本上是用核心板+基板设计方法无法实现的。
 
