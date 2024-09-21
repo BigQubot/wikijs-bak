@@ -40,7 +40,30 @@ image::/picture/banana_pi_bpi-w3_interface_800.jpg[banana_pi_bpi-w3_interface_80
 
 link:/en/BPI-W3/Photo_BPI-W3[Banana Pi BPI-W3 Product photo gallery]
 
+= hardware Resources
+
+=== BPI-LM7 Hardware Resources
+
+* BPI-LM7 Pin Function Table : https://docs.google.com/spreadsheets/d/1hcwwZbGElfGMAEaGHhuznplZgvGaaYRy/edit?gid=1984233668#gid=1984233668
+
+* BPI-LM7 package: https://drive.google.com/drive/folders/1RE9zdHrXYvkfIilVn0lBXsq9PvaCmE_I
+
+=== BPI-W3 Development Kit hardware Resources
+
+* BPI-W3 schmatics: https://drive.google.com/drive/folders/1RE9zdHrXYvkfIilVn0lBXsq9PvaCmE_I
+* BPI-W3 PCB PADs: https://drive.google.com/drive/folders/1RE9zdHrXYvkfIilVn0lBXsq9PvaCmE_I
+* BPI-W3 2D : https://drive.google.com/drive/folders/1RE9zdHrXYvkfIilVn0lBXsq9PvaCmE_I
+* PBI-W3 SMD : https://drive.google.com/drive/folders/1RE9zdHrXYvkfIilVn0lBXsq9PvaCmE_I
+
+NOTE: It is not recommended to use the LM7 for 8K display,because the HDMI output 8K places very high layout routing requirements that are basically unachievable with a core board + base board design approach.
+
+TIP: Here are some tips for your design reference: +
+1 A one-piece board design must be adopted.Please pay attention that there is no layer change across the entire HDMI signal path. +
+2 Strictly follow the hardware reference design guidelines for impedance control, trace length matching, etc. +
+3 The HDMI connector is required to support HDMI 2.1 protocol ,8K compatible.
+
 == Hardware Spec
+
 === BPI-W3
 [options="header",cols="1,4"]
 |=====
