@@ -1,0 +1,253 @@
+= 产品介绍
+
+Banana Pi BPI-LM7采用瑞芯微最新旗舰RK3588，八核64位处理器，最高频率高达2.4GHz, 6 TOPS NPU。它支持高达32GB的大内存。
+
+BPI-LM7采用Rockchip RK3588新一代旗舰级八核64位处理器，主频高达2.4GHz，6 TOPS算力NPU，最大可配32GB大内存。支持8K视频编解码，采用了LGA封装，传输能力和稳定性更强。拥有丰富的接口，支持多硬盘、千兆网、WiFi6、5G/4G扩展和多种视频输入输出。支持多种操作系统；提供底板参考设计资料，用户可自主深度化定制。可适用于ARM PC、边缘计算、云服务器、人工智能、云计算、虚拟/增强现实、区块链、智能NVR等领域
+
+image::/bpi-lm7/bpi-lm7_core_board.jpg[bpi-lm7_core_board.jpg]
+
+我们可以提供踢脚板参考设计资料，供用户自主深度定制。
+
+可应用于ARM pc、边缘计算、云服务器、人工智能、云计算、虚拟/增强现实、区块链、智能nvr等多元化领域。
+BPI-LM7核心板采用瑞芯微RK3588旗舰芯片，集成6Tops NPU和高性能四核Mali-G610 MP4 GPU。采用LGA 506pin封装方式，可扩展多种显示接口和工业应用接口。使用开放的基板设计材料和开源sdk，可以有效地开发它。它支持多种操作系统，如Android, Ubuntu
+
+
+TIP: 瑞芯微（Rockchip） RK3588 设计 link:/zh/BPI-LM7/LM7[香蕉派 BPI-LM7] LGA 核心板 +
+瑞芯微（Rockchip） RK3588 设计 link:/zh/BPI-W3/BananaPi_BPI-W3[香蕉派 BPI-W3] LGA 核心板开发套件 +
+瑞芯微（Rockchip） RK3588 设计 link:/zh/BPI-M7/BananaPi_BPI-M7[香蕉派 BPI-M7] AI 单板计算机开发板 +
+瑞芯微（Rockchip） RK3588 设计 link:/zh/BPI-AIM7/BananaPi_BPI-AIM7[香蕉派 BPI-AIM7] 核心计算模块完全兼容 Jetson Nano/TX2 NX +
+瑞芯微（Rockchip） RK3588 设计 link:/zh/BPI-RK3588_CoreBoardAndDevelopmentKit/BananaPi_BPI-RK3588_CoreBoardAndDevelopmentKit[BPI-RK3588 系列核心板] 核心板设计 
+
+
+== LGA 核心板关键特性
+
+* SOC主控: 瑞芯微（Rockchip） RK3588
+* CPU: RK3588 quad-core Cortex-A76 @ 2.4GHz + quad-core Cortex-A55 @ 1.8GHz, 8nm process
+* GPU: ARM Mali-G610 MP4
+* NPU: Computing power up to 6 TOPS (INT8), supports INT4/INT8/INT16 mixed computing
+* VPU/Codec:
+** 硬件解码: 8K@60fps H.265/VP9/AVS2, 8K@30fps H.264 AVC/MVC, 4K@60fps AV1, 1080P@60fps MPEG-2/-1/VC-1/VP8
+** 硬件编码: 8K@30fps H.265 / H.264
+* RAM内存: 4GB/8GB/16GB (最大支持 32GB) 64bit LPDDR4/LPDDR4x, 默认为LPDDR4x 8GB
+* Flash存储: 16GB/32GB/64GB/128GB eMMC, default eMMC 32GB
+* 操作电压: 4V (±5% voltage variation)
+* 操作温度: 0°C ~ 70°C
+* 模组接口定义: LGA package, 506 pins in total
+* 支持系统:
+** 瑞芯芯片官方支持:Android 12.0, Debian 11, builroot
+** 第三方镜像支持 : Armbian, Ubuntu 20.04, Ubuntu 22.04, Kylin OS
+* PCB层数: 12-layer PCB design
+* 重量: 约13.4g
+* 尺寸: 45mm × 50mm × 4.5mm (top: 2.2mm + PCB: 1.2mm + bottom: 1.1mm)
+
+
+== 快速上手开发
+
+
+NOTE: 香蕉派BPI-W3基于BPI-RK3588 LGA核心板，开发工具包使用BPI-RK3588-LGA核心板。因此，您可以很容易地做新的设计与开发基于BPI-W3，只需要开发一个新的底板。
+
+
+开发请选择香蕉派BPI-W3。所以你可以测试所有的BPI-LM7功能。
+
+
+TIP: link:/en/BPI-W3/GettingStarted_BPI-W3[Getting Started BPI-W3]
+
+= 硬件
+
+== 硬件接口
+
+BPI-LM7 LGA开发板，是Banana Pi 开源社区为了缩小核心板尺寸而特殊开发的，这是RK3588核心板所能做到的最小尺寸
+
+image::/bpi-lm7/bpi-lm7_inerface.png[bpi-lm7_inerface.png]
+
+image::/bpi-lm7/bpi-lm7_size.png[bpi-lm7_size.png]
+
+
+== BPI-LM7 3588-LGA 核心板硬件规格
+
+[options="header",cols="1,4"]
+|=====
+2+| **BPI-3588-LGA 硬件规格**
+| CPU                            | Quad Core Cortex-A76@2.4GHz +Quad Core Cortex-A55@1.8GHz, 8nm                           
+| GPU                            | ARM Mali-G610 MP4 GPU,Support OpenGL ES3.2 / OpenCL 2.2 / Vulkan1.1                     
+| NPU                            | 6 TOPS@INT8,Support INT4/INT8/INT16 mixed operation Support framework switching of TensorFlow/MXNet/PyTorch/Caffe
+| ISP                            | 48-Megapixel ISP,It implements a lot of algorithm accelerators, such as HDR, 3A, LSC, 3DNR, 2DNR, sharpening, dehaze, fisheye correction, gamma correction and so on. 
+| Encode&Decode                  | Decode：8K@60fps H.265/VP9/AVS2,8K@30fps H.264 AVC/MVC, 4K@60fps AV1, 1080P@60fps MPEG-2/-1/VC-1/VP8 +
+Encode：8K@30fps H.265 / H.264            
+     
+| RAM                            | 4GB/8GB/16GB（up to 32GB）64-bit LPDDR4/LPDDR4x, Defalut LPDDR4x 8GB                    
+| Flash                          | 16GB/32GB/64GB/128GB/256GB eMMC, support MicroSD card slot, Defaut eMMC 32GB           
+| Operating Systems              | Android 12.0, Ubuntu 20.04, Ubuntu 22.04, Debian11, Buildroot, Armbian, Kylin OS
+| Power supply                   | 4.0V 
+| Interface Type                 | LGA 506pin 
+| Size                           | 45mm×50mm×4.5mm(top: 2.2mm+PCB: 1.2mm +bottom: 1.1mm)
+| Operating temperature          | 0℃ ~ 70℃ 
+| Storage temperature            | -20℃ ~ 70℃
+|=====
+
+
+
+== BPI-LM7 3588 LGA 核心板功能参数
+
+[options="header",cols="1,1,1,3,3"]
+|=====
+| Category	| Function	| quantity	2+|parameter
+.4+|Video Input Interface | MIPI DC(DPHY/CPHY) combo PHY	| 2 a|	- Support to use DPHY or CPHY +
+- Each MIPI DPHY V2.0, 4lanes, 4.5Gbps per lane +
+- Each MIPI CPHY V1.1, 3lanes, 2.5Gsps per lane .2+a| Support camera input combination: 
+
+- 2 MIPI DCPHY + 4 MIPI CSI DPHY(2 lanes) 
+
+- 2 MIPI DCPHY + 1 MIPI CSI DPHY(4 lanes) + 2 MIPI CSI DPHY(2 lanes) 
+
+- 2 MIPI DCPHY + 2 MIPI CSI DPHY(4 lanes)
+| MIPI CSI DPHY	| 4	 a|
+- Each MIPI DPHY V1.2, 2lanes, 2.5Gbps per lane
+- Support to combine 2 DPHY together to one 4lanes
+| DVP | ≤1	 2+a|
+- One 8/10/12/16-bit standard DVP interface, up to 150MHz input data
+- Support BT.601/BT.656 and BT.1120 VI interface
+- Support the polarity of pixel_clk, hsync, vsync configurable
+| HDMI RX	| 1  2+a|
+- HDMI 2.0 RX PHY, 4 lanes, no sideband channels
+- Data rate support in HDMI 2.0 mode, 6Gbps down to 3.4Gbps
+- Data rate support in HDMI 1.4 mode, 3.4Gbps down to 250Mbps
+- Support HDCP2.3 and HDCP1.4
+.4+| Display interface | HDMI/eDP TX interface | ≤2	 2+a|
+- Support two HDMI/eDP TX combo interface, but HDMI and eDP can not work at the same time for each interface
+- Support x1, x2 and x4 configuration for each interface
+- Support up to 7680x4320@60Hz for HDMI TX, and 4K@60Hz for eDP
+- Support HDCP2.3 for HDMI TX, and HDCP1.3 for eDP
+| DP TX	| 2	 2+a|
+- Support 2 DP TX 1.4a interface which combo with USB3.1 Gen1
+- Support up to 7680x4320@30Hz
+- Support Single Stream Transport(SST)
+- Support HDCP2.3, HDCP 1.3
+| MIPI DSI | 2 2+a|
+- Support 2 MIPI DPHY 2.0 or CPHY 1.1 interface
+- Support 4 data lanes and 4.5Gbps maximum data rate per lane for DPHY
+- Support 3 data trios and 2.0Gsps maximum data rate per trio for CPHY
+- Support dual MIPI display: left-right mode, RGB(up to 10bit) format
+| BT.1120 video output | ≤1	2+a|
+- Support up to 1920x1080@60Hz, RGB(up to 8bit) format
+- Up to 150MHz data rate
+.3+|Audio Interface	| I2S	| ≤4 2+a|	
+- I2S0/I2S1, 8 channels TX and 8 channels RX path, audio resolution from 16bits to 32bits, Sample rate up to 192KHz
+- I2S2/I2S3, 2 channels TX and 2 channels RX path, audio resolution from 16bits to 32bits, Sample rate up to 192KHz
+- Support up to 7680x4320@60Hz for HDMI TX, and 4K@60Hz for eDP
+- Support HDCP2.3 for HDMI TX, and HDCP1.3 for eDP
+| SPDIF	| ≤2 2+a|	
+- Support two 16-bit audio data store together in one 32-bit wide location
+- Support biphase format stereo audio data output
+| PDM	 | ≤2	2+a|
+- Up to 8 channels, Audio resolution from 16bits to 24bits, Sample rate up to 192KHz
+- Support PDM master receive mode
+| Network interface	| GMAC | ≤2	2+a|
+- Support 10/100/1000-Mbps data transfer rates with the RGMII interfaces
+- Support both full-duplex and half-duplex operation
+.10+| Connectivity interface | SDIO	| ≤1	2+a|
+- Compatible with SDIO3.0 protocol
+- 4-bit data bus widths
+|USB 2.0 Host	|2	2+a|
+- Compatible with USB 2.0 specification
+- Supports high-speed(480Mbps), full-speed(12Mbps) and low-speed(1.5Mbps) mode
+|SATA	| ≤3 a|
+- Support three SATA3.0 controller, Combo PIPE PHYs with PCIe2.1/USB3.1
+- Compatible with Serial ATA 3.1 and AHCI revision 1.3.1
+.3+a|Combo PIPE PHY0 support one of the following interfaces
+
+- SATA
+- PCIe2.1
+
+Combo PIPE PHY1 support one of the following interfaces
+
+- SATA
+- PCIe2.1
+
+Combo PIPE PHY2 support one of the following interfaces
+
+- SATA
+- PCIe2.1
+- USB3.1 Gen1
+| USB3.1 Gen1	| ≤3	a|
+- Support USB3.1 Gen1,equal to USB3.2 Gen1 and USB3.0,up to 5Gbps datarate
+- Embedded 2 USB3.1 OTG interfaces which combo with DP TX (USB3OTG_0 and USB3OTG_1)
+- Embedded 1 USB3.1 Host interface which combo with Combo PIPE PHY2 (USB3OTG_2)
+| PCIe2.1	| ≤3 a|	
+- Compatible with PCI Express Base Specification Revision 2.1
+- Support 5Gbps data rate
+|PCIe3.0	|≤4	2+a|
+- Compatible with PCI Express Base Specification Revision 3.0
+- Support data rates: 2.5Gbps(PCIe1.1), 5Gbps(PCIe2.1), 8Gps(PCIe3.0)
+- Support aggregation and bifurcation with 1x 4lanes, 2x 2lanes, 4x 1lanes and 1x 2lanes + 2x 1lanes
+|SPI	|≤5	2+a|
+- Support two chip-select output
+- Support serial-master and serial-slave mode, software-configurable
+|I2C	|≤9	2+a|
+- Support 7bits and 10bits address mode
+- Data on the I2C-bus can be transferred at rates of up to 100k bits/s in the Standard-mode, up to 400k bits/s in the Fast-mode
+|UART	|≤10	2+a|
+- Embedded two 64-byte FIFO for TX and RX operation respectively
+- Support 5bit, 6bit, 7bit, 8bit serial data transmit or receive
+- Support auto flow control mode for all UART
+|CAN	|≤3	2+a|
+- Support transmit or receive CAN standard frame, extended frame
+- Support transmit or receive data frame, remote frame, overload frame, error frame and frame interval
+.3+|Others interface	|GPIO	|Multiple	2+a|
+- All of GPIOs can be used to generate interrupt
+- Support configurable drive strength
+|ADC	|≤8	2+a|
+- 8 single-ended input channels, up to 1MS/s sampling rate
+|PWM	|≤16	2+a|
+- Support 16 on-chip PWMs(PWM0~PWM15) with interrupt-based operation
+- Optimized for IR application for PWM3, PWM7, PWM11, PWM15
+|=====
+
+The interface quantities in the table are the maximum theoretical values for the hardware design or CPU.
+
+Most function pins have multiplexed relationships. For easy configuration, please refer to the Pin Function Table for the LM7.
+
+
+== BPI-LM7 硬件设计资料
+
+* BPI-LM7 Pin Function Table : https://docs.google.com/spreadsheets/d/1hcwwZbGElfGMAEaGHhuznplZgvGaaYRy/edit?gid=1984233668#gid=1984233668
+
+* BPI-LM7 package: https://drive.google.com/drive/folders/1RE9zdHrXYvkfIilVn0lBXsq9PvaCmE_I
+
+== BPI-W3 开发者套件资料资料
+
+* BPI-W3 schmatics: https://drive.google.com/drive/folders/1RE9zdHrXYvkfIilVn0lBXsq9PvaCmE_I
+* BPI-W3 PCB PADs: https://drive.google.com/drive/folders/1RE9zdHrXYvkfIilVn0lBXsq9PvaCmE_I
+* BPI-W3 2D : https://drive.google.com/drive/folders/1RE9zdHrXYvkfIilVn0lBXsq9PvaCmE_I
+* PBI-W3 SMD : https://drive.google.com/drive/folders/1RE9zdHrXYvkfIilVn0lBXsq9PvaCmE_I
+
+NOTE: 不建议使用LM7进行8K显示，因为HDMI输出8K对布局路由的要求非常高，这基本上是用核心板+基板设计方法无法实现的。
+
+TIP: 这里有一些建议供您的设计参考: +
+1 必须采用整体板设计。请注意，在整个HDMI信号路径上没有层变化。 +
+2 在阻抗控制、走线长度匹配等方面严格遵循硬件参考设计准则. +
+3 要求HDMI接口支持HDMI 2.1协议，8K兼容。
+
+= BPI-W3 采用 BPI-LM7核心板设计的开发者套件
+
+== 硬件接口定义
+
+image::/picture/banana_pi_bpi-w3_interface_800.jpg[banana_pi_bpi-w3_interface_800.jpg]
+
+
+= 开发
+
+请看 link:/en/BPI-W3/BananaPi_BPI-W3[Banana Pi BPI-W3] BPI-LM7 LGA 核心板开发者套件
+
+
+= 样品购买
+
+WARNING: SINOVOIP Aliexpress shop:
+https://www.aliexpress.us/item/3256805306000586.html?gatewayAdapt=glo2usa4itemAdapt&_randl_shipto=US
+
+WARNING: BPI Aliexpress shop : 
+https://www.aliexpress.com/item/1005005492412383.html?spm=5261.ProductManageOnline.0.0.44927197rtt5Zg
+
+WARNING: Taobao shop : https://item.taobao.com/item.htm?spm=a213gs.success.result.1.7a637a8674R4AD&id=714475598378
+
+WARNING: OEM&ODM：judyhuang@banana-pi.com
