@@ -53,15 +53,13 @@ AIM开发套件支持多种系统镜像，我们可以根据自己需求选择�
 
 NOTE: 系统镜像包括了linux内核，基本的程序等，是运行AIM开发套件必须项，所以我们需要在运行产品前为产品安装镜像
 
-== Obtaining the System Image
+== 获取系统镜像
 
-Visit the Baidu Cloud resource page to obtain the system image: 
+访问百度网盘资源介绍页面获取系统镜像: https://pan.baidu.com/share/init?surl=4qfAZM3QqgJPuFVjKRSBUw&pwd=armsBaidu[Baidu Cloud Link]
 
-Baidu Cloud Link: https://pan.baidu.com/share/init?surl=4qfAZM3QqgJPuFVjKRSBUw&pwd=arms
-
-NOTE: 1,The default account/password for the official image is armsom/armsom, linaro/linaro, root/1234. +
-2,The Debian system is adapted and compiled using the SDK provided by RK, making it more suitable for users with ISP, GPU, codec, and NPU needs. It can be burned to eMMC using RKDevTool or to an SD card using SDDiskTool. +
-3,Ubuntu, Armbian, and OpenWrt are additional options provided by ArmSoM for open-source enthusiasts.
+NOTE: 1.官方镜像的默认账号/密码为armsom/armsom，linaro/linaro，root/1234。 +
+2.Debian系统是使用RK官方提供SDK适配编译的系统，对于有 ISP、GPU、编解码、NPU需求的用户更加合适。使用RKDevTool烧录到eMMC，或者使用SDDiskTool烧录到SD卡。 +
+3.Ubuntu，Armbian，Openwrt是ArmSoM为开源爱好者提供的更多选择。
 
 ==  Burning Ubuntu, Armbian, OpenWrt Systems
 
