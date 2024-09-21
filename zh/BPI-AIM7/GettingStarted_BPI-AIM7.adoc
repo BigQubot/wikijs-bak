@@ -1,3 +1,220 @@
-== header
+= 介绍
 
-content
+BPI-AIM7采用瑞芯微 RK3588，新一代旗舰八核64位处理器，主频高达2.4GHz，6TOPS算力NPU，最高可配备32GB大内存。虽然该接口与Jetson Nano完全兼容，但PCIe接口已升级为PCIe3.0 4通道和PCIe2.1 1-lan。
+
+瑞芯微RK3588 芯片方案设计 link:/zh/BPI-AIM7/BananaPi_BPI-AIM7[Banana Pi BPI-AIM7]核心板完全兼容Jetson Nano/TX2 NX
+
+
+= 入门准备
+
+AIM 使用手册，帮助用户了解AIM开发套件的基本使用和需要的准备工作，开始使用你的AI Module，在开始使用AIM开发套件之前，请准备好以下物品
+
+== 工具准备
+
+* 电源
+* 系统安装（二选一）
+* 板载eMMC启动
+** USB Type-C数据线，从 typec 端口在AIM开发套件上写入镜像，您需要Type-C数据线连接AIM开发套件和 PC。
+* MicroSD卡/TF卡启动
+** MicroSD卡/TF卡，Class 10或以上至少8GB SDHC 和 读卡器
+** 以下是经过ArmSoM团队测试验证的高速TF卡
+*** SanDisk 32GB TF（MicroSD）（开发者推荐）
+*** SanDisk 32GB TF（MicroSD） 行车记录仪&安防监控专用存储卡（长期运行推荐）
+*** 闪迪 TF 8G Class10 microSD
+*** 闪迪 TF 128G Class10 microSD XC TF 128G 48MB/S：
+
+您可以将AIM开发套件设置为带有桌面的交互式计算机，也可以将其设置为仅可通过网络访问的无头计算机。要将AIM开发套件设置为Headless计算机，您在初次安装操作系统时配置主机名、用户帐户、网络连接和 SSH 。如果您想直接使用 AIM开发套件，则需要以下附加配件：
+
+可选选项
+
+* 键盘 & 鼠标
+* HDMI显示器和HDMI线
+* DP显示器和DP线
+* Ethernet 线（网线）
+* 摄像头模块
+** 推荐使用 camera-module1 模组。
+* LCD显示屏
+** 推荐使用 Display 10 HD。
+
+== 电源
+
+下表显示了为AIM开发套件供电所需的电源规格。您可以使用任何提供正确电源模式的高质量电源。
+
+[options="header",cols="1,2,1"]
+|=====
+|型号	|推荐电源（电压/电流）)	|供电模式
+|AIM7 + AIM-IO	|5V/3A, 9V/2A, 12V/2A, 15V/2A	|DC adapter, 2.5mm
+|AIM5 + AIM-IO	|5V/3A, 9V/2A, 12V/2A, 15V/2A	|DC adapter, 2.5mm
+|=====
+
+= 系统镜像烧录
+
+AIM开发套件支持多种系统镜像，我们可以根据自己需求选择相应的镜像下载
+
+NOTE: 系统镜像包括了linux内核，基本的程序等，是运行AIM开发套件必须项，所以我们需要在运行产品前为产品安装镜像
+
+== Obtaining the System Image
+
+Visit the Baidu Cloud resource page to obtain the system image: 
+
+Baidu Cloud Link: https://pan.baidu.com/share/init?surl=4qfAZM3QqgJPuFVjKRSBUw&pwd=arms
+
+NOTE: 1,The default account/password for the official image is armsom/armsom, linaro/linaro, root/1234. +
+2,The Debian system is adapted and compiled using the SDK provided by RK, making it more suitable for users with ISP, GPU, codec, and NPU needs. It can be burned to eMMC using RKDevTool or to an SD card using SDDiskTool. +
+3,Ubuntu, Armbian, and OpenWrt are additional options provided by ArmSoM for open-source enthusiasts.
+
+==  Burning Ubuntu, Armbian, OpenWrt Systems
+
+=== Burning to microSD using a Card Reader
+
+Burning the OS image to microSD via Etcher
+
+This method is suitable for burning the system to an SD card and is available on Windows, macOS, and Linux x64 operating systems.
+
+TIP: PREPARATION +
+1. A microSD card +
+2. An SD card reader +
+3. Download the Ubuntu/Armbian/OpenWrt system image for the respective product. +
+4. Insert the SD card into the SD card reader, then insert the SD card reader into the computer's USB port.
+
+=== Burning the OS image to microSD via Etcher
+
+* 1.Download balenaEtcher from the: https://etcher.balena.io/[balena official website], and select the appropriate host system. The Linux version is in AppImage format.
+
+* 2.Insert the MicroSD card into the MicroSD card reader.
+
+* 3.Open the Etcher window, first select "Flash from file," find the location where you downloaded the image, and double-click to select it.
+
+image::/bpi-aim7/docs_aim_1.png[docs_aim_1.png]
+
+* 4.Then click "Select target" and choose the MicroSD card you want to burn.
+* 5.Click "Flash" and wait for the burning process to complete. This will take some time.
+* 6.Once the burning is successful, it will show as pictured below:
+
+image::/bpi-aim7/docs_aim_2.png[docs_aim_2.png]
+
+TIP: BURNING FAILED +
+1. On Windows, burning the image requires running "as administrator," and some Linux users may need to use the chmod command to make it executable. +
+2. If there is an error during the burning process, please try again.
+
+=== Burning the OS image to microSD via Win32DiskImager
+
+* 1.Download the Win32DiskImager tool.
+* 2.Open Win32DiskImager.
+* 3.Click the folder icon button and then select the image you want to burn.
+* 4.After completing the above steps, click the "Write" button to start burning the image, then wait for the burning process to complete.
+
+===  Burning to eMMC via USB Cable (Windows)
+
+==== Tool Acquisition and Installation
+
+* Burning an image to eMMC requires using the RKDevTool and the RK Driver Assistant (DriverAssistant).
+
+* Click to enter the Baidu Cloud Link: https://pan.baidu.com/share/init?surl=4qfAZM3QqgJPuFVjKRSBUw&pwd=arms
+
+image::/bpi-aim7/docs_aim_3.jpeg[docs_aim_3.jpeg]
+
+====  Installing DriverAssistant
+
+* Unzip the DriverAssistant software package and double-click DriverInstall.exe to enter the driver installation interface.
+
+* Click "Install Driver" to start installing the driver. If you are unsure whether a previous version of the driver was installed, first click "Uninstall Driver" to remove the old version, then click "Install Driver."
+
+image::/bpi-aim7/docs_aim_4.png[docs_aim_4.png]
+
+==== Installing RKDevTool
+* RKDevTool is a dedicated USB burning tool for Rockchip, available on the Windows platform, which can be used to download system images to the product via the USB interface.
+
+* After unzipping the package, you can use it without installation. Double-click RKDevTool.exe to enter the software interface.
+
+* The software mainly has three sections: Download Image (burn image by address), Upgrade Firmware, and Advanced Functions.
+
+==== Burning Image in MASKROM/Loader Mode
+
+This mode is suitable for products that have not yet been burned with a system or where the burned system is damaged and cannot run (suitable for all situations).
+
+Open the RKDevTool burning tool and set the product to burn mode.
+
+Entering Loader Mode
+
+* 1. Prepare a Type-C cable for burning the image.
+* 2. Disconnect all cables that might power the product, such as the power cable, USB cable, etc.
+* 3. Use a Type-C cable to connect the product's OTG interface to a USB port on the computer, then open the RKDevTool software.
+* 4. Short pin 10 (FC REC) and pin 9 (GND) on the 12-pin connector, then power the product via DC.
+* 5. Wait for the software to prompt "Loader device found" (as shown below), then release the buttons.
+* 6. If unsuccessful, repeat steps 2-5.
+
+
+Entering MASKROM Mode
+
+* 1. Prepare a Type-C cable for burning the image.
+* 2. Disconnect all cables that might power the product, such as the power cable, USB cable, etc.
+* 3. Use a Type-C cable to connect the product's OTG interface to a USB port on the computer, then open the RKDevTool software.
+* 4. Short the solder points on the core board, then power the product via DC.
+* 5. Wait for the software to prompt "Loader device found" (as shown below), then release the buttons.
+* 6. If unsuccessful, repeat steps 2-5.
+
+image::/bpi-aim7/docs_aim_5.jpg[docs_aim_5.jpg]
+
+Start burning the system:
+
+image::/bpi-aim7/docs_aim_6.png[docs_aim_6.png]
+
+* 1.Select the "Download Image" option.
+* 2.Confirm that the board has entered MASKROM/Loader mode.
+* 3.Click the blank cells to select the MiniLoaderAll and Image files to use. The corresponding MiniLoaderAll and Image files are stored on Baidu Cloud.
+* 4.In the "Storage" option, select the target medium "EMMC
+
+== Burning Debian System
+
+=== Using a Card Reader to Burn to microSD
+
+Installing SDDiskTool
+
+To burn the image to eMMC, you need to use the SDDiskTool_version.exe tool.
+
+Click the following link to access it: https://pan.baidu.com/share/init?surl=4qfAZM3QqgJPuFVjKRSBUw&pwd=arms[Baidu Cloud Link]
+
+image::/bpi-aim7/docs_aim_7.png[docs_aim_7.png]
+
+After extracting the compressed file, you can use the software without installation. Simply double-click the SD_Firmware_Tool.exe file to open the tool.
+
+=== Burning the Image
+
+Open the SDDiskTool executable file (SD_Firmware_Tool.exe) and insert the SD card.
+
+First, select the correct SD card you want to burn. Then, set the function mode to SD Boot and choose the image you want to burn. Finally, click the "Create" button to start creating the bootable SD card.
+
+image::/bpi-aim7/docs_aim_8.png[docs_aim_8.png]
+
+Please be patient as the SD card is being burned. The larger the image, the longer the burning process will take.
+
+NOTE: 1.If you encounter an error saying it cannot burn the image after clicking "Create," try closing the error window and starting the creation process again. If that doesn’t work, try formatting the SD card. +
+2.The firmware downloaded from Baidu Cloud must be extracted before it can be loaded. On a Windows PC, you need to run the tool with administrator privileges.
+
+=== Using a USB Cable to Burn to eMMC
+
+We will use the RKDevTool to burn the image and put the product into burning mode.
+
+* 1. Prepare a Type-C cable for burning the image.
+* 2. Disconnect all cables that might power the product, such as the power cord and USB cables.
+* 3. Connect one end of the Type-C cable to the OTG port on the product and the other end to the USB port on the computer, then open the RKDevTool software.
+* 4. Hold down the Recovery button and power the product using the DC supply.
+* 5. Wait for the software to indicate that a LOADER device has been detected (as shown below), then release the button.
+* 6. If unsuccessful, repeat steps 2-5.
+
+image::/bpi-aim7/docs_aim_9.png[docs_aim_9.png]
+
+image::/bpi-aim7/docs_aim_10.jpg[docs_aim_10.jpg]
+
+The burning progress will be shown on the right. Once completed, the tool will notify you:
+
+image::/bpi-aim7/docs_aim_11.png[docs_aim_11.png]
+
+TIP: TROUBLESHOOTING BURNING FAILURES +
+If you encounter a "Download Boot Fail" error or other errors during the burning process (as shown below), it is usually due to a poor USB connection, low-quality cables, or insufficient power from the computer’s USB port. Try replacing the USB cable or using a different USB port on the computer to troubleshoot.
+
+NOTE: WHAT IS THE DIFFERENCE BETWEEN MASKROM MODE AND LOADER MODE? +
+Maskrom Mode: When the Flash is not yet burned with firmware, the chip will enter Maskrom mode for the initial firmware burning. During development, if the Loader mode fails to start properly, Maskrom mode can also be used to burn the firmware. +
+Loader Mode: This mode is triggered during the uboot startup when a specific pin is pressed. In Loader mode, firmware burning and upgrading can be performed. You can also burn individual partition images for easier debugging.
+
