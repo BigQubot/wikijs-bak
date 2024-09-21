@@ -85,6 +85,13 @@ link:/en/BPI-W3/Photo_BPI-W3[Banana Pi BPI-W3 Product photo gallery]
 * BPI－W3 2D文件： https://pan.baidu.com/share/init?surl=e0YIAYYj4hwJQxsiJEKkcw&pwd=arms
 * BPI-W3 SWD文件： https://pan.baidu.com/share/init?surl=voD9aF5iUpnYs4saAi6ITQ&pwd=arms
 
+NOTE: 不建议使用LM7进行8K显示，因为HDMI输出8K对布局路由的要求非常高，这基本上是用核心板+基板设计方法无法实现的。
+
+TIP: 这里有一些建议供您的设计参考: +
+1 必须采用整体板设计。请注意，在整个HDMI信号路径上没有层变化。 +
+2 在阻抗控制、走线长度匹配等方面严格遵循硬件参考设计准则. +
+3 要求HDMI接口支持HDMI 2.1协议，8K兼容。
+
 == BPI-W3 GPIO 引脚定义
 
 === BPI-W3 40PIN GPIO
