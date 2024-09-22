@@ -90,28 +90,29 @@ image::/bpi-cm5_pro/banana_pi_bpi-cm5_pro_block_diagram.png[banana_pi_bpi-cm5_pr
 
 == IO 底板硬件规格
 
-The cm5-io board is an expansion board specifically designed for the CM5 computing module, aimed at assisting in system and embedded board development.
+BPI-CM5 Pro IO板是专为CM5计算模块设计的扩展板，旨在帮助完成系统和嵌入式板开发。
 
-* 1x HDMI output, 1x DP output 
-* 4x USB 3.0 Type-A 
-* Gigabit Ethernet RJ45 with PoE support 
-* Firmware flashing and device mode via USB Type-C 
-* GPIO: 40-pin header • Power connector: DC Barrel jack for 12V power input 
-* Expansion: M.2 (M-key, supports PCIe), microSD 
-* MIPI DSI: 1x 4-lane MIPI DSI, supports up to 4K@60fps (x4) 
-* MIPI CSI0: 1x 4-lane MIPI CSI, each lane up to 2.5Gbps 
-* MIPI CSI1: 1x 2-lane MIPI CSI, each lane up to 2.5Gbps 
-* Others: HPOUT, FAN, VRTC 
-* Dimensions: 100 x 80 x 29 mm (3.94 x 3.15 x 1.14 inches) 
-* Weight: 200g
+* 1x HDMI输出, 1x DP输出
+* 4x USB 3.0 Type-A
+* 支持 PoE 的千兆以太网 RJ45
+* 通过USB Type-C进行固件闪存和设备模式
+* GPIO：40针扩展头
+* 电源连接器：DC Barrel插孔，用于12V电源输入
+* 扩展：M.2（M键，支持PCIe）、microSD
+* MIPI DSI：1x 4通道MIPI DSI，支持最高4K@60fps（x4）
+vMIPI CSI0：1x 4通道MIPI CSI，每条通道最高2.5Gbps
+* MIPI CSI1：1x 2通道MIPI CSI，每条通道最高2.5Gbps
+* 其他：HPOUT,FAN,VRTC
+* 尺寸：100 x 80 x 29 毫米 (3.94 x 3.15 x 1.14 英寸)
+* 重量:200g 
 
-== Hardware Interfaces
+== IO 底板硬件接口
 
 image::/bpi-cm5_pro/bpi-cm5-pro-io_interface.jpg[bpi-cm5-pro-io_interface.jpg]
 
-== GPIO define
+== GPIO 引脚定义
 
-.40 PIN GPIO define
+.40 PIN GPIO 引脚定义
 [%collapsible]
 ====
 [options="header",cols="1,4,1,1,4,1"]
@@ -141,7 +142,7 @@ image::/bpi-cm5_pro/bpi-cm5-pro-io_interface.jpg[bpi-cm5-pro-io_interface.jpg]
 |====
 ====
 
-.FAN GPIO define
+.风扇 GPIO 引脚定义
 [%collapsible]
 ====
 0.8mm connector(CN32)
@@ -155,7 +156,7 @@ image::/bpi-cm5_pro/bpi-cm5-pro-io_interface.jpg[bpi-cm5-pro-io_interface.jpg]
 |====
 ====
 
-.HPOUT
+.HPOUT引脚定义
 [%collapsible]
 ====
 0.8mm connector(CN3)
@@ -168,7 +169,7 @@ image::/bpi-cm5_pro/bpi-cm5-pro-io_interface.jpg[bpi-cm5-pro-io_interface.jpg]
 |====
 ====
 
-.VRTC
+.VRTC 引脚定义
 [%collapsible]
 ====
 0.8mm connector(J27)
@@ -181,7 +182,7 @@ image::/bpi-cm5_pro/bpi-cm5-pro-io_interface.jpg[bpi-cm5-pro-io_interface.jpg]
 ====
 
 
-.PoE In(J5)
+.PoE In(J5) 网络供电功能引脚定义
 [%collapsible]
 ====
 [options="header",cols="1,2,2"]
@@ -194,9 +195,9 @@ image::/bpi-cm5_pro/bpi-cm5-pro-io_interface.jpg[bpi-cm5-pro-io_interface.jpg]
 |====
 ====
 
-= Development
+= 开发
 
-== Source code
+== 软件源代码
 
 * Armbian : https://github.com/armbian/build
 
@@ -206,9 +207,9 @@ image::/bpi-cm5_pro/bpi-cm5-pro-io_interface.jpg[bpi-cm5-pro-io_interface.jpg]
 
 * BPI-CM5 Pro RKNN-LLM Code repository: https://github.com/ArmSoM/rknn-llm
 
-== Resources
+== 参考资料
 
-= Image
+= 镜像发布
 
 == Android14 
 
@@ -234,6 +235,6 @@ This project aims to provide a default Ubuntu experience for Rockchip RK3588 dev
 
 link: https://github.com/Joshua-Riek/ubuntu-rockchip/releases
 
-= Supply Declaration
+= 供货声明
 
-BPI-CM5 Pro will remain in production until at least August 2034.
+BPI-CM5 Pro 将至少生产到 2034 年 8 月。
