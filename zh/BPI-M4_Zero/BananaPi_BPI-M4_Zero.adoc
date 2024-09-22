@@ -61,12 +61,11 @@ link:/en/BPI-M4_Zero/Photo_BPI-M4_Zero[Banana Pi BPI-M4 Zero Product photo galle
 
 == BPI-M4 Zero VS Raspberry Pi Zero
 
-
-
-
 == GPIO 引脚定义
 
-=== BPI-M4 Berry 40PIN GPIO
+.BPI-M4 Berry 40PIN GPIO 引脚定义
+[%collapsible]
+====
 [options="header",cols="1,2,2,2",width="70%"]
 |=====
 4+| **40 PIN GPIO of Banana pi BPI-M4 Berry**
@@ -112,8 +111,11 @@ link:/en/BPI-M4_Zero/Photo_BPI-M4_Zero[Banana Pi BPI-M4 Zero Product photo galle
 | 39 | GND | |
 | 40 | H_IIS0_DOUT0 | PI3 | DMIC_D2
 |=====
+====
 
-=== 24-pin FPC
+.24-pin FPC 引脚定义
+[%collapsible]
+====
 [options="header",cols="1,1",width="70%"]
 |=====
 2+| **24 PIN FPC define and GPIO Alternative Functions Assignments**
@@ -143,16 +145,21 @@ link:/en/BPI-M4_Zero/Photo_BPI-M4_Zero[Banana Pi BPI-M4 Zero Product photo galle
 | 23 | USB2_DM	
 | 24 | GND	   	
 |=====
+====
 
-=== BPI-M4 Berry Debug UART
 
+.BPI-M4 Berry Debug UART 引脚定义
+[%collapsible]
+====
 |=====
 |1|GND
 |2|UART0_RX
 |3|UART0_TX
 |=====
+====
 
-= 发展
+= 开发
+
 == 源代码
 === Android
 === Android
