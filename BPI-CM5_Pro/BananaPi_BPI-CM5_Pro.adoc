@@ -117,8 +117,9 @@ image::/bpi-cm5_pro/bpi-cm5-pro-io_interface.jpg[bpi-cm5-pro-io_interface.jpg]
 
 == GPIO define
 
-=== 40 PIN GPIO define
-
+.40 PIN GPIO define
+[%collapsible]
+====
 [options="header",cols="1,4,1,1,4,1"]
 |====
 6+| 40 GPIO define of Banana Pi BPI-CM5 Pro
@@ -144,9 +145,11 @@ image::/bpi-cm5_pro/bpi-cm5-pro-io_interface.jpg[bpi-cm5-pro-io_interface.jpg]
 |-|	-	|37|38|-|	-
 |-	|GND	|39|40|-	|-
 |====
+====
 
-=== FAN GPIO define
-
+.FAN GPIO define
+[%collapsible]
+====
 0.8mm connector(CN32)
 
 [options="header",cols="1,2,2"]
@@ -156,9 +159,11 @@ image::/bpi-cm5_pro/bpi-cm5-pro-io_interface.jpg[bpi-cm5-pro-io_interface.jpg]
 |2	|GND	|GND
 |3	|PWM	|PWM control
 |====
+====
 
-=== HPOUT
-
+.HPOUT
+[%collapsible]
+====
 0.8mm connector(CN3)
 [options="header",cols="1,2,2"]
 |====
@@ -167,9 +172,11 @@ image::/bpi-cm5_pro/bpi-cm5-pro-io_interface.jpg[bpi-cm5-pro-io_interface.jpg]
 |2	|AOL	|left channel
 |3	|GND	|GND
 |====
+====
 
-=== VRTC
-
+.VRTC
+[%collapsible]
+====
 0.8mm connector(J27)
 [options="header",cols="1,2,2"]
 |====
@@ -177,8 +184,12 @@ image::/bpi-cm5_pro/bpi-cm5-pro-io_interface.jpg[bpi-cm5-pro-io_interface.jpg]
 |1	|+	|Positive pole
 |2	|-	|Negative pole
 |====
+====
 
-=== PoE In(J5)
+
+.PoE In(J5)
+[%collapsible]
+====
 [options="header",cols="1,2,2"]
 |====
 |Pin	|Assignment	|Description
@@ -187,6 +198,8 @@ image::/bpi-cm5_pro/bpi-cm5-pro-io_interface.jpg[bpi-cm5-pro-io_interface.jpg]
 |3	|VC3	|TX2
 |4	|VC4	|RX2
 |====
+====
+
 = Development
 
 == Source code
