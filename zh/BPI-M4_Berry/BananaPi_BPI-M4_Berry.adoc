@@ -59,10 +59,11 @@ link:/en/BPI-M4_Berry/Photo_BPI-M4_Berry[Banana Pi BPI-M4 Berry Product photo ga
 | 重量                               | 60g                                            
 |=====
 
-== BPI-M4 Berry VS Raspberry Pi 4B
-
+.BPI-M4 Berry VS Raspberry Pi 4B
+[%collapsible]
+====
 [options="header"]
-|=====================================================================================================================================================================
+|=====
 | module           | Raspberry Pi 4B                                                         | Banana Pi BPI-M4 Berry                                                 
 | CPU              | 1.5GHz Quad-Core BroadcomBCM2711(Cortex A72)                            | H618,64 Bit Cortex™-A53 Quad-Core                                      
 | GPU              | 500 MHz VideoCore Vl                                                    | ARM Mali G31 GPU                                                       
@@ -83,13 +84,16 @@ link:/en/BPI-M4_Berry/Photo_BPI-M4_Berry[Banana Pi BPI-M4 Berry Product photo ga
 | LED              | Power led Status led                                                    | Power led  Status led  Wifi led                                        
 | Power            | DC 5V/3A                                                                | DC 5V/2A                                                               
 | Board Size       | 88mmx58mm                                                               | 88mmx58mm                                                              
-|=====================================================================================================================================================================
+|====
+
+====
 
 
 == GPIO 引脚定义
 
-=== BPI-M4 Berry 40PIN GPIO
-
+.BPI-M4 Berry 40Pin GPIO 引脚定义
+[%collapsible]
+====
 [options="header",cols="1,2,3,3,3,3",width="70%"]
 |=====
 6+| **40 PIN GPIO of Banana pi BPI-M4 Berry**
@@ -135,16 +139,20 @@ link:/en/BPI-M4_Berry/Photo_BPI-M4_Berry[Banana Pi BPI-M4 Berry Product photo ga
 | 39      | GND      |              |              |           |              
 | 40      | PG13     | H_I2S2_DOUT0 | H_I2S2_DIN1  |           |              
 |=====
+====
 
-=== BPI-M4 Berry 调试接口
-
+.BPI-M4 Berry 调试接口引脚定义
+[%collapsible]
+====
 |=====
 |1|GND
 |2|UART0_RX
 |3|UART0_TX
 |=====
+====
 
-= 发展
+= 开发
+
 == 源代码
 === Android
 TIP: BPI-H618-Android12-Code
