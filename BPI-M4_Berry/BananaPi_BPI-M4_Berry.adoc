@@ -59,8 +59,9 @@ link:/en/BPI-M4_Berry/Photo_BPI-M4_Berry[Banana Pi BPI-M4 Berry Product photo ga
 | Weight                            | 60g                                            
 |=====
 
-== BPI-M4 Berry VS Raspberry Pi 4B
-
+.BPI-M4 Berry VS Raspberry Pi 4B
+[%collapsible]
+====
 [options="header"]
 |=====================================================================================================================================================================
 | module           | Raspberry Pi 4B                                                         | Banana Pi BPI-M4 Berry                                                 
@@ -83,13 +84,13 @@ link:/en/BPI-M4_Berry/Photo_BPI-M4_Berry[Banana Pi BPI-M4 Berry Product photo ga
 | LED              | Power led Status led                                                    | Power led  Status led  Wifi led                                        
 | Power            | DC 5V/3A                                                                | DC 5V/2A                                                               
 | Board Size       | 88mmx58mm                                                               | 88mmx58mm                                                              
-|=====================================================================================================================================================================
-
+|====
+====
 
 == GPIO Pin Define
-
-=== BPI-M4 Berry 40PIN GPIO
-
+.BPI-M4 Berry 40PIN GPIO
+[%collapsible]
+====
 image::/bpi-m4berry/bananapi_m4_berry_gpio_picture.png[bananapi_m4_berry_gpio_picture.png]
 
 [options="header",cols="1,2,3,3,3,3",width="70%"]
@@ -137,15 +138,17 @@ image::/bpi-m4berry/bananapi_m4_berry_gpio_picture.png[bananapi_m4_berry_gpio_pi
 | 39      | GND      |              |              |           |              
 | 40      | PG13     | H_I2S2_DOUT0 | H_I2S2_DIN1  |           |              
 |=====
+====
 
-=== BPI-M4 Berry Debug UART
-
+.BPI-M4 Berry Debug UART
+[%collapsible]
+====
 |=====
 |1|GND
 |2|UART0_RX
 |3|UART0_TX
 |=====
-
+====
 = Development
 
 == Source Code
