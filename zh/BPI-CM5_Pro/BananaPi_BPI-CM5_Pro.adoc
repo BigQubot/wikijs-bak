@@ -42,3 +42,198 @@ link:/en/BPI-CM5_Pro/Photo_BPI-CM5_Pro[香蕉派 BPI-CM5 Pro Product photo galle
 == 产品框图
 
 image::/bpi-cm5_pro/banana_pi_bpi-cm5_pro_block_diagram.png[banana_pi_bpi-cm5_pro_block_diagram.png]
+
+== 硬件规格
+
+[options="header",cols="1,5"]
+|====
+2+|Banana Pi BPI-CM5 Pro 硬件规格表
+|栏目 | 功能说明 
+|CPU	| RK3576 Quad-core Cortex-A72@2.2GHz and Quad-core Cortex-A53@1.8GHz, 8nm process
+.2+|GPU	| ARM Mali G52 MC3 GPU
+|Fully compatible with OpenGL ES 1.1, 2.0, and 3.2, OpenCL up to 2.0, and Vulkan 1.1. Dedicated 2D hardware engine with MMU maximizes display performance and provides very smooth operation.
+.3+|NPU |	6 TOPS@INT8
+|Supports INT4, INT8, INT16, FP16, BF16, and TF32 mixed precision
+|Supports deep learning frameworks: TensorFlow, Caffe, Tflite, Pytorch, Onnx, NNAndroid NN, etc.
+.2+|VPU/Codec	
+| Hardware decoding: Supports H.264, H.265, VP9, AV1, and AVS2 up to 8K@30fps or 4K@120fps, and high-quality JPEG decoding up to 4K@60fps.
+|Hardware encoding: Supports H.264 and H.265，JPEG up to 4K@60fps.
+|ISP	|ISP, 16MP
+|RAM	|8GB/16GB (up to 16GB) 32-bit LPDDR5, default LPDDR5 8GB
+.2+|Flash	|32/64/128GB eMMC, default eMMC 64GB
+|Supports MicroSD card expansion
+.3+|Display	
+|1x HDMI OUT 2.1, supports 4K@120fps
+|1x MIPI DSI resolution up to 2K@60fps
+|1x DP 1.4 resolution up to 4K@120fps
+.2+|Camera	
+|1x 4Lanes MIPI CSI, up to 2.5Gbps per lane
+|1x 2Lanes MIPI CSI, up to 2.5Gbps per lane
+.2+|Network	
+|1x GMAC, provides RGMII/RMII interface
+|Supports 10/100/1000Mbps data transfer rates
+|PCIe	| 2x PCIe 2.0 1-lane
+.2+|USB	
+|1x USB 3.0
+|1x USB 2.0
+.3+|Audio	
+|SPDIF_Tx x1
+|AUDIO_R/L x1
+|i2s x1
+.3+|Others	
+｜UART DEBUG x1
+｜FAN x1
+｜RTC x1
+|====
+
+= BPI-CM5 Pro IO 底板
+
+== IO 底板硬件规格
+
+The cm5-io board is an expansion board specifically designed for the CM5 computing module, aimed at assisting in system and embedded board development.
+
+* 1x HDMI output, 1x DP output 
+* 4x USB 3.0 Type-A 
+* Gigabit Ethernet RJ45 with PoE support 
+* Firmware flashing and device mode via USB Type-C 
+* GPIO: 40-pin header • Power connector: DC Barrel jack for 12V power input 
+* Expansion: M.2 (M-key, supports PCIe), microSD 
+* MIPI DSI: 1x 4-lane MIPI DSI, supports up to 4K@60fps (x4) 
+* MIPI CSI0: 1x 4-lane MIPI CSI, each lane up to 2.5Gbps 
+* MIPI CSI1: 1x 2-lane MIPI CSI, each lane up to 2.5Gbps 
+* Others: HPOUT, FAN, VRTC 
+* Dimensions: 100 x 80 x 29 mm (3.94 x 3.15 x 1.14 inches) 
+* Weight: 200g
+
+== Hardware Interfaces
+
+image::/bpi-cm5_pro/bpi-cm5-pro-io_interface.jpg[bpi-cm5-pro-io_interface.jpg]
+
+== GPIO define
+
+.40 PIN GPIO define
+[%collapsible]
+====
+[options="header",cols="1,4,1,1,4,1"]
+|====
+6+| 40 GPIO define of Banana Pi BPI-CM5 Pro
+|GPIO number	|Function|	Pin	|Pin	|Function	|GPIO number
+| |+3.3V|1 |2 |+5.0V	|
+|140	|CAN1_RX_M2 / I2C3_SDA_M0 / UART2_RX_M1 / GPIO4_B4_d|3|4|+5.0V	|
+|141	|CAN1_TX_M2 / I2C3_SCL_M0 / UART2_TX_M1 / GPIO4_B5_d|5|6|GND	|-
+|20	|PWM0_CH0_M0 / GPIO0_C4_d	|7|8|UART0_TX_M0/ GPIO0_D4_u	28|
+|-	|GND|9|10|UART0_RX_M0/ GPIO0_D5_u	29|
+|-	|-	|11|12|-	|-
+|-	|-	|13|14|GND	|
+|-	|-	|15|16|GPIO2_D1_d / UART4_RX_M0 / I2C6_SDA_M2 / PWM2_CH1_M2	|
+|89 |+3.3V	|17|18|GPIO2_D0_d / UART4_TX_M0 / I2C6_SCL_M2 / PWM2_CH0_M2	|88
+|97	|I2C7_SDA_M1 / SPI3_MOSI_M0 / UART3_RX_M0 / GPIO3_A1_d	|19|20|GND	|-
+|98	|CAN1_TX_M3 / SPI3_MISO_M0 / SPDIF_RX1_M1 / UART3_CTSN_M0 / SPDIF_RX1_M1/ GPIO3_A2_d|21|22|SARADC_VIN4|-
+|96	|I2C7_SCL_M1 / SPI3_CLK_M0 / UART3_TX_M0 / GPIO3_A0_d	|23|24|GPIO3_A3_d / CAN1_RX_M3 / SPI3_CSN0_M0 / UART3_RTSN_M0 / SPDIF_TX1_M1	|99
+|-	|GND	|25|26|-	|-
+|111	|I2C4_SDA_M3 / UART2_RX_M2 / GPIO3_B7_d	|27|28|GPIO2_D6_d / PWM10_M0 / GPIO3_B5_d	|109
+|112	|I2C4_SCL_M3 / UART2_TX_M2 / GPIO3_C0_d	|29|30|GND	|-
+|126	|SPI3_MOSI_M1 / PWM2_CH6_M3 / GPIO3_D6_d|31|32|-	|-
+|-|	-	|33|34|GND|	-
+|-|	-	|35|36|-|	-
+|-|	-	|37|38|-|	-
+|-	|GND	|39|40|-	|-
+|====
+====
+
+.FAN GPIO define
+[%collapsible]
+====
+0.8mm connector(CN32)
+
+[options="header",cols="1,2,2"]
+|====
+|Pin	|Assignment	|Description
+|1	|VCC_5V0	|5V Power ouput
+|2	|GND	|GND
+|3	|PWM	|PWM control
+|====
+====
+
+.HPOUT
+[%collapsible]
+====
+0.8mm connector(CN3)
+[options="header",cols="1,2,2"]
+|====
+|Pin	|Assignment	|Description
+|1	|AOR	|right channel
+|2	|AOL	|left channel
+|3	|GND	|GND
+|====
+====
+
+.VRTC
+[%collapsible]
+====
+0.8mm connector(J27)
+[options="header",cols="1,2,2"]
+|====
+|Pin	|Assignment	|Description
+|1	|+	|Positive pole
+|2	|-	|Negative pole
+|====
+====
+
+
+.PoE In(J5)
+[%collapsible]
+====
+[options="header",cols="1,2,2"]
+|====
+|Pin	|Assignment	|Description
+|1	|VC1	|TX1
+|2	|VC2	|RX1
+|3	|VC3	|TX2
+|4	|VC4	|RX2
+|====
+====
+
+= Development
+
+== Source code
+
+* Armbian : https://github.com/armbian/build
+
+* BPI-CM5 Pro Kernel : https://github.com/armbian/linux-rockchip
+
+* BPI-CM5 Pro uboot : https://github.com/rockchip-linux/u-boot
+
+* BPI-CM5 Pro RKNN-LLM Code repository: https://github.com/ArmSoM/rknn-llm
+
+== Resources
+
+= Image
+
+== Android14 
+
+Make your device more personal, protected and accessible with the newest OS upgrade. Improved photo quality, new themes and AI generated wallpapers. Privacy updates for your health, safety and data. And expanded accessibility features.
+
+* google drive: https://drive.google.com/drive/folders/1mzg_qaYFtXKfHLTMN5ILX9ZZBBGfT_xQ
+
+== Debian linux
+
+debian12 for BPI-CM5 Pro: Debian 12 brings thousands of new and updated software packages, supports multiple desktop environments, and processor architectures including 32-bit and 64-bit PC, ARM, MIPS, and PowerPC. However, one of the biggest changes is the upgrade of the Linux kernel from version 5.10 to 6.1 LTS.
+
+* google drive: https://drive.google.com/drive/folders/164aAYUQe8yGcXjiZs9kjpnntF-eigywX
+
+== Armbian 
+
+Armbian is a computing build framework that allows users to create ready-to-use images with working kernels in variable user space configurations for various single board computers. It provides various pre-build images for some supported boards. These are usually Debian or Ubuntu flavored.
+
+* link : https://github.com/armbian/community/releases
+
+== ubuntu-rockchip 
+
+This project aims to provide a default Ubuntu experience for Rockchip RK3588 devices. Get started today with an Ubuntu Server or Desktop image for a familiar environment.
+
+link: https://github.com/Joshua-Riek/ubuntu-rockchip/releases
+
+= Supply Declaration
+
+BPI-CM5 Pro will remain in production until at least August 2034.
