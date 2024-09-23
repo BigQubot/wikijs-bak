@@ -422,7 +422,7 @@ image::/bpi-m4berry/banana_pi_bpi-m4_berry_temp1.jpg[banana_pi_bpi-m4_berry_temp
 . Prepare a USB disk that has been partitioned normally and insert it into the USB interface of BPI-M4 Berry.
 . In the Ubuntu desktop version, you can see that the USB disk has been recognized and can be opened in the file manager, or partition management can be performed through the GParted tool.
 +
-image::/picture/bpi_m4_berry_ubuntu_3.jpg[bpi_m4_berry_ubuntu_3.jpg]
+image::/bpi-m4berry/banana_pi_bpi-m4_berry_usb1.jpg.jpg[banana_pi_bpi-m4_berry_usb1.jpg.jpg]
 
 . In the terminal, mount the USB disk to the local directory:
 ```bash
