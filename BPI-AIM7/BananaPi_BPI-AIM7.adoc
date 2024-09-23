@@ -62,6 +62,36 @@ link:/en/BPI-AIM7/Photo_BPI-AIM7[Banana Pi BPI-AIM7 Product photo gallery]
 
 == Hardware Spec
 
+[options="header",cols="1,2"]
+|=====
+|Category|	Function
+.3+|Display	
+|1x DP interface
+|1x HDMI/eDP combo interface
+|Up to 7680 x 4320@60 Hz for HDMI and DP, and 3840 x 2160@60 Hz for eDP
+|Camera	|3x 4-lane or 5x 2-lane MIPI CSI interfaces, each lane up to 2.5Gbps
+.2+|Network	
+|1 GMAC, with RGMII / RMII interface
+|Supports 10/100/1000Mbps data transfer rate
+.2+|PCIe	
+|PCIe 3.0 x4: Each channel supports up to 8Gbps data rate, supports 4 configuration modes: 1x4, 2x2, 4x1, 1x2+2x1, each channel supports up to 8Gbps data rate
+|PCIe 2.1 x1: Each PCIe 2.1 interface supports 1 lane, up to 5Gbps data rate
+.2+|USB	
+|1x USB 3.0 (Gen1)
+|3x USB 2.0
+.7+|Others	
+|UART DEBUG x1, UART+flow control x2
+|SPI x2
+|I2C x4
+|CAN x1
+|I2S x2
+|SD 4.0, SDHOST 4.0, and SDIO 3.0
+|PWM x3, multiple GPIOs
+|=====
+
+.BPI-AIM7(Rockchip) VS	Jetson Nano (NVIDIA)
+[%collapsible]
+====
 [options="header",cols="1,2,2"]
 |=====
 3+| **Specifications	BPI-AIM7(Rockchip) VS	Jetson Nano (NVIDIA)**
@@ -84,12 +114,14 @@ link:/en/BPI-AIM7/Photo_BPI-AIM7[Banana Pi BPI-AIM7 Product photo gallery]
 |OS Support	|Support debian, ubuntu, armbian, kernel 5.10|	NVIDIA JetPack software suite
 |Size	|69.6 mm x 45 mm	|69.6 mm x 45 mm
 |Form Factor|	260-pin edge connector	|260-pin edge connector
-
 |=====
+====
 
 == GPIO Pin Define
 
-=== All Pin define
+.All Pin define
+[%collapsible]
+====
 [options="header",cols="2,1,1,2",width="70%"]
 |=====
 |BPI-AIM7 function|	Pin number	|Pin number	|BPI-AIM7 function
@@ -224,9 +256,11 @@ link:/en/BPI-AIM7/Photo_BPI-AIM7[Banana Pi BPI-AIM7 Product photo gallery]
 |VDD_IN_7	|257	|258|	VDD_IN_8
 |VDD_IN_9	|259	|260|	VDD_IN_10
 |=====
+====
 
-=== Video input interface
-
+.Video input interface
+[%collapsible]
+====
 Two MIPI DC (DPHY/CPHY) combo PHY
 
 * Support USE DPHY or CPHY
@@ -238,7 +272,7 @@ Four MIPI CSI DPHY
 * Each MIPI DPHY V1.2, 2 lanes, 2.5 Gbps per lane
 * Support combine 2 DPHY together to one 4-lan
 
-==== CSI pin descriptions:
+ CSI pin descriptions:
 
 [options="header",cols="1,2,2,2",width="90%"]
 |=====
@@ -278,9 +312,11 @@ Four MIPI CSI DPHY
 |64	|MIPI_DPHY0_RX_D3N|	Camera, CSI 4 Data 3–	|Input	MIPI D/C-PHY
 |66	|MIPI_DPHY0_RX_D3P|	Camera, CSI 4 Data 3+	|Input	MIPI D/C-PHY
 |=====
+====
 
-==== Camera control pin descriptions
-
+.Camera control pin descriptions
+[%collapsible]
+====
 [options="header",cols="1,2,4,2,2",width="90%"]
 |=====
 |Pin	|Pin name	|Signal description	|Direction	|Pin type
@@ -290,9 +326,11 @@ Four MIPI CSI DPHY
 |122	|CAM1_MCLK	|Camera 1 Reference Clock|	Output	|CMOS – 1.8V
 |120	|CAM1_PWDN	|Camera 1 Powerdown or GPIO	|Output	|CMOS – 1.8V
 |=====
+====
 
-=== Video output processor
-
+.Video output processor
+[%collapsible]
+====
 HDMI/eDP TX interface
 
 * Support x1, x2 and x4 configuration for each interface
@@ -364,9 +402,11 @@ MIPI DSI interface
 |96	|HDMI_TX0_HPD_M0	|HDMI/EDP Hot Plug Detect|	Input	|Open Drain–1.8V
 |94	|HDMI_TX0_CEC_M0	|HDMI/EDP CEC	|Bidir	|Open Drain–3.3V
 |=====
+====
 
-=== SDIO
-
+.SDIO
+[%collapsible]
+====
 * Compatible with SDIO3.0 protocol
 * 4-bit data bus width
 
@@ -383,7 +423,11 @@ SDIO pin descriptions
 |225	|SDMMC0_D3	|SD Card or SDIO Data 3	|Bidir	|CMOS – 1.8V/3.3V
 |=====
 
-=== GMAC
+====
+
+.GMAC
+[%collapsible]
+====
 Gigabit Ethernet pin descriptions
 
 [options="header",cols="1,2,4,1,1",width="90%"]
@@ -400,8 +444,11 @@ Gigabit Ethernet pin descriptions
 |188	|PHY0_LED1/CFG_LDO0	|Ethernet Link LED (Green)	|Output	|-
 |194	|PHY0_LED2/CFG_LDO1	|Ethernet Activity LED (Yellow)	|Output	|-
 |=====
+====
 
-=== USB3.0
+.USB 3.0
+[%collapsible]
+====
 
 * Embedded two USB 3.0 OTG interfaces which combo with DP TX (USB3OTG_0 and USB3OTG_1)
 * Embedded one USB 3.0 Host interface which combos with Combo PIPE PHY2 (USB3OTG_2)
@@ -417,7 +464,11 @@ USB 3.0 GEN1 pin descriptions
 |168	|PCIE20_2_TXP/SATA30_2_TXP/USB30_2_SSTXP	|USB SS Transmit+ (USB 3.0 Ctrl #0)	|Output	|USB SS PHY
 |=====
 
-=== USB 2.0 Host
+====
+
+.USB 2.0 Host
+[%collapsible]
+====
 * Compatible with USB 2.0 specification
 * Support two USB 2.0 Hosts
 * Supports high-speed (480 Mbps), full-speed (12 Mbps) and low-speed (1.5 Mbps) mode
@@ -436,8 +487,11 @@ USB 2.0 pin descriptions
 |121	|USB20_HOST1_DM	|USB 2.0 Port 2 Data–	|Bidir	|USB PHY
 |123  |USB20_HOST1_DP	|USB 2.0 Port 2 Data+	|Bidir	|USB PHY
 |=====
+====
 
-=== PCIe
+.PCIe
+[%collapsible]
+====
 PCIe 2.1 interface
 
 * Compatible with PCI Express Base Specification Revision 2.1
@@ -486,8 +540,11 @@ PCIe 3.0 interface
 |162	|PCIE30_CLK_P	|PCIe #0 Reference Clock+	|Output	|PCIe PHY
 |=====
 
+====
 
-=== SPI interface
+.SPI interface
+[%collapsible]
+====
 * Support 5 SPI Controllers (SPI0-SPI4)
 * Support two chip-select output
 * Support serial-master and serial-slave mode, software-configurable
@@ -507,8 +564,11 @@ SPI pin descriptions
 |108	|SPI1_MISO	|SPI 1 Master In / Slave Out	|Bidir	|CMOS – 1.8
 |110	|SPI1_CS0*	|SPI 1 Chip Select 0	|Bidir	|CMOS – 1.8
 |=====
+====
 
-=== I2C interface
+.I2C interface
+[%collapsible]
+====
 
 I2C pin descriptions
 
@@ -524,8 +584,11 @@ I2C pin descriptions
 |213	|I2C3_SCL_M0	|Camera I2C Clock. 2.2kΩ pull-up to 3.3V on the module.	|Bidir	|Open Drain – 3.3V
 |215	|I2C3_SDA_M0	|Camera I2C Data. 2.2kΩ pull-up to 3.3V on the module.	|Bidir	|Open Drain – 3.3V
 |=====
+====
 
-=== UART interface
+.UART interface
+[%collapsible]
+====
 * Support 10 UART interfaces (UART0-UART9)
 * Embedded two 64-byte FIFO for TX and RX operation respectively
 * Support transmitting or receiving 5-bit, 6-bit, 7-bit, and 8-bit serial data
@@ -549,8 +612,11 @@ UART pin descriptions
 |236	|UART2_TX_M0_DEBUG	|UART #2 Transmit	|Output|	CMOS – 1.8V
 |238	|UART2_RX_M0_DEBUG	|UART #2 Receive	|Input	|CMOS – 1.8V
 |=====
+====
 
-=== CAN bus
+.CAN bus
+[%collapsible]
+====
 * Support transmitting or receiving CAN standard frame
 * Support transmitting or receiving CAN extended frame
 * Support transmitting or receiving data frame, remote frame, overload frame, error frame, and frame interval
@@ -565,7 +631,11 @@ CAN pin descriptions
 [options="header",cols="1,2,2,1,2",width="90%"]
 |=====
 
-=== GPIO
+====
+
+.GPIO
+[%collapsible]
+====
 * All GPIOs can be used to generate interrupt
 * Support level trigger and edge trigger interrupt
 * Support configurable polarity of level trigger interrupt
@@ -594,8 +664,11 @@ GPIO pin descriptions
 |228	|GPIO3_B1/PWM2/MIPI_CAM4_CLKOUT	|GPIO #13 or Pulse Width Modulator	|Bidir	|CMOS – 1.8V
 |230	|GPIO3_A1/PWM11_IR/MIPI_CAM4_PDN	|GPIO #14 or Pulse Width Modulator	|Bidir	|CMOS – 1.8V
 |=====
+====
 
-=== i2s interface
+.i2s interface
+[%collapsible]
+====
 
 i2s pin descriptions
 
@@ -611,7 +684,7 @@ i2s pin descriptions
 |220	|I2S2_SDO_M1	|I2S Audio Port 1 Data Out	|Output	|CMOS – 1.8V
 |222	|I2S2_SDI_M1	|I2S Audio Port 1 Data In	|Input	|CMOS – 1.8V
 |=====
-
+====
 = BPI-AIM7 development Kit
 
 == Hardware spec:
