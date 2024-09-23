@@ -481,7 +481,7 @@ aplay -D hw:1,0 [path] #Play the audio file of the specified path
 == Use Bluetooth
 . Open settings in the Ubuntu desktop and connect a Bluetooth device, such as a Bluetooth mouse or keyboard, in the Bluetooth bar.
 +
-image::/picture/bpi_m4_berry_ubuntu_7.jpg[bpi_m4_berry_ubuntu_7.jpg]
+image::/bpi-m4berry/banana_pi_bpi-m4_berry_bluetooth.jpg[banana_pi_bpi-m4_berry_bluetooth.jpg]
 
 . The method to connect the Bluetooth device through the command line in the terminal is as follows:
 
