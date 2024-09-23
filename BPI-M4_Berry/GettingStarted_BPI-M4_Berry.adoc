@@ -455,11 +455,30 @@ image::/bpi-m4berry/banana_pi_bpi-m4_berry_aud1.jpg[banana_pi_bpi-m4_berry_aud1.
 . Play audio.
 
 === Terminal command to play audio files
+You can query the audio device of your BPI-M4 Berry.
 ```bash
 aplay -l #List devices
-aplay -D hw:0,0 [path] #Play the audio file of the specified path
+```
+```
+**** List of PLAYBACK Hardware Devices ****
+card 0: audiocodec [audiocodec], device 0: soc@3000000:codec_plat-5096000.codec 5096000.codec-0 []
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 1: ahubhdmi [ahubhdmi], device 0: ahub_plat-snd-soc-dummy-dai snd-soc-dummy-dai-0 []
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
 ```
 
+The following commands are used to play on the corresponding device.
+
+==== Play through the 3.5mm audio jack
+```bash
+aplay -D hw:0,0 [path] #Play the audio file of the specified path
+```
+==== Audio playback via HDMI
+```bash
+aplay -D hw:1,0 [path] #Play the audio file of the specified path
+```
 
 == Use Bluetooth
 . Open settings in the Ubuntu desktop and connect a Bluetooth device, such as a Bluetooth mouse or keyboard, in the Bluetooth bar.
