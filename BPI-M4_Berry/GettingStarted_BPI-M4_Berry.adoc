@@ -440,11 +440,12 @@ Prepare an audio file and copy it to the BPI-M4 Berry Ubuntu desktop system thro
 . Prepare a monitor with HDMI audio input function, turn on the relevant functions in the monitor settings, and use an HDMI cable to connect the monitor.
 . Set the output device to HDMI Audio in the Sound column of the settings.
 +
-image::/picture/bpi_m4_berry_ubuntu_4.jpg[bpi_m4_berry_ubuntu_4.jpg]
+//image::/picture/bpi_m4_berry_ubuntu_4.jpg[bpi_m4_berry_ubuntu_4.jpg]
 
 . Play audio.
 +
-image::/picture/bpi_m4_berry_ubuntu_5.jpg[bpi_m4_berry_ubuntu_5.jpg]
+image::/bpi-m4berry/banana_pi_bpi-m4_berry_aud1.jpg[banana_pi_bpi-m4_berry_aud1.jpg]
+//image::/picture/bpi_m4_berry_ubuntu_5.jpg[bpi_m4_berry_ubuntu_5.jpg]
 
 === 3.5mm audio jack
 . Prepare a headset or other audio device that uses a 3.5mm plug, insert the plug into the 3.5mm jack of BPI-M4 Berry.
