@@ -468,9 +468,7 @@ card 1: ahubhdmi [ahubhdmi], device 0: ahub_plat-snd-soc-dummy-dai snd-soc-dummy
   Subdevices: 1/1
   Subdevice #0: subdevice #0
 ```
-
 The following commands are used to play on the corresponding device.
-
 ==== Play through the 3.5mm audio jack
 ```bash
 aplay -D hw:0,0 [path] #Play the audio file of the specified path
