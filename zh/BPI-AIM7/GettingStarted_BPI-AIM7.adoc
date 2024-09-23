@@ -300,3 +300,24 @@ round-trip min/avg/max/stddev = 8.370/8.618/8.917/0.203 ms
 TIP: 提示 +
 注意，很多笔记本电脑虽然带有 HDMI 接口，但是笔记本的 HDMI 接口一般只有输出功能，并没有 HDMI in 的功能，也就是说并不能将其他设备的 HDMI 输出显示到笔记本的屏幕上。 当想把开发板的 HDMI 接到笔记本电脑 HDMI 接口时，请先确认清楚您的笔记本是支持 HDMI in 的功能。 当 HDMI 没有显示的时候，请先检查使用的系统是否是带桌面的版本，如果是服务器版本只能看到终端
 
+== DP
+[options="header",cols="1,1,1"]
+|=====
+|型号	|AIM7	|AIM5
+|分辨率|	4Kp60	|4Kp60
+|=====
+
+* 1.使用 DP 线连接 BPI-AIM 和 Dp 显示器
+* 2.启动 linux 系统后如果 Dp 显示器有图像输出说明 HDMI 接口使用正常
+
+== USB
+
+[options="header",cols="1,3"]
+|=====
+|型号	|AIM7
+|USB	|1* Type-C 2.0, 4x USB3.0
+|====
+
+TIP: 信息 +
+USB 接口是可以接 USB hub 来扩展 USB 接口的数量的。
+
