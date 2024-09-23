@@ -67,6 +67,33 @@ image::/bpi-aim7/bpi-m5_pro_digpro.jpg[bpi-m5_pro_digpro.jpg]
 
 == 硬件规格
 
+[options="header",cols="1,4"]
+|=====
+|类别|功能
+.3+|显示	
+|1x DP 显示接口中
+|1x HDMI/eDP combo interface
+|Up to 7680 x 4320@60 Hz for HDMI and DP, and 3840 x 2160@60 Hz for eDP
+|摄像头	|3x 4-lane or 5x 2-lane MIPI CSI 接口，每线最高 2.5Gbps
+.2+|网络	
+|1路GMAC，提供 RGMII / RMII 接口引出
+|支持 10/100/1000Mbps 数据传输速率
+.2+|PCIe	
+|PCIe 3.0 x4: 每通道最高支持 8Gbps 数据速率, 支持 4 种组合方式：1路 x4、2路 x2、4路 x1、1路 x2+2路 x1，每通道最高支持 8Gbps 数据速率
+|PCIe 2.1 x1: 每 PCIe2.1 接口支持 1lane，最高支持 5Gbps 数据速率
+.2+|USB	
+|1x USB 3.0 (Gen1)
+|3x USB 2.0
+.7+|Others	
+|UART DEBUG x1, UART+flow control x2
+|SPI x2
+|I2C x4
+|CAN x1
+|I2S x2
+|SD 4.0, SDHOST 4.0, and SDIO 3.0
+|PWM x3, 多个GPIOs
+|=====
+
 [options="header",cols="1,2,2"]
 |=====
 3+| **	BPI-AIM7(Rockchip) 和	Jetson Nano (NVIDIA) 规格比较**
