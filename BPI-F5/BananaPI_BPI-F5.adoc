@@ -5,6 +5,42 @@ Banana Pi BPI-F5 design with Allwinner Octa-core ARM Cortex-A55 T527 chp design.
 
 == Allwinner T527
 
-Allwinner T527 Octa-core A55, NPU up to 2Tops for edge intelligent AI applications.and 
+Allwinner T527 Octa-core A55, NPU up to 2Tops for edge intelligent AI applications.
 
 T527 series is a high-performance embedded processor with optional AI function in the field of intelligent industrial control and automotive. It is suitable for embedded devices with media and AI functions such as high-performance industrial robots, display and control all-in-one machines, edge intelligent boxes and vehicle terminals.
+
+.Main spec for Allwinner T527 chip
+[%collapsible]
+====
+[options="header",cols="1,5"]
+|====
+2+| Main spec for Allwinner T527 chip
+.4+|CPU
+|Octa-core ARM Cortex-A55 in a DynamlQ big.LITTLE configuration, up to 1.8 GHz
+|32KB L1 I-cache and 32KB L1 D-cache per A55 core
+|Optional 64KB L2 cache per“LITTLE”core
+|Optional 128KB L2 cache per“big”core
+.4+|GPU
+|ARM G57 MC1 GPU
+|Supports OpenGL ES 3.2/2.0/1.1, Vulkan 1.1/1.2/1.3, and OpenCL2.2
+|Anti-aliasing algorithm
+|High memory bandwidth and low power consumption in 3D graphics processing
+.3+|NPU
+|2 TOPS NPU
+|Embedded 512KB internal buffer
+|Supports deep learning frameworks：TensorFlow, Pytorch, Caffe, Onnx NN, TFLite…
+.3+|Audio DSP
+|HiFi4 Audio DSP,Frequency up to 600MHz
+|32KB I-cache +32KB D-cache
+|widely used in the special fields of image, audio and digital signal processing to provide exclusive computing power for audio and video entertainment and industrial production
+.3+|RISC-V MCU
+|Independence RISC-V CPU, up to 200 MHz,support RTOS system
+|16 KB I-cache and 16 KB D-cache·RV32IMAFC instructions
+|Real-time processing, high-speed response and industrial-grade stable operation on industrial and robotic systems provide important guarantees
+.4+|Rich interface
+|2 x Gigabit Ethernet ports, 
+|1 x PCIE2.1 port, 
+|2 x CAN ports,
+|10 x UART serial ports...
+|====
+====
