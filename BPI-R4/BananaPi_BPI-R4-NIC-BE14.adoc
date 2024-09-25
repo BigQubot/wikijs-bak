@@ -69,11 +69,13 @@ Google drive: https://drive.google.com/file/d/1J3qqvjpShYPVItufsJqZkonSeR3ZBEcu/
 
 = iperf3 Test Result
 
-Test environment: The PC is about 1 meter away from BPI-R4
+This result is for reference only,doesn't mean that every test result is the same.
+
+Test environment - The PC is about 1 meter away from BPI-R4,
 
 PC - 12th Gen Intel Core i5-12500H, QCNCM865(Qualcomm FastConnect 7800), Windows 11，
 
-Router：BPI-R4 with BE14,
+Router - BPI-R4 with BE14,
 
 image - OpenWRT MTK MP4.0 wifi SDK wifi driver for BE14000 Wifi Card,
 
