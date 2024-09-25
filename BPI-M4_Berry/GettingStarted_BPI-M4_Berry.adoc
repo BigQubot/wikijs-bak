@@ -647,9 +647,9 @@ image::/bpi-m4berry/bpi_m4_berry_mobaxterm_n4.jpg[bpi_m4_berry_mobaxterm_n4.jpg]
 
 === Replace boot logo
 
-. `sudo nano "/boot/bananapiEnv.txt"`,rewrite `bootlogo=false` as `bootlogo=true`.
+. `sudo nano "/boot/armbianEnv.txt"`,rewrite `bootlogo=false` as `bootlogo=true`.
 
-. The storage path of the boot logo file is: `/usr/share/plymouth/themes/bananapi/watermark.png`.
+. The storage path of the boot logo file is: `/usr/share/plymouth/themes/armbian/watermark.png`.
 
 . Prepare a `png` image, preferably a pattern with a transparent layer, and rename it to `watermark.png`.
 +
@@ -660,7 +660,7 @@ image::/bpi-m4berry/bpi_m4_berry_mobaxterm_n4.jpg[bpi_m4_berry_mobaxterm_n4.jpg]
 . Copy it to the target path with root privileges.
 +
 ```
-sudo cp "/home/pi/watermark.png" "/usr/share/plymouth/themes/bananapi/watermark.png"
+sudo cp "/home/pi/watermark.png" "/usr/share/plymouth/themes/armbian/watermark.png"
 ```
 
 . Use this command to apply the changes and wait for tens of seconds for it to complete the build.
