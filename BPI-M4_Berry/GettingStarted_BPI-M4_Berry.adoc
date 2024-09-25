@@ -627,21 +627,21 @@ Usually you can complete editing, save, and exit the editor in this order:
 
 === on/off boot logo
 
-. `sudo nano "/boot/bananapiEnv.txt"`,rewrite `bootlogo=true` as `bootlogo=false`.
+. `sudo nano "/boot/armbianEnv.txt"`,rewrite `bootlogo=true` as `bootlogo=false`.
 +
-image::/picture/bpi_m4_berry_mobaxterm_8.jpg[bpi_m4_berry_mobaxterm_8.jpg]
+image::/bpi-m4berry/bpi_m4_berry_mobaxterm_n1.jpg[bpi_m4_berry_mobaxterm_n1.jpg]
 
 . Press keyboard shortcuts Ctrl+O to write file.
 +
-image::/picture/bpi_m4_berry_mobaxterm_9.jpg[bpi_m4_berry_mobaxterm_9.jpg]
+image::/bpi-m4berry/bpi_m4_berry_mobaxterm_n2.jpg[bpi_m4_berry_mobaxterm_n2.jpg]
 
 . No need to change path, Press Enter to save it.
 +
-image::/picture/bpi_m4_berry_mobaxterm_10.jpg[bpi_m4_berry_mobaxterm_10.jpg]
+image::/bpi-m4berry/bpi_m4_berry_mobaxterm_n3.jpg[bpi_m4_berry_mobaxterm_n3.jpg]
 
 . Press keyboard shortcuts Ctrl+X exit nano.
 +
-image::/picture/bpi_m4_berry_mobaxterm_11.jpg[bpi_m4_berry_mobaxterm_11.jpg]
+image::/bpi-m4berry/bpi_m4_berry_mobaxterm_n4.jpg[bpi_m4_berry_mobaxterm_n4.jpg]
 
 . `reboot` , the startup logo would not display.
 
