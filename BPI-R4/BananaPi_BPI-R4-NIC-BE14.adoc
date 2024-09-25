@@ -66,6 +66,29 @@ Baidu cloud: https://pan.baidu.com/s/1U9YkM5FB7tPrP5yVRj8QYQ?pwd=8888 (pincode: 
 
 Google drive: https://drive.google.com/file/d/1J3qqvjpShYPVItufsJqZkonSeR3ZBEcu/view?usp=sharing
 
+
+= iperf3 Test Result
+
+Test environment: The PC is about 1 meter away from BPI-R4
+
+PC - 12th Gen Intel Core i5-12500H, QCNCM865(Qualcomm FastConnect 7800), Windows 11，
+
+Router：BPI-R4 with BE14,
+
+image - OpenWRT MTK MP4.0 wifi SDK wifi driver for BE14000 Wifi Card,
+
+image::/bpi-r4/bpi-r4-iperf3-test-block.png[bpi-r4-iperf3-test-block.png,width=800]
+
+2G:
+image::/bpi-r4/qualcomm7800----bpi-r4-2g.png[qualcomm7800----bpi-r4-2g.png,width=800]
+
+5G:
+image::/bpi-r4/qualcomm7800----bpi-r4-5g.png[qualcomm7800----bpi-r4-5g.png,width=800]
+
+6G:
+image::/bpi-r4/qualcomm7800----bpi-r4-6g.png[qualcomm7800----bpi-r4-6g.png,width=800]
+
+
 = Easy to buy
 
 WARNING: SINOVOIP Aliexpress shop: https://www.aliexpress.com/item/3256807036993487.html?
