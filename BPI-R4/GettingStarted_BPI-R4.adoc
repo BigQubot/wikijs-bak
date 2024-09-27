@@ -866,7 +866,53 @@ image::/bpi-r4/toshiba-pc-usb3.0_a.png[toshiba-pc-usb3.0_a.png,width=800]
 
 SpeedTest on BPI-R4:
 
-image::/bpi-r4/toshiba-r4-usb3.0.png[toshiba-r4-usb3.0.png,width=800]
+```bash
+root@BPI-R4:/mnt/sda1# dd if=HD.Club.mp4 of=/dev/null
+7175971+1 records in
+7175971+1 records out
+3674097294 bytes (3.7 GB, 3.4 GiB) copied, 9.7651 s, 376 MB/s
+root@BPI-R4:/mnt/sda1# 
+root@BPI-R4:/mnt/sda1# 
+root@BPI-R4:/mnt/sda1# dd if=HD.Club.mp4 of=/dev/null
+7175971+1 records in
+7175971+1 records out
+3674097294 bytes (3.7 GB, 3.4 GiB) copied, 7.15078 s, 514 MB/s
+root@BPI-R4:/mnt/sda1# 
+root@BPI-R4:/mnt/sda1# 
+root@BPI-R4:/mnt/sda1# dd if=HD.Club.mp4 of=/dev/null
+7175971+1 records in
+7175971+1 records out
+3674097294 bytes (3.7 GB, 3.4 GiB) copied, 7.11061 s, 517 MB/s
+root@BPI-R4:/mnt/sda1# 
+root@BPI-R4:/mnt/sda1# 
+root@BPI-R4:/mnt/sda1# dd if=/dev/zero of=./test.img bs=1024M count=5
+5+0 records in
+5+0 records out
+5368709120 bytes (5.4 GB, 5.0 GiB) copied, 16.367 s, 328 MB/s
+root@BPI-R4:/mnt/sda1# 
+root@BPI-R4:/mnt/sda1# 
+root@BPI-R4:/mnt/sda1# dd if=HD.Club.mp4 of=/dev/null                
+7175971+1 records in
+7175971+1 records out
+3674097294 bytes (3.7 GB, 3.4 GiB) copied, 9.78331 s, 376 MB/s
+root@BPI-R4:/mnt/sda1# 
+root@BPI-R4:/mnt/sda1# 
+root@BPI-R4:/mnt/sda1# dd if=HD.Club.mp4 of=/dev/null
+7175971+1 records in
+7175971+1 records out
+3674097294 bytes (3.7 GB, 3.4 GiB) copied, 7.18736 s, 511 MB/s
+root@BPI-R4:/mnt/sda1# 
+root@BPI-R4:/mnt/sda1# 
+root@BPI-R4:/mnt/sda1# lsusb
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 001 Device 002: ID 2109:2822 VIA Labs, Inc. USB2.0 Hub             
+Bus 001 Device 003: ID 2109:8822 VIA Labs, Inc. USB Billboard Device   
+Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 002 Device 002: ID 2109:0822 VIA Labs, Inc. USB3.1 Hub             
+Bus 002 Device 003: ID 0bda:9210 Realtek Semiconductor Corp. RTL9210 M.2 NVME Adapter
+root@BPI-R4:/mnt/sda1# 
+```
+
 
 image::/bpi-r4/rtl9210-toshiba2.jpg[rtl9210-toshiba2.jpg,width=800]
 
