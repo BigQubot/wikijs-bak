@@ -855,6 +855,21 @@ root@R4CN:/# lspci
 0004:00:00.0 Unclassified device [0002]: MEDIATEK Corp. Device 7981
 ```
 
+=== USB Connector(CN11)
+Device - RTL9210 M.2 NVME Adapter + TOSHIBA PCIe SSD
+
+SpeedTest on PC:
+
+image::/bpi-r4/toshiba-pc-usb3.0_a.png[toshiba-pc-usb3.0_a.png,width=800]
+
+SpeedTest on BPI-R4:
+
+image::/bpi-r4/toshiba-r4-usb3.0.png[toshiba-r4-usb3.0.png,width=800]
+
+image::/bpi-r4/rtl9210-toshiba2.jpg[rtl9210-toshiba2.jpg,width=800]
+
+
+
 == Wi-Fi7 NIC
 You can insert the BPI-R4-NIC into CN12 and CN14 at the bottom of BPI-R4-Main, and then fix it with two M2 screws.
 
