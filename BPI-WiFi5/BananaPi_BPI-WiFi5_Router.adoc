@@ -185,19 +185,19 @@ image::/bpi-wifi5/banana_pi_bpi-wifi5_router_kit_3.jpg[banana_pi_bpi-wifi5_route
 		                	 2+^|11ac (VHT80):≤-55dBm@MCS9
                        
 
-|Reset Key	2+^|长按6秒以上复位
-|WPS按钮	2+^|短按开启WPS配对模式
-.5+|LED三色灯	2+^|1、系统启动过程中：红色常亮10秒后红、绿、红交替闪烁；         
-	            .3+| 2、系统正常启动后：   |A.红色常亮：设备正常上电启动，但未连接互联网；
-		                                 |B.绿色常亮：设备已上电且已连接物联网，但无数据传输；
-		                                 |C.绿色闪烁：设备已上电且已连接互联网，并有数据传输。
-                 |3、WPS指示灯：       |开启WPS (or MESH)配对时蓝色常亮，设备正在接入中蓝色快闪。
-|尺寸	        2+^|裸机148mm*94mm*34mm(不含天线)
+|Reset Key	2+^|Hold down for more than 6 seconds to reset
+|WPS Key	2+^|Tap to enable WPS pairing mode
+.5+|LED tricolour light	2+^|1, the system startup process: red steady for 10 seconds after the red, green, red alternately flashing；         
+	            .3+| 2、After the system starts normally：   |A.Steady red: The device is powered on and started properly but is not connected to the Internet；
+		                                 |B.Steady red: The device is powered on and started properly but is not connected to the Internet.
+		                                 |C.Blinking green: The device is powered on, connected to the Internet, and data is being transmitted.
+                 |3、WPS LED：       |When WPS (or MESH) pairing is enabled, the indicator is steady blue and the device is being connected.
+|Size	        2+^|148mm*94mm*34mm(not include Antenna)
                        
-.4+|WAN配置      2+^|DHCP
-                2+^|静态IP
-                2+^|动态PPPoE
-                2+^|桥接
+.4+|WAN configuration  2+^|DHCP
+                2+^|Static IP
+                2+^|Dynamic PPPoE
+                2+^|Bridging
                 
 .3+|终端管理      2+^|客户端列表
                 2+^|禁用设备
