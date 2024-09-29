@@ -143,34 +143,89 @@ image::/bpi-wifi5/banana_pi_bpi-wifi5_router_kit_3.jpg[banana_pi_bpi-wifi5_route
 .BPI-Wifi5 router spec
 [%collapsible]
 ====
-[options="header",cols="1,4",width="90%"]
+[options="header",cols="2,1,4",width="90%"]
 |=====
-|SOC	|SF19A2890架构，双核1GHz,3200dmips
-|FLASH|	8MB/64 DDR2
-|天线(外置)	|2.4G:2T2R 5dBm 5.8G:2T2R 5dBm
-|端口	|4×10/100/1000Mbps RJ45(WAN×1+LAN×3)
-|按钮	|WPS/RESET
-|供电方式	|DC 12V/1A
-|LED灯	|WiFi、WPS
-|无线频率范围	|2.4~2.4835GHz、5.150GHz～5.850GHz
-.2+|无线速率	|11b:1/215.5111Mbps                   11n:up to 300Mbps
-|11g:6/9/12/18/24/36/48154Mbps       11ac:up to 866Mbps
-.2+|工作频段	|2.4G:1~13
-|5.8G:36,40,44,48,52,56,60,64,149,153,157,161,165
-|扩频技术	|DSSS (Direct Sequence Spread Spectrum)
-.5+|数据调试方法	|802.11a:OFDM(BPSK,QPSK,16-QAM,64-QAM)
-|	802.11b:DSSS  (DQPSK,DBPSK,CCK)
-|	802.11g:OFDM  (BPSK,QPSK,16-QAM,64-QAM)
-|802.11n:OFDM  (BPSK,QPSK,16-QAM,64-QAM)
-|	802.11ac:OFDM(BPSK,QPSK,16-QAM,64-QAM,256-QAM)
-|介质访问协议|	WPA-PSKWPA2-PSK、WPAWPA2
+
+|SOC	2+^|SF19A2890架构，双核1GHz,3200dmips
+|FLASH  2+^|	8MB/64 DDR2
+|FLASH  2+^|	8MB/64 DDR2
+|天线(外置)	2+^|2.4G:2T2R 5dBm 5.8G:2T2R 5dBm
+|端口	2+^|4×10/100/1000Mbps RJ45(WAN×1+LAN×3)
+|按钮	2+^|WPS/RESET
+|供电方式	2+^|DC 12V/1A
+|LED灯	2+^|WiFi、WPS
+|无线频率范围	2+^|2.4~2.4835GHz、5.150GHz～5.850GHz
+.2+|无线速率	2+^|11b:1/215.5111Mbps                   11n:up to 300Mbps
+            2+^|11g:6/9/12/18/24/36/48154Mbps       11ac:up to 866Mbps
+.2+|工作频段	2+^|2.4G:1~13
+            2+^|5.8G:36,40,44,48,52,56,60,64,149,153,157,161,165
+|扩频技术	    2+^|DSSS (Direct Sequence Spread Spectrum)
+.5+|数据调试方法	2+^|802.11a:OFDM(BPSK,QPSK,16-QAM,64-QAM)
+                2+^|	802.11b:DSSS  (DQPSK,DBPSK,CCK)
+                2+^|	802.11g:OFDM  (BPSK,QPSK,16-QAM,64-QAM)
+                2+^|802.11n:OFDM  (BPSK,QPSK,16-QAM,64-QAM)
+                2+^|	802.11ac:OFDM(BPSK,QPSK,16-QAM,64-QAM,256-QAM)
+|介质访问协议     2+^|	WPA-PSKWPA2-PSK、WPAWPA2
 
 
-.4+|TX Power/EVM	 |                
-	            .3+| 2.4G   |802.11a/b/g 1Mbps 
-                          |802.11a/b/g 54Mbps
-		                      |802.11n20 MCS0    
-   
+.6+|TX Power/EVM    	 2+^|11b:16dBm±2dBm@11Mbps         
+	            .2+| 2.4G   |11g:16dBm±2dBm@54Mbps
+		                      |11n:15dBm±2dBm@MCS7
+
+	            .3+| 5.8G   |11ac (VHT20):19dBm±2dBm@MCS9
+                          |11ac (VHT40):18dBm±2dBm@MCS9
+		                      |11ac (VHT80):18dBm±2dBm@MCS9
+
+.7+|接受灵敏度             
+	            .4+| 2.4G   |11b: < -87dbm@11Mbps
+                          |11g: < -71dbm@54Mbps
+		                      |11n(HT20):≤-68dBm@MCS7
+		                      |11n(HT40):≤-65dBm@MCS7
+
+	            .2+| 5.8G   |11an (HT20):≤-69dBm@MCS7
+                          |11an (HT40):≤-65dBm@MCS7
+		                	 2+^|11ac (VHT80):≤-55dBm@MCS9
+                       
+
+|Reset按钮	2+^|长按6秒以上复位
+|WPS按钮	2+^|短按开启WPS配对模式
+.5+|LED三色灯	2+^|1、系统启动过程中：红色常亮10秒后红、绿、红交替闪烁；         
+	            .3+| 2、系统正常启动后：   |A.红色常亮：设备正常上电启动，但未连接互联网；
+		                                 |B.绿色常亮：设备已上电且已连接物联网，但无数据传输；
+		                                 |C.绿色闪烁：设备已上电且已连接互联网，并有数据传输。
+                 |3、WPS指示灯：       |开启WPS (or MESH)配对时蓝色常亮，设备正在接入中蓝色快闪。
+|尺寸	        2+^|裸机148mm*94mm*34mm(不含天线)
+                       
+.4+|WAN配置      2+^|DHCP
+                2+^|静态IP
+                2+^|动态PPPoE
+                2+^|桥接
+                
+.3+|终端管理      2+^|客户端列表
+                2+^|禁用设备
+                2+^|限速
+                
+|LAN配置	        2+^|IP地址
+.2+|终端管理      2+^|地址池
+                2+^|租约时间
+                
+.2+|IPv6        2+^|WAN侧配置IPv6
+                2+^|LAN侧配置IPv6
+               
+ .12+|WiFi      2+^|b/g/n协议
+                2+^|ac协议  
+                2+^|信道
+                2+^|带宽20/auto
+                2+^|隐藏ssid
+                2+^|WiFi加密方式(不加密&WPA-PSK&WPA2-PSK)
+                2+^|访客WiFi
+                2+^|Wireless Distribution System(WDS)
+                2+^|WiFi定时
+                2+^|WiFi访问控制
+                2+^|WP S键
+                2+^|获取WiFi调试信息
+                
+                
 |=====
 
 
