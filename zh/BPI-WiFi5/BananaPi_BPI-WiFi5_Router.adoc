@@ -138,14 +138,12 @@ link:/en/BPI-WiFi5/Photo_BPI-WiFi5[香蕉派 BPI-WiFi5 路由器产品图片]
 
 image::/bpi-wifi5/banana_pi_bpi-wifi5_router_kit_3.jpg[banana_pi_bpi-wifi5_router_kit_3.jpg]
 
-.BPI-Wifi5 路由器产品规格
+.BPI-Wifi5 router spec
 [%collapsible]
 ====
-[options="header",cols="2,1,4",width="90%"]
+[options="header",cols="1,1,4",width="90%"]
 |=====
-
-|SOC	2+^|SF19A2890架构，双核1GHz,3200dmips
-|FLASH  2+^|	8MB/64 DDR2
+|SOC	2+^| SF19A2890架构，双核1GHz,3200dmips
 |FLASH  2+^|	8MB/64 DDR2
 |天线(外置)	2+^|2.4G:2T2R 5dBm 5.8G:2T2R 5dBm
 |端口	2+^|4×10/100/1000Mbps RJ45(WAN×1+LAN×3)
@@ -222,8 +220,19 @@ image::/bpi-wifi5/banana_pi_bpi-wifi5_router_kit_3.jpg[banana_pi_bpi-wifi5_route
                 2+^|WiFi访问控制
                 2+^|WP S键
                 2+^|获取WiFi调试信息
-                
-                
+                                
+|切换语言	        2+^|中/英文
+
+ .8+|管理      2+^|修改登录密码
+                2+^|保存/导入/导出配置/恢复出厂设置
+                2+^|固件升级
+                2+^|web重启
+                2+^|退出登录
+                2+^|DMZ
+                2+^|页面抓包
+                2+^|诊断
+
+3+^|IP与MAC地址绑定
 |=====
 
 
