@@ -145,20 +145,20 @@ image::/bpi-wifi5/banana_pi_bpi-wifi5_router_kit_3.jpg[banana_pi_bpi-wifi5_route
 ====
 [options="header",cols="1,1,4",width="90%"]
 |=====
-|SOC	2+^| SF19A2890架构，双核1GHz,3200dmips
+|SOC	2+^| SF19A2890，dual core 1GHz,3200dmips
 |FLASH  2+^|	8MB/64 DDR2
-|天线(外置)	2+^|2.4G:2T2R 5dBm 5.8G:2T2R 5dBm
-|端口	2+^|4×10/100/1000Mbps RJ45(WAN×1+LAN×3)
-|按钮	2+^|WPS/RESET
-|供电方式	2+^|DC 12V/1A
-|LED灯	2+^|WiFi、WPS
-|无线频率范围	2+^|2.4~2.4835GHz、5.150GHz～5.850GHz
-.2+|无线速率	2+^|11b:1/215.5111Mbps                   11n:up to 300Mbps
+|Antenna (external)	2+^|2.4G:2T2R 5dBm 5.8G:2T2R 5dBm
+|Network	2+^|4×10/100/1000Mbps RJ45(WAN×1+LAN×3)
+|Key	2+^|WPS/RESET
+|Power	2+^|DC 12V/1A
+|LED	2+^|WiFi、WPS
+|Wireless frequency 2+^|2.4~2.4835GHz、5.150GHz～5.850GHz
+.2+|Wireless Speed	2+^|11b:1/215.5111Mbps                   11n:up to 300Mbps
             2+^|11g:6/9/12/18/24/36/48154Mbps       11ac:up to 866Mbps
-.2+|工作频段	2+^|2.4G:1~13
+.2+|Operating frequency	2+^|2.4G:1~13
             2+^|5.8G:36,40,44,48,52,56,60,64,149,153,157,161,165
-|扩频技术	    2+^|DSSS (Direct Sequence Spread Spectrum)
-.5+|数据调试方法	2+^|802.11a:OFDM(BPSK,QPSK,16-QAM,64-QAM)
+|Spread spectrum 2+^|DSSS (Direct Sequence Spread Spectrum)
+.5+|Data debugging method	2+^|802.11a:OFDM(BPSK,QPSK,16-QAM,64-QAM)
                 2+^|	802.11b:DSSS  (DQPSK,DBPSK,CCK)
                 2+^|	802.11g:OFDM  (BPSK,QPSK,16-QAM,64-QAM)
                 2+^|802.11n:OFDM  (BPSK,QPSK,16-QAM,64-QAM)
