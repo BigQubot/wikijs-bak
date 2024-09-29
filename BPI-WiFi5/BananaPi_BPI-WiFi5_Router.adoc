@@ -199,42 +199,42 @@ image::/bpi-wifi5/banana_pi_bpi-wifi5_router_kit_3.jpg[banana_pi_bpi-wifi5_route
                 2+^|Dynamic PPPoE
                 2+^|Bridging
                 
-.3+|终端管理      2+^|客户端列表
-                2+^|禁用设备
-                2+^|限速
+.3+|Terminal management    2+^|Client list
+                2+^|Disabled devices 
+                2+^|Rate-limiting
                 
-|LAN配置	        2+^|IP地址
-.2+|终端管理      2+^|地址池
-                2+^|租约时间
+|LAN configuration	        2+^|IP address
+.2+|configuration      2+^|Address pool
+                2+^|Default-lease-time
                 
-.2+|IPv6        2+^|WAN侧配置IPv6
-                2+^|LAN侧配置IPv6
+.2+|IPv6        2+^|WAN configuration IPv6
+                2+^|LAN configuration IPv6
                
- .12+|WiFi      2+^|b/g/n协议
-                2+^|ac协议  
-                2+^|信道
-                2+^|带宽20/auto
-                2+^|隐藏ssid
-                2+^|WiFi加密方式(不加密&WPA-PSK&WPA2-PSK)
-                2+^|访客WiFi
+ .12+|WiFi      2+^|b/g/n protocol
+                2+^|ac protocol  
+                2+^|Channel
+                2+^|bandwidth 20/auto
+                2+^|hide ssid
+                2+^|WiFi encryption way(no encryption&WPA-PSK&WPA2-PSK) 
+                2+^|visitor WiFi
                 2+^|Wireless Distribution System(WDS)
-                2+^|WiFi定时
-                2+^|WiFi访问控制
-                2+^|WP S键
-                2+^|获取WiFi调试信息
+                2+^|WiFi timing
+                2+^|WiFi access control
+                2+^|WPS Key
+                2+^|Obtain WiFi debugging information
                                 
-|切换语言	        2+^|中/英文
+|Wwitch the language   2+^|Chinese/English ..
 
- .8+|管理      2+^|修改登录密码
-                2+^|保存/导入/导出配置/恢复出厂设置
-                2+^|固件升级
-                2+^|web重启
-                2+^|退出登录
+ .8+|Management     2+^|Changing the Login Password
+                2+^|Save/import/export configuration/restore factory Settings
+                2+^|Firmware upgrade
+                2+^|Web reboot
+                2+^|Log out
                 2+^|DMZ
-                2+^|页面抓包
-                2+^|诊断
+                2+^|Page capture
+                2+^|Diagnose
 
-3+^|IP与MAC地址绑定
+3+^|Bind an IP address to a MAC address
 |=====
 
 
