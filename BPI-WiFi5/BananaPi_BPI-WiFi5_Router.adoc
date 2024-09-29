@@ -158,12 +158,12 @@ image::/bpi-wifi5/banana_pi_bpi-wifi5_router_kit_3.jpg[banana_pi_bpi-wifi5_route
 .2+|Operating frequency	2+^|2.4G:1~13
             2+^|5.8G:36,40,44,48,52,56,60,64,149,153,157,161,165
 |Spread spectrum 2+^|DSSS (Direct Sequence Spread Spectrum)
-.5+|Data debugging method	2+^|802.11a:OFDM(BPSK,QPSK,16-QAM,64-QAM)
+.5+|Media access protocol	2+^|802.11a:OFDM(BPSK,QPSK,16-QAM,64-QAM)
                 2+^|	802.11b:DSSS  (DQPSK,DBPSK,CCK)
                 2+^|	802.11g:OFDM  (BPSK,QPSK,16-QAM,64-QAM)
                 2+^|802.11n:OFDM  (BPSK,QPSK,16-QAM,64-QAM)
                 2+^|	802.11ac:OFDM(BPSK,QPSK,16-QAM,64-QAM,256-QAM)
-|介质访问协议     2+^|	WPA-PSKWPA2-PSK、WPAWPA2
+|    2+^|	WPA-PSKWPA2-PSK、WPAWPA2
 
 
 .6+|TX Power/EVM    	 2+^|11b:16dBm±2dBm@11Mbps         
@@ -174,7 +174,7 @@ image::/bpi-wifi5/banana_pi_bpi-wifi5_router_kit_3.jpg[banana_pi_bpi-wifi5_route
                           |11ac (VHT40):18dBm±2dBm@MCS9
 		                      |11ac (VHT80):18dBm±2dBm@MCS9
 
-.7+|接受灵敏度             
+.7+|Acceptance sensitivity           
 	            .4+| 2.4G   |11b: < -87dbm@11Mbps
                           |11g: < -71dbm@54Mbps
 		                      |11n(HT20):≤-68dBm@MCS7
@@ -185,7 +185,7 @@ image::/bpi-wifi5/banana_pi_bpi-wifi5_router_kit_3.jpg[banana_pi_bpi-wifi5_route
 		                	 2+^|11ac (VHT80):≤-55dBm@MCS9
                        
 
-|Reset按钮	2+^|长按6秒以上复位
+|Reset Key	2+^|长按6秒以上复位
 |WPS按钮	2+^|短按开启WPS配对模式
 .5+|LED三色灯	2+^|1、系统启动过程中：红色常亮10秒后红、绿、红交替闪烁；         
 	            .3+| 2、系统正常启动后：   |A.红色常亮：设备正常上电启动，但未连接互联网；
