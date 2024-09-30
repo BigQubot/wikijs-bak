@@ -503,7 +503,13 @@ Settings for eth1:
 root@R4CN:/#
 ```
 
-== 4G 5G Module
+== 4G/5G Module
+
+IMPORTANT:  Please do not insert the card tray into the slot when the SIM card is not installed, otherwise it will easily damage the slot.
+
+image::/bpi-r4/nosimcard.png[nosimcard.png,with=800]
+
+
 === M.2 4G/5G Module(USB Interface)
 BPI-R4 supports M.2 USB Interface 4G LTE/5G Modules: **Quectel  EM05, RM500U-CN ,RM500Q-GL& RM520N-GL ** 
 
