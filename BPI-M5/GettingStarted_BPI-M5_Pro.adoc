@@ -51,7 +51,7 @@ If you are using Banana Pi BPI-M5 Pro for the first time, please familiarize you
 
 == Debug Serial Port
 
-Connect the USB to TTL serial cable as follows:
+Connect the USB to TTL serial cable as follows, and BAUD=1500000:
 
 image::/bpi-m5pro/armsom-sige7-debug.png[armsom-sige7-debug.png]
 
