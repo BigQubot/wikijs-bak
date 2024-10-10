@@ -123,14 +123,115 @@ round-trip min/avg/max/stddev = 8.370/8.618/8.917/0.203 ms
 ```
 
 == WIFI
+
+The Banana Pi design with Rockchip series products come with an onboard WIFI module, so there's no need for external network devices. They use a standard 4th-generation antenna.
+
+=== Connecting to WIFI via Command Line on Server Image
+
+1.First, log in to the Linux system using one of the following methods:
+
+* If the board is connected to a network cable, you can log in remotely via SSH.
+* If the board is connected via a debug serial port, use a serial terminal to log in to the Linux system.
+* If the board is connected to an HDMI monitor, you can log in to the Linux system via the HDMI display.
+
+2.Use the nmcli dev wifi command to scan for available WIFI hotspots:
 ```sh
-# 1. Open the WIFI
-armsom@armsom-sige5:/# nmcli r wifi on
-# 2. Scan WIFI
-armsom@armsom-sige5:/# nmcli dev wifi
-# 3. Connect to WIFI network
-armsom@armsom-sige5:/# nmcli dev wifi connect "wifi_name" password "wifi_password"
+# 1. Enable WIFI
+armsom@armsom-sige:/# nmcli r wifi on
+# 2. Scan for WIFI
+armsom@armsom-sige:/# nmcli dev wifi
+# 3. Connect to a WIFI network
+armsom@armsom-sige:/# nmcli dev wifi connect "wifi_name" password "wifi_password"
 ```
+image::/bpi-m5pro/wifi_1.png[wifi_1.png]
+
+3.Use the nmcli command to connect to the scanned WIFI:
+
+* Replace wifi_name with the name of the WIFI hotspot you want to connect to.
+* Replace wifi_password with the password for the WIFI hotspot.
+```sh
+armsom@armsom-sige7:~$ nmcli dev wifi connect "ydtx_5G" password "ydtx123456"
+Device 'wlan0' successfully activated with "wlan0b6d10bba-e1d5-4b6d-a17f-7d5ab44bbb6f".
+```
+4.Use the ip addr show wlan0 command to view the WIFI IP address:
+```sh
+armsom@armsom-sige7:~$ ip addr show wlan0
+4: wlan0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether b8:2d:28:5a:52:6a brd ff:ff:ff:ff:ff:ff
+    inet 192.168.10.9/24 brd 192.168.10.255 scope global dynamic noprefixroute wlan0
+       valid_lft 86321sec preferred_lft 86321sec
+    inet6 fe80::850d:3119:e0:afa3/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever
+```
+5.Use the ping command to test the WIFI network connectivity. You can interrupt the ping command with the Ctrl+C shortcut:
+```sh
+armsom@armsom-sige7:~$ ping www.baidu.com
+PING www.a.shifen.com (183.2.172.185): 56 data bytes
+64 bytes from 183.2.172.185: icmp_seq=0 ttl=53 time=8.370 ms
+64 bytes from 183.2.172.185: icmp_seq=1 ttl=53 time=8.917 ms
+64 bytes from 183.2.172.185: icmp_seq=2 ttl=53 time=8.511 ms
+64 bytes from 183.2.172.185: icmp_seq=3 ttl=53 time=8.673 ms
+^C
+--- www.a.shifen.com ping statistics ---
+4 packets transmitted, 4 packets received, 0% packet loss
+round-trip min/avg/max/stddev = 8.370/8.618/8.917/0.203 ms
+```
+=== Connecting to WIFI via GUI on Server Image
+
+1.Log in to the Linux system using one of the following methods:
+
+* If the development board is connected to a network cable, you can log in remotely via SSH.
+* If the development board is connected via a debug serial port, use a serial terminal to log in to the Linux system (use MobaXterm for serial software, as minicom cannot display the graphical interface).
+* If the development board is connected to an HDMI monitor, log in to the Linux system via the HDMI display.
+
+2.Enter the nmtui command in the terminal to open the WIFI connection interface:
+
+image::/bpi-m5pro/wifi_2.png[wifi_2.png]
+
+```sh 
+armsom@armsom-sige7:~$ nmtui
+```
+3.Select "Activate a connection" and press Enter:
+
+image::/bpi-m5pro/wifi_3.png[wifi_3.png]
+
+4.Choose the WIFI hotspot you want to connect to and enter the password. After a successful connection, an asterisk “*” will appear next to the connected WIFI name:
+
+image::/bpi-m5pro/wifi_4.png[wifi_4.png]
+
+5.Use the ip addr show wlan0 command to view the WIFI IP address:
+```sh 
+armsom@armsom-sige7:~$ ip addr show wlan0
+4: wlan0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether b8:2d:28:5a:52:6a brd ff:ff:ff:ff:ff:ff
+    inet 192.168.10.9/24 brd 192.168.10.255 scope global dynamic noprefixroute wlan0
+       valid_lft 86316sec preferred_lft 86316sec
+    inet6 fe80::a422:3494:3147:92d/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever
+```
+
+6.Use the ping command to test the WIFI network connectivity. You can interrupt the ping command with the Ctrl+C shortcut:
+```sh 
+armsom@armsom-sige7:~$ ping www.baidu.com
+PING www.a.shifen.com (183.2.172.185): 56 data bytes
+64 bytes from 183.2.172.185: icmp_seq=0 ttl=53 time=8.370 ms
+64 bytes from 183.2.172.185: icmp_seq=1 ttl=53 time=8.917 ms
+64 bytes from 183.2.172.185: icmp_seq=2 ttl=53 time=8.511 ms
+64 bytes from 183.2.172.185: icmp_seq=3 ttl=53 time=8.673 ms
+^C
+--- www.a.shifen.com ping statistics ---
+4 packets transmitted, 4 packets received, 0% packet loss
+round-trip min/avg/max/stddev = 8.370/8.618/8.917/0.203 ms
+```
+
+=== Testing Method for Desktop Image
+
+1.Click the network configuration icon on the desktop (ensure not to connect a network cable while testing WIFI).
+
+2.After connecting to WIFI, open a browser to check if you can access the internet:
+
+image::/bpi-m5pro/wifi_5.png[wifi_5.png]
+
 
 == BT
 ```sh
