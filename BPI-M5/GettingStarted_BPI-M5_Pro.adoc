@@ -68,25 +68,58 @@ image::/bpi-m5pro/armsom-sige7-debug.png[armsom-sige7-debug.png]
 |RX (pin 10)	|<--->|	TX
 |====
 
-== Gigabit Ethernet Port
+== Ethernet Port
 
-If you are using a wired Ethernet connection for internet access, please insert the Ethernet cable into the RJ45 port on ArmSoM-sige5. The system desktop will then prompt a wired connection.
-
-* Use the command <ifconfig> to check if the Ethernet is working properly. It will display the network card <enP2p33s0> or <enP4p65s0> and the Ethernet IP address. Additionally, use the <ping> tool to check network connectivity.
+* 1.First, plug one end of the network cable into the Ethernet port of the ArmSoM-SigeX, and connect the other end to a router. Ensure that the network is functional.
+* 2.After the system boots, it will automatically assign an IP address to the Ethernet port via DHCP without any additional configuration.
+* 3.To check the IP address in the ArmSoM-SigeX Linux system, use the following command:
 
 ```sh
-ifconfig
-ping mi.com
+armsom@armsom-sige7:~$ ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+2: enP4p65s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether c6:9c:b0:7e:2b:1f brd ff:ff:ff:ff:ff:ff permaddr aa:a6:84:1b:0d:21
+    inet 192.168.10.54/24 brd 192.168.10.255 scope global dynamic noprefixroute enP4p65s0
+       valid_lft 86221sec preferred_lft 86221sec
+    inet6 fe80::5bb0:d96f:926d:b334/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever
+3: enP2p33s0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN group default qlen 1000
+    link/ether be:ed:22:01:47:d9 brd ff:ff:ff:ff:ff:ff permaddr a2:fb:fa:79:de:fb
+4: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state DORMANT group default qlen 1000
+    link/ether b8:2d:28:5a:52:6a brd ff:ff:ff:ff:ff:ff
 ```
 
-* If ping fails, try:
-```sh
-$ sudo dhclient enP2p33s0
-```
-or
+There are three ways to check the IP address of Rockchip product after it starts:
 
+** Connect an HDMI monitor, log into the system, and use the terminal command ip a to view the IP address.
+** Use the debug serial port terminal and enter the ip a command to check the IP address.
+** If neither the debug serial port nor HDMI monitor is available, you can check the IP address of the ArmSoM-SigeX Ethernet port through the router’s management interface. However, this method may sometimes fail to display the ArmSoM-SigeX IP address. If you cannot see it, try the following troubleshooting steps:
+*** Check if the Linux system has started properly. If the green light on the ArmSoM-SigeX is steady, it generally means the system has booted correctly; if only the red light is on, the system has not booted properly.
+*** Ensure the network cable is securely connected, or try a different cable.
+Try using a different router. Common issues with routers include inability to assign IP addresses or assigning them correctly but not showing them in the router's interface.
+*** If no alternative router is available, use an HDMI monitor or the debug serial port to check the IP address.
+
+TIP: Note that DHCP automatically assigning an IP address to the Rockchip product requires no additional configuration.
+
+* 4.Use the ping tool to check network connectivity.
+
+** The command to test network connectivity is shown below. You can stop the ping command with the Ctrl+C shortcut.
 ```sh
-$ sudo dhclient enP4p65s0
+armsom@armsom-sige7:~$ ping www.baidu.com
+PING www.a.shifen.com (183.2.172.185): 56 data bytes
+64 bytes from 183.2.172.185: icmp_seq=0 ttl=53 time=8.370 ms
+64 bytes from 183.2.172.185: icmp_seq=1 ttl=53 time=8.917 ms
+64 bytes from 183.2.172.185: icmp_seq=2 ttl=53 time=8.511 ms
+64 bytes from 183.2.172.185: icmp_seq=3 ttl=53 time=8.673 ms
+^C
+--- www.a.shifen.com ping statistics ---
+4 packets transmitted, 4 packets received, 0% packet loss
+round-trip min/avg/max/stddev = 8.370/8.618/8.917/0.203 ms
 ```
 
 == WIFI
