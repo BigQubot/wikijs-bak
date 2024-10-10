@@ -112,9 +112,38 @@ armsom@armsom-sige5:/# pair yourDeviceMAC
 
 The BPI-M5 Pro has an HDMI output port which supports CEC and HDMI 2.1, maximum resolution up to 4Kp120.
 
+[options="header",cols="1,1,1,1"]
+|====
+|Model	|BPI-M7	|BPI-M5 Pro	|BPI-M1 Pro
+|Resolution|	8Kp60	|4Kp120	|4Kp60
+|====
+
+Connect the board to an HDMI display using an HDMI cable.
+
+After booting the Linux system, if the HDMI display shows an image, the HDMI interface is functioning correctly.
+
+NOTE: that many laptops, while having HDMI ports, typically have HDMI output only and do not support HDMI in. This means you cannot display the HDMI output from another device on the laptop's screen. Before connecting the development board's HDMI to a laptop's HDMI port, ensure your laptop supports HDMI in functionality. If there is no display, first check if your system is a desktop version; server versions might only show a terminal.
+
+* 1.HDMI to VGA Display Test
+** Required accessories:
+** HDMI to VGA converter
+* 2.A VGA cable and a display with a VGA port
+
+The HDMI to VGA display test is shown below:
+
+image::/bpi-m5pro/hdmi_.jpg[hdmi_.jpg]
+
+TIP: When using HDMI to VGA conversion, no additional configuration is needed for the ArmSoM-Sige products or the Linux system. If you encounter issues, check the HDMI to VGA converter, VGA cable, and display for problems.
+
 == USB
 
 The BPI-M5 Pro provides one USB 2.0 and one USB 3.0 port.
+
+[options="header",cols="1,2,2,1"]
+|====
+|Model	|BPI-M7	|BPI-M5 Pro |BPI-M1 Super
+|USB	|1x Type-C 3.0, 1x USB3.0, 1x USB2.0	|1x Type-C 3.0, 1x USB3.0, 1x USB2.0 |	2x USB2.0
+|====
 
 == USB3.0 Camera
 
