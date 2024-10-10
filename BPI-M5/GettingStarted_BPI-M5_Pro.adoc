@@ -343,3 +343,27 @@ image::/bpi-m7/bpi-m7_mipi_csi.jpeg[bpi-m7_mipi_csi.jpeg]
 == MIPI DSI
 
 BPI-M5 Pro supports a maximum resolution of 4K@120Hz.
+
+* 1.Connect the cables as shown in the image below.
+
+image::/bpi-m5pro/mipi_dsi.jpg[mipi_dsi.jpg]
+
+* 2.Configuring the 10.1-inch MIPI LCD screen
+
+** By default, the Linux image does not have the MIPI LCD screen configuration enabled. To use the MIPI LCD screen, you need to enable it manually.
+
+** Use nano to open the /boot/armbianEnv.txt file:
+```sh
+sudo nano /boot/armbianEnv.txt
+```
+
+** In this file, find or add the keyword "overlays=".
+```sh
+// Choose according to your product
+overlays=armsom-sige7-display-10hd // Sige7
+overlays=armsom-sige5-display-10hd // Sige5
+overlays=armsom-sige3-display-10hd // Sige3
+```
+Shortcut keys: Ctrl + S to save Ctrl + X to exit
+
+After editing, restart the device to apply the Overlays settings and support Display 10 HD.
