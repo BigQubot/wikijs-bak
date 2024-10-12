@@ -165,7 +165,7 @@ NOTE: Maskrom: When Flash is not burning firmware, the chip will boot into Maskr
 
 NOTE: Loader: The principle is that during the uboot startup, the pin is detected to be pressed. In Loader mode, the firmware can be burned and upgraded. You can burn a partition image file separately through the tool to facilitate debugging.
 
-=== **Debian系统**
+=== Debian
 
 NOTE: Please prepare Type-C wire for mirror burning.
 
@@ -185,7 +185,7 @@ We open the RKDevTool burning tool (RKDevTool burning tool is included in the An
 
 image::/bpi-m7/bpi-m7-rkdevtool-1.jpg[bpi-m7-rkdevtool-1.jpg]
 
-=== Ubuntu，Armbian，Openwrt系统
+=== Ubuntu，Armbian，Openwrt
 
 We open the RKDevTool burning tool (RKDevTool burning tool is included in the Android usage tutorial) and set the product to burn mode.
 
