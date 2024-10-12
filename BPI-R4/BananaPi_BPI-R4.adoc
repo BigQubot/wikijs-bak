@@ -343,7 +343,8 @@ WARNING: **Note:** +
 linux-5.4 kernel include MT76 wifi driver, it can only support BE14000 wifi card. it can support 2.4G, 5G and 6G, but ubuntu-22.04's network-manager utility package can't support 6G wifi. So we are waiting for the latest package. +
 linux-6.1 kernel don't include MT76 wifi driver, it can't support BE14000 wifi card
 
-==Third Party
+== Third Party
+
 NOTE: OpenWrt image use for 8G ram
      
 = Easy to buy
