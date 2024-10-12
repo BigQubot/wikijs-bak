@@ -161,6 +161,12 @@ sudo dd if=bpi-m7-xxx.img of=/dev/mmcblk0 bs=10M
 . Disconnect the power and remove the SD card. Power on again and start up from the EMMC.
 
 == Install Image to eMMC 2
+NOTE: Maskrom: When Flash is not burning firmware, the chip will boot into Maskrom mode, which can be burned for the first time. During the development and debugging process, if the Loader fails to start normally, you can also enter the Maskrom mode to burn firmware.     
+
+NOTE: Loader: The principle is that during the uboot startup, the pin is detected to be pressed. In Loader mode, the firmware can be burned and upgraded. You can burn a partition image file separately through the tool to facilitate debugging.
+
+=== **Debian系统**
+
 NOTE: Please prepare Type-C wire for mirror burning.
 
 We open the RKDevTool burning tool (RKDevTool burning tool is included in the Android usage tutorial) and set the product to burn mode.
@@ -179,9 +185,25 @@ We open the RKDevTool burning tool (RKDevTool burning tool is included in the An
 
 image::/bpi-m7/bpi-m7-rkdevtool-1.jpg[bpi-m7-rkdevtool-1.jpg]
 
-NOTE: Maskrom: When Flash is not burning firmware, the chip will boot into Maskrom mode, which can be burned for the first time. During the development and debugging process, if the Loader fails to start normally, you can also enter the Maskrom mode to burn firmware.     
+=== Ubuntu，Armbian，Openwrt系统
 
-NOTE: Loader: The principle is that during the uboot startup, the pin is detected to be pressed. In Loader mode, the firmware can be burned and upgraded. You can burn a partition image file separately through the tool to facilitate debugging.
+We open the RKDevTool burning tool (RKDevTool burning tool is included in the Android usage tutorial) and set the product to burn mode.
+
+.  Disconnect all cables that may power the product, such as power cables and USB cables.
+
+.  One end of a Type-C cable is connected to the OTG interface of the product, the other end is connected to the USB interface of the computer, and then open the software RKDevTool.
+
+.  Press and hold the Recovery key, then use DC to power the product.
+
+.  Wait until the software prompts you to find a LOADER device or Maskrom device (as shown in the following figure), and release the key.
+
+.  Select the Download Image TAB, then click the blank cell to select the MiniLoaderAll and Image files to use.
+
+.  In the Storage option, select the target media EMMC, select Force write to address, and click Execute.
+
+.  Wait for the write to complete, then the device will automatically restart, as shown in the right Download image OK.
+
+image::/bpi-m7/bpi-m7-rkdevtool-2.jpg[bpi-m7-rkdevtool-2.jpg]
 
 == 2.5G Ethernet
 If using wired Ethernet, insert the network cable into the RJ45 port on the BPI-M7 and the wired connection will pop up on the desktop.
