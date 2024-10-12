@@ -197,7 +197,7 @@ We open the RKDevTool burning tool (RKDevTool burning tool is included in the An
 
 .  Wait until the software prompts you to find a LOADER device or Maskrom device (as shown in the following figure), and release the key.
 
-.  Select the Download Image TAB, then click the blank cell to select the MiniLoaderAll and Image files to use.
+.  Select the Download Image TAB, then click the blank cell to select the MiniLoaderAll(Here is the download link for MiniLoaderAll: https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FImages%2FBPI-M7%2FMiniLoaderAll-v1.15.bin) and Image files to use.
 
 .  In the Storage option, select the target media EMMC, select Force write to address, and click Execute.
 
