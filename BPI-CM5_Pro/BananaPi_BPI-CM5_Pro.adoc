@@ -26,6 +26,34 @@ Rockchip RK3588 design link:/en/BPI-M7/BananaPi_BPI-M7[Banana Pi BPI-M7] AI SBC 
 ** CM5: 55 x 40 mm
 ** CM5-IO: 100 x 80 x 29 mm (3.94 x 3.15 x 1.14 inches)
 
+== BPI-CM5 Pro vs Raspberry Pi CM4
+
+.Below is a comparison table between BPI-CM5 Pro and Raspberry Pi CM4
+[%collapsible]
+====
+[options="header",cols="1,2,2"]
+|====
+|Specification	|BPI-CM5 Pro	|Raspberry Pi CM4
+|Processor	|RK3576 SoC	|Broadcom BCM2711
+|CPU |Architecture	Quad-core ARM Cortex-A72 & Quad-core Cortex-A53	|Quad-core ARM Cortex-A72
+|GPU	|ARM Mali G52 MC3 GPU	|VideoCore VI
+|Memory|	Up to 16GB |LPDDR5	1GB, 2GB, 4GB, 8GB LPDDR4
+|Storage	|eMMC storage (optional capacities)|	No built-in storage, supports microSD cards
+|Display |Output	1x HDMI 2.1, 1x DP	|2x HDMI 2.0
+|Video Resolution	|Supports 4K@120fps	|Supports 4K@30fps
+|Network Interface|	1x Gigabit Ethernet port	|1x Gigabit Ethernet port
+|USB Ports	|1x USB3.0，1x USB2.0	|1x USB 2.0
+|GPIO	|40-PIN GPIO	|40-PIN GPIO
+|Expandability	|2x PCIe/SATA/USB 3.0	|1x PCIe 2.0
+|Camera Interface	|1x 4-lane MIPI CSI, 1x 2-lane MIPI CSI	|1x 4-lane MIPI CSI, 1x 2-lane MIPI CSI
+|Display Interface	|1x 4-lane MIPI DSI	|2x 4-lane MIPI DSI
+|Power Input|	5V	|5V
+|Dimensions	|55mm x 40mm	|55mm x 40mm
+|Operating System |	Debian, Android, Ubuntu, etc.	|Raspberry Pi OS, Ubuntu, others
+|Primary Use Cases|	AI development, embedded systems, industrial control, DIY projects, education, IoT	|DIY projects, education, IoT, etc.
+|====
+====
+
 == Getting started
 
 TIP: link:/en/BPI-CM5_pro/GettingStarted_BPI-CM5_Pro[Getting Started BPI-CM5 Pro]
@@ -96,33 +124,6 @@ image::/bpi-cm5_pro/banana_pi_bpi-cm5_pro_block_diagram.png[banana_pi_bpi-cm5_pr
 |====
 
 
-== BPI-CM5 Pro vs Raspberry Pi CM4
-
-.Below is a comparison table between BPI-CM5 Pro and Raspberry Pi CM4
-[%collapsible]
-====
-[options="header",cols="1,2,2"]
-|====
-|Specification	|BPI-CM5 Pro	|Raspberry Pi CM4
-|Processor	|RK3576 SoC	|Broadcom BCM2711
-|CPU |Architecture	Quad-core ARM Cortex-A72 & Quad-core Cortex-A53	|Quad-core ARM Cortex-A72
-|GPU	|ARM Mali G52 MC3 GPU	|VideoCore VI
-|Memory|	Up to 16GB |LPDDR5	1GB, 2GB, 4GB, 8GB LPDDR4
-|Storage	|eMMC storage (optional capacities)|	No built-in storage, supports microSD cards
-|Display |Output	1x HDMI 2.1, 1x DP	|2x HDMI 2.0
-|Video Resolution	|Supports 4K@120fps	|Supports 4K@30fps
-|Network Interface|	1x Gigabit Ethernet port	|1x Gigabit Ethernet port
-|USB Ports	|1x USB3.0，1x USB2.0	|1x USB 2.0
-|GPIO	|40-PIN GPIO	|40-PIN GPIO
-|Expandability	|2x PCIe/SATA/USB 3.0	|1x PCIe 2.0
-|Camera Interface	|1x 4-lane MIPI CSI, 1x 2-lane MIPI CSI	|1x 4-lane MIPI CSI, 1x 2-lane MIPI CSI
-|Display Interface	|1x 4-lane MIPI DSI	|2x 4-lane MIPI DSI
-|Power Input|	5V	|5V
-|Dimensions	|55mm x 40mm	|55mm x 40mm
-|Operating System |	Debian, Android, Ubuntu, etc.	|Raspberry Pi OS, Ubuntu, others
-|Primary Use Cases|	AI development, embedded systems, industrial control, DIY projects, education, IoT	|DIY projects, education, IoT, etc.
-|====
-====
 
 = BPI-CM5 Pro IO board 
 
