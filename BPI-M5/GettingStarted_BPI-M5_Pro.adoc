@@ -706,3 +706,13 @@ root@armsom-sige7:/ # echo performance > /sys/class/devfreq/fb000000.gpu/governo
 root@armsom-sige7:/ # echo performance > /sys/class/devfreq/dmc/governor
 root@armsom-sige7:/ # echo performance > /sys/class/devfreq/fdab0000.npu/governor
 ```
+
+= AI development
+
+== RKLLM 
+
+TIP: How to use RKLLM : link:/en/BPI-M7/how-touse-llm[Banana Pi BPI-M7 RKLLM Development ]
+
+== RKNN
+
+TIP: link:/en/BPI-CM5_Pro/BananaPi_BPI-CM5_Pro/Rockchip_RKNN_Guide[Rockchip RKNN SDK Quick Start Guide]
