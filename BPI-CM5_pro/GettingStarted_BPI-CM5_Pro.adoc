@@ -84,7 +84,7 @@ root@armsom-cm5:/# ip a
     
 ```
 
-After the CM5 Kit starts up, there are three ways to check the IP address:
+After the BPI-CM5 Pro Kit starts up, there are three ways to check the IP address:
 
 * Connect an HDMI monitor, log into the system, and use the terminal to enter the ip a command to check the IP address.
 * Connect a [debug serial port](#Debugging Serial Port) and use the terminal to enter the ip a command to check the IP address.
@@ -115,7 +115,7 @@ round-trip min/avg/max/stddev = 8.370/8.618/8.917/0.203 ms
 ```
 == WiFi
 
-The CM5 Kit includes an onboard WiFi module, so no external network devices are required. It uses the standard 4th generation antenna.
+The BPI-CM5 Pro Kit includes an onboard WiFi module, so no external network devices are required. It uses the standard 4th generation antenna.
 
 === Connect to WiFi using the server image via command line
 
