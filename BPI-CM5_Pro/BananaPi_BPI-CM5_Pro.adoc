@@ -54,6 +54,8 @@ Rockchip RK3588 design link:/en/BPI-M7/BananaPi_BPI-M7[Banana Pi BPI-M7] AI SBC 
 |====
 ====
 
+
+
 == Getting started
 
 TIP: link:/en/BPI-CM5_pro/GettingStarted_BPI-CM5_Pro[Getting Started BPI-CM5 Pro]
@@ -123,7 +125,15 @@ image::/bpi-cm5_pro/banana_pi_bpi-cm5_pro_block_diagram.png[banana_pi_bpi-cm5_pr
 ｜RTC x1
 |====
 
+== BPI-CM5 Pro core board pin definitions
 
+.BPI-CM5 Pro core board pin definitions
+[%collapsible]
+====
+image::/bpi-cm5_pro/cm5-pinlist-1.png[cm5-pinlist-1.png]
+
+image::/bpi-cm5_pro/cm5-pinlist-2.png[cm5-pinlist-2.png]
+====
 
 = BPI-CM5 Pro IO board 
 
