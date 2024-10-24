@@ -76,6 +76,18 @@ The RockChip product user manual helps users understand the basic usage of Panan
 ** A 0.8mm vertical socket can be used.
 * USB-A to USB-C data cable
 
+== Power Supply
+The table below shows the power specifications required for powering the Banana Pi Rockchip design series. You can use any high-quality power supply that provides the correct power mode.
+
+[options="header",cols="1,2,1"]
+|====
+|Model	|Recommended Power (Voltage/Current)	|Power Mode
+|BPI-M7	|5V/3A, 9V/2A, 12V/2A, 15V/2A	|USB-PD
+|BPI-M5 Pro	|5V/3A, 9V/2A, 12V/2A, 15V/2A	|USB-PD
+|BPI-M4 Super	|5V/3A, 9V/2A, 12V/2A, 15V/2A|	USB-PD
+|BPI-M1 Super	|5V/2.5A, 12V/2A	|Non-PD
+|====
+
 = Choosing the Burning Method
 
 TIP: Choosing the Burning Method : link:/en/BPI-M5/BananaPi_Flash_image[Rockchip chip Flash System Image]
