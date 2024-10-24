@@ -191,8 +191,7 @@ image::/bpi-f3/banana_pi_bpi-f3_case_5.jpg[banana_pi_bpi-f3_case_5.jpg]
 == POE 支持
 我们为BPI-F3设计了PoE功能，方便添加PoE模块来支持PoE功能。焊接PoE模块后，通过RJ45-2接口供电。
 
-image::/bpi-f3/bpi-f3_poe_power_supply.jpg[bpi-f3_poe_power_supply.jpg]
-
+image::/bpi-f3/bpi-f3_poe_power.jpg[bpi-f3_poe_power.jpg]
 == 4G 模块
 
 将模块插入mini PCIE接口，并插入SIM卡即可使用。
