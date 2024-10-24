@@ -2,5 +2,71 @@
 
 The Banana Pi BPI-M4 Super features the Rockchip RK3568B2, a high-performance and low-power quad-core application processor designed for personal mobile internet devices and AloT devices. The BPI-M4 Super supports up to 4K@60 HDMI, MIPI DSI, MIPI CSI, USB ports, Gigabit Ethernet, 2.5G network port, PCIe 3.0, 40-PIN GPIO expansion header, and RTC.
 
+== Key Specifications
+* SOC: Rockchip RK3568B2
+* CPU: Quad-core Cortex-A55 @ 2GHz
+* GPU: ARM Mali G52
+* VPU/Codec:
+** Hardware Decoding: H.265/VP9 (HEVC) hardware decoding (up to 4Kp60)
+** Hardware Encoding: H.264 hardware encoding (up to 1080p60)
+* RAM: 2/4/8 GB 32-bit LPDDR4x, default 4GB
+* Flash: 8/16/32/64 GB eMMC, default eMMC 32GB
+* WIFI/BT: Onboard IEEE 802.11a/b/g/n/ac/ax WIFI6 and BT5.3 syn43752
+* Operating Voltage: Wide input voltage range from 4.5V to 18V (voltage tolerance ±5%)
+* Operating Temperature: 0℃ ~ 80℃
+* Operating System:
+** Rockchip official support: Debian11, Buildroot
+** Third-party support: Armbian
+* PCB: 8-layer PCB design
+* Weight: 42.3g
+* Dimensions: 92mm × 62mm x 14.6mm
+
+== Getting started
+
+= Hardware
+== Hardware Interface
+
+== Hardware Spec
+[options="header",cols="1,4"]
+|====
+|Category	|Specification
+|SOC	|RockChip RK3568B2
+|CPU	|RK3568B2 Quad-core Cortex-A55
+.2+|GPU	|ARM Mali G52
+|Supports OpenGL ES3.2/2.0/1.1, Vulkan1.1
+.2+|VPU/Codec	
+|Hardware Decoding: H.265/VP9 (HEVC) hardware decoding (up to 4Kp60)
+|Hardware Encoding: H.264 hardware encoding (up to 1080p60)
+|RAM	|2/4/8 GB 32-bit LPDDR4x, default 4GB
+.2+|Flash	|8/16/32/64 GB eMMC, default eMMC 32GB
+|Supports MicroSD card expansion
+|PCIe	|1x M.2 Key M slot (PCIe 3.0 1-lane), expandable SSD: Type 2280/2260/2242/2230, default 2280
+.3+|Network	
+|1x 2.5G Ethernet
+|1x Gigabit Ethernet
+|Onboard IEEE 802.11a/b/g/n/ac/ax WIFI6 and BT5.3 (syn43752)
+|Video Output	|1x HDMI OUT2.0b, supports 4K@60fps
+.2+|Audio	
+|1x HDMI audio output
+|1x HP-OUT audio output
+.2+|USB Ports	
+|2x USB2.0, supports High Speed (480Mbps), Full Speed (12Mbps), and Low Speed (1.5Mbps)
+|1x USB Type-C 3.0
+.2+|40-PIN	|Compatible with Raspberry Pi 40-PIN, supports various peripherals
+|Supports UART/SPI/I2C/I2S/PWM/5V Power/3.3V Power
+.3+|Other	
+|1x 5V fan connector
+|1x Battery input connector for low-power RTC chip HYM8563TS
+|2x LEDs: Green LED blinks when the system is normal, Red LED controlled by the user
+|Power	|Supports USB Type-C PD 2.0, 9V/2A, 12V/2A, 15V/2A
+.2+|Buttons	
+|1x Reset button, supports reboot
+|1x Maskrom button, supports entering maskrom programming mode
+.2+|System	
+|Rockchip official support: Debian11, Buildroot
+|Third-party support: Armbian
+|Dimensions	|92 mm x 62 mm
+|Operating Temperature	|0℃ ~ 80℃
+|====
 
 
