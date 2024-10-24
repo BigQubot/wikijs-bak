@@ -86,7 +86,9 @@ link:/en/BPI-F3/Photo_BPI-F3[Banana Pi BPI-F3 产品图片]
 == GPIO 引脚定义
 
 
-=== 26 PIN GPIO
+.26 PIN GPIO
+[%collapsible]
+====
 [options="header",cols="1,3,3,1"]
 |====
 |PIN|功能|功能|PIN
@@ -104,8 +106,11 @@ link:/en/BPI-F3/Photo_BPI-F3[Banana Pi BPI-F3 产品图片]
 |23 |SPI3_SCLK_3V3 |SPI3_CS_3V3 |24
 |25 |GND |GPIO_50_3V3 |2
 |====
+====
 
-=== MIPI DSI
+.MIPI DSI
+[%collapsible]
+====
 开发板⽀持1080P屏（JL-M101N013-P12WU-M402632），屏座接⼝型号为FH35C-31S-0.3SHW(50)
 
 [options="header",cols="1,4,4,1"]
@@ -128,8 +133,11 @@ link:/en/BPI-F3/Photo_BPI-F3[Banana Pi BPI-F3 产品图片]
 |29 |LCD_VCC5V0 |LCD_VCC5V0 |30
 |31 |LCD_VCC5V0||
 |====
+====
 
-=== CSI
+.CSI
+[%collapsible]
+====
 开发板默认⽀持16M摄像头模组（欧森纳斯 OV16A10模组 20P601-V1.1-20211008-Model）,可修改电阻配置后⽀持8M摄像头模组（欧森纳斯 OV8856模组 7P802-V5-20200824-Model）,均采⽤间距0.4mm 30 pin插座（型号为 QG1330421Y-M08-7H）。
 
 **16M 摄像头：**
@@ -173,6 +181,7 @@ link:/en/BPI-F3/Photo_BPI-F3[Banana Pi BPI-F3 产品图片]
 |27 |MIPI_CSI3_DN0 |GND |28
 |29 |GND |GND |30
 |====
+====
 
 = 官方配件
 
