@@ -272,14 +272,15 @@ round-trip min/avg/max/stddev = 8.370/8.618/8.917/0.203 ms
 
 === 桌面版镜像的测试方法
 
-1.Click the network configuration icon on the desktop (ensure not to connect a network cable while testing WIFI).
+1.点击桌面上的网络配置图标（测试 WIFI 时请不要连接网线）
 
-2.After connecting to WIFI, open a browser to check if you can access the internet:
+2.连接好 WIFI 后，可以打开浏览器查看是否能上网
 
 image::/bpi-m5pro/wifi_5.png[wifi_5.png]
 
 
-== BT
+== BT蓝牙
+
 ```sh
 # 1. Activate Bluetooth
 armsom@armsom-sige5:/# service bluetooth start
@@ -295,7 +296,9 @@ armsom@armsom-sige5:/# pair yourDeviceMAC
 
 == HDMI
 
-The BPI-M5 Pro has an HDMI output port which supports CEC and HDMI 2.1, maximum resolution up to 4Kp120.
+使用 HDMI 线连接 Banana Pi开发板 和 HDMI 显示器
+
+启动 linux 系统后如果 HDMI 显示器有图像输出说明 HDMI 接口使用正常
 
 [options="header",cols="1,1,1,1"]
 |====
@@ -303,24 +306,21 @@ The BPI-M5 Pro has an HDMI output port which supports CEC and HDMI 2.1, maximum 
 |Resolution|	8Kp60	|4Kp120	|4Kp60
 |====
 
-Connect the board to an HDMI display using an HDMI cable.
 
-After booting the Linux system, if the HDMI display shows an image, the HDMI interface is functioning correctly.
+NOTE: 注意，很多笔记本电脑虽然带有 HDMI 接口，但是笔记本的 HDMI 接口一般只有输出功能，并没有 HDMI in 的功能，也就是说并不能将其他设备的 HDMI 输出显示到笔记本的屏幕上。 当想把开发板的 HDMI 接到笔记本电脑 HDMI 接口时，请先确认清楚您的笔记本是支持 HDMI in 的功能。 当 HDMI 没有显示的时候，请先检查使用的系统是否是带桌面的版本，如果是服务器版本只能看到终端
 
-NOTE: that many laptops, while having HDMI ports, typically have HDMI output only and do not support HDMI in. This means you cannot display the HDMI output from another device on the laptop's screen. Before connecting the development board's HDMI to a laptop's HDMI port, ensure your laptop supports HDMI in functionality. If there is no display, first check if your system is a desktop version; server versions might only show a terminal.
+* HDMI 转 VGA 显示测试
+* 需要准备下面的配件
+** HDMI 转 VGA 转换器
+** 一根 VGA 线，支持 VGA 接口的显示器
 
-* 1.HDMI to VGA Display Test
-** Required accessories:
-** HDMI to VGA converter
-* 2.A VGA cable and a display with a VGA port
-
-The HDMI to VGA display test is shown below:
+* HDMI 转 VGA 显示测试如下所示
 
 image::/bpi-m5pro/hdmi_.jpg[hdmi_.jpg]
 
-TIP: When using HDMI to VGA conversion, no additional configuration is needed for the ArmSoM-Sige products or the Linux system. If you encounter issues, check the HDMI to VGA converter, VGA cable, and display for problems.
+TIP: 使用 HDMI 转 VGA 显示时，ArmSoM-Sige产品和Linux系统是不需要做任何设置的，只需要开发板 HDMI 接口能正常显示就可以了。所以如果测试有问题，请检查 HDMI 转 VGA 转换器、VGA 线以及显示器是否有问题。
 
-== USB
+== USB接口
 
 The BPI-M5 Pro provides one USB 2.0 and one USB 3.0 port.
 
