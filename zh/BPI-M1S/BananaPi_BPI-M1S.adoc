@@ -24,69 +24,70 @@ Banana Pi BPI-M1S 采用Rockchip RK3528 新一代的智能机顶盒和多媒体�
 * 重量：38.9g
 * 大小：92mm × 62mm x 14.6mm
 
-== Getting started
+== 快速上手
 
 TIP: link:/en/BPI-M5/GettingStarted_BPI-M5_Pro[Getting Started BPI-M1 Supper]
 
 
-= Hardware 
+= 硬件
 
-== Hardware interface
+== 硬件接口示意
 
 image::/bpi-m1_super/banana_pi_bpi-m1_super_inerface.jpg[banana_pi_bpi-m1_super_inerface.jpg]
 
-NOTE: On the BPI-M1S, there are two Type-C interfaces that look identical, but only one of them (Type-C DC IN) serves as the power input interface.
+NOTE: BPI-M1S上有两个长得一样的Type-C接口，其中Type-C(DC IN)才是电源接口。
 
 
-== Hardware spec
+== 硬件规格
 
 [options="header",cols="1,4"]
 |=====
 2+| **HardWare Specification of Banana Pi BPI-M1S**
-| Category	| Functional Parameters
-| SOC	| RockChip RK3528 Quad-core Cortex-A53
+|类别	| 规格参数
+| SOC主控	| RockChip RK3528 四核Cortex-A53
 .2+| GPU	| ARM Mali-450 GPU
-| Supports OpenGL ES 1.1/2.0 and OpenVG.
-.2+| VPU/Codec	| video decoder：supports 60fps playback of 4K ultra-high-definition video with up to 10-bit pixels. It supports H.265, H.264, AVS2, etc. video standards.
-| video encoder：supports 60fps capture of 1080p high-definition video. It supports H.265 and H.264 encoding.
-| RAM | 4GB 32-bit LPDDR4x, default 4GB, maximum supported 4GB
-.2+| Flash	 | 32GB eMMC, default eMMC 32GB
-| supports MicroSD card expansion
-.3+| Network	| 1x 2.5G Ethernet port
-| 1x Gigabit Ethernet port
-| Onboard IEEE 802.11a/b/g/n/ac/ax WIFI6 and BT5 (rtl8852bs)
-| Video Output| 1x HDMI OUT2.0b, supports 4K@60fps
-.2+| Audio	| 1x HDMI audio output
-| 1x HP-OUT audio output
-.2+| USB Ports	| 2x USB2.0, supports High-Speed (480Mbps), Full-Speed (12Mbps), and Low-Speed (1.5Mbps) modes
-| 1x USB Type-C 2.0, supports OTG, supports high-speed (480Mbps), full-speed (12Mbps) and low-speed (1.5Mbps) modes
-.2+| 40-pin	| Compatible with Raspberry Pi 40-pin GPIO, supports various accessory peripherals
-| Supports UART/SPI/I2C/I2S/PWM/5V Power/3.3V Power
-.3+| Others	 
-| 1x 5V fan interface
-| 1x battery input connector for low-power RTC chip HYM8563TS
-| 2x LED lights, green light starts blinking when system is normal, red light controlled by user
-| Power	| Supports USB Type-C, 9V/2A, 12V/2A, 15V/2A
-.2+| Buttons 	
-| 1x Reset button, supports reboot
-| 1x Maskrom button, supports entering maskrom burning mode
+| 支持 OpenGL ES 1.1/2.0、OpenVG.
+.2+| VPU/编解码	| 硬解码：支持以60fps播放4K超高清视频，支持高达10位像素，支持H.265、H.264、AVS2等视频标准
+| 硬编码：支持以60fps捕捉1080p高清视频，支持H.265和H.264编码。
+| RAM | 4GB 32bit LPDDR4x，默认4GB，最大支持4GB
+.2+| Flash	 | 32GB eMMC，默认eMMC 32GB
+| 支持MicroSD卡扩展
+.3+| 网络	| 1x 2.5G网口
+| 1x 千兆网口
+| 板载 IEEE 802.11a/b/g/n/ac/ax WIFI6 和 BT5.3 (syn43752)
+| 视频输出| 1x HDMI OUT2.0b，支持 4K@60fps
+.2+| 音频	| 1x HDMI音频输出
+| 1x HP-OUT 音频输出
+.2+| USB 接口	| 2x USB2.0，支持高速（480Mbps）、全速（12Mbps）和低速（1.5Mbps）模式
+| 1x USB Type-C 2.0，支持OTG，支持高速（480Mbps）、全速（12Mbps）和低速（1.5Mbps）模式
+.2+| 40-pin	| 和树莓派40pin兼容部分引脚功能，可接丰富的配件外设
+| 支持 UART/SPI/I2C/I2S/PWM/5V Power/3.3V Power
+.3+| 其他	 
+| 1x 5V风扇接口
+| 1x 电池输入连接器用于低功耗RTC芯片HYM8563TS的供电
+| 2x LED灯，系统正常时绿色灯开始闪烁，红色灯由用户控制
+| 电源	| 支持USB Type-C, 9V/2A, 12V/2A, 15V/2A
+.3+| 按键 	
+| 1x Reset键，支持重启
+| 1x Maskrom键，支持进入maskrom烧录模式
+| 1x PWRON键，支持休眠唤醒
 .2+| System	
-| Officially Supported by Rockchip: Android 9.0_box, Debian11, Buildroot
-| Third-party Support: Armbian, Istoreos
-| Dimensions	| 92 mm x 62mm
-| Operating Temperature	| 0℃ ~ 80℃
+|Rockchip官方支持：Android 9.0_box，Debian11
+|第三方支持：Armbian，Istoreos
+| 尺寸	| 92 mm x 62mm
+| 工作温度	| 0℃ ~ 80℃
 |=====
 
-== Hardware Pin Definitions
+== 硬件GPIO定义
 
-.40 PIN GPIO define
+.40 PIN GPIO 定义
 [%collapsible]
 ====
 
 [options="header",cols="1,4,1,1,4,1"]
 |=====
-6+| **HardWare Specification of Banana Pi BPI-M1S**
-| GPIO |number	|Function	|Pin	|Pin	Function	|GPIO number
+6+| ** Banana Pi BPI-M1S 40 Pin GPIO 定义**
+| GPIO number	|功能	|Pin	|Pin	|功能	|GPIO number
 |	|+3.3V	|1 | 2 | +5.0V	|
 |130	|I2C1_SDA_M0 / UART3_RTSN / I2S1_SDI3 / GPIO4_A2_d /	|3|4| +5.0V	|
 |131	|I2C1_SCL_M0 / UART3_CTSN / I2S1_SDI2 / GPIO4_A3_d|5|6|GND	|
@@ -110,7 +111,7 @@ NOTE: On the BPI-M1S, there are two Type-C interfaces that look identical, but o
 |=====
 ====
 
-.FAN define
+.FAN 风扇 GPIO 定义
 [%collapsible]
 ====
 0.8mm connector(CON3102)
@@ -124,7 +125,7 @@ NOTE: On the BPI-M1S, there are two Type-C interfaces that look identical, but o
 |=====
 ====
 
-.HPOUT
+.HPOUT 音频 GPIO定义
 [%collapsible]
 ====
 0.8mm connector(CON3101)
@@ -150,9 +151,9 @@ NOTE: On the BPI-M1S, there are two Type-C interfaces that look identical, but o
 |=====
 ====
 
-= Development
+= 开发
 
-== Source code
+== 软件源代码
 
 * Armbian source code : https://github.com/armbian/build
 
@@ -160,7 +161,7 @@ NOTE: On the BPI-M1S, there are two Type-C interfaces that look identical, but o
 
 * BPI-M1 Super Uboot source code : https://github.com/rockchip-linux/u-boot
 
-== Resources
+== 参考资料
 
 * BPI-M1S SCH: https://drive.google.com/drive/folders/1909scIZ6N-CPXg3YwFqUfujchpkX3L1P
 
@@ -168,7 +169,7 @@ NOTE: On the BPI-M1S, there are two Type-C interfaces that look identical, but o
 
 * BPI-M1S SMD file: https://drive.google.com/drive/folders/1Ct6q76S8NnV-qSxd3fAYVfTs0NFxAXHD
 
-= Image 
+= 系统镜像 
 
 == Android 9
 
