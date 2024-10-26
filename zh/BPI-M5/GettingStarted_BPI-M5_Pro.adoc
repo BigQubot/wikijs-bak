@@ -163,17 +163,19 @@ round-trip min/avg/max/stddev = 8.370/8.618/8.917/0.203 ms
 
 == WIFI
 
-The Banana Pi design with Rockchip series products come with an onboard WIFI module, so there's no need for external network devices. They use a standard 4th-generation antenna.
+Banana Pi 系列产品都是onboard WIFI模块，不需要外接网口设备，使用标准4代天线
 
-=== Connecting to WIFI via Command Line on Server Image
+=== 服务器版镜像通过命令连接 WIFI
 
-1.First, log in to the Linux system using one of the following methods:
+1.先登录 linux 系统，有下面三种方式
 
-* If the board is connected to a network cable, you can log in remotely via SSH.
-* If the board is connected via a debug serial port, use a serial terminal to log in to the Linux system.
-* If the board is connected to an HDMI monitor, you can log in to the Linux system via the HDMI display.
+* 如果ArmSoM-SigeX 连接了网线，可以通过 ssh 远程登录 linux 系统
+* 如果ArmSoM-SigeX 连接好了调试串口，可以使用串口终端登录 linux 系统
+* 如果连接了ArmSoM-SigeX 到HDMI显示器，可以通过HDMI显示的终端登录到linux 系统
+* 使用 nmcli dev wifi 命令扫描周围的 WIFI 热点
 
-2.Use the nmcli dev wifi command to scan for available WIFI hotspots:
+2.使用 nmcli dev wifi 命令扫描周围的 WIFI 热点
+
 ```sh
 # 1. Enable WIFI
 armsom@armsom-sige:/# nmcli r wifi on
@@ -184,15 +186,17 @@ armsom@armsom-sige:/# nmcli dev wifi connect "wifi_name" password "wifi_password
 ```
 image::/bpi-m5pro/wifi_1.png[wifi_1.png]
 
-3.Use the nmcli command to connect to the scanned WIFI:
+3.使用 nmcli 命令连接扫描到的 WIFI
 
-* Replace wifi_name with the name of the WIFI hotspot you want to connect to.
-* Replace wifi_password with the password for the WIFI hotspot.
+* wifi_name 换成需要连接的 WIFI 热点的名字
+* wifi_passwd 换成需要连接的 WIFI 热点的密码
+
 ```sh
 armsom@armsom-sige7:~$ nmcli dev wifi connect "ydtx_5G" password "ydtx123456"
 Device 'wlan0' successfully activated with "wlan0b6d10bba-e1d5-4b6d-a17f-7d5ab44bbb6f".
 ```
-4.Use the ip addr show wlan0 command to view the WIFI IP address:
+4.通过 ip addr show wlan0 命令可以查看 wifi 的 IP 地址:
+
 ```sh
 armsom@armsom-sige7:~$ ip addr show wlan0
 4: wlan0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
@@ -202,7 +206,8 @@ armsom@armsom-sige7:~$ ip addr show wlan0
     inet6 fe80::850d:3119:e0:afa3/64 scope link noprefixroute
        valid_lft forever preferred_lft forever
 ```
-5.Use the ping command to test the WIFI network connectivity. You can interrupt the ping command with the Ctrl+C shortcut:
+5.使用 ping 命令可以测试 wifi 网络的连通性，ping 命令可以通过 Ctrl+C 快捷键来中断运行
+
 ```sh
 armsom@armsom-sige7:~$ ping www.baidu.com
 PING www.a.shifen.com (183.2.172.185): 56 data bytes
@@ -215,30 +220,31 @@ PING www.a.shifen.com (183.2.172.185): 56 data bytes
 4 packets transmitted, 4 packets received, 0% packet loss
 round-trip min/avg/max/stddev = 8.370/8.618/8.917/0.203 ms
 ```
-=== Connecting to WIFI via GUI on Server Image
+=== 服务器版镜像通过图形化方式连接 WIFI
 
-1.Log in to the Linux system using one of the following methods:
+1.登录 linux 系统，有下面三种方式
 
-* If the development board is connected to a network cable, you can log in remotely via SSH.
-* If the development board is connected via a debug serial port, use a serial terminal to log in to the Linux system (use MobaXterm for serial software, as minicom cannot display the graphical interface).
-* If the development board is connected to an HDMI monitor, log in to the Linux system via the HDMI display.
+* 如果开发板连接了网线，可以通过 ssh 远程登录 linux 系统
+* 如果开发板连接好了调试串口，可以使用串口终端登录 linux 系统（串口软件请使用 MobaXterm，使用 minicom 无法显示图形界面）
+* 如果连接了开发板到HDMI显示器，可以通过HDMI显示的终端登录到linux系统
 
-2.Enter the nmtui command in the terminal to open the WIFI connection interface:
+2.在命令行中输入 nmtui 命令打开 wifi 连接的界面
 
 image::/bpi-m5pro/wifi_2.png[wifi_2.png]
 
 ```sh 
 armsom@armsom-sige7:~$ nmtui
 ```
-3.Select "Activate a connection" and press Enter:
+3.选择 Activate a connect 后回车
 
 image::/bpi-m5pro/wifi_3.png[wifi_3.png]
 
-4.Choose the WIFI hotspot you want to connect to and enter the password. After a successful connection, an asterisk “*” will appear next to the connected WIFI name:
+4.选择想要连接的 WIFI 热点，输入密码。WIFI 连接成功后会在已连接的 WIFI 名称前显示一个“*”
 
 image::/bpi-m5pro/wifi_4.png[wifi_4.png]
 
-5.Use the ip addr show wlan0 command to view the WIFI IP address:
+5.通过 ip addr show wlan0 命令可以查看 wifi 的 IP 地址
+
 ```sh 
 armsom@armsom-sige7:~$ ip addr show wlan0
 4: wlan0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
@@ -249,7 +255,8 @@ armsom@armsom-sige7:~$ ip addr show wlan0
        valid_lft forever preferred_lft forever
 ```
 
-6.Use the ping command to test the WIFI network connectivity. You can interrupt the ping command with the Ctrl+C shortcut:
+6.使用 ping 命令可以测试 wifi 网络的连通性，ping 命令可以通过 Ctrl+C 快捷键来中断运行
+
 ```sh 
 armsom@armsom-sige7:~$ ping www.baidu.com
 PING www.a.shifen.com (183.2.172.185): 56 data bytes
@@ -263,7 +270,7 @@ PING www.a.shifen.com (183.2.172.185): 56 data bytes
 round-trip min/avg/max/stddev = 8.370/8.618/8.917/0.203 ms
 ```
 
-=== Testing Method for Desktop Image
+=== 桌面版镜像的测试方法
 
 1.Click the network configuration icon on the desktop (ensure not to connect a network cable while testing WIFI).
 
