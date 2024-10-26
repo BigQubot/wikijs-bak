@@ -322,46 +322,49 @@ TIP: 使用 HDMI 转 VGA 显示时，ArmSoM-Sige产品和Linux系统是不需要
 
 == USB接口
 
-The BPI-M5 Pro provides one USB 2.0 and one USB 3.0 port.
 
 [options="header",cols="1,2,2,1"]
 |====
-|Model	|BPI-M7	|BPI-M5 Pro |BPI-M1 Super
+|型号	|BPI-M7	|BPI-M5 Pro |BPI-M1 Super
 |USB	|1x Type-C 3.0, 1x USB3.0, 1x USB2.0	|1x Type-C 3.0, 1x USB3.0, 1x USB2.0 |	2x USB2.0
 |====
 
-NOTE: USB interfaces can be expanded by using a USB hub.
+NOTE: USB 接口是可以接 USB hub 来扩展 USB 接口的数量的。
 
-=== Testing USB Mouse or Keyboard
+=== 连接 USB 鼠标或键盘测试
 
-* 1.Insert a USB keyboard into the board's USB port.
-* 2.Connect the board to an HDMI display.
-* 3.If the mouse or keyboard operates the system normally, the USB interface is working correctly (the mouse will only work in desktop versions of the system).
+* 将 USB 接口的键盘插入ArmSoM-Sige产品的 USB 接口中
+* 连接ArmSoM-Sige产品到 HDMI 显示器
+* 如果鼠标或键盘能正常操作系统说明 USB 接口使用正常（鼠标只有在桌面版的系统中才能使用）
 
-=== Testing USB Storage Device
+=== 连接 USB 存储设备测试
 
-* 1.Insert a USB flash drive or USB external hard drive into the ArmSoM-Sige product's USB port.
-* 2.Run the following command; if you see sdX output, the USB drive is recognized successfully:
+* 1.首先将 U 盘或者 USB 移动硬盘插入 ArmSoM-Sige产品的 USB 接口中
+* 2.执行下面的命令如果能看到 sdX 的输出说明 U 盘识别成功
+
 ```sh
 armsom@armsom-sige7:/# cat /proc/partitions | grep "sd*"
 major minor  #blocks  name
    8        0  122880000 sda
 ```
-* 3.Use the mount command to mount the USB drive to /mnt and view the files on the USB drive:
+
+* 3.使用 mount 命令可以将 U 盘挂载到/mnt 中，然后就能查看 U 盘中的文件了
+
 ```sh
 armsom@armsom-sige7:/# sudo mount /dev/sda1 /test/
 ```
 
-* 4.After mounting, use the df -h command to check the USB drive's capacity usage and mount point:
+* 4.挂载完后通过 df -h 命令就能查看 U 盘的容量使用情况和挂载点
+
 ```sh
 armsom@armsom-sige7:/test# df -h | grep "sd"
 /dev/sda        4.7G  4.7G     0  100% /test
 ```
-=== USB Camera
+=== USB 摄像头
 
-* 1.Prepare a USB camera that supports the UVC protocol and connect it to the board's USB port.
+* 1.准备一个支持 UVC 协议的 USB 摄像头，然后将USB 摄像头插入到 ArmSoM-Sige产品的 USB 接口中
 
-* 2.Use the v4l2-ctl command to view the USB camera's device node information, which should be /dev/video0:
+* 2.通过 v4l2-ctl 命令可以看到 USB 摄像头的设备节点信息为/dev/video0
 
 ```sh
 armsom@armsom-sige7:/# v4l2-ctl --list-devices
@@ -371,21 +374,23 @@ Logitech HD Webcam C93 (usb-xhci-hcd.5.auto-1):
         /dev/media4
 ```
 
-* 3.On a desktop system, you can use Cheese/V4L2 test bench to open the USB camera directly.
+* 3.在桌面系统中可以使用 Cheese/V4L2 test bench 直接打开 USB 摄像头
 
 image::/bpi-m5pro/usb-camera.jpg[usb-camera.jpg]
 
-You can also use terminal commands to preview the camera:
+同时，您也可以使用终端命令打开相机预览:
+
 ```sh
 armsom@armsom-sige7:/# gst-launch-1.0 v4l2src device=/dev/video0 io-mode=4 ! videoconvert ! video/x-raw,format=NV12,width=1920,height=1080 ! xvimagesink;
 ```
 
-To capture a photo:
+命令拍照:
+
 ```sh
 armsom@armsom-sige7:/# gst-launch-1.0 v4l2src device=/dev/video0 io-mode=4 ! videoconvert ! video/x-raw,format=NV12,width=1920,height=1080 ! jpegenc ! multifilesink location=/home/armsom/test.jpg;
 ```
 
-To record a video:
+命令拍摄视频:
 
 ```sh
 gst-launch-1.0 v4l2src num-buffers=512 device=/dev/video0 io-mode=4 ! videoconvert ! video/x-raw, format=NV12, width=1920, height=1080, framerate=30/1 ! tee name=t ! queue ! mpph264enc ! queue ! h264parse ! mpegtsmux ! filesink location=/home/armsom/test.mp4
@@ -393,9 +398,10 @@ gst-launch-1.0 v4l2src num-buffers=512 device=/dev/video0 io-mode=4 ! videoconve
 
 image::/bpi-m7/bpi-m7_camera.png[bpi-m7_camera.png]
 
-== Audio
+== Audio语音
 
-View sound cards in the system:
+查看系统中的声卡：
+
 ```sh
 armsom@armsom-sige5:/# aplay -l  
 **** List of PLAYBACK Hardware Devices ****  
@@ -409,16 +415,20 @@ card 2: rockchiphdmi0 [rockchip-hdmi0], device 0: rockchip-hdmi0 i2s-hifi-0 [roc
   Subdevices: 1/1  
   Subdevice #0: subdevice #0
 ```
+播放音乐：
 
-== Fan
+```sh
+armsom@armsom-sige7:/# aplay -D plughw:1,0 ./usr/share/sounds/alsa/Front_Right.wav
+```
+== Fan风扇
 
-BPI-M5 Pro products are equipped with a 5V fan using a 0.8mm connector.
+Banana Pi产品 配备一个 5V 的风扇，使用 0.8mm 的连接器
 
-The fan currently operates in five default states:
+目前风扇默认五个状态:
 
 [options="header",cols="2,1,1"]
 |====
-|Temperature Range| State |PWM Speed  
+|温度| 状态 |PWM 转速
 |Less than 50°C |0 |0  
 |50°C - 55°C| 1 |50  
 |55°C - 60°C |2 |100  
@@ -435,15 +445,15 @@ armsom@armsom-sige5:/# echo 100 > /sys/devices/platform/pwm-fan/hwmon/hwmon6/pwm
 
 The BPI-M5 Pro features a full-featured USB Type‐C 3.0 port which supports up to 8K@30fps DP display.
 
-== 40Pin
+== 40 Pin 
 
-The BPI-M5 Pro provides a 40-pin GPIO header, compatible with most sensors on the market.
+Banana Pi开发板提供了一个40pin针脚的GPIO座子，兼容于市面上大部分传感器的应用。
 
-=== Wiring-armbian Instructions
+=== wiring-armbian 的方法
 
-Download the wiringOP code from wiring-armbian: https://github.com/ArmSoM/wiring-armbian
+下载 wiringOP 的代码 wiring-armbian: https://github.com/ArmSoM/wiring-armbian
 
-* Test the output of the gpio readall command as shown below:
+* 测试 gpio readall 命令的输出如下:
 
  +------+-----+----------+--------+---+  ArmSoM-Sige7(BPI-M7) +---+--------+----------+-----+------+  
  | GPIO | wPi |   Name   |  Mode  | V | Physical | V |  Mode  | Name     | wPi | GPIO |  
@@ -473,34 +483,34 @@ Download the wiringOP code from wiring-armbian: https://github.com/ArmSoM/wiring
  +------+-----+----------+--------+---+  ArmSoM-Sige7(BPI-M7) +---+--------+----------+-----+------+  
  
  
- * Set the GPIO pin to output mode. The third parameter requires the wPi number corresponding to the pin.
+ * 设置 GPIO 口为输出模式，其中第三个参数需要输入引脚对应的 wPi 的序号
  
 ```sh
  root@armsom-sige7:~/wiring-armbian# gpio mode 2 out
 ```
 
-* Set the GPIO pin to output a low level. After setting, you can measure the voltage on the pin with a multimeter; if it reads 0V, the low level is set successfully.
+* 设置 GPIO 口输出低电平，设置完后可以使用万用表测量引脚的电压的数值，如果为 0v，说明设置低电平成功
 
 ```sh
 root@armsom-sige7:~/wiring-armbian# gpio write 2 0
 ```
 
-* Set the GPIO pin to output a high level. After setting, you can measure the voltage on the pin with a multimeter; if it reads 3.3V, the high level is set successfully.
+* 设置 GPIO 口输出高电平，设置完后可以使用万用表测量引脚的电压的数值，如果为 3.3v，说明设置高电平成功
 
 ```sh
 root@armsom-sige7:~/wiring-armbian# gpio write 2 1
 ```
 
-* The setup method for other pins is similar; just change the wPi number to the corresponding pin's number.
+* 其他引脚的设置方法类似，只需修改 wPi 的序号为引脚对应的序号即可
 
 == RGB LED
 
-The BPI-M5 Pro has two user LEDs - green and red.
+Banana Pi开发板具有两个用户灯 LED 绿灯和红灯。
 
-* User Green LED Constantly indicates running kernel by default.
-* User Red LED Off by default, can be controlled by user.
+* 用户绿灯 默认情况下，其常亮表示系统运行正常。
+* 用户红灯 默认情况下不亮，可由用户自行操控。
 
-Users can control with commands:
+用户可通过命令控制：
 
 ```sh
 armsom@armsom-sige5:/# sudo su  
@@ -509,10 +519,11 @@ armsom@armsom-sige5:/# echo activity > /sys/class/leds/red/trigger
 ```
 == RTC
 
-* The BPI-M5 Pro features an LK8563S RTC chip.
-* First, insert the RTC battery using the 2-pin header to supply power to the RTC IC.
+* Banana Pi 配备了一颗RTC IC LK8563S。
+* 首先，使用2pin的排针接口，插入RTC电池给RTC IC供电。
 
-NOTE: that we should keep the RTC battery in the RTC connector and confirm the rtc LK8563S device which has been created.
+NOTE: 请注意，我们应该将 RTC 电池保留在 RTC 连接器中，并确认 rtc LK8563S 设备已创建
+
 ```sh
 armsom@armsom-sige5:/# dmesg | grep rtc  
 [ 6.407133] rtc-hym8563 6-0051: rtc information is valid  
@@ -520,7 +531,8 @@ armsom@armsom-sige5:/# dmesg | grep rtc
 [ 6.413779] rtc-hym8563 6-0051: setting system clock to 2022-06-22T01:22:26 UTC (1655860946)  
 ```
 
-* Find rtc0, then use the following commands to set system time and sync to rtc0:
+* 找到rtc0，然后使用以下命令设置系统时间并同步到rtc0。
+
 ```sh
 armsom@armsom-sige5:/# hwclock -r  
 2023-11-03 10:32:40.461910+00:00  
@@ -531,7 +543,8 @@ armsom@armsom-sige5:/# hwclock -r
 armsom@armsom-sige5:/# poweroff  
 ```
 
-* Turn off the RTC battery for 10+ minutes, insert the battery again and boot Sige5, and check if RTC synced with system clock:
+* 关闭RTC电池，10分钟或更长时间后，插入RTC电池并启动Sige7，检查RTC是否与系统时钟同步
+
 ```sh
 armsom@armsom-sige5:/# hwclock -r  
 2023-11-03 10:35:40.461910+00:00  
@@ -539,22 +552,26 @@ armsom@armsom-sige5:/# date
 Fri 3rd Nov 10:36:01 UTC 2023
 ```
 
-== M.2 interface
+== M.2 接口
 
-BPI-M5 Pro provides an M.2 connector:
+Banana Pi开发板提供 M.2 Key M 连接器：
 
-The back of the product features an M.2 M Key connector with a PCIe 2.0 interface supporting 1 channel. The board includes a standard M.2 2280 mounting hole, allowing for the deployment of an M.2 2280 NVMe SSD.
-
-NOTE: This M.2 interface does not support M.2 SATA SSDs.
+产品的背面有一个带有M.2 Key M 连接器。 板上有一个标准的 M.2 2280 安装孔，可以部署 M.2 2280 NVMe SSD。
 
 ```sh
-armsom@armsom-sige5:/# mkdir temp
-armsom@armsom-sige5:/# mount /dev/nvme0n1 temp
+armsom@armsom-sige:/# mkdir temp
+armsom@armsom-sige:/# mount /dev/nvme0n1 temp
 ```
+NOTE: 该 M.2 接口不支持 M.2 SATA SSD。
+
+
 
 == MIPI-CSI
 
-Use the IMX415 module for the camera. After connecting and powering on the camera module you can view the boot log:
+使用 camera-module1
+
+摄像头采用camera-module1模组，摄像头模组连接并上电后可以查看启动日志。
+
 ```sh
 armsom@armsom-sige5:/# dmesg | grep imx415
 [    2.547754] imx415 3-001a: driver version: 00.01.08
@@ -571,7 +588,8 @@ armsom@armsom-sige5:/# dmesg | grep imx415
 [   18.389067] imx415 3-001a: set exposure(shr0) 2047 = cur_vts(2250) - val(203)
 ```
 
-Use v4l2-ctl for image capture:  
+使用v4l2-ctl进行抓图
+
 ```sh
 / MIPI-CSI1
 armsom@armsom-sige5:/# v4l2-ctl -d /dev/video31 --set-fmt-video=width=3840,height=2160,pixelformat=NV12 --stream-mmap=3 --stream-skip=60 --stream-to=/tmp/cif73.out --stream-count=3 --stream-poll
@@ -580,7 +598,8 @@ armsom@armsom-sige5:/# v4l2-ctl -d /dev/video31 --set-fmt-video=width=3840,heigh
 armsom@armsom-sige5:/# v4l2-ctl -d /dev/video22 --set-fmt-video=width=3840,height=2160,pixelformat=NV12 --stream-mmap=3 --stream-skip=60 --stream-to=/tmp/cif73.out --stream-count=3 --stream-poll
 ```
 
-Record video directly with gst-launch-1.0:
+使用gst-launch-1.0可直接录像
+
 ```sh
 // MIPI-CSI1
 armsom@armsom-sige5:/# gst-launch-1.0 v4l2src device=/dev/video31 ! video/x-raw,format=NV12,width=3840,height=2160, framerate=30/1 ! xvimagesink
@@ -593,41 +612,43 @@ image::/bpi-m7/bpi-m7_mipi_csi.jpeg[bpi-m7_mipi_csi.jpeg]
 
 == MIPI DSI
 
-BPI-M5 Pro supports a maximum resolution of 4K@120Hz.
+Banana Pi 开发板分辨率最高分辨率可达 4K@60Hz
 
-* 1.Connect the cables as shown in the image below.
+* 按照下图将连接好排线
 
 image::/bpi-m5pro/mipi_dsi.jpg[mipi_dsi.jpg]
 
-* 2.Configuring the 10.1-inch MIPI LCD screen
+* 2.打开 10.1 寸 MIPI LCD 屏幕配置的方法
 
-** By default, the Linux image does not have the MIPI LCD screen configuration enabled. To use the MIPI LCD screen, you need to enable it manually.
+** linux 镜像默认是没有打开 mipi lcd 屏幕的配置的，如果需要使用 mipi lcd 屏幕，需要手动打开才行。
 
-** Use nano to open the /boot/armbianEnv.txt file:
+** 使用nano 打开/boot/armbianEnv.txt文件：
+
 ```sh
 sudo nano /boot/armbianEnv.txt
 ```
 
-** In this file, find or add the keyword "overlays=".
+** 在该文件中找到或者添加 "overlays=" 这个关键词。
+
 ```sh
 // Choose according to your product
 overlays=armsom-sige7-display-10hd // Sige7
 overlays=armsom-sige5-display-10hd // Sige5
 overlays=armsom-sige3-display-10hd // Sige3
 ```
-Shortcut keys: Ctrl + S to save Ctrl + X to exit
+快捷键：Ctrl + S保存 Ctrl + X退出
 
-After editing, restart the device to apply the Overlays settings and support Display 10 HD.
+编辑好之后重启设备来更改Overlays设置以支持Display 10 HD。
 
 = CPU/GPU/NPU/DDR
 
 The following example uses BPI-M7 to illustrate how to set the fixed frequency and performance modes for CPU, GPU, NPU, and DDR.
 
-== Fixed Frequency Settings
+== 定频
 
-=== CPU Fixed Frequency
+=== CPU 定频
 
-The BPI-M7 CPU consists of 4 A55 cores and 4 A76 cores, managed in three separate groups. The nodes are as follows:
+以下以Sige7为例，CPU GPU NPU DDR定频和性能模式设置方法
 
 ```sh
 /sys/devices/system/cpu/cpufreq/policy0: (corresponding to 4 A55: CPU0-3)
@@ -648,9 +669,9 @@ root@armsom-sige7:/ # cat /sys/devices/system/cpu/cpufreq/policy6/scaling_availa
 conservative ondemand userspace powersave performance schedutil 
 
 ```
-The default is the automatic frequency scaling mode: schedutil (to restore, set to this mode).
+默认是自动变频模式：schedutil（恢复的话设置为该模式即可）
 
-Manual Fixed Frequency Settings
+设置手动定频
 
 ```sh
 root@armsom-sige7:/ $ su
@@ -660,11 +681,12 @@ root@armsom-sige7:/ # cat /sys/devices/system/cpu/cpufreq/policy6/cpuinfo_cur_fr
 2016000
 
 ```
-The other two CPU groups can be set similarly by operating the corresponding nodes.
+其他两组CPU也是类似的方式进行设置，操作对应的节点即可。
 
-=== GPU Fixed Frequency
+=== GPU定频
 
-GPU Node Path
+GPU的节点路径
+
 ```sh
 root@armsom-sige7:/ # ls /sys/class/devfreq/fb000000.gpu/    
 available_frequencies  cur_freq  governor  max_freq  name              power      target_freq  trans_stat
@@ -675,9 +697,9 @@ root@armsom-sige7:/ # cat /sys/class/devfreq/fb000000.gpu/available_governors //
 dmc_ondemand userspace powersave performance simple_ondemand
 ```
 
-The default is the automatic frequency scaling mode: simple_ondemand (to restore, set to this mode).
+默认是自动变频模式：simple_ondemand（恢复的话设置为该模式即可）
 
-Manual Fixed Frequency Settings
+设置手动定频
 
 ```sh
 root@armsom-sige7:/ $ su
@@ -689,9 +711,10 @@ root@armsom-sige7:/ # cat /sys/class/devfreq/fb000000.gpu/load   // Check GPU lo
 28@300000000Hz
 ```
 
-=== DDR Fixed Frequency
+=== DDR 定频
 
-DDR Node Path
+DDR的节点路径
+
 ```sh
 root@armsom-sige7:/ # ls /sys/class/devfreq/dmc/  
 available_frequencies  cur_freq  downdifferential  load      min_freq  polling_interval  subsystem      target_freq  trans_stat  upthreshold
@@ -702,9 +725,9 @@ root@armsom-sige7:/ # cat /sys/class/devfreq/dmc/available_governors // Get DDR 
 dmc_ondemand userspace powersave performance simple_ondemand
 ```
 
-The default is the automatic frequency scaling mode: dmc_ondemand (to restore, set to this mode).
+默认是自动变频模式：dmc_ondemand（恢复的话设置为该模式即可）
 
-Manual Fixed Frequency Settings
+设置手动定频
 
 ```sh
 root@armsom-sige7:/ $ su
@@ -716,9 +739,9 @@ root@armsom-sige7:/ # cat /sys/class/devfreq/dmc/load  // Check DDR load
 7@528000000Hz
 ```
 
-=== NPU Fixed Frequency
+=== NPU 定频
 
-NPU Node Path
+NPU的节点路径
 
 ```sh
 root@armsom-sige7:/ # ls /sys/class/devfreq/fdab0000.npu/
@@ -730,9 +753,9 @@ root@armsom-sige7:/ # cat /sys/class/devfreq/fdab0000.npu/available_governors //
 dmc_ondemand userspace powersave performance simple_ondemand
 ```
 
-The default is the automatic frequency scaling mode: simple_ondemand (to restore, set to this mode).
+默认是自动变频模式：simple_ondemand（恢复的话设置为该模式即可）
 
-Manual Fixed Frequency Settings
+设置手动定频
 
 ```sh
 root@armsom-sige7:/ $ su
@@ -744,7 +767,8 @@ root@armsom-sige7:/ # cat /sys/kernel/debug/rknpu/load // Check NPU load
 NPU load:  Core0:  0%, Core1:  0%, Core2:  0%,
 ```
 
-== Performance Modes
+== 性能模式
+
 ```sh
 root@armsom-sige7:/ $ su
 root@armsom-sige7:/ # echo performance > /sys/devices/system/cpu/cpufreq/policy6/scaling_governor
@@ -753,7 +777,7 @@ root@armsom-sige7:/ # echo performance > /sys/class/devfreq/dmc/governor
 root@armsom-sige7:/ # echo performance > /sys/class/devfreq/fdab0000.npu/governor
 ```
 
-= AI development
+= AI 开发
 
 == RKLLM 
 
