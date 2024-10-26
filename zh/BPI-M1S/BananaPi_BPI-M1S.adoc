@@ -1,3 +1,197 @@
-== header
+= 产品介绍
 
-content
+image::/bpi-m1_super/banana_pi_bpi-m1_super_banner_1.png[banana_pi_bpi-m1_super_banner_1.png]
+
+Banana Pi BPI-M1S 采用Rockchip RK3528 新一代的智能机顶盒和多媒体应用芯片，可应用于IPTV/OTT盒子、云终端、融合类产品，是高性能低功耗的4K播放器，解码能力最高支持到8K，同时也支持了AVS2和HDR VIVID标准。
+
+== 关键特性
+
+* SOC：瑞芯微 RK3528
+* CPU：RK3528 四核Cortex-A53
+* GPU：ARM Mali-450 GPU
+* VPU/编解码：
+** 硬解码：支持以60fps播放4K超高清视频，支持高达10位像素，支持H.265、H.264、AVS2等视频标准。
+** 硬编码：支持以60fps捕捉1080p高清视频，支持H.265和H.264编码。
+* RAM：1GB / 2GB / 4GB 32bit LPDDR4x，默认2GB
+* Flash：0GB / 8GB / 16GB / 32GB / 64GB eMMC，默认eMMC 8GB
+* WIFI/BT: 板载 IEEE 802.11a/b/g/n/ac/ax WIFI6 and BT5.3 syn43752
+* 工作电压：具有宽范围的输入电压，从4.5V到18V（电压误差±5%）
+* 工作温度：0℃ ~ 80℃
+* 操作系统：
+** Rockchip官方支持：Android 9.0_box，Debian11，Buildroot
+** 第三方支持：Armbian
+* PCB： 6 层 PCB 板设计
+* 重量：38.9g
+* 大小：92mm × 62mm x 14.6mm
+
+== Getting started
+
+TIP: link:/en/BPI-M5/GettingStarted_BPI-M5_Pro[Getting Started BPI-M1 Supper]
+
+
+= Hardware 
+
+== Hardware interface
+
+image::/bpi-m1_super/banana_pi_bpi-m1_super_inerface.jpg[banana_pi_bpi-m1_super_inerface.jpg]
+
+NOTE: On the BPI-M1S, there are two Type-C interfaces that look identical, but only one of them (Type-C DC IN) serves as the power input interface.
+
+
+== Hardware spec
+
+[options="header",cols="1,4"]
+|=====
+2+| **HardWare Specification of Banana Pi BPI-M1S**
+| Category	| Functional Parameters
+| SOC	| RockChip RK3528 Quad-core Cortex-A53
+.2+| GPU	| ARM Mali-450 GPU
+| Supports OpenGL ES 1.1/2.0 and OpenVG.
+.2+| VPU/Codec	| video decoder：supports 60fps playback of 4K ultra-high-definition video with up to 10-bit pixels. It supports H.265, H.264, AVS2, etc. video standards.
+| video encoder：supports 60fps capture of 1080p high-definition video. It supports H.265 and H.264 encoding.
+| RAM | 4GB 32-bit LPDDR4x, default 4GB, maximum supported 4GB
+.2+| Flash	 | 32GB eMMC, default eMMC 32GB
+| supports MicroSD card expansion
+.3+| Network	| 1x 2.5G Ethernet port
+| 1x Gigabit Ethernet port
+| Onboard IEEE 802.11a/b/g/n/ac/ax WIFI6 and BT5 (rtl8852bs)
+| Video Output| 1x HDMI OUT2.0b, supports 4K@60fps
+.2+| Audio	| 1x HDMI audio output
+| 1x HP-OUT audio output
+.2+| USB Ports	| 2x USB2.0, supports High-Speed (480Mbps), Full-Speed (12Mbps), and Low-Speed (1.5Mbps) modes
+| 1x USB Type-C 2.0, supports OTG, supports high-speed (480Mbps), full-speed (12Mbps) and low-speed (1.5Mbps) modes
+.2+| 40-pin	| Compatible with Raspberry Pi 40-pin GPIO, supports various accessory peripherals
+| Supports UART/SPI/I2C/I2S/PWM/5V Power/3.3V Power
+.3+| Others	 
+| 1x 5V fan interface
+| 1x battery input connector for low-power RTC chip HYM8563TS
+| 2x LED lights, green light starts blinking when system is normal, red light controlled by user
+| Power	| Supports USB Type-C, 9V/2A, 12V/2A, 15V/2A
+.2+| Buttons 	
+| 1x Reset button, supports reboot
+| 1x Maskrom button, supports entering maskrom burning mode
+.2+| System	
+| Officially Supported by Rockchip: Android 9.0_box, Debian11, Buildroot
+| Third-party Support: Armbian, Istoreos
+| Dimensions	| 92 mm x 62mm
+| Operating Temperature	| 0℃ ~ 80℃
+|=====
+
+== Hardware Pin Definitions
+
+.40 PIN GPIO define
+[%collapsible]
+====
+
+[options="header",cols="1,4,1,1,4,1"]
+|=====
+6+| **HardWare Specification of Banana Pi BPI-M1S**
+| GPIO |number	|Function	|Pin	|Pin	Function	|GPIO number
+|	|+3.3V	|1 | 2 | +5.0V	|
+|130	|I2C1_SDA_M0 / UART3_RTSN / I2S1_SDI3 / GPIO4_A2_d /	|3|4| +5.0V	|
+|131	|I2C1_SCL_M0 / UART3_CTSN / I2S1_SDI2 / GPIO4_A3_d|5|6|GND	|
+|1	|REF_CLK_OUT_M0 /GPIO0_A1	|7|8|UART0_TX_M0 / JTAG_MCU_TCK_M1 / JTAG_CPU_TCK_M1 / GPIO4_D0_d	|152
+||GND	 |9|10|GPIO0_B6/UART0_RX_M0/ JTAG_MCU_TMS_M1/JTAG_CPU_TMS_M1 / GPIO4_C7_u	|151
+|0	|GPIO0_A0	|11|12|I2S1_SCLK / UART1_RTSN / GPIO4_A5_d	|133
+| | |13 | 14 | GND	|
+| | |15 |16|  | 
+| |+3.3V | 17 | 18 | | 
+|138	|SPI0_MOSI / PDM_SDI0 / I2S1_SDO3 / GPIO4_B2_d	|19|20|GND	|
+|41	|SPI0_MISO / PDM_SDI2 / I2S1_SDI1 / GPIO4_B3_d	|21|22| |
+|43	|SPI0_CLK / I2S1_SDI0 / GPIO4_B4_d| 23 |24 |SPI0_CSN0 / PWR_CTRL1 /SPI0_CS0_M2|	44
+| |GND	|25|26|PWM6_M0 / SPI0_CSN1 / PDM_SDI3 / GPIO4_C1_d	|145
+|150	|I2C0_SDA_M0 / PWM0_M0 / GPU_AVS / GPIO4_C3_d	|27|28|ARM_AVS / PWM1_M0 / I2C0_SCL_M0 / GPIO4_C4_d	|148
+| | |29 | 30|GND	|
+| || 31|32|GPIO4_C0/PWM5_M0 / FEPHY_LED_LINK_M0 / UART3_TX_M1	|144
+|103|	GPIO4_B7 / PWM4_M0 / FEPHY_LED_SPD_M0 / UART3_RX_M1	|33|34|GND	|
+|134	|UART1_TX_M0 / I2S1_LRCK / GPIO4_A6_d	|35|36||
+| | |37|38|GPIO3_B2 / SPI0_CLK / I2S1_SDI0 |	106
+| |GND	|39|40|GPIO4_A7_d / UART1_RX_M0 / I2S1_SDO0|	107
+|=====
+====
+
+.FAN define
+[%collapsible]
+====
+0.8mm connector(CON3102)
+
+[options="header",cols="1,3"]
+|=====
+|Pin	Assignment	|Description
+|1	|VCC_5V0	5V Power ouput
+|2	|GND	GND
+|3	|PWM	PWM control
+|=====
+====
+
+.HPOUT
+[%collapsible]
+====
+0.8mm connector(CON3101)
+
+[options="header",cols="1,2,2"]
+|=====
+|Pin	|Assignment	|Description
+|1	|AOR	|right channel
+|2	|AOL	|left channel
+|3	|GND	|GND
+|=====
+====
+
+.VRTC
+[%collapsible]
+====
+0.8mm connector(CON2200)
+[options="header",cols="1,2,2"]
+|=====
+|Pin	|Assignment	|Description
+|1	|+	|Positive pole
+|2	|-	|Negative pole
+|=====
+====
+
+= Development
+
+== Source code
+
+* Armbian source code : https://github.com/armbian/build
+
+* BPI-M1 Super kernel source cdoe : https://github.com/armbian/linux-rockchip
+
+* BPI-M1 Super Uboot source code : https://github.com/rockchip-linux/u-boot
+
+== Resources
+
+* BPI-M1S SCH: https://drive.google.com/drive/folders/1909scIZ6N-CPXg3YwFqUfujchpkX3L1P
+
+* BPI-M1S DXF file: https://drive.google.com/drive/folders/1poEmG7qoPGusLg_GnVWMICXeKwuxaa4P
+
+* BPI-M1S SMD file: https://drive.google.com/drive/folders/1Ct6q76S8NnV-qSxd3fAYVfTs0NFxAXHD
+
+= Image 
+
+== Android 9
+
+ Android 9 Box version is an Android operating system specifically designed for TV boxes. It is based on Android 9 Pie, focusing on optimizing user experience and performance for large-screen devices.
+ 
+Google drive: https://drive.google.com/drive/folders/1ZDfZGnfNyN2fsciE2lMQwuXcvaoRZofP
+
+== debian
+
+Debian 11 continues to uphold Debian's tradition by offering a stable and reliable operating system environment. It has undergone rigorous testing and stability assurances, making it suitable for servers, desktops, and embedded devices alike
+
+Google drive: https://drive.google.com/drive/folders/1UsUqiYN2mzTEx_H2eBlRiNChdmZge0EO
+
+== Armbian
+
+Armbian is a computing build framework that allows users to create ready-to-use images with working kernels in variable user space configurations for various single board computers. It provides various pre-build images for some supported boards. These are usually Debian or Ubuntu flavored.
+
+download link : https://github.com/armbian/community/releases
+
+== ubuntu-rockchip
+
+This project aims to provide a default Ubuntu experience for Rockchip RK3588 devices. Get started today with an Ubuntu Server or Desktop image for a familiar environment.
+
+download link: https://github.com/Joshua-Riek/ubuntu-rockchip/releases
+
+
