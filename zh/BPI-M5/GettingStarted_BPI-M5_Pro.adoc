@@ -107,11 +107,11 @@ image::/bpi-m5pro/armsom-sige7-debug.png[armsom-sige7-debug.png]
 |RX (pin 10)	|<--->|	TX
 |====
 
-== Ethernet Port
+== 以太网口
 
-* 1.First, plug one end of the network cable into the Ethernet port of the ArmSoM-SigeX, and connect the other end to a router. Ensure that the network is functional.
-* 2.After the system boots, it will automatically assign an IP address to the Ethernet port via DHCP without any additional configuration.
-* 3.To check the IP address in the ArmSoM-SigeX Linux system, use the following command:
+* 首先将网线的一端插入 ArmSoM-SigeX 的以太网接口，网线的另一端接入路由器，并确保 网络是畅通的
+* 系统启动后会通过 DHCP 自动给以太网卡分配 IP 地址，不需要其他任何配置
+* 在Banana Pi 的 Linux 系统中查看 IP 地址的命令如下所示
 
 ```sh
 armsom@armsom-sige7:~$ ip a
@@ -133,7 +133,7 @@ armsom@armsom-sige7:~$ ip a
     link/ether b8:2d:28:5a:52:6a brd ff:ff:ff:ff:ff:ff
 ```
 
-There are three ways to check the IP address of Rockchip product after it starts:
+ 开发板启动后查看 IP 地址有三种方法
 
 ** Connect an HDMI monitor, log into the system, and use the terminal command ip a to view the IP address.
 ** Use the debug serial port terminal and enter the ip a command to check the IP address.
