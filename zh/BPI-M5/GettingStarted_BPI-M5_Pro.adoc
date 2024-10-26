@@ -89,19 +89,19 @@ Insert the power supply into the port labeled "DCIN". Please make sure to use th
 
 TIP: Choosing the Burning Method : link:/en/BPI-M5/BananaPi_Flash_image[Rockchip chip Flash System Image]
 
-= Interface Settings
+= 接口使用
 
-If you are using Banana Pi BPI-M5 Pro for the first time, please familiarize yourself with the Peripheral Interfaces for better understanding of the following content.
+如果您是首次使用 ArmSoM-Sige 产品，请先熟悉下各产品硬件接口，以便于您更好的理解后续的内容。
 
-== Debug Serial Port
+== 调试串口
 
-Connect the USB to TTL serial cable as follows, and BAUD=1500000:
+如下所示连接 USB 转 TTL 串口线：
 
 image::/bpi-m5pro/armsom-sige7-debug.png[armsom-sige7-debug.png]
 
 [options="header",cols="1,1,1"]
 |====
-|BPI-M5 Pro	|Connect	|Serial Module
+|BPI-M5 Pro	|连接	|串口模块
 |GND (pin 6)	|<--->	|GND
 |TX (pin 8)	|<--->|	RX
 |RX (pin 10)	|<--->|	TX
