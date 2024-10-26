@@ -135,19 +135,19 @@ armsom@armsom-sige7:~$ ip a
 
  开发板启动后查看 IP 地址有三种方法
 
-** Connect an HDMI monitor, log into the system, and use the terminal command ip a to view the IP address.
-** Use the debug serial port terminal and enter the ip a command to check the IP address.
-** If neither the debug serial port nor HDMI monitor is available, you can check the IP address of the ArmSoM-SigeX Ethernet port through the router’s management interface. However, this method may sometimes fail to display the ArmSoM-SigeX IP address. If you cannot see it, try the following troubleshooting steps:
-*** Check if the Linux system has started properly. If the green light on the ArmSoM-SigeX is steady, it generally means the system has booted correctly; if only the red light is on, the system has not booted properly.
-*** Ensure the network cable is securely connected, or try a different cable.
-Try using a different router. Common issues with routers include inability to assign IP addresses or assigning them correctly but not showing them in the router's interface.
-*** If no alternative router is available, use an HDMI monitor or the debug serial port to check the IP address.
+* 接 HDMI 显示器，然后登录系统使用终端输入 ip a 命令查看 IP 地址
+* 接调试串口终端输入 ip a 命令来查看 IP 地址
+* 如果没有调试串口，也没有 HDMI 显示器，还可以通过路由器的管理界面来查看开发板网口的 IP 地址。不过这种方法经常有人会无法正常看到Banana Pi开发板的 IP 地址。如果看不到，调试方法如下所示：
+** 首先检查 Linux 系统是否已经正常启动，如果Banana Pi开发板的绿灯常亮，一般是正常启动了，如果只亮红灯，说明系统都没正常启动。
+** 检查网线有没有插紧，或者换根网线试下。
+** 换个路由器试下，路由器的问题有遇到过很多，比如路由器无法正常分配IP 地址，或者已正常分配 IP 地址但在路由器中看不到。
+** 如果没有路由器可换就只能连接 HDMI 显示器或者使用调试串口来查看 IP地址。
 
-TIP: Note that DHCP automatically assigning an IP address to the Rockchip product requires no additional configuration.
+TIP: 另外需要注意的是ArmSoM-SigeX DHCP 自动分配 IP 地址是不需要任何设置的。
 
-* 4.Use the ping tool to check network connectivity.
+* 4.使用工具 ping 判断是否连通网络。
+** 测试网络连通性的命令如下，ping 命令可以通过 Ctrl+C 快捷键来中断运行
 
-** The command to test network connectivity is shown below. You can stop the ping command with the Ctrl+C shortcut.
 ```sh
 armsom@armsom-sige7:~$ ping www.baidu.com
 PING www.a.shifen.com (183.2.172.185): 56 data bytes
