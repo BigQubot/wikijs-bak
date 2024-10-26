@@ -7,7 +7,7 @@ TIP: More Infomation: link:/en/BPI-M5/BananaPi_BPI-M5_Pro[Banana Pi BPI-M5 Pro] 
 
 香蕉派基于瑞芯微芯片系列单板计算机产品系列用户手册
 
-The RockChip product user manual helps users understand the basic usage of Panana Pi products and the necessary preparations to start using your boards design with RockChip
+RockChip产品用户手册帮助用户了解Panana Pi产品的基本用法，以及开始使用RockChip电路板设计的必要准备
 
 .Comparison of Specifications for BPI-M7/BPI-M5 Pro/BPI-M4 Super/BPI-M1 Super
 [%collapsible]
@@ -39,49 +39,44 @@ The RockChip product user manual helps users understand the basic usage of Panan
 |====
 ====
 
-= Prepare 
+= 入门准备
 
-== Tool Preparation
+== 在开始使用开发板之前，请准备好以下物品
 
-* Banana Pi BPI-M5 Pro mainboard
-* Power supply: USB Type-C PD
-** Supports 9V/2A, 12V/2A, 15V/2A
-* System installation (choose one):
-** MicroSD card/TF card boot
-*** MicroSD card/TF card, Class 10 or above, at least 8GB SDHC, and a card reader
-*** The following are high-speed TF cards verified and tested by the ArmSoM team:
-**** SanDisk 32GB TF (MicroSD) (recommended for developers)
-**** SanDisk 32GB TF (MicroSD) for dashcams & surveillance cameras (recommended for long-term use)
-**** SanDisk TF 8G Class10 microSD
-**** SanDisk TF 128G Class10 microSD XC TF 128G 48MB/S
-* Onboard eMMC boot
-** USB Type-C data cable, to write the image from the type-C port on sige5, you need a Type-C data cable to connect sige5 and PC.
+* 电源
+* 系统安装（二选一）
+** 板载eMMC启动
+*** USB Type-C数据线，从 typec 端口在Sige系列上写入镜像，您需要Type-C数据线连接 Sige系列和 PC。
+** MicroSD卡/TF卡启动
+*** MicroSD卡/TF卡，Class 10或以上至少8GB SDHC 和 读卡器
+*** 以下是经过Banana Pi团队测试验证的高速TF卡
+**** SanDisk 32GB TF（MicroSD）（开发者推荐）
+**** SanDisk 32GB TF（MicroSD） 行车记录仪&安防监控专用存储卡（长期运行推荐）
+**** 闪迪 TF 8G Class10 microSD
+**** 闪迪 TF 128G Class10 microSD XC TF 128G 48MB/S：
 
-== Optional Accessories
+您可以将Banana Pi开发板设置为带有桌面的交互式计算机，也可以将其设置为仅可通过网络访问的无头计算机。要将 Banana Pi开发板设置为Headless计算机，您在初次安装操作系统时配置主机名、用户帐户、网络连接和 SSH 。如果您想直接使用 Sige，则需要以下附加配件：
 
-* USB keyboard and mouse
-* HDMI monitor and HDMI cable
-** BPI-M5 Pro comes with a full-size HDMI port, supporting up to 8K@60 display.
-** HDMI EDID is used to determine the optimal display resolution. On monitors and TVs that support 1080p (or 4K/8K), this resolution will be chosen. If 1080p is not supported, EDID will find the next available resolution.
-* Ethernet cable (network cable)
-** BPI-M5 Pro supports Ethernet networking, with a maximum of 2.5Gb.
-** The network cable is used to connect sige5 to the local network and the Internet.
-* Camera module
-** BPI-M5 Pro supports camera function.
-** It is recommended to use the imx415 module, which can be purchased from the official store on Taobao.
-* LCD display
-** BPI-M5 Pro supports LCD display function.
-** It is recommended to use the Display 10.1 HD, which can be purchased from the official store on Taobao.
-* Audio cable
-** A 0.8mm vertical socket can be used.
-* USB-A to USB-C data cable
+== 可选选项
 
-== Power Supply
-The table below shows the power specifications required for powering the Banana Pi Rockchip design series. You can use any high-quality power supply that provides the correct power mode.
+* 键盘 & 鼠标
+* HDMI显示器和HDMI线
+* Ethernet 线（网线）
+* 摄像头模块
+** 推荐使用 camera-module1 模组。
+* LCD显示屏
+** 推荐使用 Display 10 HD。
+* 音频线, 0.8mm立式插座。
+* RTC 电池, 0.8mm立式插座。
+* 风扇，0.8mm立式插座。
+
+== 电源
+
+下表显示了为ArmSoM-Sige系列型号供电所需的电源规格。您可以使用任何提供正确电源模式的高质量电源。
 
 [options="header",cols="1,2,1"]
 |====
-|Model	|Recommended Power (Voltage/Current)	|Power Mode
+|型号	|推荐电源（电压/电流）	|供电模式
 |BPI-M7	|5V/3A, 9V/2A, 12V/2A, 15V/2A	|USB-PD
 |BPI-M5 Pro	|5V/3A, 9V/2A, 12V/2A, 15V/2A	|USB-PD
 |BPI-M4 Super	|5V/3A, 9V/2A, 12V/2A, 15V/2A|	USB-PD
@@ -90,7 +85,7 @@ The table below shows the power specifications required for powering the Banana 
 
 Insert the power supply into the port labeled "DCIN". Please make sure to use the correct port!
 
-= Choosing the Burning Method
+= 烧录方式选择
 
 TIP: Choosing the Burning Method : link:/en/BPI-M5/BananaPi_Flash_image[Rockchip chip Flash System Image]
 
