@@ -79,6 +79,37 @@ image::/bpi-poe/bpi-5400b_poe_2.png[bpi-5400b_poe_2.png]
 |3	|Storage Temperature|	TS	|-40|	100|	OC
 |====
 
+== Power Classification
+
+The RT5400B classification is fixed at Class 4, this means that an IEEE802.3at Type 1 or an IEEE802.3af PSE will default to Class 0. However an IEEE802.3at PSE will recognise the Class 4 as a Type 2 PD.
+
+== Recommended Operating Conditions
+
+[options="header",cols="1,3,1,1,1,1,1"]
+|====
+|Num	|Parameter	|Symbol	|Min	|Typ	|Max	|Units
+|1	|Input Supply Voltage1|	VIN	|36	|48|	57	|V
+|2	|Under Voltage Lockout|	VLOCK	|30|	|　	36|	V
+|3	|Operating Temperature2	|TOP|	-20	|25	|70	|Ta / °C
+|4	|Operating Temperature 24W Continuous  |TOP	|-40	 |25	| 50| Ta / °C
+|5	|Operating Temperature 18W Continuous  |TOP	|-40	 |25	| 70| Ta / °C
+|====
+
+== DC Electrical Characteristics
+
+[options="header",cols="1,3,1,1,1,1,1,2"]
+|====
+|Num	|DC Characteristic	|Sym	|Min	|Typ1|	Max	|Units	|Test Comments
+|1	|Nominal Output Voltage	|+VDC	|11.5	|12.0	|12.5|	V|	12V
+|2	|Line Regulation	|VLINE	|　	|0.1	|　|	%	|@ 50% Load
+|3	|Load Regulation	|VLOAD	|　|	1	　| |	%	|@ VIN=48V
+|4	|Output Ripple and Noise 2	|VRN	　|	|180	||　	mVp-p	|@ Max load2
+|5	|Minimum Load 3	|RLOAD	|200	| |　|	　	mA	|@ 12V out
+|6	|Short-Circuit Duration |	TSC	|　|	|　	∞|	sec	　|
+|7	|Efficiency @ 80% Load	|EFF|	　|	86	|　	|%	|RT5400X
+|8	|Isolation Voltage (I/O)	|VISO	|	|1500	　|	|VPK	|Impulse Test
+|9	|Temperature Coefficient	|TC	　| |	0.02	| |　	%	|Per °C
+|====
 == BPI-RT5400BR  Typical Connection Diagram
 
 image::/bpi-poe/bpi-5400b_poe_3.png[bpi-5400b_poe_3.png]
