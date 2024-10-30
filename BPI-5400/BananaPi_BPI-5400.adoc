@@ -110,6 +110,12 @@ The RT5400B classification is fixed at Class 4, this means that an IEEE802.3at T
 |8	|Isolation Voltage (I/O)	|VISO	|	|1500	　|	|VPK	|Impulse Test
 |9	|Temperature Coefficient	|TC	　| |	0.02	| |　	%	|Per °C
 |====
+
+NOTE: 1: Typical figures are at 25°C with a nominal 52V supply and are for design aid only.  Not Guaranteed  +
+2: The output ripple and noise can be reduced with an external filter  +
+3: The module can emit an audible noise if operated at less than the specified minimum load and may cause the PSE to fail its MPS .
+
+
 == BPI-RT5400BR  Typical Connection Diagram
 
 image::/bpi-poe/bpi-5400b_poe_3.png[bpi-5400b_poe_3.png]
