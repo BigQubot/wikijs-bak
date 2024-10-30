@@ -52,6 +52,33 @@ image::/bpi-poe/bpi-5400b_poe_2.png[bpi-5400b_poe_2.png]
 |5400B |-24V 	|	30W	|YES	|RT5400B-24V	|DIP
 |====
 
+== 5400B Pin Description
+
+[options="header",cols="1,1,6"]
+|====
+|Pin |	Name	|Description
+|1	|VA1	|RX Input (1). This input pin is used in conjunction with VA2 and connects to the centre tap of the transformer connected to pins 1 & 2 of the RJ45 connector (RX) - it is not polarity sensitive.(5400B-S, POE Direct Input +. This pin connects to the positive (+) output of the POE input bridge rectifiers.)
+|2	|VA2	|TX Input (2). This input pin is used in conjunction with VA1 and connects to the centre tap of the transformer connected to pins 3 & 6 of the RJ45 connector (TX) - it is not polarity sensitive.(5400B-S,POE Direct Input -. POE Direct Input -. This pin connects to the negative (-) output of the POE input bridge rectifiers..)
+|3	|VB1|	Direct Input (1). This input pin is used in conjunction with VB2 and connects to pin 4 & 5 of the RJ45 connector - it is not polarity sensitive.
+|4	|VB2	|Direct Input (2). This input pin is used in conjunction with VB1 and connects to pin 7 & 8 of the RJ45 connector - it is not polarity sensitive.
+|5	|cap+	|Internal cap, need Match Dynamic load ,connecting A 22uf-100uf  63V
+|6	|cap- |
+|7	|-VDC	|DC Return. This pin is the return path for the +VDC output.
+|8	|+VDC	|DC Output. This pin provides the regulated output from the DC/DC converter.
+|9	|ADJ	|Output Adjust. The output voltage can be adjusted from is nominal value, by connecting an external resistor from this pin to either the +VDC pin or the -VDC pin.
+|10	|-VDC|	DC Return. This pin is the return path for the +VDC output.
+|====
+
+== Absolute Maximum Ratings
+
+[options="header",cols="1,3,1,1,1,1"]
+|====
+|Num	|Parameter	|Symbol	|Min	|Max	|Units
+|1	|DC Supply Voltage	|VCC	|-0.3	|60	|V
+|2	|DC Supply Voltage Surge for 1ms|	VSURGE	|-0.6|	80|	V
+|3	|Storage Temperature|	TS	|-40|	100|	OC
+|====
+
 == BPI-RT5400BR  Typical Connection Diagram
 
 image::/bpi-poe/bpi-5400b_poe_3.png[bpi-5400b_poe_3.png]
