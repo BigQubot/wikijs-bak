@@ -1,0 +1,62 @@
+= Description
+
+The RT5400B series of modules are designed to extract power from a conventional
+twisted pair Category 5 Ethernet cable, conforming to the IEEE 802.3af and IEEE 802.3at    Power-over-Ethernet(PoE) standard.
+
+The RT5400B signature and control circuit provides the PoE compatibility signature and
+power classification required by the Power Sourcing Equipment (PSE) before applying up
+to 30W power to the port. 
+
+The DC/DC converter operates over a wide input voltage range and provides a regulated
+output. The DC/DC converter also has built-in short-circuit output protection.
+
+
+== Features
+
+* IEEE802.3at and IEEE802.3af compliant
+* Maximum 30W output power
+* Input voltage range 36V to 57V 
+* Integral high efficiency DC/DC converter.
+* Low output ripple and noise 
+* High performance with low price
+* Short-circuit protection 
+* Transformer isolation ,1500V isolation (input to output) 
+* Easy to use, with a minimum number of external components.
+
+== Applications：
+* IP Cameras
+* Wireless access point
+* Security and alarm systems
+* VOIP telephone 
+* Point of sale network terminal equipment
+
+
+= PBI-5400B PoE Hardware
+
+== Module Size
+
+image::/bpi-poe/bpi-5400b_poe_1.png[bpi-5400b_poe_1.png]
+
+NOTE: Recommended PCB hole diameter PTH = 1.2 ± 0.05 
+
+image::/bpi-poe/bpi-5400b_poe_2.png[bpi-5400b_poe_2.png]
+
+== Product Selector
+
+[options="header",cols="1,1,1,1,1,1"]
+|====
+|Part Number	|Nominal Output |Max Output Power|	Integrated bridge |	Marking	|Package
+|5400BS |-12V |		30W	|NO	|RT5400B	|DIP
+|5400BS |-24V |		30W|	NO	|RT5400B-24V	|DIP
+|5400B |-12V 	|	30W	|YES	|RT5400B	|DIP
+|5400B |-24V 	|	30W	|YES	|RT5400B-24V	|DIP
+|====
+
+== BPI-RT5400BR  Typical Connection Diagram
+
+image::/bpi-poe/bpi-5400b_poe_3.png[bpi-5400b_poe_3.png]
+
+== BPI-RT5400BS  Typical Connection Diagram
+
+image::/bpi-poe/bpi-5400b_poe_4.png[bpi-5400b_poe_4.png]
+
