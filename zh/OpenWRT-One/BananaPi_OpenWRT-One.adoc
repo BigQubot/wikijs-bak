@@ -107,13 +107,21 @@ Official image link: https://firmware-selector.openwrt.org/?version=SNAPSHOT&tar
 
 = 配件
 
-== 外壳
+== 外壳设计
 
 image::/openwrt-one/banana_pi_openwrt_one_case_9.jpg[banana_pi_openwrt_one_case_9.jpg]
 
 == PoE 网线供电模组
 
-== Heat sink
+image::/bpi-poe/banana_pi_poe-5400_5.jpg[banana_pi_poe-5400_5.jpg]
+
+详细规格请看 : link:/en/BPI-5400/BananaPi_BPI-5400[BPI-5400B IEEE 802.3at 30W POE PD PoE module]
+
+== 定制散热片
+
+为了保证openwrt one的散热和稳定运行，我们定制了散热器
+
+image::/openwrt-one/openwrt_one_heat_sink.jpg[openwrt_one_heat_sink.jpg]
 
 
 = 样品购买
