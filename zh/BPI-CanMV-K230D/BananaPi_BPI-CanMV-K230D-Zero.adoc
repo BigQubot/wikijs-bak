@@ -71,6 +71,9 @@ link:/en/BPI-K230D/Photo_BPI-CanMV-K230D[Banana Pi CanMV-K230D-Zero 产品图集
 
 === 2M MIPI 摄象头模组规格:
 
+.2M MIPI 摄象头模组规格表
+[%collapsible]
+====
 [options="header",cols="2,2"]
 |====
 |模组型号	|K230-200W-V2
@@ -96,11 +99,15 @@ link:/en/BPI-K230D/Photo_BPI-CanMV-K230D[Banana Pi CanMV-K230D-Zero 产品图集
 |畸变	|<-0.1 %
 |滤光片	|650nm
 |====
+====
 
 === 结构图
 
+.2M MIPI 摄象头模组结构图
+[%collapsible]
+====
 image::/bpi-k230d/banana_pi_bpi-d230d_zero_camera.jpg[banana_pi_bpi-d230d_zero_camera.jpg]
-
+====
 = 开发
 
 == 软件源代代码
