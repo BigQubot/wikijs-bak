@@ -69,6 +69,34 @@ link:/en/BPI-K230D/Photo_BPI-CanMV-K230D[Banana Pi CanMV-K230D-Zero 产品图集
 
 == Camera摄像头
 
+*  2M MIPI 摄象头模组规格:
+
+[options="header",cols="2,2"]
+|====
+|模组型号	|TYS-K230-200W-V2
+|模组尺寸	 |see Module Mechanical Drawing
+|工作温度	|-10°C to 60°C
+|存储温度|	-20°C to 70°C
+|相机板装配技术	|SMT (ROHS)
+|拍照焦距距离	|70CM
+|PCB  油墨	|black
+|供电电压	|DVDD1.2V   DOVDD1.8V   AVDD2.8V
+|输出方式	|MIPI-2lane
+|传感器类型	|(1/2.9” )  COMS
+|最高有效像素	|1920*1080
+|最大动态范围	|TBD
+|像素点尺寸	v2.8µm x 2.8µm
+|帧率	 |1920*1080@30FPS
+|封装	|CSP
+|Lens Type	|1/2.9inch
+|镜头结构	|4P+IR
+|光圈	|2.2
+|有效焦距	|4.35mm
+|视场角	|74°
+|畸变	|<-0.1 %
+|滤光片	|650nm
+|====
+
 = 开发
 
 == 软件源代代码
