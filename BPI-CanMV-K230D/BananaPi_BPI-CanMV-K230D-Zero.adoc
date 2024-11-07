@@ -79,8 +79,11 @@ link:/en/BPI-K230D/Photo_BPI-CanMV-K230D[Banana Pi CanMV-K230D-Zero Product phot
 == Camera
 
 
-*  2M MIPI camera module spec:
+=== 2M MIPI camera module spec:
 
+.2M MIPI camera module spec
+[%collapsible]
+====
 [options="header",cols="2,2"]
 |====
 |Module No|TYS-K230-200W-V2
@@ -106,9 +109,15 @@ link:/en/BPI-K230D/Photo_BPI-CanMV-K230D[Banana Pi CanMV-K230D-Zero Product phot
 |TV Distortion|<-0.1 %
 |IR Filter |650nm
 |====
+====
 
 === Module Mechanical Drawing
+
+.2M MIPI camera Module Mechanical Drawing
+[%collapsible]
+====
 image::/bpi-k230d/banana_pi_bpi-d230d_zero_camera.jpg[banana_pi_bpi-d230d_zero_camera.jpg]
+====
 
 = Development
 
