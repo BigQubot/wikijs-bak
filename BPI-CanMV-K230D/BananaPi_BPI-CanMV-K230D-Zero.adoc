@@ -105,13 +105,21 @@ link:/en/BPI-K230D/Photo_BPI-CanMV-K230D[Banana Pi CanMV-K230D-Zero Product phot
 
 * Hardware chip manual and schematic diagram, etc
 **  i. chip datasheet： https://github.com/kendryte/k230_docs/blob/main/zh/00_hardware/K230_datasheet.md
-** ii. Schematic diagram, PCB and other hardware design data : https://github.com/kendryte/k230_docs
+** ii. Schematic diagram, PCB and other hardware design data : https://github.com/kendryte/k230_docs [See Hardware Design Departmentpoints]
 
 * demo 
 ** i https://github.com/kendryte/k230_docs/blob/main/zh/02_applications/ai_demos/K230_AI_Demo%E4%BB%8B%E7%BB%8D.md
 ** ii. https://github.com/kendryte/k230_docs/blob/main/zh/02_applications/fancy_poc/K230_Fancy_Poc%E4%BB%8B%E7%BB%8D.md
 ** iii. https://github.com/kendryte/k230_canmv_docs/blob/main/zh/example/K230_CanMV_AI_Demo%E7%A4%BA%E4%BE%8B%E8%AF%B4%E6%98%8E.md
 ** iv. https://github.com/kendryte/k230_docs/blob/main/zh/01_software/board/examples/K230_SDK_CanMV_Board_Demo%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.md
+
+** Big core support linux configuration： https://github.com/kendryte/k230_docs/blob/main/zh/03_other/K230_%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94.md [Section 2.5]
+
+* Canaan official webist：
+a. documents： https://developer.canaan-creative.com/k230/dev/index.html
+b. tools： https://developer.canaan-creative.com/resource
+c. model training ： https://developer.canaan-creative.com/model/training
+d. model library： https://developer.canaan-creative.com/model/library
 
 = Image Release
 
