@@ -1,0 +1,50 @@
+== 产品介绍
+
+Banana Pi BPI-RV2 开源网关是⼀款基于矽昌SF2H8898 SoC的设备，1 × 2.5 G WAN⽹络接⼝、5 个千兆LAN ⽹络接⼝、板载
+512MB DDR3 内存 、128 MiB NAND、16 MiB NOR、M.2接⼝，MINI PCIE和USB 2.0接⼝等。
+
+Banana Pi BPI-RV2 开源网关是矽昌和⾹蕉派开源社区（Banana Pi ）合作设计。
+
+== SF2H8898芯⽚介绍 
+SF21H8898是由矽昌通信开发的⼀款⾼性能⼯业级SOC⽹关芯⽚，CPU采⽤RISC-V架构（四核处理器，主频1.4Ghz），内置⾃研NPU⽹络处理器（⽀持L2/L3硬件处理，IPv4/IPv6双栈，20Gbps交换容量，全字节线速转发），⽹络侧⽀持QSGMII、SGMII/HSGMII和RGMII接⼝，⽀持IEEE 1588 PTP功能，⽤于时间同步。⽀持外接DDR3/DDR3L/DDR4 SDRAM 和NAND/NOR SPI Flash。⾼速接⼝有USB2.0、PCIE2.0，低速接⼝有SPI、UART、I2C、PWM等。可以作为企业⽹关，⼯控主机使⽤。
+
+
+== 关键特性
+* 矽昌 SF2H8898 四核RISC-V 处理器 
+* 得益于矽昌NPU，可以达到企业级⽹关级别数据转发处理能⼒。
+* 512MB DDR3内存
+* 1 x 2.5GbE ⽹⼝和 5 x 千兆⽹⼝
+* 128 MB SPI NAND 和 16 MB SPI NOR flash 保证板载系统不可破坏，
+* M.2 2242/2230 接⼝⽀持 NVMe SSD (PCIe gen 2 x1)
+* RTC 实时时钟
+* PoE ⽹络供电⽀持
+
+
+= 硬件
+
+== 硬件接品示意图
+
+== 硬件规格
+[options="header",cols="2,5",width="70%"]
+|=====
+|模块 |介绍
+|SoC主控 |矽昌 SF2H8898 四核RISC-V 处理器 @ 1.25GHz主频
+|内存 |512MB DDR3
+.3+|存储 |128 MB SPI NAND 闪存⽤于 U-boot 和 Linux系统
+|16 MB SPI NOR 闪存，⽤于 U-boot 和 Linux系统，默认写保护（可以通过跳线启⽤重新刷新）
+|M.2 2242接⼝⽀持 NVMe SSD 硬盘(PCIe gen 2 x1)
+.2+|⽹络 |1 x 2.5GbE RJ45 端⼝
+|5 x 千兆RJ45 端⼝
+.2+|USB接⼝ |使⽤ UART 转 USB 芯⽚的 USB Type-C（设备、控制台）端⼝
+|1x USB 2.0 Type-A 主机端⼝
+.2+|PCIE接⼝ |M2 keyB，⽀持速率 PCIe gen 2 x1，可以⽤连接SSD硬盘，5G模组等
+|MINI PCIE，⽀持速率 PCIe gen 2 x1，可以⽤于连接WiFi模组，有线⽹卡等
+|扩展| MikroBUS 扩展模块插座
+|调试| 通过 USB-C 端⼝或 3 针接头连接的控制台
+|RTC实时时钟| ⽀持板载 RTC 实时时钟
+.4+|其他 |重置和⽤户按钮
+|启动选择：NAND（常规）或NOR（恢复）
+|(I2C接⼝) RTC，带 CR1220 纽扣电池备⽤电池座
+|可以通过 802.3at/af PoE⽹络供电
+|尺⼨| 148 x 100.5 mm
+|=====
