@@ -16,6 +16,8 @@
 2. 打开串口工具，重启进入uboot，回车进入command模式，输入命令httpd 192.168.1.5（或者其它
 和PC同网段的ip），回车，界面如下：
 
+image::/bpi-rv2/bpi-rv2_burn_image_1.jpg[bpi-rv2_burn_image_1.jpg]
+
 3. 打开浏览器，根据不同的需求输入不同的网址，如下表，以192.168.1.5为例：
 
 [options="header",cols="1,1",width="70%"]
@@ -24,6 +26,13 @@
 |192.168.1.1 |烧录firmware
 |192.168.1.1/uboot.html |烧录uboot
 |=====
+
+正常的烧录界面如下：
+
+image::/bpi-rv2/bpi-rv2_burn_image_2.jpg[bpi-rv2_burn_image_2.jpg]
+
+烧录完毕会自动重启
+
 
 = 开发板功能开发
 
