@@ -34,7 +34,10 @@ image::/bpi-rv2/bpi-rv2_burn_image_1.jpg[bpi-rv2_burn_image_1.jpg]
 image::/bpi-rv2/bpi-rv2_burn_image_2.jpg[bpi-rv2_burn_image_2.jpg]
 
 烧录完毕会自动重启
-
+ 
+NOTE: Q：uboot烧录失败怎么处理 +
+A：uboot烧录失败后无法继续通过uboot更新镜像，可通过irom usb下载，或者摘下flash使用烧录器的
+方式重新烧录镜像
 
 = 开发板功能开发
 
