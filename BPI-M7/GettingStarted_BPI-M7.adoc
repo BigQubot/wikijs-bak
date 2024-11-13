@@ -37,7 +37,7 @@ TIP: More Infomation: link:/en/BPI-M7/BananaPi_BPI-M7[Banana Pi BPI-M7]
 ** The network cable is used to connect BPI-M7 to a local network and the Internet
 * Camera module
 ** BPI-M7 supports camera function
-** We recommend using the imx415 module, available through the Banana Pi Taobao store or AliExpress 
+** We recommend using the imx415 module or ov13850, available through the Banana Pi Taobao store or AliExpress 
 * LCD display
 ** BPI-M7 supports LCD display
 ** We recommend the Display 10.1 HD, available through the Banana Pi Taobao store or AliExpress 
@@ -663,6 +663,8 @@ armsom@armsom-sige5:/# mount /dev/nvme0n1 temp
 
 == MIPI-CSI
 
+=== IMX415 
+
 Use the IMX415 module for the camera. After connecting and powering on the camera module you can view the boot log:
 ```sh
 armsom@armsom-sige5:/# dmesg | grep imx415
@@ -698,15 +700,53 @@ armsom@armsom-sige5:/# gst-launch-1.0 v4l2src device=/dev/video31 ! video/x-raw,
 armsom@armsom-sige5:/# gst-launch-1.0 v4l2src device=/dev/video22 ! video/x-raw,format=NV12,width=3840,height=2160, framerate=30/1 ! xvimagesink
 ```
 
+=== ov13850 
+This module is similar to IMX415 and is as follows:
+
+The camera uses the ov13850. After connecting and powering on the camera module, you can view the boot log.
+```sh
+root@armsom-sige7:/# dmesg | grep ov13850
+[    2.302905] ov13850 5-0010: driver version: 00.01.05
+[    2.302944] ov13850 5-0010: Failed to get power-gpios, maybe no use
+[    2.303067] ov13850 5-0010: supply avdd not found, using dummy regulator
+[    2.303153] ov13850 5-0010: supply dovdd not found, using dummy regulator
+[    2.303186] ov13850 5-0010: supply dvdd not found, using dummy regulator
+[    2.303213] ov13850 5-0010: could not get default pinstate
+[    2.303220] ov13850 5-0010: could not get sleep pinstate
+[    2.308532] ov13850 5-0010: Detected OV00d850 sensor, REVISION 0xb2
+[    2.332058] ov13850 5-0010: Consider updating driver ov13850 to match on endpoints
+[    2.332084] rockchip-csi2-dphy csi2-dphy0: dphy0 matches m00_b_ov13850 5-0010:bus type 5
+```
+Use v4l2-ctl for image capture:
+```sh
+// MIPI-CSI1
+root@armsom-sige7:/# v4l2-ctl -d /dev/video31 --set-selection=target=crop,top=0,left=0,width=2112,height=1568 --set-fmt-video=width=2112,height=1568,pixelformat=NV12 --stream-mmap=3 --stream-to=/nv12.bin --stream-count=1 --stream-poll
+
+// MIPI-CSI2
+root@armsom-sige7:/# v4l2-ctl -d /dev/video22 --set-selection=target=crop,top=0,left=0,width=2112,height=1568 --set-fmt-video=width=2112,height=1568,pixelformat=NV12 --stream-mmap=3 --stream-to=/nv12.bin --stream-count=1 --stream-poll
+```
+
+Record video using gst-launch-1.0
+
+```sh
+// MIPI-CSI1
+root@armsom-sige7:/# gst-launch-1.0 v4l2src device=/dev/video31 ! video/x-raw,format=NV12,width=2112,height=1568, framerate=30/1 ! xvimagesink
+
+// MIPI-CSI2
+root@armsom-sige7:/# gst-launch-1.0 v4l2src device=/dev/video22 ! video/x-raw,format=NV12,width=2112,height=1568, framerate=30/1 ! xvimagesink
+root@armsom-sige7:/# gst-launch-1.0 v4l2src device=/dev/video0 ! video/x-raw,format=NV12,width=2112,height=1568, framerate=30/1 ! xvimagesink
+```
+
 image::/bpi-m7/bpi-m7_mipi_csi.jpeg[bpi-m7_mipi_csi.jpeg]
 
 == MIPI DSI
 
-BPI-M5 Pro supports a maximum resolution of 4K@120Hz.
+BPI-M7 supports a maximum resolution of 4K@120Hz.
 
 * 1.Connect the cables as shown in the image below.
 
-image::/bpi-m5pro/mipi_dsi.jpg[mipi_dsi.jpg]
+//image::/bpi-m5pro/mipi_dsi.jpg[mipi_dsi.jpg]
+image::/bpi-m7/banana_pi_bpi-m7_touch_screen_7.jpg[banana_pi_bpi-m7_touch_screen_7.jpg]
 
 * 2.Configuring the 10.1-inch MIPI LCD screen
 
