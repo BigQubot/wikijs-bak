@@ -11,8 +11,8 @@ Banana Pi BPI-M1S utilizes the Rockchip RK3528, a new-generation intelligent set
 * VPU/Decoding:
 ** Hardware Decoding: Supports 60fps playback of 4K ultra-high-definition video with up to 10-bit pixels. Supports video standards including H.265, H.264, AVS2, etc.
 ** Hardware Encoding: Supports 60fps capture of 1080p high-definition video. Supports H.265 and H.264 encoding.
-* RAM: 4GB 32-bit LPDDR4x, default 4GB (RK3528 supports maximum 4GB)
-* Flash: 32GB eMMC, default eMMC 32GB
+* RAM: 2GB 32-bit LPDDR4x, default 2GB (RK3528 supports maximum 4GB)
+* Flash: 8GB eMMC, default eMMC 8GB
 * Operating System:
 ** Officially Supported by Rockchip: Android 9.0_box, Debian11, Buildroot
 ** Third-party Support: Armbian
@@ -43,8 +43,8 @@ NOTE: On the BPI-M1S, there are two Type-C interfaces that look identical, but o
 | Supports OpenGL ES 1.1/2.0 and OpenVG.
 .2+| VPU/Codec	| video decoder：supports 60fps playback of 4K ultra-high-definition video with up to 10-bit pixels. It supports H.265, H.264, AVS2, etc. video standards.
 | video encoder：supports 60fps capture of 1080p high-definition video. It supports H.265 and H.264 encoding.
-| RAM | 4GB 32-bit LPDDR4x, default 4GB, maximum supported 4GB
-.2+| Flash	 | 32GB eMMC, default eMMC 32GB
+| RAM | 2GB 32-bit LPDDR4x, default 2GB, maximum supported 4GB
+.2+| Flash	 | 8GB eMMC, default eMMC 8GB
 | supports MicroSD card expansion
 .3+| Network	| 1x 2.5G Ethernet port
 | 1x Gigabit Ethernet port
