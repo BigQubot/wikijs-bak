@@ -39,7 +39,7 @@ WARNING: Please select the image ending in "**bianbu-k1-xxx.zip**" for **Bianbu*
 +
 image::/picture/bpi-f3_install_usb_driver.jpg[bpi-f3_install_usb_driver.jpg]
 
-**Burn image to EMMC**
+**Burn image to EMMC1**
 
 . Click Single Machine Burn (If you need to burn multiple devices simultaneously, click Multiple Machine Burn)
 +
@@ -69,6 +69,17 @@ image::/picture/bpi-f3_tianflasher_3.png[bpi-f3_tianflasher_3.png]
 image::/picture/bpi-f3_tianflasher_4.png[bpi-f3_tianflasher_4.png]
 
 . Burn completed, power on again.
+
+**Burn image to EMMC2**
+
+This is another way of burning.Use the titanflasher tool, and place the titantools_for_Linux-latest tool you downloaded earlier into the unzipped EMMC folder.
+
+Run it on your computer as shown in the following screenshot:
+
+image::/bpi-f3/m_bpi-f3_tianflasher_choose.png[m_bpi-f3_tianflasher_choose.png]
+
+Identify the corresponding device according to the previous burning process.Then select 1 to start burning.
+
 
 == Install Image to eMMC 2
 WARNING: The **Armbian** image currently only supports SD card startup.
