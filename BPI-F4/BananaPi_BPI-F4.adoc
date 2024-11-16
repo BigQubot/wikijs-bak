@@ -1,3 +1,32 @@
-== header
+= BPI-F4 Introduction
 
-content
+== About SunPlus SP7350
+
+SP7350 (C3V) is a versatile chip engineered to provide robust computing power tailored for artificial intelligence applications, particularly those focused on vision processing. With its rich array of peripherals, it can operate effectively as a standalone product, such as in a sweeping robot. Additionally, it seamlessly integrates with other peripheral ICs (P-Chips) via Sunplus' unique Multi-Function Interface (MFI), enabling a diverse range of AI on Chip solutions.
+
+Standing as a sophisticated System-on-Chip (SOC), SP7350 features a versatile CPU and Neural Processing Unit (NPU) meticulously tailored for edge and AI computing tasks. With a formidable 4.5 TOPS AI processor and quad-core 1.8GHz ARM Cortex A55 CPU, SP7350 adeptly handles a wide range of edge AI and AIoT applications necessitating the processing of computer vision, video, image, audio, and more. Additionally, SP7350 integrates an ARM Cortex M4 Microcontroller Unit (MCU) to support machine control and peripheral Input/Output (IO). The MCU operates within an independent power domain, ensuring its functionality even when other function blocks are powered off.
+
+Manufactured utilizing advanced 12nm chip technology, SP7350 offers the benefits of a small form factor and low power consumption, essential for constructing compact and energy-efficient devices.
+
+== Key Features
+
+== Application direction
+
+== Getting Start
+
+= Hardware
+
+== Hardware interface
+
+== Hardware spec
+
+
+== BPI-F4 Photo
+
+= Development
+
+== Source code 
+
+== Resources
+
+* Sunplus SP7350 official documents : https://sunplus.atlassian.net/wiki/spaces/C3/pages/1983053861/SP7350+Components+Support+List
