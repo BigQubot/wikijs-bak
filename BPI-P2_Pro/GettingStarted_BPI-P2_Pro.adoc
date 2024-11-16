@@ -137,9 +137,10 @@ root@linaro-alip:/# scan on
 root@linaro-alip:/# pair yourDeviceMAC
 ```
 
-== Voice
+== Audio
 
 View sound cards in the system:
+
 ```sh
 root@linaro-alip:~# aplay -l
 **** List of PLAYBACK Hardware Devices ****
@@ -177,4 +178,70 @@ root@linaro-alip:/# aplay -D plughw:0,0  ./usr/share/sounds/alsa/Rear_Right.wav
 
 == USB Interface
 BPI-P2 pro provides a USB 2.0 port.
+
+== Mic Interface
+
+View All Built-in Codec Gains
+
+```sh
+amixer contents
+```
+
+The headphone output sound is too low
+
+Check the current left and right channel output gain of the codec:
+
+```sh
+amixer cget name='DAC HPOUT Left Volume'
+amixer cget name='DAC HPOUT Right Volume'
+```
+Adjust the base gain as needed:
+
+```sh
+amixer cset name='DAC HPOUT Left Volume' 18
+amixer cset name='DAC HPOUT Right Volume' 18
+```
+
+Adjust volume (percentage):
+
+```sh
+amixer cset name='Master Playback Volume' 40
+```
+
+recording
+
+Mic gain adjustment for built-in codec
+
+Group 0: mic1/mic2; Group 1: mic3/mic4; Group 2: mic5/mic6; Group 3: mic7/mic8
+
+The prefix "ADC MIC" indicates adjustment of the linear gain of the front-stage MIC PGA
+
+The prefix "ADC ALC" indicates adjustment of the linear gain of the back-stage ALC
+
+```sh
+amixer cset name='ADC MIC Group 0 Right Gain'  3
+amixer cset name='ADC MIC Group 0 Left Gain'  3
+amixer cset name='ADC ALC Group 0 Left Volume'  31
+amixer cset name='ADC ALC Group 0 Right Volume'  31
+
+amixer cset name='ADC MIC Group 1 Right Gain'  3
+amixer cset name='ADC MIC Group 1 Left Gain'  3
+amixer cset name='ADC ALC Group 1 Left Volume'  31
+amixer cset name='ADC ALC Group 1 Right Volume'  31
+
+amixer cset name='ADC MIC Group 2 Right Gain'  3
+amixer cset name='ADC MIC Group 2 Left Gain'  3
+amixer cset name='ADC ALC Group 2 Left Volume'  31
+amixer cset name='ADC ALC Group 2 Right Volume'  31
+
+amixer cset name='ADC MIC Group 3 Right Gain'  3
+amixer cset name='ADC MIC Group 3 Left Gain'  3
+amixer cset name='ADC ALC Group 3 Left Volume'  31
+amixer cset name='ADC ALC Group 3 Right Volume'  31
+
+export ALSA_LIB_ADD_GAIN=3
+
+// When the sampling rate is greater than 16000hz, the recording command should add the parameters --period-size=1024 --buffer-size=4096
+arecord -D hw:0,0 -c 8 -r 44100 -f S16_LE --period-size=1024 --buffer-size=4096 test.wav
+```
 
