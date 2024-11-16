@@ -10,6 +10,10 @@ SP7350 (C3V) is a versatile chip engineered to provide robust computing power ta
 
 Standing as a sophisticated System-on-Chip (SOC), SP7350 features a versatile CPU and Neural Processing Unit (NPU) meticulously tailored for edge and AI computing tasks. With a formidable 4.5 TOPS AI processor and quad-core 1.8GHz ARM Cortex A55 CPU, SP7350 adeptly handles a wide range of edge AI and AIoT applications necessitating the processing of computer vision, video, image, audio, and more. Additionally, SP7350 integrates an ARM Cortex M4 Microcontroller Unit (MCU) to support machine control and peripheral Input/Output (IO). The MCU operates within an independent power domain, ensuring its functionality even when other function blocks are powered off.
 
+The MFI serves as a crucial component, facilitating high-speed data transmission between high- and low-processing chips via the CPU BUS. It can be programmed as a MIPI RX interface for MIPI cameras, with features such as automatic pin detection, signal switching, and error detection ensuring seamless and user-friendly connectivity.
+
+Typical AI Processing tasks include motion-compensated processing, object detection, tracking, segmentation, face detection, and pose detection. SP7350 finds applications in various fields, including robotics, drones, AMR/AGV, surveillance, inspection, counting, people tracking, human interface for gaming/touch-less control, online meetings, and more.
+
 Manufactured utilizing advanced 12nm chip technology, SP7350 offers the benefits of a small form factor and low power consumption, essential for constructing compact and energy-efficient devices.
 
 == Key Features
