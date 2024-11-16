@@ -42,8 +42,100 @@ In addition to conventional computing applications, the BPI-3A5000 can also be p
 
 = Hardware
 
-== PCBA Hardware interface
-
 == Hardware spec
+[options="header",cols="1,4"]
+|====
+|Item	|Specifications
+.2+|CPU	|Supports the third generation of Loongson 3A5000 4-core 8-thread processor, 2.0GHz
+|Large capacity Level 3 cache (64KB/256KB/16MB)
+.2+|RAM	|One memory slot for supporting the DDR43200 memory rate
+|Expandable up to 16GB memory, supports only SODIMM
+|Storage	|support 1 x M.2 2280 NVMe SSD (PCIE3.0 x 4 )
+|Display	|VGA+ HDMI Dual display interface，Bridge chip built-in integrated GPU, 1Gb video memory, maximum resolution 1920x1080
+|Wireless	|Support dual-band wireless WiFi 5G/2.4G，support 802.11AC
+.4+|External interface	|2 x USB 3.0  +  4 x USB 2.0 ，On the front panel of the chassis
+|1 x HDMI  + 1 x VGA，on the rear panel of the chassis
+|1 x RJ-45 Gigabit network ,on the rear panel of the chassis
+|1 x 3.5mm The earphone/microphone audio port 
+.2+|Reserved debugging interface	|1 x TTL Level UART debugging interface, 2.54mm pin
+|1 x LA-JTAG ，Mainly used for CPU debugging
+|Size	|138mm x 128mm x 48.5 mm(Long x Wide x High)
+|Power dissipation	|Maximum power consumption: No more than 30W
+|DC Power| DC19V 3.42A， 5.5/2.5mm
+|Cooling system	|1 special custom cooling module
+.2+|Operating system|Loongnix/UOS/Kylin OS；
+|Operating system support is subject to change without notice
+|====
+
+== Environmental spec
+[options="header",cols="1,4"]
+|====
+|Item	|explain
+|operating temperature|	0℃~+70℃
+|storage temperature	|-40~+80℃
+|operating humidity（RH）|5%~95% non-condensing
+|Storage Humidity（RH）	|5%~95% non-condensing
+|altitude	|<5000m
+|lightning protection|Built-in lightning protection element, support outdoor use, in line with high-level EMC standards
+|level of protection	|IP40
+|heat-dissipating method	|Fans&Heatsink
+.2+|electromagnetic compatibility	|EMC III grade，
+|GB/T17626、GB/T15153、IEC61850-3、EN61000-6-5
+|safety standard	|GB/T7621-2008
+|CE certification	|CE & FCC &RoHS
+|====
+
+= BPI-3A5000 Products and solutions
+
+In addition to PCBA design and production, Banana Pi open source community can also provide Loongson Mini PC complete machine, so that users can quickly complete the standard product design. CNC aluminum housing
 
 
+== BPI-3A5000 Product
+
+== Front panel diagram
+
+image::/bpi-3a5000/banana_pi_bpi-3a5000_front.jpg[banana_pi_bpi-3a5000_front.jpg]
+
+
+Interface Identifier：
+
+[options="header",cols="1,1,1,1"]
+|====
+|Number|	Name|	Number	|Name
+|3	|USB 2.0 x 2 interface	|4	|USB 2.0 x 2 interace
+|5	|USB 2.0 x 2 interface	|2	|Headset interface
+|====
+
+Interface specification：
+
+[options="header",cols="2,2,1,3"]
+|====
+|Name|	Type	|quantity	|explain
+|USB 3.0 interface	|TYPE-A	|2	|standard USB 3.0 TYPE-A 
+|USB 2.0 interface	|TYPE-A	|4	|standard USB 2.0 TYPE-A
+|Headset interface	|standard 3.5mm	|1	|Audio input/output interface
+|====
+
+== back panel diagram
+
+image::/bpi-3a5000/banana_pi_bpi-3a5000_back.jpg[banana_pi_bpi-3a5000_back.jpg]
+
+Interface Identifier：
+
+[options="header",cols="1,2,1,2"]
+|====
+|Number	|Name	|Number	|Name
+|6	|Ethernet interface	|7	|VGA interface
+|8	|HDMI interface	|9	|Power
+|====
+
+Interface specification：
+
+[options="header",cols="1,1,1,4"]
+|====
+|Name	|Type	|quantity		|explain
+|LAN|	RJ-45	|1	|Connect the Ethernet port of the device to the switch using a network cable. Note: Support 1000M/100M/10M adaptive
+|VGA|	HDMI 1.4	|1	|To output video, use an HDMI video cable to connect the video output port to the display. Note: The HDMI video cable is not in the installation accessory package, and needs to be purchased by the user. Please select a shielded cable with a length less than 3M.
+|HDMI	|HDMI 1.4	|1	|To output video, use an HDMI video cable to connect the video output port to the display. Note: The HDMI video cable is not in the installation accessory package, and needs to be purchased by the user. Please select a shielded cable with a length less than 3M.
+|Power input i	|5.5/2.5mm	|1	|DC 19V/65W，3.42A
+|====
