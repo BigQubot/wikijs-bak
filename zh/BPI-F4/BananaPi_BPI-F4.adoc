@@ -1,0 +1,52 @@
+= BPI-F4 Introduction
+
+Banana Pi BPI-F4 industrial control board forms a 4.1 TOPS AI platform with a wide range of I/O options for interfacing with external devices. It offers a compact and robust environment, enabling customers to develop their own AI software and applications
+
+BPI-F4 is an official open source hardware development board jointly developed by banana Pi open source community and Sunplus 
+
+== About SunPlus SP7350
+
+SP7350 (C3V) is a versatile chip engineered to provide robust computing power tailored for artificial intelligence applications, particularly those focused on vision processing. With its rich array of peripherals, it can operate effectively as a standalone product, such as in a sweeping robot. Additionally, it seamlessly integrates with other peripheral ICs (P-Chips) via Sunplus' unique Multi-Function Interface (MFI), enabling a diverse range of AI on Chip solutions.
+
+Standing as a sophisticated System-on-Chip (SOC), SP7350 features a versatile CPU and Neural Processing Unit (NPU) meticulously tailored for edge and AI computing tasks. With a formidable 4.5 TOPS AI processor and quad-core 1.8GHz ARM Cortex A55 CPU, SP7350 adeptly handles a wide range of edge AI and AIoT applications necessitating the processing of computer vision, video, image, audio, and more. Additionally, SP7350 integrates an ARM Cortex M4 Microcontroller Unit (MCU) to support machine control and peripheral Input/Output (IO). The MCU operates within an independent power domain, ensuring its functionality even when other function blocks are powered off.
+
+Manufactured utilizing advanced 12nm chip technology, SP7350 offers the benefits of a small form factor and low power consumption, essential for constructing compact and energy-efficient devices.
+
+== Key Features
+* CPU: Sunplus SP7350 Quad ARM Cortex-A55
+* NPU: AI and Parallel Processing Engine Up to 4.1 TOPS (@900MHz) computing power
+* MCU: ARM Cortex-M4
+
+
+== Application direction
+
+* Robot, 
+* Drone, 
+* Smart Camera, 
+* Conference Camera, 
+* Driver Monitor System,
+
+== Getting Start
+
+= Hardware
+
+== Hardware interface
+
+== Hardware spec
+
+
+== BPI-F4 Photo
+
+= Development
+
+== Source code 
+
+* source code on github: https://github.com/sunplus-plus1/Q654
+* Source code on gitee: https://gitee.com/sunplus-plus1/q654
+
+== Resources
+
+* Sunplus SP7350 official documents : https://sunplus.atlassian.net/wiki/spaces/C3/overview
+
+* Downloading and Compiling Code : https://sunplus.atlassian.net/wiki/spaces/C3/pages/1988034774/Downloading+and+Compiling+Code
+
