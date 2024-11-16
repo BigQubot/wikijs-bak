@@ -1,52 +1,53 @@
-= BPI-F4 Introduction
+= BPI-F4简介
 
-Banana Pi BPI-F4 industrial control board forms a 4.1 TOPS AI platform with a wide range of I/O options for interfacing with external devices. It offers a compact and robust environment, enabling customers to develop their own AI software and applications
+香蕉Pi BPI-F4工业控制板形成了一个4.1 TOPS AI平台，具有广泛的I/O选项，用于与外部设备接口。它提供了一个紧凑而健壮的环境，使客户能够开发自己的AI软件和应用程序
 
-BPI-F4 is an official open source hardware development board jointly developed by banana Pi open source community and Sunplus 
+BPI-F4是由banana Pi开源社区和Sunplus共同开发的官方开源硬件开发板
 
-== About SunPlus SP7350
+== SunPlus SP7350
 
-SP7350 (C3V) is a versatile chip engineered to provide robust computing power tailored for artificial intelligence applications, particularly those focused on vision processing. With its rich array of peripherals, it can operate effectively as a standalone product, such as in a sweeping robot. Additionally, it seamlessly integrates with other peripheral ICs (P-Chips) via Sunplus' unique Multi-Function Interface (MFI), enabling a diverse range of AI on Chip solutions.
+SP7350 （C3V）是一款多功能芯片，专为人工智能应用，特别是专注于视觉处理的应用，提供强大的计算能力。由于其丰富的外设，它可以有效地作为一个独立的产品运行，如扫地机器人。此外，它还通过凌阳独特的多功能接口（MFI）与其他外设芯片（P-Chips）进行无缝集成，从而实现多种AI芯片解决方案。
 
-Standing as a sophisticated System-on-Chip (SOC), SP7350 features a versatile CPU and Neural Processing Unit (NPU) meticulously tailored for edge and AI computing tasks. With a formidable 4.5 TOPS AI processor and quad-core 1.8GHz ARM Cortex A55 CPU, SP7350 adeptly handles a wide range of edge AI and AIoT applications necessitating the processing of computer vision, video, image, audio, and more. Additionally, SP7350 integrates an ARM Cortex M4 Microcontroller Unit (MCU) to support machine control and peripheral Input/Output (IO). The MCU operates within an independent power domain, ensuring its functionality even when other function blocks are powered off.
+作为一款复杂的系统芯片（SOC）， SP7350拥有一个多功能的CPU和神经处理单元（NPU），精心为边缘和AI计算任务量身定制。凭借强大的4.5 TOPS AI处理器和四核1.8GHz ARM Cortex A55 CPU， SP7350可以熟练地处理广泛的边缘AI和AIoT应用，这些应用需要处理计算机视觉、视频、图像、音频等。此外，SP7350集成了ARM Cortex M4微控制器单元（MCU），以支持机器控制和外围设备输入/输出（IO）。MCU在一个独立的电源域内工作，即使在其他功能块断电的情况下也能正常工作。
 
-Manufactured utilizing advanced 12nm chip technology, SP7350 offers the benefits of a small form factor and low power consumption, essential for constructing compact and energy-efficient devices.
+SP7350采用先进的12nm芯片技术制造，具有外形小、功耗低的优点，对于构造紧凑和节能的器件至关重要。
 
-== Key Features
-* CPU: Sunplus SP7350 Quad ARM Cortex-A55
-* NPU: AI and Parallel Processing Engine Up to 4.1 TOPS (@900MHz) computing power
+== 关键特性
+
+* CPU主控: 凌阳科技(Sunplus) SP7350 Quad ARM Cortex-A55
+* NPU: AI和并行处理引擎高达4.1 TOPS （@900MHz）的计算能力
 * MCU: ARM Cortex-M4
 
 
-== Application direction
+== 应用场景
 
-* Robot, 
-* Drone, 
-* Smart Camera, 
-* Conference Camera, 
-* Driver Monitor System,
+* 机器人 
+* 飞行器飞控 
+* 智能相机及摄像头
+* 视频会议摄像头
+* 智能车控
 
-== Getting Start
+== 快速上手开发
 
-= Hardware
+= 硬件
 
-== Hardware interface
+== 硬件接口示意图
 
-== Hardware spec
+== 硬件规格
 
 
-== BPI-F4 Photo
+== BPI-F4 图集
 
-= Development
+= 开发
 
-== Source code 
+== 软件源代码
 
-* source code on github: https://github.com/sunplus-plus1/Q654
-* Source code on gitee: https://gitee.com/sunplus-plus1/q654
+* github 软件源代码: https://github.com/sunplus-plus1/Q654
+* gitee 软件源代码: https://gitee.com/sunplus-plus1/q654
 
-== Resources
+== 开发资料
 
-* Sunplus SP7350 official documents : https://sunplus.atlassian.net/wiki/spaces/C3/overview
+* 凌阳科技 SP7350 官方文档中心: https://sunplus.atlassian.net/wiki/spaces/C3/overview
 
-* Downloading and Compiling Code : https://sunplus.atlassian.net/wiki/spaces/C3/pages/1988034774/Downloading+and+Compiling+Code
+* 下载和编译代码手册 : https://sunplus.atlassian.net/wiki/spaces/C3/pages/1988034774/Downloading+and+Compiling+Code
 
