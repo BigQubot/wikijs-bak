@@ -70,6 +70,129 @@ link:/en/BPI-K230D/Photo_BPI-CanMV-K230D[Banana Pi CanMV-K230D-Zero Product phot
 |====
 
 == GPIO Pin define
+.MIPI CSI0 Camera define
+[%collapsible]
+====
+0.3mm FPC connector
+
+[options="header", cols="2*"]
+|===
+2+| CSI0+CSI1 define of Banana Pi BPI-CanMV-K230D-Zero
+| Pin Num | Pin Name   
+| 1       | GND        
+| 2       | GND        
+| 3       | VDD_3V3    
+| 4       | CSI0_D1_N  
+| 5       | VDD_3V3    
+| 6       | CSI0_D1_P  
+| 7       | I2C1_SCL   
+| 8       | CSI0_CLK_N 
+| 9       | I2C1_SDA   
+| 10      | CSI0_CLK_P 
+| 11      | I2C0_SCL   
+| 12      | CSI0_D0_N  
+| 13      | I2C0_SDA   
+| 14      | CSI0_D0_P  
+| 15      | GND        
+| 16      | GND        
+| 17      | CAM1_GPIO  
+| 18      | CSI1_D2_P  
+| 19      | MCLK1      
+| 20      | CSI1_D2_N  
+| 21      | GND        
+| 22      | CSI1_CLK_N 
+| 23      | GND        
+| 24      | CSI1_CLK_P 
+| 25      | GND        
+| 26      | CSI1_D3_N  
+| 27      | VDD_5V     
+| 28      | CSI1_D3_P  
+| 29      | VDD_5V     
+| 30      | GND        
+| 31      | VDD_5V     
+|===
+
+====
+
+.MIPI DSI define
+[%collapsible]
+====
+0.3mm FPC connector
+
+[options="header", cols="2*"]
+|===
+2+| DSI define of Banana Pi BPI-CanMV-K230D-Zero
+| Pin Num | Pin Name  
+| 1       | VDD_5V    
+| 2       | GND       
+| 3       | VDD_5V    
+| 4       | DSI_D1_N  
+| 5       | VDD_3V3   
+| 6       | DSI_D1_P  
+| 7       | VDD_3V3   
+| 8       | GND       
+| 9       | GND       
+| 10      | DSI_D0_P  
+| 11      | GND       
+| 12      | DSI_D0_N  
+| 13      | GND       
+| 14      | GND       
+| 15      | TP_SCL    
+| 16      | DSI_CLK_N 
+| 17      | TP_SDA    
+| 18      | DSI_CLK_P 
+| 19      | TP_INT    
+| 20      | GND       
+| 21      | TP_RST    
+| 22      | GND       
+| 23      | GND       
+| 24      | DSI_D2_N  
+| 25      | LCD_RST   
+| 26      | GND       
+| 27      | LCD_EN    
+| 28      | DSI_D3_N  
+| 29      | GND       
+| 30      | DSI_D3_P  
+| 31      | GND       
+|===
+
+====
+
+.CSI2 define
+[%collapsible]
+====
+0.5mm FPC connector
+
+[options="header", cols="2*"]
+|===
+2+| DSI define of Banana Pi BPI-CanMV-K230D-Zero
+| Pin Num | Pin Name   
+| 1       | GND        
+| 2       | CSI2_D4_N  
+| 3       | CSI2_D4_P  
+| 4       | GND        
+| 5       | CSI2_D5_N  
+| 6       | CSI2_D5_P  
+| 7       | GND        
+| 8       | CSI2_CLK_N 
+| 9       | CSI2_CLK_P 
+| 10      | GND        
+| 11      |            
+| 12      |            
+| 13      | GND        
+| 14      |            
+| 15      |            
+| 16      | GND        
+| 17      | EN         
+| 18      | CAM0_GPIO  
+| 19      | GND        
+| 20      | CAM0_SCL   
+| 21      | CAM0_SDA   
+| 22      | VDD_3V3    
+|===
+
+====
+
 
 
 = Accessories
