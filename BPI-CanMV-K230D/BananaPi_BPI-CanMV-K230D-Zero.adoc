@@ -70,6 +70,138 @@ link:/en/BPI-K230D/Photo_BPI-CanMV-K230D[Banana Pi CanMV-K230D-Zero Product phot
 |====
 
 == GPIO Pin define
+
+.40pin define
+[%collapsible]
+====
+[options="header",cols="1,5,1,1,5,1"]
+|===
+6+| CSI0+CSI1 define of Banana Pi BPI-CanMV-K230D-Zero
+|GPIO number |function |Pin |Pin |function |GPIO number 
+|
+|3.3V
+|1
+|2
+|5V
+| 
+|12
+|3D_CTRL_OUT2 / UART2_RXD / IIC2_SDA
+|3
+|4
+|5V
+| 
+|11
+|3D_CTRL_OUT1 / UART2_TXD / IIC2_SCL
+|5
+|6
+|GND
+| 
+|5
+|JTAG_TMS / PULSE_CNTR3 / UART2_TXD
+|7
+|8
+|JTAG_TDI / PULSE_CNTR1 / UART1_TXD
+|3 
+|
+|GND
+|9
+|10
+|JTAG_TDO / PULSE_CNTR2 / UART1_RXD
+|4 
+|19
+|OSPI_D3 / QSPI1_CS1 / QSPI0_D3
+|11
+|12
+|OSPI_D4 / QSPI1_CS0 / PULSE_CNTR0
+|20 
+|6
+|JTAG_RST / PULSE_CNTR4 / UART2_RXD
+|13
+|14
+|GND
+| 
+|2
+|JTAG_TCK / PULSE_CNTR0
+|15
+|16
+|IIC1_SDA / IIS_D_OUT0 / PDM_IN1 / UART3_CTS
+| 
+|
+|3.3V
+|17
+|18
+|3D_CTRL_IN / UART1_RXD / IIC1_SDA
+|10 
+|16
+|OSPI_D0 / QSPI1_CS4 / QSPI0_D0
+|19
+|20
+|GND
+| 
+|17
+|OSPI_D1 / QSPI1_CS3 / QSPI0_D1
+|21
+|22
+|IIC1_SCL / IIS_D_I0 / PDM_IN3 / UART3_RTS
+|34 
+|15
+|OSPI_CLK / QSPI0_CLK
+|23
+|24
+|OSPI_CS / QSPI0_CS0
+|14 
+|
+|GND
+|25
+|26
+|M_CLK2 / UART3_DE
+|62 
+|33
+|IIC0_SDA / IIS_WS / UART3_RXD
+|27
+|28
+|IIC0_SCL / IIS_CLK / UART3_TXD
+|32 
+|25
+|PWM5 / QSPI1_D3 / PULSE_CNTR5
+|29
+|30
+|GND
+| 
+|24
+|OSPI_DQS / QSPI1_D2 / PULSE_CNTR4
+|31
+|32
+|PWM1 / IIC0_SDA / QSPI0_CS1 / VSYNC1
+|61 
+|60
+|PWM0 / IIC0_SCL / QSPI0_CS2 / HSYNC1
+|33
+|34
+|GND
+| 
+|23
+|OSPI_D7 / QSPI1_D1 / PULSE_CNTR3
+|35
+|36
+|OSPI_D2 / QSPI1_CS2 / QSPI0_D2
+|18 
+|63
+|M_CLK3 / UART3_RE
+|37
+|38
+|OSPI_D6 / QSPI1_D0 / PULSE_CNTR2
+|22 
+|
+|GND
+|39
+|40
+|OSPI_D5 / QSPI1_CLK / PULSE_CNTR1
+|21 
+|===
+
+====
+
 .MIPI CSI0 Camera define
 [%collapsible]
 ====
