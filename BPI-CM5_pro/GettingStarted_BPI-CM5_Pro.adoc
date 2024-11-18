@@ -37,6 +37,157 @@ Optional Accessories
 * Fan, 0.8mm vertical socket.
 * Power Supply：Supports DC 12V adapter, 2.5mm
 
+= Android
+CM5_Pro needs to extend the IO board to install Image.
+
+== Install Image with Usb Download Tool
+ 
+. Download and install link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FDriverAssitant_v5.11.zip[Rockchip USB driver]
++
+image::/picture/driver_install_2.png[driver_install_2.png]
+ 
+. Download link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FUpdate-EMMC-Tools.zip[Rockchip USB Download Tool] +
+This tool defaults language is Chinese. you can change it to English after extract the package. Open **RKDevTool_Release_v2.84/config.ini** with an text editor (like notepad). The starting lines are:
++
+image::/picture/r2-pro_usb-tool-1.jpg[r2-pro_usb-tool-1.jpg]
++
+```sh
+#Language Selection: Selected=1(Chinese); Selected=2(English)
+[Language]
+Kinds=2
+Selected=1
+LangPath=Language\
+```
+. Open RKDevTool.exe, Switch to the “**upgrade firmware**” page. Press the “**firmware**” button to open the image file to be upgraded. The upgrade tool displays detailed firmware information.
++
+ 
+. Disconnect the power adapter , connect the type-c cable to the BPI-CM5pro IO board and PC.
+ 
+. There have two usb download mode for image upgrade.
+ 
+- **Uboot Usb Download Mode (loader mode)** +
+It's supposed to use this way if board already flashed a bootable uboot before.
+- **Maskrom Usb Download Mode(maskrom mode)** +
+Press the RESET button or Maskrom button to connect the power adapter. If the power adapter is already connected, hold down the Maskrom button while pressing the RESET button, release the RESET button, and then release the Maskrom button. If the RK USB driver is installed correctly, the PC will recognize the device.
++
+image::/picture/r2-pro_usb-tool-4.jpg[r2-pro_usb-tool-4.jpg]
+The download tool also show the download mode if device connected.
++
+ 
+ 
+. Press the “**upgrade**” button to start the upgrade.
++
+ 
+ 
+. If the upgrade fails, you can try to erase the Emmc by pressing the EraseFlash button first, and then upgrade image again.
++
+
+
+= Linux
+CM5_Pro needs to extend the IO board to install Image.
+
+== Install Image to sd card 1
+NOTE: Use this method for **Ubuntu** and **Armbian** images.
+ 
+Install Image with Balena Etcher. +
+link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
+ 
+. Click on "**Flash from file**" to select image. 
+. Click on "**Select target**" to select USB device. 
+. Click on "**Flash!**" Start burning.
+ 
+image::/picture/etcher.jpg[etcher.jpg]
+
+Insert the SD card into BPI-CM5pro IO board and plug in the power adapter. Then press the power button, if there is still no response, press the RST button.
+
+NOTE: Please connect the HDMI monitor when desktop mirroring is started. You need to create a user on the desktop.
+
+BPI-CM5pro how  burn image video : https://www.youtube.com/watch?v=80RULZRRM58
+
+
+== Install Image to sd card 2
+ 
+NOTE: **Debian** images use this method.
+
+. Download link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FUpdate-SD-Tools.zip[Rockchip SD Disk Tool].
+. Insert card reader to Windows PC, 8GB sdcard size at least.
+. Run SD_Firmware_Tool, check the “SD card startup” box and select the correct removable disk device, Choose firmware image, then Click Create button to make it and wait until it is finshed.
++
+image::/picture/bpi-m7_debian_burning.png[bpi-m7_debian_burning.png]
+
+== Install Image to eMMC 1
+
+NOTE: Please prepare an SD card with the image burned.And a USB drive containing image.
+
+. Insert the SD card into BPI-CM5pro IO board, connect the power and start it. Insert the USB drive.
+
+. Execute
++
+```sh
+lsblk
+```
+to check if the USB drive is mounted. (If already mounted, you can skip step three))
+
+. Mount the USB drive to mnt.
++
+```sh
+sudo mount /dev/sda1 /mnt
+cd /mnt
+```
+
+. Execute
++
+```sh
+sudo dd if=bpi-cm5-Pro-xxx.img of=/dev/mmcblk0 bs=10M
+```
+
+. Disconnect the power and remove the SD card. Power on again and start up from the EMMC.
+
+== Install Image to eMMC 2
+NOTE: Maskrom: When Flash is not burning firmware, the chip will boot into Maskrom mode, which can be burned for the first time. During the development and debugging process, if the Loader fails to start normally, you can also enter the Maskrom mode to burn firmware.     
+
+NOTE: Loader: The principle is that during the uboot startup, the pin is detected to be pressed. In Loader mode, the firmware can be burned and upgraded. You can burn a partition image file separately through the tool to facilitate debugging.
+
+=== Debian
+
+NOTE: Please prepare Type-C wire for Image burning.
+
+We open the RKDevTool burning tool (RKDevTool burning tool is included in the Android usage tutorial) and set the product to burn mode.
+
+.  Disconnect all cables that may power the product, such as power cables and USB cables.
+
+.  One end of a Type-C cable is connected to the OTG interface of the product, the other end is connected to the USB interface of the computer, and then open the software RKDevTool.
+
+.  Press and hold the Recovery key, then use DC to power the product.
+
+.  Wait until the software prompts you to find a LOADER device or Maskrom device (as shown in the following figure), and release the key.
+
+.  Press the Firmware button to select the firmware you want to upgrade, and then click the Upgrade button.
+
+.  The prompt bar indicates that after the upgrade is successful, restart the device to complete the burning.
+
+image::/bpi-m7/bpi-m7-rkdevtool-1.jpg[bpi-m7-rkdevtool-1.jpg]
+
+=== Ubuntu，Armbian，Openwrt
+
+We open the RKDevTool burning tool (RKDevTool burning tool is included in the Android usage tutorial) and set the product to burn mode.
+
+.  Disconnect all cables that may power the product, such as power cables and USB cables.
+
+.  One end of a Type-C cable is connected to the OTG interface of the product, the other end is connected to the USB interface of the computer, and then open the software RKDevTool.
+
+.  Press and hold the Recovery key, then use DC to power the product.
+
+.  Wait until the software prompts you to find a LOADER device or Maskrom device (as shown in the following figure), and release the key.
+
+.  Select the Download Image TAB, then click the blank cell to select the MiniLoaderAll and Image files to use.
+
+.  In the Storage option, select the target media EMMC, select Force write to address, and click Execute.
+
+.  Wait for the write to complete, then the device will automatically restart, as shown in the right Download image OK.
+
+image::/bpi-m7/bpi-m7-rkdevtool-2.jpg[bpi-m7-rkdevtool-2.jpg]
+
 = Interface Usage
 
 If you are using the CM5 Kit for the first time, please familiarize yourself with the hardware interfaces of each product, which will help you better understand the following content.
