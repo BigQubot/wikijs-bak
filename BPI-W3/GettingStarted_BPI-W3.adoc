@@ -423,6 +423,8 @@ Playing WAVE 't.wav' : Signed 16 bit Little Endian, Rate 16000 Hz, Stereo
 
 == MIPI-CSI
 
+=== IMX415
+
 The camera uses the IMX415 module. After connecting and powering on the camera module you can view the boot logs.
 ```sh
 armsom@armsom-w3:/# dmesg | grep imx415
@@ -448,6 +450,37 @@ Use gst-launch-1.0 for direct video recording
 ```sh
 armsom@armsom-w3:/# gst-launch-1.0 v4l2src device=/dev/video11 ! video/x-raw,format=NV12,width=3840,height=2160, framerate=30/1 ! xvimagesink
 
+```
+
+=== OV13850
+
+The camera uses the OV13850 module. After connecting and powering on the camera module you can view the boot logs.
+```sh
+root@armsom-w3:/# dmesg | grep ov13850
+[    3.555686] ov13850 3-0010: driver version: 00.01.05
+[    3.555722] ov13850 3-0010: Failed to get power-gpios, maybe no use
+[    3.555762] ov13850 3-0010: Looking up avdd-supply from device tree
+[    3.555773] ov13850 3-0010: Looking up avdd-supply property in node /i2c@feab0000/ov13850@10 failed
+[    3.555794] ov13850 3-0010: supply avdd not found, using dummy regulator
+[    3.555874] ov13850 3-0010: Looking up dovdd-supply from device tree
+[    3.555883] ov13850 3-0010: Looking up dovdd-supply property in node /i2c@feab0000/ov13850@10 failed
+[    3.555895] ov13850 3-0010: supply dovdd not found, using dummy regulator
+[    3.555927] ov13850 3-0010: Looking up dvdd-supply from device tree
+[    3.555935] ov13850 3-0010: Looking up dvdd-supply property in node /i2c@feab0000/ov13850@10 failed
+[    3.555945] ov13850 3-0010: supply dvdd not found, using dummy regulator
+[    3.555972] ov13850 3-0010: could not get default pinstate
+[    3.555979] ov13850 3-0010: could not get sleep pinstate
+[    3.561005] ov13850 3-0010: Detected OV00d850 sensor, REVISION 0xb2
+[    3.561027] rockchip-csi2-dphy csi2-dphy0: dphy0 matches m00_b_ov13850 3-0010:bus type 5
+```
+Use v4l2-ctl for image capture
+```sh
+armsom@armsom-w3:/# v4l2-ctl -d /dev/video11 --set-selection=target=crop,top=0,left=0,width=2112,height=1568 --set-fmt-video=width=2112,height=1568,pixelformat=NV12 --stream-mmap=3 --stream-to=/nv12.bin --stream-count=1 --stream-poll 
+```
+
+Use gst-launch-1.0 for direct video recording
+```sh
+armsom@armsom-w3:/# gst-launch-1.0 v4l2src device=/dev/video11 ! video/x-raw,format=NV12,width=2112,height=1568, framerate=30/1 ! xvimagesink
 ```
 
 image::/bpi-m7/bpi-m7_mipi_csi.jpeg[bpi-m7_mipi_csi.jpeg]
