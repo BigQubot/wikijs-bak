@@ -421,6 +421,58 @@ Playing WAVE 't.wav' : Signed 16 bit Little Endian, Rate 16000 Hz, Stereo
 
 == Camera
 
+The OV13850 module has the following features:
+
+Pixel size: 1.12mm x 1.12mm
+13 megapixels at 30 frames per second
+Image sizes are supported: 13.2MP (4224 x 3136), 10MP (4224 x 2376), 2K (2112 x 1568), EIS1080P (2112 x 1188), EIS 720P (1408 x 792), etc
+Two-wire Serial Bus Control (SCCB)
+Up to 4 channels MIPI serial output
+Operating temperature range: 0 ℃ ~ 60 ℃, storage temperature range: -30 ℃ ~ 80 ℃
+
+image::/camera-module-ov13850.png[camera-module-ov13850.png]
+
+=== The OV13850 Camera Pin Define
+
+.PIN of The OV13850 Camera
+[%collapsible]
+====
+[cols="3*", options="header"]
+|===================================================================
+3+| PIN of The OV13850 Camera
+| PIN NO | SYMBOL       | Description                               
+| 1      | GND          | Ground                                    
+| 2      | CSI_RX_D3N   | Channel 3 differential negative signal    
+| 3      | CSI_RX_D3P   | Channel 3 differential positive signal    
+| 4      | GND          | Ground                                    
+| 5      | CSI_RX_D2N   | Channel 2 differential negative signal    
+| 6      | CSI_RX_D2P   | Channel 2 differential positive signal    
+| 7      | GND          | Ground                                    
+| 8      | NC           | NC                                        
+| 9      | NC           | NC                                        
+| 10     | GND          | Ground                                    
+| 11     | CSI_RX_D1N   | Channel 1 differential negative signal    
+| 12     | CSI_RX_D1P   | Channel 1 differential positive signal    
+| 13     | GND          | Ground                                    
+| 14     | CSI_RX_D0N   | Channel 0 differential negative signal    
+| 15     | CSI_RX_D0P   | Channel 0 differential positive signal    
+| 16     | GND          | Ground                                    
+| 17     | CSI_RX_CLK0N | output clock differential negative signal 
+| 18     | CSI_RX_CLK1P | output clock differential positive signal 
+| 19     | MIPI_VSYNC   | Frame synchronization signal              
+| 20     | MIPI_CLKOUT  | clock signal                              
+| 21     | NC           | NC                                        
+| 22     | NC           | NC                                        
+| 23     | MIPI_CSI_PDN | control signal                            
+| 24     | I2C_SCL      | I2C clock signal                          
+| 25     | I2C_SDA      | I2C data signal                           
+| 26     | NC           | NC                                        
+| 27     | RESET        | Global reset signal                       
+| 28-29  | VCC_3V3      | VCCIO                                     
+| 30-31  | VCC_5V0      | VCCIO                                     
+|===================================================================
+====
+
 == MIPI-CSI
 
 === IMX415
