@@ -1,12 +1,20 @@
 == Overview
 
-Banana Pi BPI-RV2 open source gateway is a device based on  Siflowe SF2H8898 SoC, 1 × 2.5G WAN network interface, 5 Gigabit LAN network interface, onboard 512MB DDR3 memory, 128 MiB NAND, 16 MiB NOR, M.2 interface, MINI PCIE and USB 2.0 interface, etc.
+Banana Pi BPI-RV2 open source gateway is a device based on Siflowe SF2H8898 SoC, 1 × 2.5G WAN network interface, 5 Gigabit LAN network interface, onboard 512MB DDR3 memory, 128 MiB NAND, 16 MiB NOR, M.2 interface, MINI PCIE and USB 2.0 interface, etc.
 
 Banana Pi BPI-RV2 open source gateway is a collaboration between Silicon Chang and Banana Pi open source community (Banana Pi)
 
 == SF2H8898 chip Brief
 
-SF21H8898 is a high-performance industrial SOC gateway chip developed by Siecong Communication. The CPU adopts RISC-V architecture (quad-core processor, main frequency 1.4Ghz), built-in self-developed NPU network processor (supports L2/L3 hardware processing, IPv4/IPv6 dual stack, 20Gbps switching capacity, and supports the following functions: The network side supports QSGMII, SGMII/HSGMII, and RGMII interfaces, and supports the IEEE 1588 PTP function for time synchronization. Supports external DDR3/DDR3L/DDR4 SDRAM and NAND/NOR SPI Flash. High-speed interface has USB2.0, PCIE2.0, low-speed interface has SPI, UART, I2C, PWM and so on. Can be used as enterprise gateway, industrial control host.
+SF21H8898 is a high performance industrial-grade SOC gateway chip developed by Siflowe Communications. It adopts advanced TSMC 12nm FFC process and integrates four cores inside
+64-bit RSIC-V processor and dedicated network processing accelerator (NPU) (supports L2/L3 hardware processing, IPv4/IPv6 dual stack, 20Gbps switching capacity, full byte wire-speed forwarding), network-side support for QSGMII, SGMII/HSGMII and RGMII interfaces. IEEE 1588 PTP functionality is supported for time synchronization. It supports external DDR3/DDR3L/DDR4 SDRAM and NAND/NOR SPI Flash. The high-speed interface is USB2.0, PCIE2.0, and the low-speed interface is SPI, UART, I2C, PWM, etc. It can be used as enterprise gateway and industrial control gateway.
+
+.Siflowe SF21H8898 chip diagram
+[%collapsible]
+====
+
+image::/bpi-rv2/h8898_chip.png[h8898_chip.png]
+====
 
 
 == Key Features 
