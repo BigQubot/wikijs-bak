@@ -1,3 +1,132 @@
-== header
+= 产品筒介
 
-content
+image::/bpi-f5/banana_pi_bpi-f5_ban_2.jpg[banana_pi_bpi-f5_ban_2.jpg]
+
+Banana Pi BPI-F5设计采用全志科技八核ARM Cortex-A55 T527芯片设计。有一个RISC-V CPU，高达200 MHz主频。HiFi4音频DSP，ARM G57 MC1 GPU，支持多达2 TOPS NPU，板载支持2/4g RAM内存和8-32G eMMC。
+
+== 全志T527
+
+全志科技T527八核A55， NPU高达2Tops，适用于边缘智能AI应用。
+
+T527系列是智能工业控制和汽车领域的高性能嵌入式处理器，具有可选的AI功能。适用于高性能工业机器人、显示控制一体机、边缘智能盒子、车载终端等具有媒体和AI功能的嵌入式设备。
+
+T527应用于商用显示/收银机、云计算、机器人、工业智能、边缘计算网关、汽车中控、商用车、
+
+
+.全志T527芯片主要规格
+[%collapsible]
+====
+[options="header",cols="1,5"]
+|====
+2+| Main spec for Allwinner T527 chip
+.4+|CPU
+|Octa-core ARM Cortex-A55 in a DynamlQ big.LITTLE configuration, up to 1.8 GHz
+|32KB L1 I-cache and 32KB L1 D-cache per A55 core
+|Optional 64KB L2 cache per“LITTLE”core
+|Optional 128KB L2 cache per“big”core
+.4+|GPU
+|ARM G57 MC1 GPU
+|Supports OpenGL ES 3.2/2.0/1.1, Vulkan 1.1/1.2/1.3, and OpenCL2.2
+|Anti-aliasing algorithm
+|High memory bandwidth and low power consumption in 3D graphics processing
+.3+|NPU
+|2 TOPS NPU
+|Embedded 512KB internal buffer
+|Supports deep learning frameworks：TensorFlow, Pytorch, Caffe, Onnx NN, TFLite…
+
+.4+|Video decoder
+|H.265 MP decoder up to 4K@60fps
+|H.264 BL/MP/HP decoder up to 4K@30fps
+|VP9 decoder up to 4K@60fps
+|Multi-format 1080p@60fps video playback，including VP8，MPEG1/2SP/MP，MPEG4，SP/ASP，AVS+/AVS JIZHUN
+.3+|Video encoder
+|H.264 encoder up to 4K@25fps
+|MJPEG encoder up to 4K@15fps
+|JPEG encoder up to 8K x 8K resolution
+.3+|Audio DSP
+|HiFi4 Audio DSP,Frequency up to 600MHz
+|32KB I-cache +32KB D-cache
+|widely used in the special fields of image, audio and digital signal processing to provide exclusive computing power for audio and video entertainment and industrial production
+.3+|RISC-V MCU
+|Independence RISC-V CPU, up to 200 MHz,support RTOS system
+|16 KB I-cache and 16 KB D-cache·RV32IMAFC instructions
+|Real-time processing, high-speed response and industrial-grade stable operation on industrial and robotic systems provide important guarantees
+
+.5+|Display
+|HDMI2.0b up to 4K@60fps
+|4+4-lane MIPI-DSI output，supporting up to 2.5K@60fps and 4K@45fps
+|2xLVDS interface with dual link， up to I080p@60fps
+|2xRGB interfaces with DE/SYNC mode， up to I080p@60fps
+|eDP1.3 up to 2.5K@60fps and 4K@30fps
+
+.2+|Camera
+|Parallel CSl interface:8/10/12/16-bit width,Supports BT.656 up to 4720P@30fps and BT.1120 up to 41080P@30fps
+|MIPI CSI interface:24 lane/42 lane/4+2*2 lane MIPICSI，flexible combination， up to 2.0 Gbit/s per lane in HS transmission，compliant with MIPI-CSI2V1.1 and MIPI DPHYV1.1
+Maximumvideocaptureresolution of 8M@30fps
+|====
+====
+
+== Key Features
+
+* SoC: Allwinner T527
+* CPU: Octa-core ARM Cortex-A55 in a DynamlQ big.LITTLE configuration, up to 1.8 GHz
+* GPU: ARM G57 MC1 GPU
+* NPU: Up to 2 TOPS (INT8), Embedded 512KB internal buffer
+* RISC-V MCU for Real-time operating system (etc：RTOS)
+* DSP: 600MHz HiFi4
+* RAM: 2GB/4GB(max 4GB), default 4GB LPDDR4x
+* Storage: 8GB/32GB eMMC, default 32GB eMMC
+* Industrial grade temperature: -40°C to 80°C
+
+== Getting Start
+
+TIP: link:/en/BPI-F5/GettingStarted_BPI-F5[Getting Started BPI-F5]
+
+= Hardware 
+
+== Hardware interface 
+
+image::/bpi-f5/banana_pi_bpi-f5_interface1.jpg[banana_pi_bpi-f5_interface1.jpg]
+
+== BPI-F5 Photo
+
+link:/en/BPI-F5/Photo_BPI-F5[Banana Pi BPI-F5 Product photo gallery]
+
+== Hardware Specifications
+
+== GPIO define
+
+= Accessories
+
+== Case design:
+
+= Development 
+
+== Source code
+
+== Resources
+
+TIP: Allwinner T527 Datasheet
+
+Baidu Cloud:
+https://pan.baidu.com/s/1IY2uEspzYj9M3otU1HY3mw?pwd=8888 (pincode:8888)
+
+Google Drive:
+https://drive.google.com/file/d/16dpYXm3roHDvEXflXBnEQgjR7RySEqhW/view?usp=sharing
+
+TIP: AXP323&AXP717C Datasheet
+
+Baidu Cloud:
+https://pan.baidu.com/s/1_m6JpbHnr2OT8hIIH3DC-g?pwd=8888 (pincode:8888)
+
+Google Drive: 
+https://drive.google.com/drive/folders/1Oc6wWwKVr4e58Za7om1MFB6ibQciK1ez?usp=sharing
+
+= Image Release
+
+== Android
+
+== Linux
+
+= Easy to buy sample
+
