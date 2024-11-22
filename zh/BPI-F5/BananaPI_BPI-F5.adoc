@@ -66,9 +66,9 @@ Maximumvideocaptureresolution of 8M@30fps
 |====
 ====
 
-== Key Features
+== 关键特性
 
-* SoC: Allwinner T527
+* SoC主控: Allwinner T527
 * CPU: Octa-core ARM Cortex-A55 in a DynamlQ big.LITTLE configuration, up to 1.8 GHz
 * GPU: ARM G57 MC1 GPU
 * NPU: Up to 2 TOPS (INT8), Embedded 512KB internal buffer
@@ -78,7 +78,7 @@ Maximumvideocaptureresolution of 8M@30fps
 * Storage: 8GB/32GB eMMC, default 32GB eMMC
 * Industrial grade temperature: -40°C to 80°C
 
-== Getting Start
+== 快速上手
 
 TIP: link:/en/BPI-F5/GettingStarted_BPI-F5[Getting Started BPI-F5]
 
