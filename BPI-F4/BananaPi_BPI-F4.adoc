@@ -40,6 +40,152 @@ TIP: link:https://sunplus.atlassian.net/wiki/spaces/C3/pages/2212036657/User+Man
 
 image::/bpi-f4/banana_pi_bpi-f4_interface.jpg[banana_pi_bpi-f4_interface.jpg]
 
+[options="header",cols="1,2,4",width="70%"]
+|=====
+|Item  |Descriptions  |Remarks
+|1 |Ethernet RJ-45 socket|Supports 10M/100M/1000M transmission.
+|2 |USB 3.0 Type-A socket|Supports Low/Full/High/Super speeds.Note that USB 3.0 Type-A and Type-C share with the same USB 3.0 port of SP7350, and they cannot be used simultaneously. Refer to item 11 for selection.
+|3 |USB 3.0 Type-C socket |Supports Low/Full/High/Super speeds.Note that USB 3.0 Type-A and Type-C share with the same USB 3.0 port of SP7350, and they cannot be used simultaneously. Refer to item 11 for selection.
+|4 |USB 2.0 Type-A socket|Supports Low/Full/High speeds.
+|5 |HDMI output interface |Supports 1080p, 720p, 480p resolutions.
+|6 |Jack for 12V DC power input |The DC Jack plug diameter is 5.5mm, and the adapter power supply current must be greater than 1A.
+|7 |Reset key |Resets CM4 and Main-power domain, but does not reset RTC.
+.7+|8 |Wake-up key.
+|Functions as follows:
+|(When powered off) Short press for 1 second: Power on (hardware action)
+|(When powered on) Short press for 1 second: Enter deep sleep mode (software function)
+|(During deep sleep mode) Short press for 0.3 seconds: Resume from deep sleep mode (software function).
+|(When powered on) Long press for more than 7 seconds: Shutdown (software function).
+|(When powered on) Long press for more than 10 seconds: Force shutdown (hardware function).
+.4+|9 |Jumper SIP1
+|It is for enabling auto power-on function:
+|Plug in a jumper to turn on power automatically.
+|Otherwise, required to press Wake-up key for 1 second to turn on power.
+|Plug a jump in by default
+
+10
+
+Ethernet Giga PHY chip 
+
+Realtek RTL8211FD chip.
+
+11
+
+Jumper SIP3
+
+For selecting USB 3.0 Type A or C socket:
+
+Plug in a jumper to select USB 3.0 Type C socket.
+
+Otherwise, USB 3.0 Type A socket is selected.
+
+12
+
+Jumper SIP4
+
+Not used.
+
+13
+
+MIPI-RX5 interface
+
+Raspberry Pi camera compatible, 22-pin, 0.5mm FFC connector. Refer to section 6 for pin definitions.
+
+14
+
+MIPI/DSI to HDMI bridge chip,
+
+LT8912B
+
+15
+
+1.5F super capacitor
+
+Provides power for the RTC (Real-Time Clock) to continue operating when no external power is supplied.
+
+16
+
+SP7350 boot configuration switch
+
+Refer to section 2.3 for details.
+
+17
+
+M.2 E-key socket
+
+For interfacing SDIO wireless network card. Refer to section 9 for pin definitions.
+
+18
+
+SP7350 Core Board with heatsink
+
+ 
+
+19
+
+Micro SD card socket
+
+ 
+
+20
+
+PCB terminal block (CN8)
+
+Refer to section 4.1 for details.
+
+21
+
+PCB terminal block (CN3)
+
+22
+
+PCB terminal block (CN7)
+
+23
+
+PCB terminal block (CN6)
+
+24
+
+PCB terminal block (CN5) 
+
+25
+
+PCB terminal block (CN1)
+
+26
+
+3-pin, 100mil Pin-header
+
+For selecting IO voltage. Refer to section 4.2.
+
+27
+
+PCB terminal block (CN4)
+
+Refer to section 4.1 for details.
+
+28
+
+4-pin, 100 mil Pin-header (J79)
+
+ 
+
+For UART0. Pin-assignment, from top to bottom, is (+5V, GND, RXD, TXD), where RXD and TXD are 3.3V signal. Refer to section 7.
+
+29
+
+PCB terminal block (CN30)
+
+For DC +12V input.
+
+30
+
+USB 2.0 Type C socket
+
+For UART0. Refer to section 7.
+|=====
+
 == Hardware spec
 
 == Core board
