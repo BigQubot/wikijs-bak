@@ -209,7 +209,112 @@ The burning progress will be shown on the right. Once completed, the tool will n
 
 image::/bpi-aim7/docs_aim_11.png[docs_aim_11.png]
 
-TIP: TROUBLESHOOTING BURNING FAILURES +
+= Interface Usage
+
+== Debug Serial Port
+
+Connect the USB to TTL serial cable as shown below:
+
+image::/bpi-aim7/bpi-aim7-debug.png[bpi-aim7-debug.png]
+
+[options="header",cols="1,1,1"]
+|====
+|AIM7	|Connection	|Serial Module
+|GND (pin 11)	|--->	|GND
+|RX (pin 3)	|--->|	TX
+|TX (pin 4)	|--->|	RX
+|====
+== Ethernet Port
+* First, plug one end of the Ethernet cable into the ArmSoM-AIM’s Ethernet port and connect the other end to a router, ensuring the network is functional.
+* After booting, the system will automatically assign an IP address to the Ethernet card via DHCP without any additional configuration.
+* To check the IP address in the ArmSoM-AIM Linux system, use the following command:
+
+```sh
+root@armsom-aim7:/# ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether c2:ed:bc:48:3b:7a brd ff:ff:ff:ff:ff:ff
+    inet 192.168.10.106/24 brd 192.168.10.255 scope global dynamic noprefixroute eth0
+       valid_lft 86396sec preferred_lft 86396sec
+    inet6 fe80::7351:88a9:9b4c:11be/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever
+```
+
+After the ArmSoM-AIM boots, there are three ways to check the IP address:
+
+* Connect to an HDMI display, log into the system, and use the terminal to enter the ip a command.
+* Use the debug serial port terminal to enter the ip a command to check the IP address.
+* If there is no debug serial port or HDMI display, you can check the ArmSoM-AIM’s IP address through the router’s management interface. However, this method often fails to display the ArmSoM-AIM’s IP address. If not visible, follow these troubleshooting steps:
+** First, check whether the Linux system has booted properly. If the ArmSoM-AIM's green LED is solid, it generally indicates a normal boot. If only the red LED is on, the system hasn't booted correctly.
+** Ensure the Ethernet cable is securely connected, or try a different cable.
+** Test with another router, as many issues arise from routers not assigning IP addresses correctly or assigning them but not displaying them in the management interface.
+** If no alternative router is available, connect an HDMI display or use the debug serial port to check the IP address.
+
+TIP: It is important to note that the ArmSoM-AIM automatically assigns an IP address via DHCP without any settings required.
+
+Use the ping command to check network connectivity.
+
+The command to test network connectivity is as follows. You can interrupt the ping command by using the Ctrl+C shortcut:
+
+```sh
+armsom@armsom-aim7:~$ ping www.baidu.com
+PING www.a.shifen.com (183.2.172.185): 56 data bytes
+64 bytes from 183.2.172.185: icmp_seq=0 ttl=53 time=8.370 ms
+64 bytes from 183.2.172.185: icmp_seq=1 ttl=53 time=8.917 ms
+64 bytes from 183.2.172.185: icmp_seq=2 ttl=53 time=8.511 ms
+64 bytes from 183.2.172.185: icmp_seq=3 ttl=53 time=8.673 ms
+^C
+--- www.a.shifen.com ping statistics ---
+4 packets transmitted, 4 packets received, 0% packet loss
+round-trip min/avg/max/stddev = 8.370/8.618/8.917/0.203 ms
+```
+== HDMI
+
+[options="header",cols="1,1,1"]
+|====
+|Model	|AIM7	|AIM5
+|Resolution	|8Kp60	|4Kp120
+|====
+
+* Use an HDMI cable to connect the ArmSoM-AIM to an HDMI display.
+* If the HDMI display outputs an image after the Linux system boots, the HDMI interface is functioning properly.
+
+TIP: Note that many laptops have HDMI ports that only support output functionality. This means they cannot display HDMI output from other devices on their screens. When attempting to connect the development board's HDMI to a laptop HDMI port, please confirm whether your laptop supports HDMI input functionality. If no display is shown, first check whether the system version includes a desktop environment, as server versions only show the terminal.
+
+== DP (DisplayPort)
+[options="header",cols="1,1,1"]
+|====
+|Model	|AIM7	|AIM5
+|Resolution	|4Kp60	|4Kp60
+|====
+* Use a DP cable to connect the ArmSoM-AIM to a DP display.
+* If the DP display outputs an image after the Linux system boots, the DP interface is functioning properly.
+
+== USB 
+[options="header",cols="1,2"]
+|====
+|Model	|AIM7
+|USB	|1* Type-C 2.0, 4x USB3.0
+|====
+
+
+NOTE: The USB interface can be connected to a USB hub to expand the number of USB ports.
+
+Connecting USB Mouse or Keyboard Test
+
+* Plug a USB keyboard into the ArmSoM-AIM's USB port.
+* Connect the ArmSoM-AIM to an HDMI display.
+* If the mouse or keyboard operates normally within the system, the USB interface is functioning properly (note: the mouse works only in desktop versions).
+
+
+
+
+NOTE: TROUBLESHOOTING BURNING FAILURES +
 If you encounter a "Download Boot Fail" error or other errors during the burning process (as shown below), it is usually due to a poor USB connection, low-quality cables, or insufficient power from the computer’s USB port. Try replacing the USB cable or using a different USB port on the computer to troubleshoot.
 
 NOTE: WHAT IS THE DIFFERENCE BETWEEN MASKROM MODE AND LOADER MODE? +
