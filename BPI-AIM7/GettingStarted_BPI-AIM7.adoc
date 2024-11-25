@@ -305,12 +305,37 @@ TIP: Note that many laptops have HDMI ports that only support output functionali
 
 NOTE: The USB interface can be connected to a USB hub to expand the number of USB ports.
 
-Connecting USB Mouse or Keyboard Test
+=== Connecting USB Mouse or Keyboard Test
 
 * Plug a USB keyboard into the ArmSoM-AIM's USB port.
 * Connect the ArmSoM-AIM to an HDMI display.
 * If the mouse or keyboard operates normally within the system, the USB interface is functioning properly (note: the mouse works only in desktop versions).
 
+=== Connecting USB Storage Device Test
+
+First, insert a USB flash drive or external USB hard drive into the ArmSoM-AIM's USB port.
+Execute the following command; if you see output for sdX, it indicates the USB drive is recognized:
+
+```sh
+armsom@armsom-aim7:/# cat /proc/partitions | grep "sd*"
+major minor  #blocks  name
+   8        0  122880000 sda
+```
+
+Use the mount command to mount the USB drive to /mnt, allowing you to view files on the drive:
+
+```sh
+armsom@armsom-aim7:/# sudo mount /dev/sda1 /test/
+```
+
+After mounting, you can check the USB drive’s capacity usage and mount point with the df -h command:
+
+```sh
+armsom@armsom-aim7:/test# df -h | grep "sd"
+/dev/sda        4.7G  4.7G     0  100% /test
+```
+
+=== USB Camera
 
 
 
