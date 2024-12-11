@@ -17,8 +17,7 @@ TIP: More Infomation:link:/en/BPI-WiFi5/BananaPi_BPI-WiFi5_Router[Banana Pi BPI-
 1. Download the link:/en/BPI-WiFi5/BananaPi_BPI-WiFi5_Router#_system_image[image] you want to upgrade.  
 2. Power on the BPI-WiFi5 and connect it to your computer using an Ethernet cable.  
 3. Open the web interface in your browser (default IP: `192.168.4.1`):  
-   - **Username**: `root`  
-   - **Password**: *(no password required)*  
+   - **Password**: *admin*  
 4. Select “More"
 5. Select “System", then select "Backup/Upgrade".
 6. Select “Flash image...".
