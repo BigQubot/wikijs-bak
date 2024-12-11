@@ -1,3 +1,75 @@
-== header
+= Introduction
 
-content
+TIP: More Infomation:link:/en/BPI-WiFi5/BananaPi_BPI-WiFi5_Router[Banana Pi BPI-WiFi5 Router]
+
+= Upgrade Firmware
+
+== Web Page Upgrade
+
+=== Prepare
+
+- Ethernet cable  
+- BPI-WiFi5  
+- 12V power supply  
+
+=== Upgrade Steps
+
+1. Download the link:/en/BPI-WiFi5/BananaPi_BPI-WiFi5_Router#_system_image[image] you want to upgrade.  
+2. Power on the BPI-WiFi5 and connect it to your computer using an Ethernet cable.  
+3. Open the web interface in your browser (default IP: `192.168.4.1`):  
+   - **Username**: `root`  
+   - **Password**: *(no password required)*  
+4. Select “More"
+5. Select “System", then select "Backup/Upgrade".
+6. Select “Flash image...".
+7. Select the image you want to upgrade, and then click "Upload".
+8. Uncheck "Keep settings and retain the current configuration".Select "Continue".
+9. Wait a few minutes, after the upgrade is completed, it will automatically restart and the web page will automatically refresh.
+
+---
+
+== Upgrade via Serial
+
+=== Prepare
+
+- Ethernet cable  
+- BPI-WiFi5  
+- 12V power supply  
+- USB to TTL cable  
+
+=== Upgrade Steps
+
+1. Download the link:/en/BPI-WiFi5/BananaPi_BPI-WiFi5_Router#_system_image[image] you want to upgrade.  
+2. Connect the BPI-WiFi5 to your computer using an Ethernet cable.
+3. Set the computer's IP to 192.168.4.100, as shown in the image below.
+4. Connect to the computer using a USB to TTL cable and open a serial terminal tool.
+5. Power on the BPI-WiFi5.
+6. Press any key during startup to enter the U-Boot terminal.
+7. Type httpd 192.168.4.1 and press Enter.
+8. Open a browser, type the address 192.168.4.1, and access it.
+9. Click "Browse" to select the image file and upload it.
+10. Wait for the update to complete, which is expected to take about 2 minutes.
+
+
+= Compile the image 
+
+== Prepare
+
+- Ethernet cable, BPI-WiFi5, 12V power supply, Ubuntu18.04
+
+== Compile uboot
+```shell
+git clone https://github.com/BPI-SINOVOIP/BPI-WiFi5-Siflower
+cd ./BPI-WiFi5-Siflower/uboot
+sudo apt install make gcc device-tree-compiler bc
+./make.sh sfa28_ac28
+```
+
+== Compile kernel & OpenWrt
+```shell
+git clone https://github.com/BPI-SINOVOIP/BPI-WiFi5-Siflower
+cd ./BPI-WiFi5-Siflower/openwrt-18.06
+sudo apt install make gcc g++ libncurses-dev perl-modules-5.26 patch gawk unzip python git
+./make.sh a28_bpi
+```
+After the compilation is complete, a bin file will appear in the current directory. This is the firmware you have compiled.
