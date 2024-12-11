@@ -60,19 +60,27 @@ TIP: More Infomation:link:/en/BPI-WiFi5/BananaPi_BPI-WiFi5_Router[Banana Pi BPI-
 - 12V power supply
 - Ubuntu18.04
 
+Install the required dependencies:
+
+```bash
+sudo apt install make gcc g++ device-tree-compiler bc libncurses-dev perl-modules-5.26 patch gawk unzip python git
+```
+
+Get source code
+
+```bash
+git clone https://github.com/BPI-SINOVOIP/BPI-WiFi5-Siflower
+```
+
 == Compile uboot
 ```shell
-git clone https://github.com/BPI-SINOVOIP/BPI-WiFi5-Siflower
 cd ./BPI-WiFi5-Siflower/uboot
-sudo apt install make gcc device-tree-compiler bc
 ./make.sh sfa28_ac28
 ```
 
 == Compile kernel & OpenWrt
 ```shell
-git clone https://github.com/BPI-SINOVOIP/BPI-WiFi5-Siflower
 cd ./BPI-WiFi5-Siflower/openwrt-18.06
-sudo apt install make gcc g++ libncurses-dev perl-modules-5.26 patch gawk unzip python git
 ./make.sh a28_bpi
 ```
 After the compilation is complete, a bin file will appear in the current directory. This is the firmware you have compiled.
