@@ -16,8 +16,11 @@ TIP: More Infomation:link:/en/BPI-WiFi5/BananaPi_BPI-WiFi5_Router[Banana Pi BPI-
 
 . Download the link:/en/BPI-WiFi5/BananaPi_BPI-WiFi5_Router#_system_image[image] you want to upgrade.  
 . Power on the BPI-WiFi5 and connect it to your computer using an Ethernet cable.  
-. Open the web interface in your browser (default IP: `192.168.4.1`):  
+. Open the web interface in your browser,and enter the password:  
+   - **default IP**: *192.168.4.1*  
    - **Password**: *admin*  
++
+image::/bpi-wifi5/login.png[login.png]
 . Select “More"
 +
 image::/bpi-wifi5/update_via_web_1.png[update_via_web_1.png]
