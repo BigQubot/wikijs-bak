@@ -38,17 +38,26 @@ TIP: More Infomation:link:/en/BPI-WiFi5/BananaPi_BPI-WiFi5_Router[Banana Pi BPI-
 
 === Upgrade Steps
 
-1. Download the link:/en/BPI-WiFi5/BananaPi_BPI-WiFi5_Router#_system_image[image] you want to upgrade.  
-2. Connect the BPI-WiFi5 to your computer using an Ethernet cable.
-3. Set the computer's IP to 192.168.4.100, as shown in the image below.
-4. Connect to the computer using a USB to TTL cable and open a serial terminal tool.
-5. Power on the BPI-WiFi5.
-6. Press any key during startup to enter the U-Boot terminal.
-7. Type httpd 192.168.4.1 and press Enter.
-8. Open a browser, type the address 192.168.4.1, and access it.
-9. Click "Browse" to select the image file and upload it.
-10. Wait for the update to complete, which is expected to take about 2 minutes.
-
+. Download the link:/en/BPI-WiFi5/BananaPi_BPI-WiFi5_Router#_system_image[image] you want to upgrade.  
+. Connect the BPI-WiFi5 to your computer using an Ethernet cable.
+. Set the computer's IP to 192.168.4.100, as shown in the image below.
+. Connect to the computer using a USB to TTL cable and open a serial terminal tool.
+. Power on the BPI-WiFi5.
+. Press any key during startup to enter the U-Boot terminal.
+. Type httpd 192.168.4.1 and press Enter.
++
+image::/bpi-wifi5/enable_httpd.png[enable_httpd.png]
++
+. Open a browser, type the address 192.168.4.1, and access it.
++
+image::/bpi-wifi5/firmware_update_1.png[firmware_update_1.png]
++
+. Click "Browse" to select the image file and Click "Update firmware" to upload it.
++
+image::/bpi-wifi5/firmware_update_2.png[firmware_update_2.png]
+. Wait for the update to complete, which is expected to take about 2 minutes.
++
+image::/bpi-wifi5/firmware_update_3.png[firmware_update_3.png]
 
 = Compile the image 
 
@@ -87,4 +96,4 @@ cd ./BPI-WiFi5-Siflower/openwrt-18.06
 ```
 After the compilation is complete, a bin file will appear in the current directory. This is the firmware you have compiled.
 
-image::/bpi-wifi5/compile_finish.png[compile_finish.png]
+image::/bpi-wifi5/compile_finish.png[compile_finish.png]image::/bpi-wifi5/enable_httpd.png[enable_httpd.png]
