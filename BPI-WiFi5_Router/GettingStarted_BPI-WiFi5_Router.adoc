@@ -14,17 +14,28 @@ TIP: More Infomation:link:/en/BPI-WiFi5/BananaPi_BPI-WiFi5_Router[Banana Pi BPI-
 
 === Upgrade Steps
 
-1. Download the link:/en/BPI-WiFi5/BananaPi_BPI-WiFi5_Router#_system_image[image] you want to upgrade.  
-2. Power on the BPI-WiFi5 and connect it to your computer using an Ethernet cable.  
-3. Open the web interface in your browser (default IP: `192.168.4.1`):  
+. Download the link:/en/BPI-WiFi5/BananaPi_BPI-WiFi5_Router#_system_image[image] you want to upgrade.  
+. Power on the BPI-WiFi5 and connect it to your computer using an Ethernet cable.  
+. Open the web interface in your browser (default IP: `192.168.4.1`):  
    - **Password**: *admin*  
-4. Select “More"
-5. Select “System", then select "Backup/Upgrade".
-6. Select “Flash image...".
-7. Select the image you want to upgrade, and then click "Upload".
-8. Uncheck "Keep settings and retain the current configuration".Select "Continue".
-9. Wait a few minutes, after the upgrade is completed, it will automatically restart and the web page will automatically refresh.
-
+. Select “More"
++
+image::/bpi-wifi5/update_via_web_1.png[update_via_web_1.png]
+. Select “System", then select "Backup/Upgrade".
++
+image::/bpi-wifi5/update_via_web_2.png[update_via_web_2.png]
+. Select “Flash image...".
++
+image::/bpi-wifi5/update_via_web_3.png[update_via_web_3.png]
+. Select the image you want to upgrade, and then click "OK" to upload.
++
+image::/bpi-wifi5/update_via_web_4.png[update_via_web_4.png]
+. Uncheck "Keep settings and retain the current configuration".Select "Continue".
++
+image::/bpi-wifi5/update_via_web_5.png[update_via_web_5.png]
+. Wait a few minutes, after the upgrade is completed, it will automatically restart and the web page will automatically refresh.
++
+image::/bpi-wifi5/update_via_web_6.png[update_via_web_6.png]
 ---
 
 == Upgrade via Serial
@@ -41,6 +52,8 @@ TIP: More Infomation:link:/en/BPI-WiFi5/BananaPi_BPI-WiFi5_Router[Banana Pi BPI-
 . Download the link:/en/BPI-WiFi5/BananaPi_BPI-WiFi5_Router#_system_image[image] you want to upgrade.  
 . Connect the BPI-WiFi5 to your computer using an Ethernet cable.
 . Set the computer's IP to 192.168.4.100, as shown in the image below.
++
+image::/bpi-wifi5/set_ip.png[set_ip.png]
 . Connect to the computer using a USB to TTL cable and open a serial terminal tool.
 . Power on the BPI-WiFi5.
 . Press any key during startup to enter the U-Boot terminal.
