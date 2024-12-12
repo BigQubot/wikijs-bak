@@ -86,3 +86,5 @@ cd ./BPI-WiFi5-Siflower/openwrt-18.06
 ./make.sh a28_bpi_luci2
 ```
 After the compilation is complete, a bin file will appear in the current directory. This is the firmware you have compiled.
+
+image::/bpi-wifi5/compile_finish.png[compile_finish.png]
