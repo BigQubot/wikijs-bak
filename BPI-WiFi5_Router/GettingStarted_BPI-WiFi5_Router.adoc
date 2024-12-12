@@ -80,6 +80,9 @@ cd ./BPI-WiFi5-Siflower/uboot
 == Compile kernel & OpenWrt
 ```shell
 cd ./BPI-WiFi5-Siflower/openwrt-18.06
+#If you want to compile the luci interface
 ./make.sh a28_bpi
+#If you want to compile the luci2 interface
+./make.sh a28_bpi_luci2
 ```
 After the compilation is complete, a bin file will appear in the current directory. This is the firmware you have compiled.
