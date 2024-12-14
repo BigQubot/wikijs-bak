@@ -25,6 +25,36 @@ TIP: 瑞芯微（Rockchip） RK3588 设计 link:/zh/BPI-M7/BananaPi_BPI-M7[香�
 ** CM5: 55 x 40 毫米
 ** CM5-IO: 100 x 80 x 29 毫米 (3.94 x 3.15 x 1.14 英寸)
 
+== BPI-CM5 Pro 与 Raspberry Pi CM4 计算模组规格比较
+
+.Below is a comparison table between BPI-CM5 Pro and Raspberry Pi CM4
+[%collapsible]
+====
+[options="header",cols="1,2,2"]
+|====
+|Specification	|BPI-CM5 Pro	|Raspberry Pi CM4
+|Soc主控	|RK3576 SoC	|Broadcom BCM2711
+|CPU |4核 ARM Cortex-A72 & 四核 Cortex-A53	|四核 ARM Cortex-A72
+|GPU	|ARM Mali G52 MC3 GPU	|VideoCore VI
+|内存|	Up to 16GB |LPDDR5	1GB, 2GB, 4GB, 8GB LPDDR4
+|存储	|eMMC存储（可选容量）|	无内置存储，支持microSD卡
+|显示 |1x HDMI 2.1, 1x DP 输出|2x HDMI 2.0
+|视频分辨率	|支持 4K@120fps	|支持 4K@30fps
+|网络接口|	1x 千兆网口	|1x 千兆网口
+|USB 端口	|1x USB3.0，1x USB2.0	|1x USB 2.0
+|GPIO	|40-PIN GPIO	|40-PIN GPIO
+|扩展接口	|2x PCIe/SATA/USB 3.0	|1x PCIe 2.0
+|摄像头接口	|1x 4-lane MIPI CSI, 1x 2-lane MIPI CSI	|1x 4-lane MIPI CSI, 1x 2-lane MIPI CSI
+|显示接口	|1x 4-lane MIPI DSI	|2x 4-lane MIPI DSI
+|供电|	5V	|5V
+|尺寸	|55mm x 40mm	|55mm x 40mm
+|操作系统|	Debian, Android, Ubuntu, etc.	|Raspberry Pi OS, Ubuntu, others
+|主要应用|	AI开发、嵌入式系统、工业控制、DIY项目、教育、物联网	|DIY项目、教育、物联网等
+|====
+====
+
+
+
 == 快速上手
 
 = 硬件
