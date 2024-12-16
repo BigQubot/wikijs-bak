@@ -1015,7 +1015,7 @@ Remove the bridge on the br-lan.
 image::/bpi-r4/r4_bridging_figure_2.jpg[r4_bridging_figure_2.jpg]
 
 ```bash
-brctl delif br-lan apcli0
+brctl addif br-lan apcli0
 ```
 Add bridging on br-wan.
 
