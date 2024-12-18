@@ -6,6 +6,8 @@ BPI-F4 is an official open source hardware development board jointly developed b
 
 == About SunPlus SP7350
 
+SP7350 (C3V): 4.6 Tops AI Vision Soc , High performance open linux platform SOC.
+
 SP7350 (C3V) is a versatile chip engineered to provide robust computing power tailored for artificial intelligence applications, particularly those focused on vision processing. With its rich array of peripherals, it can operate effectively as a standalone product, such as in a sweeping robot. Additionally, it seamlessly integrates with other peripheral ICs (P-Chips) via Sunplus' unique Multi-Function Interface (MFI), enabling a diverse range of AI on Chip solutions.
 
 Standing as a sophisticated System-on-Chip (SOC), SP7350 features a versatile CPU and Neural Processing Unit (NPU) meticulously tailored for edge and AI computing tasks. With a formidable 4.5 TOPS AI processor and quad-core 1.8GHz ARM Cortex A55 CPU, SP7350 adeptly handles a wide range of edge AI and AIoT applications necessitating the processing of computer vision, video, image, audio, and more. Additionally, SP7350 integrates an ARM Cortex M4 Microcontroller Unit (MCU) to support machine control and peripheral Input/Output (IO). The MCU operates within an independent power domain, ensuring its functionality even when other function blocks are powered off.
@@ -20,6 +22,11 @@ Manufactured utilizing advanced 12nm chip technology, SP7350 offers the benefits
 * CPU: Sunplus SP7350 Quad ARM Cortex-A55
 * NPU: AI and Parallel Processing Engine Up to 4.1 TOPS (@900MHz) computing power
 * MCU: ARM Cortex-M4
+
+== AI function
+
+* AI Framework: Caffe/Tensorflow/PyTorch/TFLite/DarkNet or ONNX
+* AI Moduels: Yolo-v5/V8/V10..etc,More than 50 Models.
 
 
 == Application direction
