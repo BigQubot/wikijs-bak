@@ -1056,7 +1056,7 @@ root@BPI-R4:~# sudo nmcli c modify test5G 802-11-wireless-security.key-mgmt wpa-
 root@BPI-R4:~# sudo nmcli c modify test5G 802-11-wireless-security.psk 12345678
 ```
 
-Turn on AP
+Turn on AP.
 ```bash
 root@BPI-R4:~# sudo nmcli connection up test5G
 Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/5)
@@ -1080,6 +1080,34 @@ wlan1: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
         TX packets 0  bytes 0 (0.0 B)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ```
+
+Enable WiFi, and set WiFi name, AP mode, etc.
+
+```bash
+root@BPI-R4:~# sudo nmcli radio wifi on
+root@BPI-R4:~# sudo nmcli c add type wifi ifname wlan1 con-name test5G autoconnect no ssid hotspotname5G
+Connection 'test5G' (cacedf66-d86c-42cd-845a-b3c2954dc03d) successfully added.
+root@BPI-R4:~# sudo nmcli c modify test5G 802-11-wireless.mode ap 802-11-wireless.band a 802-11-wireless.channel 149 802-11-wireless.powersave 2 ipv4.method shared
+```
+
+Set WiFi encryption and password.
+```bash
+root@BPI-R4:~# sudo nmcli c modify test5G 802-11-wireless-security.key-mgmt wpa-psk
+root@BPI-R4:~# sudo nmcli c modify test5G 802-11-wireless-security.psk 12345678
+```
+
+Turn on AP.
+```bash
+root@BPI-R4:~# sudo nmcli connection up test5G
+Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/5)
+```
+Connect to the wifi name hotspotname5G.
+
+==== STA
+
+Start by enabling the appropriate interface configuration.
+
+
 
 === BPI-R4-NIC-BE19
 
