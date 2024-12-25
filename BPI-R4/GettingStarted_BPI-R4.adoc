@@ -970,6 +970,7 @@ rax0      Link encap:Ethernet  HWaddr 00:0C:43:26:60:28
           
 ```
 
+=== OpenWrt
 
 OpenWRT MTK MP4.0 WiFi Setting:
 
@@ -981,7 +982,7 @@ image::/bpi-r4/be14_mp4.0_openwrt_wifi_setting.png[be14_mp4.0_openwrt_wifi_setti
 
 image::/bpi-r4/be14-wifi-ssid.png[be14-wifi-ssid.png,width=800]
 
-== How to turn on WiFi hotspot
+==== How to turn on WiFi hotspot
 
 Open web and configure the corresponding STA hotspot in config.
 And click Connect to connect.
@@ -1024,6 +1025,8 @@ image::/bpi-r4/r4_bridging_figure_3.jpg[r4_bridging_figure_3.jpg]
 At this point, ping the public network will succeed.
 
 image::/bpi-r4/ping_external_network_figure_2.jpg[ping_external_network_figure_2.jpg]
+
+=== Ubuntu
 
 === BPI-R4-NIC-BE19
 
