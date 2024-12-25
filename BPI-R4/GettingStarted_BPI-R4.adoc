@@ -1027,6 +1027,41 @@ At this point, ping the public network will succeed.
 image::/bpi-r4/ping_external_network_figure_2.jpg[ping_external_network_figure_2.jpg]
 
 === Ubuntu
+==== 2.4G AP
+Add interface wlan0 first.
+
+```bash
+root@BPI-R4:~# sudo iw phy phy0 interface add wlan0 type __ap
+root@BPI-R4:~# ifconfig wlan0
+wlan0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        ether 00:0c:43:26:60:10  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+```
+
+Enable WiFi, and set WiFi name, AP mode, etc.
+
+```bash
+root@BPI-R4:~# sudo nmcli radio wifi on
+root@BPI-R4:~# sudo nmcli c add type wifi ifname wlan0 con-name test24G autoconnect no ssid hotspotname24G
+Connection 'test24G' (02558bf7-6a8f-494d-a680-457985d03021) successfully added.
+root@BPI-R4:~# sudo nmcli connection modify test24G 802-11-wireless.mode ap 802-11-wireless.band bg ipv4.method shared
+```
+
+Set WiFi encryption and password.
+```bash
+root@BPI-R4:~# sudo nmcli c modify test5G 802-11-wireless-security.key-mgmt wpa-psk
+root@BPI-R4:~# sudo nmcli c modify test5G 802-11-wireless-security.psk 12345678
+```
+
+Turn on AP
+```bash
+root@BPI-R4:~# sudo nmcli connection up test5G
+Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/5)
+```
+
 
 === BPI-R4-NIC-BE19
 
