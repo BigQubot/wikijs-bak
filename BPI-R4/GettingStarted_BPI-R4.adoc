@@ -1106,6 +1106,26 @@ Connect to the wifi name hotspotname5G.
 ==== STA
 
 Start by enabling the appropriate interface configuration.
+```bash
+root@BPI-R4:~# iw phy phy0 interface add wlan0 type station
+root@BPI-R4:~# iw phy phy1 interface add wlan1 type station
+root@BPI-R4:~# iw phy phy2 interface add wlan2 type station
+root@BPI-R4:~# ifconfig wlan0 up
+root@BPI-R4:~# ifconfig wlan1 up
+root@BPI-R4:~# ifconfig wlan2 up
+```
+Check the WiFi corresponding to the scan.
+
+NOTE: SSID is the name of your WiFi
+```bash
+root@BPI-R4:~# iw dev wlan0 scan | grep SSID
+
+  SSID: XXX
+
+root@BPI-R4:~# iw dev wlan1 scan | grep SSID_5G
+
+  SSID: XXX_5G
+```
 
 
 
