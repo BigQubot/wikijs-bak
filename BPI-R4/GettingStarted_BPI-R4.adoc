@@ -1061,6 +1061,13 @@ Turn on AP
 root@BPI-R4:~# sudo nmcli connection up test5G
 Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/5)
 ```
+Connect to the WiFi name hotspotname24G.
+image::/bpi-r4/bpi-r4_24g-wifi-connect.jpg[bpi-r4_24g-wifi-connect.jpg]
+
+==== 5G AP
+NOTE: The 5G is similar to the 2.4G.
+
+Add interface wlan1 first.
 
 
 === BPI-R4-NIC-BE19
