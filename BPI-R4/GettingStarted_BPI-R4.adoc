@@ -1028,6 +1028,8 @@ image::/bpi-r4/ping_external_network_figure_2.jpg[ping_external_network_figure_2
 
 === Ubuntu
 
+NOTE: At present, the driver supports 6G AP, but the open source nmcli toolkit does not support 6G AP, waiting for the open source organization to update, 6G STA can support.
+
 ==== 2.4G AP
 Add interface wlan0 first.
 
