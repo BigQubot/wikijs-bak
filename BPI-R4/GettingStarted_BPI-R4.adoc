@@ -1104,6 +1104,7 @@ Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkMa
 Connect to the wifi name hotspotname5G.
 
 ==== STA
+NOTE: 5G and 6G are similar to 2.4G, so only 2.4G connections are demonstrated here.
 
 Start by enabling the appropriate interface configuration.
 ```bash
@@ -1127,7 +1128,45 @@ root@BPI-R4:~# iw dev wlan1 scan | grep SSID_5G
   SSID: XXX_5G
 ```
 
+Create a WiFi profile to connect
+```bash
+root@BPI-R4:~# sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+```
+The content is:
 
+network={  
+
+ssid="your_network_name"  
+
+psk="your_wifi_password"  
+
+key_mgmt=WPA2-PSK  
+
+}
+
+WiFi connection configuration.
+
+```bash
+sudo wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf
+```
+
+Make connections.
+
+```bash
+root@BPI-R4:~# iw dev wlan0 link
+Connected to fc:11:52:44:bb:67 (on wlan0)
+        SSID: XXX
+        freq: 2412
+        RX: 36384 bytes (546 packets)
+        TX: 0 bytes (182 packets)
+        signal: -34 dBm
+        rx bitrate: 195.0 MBit/s HE-MCS 9 HE-NSS 2 HE-GI 2 HE-DCM 0
+        tx bitrate: 1.0 MBit/s
+
+        bss flags:      short-preamble short-slot-time
+        dtim period:    2
+        beacon int:     100
+```
 
 === BPI-R4-NIC-BE19
 
