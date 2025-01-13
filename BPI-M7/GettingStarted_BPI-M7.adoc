@@ -187,7 +187,8 @@ image::/bpi-m7/bpi-m7-rkdevtool-1.jpg[bpi-m7-rkdevtool-1.jpg]
 
 === Ubuntu，Armbian，Openwrt
 
-We open the RKDevTool burning tool (RKDevTool burning tool is included in the Android usage tutorial) and set the product to burn mode.
+We open the Rockchip Download Tool
+. Download link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FUpdate-EMMC-Tools.zip[Rockchip USB Download Tool] +
 
 .  Disconnect all cables that may power the product, such as power cables and USB cables.
 
