@@ -2,7 +2,7 @@
 
 image::/bpi-rv2/banana_pi_bpi-rv2_ban_1.jpg[banana_pi_bpi-rv2_ban_1.jpg]
 
-Banana Pi BPI-RV2 开源网关是⼀款基于矽昌SF2H8898 SoC的设备，1 × 2.5 G WAN⽹络接⼝、5 个千兆LAN ⽹络接⼝、板载
+Banana Pi BPI-RV2 开源网关是⼀款基于矽昌 SF21H8898 SoC的设备，1 × 2.5 G WAN⽹络接⼝、5 个千兆LAN ⽹络接⼝、板载
 512MB DDR3 内存 、128 MiB NAND、16 MiB NOR、M.2接⼝，MINI PCIE和USB 2.0接⼝等。
 
 Banana Pi BPI-RV2 开源网关是矽昌和⾹蕉派开源社区（Banana Pi ）合作设计。
@@ -26,8 +26,8 @@ image::/bpi-rv2/h8898_type_use.png[h8898_type_use.png]
 ====
 
 == 关键特性
-* 矽昌 SF2H8898 四核64位RISC-V 处理器 
-* 得益于矽昌NPU，可以达到企业级⽹关级别数据转发处理能⼒。
+* 矽昌 SF21H8898 四核64位RISC-V 处理器 
+* 得益于矽昌自研NPU，可以达到企业级⽹关级别数据转发处理能⼒。
 * 512MB DDR3内存
 * 1 x 2.5GbE ⽹⼝和 5 x 千兆⽹⼝
 * 128 MB SPI NAND 和 16 MB SPI NOR flash 保证板载系统不可破坏，
@@ -53,7 +53,7 @@ link:/en/BPI-RV2/Photo_BPI-RV2[香蕉派 BPI-RV2 产品图集]
 [options="header",cols="2,5",width="70%"]
 |=====
 |模块 |介绍
-|SoC主控 |矽昌 SF2H8898 四核RISC-V 处理器 @ 1.25GHz主频
+|SoC主控 |矽昌 SF21H8898 四核RISC-V 处理器 @ 1.25GHz主频
 |内存 |512MB DDR3
 .3+|存储 |128 MB SPI NAND 闪存⽤于 U-boot 和 Linux系统
 |16 MB SPI NOR 闪存，⽤于 U-boot 和 Linux系统，默认写保护（可以通过跳线启⽤重新刷新）
@@ -80,7 +80,7 @@ link:/en/BPI-RV2/Photo_BPI-RV2[香蕉派 BPI-RV2 产品图集]
 
 == 参考资料
 
-* 矽昌通信Siflowe SF2H8898 芯片规格书
+* 矽昌通信Siflowe SF21H8898 芯片规格书
 ** Google drive:  https://drive.google.com/file/d/1BVvNwteQebjtbWdKuvHRDl12ohuWtIpZ/view?usp=sharing
 ** Baidu cloud:  https://pan.baidu.com/s/1d1V4fodomJYZRdPHk9-Qrw?pwd=8888 (pincode: 8888)
 
