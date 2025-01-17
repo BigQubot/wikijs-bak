@@ -29,7 +29,7 @@ image::/bpi-rv2/h8898_type_use.png[h8898_type_use.png]
 * 矽昌 SF21H8898 四核64位RISC-V 处理器 
 * 得益于矽昌自研NPU，可以达到企业级⽹关级别数据转发处理能⼒。
 * 512MB DDR3内存
-* 1 x 2.5GbE ⽹⼝和 5 x 千兆⽹⼝
+* 1 x 2.5G ⽹⼝和 5 x 千兆⽹⼝
 * 128 MB SPI NAND 和 16 MB SPI NOR flash 保证板载系统不可破坏，
 * M.2 2242/2230 接⼝⽀持 NVMe SSD (PCIe gen 2 x1)
 * RTC 实时时钟
@@ -58,7 +58,7 @@ link:/en/BPI-RV2/Photo_BPI-RV2[香蕉派 BPI-RV2 产品图集]
 .3+|存储 |128 MB SPI NAND 闪存⽤于 U-boot 和 Linux系统
 |16 MB SPI NOR 闪存，⽤于 U-boot 和 Linux系统，默认写保护（可以通过跳线启⽤重新刷新）
 |M.2 2242接⼝⽀持 NVMe SSD 硬盘(PCIe gen 2 x1)
-.2+|⽹络 |1 x 2.5GbE RJ45 端⼝
+.2+|⽹络 |1 x 2.5G RJ45 端⼝
 |5 x 千兆RJ45 端⼝
 .2+|USB接⼝ |使⽤ UART 转 USB 芯⽚的 USB Type-C（设备、控制台）端⼝
 |1x USB 2.0 Type-A 主机端⼝
