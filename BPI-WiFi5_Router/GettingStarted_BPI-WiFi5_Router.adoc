@@ -127,7 +127,7 @@ You'll need the BPI-WiFi5 source code and a new image the size of the original l
 +
 image::/bpi-wifi5/change_logo_1.png[change_logo_1.png]
 
-. Make this change in the source project path file below.
+. Make this change in the source project path file below(/home/qubot/bpi/siflower/wifi5-test/openwrt-18.06/feeds/xluci2/luci2-bpi/htdocs/luci2/css/siflower_icon.css):
 +
 ```bash
 /*siflower logo*/
@@ -136,7 +136,7 @@ image::/bpi-wifi5/change_logo_1.png[change_logo_1.png]
 	background-size: 100%;
 }
 ```
-The original source path.. /res/bananapilogo.png replaced with the source path of the new logo.. /res/bananapilogo1.png. (.. /res/ "Name the new logo".png)
+The original source path".. /res/bananapilogo.png" replaced with the source path of the new logo".. /res/bananapilogo1.png". (.. /res/ "Name the new logo".png)
 
 . Compile kernel & OpenWrt and Upgrade Firmware.
 
