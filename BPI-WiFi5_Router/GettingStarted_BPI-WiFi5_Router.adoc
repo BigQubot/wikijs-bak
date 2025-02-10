@@ -113,3 +113,40 @@ cd ./BPI-WiFi5-Siflower/openwrt-18.06
 After the compilation is complete, a bin file will appear in the current directory. This is the firmware you have compiled.
 
 image::/bpi-wifi5/compile_finish.png[compile_finish.png]image::/bpi-wifi5/enable_httpd.png[enable_httpd.png]
+
+= Change the web logo
+== Prepare
+- Ethernet cable
+- BPI-WiFi5
+- 12V power supply
+
+You'll need the BPI-WiFi5 source code and a new image the size of the original logo on your PC.
+
+. First get the source code and compile uboot.
+. Add the logo image to the source project under /openwrt-18.06/feeds/xluci2/luci2-bpi/htdocs/luci2/res.
++
+image::/bpi-wifi5/change_logo_1.png[change_logo_1.png]
+
+. Make this change in the source project path file below.
++
+```bash
+/*siflower logo*/
+.siflower_logo {
+	background-image: url('../res/bananapilogo1.png');
+	background-size: 100%;
+}
+```
+The original source path.. /res/bananapilogo.png replaced with the source path of the new logo.. /res/bananapilogo1.png. (.. /res/ "Name the new logo".png)
+
+. Compile kernel & OpenWrt and Upgrade Firmware.
+
+The original logo:
+
+image::/bpi-wifi5/change_logo_2.png[change_logo_2.png]
+image::/bpi-wifi5/change_logo_3.png[change_logo_3.png]
+
+after replacing the logo:
+
+image::/bpi-wifi5/change_logo_4.png[change_logo_4.png]
+image::/bpi-wifi5/change_logo_5.png[change_logo_5.png]
+
