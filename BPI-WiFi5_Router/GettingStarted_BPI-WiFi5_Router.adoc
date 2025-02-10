@@ -125,7 +125,7 @@ You'll need the BPI-WiFi5 source code and a new image the size of the original l
 . First get the source code and compile uboot.
 . Add the logo image to the source project under /openwrt-18.06/feeds/xluci2/luci2-bpi/htdocs/luci2/res.
 +
-image::/bpi-wifi5/change_logo_1.png[change_logo_1.png]
+image::/bpi-wifi5/change_logo_6.png[change_logo_6.png]
 
 . Make this change in the source project path file below(/home/qubot/bpi/siflower/wifi5-test/openwrt-18.06/feeds/xluci2/luci2-bpi/htdocs/luci2/css/siflower_icon.css):
 +
