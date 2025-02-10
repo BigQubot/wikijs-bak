@@ -136,7 +136,7 @@ image::/bpi-wifi5/change_logo_1.png[change_logo_1.png]
 	background-size: 100%;
 }
 ```
-The original source path".. /res/bananapilogo.png" replaced with the source path of the new logo".. /res/bananapilogo1.png". (.. /res/ "Name the new logo".png)
+The original source path".. /res/bananapilogo.png" replaced with the source path of the new logo".. /res/bananapilogo1.png". (.. /res/ "the name of the logo".png)
 
 . Compile kernel & OpenWrt and Upgrade Firmware.
 
