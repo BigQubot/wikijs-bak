@@ -337,6 +337,39 @@ armsom@armsom-aim7:/test# df -h | grep "sd"
 
 === USB Camera
 
+* 1.Prepare a USB camera that supports the UVC protocol and connect it to the board's USB port.
+
+* 2.Use the v4l2-ctl command to view the USB camera's device node information, which should be /dev/video0:
+
+```sh
+armsom@armsom-sige7:/# v4l2-ctl --list-devices
+Logitech HD Webcam C93 (usb-xhci-hcd.5.auto-1):
+        /dev/video40
+        /dev/video41
+        /dev/media4
+```
+
+* 3.On a desktop system, you can use Cheese/V4L2 test bench to open the USB camera directly.
+
+image::/bpi-m5pro/usb-camera.jpg[usb-camera.jpg]
+
+You can also use terminal commands to preview the camera:
+```sh
+armsom@armsom-sige7:/# gst-launch-1.0 v4l2src device=/dev/video0 io-mode=4 ! videoconvert ! video/x-raw,format=NV12,width=1920,height=1080 ! xvimagesink;
+```
+
+To capture a photo:
+```sh
+armsom@armsom-sige7:/# gst-launch-1.0 v4l2src device=/dev/video0 io-mode=4 ! videoconvert ! video/x-raw,format=NV12,width=1920,height=1080 ! jpegenc ! multifilesink location=/home/armsom/test.jpg;
+```
+
+To record a video:
+
+```sh
+gst-launch-1.0 v4l2src num-buffers=512 device=/dev/video0 io-mode=4 ! videoconvert ! video/x-raw, format=NV12, width=1920, height=1080, framerate=30/1 ! tee name=t ! queue ! mpph264enc ! queue ! h264parse ! mpegtsmux ! filesink location=/home/armsom/test.mp4
+```
+
+image::/bpi-m7/bpi-m7_camera.png[bpi-m7_camera.png]
 
 
 NOTE: TROUBLESHOOTING BURNING FAILURES +
