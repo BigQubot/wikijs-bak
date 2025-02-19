@@ -199,7 +199,9 @@ Specific compilation methods can also refer to example/build_demo.sh in the RKLL
 
 Since the current publicly available firmware kernel driver version does not support the RKLLM tool, it is necessary to update the kernel. The rknpu driver package supports two main kernel versions: kernel-5.10 and kernel-6.1. For kernel-5.10, it is recommended to use a specific version number 5.10.198, repo: GitHub - rockchip-linux/kernel at develop-5.10; for kernel-6.1, it is recommended to use a specific version number 6.1.57. The specific version number can be confirmed in the Makefile under the kernel root directory. The update steps are as follows: a. Download the compressed package rknpu_driver_0.9.6_20240322.tar.bz2. b. Unzip the package and overwrite the rknpu driver code in the current kernel code directory. c. Recompile the kernel. d. Burn the newly compiled kernel into the device.
 
-= DeepSeek - R1 RK35XX Deployment
+= DeepSeek support 
+
+== Way 1 : DeepSeek- R1 RK35XX Deployment 
 
 * Download the DeepSeek - R1 - 1.5B HunggingFace model
 
@@ -425,6 +427,72 @@ export LD_LIBRARY_PATH=.
 cd ~
 chmod 777 llm_demo
 ./llm_demo deepseek-r1.rkllm 10000 1000
+
+== Way 2 ： DeepSeek - R1 RK35XX Deployment
+
+* Download the DeepSeek - R1 - 1.5B HunggingFace model
+
+* Create a new directory and download all the files here : https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B/tree/main
+
+=== Model Transformation
+
+Firstly, we need to create the rkllm model with data_quantit.json for quantization. We will use the fp16 model to generate the results as quantization calibration data. Secondly, run the following code to generate data_quant. json and export the rkllm model.
+
+```sh
+cd rknn-llm/examples/DeepSeek-R1-Distill-Qwen-1.5B_Demo/export
+python generate_data_quant.py -m /path/to/DeepSeek-R1-Distill-Qwen-1.5B
+python export_rkllm.py
+```
+
+If it is a 3576 development board, it is necessary to modify export_rkllm. py
+
+```sh
+target_platform = "RK3576"
+num_npu_core = 2
+```
+
+After execution, the .rkllm model file will be generated in the directory
+
+=== C++ demonstrate
+
+In the deploy directory, there is example code for board side inference
+```sh
+cd rknn-llm/examples/DeepSeek-R1-Distill-Qwen-1.5B_Demo/deploy
+# for linux
+./build-linux.sh
+# for android
+./build-android.sh
+# push install dir to device
+adb push install/demo_Linux_aarch64 /data
+# push model file to device
+adb push DeepSeek-R1-Distill-Qwen-1.5B-rk35**.rkllm /data/demo_Linux_aarch64
+```
+
+Before running the script, it is necessary to modify the compiler position of the development board For example:
+
+```sh
+GCC_COMPILER_PATH=~/customized_project/3576/rk3576_linux_rkr5/linux/prebuilts/gcc/linux-x86/aarch64/gcc-arm-10.3-2021.07-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu
+```
+
+=== Run demonstration
+
+Example of running a directory on the /data/demo_Linux_arch64 board
+
+```sh
+adb shell
+cd /data/demo_Linux_aarch64
+# export lib path
+export LD_LIBRARY_PATH=./lib
+taskset f0 ./llm_demo ./DeepSeek-R1-Distill-Qwen-1.5B_W8A8_RK3576.rkllm  2048 4096
+```
+
+TIP: 1,If you copy from the demo, remove the scene prompt words. DeepSeek does not need prompt words. +
+2,Pay attention to the Chinese character encoding of the input in the terminal. +
+3,The development board memory needs to be 8G or more, and it occupies about 70% during operation.
+
+quote: https://t.rock-chips.com/forum.php?mod=viewthread&tid=4836
+
+
 ```
 
 TIP: 1.If you copy from the demo, remove the scene prompt words. DeepSeek does not need prompt words. +
@@ -433,9 +501,10 @@ TIP: 1.If you copy from the demo, remove the scene prompt words. DeepSeek does n
 
 = Usage Environment
 
-Development board: [ArmSoM - Sige7](../armsom - sige7) / [ArmSoM - Sige5](../armsom - sige5) Code repository: [rknn - llm]
+Development board: BPI-M7 ,BPI-M5 Pro, BPI-AIM7,BPI-AIM6,BPI-CM5 Pro 
 
-(https://github.com/ArmSoM/rknn - llm)
+repository: https://github.com/ArmSoM/rknn-llm
+
 
 = Sample Purchase
 
