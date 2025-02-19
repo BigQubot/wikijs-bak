@@ -427,6 +427,7 @@ export LD_LIBRARY_PATH=.
 cd ~
 chmod 777 llm_demo
 ./llm_demo deepseek-r1.rkllm 10000 1000
+```
 
 == Way 2 ： DeepSeek - R1 RK35XX Deployment
 
