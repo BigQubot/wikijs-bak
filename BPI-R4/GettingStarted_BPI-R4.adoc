@@ -266,6 +266,56 @@ br-lan          7fff.eea15781ca19       no              apclii0 apclix0 apcli0 r
 root@OpenWrt:/#
 ```
 
+== Upgrade ATF BL2
+NOTE: When upgrading BL2, please confirm whether it is compatible with the board hardware and version.
+
+First, select the Upgrade ATF BL2 of the bootmenu.
+
+image::/bpi-r4/bpi-r4_bl2_upgrade1.jpg[bpi-r4_bl2_upgrade1.jpg]
+
+Select the upgrade tool you use on the upgrade page to upgrade.
+
+image::/bpi-r4/bpi-r4_bl2_upgrade2.jpg[bpi-r4_bl2_upgrade2.jpg]
+
+=== TFTP
+
+Install TFTP software on the PC and connect R4 LAN to the computer network port.Then change your computer's configuration based on the Settings, writing the updated filename without pressing Enter.
+
+image::/bpi-r4/bpi-r4_bl2_upgrade3.jpg[bpi-r4_bl2_upgrade3.jpg]
+image::/bpi-r4/bpi-r4_bl2_upgrade4.jpg[bpi-r4_bl2_upgrade4.jpg]
+
+Open TFTP software on the PC, set the transfer file path and the ip of the PC.
+
+image::/bpi-r4/bpi-r4_bl2_upgrade5.jpg[bpi-r4_bl2_upgrade5.jpg]
+
+R4 board serial port debugging to confirm the transfer of BL2 file.
+
+image::/bpi-r4/bpi-r4_bl2_upgrade6.jpg[bpi-r4_bl2_upgrade6.jpg]
+
+After successfully upgrading the BL2 file, restart the device.
+
+=== Xmodem/Ymodem
+
+You need to use a serial port utility that can be transferred using Xmodem and Ymodem. (Xmodem operates similarly to Ymodem; only Xmodem is shown here.)
+
+image::/bpi-r4/bpi-r4_bl2_upgrade_xmodem1.jpg[bpi-r4_bl2_upgrade_xmodem1.jpg]
+
+Select Send Xmodem, then select the file you want to transfer, and click Send.
+
+image::/bpi-r4/bpi-r4_bl2_upgrade_xmodem2.jpg[bpi-r4_bl2_upgrade_xmodem2.jpg]
+
+When the transfer is complete, restart the device.
+
+image::/bpi-r4/bpi-r4_bl2_upgrade_xmodem3.jpg[bpi-r4_bl2_upgrade_xmodem3.jpg]
+
+**Original bl2 file:**
+
+image::/bpi-r4/bpi-r4_bl2_original.jpg[bpi-r4_bl2_original.jpg]
+
+**after changing:**
+
+image::/bpi-r4/bpi-r4_bl2_change.jpg[bpi-r4_bl2_change.jpg]
+
 = Accessories
 
 == 10G SFP Module
