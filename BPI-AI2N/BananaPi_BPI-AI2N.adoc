@@ -1,1 +1,17 @@
-= Introduction
+= BPI-AI2N Introduction
+
+The Banana Pi BPI-AI2N SOM module and BPI-AI2N Carrier are open-source hardware solutions designed to leverage the powerful capabilities of the RZ/V2N Vision AI MPU. The BPI-AI2N platform supports developers with a flexible, community-driven ecosystem, enabling faster innovation and application development. The BPI-AI2N is powered by the RZ/V2N MPU, delivering industry-leading AI acceleration at 15TOPS (Sparse) and high-performance computing (4x Cortex®-A55 processors). This makes the BPI-AI2N ideal for developing cutting-edge vision AI solutions.
+
+= Key Features
+
+* Small Form Factor: Compact SO-DIMM 260PINs design (SOM module size: 45x69.6mm) 
+* Open-source development kit, including SOM, BPI-AI2N Carrier board and a rich ecosystem of tools and support from the Banana Pi developer community 
+* Customizable hardware & software by OEM&ODM
+* Yocto and other open-source software support
+* Memory & storage: 8GB LPDDR4x, 32GB eMMC, 64MB QSPI Flash
+* Wide operating temperature range from -40℃ to 85℃
+
+= Hardware
+== Hardware Interface
+
+image::/bpi-ai2n/bpi-ai2n_core_interface.jpg[bpi-ai2n_core_interface.jpg]
