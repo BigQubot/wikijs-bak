@@ -117,6 +117,9 @@ image::/picture/etcher.jpg[etcher.jpg]
 mount /dev/sdx /mnt
 ```
 . There are two ways to install the linux image to board.
+
+IMPORTANT: Please check that your EMMC partition is mmcblk0, the following is just an example of use, focusing on the actual partition.
+
 - Install with dd command.
 +
 ```sh
