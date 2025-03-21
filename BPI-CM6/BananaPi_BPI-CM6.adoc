@@ -22,3 +22,79 @@ link:https://developer.spacemit.com/[SpacemiT official development center]
 * Industrial control
 * AI edge computing
 * Automation
+
+== Getting Start
+
+= Hardware
+
+== Hardware Interface
+
+== Hardware Spec
+
+== BPI-CM6 Photo
+
+== BPI-CM6 Block Diagram
+
+== BPI-CM6 core board pin definitions
+
+= BPI-CM5 Pro IO board
+
+== IO board Hardware Specifications
+
+== Hardware Interfaces
+
+== GPIO define
+
+= Development
+
+== Source code
+
+=== Bianbu linux 
+
+TIP: Bianbu source code： https://gitee.com/bianbu-linux/linux-6.1 
+
+TIP: Bianbu uboot code: https://gitee.com/bianbu-linux/uboot-2022.10
+
+TIP: Bianbu OpenSBI code: https://gitee.com/bianbu-linux/opensbi
+
+* link:https://bianbu-linux.spacemit.com/en/[Bianbu linux Introduction and development manual]
+
+=== OpenWrt
+
+TIP: OpenWrt source code: https://archive.spacemit.com/openwrt/releases/23.05.2/
+
+=== Linux BSP Source Code
+
+TIP: pi-opensbi: https://github.com/BPI-SINOVOIP/pi-opensbi/tree/v1.3-k1
+
+TIP: u-boot: https://github.com/BPI-SINOVOIP/pi-u-boot/tree/v2022.10-k1
+
+TIP: kernel: https://github.com/BPI-SINOVOIP/pi-linux/tree/linux-6.1.15-k1
+
+TIP: Armbian: https://github.com/BPI-SINOVOIP/armbian-build/tree/v24.04.30
+
+== RISC-V IME set Specification 
+
+SpacemiT K1 8 core RISC-V chip (Banana Pi BPI-F3) RISC-V IME set Specification public on github
+
+TIP: https://github.com/space-mit/riscv-ime-extension-spec
+
+== Resources
+
+
+= System Image
+
+== Tools
+
+TIP: Windows PC: https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2Ftitantools_for_windows-1.0.35-beta.zip
+
+TIP: Linux PC: https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2Ftitantools_for_linux-1.0.35-beta.zip
+
+== All image download:
+
+
+= FAQ
+
+
+
+= Easy to buy
