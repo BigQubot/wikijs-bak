@@ -21,7 +21,7 @@ To answer the need of fast-evolving tunneling applications,the MT7988A comes wit
 == Key Features
 
 - MediaTek MT7988A (Filogic 880) quad-core Arm Corex-A73,1.8GHz processor
-- 4GB DDR4
+- 4GB/8GB DDR4
 - 8GB eMMC flash
 - 128MB SPI-NAND Flash
 - Micro SD card slot
@@ -32,7 +32,7 @@ To answer the need of fast-evolving tunneling applications,the MT7988A comes wit
 - 1x M.2 KEY-M slot with PCIe3.0 1lane interface for NVME SSD
 - 2x miniPCIe slots with PCIe3.0 2lane interface for Wi-Fi 7 NIC (Network Interface Card)
 - 26 PIN GPIO Header for expanding application
-- POE function customizable (present version not support POE function)
+- POE function (Option)
 
 == Application direction
 
@@ -66,7 +66,7 @@ link:/en/BPI-R4/Photo_BPI-R4[Banana Pi BPI-R4 Product photo gallery]
 |====
 2+| **HardWare Specification of Banana Pi R4**
 | CPU              | MediaTek MT7988A (Filogic 880) quad-core Arm Corex-A73,1.8GHz processor
-| SDRAM            | 4 GB DDR4
+| SDRAM            | 4GB/8GB DDR4
 | On board Storage | MicroSD (TF) card,8GB eMMC onboard
 | GPIO             | 26 Pin GPIO,some of which can be used for specific functions including UART, I2C, SPI, PWM, I2S.
 | On board Network | 4 Port 10/100/1000Mbps Ethernet
