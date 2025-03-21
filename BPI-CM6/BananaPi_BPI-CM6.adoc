@@ -17,6 +17,21 @@ link:https://developer.spacemit.com/[SpacemiT official development center]
 
 == Key Features
 
+* SpacemiT K1(Octa-core 64-bit RISC-V AI CPU,integrates 2.0 TOPs AI computing power)
+* 8GB LPDDR4(SOC Support up to 16GB)
+* 16GB eMMC
+* 1x SDIO WiFi/BT Module
+* 1x Integrates RTL8211F PHY
+* 5-lane PCIE2.1 expansion capability interfaces
+* 1x USB 3.0 + 2x USB 2.0 interfaces
+* 1x HDMI 1.4 interface
+* 1x MIPI DSI interface
+* 3x MIPI CSI interfaces
+* 1x RGMII interface
+* 10x UART serial interfaces
+* Dimension: 40x55MM
+* Operating temperature range: -40°C to 85°C
+
 == Application direction
 
 * NAS
@@ -43,6 +58,19 @@ link:https://developer.spacemit.com/[SpacemiT official development center]
 = BPI-CM6 IO board
 
 == IO board Hardware Specifications
+
+* 1x HDMI TypeA Slot
+* 1x USB3.0 TypeA Slot
+* 1x USB2.0 TypeA Slot
+* 1x USB TypeC OTG
+* 2x Gigabit Ethernet RJ45
+* 1x MicroSD Slot
+* 2x M.2 M-KEY Slots with 2-lane PCIe Interface
+* 2x MIPI CSI 4-lane interfaces
+* 1x MIPI DSI 4-lane interface
+* 26PIN GPIO Header 
+* 1x 12V DCIN Slot(5521)
+* Dimension: 56x85MM
 
 == Hardware Interfaces
 
