@@ -1,3 +1,139 @@
-== header
+= BPI-CM6 产品介绍
 
-content
+香蕉派BPI-CM6是一款工业级RISC-V核心板，它采用SpacemiT K1 8核RISC-V芯片设计，CPU集成2.0 TOPs AI计算能力。8/16G DDR和8/16/32/128G eMMC。设计了板对板连接器，以增强稳定性，与树莓派CM4尺寸相同，并兼容Raspberry Pi CM4底板。
+
+TIP: 进迭时空 K1 RISC-V link:/zh/BPI-F3/BananaPi_BPI-F3[香蕉派 BPI-F3] AI 单板计算机 +
+进迭时空 K1 RISC-V link:/zh/BPI-CM6/BananaPi_BPI-CM6[香蕉派 BPI-CM6] AI 计算机模组
+
+== 关于进迭时空（SpacemiT）K1 8 核 RISC-V 芯片介绍
+
+SpacemiT K1是一款八核64位RISC-V AI CPU。基于RISC-V开放指令集架构，致力于打造更节能、更通用的AI处理器平台，推动全球开源、开放生态计算能力建设。
+
+SpacemiT K1主要用于单板计算机、网络存储、云计算机、智能机器人、工业控制、边缘计算机等。
+
+TIP: link:/zh/BPI-F3/SpacemiT_K1[进迭时空（SpacemiT）K1 8 核 RISC-V 芯片介绍] +
+link:/en/BPI-F3/SpacemiT_K1_datasheet[进迭时空（SpacemiT）K1 8 核 RISC-V 芯片规格] +
+link:https://developer.spacemit.com/[进迭时空（SpacemiT）官方开发者中心]
+
+
+== 主要特点
+
+* 进迭时空8核RISC-V芯片，CPU集成2.0 TOPs AI算力
+* 8GB LPDDR4内存(支持可选16GB)
+* 16GB eMMC存储
+* 1x SDIO WiFi/BT 模组
+* 1x Integrates RTL8211F PHY
+* 5-lane PCIE2.1 扩展能力接口
+* 1x USB 3.0 + 2x USB 2.0 接口
+* 1x HDMI 1.4 接口
+* 1x MIPI DSI 显示接口
+* 3x MIPI CSI 摄像头接口
+* 1x RGMII 接口
+* 10x UART 串口接口
+* 尺寸: 40x55MM
+* 运行温度: -40°C to 85°C
+
+== 应用方向
+
+- NAS
+- 笔记本电脑
+- 智能机器人
+- 工业控制
+- AI边缘计算
+- 人工智能开发
+
+== 快速上手开发
+
+= 硬件
+
+== 硬件接口示意图
+
+image::/bpi-cm6/banana_pi_bpi-cm6_interface.jpg[banana_pi_bpi-cm6_interface.jpg]
+
+== 硬件规格
+
+== BPI-CM6 产品图集
+
+== BPI-CM6 Block Diagram
+
+== BPI-CM6 PIN定义
+
+= BPI-CM6 IO 接口板
+
+== IO 接口板硬件规格
+
+* 1x HDMI TypeA Slot
+* 1x USB3.0 TypeA Slot
+* 1x USB2.0 TypeA Slot
+* 1x USB TypeC OTG
+* 2x Gigabit Ethernet RJ45
+* 1x MicroSD Slot
+* 2x M.2 M-KEY Slots with 2-lane PCIe Interface
+* 2x MIPI CSI 4-lane interfaces
+* 1x MIPI DSI 4-lane interface
+* 26PIN GPIO Header 
+* 1x 12V DCIN Slot(5521)
+* Dimension: 56x85MM
+
+== IO板硬件接口示意图
+
+image::/bpi-cm6/banana_pi_bpi-cm6_io_interface.jpg[banana_pi_bpi-cm6_io_interface.jpg]
+
+== GPIO 定义
+
+= 开发
+
+== 软件源代码
+
+=== Bianbu linux 系统
+
+TIP: Bianbu source code： https://gitee.com/bianbu-linux/linux-6.1 
+
+TIP: Bianbu uboot code: https://gitee.com/bianbu-linux/uboot-2022.10
+
+TIP: Bianbu OpenSBI code: https://gitee.com/bianbu-linux/opensbi
+
+* link:https://bianbu-linux.spacemit.com/en/[Bianbu linux Introduction and development manual]
+
+=== OpenWrt系统
+
+TIP: OpenWrt source code: https://archive.spacemit.com/openwrt/releases/23.05.2/
+
+=== Linux BSP 软件源代码
+
+TIP: pi-opensbi: https://github.com/BPI-SINOVOIP/pi-opensbi/tree/v1.3-k1
+
+TIP: u-boot: https://github.com/BPI-SINOVOIP/pi-u-boot/tree/v2022.10-k1
+
+TIP: kernel: https://github.com/BPI-SINOVOIP/pi-linux/tree/linux-6.1.15-k1
+
+TIP: Armbian: https://github.com/BPI-SINOVOIP/armbian-build/tree/v24.04.30
+
+== RISC-V IME 设定规格
+
+SpacemiT K1 8 core RISC-V chip (Banana Pi BPI-F3) RISC-V IME set Specification public on github
+
+TIP: https://github.com/space-mit/riscv-ime-extension-spec
+
+== 开发资料
+
+TIP: link:https://developer.spacemit.com/#/documentation?token=DBd4wvqoqi2fiqkiERTcbEDknBh[SpacemiT K1 chip datasheet]
+
+TIP: Banana Pi BPI-CM6 deepseek demo https://docs.banana-pi.org/en/BPI-CM6/BananaPi_BPI-CM6 
+
+= 系统镜像
+
+== 工具链
+
+TIP: Windows PC: https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2Ftitantools_for_windows-1.0.35-beta.zip
+
+TIP: Linux PC: https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2Ftitantools_for_linux-1.0.35-beta.zip
+
+== 镜像下载:
+
+
+= 问答
+
+
+
+= 样品购买
