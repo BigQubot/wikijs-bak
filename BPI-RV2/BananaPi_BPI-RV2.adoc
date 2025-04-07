@@ -2,30 +2,30 @@
 
 image::/bpi-rv2/banana_pi_bpi-rv2_ban_1.jpg[banana_pi_bpi-rv2_ban_1.jpg]
 
-Banana Pi BPI-RV2 open source gateway is a device based on Siflowe SF21H8898 SoC, 1 × 2.5G WAN network interface, 5 Gigabit LAN network interface, onboard 512MB DDR3 memory, 128 MiB NAND, 16 MiB NOR, M.2 interface, MINI PCIE and USB 2.0 interface, etc.
+Banana Pi BPI-RV2 open source gateway is a device based on Siflower SF21H8898 SoC, 1 × 2.5G WAN network interface, 5 Gigabit LAN network interface, onboard 512MB DDR3 memory, 128 MiB NAND, 16 MiB NOR, M.2 interface, MINI PCIE and USB 2.0 interface, etc.
 
 Banana Pi BPI-RV2 open source gateway is a collaboration between Silicon Chang and Banana Pi open source community (Banana Pi)
 
 == SF2H8898 chip Brief
 
-SF21H8898 is a high performance industrial-grade SOC gateway chip developed by Siflowe Communications. It adopts advanced TSMC 12nm FFC process and integrates four cores inside
+SF21H8898 is a high performance industrial-grade SOC gateway chip developed by Siflower Communications. It adopts advanced TSMC 12nm FFC process and integrates four cores inside
 64-bit RSIC-V processor and dedicated network processing accelerator (NPU) (supports L2/L3 hardware processing, IPv4/IPv6 dual stack, 20Gbps switching capacity, full byte wire-speed forwarding), network-side support for QSGMII, SGMII/HSGMII and RGMII interfaces. IEEE 1588 PTP functionality is supported for time synchronization. It supports external DDR3/DDR3L/DDR4 SDRAM and NAND/NOR SPI Flash. The high-speed interface is USB2.0, PCIE2.0, and the low-speed interface is SPI, UART, I2C, PWM, etc. It can be used as enterprise gateway and industrial control gateway.
 
-.Siflowe SF21H8898 chip diagram
+.Siflower SF21H8898 chip diagram
 [%collapsible]
 ====
 image::/bpi-rv2/h8898_chip.png[h8898_chip.png]
 ====
 
-.Siflowe SF21H8898 chip typical application scenarios
+.Siflower SF21H8898 chip typical application scenarios
 [%collapsible]
 ====
 image::/bpi-rv2/h8898_type_use.png[h8898_type_use.png]
 ====
 
 == Key Features 
-* Siflowe SF21H8898 4 core RISC-V processor
-* With Siflowe NPU, enterprise-class gateway level data forwarding processing capability can be achieved.
+* Siflower SF21H8898 4 core RISC-V processor
+* With Siflower NPU, enterprise-class gateway level data forwarding processing capability can be achieved.
 * 512MB DDR3 RAM 
 * 1 x 2.5GbE network and 5 x giga port
 * 128 MB SPI NAND and 16 MB SPI NOR flash Ensure that the onboard system is indestructible，
@@ -53,7 +53,7 @@ link:/en/BPI-RV2/Photo_BPI-RV2[Banana Pi BPI-RV2 Product photo gallery]
 [options="header",cols="1,5",width="70%"]
 |=====
 |item |introduce
-|SoC |Siflowe SF21H8898 4 core RISC-V @ 1.25GHz
+|SoC |Siflower SF21H8898 4 core RISC-V @ 1.25GHz
 |RAM |512MB DDR3
 .3+|Storage|128 MB SPI NAND Flash is used in U-boot and Linux systems
 |16 MB SPI NOR flash，For U-boot and Linux systems, write protected by default (refresh can be enabled by jumper)
@@ -81,7 +81,7 @@ link:/en/BPI-RV2/Photo_BPI-RV2[Banana Pi BPI-RV2 Product photo gallery]
 
 == Resources
 
-* Siflowe SF21H8898 chip datasheet
+* Siflower SF21H8898 chip datasheet
 ** Google drive: https://drive.google.com/file/d/1BVvNwteQebjtbWdKuvHRDl12ohuWtIpZ/view?usp=sharing
 ** Baidu cloud:  https://pan.baidu.com/s/1d1V4fodomJYZRdPHk9-Qrw?pwd=8888 (pincode: 8888)
 
