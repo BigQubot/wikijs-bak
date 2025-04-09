@@ -98,3 +98,33 @@ image::/bpi-2k300/bpi-2k0300_diagram.jpg[bpi-2k0300_diagram.jpg]
 |安装孔数量	|4个
 |====
 image::/bpi-2k300/bpi-2k0300_size.jpg[bpi-2k0300_size.jpg]
+
+
+== 40 PIN GPIO
+
+image::/bpi-2k300/bpi-2k0300_40_pin_gpio.png[bpi-2k0300_40_pin_gpio.png]
+
+== 40PIN FPC信号线接口定义
+
+[options="header",cols="1,1,3"]
+|====
+|序号	|名称	|说明
+|1，2	|VCC	|5V电源输入
+|3~10	|R0~R7	|8位RED数据线
+|11	|GND	|底线
+|12~19	|G0~G7	|8位GREEN数据线
+|20	|GND	|底线
+|21~28|	B0~B7	|8位BLUE数据线
+|29	|GND	|底线
+|30	|CLK	|像素时钟
+|31|	HSYNC	|水平同步信号
+|32	|VSYNC	|垂直同步信号
+|33	|LCD_EN|	数据使能信号
+|34|	LCD_BL	|背光控制信号
+|35	|CT_RST|	电容触摸屏复位信号
+|36	|CT_SDA|	电容触摸屏I2C_SDA信号
+|37	|NC	|NC
+|38	|CT_SCL	|电容触摸屏I2C_SCL信号
+|39|	CT_INT|	电容触摸屏中断信号
+|40	|RESET	|LCD复位信号（低电平有效）
+|====
