@@ -167,11 +167,12 @@ TF卡插槽从SDIO1接口引出支持4线模式。用于存储系统文件和用
 
 image::/bpi-2k300/bpi-2k0300_spi_flash.jpg[bpi-2k0300_spi_flash.jpg]
 
-[options="header",cols="1,2,1.2"]
+[options="header",cols="1,1,1,1"]
 |====
 |引脚编号|	引脚定义	|引脚编号	|引脚定义
 |1	|SPI0_CS	|2	|3.3V
-|3	SPI0_MISO	|4	|NC
-|5	MRESET#	|6	|SPI0_CLK
-|7	GND	|8	|SPI0_MOSI
+|3	|SPI0_MISO	|4	|NC
+|5	|MRESET#	|6	|SPI0_CLK
+|7	|GND	|8	|SPI0_MOSI
 |====
+
