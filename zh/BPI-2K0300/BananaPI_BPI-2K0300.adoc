@@ -48,6 +48,8 @@
 
 == 硬件接口示意
 
+image::/bpi-2k300/bpi-2k0300_interface.jpg[bpi-2k0300_interface.jpg]
+
 == 技术规格参数
 [options="header",cols="1,5"]
 |====
@@ -81,6 +83,18 @@
 |	存储温度	|-40~85℃
 |	典型功耗	|1.5W
 |	板卡尺寸|	85mm*56mm
-
 |====
 
+== 功能框图
+
+image::/bpi-2k300/bpi-2k0300_diagram.jpg[bpi-2k0300_diagram.jpg]
+
+== 结构尺寸
+[options="header",cols="1,1"]
+|====
+|PCB尺寸	|85mm x 56mm
+|PCB层数	|6层
+|PCB板厚	|1.6mm
+|安装孔数量	|4个
+|====
+image::/bpi-2k300/bpi-2k0300_size.jpg[bpi-2k0300_size.jpg]
