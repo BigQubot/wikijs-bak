@@ -140,19 +140,6 @@ LCD接口支持24位色RGB LCD屏幕，支持I2C触摸接口，兼容正点原�
 
 WIFI模块采用USB2.0接口，主控芯片RTL8188FTV，支持2.4G频段，支持IEEE802.11b/g/n标准协议。
 
-
-== TF卡插槽
-
-TF卡插槽从SDIO1接口引出支持4线模式。用于存储系统文件和用户数据。
-
-== 复位按钮
-
-硬件复位按钮，系统复位。
-
-== LED指示灯
-
-板载两个LED指示灯，电源和运行状态指示灯各1个。
-
 == 电源接口和调试串口
 
 电源接口和调试串口共用TYPE-C接口，调试串口采用USB转串口芯片CH340K设计，方便用户接入电脑USB接口使用调试，无需外接串口模块。如果外接负载较大时，请使用5V/2A DC TYPE-C电源供电使用，外接USB调试串口模块，使用TTL调试串口。
@@ -174,5 +161,34 @@ image::/bpi-2k300/bpi-2k0300_spi_flash.jpg[bpi-2k0300_spi_flash.jpg]
 |3	|SPI0_MISO	|4	|NC
 |5	|MRESET#	|6	|SPI0_CLK
 |7	|GND	|8	|SPI0_MOSI
+|====
+
+== ADC接口/TTL调试串口
+
+板载2*4 2.0mm排针，引出ADC接口、TTL调试串口、外部看门狗使能接口。ADC接口引出4路通道ADC0，ADC1，ADC4，ADC5，支持2组差分模式和单端模式。UART0作为调试串口，引出UART0_TX/UART0_RX至插针，便于用户外接调试串口模块使用。外部看门狗使能引脚WDI_EN外接高电平，开启外部看门狗，外部看门狗默认关闭。
+
+image::/bpi-2k300/bpi-2k0300_adc.jpg[bpi-2k0300_adc.jpg]
+
+[options="header",cols="1,1,1,1"]
+|====
+|引脚编号	|引脚定义	|引脚编号	|引脚定义
+|1	|UART0_TX	|2	|UART0_RX
+|3	|WDI_EN	|4	|3.3V
+|5	|AI0	|6	|AI1
+|7	|AI4	|8	|AI5
+|====
+
+== JTAG调试座子
+
+JTAG调试接口采用1.25mm 6PIN插座引出，可以用于CPU调试和SPI FLASH固件烧写。接口定义如下：
+
+image::/bpi-2k300/bpi-2k0300_jtag.jpg[bpi-2k0300_jtag.jpg]
+
+[options="header",cols="1,1,1,1"]
+|====
+|引脚编号	|引脚定义	|引脚编号	|引脚定义
+|1	|JTAG_TRST	|2	|JTAG_TDI
+|3	|JTAG_TDO	|4	|JTAG_TMS
+|5	|JTAG_TCK	|6	|GND
 |====
 
