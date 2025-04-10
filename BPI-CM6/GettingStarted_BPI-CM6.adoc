@@ -1,3 +1,91 @@
+= Introduction
+
+
+= Development
+== Prepare
+. Prepare a TTL cable, a 12V PD power supply, USB cable, and a minimum of 8G TF card.
+. Please link:/en/BPI-F3/BananaPi_BPI-F3#_system_image[download] the SD and EMMC images to be burned.
+. Please note that the image ending with "**bianbu-k1-xxx.img.zip**" is the **SD card image**, while the image ending with "**bianbu-k1-xxx.zip**" is the **EMMC image**. **Please do not make the wrong selection when burning.**
+
+== Install Image to SDcard
+WARNING: Please select the image ending in "**bianbu-k1-xxx.img.zip**" for **Bianbu**. Don't choose the wrong one!
+
+link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
+
+- Click on "**Flash from file**" to select image. 
+- Click on "**Select target**" to select USB device. 
+- Click on "**Flash!**" Start burning.
+
+image::/picture/etcher.jpg[etcher.jpg]
+
+NOTE: Remember to connect to the HDMI screen when starting, and then create your own account.
+
+== Install Image to eMMC 1
+WARNING: Please select the image ending in "**bianbu-k1-xxx.zip**" for **Bianbu**. Don't choose the wrong one!
+
+**Install driver software**
+
+. link:/en/BPI-F3/BananaPi_BPI-F3#_tools[Download Titan Flasher]
+. Double click link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2Ftitantools_for_windows-1.0.35-beta.zip[**titantools_for_windows-latest**] to install. Linux grants executable permissions and can be run by opening link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2Ftitantools_for_linux-1.0.35-beta.zip[**titantools_for_Linux-latest**] without the need for installation.
+. It is installed on the computer's C drive by default, and will require a certain amount of space for future use. **So please ensure that the remaining available space is greater than 10G (Linux has a Home space greater than 10GB)**
+. Allow this app from unknown publishers to make changes to your device. Then choose to always install this driver software.
+
+
+
+. If the driver installation is successful, it will prompt that the USB driver installation is successful.
++
+image::/picture/bpi-f3_install_usb_driver.jpg[bpi-f3_install_usb_driver.jpg]
+
+**Burn image to EMMC1**
+
+. Click Single Machine Burn (If you need to burn multiple devices simultaneously, click Multiple Machine Burn)
++
+image::/picture/bpi-f3_tianflasher_1.png[bpi-f3_tianflasher_1.png]
+
+. To put the device into flashing mode:
+- **Method 1:** +
+The device is not powered on. Press and hold the **DOWNLOAAO (FEL)** button, plug in the type-c, and then release the button. (If you are worried about insufficient USB power, you can first plug in the power, then release the button, and then plug in the USB cable)
+- **Method 2:** +
+The device is powered on. Press and hold the **DOWNLOAD (FEL)** button, then press the Reset button, and then plug in the USB cable.
+
++
+WARNING: When connected to a USB HUB, there may be a "Fastboot device initialization failure".
++
+
+image::/bpi-cm6/banana_pi_bpi-cm6_get_start_1-1.jpg[banana_pi_bpi-cm6_get_start_1-1.jpg]
+
+image::/bpi-cm6/banana_pi_bpi-cm6_get_start_1-2.jpg[banana_pi_bpi-cm6_get_start_1-2.jpg]
+
+//image::/bpi-f3/banana_pi_bpi-f3_get_start_1.jpg[banana_pi_bpi-f3_get_start_1.jpg]
+
++
+If the software recognition is successful, a "**VID:PID=**" display will appear. If there are multiple devices, please select the device you want to burn.
+
++
+image::/picture/bpi-f3_tianflasher_2.png[bpi-f3_tianflasher_2.png]
+. Select the **flash file**, the software will decompress it, please be patient and wait for a while.
++
+image::/picture/bpi-f3_tianflasher_3.png[bpi-f3_tianflasher_3.png]
+
+. Click to **start flashing**. 
++
+image::/picture/bpi-f3_tianflasher_4.png[bpi-f3_tianflasher_4.png]
+
+. Burn completed, power on again.
+
+**Burn image to EMMC2**
+
+This is another way of burning.Use the titanflasher tool, and place the titantools_for_Linux-latest tool you downloaded earlier into the unzipped EMMC folder.
+
+Run it on your computer as shown in the following screenshot:
+
+image::/bpi-f3/m_bpi-f3_tianflasher_choose.png[m_bpi-f3_tianflasher_choose.png]
+
+Identify the corresponding device according to the previous burning process.Then select 1 to start burning.
+
+
+
+
 == header
 
 content
