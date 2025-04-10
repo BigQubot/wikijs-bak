@@ -84,7 +84,36 @@ image::/bpi-f3/m_bpi-f3_tianflasher_choose.png[m_bpi-f3_tianflasher_choose.png]
 Identify the corresponding device according to the previous burning process.Then select 1 to start burning.
 
 
+= Other Development
+== WiFi/BT
 
+**You have two ways to setup WiFi**
+
+. Use UI interface to setup WiFi
+
+. Use commands to setup WiFi
++
+```sh
+sudo nmcli dev
+sudo nmcli r wifi on
+sudo nmcli dev wifi
+sudo nmcli dev wifi connect "SSID" password "PASSWORD" ifname wlan0
+```
+
+**You have two ways to setup BT**
+
+. Use UI interface to setup BT
+
+. Use commands to setup BT
++
+```sh
+hciconfig
+sudo hciconfig hci0 up
+hciconfig hci0 noauth
+hcitool scan
+sudo rfcomm bind /dev/rfcomm0 xx:xx:xx:xx
+sudo cat >/dev/rfcomm0
+```
 
 == header
 
