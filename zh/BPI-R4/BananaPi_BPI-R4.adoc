@@ -373,6 +373,12 @@ image::/picture/bpi-r4-nic-be14_2.jpg[bpi-r4-nic-be14_2.jpg]
 
 link:https://docs.banana-pi.org/en/BPI-R4/GettingStarted_BPI-R4#_wi_fi7_nic[Getting_Started_with_BPI-R4#Wi-Fi7 NIC]
 
+== WIFI7 模组扩展配件
+
+banana Pi 设计了wifi7 模组扩展板，可以由连接线把wifi7模组引出，方便进行机壳设计
+
+image::/bpi-r4/bpi-r4_wifi7_modue_extension_suites.jpg[bpi-r4_wifi7_modue_extension_suites.jpg]
+
 == POE 
 
 如果你想使用POE功能，你可以进行定制。需要将10G SFP LAN更换成2.5Gbps RJ45，并焊接RT5400B模块。
