@@ -238,6 +238,13 @@ Easy to buy Wifi7 module sample:::
 
 * Taobao Shop: https://item.taobao.com/item.htm?spm=a1z09.8149145.0.0.30842c5aZcYzQx&id=808224556483&_u=cak7ln9381e
 
+=== WIFI7 module extension suites
+
+Banana Pi designed wifi7 module expansion board, wifi7 module can be led out by the connection line, convenient for shell design
+
+image::/bpi-r4/bpi-r4_wifi7_modue_extension_suites.jpg[bpi-r4_wifi7_modue_extension_suites.jpg]
+
+
 == POE 
 
 If you want to use POE function, you can customize it. You need to replace the 10G SFP LAN with 2.5Gbps RJ45 and solder the RT5400B module.
