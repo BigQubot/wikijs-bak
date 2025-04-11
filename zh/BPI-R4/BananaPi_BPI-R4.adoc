@@ -379,6 +379,8 @@ banana Pi 设计了wifi7 模组扩展板，可以由连接线把wifi7模组引�
 
 image::/bpi-r4/bpi-r4_wifi7_modue_extension_suites.jpg[bpi-r4_wifi7_modue_extension_suites.jpg]
 
+论坛讨论: https://forum.banana-pi.org/t/bpi-r4-wifi7-module-extension-suites/22948
+
 == POE 
 
 如果你想使用POE功能，你可以进行定制。需要将10G SFP LAN更换成2.5Gbps RJ45，并焊接RT5400B模块。
