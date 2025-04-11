@@ -81,6 +81,103 @@ image::/bpi-cm6/bpi-cm6_tianflasher_choose.jpg[bpi-cm6_tianflasher_choose.jpg]
 
 Identify the corresponding device according to the previous burning process.Then select 1 to start burning.
 
+== Install Image to eMMC 2
+WARNING: The **Armbian** image currently only supports SD card startup.
+
+NOTE: In addition to using titantools, you can also use the dd command to burn the image to emmc.
+ 
+Take **bianbu-24.04-desktop-k1-v2.1-release-20250124144655.img**.
+Unzip the "**bianbu-k1-xxx.img.zip**" to the USB drive, and then copy the "**fsbl.bin**" and "**bootinfo_emmc.bin**" in "**bianbu-k1-xxx.zip**" to copy it into the USB drive.
+
+. Firstly, insert the SD card that has been burned into the image into F3 and power it on to start.
+. Insert the copied USB drive into F3.
+
+. After startup, use the "lsblk" command to view.
++
+```sh
+pi@k1:~$ lsblk
+NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+sda           8:0    1 14.8G  0 disk
+└─sda1        8:1    1 14.8G  0 part
+mmcblk0     179:8    0 14.8G  0 disk
+├─mmcblk0p1 179:9    0  256K  0 part
+├─mmcblk0p2 179:10   0  128K  0 part
+├─mmcblk0p3 179:11   0  384K  0 part
+├─mmcblk0p4 179:12   0    2M  0 part
+├─mmcblk0p5 179:13   0  256M  0 part
+└─mmcblk0p6 179:14   0    8G  0 part /
+mmcblk2     179:8    0 14.6G  0 disk
+```
+"sda1" refers to a USB drive, "mmcblk0" refers to an SD card, and "mmcblk2" refers to an EMMC.
+. Mount the USB drive to mnt first.
++
+```sh
+sudo mount /dev/sda1 /mnt
+cd /mnt
+```
+. Then use the dd command to burn the image to emmc
++
+```sh
+sudo dd if=bianbu-24.04-desktop-k1-v2.1-release-20250124144655.img of=/dev/mmcblk2 bs=10M
+```
+NOTE: If you enter the **lsblk** command, you can see **BOOT**. You can go directly to step 9.
+
+. Next, update the boot0 partition of EMMC. However, some image boot partitions are hidden by default, so you need to modify the cmdline. Mount bootfs:
++
+```shs
+sudo mount /dev/mmcblk0p5 /boot
+sudo nano /boot/env_k1-x.txt
+```
+Find Commonargs and add "recovery=1" at the end.
++
+```sh
+commonargs=setenv bootargs earlycon=${earlycon} earlyprintk console=tty1 console=${console} ${loglevel} clk_ignore_unused rdinit=${init} recovery=1
+```
+Save and restart.
++
+```sh
+sudo reboot
+```
+. After the restart is completed, you can see the BOOT partition using the lsblk command.
++
+```sh
+pi@k1:~$ lsblk
+NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+sda            8:0    1 14.8G  0 disk
+└─sda1         8:1    1 14.8G  0 part
+mmcblk0      179:0    0 14.8G  0 disk
+├─mmcblk0p1  179:1    0  256K  0 part
+├─mmcblk0p2  179:2    0  128K  0 part
+├─mmcblk0p3  179:3    0  384K  0 part
+├─mmcblk0p4  179:4    0    2M  0 part
+├─mmcblk0p5  179:5    0  256M  0 part
+└─mmcblk0p6  179:6    0    8G  0 part /
+mmcblk2      179:8    0 14.6G  0 disk
+├─mmcblk2p1  179:9    0  256K  0 part
+├─mmcblk2p2  179:10   0   64K  0 part
+├─mmcblk2p3  179:11   0    1M  0 part
+├─mmcblk2p4  179:12   0    2M  0 part
+├─mmcblk2p5  179:13   0  256M  0 part
+└─mmcblk2p6  179:14   0    2G  0 part
+mmcblk2boot0 179:16   0    4M  1 disk
+mmcblk2boot1 179:24   0    4M  1 disk
+```
+. Mount a USB drive
++
+```sh
+sudo mount /dev/sda1 /mnt
+cd /mnt
+```
+. Execute the following command:
++
+```sh
+echo 0 | sudo tee /sys/block/mmcblk2boot0/force_ro
+sudo dd if=bootinfo_emmc.bin of=/dev/mmcblk2boot0
+sudo dd if=FSBL.bin of=/dev/mmcblk2boot0 seek=512 bs=1
+sync
+```
+. After waiting for the burning to complete, disconnect the power and remove the SD card and USB drive. Power on again to start from the EMMC.
+
 
 = Other Development
 == WiFi/BT
