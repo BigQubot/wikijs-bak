@@ -106,11 +106,21 @@ sudo nmcli dev wifi connect "SSID" password "PASSWORD" ifname wlan0
 +
 ```sh
 hciconfig
-sudo hciconfig hci0 up
-hciconfig hci0 noauth
-hcitool scan
-sudo rfcomm bind /dev/rfcomm0 xx:xx:xx:xx
-sudo cat >/dev/rfcomm0
+
+sudo bluetoothctl
+power on                //Open the Bluetooth network card
+discoverable on			//Set the controller to discoverable
+pairable on				//Set the controller to be pairable	
+scan on  				//Scan MAC addresses of other Bluetooth devices
+scan off  		        //Close scanning
+agent on                //Open the agent for connecting to other Bluetooth devices
+pair <MAC address>      //Pairing Bluetooth devices
+disconnect <MAC address>  //Disconnect
+remove  <MAC address>   //Unpairing
+connect <MAC address>  //Connecting a Bluetooth device
+exit  
+
+
 ```
 
 == header
