@@ -1,3 +1,92 @@
-== header
+= Overview
 
-content
+Banana Pi BPI-RV2 open source gateway is a device based on Siflower SF21H8898 SoC, 1 × 2.5G WAN network interface, 5 Gigabit LAN network interface, onboard 512MB DDR3 memory, 128 MiB NAND, 16 MiB NOR, M.2 interface, MINI PCIE and USB 2.0 interface, etc.
+
+
+= Prepare
+
+== Prepare
+
+Before you start using the development board, please have the following items ready
+
+== Optional Accessories
+
+== Power
+
+= Burn image
+
+== Ethernet burning image
+
+1. Ready to burn, the board is connected to the serial port, and the computer network cable is connected to the network port on the board.
+
+2. Open the serial port tool, restart the uboot, press enter Key to enter the command mode, enter the http://192.168.1.5 command (or other 23 ip address in the same network segment as the PC), press enter, the interface is as follows:
+
+image::/bpi-rv2/bpi-rv2_burn_image_1.jpg[bpi-rv2_burn_image_1.jpg]
+
+3. Open the browser and enter different urls as required. The following table uses 192.168.1.5 as an example:
+
+
+[options="header",cols="1,1",width="70%"]
+|=====
+|IP address | Function
+|192.168.1.1 |Burn firmware
+|192.168.1.1/uboot.html |Burn uboot
+|=====
+
+The normal burning interface is as follows: 
+
+image::/bpi-rv2/bpi-rv2_burn_image_2.jpg[bpi-rv2_burn_image_2.jpg]
+
+It restarts automatically after burning
+ 
+NOTE: Q: How to deal with uboot burning failure +
+A：If the uboot fails to be burned, the image cannot be updated through the uboot. You can download the image through the irom usb, or remove the flash and re-burn the image in mode of the burner
+
+= BPI-RV2 function development
+
+== Network Function Virtualization（DPNS）
+
+Using Siflower NPU, the development board software supports IPV4/IPV6 dual stack data processing offload, including hardware switching, hardware routing, hardware NAT, hardware 50 ACL, traffic statistics, hardware QoS. Performance up to 64 byte small packet, full bandwidth forwarding. See the following documentation for details
+
+《8898 DPNS UBUS 接⼝使⽤说明⽂档 》
+《8898 DPNS 加速驱动使⽤说明⽂档》
+ 
+== PCIE接⼝开发板⽀持，M2接⼝和Mini Pcie接⼝，均为PCIe gen 2 x1，PCIE调试参考：
+
+《8898 PCIE 驱动开发⽂档》
+
+== POE供电功能
+
+开发板可以通过2.5GbE ⼝进⾏PoE供电。
+
+== 双flash启动
+
+通过跳帽选择默认启动flash，连接SPI0 CS 为默认启动flash。
+
+== 加解密模块功能
+
+加解密模块⽀持AES/RSA/MD5/SHA，已经对接到linux crypto⼦系统，具体使⽤⽅式参考
+
+《8898 Crypto API介绍⽂档》
+== USB功能
+
+开发板⽀持usb2.0 功能，通过usb hub芯⽚拓展出三个USB port，⾮别在M2接⼝，mini pcie接⼝，USB 
+TYPE-A主机端⼝，usb调试参考：
+《8898 usb驱动开发⽂档》
+
+== 镜像双备份功能
+
+《8898 双镜像备份介绍⽂档》
+
+== 组播升级功能
+
+《8898 组播升级介绍⽂档》
+
+== 温控功能
+
+《8898 温控使⽤⼿册介绍⽂档》
+
+== GPIO功能
+开发板预留⼀些针脚⽤于GPIO，PWM等接⼝控制，具体可以参考⽂档：
+《8898 Pinctrl和gpio⼦系统的使⽤》
+《8898 IOMUX Table说明⽂档》
