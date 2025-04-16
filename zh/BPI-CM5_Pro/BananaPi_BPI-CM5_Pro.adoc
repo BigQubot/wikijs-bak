@@ -246,6 +246,16 @@ image::/bpi-cm5_pro/bpi-cm5-pro-io_interface.jpg[bpi-cm5-pro-io_interface.jpg]
 |====
 ====
 
+== 支持 Raspberry Pi CM4 底板
+
+您可以使用树莓派CM4底板
+
+image::/bpi-cm5_pro/bpi-cm5_pro_with_raspberry_pi_board.png[bpi-cm5_pro_with_raspberry_pi_board.png]
+
+NOTE: 1，设计成板对板连接器 +
+2，由于RK3576芯片的PIN限制，它只支持1个HDMI和1个DSI，而树莓派CM4支持多达2个HDMI和2个DSI + 
+3，BPI-CM5 Pro（Armsom CM5）与树莓派CM4相比有额外的PCIe和USB3。
+
 = 开发
 
 == 软件源代码
