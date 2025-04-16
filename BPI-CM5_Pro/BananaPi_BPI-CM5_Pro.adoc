@@ -246,6 +246,17 @@ image::/bpi-cm5_pro/bpi-cm5-pro-io_interface.jpg[bpi-cm5-pro-io_interface.jpg]
 |====
 ====
 
+== With Raspberry Pi CM5 base board
+
+You can use the Raspberry Pi CM4 baseboard.
+
+image::/bpi-cm5_pro/bpi-cm5_pro_with_raspberry_pi_board.png[bpi-cm5_pro_with_raspberry_pi_board.png]
+
+NOTE: 1,Designed as a board-to-board connector. +
+2,Due to the RK3576 chip's PIN limitations, it supports only 1 HDMI and 1 DSI, whereas the Raspberry Pi CM4 supports up to 2, HDMI and 2 DSI. +
+3,BPI-CM5 Pro(Armsom CM5) has an additional PCIe and USB3 compared to the Raspberry Pi CM4.
+
+
 = Development
 
 == Source code
