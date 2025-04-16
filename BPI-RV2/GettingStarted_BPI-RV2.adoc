@@ -49,32 +49,36 @@ A：If the uboot fails to be burned, the image cannot be updated through the ubo
 Using Siflower NPU, the development board software supports IPV4/IPV6 dual stack data processing offload, including hardware switching, hardware routing, hardware NAT, hardware 50 ACL, traffic statistics, hardware QoS. Performance up to 64 byte small packet, full bandwidth forwarding. See the following documentation for details
 
 《8898 DPNS UBUS 接⼝使⽤说明⽂档 》
+
 《8898 DPNS 加速驱动使⽤说明⽂档》
  
-== PCIE接⼝开发板⽀持，M2接⼝和Mini Pcie接⼝，均为PCIe gen 2 x1，PCIE调试参考：
+== PCIE interface development board support
+
+M2 interface and Mini Pcie interface, both PCIe gen 2 x1, PCIE debugging reference:
 
 《8898 PCIE 驱动开发⽂档》
 
-== POE供电功能
+== POE (Power supply function Power supply)
 
-开发板可以通过2.5GbE ⼝进⾏PoE供电。
+BPI-RV2 can be PoE powered through a 2.5GbE port.
 
-== 双flash启动
+== Double flash boot
 
-通过跳帽选择默认启动flash，连接SPI0 CS 为默认启动flash。
+The default start flash was selected by jumping the cap, and the SPI0 CS was connected as the default start flash.
 
-== 加解密模块功能
+== Encryption and decryption module function
 
-加解密模块⽀持AES/RSA/MD5/SHA，已经对接到linux crypto⼦系统，具体使⽤⽅式参考
+The encryption and decryption module supports AES/RSA/MD5/SHA, which has been connected to the linux crypto subsystem, and the specific use method is referred to
 
 《8898 Crypto API介绍⽂档》
-== USB功能
 
-开发板⽀持usb2.0 功能，通过usb hub芯⽚拓展出三个USB port，⾮别在M2接⼝，mini pcie接⼝，USB 
-TYPE-A主机端⼝，usb调试参考：
+== USB function
+
+BPI-RV2 supports usb2.0 functions, and three usb ports are expanded through the usb hub chip, including M2 interface, mini pcie interface, and USB 78 TYPE-A host port. usb debugging reference:
+
 《8898 usb驱动开发⽂档》
 
-== 镜像双备份功能
+== Image double backup function
 
 《8898 双镜像备份介绍⽂档》
 
@@ -82,11 +86,13 @@ TYPE-A主机端⼝，usb调试参考：
 
 《8898 组播升级介绍⽂档》
 
-== 温控功能
+== Temperature control function
 
 《8898 温控使⽤⼿册介绍⽂档》
 
-== GPIO功能
-开发板预留⼀些针脚⽤于GPIO，PWM等接⼝控制，具体可以参考⽂档：
+== GPIO function
+
+BPI-RV2 reserves some pins for GPIO, PWM and other interface control. For details, please refer to the documentation:
+
 《8898 Pinctrl和gpio⼦系统的使⽤》
 《8898 IOMUX Table说明⽂档》
