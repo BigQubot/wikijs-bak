@@ -83,6 +83,32 @@ root@OpenWrt:/# lspci
 0001:01:00.0 Non-Volatile memory controller: Intel Corporation NVMe Optane Memory Series
 ```
 
+=== Mini Pcie
+
+Connect the 4G EC25 to the interface
+
+image::/bpi-rv2/bpi-rv2_mini_pcie_image_1.jpg[bpi-rv2_mini_pcie_image_1.jpg]
+
+Use the command to query:
+```sh
+root@OpenWrt:/# lsusb
+Bus 001 Device 003: ID 2c7c:0125 Android Android
+Bus 001 Device 002: ID 1a40:0101  USB 2.0 Hub
+Bus 001 Device 001: ID 1d6b:0002 Linux 5.10.104 dwc2_hsotg DWC OTG Controller
+```
+
+Connect the Mini Pcie to USB board to the interface
+
+image::/bpi-rv2/bpi-rv2_mini_pcie_image_2.jpg[bpi-rv2_mini_pcie_image_2.jpg]
+
+Use the command to query:
+```sh
+root@OpenWrt:/# lspci
+00:00.0 PCI bridge: Device 1a0a:abcd (rev 01)
+01:00.0 USB controller: Renesas Technology Corp. uPD720201 USB 3.0 Host Controller (rev 03)
+```
+
+
 《8898 PCIE 驱动开发⽂档》
 
 == POE (Power supply function Power supply)
