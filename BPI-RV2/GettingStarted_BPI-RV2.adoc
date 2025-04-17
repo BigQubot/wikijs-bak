@@ -56,6 +56,33 @@ Using Siflower NPU, the development board software supports IPV4/IPV6 dual stack
 
 M2 interface and Mini Pcie interface, both PCIe gen 2 x1, PCIE debugging reference:
 
+=== M2 KEY B
+
+In this interface, you can use either 5G module or NNMe.
+
+Connect RM520N to the interface
+
+image::/bpi-rv2/bpi-rv2_keyb_image_2.jpg[bpi-rv2_keyb_image_2.jpg]
+
+Use the command to query:
+```sh
+root@OpenWrt:/# lsusb
+Bus 001 Device 003: ID 2c7c:0801 Quectel RM520N-GL
+Bus 001 Device 002: ID 1a40:0101  USB 2.0 Hub
+Bus 001 Device 001: ID 1d6b:0002 Linux 5.10.104 dwc2_hsotg DWC OTG Controller
+```
+
+Connect NVMe to the interface
+
+image::/bpi-rv2/bpi-rv2_keyb_image_1.jpg[bpi-rv2_keyb_image_1.jpg]
+
+Use the command to query:
+```sh
+root@OpenWrt:/# lspci
+0001:00:00.0 PCI bridge: Device 1a0a:7878 (rev 01)
+0001:01:00.0 Non-Volatile memory controller: Intel Corporation NVMe Optane Memory Series
+```
+
 《8898 PCIE 驱动开发⽂档》
 
 == POE (Power supply function Power supply)
