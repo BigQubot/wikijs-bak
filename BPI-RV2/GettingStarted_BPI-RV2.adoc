@@ -29,8 +29,8 @@ image::/bpi-rv2/bpi-rv2_burn_image_1.jpg[bpi-rv2_burn_image_1.jpg]
 [options="header",cols="1,1",width="70%"]
 |=====
 |IP address | Function
-|192.168.1.1 |Burn firmware
-|192.168.1.1/uboot.html |Burn uboot
+|192.168.1.5 |Burn firmware
+|192.168.1.5/uboot.html |Burn uboot
 |=====
 
 The normal burning interface is as follows: 
