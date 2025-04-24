@@ -48,9 +48,6 @@ A：If the uboot fails to be burned, the image cannot be updated through the ubo
 
 Using Siflower NPU, the development board software supports IPV4/IPV6 dual stack data processing offload, including hardware switching, hardware routing, hardware NAT, hardware 50 ACL, traffic statistics, hardware QoS. Performance up to 64 byte small packet, full bandwidth forwarding. See the following documentation for details
 
-《8898 DPNS UBUS 接⼝使⽤说明⽂档 》
-
-《8898 DPNS 加速驱动使⽤说明⽂档》
  
 == PCIE interface development board support
 
@@ -109,8 +106,6 @@ root@OpenWrt:/# lspci
 ```
 
 
-《8898 PCIE 驱动开发⽂档》
-
 == POE (Power supply function Power supply)
 
 BPI-RV2 can be PoE powered through a 2.5GbE port.
@@ -123,29 +118,13 @@ The default start flash was selected by jumping the cap, and the SPI0 CS was con
 
 The encryption and decryption module supports AES/RSA/MD5/SHA, which has been connected to the linux crypto subsystem, and the specific use method is referred to
 
-《8898 Crypto API介绍⽂档》
 
 == USB function
 
 BPI-RV2 supports usb2.0 functions, and three usb ports are expanded through the usb hub chip, including M2 interface, mini pcie interface, and USB 78 TYPE-A host port. usb debugging reference:
 
-《8898 usb驱动开发⽂档》
-
-== Image double backup function
-
-《8898 双镜像备份介绍⽂档》
-
-== 组播升级功能
-
-《8898 组播升级介绍⽂档》
-
-== Temperature control function
-
-《8898 温控使⽤⼿册介绍⽂档》
 
 == GPIO function
 
 BPI-RV2 reserves some pins for GPIO, PWM and other interface control. For details, please refer to the documentation:
 
-《8898 Pinctrl和gpio⼦系统的使⽤》
-《8898 IOMUX Table说明⽂档》
