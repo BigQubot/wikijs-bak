@@ -48,7 +48,14 @@ A：If the uboot fails to be burned, the image cannot be updated through the ubo
 
 Using Siflower NPU, the development board software supports IPV4/IPV6 dual stack data processing offload, including hardware switching, hardware routing, hardware NAT, hardware 50 ACL, traffic statistics, hardware QoS. Performance up to 64 byte small packet, full bandwidth forwarding. 
 
- 
+=== Function Introduction
+- NPU supports six physical ports and internally maps all physical ports to virtual ports. And it supports 7 virtual ports.port0~port3 is qsgmii port,port4 is xsgmii port, port5 is rgmii port and port 6 is host interface.
+- dpns supports packet acceleration of layer 2, layer 3, multicast packet acceleration, pppoe packet acceleration and other functions.
+- support nat.
+- support vlan and double layer vlan replacement.
+- support flow-based rate limiting.
+- Support acl, including traffic mirroring, filtering, overlay sending, packet rate limit and other common functions.
+
 == PCIE interface development board support
 
 M2 interface and Mini Pcie interface, both PCIe gen 2 x1, PCIE debugging reference:
