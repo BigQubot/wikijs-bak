@@ -46,7 +46,7 @@ A：If the uboot fails to be burned, the image cannot be updated through the ubo
 
 == Network Function Virtualization（DPNS）
 
-Using Siflower NPU, the development board software supports IPV4/IPV6 dual stack data processing offload, including hardware switching, hardware routing, hardware NAT, hardware 50 ACL, traffic statistics, hardware QoS. Performance up to 64 byte small packet, full bandwidth forwarding. See the following documentation for details
+Using Siflower NPU, the development board software supports IPV4/IPV6 dual stack data processing offload, including hardware switching, hardware routing, hardware NAT, hardware 50 ACL, traffic statistics, hardware QoS. Performance up to 64 byte small packet, full bandwidth forwarding. 
 
  
 == PCIE interface development board support
