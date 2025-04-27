@@ -7,9 +7,16 @@ Banana Pi BPI-RV2 open source gateway is a device based on Siflower SF21H8898 So
 
 == Prepare
 
-Before you start using the development board, please have the following items ready
+Before you start using the development board, please have the following items ready:
+
+* Prepare 8G/above TF card, USB-Serial cable.
+* 12V/2A power adapter
+* Connect the USB TypeC Console interface using the TypeC (cable.Baud=115200)Connect to debug console on BPI-RV2.
 
 == Optional Accessories
+5G module: RM520N-GL
+NVMe: Intel NVMe
+4G module: EC25-E
 
 == Power
 
