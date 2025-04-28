@@ -137,10 +137,17 @@ The default start flash was selected by jumping the cap, and the SPI0 CS was con
 
 The encryption and decryption module supports AES/RSA/MD5/SHA, which has been connected to the linux crypto subsystem.
 
+Linux Kerne provides an efficient cryptographic framework that allows user space and kernel space access to a variety of cryptographic algorithms such as symmetric encryption, asymmetric encryption, and hash. Cryptographic operations in the kernel are mainly implemented through the crypto API, which supports common cryptographic standards such as AESAEAD, SHA, etc.
+
+The main components of the framework include:
+
+* Crypto API: Provides an interface for encryption/decryption.
+* Transformations: Cryptographic operations are abstracted as transformations, allowing different cryptographic operations (e.g., block encryption, stream encryption) to share a consistent interface.
+* Encryption module: the module that actually implements the encryption algorithm.
 
 == USB function
 
-BPI-RV2 supports usb2.0 functions, and three usb ports are expanded through the usb hub chip, including M2 interface, mini pcie interface, and USB 78 TYPE-A host port. usb debugging reference:
+BPI-RV2 supports usb2.0 functions, and three usb ports are expanded through the usb hub chip, including M2 interface, mini pcie interface, and USB TYPE-A host port. usb debugging reference:
 
 
 == GPIO function
