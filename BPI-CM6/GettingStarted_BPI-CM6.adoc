@@ -73,13 +73,14 @@ image::/picture/bpi-f3_tianflasher_4.png[bpi-f3_tianflasher_4.png]
 
 **Non-visual software burns image to EMMC**
 
-This is another way of burning.Use the titanflasher tool, and place the titantools_for_Linux-latest tool you downloaded earlier into the unzipped EMMC folder.
+This is another way of burning.Use the titanflasher tool,then put this flashserver.exe file under the EMMC image file you want to burn.
 
 Run it on your computer as shown in the following screenshot:
 
+When the system recognizes the device(VID:=PID=XXX), select "1" item to brush the machine.
+
 image::/bpi-cm6/bpi-cm6_tianflasher_choose.jpg[bpi-cm6_tianflasher_choose.jpg]
 
-Identify the corresponding device according to the previous burning process.Then select 1 to start burning.
 
 == Install Image to eMMC 2
 WARNING: The **Armbian** image currently only supports SD card startup.
