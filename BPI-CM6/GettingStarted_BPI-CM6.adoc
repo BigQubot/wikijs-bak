@@ -37,7 +37,7 @@ WARNING: Please select the image ending in "**bianbu-k1-xxx.zip**" for **Bianbu*
 +
 image::/picture/bpi-f3_install_usb_driver.jpg[bpi-f3_install_usb_driver.jpg]
 
-**Burn image to EMMC1**
+**Visual software burn image to EMMC**
 
 . Click Single Machine Burn (If you need to burn multiple devices simultaneously, click Multiple Machine Burn)
 +
@@ -71,7 +71,7 @@ image::/picture/bpi-f3_tianflasher_4.png[bpi-f3_tianflasher_4.png]
 
 . Burn completed, power on again.
 
-**Burn image to EMMC2**
+**Non-visual software burns image to EMMC**
 
 This is another way of burning.Use the titanflasher tool, and place the titantools_for_Linux-latest tool you downloaded earlier into the unzipped EMMC folder.
 
