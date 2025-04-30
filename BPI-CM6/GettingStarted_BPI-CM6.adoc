@@ -240,3 +240,42 @@ root@bananapicm6io:~# date
 2021年 01月 01日 星期五 00:01:04 CST
 ```
 The RTC clock has been set successfully.
+
+== NVMe SSD
+
+NOTE: There are two M.2KEY M interfaces on the board, and you can choose one of them to use.
+
+Please insert one M.2 KeyM SSD into any one KeyM slot.
+
+image::/bpi-cm6/bpi-cm6_nvmessd_1.jpg[bpi-cm6_nvmessd_1.jpg]
+
+Then use the command to query：
+
+The memory size of the device and nvme can be queried by lspci and lsblk.
+
+```sh
+pi@bananapicm6io:~$ lspci
+0001:00:00.0 PCI bridge: Device 201f:0001 (rev 01)
+0001:01:00.0 Non-Volatile memory controller: MAXIO Technology (Hangzhou) Ltd. NVMe SSD Controller MAP1202 (DRAM-less) (rev 01)
+0002:00:00.0 PCI bridge: Device 201f:0001 (rev 01)
+pi@bananapicm6io:~$ lsblk
+NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+mmcblk2      179:0    0  14.6G  0 disk
+├─mmcblk2p1  179:1    0   256K  0 part
+├─mmcblk2p2  179:2    0    64K  0 part
+├─mmcblk2p3  179:3    0     1M  0 part
+├─mmcblk2p4  179:4    0     2M  0 part
+├─mmcblk2p5  179:5    0   256M  0 part
+└─mmcblk2p6  179:6    0     8G  0 part
+mmcblk2boot0 179:8    0     4M  1 disk
+mmcblk2boot1 179:16   0     4M  1 disk
+mmcblk0      179:24   0  14.8G  0 disk
+├─mmcblk0p1  179:25   0   256M  0 part /boot
+└─mmcblk0p2  179:26   0  14.3G  0 part /var/log.hdd
+                                       /
+nvme0n1      259:0    0 238.5G  0 disk
+```
+
+
+
+
