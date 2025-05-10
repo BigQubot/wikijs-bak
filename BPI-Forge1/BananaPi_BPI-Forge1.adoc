@@ -38,3 +38,37 @@ image::/bpi-forge1/bpi-forge1_interface.jpg[bpi-forge1_interface.jpg]
 |Dimensions	|92 mm x 62mm
 |Operating Temperature	|-40℃ ~ 85℃
 |====
+
+== RK3506J Block Diagram
+
+image::/bpi-forge1/rk3506j.jpg[rk3506j.jpg]
+
+== Pin Definitions
+
+=== 40-PIN Header
+[options="header",cols="1,6,1,1,6,1"]
+|====
+6+| 40 GPIO define of Banana Pi BPI-Forge1
+|GPIO Number	|Function	|Pin	|Pin	|Function	|GPIO Number
+| |+3.3V	|1 |2 |+5.0V	 |
+|130	|I2C1_SDA_M0 / UART3_RTSN / I2S1_SDI3 / GPIO4_A2_d	|3 |4|+5.0V	|
+|131	|I2C1_SCL_M0 / UART3_CTSN / I2S1_SDI2 / GPIO4_A3_d	|5 |6 | GND	|
+|1	|REF_CLK_OUT_M0 / GPIO0_A1	|7 |8 |UART0_TX_M0 / JTAG_MCU_TCK_M1 / JTAG_CPU_TCK_M1 / GPIO4_D0_d	|152
+| |GND	 |9 |10 |UART0_RX_M0
+/ JTAG_MCU_TMS_M1 / JTAG_CPU_TMS_M1 / GPIO4_C7_u	|151
+|0	|GPIO0_A0	| 11|12 |I2S1_SCLK / UART1_RTSN / GPIO4_A5_d	|133
+| | |13|14|GND	|
+| | |15|16 | |
+| | +3.3V	| 17| 18| | 
+|138	|SPI0_MOSI / PDM_SDI0 / I2S1_SDO3 / GPIO4_B2_d	|19|20|GND	|
+|139	|SPI0_MISO / PDM_SDI2 / I2S1_SDI1 / GPIO4_B3_d	|21|22||
+|140	|SPI0_CLK / I2S1_SDI0 / GPIO4_B4_d	|23|24|SPI0_CSN0 / PWR_CTRL1 / GPIO4_B6_u	|142
+||GND	|25|26|PWM6_M0 / SPI0_CSN1 / PDM_SDI3 / GPIO4_C1_d	|145
+|147	|I2C0_SDA_M0 / PWM0_M0 / GPU_AVS / GPIO4_C3_d	|27|28|ARM_AVS / PWM1_M0 / I2C0_SCL_M0 / GPIO4_C4_d	|148
+|||29|30|GND	||
+||31|32|GPIO4_C0 / PWM5_M0 / FEPHY_LED_LINK_M0 / UART3_TX_M1	|144
+|143	|GPIO4_B7 / PWM4_M0 / FEPHY_LED_SPD_M0 / UART3_RX_M1	|33|34|GND	|
+|134	|UART1_TX_M0 / I2S1_LRCK / GPIO4_A6_d	|35|36||
+|||37|38|GPIO3_B2 / SPI0_CLK / I2S1_SDI0	|106
+||GND	|39|40|GPIO4_A7_d / UART1_RX_M0 / I2S1_SDO0	|135
+|====
