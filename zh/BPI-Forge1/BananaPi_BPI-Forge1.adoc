@@ -1,3 +1,313 @@
-== header
+== Overview
 
-content
+Banana Pi BPI-Forge1采用瑞芯微RK3506J工业级芯片设计。
+
+RK3506J是一款高性能的三核Cortex-A7应用处理器，专为智能语音交互、音频输入/输出处理、图像输出处理和其他数字多媒体应用而设计。 嵌入式2D硬件引擎和显示输出引擎，用于最小化CPU开销以满足图像显示要求。 嵌入丰富的周边接口，如SAI、PDM、SPDIF、Audio DSM、Audio ADC、USB2 OTG、RMII、CAN等，可以满足不同的应用开发需求，减少硬件开发复杂性和开发成本。
+
+image::/bpi-forge1/bpi-forge1-banner-en.jpg[bpi-forge1-banner-en.jpg]
+
+= 硬件
+
+== 硬件接口
+image::/bpi-forge1/bpi-forge1_interface.jpg[bpi-forge1_interface.jpg]
+
+== Hardware Specifications
+
+[options="header",cols="1,3"]
+|====
+2+| BPI-Forge1 硬件规格 
+|SOC主控	 |瑞芯微 RK3506J
+|CPU	 |RK3506 Triple-core Cortex-A7 处理器
+.2+|GPU	|2D Graphic Engine
+|内嵌高性能2D 加速硬件
+|内存	|512MB DDR3L
+.2+|存储	|512MB NAND
+|支持MicroSD卡扩展
+|网络接口|2 × 百兆以太网
+|视频输出	|1 x MIPI DSI (2Lane 1.5Gbps)
+.2+|语音接口	|1 × Speaker
+|1 × MIC
+.2+|USB 接口	|1 × Type C (PD & Programming only)
+|1 × USB2.0 HOST
+.2+|40-PIN	|和树莓派40pin兼容部分引脚功能，可接丰富的配件外设
+|支持 UART/SPI/I2C/I2S/PWM/5V Power/3.3V Power
+|供电	|12V/2A
+|按键	|1x Maskrom键，支持进入maskrom烧录模式
+|操作系统|Rockchip官方支持：buildroot
+|尺寸	|92 mm x 62mm
+|操作温度	|-40℃ ~ 85℃
+|====
+
+== RK3506J 框架图
+
+image::/bpi-forge1/rk3506j.jpg[rk3506j.jpg]
+
+== Pin 定义
+
+=== 40-PIN Header
+[options="header",cols="1,5,1,1,5,1"]
+|====
+6+| 40 GPIO define of Banana Pi BPI-Forge1
+|GPIO Number	|Function	|Pin	|Pin	|Function	|GPIO Number
+| |+3.3V	|1 |2 |+5.0V	 |
+|130	|I2C1_SDA_M0 / UART3_RTSN / I2S1_SDI3 / GPIO4_A2_d	|3 |4|+5.0V	|
+|131	|I2C1_SCL_M0 / UART3_CTSN / I2S1_SDI2 / GPIO4_A3_d	|5 |6 | GND	|
+|1	|REF_CLK_OUT_M0 / GPIO0_A1	|7 |8 |UART0_TX_M0 / JTAG_MCU_TCK_M1 / JTAG_CPU_TCK_M1 / GPIO4_D0_d	|152
+| |GND	 |9 |10 |UART0_RX_M0
+/ JTAG_MCU_TMS_M1 / JTAG_CPU_TMS_M1 / GPIO4_C7_u	|151
+|0	|GPIO0_A0	| 11|12 |I2S1_SCLK / UART1_RTSN / GPIO4_A5_d	|133
+| | |13|14|GND	|
+| | |15|16 | |
+| | +3.3V	| 17| 18| | 
+|138	|SPI0_MOSI / PDM_SDI0 / I2S1_SDO3 / GPIO4_B2_d	|19|20|GND	|
+|139	|SPI0_MISO / PDM_SDI2 / I2S1_SDI1 / GPIO4_B3_d	|21|22||
+|140	|SPI0_CLK / I2S1_SDI0 / GPIO4_B4_d	|23|24|SPI0_CSN0 / PWR_CTRL1 / GPIO4_B6_u	|142
+||GND	|25|26|PWM6_M0 / SPI0_CSN1 / PDM_SDI3 / GPIO4_C1_d	|145
+|147	|I2C0_SDA_M0 / PWM0_M0 / GPU_AVS / GPIO4_C3_d	|27|28|ARM_AVS / PWM1_M0 / I2C0_SCL_M0 / GPIO4_C4_d	|148
+|||29|30|GND	||
+||31|32|GPIO4_C0 / PWM5_M0 / FEPHY_LED_LINK_M0 / UART3_TX_M1	|144
+|143	|GPIO4_B7 / PWM4_M0 / FEPHY_LED_SPD_M0 / UART3_RX_M1	|33|34|GND	|
+|134	|UART1_TX_M0 / I2S1_LRCK / GPIO4_A6_d	|35|36||
+|||37|38|GPIO3_B2 / SPI0_CLK / I2S1_SDI0	|106
+||GND	|39|40|GPIO4_A7_d / UART1_RX_M0 / I2S1_SDO0	|135
+|====
+
+= 软件源代码
+
+* SDK 源代码下载: https://github.com/ArmSoM/rk3506-rkr4.2-sdk
+
+= 参考资料
+
+BPI-Forge1 原理图: https://drive.google.com/drive/folders/15uvc2lcOAKP0enXezASUhVFLuzkq3IEX
+
+BPI-Forge1 2D filel: https://drive.google.com/drive/folders/15uvc2lcOAKP0enXezASUhVFLuzkq3IEX
+
+BPI-Forge1 SMD : https://drive.google.com/drive/folders/15uvc2lcOAKP0enXezASUhVFLuzkq3IEX
+
+= 镜像
+
+== 官方镜像
+
+BPI-Forge1 以 buildroot 为基础作为Forge1官方操作系统
+
+How to Flash Image: https://docs.armsom.org/getting-start/flash-img
+
+buildroot for Forge1:
+
+* Linux Kernel 6.1, 支持RT-Thread 4.1,
+* 支持裸机程, 序支持多核异构AMP,
+* Preempt-RT/Xenomai实时补丁,
+* 轻量级UI框架 LVGL。
+
+以下系统已由官方测试验证：
+
+https://drive.google.com/drive/folders/1x2KOX1F4-DVyyV_9qfdH28PWIORcWH56
+
+= 快速上手
+
+Forge1 使用手册，帮助用户了解Forge1产品的基本使用和需要的准备工作，开始使用你的Forge1
+
+== 设置手册
+
+工具准备:
+
+* 电源（12V/2A）
+* 系统安装（二选一）
+** 板载eMMC启动
+** USB Type-C数据线，从 typec 端口在Forge系列上写入镜像，您需要Type-C数据线连接 Forge系列和 PC。
+* MicroSD卡/TF卡启动
+** MicroSD卡/TF卡，Class 10或以上至少8GB SDHC 和 读卡器
+
+可选选项:
+
+* 调试串口
+* Ethernet 线（网线）
+
+== 接口使用
+
+如果您是首次使用 ArmSoM-Forge1 产品，请先熟悉下各产品硬件接口，以便于您更好的理解后续的内容。
+
+
+=== 调试串口
+
+如下所示连接 USB 转 TTL 串口线：
+
+image::/bpi-forge1/bpi-forge1_uart.png[bpi-forge1_uart.png]
+
+[options="header",cols="1,1,1"]
+|====
+|BPI-Forge1	|连接	|串口模块
+|GND (pin 6)	|<--->	|GND
+|TX (pin 8)	|<--->|	RX
+|RX (pin 10)	|<--->|	TX
+|====
+
+=== 网络接口
+
+* 1.首先将网线的一端插入 ArmSoM-Forge1 的以太网接口，网线的另一端接入路由器，并确保 网络是畅通的
+* 2.系统启动后会通过 DHCP 自动给以太网卡分配 IP 地址，不需要其他任何配置
+* 3.在ArmSoM-Forge1 的 Linux 系统中查看 IP 地址的命令如下所示
+
+```sh
+root@armsom:/# ip a  
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000  
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00  
+    inet 127.0.0.1/8 scope host lo  
+       valid_lft forever preferred_lft forever  
+2: can0: <NOARP,ECHO> mtu 16 qdisc noop state DOWN group default qlen 10  
+    link/can  
+3: eth0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN group default qlen 1000  
+    link/ether 9e:06:ad:d5:e3:91 brd ff:ff:ff:ff:ff:ff  
+4: eth1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000  
+    link/ether 7e:09:de:1d:0c:46 brd ff:ff:ff:ff:ff:ff  
+    inet 192.168.1.150/24 brd 192.168.1.255 scope global dynamic noprefixroute eth1  
+       valid_lft 43173sec preferred_lft 37773sec  
+```
+
+* 4.使用工具 ping 判断是否连通网络。
+
+测试网络连通性的命令如下，ping 命令可以通过 Ctrl+C 快捷键来中断运行
+
+```sh
+root@armsom:/# ping www.baidu.com  
+PING www.baidu.com (183.2.172.17): 56 data bytes  
+64 bytes from 183.2.172.17: seq=0 ttl=52 time=10.838 ms  
+...  
+^C  
+--- www.baidu.com ping statistics ---  
+6 packets transmitted, 6 received, 0% packet loss  
+
+```
+
+=== USB 接口
+
+[options="header",cols="1,3"]
+|====
+|型号	|Forge1
+|USB	|1× Type-C (PD & Programming), 1× USB 2.0 HOST
+|====
+
+连接 USB 存储设备测试
+
+* 1.首先将 U 盘或者 USB 移动硬盘插入 Forge1 产品的 USB 接口中
+* 2.执行下面的命令如果能看到 sdX 的输出说明 U 盘识别成功
+
+```sh
+root@armsom:/# cat /proc/partitions | grep "sd*"  
+major minor  #blocks  name  
+   8        0  122880000 sda  
+ ```
+ 
+* 3.使用 mount 命令可以将 U 盘挂载到/mnt 中，然后就能查看 U 盘中的文件了
+```sh
+root@armsom:/# sudo mount /dev/sda1 /test/ 
+```
+
+* 4.挂载完后通过 df -h 命令就能查看 U 盘的容量使用情况和挂载点
+```sh
+root@armsom:/test# df -h | grep "sd"  
+/dev/sda        4.7G  4.7G     0  100% /test  
+```
+
+=== 音频
+
+* 查看系统中的声卡。
+
+```sh
+root@armsom:/# aplay -l  
+**** List of PLAYBACK Hardware Devices ****  
+card 0: rockchiprk730 [rockchip-rk730], device 0: dailink-multicodecs HiFi-0 
+```
+
+* 录音
+```sh
+arecord -D hw:0,0 -f S16_LE -t wav -c2 -r 16000 -d 3 t.wav  
+```
+
+* 播放
+
+```sh
+aplay t.wav  
+```
+
+=== RTC实时时钟
+
+* 1.Forge1配备了一颗RTC IC LK8563S。
+* 2.首先，使用2pin的排针接口，插入RTC电池给RTC IC供电。
+* 3.请注意，我们应该将 RTC 电池保留在 RTC 连接器中，并确认 rtc LK8563S 设备已创建
+
+```sh
+root@armsom:/#  dmesg | grep rtc
+[    6.407133] rtc-hym8563 6-0051: rtc information is valid
+[    6.412731] rtc-hym8563 6-0051: registered as rtc0
+[    6.413779] rtc-hym8563 6-0051: setting system clock to 2022-06-22T01:22:26 UTC (1655860946)
+
+```
+
+* 找到rtc0，然后使用以下命令设置系统时间并同步到rtc0。
+
+```sh
+root@armsom:/# hwclock -r
+2023-11-03 10:32:40.461910+00:00
+root@armsom:/# date
+2023年 11月 03日 星期五 10:33:12 UTC
+root@armsom:/# hwclock -w
+root@armsom:/# hwclock -r
+root@armsom:/# poweroff
+```
+
+* 关闭RTC电池，10分钟或更长时间后，插入RTC电池并启动Forge1，检查RTC是否与系统时钟同步
+
+```sh
+root@armsom:/# hwclock -r
+2023-11-03 10:35:40.461910+00:00
+root@armsom:/# date
+2023年 11月 03日 星期五 10:36:01 UTC
+```
+
+=== MIPI DSI
+
+BPI-Forge1最大输出分辨率为1280x1280@60fps
+
+=== CAN FD
+
+* 查询当前⽹络设备:
+
+```sh
+root@armsom:/# ifconfig -a
+can0      Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00
+          NOARP  MTU:16  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:10
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+          Interrupt:45
+```
+
+* CAN启动：
+
+```sh
+关闭CAN:
+ip link set can0 down
+设置仲裁段1M波特率，数据段3M波特率:
+ip link set can0 type can bitrate 1000000 dbitrate 3000000 fd on
+打印can0信息:
+ip -details link show can0
+启动CAN:
+ip link set can0 up
+```
+
+* CAN FD发送:
+
+```sh
+发送（标准帧,数据帧,ID:123,date:DEADBEEF）:
+cansend can0 123##1DEADBEEF
+发送（扩展帧,数据帧,ID:00000123,date:DEADBEEF）:
+cansend can0 00000123##1DEADBEEF
+```
+CAN FD接收:
+
+```sh
+开启打印，等待接收:
+candump can0 &
+```
