@@ -72,3 +72,35 @@ image::/bpi-forge1/rk3506j.jpg[rk3506j.jpg]
 |||37|38|GPIO3_B2 / SPI0_CLK / I2S1_SDI0	|106
 ||GND	|39|40|GPIO4_A7_d / UART1_RX_M0 / I2S1_SDO0	|135
 |====
+
+= Source code
+
+* SDK Source Code: https://github.com/ArmSoM/rk3506-rkr4.2-sdk
+
+= Resources
+
+BPI-Forge1 SCH: https://drive.google.com/drive/folders/15uvc2lcOAKP0enXezASUhVFLuzkq3IEX
+
+BPI-Forge1 2D filel: https://drive.google.com/drive/folders/15uvc2lcOAKP0enXezASUhVFLuzkq3IEX
+
+BPI-Forge1 SMD : https://drive.google.com/drive/folders/15uvc2lcOAKP0enXezASUhVFLuzkq3IEX
+
+= Image
+
+== Official Image
+
+BPI-Forge1 uses buildroot as the official operating system . 
+
+How to Flash Image: https://docs.armsom.org/getting-start/flash-img
+
+buildroot for Forge1:
+
+* Linux Kernel 6.1, support RT-Thread 4.1,
+* support bare metal programs, support multi-core heterogeneous AMP,
+* Preempt-RT/Xenomai real-time patches,
+* lightweight UI framework LVGL.
+
+The following systems have been tested and verified by official:
+
+https://drive.google.com/drive/folders/1x2KOX1F4-DVyyV_9qfdH28PWIORcWH56
+
