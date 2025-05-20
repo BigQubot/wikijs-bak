@@ -9,7 +9,7 @@ Banana Pi BPI-RV2 open source gateway is a collaboration between Siflower and Ba
 == SF2H8898 chip Brief
 
 SF21H8898 is a high performance industrial-grade SOC gateway chip developed by Siflower Communications. It adopts advanced TSMC 12nm FFC process and integrates four cores inside
-64-bit RSIC-V processor and dedicated network processing accelerator (NPU) (supports L2/L3 hardware processing, IPv4/IPv6 dual stack, 20Gbps switching capacity, full byte wire-speed forwarding), network-side support for QSGMII, SGMII/HSGMII and RGMII interfaces. IEEE 1588 PTP functionality is supported for time synchronization. It supports external DDR3/DDR3L/DDR4 SDRAM and NAND/NOR SPI Flash. The high-speed interface is USB2.0, PCIE2.0, and the low-speed interface is SPI, UART, I2C, PWM, etc. It can be used as enterprise gateway and industrial control gateway.
+64-bit RISC-V processor and dedicated network processing accelerator (NPU) (supports L2/L3 hardware processing, IPv4/IPv6 dual stack, 20Gbps switching capacity, full byte wire-speed forwarding), network-side support for QSGMII, SGMII/HSGMII and RGMII interfaces. IEEE 1588 PTP functionality is supported for time synchronization. It supports external DDR3/DDR3L/DDR4 SDRAM and NAND/NOR SPI Flash. The high-speed interface is USB2.0, PCIE2.0, and the low-speed interface is SPI, UART, I2C, PWM, etc. It can be used as enterprise gateway and industrial control gateway.
 
 .Siflower SF21H8898 chip diagram
 [%collapsible]
