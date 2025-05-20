@@ -10,7 +10,7 @@ Banana Pi BPI-RV2 开源网关是矽昌和⾹蕉派开源社区（Banana Pi ）�
 == SF2H8898芯⽚介绍 
 
 SF21H8898是由矽昌通信开发的一款高性能工业级 SOC 网关芯片，采用先进的 TSMC 12nm FFC 工艺，内部集成了四核
-64-bit RSIC-V 处理器和专用网络处理加速器（NPU）（⽀持L2/L3硬件处理，IPv4/IPv6双栈，20Gbps交换容量，全字节线速转发），⽹络侧⽀持QSGMII、SGMII/HSGMII和RGMII接⼝，⽀持IEEE 1588 PTP功能，⽤于时间同步。⽀持外接DDR3/DDR3L/DDR4 SDRAM 和NAND/NOR SPI Flash。⾼速接⼝有USB2.0、PCIE2.0，低速接⼝有SPI、UART、I2C、PWM等。可以作为企业⽹关，⼯控主机使⽤。
+64-bit RISC-V 处理器和专用网络处理加速器（NPU）（⽀持L2/L3硬件处理，IPv4/IPv6双栈，20Gbps交换容量，全字节线速转发），⽹络侧⽀持QSGMII、SGMII/HSGMII和RGMII接⼝，⽀持IEEE 1588 PTP功能，⽤于时间同步。⽀持外接DDR3/DDR3L/DDR4 SDRAM 和NAND/NOR SPI Flash。⾼速接⼝有USB2.0、PCIE2.0，低速接⼝有SPI、UART、I2C、PWM等。可以作为企业⽹关，⼯控主机使⽤。
 
 .SF21H8898芯片系统框图
 [%collapsible]
