@@ -117,7 +117,8 @@ link:/en/BPI-R4/GettingStarted_BPI-R4#_storage[Getting_Started_with_BPI-R4#Stora
 == mPCIe WiFi6/WiFi6E/Wifi7
 
 === WiFi6e
-ASIA.RF AW7916-NPD: WiFi6E 3000 802.11ax G-band 2T2R and A-band 3T3R 2ss Dual Bands Dual Concurrents mPCIe Card AW7916-NPD
+
+ASIA.RF射频AW7916-NPD: WiFi6E 3000 802.11ax g频段2T2R和a频段3T3R 2ss双频双并发mPCIe卡
 
 WiFi6E Module: https://asiarf.com/product/wi-fi-6e-mini-pcie-module-mt7916-aw7916-npd/
 
@@ -129,13 +130,13 @@ link:https://docs.banana-pi.org/en/BPI-R4/GettingStarted_BPI-R4#_wi_fi7_nic[Gett
 
 link:/en/BPI-R4/BananaPi_BPI-R4-NIC-BE14[Banana Pi BPI-R4-NIC-BE14 Specification]
 
-Easy to buy Wifi7 module sample:::
+BE14 Wifi7模组样品购买::
 
-* SINOVOIP Aliexpress shop: https://www.aliexpress.com/item/3256807036993487.html?
+* 源创速卖通商店: https://www.aliexpress.com/item/3256807036993487.html?
 
-* Bipai Aliexpress shop: https://www.aliexpress.com/item/3256807036822902.html?spm=a2g0s.12269583.0.0.48df6c94TX2ucP
+* 比派科技速卖通商店: https://www.aliexpress.com/item/3256807036822902.html?spm=a2g0s.12269583.0.0.48df6c94TX2ucP
 
-* Taobao Shop: https://item.taobao.com/item.htm?spm=a1z09.8149145.0.0.30842c5aZcYzQx&id=808224556483&_u=cak7ln9381e
+* 官方淘宝店: https://item.taobao.com/item.htm?spm=a1z09.8149145.0.0.30842c5aZcYzQx&id=808224556483&_u=cak7ln9381e
 
 === WIFI7 module extension suites
 
@@ -145,10 +146,10 @@ image::/bpi-r4/bpi-r4_wifi7_modue_extension_suites.jpg[bpi-r4_wifi7_modue_extens
 
 discuss on forum : https://forum.banana-pi.org/t/bpi-r4-wifi7-module-extension-suites/22948
 
-= Development
-== Source Code
+= 开发
+== 软件源代码
 
-== Resources
+== 参考资料
 
 TIP: MT7988A Wi-Fi7 Datasheet&Manual
 
@@ -170,7 +171,7 @@ TIP: How MLO Smart Link Dispatching drives Wi-Fi 7: https://mediatek-marketing.f
 
 TIP: MLO in Wi-Fi 7: https://mediatek-marketing.files.svdcdn.com/production/documents/Wi-Fi-7-MLO-White-Paper-WF7MLOWP0622.pdf
 
-= System Image
+= 系统镜像
 == OpenWRT
 
 = Easy to buy
