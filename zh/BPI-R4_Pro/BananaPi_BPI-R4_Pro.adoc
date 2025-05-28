@@ -1,3 +1,171 @@
-== header
+== BPI-R4 Pro 产品介绍
 
-content
+Banana Pi BPI-R4 Pro 路由器板采用联发科 MT7988A（Filogic 880）四核 ARM Corex-A73 设计，板载 4GB/8GB DDR4 RAM、8GB eMMC、128MB SPI-NAND 闪存。支持4个2.G网口，支持2个10G光电口，支持4G/5G扩展。它是 BPI-R4 的升级版本。功能更加强大。
+
+
+TIP: 联发科 MT7988(Filogic 830) 芯片设计: link:/zh/BPI-R4_Pro/BananaPi_BPI-R4_Pro[香蕉派 BPI-R4 Pro] 高性能路由器开发 +
+联发科 MT7988(Filogic 880) 芯片设计: link:/zh/BPI-R4/BananaPi_BPI-R4[香蕉派 BPI-R4] 高性能路由器开发 +
+联发科 MT7986(Filogic 830) 芯片设计: link:/zh/BPI-R3_Mini/BananaPi_BPI-R3_Mini[香蕉派 BPI-R3 Mini] 迷你尺寸高性能路由器开发板 +
+联发科 MT7986(Filogic 830) 芯片设计: link:/zh/BPI-R3/BananaPi_BPI-R3[香蕉派 BPI-R3] 高性能路由器开发 
+
+
+== 联发科 MT7988(Filogic 880)芯片介绍
+
+联发科Filogic 880,36Gbps Wi-Fi 7接入点/路由器/网关平台,提供最快和最可靠的网络连接体验.
+
+联发科Filogic 880强大的四核 CPU 和 MediaTek 网络处理器 (NPU)：Filogic 880 的嵌入式 CPU 具有四核 Arm Cortex-A73，具有大型内部缓存和高达 1.8GHz 的速度，可提供接近 30K DMIPS 的同类领先性能。通过 NPU 卸载网络任务，设备制造商可以免费使用 CPE 来提供操作系统定制、内置服务和应用程序以扩展功能，这些功能现在是旗舰路由器/AP 设备的常规功能。
+
+联发科设计的片内网络处理单元 (NPU) 为 VLAN / PPTP / L2TP / GRE 提供硬件 QoS 加速和隧道卸载引擎。它超越了其他产品，可以同时使用 Wi-Fi 和以太网连接，确保全速性能，同时还卸载了主应用程序处理器。
+
+联发科 Filogic 880 平台具有高度可扩展性，具有高速内部和外部接口，包括 10Gbps PCI-Express、5Gbps USB、UART、SD、SPI、PWM、GPIO 和 OTP，可提供丰富的平台定制机会。
+
+联发科MT7988A是世界领先的网络处理平台，可在有线和无线应用中提供高性能和可靠的网络体验。MT7988A包含丰富的连接接口集，包括4个千兆以太网端口。2个UNXGMII接口。4个PCIe接口和2个USB 3.2 接口，MT7988A进一步实现无缝Wi-Fi 7三频段，2.4 GHz.5GHz和6 GHz连接，其Wi-Fi 7配套芯片具有320mhz带宽，4096-QAM,MLO,MRU和AFC。
+
+为了满足快速发展的隧道应用需求，MT7988A配备了联发科隧道卸载处理器系统(TOPS)，有助于处理各种隧道协议。MT7988A通过精心调整的联发科TOPS ISA优化网络性能，致力于将网络传输性能提升到高级水平。
+
+== Key Features
+
+* MediaTek MT7988A Quad-core Arm Corex-A73,1.8GHz processor
+* 8GB DDR4
+* 8GB eMMC flash
+* 256MB SPI-NAND Flash
+* Micro SD card slot
+
+* 1x 10G SFP WAN
+* 1x 10G RJ45 WAN(combo with 10G SFP WAN)
+* 1x 10G SFP LAN
+* 1x 10G RJ45 LAN(combo with 10G SFP LAN)
+* 4x 2.5G RJ45 LAN
+* 1x 1G RJ45 LAN
+* 1x 1G LAN(FPC Connector)
+
+* 2x miniPCIe slots with PCIe3.0 2lane interface for Wi-Fi NIC
+* 2x M.2 M-KEY slots with PCIe3.0 1lane interface for NVME SSD (PCIe can switch to M.2 B-KEY slot)
+* 3x M.2 B-KEY slots with USB3.2 for 5G Module
+* 1x USB3.2 slot
+* 1x USB2.0 slot
+* 1x USB TypeC Debug Console
+* 2x13 PIN Header for expanding application
+
+== Application direction
+
+- Internet service Router
+- Wifi 7 Wireless Router
+- 4G/5G Wireless Router
+- Wireless Repeater
+- Home security Gateway
+- Home Automation
+- Nas device
+- Network and communication applications
+
+== Getting Start
+
+TIP: link:/en/BPI-R4_Pro/GettingStarted_BPI-R4_Pro[Getting Started BPI-R4 Pro]
+
+TIP: link:/en/BPI-R4/GettingStarted_BPI-R4[Getting Started BPI-R4]
+
+TIP: link:https://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r4:start#linux[Frank wiki for BPI-R4]
+
+= Hardware
+== Hardware Interface
+
+image::/bpi-r4_pro/banana_pi_bpi-r4_pro_interface.jpg[banana_pi_bpi-r4_pro_interface.jpg]
+
+== BPI-R4 Pro Photo
+
+link:/en/BPI-R4_Pro/Photo_BPI-R4_Pro[Banana Pi BPI-R4 Pro Product photo gallery]
+
+== Hardware Spec
+
+= Accessories
+
+== Case
+
+== 10G SFP Module
+
+link:/en/BPI-R4/GettingStarted_BPI-R4#_10g_sfp_module[Getting_Started_with_BPI-R4#10G SFP Module]
+
+Easy to buy case sample ::
+
+10G SFP+ Copper Module:::
+* BIPAI Aliexpress shop: https://www.aliexpress.com/item/3256806271951703.html?gatewayAdapt=4itemAdapt
+
+* SINOVOIP Aliexpress shop: https://www.aliexpress.com/item/3256806271841150.html?gatewayAdapt=4itemAdapt
+
+* Taobao shop: https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-25059194413.13.7d282ac1cYaQ03&id=761569524881
+
+10G SFP+ Fibre Module:::
+* BIPAI Aliexpress shop: https://www.aliexpress.com/item/3256806271761161.html?gatewayAdapt=4itemAdapt
+
+* SINOVOIP Aliexpress shop: https://www.aliexpress.com/item/3256806271623117.html?gatewayAdapt=4itemAdapt
+
+* Taobao shop: https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-25059194413.15.7d282ac1cYaQ03&id=761853438478
+
+== 4G/5G Module
+
+link:/en/BPI-R4/GettingStarted_BPI-R4#_4g_5g_module[Getting_Started_with_BPI-R4#4G/5G Module]
+
+== SSD
+
+link:/en/BPI-R4/GettingStarted_BPI-R4#_storage[Getting_Started_with_BPI-R4#Storage]
+
+== Heat sink
+== mPCIe WiFi6/WiFi6E/Wifi7
+=== WiFi6e
+ASIA.RF AW7916-NPD: WiFi6E 3000 802.11ax G-band 2T2R and A-band 3T3R 2ss Dual Bands Dual Concurrents mPCIe Card AW7916-NPD
+
+WiFi6E Module: https://asiarf.com/product/wi-fi-6e-mini-pcie-module-mt7916-aw7916-npd/
+
+=== WiFi7:BPI-R4-NIC-BE14
+
+image::/bpi-r4/nic-be14-top-800.png[nic-be14-top-800.png]
+
+link:https://docs.banana-pi.org/en/BPI-R4/GettingStarted_BPI-R4#_wi_fi7_nic[Getting_Started_with_BPI-R4#Wi-Fi7 NIC]
+
+link:/en/BPI-R4/BananaPi_BPI-R4-NIC-BE14[Banana Pi BPI-R4-NIC-BE14 Specification]
+
+Easy to buy Wifi7 module sample:::
+
+* SINOVOIP Aliexpress shop: https://www.aliexpress.com/item/3256807036993487.html?
+
+* Bipai Aliexpress shop: https://www.aliexpress.com/item/3256807036822902.html?spm=a2g0s.12269583.0.0.48df6c94TX2ucP
+
+* Taobao Shop: https://item.taobao.com/item.htm?spm=a1z09.8149145.0.0.30842c5aZcYzQx&id=808224556483&_u=cak7ln9381e
+
+=== WIFI7 module extension suites
+
+Banana Pi designed wifi7 module expansion board, wifi7 module can be led out by the connection line, convenient for shell design
+
+image::/bpi-r4/bpi-r4_wifi7_modue_extension_suites.jpg[bpi-r4_wifi7_modue_extension_suites.jpg]
+
+discuss on forum : https://forum.banana-pi.org/t/bpi-r4-wifi7-module-extension-suites/22948
+
+= Development
+== Source Code
+
+== Resources
+
+TIP: MT7988A Wi-Fi7 Datasheet&Manual
+
+Baidu Cloud: https://pan.baidu.com/s/1-eSVD4DhyPAkfgrE9BtLmA?pwd=8888 PIN code:8888
+
+Google Drive: https://drive.google.com/drive/folders/1XiVchy0a4syYFVlTndhVCETNJ9x7KOYi?usp=sharing
+
+TIP: Kernel [PATCH net-next 8/8] net: ethernet: mtk_eth_soc: add basic support for MT7988 SoC: https://www.spinics.net/lists/kernel/msg4821673.html
+
+TIP: [PATCH 15/15] dt-bindings: net: dsa: mediatek,mt7530: add mediatek,mt7988-switch: https://lore.kernel.org/lkml/80a853f182eac24735338f3c1f505e5f580053ca.1680180959.git.daniel@makrotopia.org/
+
+TIP: Discuss on forum : https://forum.banana-pi.org/t/banana-pi-bpi-r4-wifi-7-router-board-with-mediatek-mt7988a-filogic-880-4g-ram-and-8g-emmc/15757
+
+TIP: MediaTek Filogic 880 platform ： https://www.mediatek.com/products/broadband-wifi/mediatek-filogic-880
+
+TIP: Key advantages of Wi-Fi 7 ： https://mediatek-marketing.files.svdcdn.com/production/documents/Key-Advantages-of-Wi-Fi-7_MediaTek-White-Paper-WF70222.pdf
+
+TIP: How MLO Smart Link Dispatching drives Wi-Fi 7: https://mediatek-marketing.files.svdcdn.com/production/documents/MLO-Infographic-How-Smart-Link-Dispatching-drives-Wi-Fi-7-White-Paper-Infographic-0223.pdf
+
+TIP: MLO in Wi-Fi 7: https://mediatek-marketing.files.svdcdn.com/production/documents/Wi-Fi-7-MLO-White-Paper-WF7MLOWP0622.pdf
+
+= System Image
+== OpenWRT
+
+= Easy to buy
