@@ -59,7 +59,7 @@ TIP: 联发科 MT7988(Filogic 830) 芯片设计: link:/zh/BPI-R4_Pro/BananaPi_BP
 * 网络通信应用
 * 工业控制及整合通信应用
 
-== Getting Start
+== 快速上手开发
 
 TIP: link:/en/BPI-R4_Pro/GettingStarted_BPI-R4_Pro[Getting Started BPI-R4 Pro]
 
@@ -67,51 +67,55 @@ TIP: link:/en/BPI-R4/GettingStarted_BPI-R4[Getting Started BPI-R4]
 
 TIP: link:https://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r4:start#linux[Frank wiki for BPI-R4]
 
-= Hardware
-== Hardware Interface
+= 硬件
+== 硬件接口示意图
 
 image::/bpi-r4_pro/banana_pi_bpi-r4_pro_interface.jpg[banana_pi_bpi-r4_pro_interface.jpg]
 
-== BPI-R4 Pro Photo
+== BPI-R4 Pro 产品图集
 
-link:/en/BPI-R4_Pro/Photo_BPI-R4_Pro[Banana Pi BPI-R4 Pro Product photo gallery]
+link:/en/BPI-R4_Pro/Photo_BPI-R4_Pro[Banana Pi BPI-R4 Pro 产品图]
 
-== Hardware Spec
+== 硬件规格
 
-= Accessories
+= 硬件
 
-== Case
+== 外壳
 
-== 10G SFP Module
+== 10G SFP 模组
 
 link:/en/BPI-R4/GettingStarted_BPI-R4#_10g_sfp_module[Getting_Started_with_BPI-R4#10G SFP Module]
 
-Easy to buy case sample ::
+SFP模块样品购买 ::::
 
 10G SFP+ Copper Module:::
-* BIPAI Aliexpress shop: https://www.aliexpress.com/item/3256806271951703.html?gatewayAdapt=4itemAdapt
 
-* SINOVOIP Aliexpress shop: https://www.aliexpress.com/item/3256806271841150.html?gatewayAdapt=4itemAdapt
+* BIPAI 速卖通店: https://www.aliexpress.com/item/3256806271951703.html?gatewayAdapt=4itemAdapt
 
-* Taobao shop: https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-25059194413.13.7d282ac1cYaQ03&id=761569524881
+* SINOVOIP 速卖通店: https://www.aliexpress.com/item/3256806271841150.html?gatewayAdapt=4itemAdapt
+
+* 淘宝官方店: https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-25059194413.13.7d282ac1cYaQ03&id=761569524881
 
 10G SFP+ Fibre Module:::
-* BIPAI Aliexpress shop: https://www.aliexpress.com/item/3256806271761161.html?gatewayAdapt=4itemAdapt
 
-* SINOVOIP Aliexpress shop: https://www.aliexpress.com/item/3256806271623117.html?gatewayAdapt=4itemAdapt
+* BIPAI 速卖通店: https://www.aliexpress.com/item/3256806271761161.html?gatewayAdapt=4itemAdapt
 
-* Taobao shop: https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-25059194413.15.7d282ac1cYaQ03&id=761853438478
+* SINOVOIP 速卖通店: https://www.aliexpress.com/item/3256806271623117.html?gatewayAdapt=4itemAdapt
 
-== 4G/5G Module
+* 淘宝官方店: https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-25059194413.15.7d282ac1cYaQ03&id=761853438478
+
+== 4G/5G 模组
 
 link:/en/BPI-R4/GettingStarted_BPI-R4#_4g_5g_module[Getting_Started_with_BPI-R4#4G/5G Module]
 
-== SSD
+== SSD 
 
 link:/en/BPI-R4/GettingStarted_BPI-R4#_storage[Getting_Started_with_BPI-R4#Storage]
 
-== Heat sink
+== 散热片
+
 == mPCIe WiFi6/WiFi6E/Wifi7
+
 === WiFi6e
 ASIA.RF AW7916-NPD: WiFi6E 3000 802.11ax G-band 2T2R and A-band 3T3R 2ss Dual Bands Dual Concurrents mPCIe Card AW7916-NPD
 
