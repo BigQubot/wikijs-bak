@@ -1,3 +1,178 @@
-== header
+= Introduction
 
-content
+Banana Pi BPI-AI2N System-on-Module (SoM) and BPI-AI2N carrier board are open-source hardware solutions designed to leverage the advanced capabilities of the RZ/V2N Vision AI MPU. It supports 8GB memory, 32GB emmc, dual gigabit ethernet ports, 2x USB3 interface.
+
+== Specifications
+
+- SoC – Renesas RZ/V2N quad-core 64bit Arm Cortex-A55 processor @ up to 1.8 GHz with Mali-G31 GPU
+- System Memory – 8GB LPDDR4
+- Storage – 32GB eMMC flash, MicroSD slot
+- Video Output – MIPI DSI to hdmi connector, up to 1080p
+- Connectivity – Dual Gigabit Ethernet
+- USB – 2x USB 3.0 ports,1x USB-C port
+- Expansion – 40-pin header with 28x GPIO, UART, I2C, SPI, PWM, and power signal (+5V, +3.3V, GND).
+- Debugging – USB Type-C debug header
+- Power Supply – 12V @3A via USB Type-C port
+
+= Development
+== Prepare
+
+. Linux image support SDcard or EMMC bootup.
+. It’s recommended to use A1 rated cards, 16GB at least.
+. Make sure bootable EMMC is formatted if you want bootup from SDcard Yocto
+. Download latest Linux Image, and confirm that the checksum is correct.
+. Default login: pi/bananapi or root/bananapi
+
+=== Install Image to SDcard
+
+> Install Image with Balena Etcher on Windows, Linux and MacOS.
+
+link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
+
+- Click on "**Flash from file**" to select image. 
+- Click on "**Select target**" to select USB device. 
+- Click on "**Flash!**" Start burning.
+
+image::/picture/etcher.jpg[etcher.jpg]
+
+> Install Image with Balena Cli on Windows, Linux and MacOS.
+
+link:https://github.com/balena-io/balena-cli[Balena CLI] is a Command Line Interface for balenaCloud or openBalena. It can be used to flash linux image. Download the installer or standalone package from link:https://github.com/balena-io/balena-cli/releases[balena-io] and link:https://github.com/balena-io/balena-cli/blob/master/INSTALL.md[install ]it correctly to your PC, then you can use the "link:https://docs.balena.io/reference/balena-cli/#local-flash-image[local flash]" command option of balena to flash a linux image to sdcard or usb drive.
+
+```sh
+ $ sudo balena local flash path/to/xxx-bpi-ai2n-xxx.img.xz
+ $ sudo balena local flash path/to/xxx-bpi-ai2n-xxx.img.xz --drive /dev/disk2
+ $ sudo balena local flash path/to/xxx-bpi-ai2n-xxx.img.xz --drive /dev/disk2 --yes
+```
+
+> Install Image with dd command on Linux
+
+. umount SDcard device /dev/sdX partition if mounted automatically. 
+
+```sh
+ $ sudo apt-get install xz-utils pv
+ $ sudo xzcat xxx-bpi-ai2n-xxx.img.zip | pv | dd of=/dev/sdX bs=1M status=noxfer
+```
+
+=== Install Image to eMMC
+
+. Prepare a SDcard with Linux image flashed and bootup board with this SDcard.
+. Copy Linux image to udisk, plug the udisk to board and mount it.
+. Install with dd command, umount mmcblk0p1 and mmcblk0p2 partition if mounted automatically. 
+
+```sh
+ $ sudo apt-get install xz-utils pv
+ $ sudo xzcat xxx-bpi-ai2n-xxx.img.zip | pv | dd of=/dev/sdX bs=1M status=noxfer
+```
+
+=== Build Linux Source Code
+. Get the Armbian source code
+
+```sh
+ $ git clone 
+```
+. Build the Armbian source code
+
+```sh
+ $  
+```
+. Get the Yocto source code
+
+```sh
+ $  git clone 
+```
+. Build the Yocto source code
+
+```sh
+ $  
+```
+
+=== DTB overlay
+. DTB overlay is used for 40pin gpios multi-function configuration 
+
+```sh
+ root@bananapi:~# ls /boot/dtb/overlays/
+
+```
+
+. Configure overlays with armbian-config
+
+. Configure overlays with editing /boot/armbianEnv.txt
+
+=== Libgpiod
+
+=== Python3-periphery
+
+=== Adafruit-Blinka
+
+=== WiringPi
+WARNING: Note: This WiringPi only support set 40pin gpio to output, input, for io functions as i2c, spi, pwm..., you must enable dtb overlays
+
+. Build and install wiringPi, for debian, you must install sudo before build
+
+```sh
+ $ sudo apt-get update
+ $ sudo apt-get install build-essential git
+ $ git clone https://github.com/Dangku/WiringPi
+ $ cd WiringPi
+ $ chmod a+x build
+ $ sudo ./build
+```
+. Run gpio readall to show all 40pins status.
++
+image::/picture/m5_wiringpi.png[m5_wiringpi.png]
+
+. BPI GPIO Extend board and examples in link:https://github.com/Dangku/WiringPi/tree/master/examples[WiringPi/examples]
++
+blinkall, blink all pin header gpios, no extend board. +
+lcd-bpi, link:/en/BPI-LCD_1602/BananaPi_BPI-LCD_1602[BPI LCD 1602 display module] example. +
+52pi-bpi, link:/en/BPI-OLED/BananaPi_BPI-OLED[BPI OLED Display Module] example. +
+matrixled-bpi, link:/en/BPI-RGB_LED/BananaPi_BPI_RGB_LED[BPI RGB LED Matrix Expansion Module] example. +
+berryclip-bpi, link:/en/BPI-BerrClip/BananaPi_BPI-BerryClip[BPI BerryClip Module]
+
+=== RPi.GPIO
+
+Build and install.
+```sh
+ $ sudo apt-get update
+ $ sudo apt-get install build-essential python3 python3-pip python3-dev python3-setuptools git
+ $ git clone https://github.com/Dangku/RPi.GPIO.git
+ $ cd RPi.GPIO
+ $ sudo python3 setup.py clean --all
+ $ sudo python3 setup.py install
+```
+Create and install wheel package
+```sh
+ $ sudo python3 setup.py bdist_wheel
+ $ sudo pip3 install dist/RPi.GPIO-XXX.whl
+```
+Install from git source directly without development
+```sh
+ $ sudo pip3 install git+https://github.com/Dangku/RPi.GPIO.git
+```
+If the package is already installed, it should be uninstalled before installing the new one, or installing the new one with --force-reinstall option.
+
+=== WiringPi-Python
+
+Build and install.
+```sh
+ $ sudo apt-get update
+ $ sudo apt-get install build-essential python3 python3-dev python3-setuptools swig git
+ $ git clone --recursive  https://github.com/Dangku/WiringPi-Python.git
+ $ cd WiringPi-Python
+ $ sudo python3 setup.py install
+```
+
+=== Install Docker Engine
+
+link:https://docs.docker.com/engine/install/[Install Docker Engine] with a simple command
+```sh
+ $ curl -sSL get.docker.com | sudo sh
+```
+. Verify the Docker Engine is installed correctly by running the hello-world image.
++
+```sh
+$ sudo docker run hello-world
+```
++
+image::/picture/docker-test.png[docker-test.png]
