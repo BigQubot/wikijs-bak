@@ -62,7 +62,7 @@ link:https://github.com/balena-io/balena-cli[Balena CLI] is a Command Line Inter
 
 ```sh
  $ sudo apt-get install xz-utils pv
- $ sudo xzcat xxx-bpi-ai2n-xxx.img.zip | pv | dd of=/dev/sdX bs=1M status=noxfer
+ $ sudo xzcat xxx-bpi-ai2n-xxx.img.xz | pv | dd of=/dev/sdX bs=1M status=noxfer
 ```
 
 === Build Linux Source Code
