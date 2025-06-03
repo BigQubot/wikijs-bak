@@ -217,9 +217,17 @@ Verify the Docker Engine is installed correctly by running the hello-world image
 image::/picture/docker-test.png[docker-test.png]
 
 == Remote access
+
 Sometimes you need to access the board without connecting it to a monitor, keyboard, and mouse, To remotely control your bananapi board from another device on your local network, use one of the following services:
 
+. SSH
+. VNC
 
 === SSH
 
+Open a terminal window on your computer and enter the following command, replacing the <ip address> placeholder with the IP address of bananapi board you’re trying to connect to and <username> with your username:
+
+```sh
+ $ ssh <username>@<ip address>
+```
 === VNC
