@@ -245,4 +245,11 @@ Open a terminal window on your computer and enter the following command, replaci
 ```sh
  $ ssh <username>@<ip address>
 ```
+
+You can use armbian-config to manage SSH daemon options
+
+image::/picture/ai2n-armbian-config-ssh.png[ai2n-armbian-config-ssh.png]
+
+more info of SSH configuration using armbian-config, please ref to link:https://docs.armbian.com/User-Guide_Armbian-Config/System/#ssh-daemon[Armbian-Config SSH daemon]
+
 === VNC
