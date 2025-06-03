@@ -100,7 +100,7 @@ zram1        254:1    0    50M  0 disk /var/log
 mount /dev/sda /mnt
 ```
 +
-After the mount is complete, open the cd file. The ls command will show the img file you want to burn.
+After the mount is complete, open the `**cd**` file. The `**ls**` command will show the img file you want to burn.
 +
 ```
 cd /mnt
