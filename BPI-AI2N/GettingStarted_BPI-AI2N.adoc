@@ -95,7 +95,7 @@ The board has two debug serial interfaces:
 
 . Three pin header interface. A standard 3.3V TTL-level UART port, requires a USB to TTL serial cable (such as CP2102, PL2303, CH340, etc.) to connect to the PC.
 
-
+image::/picture/ai2n-debug-uart.png[ai2n-debug-uart.png]
 
 === Networking
 
