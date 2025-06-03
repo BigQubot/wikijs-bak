@@ -23,7 +23,7 @@ Banana Pi BPI-AI2N System-on-Module (SoM) and BPI-AI2N carrier board are open-so
 . Download latest Linux Image, and confirm that the checksum is correct.
 . Default login: pi/bananapi or root/bananapi
 
-=== Install Image to SDcard
+== Install Image to SDcard
 
 > Install Image with Balena Etcher on Windows, Linux and MacOS.
 
@@ -54,7 +54,7 @@ umount SDcard device /dev/sdX partition if mounted automatically.
  $ sudo sh -c 'xzcat xxx-bpi-ai2n-xxx.img.xz | pv | dd of=/dev/sdX bs=1M status=progress && sync'
 ```
 
-=== Install Image to eMMC
+== Install Image to eMMC
 
 . Prepare a SDcard with Linux image flashed and bootup board with this SDcard.
 . Copy Linux image to udisk, plug the udisk to board and mount it.
@@ -65,7 +65,7 @@ umount SDcard device /dev/sdX partition if mounted automatically.
  $ sudo sh -c 'xzcat xxx-bpi-ai2n-xxx.img.xz | pv | dd of=/dev/sdX bs=1M status=progress && sync'
 ```
 
-=== Build Linux Source Code
+== Build Linux Source Code
 Get source code
 
 ```sh
@@ -77,7 +77,7 @@ Build source code
  $  
 ```
 
-=== DTB overlay
+== DTB overlay
 DTB overlay is used for 40pin gpios multi-function configuration 
 
 ```sh
@@ -109,13 +109,13 @@ Another way, add names of overlays you want to activate to overlays= line in /bo
  overlays=i2c1 spi2 uart0
 ```
 
-=== Libgpiod
+== Libgpiod
 
-=== Python3-periphery
+== Python3-periphery
 
-=== Adafruit-Blinka
+== Adafruit-Blinka
 
-=== WiringPi
+== WiringPi
 WARNING: Note: This WiringPi only support set 40pin gpio to output, input, for io functions as i2c, spi, pwm..., you must enable dtb overlays
 
 Build and install wiringPi, for debian, you must install sudo before build
@@ -166,7 +166,7 @@ lcd-bpi: link:/en/BPI-LCD_1602/BananaPi_BPI-LCD_1602[BPI LCD 1602 display module
 matrixled-bpi: link:/en/BPI-RGB_LED/BananaPi_BPI_RGB_LED[BPI RGB LED Matrix Expansion Module] example.
 berryclip-bpi: link:/en/BPI-BerrClip/BananaPi_BPI-BerryClip[BPI BerryClip Module]
 
-=== RPi.GPIO
+== RPi.GPIO
 
 Build and install.
 ```sh
@@ -188,7 +188,7 @@ Install from git source directly without development
 ```
 If the package is already installed, it should be uninstalled before installing the new one, or installing the new one with --force-reinstall option.
 
-=== WiringPi-Python
+== WiringPi-Python
 
 Build and install.
 ```sh
@@ -199,7 +199,7 @@ Build and install.
  $ sudo python3 setup.py install
 ```
 
-=== Install Docker Engine
+== Install Docker Engine
 
 link:https://docs.docker.com/engine/install/[Install Docker Engine] with a simple command
 ```sh
