@@ -2,18 +2,17 @@
 
 TIP: More Infomation: link:/en/BPI-M4_Zero/BananaPi_BPI-M4_Zero[Banana Pi BPI-M4_Zero]
 
-= Development
 
-== Android
+= Android
 
-=== Preoare
+== Preoare
 . Download latest link:/en/BPI-M4_Zero/BananaPi_BPI-M4_Zero#_android_2[Android image].
 
 . Download and Install link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2Fphoenixsuit_V1.1.0_20150325.rar[Allwinner Image Download Tools], PhoenixSuit is for window. 
 
 . Type-C cable, 5V power supply.
 
-=== Install Image with USB tool
+== Install Image with USB tool
 
 . Open PhoenixSuit, click the Firmware icon to switching to firmware download panel, then click Image button and choose the Android Image file.
 +
@@ -32,8 +31,8 @@ image::/picture/m4-zero_android_4.jpg[m4-zero_android_4.jpg]
 +
 image::/picture/m4-zero_android_5.jpg[m4-zero_android_5.jpg]
 
-== Linux
-=== Prepare
+= Linux
+== Prepare
 
 . Linux image support SDcard or EMMC bootup, and will boot from the SD card first.
 . It’s recommended to use A1 rated cards, 8GB at least.
@@ -43,7 +42,7 @@ image::/picture/m4-zero_android_5.jpg[m4-zero_android_5.jpg]
 . Default login: pi/bananapi or root/bananapi
 . The wiki guide is only for [bananapi 4.9 bsp ubuntu/debian images].
 
-=== Install Image to SDcard
+== Install Image to SDcard
 **Windows**
 
 link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
@@ -54,7 +53,67 @@ link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by 
 
 image::/picture/etcher.jpg[etcher.jpg]
 
-=== Install Image to eMMC
+== Use DD command to burn to eMMC
+. Copy the img file to the USB drive and insert it into the M4 ZERO.
+
+. Execute:
++
+```root@bpi-m4zero:~# lsblk
+NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+sda            8:0    1   961M  0 disk
+mmcblk1      179:0    0  14.8G  0 disk
+└─mmcblk1p1  179:1    0  14.7G  0 part /var/log.hdd
+                                       /
+mmcblk0      179:16   0   7.3G  0 disk
+├─mmcblk0p1  179:17   0    32M  0 part
+├─mmcblk0p2  179:18   0    32M  0 part
+├─mmcblk0p3  179:19   0   256K  0 part
+├─mmcblk0p4  179:20   0   256K  0 part
+├─mmcblk0p5  179:21   0    64M  0 part
+├─mmcblk0p6  179:22   0    64M  0 part
+├─mmcblk0p7  179:23   0    32M  0 part
+├─mmcblk0p8  179:24   0    32M  0 part
+├─mmcblk0p9  179:25   0     3G  0 part
+├─mmcblk0p10 179:26   0    16M  0 part
+├─mmcblk0p11 179:27   0   128K  0 part
+├─mmcblk0p12 179:28   0   128K  0 part
+├─mmcblk0p13 179:29   0    64K  0 part
+├─mmcblk0p14 179:30   0    64K  0 part
+├─mmcblk0p15 179:31   0    64K  0 part
+├─mmcblk0p16 259:0    0    64K  0 part
+├─mmcblk0p17 259:1    0   512K  0 part
+├─mmcblk0p18 259:2    0    15M  0 part
+├─mmcblk0p19 259:3    0    16M  0 part
+├─mmcblk0p20 259:4    0    16M  0 part
+├─mmcblk0p21 259:5    0     2M  0 part
+├─mmcblk0p22 259:6    0     2M  0 part
+├─mmcblk0p23 259:7    0    16M  0 part
+├─mmcblk0p24 259:8    0    16M  0 part
+└─mmcblk0p25 259:9    0   3.9G  0 part
+mmcblk0boot0 179:32   0     4M  1 disk
+mmcblk0boot1 179:48   0     4M  1 disk
+zram0        254:0    0 982.5M  0 disk [SWAP]
+zram1        254:1    0    50M  0 disk /var/log
+```
++
+```
+mount /dev/sda /mnt
+```
++
+After the mount is complete, open the cd file. The ls command will show the img file you want to burn.
++
+```
+cd /mnt
+ls
+```
+
+. Then use the dd command to burn the file.
++
+```
+sudo dd if=20241011_Bananapi-Armbian_24.8.2_Bpi-m4zero_ubuntu22.04_jammy_legacy_5.4.125_minimal.img of=/dev/mmcblk0
+```
+
+== Install Image to eMMC
 
 . Make sure that the Linux image has been burned into an SD card and started normally.
 
@@ -87,14 +146,14 @@ image::/picture/bpi_m4_berry_mobaxterm_17.jpg[bpi_m4_berry_mobaxterm_17.jpg]
 +
 image::/picture/bpi_m4_berry_mobaxterm_18.jpg[bpi_m4_berry_mobaxterm_18.jpg]
 
-=== Ubuntu Desktop
+== Ubuntu Desktop
 . Using the Ubuntu desktop version system image, you can get a graphical operation interface.
 . You need to prepare a monitor with an HDMI interface, an HDMI cable, and a mini HDMI to HDMI adapter.
 . Use an HDMI cable and a mini HDMI to HDMI adapter to connect the monitor and BPI-M4 Zero, switch the monitor input interface to the corresponding HDMI interface, power on, and wait a moment to see the desktop.
 +
 image::/picture/bpi_m4_berry_ubuntu_1.jpg[bpi_m4_berry_ubuntu_1.jpg]
 
-=== Debug UART
+== Debug UART
 . Prepare a 3.3v USB to TTL module.
 . Use the USB to TTL module to connect the PC USB port and the Debug UART port on the board.
 . Open a serial terminal software on the PC, such as link:https://mobaxterm.mobatek.net/[mobaxterm] or link:https://www.putty.org/[putty].
@@ -103,7 +162,7 @@ image::/picture/bpi_m4_berry_ubuntu_1.jpg[bpi_m4_berry_ubuntu_1.jpg]
 image::/picture/bpi_m4_berry_mobaxterm_1.jpg[bpi_m4_berry_mobaxterm_1.jpg]
 image::/picture/bpi_m4_berry_mobaxterm_2.jpg[bpi_m4_berry_mobaxterm_2.jpg]
 
-=== SSH
+== SSH
 . Prepare a network cable and a router.
 . Use a network cable to connect the LAN port of the router to the BPI-M4 Zero, and also connect the PC to another LAN port.
 . Check the IP address of BPI-M4 Zero on the router management interface, or use the following command on the BPI-M4 Zero UART terminal to check the IP address.
@@ -132,7 +191,7 @@ image::/picture/bpi_m4_berry_mobaxterm_3.jpg[bpi_m4_berry_mobaxterm_3.jpg]
 +
 image::/picture/bpi_m4_berry_mobaxterm_4.jpg[bpi_m4_berry_mobaxterm_4.jpg]
 
-=== NoMachine Remote Desktop
+== NoMachine Remote Desktop
 . Make sure BPI-M4 Zero is connected to the Internet and use the following command to download the nomachine DEB installation package in the system.
 +
 ```sh
@@ -161,7 +220,7 @@ image::/picture/bpi_m4_berry_nomachine_4.jpg[bpi_m4_berry_nomachine_4.jpg]
 
 . If no device is connected to the HDMI interface, the NoMachine remote desktop will display a black screen. It is recommended to keep the HDMI connection or connect an HDMI decoy device.
 
-=== WiFi
+== WiFi
 Use the nmcli command to scan WiFi hotspots, connect to hotspots, and create AP hotspots.
 ```sh
   nmcli device
@@ -183,7 +242,7 @@ Use the nmcli command to scan WiFi hotspots, connect to hotspots, and create AP 
 - link:https://developer-old.gnome.org/NetworkManager/unstable/nmcli.html[nmcli command reference document]
 - link:https://developer-old.gnome.org/NetworkManager/unstable/nmcli-examples.html[nmcli command reference examples]
 
-=== Set static IP, DNS
+== Set static IP, DNS
 . To set a static IP, you need to maintain the connection first. If you want to set an Ethernet static IP, you must first maintain the Ethernet connection; if you want to set a wireless network static IP, you must first maintain a connection to a WIFI.
 . If the upper-level router has assigned the IP address you want to set to other devices, please change it to an idle IP, or ask other devices to give up the IP.
 . Use the nmcli connection show command to display all connections, for example:
@@ -234,7 +293,7 @@ Only list three common items
   nmcli connection show TP-LINK_5G_7747
 ```
 
-=== Network time synchronization
+== Network time synchronization
 Chrony is an open source free Network Time Protocol NTP client and server software. It allows the computer to keep the system clock synchronized with the clock server (NTP), thus allowing your computer to maintain accurate time. Chrony can also be used as a server software to provide time synchronization services for other computers.
 ```sh
   timedatectl set-ntp false
@@ -258,17 +317,17 @@ Chrony is an open source free Network Time Protocol NTP client and server softwa
 ```
 - link:https://chrony-project.org/documentation.html[Chrony reference documentation]
 
-=== View hardware temperature
+== View hardware temperature
 Enter the following command to view the temperature data returned by the sensor built into the chip on the BPI-M4 Zero board.
 ```sh
   sensors
 ```
-=== Modify HDMI output resolution
+== Modify HDMI output resolution
 When using the Ubuntu desktop operating system, you can find the Displays column in Settings and modify the resolution.
 
 image::/picture/bpi_m4_berry_ubuntu_2.jpg[bpi_m4_berry_ubuntu_2.jpg]
 
-=== Use USB disk
+== Use USB disk
 . Prepare a USB disk that has been partitioned normally and insert it into the USB interface of BPI-M4 Zero.If it is a USB disk with a type-A plug, you also need a type-A to type-C adapter.
 . In the Ubuntu desktop version, you can see that the USB disk has been recognized and can be opened in the file manager, or partition management can be performed through the GParted tool.
 +
@@ -284,7 +343,7 @@ image::/picture/bpi_m4_berry_ubuntu_3.jpg[bpi_m4_berry_ubuntu_3.jpg]
   sudo umount -v /dev/sda1
 ```
 
-=== Use Audio Devices
+== Use Audio Devices
 Prepare an audio file and copy it to the BPI-M4 Zero Ubuntu desktop system through a USB flash drive or SSH.
 
 **HDMI audio**
@@ -298,7 +357,7 @@ image::/picture/bpi_m4_berry_ubuntu_4.jpg[bpi_m4_berry_ubuntu_4.jpg]
 +
 image::/picture/bpi_m4_berry_ubuntu_5.jpg[bpi_m4_berry_ubuntu_5.jpg]
 
-=== Use Bluetooth
+== Use Bluetooth
 . Open settings in the Ubuntu desktop and connect a Bluetooth device, such as a Bluetooth mouse or keyboard, in the Bluetooth bar.
 +
 image::/picture/bpi_m4_berry_ubuntu_7.jpg[bpi_m4_berry_ubuntu_7.jpg]
@@ -342,7 +401,7 @@ pi@bpi-m4zero:~$
 +
 link:https://wiki.archlinux.org/title/bluetooth[archlinux bluetooth reference document]
 
-=== Transfer files
+== Transfer files
 **scp**
 
 scp (secure copy) command in Linux system is used to copy file(s) between servers in a secure way.
