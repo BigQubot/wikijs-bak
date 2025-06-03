@@ -168,6 +168,7 @@ print their labels and number of GPIO lines. Chips may be identified by number, 
 . List GPIO lines
 +
 Print information about GPIO lines.Lines are specified by name, or optionally by offset if the chip option is provided. Each line corresponds to a GPIO pin, and the GPIO number of each pin is the line number plus 416.
+
 +
 ```sh
  $ sudo gpioinfo
