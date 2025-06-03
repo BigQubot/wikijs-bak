@@ -100,7 +100,9 @@ DTB overlay is used for 40pin gpios multi-function configuration
  renesas-rzv2n-uart2.dtbo
 ```
 Configure overlays with armbian-config, System->Kernel->DTO
-
+```sh
+ $ sudo armbian-config
+```
 image::/picture/ai2n_overlay.png[ai2n_overlay.png]
 
 more info of armbian-config, please ref to link:https://docs.armbian.com/User-Guide_Armbian-Config[Armbian-Config Guide]
