@@ -115,9 +115,11 @@ DTB overlay is used for 40pin gpios multi-function configuration
  renesas-rzv2n-uart2.dtbo
 ```
 Configure overlays with GUI tool armbian-config, go to **System->Kernel->DTO**
+
 ```sh
  $ sudo armbian-config
 ```
++
 image::/picture/ai2n_overlay.png[ai2n_overlay.png]
 
 more info of overlays configuration using armbian-config, please ref to link:https://docs.armbian.com/User-Guide_Armbian-Config/System/#device-tree-overlays[Armbian-Config Device Tree Overlays]
@@ -274,7 +276,7 @@ Before enabling remote access, please find the ip address of your board
 . Desktop
 +
 Right click the nm applet icon in the system tray, and click Connection Information item, popup window displays all the network information.
-
++
 image::/picture/ai2n-find-ip.png[ai2n-find-ip.png]
 
 . Command line
@@ -344,6 +346,6 @@ Install tigervnc and launch it on the client device
  $ sudo apt install tigervnc-viewer
  $ vncviewer 10.0.1.6
 ```
-
++
 image::/picture/ai2n-vncview.png[ai2n-vncview.png]
 
