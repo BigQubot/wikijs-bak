@@ -66,22 +66,12 @@ link:https://github.com/balena-io/balena-cli[Balena CLI] is a Command Line Inter
 ```
 
 === Build Linux Source Code
-. Get the Armbian source code
+. Get source code
 
 ```sh
  $ git clone 
 ```
-. Build the Armbian source code
-
-```sh
- $  
-```
-. Get the Yocto source code
-
-```sh
- $  git clone 
-```
-. Build the Yocto source code
+. Build source code
 
 ```sh
  $  
