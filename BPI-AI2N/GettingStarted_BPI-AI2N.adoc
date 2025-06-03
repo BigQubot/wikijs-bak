@@ -79,18 +79,11 @@ Build source code
 
 === Networking
 
-. Desktop
-+
-Right click the nm applet icon in the system tray, and click Connection Information item, popup window displays all the network configuraton
-
-. Command line
-+
-Run the following command to output your IP address to the command line:
-
 ```sh
- $ hostname -I
- 10.0.1.6
+ $ sudo armbian-config
 ```
+
+image::/picture/ai2n-network.png[ai2n-network.png]
 
 == DTB overlay
 DTB overlay is used for 40pin gpios multi-function configuration 
