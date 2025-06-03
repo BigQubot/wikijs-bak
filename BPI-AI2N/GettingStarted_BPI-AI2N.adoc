@@ -93,7 +93,6 @@ All network interface can be configured using armbian-config tool. Open **Networ
 ```sh
  $ sudo armbian-config
 ```
-
 image::/picture/ai2n-network.png[ai2n-network.png]
 
 == DTB overlay
