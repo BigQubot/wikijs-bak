@@ -478,7 +478,7 @@ Run the following command to output your IP address to the command line:
 Open a terminal window on your computer and enter the following command, replacing the <ip address> placeholder with the IP address of bananapi board you’re trying to connect to and <username> with your username:
 
 ```sh
- $ ssh pi@10.0.1.6
+ $ ssh <username>@<ip address>
 ```
 
 === VNC
