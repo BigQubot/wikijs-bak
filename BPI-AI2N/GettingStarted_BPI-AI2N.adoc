@@ -154,10 +154,13 @@ The board has a PCIe ×2 m.2 M-key connector (Pcie 3.0), and standard M.2 2280 m
 ```
 
 Test performance
-You can verify the performance of your SSD on Pi Benchmarks using the following command:
+
+You can verify the performance of your SSD on link:https://github.com/TheRemote/PiBenchmarks[Pi Benchmarks] using the following command:
 
 ```sh
- sudo curl https://raw.githubusercontent.com/TheRemote/PiBenchmarks/master/Storage.sh | sudo bash
+ $ wget https://raw.githubusercontent.com/TheRemote/PiBenchmarks/master/Storage.sh
+ $ chmod +x Storage.sh
+ $ sudo ./Storage.sh /path/to/storage
 ```
 Test results for sd, emmc and nvme ssd (KINGSTON SKC3000S512G)
 
