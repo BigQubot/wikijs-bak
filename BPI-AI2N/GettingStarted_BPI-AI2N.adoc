@@ -77,6 +77,21 @@ Build source code
  $  
 ```
 
+=== Networking
+
+. Desktop
++
+Right click the nm applet icon in the system tray, and click Connection Information item, popup window displays all the network configuraton
+
+. Command line
++
+Run the following command to output your IP address to the command line:
+
+```sh
+ $ hostname -I
+ 10.0.1.6
+```
+
 == DTB overlay
 DTB overlay is used for 40pin gpios multi-function configuration 
 
@@ -246,13 +261,45 @@ Run the following command to output your IP address to the command line:
 Open a terminal window on your computer and enter the following command, replacing the <ip address> placeholder with the IP address of bananapi board you’re trying to connect to and <username> with your username:
 
 ```sh
- $ ssh <username>@<ip address>
+ $ ssh pi@10.0.1.6
 ```
 
-You can use armbian-config to manage SSH daemon options
+You can use armbian-config to manage more configuration of SSH daemon options, go to System->Access->
 
 image::/picture/ai2n-armbian-config-ssh.png[ai2n-armbian-config-ssh.png]
 
 more info of SSH configuration using armbian-config, please ref to link:https://docs.armbian.com/User-Guide_Armbian-Config/System/#ssh-daemon[Armbian-Config SSH daemon]
 
 === VNC
+. x11vnc
+
+. Install
+
+```sh
+ $ sudo apt install x11vnc
+```
+
+. Create a password file
+
+```sh
+ $ x11vnc -storepasswd
+ Enter VNC password: 
+ Verify password:    
+ Write password to /home/pi/.vnc/passwd?  [y]/n y
+ Password written to: /home/pi/.vnc/passwd
+```
+
+. Create service file
+
+. Enable service
+
+. Connect to VNC server
+
+Install tigervnc and launch it
+
+```sh
+ $ sudo apt install tigervnc-viewer
+ $ vncviewer
+```
+
+
