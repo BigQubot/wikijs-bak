@@ -167,7 +167,7 @@ Test results for sd, emmc and nvme ssd (KINGSTON SKC3000S512G)
 [cols="1,2,2,2,2"]
 |=====
 | Category    | Test             | Sdcard Test Result    | Emmc Test Result        | Nvme SSD Test Result      
-| HDParm      | Disk Read        | 12.20 MB/s            |  MB/s             | 351.29 MB/s               
+| HDParm      | Disk Read        | 12.20 MB/s            |  MB/s             | 351.29 MB/s       
 | HDParm      | Cached Disk Read | 12.49 MB/s            |  MB/s             | 347.03 MB/s               
 | DD          | Disk Write       | 14.4 MB/s               |  MB/s               | 244 MB/s                  
 | FIO         | 4k random read   | 2328 IOPS (9313 KB/s) |  IOPS ( KB/s)  | 101386 IOPS (405544 KB/s) 
