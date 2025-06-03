@@ -116,6 +116,71 @@ image::/picture/ai2n-network.png[ai2n-network.png]
 
 == Display
 
+== RGB LED
+The board has two RGB LEDs for user control
+
+. Yellow LED on carrier board, default state is heatbeat trigger
++
+```sh
+ $ sudo sh -c 'echo timer > /sys/class/leds/carrier-led/trigger'
+```
+. Blue LED on core board, default state is default-on trigger
++
+```sh
+ $ sudo sh -c 'echo none > /sys/class/leds/core-led/trigger'
+```
+
+== Fan
+
+Enable fan
+
+```sh
+ $ sudo sh -c 'echo 1 > /sys/class/hwmon/hwmon3/fan1_target'
+```
+
+Disable fan
+
+```sh
+ $ sudo sh -c 'echo 0 > /sys/class/hwmon/hwmon3/fan1_target'
+```
+
+== M.2 NVME
+The board has a PCIe ×2 m.2 M-key connector (Pcie 3.0), and standard M.2 2280 mounting hole, allowing for the deployment of an M.2 2280 NVMe SSD.
+
+```sh
+ $ lspci
+ 00:00.0 PCI bridge: Renesas Technology Corp. Device 1135
+ 01:00.0 Non-Volatile memory controller: Kingston Technology Company, Inc. KC3000/FURY Renegade NVMe SSD [E18] (rev 01)
+```
+
+. Test performance
+You can verify the performance of your SSD on Pi Benchmarks using the following command:
++
+```sh
+ sudo curl https://raw.githubusercontent.com/TheRemote/PiBenchmarks/master/Storage.sh | sudo bash
+```
+Test results for sd, emmc and nvme ssd (KINGSTON SKC3000S512G)
+
+[options="header",cols="1,2,2,2,2"]
+|=====
+| Category    | Test             | Sdcard Test Result    | Emmc Test Result        | Nvme SSD Test Result      
+| HDParm      | Disk Read        | 60.67 MB/s            |  MB/s             | 351.29 MB/s               
+| HDParm      | Cached Disk Read | 56.71 MB/s            |  MB/s             | 347.03 MB/s               
+| DD          | Disk Write       | 14 MB/s               |  MB/s               | 244 MB/s                  
+| FIO         | 4k random read   | 2176 IOPS (8704 KB/s) |  IOPS ( KB/s)  | 101386 IOPS (405544 KB/s) 
+| FIO         | 4k random write  | 932 IOPS (3729 KB/s)  |  IOPS ( KB/s) | 43206 IOPS (172827 KB/s)  
+| IOZone      | 4k read          | 8586 KB/s             |  KB/s              | 119475 KB/s               
+| IOZone      | 4k write         | 2385 KB/s             |  KB/s              | 90619 KB/s                
+| IOZone      | 4k random read   | 6734 KB/s             |  KB/s              | 51517 KB/s                
+| IOZone      | 4k random write  | 3737 KB/s             |  KB/s              | 95139 KB/s                
+||| Score: 1076 | Score:       | Score: 24550 
+|=====
+== Wifi
+
+== Bluetooth
+
+== Camera
+
 == DTB overlay
 DTB overlay is used for 40pin gpios multi-function configuration 
 
