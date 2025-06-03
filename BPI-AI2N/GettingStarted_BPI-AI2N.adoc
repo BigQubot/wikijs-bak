@@ -310,7 +310,7 @@ sudo systemctl start x11-vnc
 . Connect to VNC server
 +
 Install tigervnc and launch it on the client device
-
++
 ```sh
  $ sudo apt install tigervnc-viewer
  $ vncviewer
