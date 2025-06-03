@@ -77,14 +77,26 @@ Build source code
  $  
 ```
 
+=== Armbian-Config
+
+link:https://docs.armbian.com/User-Guide_Armbian-Config/[Armbian-Config] is a utility for configuring your board, adjusting services, and installing applications. It comes with Armbian by default.
+
+To start the Armbian configuration utility, use the following command:
+
+```sh
+ $ sudo armbian-config
+```
+
 === Networking
 
-All network interface can be configured using armbian-config tool.
+All network interface can be configured using armbian-config tool. Open **Network-> BNS**
 ```sh
  $ sudo armbian-config
 ```
 
 image::/picture/ai2n-network.png[ai2n-network.png]
+
+More info of armbian-config, please ref to 
 
 == DTB overlay
 DTB overlay is used for 40pin gpios multi-function configuration 
