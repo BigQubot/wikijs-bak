@@ -113,6 +113,9 @@ Alternatively, add names of overlays you want to activate to **overlays=** line 
  overlays=i2c1 spi2 uart0
 ```
 
+Reboot the board to apply overlays configuration
+
+
 == Libgpiod
 
 == Python3-periphery
