@@ -40,9 +40,9 @@ image::/picture/etcher.jpg[etcher.jpg]
 link:https://github.com/balena-io/balena-cli[Balena CLI] is a Command Line Interface for balenaCloud or openBalena. It can be used to flash linux image. Download the installer or standalone package from link:https://github.com/balena-io/balena-cli/releases[balena-io] and link:https://github.com/balena-io/balena-cli/blob/master/INSTALL.md[install ]it correctly to your PC, then you can use the "link:https://docs.balena.io/reference/balena-cli/#local-flash-image[local flash]" command option of balena to flash a linux image to sdcard or usb drive.
 
 ```sh
-  $ sudo balena local flash path/to/xxx-bpi-ai2n-xxx.img.xz
-  $ sudo balena local flash path/to/xxx-bpi-ai2n-xxx.img.xz --drive /dev/disk2
-  $ sudo balena local flash path/to/xxx-bpi-ai2n-xxx.img.xz --drive /dev/disk2 --yes
+  $ sudo balena local flash xxx-bpi-ai2n-xxx.img.xz
+  $ sudo balena local flash xxx-bpi-ai2n-xxx.img.xz --drive /dev/disk2
+  $ sudo balena local flash xxx-bpi-ai2n-xxx.img.xz --drive /dev/disk2 --yes
 ```
 
 > Install Image with dd command on Linux
@@ -448,3 +448,71 @@ Using armbian-config tool to change global timezone, language, keyboard layout a
 image::/picture/ai2n-localisation.png[ai2n-localisation.png]
 
 = Yocto AI SDK
+== Prepare
+. Yocto image support SDcard or EMMC bootup.
+. It’s recommended to use A1 rated cards, 16GB at least.
+. Make sure bootable EMMC is formatted if you want bootup from SDcard Yocto
+. Download latest Yocto Image, and confirm that the checksum is correct.
+. root login without passwd.
+
+== Install Yocto Image to SDcard
+
+> Install Image with Balena Etcher on Windows, Linux and MacOS.
+
+link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
+
+- Click on "**Flash from file**" to select image. 
+- Click on "**Select target**" to select USB device. 
+- Click on "**Flash!**" Start burning.
+
+image::/picture/etcher.jpg[etcher.jpg]
+
+> Install Image with Balena Cli on Windows, Linux and MacOS.
+
+link:https://github.com/balena-io/balena-cli[Balena CLI] is a Command Line Interface for balenaCloud or openBalena. It can be used to flash linux image. Download the installer or standalone package from link:https://github.com/balena-io/balena-cli/releases[balena-io] and link:https://github.com/balena-io/balena-cli/blob/master/INSTALL.md[install ]it correctly to your PC, then you can use the "link:https://docs.balena.io/reference/balena-cli/#local-flash-image[local flash]" command option of balena to flash a linux image to sdcard or usb drive.
+
+```sh
+  $ sudo balena local flash core-image-weston-bananapi-ai2n-xxx.rootfs.wic.gz
+  $ sudo balena local flash core-image-weston-bananapi-ai2n-xxx.rootfs.wic.gz --drive /dev/disk2
+  $ sudo balena local flash core-image-weston-bananapi-ai2n-xxx.rootfs.wic.gz --drive /dev/disk2 --yes
+```
+
+> Install Image with dd command on Linux
+
+umount SDcard device /dev/sdX partition if mounted automatically. 
+
+```sh
+ $ sudo apt-get install gunzip pv
+ $ sudo sh -c 'gunzip -c core-image-weston-bananapi-ai2n-xxx.rootfs.wic.gz | pv | dd of=/dev/sdX bs=1M status=progress && sync'
+```
+
+== Install Yocto Image to eMMC
+
+. Prepare a SDcard with Linux image flashed and bootup board with this SDcard.
+. Copy Linux image to udisk, plug the udisk to board and mount it.
+. Install with dd command, umount mmcblk0p1 and mmcblk0p2 partition if mounted automatically. 
++
+```sh
+ $ sudo apt-get install gunzip pv
+ $ sudo sh -c 'gunzip -c xxx-bpi-ai2n-xxx.img.xz | pv | dd of=/dev/sdX bs=1M status=progress && sync'
+```
+
+== Build Yocoto AI SDK Source Code
+Get source code
+
+```sh
+ $ git clone 
+```
+Build source code
+
+```sh
+ $  
+```
+
+== Yocto AI SDK Overview
+
+== Obtain Yocto AI SDK
+
+== Setup Yocto AI SDK
+
+== Build Yocto AI Application
