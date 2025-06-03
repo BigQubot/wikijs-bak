@@ -283,13 +283,33 @@ x11vnc
  Password written to: /home/pi/.vnc/passwd
 ```
 
-. Create service file
+. Create service file /lib/systemd/system/x11-vnc.service
++
+```sh
+[Unit]
+Description="x11vnc"
+Requires=display-manager.service
+After=lightdm.service
+
+[Service]
+ExecStart=/usr/bin/x11vnc -auth guess -loop -forever -safer -shared -ultrafilexfer -bg -o /var/log/x11vnc.log
+ExecStop=/usr/bin/killall x11vnc
+
+[Install]
+WantedBy=multi-user.target
+```
 
 . Enable service
++
+```sh
+sudo systemctl daemon-reload
+sudo systemctl enable x11-vnc
+sudo systemctl start x11-vnc
+```
 
 . Connect to VNC server
 
-Install tigervnc and launch it
+Install tigervnc and launch it on the client device
 
 ```sh
  $ sudo apt install tigervnc-viewer
