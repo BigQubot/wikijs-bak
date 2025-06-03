@@ -79,6 +79,7 @@ Build source code
 
 === Networking
 
+All network interface can be configured using armbian-config tool.
 ```sh
  $ sudo armbian-config
 ```
