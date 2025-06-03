@@ -119,7 +119,7 @@ Configure overlays with GUI tool armbian-config, go to **System->Kernel->DTO**
 ```sh
  $ sudo armbian-config
 ```
-+
+
 image::/picture/ai2n_overlay.png[ai2n_overlay.png]
 
 more info of overlays configuration using armbian-config, please ref to link:https://docs.armbian.com/User-Guide_Armbian-Config/System/#device-tree-overlays[Armbian-Config Device Tree Overlays]
