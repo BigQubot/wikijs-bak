@@ -77,9 +77,9 @@ Build source code
  $  
 ```
 
-=== Armbian-Config
+== Armbian-Config
 
-link:https://docs.armbian.com/User-Guide_Armbian-Config/[Armbian-Config] is a utility for configuring your board, adjusting services, and installing applications. It comes with Armbian by default.
+link:https://docs.armbian.com/User-Guide_Armbian-Config/[Armbian-Config] is a utility for configuring your board, adjusting services, and installing applications. It comes with Armbian  images by default.
 
 To start the Armbian configuration utility, use the following command:
 
@@ -87,7 +87,7 @@ To start the Armbian configuration utility, use the following command:
  $ sudo armbian-config
 ```
 
-=== Debug Serial
+== Debug Serial
 
 The board has two debug serial interfaces:
 
@@ -106,7 +106,7 @@ All standard Linux network configuration methods are applicable to the board, su
 ```
 image::/picture/ai2n-network.png[ai2n-network.png]
 
-=== Display
+== Display
 
 == DTB overlay
 DTB overlay is used for 40pin gpios multi-function configuration 
