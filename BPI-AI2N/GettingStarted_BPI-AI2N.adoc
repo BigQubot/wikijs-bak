@@ -96,8 +96,6 @@ All network interface can be configured using armbian-config tool. Open **Networ
 
 image::/picture/ai2n-network.png[ai2n-network.png]
 
-More info of armbian-config, please ref to 
-
 == DTB overlay
 DTB overlay is used for 40pin gpios multi-function configuration 
 
