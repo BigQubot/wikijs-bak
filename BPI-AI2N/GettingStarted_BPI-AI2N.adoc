@@ -224,6 +224,10 @@ Sometimes you need to access the board without connecting it to a monitor, keybo
 . VNC
 
 === SSH
+Find the ip address of your board
+
+==== Desktop
+Right click the nm applet icon in the system tray, and click Connection Information item, popup window displays all the network configuraton
 
 Open a terminal window on your computer and enter the following command, replacing the <ip address> placeholder with the IP address of bananapi board you’re trying to connect to and <username> with your username:
 
