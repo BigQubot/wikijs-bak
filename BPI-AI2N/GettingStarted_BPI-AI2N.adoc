@@ -14,7 +14,7 @@ Banana Pi BPI-AI2N System-on-Module (SoM) and BPI-AI2N carrier board are open-so
 - Debugging – USB Type-C debug header
 - Power Supply – 12V @3A via USB Type-C port
 
-= Development
+= Armbian Linux
 == Prepare
 
 . Linux image support SDcard or EMMC bootup.
@@ -446,3 +446,5 @@ Using armbian-config tool to change global timezone, language, keyboard layout a
  $ sudo armbian-config
 ```
 image::/picture/ai2n-localisation.png[ai2n-localisation.png]
+
+= Yocto AI SDK
