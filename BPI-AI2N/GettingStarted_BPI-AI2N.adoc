@@ -59,7 +59,7 @@ umount SDcard device /dev/sdX partition if mounted automatically.
 . Prepare a SDcard with Linux image flashed and bootup board with this SDcard.
 . Copy Linux image to udisk, plug the udisk to board and mount it.
 . Install with dd command, umount mmcblk0p1 and mmcblk0p2 partition if mounted automatically. 
-+
+
 ```sh
  $ sudo apt-get install xz-utils pv
  $ sudo sh -c 'xzcat xxx-bpi-ai2n-xxx.img.xz | pv | dd of=/dev/sdX bs=1M status=progress && sync'
