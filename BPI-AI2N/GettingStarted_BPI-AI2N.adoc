@@ -242,8 +242,7 @@ Sometimes you need to access the board without connecting it to a monitor, keybo
 . SSH
 . VNC
 
-=== SSH
-Find the ip address of your board
+Before enabling remote access, please find the ip address of your board
 
 . Desktop
 +
@@ -258,6 +257,7 @@ Run the following command to output your IP address to the command line:
  10.0.1.6
 ```
 
+=== SSH
 Open a terminal window on your computer and enter the following command, replacing the <ip address> placeholder with the IP address of bananapi board you’re trying to connect to and <username> with your username:
 
 ```sh
@@ -313,7 +313,7 @@ Install tigervnc and launch it on the client device
 +
 ```sh
  $ sudo apt install tigervnc-viewer
- $ vncviewer
+ $ vncviewer 10.0.1.6
 ```
 
 
