@@ -183,14 +183,37 @@ Print information about GPIO lines. Lines are specified by name, or optionally b
 	        line  95:       "PB_7"       unused   input  active-high
 ```
 
+. Get gpio line number from name
++
+For example, 40pin header phy pin.31 name is P9_5.
++
+```sh
+ $ sudo gpiofind P9_5
+ 77
+```
 
-
-. Read values of GPIO line
+. Read value of 40pin header phy pin.31
 +
 ```sh
  $ sudo gpioget gpiochip0 77
  1
 ```
+
+. Set value of 40pin header phy pin.31 to low
++
+```sh
+ $ sudo gpioset gpiochip0 77=0
+```
+
+. Monitor GPIO level change event
++
+You need to specify either -r for rising edge events or -f for falling edge events, but not both.
++
+```sh
+ $ sudo gpiomon -r gpiochip0 77
+ event:  RISING EDGE offset: 77 timestamp: [   22813.801682561]
+```
+
 
 
 == Python3-periphery
