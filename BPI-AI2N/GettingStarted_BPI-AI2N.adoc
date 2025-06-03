@@ -158,7 +158,6 @@ Run gpio readall to show all 40pins status.
  | I/O | wPi |   Name  | Mode | V | Physical | V | Mode |  Name   | wPi | I/O |
  +-----+-----+---------+------+---+-- AI2N --+---+------+---------+-----+-----+
 ```
-
 BPI GPIO Extend board and examples in link:https://github.com/Dangku/WiringPi/tree/master/examples[WiringPi/examples]
 
 blinkall: blink all pin header gpios, no extend board. +
