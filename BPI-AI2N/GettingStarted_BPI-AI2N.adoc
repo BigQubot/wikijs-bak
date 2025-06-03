@@ -227,10 +227,12 @@ Sometimes you need to access the board without connecting it to a monitor, keybo
 Find the ip address of your board
 
 . Desktop
-
++
 Right click the nm applet icon in the system tray, and click Connection Information item, popup window displays all the network configuraton
 
 . Command line
++
+Run the following command to output your IP address to the command line:
 
 ```sh
  $ hostname -I
