@@ -58,7 +58,8 @@ image::/picture/etcher.jpg[etcher.jpg]
 
 . Execute:
 +
-```root@bpi-m4zero:~# lsblk
+```
+root@bpi-m4zero:~# lsblk
 NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
 sda            8:0    1   961M  0 disk
 mmcblk1      179:0    0  14.8G  0 disk
@@ -95,6 +96,7 @@ mmcblk0boot1 179:48   0     4M  1 disk
 zram0        254:0    0 982.5M  0 disk [SWAP]
 zram1        254:1    0    50M  0 disk /var/log
 ```
+
 +
 ```
 mount /dev/sda /mnt
