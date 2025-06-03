@@ -40,18 +40,18 @@ image::/picture/etcher.jpg[etcher.jpg]
 link:https://github.com/balena-io/balena-cli[Balena CLI] is a Command Line Interface for balenaCloud or openBalena. It can be used to flash linux image. Download the installer or standalone package from link:https://github.com/balena-io/balena-cli/releases[balena-io] and link:https://github.com/balena-io/balena-cli/blob/master/INSTALL.md[install ]it correctly to your PC, then you can use the "link:https://docs.balena.io/reference/balena-cli/#local-flash-image[local flash]" command option of balena to flash a linux image to sdcard or usb drive.
 
 ```sh
- $ sudo balena local flash path/to/xxx-bpi-ai2n-xxx.img.xz
- $ sudo balena local flash path/to/xxx-bpi-ai2n-xxx.img.xz --drive /dev/disk2
- $ sudo balena local flash path/to/xxx-bpi-ai2n-xxx.img.xz --drive /dev/disk2 --yes
+  $ sudo balena local flash path/to/xxx-bpi-ai2n-xxx.img.xz
+  $ sudo balena local flash path/to/xxx-bpi-ai2n-xxx.img.xz --drive /dev/disk2
+  $ sudo balena local flash path/to/xxx-bpi-ai2n-xxx.img.xz --drive /dev/disk2 --yes
 ```
 
 > Install Image with dd command on Linux
 
-. umount SDcard device /dev/sdX partition if mounted automatically. 
+umount SDcard device /dev/sdX partition if mounted automatically. 
 
 ```sh
  $ sudo apt-get install xz-utils pv
- $ sudo xzcat xxx-bpi-ai2n-xxx.img.xz | pv | dd of=/dev/sdX bs=1M status=noxfer
+ $ sudo sh -c 'xzcat xxx-bpi-ai2n-xxx.img.xz | pv | dd of=/dev/sdX bs=1M status=progress && sync'
 ```
 
 === Install Image to eMMC
@@ -59,35 +59,55 @@ link:https://github.com/balena-io/balena-cli[Balena CLI] is a Command Line Inter
 . Prepare a SDcard with Linux image flashed and bootup board with this SDcard.
 . Copy Linux image to udisk, plug the udisk to board and mount it.
 . Install with dd command, umount mmcblk0p1 and mmcblk0p2 partition if mounted automatically. 
-
++
 ```sh
  $ sudo apt-get install xz-utils pv
- $ sudo xzcat xxx-bpi-ai2n-xxx.img.xz | pv | dd of=/dev/sdX bs=1M status=noxfer
+ $ sudo sh -c 'xzcat xxx-bpi-ai2n-xxx.img.xz | pv | dd of=/dev/sdX bs=1M status=progress && sync'
 ```
 
 === Build Linux Source Code
-. Get source code
+Get source code
 
 ```sh
  $ git clone 
 ```
-. Build source code
+Build source code
 
 ```sh
  $  
 ```
 
 === DTB overlay
-. DTB overlay is used for 40pin gpios multi-function configuration 
+DTB overlay is used for 40pin gpios multi-function configuration 
 
 ```sh
- root@bananapi:~# ls /boot/dtb/overlays/
-
+ $ ls /boot/dtb/renesas/overlay/
+ README.renesas-overlays
+ renesas-fixup.scr
+ renesas-rzv2n-i2c1.dtbo
+ renesas-rzv2n-i2c1-flash.dtbo
+ renesas-rzv2n-i2c1-rtc.dtbo
+ renesas-rzv2n-i2c2.dtbo
+ renesas-rzv2n-i2s3-nxez-pcm512x.dtbo
+ renesas-rzv2n-i2s3-waveshare-wm8960.dtbo
+ renesas-rzv2n-spi0.dtbo
+ renesas-rzv2n-spi2.dtbo
+ renesas-rzv2n-spi2-flash.dtbo
+ renesas-rzv2n-spi2-waveshare-st7789v.dtbo
+ renesas-rzv2n-spi2-waveshare-tft24.dtbo
+ renesas-rzv2n-spi2-waveshare-tft35c.dtbo
+ renesas-rzv2n-uart0.dtbo
+ renesas-rzv2n-uart2.dtbo
 ```
+Configure overlays with armbian-config, System->Kernel->DTO
 
-. Configure overlays with armbian-config
+image::/picture/ai2n_overlay.png[ai2n_overlay.png]
 
-. Configure overlays with editing /boot/armbianEnv.txt
+Another way, add names of overlays you want to activate to overlays= line in /boot/armbianEnv.txt, separated with spaces, for example, enable i2c2, spi2 and uart0 overlays
+
+```sh
+ overlays=i2c1 spi2 uart0
+```
 
 === Libgpiod
 
@@ -98,7 +118,7 @@ link:https://github.com/balena-io/balena-cli[Balena CLI] is a Command Line Inter
 === WiringPi
 WARNING: Note: This WiringPi only support set 40pin gpio to output, input, for io functions as i2c, spi, pwm..., you must enable dtb overlays
 
-. Build and install wiringPi, for debian, you must install sudo before build
+Build and install wiringPi, for debian, you must install sudo before build
 
 ```sh
  $ sudo apt-get update
@@ -108,17 +128,44 @@ WARNING: Note: This WiringPi only support set 40pin gpio to output, input, for i
  $ chmod a+x build
  $ sudo ./build
 ```
-. Run gpio readall to show all 40pins status.
-+
-image::/picture/m5_wiringpi.png[m5_wiringpi.png]
+Run gpio readall to show all 40pins status.
+```sh
+ $ sudo gpio readall
+ +-----+-----+---------+------+---+-- AI2N --+---+------+---------+-----+-----+
+ | I/O | wPi |   Name  | Mode | V | Physical | V | Mode |  Name   | wPi | I/O |
+ +-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+
+ |     |     |    3.3V |      |   |  1 || 2  |   |      | 5V      |     |     |
+ | 442 |   8 |   SDA.1 | HI-Z | 0 |  3 || 4  |   |      | 5V      |     |     |
+ | 443 |   9 |   SCL.1 | HI-Z | 0 |  5 || 6  |   |      | 0V      |     |     |
+ | 484 |   7 |  IO.484 | HI-Z | 0 |  7 || 8  | 0 | HI-Z | TxD2    | 15  | 460 |
+ |     |     |      0V |      |   |  9 || 10 | 0 | HI-Z | RxD2    | 16  | 461 |
+ | 488 |   0 |  IO.488 | HI-Z | 0 | 11 || 12 | 0 | HI-Z | IO.426  | 1   | 426 |
+ | 489 |   2 |  IO.489 | HI-Z | 0 | 13 || 14 |   |      | 0V      |     |     |
+ | 490 |   3 |  IO.490 | HI-Z | 0 | 15 || 16 | 0 | HI-Z | IO.463  | 4   | 463 |
+ |     |     |    3.3V |      |   | 17 || 18 | 0 | HI-Z | IO.462  | 5   | 462 |
+ | 508 |  12 |    MOSI | HI-Z | 0 | 19 || 20 |   |      | 0V      |     |     |
+ | 507 |  13 |    MISO | HI-Z | 0 | 21 || 22 | 0 | HI-Z | IO.459  | 6   | 459 |
+ | 509 |  14 |    SLCK | HI-Z | 0 | 23 || 24 | 0 | HI-Z | SS      | 10  | 503 |
+ |     |     |      0V |      |   | 25 || 26 | 0 | HI-Z | IO.502  | 11  | 502 |
+ | 432 |  30 |   SDA.2 | HI-Z | 0 | 27 || 28 | 0 | HI-Z | SCL.2   | 31  | 433 |
+ | 491 |  21 |  IO.491 | HI-Z | 0 | 29 || 30 |   |      | 0V      |     |     |
+ | 493 |  22 |  IO.493 | HI-Z | 0 | 31 || 32 | 0 | HI-Z | IO.456  | 26  | 456 |
+ | 458 |  23 |  IO.458 | HI-Z | 0 | 33 || 34 |   |      | 0V      |     |     |
+ | 427 |  24 |  IO.427 | HI-Z | 0 | 35 || 36 | 0 | HI-Z | IO.457  | 27  | 457 |
+ | 495 |  25 |  IO.495 | HI-Z | 0 | 37 || 38 | 0 | HI-Z | IO.429  | 28  | 429 |
+ |     |     |      0V |      |   | 39 || 40 | 0 | HI-Z | IO.420  | 29  | 420 |
+ +-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+
+ | I/O | wPi |   Name  | Mode | V | Physical | V | Mode |  Name   | wPi | I/O |
+ +-----+-----+---------+------+---+-- AI2N --+---+------+---------+-----+-----+
+```
 
-. BPI GPIO Extend board and examples in link:https://github.com/Dangku/WiringPi/tree/master/examples[WiringPi/examples]
-+
-blinkall, blink all pin header gpios, no extend board. +
-lcd-bpi, link:/en/BPI-LCD_1602/BananaPi_BPI-LCD_1602[BPI LCD 1602 display module] example. +
-52pi-bpi, link:/en/BPI-OLED/BananaPi_BPI-OLED[BPI OLED Display Module] example. +
-matrixled-bpi, link:/en/BPI-RGB_LED/BananaPi_BPI_RGB_LED[BPI RGB LED Matrix Expansion Module] example. +
-berryclip-bpi, link:/en/BPI-BerrClip/BananaPi_BPI-BerryClip[BPI BerryClip Module]
+BPI GPIO Extend board and examples in link:https://github.com/Dangku/WiringPi/tree/master/examples[WiringPi/examples]
+
+blinkall: blink all pin header gpios, no extend board. +
+lcd-bpi: link:/en/BPI-LCD_1602/BananaPi_BPI-LCD_1602[BPI LCD 1602 display module] example. +
+52pi-bpi: link:/en/BPI-OLED/BananaPi_BPI-OLED[BPI OLED Display Module] example. +
+matrixled-bpi: link:/en/BPI-RGB_LED/BananaPi_BPI_RGB_LED[BPI RGB LED Matrix Expansion Module] example.
+berryclip-bpi: link:/en/BPI-BerrClip/BananaPi_BPI-BerryClip[BPI BerryClip Module]
 
 === RPi.GPIO
 
@@ -160,9 +207,8 @@ link:https://docs.docker.com/engine/install/[Install Docker Engine] with a simpl
  $ curl -sSL get.docker.com | sudo sh
 ```
 . Verify the Docker Engine is installed correctly by running the hello-world image.
-+
+
 ```sh
-$ sudo docker run hello-world
+ $ sudo docker run hello-world
 ```
-+
 image::/picture/docker-test.png[docker-test.png]
