@@ -179,9 +179,30 @@ Test results for sd, emmc and nvme ssd (KINGSTON SKC3000S512G)
 |             |                  | Score: 1371           | Score:            | Score: 20342 
 |=====
 
-== Wifi
+== WIFI
+Onboard wifi module is realtek rtl8821cu, IEEE 802.11b/g/n/ac(1T1R) USB2.0 WLAN and BT Module
 
+```sh
+ $ ifconfig  wlan0
+ wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+         inet 10.0.1.12  netmask 255.255.255.0  broadcast 10.0.1.255
+         inet6 fe80::44a5:d624:e8e0:2bea  prefixlen 64  scopeid 0x20<link>
+         ether 14:5d:34:49:97:8e  txqueuelen 1000  (Ethernet)
+         RX packets 4343  bytes 838419 (818.7 KiB)
+         RX errors 0  dropped 0  overruns 0  frame 0
+         TX packets 507  bytes 41012 (40.0 KiB)
+         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+```
 == Bluetooth
+Onboard Bluetooth module is realtek rtl8821cu, IEEE 802.11b/g/n/ac(1T1R) USB2.0 WLAN and BT Module. The BT controller supports BT 4.2 system and compatibles Bluetooth 2.1+EDR. 
+
+```sh
+ $ hcitool dev
+ Devices:
+	 hci0	14:5D:34:49:97:8F
+```
+
+Bluetooth adapters can be managed using blueman-manager or the bluetoothctl CLI tool.
 
 == Camera
 
