@@ -151,7 +151,7 @@ Reboot the board to apply overlays configuration
 Traditionally GPIO pins are exposed by Linux kernel under /sys/class/gpio namespace. However, this interface has been deprecated since version 4.8. The replacement is a C binding called libgpiod, along with a set of user land tools called gpiod.
 
 . Install Gpiod
-
++
 ```sh
  $ sudo apt install gpiod
 ```
@@ -159,14 +159,28 @@ Traditionally GPIO pins are exposed by Linux kernel under /sys/class/gpio namesp
 . List GPIO chips
 +
 print their labels and number of GPIO lines. Chips may be identified by number, name, or path. e.g. ‘0’, ‘gpiochip0’, and ‘/dev/gpiochip0’ all refer to the same chip.
-
++
 ```sh
  $ sudo gpiodetect
  gpiochip0 [10410000.pinctrl] (96 lines)
 ```
 
-List all gpio pins, each line is
-Print information about GPIO lines.Lines are specified by name, or optionally by offset if the chip option is provided.
+. List GPIO lines
++
+Print information about GPIO lines.Lines are specified by name, or optionally by offset if the chip option is provided. Each line corresponds to a GPIO pin, and the GPIO number of each pin is the line number plus 416.
++
+```sh
+ $ sudo gpioinfo
+	gpiochip0 - 96 lines:
+	        line   0:       "P0_0"    "sys-led"  output  active-high [used]
+	        line   1:       "P0_1"       unused   input  active-high 
+	        line   2:       "P0_2"       unused   input  active-high 
+	        line   3:       "P0_3"       unused   input  active-high
+            ...
+	        line  93:       "PB_5"       unused   input  active-high 
+	        line  94:       "PB_6"       unused   input  active-high 
+	        line  95:       "PB_7"       unused   input  active-high
+```
 
 == Python3-periphery
 
