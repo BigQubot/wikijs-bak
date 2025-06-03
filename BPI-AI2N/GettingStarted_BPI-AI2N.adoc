@@ -153,9 +153,9 @@ The board has a PCIe ×2 m.2 M-key connector (Pcie 3.0), and standard M.2 2280 m
  01:00.0 Non-Volatile memory controller: Kingston Technology Company, Inc. KC3000/FURY Renegade NVMe SSD [E18] (rev 01)
 ```
 
-. Test performance
+Test performance
 You can verify the performance of your SSD on Pi Benchmarks using the following command:
-+
+
 ```sh
  sudo curl https://raw.githubusercontent.com/TheRemote/PiBenchmarks/master/Storage.sh | sudo bash
 ```
