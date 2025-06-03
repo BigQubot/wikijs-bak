@@ -205,7 +205,7 @@ link:https://docs.docker.com/engine/install/[Install Docker Engine] with a simpl
 ```sh
  $ curl -sSL get.docker.com | sudo sh
 ```
-. Verify the Docker Engine is installed correctly by running the hello-world image.
+Verify the Docker Engine is installed correctly by running the hello-world image.
 
 ```sh
  $ sudo docker run hello-world
