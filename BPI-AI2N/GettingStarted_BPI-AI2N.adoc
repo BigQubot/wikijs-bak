@@ -87,13 +87,26 @@ To start the Armbian configuration utility, use the following command:
  $ sudo armbian-config
 ```
 
+=== Debug Serial
+
+The board has two debug serial interfaces:
+
+. Type-C interface. Can be connected to a PC using a regular USB Type-C cable without Linux or Windows specific driver install.
+
+. Three pin header interface. A standard 3.3V TTL-level UART port, requires a USB to TTL serial cable (such as CP2102, PL2303, CH340, etc.) to connect to the PC.
+
+
+
 === Networking
 
-All network interface can be configured using armbian-config tool. Open **Network-> BNS**
+All standard Linux network configuration methods are applicable to the board, such as NetworkManager, Netplan, etc. You can also use **armbian-config** to configure all network interfaces.
+
 ```sh
- $ sudo armbian-config
+ $ sudo armbian-config --cmd BNS001
 ```
 image::/picture/ai2n-network.png[ai2n-network.png]
+
+=== Display
 
 == DTB overlay
 DTB overlay is used for 40pin gpios multi-function configuration 
@@ -117,9 +130,10 @@ DTB overlay is used for 40pin gpios multi-function configuration
  renesas-rzv2n-uart0.dtbo
  renesas-rzv2n-uart2.dtbo
 ```
-Configure overlays with GUI tool armbian-config, go to **System->Kernel->DTO**
+Configure overlays with GUI tool armbian-config.
+
 ```sh
- $ sudo armbian-config
+ $ sudo armbian-config --cmd DTO001
 ```
 
 image::/picture/ai2n_overlay.png[ai2n_overlay.png]
