@@ -167,16 +167,16 @@ Test results for sd, emmc and nvme ssd (KINGSTON SKC3000S512G)
 [options="header",cols="1,2,2,2,2"]
 |=====
 | Category    | Test             | Sdcard Test Result    | Emmc Test Result        | Nvme SSD Test Result      
-| HDParm      | Disk Read        | 60.67 MB/s            |  MB/s             | 351.29 MB/s               
-| HDParm      | Cached Disk Read | 56.71 MB/s            |  MB/s             | 347.03 MB/s               
-| DD          | Disk Write       | 14 MB/s               |  MB/s               | 244 MB/s                  
-| FIO         | 4k random read   | 2176 IOPS (8704 KB/s) |  IOPS ( KB/s)  | 101386 IOPS (405544 KB/s) 
-| FIO         | 4k random write  | 932 IOPS (3729 KB/s)  |  IOPS ( KB/s) | 43206 IOPS (172827 KB/s)  
-| IOZone      | 4k read          | 8586 KB/s             |  KB/s              | 119475 KB/s               
-| IOZone      | 4k write         | 2385 KB/s             |  KB/s              | 90619 KB/s                
-| IOZone      | 4k random read   | 6734 KB/s             |  KB/s              | 51517 KB/s                
-| IOZone      | 4k random write  | 3737 KB/s             |  KB/s              | 95139 KB/s                
-||| Score: 1076 | Score:       | Score: 24550 
+| HDParm      | Disk Read        | 12.20 MB/s            |  MB/s             | 351.29 MB/s               
+| HDParm      | Cached Disk Read | 12.49 MB/s            |  MB/s             | 347.03 MB/s               
+| DD          | Disk Write       | 14.4 MB/s               |  MB/s               | 244 MB/s                  
+| FIO         | 4k random read   | 2328 IOPS (9313 KB/s) |  IOPS ( KB/s)  | 101386 IOPS (405544 KB/s) 
+| FIO         | 4k random write  | 944 IOPS (3777 KB/s)  |  IOPS ( KB/s) | 43206 IOPS (172827 KB/s)  
+| IOZone      | 4k read          | 11684 KB/s             |  KB/s              | 119475 KB/s               
+| IOZone      | 4k write         | 4969 KB/s             |  KB/s              | 90619 KB/s                
+| IOZone      | 4k random read   | 8902 KB/s             |  KB/s              | 51517 KB/s                
+| IOZone      | 4k random write  | 5135 KB/s             |  KB/s              | 95139 KB/s                
+||| Score: 1371 | Score:       | Score: 24550 
 |=====
 == Wifi
 
