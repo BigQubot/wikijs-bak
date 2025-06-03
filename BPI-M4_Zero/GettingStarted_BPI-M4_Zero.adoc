@@ -53,7 +53,7 @@ link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by 
 
 image::/picture/etcher.jpg[etcher.jpg]
 
-== Use DD command to burn to eMMC
+== Use dd command to burn to eMMC
 . Copy the img file to the USB drive and insert it into the M4 ZERO.
 
 . Execute:
