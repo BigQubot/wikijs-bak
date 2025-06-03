@@ -183,9 +183,7 @@ Print information about GPIO lines. Lines are specified by name, or optionally b
 	        line  95:       "PB_7"       unused   input  active-high
 ```
 
-. Get gpio line number from name
-+
-For example, 40pin header phy pin.31 name is P9_5.
+. Get gpio line number from name, For example, 40pin header phy pin.31 name is P9_5.
 +
 ```sh
  $ sudo gpiofind P9_5
@@ -205,20 +203,22 @@ For example, 40pin header phy pin.31 name is P9_5.
  $ sudo gpioset gpiochip0 77=0
 ```
 
-. Monitor GPIO level change event
-+
-You need to specify either -r for rising edge events or -f for falling edge events, but not both.
+. Monitor GPIO level change event, You need to specify either -r for rising edge events or -f for falling edge events, but not both.
 +
 ```sh
  $ sudo gpiomon -r gpiochip0 77
  event:  RISING EDGE offset: 77 timestamp: [   22813.801682561]
 ```
 
-
-
+== Python3-gpiod
+link:https://pypi.org/project/gpiod/0.6.0/[python3-gpiod] is the Python binding for the libgpiod library, which allows users to control GPIO lines using Python,
+ 
 == Python3-periphery
+link:https://python-periphery.readthedocs.io/en/latest/[python-periphery] is a pure Python library for GPIO, LED, PWM, SPI, I2C, MMIO, and Serial peripheral I/O interface access in userspace Linux, For 40pin header bus control, dtb overlay must be enabled before using.
 
 == Adafruit-Blinka
+
+link:https://github.com/adafruit/Adafruit_Blinka[Adafruit Blinka] is a compatibility layer that brings the CircuitPython hardware API on Linux OS using Python3, making it easy to use sensors, displays, and other I2C/SPI/UART devices.
 
 == WiringPi
 WARNING: Note: This WiringPi only support set 40pin gpio to output, input, for io functions as i2c, spi, pwm..., you must enable dtb overlays
