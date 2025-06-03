@@ -162,13 +162,14 @@ Run gpio readall to show all 40pins status.
  | I/O | wPi |   Name  | Mode | V | Physical | V | Mode |  Name   | wPi | I/O |
  +-----+-----+---------+------+---+-- AI2N --+---+------+---------+-----+-----+
 ```
+
 BPI GPIO Extend board and examples in link:https://github.com/Dangku/WiringPi/tree/master/examples[WiringPi/examples]
 
-blinkall: blink all pin header gpios, no extend board. +
-lcd-bpi: link:/en/BPI-LCD_1602/BananaPi_BPI-LCD_1602[BPI LCD 1602 display module] example. +
-52pi-bpi: link:/en/BPI-OLED/BananaPi_BPI-OLED[BPI OLED Display Module] example. +
-matrixled-bpi: link:/en/BPI-RGB_LED/BananaPi_BPI_RGB_LED[BPI RGB LED Matrix Expansion Module] example.
-berryclip-bpi: link:/en/BPI-BerrClip/BananaPi_BPI-BerryClip[BPI BerryClip Module]
+. blinkall: blink all pin header gpios, no extend board.
+. lcd-bpi: link:/en/BPI-LCD_1602/BananaPi_BPI-LCD_1602[BPI LCD 1602 display module]. +
+. 52pi-bpi: link:/en/BPI-OLED/BananaPi_BPI-OLED[BPI OLED Display Module] example
+. matrixled-bpi: link:/en/BPI-RGB_LED/BananaPi_BPI_RGB_LED[BPI RGB LED Matrix Expansion Module]
+. berryclip-bpi: link:/en/BPI-BerrClip/BananaPi_BPI-BerryClip[BPI BerryClip Module]
 
 == RPi.GPIO
 
