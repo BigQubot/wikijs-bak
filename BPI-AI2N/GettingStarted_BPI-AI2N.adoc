@@ -202,7 +202,7 @@ Onboard Bluetooth module is realtek rtl8821cu, IEEE 802.11b/g/n/ac(1T1R) USB2.0 
 	 hci0	14:5D:34:49:97:8F
 ```
 
-Bluetooth adapters can be managed using blueman-manager or the bluetoothctl CLI tool.
+Bluetooth adapters can be managed by blueman-manager or the bluetoothctl CLI tool.
 
 == Camera
 
@@ -590,7 +590,7 @@ umount SDcard device /dev/sdX partition if mounted automatically.
 +
 ```sh
  $ sudo apt-get install gunzip pv
- $ sudo sh -c 'gunzip -c xxx-bpi-ai2n-xxx.img.xz | pv | dd of=/dev/sdX bs=1M status=progress && sync'
+ $ sudo sh -c 'gunzip -c core-image-weston-bananapi-ai2n-xxx.rootfs.wic.gz | pv | dd of=/dev/sdX bs=1M status=progress && sync'
 ```
 
 == Build Yocoto AI SDK Source Code
