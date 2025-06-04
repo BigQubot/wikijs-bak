@@ -547,7 +547,6 @@ image::/picture/ai2n-localisation.png[ai2n-localisation.png]
 == Prepare
 . Yocto image support SDcard or EMMC bootup.
 . It’s recommended to use A1 rated cards, 16GB at least.
-. Make sure bootable EMMC is formatted if you want bootup from SDcard Yocto
 . Download latest Yocto Image, and confirm that the checksum is correct.
 . root login without passwd.
 
