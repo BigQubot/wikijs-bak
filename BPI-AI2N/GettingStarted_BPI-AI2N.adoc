@@ -116,6 +116,10 @@ image::/picture/ai2n-network.png[ai2n-network.png]
 
 == Display
 
+The RZ/V2N chip features a single MIPI DSI interface for display output. We have developed a DSI-to-HDMI adapter board that connects to the carrier board’s MIPI DSI interface via an FPC cable, enabling connection to an HDMI display. It supports resolutions up to 1080p at 60Hz.
+
+image::/picture/ai2n-dsi-hdmi.png[ai2n-dsi-hdmi.png]
+
 == RGB LED
 The board has two RGB LEDs for user control
 
