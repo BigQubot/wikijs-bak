@@ -41,8 +41,8 @@ link:https://github.com/balena-io/balena-cli[Balena CLI] is a Command Line Inter
 
 ```sh
   $ sudo balena local flash xxx-bpi-ai2n-xxx.img.xz
-  $ sudo balena local flash xxx-bpi-ai2n-xxx.img.xz --drive /dev/disk2
-  $ sudo balena local flash xxx-bpi-ai2n-xxx.img.xz --drive /dev/disk2 --yes
+  $ sudo balena local flash xxx-bpi-ai2n-xxx.img.xz --drive /dev/sdX
+  $ sudo balena local flash xxx-bpi-ai2n-xxx.img.xz --drive /dev/sdX --yes
 ```
 
 > Install Image with dd command on Linux
@@ -572,8 +572,8 @@ link:https://github.com/balena-io/balena-cli[Balena CLI] is a Command Line Inter
 
 ```sh
   $ sudo balena local flash core-image-weston-bananapi-ai2n-xxx.rootfs.wic.gz
-  $ sudo balena local flash core-image-weston-bananapi-ai2n-xxx.rootfs.wic.gz --drive /dev/disk2
-  $ sudo balena local flash core-image-weston-bananapi-ai2n-xxx.rootfs.wic.gz --drive /dev/disk2 --yes
+  $ sudo balena local flash core-image-weston-bananapi-ai2n-xxx.rootfs.wic.gz --drive /dev/sdX
+  $ sudo balena local flash core-image-weston-bananapi-ai2n-xxx.rootfs.wic.gz --drive /dev/sdX --yes
 ```
 
 > Install Image with dd command on Linux
