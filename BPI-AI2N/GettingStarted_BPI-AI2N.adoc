@@ -192,9 +192,9 @@ To start the Armbian configuration utility, use the following command:
 
 The board has two debug serial interfaces:
 
-- Type-C interface. Can be connected to a PC using a regular USB Type-C cable without Linux or Windows specific driver install.
+- Type-C interface. Can be connected to a PC using a regular USB Type-C cable without Linux or Windows specific driver install, and baudrate is 115200.
 
-- Three pin header interface. A standard 3.3V TTL-level UART port, requires a USB to TTL serial cable (such as CP2102, PL2303, CH340, etc.) to connect to the PC.
+- Three pin header interface. A standard 3.3V TTL-level UART port, requires a USB to TTL serial cable (such as CP2102, PL2303, CH340, etc.) to connect to the PC, and baudrate is 115200.
 +
 image::/picture/ai2n-debug-uart.png[ai2n-debug-uart.png]
 
