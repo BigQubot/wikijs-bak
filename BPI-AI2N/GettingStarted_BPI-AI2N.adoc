@@ -476,11 +476,11 @@ Set 40pin phy pin.31 high/low, wPi number is 22.
 BPI GPIO Extend board and examples in link:https://github.com/Dangku/WiringPi/tree/master/examples[WiringPi/examples]
 
 - blinkall: blink all pin header gpios, no extend board.
-- lcd-adafruit: link:/en/BPI-LCD_1602/BananaPi_BPI-LCD_1602[BPI LCD 1602 display module]
+- lcd-adafruit: link:https://docs.banana-pi.org/en/BPI-LCD_1602/BananaPi_BPI-LCD_1602[BPI LCD 1602 display module]
 - oled: link:https://docs.banana-pi.org/en/BPI-OLED/BananaPi_BPI-OLED[BPI OLED Display Module]
 - ssd1306/oled: link:https://makershop.ie/SSD1306-0.96-OLED-Display[0.96" I2C SSD1306 OLED]
-- matrixled: link:/en/BPI-RGB_LED/BananaPi_BPI_RGB_LED[BPI RGB LED Matrix Expansion Module]
-- berryclip: link:/en/BPI-BerrClip/BananaPi_BPI-BerryClip[BPI BerryClip Module]
+- matrixled: link:https://docs.banana-pi.org/en/BPI-RGB_LED/BananaPi_BPI_RGB_LED[BPI RGB LED Matrix Expansion Module]
+- berryclip: link:https://docs.banana-pi.org/en/BPI-BerrClip/BananaPi_BPI-BerryClip[BPI BerryClip Module]
 
 == RPi.GPIO
 
