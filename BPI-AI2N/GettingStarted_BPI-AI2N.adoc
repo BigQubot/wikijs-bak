@@ -419,21 +419,21 @@ link:https://pypi.org/project/gpiod/0.6.0/[python3-gpiod] is the Python binding 
 - The following example code controls an LED connected to 40pin phy pin.31.
 +
 ```sh
-import gpiod
+ import gpiod
  
-# 40pin, phy.31, gpio P9_5
-LINE_OFFSET = 77
+ # 40pin, phy.31, gpio P9_5
+ LINE_OFFSET = 77
 
-# 定义芯片和引脚
-chip = gpiod.Chip("0", gpiod.Chip.OPEN_BY_NUMBER)
-line = chip.get_line(LINE_OFFSET)
+ # 定义芯片和引脚
+ chip = gpiod.Chip("0", gpiod.Chip.OPEN_BY_NUMBER)
+ line = chip.get_line(LINE_OFFSET)
 
-# 设置为输入模式
-line.request(consumer='gpio', type=gpiod.LINE_REQ_DIR_IN)
+ # 设置为输入模式
+ line.request(consumer='gpio', type=gpiod.LINE_REQ_DIR_IN)
 
-# 读取引脚状态
-value = line.get_value()
-print(f"GPIO value is {value}")
+ # 读取引脚状态
+ value = line.get_value()
+ print(f"GPIO value is {value}")
 ```
 
 === Python3-periphery
