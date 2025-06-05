@@ -770,6 +770,35 @@ Running test example
 ```
 image::/picture/ai2n-blinka-ssd1306-spi.png[ai2n-blinka-ssd1306-spi.png]
 
+- I2C oled test for SSD1306 I2C Oled Module
++
+lib and examples source files are the same as spi ssd1306, but example must be modified to enable i2c interface and disable spi interface
++
+```sh
+# Create the I2C interface.
+i2c = board.I2C()
+
+# Create the SSD1306 OLED class.
+# The first two parameters are the pixel width and pixel height.  Change these
+# to the right size for your display!
+disp = adafruit_ssd1306.SSD1306_I2C(WIDTH, HEIGHT, i2c)
+
+# Use for SPI
+#spi = board.SPI()
+# disp_cs = digitalio.DigitalInOut(board.CS)
+#disp_cs = None
+#disp_dc = digitalio.DigitalInOut(board.D18)
+#disp_reset = digitalio.DigitalInOut(board.D22)
+#disp = adafruit_ssd1306.SSD1306_SPI(WIDTH, HEIGHT, spi, disp_dc, disp_reset, dii
+sp_cs)
+```
+Running test example
++
+```sh
+(myenv) root@bpi-ai2n:~/project# python3 ssd1306_stats.py
+```
+image::/picture/ai2n-blinka-ssd1306-i2c.png[ai2n-blinka-ssd1306-i2c.png]
+
 == WiringPi
 WARNING: Note: This WiringPi only support set 40pin gpio to output, input, for io functions as i2c, spi, pwm..., you must enable dtb overlays
 
