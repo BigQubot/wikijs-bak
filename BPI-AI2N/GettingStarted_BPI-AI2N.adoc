@@ -770,7 +770,7 @@ Running test example
 ```
 image::/picture/ai2n-blinka-ssd1306-spi.png[ai2n-blinka-ssd1306-spi.png]
 
-- I2C oled test for SSD1306 I2C Oled Module
+- I2C oled test for link:https://makershop.ie/SSD1306-0.96-OLED-Display[SSD1306 I2C Oled Module]
 +
 lib and examples source files are the same as spi ssd1306, but example must be modified to enable i2c interface and disable spi interface
 +
