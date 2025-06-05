@@ -583,7 +583,7 @@ print("I2C data read: 0x{:02x}".format(msg[1].data[0]))
 i2c.close()
 ```
 
-- The following example code performs an SPI loopback test. Please directly connect 40-pin physical pin 19 (SPI2_MOSI) to physical pin 21 (SPI2_MISO). You need to enable the spi2 DTB overlay before the test.
+- The following example code performs an SPI loopback test. Please directly connect 40-pin physical pin 19 (SPI2_MOSI) to physical pin 21 (SPI2_MISO). You need to load spidev driver module and enable the spi2 DTB overlay before the test.
 +
 ```sh
 from periphery import SPI
@@ -631,33 +631,34 @@ $ sudo apt install git gpiod python3-dev python3-libgpiod python3-periphery pyth
 . Create a project and install a virtual python environment in it.
 +
 ```sh
-$ mkdir project-name
-$ cd project-name
-$ python3 -m venv myenv
-$ source myenv/bin/activate
-(myenv) pi@bpi-ai2n:~/project$
+$ sudo su
+# mkdir project
+# cd project
+# python3 -m venv myenv
+# source myenv/bin/activate
+(myenv) root@bpi-ai2n:~/project#
 ```
 
 . Install gpiod python binding library
 +
 ```sh
-(myenv) pi@bpi-ai2n:~/project$ pip3 install gpiod
+(myenv) root@bpi-ai2n:~/project# pip3 install gpiod
 ```
 
 . Virtual env Install Adafruit Blinka
 - Install from PyPI.
 +
 ```sh
-(myenv) pi@bpi-ai2n:~/project$ pip3 install Adafruit-Blinka
+(myenv) root@bpi-ai2n:~/project# pip3 install Adafruit-Blinka
 ```
 - Install from git source
 +
 ```sh
-(myenv) pi@bpi-ai2n:~/project$ pip3 install git+https://github.com/adafruit/Adafruit_Blinka
+(myenv) root@bpi-ai2n:~/project# pip3 install git+https://github.com/adafruit/Adafruit_Blinka
 ```
 
 . Blinka Test
-- The example test_blinka.py tests whether the Adafruit-Blinka package is installed correctly. Before running the test, please enable the i2c1 and spi2 DTB overlays.
+- The example test_blinka.py tests whether the Adafruit-Blinka package is installed correctly. Before running the test, please load spidev driver module, enable the i2c1 and spi2 DTB overlays.
 +
 ```sh
 import board
@@ -680,6 +681,59 @@ print("SPI ok!")
 
 print("done!")
 ```
+The execution result of this example is as follows:
++
+```sh
+(myenv) root@bpi-ai2n:~/project# python3 test_blinka.py
+Hello, blinka!
+Digital IO ok!
+I2C ok!
+SPI ok!
+done!
+```
+
+- The following example code controls an LED connected to 40pin physical pin.31.
++
+```sh
+import time
+import board
+import digitalio
+
+print("hello blinky!")
+
+# pin.31
+led = digitalio.DigitalInOut(board.D31)
+led.direction = digitalio.Direction.OUTPUT
+
+while True:
+    led.value = True
+    time.sleep(0.5)
+    led.value = False
+    time.sleep(0.5)
+```
+
+- The following example code reads the state of a button connected to 40pin physical pin.3, and lights an LED connected to 40pin physical pin.31 when the button is pressed:
++
+```sh
+import time
+import board
+import digitalio
+
+print("press the button!")
+
+# pin.31
+led = digitalio.DigitalInOut(board.D31)
+led.direction = digitalio.Direction.OUTPUT
+
+# pin.3
+button = digitalio.DigitalInOut(board.D3)
+button.direction = digitalio.Direction.INPUT
+button.pull = digitalio.Pull.UP
+
+while True:
+    led.value = not button.value
+```
+
 == WiringPi
 WARNING: Note: This WiringPi only support set 40pin gpio to output, input, for io functions as i2c, spi, pwm..., you must enable dtb overlays
 
