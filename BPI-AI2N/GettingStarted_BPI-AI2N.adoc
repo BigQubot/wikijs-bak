@@ -458,7 +458,7 @@ link:https://pypi.org/project/gpiod/0.6.0/[python3-gpiod] is the Python binding 
      line.release()
 ```
 
-- The following example code reads the state of a button connected to physical pin.3, and lights an LED connected to physical pin.31 when the button is pressed:
+- The following example code reads the state of a button connected to 40pin physical pin.3, and lights an LED connected to physical 40pin pin.31 when the button is pressed:
 +
 ```sh
  import gpiod
@@ -490,7 +490,117 @@ link:https://pypi.org/project/gpiod/0.6.0/[python3-gpiod] is the Python binding 
 === Python3-periphery
 link:https://python-periphery.readthedocs.io/en/latest/[python-periphery] is a pure Python library for GPIO, LED, PWM, SPI, I2C, MMIO, and Serial peripheral I/O interface access in userspace Linux.
 
-dtb overlay must be enabled before using 40pin header bus control, 
+dtb overlay must be enabled before using 40pin header bus control,
+
+- Install python3-periphery
++
+```sh
+ $ sudo apt install python3-periphery
+```
+
+- The following example code reads the state of the pin connected to 40pin physical pin.31.
++
+```sh
+ from periphery import GPIO
+
+ # 40pin, phy pin.31
+ CHIP = "/dev/gpiochip0"
+ LINE_OFFSET = 77
+
+ gpio = GPIO(CHIP, LINE_OFFSET, "out")
+ gpio.write(True)
+
+ print("GPIO state:", gpio.read())
+
+ gpio.close()
+```
+
+- The following example code controls an LED connected to 40pin physical pin.31.
++
+```sh
+ import time
+ from periphery import GPIO
+
+ # 40pin, phy pin.31
+ CHIP = "/dev/gpiochip0"
+ LINE_OFFSET = 77
+
+ gpio = GPIO(CHIP, LINE_OFFSET, "out")
+ gpio.write(False)
+
+ try:
+     while True:
+         gpio.write(True)
+         time.sleep(0.5)
+         gpio.write(False)
+         time.sleep(0.5)
+ finally:
+     gpio.write(False)
+     gpio.close()
+```
+
+- The following example code reads the state of a button connected to 40pin physical pin.3, and lights an LED connected to 40pin physical pin.31 when the button is pressed:
++
+```sh
+ from periphery import GPIO
+		
+ # 40pin, phy pin.31
+ LED_CHIP = "/dev/gpiochip0"
+ LED_LINE_OFFSET = 77
+	
+ # 40pin, phy pin.3
+ BUTTON_CHIP = "/dev/gpiochip0"
+ BUTTON_LINE_OFFSET = 26
+	
+ led = GPIO(LED_CHIP, LED_LINE_OFFSET, "out")
+ button = GPIO(BUTTON_CHIP, BUTTON_LINE_OFFSET, "in")
+	
+ try:
+ 	   while True:
+         print(button.read())
+         led.write(button.read())
+ finally:
+     led.write(True)
+     led.close()
+     button.close()
+```
+
+- The following example code reads the value of register 0x00 from a device with address 0x50, connected to I2C1 on the 40-pin physical pin.3 and pin.5. You need to enable the I2C1 DTB overlay first.
++
+```sh
+ from periphery import I2C
+
+ I2C_DEV = "/dev/i2c-1"
+ SLAVE_ADDR = 0x50
+
+ i2c = I2C(I2C_DEV)
+
+ msg = [I2C.Message([0x10]), I2C.Message([0x00], read=True)]
+ i2c.transfer(SLAVE_ADDR, msg)
+
+ print("I2C data read: 0x{:02x}".format(msg[1].data[0]))
+
+ i2c.close()
+```
+
+- The following example code performs an SPI loopback test. Please directly connect 40-pin physical pin 19 (SPI2_MOSI) to physical pin 21 (SPI2_MISO). You need to enable the SPI2 DTB overlay before the test.
++
+```sh
+ from periphery import SPI
+
+ SPI_DEV = "/dev/spidev2.0"
+
+ data_out = [0xAA, 0xBB, 0xCC, 0xDD]
+
+ try:
+     spi = SPI(SPI_DEV, 0, 1000000)
+     data_in = spi.transfer(data_out)
+
+     print("Send Data: [0x{:02x}, 0x{:02x}, 0x{:02x}, 0x{:02x}]".format(*data_out))
+     print("Receive Data: [0x{:02x}, 0x{:02x}, 0x{:02x}, 0x{:02x}]".format(*data_in))
+ finally:
+     spi.close()
+```
 
 === Adafruit-Blinka
 
