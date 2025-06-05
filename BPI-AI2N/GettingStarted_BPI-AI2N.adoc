@@ -85,6 +85,96 @@ Build source code
  $  
 ```
 
+== First boot
+Insert the SD card into a slot and power on the board. The first boot will log you in automatically if you have connected a display via HDMI or if you are connected to the serial console.
+
+After logging in, you will be prompted to change the default password. You will then be asked to create a normal user account that will have sudo permissions. Beware, at this stage the keyboard is using the QWERTY layout. In case you have no wired network connection and there is a wireless adaptor detected, the system will prompt you to connect.
+
+```sh
+Welcome to Bananapi-Armbian! 
+
+Documentation: https://wiki.banana-pi.org/ | Community support: https://forum.banana-pi.org/
+
+IP address:  Network connection timeout!
+
+Create root password: ********
+Repeat root password: ********
+
+Warning: Weak password, it is based on a dictionary word!
+
+Choose default system command shell:
+
+1) bash
+2) zsh
+1
+
+Shell: BASH
+
+Creating a new user account. Press <Ctrl-C> to abort
+
+Please provide a username (eg. your first name): pi
+Create user (pi) password: ********
+Repeat user (pi) password: ********
+
+Warning: Weak password, it is based on a dictionary word!
+
+Please provide your real name: Pi
+
+Dear Pi, your account pi has been created and is sudo enabled.
+Please use this account for your daily work from now on.
+
+Internet connection was not detected.
+
+Connect via wireless? [Y/n] y
+
+Detected wireless networks:
+
+1        NETWORK
+2        MY-WIFI
+
+Enter a number of SSID: 2
+
+Enter a password for MY-WIFI: password
+
+Probing internet connection (9)
+
+Detected timezone: Asia/Shanghai
+
+Set user language based on your location? [Y/n] Y
+
+At your location, more locales are possible:
+
+1) bo_CN                    4) ug_CN@latin
+2) ug_CN                    5) zh_CN.UTF-8
+3) ug_CN@latin              6) Skip generating locales
+Please enter your choice:5
+
+Generating locales: zh_CN.UTF-8
+
+ | _ ) __ _ _ _  __ _ _ _  __ _ _ __(_)___ /_\  _ _ _ __ | |__(_)__ _ _ _  
+ | _ \/ _` | ' \/ _` | ' \/ _` | '_ \ |___/ _ \| '_| '  \| '_ \ / _` | ' \ 
+ |___/\__,_|_||_\__,_|_||_\__,_| .__/_|  /_/ \_\_| |_|_|_|_.__/_\__,_|_||_|
+                               |_|                                         
+ v25.5.1 for Banana Pi AI2N running Armbian Linux 5.10.145-legacy-renesas
+
+ Packages:     Ubuntu stable (jammy), possible distro upgrade (noble)
+ Support:      DIY (custom image)
+ IPv4:         (LAN) 10.0.1.5 (WAN) 36.44.140.189 
+
+ Performance:  
+
+ Load:         35%              Up time:       17 min
+ Memory usage: 3% of 7.01G  
+ CPU temp:     35�°C             Usage of /:   16% of 15G    
+ RX today:     265 KiB        
+ Commands: 
+
+ Configuration : armbian-config
+ Monitoring    : htop
+
+root@bpi-ai2n:/#
+```
+
 == Armbian-Config
 
 link:https://docs.armbian.com/User-Guide_Armbian-Config/[Armbian-Config] is a utility for configuring your board, adjusting services, and installing applications. It comes with Armbian  images by default.
