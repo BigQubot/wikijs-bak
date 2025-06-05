@@ -17,11 +17,11 @@ Banana Pi BPI-AI2N System-on-Module (SoM) and BPI-AI2N carrier board are open-so
 = Armbian Linux
 == Prepare
 
-. Linux image support SDcard or EMMC bootup.
-. It’s recommended to use A1 rated cards, 16GB at least.
-. Make sure bootable EMMC is formatted if you want bootup from SDcard Yocto
-. Download latest Linux Image, and confirm that the checksum is correct.
-. Default login: pi/bananapi or root/bananapi
+- Linux image support SDcard or EMMC bootup.
+- It’s recommended to use A1 rated cards, 16GB at least.
+- Make sure bootable EMMC is formatted if you want bootup from SDcard Yocto
+- Download latest Linux Image, and confirm that the checksum is correct.
+- Default login: pi/bananapi or root/bananapi
 
 == Install Image to SDcard
 
@@ -32,7 +32,7 @@ link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by 
 - Click on "**Flash from file**" to select image. 
 - Click on "**Select target**" to select USB device. 
 - Click on "**Flash!**" Start burning.
-
++
 image::/picture/etcher.jpg[etcher.jpg]
 
 > Install Image with Balena Cli on Windows, Linux and MacOS.
@@ -57,21 +57,22 @@ umount SDcard device /dev/sdX partition if mounted automatically.
 == Install Image to eMMC
 
 . Prepare a SDcard with Linux image flashed and bootup board with this SDcard.
-. Copy Linux image to udisk, plug the udisk to board and mount it.
-. Install with dd command, umount mmcblk0p1 and mmcblk0p2 partition if mounted automatically. 
+. Copy target image to udisk, plug the udisk to board and mount it.
+. Install image to emmc.
+- Write with dd command, umount mmcblk0p1 and mmcblk0p2 partition if mounted automatically. 
 +
 ```sh
  $ sudo apt-get install xz-utils pv
  $ sudo sh -c 'xzcat xxx-bpi-ai2n-xxx.img.xz | pv | dd of=/dev/sdX bs=1M status=progress && sync'
 ```
 
-. another way is transfer the live running Armbian system from an SD card to internal storage devices such as eMMC. It prepares the target storage, copies the active system, adjusts bootloader settings, and ensures the system can boot independently without requiring reinstallation.
+- another way is transfer the live running Armbian system from an SD card to internal storage devices such as eMMC. It prepares the target storage, copies the active system, adjusts bootloader settings, and ensures the system can boot independently without requiring reinstallation.
 +
 ```sh
  $ sudo armbian-config --cmd STO001
 ```
-
-image::/picture/ai2n-armbian-install.png[ai2n-armbian-install.png]
++
+image::/picture/ai2n-armbian-install-emmc.png[ai2n-armbian-install-emmc.png]
 
 == Build Linux Source Code
 Get source code
@@ -191,10 +192,10 @@ To start the Armbian configuration utility, use the following command:
 
 The board has two debug serial interfaces:
 
-. Type-C interface. Can be connected to a PC using a regular USB Type-C cable without Linux or Windows specific driver install.
+- Type-C interface. Can be connected to a PC using a regular USB Type-C cable without Linux or Windows specific driver install.
 
-. Three pin header interface. A standard 3.3V TTL-level UART port, requires a USB to TTL serial cable (such as CP2102, PL2303, CH340, etc.) to connect to the PC.
-
+- Three pin header interface. A standard 3.3V TTL-level UART port, requires a USB to TTL serial cable (such as CP2102, PL2303, CH340, etc.) to connect to the PC.
++
 image::/picture/ai2n-debug-uart.png[ai2n-debug-uart.png]
 
 === Networking
@@ -215,12 +216,12 @@ image::/picture/ai2n-dsi-hdmi.png[ai2n-dsi-hdmi.png]
 == RGB LED
 The board has two RGB LEDs for user control
 
-. Yellow LED on carrier board, default state is heatbeat trigger
+- Yellow LED on carrier board, default state is heatbeat trigger
 +
 ```sh
  $ sudo sh -c 'echo timer > /sys/class/leds/carrier-led/trigger'
 ```
-. Blue LED on core board, default state is default-on trigger
+- Blue LED on core board, default state is default-on trigger
 +
 ```sh
  $ sudo sh -c 'echo none > /sys/class/leds/core-led/trigger'
@@ -228,13 +229,13 @@ The board has two RGB LEDs for user control
 
 == Fan
 
-Enable fan
+- Enable fan
 
 ```sh
  $ sudo sh -c 'echo 1 > /sys/class/hwmon/hwmon3/fan1_target'
 ```
 
-Disable fan
+- Disable fan
 
 ```sh
  $ sudo sh -c 'echo 0 > /sys/class/hwmon/hwmon3/fan1_target'
