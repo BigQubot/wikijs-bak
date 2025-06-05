@@ -753,7 +753,7 @@ image::/picture/ai2n-blinka-lcd1602.png[ai2n-blinka-lcd1602.png]
 
 - SPI oled test for SSD1306 SPI Oled Module
 +
-Installing the library from git repo, this repo forked from link:https://github.com/adafruit/Adafruit_CircuitPython_SSD1306[Adafruit_CircuitPython_SSD1306], libs and examples modified to match the hardware link:https://docs.banana-pi.org/en/BPI-OLED/BananaPi_BPI-OLEDp[SSD1306 SPI Oled Module].
+Installing the library from git repo, this repo forked from link:https://github.com/adafruit/Adafruit_CircuitPython_SSD1306[Adafruit_CircuitPython_SSD1306], libs and examples modified to match the hardware link:https://docs.banana-pi.org/en/BPI-OLED/BananaPi_BPI-OLED[SSD1306 SPI Oled Module].
 +
 ```sh
 (myenv) root@bpi-ai2n:~/project# pip3 install git+https://github.com/Dangku/Adafruit_CircuitPython_SSD1306
