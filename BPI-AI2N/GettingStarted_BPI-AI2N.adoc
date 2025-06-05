@@ -734,6 +734,42 @@ while True:
     led.value = not button.value
 ```
 
+- I2C rgb lcd test for MCP23017 I2C Lcd1602 Module
++
+Installing libraries from git repo, these two repo forked from link:https://github.com/adafruit/Adafruit_CircuitPython_CharLCD[Adafruit_CircuitPython_CharLCD] and link:https://github.com/adafruit/Adafruit_CircuitPython_MCP230xx[Adafruit_CircuitPython_MCP230xx], modified to match the hardware link:https://docs.banana-pi.org/en/BPI-LCD_1602/BananaPi_BPI-LCD_1602[MCP23017 I2C Lcd1602 Module]. Examples in these two repo also should be modified to match the hardware design
++
+```sh
+(myenv) root@bpi-ai2n:~/project# pip3 install git+https://github.com/Dangku/Adafruit_CircuitPython_CharLCD
+(myenv) root@bpi-ai2n:~/project# pip3 install git+https://github.com/Dangku/Adafruit_CircuitPython_MCP230xx
+```
+Running test example
++
+```sh
+(myenv) root@bpi-ai2n:~/project# wget https://raw.githubusercontent.com/Dangku/Adafruit_CircuitPython_CharLCD/main/examples/charlcd_i2c_rgb_simpletest.py
+(myenv) root@bpi-ai2n:~/project# python3 charlcd_i2c_rgb_simpletest.py
+```
+image::/picture/ai2n-blinka-lcd1602.png[ai2n-blinka-lcd1602.png]
+
+- SPI oled test for SSD1306 SPI Oled Module
++
+Installing the library from git repo, this repo forked from link:https://github.com/adafruit/Adafruit_CircuitPython_SSD1306[Adafruit_CircuitPython_SSD1306], libs and examples modified to match the hardware link:https://docs.banana-pi.org/en/BPI-OLED/BananaPi_BPI-OLEDp[SSD1306 SPI Oled Module].
++
+```sh
+(myenv) root@bpi-ai2n:~/project# pip3 install git+https://github.com/Dangku/Adafruit_CircuitPython_SSD1306
+```
+Installing pillow for some examples which import PIL, pip3 install Pillow command causes ImportError: cannot import name ‘_imagingft’ from ‘PIL’, so instead with the following command.
++
+```sh
+(myenv) root@bpi-ai2n:~/project# pip3 install Pillow --no-binary :all:
+```
+Running test example
++
+```sh
+(myenv) root@bpi-ai2n:~/project# wget https://raw.githubusercontent.com/Dangku/Adafruit_CircuitPython_SSD1306/main/examples/ssd1306_stats.py
+(myenv) root@bpi-ai2n:~/project# python3 ssd1306_stats.py
+```
+image::/picture/ai2n-blinka-ssd1306-spi.png[ai2n-blinka-ssd1306-spi.png]
+
 == WiringPi
 WARNING: Note: This WiringPi only support set 40pin gpio to output, input, for io functions as i2c, spi, pwm..., you must enable dtb overlays
 
