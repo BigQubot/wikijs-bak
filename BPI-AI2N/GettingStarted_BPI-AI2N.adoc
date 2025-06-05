@@ -565,7 +565,7 @@ dtb overlay must be enabled before using 40pin header bus control,
      button.close()
 ```
 
-- The following example code reads the value of register 0x00 from a device with address 0x50, connected to I2C1 on the 40-pin physical pin.3 and pin.5. You need to enable the I2C1 DTB overlay first.
+- The following example code reads the value of register 0x00 from a device with address 0x50, connected to I2C1 on the 40-pin physical pin.3 and pin.5. You need to enable the i2c1 DTB overlay first.
 +
 ```sh
  from periphery import I2C
@@ -583,7 +583,7 @@ dtb overlay must be enabled before using 40pin header bus control,
  i2c.close()
 ```
 
-- The following example code performs an SPI loopback test. Please directly connect 40-pin physical pin 19 (SPI2_MOSI) to physical pin 21 (SPI2_MISO). You need to enable the SPI2 DTB overlay before the test.
+- The following example code performs an SPI loopback test. Please directly connect 40-pin physical pin 19 (SPI2_MOSI) to physical pin 21 (SPI2_MISO). You need to enable the spi2 DTB overlay before the test.
 +
 ```sh
  from periphery import SPI
@@ -600,6 +600,20 @@ dtb overlay must be enabled before using 40pin header bus control,
      print("Receive Data: [0x{:02x}, 0x{:02x}, 0x{:02x}, 0x{:02x}]".format(*data_in))
  finally:
      spi.close()
+```
+
+- The following example code sends data via UART to a device connected to 40-pin physical pin 8 (UART2_TXD) and pin 10 (UART2_RXD). You need to enable the uart2 DTB overlay before the test.
++
+```sh
+ from periphery import Serial
+
+ UART_DEV = "/dev/ttySC2"
+ BAUDRATE = 115200
+
+ serial = Serial(UART_DEV, BAUDRATE)
+ serial.write(b"Hello, World!\n")
+
+ serial.close()
 ```
 
 === Adafruit-Blinka
