@@ -416,7 +416,7 @@ link:https://pypi.org/project/gpiod/0.6.0/[python3-gpiod] is the Python binding 
  $ sudo apt install python3-libgpiod
 ```
 
-- The following example code controls an LED connected to 40pin phy pin.31.
+- The following example code reads the state of the pin connected to 40pin physical pin.31.
 +
 ```sh
  import gpiod
@@ -431,6 +431,60 @@ link:https://pypi.org/project/gpiod/0.6.0/[python3-gpiod] is the Python binding 
 
  value = line.get_value()
  print(f"GPIO value is {value}")
+```
+
+- The following example code controls an LED connected to 40pin physical pin.31.
++
+```sh
+ import time
+ import gpiod
+
+ # 40pin, phy pin.31
+ LINE_OFFSET = 77
+
+ chip = gpiod.Chip("0", gpiod.Chip.OPEN_BY_NUMBER)
+ line = chip.get_line(LINE_OFFSET)
+
+ line.request(consumer="gpio", type=gpiod.LINE_REQ_DIR_OUT, default_vals=[0])
+
+ try:
+     while True:
+         line.set_value(1)
+         time.sleep(0.5)
+         line.set_value(0)
+         time.sleep(0.5)
+ finally:
+     line.set_value(1)
+     line.release()
+```
+
+- The following example code reads the state of a button connected to physical pin.3, and lights an LED connected to physical pin.31 when the button is pressed:
++
+```sh
+ import gpiod
+
+ # 40pin, phy pin.31
+ LED_LINE_OFFSET = 77
+
+ # 40pin, phy pin.3
+ BUTTON_LINE_OFFSET = 26
+
+ chip_led = gpiod.Chip("0", gpiod.Chip.OPEN_BY_NUMBER)
+ chip_button = gpiod.Chip("0", gpiod.Chip.OPEN_BY_NUMBER)
+
+ line_led = chip_led.get_line(LED_LINE_OFFSET)
+ line_led.request(consumer="LED", type=gpiod.LINE_REQ_DIR_OUT, default_vals=[0])
+
+ line_button = chip_button.get_line(BUTTON_LINE_OFFSET)
+ line_button.request(consumer="BUTTON", type=gpiod.LINE_REQ_DIR_IN)
+
+ try:
+     while True:
+         line_led.set_value(line_button.get_value())
+ finally:
+     line_led.set_value(1)
+     line_led.release()
+     line_button.release()
 ```
 
 === Python3-periphery
