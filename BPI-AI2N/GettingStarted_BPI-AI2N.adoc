@@ -434,6 +434,7 @@ Build and install wiringPi, for debian, you must install sudo before build
  $ chmod a+x build
  $ sudo ./build
 ```
+
 Run gpio readall to show all 40pins status.
 ```sh
  $ sudo gpio readall
@@ -465,13 +466,21 @@ Run gpio readall to show all 40pins status.
  +-----+-----+---------+------+---+-- AI2N --+---+------+---------+-----+-----+
 ```
 
+Set 40pin phy pin.31 high/low, wPi number is 22.
+```sh
+ $ sudo gpio mode 22 out
+ $ sudo gpio write 22 1
+ $ sudo gpio write 22 0
+```
+
 BPI GPIO Extend board and examples in link:https://github.com/Dangku/WiringPi/tree/master/examples[WiringPi/examples]
 
 - blinkall: blink all pin header gpios, no extend board.
-- lcd-bpi: link:/en/BPI-LCD_1602/BananaPi_BPI-LCD_1602[BPI LCD 1602 display module]. +
-- 52pi-bpi: link:/en/BPI-OLED/BananaPi_BPI-OLED[BPI OLED Display Module] example
-- matrixled-bpi: link:/en/BPI-RGB_LED/BananaPi_BPI_RGB_LED[BPI RGB LED Matrix Expansion Module]
-- berryclip-bpi: link:/en/BPI-BerrClip/BananaPi_BPI-BerryClip[BPI BerryClip Module]
+- lcd-adafruit: link:/en/BPI-LCD_1602/BananaPi_BPI-LCD_1602[BPI LCD 1602 display module]
+- oled: link:https://docs.banana-pi.org/en/BPI-OLED/BananaPi_BPI-OLED[BPI OLED Display Module]
+- ssd1306/oled: link:https://makershop.ie/SSD1306-0.96-OLED-Display[0.96" I2C SSD1306 OLED]
+- matrixled: link:/en/BPI-RGB_LED/BananaPi_BPI_RGB_LED[BPI RGB LED Matrix Expansion Module]
+- berryclip: link:/en/BPI-BerrClip/BananaPi_BPI-BerryClip[BPI BerryClip Module]
 
 == RPi.GPIO
 
