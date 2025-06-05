@@ -618,9 +618,9 @@ dtb overlay must be enabled before using 40pin header bus control,
 
 === Adafruit-Blinka
 
-link:https://github.com/adafruit/Adafruit_Blinka[Adafruit Blinka] is a compatibility layer that brings the CircuitPython hardware API on Linux OS using Python3, making it easy to use sensors, displays, and other I2C/SPI/UART devices.
+link:https://github.com/adafruit/Adafruit_Blinka[Adafruit Blinka] is a compatibility layer that brings the CircuitPython hardware API on Linux OS using Python3, making it easy to use sensors, displays, and other I2C/SPI/UART devices. More info please ref to link:https://learn.adafruit.com/[Adafruit wiki] and link:https://github.com/adafruit[adafruit github
 
-It already supports the RZ/V2N chip and the BPI-AI2N board. Dtb overlay must be enabled before using 40pin header bus control, 
+It already supports the RZ/V2N chip and the BPI-AI2N board. Dtb overlay must be enabled before using 40pin header bus control
 
 == WiringPi
 WARNING: Note: This WiringPi only support set 40pin gpio to output, input, for io functions as i2c, spi, pwm..., you must enable dtb overlays
