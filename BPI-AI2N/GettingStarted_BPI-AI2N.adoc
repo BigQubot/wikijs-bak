@@ -175,6 +175,8 @@ Generating locales: zh_CN.UTF-8
 root@bpi-ai2n:/#
 ```
 
+These settings can be pre-loaded, see link:https://docs.armbian.com/User-Guide_Autoconfig[Armbian Autoconfig]
+
 == Armbian-Config
 
 link:https://docs.armbian.com/User-Guide_Armbian-Config/[Armbian-Config] is a utility for configuring your board, adjusting services, and installing applications. It comes with Armbian  images by default.
