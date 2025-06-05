@@ -514,6 +514,12 @@ link:https://docs.docker.com/engine/install/[Install Docker Engine] with a simpl
  $ curl -sSL get.docker.com | sudo sh
 ```
 
+another way install docker engine using armbian-config
+
+```sh
+ $ armbian-config --cmd CON002
+```
+
 Verify the Docker Engine is installed correctly by running the hello-world image.
 
 ```sh
