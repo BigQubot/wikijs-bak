@@ -409,7 +409,33 @@ Print information about GPIO lines. Lines are specified by name, or optionally b
 
 === Python3-gpiod
 link:https://pypi.org/project/gpiod/0.6.0/[python3-gpiod] is the Python binding for the libgpiod library, which allows users to control GPIO lines using Python,
+
+- Install python3-libgpiod
++
+```sh
+ $ sudo apt install python3-libgpiod
+```
+
+- The following example code controls an LED connected to 40pin phy pin.31.
++
+```sh
+import gpiod
  
+# 40pin, phy.31, gpio P9_5
+LINE_OFFSET = 77
+
+# 定义芯片和引脚
+chip = gpiod.Chip("0", gpiod.Chip.OPEN_BY_NUMBER)
+line = chip.get_line(LINE_OFFSET)
+
+# 设置为输入模式
+line.request(consumer='gpio', type=gpiod.LINE_REQ_DIR_IN)
+
+# 读取引脚状态
+value = line.get_value()
+print(f"GPIO value is {value}")
+```
+
 === Python3-periphery
 link:https://python-periphery.readthedocs.io/en/latest/[python-periphery] is a pure Python library for GPIO, LED, PWM, SPI, I2C, MMIO, and Serial peripheral I/O interface access in userspace Linux.
 
