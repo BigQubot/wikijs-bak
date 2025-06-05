@@ -40,9 +40,9 @@ image::/picture/etcher.jpg[etcher.jpg]
 link:https://github.com/balena-io/balena-cli[Balena CLI] is a Command Line Interface for balenaCloud or openBalena. It can be used to flash linux image. Download the installer or standalone package from link:https://github.com/balena-io/balena-cli/releases[balena-io] and link:https://github.com/balena-io/balena-cli/blob/master/INSTALL.md[install ]it correctly to your PC, then you can use the "link:https://docs.balena.io/reference/balena-cli/#local-flash-image[local flash]" command option of balena to flash a linux image to sdcard or usb drive.
 
 ```sh
-  $ sudo balena local flash xxx-bpi-ai2n-xxx.img.xz
-  $ sudo balena local flash xxx-bpi-ai2n-xxx.img.xz --drive /dev/sdX
-  $ sudo balena local flash xxx-bpi-ai2n-xxx.img.xz --drive /dev/sdX --yes
+$ sudo balena local flash xxx-bpi-ai2n-xxx.img.xz
+$ sudo balena local flash xxx-bpi-ai2n-xxx.img.xz --drive /dev/sdX
+$ sudo balena local flash xxx-bpi-ai2n-xxx.img.xz --drive /dev/sdX --yes
 ```
 
 > Install Image with dd command on Linux
@@ -50,8 +50,8 @@ link:https://github.com/balena-io/balena-cli[Balena CLI] is a Command Line Inter
 umount SDcard device /dev/sdX partition if mounted automatically. 
 
 ```sh
- $ sudo apt-get install xz-utils pv
- $ sudo sh -c 'xzcat xxx-bpi-ai2n-xxx.img.xz | pv | dd of=/dev/sdX bs=1M status=progress && sync'
+$ sudo apt-get install xz-utils pv
+$ sudo sh -c 'xzcat xxx-bpi-ai2n-xxx.img.xz | pv | dd of=/dev/sdX bs=1M status=progress && sync'
 ```
 
 == Install Image to eMMC
@@ -62,14 +62,14 @@ umount SDcard device /dev/sdX partition if mounted automatically.
 - Write with dd command, umount mmcblk0p1 and mmcblk0p2 partition if mounted automatically. 
 +
 ```sh
- $ sudo apt-get install xz-utils pv
- $ sudo sh -c 'xzcat xxx-bpi-ai2n-xxx.img.xz | pv | dd of=/dev/sdX bs=1M status=progress && sync'
+$ sudo apt-get install xz-utils pv
+$ sudo sh -c 'xzcat xxx-bpi-ai2n-xxx.img.xz | pv | dd of=/dev/sdX bs=1M status=progress && sync'
 ```
 
 - another way is transfer the live running Armbian system from an SD card to internal storage devices such as eMMC. It prepares the target storage, copies the active system, adjusts bootloader settings, and ensures the system can boot independently without requiring reinstallation.
 +
 ```sh
- $ sudo armbian-config --cmd STO001
+$ sudo armbian-config --cmd STO001
 ```
 +
 image::/picture/ai2n-armbian-install-emmc.png[ai2n-armbian-install-emmc.png]
@@ -78,12 +78,12 @@ image::/picture/ai2n-armbian-install-emmc.png[ai2n-armbian-install-emmc.png]
 Get source code
 
 ```sh
- $ git clone 
+$ git clone 
 ```
 Build source code
 
 ```sh
- $  
+$  
 ```
 
 == First boot
@@ -185,7 +185,7 @@ link:https://docs.armbian.com/User-Guide_Armbian-Config/[Armbian-Config] is a ut
 To start the Armbian configuration utility, use the following command:
 
 ```sh
- $ sudo armbian-config
+$ sudo armbian-config
 ```
 
 == Debug Serial
@@ -203,7 +203,7 @@ image::/picture/ai2n-debug-uart.png[ai2n-debug-uart.png]
 All standard Linux network configuration methods are applicable to the board, such as NetworkManager, Netplan, etc. You can also use **armbian-config** to configure all network interfaces.
 
 ```sh
- $ sudo armbian-config --cmd BNS001
+$ sudo armbian-config --cmd BNS001
 ```
 image::/picture/ai2n-network.png[ai2n-network.png]
 
@@ -219,12 +219,12 @@ The board has two RGB LEDs for user control
 - Yellow LED on carrier board, default state is heatbeat trigger
 +
 ```sh
- $ sudo sh -c 'echo timer > /sys/class/leds/carrier-led/trigger'
+$ sudo sh -c 'echo timer > /sys/class/leds/carrier-led/trigger'
 ```
 - Blue LED on core board, default state is default-on trigger
 +
 ```sh
- $ sudo sh -c 'echo none > /sys/class/leds/core-led/trigger'
+$ sudo sh -c 'echo none > /sys/class/leds/core-led/trigger'
 ```
 
 == Fan
@@ -234,30 +234,30 @@ Control the fan's on/off state via the hwmon sysfs interface.
 - Enable fan
 
 ```sh
- $ sudo sh -c 'echo 1 > /sys/class/hwmon/hwmon3/fan1_target'
+$ sudo sh -c 'echo 1 > /sys/class/hwmon/hwmon3/fan1_target'
 ```
 
 - Disable fan
 
 ```sh
- $ sudo sh -c 'echo 0 > /sys/class/hwmon/hwmon3/fan1_target'
+$ sudo sh -c 'echo 0 > /sys/class/hwmon/hwmon3/fan1_target'
 ```
 
 == M.2 NVME
 The board has a PCIe ×2 m.2 M-key connector (Pcie 3.0), and standard M.2 2280 mounting hole, allowing for the deployment of an M.2 2280 NVMe SSD.
 
 ```sh
- $ lspci
- 00:00.0 PCI bridge: Renesas Technology Corp. Device 1135
- 01:00.0 Non-Volatile memory controller: Kingston Technology Company, Inc. KC3000/FURY Renegade NVMe SSD [E18] (rev 01)
+$ lspci
+00:00.0 PCI bridge: Renesas Technology Corp. Device 1135
+01:00.0 Non-Volatile memory controller: Kingston Technology Company, Inc. KC3000/FURY Renegade NVMe SSD [E18] (rev 01)
 ```
 
 You can verify the performance of your SSD on link:https://github.com/TheRemote/PiBenchmarks[Pi Benchmarks] using the following command:
 
 ```sh
- $ wget https://raw.githubusercontent.com/TheRemote/PiBenchmarks/master/Storage.sh
- $ chmod +x Storage.sh
- $ sudo ./Storage.sh /path/to/storage
+$ wget https://raw.githubusercontent.com/TheRemote/PiBenchmarks/master/Storage.sh
+$ chmod +x Storage.sh
+$ sudo ./Storage.sh /path/to/storage
 ```
 Test results for sd, emmc and nvme ssd (KINGSTON SKC3000S512G)
 
@@ -280,22 +280,22 @@ Test results for sd, emmc and nvme ssd (KINGSTON SKC3000S512G)
 Onboard wifi module is realtek rtl8821cu, IEEE 802.11b/g/n/ac(1T1R) USB2.0 WLAN and BT Module
 
 ```sh
- $ ifconfig  wlan0
- wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
-         inet 10.0.1.12  netmask 255.255.255.0  broadcast 10.0.1.255
-         inet6 fe80::44a5:d624:e8e0:2bea  prefixlen 64  scopeid 0x20<link>
-         ether 14:5d:34:49:97:8e  txqueuelen 1000  (Ethernet)
-         RX packets 4343  bytes 838419 (818.7 KiB)
-         RX errors 0  dropped 0  overruns 0  frame 0
-         TX packets 507  bytes 41012 (40.0 KiB)
-         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+$ ifconfig  wlan0
+wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.0.1.12  netmask 255.255.255.0  broadcast 10.0.1.255
+        inet6 fe80::44a5:d624:e8e0:2bea  prefixlen 64  scopeid 0x20<link>
+        ether 14:5d:34:49:97:8e  txqueuelen 1000  (Ethernet)
+        RX packets 4343  bytes 838419 (818.7 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 507  bytes 41012 (40.0 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ```
 == Bluetooth
 Onboard Bluetooth module is realtek rtl8821cu, IEEE 802.11b/g/n/ac(1T1R) USB2.0 WLAN and BT Module. The BT controller supports BT 4.2 system and compatibles Bluetooth 2.1+EDR. 
 
 ```sh
- $ hcitool dev
- Devices:
+$ hcitool dev
+Devices:
 	 hci0	14:5D:34:49:97:8F
 ```
 
@@ -309,28 +309,28 @@ Bluetooth adapters can be managed by blueman-manager or the bluetoothctl CLI too
 DTB overlay is used for 40pin gpios multi-function configuration 
 
 ```sh
- $ ls /boot/dtb/renesas/overlay/
- README.renesas-overlays
- renesas-fixup.scr
- renesas-rzv2n-i2c1.dtbo
- renesas-rzv2n-i2c1-flash.dtbo
- renesas-rzv2n-i2c1-rtc.dtbo
- renesas-rzv2n-i2c2.dtbo
- renesas-rzv2n-i2s3-nxez-pcm512x.dtbo
- renesas-rzv2n-i2s3-waveshare-wm8960.dtbo
- renesas-rzv2n-spi0.dtbo
- renesas-rzv2n-spi2.dtbo
- renesas-rzv2n-spi2-flash.dtbo
- renesas-rzv2n-spi2-waveshare-st7789v.dtbo
- renesas-rzv2n-spi2-waveshare-tft24.dtbo
- renesas-rzv2n-spi2-waveshare-tft35c.dtbo
- renesas-rzv2n-uart0.dtbo
- renesas-rzv2n-uart2.dtbo
+$ ls /boot/dtb/renesas/overlay/
+README.renesas-overlays
+renesas-fixup.scr
+renesas-rzv2n-i2c1.dtbo
+renesas-rzv2n-i2c1-flash.dtbo
+renesas-rzv2n-i2c1-rtc.dtbo
+renesas-rzv2n-i2c2.dtbo
+renesas-rzv2n-i2s3-nxez-pcm512x.dtbo
+renesas-rzv2n-i2s3-waveshare-wm8960.dtbo
+renesas-rzv2n-spi0.dtbo
+renesas-rzv2n-spi2.dtbo
+renesas-rzv2n-spi2-flash.dtbo
+renesas-rzv2n-spi2-waveshare-st7789v.dtbo
+renesas-rzv2n-spi2-waveshare-tft24.dtbo
+renesas-rzv2n-spi2-waveshare-tft35c.dtbo
+renesas-rzv2n-uart0.dtbo
+renesas-rzv2n-uart2.dtbo
 ```
 Configure overlays with GUI tool armbian-config.
 
 ```sh
- $ sudo armbian-config --cmd DTO001
+$ sudo armbian-config --cmd DTO001
 ```
 
 image::/picture/ai2n_overlay.png[ai2n_overlay.png]
@@ -338,7 +338,7 @@ image::/picture/ai2n_overlay.png[ai2n_overlay.png]
 Alternatively, add names of overlays you want to activate to **overlays=** line in **/boot/armbianEnv.txt**, separated with spaces. For example, enable i2c2, spi2 and uart0 overlays
 
 ```sh
- overlays=i2c1 spi2 uart0
+overlays=i2c1 spi2 uart0
 ```
 
 Reboot the board to apply overlays configuration
@@ -350,7 +350,7 @@ Traditionally GPIO pins are exposed by Linux kernel under /sys/class/gpio namesp
 - Install Gpiod
 +
 ```sh
- $ sudo apt install gpiod
+$ sudo apt install gpiod
 ```
 
 - List GPIO chips
@@ -358,8 +358,8 @@ Traditionally GPIO pins are exposed by Linux kernel under /sys/class/gpio namesp
 print their labels and number of GPIO lines. Chips may be identified by number, name, or path. e.g. ‘0’, ‘gpiochip0’, and ‘/dev/gpiochip0’ all refer to the same chip.
 +
 ```sh
- $ sudo gpiodetect
- gpiochip0 [10410000.pinctrl] (96 lines)
+$ sudo gpiodetect
+gpiochip0 [10410000.pinctrl] (96 lines)
 ```
 
 - List GPIO lines
@@ -368,43 +368,43 @@ Print information about GPIO lines. Lines are specified by name, or optionally b
 
 +
 ```sh
- $ sudo gpioinfo
-	gpiochip0 - 96 lines:
-	        line   0:       "P0_0"    "sys-led"  output  active-high [used]
-	        line   1:       "P0_1"       unused   input  active-high 
-	        line   2:       "P0_2"       unused   input  active-high 
-	        line   3:       "P0_3"       unused   input  active-high
-           ...
-	        line  93:       "PB_5"       unused   input  active-high 
-	        line  94:       "PB_6"       unused   input  active-high 
-	        line  95:       "PB_7"       unused   input  active-high
+$ sudo gpioinfo
+gpiochip0 - 96 lines:
+        line   0:       "P0_0"    "sys-led"  output  active-high [used]
+        line   1:       "P0_1"       unused   input  active-high 
+        line   2:       "P0_2"       unused   input  active-high 
+        line   3:       "P0_3"       unused   input  active-high
+          ...
+        line  93:       "PB_5"       unused   input  active-high 
+        line  94:       "PB_6"       unused   input  active-high 
+        line  95:       "PB_7"       unused   input  active-high
 ```
 
 - Get gpio line number from name, For example, 40pin header phy pin.31 name is P9_5.
 +
 ```sh
- $ sudo gpiofind P9_5
- 77
+$ sudo gpiofind P9_5
+77
 ```
 
 - Read value of 40pin header phy pin.31
 +
 ```sh
- $ sudo gpioget gpiochip0 77
- 1
+$ sudo gpioget gpiochip0 77
+1
 ```
 
 - Set value of 40pin header phy pin.31 to low
 +
 ```sh
- $ sudo gpioset gpiochip0 77=0
+$ sudo gpioset gpiochip0 77=0
 ```
 
 - Monitor GPIO level change event, You need to specify either -r for rising edge events or -f for falling edge events, but not both.
 +
 ```sh
- $ sudo gpiomon -r gpiochip0 77
- event:  RISING EDGE offset: 77 timestamp: [   22813.801682561]
+$ sudo gpiomon -r gpiochip0 77
+event:  RISING EDGE offset: 77 timestamp: [   22813.801682561]
 ```
 
 === Python3-gpiod
@@ -413,78 +413,78 @@ link:https://pypi.org/project/gpiod/0.6.0/[python3-gpiod] is the Python binding 
 - Install python3-libgpiod
 +
 ```sh
- $ sudo apt install python3-libgpiod
+$ sudo apt install python3-libgpiod
 ```
 
 - The following example code reads the state of the pin connected to 40pin physical pin.31.
 +
 ```sh
- import gpiod
+import gpiod
  
- # 40pin, phy pin.31
- LINE_OFFSET = 77
+# 40pin, phy pin.31
+LINE_OFFSET = 77
 
- chip = gpiod.Chip("0", gpiod.Chip.OPEN_BY_NUMBER)
- line = chip.get_line(LINE_OFFSET)
+chip = gpiod.Chip("0", gpiod.Chip.OPEN_BY_NUMBER)
+line = chip.get_line(LINE_OFFSET)
 
- line.request(consumer='gpio', type=gpiod.LINE_REQ_DIR_IN)
+line.request(consumer='gpio', type=gpiod.LINE_REQ_DIR_IN)
 
- value = line.get_value()
- print(f"GPIO value is {value}")
+value = line.get_value()
+print(f"GPIO value is {value}")
 ```
 
 - The following example code controls an LED connected to 40pin physical pin.31.
 +
 ```sh
- import time
- import gpiod
+import time
+import gpiod
 
- # 40pin, phy pin.31
- LINE_OFFSET = 77
+# 40pin, phy pin.31
+LINE_OFFSET = 77
 
- chip = gpiod.Chip("0", gpiod.Chip.OPEN_BY_NUMBER)
- line = chip.get_line(LINE_OFFSET)
+chip = gpiod.Chip("0", gpiod.Chip.OPEN_BY_NUMBER)
+line = chip.get_line(LINE_OFFSET)
 
- line.request(consumer="gpio", type=gpiod.LINE_REQ_DIR_OUT, default_vals=[0])
+line.request(consumer="gpio", type=gpiod.LINE_REQ_DIR_OUT, default_vals=[0])
 
- try:
-     while True:
-         line.set_value(1)
-         time.sleep(0.5)
-         line.set_value(0)
-         time.sleep(0.5)
- finally:
-     line.set_value(1)
-     line.release()
+try:
+    while True:
+        line.set_value(1)
+        time.sleep(0.5)
+        line.set_value(0)
+        time.sleep(0.5)
+finally:
+    line.set_value(1)
+    line.release()
 ```
 
 - The following example code reads the state of a button connected to 40pin physical pin.3, and lights an LED connected to physical 40pin pin.31 when the button is pressed:
 +
 ```sh
- import gpiod
+import gpiod
 
- # 40pin, phy pin.31
- LED_LINE_OFFSET = 77
+# 40pin, phy pin.31
+LED_LINE_OFFSET = 77
 
- # 40pin, phy pin.3
- BUTTON_LINE_OFFSET = 26
+# 40pin, phy pin.3
+BUTTON_LINE_OFFSET = 26
 
- chip_led = gpiod.Chip("0", gpiod.Chip.OPEN_BY_NUMBER)
- chip_button = gpiod.Chip("0", gpiod.Chip.OPEN_BY_NUMBER)
+chip_led = gpiod.Chip("0", gpiod.Chip.OPEN_BY_NUMBER)
+chip_button = gpiod.Chip("0", gpiod.Chip.OPEN_BY_NUMBER)
 
- line_led = chip_led.get_line(LED_LINE_OFFSET)
- line_led.request(consumer="LED", type=gpiod.LINE_REQ_DIR_OUT, default_vals=[0])
+line_led = chip_led.get_line(LED_LINE_OFFSET)
+line_led.request(consumer="LED", type=gpiod.LINE_REQ_DIR_OUT, default_vals=[0])
 
- line_button = chip_button.get_line(BUTTON_LINE_OFFSET)
- line_button.request(consumer="BUTTON", type=gpiod.LINE_REQ_DIR_IN)
+line_button = chip_button.get_line(BUTTON_LINE_OFFSET)
+line_button.request(consumer="BUTTON", type=gpiod.LINE_REQ_DIR_IN)
 
- try:
-     while True:
-         line_led.set_value(line_button.get_value())
- finally:
-     line_led.set_value(1)
-     line_led.release()
-     line_button.release()
+try:
+    while True:
+        line_led.set_value(line_button.get_value())
+finally:
+    line_led.set_value(1)
+    line_led.release()
+    line_button.release()
 ```
 
 === Python3-periphery
@@ -495,125 +495,125 @@ dtb overlay must be enabled before using 40pin header bus control,
 - Install python3-periphery
 +
 ```sh
- $ sudo apt install python3-periphery
+$ sudo apt install python3-periphery
 ```
 
 - The following example code reads the state of the pin connected to 40pin physical pin.31.
 +
 ```sh
- from periphery import GPIO
+from periphery import GPIO
 
- # 40pin, phy pin.31
- CHIP = "/dev/gpiochip0"
- LINE_OFFSET = 77
+# 40pin, phy pin.31
+CHIP = "/dev/gpiochip0"
+LINE_OFFSET = 77
 
- gpio = GPIO(CHIP, LINE_OFFSET, "out")
- gpio.write(True)
+gpio = GPIO(CHIP, LINE_OFFSET, "out")
+gpio.write(True)
 
- print("GPIO state:", gpio.read())
+print("GPIO state:", gpio.read())
 
- gpio.close()
+gpio.close()
 ```
 
 - The following example code controls an LED connected to 40pin physical pin.31.
 +
 ```sh
- import time
- from periphery import GPIO
+import time
+from periphery import GPIO
 
- # 40pin, phy pin.31
- CHIP = "/dev/gpiochip0"
- LINE_OFFSET = 77
+# 40pin, phy pin.31
+CHIP = "/dev/gpiochip0"
+LINE_OFFSET = 77
 
- gpio = GPIO(CHIP, LINE_OFFSET, "out")
- gpio.write(False)
+gpio = GPIO(CHIP, LINE_OFFSET, "out")
+gpio.write(False)
 
- try:
-     while True:
-         gpio.write(True)
-         time.sleep(0.5)
-         gpio.write(False)
-         time.sleep(0.5)
- finally:
-     gpio.write(False)
-     gpio.close()
+try:
+    while True:
+        gpio.write(True)
+        time.sleep(0.5)
+        gpio.write(False)
+        time.sleep(0.5)
+finally:
+    gpio.write(False)
+    gpio.close()
 ```
 
 - The following example code reads the state of a button connected to 40pin physical pin.3, and lights an LED connected to 40pin physical pin.31 when the button is pressed:
 +
 ```sh
- from periphery import GPIO
+from periphery import GPIO
 		
- # 40pin, phy pin.31
- LED_CHIP = "/dev/gpiochip0"
- LED_LINE_OFFSET = 77
+# 40pin, phy pin.31
+LED_CHIP = "/dev/gpiochip0"
+LED_LINE_OFFSET = 77
 	
- # 40pin, phy pin.3
- BUTTON_CHIP = "/dev/gpiochip0"
- BUTTON_LINE_OFFSET = 26
+# 40pin, phy pin.3
+BUTTON_CHIP = "/dev/gpiochip0"
+BUTTON_LINE_OFFSET = 26
 	
- led = GPIO(LED_CHIP, LED_LINE_OFFSET, "out")
- button = GPIO(BUTTON_CHIP, BUTTON_LINE_OFFSET, "in")
+led = GPIO(LED_CHIP, LED_LINE_OFFSET, "out")
+button = GPIO(BUTTON_CHIP, BUTTON_LINE_OFFSET, "in")
 	
- try:
- 	   while True:
-         print(button.read())
-         led.write(button.read())
- finally:
-     led.write(True)
-     led.close()
-     button.close()
+try:
+    while True:
+        print(button.read())
+        led.write(button.read())
+finally:
+    led.write(True)
+    led.close()
+    button.close()
 ```
 
 - The following example code reads the value of register 0x00 from a device with address 0x50, connected to I2C1 on the 40-pin physical pin.3 and pin.5. You need to enable the i2c1 DTB overlay first.
 +
 ```sh
- from periphery import I2C
+from periphery import I2C
 
- I2C_DEV = "/dev/i2c-1"
- SLAVE_ADDR = 0x50
+I2C_DEV = "/dev/i2c-1"
+SLAVE_ADDR = 0x50
 
- i2c = I2C(I2C_DEV)
+i2c = I2C(I2C_DEV)
 
- msg = [I2C.Message([0x10]), I2C.Message([0x00], read=True)]
- i2c.transfer(SLAVE_ADDR, msg)
+msg = [I2C.Message([0x10]), I2C.Message([0x00], read=True)]
+i2c.transfer(SLAVE_ADDR, msg)
 
- print("I2C data read: 0x{:02x}".format(msg[1].data[0]))
+print("I2C data read: 0x{:02x}".format(msg[1].data[0]))
 
- i2c.close()
+i2c.close()
 ```
 
 - The following example code performs an SPI loopback test. Please directly connect 40-pin physical pin 19 (SPI2_MOSI) to physical pin 21 (SPI2_MISO). You need to enable the spi2 DTB overlay before the test.
 +
 ```sh
- from periphery import SPI
+from periphery import SPI
 
- SPI_DEV = "/dev/spidev2.0"
+SPI_DEV = "/dev/spidev2.0"
 
- data_out = [0xAA, 0xBB, 0xCC, 0xDD]
+data_out = [0xAA, 0xBB, 0xCC, 0xDD]
 
- try:
-     spi = SPI(SPI_DEV, 0, 1000000)
-     data_in = spi.transfer(data_out)
+try:
+    spi = SPI(SPI_DEV, 0, 1000000)
+    data_in = spi.transfer(data_out)
 
-     print("Send Data: [0x{:02x}, 0x{:02x}, 0x{:02x}, 0x{:02x}]".format(*data_out))
-     print("Receive Data: [0x{:02x}, 0x{:02x}, 0x{:02x}, 0x{:02x}]".format(*data_in))
- finally:
-     spi.close()
+    print("Send Data: [0x{:02x}, 0x{:02x}, 0x{:02x}, 0x{:02x}]".format(*data_out))
+    print("Receive Data: [0x{:02x}, 0x{:02x}, 0x{:02x}, 0x{:02x}]".format(*data_in))
+finally:
+    spi.close()
 ```
 
 - The following example code sends data via UART to a device connected to 40-pin physical pin 8 (UART2_TXD) and pin 10 (UART2_RXD). You need to enable the uart2 DTB overlay before the test.
 +
 ```sh
- from periphery import Serial
+from periphery import Serial
 
- UART_DEV = "/dev/ttySC2"
- BAUDRATE = 115200
+UART_DEV = "/dev/ttySC2"
+BAUDRATE = 115200
 
- serial = Serial(UART_DEV, BAUDRATE)
- serial.write(b"Hello, World!\n")
+serial = Serial(UART_DEV, BAUDRATE)
+serial.write(b"Hello, World!\n")
 
- serial.close()
+serial.close()
 ```
 
 === Adafruit-Blinka
@@ -622,6 +622,64 @@ link:https://github.com/adafruit/Adafruit_Blinka[Adafruit Blinka] is a compatibi
 
 It already supports the RZ/V2N chip and the BPI-AI2N board. Dtb overlay must be enabled before using 40pin header bus control
 
+. Install packages
++
+```sh
+$ sudo apt install git gpiod python3-dev python3-libgpiod python3-periphery python3-pip python3-venv libjpeg-dev zlib1g-dev libfreetype-dev libfreetype6 fonts-dejavu
+```
+
+. Create a project and install a virtual python environment in it.
++
+```sh
+$ mkdir project-name
+$ cd project-name
+$ python3 -m venv myenv
+$ source myenv/bin/activate
+(myenv) pi@bpi-ai2n:~/project$
+```
+
+. Install gpiod python binding library
++
+```sh
+(myenv) pi@bpi-ai2n:~/project$ pip3 install gpiod
+```
+
+. Virtual env Install Adafruit Blinka
+- Install from PyPI.
++
+```sh
+(myenv) pi@bpi-ai2n:~/project$ pip3 install Adafruit-Blinka
+```
+- Install from git source
++
+```sh
+(myenv) pi@bpi-ai2n:~/project$ pip3 install git+https://github.com/adafruit/Adafruit_Blinka
+```
+
+. Blinka Test
+- The example test_blinka.py tests whether the Adafruit-Blinka package is installed correctly. Before running the test, please enable the i2c1 and spi2 DTB overlays.
++
+```sh
+import board
+import digitalio
+import busio
+
+print("Hello, blinka!")
+
+# pin.31, Try to create a Digital input
+pin = digitalio.DigitalInOut(board.D31)
+print("Digital IO ok!")
+
+# Try to create an I2C device
+i2c = busio.I2C(board.SCL, board.SDA)
+print("I2C ok!")
+
+# Try to create an SPI device
+spi = busio.SPI(board.SCLK, board.MOSI, board.MISO)
+print("SPI ok!")
+
+print("done!")
+```
 == WiringPi
 WARNING: Note: This WiringPi only support set 40pin gpio to output, input, for io functions as i2c, spi, pwm..., you must enable dtb overlays
 
