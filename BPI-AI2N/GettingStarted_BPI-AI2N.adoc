@@ -234,7 +234,7 @@ network:
   version: 2
   renderer: NetworkManager
 ```
-If a Wi-Fi connection is successfully established during the first boot, a Wi-Fi Netplan YAML file will be created at /etc/netplan/30-wifis-dhcp.yaml. If no Wi-Fi connection is made during the first boot, this file can also be created after booting.
+If a Wi-Fi connection is successfully established during the first boot, a Wi-Fi Netplan YAML file will be created at /etc/netplan/30-wifis-dhcp.yaml. If no Wi-Fi connection is made during the first boot, this file can also be created manually after booting.
 +
 ```sh
 # Created by Armbian firstlogin script
