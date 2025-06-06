@@ -254,7 +254,7 @@ More info of Netplan configuration, please refer to the link:https://netplan.rea
 After YAML file changed, you should apply the configuration
 +
 ```sh
-$ sudo chmod 600 /etc/netplan/*.yaml
+$ sudo chmod 600 /etc/netplan/xxx.yaml
 $ sudo netplan apply
 ```
 
