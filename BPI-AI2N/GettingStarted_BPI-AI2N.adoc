@@ -209,9 +209,12 @@ For Desktop images, you can right-click the NetworkManager applet icon in the sy
 image::/picture/ai2n-eth.png[ai2n-eth.png]
 +
 Connect to wireless network, you can left-click the NetworkManager applet icon in the system tray and select Available networks items to bring up a list of available wireless networks. 
-
-
++
+image::/picture/ai2n-wifi-list.png[ai2n-wifi-list.png]
++
 Click the network that you want to connect to. If the network is secured, a dialogue box will prompt you to enter the network key:
++
+image::/picture/ai2n-wifi-passwd.png[ai2n-wifi-passwd.png]
 
 
 - Netplan
