@@ -1,5 +1,3 @@
-[[toc]]
-
 = Introduction
 
 Banana Pi BPI-AI2N System-on-Module (SoM) and BPI-AI2N carrier board are open-source hardware solutions designed to leverage the advanced capabilities of the RZ/V2N Vision AI MPU. It supports 8GB memory, 32GB emmc, dual gigabit ethernet ports, 2x USB3 interface.
@@ -15,8 +13,6 @@ Banana Pi BPI-AI2N System-on-Module (SoM) and BPI-AI2N carrier board are open-so
 - Expansion – 40-pin header with 28x GPIO, UART, I2C, SPI, PWM, and power signal (+5V, +3.3V, GND).
 - Debugging – USB Type-C debug header
 - Power Supply – 12V @3A DC adapter
-
-=== test ===
 
 = Armbian Linux
 == Prepare
