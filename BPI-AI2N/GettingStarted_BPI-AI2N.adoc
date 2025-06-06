@@ -198,9 +198,53 @@ The board has two debug serial interfaces:
 +
 image::/picture/ai2n-debug-uart.png[ai2n-debug-uart.png]
 
-=== Networking
+== Networking
 
-All standard Linux network configuration methods are applicable to the board, such as NetworkManager, Netplan, etc. You can also use **armbian-config** to configure all network interfaces.
+Armbian uses link:https://netplan.io/[Netplan.io] to describe networking configurations. Netplan is a utility to easily configure Linux networking, using a declarative approach. If you want to configure your network manually, it is as simple as editing and creating Netplan yaml files (see the yaml configuration reference at the link:https://netplan.readthedocs.io/en/stable/netplan-yaml/[Netplan docs]).
+
+- Desktop and CLI images
++
+The Desktop and CLI images come with a default Netplan YAML file located at etc/netplan/00-default-use-network-manager.yaml. These images use the NetworkManager backend by default. All Ethernet interfaces are configured for DHCP and will automatically obtain an IP address from your router.
++
+```sh
+# Added by Armbian
+#
+# Reference: https://netplan.readthedocs.io/en/stable/netplan-yaml/
+#
+# Let NetworkManager manage all devices on this system.
+# Any device will come up with DHCP, once carrier is detected.
+# This is basically Netplan passing control over to NetworkManager at boot time.
+
+network:
+  version: 2
+  renderer: NetworkManager
+```
+If a Wi-Fi connection is successfully established during the first boot, a Wi-Fi Netplan YAML file will be created at /etc/netplan/30-wifis-dhcp.yaml. If no Wi-Fi connection is made during the first boot, this file can also be created after booting.
++
+```sh
+# Created by Armbian firstlogin script
+network:
+  wifis:
+    wlan0:
+      dhcp4: yes
+      dhcp6: yes
+      access-points:
+        "NETWORK":
+         password: "password"
+```
++
+More info of Netplan configuration, please refer to the link:https://netplan.readthedocs.io/en/latest/using-static-ip-addresses[Netplan docs]
+
++
+After YAML file changed, you should apply the configuration
++
+```sh
+$ sudo chmod 600 /etc/netplan/*.yaml
+$ sudo netplan apply
+```
+
+
+Alternatively， You can also use **armbian-config** to configure all network interfaces.
 
 ```sh
 $ sudo armbian-config --cmd BNS001
