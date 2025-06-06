@@ -198,7 +198,7 @@ The board has two debug serial interfaces:
 +
 image::/picture/ai2n-debug-uart.png[ai2n-debug-uart.png]
 
-== Networking
+## Networking
 
 Armbian uses link:https://netplan.io/[Netplan.io] to describe networking configurations. Netplan is a utility to easily configure Linux networking, using a declarative approach. If you want to configure your network manually, it is as simple as editing and creating Netplan yaml files (see the yaml configuration reference at the link:https://netplan.readthedocs.io/en/stable/netplan-yaml/[Netplan docs]).
 
