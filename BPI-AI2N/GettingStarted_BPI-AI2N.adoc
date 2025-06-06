@@ -409,6 +409,38 @@ Devices:
 
 Bluetooth adapters can be managed by blueman-manager or the bluetoothctl CLI tool.
 
+- Bluetooth using on Desktop image with Blueman
++
+
+- Bluetooth using with bluetoothctl command
++
+```sh
+$ sudo apt install bluez
+$ bluetoothctl 
+[bluetooth]# list
+Controller 14:5D:34:49:97:8F bpi-ai2n [default]
+[bluetooth]# power on
+Changing power on succeeded
+[bluetooth]# agent on
+Agent is already registered
+[bluetooth]# default-agent
+Default agent request successful
+[bluetooth]# discoverable on
+Changing discoverable on succeeded
+[CHG] Controller 14:5D:34:49:97:8F Discoverable: yes
+[bluetooth]# pairable on
+Changing pairable on succeeded
+[bluetooth]# scan on
+Discovery started
+[CHG] Controller 14:5D:34:49:97:8F Discovering: yes
+[NEW] Device 77:2B:0B:D7:28:A5 77-2B-0B-D7-28-A5
+[NEW] Device 42:66:40:6D:8B:6F 42-66-40-6D-8B-6F
+[NEW] Device 24:0A:C4:DF:4B:C2 Keep_Bike_40114293
+[NEW] Device 34:86:5D:73:5F:46 NARWAL#5F46
+[CHG] Device 24:0A:C4:DF:4B:C2 ServiceData Key: 00001818-0000-1000-8000-00805f9b34fb    
+[bluetooth]# pair TargetDeviceMac
+```
+
 == Camera
 
 == Type-C OTG
