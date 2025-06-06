@@ -411,11 +411,20 @@ Bluetooth adapters can be managed by blueman-manager or the bluetoothctl CLI too
 
 - Bluetooth using on Desktop image with Blueman
 +
+Right-click the bluetooth icon in the system tray and select Device item to the Bluetooth Device window.
++
+image::/picture/ai2n-bt-blueman.png[ai2n-bt-blueman.png]
 
 - Bluetooth using with bluetoothctl command
 +
+Install Bluez
++
 ```sh
 $ sudo apt install bluez
+```
+Start bluetoothctl
++
+```sh
 $ bluetoothctl 
 [bluetooth]# list
 Controller 14:5D:34:49:97:8F bpi-ai2n [default]
