@@ -202,7 +202,7 @@ image::/picture/ai2n-debug-uart.png[ai2n-debug-uart.png]
 
 Armbian uses link:https://netplan.io/[Netplan.io] to describe networking configurations. Netplan is a utility to easily configure Linux networking, using a declarative approach. If you want to configure your network manually, it is as simple as editing and creating Netplan yaml files (see the yaml configuration reference at the link:https://netplan.readthedocs.io/en/stable/netplan-yaml/[Netplan docs]).
 
-- GUI
+- Network-Manager Applet GUI
 +
 For Desktop images, you can right-click the NetworkManager applet icon in the system tray and select the "Edit Connection" item to configure the network.
 +
@@ -258,10 +258,58 @@ $ sudo chmod 600 /etc/netplan/*.yaml
 $ sudo netplan apply
 ```
 
-- Command Line
+- Command Line configure wireless connection
++
+. check if your Wi-Fi radio is enabled:
++
+```sh
+$ nmcli radio wifi
+```
+If this command returns the text "enabled", you’re ready to configure a connection. If this command returns "disabled", try enabling Wi-Fi with the following command:
++
+```sh
+$ nmcli radio wifi on
+```
+. scan for wireless networks
++
+```sh
+$ nmcli dev wifi list
+IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURIT>
+        F8:8C:21:8E:D7:A3  DK    Infra  1     540 Mbit/s  64      ***   WPA1 WP>
+        FA:8C:21:AE:D7:A3  --    Infra  1     540 Mbit/s  64      ***   WPA1 WP>
+        FA:8C:21:AE:D7:A5  --    Infra  149   540 Mbit/s  42      **    WPA1 WP>
+        F8:8C:21:8E:D7:A5  DK5   Infra  149   540 Mbit/s  40      **    WPA1 WP>
+```
+Look in the "SSID" column for the name of the network you would like to connect to. Use the SSID and a password to connect to the network.
 
-Alternatively， You can also use **armbian-config** to configure all network interfaces.
+. Connect to a network
++
+Run the following command to configure a network connection, replacing the <example_ssid> placeholder with the name of the network you’re trying to configure. Then enter your network password when prompted, the board should automatically connect to the network once you enter your password.
++
+```sh
+$ sudo nmcli --ask dev wifi connect <example_ssid>
+Password: **************
+Device 'wlan0' successfully activated with '639d32e7-6516-44a5-a538-f80ad7ebe177'.
+```
 
+. check if you’re connected to a network
++
+```sh
+$ nmcli dev wifi list
+```
+You should see output similar to the following:
++
+```sh
+$ nmcli dev wifi list
+IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURIT>
+        FA:8C:21:AE:D7:A3  --    Infra  1     540 Mbit/s  67      ***   WPA1 WP>
+        F8:8C:21:8E:D7:A3  DK    Infra  1     540 Mbit/s  64      ***   WPA1 WP>
+*       F8:8C:21:8E:D7:A5  DK5   Infra  149   540 Mbit/s  39      **    WPA1 WP>
+        FA:8C:21:AE:D7:A5  --    Infra  149   540 Mbit/s  39      **    WPA1 WP>
+```
+
+- Alternatively， You can also use **armbian-config** to configure networking configuration on all Armbian images.
++
 ```sh
 $ sudo armbian-config --cmd BNS001
 ```
