@@ -202,7 +202,19 @@ image::/picture/ai2n-debug-uart.png[ai2n-debug-uart.png]
 
 Armbian uses link:https://netplan.io/[Netplan.io] to describe networking configurations. Netplan is a utility to easily configure Linux networking, using a declarative approach. If you want to configure your network manually, it is as simple as editing and creating Netplan yaml files (see the yaml configuration reference at the link:https://netplan.readthedocs.io/en/stable/netplan-yaml/[Netplan docs]).
 
-- Desktop and CLI images
+- GUI
++
+For Desktop images, you can right-click the NetworkManager applet icon in the system tray and select the "Edit Connection" item to configure the network.
++
+image::/picture/ai2n-eth.png[ai2n-eth.png]
++
+Connect to wireless network, you can left-click the NetworkManager applet icon in the system tray and select Available networks items to bring up a list of available wireless networks. 
+
+
+Click the network that you want to connect to. If the network is secured, a dialogue box will prompt you to enter the network key:
+
+
+- Netplan
 +
 The Desktop and CLI images come with a default Netplan YAML file located at etc/netplan/00-default-use-network-manager.yaml. These images use the NetworkManager backend by default. All Ethernet interfaces are configured for DHCP and will automatically obtain an IP address from your router.
 +
@@ -243,6 +255,7 @@ $ sudo chmod 600 /etc/netplan/*.yaml
 $ sudo netplan apply
 ```
 
+- Command Line
 
 Alternatively， You can also use **armbian-config** to configure all network interfaces.
 
