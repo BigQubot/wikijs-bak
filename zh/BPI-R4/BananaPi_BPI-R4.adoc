@@ -1,6 +1,6 @@
 = BPI-R4 Introduction
 
-香蕉派BPI-R4路由器板采用联发科MT7988A (Filogic 880)四核ARM Corex-A73方案设计，板载4GB DDR4内存,8GB eMMC存储,128MB SPI-NAND闪存，还具有2个10Gbe SFP光电口, 4x Gbe千兆网口，带USB3.2端口，M.2接口支持4G/5G/NVME SSD.2x miniPCIe插槽，带有PCIe3.0 2lane接口，支持Wi-Fi 7网卡(Network interface Card)。它是一个非常高性能的开源路由器开发板。
+香蕉派BPI-R4路由器板采用联发科MT7988A (Filogic 880)四核ARM Corex-A73方案设计，板载4GB/8GB DDR4内存,8GB eMMC存储,128MB SPI-NAND闪存，还具有2个10Gbe SFP光电口, 4x Gbe千兆网口，带USB3.2端口，M.2接口支持4G/5G/NVME SSD.2x miniPCIe插槽，带有PCIe3.0 2lane接口，支持Wi-Fi 7网卡(Network interface Card)。它是一个非常高性能的开源路由器开发板。
 
 image::/picture/banana_pi_bpi-r4_banner_2.jpg[banana_pi_bpi-r4_banner_2.jpg]
 
@@ -26,7 +26,7 @@ TIP: 联发科 MT7988(Filogic 830) 芯片设计: link:/zh/BPI-R4_Pro/BananaPi_BP
 == 关键特性
 
 * 联发科(MediaTek) MT7988A (Filogic 880) 四核 Arm Corex-A73,1.8GHz处理器
-* 4GB DDR4内存
+* 4GB/8GB DDR4内存
 * 8GB eMMC 存储
 * 128MB SPI-NAND Flash存储
 * Micro SD 卡座
@@ -71,7 +71,7 @@ link:/en/BPI-R4/Photo_BPI-R4[Banana Pi BPI-R4 产品图片]
 |====
 2+| **Banana Pi BPI-R4硬件规格表**
 | CPU主控              | 联发科 MT7988A (Filogic 880) 四核 Arm Corex-A73,1.8GHz 高性能处理器
-| SDRAM 内存            | 4 GB DDR4
+| SDRAM 内存            | 4GB/8GB DDR4
 | 板载存储 | MicroSD \(TF\) 卡座, 板载8GB eMMC 
 | GPIO扩展             | 26 Pin GPIO,some of which can be used for specific functions including UART, I2C, SPI, PWM, I2S.
 | 有线网络 | 4 口 10/100/1000Mbps 千兆网口
