@@ -1,13 +1,25 @@
 = 介绍
 
+Banana Pi BPI-RV2开源网关是一款基于Siflower SF21H8898 SoC、1 × 2.5G WAN网络接口、5千兆LAN网络接口、板载512MB DDR3内存、128 MiB NAND、16 MiB NOR、M.2接口、MINI PCIE和usb2.0接口等的设备。
+
+image::/bpi-rv2/banana_pi_bpi-rv2_ban_1.jpg[banana_pi_bpi-rv2_ban_1.jpg]
 
 = 入门准备
 
 == 在开始使用开发板之前，请准备好以下物品
 
+* 准备usb串口线。
+* 12V/2A电源适配器
+* 使用TypeC （cable.Baud=115200）连接USB TypeC控制台接口到BPI-RV2上的调试控制台。
+
 == 可选选项
+* 5G模块：RM520N-GL
+* NVMe: Intel NVMe
+* 4G模块：EC25-E
 
 == 电源
+* 12V适配器供电
+* POE供电（有焊接POE模块的RV2板）
 
 = 烧录镜像
 
