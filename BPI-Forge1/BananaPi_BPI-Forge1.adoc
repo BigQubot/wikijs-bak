@@ -53,7 +53,7 @@ image::/bpi-forge1/rk3506j.jpg[rk3506j.jpg]
 [options="header",cols="1,5,1,1,5,1"]
 |====
 6+| 40 GPIO define of Banana Pi BPI-Forge1
-|GPIO Number	|Function	|Pin	|Pin	|Function	|GPIO Number
+GPIO Number	|Function	|Pin	|Pin	|Function	|GPIO Number
 | |+3.3V	|1 |2 |+5.0V	 |
 |130	|I2C1_SDA_M0 / UART3_RTSN / I2S1_SDI3 / GPIO4_A2_d	|3 |4|+5.0V	|
 |131	|I2C1_SCL_M0 / UART3_CTSN / I2S1_SDI2 / GPIO4_A3_d	|5 |6 | GND	|
@@ -77,6 +77,18 @@ image::/bpi-forge1/rk3506j.jpg[rk3506j.jpg]
 ||GND	|39|40|GPIO4_A7_d / UART1_RX_M0 / I2S1_SDO0	|135
 |====
 
+== 14-PIN Header
+[options="header",cols="1,2,3,1,2,3"]
+|====
+|Pin|	Assignment|	Description	|Pin	|Assignment	|Description
+|1	|RS485_A	|RS485 Differential Signal (Positive)|	2	|RS485_B	RS485 |Differential Signal (Negative)
+|3	|CAN_L|	CAN Bus Differential Low|	4	|CAN_H	|CAN Bus Differential High
+|5	|GND|	System Ground	|6	|GND|	System Ground (Redundant Design)
+|7	|MICIN_P	|Microphone Input Positive (Differential)|	8|	MICIN_N	|Microphone Input Negative (Differential)
+|9	|MICIN_P	|Microphone Input Positive (Alternate Channel)|	10	|MICIN_N|	Microphone Input Negative (Alternate Channel)
+|11 |GND	|Audio Signal Ground	|12	|VBAT_RTC|	RTC Battery Power Input
+|13	|SPK_P|	Speaker Output Positive (Differential Drive)	|14	|SPK_N|	Speaker Output Negative (Differential Drive)
+|====
 = Source code
 
 * SDK Source Code: https://github.com/ArmSoM/rk3506-rkr4.2-sdk
