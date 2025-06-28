@@ -4,6 +4,11 @@ image::/bpi-cm5_pro/banana_pi_bpi-cm5_pro_bann.png[banana_pi_bpi-cm5_pro_bann.pn
 
 香蕉派 BPI-CM5 Pro 是一款计算机模块，采用Rockchip RK3576第二代8nm高性能AIOT平台，集成了四核Cortex-A72@ 2.2GHz和四核Cortex-A53@ 1.8GHz以及单独的NEON协处理器，6 TOPS算力NPU，最大可配16GB大内存。支持4K视频编解码，拥有丰富的接口，支持多种操作系统。
 
+
+BPI-CM5 Pro 采用瑞芯RK3576第二代8nm高性能AIOT平台处理器，集成4个Cortex-A72和4个Cortex-A53以及独立的NEON co处理器；内置多个功能强大的嵌入式硬件引擎，为高端应用提供卓越性能，支持4K@120fps H.265、VP9、AVS2、AV1解码器，支持4k@60fps H.264解码器；同时支持4K@60fps H.264和H.265编码器，内置3D GPU，完全兼容OpenGL ES1.1/2.0/3.2, OpenCL 2.0和Vulkan 1.1。
+
+适用于ARM PC、边缘计算、个人移动互联网设备等多媒体产品。
+
 TIP: 瑞芯微（Rockchip） RK3588 设计 link:/zh/BPI-M7/BananaPi_BPI-M7[香蕉派 BPI-M7] AI 单板计算机开发板 +
 瑞芯微（Rockchip） RK3576 设计 link:/zh/BPI-M5/BananaPi_BPI-M5_Pro[香蕉派 BPI-M5 Pro] AI 单板计算机开发板 +
 瑞芯微（Rockchip） RK3576 设计 link:/zh/BPI-CM5_Pro/BananaPi_BPI-CM5_Pro[香蕉派 BPI-CM5 Pro] AI 核心板
