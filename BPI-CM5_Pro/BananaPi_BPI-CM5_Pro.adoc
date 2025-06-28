@@ -4,6 +4,10 @@ image::/bpi-cm5_pro/banana_pi_bpi-cm5_pro_bann.png[banana_pi_bpi-cm5_pro_bann.pn
 
 Banana Pi BPI-CM5 Pro is a computing module powered by the Rockchip RK3576 second-generation 8nm high-performance AIOT platform. It integrates a quad-core Cortex-A72 @ 2.2GHz and a quad-core Cortex-A53 @ 1.8GHz, along with a dedicated NEON co-processor, a 6 TOPS NPU, and supports up to 16GB of large memory. It supports 4K video encoding and decoding, features a rich set of interfaces, and supports various operating systems.
 
+BPI-CM5 Pro adopts Rockchip RK3576 second-generation 8nm high-performance AIOT platform processor, integrating 4 Cortex-A72 and 4 Cortex-A53 and independent NEON co processors; Built in multiple powerful embedded hardware engines, providing excellent performance for high-end applications and supporting 4K@120fps H.265, VP9, AVS2, and AV1 decoders, supporting 4k@60fps H.264 decoder; Also supported 4K@60fps H.264 and H.265 encoders, built-in 3D GPU, fully compatible with OpenGL ES1.1/2.0/3.2, OpenCL 2.0, and Vulkan 1.1.
+
+It is applicable to ARM PC, edge computing, personal mobile Internet devices and other multimedia products.
+
 TIP: Rockchip RK3576 design link:/en/BPI-CM5_Pro/BananaPi_BPI-CM5_Pro[Banana Pi BPI-CM5 Pro] AI Computer module design +
 Rockchip RK3576 deisgn link:/en/BPI-M5/BananaPi_BPI-M5_Pro[Banana Pi BPI-M5 Pro] AI SBC design +
 Rockchip RK3588 design link:/en/BPI-M7/BananaPi_BPI-M7[Banana Pi BPI-M7] AI SBC design
