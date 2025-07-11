@@ -2,7 +2,7 @@
 title: Banana Pi BPI-F4 工业级AI开发板使用开发手册
 description: 
 published: true
-date: 2025-07-11T04:45:45.844Z
+date: 2025-07-11T04:48:50.312Z
 tags: 
 editor: markdown
 dateCreated: 2025-07-11T04:20:25.152Z
@@ -23,5 +23,9 @@ Your content here
 Your content here
 
 # 接口使用
-Your content here
+##  GPIO引脚
+ 
+## USB接口
+
+## WIFI&&网口
 
