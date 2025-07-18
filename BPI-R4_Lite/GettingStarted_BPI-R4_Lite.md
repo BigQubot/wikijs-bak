@@ -2,7 +2,7 @@
 title: Getting Started BPI-R4 Lite
 description: Getting Started for BPI-R4 Lite
 published: true
-date: 2025-07-18T06:00:49.301Z
+date: 2025-07-18T06:09:11.494Z
 tags: 
 editor: markdown
 dateCreated: 2025-07-10T09:06:02.179Z
@@ -26,7 +26,6 @@ Banana Pi BPI-R4 Lite Router board with MediaTek MT7987A Quad-core Arm Cortex-A5
 * User name/password: pi/bananapi ,root/bananapi. +
 Or the user is root without a password.
 * WIFI: AP_MTK_MT7990_2G/AP_MTK_MT7990_5G/AP_MTK_MT7990_6G
-
-![c1e4d12b-d17b-4631-ad12-77fe8f86b4ec.png](/c1e4d12b-d17b-4631-ad12-77fe8f86b4ec.png)   
+![bpi-r4_lite-bootstrap.jpg](/bpi-r4_lite-bootstrap.jpg)
                            
 ## BPI-R4 bootstrap and device select Jumper Setting:                           
