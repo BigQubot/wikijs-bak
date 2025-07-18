@@ -2,7 +2,7 @@
 title: Getting Started BPI-R4 Lite
 description: Getting Started for BPI-R4 Lite
 published: true
-date: 2025-07-18T08:22:02.435Z
+date: 2025-07-18T09:01:57.229Z
 tags: 
 editor: markdown
 dateCreated: 2025-07-10T09:06:02.179Z
@@ -28,6 +28,44 @@ Or the user is root without a password.
 * WIFI: AP_MTK_MT7990_2G/AP_MTK_MT7990_5G/AP_MTK_MT7990_6G
 ![r4-lite_bootstrap.jpg](/bpi-r4_lite/r4-lite_bootstrap.jpg)
                            
-## BPI-R4 bootstrap and device select Jumper Setting:
+## BPI-R4_Lite bootstrap and device select Jumper Setting:
+![banana_pi_r4_lite_bootstrap.png](/bpi-r4_lite/banana_pi_r4_lite_bootstrap.png)
+1. A/B/D Jumper is "0", BPI-R4_Lite will boot from SD card
+2. A Jumper is "0" and B/C Jumper is "1", BPI-R4_Lite will boot from SPI NOR Flash
+3. A Jumper is "1" and B/C Jumper is "0", BPI-R4_Lite will boot from SPI NAND Flash
+4. A/B/D Jumper is "1",BPI-R4_Lite will boot from EMMC
+5. If the console said "system halt!", it means that the bootup storage does not cotain any OS
++
+```bash
+  F0: 102B 0000
+  FA: 5100 0000
+  FA: 5100 0000 [0200]
+  F9: 1041 0000
+  F3: 1001 0000 [0200]
+  F3: 1001 0000
+  F6: 102C 0000
+  F5: 1026 0000
+  00: 1005 0000
+  FA: 5100 0000
+  FA: 5100 0000 [0200]
+  F9: 1041 0000
+  F3: 1001 0000 [0200]
+  F3: 1001 0000
+  F6: 102C 0000
+  01: 102A 0001
+  02: 1005 0000
+  BP: 0200 00C0 [0001]
+  EC: 0000 0000 [0000]
+  MK: 0000 0000 [0000]
+  T0: 0000 00D7 [0101]
+  System halt!
+```
 
-1. 
+## How to burn image to SD card.
+
+- Please follow the following diagram for Windows PC.
+
+                         image
+- Linux PC, you can use the "**mksf**" command for formatting, or use the "**dd**" command to write zeros.
+**Burn image to SD card on windows computer**
+[etcher](/en/https://balena.io/etcher)is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
