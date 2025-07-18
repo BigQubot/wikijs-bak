@@ -2,7 +2,7 @@
 title: Getting Started BPI-R4 Lite
 description: Getting Started for BPI-R4 Lite
 published: true
-date: 2025-07-18T09:45:40.792Z
+date: 2025-07-18T10:08:42.325Z
 tags: 
 editor: markdown
 dateCreated: 2025-07-10T09:06:02.179Z
