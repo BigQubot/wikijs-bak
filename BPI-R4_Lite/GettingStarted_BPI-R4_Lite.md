@@ -2,7 +2,7 @@
 title: Getting Started BPI-R4 Lite
 description: Getting Started for BPI-R4 Lite
 published: true
-date: 2025-07-18T09:01:57.229Z
+date: 2025-07-18T09:03:08.588Z
 tags: 
 editor: markdown
 dateCreated: 2025-07-10T09:06:02.179Z
@@ -68,4 +68,4 @@ Or the user is root without a password.
                          image
 - Linux PC, you can use the "**mksf**" command for formatting, or use the "**dd**" command to write zeros.
 **Burn image to SD card on windows computer**
-[etcher](/en/https://balena.io/etcher)is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
+[etcher](https://balena.io/etcher)is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
