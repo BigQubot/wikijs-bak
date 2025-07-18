@@ -2,7 +2,7 @@
 title: Getting Started BPI-R4 Lite
 description: Getting Started for BPI-R4 Lite
 published: true
-date: 2025-07-18T06:09:11.494Z
+date: 2025-07-18T08:22:02.435Z
 tags: 
 editor: markdown
 dateCreated: 2025-07-10T09:06:02.179Z
@@ -16,7 +16,7 @@ Banana Pi BPI-R4 Lite Router board with MediaTek MT7987A Quad-core Arm Cortex-A5
 
 {.is-success}
 
-
+# Development
 ## Prepare
 * Prepare 8G/above TF card, USB-Serial cable, Ubuntu System
 * 12V/2A power adapter (without any peripherals, the power consumption of BPI-R4_Lite Main Board will not exceed 10W in the most extreme cases. but you need to determine whether you need a higher power power adapter according to your own accessory usage)
@@ -26,6 +26,8 @@ Banana Pi BPI-R4 Lite Router board with MediaTek MT7987A Quad-core Arm Cortex-A5
 * User name/password: pi/bananapi ,root/bananapi. +
 Or the user is root without a password.
 * WIFI: AP_MTK_MT7990_2G/AP_MTK_MT7990_5G/AP_MTK_MT7990_6G
-![bpi-r4_lite-bootstrap.jpg](/bpi-r4_lite-bootstrap.jpg)
+![r4-lite_bootstrap.jpg](/bpi-r4_lite/r4-lite_bootstrap.jpg)
                            
-## BPI-R4 bootstrap and device select Jumper Setting:                           
+## BPI-R4 bootstrap and device select Jumper Setting:
+
+1. 
