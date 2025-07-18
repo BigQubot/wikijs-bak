@@ -2,7 +2,7 @@
 title: Getting Started BPI-R4 Lite
 description: Getting Started for BPI-R4 Lite
 published: true
-date: 2025-07-18T09:03:08.588Z
+date: 2025-07-18T09:16:37.978Z
 tags: 
 editor: markdown
 dateCreated: 2025-07-10T09:06:02.179Z
@@ -68,4 +68,29 @@ Or the user is root without a password.
                          image
 - Linux PC, you can use the "**mksf**" command for formatting, or use the "**dd**" command to write zeros.
 **Burn image to SD card on windows computer**
-[etcher](https://balena.io/etcher)is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
+[Balena Etcher](https://balena.io/etcher) is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
+- Click on "**Flash from file**" to select image. 
+- Click on "**Select target**" to select USB device. 
+- Click on "**Flash!**" Start burning.
+                  image
+                  
+ **Burn image to SD card on linux computer**
+1. You could download latest image from our forum     
+2. Install bpi-tools on your Ubuntu. If you can't access this URL or any other problems, please go to bpi-tools repo and install this tools manually.
++
+```sh
+apt-get install pv
+curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
+```
+. After you download the image, insert your TF card into your Ubuntu. Execute
++
+```sh
+bpi-copy xxx.img /dev/sdx
+```
+to install image on your TF card
+
+. After step 3, then you can insert your TF card into R4_Lite, and press power button to setup R4_Lite
+ 
+**Change Boot Jumper to boot from SD, Enable SD Card Device.**
+
+## How to burn image to onboard NOR
