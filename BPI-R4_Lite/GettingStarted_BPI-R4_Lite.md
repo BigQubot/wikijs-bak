@@ -2,7 +2,7 @@
 title: Getting Started BPI-R4 Lite
 description: Getting Started for BPI-R4 Lite
 published: true
-date: 2025-07-18T09:24:11.075Z
+date: 2025-07-18T09:45:40.792Z
 tags: 
 editor: markdown
 dateCreated: 2025-07-10T09:06:02.179Z
@@ -82,7 +82,8 @@ Or the user is root without a password.
 apt-get install pv
 curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
 ```
-. After you download the image, insert your TF card into your Ubuntu. Execute
+ After you download the image, insert your TF card into your Ubuntu. Execute
+
 +
 ```sh
 bpi-copy xxx.img /dev/sdx
@@ -94,3 +95,25 @@ to install image on your TF card
 **Change Boot Jumper to boot from SD, Enable SD Card Device.**
 
 ## How to burn image to onboard NOR
+> When you want to Update Nand device, Firstly Change boot switch to boot from SD device and insert one SD with SD boot Image, then after boot up,you need flash one Nand image into Nor device. Finally you change bootstrap to boot from Nor device.
+{.is-info}
+
+Before burning image into Nand, please prepare a USB disk. Let’s take OpenWrt image (mtk-bpi-r4lite-NOR.img ) for example, the steps are below:
+
+1. Copy Nand boot OpenWrt image(**mtk-bpi-r4lite-NOR.img**) to USB disk. 
+2. Change boot switch Jumper, the board boot from SD device, then power up the board.
+3. Plug in USB disk to the board, and mount the USB to /mnt or other directory as follows: (you can skip mounting if it is mounted automatically)
+
++
+```SH
+mount -t vfat /dev/sda1 /mnt 
+cd /mnt
+```
+4. Execute following command to erase the whole Nand flash and copy image to nand device:
+
++
+```sh
+mtd erase /dev/mtd0
+dd if=mtk-bpi-r4lite-NOR.img of=/dev/mtdblock0
+```
+5. Power off BPI-R4 board, unplug u-disk driver, change bootstrap to boot from Nand device.
