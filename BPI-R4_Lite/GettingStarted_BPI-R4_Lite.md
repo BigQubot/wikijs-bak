@@ -2,7 +2,7 @@
 title: Getting Started BPI-R4 Lite
 description: Getting Started for BPI-R4 Lite
 published: true
-date: 2025-07-18T10:09:22.693Z
+date: 2025-07-21T02:02:29.904Z
 tags: 
 editor: markdown
 dateCreated: 2025-07-10T09:06:02.179Z
@@ -109,11 +109,74 @@ Before burning image into Nand, please prepare a USB disk. Let’s take OpenWrt 
 mount -t vfat /dev/sda1 /mnt 
 cd /mnt
 ```
-4. Execute following command to erase the whole Nand flash and copy image to nand device:
+4. Execute following command to erase the whole Nor flash and copy image to nor device:
 
 +
 ```sh
 mtd erase /dev/mtd0
 dd if=mtk-bpi-r4lite-NOR.img of=/dev/mtdblock0
 ```
-5. Power off BPI-R4 board, unplug u-disk driver, change bootstrap to boot from Nand device.
+5. Power off BPI-R4_Lite board, unplug u-disk driver, change bootstrap to boot from Nand device.
+
+## How to burn image to onboard Nand
+> **NAND has an image burned at the factory. If you want to use it, simply switch to the corresponding boot and then power on to start.**
+{.is-info}
+
+
+>  When you want to Update Nand device, Firstly Change boot switch to boot from SD device and insert one SD with SD boot Image, then after boot up,you need flash one Nand image into Nand device. Finally you change bootstrap to boot from Nand device.
+{.is-info}
+
+
+Before burning image into Nand, please prepare a USB disk. Let's take OpenWrt image (mtk-bpi-r4lite-NAND-2PCIe-1L.img) for example, the steps are below:
+
+1. Copy Nand boot OpenWrt image(**mtk-bpi-r4lite-NAND-2PCIe-1L.img**) to USB disk. 
+2. Change boot switch Jumper, the board boot from SD device, then power up the board.
+3. Plug in USB disk to the board, and mount the USB to /mnt or other directory as follows: (you can skip mounting if it is mounted automatically)
+
++
+```SH
+mount -t vfat /dev/sda1 /mnt 
+cd /mnt/sda1
+```
+4. Execute following command to erase the whole Nand flash and copy image to nand device:
+
++
+```sh
+mtd erase /dev/mtd0
+mtd write mtk-bpi-r4lite-NAND-2PCIe-1L.img /dev/mtd0
+```
+. Power off BPI-R4_Lite board, unplug u-disk driver, change bootstrap to boot from Nand device.
+
+
+## How to burn image to onboard eMMC
+> Because SD card and EMMC device share one SOC's controller, it is necessary to switch to NAND startup and then burn the EMMC image into the EMMC. Finally, you will change the boot to boot from EMMC.
+{.is-info}
+
+
+Before burning image to eMMC, please prepare a USB disk. Let's take OpenWrt image (bl2_emmc.img, mtk-bpi-r4lite-EMMC-NAND.img) for example, the steps are below:
+
+1. Copy EMMC boot OpenWrt image(**bl2_emmc-r4.img**,**mtk-bpi-r4-EMMC-20231030.img**) to USB disk, if the image is compressed please uncompress it before copying to USB disk.
+
+2. Change the switch jumper to Nand and start the motherboard from Nand.
+ 
+3. Plug in USB disk to the board, and mount the USB to /mnt or other directory as follows: (you can skip mounting if it is mounted automatically)
+
++
+```sh
+mount -t vfat /dev/sda1 /mnt 
+cd /mnt/sda1
+```
+
+4. Execute :
+
++
+```sh
+echo 0 > /sys/block/mmcblk0boot0/force_ro
+dd if=bl2_emmc.img of=/dev/mmcblk0boot0
+dd if=mtk-bpi-r4lite-EMMC-NAND.img of=/dev/mmcblk0
+mmc bootpart enable 1 1 /dev/mmcblk0
+sync
+sync
+```
+ 
+. Power off R4_Lite board, remove u-disk driver, change bootstrap to boot from emmc device.
