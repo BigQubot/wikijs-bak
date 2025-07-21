@@ -2,7 +2,7 @@
 title: Getting Started BPI-R4 Lite
 description: Getting Started for BPI-R4 Lite
 published: true
-date: 2025-07-21T03:07:10.018Z
+date: 2025-07-21T03:51:35.718Z
 tags: 
 editor: markdown
 dateCreated: 2025-07-10T09:06:02.179Z
@@ -184,9 +184,9 @@ sync
 ## Network-Configuration
 
 * Network-Configuration refer to: http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:network:start
-* Network Interface: eth1 lan5 is for WAN; lan0, lan1, lan2,lan3 is for LAN, ra0/ra1 is for 2.4G wireless, rai0 is for 5G wifi6 wireless, rax0 is for 6G wifi7 wireless.
+* Network Interface: eth1,lan5 is for WAN; lan0, lan1, lan2,lan3 is for LAN, ra0/ra1 is for 2.4G wireless, rai0 is for 5G wifi6 wireless, rax0 is for 6G wifi7 wireless.
     
-   
+![r4-lite_wan.png](/bpi-r4_lite/r4-lite_wan.png)
 
 ```bash
 root@OpenWrt:~# ifconfig
@@ -312,8 +312,26 @@ br-lan          7fff.baf0a327b253       no              apclii0
                                                         rax0
                                                         lan2
                                                         lan0
-                                                        lan5
+                                                        lan5![r4-lite_网口.png](/bpi-r4_lite/r4-lite_网口.png)
                                                         ra0
                                                         lan3
                                                         lan1
 root@OpenWrt:~# 
+```
+
+## 4G/5G Module
+
+
+### M.2 4G/5G Module(USB Interface)
+BPI-R4 supports M.2 USB Interface 4G LTE/5G Modules: **Quectel  EM05, RM500U-CN ,RM500Q-GL& RM520N-GL ** 
+
+If you want to use M.2 Cellular Module on BPI-R4:
+
+. Install 4G/5G Cellular Module into CN16 Slot(M.2 KEYB)
+. Inset NANOSIM Card into SIMSlot(SIM1) with card tray(pay attention to the direction)
+. Install antenna on the module
+. After powering on, it will automatically dial
+
+NOTE: The availability of 4G/5G depends on the local carrier frequency band.
+
+
