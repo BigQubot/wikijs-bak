@@ -2,7 +2,7 @@
 title: Getting Started BPI-R4 Lite
 description: Getting Started for BPI-R4 Lite
 published: true
-date: 2025-07-21T03:51:35.718Z
+date: 2025-07-21T06:43:05.164Z
 tags: 
 editor: markdown
 dateCreated: 2025-07-10T09:06:02.179Z
@@ -319,6 +319,7 @@ br-lan          7fff.baf0a327b253       no              apclii0
 root@OpenWrt:~# 
 ```
 
+# Accessories
 ## 4G/5G Module
 
 
