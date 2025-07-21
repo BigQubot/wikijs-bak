@@ -2,7 +2,7 @@
 title: Getting Started BPI-R4 Lite
 description: Getting Started for BPI-R4 Lite
 published: true
-date: 2025-07-21T08:37:14.238Z
+date: 2025-07-21T09:08:52.082Z
 tags: 
 editor: markdown
 dateCreated: 2025-07-10T09:06:02.179Z
@@ -328,11 +328,11 @@ root@OpenWrt:~#
 
 
 ### M.2 4G/5G Module(USB Interface)
-BPI-R4 supports M.2 USB Interface 4G LTE/5G Modules: **Quectel  EM05, RM500U-CN ,RM500Q-GL& RM520N-GL ** 
+BPI-R4_Lite supports M.2 USB Interface 4G LTE/5G Modules: **Quectel  EM05, RM500U-CN ,RM500Q-GL& RM520N-GL ** 
 
 If you want to use M.2 Cellular Module on BPI-R4:
 
-. Install 4G/5G Cellular Module into CN10 Slot(M.2 KEYB)
+. Install 4G/5G Cellular Module into CN9 Slot(M.2 KEYB)
 . Inset NANOSIM Card into SIMSlot(SIM1) (pay attention to the direction)
 . Install antenna on the module
 . After powering on, it will automatically dial
@@ -341,5 +341,24 @@ If you want to use M.2 Cellular Module on BPI-R4:
 {.is-info}
 
 ![r4_lite_sim1.png](/bpi-r4_lite/r4_lite_sim1.png)
+
+
+### miniPCIe 4G/5G Module(USB Interface)
+BPI-R4 supports MiniPCIe USB Interface 4G LTE Module :**Quectel EC25**
+
+If you want to use MiniPCIe Cellular Module on BPI-R4:
+
+. Install 4G Cellular Module into CN11/CN13 Slot
+. Inset NANOSIM Card into SIMSlot(SIM2/SIM3) with card tray(pay attention to the direction)
+. Install antenna on the module
+. After powering on, it will automatically dial
+
+**CN14 (SIM3) is also available**
+
+>  The availability of 4G depends on the local carrier frequency band.
+{.is-info}
+
+
+>  __Due to the compatibility of the BPI-R4 with Qualcomm/Unisoc modules, the EC25 module cannot directly access the DNS server and connect to the internet. Therefore, manual configuration is required to modify the   **default.script**  file via console port.__
 
 
