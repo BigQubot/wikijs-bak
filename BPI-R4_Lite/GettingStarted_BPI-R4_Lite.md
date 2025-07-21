@@ -2,7 +2,7 @@
 title: Getting Started BPI-R4 Lite
 description: Getting Started for BPI-R4 Lite
 published: true
-date: 2025-07-21T09:49:39.542Z
+date: 2025-07-21T10:29:04.067Z
 tags: 
 editor: markdown
 dateCreated: 2025-07-10T09:06:02.179Z
@@ -99,7 +99,7 @@ to install image on your TF card
 **Change Boot Jumper to boot from SD, Enable SD Card Device.**
 
 ## How to burn image to onboard NOR
-> When you want to Update Nand device, Firstly Change boot switch to boot from SD device and insert one SD with SD boot Image, then after boot up,you need flash one Nand image into Nor device. Finally you change bootstrap to boot from Nor device.
+> When you want to Update Nor device, Firstly Change boot switch to boot from SD device and insert one SD with SD boot Image, then after boot up,you need flash one Nor image into Nor device. Finally you change bootstrap to boot from Nor device.
 {.is-info}
 
 Before burning image into Nand, please prepare a USB disk. Let’s take OpenWrt image (mtk-bpi-r4lite-NOR.img ) for example, the steps are below:
@@ -340,13 +340,14 @@ If you want to use M.2 Cellular Module on BPI-R4:
 >  The availability of 4G/5G depends on the local carrier frequency band.
 {.is-info}
 
+![rm520ngl.png](/bpi-r4_lite/rm520ngl.png)
 ![r4_lite_sim1.png](/bpi-r4_lite/r4_lite_sim1.png)
 
 
 ### miniPCIe 4G/5G Module(USB Interface)
-BPI-R4 supports MiniPCIe USB Interface 4G LTE Module :**Quectel EC25**
+BPI-R4_Lite supports MiniPCIe USB Interface 4G LTE Module :**Quectel EC25**
 
-If you want to use MiniPCIe Cellular Module on BPI-R4:
+If you want to use MiniPCIe Cellular Module on BPI-R4_Lite:
 
 1. Install 4G Cellular Module into CN11 Slot
 2. Inset NANOSIM Card into SIMSlot(SIM2) with card tray(pay attention to the direction)
