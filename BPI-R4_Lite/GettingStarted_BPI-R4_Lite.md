@@ -2,7 +2,7 @@
 title: Getting Started BPI-R4 Lite
 description: Getting Started for BPI-R4 Lite
 published: true
-date: 2025-07-21T02:09:32.210Z
+date: 2025-07-21T03:07:10.018Z
 tags: 
 editor: markdown
 dateCreated: 2025-07-10T09:06:02.179Z
@@ -145,7 +145,7 @@ cd /mnt/sda1
 mtd erase /dev/mtd0
 mtd write mtk-bpi-r4lite-NAND-2PCIe-1L.img /dev/mtd0
 ```
-. Power off BPI-R4_Lite board, unplug u-disk driver, change bootstrap to boot from Nand device.
+5. Power off BPI-R4_Lite board, unplug u-disk driver, change bootstrap to boot from Nand device.
 
 
 ## How to burn image to onboard eMMC
@@ -179,4 +179,141 @@ sync
 sync
 ```
  
-. Power off R4_Lite board, remove u-disk driver, change bootstrap to boot from emmc device.
+5. Power off R4_Lite board, remove u-disk driver, change bootstrap to boot from emmc device.
+
+## Network-Configuration
+
+* Network-Configuration refer to: http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:network:start
+* Network Interface: eth1 lan5 is for WAN; lan0, lan1, lan2,lan3 is for LAN, ra0/ra1 is for 2.4G wireless, rai0 is for 5G wifi6 wireless, rax0 is for 6G wifi7 wireless.
+    
+   
+
+```bash
+root@OpenWrt:~# ifconfig
+br-lan    Link encap:Ethernet  HWaddr BA:F0:A3:27:B2:53  
+          inet addr:10.0.6.1  Bcast:10.0.6.255  Mask:255.255.255.0
+          inet6 addr: fd7f:7a27:1d87::1/60 Scope:Global
+          inet6 addr: fe80::b8f0:a3ff:fe27:b253/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:99527801 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:37709738 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:149207799463 (138.9 GiB)  TX bytes:2498673864 (2.3 GiB)
+
+br-wan    Link encap:Ethernet  HWaddr AA:0E:53:9B:EB:46  
+          inet addr:10.168.1.125  Bcast:10.168.1.255  Mask:255.255.255.0
+          inet6 addr: fe80::a80e:53ff:fe9b:eb46/64 Scope:Link
+          inet6 addr: fd3f:1b63:79e:0:a80e:53ff:fe9b:eb46/64 Scope:Global
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:34911 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:26689 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:16527400 (15.7 MiB)  TX bytes:10371963 (9.8 MiB)
+
+eth0      Link encap:Ethernet  HWaddr BA:F0:A3:27:B2:53  
+          inet6 addr: fe80::b8f0:a3ff:fe27:b253/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1504  Metric:1
+          RX packets:1866 errors:0 dropped:1 overruns:0 frame:0
+          TX packets:6100 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:483284 (471.9 KiB)  TX bytes:4001138 (3.8 MiB)
+          Interrupt:73 
+
+eth1      Link encap:Ethernet  HWaddr AA:0E:53:9B:EB:46  
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:3251292 errors:0 dropped:0 overruns:0 frame:1
+          TX packets:19493357 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:219561937 (209.3 MiB)  TX bytes:29475758425 (27.4 GiB)
+          Interrupt:73 
+
+lan0      Link encap:Ethernet  HWaddr BA:F0:A3:27:B2:53  
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:1615 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:1583 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:417484 (407.6 KiB)  TX bytes:710675 (694.0 KiB)
+
+lan1      Link encap:Ethernet  HWaddr BA:F0:A3:27:B2:53  
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+lan2      Link encap:Ethernet  HWaddr BA:F0:A3:27:B2:53  
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+lan3      Link encap:Ethernet  HWaddr BA:F0:A3:27:B2:53  
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+lan5      Link encap:Ethernet  HWaddr BA:F0:A3:27:B2:53  
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:2336 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:273011 (266.6 KiB)
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:331 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:331 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:89520 (87.4 KiB)  TX bytes:89520 (87.4 KiB)
+
+ra0       Link encap:Ethernet  HWaddr 00:0C:43:26:60:88  
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:19506966 errors:570 dropped:570 overruns:0 frame:0
+          TX packets:3871107 errors:57295 dropped:57295 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:29798518080 (27.7 GiB)  TX bytes:253500928 (241.7 MiB)
+
+ra1       Link encap:Ethernet  HWaddr 02:0C:43:36:60:88  
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+rai0      Link encap:Ethernet  HWaddr 00:0C:43:26:60:C0  
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:99966624 errors:1084 dropped:1084 overruns:0 frame:0
+          TX packets:47357921 errors:278811 dropped:278811 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:152961245728 (142.4 GiB)  TX bytes:3031675968 (2.8 GiB)
+
+rax0      Link encap:Ethernet  HWaddr 00:0C:43:26:60:78  
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+root@OpenWrt:~# brctl show br-wan
+bridge name     bridge id               STP enabled     interfaces
+br-wan          7fff.aa0e539beb46       no              eth1
+root@OpenWrt:~# brctl show br-lan
+bridge name     bridge id               STP enabled     interfaces
+br-lan          7fff.baf0a327b253       no              apclii0
+                                                        apclix0
+                                                        apcli0
+                                                        ra1
+                                                        rai0
+                                                        rax0
+                                                        lan2
+                                                        lan0
+                                                        lan5
+                                                        ra0
+                                                        lan3
+                                                        lan1
+root@OpenWrt:~# 
