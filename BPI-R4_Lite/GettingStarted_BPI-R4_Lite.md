@@ -2,7 +2,7 @@
 title: Getting Started BPI-R4 Lite
 description: Getting Started for BPI-R4 Lite
 published: true
-date: 2025-07-21T06:43:05.164Z
+date: 2025-07-21T07:50:56.750Z
 tags: 
 editor: markdown
 dateCreated: 2025-07-10T09:06:02.179Z
@@ -29,10 +29,14 @@ Or the user is root without a password.
 ![r4-lite_bootstrap.jpg](/bpi-r4_lite/r4-lite_bootstrap.jpg)
                            
 ## BPI-R4_Lite bootstrap and device select Jumper Setting:
-![banana_pi_r4_lite_bootstrap.png](/bpi-r4_lite/banana_pi_r4_lite_bootstrap.png)
+![r4_lite_bootstrap.png](/bpi-r4_lite/r4_lite_bootstrap.png)
+
 1. A/B/D Jumper is "0", BPI-R4_Lite will boot from SD card
+![00x0_sd.png](/bpi-r4_lite/00x0_sd.png)
 2. A Jumper is "0" and B/C Jumper is "1", BPI-R4_Lite will boot from SPI NOR Flash
+![011x-nor.png](/bpi-r4_lite/011x-nor.png)
 3. A Jumper is "1" and B/C Jumper is "0", BPI-R4_Lite will boot from SPI NAND Flash
+
 4. A/B/D Jumper is "1",BPI-R4_Lite will boot from EMMC
 5. If the console said "system halt!", it means that the bootup storage does not cotain any OS
 +
@@ -64,8 +68,7 @@ Or the user is root without a password.
 ## How to burn image to SD card.
 
 - Please follow the following diagram for Windows PC.
-
-                         image
+![r4_lite_flash1.png](/bpi-r4_lite/r4_lite_flash1.png)
 - Linux PC, you can use the "**mksf**" command for formatting, or use the "**dd**" command to write zeros.
 **Burn image to SD card on windows computer**
 [Balena Etcher](https://balena.io/etcher) is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
@@ -312,7 +315,7 @@ br-lan          7fff.baf0a327b253       no              apclii0
                                                         rax0
                                                         lan2
                                                         lan0
-                                                        lan5![r4-lite_网口.png](/bpi-r4_lite/r4-lite_网口.png)
+                                                        lan5
                                                         ra0
                                                         lan3
                                                         lan1
@@ -328,11 +331,14 @@ BPI-R4 supports M.2 USB Interface 4G LTE/5G Modules: **Quectel  EM05, RM500U-CN 
 
 If you want to use M.2 Cellular Module on BPI-R4:
 
-. Install 4G/5G Cellular Module into CN16 Slot(M.2 KEYB)
-. Inset NANOSIM Card into SIMSlot(SIM1) with card tray(pay attention to the direction)
+. Install 4G/5G Cellular Module into CN10 Slot(M.2 KEYB)
+. Inset NANOSIM Card into SIMSlot(SIM1) (pay attention to the direction)
 . Install antenna on the module
 . After powering on, it will automatically dial
 
-NOTE: The availability of 4G/5G depends on the local carrier frequency band.
+>  The availability of 4G/5G depends on the local carrier frequency band.
+{.is-info}
+
+![r4_lite_sim1.png](/bpi-r4_lite/r4_lite_sim1.png)
 
 
