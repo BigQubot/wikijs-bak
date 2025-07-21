@@ -2,7 +2,7 @@
 title: Getting Started BPI-R4 Lite
 description: Getting Started for BPI-R4 Lite
 published: true
-date: 2025-07-21T09:08:52.082Z
+date: 2025-07-21T09:49:39.542Z
 tags: 
 editor: markdown
 dateCreated: 2025-07-10T09:06:02.179Z
@@ -348,17 +348,35 @@ BPI-R4 supports MiniPCIe USB Interface 4G LTE Module :**Quectel EC25**
 
 If you want to use MiniPCIe Cellular Module on BPI-R4:
 
-. Install 4G Cellular Module into CN11/CN13 Slot
-. Inset NANOSIM Card into SIMSlot(SIM2/SIM3) with card tray(pay attention to the direction)
-. Install antenna on the module
-. After powering on, it will automatically dial
+1. Install 4G Cellular Module into CN11 Slot
+2. Inset NANOSIM Card into SIMSlot(SIM2) with card tray(pay attention to the direction)
+3. Install antenna on the module
+4. After powering on, it will automatically dial
 
-**CN14 (SIM3) is also available**
+**CN13 (SIM3) is also available**
 
 >  The availability of 4G depends on the local carrier frequency band.
 {.is-info}
 
 
 >  __Due to the compatibility of the BPI-R4 with Qualcomm/Unisoc modules, the EC25 module cannot directly access the DNS server and connect to the internet. Therefore, manual configuration is required to modify the   **default.script**  file via console port.__
+
+```sh
+vim /usr/share/udhcpc/default.script
+```
+![bpi-r4_ec25e_module_modification_1.png](/bpi-r4/bpi-r4_ec25e_module_modification_1.png)
+
+Add:  echo "nameserver 202.96.128.86" >> /etc/resolv.conf
+```sh
+echo "nameserver 202.96.128.86" >> /etc/resolv.conf
+```
+> Modify the IP address according to your local DNS server.
+{.is-info}
+{.is-info}
+
+![bpi-r4_ec25e_module_modification_2.png](/bpi-r4/bpi-r4_ec25e_module_modification_2.png)}
+
+
+
 
 
