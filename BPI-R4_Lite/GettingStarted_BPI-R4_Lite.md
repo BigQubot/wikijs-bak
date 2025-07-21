@@ -2,7 +2,7 @@
 title: Getting Started BPI-R4 Lite
 description: Getting Started for BPI-R4 Lite
 published: true
-date: 2025-07-21T07:50:56.750Z
+date: 2025-07-21T08:37:14.238Z
 tags: 
 editor: markdown
 dateCreated: 2025-07-10T09:06:02.179Z
@@ -32,12 +32,13 @@ Or the user is root without a password.
 ![r4_lite_bootstrap.png](/bpi-r4_lite/r4_lite_bootstrap.png)
 
 1. A/B/D Jumper is "0", BPI-R4_Lite will boot from SD card
-![00x0_sd.png](/bpi-r4_lite/00x0_sd.png)
+![sd.png](/bpi-r4_lite/sd.png)
 2. A Jumper is "0" and B/C Jumper is "1", BPI-R4_Lite will boot from SPI NOR Flash
-![011x-nor.png](/bpi-r4_lite/011x-nor.png)
+![nor.png](/bpi-r4_lite/nor.png)
 3. A Jumper is "1" and B/C Jumper is "0", BPI-R4_Lite will boot from SPI NAND Flash
-
+![nand.png](/bpi-r4_lite/nand.png)
 4. A/B/D Jumper is "1",BPI-R4_Lite will boot from EMMC
+![emmc.png](/bpi-r4_lite/emmc.png)
 5. If the console said "system halt!", it means that the bootup storage does not cotain any OS
 +
 ```bash
