@@ -2,7 +2,7 @@
 title: Getting Started BPI-R4 Lite
 description: Getting Started for BPI-R4 Lite
 published: true
-date: 2025-07-22T03:04:54.419Z
+date: 2025-07-22T03:06:48.319Z
 tags: 
 editor: markdown
 dateCreated: 2025-07-10T09:06:02.179Z
@@ -409,19 +409,7 @@ MTK OpwnWRT fan with PWM control reference.
 
 # GPIO Define 
 ## 26 Pin GPIO define
-== Hardware Spec
 
-[options="header",cols="1,5",width="70%"]
-|=====
-2+| **HardWare Specification of Banana Pi BPI-CM6 RISC-V Core board**
-| CPU                               |  SpacemiT K1 Otca-core X60(RV64GCVB),RVA22,RVV1.0
-
-| AI                                |  2.0Tops from RlSC-V Core   
-| GPU  | IMG BXE-2-32@819MHz,32KB SLCOpenGL ES1.1/3.2EGL1.50penCL 3.0Vulkan 1.3
-| Memory                            | 8/16 GB LPDDR4 (default is 8GB)                                                                                 
-| Storage                           | 8/16/32/128 GB eMMC flash.(default is 16GB)
-| WiFi/BT  | support Wifi/Bt module onboard
-|=====
 
 
 
