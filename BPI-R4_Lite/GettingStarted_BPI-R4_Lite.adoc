@@ -330,21 +330,23 @@ root@OpenWrt:~#
 === M.2 4G/5G Module(USB Interface)
 BPI-R4_Lite supports M.2 USB Interface 4G LTE/5G Modules: **Quectel  EM05, RM500U-CN ,RM500Q-GL& RM520N-GL ** 
 
-If you want to use M.2 Cellular Module on BPI-R4:
+If you want to use M.2 Cellular Module on BPI-R4_Lite:
 
 1. Install 4G/5G Cellular Module into CN9 Slot(M.2 KEYB)
 2. Inset NANOSIM Card into SIMSlot(SIM1) (pay attention to the direction)
 3. Install antenna on the module
 4. After powering on, it will automatically dial
 
->  The availability of 4G/5G depends on the local carrier frequency band.
-{.is-info}
+NOTE:  The availability of 4G/5G depends on the local carrier frequency band.
 
-![rm520ngl.png](/bpi-r4_lite/rm520ngl.png)
-![r4_lite-sim.png](/bpi-r4_lite/r4_lite-sim.png)
-![r4_lite_sim1.png](/bpi-r4_lite/r4_lite_sim1.png)
+
+image::/bpi-r4_lite/rm520ngl.png[rm520ngl.png]
+image::/bpi-r4_lite/r4_lite-sim.png[r4_lite-sim.png]
+image::/bpi-r4_lite/r4_lite_sim1.png[r4_lite_sim1.png]
+
 **Quectel RM520N-GL**
-![读id-sim1.png](/读id-sim1.png)
+
+image::/读id-sim1.png[读id-sim1.png]
 ```sh
 Quectel RM520N-GL
 wwan0     Link encap:Ethernet  HWaddr 1A:F1:B9:87:ED:15  
@@ -400,26 +402,25 @@ If you want to use MiniPCIe Cellular Module on BPI-R4_Lite:
 
 **CN13 (SIM3) is also available**
 
->  The availability of 4G depends on the local carrier frequency band.
-{.is-info}
+NOTE:  The availability of 4G depends on the local carrier frequency band.
 
-
->  __Due to the compatibility of the BPI-R4 with Qualcomm/Unisoc modules, the EC25 module cannot directly access the DNS server and connect to the internet. Therefore, manual configuration is required to modify the   **default.script**  file via console port.__
+> __Due to the compatibility of the BPI-R4 with Qualcomm/Unisoc modules, the EC25 module cannot directly access the DNS server and connect to the internet. Therefore, manual configuration is required to modify the   **default.script**  file via console port.__
 
 ```sh
 vim /usr/share/udhcpc/default.script
 ```
-![bpi-r4_ec25e_module_modification_1.png](/bpi-r4/bpi-r4_ec25e_module_modification_1.png)
+ 
+image::/bpi-r4/bpi-r4_ec25e_module_modification_1.png[bpi-r4_ec25e_module_modification_1.png]
+
 
 Add:  echo "nameserver 202.96.128.86" >> /etc/resolv.conf
 ```sh
 echo "nameserver 202.96.128.86" >> /etc/resolv.conf
 ```
-> Modify the IP address according to your local DNS server.
-{.is-info}
-{.is-info}
 
-![bpi-r4_ec25e_module_modification_2.png](/bpi-r4/bpi-r4_ec25e_module_modification_2.png)}
+NOTE: Modify the IP address according to your local DNS server.
+
+image::/bpi-r4/bpi-r4_ec25e_module_modification_2.png[bpi-r4_ec25e_module_modification_2.png]
 
 == Storage
 ===  PCIe to USB
