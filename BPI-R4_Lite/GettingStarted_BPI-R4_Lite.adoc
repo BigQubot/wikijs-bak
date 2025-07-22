@@ -14,19 +14,25 @@ TIP: link:/en/BPI-R4_Lite/BananaPi_BPI-R4_Lite[BananaPi_BPI-R4_Lite]
 * User name/password: pi/bananapi ,root/bananapi. +
 Or the user is root without a password.
 * WIFI: AP_MTK_MT7990_2G/AP_MTK_MT7990_5G/AP_MTK_MT7990_6G
-![r4-lite_bootstrap.jpg](/bpi-r4_lite/r4-lite_bootstrap.jpg)
+
+image::/bpi-r4_lite/r4-lite_bootstrap.jpg[r4-lite_bootstrap.jpg]
+
                            
 == BPI-R4_Lite bootstrap and device select Jumper Setting:
-![r4_lite_bootstrap.png](/bpi-r4_lite/r4_lite_bootstrap.png)
+image::/bpi-r4_lite/r4_lite_bootstrap.png[r4_lite_bootstrap.png]
 
 1. A/B/D Jumper is "0", BPI-R4_Lite will boot from SD card
 
+image::/bpi-r4_lite/sd.png[sd.png]
 2. A Jumper is "0" and B/C Jumper is "1", BPI-R4_Lite will boot from SPI NOR Flash
-![nor.png](/bpi-r4_lite/nor.png)
+
+image::/bpi-r4_lite/nor.png[nor.png]
 3. A Jumper is "1" and B/C Jumper is "0", BPI-R4_Lite will boot from SPI NAND Flash
-![nand.png](/bpi-r4_lite/nand.png)
+
+image::/bpi-r4_lite/nand.png[nand.png]
 4. A/B/D Jumper is "1",BPI-R4_Lite will boot from EMMC
-![emmc.png](/bpi-r4_lite/emmc.png)
+
+image::/bpi-r4_lite/emmc.png[emmc.png]
 5. If the console said "system halt!", it means that the bootup storage does not cotain any OS
 +
 ```bash
@@ -57,16 +63,16 @@ Or the user is root without a password.
 == How to burn image to SD card.
 
 - Please follow the following diagram for Windows PC.
-![low_level_format_sd_card.png](/bpi-r4_lite/low_level_format_sd_card.png)
 
+image::/bpi-r4_lite/low_level_format_sd_card.png[low_level_format_sd_card.png]
 - Linux PC, you can use the "**mksf**" command for formatting, or use the "**dd**" command to write zeros.
 **Burn image to SD card on windows computer**
 [Balena Etcher](https://balena.io/etcher) is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
 - Click on "**Flash from file**" to select image. 
 - Click on "**Select target**" to select USB device. 
 - Click on "**Flash!**" Start burning.
-![r4_lite_flash1.png](/bpi-r4_lite/r4_lite_flash1.png)                  image
-                  
+
+image::/bpi-r4_lite/r4_lite_flash1.png[r4_lite_flash1.png]      
  **Burn image to SD card on linux computer**
 1. You could download latest image from our forum     
 2. Install bpi-tools on your Ubuntu. If you can't access this URL or any other problems, please go to bpi-tools repo and install this tools manually.
