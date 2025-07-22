@@ -514,14 +514,14 @@ Print information about GPIO lines. Lines are specified by name, or optionally b
 ```sh
 $ sudo gpioinfo
 gpiochip0 - 96 lines:
-        line   0:       "P0_0"    "sys-led"  output  active-high [used]
-        line   1:       "P0_1"       unused   input  active-high 
-        line   2:       "P0_2"       unused   input  active-high 
-        line   3:       "P0_3"       unused   input  active-high
-          ...
-        line  93:       "PB_5"       unused   input  active-high 
-        line  94:       "PB_6"       unused   input  active-high 
-        line  95:       "PB_7"       unused   input  active-high
+        line   0:        "P00" "carrier-led" output active-high [used]
+        line   1:        "P01"   "core-led"  output  active-high [used]
+        line   2:        "P02"       unused   input  active-high 
+        line   3:        "P03"  "interrupt"   input  active-high [used]
+        ...
+        line  93:        "PB5"       unused   input  active-high 
+        line  94:        "PB6"       unused   input  active-high 
+        line  95:        "PB7"       unused   input  active-high
 ```
 
 - Get gpio line number from name, For example, 40pin header phy pin.31 name is P9_5.
