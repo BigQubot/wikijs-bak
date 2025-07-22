@@ -159,7 +159,7 @@ NOTE: Because SD card and EMMC device share one SOC's controller, it is necessar
 
 Before burning image to eMMC, please prepare a USB disk. Let's take OpenWrt image (bl2_emmc.img, mtk-bpi-r4lite-EMMC-NAND.img) for example, the steps are below:
 
-1. Copy EMMC boot OpenWrt image(**bl2_emmc-r4.img**,**mtk-bpi-r4-EMMC-20231030.img**) to USB disk, if the image is compressed please uncompress it before copying to USB disk.
+1. Copy EMMC boot OpenWrt image(**bl2_emmc-r4.img**,**mtk-bpi-r4lite-EMMC-NAND.imgimage::/bpi-r4_lite/ec25-e.png[ec25-e.png]**) to USB disk, if the image is compressed please uncompress it before copying to USB disk.
 
 2. Change the switch jumper to Nand and start the motherboard from Nand.
  
@@ -190,7 +190,7 @@ sync
 * Network-Configuration refer to: http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:network:start
 * Network Interface: eth1,lan5 is for WAN; lan0, lan1, lan2,lan3 is for LAN, ra0/ra1 is for 2.4G wireless, rai0 is for 5G wifi6 wireless, rax0 is for 6G wifi7 wireless.
     
-![r4-lite_wan.png](/bpi-r4_lite/r4-lite_wan.png)
+image::/bpi-r4_lite/r4-lite_wan.png[r4-lite_wan.png]
 
 ```bash
 root@OpenWrt:~# ifconfig
@@ -421,6 +421,8 @@ echo "nameserver 202.96.128.86" >> /etc/resolv.conf
 NOTE: Modify the IP address according to your local DNS server.
 
 image::/bpi-r4/bpi-r4_ec25e_module_modification_2.png[bpi-r4_ec25e_module_modification_2.png]
+
+image::/bpi-r4_lite/ec25-e.png[ec25-e.png]
 
 == Storage
 ===  PCIe to USB
