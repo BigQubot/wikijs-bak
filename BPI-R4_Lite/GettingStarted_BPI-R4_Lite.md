@@ -2,7 +2,7 @@
 title: Getting Started BPI-R4 Lite
 description: Getting Started for BPI-R4 Lite
 published: true
-date: 2025-07-22T03:08:03.239Z
+date: 2025-07-22T03:28:58.382Z
 tags: 
 editor: markdown
 dateCreated: 2025-07-10T09:06:02.179Z
@@ -342,6 +342,7 @@ If you want to use M.2 Cellular Module on BPI-R4:
 {.is-info}
 
 ![rm520ngl.png](/bpi-r4_lite/rm520ngl.png)
+![r4_lite-sim.png](/bpi-r4_lite/r4_lite-sim.png)
 ![r4_lite_sim1.png](/bpi-r4_lite/r4_lite_sim1.png)
 
 
