@@ -2,7 +2,7 @@
 title: Getting Started BPI-R4 Lite
 description: Getting Started for BPI-R4 Lite
 published: true
-date: 2025-07-22T01:05:29.747Z
+date: 2025-07-22T03:04:54.419Z
 tags: 
 editor: markdown
 dateCreated: 2025-07-10T09:06:02.179Z
@@ -69,14 +69,14 @@ Or the user is root without a password.
 ## How to burn image to SD card.
 
 - Please follow the following diagram for Windows PC.
-![low_level_format_sd_card.png](/bpi-r4_lite/low_level_format_sd_card.png)
+![r4_lite_flash1.png](/bpi-r4_lite/r4_lite_flash1.png)
 - Linux PC, you can use the "**mksf**" command for formatting, or use the "**dd**" command to write zeros.
 **Burn image to SD card on windows computer**
 [Balena Etcher](https://balena.io/etcher) is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
 - Click on "**Flash from file**" to select image. 
 - Click on "**Select target**" to select USB device. 
 - Click on "**Flash!**" Start burning.
-![r4_lite_flash1.png](/bpi-r4_lite/r4_lite_flash1.png)
+                  image
                   
  **Burn image to SD card on linux computer**
 1. You could download latest image from our forum     
@@ -360,7 +360,7 @@ If you want to use MiniPCIe Cellular Module on BPI-R4_Lite:
 {.is-info}
 
 
->  __Due to the compatibility of the BPI-R4_Lite with Qualcomm/Unisoc modules, the EC25 module cannot directly access the DNS server and connect to the internet. Therefore, manual configuration is required to modify the   **default.script**  file via console port.__
+>  __Due to the compatibility of the BPI-R4 with Qualcomm/Unisoc modules, the EC25 module cannot directly access the DNS server and connect to the internet. Therefore, manual configuration is required to modify the   **default.script**  file via console port.__
 
 ```sh
 vim /usr/share/udhcpc/default.script
@@ -377,6 +377,51 @@ echo "nameserver 202.96.128.86" >> /etc/resolv.conf
 
 ![bpi-r4_ec25e_module_modification_2.png](/bpi-r4/bpi-r4_ec25e_module_modification_2.png)}
 
+## Storage
+###  PCIe to USB
+BPI-R4_Lite Also supports PCIe to USB
+
+## Wi-Fi7 NIC
+You can insert the BPI-R4-NIC into CN12 and CN14 at the bottom of BPI-R4-Main, and then fix it with two M2 screws.
+
+The BPI-R4-NIC module requires 12V power supply, so the power supply on the BPI-R4-Main must be turned on before powering on (SW4 is turned to the "ON" position, and the 12V LED will lights up when power on)
+
+IMPORTANT:  The 12V power supply will be supplied to the BPI-R4-NIC through PIN6/28/48 of the miniPCI socket. 
+When plugging in other modules, be sure to turn off SW4 if you cannot confirm whether the module can withstand 12V.
+
+### BPI-R4-NIC-BE14
+
+BPI-R4-NIC-BE14 : MT7995AV+MT7976CN+MT7977IAN
+
+### OpenWrt
+OpenWRT MTK MP4.0 WiFi Setting:
+
+When all functions are OK, we can detect Three SSIDs and the three blue LEDs on BE14 will also light up.
+     
+#### How to turn on WiFi hotspot
+
+Open web and configure the corresponding STA hotspot in config.
+And click Connect to connect.
+
+## Heat sink
+MTK OpwnWRT fan with PWM control reference.
+
+
+# GPIO Define 
+## 26 Pin GPIO define
+== Hardware Spec
+
+[options="header",cols="1,5",width="70%"]
+|=====
+2+| **HardWare Specification of Banana Pi BPI-CM6 RISC-V Core board**
+| CPU                               |  SpacemiT K1 Otca-core X60(RV64GCVB),RVA22,RVV1.0
+
+| AI                                |  2.0Tops from RlSC-V Core   
+| GPU  | IMG BXE-2-32@819MHz,32KB SLCOpenGL ES1.1/3.2EGL1.50penCL 3.0Vulkan 1.3
+| Memory                            | 8/16 GB LPDDR4 (default is 8GB)                                                                                 
+| Storage                           | 8/16/32/128 GB eMMC flash.(default is 16GB)
+| WiFi/BT  | support Wifi/Bt module onboard
+|=====
 
 
 
