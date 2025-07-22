@@ -66,22 +66,28 @@ image::/bpi-r4_lite/emmc.png[emmc.png]
 
 image::/bpi-r4_lite/low_level_format_sd_card.png[low_level_format_sd_card.png]
 - Linux PC, you can use the "**mksf**" command for formatting, or use the "**dd**" command to write zeros.
+
 **Burn image to SD card on windows computer**
-[Balena Etcher](https://balena.io/etcher) is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
+
+link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
+
 - Click on "**Flash from file**" to select image. 
 - Click on "**Select target**" to select USB device. 
 - Click on "**Flash!**" Start burning.
 
 image::/bpi-r4_lite/r4_lite_flash1.png[r4_lite_flash1.png]      
- **Burn image to SD card on linux computer**
+
+**Burn image to SD card on linux computer**
+
 1. You could download latest image from our forum     
 2. Install bpi-tools on your Ubuntu. If you can't access this URL or any other problems, please go to bpi-tools repo and install this tools manually.
+
 +
 ```sh
 apt-get install pv
 curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
 ```
- After you download the image, insert your TF card into your Ubuntu. Execute
+3. After you download the image, insert your TF card into your Ubuntu. Execute
 
 +
 ```sh
@@ -89,13 +95,12 @@ bpi-copy xxx.img /dev/sdx
 ```
 to install image on your TF card
 
-. After step 3, then you can insert your TF card into R4_Lite, and press power button to setup R4_Lite
+4. After step 3, then you can insert your TF card into R4_Lite, and press power button to setup R4_Lite
  
 **Change Boot Jumper to boot from SD, Enable SD Card Device.**
 
 == How to burn image to onboard NOR
-> When you want to Update Nor device, Firstly Change boot switch to boot from SD device and insert one SD with SD boot Image, then after boot up,you need flash one Nor image into Nor device. Finally you change bootstrap to boot from Nor device.
-{.is-info}
+NOTE: When you want to Update Nor device, Firstly Change boot switch to boot from SD device and insert one SD with SD boot Image, then after boot up,you need flash one Nor image into Nor device. Finally you change bootstrap to boot from Nor device.
 
 Before burning image into Nand, please prepare a USB disk. Let’s take OpenWrt image (mtk-bpi-r4lite-NOR.img ) for example, the steps are below:
 
@@ -115,15 +120,15 @@ cd /mnt
 mtd erase /dev/mtd0
 dd if=mtk-bpi-r4lite-NOR.img of=/dev/mtdblock0
 ```
-5. Power off BPI-R4_Lite board, unplug u-disk driver, change bootstrap to boot from Nand device.
+5. Power off BPI-R4_Lite board, unplug u-disk driver, change bootstrap to boot from Nor device.
 
 == How to burn image to onboard Nand
 > **NAND has an image burned at the factory. If you want to use it, simply switch to the corresponding boot and then power on to start.**
-{.is-info}
 
 
->  When you want to Update Nand device, Firstly Change boot switch to boot from SD device and insert one SD with SD boot Image, then after boot up,you need flash one Nand image into Nand device. Finally you change bootstrap to boot from Nand device.
-{.is-info}
+
+NOTE: When you want to Update Nand device, Firstly Change boot switch to boot from SD device and insert one SD with SD boot Image, then after boot up,you need flash one Nand image into Nand device. Finally you change bootstrap to boot from Nand device.
+
 
 
 Before burning image into Nand, please prepare a USB disk. Let's take OpenWrt image (mtk-bpi-r4lite-NAND-2PCIe-1L.img) for example, the steps are below:
@@ -148,8 +153,8 @@ mtd write mtk-bpi-r4lite-NAND-2PCIe-1L.img /dev/mtd0
 
 
 == How to burn image to onboard eMMC
-> Because SD card and EMMC device share one SOC's controller, it is necessary to switch to NAND startup and then burn the EMMC image into the EMMC. Finally, you will change the boot to boot from EMMC.
-{.is-info}
+NOTE: Because SD card and EMMC device share one SOC's controller, it is necessary to switch to NAND startup and then burn the EMMC image into the EMMC. Finally, you will change the boot to boot from EMMC.
+
 
 
 Before burning image to eMMC, please prepare a USB disk. Let's take OpenWrt image (bl2_emmc.img, mtk-bpi-r4lite-EMMC-NAND.img) for example, the steps are below:
