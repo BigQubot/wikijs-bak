@@ -2,7 +2,7 @@
 title: Getting Started BPI-R4 Lite
 description: Getting Started for BPI-R4 Lite
 published: true
-date: 2025-07-22T03:28:58.382Z
+date: 2025-07-22T03:44:49.396Z
 tags: 
 editor: markdown
 dateCreated: 2025-07-10T09:06:02.179Z
@@ -333,10 +333,10 @@ BPI-R4_Lite supports M.2 USB Interface 4G LTE/5G Modules: **Quectel  EM05, RM500
 
 If you want to use M.2 Cellular Module on BPI-R4:
 
-. Install 4G/5G Cellular Module into CN9 Slot(M.2 KEYB)
-. Inset NANOSIM Card into SIMSlot(SIM1) (pay attention to the direction)
-. Install antenna on the module
-. After powering on, it will automatically dial
+1. Install 4G/5G Cellular Module into CN9 Slot(M.2 KEYB)
+2. Inset NANOSIM Card into SIMSlot(SIM1) (pay attention to the direction)
+3. Install antenna on the module
+4. After powering on, it will automatically dial
 
 >  The availability of 4G/5G depends on the local carrier frequency band.
 {.is-info}
@@ -344,6 +344,49 @@ If you want to use M.2 Cellular Module on BPI-R4:
 ![rm520ngl.png](/bpi-r4_lite/rm520ngl.png)
 ![r4_lite-sim.png](/bpi-r4_lite/r4_lite-sim.png)
 ![r4_lite_sim1.png](/bpi-r4_lite/r4_lite_sim1.png)
+**Quectel RM520N-GL**
+![读id-sim1.png](/读id-sim1.png)
+```sh
+Quectel RM520N-GL
+wwan0     Link encap:Ethernet  HWaddr 1A:F1:B9:87:ED:15  
+          inet6 addr: fe80::18f1:b9ff:fe87:ed15/64 Scope:Link
+          UP RUNNING NOARP  MTU:1500  Metric:1
+          RX packets:16 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:25 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:5476 (5.3 KiB)  TX bytes:3668 (3.5 KiB)
+
+wwan0_1   Link encap:Ethernet  HWaddr 1A:F1:B9:87:ED:15  
+          inet addr:10.6.0.91  Mask:255.255.255.248
+          inet6 addr: fe80::18f1:b9ff:fe87:ed15/64 Scope:Link
+          UP RUNNING NOARP  MTU:1500  Metric:1
+          RX packets:21 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:29 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:5570 (5.4 KiB)  TX bytes:3668 (3.5 KiB)
+
+root@OpenWrt:/# 
+root@OpenWrt:/# lsusb
+Bus 001 Device 002: ID 2109:2817 VIA Labs, Inc.          USB2.0 Hub             
+Bus 001 Device 001: ID 1d6b:0002 Linux 5.4.281 xhci-hcd xHCI Host Controller
+Bus 002 Device 003: ID 2c7c:0801 Quectel RM520N-GL
+Bus 002 Device 002: ID 2109:0817 VIA Labs, Inc.          USB3.0 Hub             
+Bus 002 Device 001: ID 1d6b:0003 Linux 5.4.281 xhci-hcd xHCI Host Controller
+root@OpenWrt:/# 
+root@OpenWrt:/# ping www.baidu.com
+PING www.baidu.com (183.2.172.177): 56 data bytes
+64 bytes from 183.2.172.177: seq=0 ttl=53 time=19.850 ms
+64 bytes from 183.2.172.177: seq=1 ttl=53 time=104.403 ms
+64 bytes from 183.2.172.177: seq=2 ttl=53 time=63.774 ms
+64 bytes from 183.2.172.177: seq=3 ttl=53 time=105.180 ms
+64 bytes from 183.2.172.177: seq=4 ttl=53 time=65.546 ms
+64 bytes from 183.2.172.177: seq=5 ttl=53 time=105.946 ms
+^C
+--- www.baidu.com ping statistics ---
+6 packets transmitted, 6 packets received, 0% packet loss
+round-trip min/avg/max = 19.850/77.449/105.946 ms
+root@OpenWrt:/# 
+```
 
 
 ### miniPCIe 4G/5G Module(USB Interface)
