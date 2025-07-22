@@ -2,7 +2,7 @@
 title: Getting Started BPI-R4 Lite
 description: Getting Started for BPI-R4 Lite
 published: true
-date: 2025-07-22T00:58:15.833Z
+date: 2025-07-22T01:05:29.747Z
 tags: 
 editor: markdown
 dateCreated: 2025-07-10T09:06:02.179Z
@@ -69,14 +69,14 @@ Or the user is root without a password.
 ## How to burn image to SD card.
 
 - Please follow the following diagram for Windows PC.
-![r4_lite_flash1.png](/bpi-r4_lite/r4_lite_flash1.png)
+![low_level_format_sd_card.png](/bpi-r4_lite/low_level_format_sd_card.png)
 - Linux PC, you can use the "**mksf**" command for formatting, or use the "**dd**" command to write zeros.
 **Burn image to SD card on windows computer**
 [Balena Etcher](https://balena.io/etcher) is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
 - Click on "**Flash from file**" to select image. 
 - Click on "**Select target**" to select USB device. 
 - Click on "**Flash!**" Start burning.
-                  image
+![r4_lite_flash1.png](/bpi-r4_lite/r4_lite_flash1.png)
                   
  **Burn image to SD card on linux computer**
 1. You could download latest image from our forum     
