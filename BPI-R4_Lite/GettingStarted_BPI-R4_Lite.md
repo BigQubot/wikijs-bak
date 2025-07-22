@@ -2,7 +2,7 @@
 title: Getting Started BPI-R4 Lite
 description: Getting Started for BPI-R4 Lite
 published: true
-date: 2025-07-22T03:44:49.396Z
+date: 2025-07-22T07:15:34.868Z
 tags: 
 editor: markdown
 dateCreated: 2025-07-10T09:06:02.179Z
@@ -454,7 +454,20 @@ MTK OpwnWRT fan with PWM control reference.
 
 # GPIO Define 
 ## 26 Pin GPIO define
-
+== GPIO 引脚定义
+.BPI-F4 GPIO 引脚定义
+[%collapsible]
+====
+[options="header",cols="7,2,4,4,4",width="70%"]
+|=====
+5+| ** GPIO of Banana pi BPI-F4 **
+| PCB Terminal Block | GPIO  | Function 1        | Function 2         | Function 3             
+.4+| CN8           4+|GND|
+NA                   |SARAD3 |                   |                    |
+NA                   |SARADC0|                   |                    |                    
+             
+|=====
+====
 
 
 
