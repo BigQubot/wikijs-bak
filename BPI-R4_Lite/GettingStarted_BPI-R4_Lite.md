@@ -2,7 +2,7 @@
 title: Getting Started BPI-R4 Lite
 description: Getting Started for BPI-R4 Lite
 published: true
-date: 2025-07-21T10:29:04.067Z
+date: 2025-07-22T00:58:15.833Z
 tags: 
 editor: markdown
 dateCreated: 2025-07-10T09:06:02.179Z
@@ -360,7 +360,7 @@ If you want to use MiniPCIe Cellular Module on BPI-R4_Lite:
 {.is-info}
 
 
->  __Due to the compatibility of the BPI-R4 with Qualcomm/Unisoc modules, the EC25 module cannot directly access the DNS server and connect to the internet. Therefore, manual configuration is required to modify the   **default.script**  file via console port.__
+>  __Due to the compatibility of the BPI-R4_Lite with Qualcomm/Unisoc modules, the EC25 module cannot directly access the DNS server and connect to the internet. Therefore, manual configuration is required to modify the   **default.script**  file via console port.__
 
 ```sh
 vim /usr/share/udhcpc/default.script
