@@ -1,14 +1,11 @@
-# Introduction
+= Introduction
 
 Banana Pi BPI-R4 Lite Router board with MediaTek MT7987A Quad-core Arm Cortex-A53 design ,2GB DDR4,8GB eMMC flash,256MB SPI-NAND Flash,32MB SPI-NOR Flash and Micro SD card slot onboard, also have 1x 2.5G SFP, 1x 2.5G RJ45 WAN,4x 1G RJ45 LAN,with USB3.0 port,1x M.2 KEY-B slot with USB3.0 for 5G Module.1x  miniPCIe slot with PCIe3.0 2lane interface for Wi-Fi 7 NIC (Option: 2x miniPCIe slots with PCIe3.0 1lane),1x miniPCIe slot with USB2.0 interfaceIt and 1x USB TypeC Debug Console. It is a very high performance open source router development board.
 
->More Infomation: [BananaPi_BPI-R4_Lite](/en/BPI-R4_Lite/BananaPi_BPI-R4_Lite)
-{.is-success}
+TIP: link:/en/BPI-R4_Lite/BananaPi_BPI-R4_Lite[BananaPi_BPI-R4_Lite]
 
-{.is-success}
-
-# Development
-## Prepare
+= Development
+== Prepare
 * Prepare 8G/above TF card, USB-Serial cable, Ubuntu System
 * 12V/2A power adapter (without any peripherals, the power consumption of BPI-R4_Lite Main Board will not exceed 10W in the most extreme cases. but you need to determine whether you need a higher power power adapter according to your own accessory usage)
 * Using your USB TypeC Debug Console
@@ -19,11 +16,11 @@ Or the user is root without a password.
 * WIFI: AP_MTK_MT7990_2G/AP_MTK_MT7990_5G/AP_MTK_MT7990_6G
 ![r4-lite_bootstrap.jpg](/bpi-r4_lite/r4-lite_bootstrap.jpg)
                            
-## BPI-R4_Lite bootstrap and device select Jumper Setting:
+== BPI-R4_Lite bootstrap and device select Jumper Setting:
 ![r4_lite_bootstrap.png](/bpi-r4_lite/r4_lite_bootstrap.png)
 
 1. A/B/D Jumper is "0", BPI-R4_Lite will boot from SD card
-![sd.png](/bpi-r4_lite/sd.png)
+
 2. A Jumper is "0" and B/C Jumper is "1", BPI-R4_Lite will boot from SPI NOR Flash
 ![nor.png](/bpi-r4_lite/nor.png)
 3. A Jumper is "1" and B/C Jumper is "0", BPI-R4_Lite will boot from SPI NAND Flash
@@ -57,7 +54,7 @@ Or the user is root without a password.
   System halt!
 ```
 
-## How to burn image to SD card.
+== How to burn image to SD card.
 
 - Please follow the following diagram for Windows PC.
 ![low_level_format_sd_card.png](/bpi-r4_lite/low_level_format_sd_card.png)
@@ -90,7 +87,7 @@ to install image on your TF card
  
 **Change Boot Jumper to boot from SD, Enable SD Card Device.**
 
-## How to burn image to onboard NOR
+== How to burn image to onboard NOR
 > When you want to Update Nor device, Firstly Change boot switch to boot from SD device and insert one SD with SD boot Image, then after boot up,you need flash one Nor image into Nor device. Finally you change bootstrap to boot from Nor device.
 {.is-info}
 
@@ -114,7 +111,7 @@ dd if=mtk-bpi-r4lite-NOR.img of=/dev/mtdblock0
 ```
 5. Power off BPI-R4_Lite board, unplug u-disk driver, change bootstrap to boot from Nand device.
 
-## How to burn image to onboard Nand
+== How to burn image to onboard Nand
 > **NAND has an image burned at the factory. If you want to use it, simply switch to the corresponding boot and then power on to start.**
 {.is-info}
 
@@ -144,7 +141,7 @@ mtd write mtk-bpi-r4lite-NAND-2PCIe-1L.img /dev/mtd0
 5. Power off BPI-R4_Lite board, unplug u-disk driver, change bootstrap to boot from Nand device.
 
 
-## How to burn image to onboard eMMC
+== How to burn image to onboard eMMC
 > Because SD card and EMMC device share one SOC's controller, it is necessary to switch to NAND startup and then burn the EMMC image into the EMMC. Finally, you will change the boot to boot from EMMC.
 {.is-info}
 
@@ -177,7 +174,7 @@ sync
  
 5. Power off R4_Lite board, remove u-disk driver, change bootstrap to boot from emmc device.
 
-## Network-Configuration
+== Network-Configuration
 
 * Network-Configuration refer to: http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:network:start
 * Network Interface: eth1,lan5 is for WAN; lan0, lan1, lan2,lan3 is for LAN, ra0/ra1 is for 2.4G wireless, rai0 is for 5G wifi6 wireless, rax0 is for 6G wifi7 wireless.
@@ -315,11 +312,11 @@ br-lan          7fff.baf0a327b253       no              apclii0
 root@OpenWrt:~# 
 ```
 
-# Accessories
-## 4G/5G Module
+= Accessories
+== 4G/5G Module
 
 
-### M.2 4G/5G Module(USB Interface)
+=== M.2 4G/5G Module(USB Interface)
 BPI-R4_Lite supports M.2 USB Interface 4G LTE/5G Modules: **Quectel  EM05, RM500U-CN ,RM500Q-GL& RM520N-GL ** 
 
 If you want to use M.2 Cellular Module on BPI-R4:
@@ -380,7 +377,7 @@ root@OpenWrt:/#
 ```
 
 
-### miniPCIe 4G/5G Module(USB Interface)
+=== miniPCIe 4G/5G Module(USB Interface)
 BPI-R4_Lite supports MiniPCIe USB Interface 4G LTE Module :**Quectel EC25**
 
 If you want to use MiniPCIe Cellular Module on BPI-R4_Lite:
@@ -413,11 +410,11 @@ echo "nameserver 202.96.128.86" >> /etc/resolv.conf
 
 ![bpi-r4_ec25e_module_modification_2.png](/bpi-r4/bpi-r4_ec25e_module_modification_2.png)}
 
-## Storage
-###  PCIe to USB
+== Storage
+===  PCIe to USB
 BPI-R4_Lite Also supports PCIe to USB
 
-## Wi-Fi7 NIC
+== Wi-Fi7 NIC
 You can insert the BPI-R4-NIC into CN12 and CN14 at the bottom of BPI-R4-Main, and then fix it with two M2 screws.
 
 The BPI-R4-NIC module requires 12V power supply, so the power supply on the BPI-R4-Main must be turned on before powering on (SW4 is turned to the "ON" position, and the 12V LED will lights up when power on)
@@ -425,26 +422,26 @@ The BPI-R4-NIC module requires 12V power supply, so the power supply on the BPI-
 IMPORTANT:  The 12V power supply will be supplied to the BPI-R4-NIC through PIN6/28/48 of the miniPCI socket. 
 When plugging in other modules, be sure to turn off SW4 if you cannot confirm whether the module can withstand 12V.
 
-### BPI-R4-NIC-BE14
+=== BPI-R4-NIC-BE14
 
 BPI-R4-NIC-BE14 : MT7995AV+MT7976CN+MT7977IAN
 
-### OpenWrt
+=== OpenWrt
 OpenWRT MTK MP4.0 WiFi Setting:
 
 When all functions are OK, we can detect Three SSIDs and the three blue LEDs on BE14 will also light up.
      
-#### How to turn on WiFi hotspot
+==== How to turn on WiFi hotspot
 
 Open web and configure the corresponding STA hotspot in config.
 And click Connect to connect.
 
-## Heat sink
+== Heat sink
 MTK OpwnWRT fan with PWM control reference.
 
 
-# GPIO Define 
-## 26 Pin GPIO define
+= GPIO Define 
+== 26 Pin GPIO define
 == GPIO 引脚定义
 .BPI-F4 GPIO 引脚定义
 [%collapsible]
