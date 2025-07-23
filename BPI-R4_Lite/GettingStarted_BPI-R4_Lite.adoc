@@ -424,6 +424,41 @@ image::/bpi-r4/bpi-r4_ec25e_module_modification_2.png[bpi-r4_ec25e_module_modifi
 
 image::/bpi-r4_lite/ec25-e.png[ec25-e.png]
 
+**EC25-E**
+```sh
+wwan0     Link encap:Ethernet  HWaddr 12:19:B1:54:2E:04  
+          inet addr:10.41.254.97  Mask:255.255.255.252
+          inet6 addr: fe80::1019:b1ff:fe54:2e04/64 Scope:Link
+          UP RUNNING NOARP  MTU:1500  Metric:1
+          RX packets:12 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:24 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:1623 (1.5 KiB)  TX bytes:2222 (2.1 KiB)
+
+root@Simon-R4:/# 
+root@Simon-R4:/# lsusb
+Bus 001 Device 004: ID 2c7c:0125 Android Android
+Bus 002 Device 002: ID 2109:0822 VIA Labs, Inc.          USB3.1 Hub             
+Bus 002 Device 001: ID 1d6b:0003 Linux 5.4.260 xhci-hcd xHCI Host Controller
+Bus 001 Device 003: ID 2109:8822 VIA Labs, Inc.          USB Billboard Device   
+Bus 001 Device 002: ID 2109:2822 VIA Labs, Inc.          USB2.0 Hub             
+Bus 001 Device 001: ID 1d6b:0002 Linux 5.4.260 xhci-hcd xHCI Host Controller
+root@Simon-R4:/# 
+root@Simon-R4:/# ping www.baidu.com
+PING www.baidu.com (183.2.172.42): 56 data bytes
+64 bytes from 183.2.172.42: seq=0 ttl=52 time=24.309 ms
+64 bytes from 183.2.172.42: seq=1 ttl=52 time=55.576 ms
+64 bytes from 183.2.172.42: seq=2 ttl=52 time=55.507 ms
+64 bytes from 183.2.172.42: seq=3 ttl=52 time=39.399 ms
+64 bytes from 183.2.172.42: seq=4 ttl=52 time=31.386 ms
+^C
+--- www.baidu.com ping statistics ---
+5 packets transmitted, 5 packets received, 0% packet loss
+round-trip min/avg/max = 24.309/41.235/55.576 ms
+root@Simon-R4:/# 
+
+```
+
 == Storage
 ===  PCIe to USB
 BPI-R4_Lite Also supports PCIe to USB
