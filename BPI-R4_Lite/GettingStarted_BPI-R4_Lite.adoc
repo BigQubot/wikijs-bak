@@ -468,12 +468,54 @@ You can insert the BPI-R4-NIC into CN12 and CN14 at the bottom of BPI-R4-Main, a
 
 The BPI-R4-NIC module requires 12V power supply, so the power supply on the BPI-R4-Main must be turned on before powering on (SW4 is turned to the "ON" position, and the 12V LED will lights up when power on)
 
+
 IMPORTANT:  The 12V power supply will be supplied to the BPI-R4-NIC through PIN6/28/48 of the miniPCI socket. 
 When plugging in other modules, be sure to turn off SW4 if you cannot confirm whether the module can withstand 12V.
+
+image::/bpi-r4_lite/cn11.png[cn11.png]
+image::/bpi-r4_lite/cn13.png[cn13.png]
+
 
 === BPI-R4-NIC-BE14
 
 BPI-R4-NIC-BE14 : MT7995AV+MT7976CN+MT7977IAN
+
+link:/en/BPI-R4/BananaPi_BPI-R4-NIC-BE14[BananaPi_BPI-R4-NIC-BE14]
+
+image::/bpi-r4/nic-be14-top-800.png[nic-be14-top-800.png]
+
+```bash
+root@R4RN:/# lspci
+0000:00:00.0 PCI bridge: MEDIATEK Corp. Device 7988 (rev 01)
+0000:01:00.0 Network controller: MEDIATEK Corp. Device 7990
+0001:00:00.0 PCI bridge: MEDIATEK Corp. Device 7988 (rev 01)
+0001:01:00.0 Network controller: MEDIATEK Corp. Device 7991
+0004:00:00.0 Unclassified device [0002]: MEDIATEK Corp. Device 7981
+
+root@R4RN:/# ifconfig 
+ra0       Link encap:Ethernet  HWaddr 00:0C:43:26:60:A8  
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:10 errors:10 dropped:0 overruns:0 frame:0
+          TX packets:46 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:320 (320.0 B)  TX bytes:1184 (1.1 KiB)
+
+rai0      Link encap:Ethernet  HWaddr 00:0C:43:26:60:B8  
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:1290969 errors:51890 dropped:0 overruns:0 frame:0
+          TX packets:17549107 errors:254037 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:363742528 (346.8 MiB)  TX bytes:25491834560 (23.7 GiB)
+
+rax0      Link encap:Ethernet  HWaddr 00:0C:43:26:60:28  
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:563140 errors:187 dropped:0 overruns:0 frame:0
+          TX packets:1683329 errors:11607 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:785902144 (749.4 MiB)  TX bytes:2175529280 (2.0 GiB)
+          
+```
+
 
 === OpenWrt
 OpenWRT MTK MP4.0 WiFi Setting:
