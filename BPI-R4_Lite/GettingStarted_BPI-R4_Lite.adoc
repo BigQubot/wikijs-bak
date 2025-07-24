@@ -535,21 +535,141 @@ MTK OpwnWRT fan with PWM control reference.
 
 
 = GPIO Define 
-== 26 Pin GPIO define
-== GPIO 引脚定义
-.BPI-F4 GPIO 引脚定义
-[%collapsible]
-====
-[options="header",cols="7,2,4,4,4",width="70%"]
-|=====
-5+| ** GPIO of Banana pi BPI-F4 **
-| PCB Terminal Block | GPIO  | Function 1        | Function 2         | Function 3             
-.4+| CN8           4+|GND|
-NA                   |SARAD3 |                   |                    |
-NA                   |SARADC0|                   |                    |                    
-             
-|=====
-====
+== 2x8 PIN MikroBUS 
+[options="header",cols="3,1,1,4",width="70%"]
+|====
+4+| **BPI-R4_Lite 2x8 PIN MikroBUS Header(CN1) GPIO define of BPI-R4_Lite**
+|BPI-R4_Lite-CON2	|PIN		|PIN	|BPI-R4_Lite-CON2
+|GND	|1		|2	|5V
+|SDA	|3	|	4|	SCL
+|UART-TX	|5		|6	|UART-RX
+|INT|7		|8	|PWM
+|AN|9		|10	|RST
+|SPI-CS	|11		|12	|SPI-CLK
+|SPI-MISO	|13		|14	|SPI-MOSI
+|3.3V	|15		|16	|GND
+|====
+
+== BPI-R4_Lite M.2 B-KEY(CN9)			
+
+[options="header",cols="3,1,1,3",width="70%"]
+|====
+4+| **BPI-R4_Lite M.2 B-KEY(CN19) GPIO define of BPI-R4_Lite**
+|BPI-R4_Lite M.2 B-KEY(CN16)	|PIN		|PIN	|BPI-R4_Lite M.2 B-KEY(CN9)
+|NI	|1	|	2	|VCC_KEYB
+|GND	|3		|4	|VCC_KEYB
+|GND	|5	|	6	|NGFF_KEYB_Card_PWRON(10K PullUp to 3.3V)
+|KEYB_USB_Dp	|7		|8	|NGFF_KEYB_WWAN_DISABLE1n
+|KEYB_USB_Dn|	9		|10|NGFF_KEYB_NET_STUN
+|GND	|11		|12	|NOTCH
+|NOTCH	 |13		|14	|
+|	|15		|16	|
+|	|17		|18	|
+||	19	|	20	|NI
+|NI	|21		|22|	NI
+|KEYB-WAKEn|	23	|	24	|NI
+|NI	|25		|26|	NGFF_KEYB_GNSS_DISABLE2n
+|GND	|27		|28|	NI
+|KEYB-HSln	|29		|30	|USIM_RST-1A
+|KEYB-HSLP	|31		|32	|USIM_CLK-1A
+|GND	|33	|	34	|USIM_DATA-1A
+|KEYB-HSOn	|35	|36|	USIM_VDD-1A
+|KEYB-HSOp	|37|		38|	NI
+|GND|	39	|	40|	NI
+|NI	|41		|42	|USIM_DATA-1B
+|NI|	43	|	44	|USIM_CLK-1B
+|GND	|45	|	46	|USIM_RST-1B
+|NI	|47		|48	|USIM_VDD-1B
+|NI	|49		|50	|NI
+|GND	|51	|	52	|NI
+|NI	|53		|54	|NI
+|NI|	55	|	56|NI
+|GND	|57	|	58	|NI
+|NI	|59		|60	|NI
+|NI	|61		|62	|NI
+|NI|	63|		64	|NI
+|NI	|65	|	66|	USIM_DET-1A
+|NGFF_KEYB_RSTn_1P8V|67		|68|	NI
+|NI	|69	|	70	|VCC_KEYB
+|GND|	71	|	72|	VCC_KEYB
+|GND	|73	|	74|	VCC_KEYB
+|NI	|75	| 76|	GND
+|GND	|77	| 78|	GND
+|GND	|79	| |
+|====
+
+== BPI-R4_Lite miniPCIe(CN11)	
+ 
+[options="header",cols="3,1,1,3",width="70%"]
+|====
+4+| **BPI-R4_Lite miniPCIe(CN11) GPIO define of BPI-R4_Lite**		
+|BPI-R4_Lite miniPCIe(CN11)	|PIN		|PIN	|BPI-R4_Lite miniPCIe(CN11)
+|PCIE_B_WAKEn_3P3V	|1	|	2	|PCIe_3V3#B
+|NI	|3	|	4	|GND
+|NI	|5	|	6	|PCIe_12V#B
+|PCIE_B_CLKREQn_3P3V	|7		|8|	USIM_VDD-3
+|GND	|9		|10	|USIM_DATA-3
+|mPCIe_B_CKn	|11		|12	|USIM_CLK-3
+|mPCIe_B_CKp	|13		|14	|USIM_RST-3
+|GND	|15		|16 |	NI
+|NI	|17		|18	|GND
+|NI	|19		|20	|W_DISABLE_3
+|GND	|21		|22	|PCIE_B_PERSTn_3P3V
+|mPCIe_B_RXn		|23	|	24	|PCIe_3V3#B
+|mPCIe_B_RXP		|25	|	26	|GND
+|GND	|27		|28	|PCIe_12V#B
+|GND	|29		|30	|mPCIe_B_SCL
+|mPCIe_B_TXn	|31		|32	|mPCIe_B_SDA
+|mPCIe_B_TXp	|33		|34|	GND
+|GND	|35		|36	|LTE-USBDM_3
+|GND	|37		|38	|LTE-USBDP_3
+|PCIe_3V3#B	|39		|40	|GND
+|PCIe_3V3#B	|41		|42	|SIM3-WIFI-LED-6G
+|GND	|43		|44	|USIM_DET-3
+|NI	|45		|46	|mPCIe_B_LED_WPAN-3
+|NI	|47		|48	|PCIe_12V#B
+|NI	|49		|50	|GND
+|NI	|51		|52	|PCIe_3V3#B
+| GND	|55		|56	|GND
+|====
+
+== BPI-R4_Lite miniPCIe(CN13)	
+ 
+[options="header",cols="3,1,1,3",width="70%"]
+|====
+4+| **BPI-R4_Lite miniPCIe(CN13) GPIO define of BPI-R4_Lite**		
+|BPI-R4_Lite miniPCIe(CN13)	|PIN		|PIN	|BPI-R4_Lite miniPCIe(CN13)
+|PCIE_A_WAKEn_3P3V	|1	|	2	|PCIe_3V3#A
+|NI	|3	|	4	|GND
+|NI	|5	|	6	|PCIe_12V#A
+|PCIE_A_CLKREQn_3P3V	|7		|8|	USIM_VDD-2
+|GND	|9		|10	|USIM_DATA-2
+|mPCIe_A_CKn	|11		|12	|USIM_CLK-2
+|mPCIe_A_CKp	|13		|14	|USIM_RST-2
+|GND	|15		|16 |	NI
+| mPCIe_AB_RXn	|17		|18	|GND
+| mPCIe_AB_RXn	|19		|20	|W_DISABLE_2
+|GND	|21		|22	|PCIE_A_PERSTn_3P3V
+|mPCIe_A_RXn		|23	|	24	|PCIe_3V3#A
+|mPCIe_A_RXP		|25	|	26	|GND
+|GND	|27		|28	|PCIe_12V#A
+|GND	|29		|30	|mPCIe_A_SCL
+|mPCIe_A_TXn	|31		|32	|mPCIe_A_SDA
+|mPCIe_A_TXp	|33		|34|	GND
+|GND	|35		|36	|LTE-USBDM_2
+|GND	|37		|38	|LTE-USBDP_2
+|PCIe_3V3#A	|39		|40	|GND
+|PCIe_3V3#A	|41		|42	|SIM2-WIFI-LED-5G
+|GND	|43		|44	|USIM_DET-2
+| mPCIe_AB_TXn	|45		|46	|SIM2-WIFI-LED-2G
+|mPCIe_AB_RXn	|47		|48	|PCIe_12V#A
+|	|49		|50	|GND
+|GND	|51		|52	|PCIe_3V3#A
+| GND	|55		|56	|GND
+| 	|57		|58	|GND
+|====
+
+
 
 
 
