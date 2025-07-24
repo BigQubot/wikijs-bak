@@ -82,12 +82,35 @@ image::/bpi-f4/banana_pi_bpi-f4_interface-2.jpg[banana_pi_bpi-f4_interface-2.jpg
 |=====
 5+| ** GPIO of Banana pi BPI-F4 **
 | PCB Terminal Block | GPIO  | Function 1        | Function 2         | Function 3             
-.4+| CN8           4+|GND|
-NA                   |SARAD3 |                   |                    |
-NA                   |SARADC0|                   |                    |             .4+| CN3           4+|GND|
-NA                   |SARAD3 |                   |                    |
-NA                   |SARADC0|                   |                    |         
-             
+.3+|CN8           4+|GND|
+NA                   |SARAD3         |            |                    |
+NA                   |SARADC0        |            |                          .5+|CN3            4+|GND|            
+GPIO84               | I2C6_SLK      |            |                    |
+GPIO85               | I2C6_DATA     |            |                    | 
+GPIO71               | I2C1_DATA     |            |                    | 
+GPIO70               | I2C1_CLK      |            |                    
+.5+|CN7            4+|GND|            
+GPIO81               | UA6_RXD       | SPI1_SS    |AU2_LRCK            |
+GPIO80               | UA6_TXD       | SPI1_RXD   |AU2_BCK             |
+GPIO83               | UA7_RXD       | SPI5_CLK   |EXT_DAC_XCK         |
+GPIO82               | UA7_TXD       | SPI5_TXD   |AU2_DATA0           
+.3+|CN6           4+|GND|
+GPIO60               |PWM2           |            |                    |    
+GPIO61               |PWM3           |            |            
+.3+|CN5           4+|GND|
+GPIO69               |I2C0_DATA      |UA0_RXD     |                    |  
+GPIO68               |I2C0_CLK       |UA0_TXD     |                    
+.5+|CN1            4+|GND|            
+GPIO72               |SPI4_RXD       |SPI5_RXD    |AU_BCK              |
+GPIO73               |SPI4_SS        |SPI5_SS     |AU_LRCK             |
+GPIO74               |SPI4_TXD       |SPI5_TXD    |ADC_DATA0           |
+GPIO75               |SPI4_CLK       |SPI5_CLK    |AU_DATA0            
+.5+|CN4            4+|GND|            
+GPIO59               |UA2_CTS_B      | PMW1       |                    |
+GPIO58               |UA2_RTS_B      | PWM0       |AU1_DATA0           |
+GPIO56               |UA2_TXD        | I2C2_CLK   |AU1_BCK             |
+GPIO57               |UA2_RXD        | I2C2_DATA  |AU1_LRCK            
+
 |=====
 ====
 
