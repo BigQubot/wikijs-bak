@@ -1,25 +1,181 @@
-= BPI-F4简介
+= BPI-F4 Introduction
 
-香蕉Pi BPI-F4工业控制板形成了一个4.1 TOPS AI平台，具有广泛的I/O选项，用于与外部设备接口。它提供了一个紧凑而健壮的环境，使客户能够开发自己的AI软件和应用程序
-BPI-F4是由banana Pi开源社区和Sunplus共同开发的官方开源硬件开发板
+Banana Pi BPI-F4 industrial control board design with Sunplus SP7350 Quad ARM Cortex-A55 and 4.1 Tops NPU,It forms a 4.1 TOPS AI platform with a wide range of I/O options for interfacing with external devices. It offers a compact and robust environment, enabling customers to develop their own AI software and applications
 
-TIP: 更多信息：link:zh/BPI-F4/BananaPi_BPI-F4[香蕉派 BPI-F4]
+BPI-F4 is an official open source hardware development board jointly developed by banana Pi open source community and Sunplus
 
-= 入门准备
+TIP: More Infomation：link:zh/BPI-F4/BananaPi_BPI-F4[ Banana Pi BPI-F4]
 
-= 烧录方式选择
-== 方法一：SD卡
+= Linux
+== Install Image to sd card
+NOTE: Use this method for **Ubuntu** and **Armbian** images.
+Install Image with Balena Etcher. +
+link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
+ 
+. Click on "**Flash from file**" to select image. 
+. Click on "**Select target**" to select USB device. 
+. Click on "**Flash!**" Start burning.
 
-== 方法二：EMMC
+image::/picture/bpi-f4-img_photo.png[bpi-f4-img_photo.png]
 
-= 接口使用
-==  GPIO
+To boot from an SD card, adjust the boot switch to [1 1 0 0]
+
+image::/bpi-f4/bpi-f4_sdboot.png[bpi-f4_sdboot.png]
+Insert your SD card into the micro SD card socket. Then press the power button, if there is still no response, press the RST button.
+
+image::/bpi-f4/bpi-f4_sd.png[bpi-f4_sd.png]
+NOTE: Please connect the HDMI monitor when desktop mirroring is started. You need to create a user on the desktop.
+
+== Install Image to eMMC 
+
+NOTE: Please prepare an SD card with the image burned.And a USB drive containing image.
+
+To boot from the on-board eMMC device, set the boot switch configuration to [1 1 1 1]
+
+image::/bpi-f4/bpi-f4_emmcboot.png[bpi-f4_emmcboot.png]
+
+
+
+= Interface Settings
+If you are using Banana Pi BPI-F4 Pro for the first time, please familiarize yourself with the Peripheral Interfaces for better understanding of the following content.
+
+== WIFI
+=== Connecting to WIFI via Command Line on Server Image
+
+1.First...
+
+2.Use the nmcli dev wifi command to scan for available WIFI hotspots:
+
+1. Enable WIFI
+```sh
+nmcli r wifi on
+```
+2. Scan for WIFI
+```sh
+nmcli dev wifi
+```
+
+3. Connect to a WIFI network
+```sh
+nmcli dev wifi connect "wifi_name" password "wifi_password"
+```
+
+=== Connecting to WIFI via GUI on Server Image
+
+=== Testing Method for Desktop Image
+1.Click the network configuration icon on the desktop (ensure not to connect a network cable while testing WIFI).
+
+2.After connecting to WIFI, open a browser to check if you can access the internet
+
+== HDMI
+[options="header",cols="1,1"]
+|====
+|HDMI output interface	|Supports 1080p, 720p, 480p resolutions
+|====
+
+Connect the board to an HDMI display using an HDMI cable.
+
+After booting the Linux system, if the HDMI display shows an image, the HDMI interface is functioning correctly.
+
+NOTE: that many laptops, while having HDMI ports, typically have HDMI output only and do not support HDMI in. This means you cannot display the HDMI output from another device on the laptop's screen. Before connecting the development board's HDMI to a laptop's HDMI port, ensure your laptop supports HDMI in functionality. If there is no display, first check if your system is a desktop version; server versions might only show a terminal.
+
+* 1.HDMI to VGA Display Test
+** Required accessories: HDMI to VGA converter
+* 2.A VGA cable and a display with a VGA port
+
+The HDMI to VGA display test is shown below:
 
 == USB
+The BPI-F4 Pro provides one USB 2.0 and one USB 3.0 port.
 
-==  WIFI
-=== 方法一
+NOTE: USB interfaces can be expanded by using a USB hub.
 
-=== 方法二
+=== Testing USB Mouse or Keyboard
 
-== 以太网口
+* 1.Insert a USB keyboard or mouse into the board's USB port.
+* 2.Connect the board to an HDMI display.
+* 3.If the mouse or keyboard operates the system normally, the USB interface is working correctly (the mouse will only work in desktop versions of the system).
+
+=== Testing USB Storage Device
+* 1.Insert a USB flash drive or USB external hard drive into the ArmSoM-Sige product's USB port.
+
+* 2.Run the following command; if you see sdX output, the USB drive is recognized successfully: insertpng
+
+* 3.Use the mount command to mount the USB drive to /mnt and view the files on the USB drive: insertpng
+
+* 4.After mounting, use the df -h command to check the USB drive's capacity usage and mount point: insertpng
+
+=== MIPI-CSI
+Required accessories:Video Camera OV5647
+[options="header",cols="1,1"]
+|====
+2+|OV5647 Specification         |
+photograph resolution           |5MP Max photograph resolution (2592 x 1944 = 5,038,848 pixels)
+Pixel Size                      |1.4 x 1.4 μm
+Optical size                    |1/4"
+Lens                            | f=3.6 mm, f/2.9
+Viewing Angle                   | 54° x 41°
+Max video resolution            | 1080p@30fps
+Max frame rate                  | 480p@90fps
+Maximum exposure times (seconds)| 0.97
+Selectable video resolutions:   |1080p@30fps, 720p@60fps, 480p@90fps
+|====
+=== OV5647 
+
+The camera uses the OV5647. After connecting and powering on the camera module, you can view the boot log.
+```sh
+
+```
+Use v4l2-ctl for image capture:
+```sh
+
+```
+
+Record video using gst-launch-1.0
+
+```sh
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
