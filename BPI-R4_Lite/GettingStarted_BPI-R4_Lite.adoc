@@ -668,7 +668,23 @@ MTK OpwnWRT fan with PWM control reference.
 | GND	|55		|56	|GND
 | 	|57		|58	|GND
 |====
-
+== BPI-R4_Lite FAN PIN	(CN38)
+[options="header",cols="1,1",width="40%"]
+|====
+2+| **BPI-R4 FAN(CN1,PH3A-2.00mm) of BPI-R4**
+|+5V	|1	
+|GND	|2	
+|PWM0	|3	
+|====	
+== BPI-R4_Lite FAN PIN (CN36）
+[options="header",cols="1,1",width="40%"]
+|====
+2+| **BPI-R4 FAN(CN1,PH3A-2.00mm) of BPI-R4**
+|GND	|1	
+|+5V	|2	
+|TACH	|3
+|PWM1	|3
+|====	
 
 
 
