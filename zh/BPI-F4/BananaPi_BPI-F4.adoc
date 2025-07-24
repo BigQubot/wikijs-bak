@@ -46,16 +46,15 @@ image::/bpi-f4/banana_pi_bpi-f4_interface-2.jpg[banana_pi_bpi-f4_interface-2.jpg
 [options="header",cols="1,4"]
 |====
 2+| Banana Pi BPI-F4 硬件规格
-| 类别 |功能参数
-|CPU处理器|凌阳科技(Sunplus) SP7350 Quad ARM Cortex-A55
-|NPU神经网络处理单元 |AI和并行处理引擎高达4.1 TOPS （@900MHz）的计算能力
-| 以太网插槽 |支持 10M/100M/1000M 传输
+|CPU参数     |凌阳科技(Sunplus) SP7350 Quad ARM Cortex-A55
+|NPU        |AI和并行处理引擎高达4.1 TOPS （@900MHz）的计算能力
+|以太网插槽   |支持 10M/100M/1000M 传输
 .4+|USB端口
 | 1*USB 3.0 Type-A 插槽 支持低/全/高/超高速（USB 3.0 Type-A 和 Type-C 与 SP7350 共享相同的 USB 3.0 端口，不能同时使用）
 | 1*USB 3.0 Type-C 插槽 支持低/全/高/超高速（USB 3.0 Type-A 和 Type-C 与 SP7350 共享相同的 USB 3.0 端口，不能同时使用）
 | 1*USB 2.0 Type-A 插槽 支持低/全/高/超高速
 | 1*USB 2.0 Type C 插座
-| HDMI 输出接口 |支持 1080p、720p、480p分辨率
+| HDMI |支持 1080p、720p、480p分辨率
 | 电源输入 |DC插孔插头直径为 5.5mm，适配器供电电流必须大于 1A
 .3+|按键
 | 重置键 重置 CM4和Main-power 域，但不重置 RTC
@@ -75,14 +74,15 @@ image::/bpi-f4/banana_pi_bpi-f4_interface-2.jpg[banana_pi_bpi-f4_interface-2.jpg
 |====
 
 == GPIO 引脚定义
+image::/bpi-f4/bpi-f4-gpio.png[bpi-f4-gpio.png]
 .BPI-F4 GPIO 引脚定义
 [%collapsible]
 ====
-[options="header",cols="7,2,4,4,4",width="70%"]
+[options="header",cols="7,2,4,4,4",width="50%"]
 |=====
 5+| ** GPIO of Banana pi BPI-F4 **
-| PCB Terminal Block | GPIO  | Function 1        | Function 2         | Function 3             
-.3+|CN8           4+|GND|
+| PCB Terminal Block | GPIO          | Function 1 | Function 2       | Function 3             
+.3+|CN8            4+|GND|
 NA                   |SARAD3         |            |                    |
 NA                   |SARADC0        |            |                          .5+|CN3            4+|GND|            
 GPIO84               | I2C6_SLK      |            |                    |
@@ -94,10 +94,10 @@ GPIO81               | UA6_RXD       | SPI1_SS    |AU2_LRCK            |
 GPIO80               | UA6_TXD       | SPI1_RXD   |AU2_BCK             |
 GPIO83               | UA7_RXD       | SPI5_CLK   |EXT_DAC_XCK         |
 GPIO82               | UA7_TXD       | SPI5_TXD   |AU2_DATA0           
-.3+|CN6           4+|GND|
+.3+|CN6            4+|GND|
 GPIO60               |PWM2           |            |                    |    
 GPIO61               |PWM3           |            |            
-.3+|CN5           4+|GND|
+.3+|CN5            4+|GND|
 GPIO69               |I2C0_DATA      |UA0_RXD     |                    |  
 GPIO68               |I2C0_CLK       |UA0_TXD     |                    
 .5+|CN1            4+|GND|            
