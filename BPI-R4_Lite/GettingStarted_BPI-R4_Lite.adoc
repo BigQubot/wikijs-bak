@@ -469,8 +469,8 @@ You can insert the BPI-R4-NIC into CN11 and CN13 at the bottom of BPI-R4_Lite-Ma
 The BPI-R4-NIC module requires 12V power supply, so the power supply on the BPI-R4_Lite-Main must be turned on before powering on (SW4 is turned to the "ON" position, and the 12V LED will lights up when power on)
 
 
-IMPORTANT:  The 12V power supply will be supplied to the BPI-R4-NIC through PIN6/28/48 of the miniPCI socket. 
-When plugging in other modules, be sure to turn off SW4 if you cannot confirm whether the module can withstand 12V.
+IMPORTANT:  The 12V power supply will be supplied to the BPI-R4-NIC through PIN6 / 28 / 48 of the miniPCI socket. 
+When plugging in other modules, be sure to turn off SW4 if you cannot confirm whether the module can withstand 12v.
 
 image::/bpi-r4_lite/11.png[11.png]
 
