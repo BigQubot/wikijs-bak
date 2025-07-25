@@ -591,6 +591,18 @@ do
                 echo 10000 >  /sys/class/pwm/pwmchip0/pwm0/duty_cycle
         fi
 done
+root@OpenWrt:/# ps w | grep fan
+ 7167 root      1324 S    /bin/sh /etc/rc.common /sbin/fan-speed
+ 7435 root      1244 R    grep fan
+root@OpenWrt:/# kill -9 7167
+root@OpenWrt:/# ps w | grep fan
+ 7503 root      1244 S    grep fan
+root@OpenWrt:/# echo 2 > /sys/class/pwm/pwmchip0/export
+root@OpenWrt:/# echo 10000 > /sys/class/pwm/pwmchip0/pwm2/period
+root@OpenWrt:/# echo 5000 >  /sys/class/pwm/pwmchip0/pwm2/duty_cycle
+root@OpenWrt:/# echo normal > /sys/class/pwm/pwmchip0/pwm2/polarity
+root@OpenWrt:/# echo 1 > /sys/class/pwm/pwmchip0/pwm2/enable
+root@OpenWrt:/# 
 ```
 
 
