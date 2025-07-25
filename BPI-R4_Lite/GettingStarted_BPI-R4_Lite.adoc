@@ -554,6 +554,7 @@ And click Connect to connect.
 MTK OpwnWRT fan with PWM control reference.
 
 View fan script settings
+
 ```bash
 root@OpenWrt:/# cat /sbin/fan-speed 
 #!/bin/sh /etc/rc.common
@@ -595,6 +596,7 @@ done
 ```
 
 Disable the background running script (it auto-starts on boot; first stop the fan-speed process)
+
 ```bash
 root@OpenWrt:/# ps w | grep fan
  7167 root      1324 S    /bin/sh /etc/rc.common /sbin/fan-speed
@@ -602,10 +604,11 @@ root@OpenWrt:/# ps w | grep fan
 root@OpenWrt:/# kill -9 7167
 root@OpenWrt:/# ps w | grep fan
  7503 root      1244 S    grep fan
- ```
+```
  
  Manually set PWM2 output (duty_cycle controls fan speed; higher values increase rotation speed)
- ```bash
+
+```bash
 root@OpenWrt:/# echo 2 > /sys/class/pwm/pwmchip0/export
 root@OpenWrt:/# echo 10000 > /sys/class/pwm/pwmchip0/pwm2/period
 root@OpenWrt:/# echo 5000 >  /sys/class/pwm/pwmchip0/pwm2/duty_cycle
