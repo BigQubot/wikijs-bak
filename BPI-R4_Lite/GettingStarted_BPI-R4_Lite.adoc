@@ -37,26 +37,26 @@ image::/bpi-r4_lite/11x1emmc.png[11x1emmc.png]
 +
 ```bash
   F0: 102B 0000
-  FA: 5100 0000
-  FA: 5100 0000 [0200]
-  F9: 1041 0000
+  F9: 1042 0000
+  F9: 1042 0000 [0200]
+  F8: 1041 0000
+  F8: 1041 0000 [0002]
   F3: 1001 0000 [0200]
-  F3: 1001 0000
-  F6: 102C 0000
-  F5: 1026 0000
+  F3: 102C 0000
+  F5: 480A 0031
   00: 1005 0000
-  FA: 5100 0000
-  FA: 5100 0000 [0200]
-  F9: 1041 0000
-  F3: 1001 0000 [0200]
+  F9: 1042 0000
+  F9: 1042 0000 [0200]
+  F8: 1041 0000
+  F8: 1001 0000 [0200]
   F3: 1001 0000
-  F6: 102C 0000
+  F3: 1001 0000
   01: 102A 0001
   02: 1005 0000
-  BP: 0200 00C0 [0001]
+  BP: 0280 00C0 [0001]
   EC: 0000 0000 [0000]
   MK: 0000 0000 [0000]
-  T0: 0000 00D7 [0101]
+  T0: 0000 00F7 [0101]
   System halt!
 ```
 
@@ -340,9 +340,9 @@ If you want to use M.2 Cellular Module on BPI-R4_Lite:
 NOTE:  The availability of 4G/5G depends on the local carrier frequency band.
 
 
-image::/bpi-r4_lite/rm520ngl.png[rm520ngl.png]
-image::/bpi-r4_lite/r4_lite-sim.png[r4_lite-sim.png]
-image::/bpi-r4_lite/r4_lite_sim1.png[r4_lite_sim1.png]
+image::/bpi-r4_lite/key_b.jpg[key_b.jpg]
+image::/bpi-r4_lite/sim1.jpg[sim1.jpg]image::/bpi-r4_lite/r4_lite-sim.png[r4_lite-sim.png]
+image::/bpi-r4_lite/sim1_sch.png[sim1_sch.png]
 
 **Quectel RM520N-GL**
 
