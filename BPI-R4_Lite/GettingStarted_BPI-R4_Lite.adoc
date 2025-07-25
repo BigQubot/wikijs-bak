@@ -15,23 +15,24 @@ TIP: link:/en/BPI-R4_Lite/BananaPi_BPI-R4_Lite[BananaPi_BPI-R4_Lite]
 Or the user is root without a password.
 * WIFI: AP_MTK_MT7990_2G/AP_MTK_MT7990_5G/AP_MTK_MT7990_6G
 
-
+image::/bpi-r4_lite/console.png[console.png]
                            
 == BPI-R4_Lite bootstrap and device select Jumper Setting:
-image::/bpi-r4_lite/r4_lite_bootstrap.png[r4_lite_bootstrap.png]
+image::/bpi-r4_lite/bootst.png[bootst.png]
+image::/bpi-r4_lite/bootstrap.png[bootstrap.png]
 
 1. A/B/D Jumper is "0", BPI-R4_Lite will boot from SD card
 
-image::/bpi-r4_lite/sd.png[sd.png]
+image::/bpi-r4_lite/00x0_sd.png[00x0_sd.png]
 2. A Jumper is "0" and B/C Jumper is "1", BPI-R4_Lite will boot from SPI NOR Flash
 
-image::/bpi-r4_lite/nor.png[nor.png]
+image::/bpi-r4_lite/011x_nor.png[011x_nor.png]
 3. A Jumper is "1" and B/C Jumper is "0", BPI-R4_Lite will boot from SPI NAND Flash
 
-image::/bpi-r4_lite/nand.png[nand.png]
+image::/bpi-r4_lite/100xnand.png[100xnand.png]
 4. A/B/D Jumper is "1",BPI-R4_Lite will boot from EMMC
 
-image::/bpi-r4_lite/emmc.png[emmc.png]
+image::/bpi-r4_lite/11x1emmc.png[11x1emmc.png]
 5. If the console said "system halt!", it means that the bootup storage does not cotain any OS
 +
 ```bash
