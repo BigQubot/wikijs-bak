@@ -464,16 +464,19 @@ root@Simon-R4:/#
 BPI-R4_Lite Also supports PCIe to USB
 
 == Wi-Fi7 NIC
-You can insert the BPI-R4-NIC into CN12 and CN14 at the bottom of BPI-R4-Main, and then fix it with two M2 screws.
+You can insert the BPI-R4-NIC into CN11 and CN13 at the bottom of BPI-R4_Lite-Main, and then fix it with two M2 screws.
 
-The BPI-R4-NIC module requires 12V power supply, so the power supply on the BPI-R4-Main must be turned on before powering on (SW4 is turned to the "ON" position, and the 12V LED will lights up when power on)
+The BPI-R4-NIC module requires 12V power supply, so the power supply on the BPI-R4_Lite-Main must be turned on before powering on (SW4 is turned to the "ON" position, and the 12V LED will lights up when power on)
 
 
 IMPORTANT:  The 12V power supply will be supplied to the BPI-R4-NIC through PIN6/28/48 of the miniPCI socket. 
 When plugging in other modules, be sure to turn off SW4 if you cannot confirm whether the module can withstand 12V.
 
-image::/bpi-r4_lite/cn11.png[cn11.png]
-image::/bpi-r4_lite/cn13.png[cn13.png]
+image::/bpi-r4_lite/11.png[11.png]
+
+image::/bpi-r4_lite/13.png[13.png]
+
+image::/bpi-r4_lite/minipeie.png[minipeie.png]
 
 
 === BPI-R4-NIC-BE14
