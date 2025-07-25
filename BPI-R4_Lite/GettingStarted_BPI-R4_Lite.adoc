@@ -463,6 +463,8 @@ root@Simon-R4:/#
 ===  PCIe to USB
 BPI-R4_Lite Also supports PCIe to USB
 
+image::/bpi-r4_lite/pcie_to_usb.jpg[pcie_to_usb.jpg]
+
 ```bash
 root@OpenWrt:/# lspci
 00:00.0 PCI bridge: MEDIATEK Corp. Device 7987 (rev 01)
