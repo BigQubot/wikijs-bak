@@ -15,7 +15,7 @@ TIP: link:/en/BPI-R4_Lite/BananaPi_BPI-R4_Lite[BananaPi_BPI-R4_Lite]
 Or the user is root without a password.
 * WIFI: AP_MTK_MT7990_2G/AP_MTK_MT7990_5G/AP_MTK_MT7990_6G
 
-image::/bpi-r4_lite/console.png[console.png]
+image::/console.png[console.png]
                            
 == BPI-R4_Lite bootstrap and device select Jumper Setting:
 image::/bpi-r4_lite/bootst.png[bootst.png]
@@ -422,7 +422,7 @@ NOTE: Modify the IP address according to your local DNS server.
 
 image::/bpi-r4/bpi-r4_ec25e_module_modification_2.png[bpi-r4_ec25e_module_modification_2.png]
 
-image::/bpi-r4_lite/ec25-e.png[ec25-e.png]
+image::/bpi-r4_lite/4g.jpg[4g.jpg]
 
 **EC25-E**
 ```sh
