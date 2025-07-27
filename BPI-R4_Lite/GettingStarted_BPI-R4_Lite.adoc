@@ -7,7 +7,7 @@ TIP: link:/en/BPI-R4_Lite/BananaPi_BPI-R4_Lite[BananaPi_BPI-R4_Lite]
 = Development
 == Prepare
 * Prepare 8G/above TF card, USB-Serial cable, Ubuntu System
-* 12V/2A power adapter (without any peripherals, the power consumption of BPI-R4_Lite Main Board will not exceed 10W in the most extreme cases. but you need to determine whether you need a higher power power adapter according to your own accessory usage)
+* 12V/2A power adapter (without any peripherals, the power consumption of BPI-R4_Lite Main Board will not nedd 3W in the most extreme cases. but you need to determine whether you need a higher power power adapter according to your own accessory usage)
 * Using your USB TypeC Debug Console
 * link:                              [Download the image] to be burned
 * Default IP address for LAN port: 192.168.1.1
@@ -131,9 +131,9 @@ NOTE: When you want to Update Nand device, Firstly Change boot switch to boot fr
 
 
 
-Before burning image into Nand, please prepare a USB disk. Let's take OpenWrt image (mtk-bpi-r4lite-NAND-2PCIe-1L.img) for example, the steps are below:
+Before burning image into Nand, please prepare a USB disk. Let's take OpenWrt image (mtk-bpi-r4lite-NAND-0611.img) for example, the steps are below:
 
-1. Copy Nand boot OpenWrt image(**mtk-bpi-r4lite-NAND-2PCIe-1L.img**) to USB disk. 
+1. Copy Nand boot OpenWrt image(**mtk-bpi-r4lite-NAND-0611.img**) to USB disk. 
 2. Change boot switch Jumper, the board boot from SD device, then power up the board.
 3. Plug in USB disk to the board, and mount the USB to /mnt or other directory as follows: (you can skip mounting if it is mounted automatically)
 
@@ -147,7 +147,7 @@ cd /mnt/sda1
 +
 ```sh
 mtd erase /dev/mtd0
-mtd write mtk-bpi-r4lite-NAND-2PCIe-1L.img /dev/mtd0
+mtd write mtk-bpi-r4lite-NAND-0611.img /dev/mtd0
 ```
 5. Power off BPI-R4_Lite board, unplug u-disk driver, change bootstrap to boot from Nand device.
 
@@ -159,7 +159,7 @@ NOTE: Because SD card and EMMC device share one SOC's controller, it is necessar
 
 Before burning image to eMMC, please prepare a USB disk. Let's take OpenWrt image (bl2_emmc.img, mtk-bpi-r4lite-EMMC-NAND.img) for example, the steps are below:
 
-1. Copy EMMC boot OpenWrt image(**bl2_emmc-r4.img**,**mtk-bpi-r4lite-EMMC-NAND.imgimage::/bpi-r4_lite/ec25-e.png[ec25-e.png]**) to USB disk, if the image is compressed please uncompress it before copying to USB disk.
+1. Copy EMMC boot OpenWrt image(**bl2_emmc.img**,**mtk-bpi-r4lite-EMMC-NAND.img**) to USB disk, if the image is compressed please uncompress it before copying to USB disk.
 
 2. Change the switch jumper to Nand and start the motherboard from Nand.
  
@@ -483,11 +483,15 @@ root@R4CN:/#
 == Wi-Fi7 NIC
 You can insert the BPI-R4-NIC into CN11 and CN13 at the bottom of BPI-R4_Lite-Main, and then fix it with two M2 screws.
 
-The BPI-R4-NIC module requires 12V power supply, so the power supply on the BPI-R4_Lite-Main must be turned on before powering on (SW4 is turned to the "ON" position, and the 12V LED will lights up when power on)
+When using the BPI-R4-NIC module, you must flash the 2-lane firmware image, since  mPCIe A/B lanes have two configuration options: a single 2-lane interface(mPCIe A) or two separate 1-lane interfaces(mPCIe A+mPCIe B).The BPI-R4-NIC module requires 12V power supply, so the power supply on the BPI-R4_Lite-Main must be turned on before powering on (SW4 is turned to the "ON" position, and the 12V LED will lights up when power on)
 
 
 IMPORTANT:  The 12V power supply will be supplied to the BPI-R4-NIC through PIN6 / 28 / 48 of the miniPCI socket. 
 When plugging in other modules, be sure to turn off SW4 if you cannot confirm whether the module can withstand 12v.
+
+image::/bpi-r4_lite/mpcie_chose.png[mpcie_chose.png]
+
+image::/bpi-r4_lite/mpcie_chose1.png[mpcie_chose1.png]
 
 image::/bpi-r4_lite/11.png[11.png]
 
