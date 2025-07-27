@@ -606,6 +606,8 @@ do
 done
 ```
 
+=== How to adjust FAN speed
+
 Disable the background running script (it auto-starts on boot; first stop the fan-speed process)
 
 ```bash
