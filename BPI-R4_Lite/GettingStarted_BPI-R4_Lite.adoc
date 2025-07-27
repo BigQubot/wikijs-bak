@@ -21,23 +21,23 @@ image::/console.png[console.png]
 image::/bpi-r4_lite/bootst.png[bootst.png]
 image::/bpi-r4_lite/bootstrap.png[bootstrap.png]
 
-1. A/B/D Jumper is "0", BPI-R4_Lite will boot from SD card
+1 A/B/D Jumper is "0", BPI-R4_Lite will boot from SD card
 
 image::/bpi-r4_lite/00x0_sd.png[00x0_sd.png]
 
-2.  A Jumper is "0" and B/C Jumper is "1", BPI-R4_Lite will boot from SPI NOR Flash
+2  A Jumper is "0" and B/C Jumper is "1", BPI-R4_Lite will boot from SPI NOR Flash
 
 image::/bpi-r4_lite/011x_nor.png[011x_nor.png]
 
-3. A Jumper is "1" and B/C Jumper is "0", BPI-R4_Lite will boot from SPI NAND Flash
+3 A Jumper is "1" and B/C Jumper is "0", BPI-R4_Lite will boot from SPI NAND Flash
 
 image::/bpi-r4_lite/100xnand.png[100xnand.png]
 
-4. A/B/D Jumper is "1",BPI-R4_Lite will boot from EMMC
+4 A/B/D Jumper is "1",BPI-R4_Lite will boot from EMMC
 
 image::/bpi-r4_lite/11x1emmc.png[11x1emmc.png]
 
-5. If the console said "system halt!", it means that the bootup storage does not cotain any OS
+5 If the console said "system halt!", it means that the bootup storage does not cotain any OS
 +
 ```bash
   F0: 102B 0000
@@ -68,7 +68,8 @@ image::/bpi-r4_lite/11x1emmc.png[11x1emmc.png]
 
 - Please follow the following diagram for Windows PC.
 
-image::/bpi-r4_lite/low_level_format_sd_card.png[low_level_format_sd_card.png]
+image::/bpi-r4_lite/sd_geshihua.png[sd_geshihua.png]
+
 - Linux PC, you can use the "**mksf**" command for formatting, or use the "**dd**" command to write zeros.
 
 **Burn image to SD card on windows computer**
