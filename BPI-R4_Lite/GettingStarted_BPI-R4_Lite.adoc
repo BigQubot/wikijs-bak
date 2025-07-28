@@ -610,6 +610,8 @@ done
 
 Disable the background running script (it auto-starts on boot; first stop the fan-speed process)
 
+image::/bpi-r4_lite/fan.jpg[fan.jpg]
+
 ```bash
 root@OpenWrt:/# ps w | grep fan
  7167 root      1324 S    /bin/sh /etc/rc.common /sbin/fan-speed
@@ -629,6 +631,9 @@ root@OpenWrt:/# echo normal > /sys/class/pwm/pwmchip0/pwm2/polarity
 root@OpenWrt:/# echo 1 > /sys/class/pwm/pwmchip0/pwm2/enable
 root@OpenWrt:/# 
 ```
+
+
+
 
 
 = GPIO Define 
