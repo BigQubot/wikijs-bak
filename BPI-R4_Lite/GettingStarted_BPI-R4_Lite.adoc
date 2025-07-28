@@ -38,7 +38,7 @@ image::/bpi-r4_lite/100xnand.png[100xnand.png]
 image::/bpi-r4_lite/11x1emmc.png[11x1emmc.png]
 
 5 If the console said "system halt!", it means that the bootup storage does not cotain any OS
-+
+
 ```bash
   F0: 102B 0000
   F9: 1042 0000
@@ -477,7 +477,6 @@ root@OpenWrt:/#
 root@OpenWrt:/# 
 root@OpenWrt:/# cat /proc/partitions
 major minor  #blocks  name
-
   31        0     262144 mtdblock0
   31        1       1024 mtdblock1
   31        2        512 mtdblock2
