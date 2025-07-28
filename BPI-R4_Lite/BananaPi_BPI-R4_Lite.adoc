@@ -1,6 +1,6 @@
 = BPI-R4 Lite Introduction
 
-image::/bpi-r4_lite/r4-lite-banner1.jpg[r4-lite-banner1.jpg, width=1000]
+image::/bpi-r4_lite/r4-lite-banner.jpg[r4-lite-banner.jpg, width=1000]
 
 
 == MediaTek MT7987
@@ -48,6 +48,25 @@ link:/en/BPI-R4_Lite/BPIR4LiteProductphotogallery[BPIR4LiteProductphotogallery]
 
 == Hardware Spec
 
+[options="header",cols="1,3"]
+|====
+2+| **HardWare Specification of Banana Pi R4_Lite**
+| CPU              | MediaTek MT7987A Quad-core Arm Cortex-A53
+| SDRAM            | 2GB DDR4(SOC support can up to 4GB)
+| On board Storage | MicroSD (TF) card,8GB eMMC onboard
+| GPIO             | 2x8 PIN MikroBUS Header for expanding application,some of which can be used for specific functions including UART, I2C, SPI, PWM.
+| On board Network | 5 Port 10/100/1000Mbps Ethernet
+| SFP              | 1x 2.5G SFP 
+| Wifi             | Wifi6/Wifi 7 
+| mini PCIE        | 1x miniPCIe slots with PCIe3.0 2lane interface for Wi-Fi 7 NIC (Network Interface Card) and 1x miniPCIe slot with USB2.0 interface
+| M.2 interface    | 1x M.2 KEY-B slot with USB3.0 for 5G Module
+| USB              | 1xUSB 3.0 slot
+| Buttons          | Reset button,WPS botton, boot switch 
+| Leds             | Power status Led and RJ45 Led 
+| DC Power         | 12V/5.2A 
+| Sizes            | 100.5x148mm 
+| Weight           | 250g 
+|====
 
 = Accessories
 
