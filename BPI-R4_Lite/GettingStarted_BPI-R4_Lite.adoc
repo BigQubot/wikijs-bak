@@ -465,6 +465,28 @@ root@Simon-R4:/#
 ```
 
 == Storage
+===  PCIe to SATA
+BPI-R4_Lite  supports PCIe to USB
+
+```bash
+root@OpenWrt:/# lspci
+00:00.0 PCI bridge: MEDIATEK Corp. Device 7987 (rev 01)
+01:00.0 SATA controller: ASMedia Technology Inc. ASM1062 Serial ATA Controller (rev 02)
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# cat /proc/partitions
+major minor  #blocks  name
+
+  31        0     262144 mtdblock0
+  31        1       1024 mtdblock1
+  31        2        512 mtdblock2
+  31        3       4096 mtdblock3
+  31        4       2048 mtdblock4
+  31        5     115200 mtdblock5
+ 253        0      60140 ubiblock0_1
+root@OpenWrt:/# 
+```
+
 ===  PCIe to USB
 BPI-R4_Lite Also supports PCIe to USB
 
