@@ -409,7 +409,7 @@ If you want to use MiniPCIe Cellular Module on BPI-R4_Lite:
 
 NOTE:  The availability of 4G depends on the local carrier frequency band.
 
-> __Due to the compatibility of the BPI-R4 with Qualcomm/Unisoc modules, the EC25 module cannot directly access the DNS server and connect to the internet. Therefore, manual configuration is required to modify the   **default.script**  file via console port.__
+> __Due to the compatibility of the BPI-R4_Lite with Qualcomm/Unisoc modules, the EC25 module cannot directly access the DNS server and connect to the internet. Therefore, manual configuration is required to modify the   **default.script**  file via console port.__
 
 ```sh
 vim /usr/share/udhcpc/default.script
@@ -468,6 +468,7 @@ root@Simon-R4:/#
 ===  PCIe to SATA
 BPI-R4_Lite  supports PCIe to USB
 
+image::/bpi-r4_lite/sata.jpg[sata.jpg]
 ```bash
 root@OpenWrt:/# lspci
 00:00.0 PCI bridge: MEDIATEK Corp. Device 7987 (rev 01)
@@ -643,7 +644,7 @@ root@OpenWrt:/# ps w | grep fan
  7503 root      1244 S    grep fan
 ```
  
- Manually set PWM2 output (duty_cycle controls fan speed; higher values increase rotation speed)
+Manually set PWM2 output ，duty_cycle controls fan speed; higher values increase rotation speed
 
 ```bash
 root@OpenWrt:/# echo 2 > /sys/class/pwm/pwmchip0/export
