@@ -35,8 +35,8 @@ SW3_C, via U24, selects between NAND boot and NOR boot:
 When SW3_C is 1, the switch physically connects to NOR.
 When SW3_C is 0, the switch physically connects to NAND
 SW3_D, selects between SD boot and EMMC boot:
-When SW3_C is 1, the switch physically connects to SD.
-When SW3_C is 0, the switch physically connects to EMMC.
+When SW3_D is 1, the switch physically connects to SD.
+When SW3_D is 0, the switch physically connects to EMMC.
 
 
 
