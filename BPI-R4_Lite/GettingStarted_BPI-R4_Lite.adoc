@@ -490,6 +490,11 @@ root@Simon-R4:/#
 
 == Storage
 ===  PCIe to SATA
+When using the PCIe to SATA or PCIe to USB, you must flash the 2PCIe-1Lane firmware image, since  mPCIe A/B lanes have two configuration options: a single 2-lane interface(mPCIe A) or two separate 1-lane interfaces(mPCIe A+mPCIe B).
+
+image：
+link:/en/BPI-R4_Lite/GettingStarted_BPI-R4_Lite[GettingStarted_BPI-R4_Lite#OpenWrt]
+
 BPI-R4_Lite  supports PCIe to USB
 
 image::/bpi-r4_lite/sata.jpg[sata.jpg]
@@ -535,6 +540,9 @@ root@R4CN:/#
 You can insert the BPI-R4-NIC into CN11 and CN13 at the bottom of BPI-R4_Lite-Main, and then fix it with two M2 screws.
 
 When using the BPI-R4-NIC module, you must flash the 2-lane firmware image, since  mPCIe A/B lanes have two configuration options: a single 2-lane interface(mPCIe A) or two separate 1-lane interfaces(mPCIe A+mPCIe B).The BPI-R4-NIC module requires 12V power supply, so the power supply on the BPI-R4_Lite-Main must be turned on before powering on (SW4 is turned to the "ON" position, and the 12V LED will lights up when power on)
+
+image：
+link:/en/BPI-R4_Lite/GettingStarted_BPI-R4_Lite[GettingStarted_BPI-R4_Lite#OpenWrt]
 
 
 IMPORTANT:  The 12V power supply will be supplied to the BPI-R4-NIC through PIN6 / 28 / 48 of the miniPCI socket. 
