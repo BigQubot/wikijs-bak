@@ -7,7 +7,7 @@ TIP: link:/en/BPI-R4_Lite/BananaPi_BPI-R4_Lite[BananaPi_BPI-R4_Lite]
 = Development
 == Prepare
 * Prepare 8G/above TF card, USB-Serial cable, Ubuntu System
-* 12V/2A power adapter (without any peripherals, the power consumption of BPI-R4_Lite Main Board will not nedd 3W in the most extreme cases. but you need to determine whether you need a higher power power adapter according to your own accessory usage)
+* 12V/2A power adapter (without any peripherals, The power consumption of the BPI-R4_Lite mainboard is around 3W under normal conditions.  you need to determine whether you need a higher power power adapter according to your own accessory usage)
 * Using your USB TypeC Debug Console
 * link:                              [Download the image] to be burned
 * Default IP address for LAN port: 192.168.1.1
@@ -21,7 +21,7 @@ image::/console.png[console.png]
 image::/bpi-r4_lite/bootst.png[bootst.png]
 image::/bpi-r4_lite/bootstrap.png[bootstrap.png]
 
-SW3A and SW3B control the signal originating from the chip MT7987:
+SW3_A and SW3_B control the signal originating from the chip MT7987:
 
 "00" indicates booting from SD.
 
