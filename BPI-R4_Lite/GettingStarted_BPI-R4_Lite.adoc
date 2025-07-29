@@ -438,8 +438,11 @@ NOTE:  The availability of 4G depends on the local carrier frequency band.
 ```sh
 vim /usr/share/udhcpc/default.script
 ```
+
  
 image::/bpi-r4/bpi-r4_ec25e_module_modification_1.png[bpi-r4_ec25e_module_modification_1.png]
+
+Press the **i** key to enter edit mode, After completing the modifications, press the **Esc** key to exit edit mode. Then press **Shift + **:, type **wq!**, and press **Enter** to save and exit.
 
 
 Add:  echo "nameserver 202.96.128.86" >> /etc/resolv.conf
