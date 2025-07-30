@@ -662,7 +662,6 @@ done
 
 Disable the background running script (it auto-starts on boot; first stop the fan-speed process)
 
-image::/bpi-r4_lite/fan.jpg[fan.jpg]
 
 ```bash
 root@OpenWrt:/# ps w | grep fan
@@ -672,20 +671,22 @@ root@OpenWrt:/# kill -9 7167
 root@OpenWrt:/# ps w | grep fan
  7503 root      1244 S    grep fan
 ```
- 
+
 Manually set PWM2 output ，duty_cycle controls fan speed; higher values increase rotation speed
 
 ```bash
 root@OpenWrt:/# echo 2 > /sys/class/pwm/pwmchip0/export
 root@OpenWrt:/# echo 10000 > /sys/class/pwm/pwmchip0/pwm2/period
-root@OpenWrt:/# echo 5000 >  /sys/class/pwm/pwmchip0/pwm2/duty_cycle
+root@OpenWrt:/# echo 5000 >  /sys/class/pwm/pwmchip0/pwm2/duty_cycle 
 root@OpenWrt:/# echo normal > /sys/class/pwm/pwmchip0/pwm2/polarity
 root@OpenWrt:/# echo 1 > /sys/class/pwm/pwmchip0/pwm2/enable
 root@OpenWrt:/# 
 ```
 
 
+image::/bpi-r4_lite/fan.jpg[fan.jpg]
 
+Manually set PWM2 output ，duty_cycle controls fan speed; higher values increase rotation speed
 
 
 = GPIO Define 
