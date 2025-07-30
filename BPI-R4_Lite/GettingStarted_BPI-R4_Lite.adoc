@@ -90,9 +90,8 @@ image::/bpi-r4_lite/11x1emmc.png[11x1emmc.png]
 
 == How to burn image to SD card.
 
-- Please follow the following diagram for Windows PC.
+-  Windows PC,Insert the SD card into a card reader, then plug the card reader into your computer. Format the SD card, making sure not to select the "Quick Format" option.
 
-image::/bpi-r4_lite/sd_geshihua.png[sd_geshihua.png]
 
 - Linux PC, you can use the "**mksf**" command for formatting, or use the "**dd**" command to write zeros.
 
