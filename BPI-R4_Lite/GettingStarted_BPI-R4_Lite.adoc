@@ -86,9 +86,27 @@ image::/bpi-r4_lite/11x1emmc.png[11x1emmc.png]
   System halt!
 ```
 
+== image
+The following figure is an example
+
+image::/bpi-r4_lite/image.png[image.png]
+
+As shown in the previous Boot Strapping picture:
+
+For the image mtk-bpi-r4lite-EMMC-NAND-MP4_2-2PCIe-1L.img: Bootstrap loads from NAND, and this image is programmed into EMMC. The jumper settings should be 1001.Flashing to EMMC requires the bl2.emmc.img file.
+
+For the image mtk-bpi-r4lite-EMMC-NOR-MP4_2-2PCIe-1L.img: Bootstrap loads from NOR, and this image is programmed into EMMC. The jumper settings should be 0111.Flashing to EMMC requires the bl2.emmc.img file.
+
+For the image mtk-bpi-r4lite-NAND-MP4_2-2PCIe-1L.img: Bootstrap loads from SD Card, and this image is programmed into NAND. The jumper settings should be 0000.
+
+For the image mtk-bpi-r4lite-NOR-MP4_2-2PCIe-1L.img: Bootstrap loads from SD Card, and this image is programmed into NOR. The jumper settings should be 0010.
+
+For the image mtk-bpi-r4lite-SD-NAND-MP4_2-2PCIe-1L.img: Bootstrap loads from NAND and this image is programmed into the SD Card. The jumper settings should be 1000.
+
+For the image mtk-bpi-r4lite-SD-NOR-MP4_2-2PCIe-1L.img: Bootstrap loads from NOR, and this image is programmed into the SD Card. The jumper settings should be 1001.
 
 
-== How to burn image to SD card.
+== How to burn image to SD card
 
 -  Windows PC,Insert the SD card into a card reader, then plug the card reader into your computer. Format the SD card, making sure not to select the "Quick Format" option.
 
