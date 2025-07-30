@@ -498,7 +498,7 @@ When using the PCIe to SATA or PCIe to USB, you must flash the 2PCIe-1Lane firmw
 image：
 link:/en/BPI-R4_Lite/GettingStarted_BPI-R4_Lite[GettingStarted_BPI-R4_Lite#OpenWrt]
 
-BPI-R4_Lite  supports PCIe to USB
+BPI-R4_Lite  supports PCIe to SATA
 
 image::/bpi-r4_lite/sata.jpg[sata.jpg]
 ```bash
@@ -612,11 +612,6 @@ When all functions are OK, we can detect Three SSIDs and the three blue LEDs on 
 
 You can click Config to modify the SSID and password.Then, locate the Wi-Fi with the corresponding name in the system tray (WLAN icon) at the bottom-right corner of your computer screen, enter the password, and ethernet  be connected.
 
-     
-==== How to turn on WiFi hotspot
-
-Open web and configure the corresponding STA hotspot in config.
-And click Connect to connect.
 
 == Heat sink
 MTK OpwnWRT fan with PWM control reference.
