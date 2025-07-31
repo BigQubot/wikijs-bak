@@ -36,7 +36,7 @@ TIP: More Infomation：link:/en/BPI-F4/BananaPi_BPI-F4[ Banana Pi BPI-F4]
 * LCD display
 
 
-== Jumper Setting and boot select
+== Jumper Setting
 Plug in a jumper to turn on power automatically.
 Otherwise, required to press Wake-up key for 1 second to turn on power.
 
@@ -54,6 +54,7 @@ Voltage Selection Jumper**5.0V**
 
 image::/bpi-f4/bpi-f4_jumper3_2.png[bpi-f4_jumper3_2.png]
 
+== boot select
 [options="header",cols="10,4,4,4,4",width="50%"]
 |=====
 Boot Devices      | 1  |2  |3  |4 |
