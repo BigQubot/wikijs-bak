@@ -6,9 +6,69 @@ BPI-F4 is an official open source hardware development board jointly developed b
 
 TIP: More Infomation：link:/en/BPI-F4/BananaPi_BPI-F4[ Banana Pi BPI-F4]
 
+= Prepare 
+
+== Tool Preparation
+* BPI-F4 core board and base board
+* Power supply: The DC Jack plug diameter is 5.5mm
+** The adapter power supply current must be greater than 1A.
+* System installation (choose one)
+** MicroSD /TF card boot
+*** MicroSD card/TF, Class 10 or above, at least 8GB SDHC and a card reader
+*** High speed TF cards tested by the ArmSoM team:
+**** SanDisk 32GB TF (MicroSD) (developer recommended)
+**** SanDisk 32GB TF (MicroSD) Dashcam & Security Camera Storage Card (recommended for long-term operation)
+**** Sandisk TF 8G Class10 microSD
+**** Sandisk TF 128G Class10 microSD XC TF 128G 48MB/S：
+** Onboard eMMC boot
+
+
+== Optional Accessories
+* USB keyboard and mouse
+* HDMI display and HDMI cable
+** BPI-F4 Supports 1080p, 720p, 480p resolutions
+* Ethernet cable
+** BPI-F4 Supports 10M/100M/1000M transmission
+** The network cable is used to connect BPI-F4 to a local network and the Internet
+* Camera module
+** BPI-F4 supports camera function
+** We recommend using the ov5647
+* LCD display
+
+
+== Jumper Setting and boot select
+Plug in a jumper to turn on power automatically.
+Otherwise, required to press Wake-up key for 1 second to turn on power.
+
+image::/bpi-f4/bpi-f4_jumper1.png[bpi-f4_jumper1.png]
+
+Plug in a jumper to select USB 3.0 Type C socket.Otherwise, USB 3.0 Type A socket is selected.
+
+image::/bpi-f4/bpi-f4_jumper2.png[bpi-f4_jumper2.png]
+
+Voltage Selection Jumper**3.3V**
+
+image::/bpi-f4/bpi-f4_jumper3_1.png[bpi-f4_jumper3_1.png]
+
+Voltage Selection Jumper**5.0V**
+
+image::/bpi-f4/bpi-f4_jumper3_2.png[bpi-f4_jumper3_2.png]
+
+[options="header",cols="10,4,4,4,4",width="50%"]
+|=====
+Boot Devices      | 1  |2  |3  |4 |
+eMMC Boot         | 1  |1  |1  |1 | 
+SDC Boot/ ISP     | 1  |1  |0  |0 |
+USB ISP           | 1  |1  |0  |1 | 
+|=====
+
+For example:The picture below shows to boot from an SD card
+
+image::/bpi-f4/bpi-f4_bootconfig.jpg[bpi-f4_bootconfig.jpg]
+
 = Linux
 == Install Image to sd card
-NOTE: Use this method for **Ubuntu** and **Armbian** images.
+NOTE: Use this method for **Ubuntu** images.
 Install Image with Balena Etcher. +
 link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
  
@@ -18,24 +78,45 @@ link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by 
 
 image::/picture/bpi-f4-img_photo.png[bpi-f4-img_photo.png]
 
-To boot from an SD card, adjust the boot switch to [1 1 0 0]
+. To boot from an SD card, adjust the boot switch to [1 1 0 0]
 
-image::/bpi-f4/bpi-f4_sdboot.png[bpi-f4_sdboot.png]
-Insert your SD card into the micro SD card socket. Then press the power button, if there is still no response, press the RST button.
+. Insert your SD card into the micro SD card socket. 
 
-image::/bpi-f4/bpi-f4_sd.png[bpi-f4_sd.png]
+. Plug in a jumper to turn on power automatically. Otherwise, required to press Wake-up key for 1 second to turn on power.
+
+image::/bpi-f4/bpi-f4_sdburn.png.png[bpi-f4_sdburn.png.png]
+
 NOTE: Please connect the HDMI monitor when desktop mirroring is started. You need to create a user on the desktop.
 
 
-== Install Image to eMMC 
+== Install Image to eMMC 1
 
 NOTE: Please prepare an SD card with the image burned.And a USB drive containing image.
 
 To boot from the on-board eMMC device, set the boot switch configuration to [1 1 1 1]
 
-image::/bpi-f4/bpi-f4_emmcboot.png[bpi-f4_emmcboot.png]
 
+== Install Image to eMMC 2
 
+= Heat Dissipation Summary
+== Core board heat dissipation 
+The Raspberry Pi CM4 heatsink is a cooling accessory specifically designed for the Raspberry Pi Compute Module 4, which can effectively solve its heating problem and ensure the stable operation of the device.
+[options="header",cols="10,4,10,10,6",width="100%"]
+|=====
+Component |Bare Board |CPUBare Board |DDRBare Board eMMC|With Heat Sink|
+Temperature after 5 minutes of testing |81.4°C |66.8°C |60.9°C |55.7°C| 
+Temperature at end of testing          |79.8°C |64.7°C |59.5°C |52.6°C|
+|=====
+NOTE: Based on the test temperatures, it can be observed that the temperature with a heat sink is 10-20°C lower than that of the bare board.
+
+== AI model heat dissipation
+[options="header",cols="10,4,10,10,6",width="100%"]
+|=====
+AI Workload	|Bare Board CPU|	Bare Board DDR|	Bare Board eMMC|	With Heat Sink|
+Camera AI Recognition |	69.5°C  |	59.0°C  | 54.3°C  |51.2°C |
+Video AI Recognition	| 95.9°C	| 75.3°C	| 66.8°C	|61.2°C |
+|=====
+NOTE: The cooling effect of the heat sink is significantly more pronounced during AI model execution. Temperatures with the heat sink are 10-30°C lower compared to the bare board configuration.
 
 = Interface Settings
 If you are using Banana Pi BPI-F4 Pro for the first time, please familiarize yourself with the Peripheral Interfaces for better understanding of the following content.
@@ -138,19 +219,19 @@ The HDMI to VGA display test is shown below:
 image::/bpi-f4/bpi-f4_hdmi.jpg[bpi-f4_hdmi.jpg]
 
 == USB
-The BPI-F4 Pro provides one USB 3.0 Type-A, one USB 3.0 Type-C and one USB 2.0 Type-A.
+The BPI-F4 provides one USB 3.0 Type-A, one USB 3.0 Type-C and one USB 2.0 Type-A.
 
 image::/bpi-f4/bpi-f4_usb.png[bpi-f4_usb.png]
 
 NOTE: Note that USB 3.0 Type-A and Type-C share with the same USB 3.0 port of SP7350, and they cannot be used simultaneously. Plug in a jumper to select USB 3.0 Type C socket.Otherwise, USB 3.0 Type A socket is selected. 
 
-=== Testing USB Mouse or Keyboard
+=== Using USB Mouse or Keyboard
 
 * 1.Insert a USB keyboard or mouse into the board's USB port.
 * 2.Connect the board to an HDMI display.
 * 3.If the mouse or keyboard operates the system normally, the USB interface is working correctly (the mouse will only work in desktop versions of the system).
 
-=== Testing USB Storage Device
+=== Using USB Storage Device
 * 1.Insert a USB flash drive or USB external hard drive into the product's USB port.
 
 * 2.Run the following command; if you see sdX output, the USB drive is recognized successfully: insertpng
@@ -266,18 +347,54 @@ Image Processing Controls
                      pixel_rate 0x009f0902 (int64)  : min=81666700 max=81666700 step=1 default=81666700 value=81666700 flags=read-only
 
 ```
+
+Use v4l2-ctl -d /dev/video42 --set-ctrl params=value setting device controls.
+
+Enable auto_exposure:
+```sh
+v4l2-ctl -d /dev/video42 --set-ctrl auto_exposure=1
+```
+
+Enable gain_automatic
+```sh
+v4l2-ctl -d /dev/video42 --set-ctrl gain_automatic=1
+```
+
+Enable white_balance_automatic
+```sh
+v4l2-ctl -d /dev/video42 --set-ctrl white_balance_automatic=1
+```
+Use  querying device  video format
+```sh
+pi@ubuntu:~$ v4l2-ctl --list-formats-ext --device /dev/video42
+ioctl: VIDIOC_ENUM_FMT
+        Type: Video Capture
+
+        [0]: 'GBRG' (8-bit Bayer GBGB/RGRG)
+                Size: Discrete 640x480
+        [1]: 'GB10' (10-bit Bayer GBGB/RGRG)
+                Size: Discrete 2592x1944
+                Size: Discrete 1920x1080
+                Size: Discrete 1296x972
+                Size: Discrete 640x480
+        [2]: 'pGAA' (10-bit Bayer GBGB/RGRG Packed)
+                Size: Discrete 2592x1944
+                Size: Discrete 1920x1080
+                Size: Discrete 1296x972
+                Size: Discrete 640x480
+
+```
+
 Use v4l2-ctl for image capture:
 ```sh
-
+v4l2-ctl -d /dev/video42 
+--set-fmt-video=width=1920,height=1080,pixelformat=pGAA 
+--stream-mmap=3 
+--stream-to=/home/sunplus/Videos/ov5647.raw 
+--stream-skip=9 --stream-count=1
 ```
 
-Record video using gst-launch-1.0
 
-```sh
-
-```
-
-= F4 test
 
 
 
