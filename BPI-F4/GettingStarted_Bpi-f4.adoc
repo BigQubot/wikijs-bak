@@ -116,7 +116,11 @@ This will compile the code based on your chosen configurations. The duration of 
 
 All generated image files are stored in the 'out' folder. Refer to the 'll out' command screenshot below:
 
-In the virtual machine environment, copy the final file out/ISPBOOOT.BIN to a FAT32 or FAT16 USB flash drive,If size of rootfs image is greater 4032 MiB, more than one flash image files will be created. (For example, if size of rootffs image is 6000 MiB, two flash image image files, ISPBOOOT.BIN and ISPBOOT1.BIN, will be created. If size of rootffs image is 9000 MiB, three flash image image files, ISPBOOOT.BIN, ISPBOOT1.BIN and ISPBOOT2.BIN, will be created. )
+In the virtual machine environment, copy the final file out/ISPBOOOT.BIN to a FAT32 or FAT16 USB flash drive,If size of rootfs image is greater 4032 MiB, more than one flash image files will be created. 
+
+```sh
+sudo cp ISPBOOOT.BIN /media/your-username/USB-DRIVE/
+```
 
 switch the key to USB
 
