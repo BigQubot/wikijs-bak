@@ -91,9 +91,40 @@ NOTE: Please connect the HDMI monitor when desktop mirroring is started. You nee
 
 == Install Image to eMMC 1
 
-NOTE: Please prepare an SD card with the image burned.And a USB drive containing image.
+NOTE: link:https://sunplus.atlassian.net/wiki/spaces/C3/pages/1988034774[ Download Sources of SP7350]
 
-To boot from the on-board eMMC device, set the boot switch configuration to [1 1 1 1]
+Configure Building Environment
+Navigate to the top folder of your Q654 project. 
+
+Run the following command to initiate the configuration menu.
+```sh
+make config
+```
+Upon executing this command, a configuration menu will appear, providing several options for customization:
+
+image::/bpi-f4/bpi-f4_makeconfig.png[bpi-f4_makeconfig.png]
+
+After completing all configurations, you are ready to initiate the code build. 
+
+Execute the following command to commence the build process:
+
+```sh
+make
+```
+
+This will compile the code based on your chosen configurations. The duration of this process depends on your computer's performance, typically taking a few minutes. Kindly exercise patience and allow the system to complete the build.After make command completes, it will display information similar to the following screenshot:
+
+All generated image files are stored in the 'out' folder. Refer to the 'll out' command screenshot below:
+
+In the virtual machine environment, copy the final file out/ISPBOOOT.BIN to a FAT32 or FAT16 USB flash drive,If size of rootfs image is greater 4032 MiB, more than one flash image files will be created. (For example, if size of rootffs image is 6000 MiB, two flash image image files, ISPBOOOT.BIN and ISPBOOT1.BIN, will be created. If size of rootffs image is 9000 MiB, three flash image image files, ISPBOOOT.BIN, ISPBOOT1.BIN and ISPBOOT2.BIN, will be created. )
+
+switch the key to USB
+
+image::/bpi-f4/bpi-f4_emmcusb.png[bpi-f4_emmcusb.png]
+
+then start the platform,plug the USB flash drive which contains ISPBOOOT.BIN into a USB socket (either USB2.0 or USB3.0 socket) of BPI-F4 and turn on power of it. After power on, will initiate the boot process, loading images from the USB drive. Finally, you will see screen like：
+
+image::/bpi-f4/bpi-f4_emmcsuccess.png[bpi-f4_emmcsuccess.png]
 
 
 == Install Image to eMMC 2
