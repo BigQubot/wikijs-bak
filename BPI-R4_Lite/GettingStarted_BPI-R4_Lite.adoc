@@ -158,7 +158,7 @@ Before burning image into Nand, please prepare a USB disk. Let’s take OpenWrt 
 +
 ```SH
 mount -t vfat /dev/sda1 /mnt 
-cd /mnt
+cd /mnt/sda1
 ```
 4. Execute following command to erase the whole Nor flash and copy image to nor device:
 
