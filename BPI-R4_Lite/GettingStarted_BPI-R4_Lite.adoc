@@ -101,9 +101,10 @@ For the image mtk-bpi-r4lite-NAND-MP4_2-2PCIe-1L.img: Bootstrap loads from SD Ca
 
 For the image mtk-bpi-r4lite-NOR-MP4_2-2PCIe-1L.img: Bootstrap loads from SD Card, and this image is programmed into NOR. The jumper settings should be 0010.
 
-For the image mtk-bpi-r4lite-SD-NAND-MP4_2-2PCIe-1L.img: Bootstrap loads from NAND and this image is programmed into the SD Card. The jumper settings should be 1000.
+For the image mtk-bpi-r4lite-SD-NOR-MP4_2-2PCIe-1L.img: This image on the SD card supports NOR flash but not NAND flash. Therefore, if you burn this image to an SD card and boot from it, and subsequently need to burn other images to NOR flash, you should burn this (particular) image
 
-For the image mtk-bpi-r4lite-SD-NOR-MP4_2-2PCIe-1L.img: Bootstrap loads from NOR, and this image is programmed into the SD Card. The jumper settings should be 1001.
+For the image mtk-bpi-r4lite-SD-NAND-MP4_2-2PCIe-1L.img: This image on the SD card supports NAND flash but not NOR flash. Therefore, if you burn this image to an SD card and boot from it, and subsequently need to burn other images to NAND flash, you should burn this (particular) image
+
 
 
 == How to burn image to SD card
