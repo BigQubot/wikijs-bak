@@ -40,19 +40,19 @@ TIP: More Infomation：link:/en/BPI-F4/BananaPi_BPI-F4[ Banana Pi BPI-F4]
 Plug in a jumper to turn on power automatically.
 Otherwise, required to press Wake-up key for 1 second to turn on power.
 
-image::/bpi-f4/bpi-f4_jumper1.png[bpi-f4_jumper1.png]
+image::/bpi-f4/bpi-f4_jumper1.png[bpi-f4_jumper1.png,width=50%,height=50%]
 
 Plug in a jumper to select USB 3.0 Type C socket.Otherwise, USB 3.0 Type A socket is selected.
 
-image::/bpi-f4/bpi-f4_jumper2.png[bpi-f4_jumper2.png]
+image::/bpi-f4/bpi-f4_jumper2.png[bpi-f4_jumper2.png,width=50%,height=50%]
 
 Voltage Selection Jumper**3.3V**
 
-image::/bpi-f4/bpi-f4_jumper3_1.png[bpi-f4_jumper3_1.png]
+image::/bpi-f4/bpi-f4_jumper3_1.png[bpi-f4_jumper3_1.png,width=50%,height=50%]
 
 Voltage Selection Jumper**5.0V**
 
-image::/bpi-f4/bpi-f4_jumper3_2.png[bpi-f4_jumper3_2.png]
+image::/bpi-f4/bpi-f4_jumper3_2.png[bpi-f4_jumper3_2.png,width=50%,height=50%]
 
 == boot select
 [options="header",cols="10,4,4,4,4",width="50%"]
@@ -65,7 +65,7 @@ USB ISP           | 1  |1  |0  |1 |
 
 For example:The picture below shows to boot from an SD card
 
-image::/bpi-f4/bpi-f4_bootconfig.jpg[bpi-f4_bootconfig.jpg]
+image::/bpi-f4/bpi-f4_bootconfig.jpg[bpi-f4_bootconfig.jpg,width=50%,height=50%]
 
 = Linux
 == Install Image to sd card
@@ -85,7 +85,7 @@ image::/picture/bpi-f4-img_photo.png[bpi-f4-img_photo.png]
 
 . Plug in a jumper to turn on power automatically. Otherwise, required to press Wake-up key for 1 second to turn on power.
 
-image::/bpi-f4/bpi-f4_sdburn.png.png[bpi-f4_sdburn.png.png]
+image::/bpi-f4/bpi-f4_sdburn.png.png[bpi-f4_sdburn.png.png,width=70%,height=70%]
 
 NOTE: Please connect the HDMI monitor when desktop mirroring is started. You need to create a user on the desktop.
 
@@ -96,7 +96,7 @@ NOTE: link:https://docs.banana-pi.org/en/BPI-F4/BananaPi_BPI-F4#_ubuntu[ Downloa
 
 First, check whether the USB flash drive's file system is FAT32 or FAT16. 
 
-image::/bpi-f4/bpi-f4_fat.png[bpi-f4_fat.png]
+image::/bpi-f4/bpi-f4_fat.png[bpi-f4_fat.png,width=80%,height=80%]
 
 If not, you can use the following command to convert it. If it is FAT32 or FAT16, you can skip this step.
 ```sh
@@ -107,25 +107,25 @@ Extract the downloaded emmc image file to a USB flash drive
 
 switch the key to USB
 
-image::/bpi-f4/bpi-f4_usbboot.jpg[bpi-f4_usbboot.jpg]
+image::/bpi-f4/bpi-f4_usbboot.jpg[bpi-f4_usbboot.jpg,width=50%,height=50%]
 
 The USB flash drive can be used for upgrading when inserted into USB3 TYPE-A, TYPE-C, and USB2 TYPE-A ports.
 
 Insert the USB flash drive into the USB3 TYPE-A port (no need to short-circuit the jumper).
 
-image::/bpi-f4/bpi-f4_typea3.png[bpi-f4_typea3.png]
+image::/bpi-f4/bpi-f4_typea3.png[bpi-f4_typea3.png,width=50%,height=50%]
 
 Insert the USB flash drive into the USB3 Type-C port (use the TYPE-C port; the jumper must be short-circuited here)
 
-image::/bpi-f4/bpi-f4_typyc.png[bpi-f4_typyc.png]
+image::/bpi-f4/bpi-f4_typyc.png[bpi-f4_typyc.png,width=50%,height=50%]
 
 Insert the USB flash drive into the USB 2.0 Type-A port.
 
-image::/bpi-f4/bpi-f4_typea2.png[bpi-f4_typea2.png]
+image::/bpi-f4/bpi-f4_typea2.png[bpi-f4_typea2.png,width=50%,height=50%]
 
 After power-on, it will automatically enter the upgrade process. The log after the upgrade is complete is as follows:
 
-image::/bpi-f4/bpi-f4_emmc_success.png[bpi-f4_emmc_success.png]
+image::/bpi-f4/bpi-f4_emmc_success.png[bpi-f4_emmc_success.png,width=70%,height=70%]
 
 
 = Heat Dissipation Summary
@@ -246,12 +246,12 @@ NOTE: that many laptops, while having HDMI ports, typically have HDMI output onl
 
 The HDMI to VGA display test is shown below:
 
-image::/bpi-f4/bpi-f4_hdmi.jpg[bpi-f4_hdmi.jpg]
+image::/bpi-f4/bpi-f4_hdmi.jpg[bpi-f4_hdmi.jpg,width=90%,height=90%]
 
 == USB
 The BPI-F4 provides one USB 3.0 Type-A, one USB 3.0 Type-C and one USB 2.0 Type-A.
 
-image::/bpi-f4/bpi-f4_usb.png[bpi-f4_usb.png]
+image::/bpi-f4/bpi-f4_usb.png[bpi-f4_usb.png,width=50%,height=50%]
 
 NOTE: Note that USB 3.0 Type-A and Type-C share with the same USB 3.0 port of SP7350, and they cannot be used simultaneously. Plug in a jumper to select USB 3.0 Type C socket.Otherwise, USB 3.0 Type A socket is selected. 
 
