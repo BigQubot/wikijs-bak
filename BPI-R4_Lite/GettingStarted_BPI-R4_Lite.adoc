@@ -43,19 +43,20 @@ When SW3_D is 0, the switch physically connects to EMMC.
 
 image::/bpi-r4_lite/bootstr3.png[bootstr3.png]
 
-1 A/B/D Jumper is "0", BPI-R4_Lite will boot from SD card
+=== A/B/D Jumper is "0", BPI-R4_Lite will boot from SD card
 
 image::/bpi-r4_lite/00x0_sd.png[00x0_sd.png]
 
-2  A Jumper is "0" and B/C Jumper is "1", BPI-R4_Lite will boot from SPI NOR Flash
+
+=== A Jumper is "0" and B/C Jumper is "1", BPI-R4_Lite will boot from SPI NOR Flash
 
 image::/bpi-r4_lite/011x_nor.png[011x_nor.png]
 
-3 A Jumper is "1" and B/C Jumper is "0", BPI-R4_Lite will boot from SPI NAND Flash
+=== A Jumper is "1" and B/C Jumper is "0", BPI-R4_Lite will boot from SPI NAND Flash
 
 image::/bpi-r4_lite/100xnand.png[100xnand.png]
 
-4 A/B/D Jumper is "1",BPI-R4_Lite will boot from EMMC
+=== A/B/D Jumper is "1",BPI-R4_Lite will boot from EMMC
 
 image::/bpi-r4_lite/11x1emmc.png[11x1emmc.png]
 
@@ -514,7 +515,7 @@ root@Simon-R4:/#
 ===  PCIe to SATA
 When using the PCIe to SATA or PCIe to USB, you must flash the 2PCIe-1Lane firmware image, since  mPCIe A/B lanes have two configuration options: a single 2-lane interface(mPCIe A) or two separate 1-lane interfaces(mPCIe A+mPCIe B).
 
-image：
+Image：
 link:/en/BPI-R4_Lite/GettingStarted_BPI-R4_Lite[GettingStarted_BPI-R4_Lite#OpenWrt]
 
 BPI-R4_Lite  supports PCIe to SATA
@@ -563,7 +564,7 @@ You can insert the BPI-R4-NIC into CN11 and CN13 at the bottom of BPI-R4_Lite-Ma
 
 When using the BPI-R4-NIC module, you must flash the 2-lane firmware image, since  mPCIe A/B lanes have two configuration options: a single 2-lane interface(mPCIe A) or two separate 1-lane interfaces(mPCIe A+mPCIe B).The BPI-R4-NIC module requires 12V power supply, so the power supply on the BPI-R4_Lite-Main must be turned on before powering on (SW4 is turned to the "ON" position, and the 12V LED will lights up when power on)
 
-image：
+mage：
 link:/en/BPI-R4_Lite/GettingStarted_BPI-R4_Lite[GettingStarted_BPI-R4_Lite#OpenWrt]
 
 
