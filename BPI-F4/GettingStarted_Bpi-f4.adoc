@@ -92,51 +92,46 @@ NOTE: Please connect the HDMI monitor when desktop mirroring is started. You nee
 
 == Install Image to eMMC 1
 
-NOTE: link:https://sunplus.atlassian.net/wiki/spaces/C3/pages/1988034774[ Download Sources of SP7350]
+NOTE: link:https://docs.banana-pi.org/en/BPI-F4/BananaPi_BPI-F4#_ubuntu[ Download eMMc img]
 
-Configure Building Environment
-Navigate to the top folder of your Q654 project. 
+First, check whether the USB flash drive's file system is FAT32 or FAT16. 
 
-Run the following command to initiate the configuration menu.
+image::/bpi-f4/bpi-f4_fat.png[bpi-f4_fat.png]
+
+If not, you can use the following command to convert it. If it is FAT32 or FAT16, you can skip this step.
 ```sh
-make config
+sudo umount /dev/sdb1
+sudo mkfs.vfat -F 32 -n "DATA" /dev/sdb1
 ```
-Upon executing this command, a configuration menu will appear, providing several options for customization:
-
-image::/bpi-f4/bpi-f4_makeconfig.png[bpi-f4_makeconfig.png]
-
-After completing all configurations, you are ready to initiate the code build. 
-
-Execute the following command to commence the build process:
-
-```sh
-make
-```
-
-This will compile the code based on your chosen configurations. The duration of this process depends on your computer's performance, typically taking a few minutes. Kindly exercise patience and allow the system to complete the build.After make command completes, it will display information similar to the following screenshot:
-
-All generated image files are stored in the 'out' folder. Refer to the 'll out' command screenshot below:
-
-In the virtual machine environment, copy the final file out/ISPBOOOT.BIN to a FAT32 or FAT16 USB flash drive,If size of rootfs image is greater 4032 MiB, more than one flash image files will be created. 
-
-```sh
-sudo cp ISPBOOOT.BIN /media/your-username/USB-DRIVE/
-```
+Extract the downloaded emmc image file to a USB flash drive
 
 switch the key to USB
 
-image::/bpi-f4/bpi-f4_emmcusb.png[bpi-f4_emmcusb.png]
+image::/bpi-f4/bpi-f4_usbboot.jpg[bpi-f4_usbboot.jpg]
 
-then start the platform,plug the USB flash drive which contains ISPBOOOT.BIN into a USB socket (either USB2.0 or USB3.0 socket) of BPI-F4 and turn on power of it. After power on, will initiate the boot process, loading images from the USB drive. Finally, you will see screen like：
+The USB flash drive can be used for upgrading when inserted into USB3 TYPE-A, TYPE-C, and USB2 TYPE-A ports.
 
-image::/bpi-f4/bpi-f4_emmcsuccess.png[bpi-f4_emmcsuccess.png]
+Insert the USB flash drive into the USB3 TYPE-A port (no need to short-circuit the jumper).
 
+image::/bpi-f4/bpi-f4_typea3.png[bpi-f4_typea3.png]
+
+Insert the USB flash drive into the USB3 Type-C port (use the TYPE-C port; the jumper must be short-circuited here)
+
+image::/bpi-f4/bpi-f4_typyc.png[bpi-f4_typyc.png]
+
+Insert the USB flash drive into the USB 2.0 Type-A port.
+
+image::/bpi-f4/bpi-f4_typea2.png[bpi-f4_typea2.png]
+
+After power-on, it will automatically enter the upgrade process. The log after the upgrade is complete is as follows:
+
+image::/bpi-f4/bpi-f4_emmc_success.png[bpi-f4_emmc_success.png]
 
 == Install Image to eMMC 2
 
 = Heat Dissipation Summary
 == Core board heat dissipation 
-The Raspberry Pi CM4 heatsink is a cooling accessory specifically designed for the Raspberry Pi Compute Module 4, which can effectively solve its heating problem and ensure the stable operation of the device.
+The heat sink we use is the same size and specification as the one used with the Raspberry Pi CM4, which can effectively solve its heating problem and ensure the stable operation of the device.
 [options="header",cols="10,4,10,10,6",width="100%"]
 |=====
 Component |Bare Board |CPUBare Board |DDRBare Board eMMC|With Heat Sink|
