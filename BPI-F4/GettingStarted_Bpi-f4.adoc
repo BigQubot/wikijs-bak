@@ -90,7 +90,7 @@ image::/bpi-f4/bpi-f4_sdburn.png.png[bpi-f4_sdburn.png.png]
 NOTE: Please connect the HDMI monitor when desktop mirroring is started. You need to create a user on the desktop.
 
 
-== Install Image to eMMC 1
+== Install Image to eMMC
 
 NOTE: link:https://docs.banana-pi.org/en/BPI-F4/BananaPi_BPI-F4#_ubuntu[ Download eMMc img]
 
@@ -127,7 +127,6 @@ After power-on, it will automatically enter the upgrade process. The log after t
 
 image::/bpi-f4/bpi-f4_emmc_success.png[bpi-f4_emmc_success.png]
 
-== Install Image to eMMC 2
 
 = Heat Dissipation Summary
 == Core board heat dissipation 
