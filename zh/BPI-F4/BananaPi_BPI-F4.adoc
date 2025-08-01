@@ -24,10 +24,14 @@ SP7350采用先进的12nm芯片技术制造，具有外形小、功耗低的优�
 * NPU: AI和并行处理引擎高达4.1 TOPS （@900MHz）的计算能力
 * MCU: ARM Cortex-M4
 
+== AI功能
+* AI框架：Caffe/Tensorflow/PyTorch/TFLite/DarkNet或ONNX
+* AI模型：Yolo-v5/V8/v10...等50多个型号
 
 == 应用场景
 
-* 机器人 
+* AMR（自动移动机器人）
+* 农业机器人
 * 飞行器飞控 
 * 智能相机及摄像头
 * 视频会议摄像头
@@ -35,7 +39,10 @@ SP7350采用先进的12nm芯片技术制造，具有外形小、功耗低的优�
 
 == 快速上手开发
 
-TIP: link:/en/BPI-F4/GettingStarted_Bpi-f4[快速上手 Banana Pi BPI-F4]
+TIP: link:/en/BPI-F4/GettingStarted_Bpi-f4[快速上手BPI-F4]
+
+
+TIP: link:https://sunplus.atlassian.net/wiki/spaces/C3/pages/2212036657/User+Manual+of+SP7350+Mini+Control+Board+MCB[BPI-F4的文档]
 
 
 = 硬件
@@ -80,7 +87,7 @@ image::/bpi-f4/bpi-f4-gpio.png[bpi-f4-gpio.png]
 .BPI-F4 GPIO 引脚定义
 [%collapsible]
 ====
-[options="header",cols="7,2,4,4,4",width="50%"]
+[options="header",cols="7,2,4,4,4",width="60%"]
 |=====
 5+| ** GPIO of Banana pi BPI-F4 **
 | PCB Terminal Block | GPIO          | Function 1 | Function 2       | Function 3             
@@ -116,27 +123,35 @@ GPIO57               |UA2_RXD        | I2C2_DATA  |AU1_LRCK
 |=====
 ====
 
+== 核心板
 
+image::/bpi-f4/banana_pi_bpi-f4_core3.jpg[banana_pi_bpi-f4_core3.jpg]
 
 == BPI-F4 图集
 link:/zh/BPI-F4/Photo_BPI-F4[香蕉派 BPI-F4 产品图集] 
 
 = 开发
+== 源代码
 
-== 软件源代码
+TIP: github软件源代码: https://github.com/sunplus-plus1/Q654
 
-* github 软件源代码: https://github.com/sunplus-plus1/Q654
-* gitee 软件源代码: https://gitee.com/sunplus-plus1/q654
+TIP: gitee软件源代码: https://gitee.com/sunplus-plus1/q654
+
 
 == 开发资料
 
-* 凌阳科技 SP7350 官方文档中心: https://sunplus.atlassian.net/wiki/spaces/C3/overview
+TIP: Sunplus SP7350 官方文档 : https://sunplus.atlassian.net/wiki/spaces/C3/overview
 
-* 下载和编译代码手册 : https://sunplus.atlassian.net/wiki/spaces/C3/pages/1988034774/Downloading+and+Compiling+Code
+TIP: 下载和编译代码 : https://sunplus.atlassian.net/wiki/spaces/C3/pages/1988034774/Downloading+and+Compiling+Code
+
+TIP: 人工智能引擎: https://sunplus.atlassian.net/wiki/spaces/C3/pages/2018082825/NN+User+Guide+Overview
+
+TIP: NPU 基准测试: https://sunplus.atlassian.net/wiki/spaces/C3/pages/2192146493/NN+Models+Performance+with+NPU
+
 
 = 系统镜像
 == Ubuntu
-NOTE: 20250730-BPI-F4-Ubuntu24.04-xfce-desktop-factory-SD.img
+NOTE: 20250730-BPI-F4-Ubuntu24.04-xfce-desktop-SD.img
 
 Baidu cloud: https://pan.baidu.com/s/1FtIBVlDCX5lNqgwW96O2_Q  (pin code: 8888)
 
@@ -144,7 +159,7 @@ Google drive: https://drive.google.com/file/d/1jcbk66ALqdMGFxtum83Yx25Ye-cb4PxO/
 
 Account/Password: pi/bananapi
 
-NOTE: 20250730-BPI-F4-Ubuntu24.04-xfce-desktop-factory-eMMC.img
+NOTE: 20250730-BPI-F4-Ubuntu24.04-xfce-desktop-eMMC.img
 
 Baidu cloud: https://pan.baidu.com/s/1DAiLXAKFaPqQhpnS6yF2vg （pin code: 8888)
 
