@@ -134,7 +134,7 @@ If you have verified that the DIP switches are correctly positioned, proceed to 
 ==== SD card with Ubuntu or Debian 6.1 kernel
 After booting from an SD image with the Ubuntu or Debian 6.1 kernel, the image in NAND will no longer boot. If you wish to boot from NAND, you will need to re-burn the image to NAND.
 
-For the burning method, please see link:/en/BPI-R4/GettingStarted_BPI-R4[Getting Started BPI-R4].
+For the burning method, please see link:/en/BPI-R4/GettingStarted_BPI-R4#_how_to_burn_image_to_onboard_nand[Getting Started BPI-R4].
 
 === eMMC
 If you have verified that the DIP switches are correctly positioned, proceed to the following steps.
