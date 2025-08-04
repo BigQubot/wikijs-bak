@@ -67,9 +67,14 @@ image::/bpi-f4/banana_pi_bpi-f4_core_board_interface-2.jpg[banana_pi_bpi-f4_core
 | 1*USB 3.0 Type-A 插槽 支持低/全/高/超高速（USB 3.0 Type-A 和 Type-C 与 SP7350 共享相同的 USB 3.0 端口，不能同时使用）
 | 1*USB 3.0 Type-C 插槽 支持低/全/高/超高速（USB 3.0 Type-A 和 Type-C 与 SP7350 共享相同的 USB 3.0 端口，不能同时使用）
 | 1*USB 2.0 Type-A 插槽 支持低/全/高/超高速
-|调试接口    | 1*USB 2.0 Type C 插座
+.2+|调试接口    
+| 1*USB 2.0 Type C 插座
+| 4-pin
 | HDMI      |支持 1080p、720p、480p分辨率      
-| 电源输入   |12V/2A 
+.3+| 电源输入   
+|12V/2A DC IN 
+|12V DC IN
+|	1.5F超级电容器（为 RTC提供电源）
 |按键        |重置键 唤醒键 启动配置开关
 |摄像头       |推荐OV5647，支持1080p@30fps、720p@60fps 480p@90fps
 .2+|尺寸       
