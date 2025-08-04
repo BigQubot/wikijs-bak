@@ -61,30 +61,25 @@ image::/bpi-f4/banana_pi_bpi-f4_core_board_interface-2.jpg[banana_pi_bpi-f4_core
 [options="header",cols="1,4"]
 |====
 2+| Banana Pi BPI-F4 Hardware Specifications
-|CPU        | Sunplus SP7350 Quad ARM Cortex-A55
-|NPU        | AI and parallel processing engine with up to 4.1 TOPS computing power (@900MHz)
-|Ethernet Port | Supports 10M/100M/1000M transmission
-.4+|USB Ports
-| 1*USB 3.0 Type-A port,supports Low/Full/High/SuperSpeed(USB 3.0 Type-A and Type-C share the same USB 3.0 port on SP7350 and cannot be used simultaneously)
-| 1*USB 3.0 Type-C port,supports Low/Full/High/SuperSpeed(USB 3.0 Type-A and Type-C share the same USB 3.0 port on SP7350 and cannot be used simultaneously)
-| 1*USB 2.0 Type-A port,supports Low/Full/High speed
-| 1*USB 2.0 Type-C port
-| HDMI      | Supports 1080p, 720p, 480p resolution
-| Power Input | DC jack (5.5mm diameter), adapter must provide >1A current
-.3+|Buttons
-| Reset Button  Resets CM4 and Main-power domains (does not reset RTC)
-| Wake Button Functions:
-• Short press (1s when powered off): Power on (hardware function)
-              
-• Short press (1s when powered on): Enter deep sleep (software function)
-
-• Short press (0.3s in deep sleep): Wake from deep sleep (software function)
-
-• Long press (>7s when powered on): Shutdown (software function)
-
-• Long press (>10s when powered on): Force shutdown (hardware function)
-| SP7350 Boot Configuration Switch
-| Other     |
+|CPU             |Parameters Sunplus SP7350 Quad ARM Cortex-A55 
+|MCU             |ARM Cortex-M4 @ 1.1GHz 
+|Memory          |4GB LPDDR4 SDRAM 
+|Storage         |32GB eMMC Flash + MicroSD Card Slot (supports expandable storage) 
+|NPU             |AI and Parallel Processing Engine Up to 4.1 TOPS (@900MHz) computing power 
+|Ethernet Port   |Supports 10M/100M/1000M transmission 
+.3+|USB Ports 
+|1× USB 3.0 Type-A Low/Full/High/SuperSpeed ( USB 3.0 Type-A and Type-C share the same USB 3.0 controller on SP7350 and cannot be used simultaneously)
+|1× USB 3.0 Type-C Low/Full/High/SuperSpeed(Note: USB 3.0 Type-A and Type-C share the same USB 3.0 controller on SP7350 and cannot be used simultaneously)
+|1× USB 2.0 Type-A Low/Full/High speed
+|Debug Interface |1× USB 2.0 Type-C Ports 
+|HDMI            |Supports 1080p, 720p, 480p resolutions 
+|Power Input     | 12V/2A DC 
+|Buttons         |Reset Button, Wake Button, Boot Configuration Switch 
+|Camera          |Recommended OV5647, supports 1080p@30fps, 720p@60fps, 480p@90fps 
+.2+|Dimensions 
+|Mainboard: 134mm × 101mm
+|Core Board: 40mm × 55mm 
+|OS              | Linux 
 |====
 
 == GPIO pin definitions
