@@ -1,5 +1,27 @@
 = FAQ
 
+== R4 Debugging Methods
+
+Debugging methods include TTL serial line debugging and SSH debugging.
+
+. TTL serial line debugging
++
+Connection method:
++
+[ptions="header"]
+|===
+2+|R4 board — TTL to USB cable
+
+|GND |GND
+|RX |TX
+|TX |RX
+|===
++
+The board's serial port location is shown in the figure below:
++
+
+Common debugging cables on the market: TTL to USB cables (line sequence definition is shown in the figure below)
+
 == Improve the performance of radio frequency under OpenWrt24.10 firmware
 Use ssh to replace the old file with the new file update, or use a USB flash drive to copy and update.
 
@@ -9,7 +31,7 @@ Google drive: https://drive.google.com/file/d/1qneVF1a6ZGMDoLLPpQw2LPYZsRKXto1T/
 
 Baidu cloud: https://pan.baidu.com/s/1wAzWVMooAofpQiBy7Gov_A?pwd=8888 （pincode: 8888)
 
-== Using ssh
+==Using ssh
 Connect the computer network cable to R4 LAN port and login to ssh.
 In to the corresponding path/lib/firmware/mediatek/mt7996:
 
@@ -17,7 +39,7 @@ image::/bpi-r4/bpi-r4-openwrt24.10-1.jpg[bpi-r4-openwrt24.10-1.jpg]
 
 Pull the mt7996_eeprom_233_2i5i6i.bin file into this directory and replace it with a new file.
 
-== Use a USB disk
+===Use a USB disk
 Copy the new file mt7996_eeprom_233_2i5i6i.bin to the U disk and use the cp command to copy to the corresponding path.
 
 image::/bpi-r4/bpi-r4-openwrt24.10-2.jpg[bpi-r4-openwrt24.10-2.jpg]
