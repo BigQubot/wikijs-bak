@@ -2,6 +2,8 @@
 
 TIP: More Infomation: link:/en/BPI-R4/BananaPi_BPI-R4[Banana Pi BPI-R4]
 
+*Table of contents*
+
 . link:/en/BPI-R4/BananaPi_BPI-R4_FAQ#_r4_debugging_methods[R4 Debugging Methods]
 . link:/en/BPI-R4/BananaPi_BPI-R4_FAQ#_improve_the_performance_of_radio_frequency_under_openwrt24_10_firmware[Improve the performance of radio frequency under OpenWrt24.10 firmware]
 
@@ -29,7 +31,14 @@ The board's serial port location is shown in the figure below:
 Common debugging cables on the market: TTL to USB cables (line sequence definition is shown in the figure below)
 +
 image::/picture/ttl.jpg[ttl.jpg]
-
++
+Open link:https://mobaxterm.mobatek.net/download.html[MobaXterm], then click on Session in the upper left corner and select Serial.
++
+image::/picture/log_export-1.jpg[log_export-1.jpg]
+image::/picture/log_export-2.jpg[log_export-2.jpg]
+Select the port at the Serial port, select the baud rate at Speed (115200bps), and then click OK.
++
+image::/picture/log_export-3.jpg[log_export-3.jpg]
 . *SSH debugging*
 +
 Connect the PC's internet cable to a LAN port (one of the LAN ports circled in the image below).
@@ -40,6 +49,17 @@ Or connect to a WiFi on the R4 router.(Please see link:/en/BPI-R4/BananaPi_BPI-R
 +
 
 After obtaining the IP, use the ssh tool on the PC to enter the corresponding IP for connection debugging.
++
+Open link:https://mobaxterm.mobatek.net/download.html[MobaXterm], then click on Session in the upper left corner and select SSH.
++
+image::/picture/log_export-1.jpg[log_export-1.jpg]
++
+In Remote host, fill in the IP address of the device you want to connect to, check Specify username and fill in the login username, and fill in the port number.
++
+(The default IP address is 192.168.1.1. You can also verify this by checking the IP address you obtained. If the IP address you obtained is 192.168.11.213, then the IP address of R4 is 192.168.11.1.)
++
+(The default login username is root and the default port is 22.)
++
 
 
 == Improve the performance of radio frequency under OpenWrt24.10 firmware
