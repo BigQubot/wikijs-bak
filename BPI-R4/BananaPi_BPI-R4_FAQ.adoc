@@ -5,6 +5,8 @@ TIP: More Infomation: link:/en/BPI-R4/BananaPi_BPI-R4[Banana Pi BPI-R4]
 *Table of contents*
 
 . link:/en/BPI-R4/BananaPi_BPI-R4_FAQ#_r4_debugging_methods[R4 Debugging Methods]
+. link:/en/BPI-R4/BananaPi_BPI-R4_FAQ#_no_serial_port_output[No serial port output]
+. link:/en/BPI-R4/BananaPi_BPI-R4_FAQ#_system_unable_to_boot[System Unable to Boot]
 . link:/en/BPI-R4/BananaPi_BPI-R4_FAQ#_improve_the_performance_of_radio_frequency_under_openwrt24_10_firmware[Improve the performance of radio frequency under OpenWrt24.10 firmware]
 
 
@@ -62,11 +64,19 @@ In Remote host, fill in the IP address of the device you want to connect to, che
 
 == No serial port output
 
-If there is no output using the serial port, first debug the system using SSH as described in link:/en/BPI-R4/BananaPi_BPI-R4_FAQ#_ssh_debugging[R4 Debugging Methods - SSH] to see if the system boots normally. After confirming that the board system is functioning properly, proceed with the following steps.
+If there is no output using the serial port, first debug the system using SSH as described in link:/en/BPI-R4/BananaPi_BPI-R4_FAQ#_ssh_debugging[R4 Debugging Methods - SSH] to see if the system boots normally. (If you can't obtain an IP address or SSH connection fails, see link:/en/BPI-R4/BananaPi_BPI-R4_FAQ#_system_unable_to_boot[System Unable to Boot].)
 
-1. Check that the computer has a working serial cable.
-
+. Check that the computer has a working serial cable.
++
 Check that the PC has the corresponding serial port driver.
+
+. Alternatively, replace the serial cable to determine if the hardware is faulty.
+
+== System Unable to Boot
+
+After booting from an SD image with the Ubuntu or Debian 6.1 kernel, the image in NAND will no longer boot. If you wish to boot from NAND, you will need to re-burn the image to NAND.
+
+Before booting, check and use the correct DIP switch.
 
 
 == Improve the performance of radio frequency under OpenWrt24.10 firmware
