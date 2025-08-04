@@ -4,7 +4,7 @@
 
 Debugging methods include TTL serial line debugging and SSH debugging.
 
-. TTL serial line debugging
+. *TTL serial line debugging*
 +
 Connection method:
 +
@@ -21,6 +21,20 @@ The board's serial port location is shown in the figure below:
 +
 
 Common debugging cables on the market: TTL to USB cables (line sequence definition is shown in the figure below)
++
+image::/picture/ttl.jpg[ttl.jpg]
+
+. *SSH debugging*
++
+Connect the PC's internet cable to a LAN port (one of the LAN ports circled in the image below).
++
+
++
+Or connect to a WiFi on the R4 router.(Please see link:/en/BPI-R4/BananaPi_BPI-R4_FAQ[here] for wifi usage)
++
+
+After obtaining the IP, use the ssh tool on the PC to enter the corresponding IP for connection debugging.
+
 
 == Improve the performance of radio frequency under OpenWrt24.10 firmware
 Use ssh to replace the old file with the new file update, or use a USB flash drive to copy and update.
