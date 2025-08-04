@@ -71,9 +71,14 @@ image::/bpi-f4/banana_pi_bpi-f4_core_board_interface-2.jpg[banana_pi_bpi-f4_core
 |1× USB 3.0 Type-A Low/Full/High/SuperSpeed ( USB 3.0 Type-A and Type-C share the same USB 3.0 controller on SP7350 and cannot be used simultaneously)
 |1× USB 3.0 Type-C Low/Full/High/SuperSpeed(Note: USB 3.0 Type-A and Type-C share the same USB 3.0 controller on SP7350 and cannot be used simultaneously)
 |1× USB 2.0 Type-A Low/Full/High speed
-|Debug Interface |1× USB 2.0 Type-C Ports 
+.2+|Debug Interface 
+|1× USB 2.0 Type-C Ports 
+|4-pin
 |HDMI            |Supports 1080p, 720p, 480p resolutions 
-|Power Input     | 12V/2A DC 
+.3+|Power     
+| 12V/2A DC IN 
+| 12V DC IN
+| 1.5F super capacitor(Provides power for the RTC)
 |Buttons         |Reset Button, Wake Button, Boot Configuration Switch 
 |Camera          |Recommended OV5647, supports 1080p@30fps, 720p@60fps, 480p@90fps 
 .2+|Dimensions 
