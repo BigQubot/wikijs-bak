@@ -64,7 +64,7 @@ In Remote host, fill in the IP address of the device you want to connect to, che
 
 == No serial port output
 
-If there is no output from the serial port, first debug the system using SSH as described in link:/en/BPI-R4/BananaPi_BPI-R4_FAQ#_ssh_debugging[R4 Debugging Methods - SSH] to see if the system boots normally. (If you can't obtain an IP address or SSH connection fails, see link:/en/BPI-R4/BananaPi_BPI-R4_FAQ#_system_unable_to_boot[System Unable to Boot].)
+If there is no output from the serial port, first debug the system using SSH as described in link:/en/BPI-R4/BananaPi_BPI-R4_FAQ#_ssh_debugging[R4 Debugging Methods - SSH] to see if the system boots normally. (If you can't obtain an IP address or SSH connection fails, see link:/en/BPI-R4/BananaPi_BPI-R4_FAQ#_the_system_cannot_start_or_fails_to_start[The system cannot start or fails to start].)
 
 . Check that the computer has a working serial cable.
 +
@@ -80,7 +80,7 @@ Check that the PC has the corresponding serial port driver.
 - Describe how you caused this phenomenon.
 - Photo of the board powered on (the TTL line and DIP switch should be clearly visible), and photos of the MobaXterm software. You can also take a video.
 
-== System Unable to Boot
+== The system cannot start or fails to start
 === Check the DIP switch
 Before booting, check and use the correct DIP switch.(BPI-R4 will burn img in NAND when it leaves the factory.)
 
