@@ -96,14 +96,60 @@ image::/picture/r4_nandboot.jpg[r4_nandboot.jpg]
 +
 image::/picture/r4_emmcboot.jpg[r4_emmcboot.jpg]
 
-=== SD card with Ubuntu or Debian 6.1 kernel
+=== SD card
+
+If you have verified that the DIP switches are correctly positioned, proceed to the following steps.
+
+. After powering on the board, check if the PWR light in the upper right corner of the board is on. (If not, proceed to step 5.)
+
+. Reseat and remove the SD card to check for poor contact.
+
+. If the boot failure is due to a malfunction, format the SD card and re-burn the image file. (Use link:/en/BPI-R4/BananaPi_BPI-R4#_openwrt_mtk_mp4_1_wifi_sdk_wifi_driver_for_be14000_wifi_card[MP4.1] for the image file.For burning instructions, see link:/en/BPI-R4/GettingStarted_BPI-R4#_how_to_burn_image_to_sd_card[Getting Started].)
+. Replace the SD card and re-burn the image file to verify again.
+
+. Once the issue is confirmed, please contact us and provide the following information:
+
+- Describe the issue you are experiencing and how it occurred.
+
+- Photo of the board powered on (the TTL lines and DIP switches must be clearly visible).
+
+- Provide the serial port log file.
+
+=== NAND
+
+If you have verified that the DIP switches are correctly positioned, proceed to the following steps.
+
+. After powering on the board, check if the PWR light in the upper right corner of the board is on.
+
+. If the boot failed, boot from an SD card and re-burn the image to the NAND drive. (Use link:/en/BPI-R4/BananaPi_BPI-R4#_openwrt_mtk_mp4_1_wifi_sdk_wifi_driver_for_be14000_wifi_card[MP4.1] for the image file.For burning instructions, see link:/en/BPI-R4/GettingStarted_BPI-R4#_how_to_burn_image_to_onboard_nand[Getting Started].)
+
+. After confirming the issue, please contact us and provide the following information:
+
+- Describe the issue you're experiencing and how it occurred.
+
+- Photo of the board powered on (the TTL lines and DIP switches must be clearly visible).
+
+- Provide the serial port log file.
+
+==== SD card with Ubuntu or Debian 6.1 kernel
 After booting from an SD image with the Ubuntu or Debian 6.1 kernel, the image in NAND will no longer boot. If you wish to boot from NAND, you will need to re-burn the image to NAND.
 
 For the burning method, please see link:/en/BPI-R4/GettingStarted_BPI-R4[Getting Started BPI-R4].
 
-=== Solution
+=== eMMC
+If you have verified that the DIP switches are correctly positioned, proceed to the following steps.
 
+. After powering on the board, check if the PWR light in the upper right corner of the board is on.
 
+. If the boot failed, boot from an NAND and re-burn the image to the eMMC drive. (Use link:/en/BPI-R4/BananaPi_BPI-R4#_openwrt_mtk_mp4_1_wifi_sdk_wifi_driver_for_be14000_wifi_card[MP4.1] for the image file.For burning instructions, see link:/en/BPI-R4/GettingStarted_BPI-R4#_how_to_burn_image_to_onboard_EMMC[Getting Started].)
+
+. After confirming the issue, please contact us and provide the following information:
+
+- Describe the issue you're experiencing and how it occurred.
+
+- Photo of the board powered on (the TTL lines and DIP switches must be clearly visible).
+
+- Provide the serial port log file.
 
 == Improve the performance of radio frequency under OpenWrt24.10 firmware
 Use ssh to replace the old file with the new file update, or use a USB flash drive to copy and update.
