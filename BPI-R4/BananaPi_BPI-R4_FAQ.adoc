@@ -115,6 +115,14 @@ If you have verified that the DIP switches are correctly positioned, proceed to 
 
 - Provide the serial port log file.
 
+NOTE: After the burning process, there is a possibility of encountering jffs2 errors upon startup.
+
+image::/bpi-r4/r4-faq/r4-faq-jffs1.jpg[r4-faq-jffs1.jpg]
+
+Please perform a low-level formatting on the SD card and delete all the data on it. Do not select the "Quick Format" option for the formatting process.
+
+image::/bpi-r4/r4-faq/r4-faq-jffs2.jpg[r4-faq-jffs2.jpg]
+
 === NAND
 
 If you have verified that the DIP switches are correctly positioned, proceed to the following steps.
