@@ -127,6 +127,7 @@ After power-on, it will automatically enter the upgrade process. The log after t
 
 image::/bpi-f4/bpi-f4_emmc_successr.png[bpi-f4_emmc_successr.png,width=60%,height=60%]
 
+After the burning is completed, turn off the power, change the dip switch to 1111, and power on again to boot from eMMC.
 
 = Heat Dissipation Summary
 == Core board heat dissipation 
