@@ -161,6 +161,21 @@ If you have verified that the DIP switches are correctly positioned, proceed to 
 - Provide the serial port log file.
 
 == BE14 cannot be started
+. Please make sure that the switch of SW4 is set to "ON", so that R4 can supply 12V power to BE14.
++
+image::/bpi-r4/r4-faq/r4-faq-be14notstart1.jpg[r4-faq-be14notstart1.jpg]
+
+. Please check the lights on BE14. The PWR light indicates the power supply (red), while the others indicate the WiFi operation (blue).
++
+image::/bpi-r4/r4-faq/r4-faq-be14notstart2.jpg[r4-faq-be14notstart2.jpg]
+
+. If the WiFi lamp is not activated, try to power off the device, remove and reinsert the BE14, and then restart it.
+
+. If the first three steps fail to start BE14, you can try re- burning the image.
+
+. If you have checked the above steps and confirmed that the problem lies with the motherboard hardware, please contact us and provide the following information:
+Describe how you caused this phenomenon.
+Photo of the board powered on (the TTL line and DIP switch should be clearly visible), and photos of the MobaXterm software. You can also take a video.
 
 == Improve the performance of radio frequency under OpenWrt24.10 firmware
 Use ssh to replace the old file with the new file update, or use a USB flash drive to copy and update.
