@@ -47,9 +47,9 @@ image::/picture/bpi-f3_tianflasher_1.png[bpi-f3_tianflasher_1.png]
 
 . To put the device into flashing mode:
 - **Method 1:** +
-The device is not powered on. Press and hold the **DOWNLOAAO (FEL)** button, plug in the type-c, and then release the button. (If you are worried about insufficient USB power, you can first plug in the power, then release the button, and then plug in the USB cable)
+The device is not powered on. Press and hold the **DOWNLOAAO (FDL)** button, plug in the type-c, and then release the button. (If you are worried about insufficient USB power, you can first plug in the power, then release the button, and then plug in the USB cable)
 - **Method 2:** +
-The device is powered on. Press and hold the **DOWNLOAD (FEL)** button, then press the Reset button, and then plug in the USB cable.
+The device is powered on. Press and hold the **DOWNLOAD (FDL)** button, then press the Reset button, and then plug in the USB cable.
 
 +
 WARNING: When connected to a USB HUB, there may be a "Fastboot device initialization failure".
