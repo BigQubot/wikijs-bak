@@ -14,7 +14,7 @@ Allwinner H3 design: link:/en/BPI-P2_Zero/BananaPi_BPI-P2_Zero[Banana Pi BPI-P2 
 
 - CPU: Allwinner H3/H2+, Quad-core Cortex-A7.
 - 512MB DDR 3 SDRAM.
-- WiFi (AP6212/K016) & BT onboard.
+- WiFi (AP6212/K016) & BT onboard.(The WiFi chip of K016 does not support 5G WiFi.)
 - Mini HDMI.
 - 40 Pin Raspberry Pi-compatible GPIO, including UART, SPI, I2C, etc.
 
@@ -43,7 +43,7 @@ link:/en/BPI-M2_Zero/Photo_BPI-M2_Zero[Banana Pi BPI-M2 Zero Product photo galle
 | Onboard Network       | NOPE (but can extension with PIN define)
 | PoE power             | NOPE
 | Onboard flash         | NOPE 
-| Onboard WIFI          | K016/SDIO AP6212（option AP6181、AP6335）
+| Onboard WIFI          | K016/SDIO AP6212（option AP6181、AP6335）(The WiFi chip of K016 does not support 5G WiFi.)
 | Video decoding        | 1080p@60fps,H.264 Video encoding 1080p@30fps,H.264
 | Video input           | A CSI input connector Camera
 | Video Outputs         | mini HDMI 1.4,1080P@30fps, DHCP
