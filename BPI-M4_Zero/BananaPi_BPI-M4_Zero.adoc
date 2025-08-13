@@ -1,6 +1,6 @@
 = BPI-M4 Zero Introduction
 
-Banana Pi BPI-M4 Zero is the successor model of M2 Zero. It has a huge improvement in performance. The SOC is upgraded to H618 and the CPU frequency is increased by 25%. The memory is upgraded to DDR4, the capacity is eightfold, and 32G eMMC is added. It supports 5G WiFi, and the USB interface has also been upgraded to type-C.
+Banana Pi BPI-M4 Zero is the successor model of M2 Zero. It has a huge improvement in performance. The SOC is upgraded to H618 and the CPU frequency is increased by 25%. The memory is upgraded to DDR4, the capacity is eightfold, and 32G eMMC is added. It supports 5G WiFi(The WiFi chip of K016 does not support 5G WiFi), and the USB interface has also been upgraded to type-C.
 
 It has same form factor and 40-pin connector as the Raspberry Pi Zero W, and it can fit most of the RPI Zero W cases and accessories.
 
@@ -13,7 +13,7 @@ Allwinner H618 design : link:/en/BPI-M4_Zero/BananaPi_BPI-M4_Zero[Banana Pi BPI-
 
 * Allwinner H618, Quad-core ARM Cortex™-A53 processor
 * ARM Mali G31 GPU
-* 2.4G/5G WIFI & Bluetooth 5.0(K019 module is wifi5, K016 module is wifi4)
+* 2.4G/5G WIFI & Bluetooth 5.0(K019 module is wifi5, K016 module is wifi4.The WiFi chip of K016 does not support 5G WiFi.)
 * 2G/4G LPDDR4 RAM
 * 8G/32G eMMC flash memory
 * 1x USB2.0 Type-C OTG, 5V power supply
@@ -45,7 +45,7 @@ link:/en/BPI-M4_Zero/Photo_BPI-M4_Zero[Banana Pi BPI-M4 Zero Product photo galle
 | Memory                                          | 2G/4GB LPDDR4
 | Storage                                         | 8G/32G eMMC flash
 | SD card                                         | MicroSD card slot, SDIO3.0
-| Wireless                                        | 2.4G/5G WiFi and Bluetooth 5.0
+| Wireless                                        | 2.4G/5G WiFi and Bluetooth 5.0(The WiFi chip of K016 does not support 5G WiFi)
 | HDMI                                            | 1x miniHDMI 2.0a (up to 4K@60Hz with HDR10, CEC, DDC, SCDC), HDMI digital Audio output
 | USB                                             | 1x USB2.0 Type-C HOST, 1x USB2.0 Type-C OTG
 .2+| 40-pin header                                   | 28 pins GPIO and Power (+5V, +3.3V and GND)
