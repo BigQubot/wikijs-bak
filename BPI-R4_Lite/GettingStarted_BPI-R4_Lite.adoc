@@ -708,6 +708,12 @@ image::/bpi-r4_lite/fan.jpg[fan.jpg]
 
 Manually set PWM2 output ，duty_cycle controls fan speed; higher values increase rotation speed
 
+== 2*8 pin mikro BUS
+NOTE: DO not pull down UART1_TXD when power on.
+
+image::/bpi-r4_lite/e221cba2fba0133f8f27bb4b8eecd2c7.png[e221cba2fba0133f8f27bb4b8eecd2c7.png]
+
+
 
 = GPIO Define 
 == 2x8 PIN MikroBUS （CN1）
@@ -846,19 +852,19 @@ Manually set PWM2 output ，duty_cycle controls fan speed; higher values increas
 == BPI-R4_Lite FAN PIN	(CN38)
 [options="header",cols="1,1",width="40%"]
 |====
-2+| **BPI-R4 FAN(CN1,PH3A-2.00mm) of BPI-R4**
+2+| **BPI-R4_Lite FAN(CN1,PH3A-2.54mm) of BPI-R4**
 |+5V	|1	
 |GND	|2	
-|PWM0	|3	
+|PWM2	|3	
 |====	
 == BPI-R4_Lite FAN PIN (CN36）
 [options="header",cols="1,1",width="40%"]
 |====
-2+| **BPI-R4 FAN(CN1,PH3A-2.00mm) of BPI-R4**
+2+| **BPI-R4_Lite FAN(CN1,PH3A-2.00mm) of BPI-R4**
 |GND	|1	
-|+5V	|2	
-|TACH	|3
-|PWM1	|4
+|+12V	|2	
+|NC	|3
+|PWM2	|4
 |====	
 
 
