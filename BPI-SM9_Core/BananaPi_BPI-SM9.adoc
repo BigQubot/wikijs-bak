@@ -47,7 +47,7 @@ link:/en/BPI-sm9/Photo_BPI-sm9[Banana Pi BPI-SM9 Product photo gallery]
 
 [options="header",cols="1,4",width="70%"]
 |=====
-2+| **Banana Pi BPI-SM9 16-ENC-A3计算模组硬件规格**
+2+| **Banana Pi BPI-SM9 16-ENC-A3 Compute module hardware specifications**
 |Module |SM9 16-ENC-A3
 |CPU|8 core ARM CA53 1.6GHz
 |hashrate |16 HD video intelligent analysis
@@ -76,7 +76,7 @@ link:/en/BPI-sm9/Photo_BPI-sm9[Banana Pi BPI-SM9 Product photo gallery]
 
 [options="header",cols="2,4",width="70%"]
 |=====
-2+| **Banana Pi BPI-SM9 算力指标**
+2+| **Banana Pi BPI-SM9 Computing power index**
 |System |Ubuntu20.04 or Linux  V4.19 above
 |CPU |BM1688：8 核 ARM A53，1.6GHz  
 |Data handling capacity |support FP32/FP16/INT8，16-channel HD video decoding and intelligent analysis can be performed simultaneously
@@ -95,7 +95,7 @@ link:/en/BPI-sm9/Photo_BPI-sm9[Banana Pi BPI-SM9 Product photo gallery]
 == Interface definition and comparison with JETSON ORIN NANO
 [options="header",cols="1,1",width="70%"]
 |=====
-2+| **Banana Pi BPI-SM9 接口定义**
+2+| **Banana Pi BPI-SM9 Interface Definition**
 |JETSON ORIN NANO	|SM9
 |GBE0	|GBE0
 |	|GBE1
@@ -136,6 +136,23 @@ link:/en/BPI-sm9/Photo_BPI-sm9[Banana Pi BPI-SM9 Product photo gallery]
 |GPIO*14	|GPIO*14
 
 |=====
+
+== BPI-SM9 Operating Parameter Table
+[options="header",cols="1,1,1,1,1",width="70%"]
+|=====
+5+| **Banana Pi BPI-SM9 Corresponding parameters**
+2+|Project	|MIN  |Typical  |MAX
+.3+|Power supply parameters
+|Voltage |11V |12V |13V
+|Ripple | | 50mV |
+|3V RTC power consumption | | 0.9uA |
+.3+|Environment
+|Relative humidity |- - | 65% | 75%
+|Operating temperature | -10℃ | - - | 60℃
+|Storage temperature | -30℃ | -0℃ | 100℃
+
+|=====
+
 
 == BPI-SM9 developer's kit
 
