@@ -31,3 +31,31 @@ image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_debugport.jpg.jpg[bananapi-
 
 == Jumper caps and their selection function
 
+
+= GPIO Define
+== 40-pin interface
+NOTE: The default level of the 40-pin GPIO is 3.3V (except for the 5V pin)
+[options="header",cols="3,1,1,4",width="70%"]
+|====
+4+| **BPI-SM9 40 PIN Header GPIO define of BPI-SM9**
+|BPI-SM9-CON	|PIN		|PIN	|BPI-SM9-CON
+| 5V | 1 | 2 | 3V3
+| 5V | 3 | 4 | I2C1_SDA
+| GND | 5 | 6 | I2C1_SCL
+| UART1_TXD | 7 | 8 | GPIO09
+| UART1_RXD | 9 | 10 | GND
+| I2S0_SCLK | 11 | 12 | UART1_RTS
+| GND | 13 | 14 | SPI1_SCK
+| SPI1_CS1 | 15 | 16 | GPIO12
+| SPI1_CS0 | 17 | 18 | 3V3
+| GND | 19 | 20 | SPI0_MOSI
+| SPI1_MISO | 21 | 22 | SPI0_MISO
+| SPI0_CS0 | 23 | 24 | SPI0_SCK
+| SPI0_CS1 | 25 | 26 | GND
+| ID_I2C_SCL | 27 | 28 | ID_I2C_SDA
+| GND | 29 | 30 | GPIO01
+| GPIO07 | 31 | 32 | GPIO11
+| GND | 33 | 34 | GPIO13
+| UART1_CTS | 35 | 36 | I2S0_LRCK
+| I2S0_SDIN | 37 | 38 | SPI1_MOSI
+| I2S0_SDOUT | 39 | 40 | GND
