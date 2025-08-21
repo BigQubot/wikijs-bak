@@ -13,3 +13,18 @@ Banana Pi BPI-SM9 16-ENC-A3 deep learning computing module is equipped with the 
 * Supports CAN function;
 * Supports USB-C interface upgrade (NVIDVI core board solution);
 
+= Development
+
+== Prepare
+
+* 12V/3A power adapter(The voltage range is between 11 and 13 volts. Using a 12V power adapter is the most suitable option.)
+
+* Using your USB-Serial cable(3.3V TTL,Baud=115200) Connect to debug console on BPI-SM9
+
+* One TF card(If you want to use the FT card for system startup)
+
+* 
+
+=== TTL Debugport
+
+image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_debugport.jpg.jpg[bananapi-pi_sm9_debugport.jpg.jpg]
