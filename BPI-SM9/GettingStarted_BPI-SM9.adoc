@@ -30,8 +30,11 @@ Banana Pi BPI-SM9 16-ENC-A3 deep learning computing module is equipped with the 
 image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_debugport.jpg.jpg[bananapi-pi_sm9_debugport.jpg.jpg]
 
 == Jumper caps and the function
+BPI-SM9 TF jumper cap and BPI-SM9 PWM control jumper cap
 
 image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_jumper_cap1.jpg[bananapi-pi_sm9_jumper_cap1.jpg]
+
+HDMI_DDC Voltage Connector jumper Cap
 
 image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_jumper_cap2.jpg[bananapi-pi_sm9_jumper_cap2.jpg]
 
@@ -42,7 +45,7 @@ NOTE: JP7 jumper instructions: (For BM1688)
 
 [options="header",cols="1,1,1,5,1",width="90%"]
 |====
-5+| **BPI-SM9 TF jumper cap pins**
+5+| **BPI-SM9 TF jumper pins**
 | Numbering position | PIN | PIN Definition | PIN Explanation | Level
 .3+| JP7
 | 1 | SDMMC_DET | TF card insertion detection | 1V8
