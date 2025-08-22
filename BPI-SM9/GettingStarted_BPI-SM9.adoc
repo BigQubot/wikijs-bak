@@ -31,6 +31,10 @@ image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_debugport.jpg.jpg[bananapi-
 
 == Jumper caps and the function
 
+image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_jumper_cap1.jpg[bananapi-pi_sm9_jumper_cap1.jpg]
+
+image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_jumper_cap2.jpg[bananapi-pi_sm9_jumper_cap2.jpg]
+
 === TF card detection and GPIO selection
 NOTE: JP7 jumper instructions: (For BM1688)
 1. Default connection: PIN2 and PIN3, used for enabling control of the WIFI module in the BM1688/NVIDIA module;
