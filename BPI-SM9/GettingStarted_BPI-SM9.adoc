@@ -47,6 +47,33 @@ NOTE: JP7 jumper instructions: (For BM1688)
 
 |====
 
+=== PWM control jumper cap
+NOTE: This jumper cap is used for PWM control of the FANs in different modules. By default, using the BM1688 module is sufficient.
+
+[options="header",cols="1,1,1,5,1",width="90%"]
+|====
+5+| **BPI-SM9 PWM control jumper pins**
+| Numbering position | PIN | PIN Definition | PIN Explanation | Level
+.3+| JP8
+| 1 | BM1688_FAN_PWM5 | The PWM control pin of BM1688 | 1V8
+| 2 | FAN_PWM | The PWM control input of FAN | 1V8
+| 3 | NVIDIA_FAN_PWM | NVIDIA's PWM control pin | 1V8
+|====
+
+=== HDMI_DDC Voltage Connector jumper Cap
+
+NOTE: For the level selection of different modules, here it is assumed that 1.8V can be used.
+
+[options="header",cols="1,1,1,5,2",width="90%"]
+|====
+5+| **BPI-SM9 HDMI_DDC Voltage Connector jumper pins**
+| Numbering position | PIN | PIN Definition | PIN Explanation | Level
+.3+| JP8
+| 1 | 1V8 | Power supply 1.8V | 1V8
+| 2 | VDD_DDC | The power supply options of DDC | 1V8 / 3V3
+| 3 | 3V3 | Power supply 3.3V | 3V3
+|====
+
 
 = GPIO Define
 == 40-pin interface
