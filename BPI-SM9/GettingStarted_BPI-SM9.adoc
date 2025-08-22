@@ -29,7 +29,23 @@ Banana Pi BPI-SM9 16-ENC-A3 deep learning computing module is equipped with the 
 
 image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_debugport.jpg.jpg[bananapi-pi_sm9_debugport.jpg.jpg]
 
-== Jumper caps and their selection function
+== Jumper caps and the function
+
+=== TF card detection and GPIO selection
+NOTE: JP7 jumper instructions: (For BM1688)
+1. Default connection: PIN2 and PIN3, used for enabling control of the WIFI module in the BM1688/NVIDIA module;
+2. When using the TF card function of BM1688, the jumper of PIN1 and PIN2 is required, used for detecting the insertion of the TF card in BM1688;
+
+[options="header",cols="1,1,1,5,1",width="90%"]
+|====
+5+| **BPI-SM9 TF jumper cap pins**
+| Numbering position | PIN | PIN Definition | PIN Explanation | Level
+.3+| JP7
+| 1 | SDMMC_DET | TF card insertion detection | 1V8
+| 2 | GPIOC0-SDMMC_DET | TF card insertion detection or universal GPIO | 1V8
+| 3 | W_DISABLE1_CTRL | The WIFI enable control signal of the WiFi_BT module | 1V8
+
+|====
 
 
 = GPIO Define
