@@ -1,6 +1,9 @@
 == Overview
 
-Banana Pi BPI-Forge1 desing with Rockchip RK3506J,The RK3506J is a high-performance triple-core Cortex-A7 application processor designed for intelligent voice interaction, audio input/output processing, image output processing, and other digital multimedia applications.
+Banana Pi BPI-Forge1 desing with Rockchip RK3506J, it is a Lowcost industrial grade
+SBC. it have 512M DDR3 and 512M NAND flash.
+
+The RK3506J is a high-performance triple-core Cortex-A7 application processor designed for intelligent voice interaction, audio input/output processing, image output processing, and other digital multimedia applications.
 It features an embedded 2D hardware engine and display output engine to minimize CPU overhead and meet image display requirements.
 The processor integrates rich peripheral interfaces such as SAI, PDM, SPDIF, Audio DSM, Audio ADC, USB2 OTG, RMII, CAN, etc., enabling diverse application development while reducing hardware complexity and development costs.
 
