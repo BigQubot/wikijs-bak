@@ -359,7 +359,7 @@ sunplus@ubuntu:/dev$ df -h | grep "sd"
 /dev/sda        3.8G   16K  3.8G   1% /test
 ```
 
-== MIPI-CSI
+== Camera Ov5647
 Required accessories:Video Camera OV5647
 [options="header",cols="1,1"]
 |====
@@ -374,9 +374,11 @@ Max frame rate                  | 480p@90fps
 Maximum exposure times (seconds)| 0.97
 Selectable video resolutions:   |1080p@30fps, 720p@60fps, 480p@90fps
 |====
-=== Camera Ov5647
 
-The camera uses the OV5647. After connecting and powering on the camera module, Use v4l2-ctl --all --device /dev/video0  command getting device all information
+The camera uses the OV5647. After connecting and powering on the camera module, Use v4l2-ctl --all --device /dev/video0  command getting device all information(Note: Ensure it is not connected backwards; the gold fingers must face the jumper cap)
+
+image::/bpi-f4/bpi-f4_cisi.png[bpi-f4_cisi.png,width=50%,height=70%]
+
 ```sh
 pi@ubuntu:~$ v4l2-ctl --all --device /dev/video42
 Driver Info:
@@ -491,7 +493,7 @@ ioctl: VIDIOC_ENUM_FMT
                 Size: Discrete 640x480
 
 ```
-==== capture image then to open image
+=== capture image then to open image
 Use v4l2-ctl for image capture:
 ```sh
 pi@ubuntu:~$ v4l2-ctl -d /dev/video42 --set-fmt-video=width=1920,height=1080,pixelformat=pGAA --stream-mmap=3 --stream-to=/home/sunplus/Videos/ov5647.raw --stream-skip=9 --stream-count=1
@@ -526,12 +528,10 @@ Download raw image viewer from link:https://carinastudio.azurewebsites.net/Pixel
 
 image::/bpi-f4/bpi-f4_catch-image.png[bpi-f4_catch-image.png]
 
-==== Initiate real-time video recording with the OV5647 camera module
+=== Initiate real-time video recording with the OV5647 camera module
 TIP: link:https://forum.banana-pi.org/t/banana-pi-bpi-f4-sunpuls-sp7350-ov5647-camera-test/24277[Video Workflow]
 
-First, connect the OV5647 camera to the F4 board (Note: Ensure it is not connected backwards; the gold fingers must face the jumper cap)
-
-image::/bpi-f4/bpi-f4_cisi.png[bpi-f4_cisi.png,width=50%,height=70%]
+First, connect the OV5647 camera to the F4 board 
 
 Then power up and start the system. If this is your first time using the OV5647 camera, execute the following command; otherwise, you may skip this step.
 ```sh
