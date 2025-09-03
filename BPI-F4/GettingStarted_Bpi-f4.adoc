@@ -374,7 +374,7 @@ Max frame rate                  | 480p@90fps
 Maximum exposure times (seconds)| 0.97
 Selectable video resolutions:   |1080p@30fps, 720p@60fps, 480p@90fps
 |====
-=== OV5647 
+=== Camera Ov5647
 
 The camera uses the OV5647. After connecting and powering on the camera module, Use v4l2-ctl --all --device /dev/video0  command getting device all information
 ```sh
@@ -491,17 +491,62 @@ ioctl: VIDIOC_ENUM_FMT
                 Size: Discrete 640x480
 
 ```
-
+==== capture image then to open image
 Use v4l2-ctl for image capture:
 ```sh
-v4l2-ctl -d /dev/video42 
---set-fmt-video=width=1920,height=1080,pixelformat=pGAA 
---stream-mmap=3 
---stream-to=/home/sunplus/Videos/ov5647.raw 
---stream-skip=9 --stream-count=1
+pi@ubuntu:~$ v4l2-ctl -d /dev/video42 --set-fmt-video=width=1920,height=1080,pixelformat=pGAA --stream-mmap=3 --stream-to=/home/sunplus/Videos/ov5647.raw --stream-skip=9 --stream-count=1
+<<<<<<<<<<<<<<<<<<<<
+pi@ubuntu:~$
 ```
 
+Insert the USB flash drive and mount it, then copy the generated OV5647.RAW file to the USB flash drive
 
+```sh
+
+pi@ubuntu:~$ lsblk
+NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+sda            8:0    1 57.7G  0 disk
+└─sda1         8:1    1 57.7G  0 part
+mmcblk1      179:0    0 14.8G  0 disk
+├─mmcblk1p1  179:1    0  256M  0 part
+└─mmcblk1p2  179:2    0 14.6G  0 part /
+mmcblk0      179:8    0 29.2G  0 disk
+mmcblk0boot0 179:16   0    4M  1 disk
+mmcblk0boot1 179:24   0    4M  1 disk
+pi@ubuntu:~$ mount /dev/sda1 /mnt/usb
+pi@ubuntu:~$ cp /home/sunplus/Videos/ov5647-111.raw /mnt/usb
+pi@ubuntu:~$ll /mnt/usb
+total 2596
+drwxr-xr-x 2 root root   32768 Jan  1 1970  ./
+drwxr-xr-x 4 root root    4096 Aug 21 22:31 ../
+-rwxr-xr-x 1 root root 2592000 Aug 21 23:13 ov5647-111.raw*
+```
+
+Download raw image viewer from link:https://carinastudio.azurewebsites.net/PixelViewer/[ PixelViewer | Carina Studio]
+
+image::/bpi-f4/bpi-f4_catch-image.png[bpi-f4_catch-image.png]
+
+==== Initiate real-time video recording with the OV5647 camera module
+TIP: link:https://forum.banana-pi.org/t/banana-pi-bpi-f4-sunpuls-sp7350-ov5647-camera-test/24277[Video Workflow]
+
+First, connect the OV5647 camera to the F4 board (Note: Ensure it is not connected backwards; the gold fingers must face the jumper cap)
+
+image::/bpi-f4/bpi-f4_cisi.png[bpi-f4_cisi.png,width=50%,height=70%]
+
+Then power up and start the system. If this is your first time using the OV5647 camera, execute the following command; otherwise, you may skip this step.
+```sh
+sudo apt update
+sudo apt install v4l-utils
+```
+image::/bpi-f4/5fe0af92368088a2b91ded6dde61c4a1.png[5fe0af92368088a2b91ded6dde61c4a1.png,width=70%,height=70%]
+
+image::/bpi-f4/8d28e46b7a2e542ec0a67845ebc25c3d.png[8d28e46b7a2e542ec0a67845ebc25c3d.png,width=70%,height=70%]
+
+Connect via HDMI, launch the terminal in Ubuntu desktop mode, and enter the following command to activate the OV5647 camera
+```sh
+ffplay -f v4l2 -i /dev/video42
+```
+image::/bpi-f4/bpi-f4_ffplay.png[bpi-f4_ffplay.png,width=70%,height=70%]
 
 
 
