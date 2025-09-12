@@ -8,7 +8,72 @@ TIP: ORBBEC link:https://www.orbbec.com/products/stereo-vision-camera/gemini-2/[
 
 = Hardware
 
-== Hardware interface
+== BPI-OM7 3D Camera Photo
 
+image::/bpi-om7/bananapi-bpi-om7_front_view.png[bananapi-bpi-om7_front_view.png]
+
+image::/bpi-om7/bananapi-bpi-om7_back_view.png[bananapi-bpi-om7_back_view.png]
 
 == Hardware Specifications
+
+
+
+=== BPI-M7
+
+[options="header",cols="1,5"]
+|====
+2+| HardWare Specification of Banana Pi BPI-M7 
+|SOC	|RockChip RK3588
+|CPU	|RK3588 Quad-Core Cortex-A76@ 2.4GHz+Quad-CoreCortex-A55@ 1.8GHz，8nm process
+|GPU	|GPU Mali-G610 MP4 (4x256KB L2 Cache) Supports OpenGL ES3.2/OpenCL2.2/Vulkan1.1
+.3+|NPU	|6 TOPS@INT8(3 NPU core) 
+|Supports INT4/INT8/INT16 mixed computing
+|Supports frameworks like TensorFlow, MXNet, PyTorch, Caffe, Tflite, Onnx NN, Android NN, etc
+.2+|VPU/Codec	|Hardware Decode: 8K@60fps H.265/VP9/AVS2、 8K@30fps H.264 AVC/MVC、 4K@60fps AV1、1080P@60fps MPEG-2/-1/VC-1/VP8
+|Hardware Encode:8K@30fps H.265 / H.264
+|ISP	|Integrated 48MP ISP with HDR&3DNR
+|RAM	|8GB/16GB/32GB（max 32GB ）64bit LPDDR4/LPDDR4x，default 8GB LPDDR4x
+|Flash	|32GB/64GB/128GB eMMC，default 64GB eMMC,Supports MicroSD card expansion
+|PCIe	|1x M.2 Key M (PCIe 3.0 4-lanes). Expandable SSD support for 2280/2260/2242/2230 M.2 SSD cards, default 2280
+.2+|Networking	|2x 2.5G Ethernet
+|Onboard IEEE 802.11a/b/g/n/ac/ax WIFI6 and BT5 (AP6275P)
+.3+|Video Out|1x HDMI 2.1, supports 8K@60fps
+|1x MIPI DSI up to 4K@60fps
+|1x DP 1.4 up to 8K@30fps
+|Video In	|2x 4-lane MIPI CSI, up to 2.5Gbps per lane
+.3+|Audio	|1x HDMI audio out
+|1x HP audio out
+|1x Type-C 3.1 (DP1.4) audio out
+.3+|USB	|1x USB 3.0 (USB 3.1 Gen 1), equivalent to USB 3.2 Gen 1/USB 3.0, up to 5Gbps
+|1x USB Type-C 3.1（DP1.4/OTG）
+|1x USB 2.0 High（480Mbps）/Full（12Mbps）/Low-Speed（1.5Mbps） modes
+.2+|40-pin	|Fully compatible with Raspberry Pi 40-pin header for connecting abundant add-on modules
+|Supports UART/SPI/I2C/I2S/PWM/ADC/5V Power/3.3V Power
+.3+|Other	|1x 5V fan interface
+|1x battery connector for low power RTC chip HYM8563TS
+|2x LEDs - blue LED blinks on system start, red LED user controllable
+|Power Input	|USB Type-C PD 2.0, 9V/2A, 12V/2A, 15V/2A
+|Buttons	|1x PWRON button for sleep/wake,1x Reset button for reboot,1x Maskrom button for maskrom burn-in mode
+.2+|OS Support	|Official: ：Android 12.0，Debian11，Buildroot
+|3rd Party：Armbian，Ubuntu 20.04，Ubuntu22.04，Kylin OS
+|Dimensions	|92 mm x 62mm
+|Operating temperature|0℃ ~ 80℃
+|====
+
+=== ORBBEC Gemini 2
+
+[options="header",cols="2,2"]
+|====
+2+|Camera Specifications
+|Depth Technology | Active Stereo IR
+|Wavelength | 850nm
+|Depth Range | *0.15-10m
+|Depth Resolution/FPS | Up to 1280x80@30fps
+|Depth FOV | H91°V66°
+|RGB Resolution/FPS | Up to 1920x1080@30fps
+|RGB FOV | H86°V55°
+|Processng | Orbbrc ASIC
+|IMU | Supported
+2+|*Precision:≤2%@2m
+|====
+
