@@ -10,3 +10,23 @@
 * 支持 Yocto 及其他开源软件
 * 内存与存储：8GB LPDDR4x、32GB eMMC、64MB QSPI 闪存
 * 工作温度范围宽广，从 -40℃ 到 85℃
+
+== 快速上手
+
+TIP: link:/en/BPI-AI2N/GettingStarted_BPI-AI2N[快速上手使用 BPI-AI2N]
+
+= 硬件
+== 硬件接口示意图
+=== BPI-AI2N-Core
+//image::/bpi-ai2n/bpi-ai2n_core_interface.jpg[bpi-ai2n_core_interface.jpg]
+
+image::/bpi-ai2n/bpi-ai2n_core_interface1.jpg[bpi-ai2n_core_interface1.jpg]
+
+=== BPI-AI2N-Carrier 
+
+//image::/bpi-ai2n/bpi-ai2n-carrier_interface.jpg[bpi-ai2n-carrier_interface.jpg]
+
+image::/bpi-ai2n/bpi-ai2n-carrier_interface1.jpg[bpi-ai2n-carrier_interface1.jpg]
+
+= 参考资料
+
