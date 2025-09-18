@@ -14,13 +14,15 @@ TIP: link:/en/BPI-P2_Pro/BananaPi_BPI-P2_Pro[Banana Pi BPI-P2 Pro]
 image::/picture/bpi-p2_pro_debug.jpg[bpi-p2_pro_debug.jpg]
 
 
-== Windows PC Install Image to sd card 
+== Install Image to sd card 
 
 . Download link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FUpdate-SD-Tools.zip[Rockchip SD Disk Tool].
 . Insert card reader to Windows PC, 8GB sdcard size at least.
 . Run SD_Firmware_Tool, check the “SD card startup” box and select the correct removable disk device, Choose firmware image, then Click Create button to make it and wait until it is finshed.
 +
 image::/picture/bpi-p2_pro_debian.png[bpi-p2_pro_debian.png]
+
+NOTE: In the Linux system, you can also use the Etcher tool for burning. Link:https://github.com/balena-io/etcher/releases
 
 == Windows PC Install Image to eMMC 1
 
