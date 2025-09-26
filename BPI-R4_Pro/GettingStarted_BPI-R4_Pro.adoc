@@ -9,10 +9,11 @@ TIP: More Infomation: link:https://docs.banana-pi.org/en/BPI-R4_Pro/BananaPi_BPI
 
 * Prepare 8G/above TF card, USB TypeC cable, Ubuntu System
 * 12V/5A power adapter (without any peripherals and network cable inset, the power consumption of BPI-R4Pro Main Board is about 10W,so 12V/2A will work.But you need to determine whether you need a higher power power adapter according to your own accessory usage)
-* Using your USB-Serial cable(3.3V TTL,Baud=115200) Connect to debug console on BPI-R4 +
-G=GND;  RX=BPI-R4 input;  TX=BPI-R4 output0
-* link:https://docs.banana-pi.org/en/BPI-R4/BananaPi_BPI-R4#_system_image[Download the image] to be burned
+* Using your USB TypeC cable Connect to debug console on BPI-R4Pro +
+* link:https://docs.banana-pi.org/en/BPI-R4/BananaPi_BPI-R4#_system_image[Download the image] to be flashed
 * Default IP address for LAN port: 192.168.1.1
 * User name/password: pi/bananapi ,root/bananapi. +
 Or the user is root without a password.
 * WIFI: AP_MTK_MT7990_2G/AP_MTK_MT7990_5G/AP_MTK_MT7990_6G
+
+== BPI-R4pro bootstrap and device select Jumper Setting:
