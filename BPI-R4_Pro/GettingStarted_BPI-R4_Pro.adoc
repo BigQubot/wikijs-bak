@@ -8,7 +8,7 @@ TIP: More Infomation: link:https://docs.banana-pi.org/en/BPI-R4_Pro/BananaPi_BPI
 == Prepare
 
 * Prepare 8G/above TF card, USB TypeC cable, Ubuntu System
-* 12V/5A power adapter (without any peripherals and network cable inset, the power consumption of BPI-R4Pro Main Board is about 10W,so 12V/2A will work.but you need to determine whether you need a higher power power adapter according to your own accessory usage)
+* 12V/5A power adapter (without any peripherals and network cable inset, the power consumption of BPI-R4Pro Main Board is about 10W,so 12V/2A will work.But you need to determine whether you need a higher power power adapter according to your own accessory usage)
 * Using your USB-Serial cable(3.3V TTL,Baud=115200) Connect to debug console on BPI-R4 +
 G=GND;  RX=BPI-R4 input;  TX=BPI-R4 output0
 * link:https://docs.banana-pi.org/en/BPI-R4/BananaPi_BPI-R4#_system_image[Download the image] to be burned
