@@ -9,11 +9,54 @@ TIP: More Infomation: link:https://docs.banana-pi.org/en/BPI-R4_Pro/BananaPi_BPI
 
 * Prepare 8G/above TF card, USB TypeC cable, Ubuntu System
 * 12V/5A power adapter (without any peripherals and network cable inset, the power consumption of BPI-R4Pro Main Board is about 10W,so 12V/2A will work.But you need to determine whether you need a higher power power adapter according to your own accessory usage)
-* Using your USB TypeC cable Connect to debug console on BPI-R4Pro +
+* Using your USB TypeC cable Connect to debug console on BPI-R4Pro(Baud=115200) +
 * link:https://docs.banana-pi.org/en/BPI-R4/BananaPi_BPI-R4#_system_image[Download the image] to be flashed
 * Default IP address for LAN port: 192.168.1.1
 * User name/password: pi/bananapi ,root/bananapi. +
 Or the user is root without a password.
 * WIFI: AP_MTK_MT7990_2G/AP_MTK_MT7990_5G/AP_MTK_MT7990_6G
 
-== BPI-R4pro bootstrap and device select Jumper Setting:
+== BPI-R4pro bootstrap Setting:
+image::/bpi-r4_pro/bpi-r4pro-bootstrap.png[bpi-r4pro-bootstrap.png]
+
+. All Jumper is "1", BPI-R4Pro will boot from SD card 
++
+image::/bpi-r4_pro/bpi-r4pro-boot_for_sd.png[bpi-r4pro-boot_for_sd.png,width=800]
+
+
+. SW3-A is "0" and SW3-B is "1" , BPI-R4 will boot from SPI NAND
++
+image::/bpi-r4_pro/bpi-r4pro-boot_for_nand.png[bpi-r4pro-boot_for_nand.png,width=800]
+
+
+. SW3-A is "1" and SW3-B is "0" , BPI-R4 will boot from eMMC
++
+image::/bpi-r4_pro/bpi-r4pro-boot_for_emmc.png[bpi-r4pro-boot_for_emmc.png,width=800]
+
+
+. If the console said "system halt!", it means that the bootup storage does not cotain any OS
++
+```bash
+  F0: 102B 0000
+  FA: 5100 0000
+  FA: 5100 0000 [0200]
+  F9: 1041 0000
+  F3: 1001 0000 [0200]
+  F3: 1001 0000
+  F6: 102C 0000
+  F5: 1026 0000
+  00: 1005 0000
+  FA: 5100 0000
+  FA: 5100 0000 [0200]
+  F9: 1041 0000
+  F3: 1001 0000 [0200]
+  F3: 1001 0000
+  F6: 102C 0000
+  01: 102A 0001
+  02: 1005 0000
+  BP: 0200 00C0 [0001]
+  EC: 0000 0000 [0000]
+  MK: 0000 0000 [0000]
+  T0: 0000 00D7 [0101]
+  System halt!
+```
