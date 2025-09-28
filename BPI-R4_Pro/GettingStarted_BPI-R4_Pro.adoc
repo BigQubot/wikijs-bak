@@ -271,11 +271,12 @@ dd if=mtk-bpi-r4pro-EMMC-20250928.img of=/dev/mmcblk0
 == LEDs
 
 = PIN Definition 
+
 == 26 GPIO Header(CON1)
-[options="header",cols="3,1,1,4",width="70%"]
+[options="header",cols="5,3,3,5",width="80%"]
 |====
 4+| **BPI-R4Pro 26  GPIO Header PIN define**
-|BPI-R4Pro-CON1	|PIN		|PIN	|BPI-R4Pro-CON1
+|Connection Destination	|PIN No.|PIN No.|Connection Destination
 |3.3VD	|1		|2	|5VD
 |GPIO18/I2C_1_SDA	|3	|	4|	5VD
 |GPIO17/I2C_1_SCL	|5		|6	|GND
@@ -290,7 +291,22 @@ dd if=mtk-bpi-r4pro-EMMC-20250928.img of=/dev/mmcblk0
 |GPIO31/SPI1_CLK	|23	|24	|GPIO28/SPI1_CSB
 |GND	|25		|26	|GPIO52/PCM_DRX_I2S_DIN
 |====
+
+
+
 == FAN (CN36/CN38)
+[options="header",cols="2,5",width="80%"]
+|====
+2+| **BPI-R4Pro FAN Connector PIN define**
+|PIN No. |Connection Destination		
+|1			 |GND		
+|2		 	 |12V	
+|3 	   	 |NC	
+|4	     |PWM（5V）
+|====
+
+
+
 == External LED connector(CN40)
 == External SIM Card connector(CN45)
 == DC-IN connector(CN44)
