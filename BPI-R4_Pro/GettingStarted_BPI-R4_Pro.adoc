@@ -225,8 +225,12 @@ dd if=mtk-bpi-r4pro-EMMC-20250928.img of=/dev/mmcblk0
 = Interface
 
 == 10G SFP+
+=== 10G SFP+ WAN
+=== 10G SFP+ LAN
 
 == 10G RJ45
+=== 10G RJ45 WAN
+=== 10G RJ45 LAN
 
 == 2.5G RJ45
 
@@ -252,8 +256,6 @@ dd if=mtk-bpi-r4pro-EMMC-20250928.img of=/dev/mmcblk0
 
 == USB TypC Debug Console connector
 
-== USB TypC PD connector
-
 == MicroSD Card
 
 == FAN
@@ -265,8 +267,14 @@ dd if=mtk-bpi-r4pro-EMMC-20250928.img of=/dev/mmcblk0
 === WPS
 
 == DC-IN 
+=== DCIN(5521)
+=== DCIN(VH396)
+=== USB TypeC PD
+=== POE
 
 == DC-OUT
+=== DCOUT(XH2.54-2PIN)
+=== DCOUT(XH2.54-4PIN)
 
 == LEDs
 
