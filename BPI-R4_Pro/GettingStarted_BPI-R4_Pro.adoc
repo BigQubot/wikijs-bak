@@ -283,8 +283,21 @@ dd if=mtk-bpi-r4pro-EMMC-20250928.img of=/dev/mmcblk0
 
 = PIN Definition 
 
+== FAN (CN36/CN38)
+[options="header",cols="1,3",width="80%"]
+|====
+2+| **BPI-R4Pro FAN Connector PIN define**
+|PIN No. |Connection Destination		
+|1			 |GND		
+|2		 	 |12V	
+|3 	   	 |NC	
+|4	     |PWM（5V）
+|====
+
+
+
 == 26 GPIO Header(CON1)
-[options="header",cols="5,2,2,5",width="80%"]
+[options="header",cols="3,1,1,3",width="80%"]
 |====
 4+| **BPI-R4Pro 26  GPIO Header PIN define**
 |Connection Destination	|PIN No.|PIN No.|Connection Destination
@@ -304,22 +317,47 @@ dd if=mtk-bpi-r4pro-EMMC-20250928.img of=/dev/mmcblk0
 |====
 
 
+ 
 
-== FAN (CN36/CN38)
-[options="header",cols="2,5",width="80%"]
+== miniPCIe Slot1(CN7)
+
+[options="header",cols="3,1,1,3",width="80%"]
 |====
-2+| **BPI-R4Pro FAN Connector PIN define**
-|PIN No. |Connection Destination		
-|1			 |GND		
-|2		 	 |12V	
-|3 	   	 |NC	
-|4	     |PWM（5V）
+4+| **BPI-R4Pro miniPCIe Slot(CN7) PIN define**		
+|Connection Destination	|PIN No.		|PIN	NO.|Connection Destination
+|PCIE_2L_0_WAKE_N(3.3V)	|1	|	2	|PCIe_3V3#2
+|NI	|3	|	4	|GND
+|NI	|5	|	6	|PCIe_12V#2
+|PCIE_2L_0_CLKREQ_N(3.3V)	|7		|8|	USIM_VDD-2
+|GND	|9		|10	|USIM_DATA-2
+|PCIE_2L_0_SOC_CKn	|11		|12	|USIM_CLK-2
+|PCIE_2L_0_SOC_CKp	|13		|14	|USIM_RST-2
+|GND	|15		|16 |	NI
+|PCIE_2L_0_LN1_SOC_RXn	|17		|18	|GND
+|PCIE_2L_0_LN1_SOC_RXp	|19		|20	|NI
+|GND	|21		|22	|PCIE_2L_0_PRESET_N(3.3V)
+|PCIE_2L_0_LN0_SOC_RXn	|23	|	24	|PCIe_3V3#2
+|PCIE_2L_0_LN0_SOC_RXp	|25	|	26	|GND
+|GND	|27		|28	|PCIe_12V#2
+|GND	|29		|30	|I2C_SCL_WiFi
+|PCIE_2L_0_LN0_SOC_TXn	|31		|32	|I2C_SDA_WiFi
+|PCIE_2L_0_LN0_SOC_TXp	|33		|34|	GND
+|GND	|35		|36	|USBHUB_USB3_Dn
+|GND	|37		|38	|USBHUB_USB3_Dp
+|PCIe_3V3#2	|39		|40	|GND
+|PCIe_3V3#2	|41		|42	|WiFi-LED-5G
+|GND	|43		|44	|USIM_DET-2
+|PCIE_2L_0_LN1_SOC_TXn	|45		|46	|WiFi-LED-2G
+|PCIE_2L_0_LN1_SOC_TXp	|47		|48	|PCIe_12V#2
+|GND	|49		|50	|GND
+|MT7996_EINT_RESETB(1.8V)	|51		|52	|PCIe_3V3#2
 |====
 
 
 
 
-== miniPCIe Slot1(CN9)
+
+== miniPCIe Slot2(CN9)
 [options="header",cols="3,1,1,3",width="70%"]
 |====
 4+| **BPI-R4 miniPCIe(CN14) GPIO define of BPI-R4**		
@@ -352,41 +390,6 @@ dd if=mtk-bpi-r4pro-EMMC-20250928.img of=/dev/mmcblk0
 |NI	|51		|52|	PCIe_3V3#1
 |====
 
-
-
-== miniPCIe Slot2(CN7)
-
-[options="header",cols="3,1,1,3",width="70%"]
-|====
-4+| **BPI-R4 miniPCIe(CN12) GPIO define of BPI-R4**		
-|BPI-R4 miniPCIe(CN12)	|PIN		|PIN	|BPI-R4 miniPCIe(CN12)
-|PCIE_2L_0_WAKE_N(1.8V)	|1	|	2	|PCIe_3V3#2
-|NI	|3	|	4	|GND
-|NI	|5	|	6	|PCIe_12V#2
-|PCIE_2L_0_CLKREQ_N	|7		|8|	USIM_VDD-2
-|GND	|9		|10	|USIM_DATA-2
-|PCIE_2L_0_SOC_CKn	|11		|12	|USIM_CLK-2
-|PCIE_2L_0_SOC_CKp	|13		|14	|USIM_RST-2
-|GND	|15		|16 |	NI
-|PCIE_2L_0_LN1_SOC_RXn	|17		|18	|GND
-|PCIE_2L_0_LN1_SOC_RXp	|19		|20	|NI
-|GND	|21		|22	|PCIE_2L_0_PRESET_N(1.8V)
-|PCIE_2L_0_LN0_SOC_RXn	|23	|	24	|PCIe_3V3#2
-|PCIE_2L_0_LN0_SOC_RXp	|25	|	26	|GND
-|GND	|27		|28	|PCIe_12V#2
-|GND	|29		|30	|I2C_SCL_WiFi
-|PCIE_2L_0_LN0_SOC_TXn	|31		|32	|I2C_SDA_WiFi
-|PCIE_2L_0_LN0_SOC_TXp	|33		|34|	GND
-|GND	|35		|36	|USBHUB_USB3_Dn
-|GND	|37		|38	|USBHUB_USB3_Dp
-|PCIe_3V3#2	|39		|40	|GND
-|PCIe_3V3#2	|41		|42	|LTE_LED-2
-|GND	|43		|44	|USIM_DET-2
-|PCIE_2L_0_LN1_SOC_TXn	|45		|46	|NI
-|PCIE_2L_0_LN1_SOC_TXp	|47		|48	|PCIe_12V#2
-|GND	|49		|50	|GND
-|MT7996_EINT_RESETB(1.8V)	|51		|52	|PCIe_3V3#2
-|====
 
 
 
