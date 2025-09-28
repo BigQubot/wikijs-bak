@@ -54,7 +54,7 @@ image::/bpi-r4_pro/bpi-r4pro-boot_for_emmc.png[bpi-r4pro-boot_for_emmc.png,width
   （If you are using BPI-R4Pro for the first time, it is recommended to set it to NAND boot) +
 * when Connect power adapter to DC-IN connector(CN44),Green LED “PWR” light up， +
   And there will be characters similar to the following on the serial terminal. +
-  This means you have successfully bootup the BPI-R4Pro. +
+  This means you have successfully started BPI-R4Pro. +
 ```bash
 F0: 102B 0000
 FA: 1042 0000
