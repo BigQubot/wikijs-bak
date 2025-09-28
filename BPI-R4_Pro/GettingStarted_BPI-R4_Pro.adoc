@@ -20,6 +20,7 @@ Or the user is root without password.
 * WIFI: AP_MTK_MT7990_2G/AP_MTK_MT7990_5G/AP_MTK_MT7990_6G
 
 == BPI-R4Pro bootstrap setting
+The tables below list the settings of the switch (SW3) and their functions. +
 
 image::/bpi-r4_pro/bpi-r4pro-bootstrap2.png[bpi-r4pro-bootstrap2.png,width=300]]
 
@@ -65,7 +66,7 @@ image::/bpi-r4_pro/bpi-r4pro-boot_for_emmc.png[bpi-r4pro-boot_for_emmc.png,width
   System halt!
 ```
 
-== How to Flas image to SD card
+== How to Flash image to SD card
 
 
 = Interface
