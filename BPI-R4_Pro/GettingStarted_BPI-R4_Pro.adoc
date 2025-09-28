@@ -11,6 +11,8 @@ image::/bpi-r4_pro/bpi-r4pro-block_diagram_8x.png[bpi-r4pro-block_diagram_8x.png
 == Preparation
 
 * 8G/above MicroSD card +
+* MicroSD card Reader +
+* USB Disk +
 * USB TypeC cable +
 * CAT6A Ethernet cable +
 * 12V/5A power adapter +
@@ -110,12 +112,79 @@ Loading Environment from UBI... Read 126976 bytes from volume ubootenv to 000000
 Read 126976 bytes from volume ubootenv2 to 00000000ff7e0c40
 ```
 
+
+
 == Flashing image
 If you want to change the factory default system to another one, +
 Place link:https://docs.banana-pi.org/en/BPI-R4/BananaPi_BPI-R4#_system_image[Download the image] file into a windows/ubuntu PC and  follow the steps below. +
 
+
 === How to flash image to SD card
+NOTE: **Please low level format the SD and clear all data of SD. It's very important.** +
+**Otherwise, you will encounter a "jffs2" error during the startup process.
+**
+
+- Please follow the following diagram for Windows PC.
++
+image::/picture/low_level_format_sd_card.png[low_level_format_sd_card.png]
+
+- Linux PC, you can use the "**mksf**" command for formatting, or use the "**dd**" command to write zeros.
+
+**Flash image to SD card on windows computer**
+
+link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
+
+- Click on "**Flash from file**" to select image. 
+- Click on "**Select target**" to select USB device. 
+- Click on "**Flash!**" Start flashing.
+
+image::/picture/etcher.jpg[etcher.jpg]
+
+**Flash image to SD card on linux computer**
+
+. You could download latest image from our forum     
+. Install bpi-tools on your Ubuntu. If you can't access this URL or any other problems, please go to bpi-tools repo and install this tools manually.
++
+```sh
+apt-get install pv
+curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
+```
+. After you download the image, insert your TF card into your Ubuntu. Execute
++
+```sh
+bpi-copy xxx.img /dev/sdx
+```
+to install image on your TF card
+
+. After step 3, then you can insert your TF card into R4, and press power button to setup R4
+ 
+**Change Boot Jumper to boot from SD, Enable SD Card Device.** +
+
+
+
+
 === How to flash image to NAND Flash
+Before flashing image into Nand, please prepare a USB disk. Let's take OpenWrt image (**mtk-bpi-r4pro-NAND-20250928.img**) for example, the steps are below:
+
+. Copy Nand boot OpenWrt image(**mtk-bpi-r4pro-NAND-20250928.img**) to USB disk. 
+. Change the bootstrap to sd boot, then power up the board.
+. Plug in USB disk to the board, and mount the USB to /mnt or other directory as follows: (you can skip mounting if it is mounted automatically)
++
+```SH
+mount -t vfat /dev/sda1 /mnt 
+cd /mnt
+```
+. Execute following command to erase the whole Nand flash and copy image to nand device:
++
+```sh
+mtd erase /dev/mtd0
+mtd write mtk-bpi-r4pro-NAND-20250928.img /dev/mtd0
+```
+. Power off BPI-R4 board, unplug u-disk driver, change bootstrap to boot from Nand device.
+
+
+
+
 === How to flash image to eMMC
 
 
