@@ -53,7 +53,7 @@ image::/bpi-r4_pro/bpi-r4pro-boot_for_emmc.png[bpi-r4pro-boot_for_emmc.png,width
 * Using your USB TypeC cable Connect to debug console(CN41) on BPI-R4Pro +
 * Install Terminal Emulator or use a serial terminal that you are familiar with， +
   change the setting as follows: Baud=115200,Data bits: 8bit,Parity: none,Stop: 1bit, Flow control: none;
-* Set up the bootstrap switch before supplying power， +
+* Set up the bootstrap  before supplying power， +
   （If you are using BPI-R4Pro for the first time, it is recommended to set it to NAND boot) +
 * when Connect power adapter to DC-IN connector(CN44),Green LED “PWR” light up， +
   And there will be characters similar to the following on the console. +
@@ -154,11 +154,10 @@ curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -
 ```sh
 bpi-copy xxx.img /dev/sdx
 ```
-to install image on your TF card
+to install image on your MicroSD card
 
-. After step 3, then you can insert your TF card into R4, and press power button to setup R4
- 
-**Change Boot Jumper to boot from SD, Enable SD Card Device.** +
+. After step 3, then you can insert your MicroSD card into R4Pro,Change Bootstrap to boot from SD, and power power R4Pro.
+
 
 
 
