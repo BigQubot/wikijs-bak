@@ -238,9 +238,9 @@ dd if=mtk-bpi-r4pro-EMMC-20250928.img of=/dev/mmcblk0
 
 == 1G FPC Connector
 
-== miniPCIe Slot(FOR WiFi NIC)
+== miniPCIe Slot(For WiFi NIC)
 
-== M.2 B-KEY Slot(FOR 4G/5G Module)
+== M.2 B-KEY Slot(For 4G/5G Module)
 === SIM Slot
 === EXT SIM Slot
 === eSIM
@@ -248,7 +248,7 @@ dd if=mtk-bpi-r4pro-EMMC-20250928.img of=/dev/mmcblk0
 === LED
 
 
-== M.2 M-KEY Slot(FOR PCIe NVME SSD)
+== M.2 M-KEY Slot(For PCIe NVME SSD)
 
 == USB connector
 === USB3.2 connector
