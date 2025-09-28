@@ -10,7 +10,7 @@ image::/bpi-r4_pro/bpi-r4pro-block_diagram_8x.png[bpi-r4pro-block_diagram_8x.png
 = Development
 == Prepare
 
-* one 8G/above MicroSD card +
+* 8G/above MicroSD card +
 * USB TypeC cable +
 * CAT6A Ethernet cable +
 * 12V/5A power adapter +
@@ -72,6 +72,8 @@ image::/bpi-r4_pro/bpi-r4pro-boot_for_emmc.png[bpi-r4pro-boot_for_emmc.png,width
 * Install Terminal Emulator or use a serial terminal that you are familiar with +
   change the setting as follows: Baud=115200,Data bits: 8bit,Parity: none,Stop: 1bit, Flow control: none;
 * Set up the bootstrap switch before supplying power +
+  （If you are using BPI-R4Pro for the first time, it is recommended to set it to NAND boot， +
+  because NAND has been flashed with image before leaving the factory.） +
 
 
 == Flashing image
