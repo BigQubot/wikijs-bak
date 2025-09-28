@@ -4,7 +4,7 @@ Banana Pi BPI-R4Pro Router board with MediaTek MT7988A (Filogic 880) quad-core A
 
 TIP: More Infomation: link:https://docs.banana-pi.org/en/BPI-R4_Pro/BananaPi_BPI-R4_Pro[Banana Pi BPI-R4Pro]
 
-== Block Configuration
+== Block Diagram(8X)
 image::/bpi-r4_pro/bpi-r4pro-block_diagram_8x.png[bpi-r4pro-block_diagram_8x.png,width=800]
 
 = Development
@@ -19,9 +19,9 @@ image::/bpi-r4_pro/bpi-r4pro-block_diagram_8x.png[bpi-r4pro-block_diagram_8x.png
 Or the user is root without password.
 * WIFI: AP_MTK_MT7990_2G/AP_MTK_MT7990_5G/AP_MTK_MT7990_6G
 
-== BPI-R4pro bootstrap setting:
+== BPI-R4pro bootstrap setting
 
-image::/bpi-r4_pro/bpi-r4pro-bootstrap2.png[bpi-r4pro-bootstrap2.png,width=500]]
+image::/bpi-r4_pro/bpi-r4pro-bootstrap2.png[bpi-r4pro-bootstrap2.png,width=300]]
 
 . All Jumper is "1", BPI-R4Pro will boot from SD card 
 +
