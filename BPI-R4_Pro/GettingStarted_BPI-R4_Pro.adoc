@@ -273,7 +273,7 @@ dd if=mtk-bpi-r4pro-EMMC-20250928.img of=/dev/mmcblk0
 = PIN Definition 
 
 == 26 GPIO Header(CON1)
-[options="header",cols="5,3,3,5",width="80%"]
+[options="header",cols="5,2,2,5",width="80%"]
 |====
 4+| **BPI-R4Pro 26  GPIO Header PIN define**
 |Connection Destination	|PIN No.|PIN No.|Connection Destination
