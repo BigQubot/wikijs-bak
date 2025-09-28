@@ -295,7 +295,7 @@ dd if=mtk-bpi-r4pro-EMMC-20250928.img of=/dev/mmcblk0
 
 
 == FAN (CN36/CN38)
-[options="header",cols="2,5",width="80%"]
+[options="header",cols="2,4",width="80%"]
 |====
 2+| **BPI-R4Pro FAN Connector PIN define**
 |PIN No. |Connection Destination		
