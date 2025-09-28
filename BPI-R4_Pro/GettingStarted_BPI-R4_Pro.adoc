@@ -42,27 +42,6 @@ image::/bpi-r4_pro/bpi-r4pro-boot_for_emmc.png[bpi-r4pro-boot_for_emmc.png,width
 . If the console said "system halt!", it means that the bootup storage does not cotain any OS
 +
 ```bash
-  F0: 102B 0000
-  FA: 5100 0000
-  FA: 5100 0000 [0200]
-  F9: 1041 0000
-  F3: 1001 0000 [0200]
-  F3: 1001 0000
-  F6: 102C 0000
-  F5: 1026 0000
-  00: 1005 0000
-  FA: 5100 0000
-  FA: 5100 0000 [0200]
-  F9: 1041 0000
-  F3: 1001 0000 [0200]
-  F3: 1001 0000
-  F6: 102C 0000
-  01: 102A 0001
-  02: 1005 0000
-  BP: 0200 00C0 [0001]
-  EC: 0000 0000 [0000]
-  MK: 0000 0000 [0000]
-  T0: 0000 00D7 [0101]
   System halt!
 ```
 
@@ -74,7 +53,62 @@ image::/bpi-r4_pro/bpi-r4pro-boot_for_emmc.png[bpi-r4pro-boot_for_emmc.png,width
 * Set up the bootstrap switch before supplying power +
   （If you are using BPI-R4Pro for the first time, it is recommended to set it to NAND boot， +
   because NAND has been flashed with image before leaving the factory.） +
+* when Connect 12V/5A power adapter to DC-IN connector(CN44),Green LED “PWR” light up， +
+  There will be characters similar to the following on the serial terminal +
+  
+```bash
+F0: 102B 0000
+FA: 1042 0000
+FA: 1042 0000 [0200]
+F9: 0000 0000
+V0: 0000 0000 [0001]
+00: 0000 0000
+BP: 0600 0041 [0000]
+G0: 1190 0000
+EC: 0000 0000 [1000]
+MK: 0000 0000 [0000]
+T0: 0000 01A6 [0101]
+Jump to BL
 
+NOTICE:  BL2: v2.10.0   (release):OpenWrt v2024.01.17~bacca82a-3 (mt7988-spim-nand-ubi-comb)
+NOTICE:  BL2: Built : 03:09:13, Jun 17 2025
+NOTICE:  WDT: Cold boot
+NOTICE:  WDT: disabled
+NOTICE:  CPU: MT7988
+NOTICE:  EMI: DDR4 4BG mode
+NOTICE:  EMI: Using DDR unknown settings
+NOTICE:  EMI: Detected DRAM size: 8192 MB
+NOTICE:  EMI: complex R/W mem test passed
+NOTICE:  SPI_NAND parses attributes from parameter page.
+NOTICE:  SPI_NAND Detected ID 0xef
+NOTICE:  Page size 2048, Block size 131072, size 268435456
+NOTICE:  UBI: scanning [0x200000 - 0x10000000] ...
+NOTICE:  UBI: Bad EC magic in block 1904 4e4d4d31
+NOTICE:  UBI: Bad EC magic in block 1905 ffffffff
+NOTICE:  UBI: Bad EC magic in block 1906 ffffffff
+NOTICE:  UBI: Bad EC magic in block 1907 4e4d4d31
+NOTICE:  UBI: Bad VID magic in block 2031 4e4d4d30
+NOTICE:  UBI: scanning is finished
+NOTICE:  UBI: PEB size: 131072 bytes (128 KiB), LEB size: 126976 bytes
+NOTICE:  UBI: VID header offset: 2048 (aligned 2048), data offset: 4096
+NOTICE:  UBI: Volume fip (Id #2) size is 1132873 bytes
+NOTICE:  BL2: Booting BL31
+NOTICE:  BL31: v2.10.0  (release):OpenWrt v2024.01.17~bacca82a-3 (mt7988-spim-nand-ubi-comb)
+NOTICE:  BL31: Built : 03:09:13, Jun 17 2025
+
+
+U-Boot 2024.10-OpenWrt-unknown (Jun 17 2025 - 03:09:13 +0000)
+
+CPU:   MediaTek MT7988
+Model: BananaPi BPI-R4 Pro 8X
+DRAM:  8 GiB
+Core:  65 devices, 23 uclasses, devicetree: embed
+spi-nand: spi_nand spi_nand@0: Winbond SPI NAND was found.
+spi-nand: spi_nand spi_nand@0: 256 MiB, block size: 128 KiB, page size: 2048, OOB size: 128
+MMC:   mmc@11230000: 0
+Loading Environment from UBI... Read 126976 bytes from volume ubootenv to 00000000ff7c1c00
+Read 126976 bytes from volume ubootenv2 to 00000000ff7e0c40
+```
 
 == Flashing image
 === How to flash image to SD card
