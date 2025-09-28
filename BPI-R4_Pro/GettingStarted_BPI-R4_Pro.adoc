@@ -66,7 +66,18 @@ image::/bpi-r4_pro/bpi-r4pro-boot_for_emmc.png[bpi-r4pro-boot_for_emmc.png,width
   System halt!
 ```
 
-== How to Flash image to SD card
+== Power Supply
+
+* Using your USB TypeC cable Connect to debug console(CN41) on BPI-R4Pro +
+* Install Terminal Emulator or use a serial terminal that you are familiar with +
+  change the setting as follows: Baud=115200,Data bits: 8bit,Parity: none,Stop: 1bit, Flow control: none;
+* Set up the bootstrap switch before supplying power +
+
+
+== Flashing image
+=== How to flash image to SD card
+=== How to flash image to NAND Flash
+=== How to flash image to eMMC
 
 
 = Interface
