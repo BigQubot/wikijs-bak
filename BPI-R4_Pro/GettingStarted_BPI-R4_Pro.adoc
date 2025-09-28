@@ -239,6 +239,9 @@ dd if=mtk-bpi-r4pro-EMMC-20250928.img of=/dev/mmcblk0
 == 1G FPC Connector
 
 == miniPCIe Slot(For WiFi NIC)
+=== PCIe
+=== USB2.0
+
 
 == M.2 B-KEY Slot(For 4G/5G Module)
 === SIM Slot
@@ -315,11 +318,43 @@ dd if=mtk-bpi-r4pro-EMMC-20250928.img of=/dev/mmcblk0
 
 
 
-== External LED connector(CN40)
-== External SIM Card connector(CN45)
-== DC-IN connector(CN44)
-== DC-IN connector(CN6)
-== DC-OUT connector(CN3)
-== DC-OUT connector(CN2)
+
+== miniPCIe Slot1(CN9)
+
+== miniPCIe Slot2(CN7)
+
+
+
+
+== M.2 B-KEY Slot1(CN15)
+
+== M.2 B-KEY Slot2(CN18)
+
+== M.2 B-KEY Slot3(CN21)
+
+
+
+
+== M.2 M-KEY Slot1(CN13)
+
+== M.2 M-KEY Slot2(CN14)
+
+
+
+
 == 1G FPC Connector(CN37)
+
+== External LED connector(CN40)
+
+== External SIM Card connector(CN45)
+
+== DC-IN connector(CN44)
+
+== DC-IN connector(CN6)
+
+== DC-OUT connector(CN3)
+
+== DC-OUT connector(CN2)
+
+
 
