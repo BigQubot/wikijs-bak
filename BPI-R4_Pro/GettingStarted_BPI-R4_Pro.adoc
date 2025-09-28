@@ -165,6 +165,7 @@ to install image on your MicroSD card
 === How to flash image to NAND Flash
 Before flashing image into Nand, please prepare a USB disk. Let's take OpenWrt image (**mtk-bpi-r4pro-NAND-20250928.img**) for example, the steps are below:
 
+. Format the USB disk to FAT32.
 . Copy Nand boot OpenWrt image(**mtk-bpi-r4pro-NAND-20250928.img**) to USB disk. 
 . Change the bootstrap to sd boot, then power up the board.
 . Plug in USB disk to the board, and mount the USB to /mnt or other directory as follows: (you can skip mounting if it is mounted automatically)
@@ -179,13 +180,45 @@ cd /mnt
 mtd erase /dev/mtd0
 mtd write mtk-bpi-r4pro-NAND-20250928.img /dev/mtd0
 ```
-. Power off BPI-R4 board, unplug u-disk driver, change bootstrap to boot from Nand device.
+. Power off BPI-R4 board, unplug u-disk driver, change bootstrap to nand boot and power up again.
+
 
 
 
 
 === How to flash image to eMMC
+NOTE: Because SD card and EMMC device share one SOC's controller, it is necessary to switch to NAND startup and then burn the EMMC image into the EMMC. Finally, you will change the boot to boot from EMMC.
 
+
+Before burning image to eMMC, please prepare a USB disk. Let's take OpenWrt image (bl2_emmc-r4.img, mtk-bpi-r4-EMMC-20231030.img) for example, the steps are below:
+
+. Copy EMMC boot OpenWrt image(**bl2_emmc-r4.img**,**mtk-bpi-r4-EMMC-20231030.img**) to USB disk, if the image is compressed please uncompress it before copying to USB disk.
+
+. Change the switch jumper to Nand and start the motherboard from Nand.
+ 
+. Plug in USB disk to the board, and mount the USB to /mnt or other directory as follows: (you can skip mounting if it is mounted automatically)
++
+```sh
+mount -t vfat /dev/sda1 /mnt 
+cd /mnt
+```
+
+. Execute :
++
+```sh
+echo 0 > /sys/block/mmcblk0boot0/force_ro
+dd if=bl2_emmc-r4.img of=/dev/mmcblk0boot0
+dd if=mtk-bpi-r4-EMMC-20231030.img of=/dev/mmcblk0
+ mmc bootpart enable 1 1 /dev/mmcblk0
+```
+ 
+. Power off R4 board, remove u-disk driver, change bootstrap to boot from emmc device.
+ 
+ 
+ 
+ 
+ 
+ 
 
 = Interface
 
