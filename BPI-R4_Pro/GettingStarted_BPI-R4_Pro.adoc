@@ -482,6 +482,11 @@ root@R4Pro-01i-NAND:~#
 = PIN Definition 
 
 == FAN (CN36/CN38)
+
+[%collapsible]
+====
+
+
 [options="header",cols="1,3",width="80%"]
 |====
 2+| **BPI-R4Pro FAN Connector PIN define**
@@ -492,9 +497,14 @@ root@R4Pro-01i-NAND:~#
 |4	     |PWM（5V）
 |====
 
-
+====
 
 == 26 GPIO Header(CON1)
+
+[%collapsible]
+====
+
+
 [options="header",cols="3,1,1,3",width="80%"]
 |====
 4+| **BPI-R4Pro 26  GPIO Header(CON1) PIN define**
@@ -514,7 +524,7 @@ root@R4Pro-01i-NAND:~#
 |GND	|25		|26	|GPIO52/PCM_DRX_I2S_DIN
 |====
 
-
+====
  
 
 == miniPCIe Slot1(CN7)
