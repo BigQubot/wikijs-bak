@@ -7,6 +7,8 @@ TIP: More Infomation: link:https://docs.banana-pi.org/en/BPI-R4_Pro/BananaPi_BPI
 == Block Diagram(8X)
 image::/bpi-r4_pro/bpi-r4pro-block_diagram_8x.png[bpi-r4pro-block_diagram_8x.png,width=800]
 
+
+
 = Development
 == Preparation
 
@@ -272,9 +274,15 @@ Read 126976 bytes from volume ubootenv2 to 00000000ff7e0c40
 
 == RTC
 
-== Button
+== EEPROM
+
+== LEDs
+
+
+== Buttons
 === Reset
 === WPS
+
 
 == DC-IN 
 === DCIN(5521)
@@ -286,7 +294,8 @@ Read 126976 bytes from volume ubootenv2 to 00000000ff7e0c40
 === DCOUT(XH2.54-2PIN)
 === DCOUT(XH2.54-4PIN)
 
-== LEDs
+=== 26PIN GPIO Header 
+
 
 = PIN Definition 
 
