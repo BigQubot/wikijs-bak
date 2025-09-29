@@ -835,7 +835,7 @@ root@R4Lite-C:/#
 
 
 == miniPCIe Slot(For WiFi NIC)
-You can insert the BPI WiFi NIC into CN7 and CN9 at the top of BPI-R4Pro, and then fix it with two M2 screws. +
+You can insert the BPI WiFi NIC into CN7 and CN9 on top of BPI-R4Pro, and then fix it with two M2 screws. +
 
 image::/bpi-r4_pro/bpi-r4pro-be14.png[bpi-r4pro-be14.png,width=500]
 
@@ -848,10 +848,12 @@ When plugging in other modules, be sure to turn off SW4 if you cannot confirm wh
 
 image::/bpi-r4_pro/bpi-r4pro-12v-switch.png[bpi-r4pro-12v-switch.png,width=300]
 
-
-=== 3.3V ON/OFF
 === PCIe
+The BPI WiFi NIC BE14/BE19 requires two 2-lane PCIe , but the standard for miniPCIe slots only defines one 1-lane PCIe. +
+Therefore, we used two miniPCIe slots and modified the pins 17/19/45/47 of each slot to be the second lane signal of PCIe. +
+
 === USB2.0
+The two miniPCIe sockets each reserve a pair of USB2.0 signals extended from the USB2.0 HUB for expansion of other modules. +
 
 
 == M.2 B-KEY Slot(For 4G/5G Module)
