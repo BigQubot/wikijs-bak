@@ -795,7 +795,7 @@ image::/bpi-r4_pro/bpi-r4pro-1g_sfp_rj45.png[bpi-r4pro-1g_sfp_rj45.png,width=500
 
 
 === iperf3 test
-- BPI-R4Lite <-(1G LAN)  BPI-R4Pro  (10G WAN)->PC2
+- BPI-R4Lite <-(1G FPC LAN)  BPI-R4Pro  (10G WAN)->PC2
 
 [%collapsible]
 ====
