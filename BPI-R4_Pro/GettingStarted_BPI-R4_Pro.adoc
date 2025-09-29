@@ -446,7 +446,7 @@ NOTE: The power consumption of AS21010P is very high,a good heat dissipation eff
  
 
 === iperf3 test
-- PC1 <-(10G SFP LAN) - BPI-R4Pro - (10G SFP WAN)->PC2
+- PC1 <-(10G LAN)  BPI-R4Pro  (10G WAN)->PC2
 
 [%collapsible]
 ====
@@ -480,7 +480,7 @@ xiao@FN-NUC5:~$
 ====
 
 
-- PC1 <- ->(10G SFP LAN) - BPI-R4Pro
+- PC1 <- ->(10G LAN)  BPI-R4Pro
 
 [%collapsible]
 ====
@@ -547,7 +547,7 @@ xiao@FN-NUC5:~$
 
 
 
-- BPI-R4Pro - (10G SFP WAN)<- ->PC2
+- BPI-R4Pro (10G WAN)<- ->PC2
 
 [%collapsible]
 ====
