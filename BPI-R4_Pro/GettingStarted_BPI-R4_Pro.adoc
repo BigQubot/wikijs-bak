@@ -29,17 +29,17 @@ image::/bpi-r4_pro/bpi-r4pro-bootstrap3.png[bpi-r4pro-bootstrap3.png,width=300]
 
 . All Jumper is "1", BPI-R4Pro will boot from SD card 
 +
-image::/bpi-r4_pro/bpi-r4pro-boot_for_sd.png[bpi-r4pro-boot_for_sd.png,width=800]
+image::/bpi-r4_pro/bpi-r4pro-boot_for_sd.png[bpi-r4pro-boot_for_sd.png,width=600]
 
 
 . SW3-A is "0" and SW3-B is "1" , BPI-R4Pro will boot from SPI NAND
 +
-image::/bpi-r4_pro/bpi-r4pro-boot_for_nand.png[bpi-r4pro-boot_for_nand.png,width=800]
+image::/bpi-r4_pro/bpi-r4pro-boot_for_nand.png[bpi-r4pro-boot_for_nand.png,width=600]
 
 
 . SW3-A is "1" and SW3-B is "0" , BPI-R4Pro will boot from eMMC
 +
-image::/bpi-r4_pro/bpi-r4pro-boot_for_emmc.png[bpi-r4pro-boot_for_emmc.png,width=800]
+image::/bpi-r4_pro/bpi-r4pro-boot_for_emmc.png[bpi-r4pro-boot_for_emmc.png,width=600]
 
 
 . If the console said "system halt!", it means that the bootup storage does not cotain any OS
