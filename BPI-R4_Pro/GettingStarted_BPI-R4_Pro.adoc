@@ -233,7 +233,14 @@ Read 126976 bytes from volume ubootenv2 to 00000000ff7e0c40
 
 == 10G SFP+
 
+MT7988A has two USXGMIIs, of which USXGMII Port1 is used as a WAN port (10G SFP+ WAN/10G RJ45 WAN), USXGMII Port0 is connected to USXGMII0 of Switch MxL86252C, and USXGMII1 of MxL86252C is used as a LAN port (10G SFP+ LAN/10G RJ45 LAN)
+
 === 10G SFP+ WAN
+The SFP serdes speed of BPI-R4Pro is fixed at 10Gbps, so only SFP that support this can be used！
+
+link:https://docs.banana-pi.org/en/BPI-R4/BananaPi_BPI-R4#_10g_sfp_module[Tested 10G SFP+ Copper/Fibre Module]
+
+
 === 10G SFP+ LAN
 
 == 10G RJ45
