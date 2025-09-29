@@ -664,8 +664,41 @@ dd if=mtk-bpi-r4pro-EMMC-20250928.img of=/dev/mmcblk0
 
 
 
-
 == External LED connector(CN40)
+[options="header",cols="1,3",width="80%"]
+|====
+2+| **BPI-R4Pro External LED Connector(CN40) PIN define**
+|PIN No. |Connection Destination		
+|1			 |NI(BootStrap_SW3_A)	
+|2		 	 |NI(BootStrap_SW3_B)
+|3		 	 |NI(SYSRSTB_MT7988_1p8V)
+|4 	   	 |NI(GPIO13_RESET_1p8V)
+|5	     |NI(GPIO14_WPS_1p8V)
+|6	     |DEBUG_UART_TXD
+|7	     |DEBUG_UART_RXD
+|8	     |SYS_LEDBn-3p3V
+|9	     |SYS_LEDRn-3p3V
+|10	     |MKEY-A-SSD-LEDn
+|11	     |MKEY-B-SSD-LEDn
+|12	     |BKEY-A-NET-STUn
+|13	     |BKEY-B-NET-STUn
+|14	     |BKEY-C-NET-STUn
+|15	     |WiFi-LED-2G
+|16	     |WiFi-LED-5G
+|17	     |WiFi-LED-6G
+|18	     |GND
+|19	     |3.3VD
+|20	     |3.3VD
+
+
+|====
+
+
+
+
+
+
+
 
 == External SIM Card connector(CN45)
 
