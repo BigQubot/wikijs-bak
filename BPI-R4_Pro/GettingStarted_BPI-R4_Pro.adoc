@@ -235,10 +235,42 @@ Read 126976 bytes from volume ubootenv2 to 00000000ff7e0c40
 
 MT7988A has two USXGMIIs, of which USXGMII Port1 is used as a WAN port (10G SFP+ WAN/10G RJ45 WAN), USXGMII Port0 is connected to USXGMII0 of Switch MxL86252C, and USXGMII1 of MxL86252C is used as a LAN port (10G SFP+ LAN/10G RJ45 LAN)
 
+==== iperf3 Test
+PC1(10.0.2.35) < - -(10G SFP LAN) - - BPI RPro - - (10G SFP WAN) - - >PC2(10.0.1.12) 
+```bash
+xiao@FN-NUC5:~$ iperf3 -c 10.0.1.12 -t 30 -i 30
+Connecting to host 10.0.1.12, port 5201
+[  5] local 10.0.11.233 port 55644 connected to 10.0.1.12 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-30.00  sec  32.8 GBytes  9.40 Gbits/sec  886   3.13 MBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-30.00  sec  32.8 GBytes  9.40 Gbits/sec  886             sender
+[  5]   0.00-30.00  sec  32.8 GBytes  9.40 Gbits/sec                  receiver
+
+iperf Done.
+xiao@FN-NUC5:~$ 
+xiao@FN-NUC5:~$ iperf3 -c 10.0.1.12 -t 30 -i 30 -R
+Connecting to host 10.0.1.12, port 5201
+Reverse mode, remote host 10.0.1.12 is sending
+[  5] local 10.0.11.233 port 56210 connected to 10.0.1.12 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-30.00  sec  32.8 GBytes  9.40 Gbits/sec                  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-30.00  sec  32.8 GBytes  9.40 Gbits/sec  134             sender
+[  5]   0.00-30.00  sec  32.8 GBytes  9.40 Gbits/sec                  receiver
+
+iperf Done.
+
+```
+
+
 === 10G SFP+ WAN
 The SFP serdes speed of BPI-R4Pro is fixed at 10Gbps, so only SFP that support this can be used！
 
 link:https://docs.banana-pi.org/en/BPI-R4/BananaPi_BPI-R4#_10g_sfp_module[Tested 10G SFP+ Copper/Fibre Module]
+
 
 
 === 10G SFP+ LAN
