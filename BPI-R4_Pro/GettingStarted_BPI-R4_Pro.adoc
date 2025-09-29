@@ -243,12 +243,12 @@ link:https://docs.banana-pi.org/en/BPI-R4/BananaPi_BPI-R4#_10g_sfp_module[Tested
 
 image::/bpi-r4_pro/bpi-r4pro-10g_wan.png[bpi-r4pro-10g_wan.png,width=600]
 
-==== 10G SFP WAN
-When MT7988A's GPIO3 ouput=High, USXGMII Port1 switches to SFP WAN Port. At this time, SFP is functional, but 10G RJ45 WAN will be ineffective.
+==== 10G SFP+ WAN
+When MT7988A's GPIO3 ouput=High, USXGMII Port1 switches to SFP WAN Port. At this time, 10G SFP+ WAN is functional, but 10G RJ45 WAN will be ineffective.
 
 ==== 10G RJ45 WAN
 
-On the other hand, when MT7988A's GPIO3 ouput=Low, USXGMII Port1 switches to 10G RJ45 WAN Port. At this time, 10G RJ45 WAN is functional, but SFP will be ineffective.
+On the other hand, when MT7988A's GPIO3 ouput=Low, USXGMII Port1 switches to 10G RJ45 WAN Port. At this time, 10G RJ45 WAN is functional, but 10G SFP WAN will be ineffective.
 
 
 === 10G LAN
