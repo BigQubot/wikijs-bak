@@ -19,8 +19,8 @@ image::/bpi-r4_pro/bpi-r4pro-block_diagram_8x.png[bpi-r4pro-block_diagram_8x.png
 (without any peripherals and network cable inset, the power consumption of BPI-R4Pro Main Board is about 10W, so 12V/2A will work. +
 But you need to determine whether you need a higher power power adapter according to your own accessory usage,12V/5A is recommended) +
 * Windows/Ubuntu System +
-* BPI-R4Pro image to be flashed
-
+* link:https://docs.banana-pi.org/en/BPI-R4_Pro/BananaPi_BPI-R4_Pro#_system_image[BPI-R4Pro image]
+* link:https://docs.banana-pi.org/en/BPI-R4_Pro/BananaPi_BPI-R4_Pro#_source_code[BPI-R4Pro Source Code]
 
 == BPI-R4Pro bootstrap setting
 The tables below list the settings of the switch (SW3) and their functions. +
@@ -244,6 +244,7 @@ dd if=mtk-bpi-r4pro-EMMC-20250928.img of=/dev/mmcblk0
 == 1G FPC Connector
 
 == miniPCIe Slot(For WiFi NIC)
+=== 12V ON/OFF
 === PCIe
 === USB2.0
 
