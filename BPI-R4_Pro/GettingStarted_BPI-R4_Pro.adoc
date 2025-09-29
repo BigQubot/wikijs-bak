@@ -743,7 +743,17 @@ The 1G RJ45 of BPI-R4Pro is connected to Port0 of the internal switch of MT7988A
 image::/bpi-r4_pro/bpi-r4pro-1g_rj45_lan.png[bpi-r4pro-1g_rj45_lan.png,width=800]
 
 
-== 1G FPC Connector
+== 1G ETH FPC Connector
+The 1G ETH FPC connector of BPI-R4Pro is connected to Port3 of the internal switch of MT7988A. +
+ +
+
+image::/bpi-r4_pro/bpi-r4pro-1g_sfp_lan.png[bpi-r4pro-1g_sfp_lan.png,width=800]
+
+If you want to use this RJ45, you need a customized RJ45 adapter board and connect it with FPC (1.0MM Pitch, 11PIN). +
+The RJ45 layout needs to comply with its requirements, such as the differential Ethernet signals should be routed as 100Ω differential pairs, with suitable clearances, etc. +
+ +
+
+image::/bpi-r4_pro/bpi-r4pro-1g_sfp_rj45.png[bpi-r4pro-1g_sfp_rj45.png,width=800]
 
 == miniPCIe Slot(For WiFi NIC)
 === 12V ON/OFF
