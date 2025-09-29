@@ -439,6 +439,40 @@ At this time, 10G RJ45 LAN is functional, but 10G SFP+ LAN will be ineffective. 
  
 
 === iperf3 test
+. PC1(10.0.11.35) <-(10G SFP LAN) - BPI-R4Pro - (10G SFP WAN)->PC2(10.0.1.12)
+
+[%collapsible]
+====
+
+```bash
+
+```
+====
+
+
+. PC1(10.0.11.35) <- ->(10G SFP LAN) - BPI-R4Pro(10.0.11.1)
+
+[%collapsible]
+====
+
+```bash
+
+```
+====
+
+
+
+. BPI-R4Pro(10.0.11.1) - (10G SFP WAN)<- ->PC2(10.0.1.12)
+
+[%collapsible]
+====
+
+```bash
+
+```
+====
+
+
 
 
 == 2.5G RJ45
