@@ -704,7 +704,30 @@ root@R4Lite-A:/#
 
 ```bash
 
+root@R4Lite-A:/# iperf3 -c 10.0.11.1 -t 30 -i 30
+Connecting to host 10.0.11.1, port 5201
+[  5] local 10.0.11.126 port 38422 connected to 10.0.11.1 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-30.00  sec  8.22 GBytes  2.35 Gbits/sec    0    983 KBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-30.00  sec  8.22 GBytes  2.35 Gbits/sec    0             sender
+[  5]   0.00-30.00  sec  8.22 GBytes  2.35 Gbits/sec                  receiver
 
+iperf Done.
+root@R4Lite-A:/# iperf3 -c 10.0.11.1 -t 30 -i 30 -R
+Connecting to host 10.0.11.1, port 5201
+Reverse mode, remote host 10.0.11.1 is sending
+[  5] local 10.0.11.126 port 46554 connected to 10.0.11.1 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-30.00  sec  8.21 GBytes  2.35 Gbits/sec                  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-30.00  sec  8.21 GBytes  2.35 Gbits/sec    0             sender
+[  5]   0.00-30.00  sec  8.21 GBytes  2.35 Gbits/sec                  receiver
+
+iperf Done.
+root@R4Lite-A:/# 
 
 ```
 ====
