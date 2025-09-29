@@ -250,6 +250,12 @@ At this time, 10G SFP+ WAN is functional, but 10G RJ45 WAN will be ineffective.
 Now, you can insert a 10G SFP+ Copper/Fibre Module to get a 10G network interface. +
 Or you can also insert a 10G XGSPON Stick to access the Telecom operator's network. +
  +
+
+
+[%collapsible]
+====
+
+
 ```bash
 
 root@R4Pro-01i-NAND:~# 
@@ -355,6 +361,8 @@ root@R4Pro-01i-NAND:~# i2cdetect -y 5
 root@R4Pro-01i-NAND:~# 
 
 ```
+====
+
 
 ==== 10G RJ45 WAN
 
@@ -362,6 +370,11 @@ On the other hand, when MT7988A's GPIO3 ouput=Low, USXGMII Port1 switches to 10G
 You need to load the AS21010P's driver to make the 10G RJ45 LAN work. +
 At this time, 10G RJ45 WAN is functional, but 10G SFP+ WAN will be ineffective.  +
  +
+ 
+ 
+[%collapsible]
+====
+
 ```bash
 root@R4Pro-01i-NAND:~# ethtool eth1
 Settings for eth1:
@@ -400,7 +413,7 @@ Settings for eth1:
         Link detected: yes
 root@R4Pro-01i-NAND:~# 
 ```
-
+====
 
 
 === 10G LAN
