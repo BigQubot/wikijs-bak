@@ -793,6 +793,47 @@ The RJ45 layout needs to comply with its requirements, such as the differential 
 
 image::/bpi-r4_pro/bpi-r4pro-1g_sfp_rj45.png[bpi-r4pro-1g_sfp_rj45.png,width=500]
 
+
+=== iperf3 test
+- BPI-R4Lite <-(1G LAN)  BPI-R4Pro  (10G WAN)->PC2
+
+[%collapsible]
+====
+
+```bash
+
+root@R4Lite-C:/# iperf3 -c 10.0.1.12 -t 30 -i 30
+Connecting to host 10.0.1.12, port 5201
+[  5] local 10.0.11.113 port 42596 connected to 10.0.1.12 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-30.00  sec  3.29 GBytes   941 Mbits/sec    9    581 KBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-30.00  sec  3.29 GBytes   941 Mbits/sec    9             sender
+[  5]   0.00-30.00  sec  3.28 GBytes   940 Mbits/sec                  receiver
+
+iperf Done.
+root@R4Lite-C:/# 
+root@R4Lite-C:/# iperf3 -c 10.0.1.12 -t 30 -i 30 -R
+Connecting to host 10.0.1.12, port 5201
+Reverse mode, remote host 10.0.1.12 is sending
+[  5] local 10.0.11.113 port 47484 connected to 10.0.1.12 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-30.00  sec  3.28 GBytes   939 Mbits/sec                  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-30.00  sec  3.28 GBytes   940 Mbits/sec   43             sender
+[  5]   0.00-30.00  sec  3.28 GBytes   939 Mbits/sec                  receiver
+
+iperf Done.
+root@R4Lite-C:/# 
+
+```
+====
+
+
+
+
 == miniPCIe Slot(For WiFi NIC)
 === 12V ON/OFF
 === PCIe
