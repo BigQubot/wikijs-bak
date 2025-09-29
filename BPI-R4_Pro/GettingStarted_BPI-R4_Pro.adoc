@@ -445,7 +445,29 @@ At this time, 10G RJ45 LAN is functional, but 10G SFP+ LAN will be ineffective. 
 ====
 
 ```bash
+xiao@FN-NUC5:~$ iperf3 -c 10.0.1.12 -t 30 -i 30 
+Connecting to host 10.0.1.12, port 5201
+[  5] local 10.0.11.233 port 49038 connected to 10.0.1.12 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-30.00  sec  32.6 GBytes  9.33 Gbits/sec  1201   1.94 MBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-30.00  sec  32.6 GBytes  9.33 Gbits/sec  1201             sender
+[  5]   0.00-30.00  sec  32.6 GBytes  9.33 Gbits/sec                  receiver
 
+iperf Done.
+xiao@FN-NUC5:~$ iperf3 -c 10.0.1.12 -t 30 -i 30 -R
+Connecting to host 10.0.1.12, port 5201
+Reverse mode, remote host 10.0.1.12 is sending
+[  5] local 10.0.11.233 port 49698 connected to 10.0.1.12 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-30.00  sec  32.8 GBytes  9.40 Gbits/sec                  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-30.00  sec  32.8 GBytes  9.40 Gbits/sec  407             sender
+[  5]   0.00-30.00  sec  32.8 GBytes  9.40 Gbits/sec                  receiver
+
+iperf Done.
 ```
 ====
 
@@ -462,7 +484,7 @@ At this time, 10G RJ45 LAN is functional, but 10G SFP+ LAN will be ineffective. 
 
 
 
-. BPI-R4Pro(10.0.11.1) - (10G SFP WAN)<- ->PC2(10.0.1.12)
+. BPI-R4Pro(10.0.1.16) - (10G SFP WAN)<- ->PC2(10.0.1.12)
 
 [%collapsible]
 ====
