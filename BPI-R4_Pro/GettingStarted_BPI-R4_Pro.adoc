@@ -417,9 +417,26 @@ root@R4Pro-01i-NAND:~#
 
 
 === 10G LAN
-==== 10G RJ45 WAN
+==== Block Diagram
+image::/bpi-r4_pro/bpi-r4pro-10g_lan.png[bpi-r4pro-10g_lan.png,width=800]
+
+
+==== 10G SFP+ LAN
+When MT7988A's GPIO54 ouput=Low, MxL86252C's USXGMII1 switches to 10G SFP+ LAN Port. +
+At this time, 10G SFP+ LAN is functional, but 10G RJ45 LAN will be ineffective. 
+
+Now, you can insert a 10G SFP+ Copper/Fibre Module to get a 10G network interface. +
+ +
+
+
 ==== 10G RJ45 LAN
 
+On the other hand, when MT7988A's GPIO54 ouput=High,MxL86252C's USXGMII1 switches to 10G RJ45 WAN Port. +
+You need to load the AS21010P's driver to make the 10G RJ45 LAN work. +
+At this time, 10G RJ45 LAN is functional, but 10G SFP+ LAN will be ineffective.  +
+ +
+ 
+ 
 
 === iperf3 test
 
