@@ -858,6 +858,10 @@ root@R4Pro-01i-NAND:~#
 
 
 == External LED connector(CN40)
+[%collapsible]
+====
+
+
 [options="header",cols="1,3",width="80%"]
 |====
 2+| **BPI-R4Pro External LED Connector(CN40) PIN define**
@@ -885,10 +889,15 @@ root@R4Pro-01i-NAND:~#
 
 |====
 
-
+====
 
 
 == External SIM Card connector(CN45)
+
+[%collapsible]
+====
+
+
 [options="header",cols="1,3",width="80%"]
 |====
 2+| **BPI-R4Pro External SIM Card Connector(CN45) PIN define**
@@ -925,8 +934,14 @@ root@R4Pro-01i-NAND:~#
 |30	     |3.3VD
 |====
 
+====
+
 
 == DC-IN connector(CN44)
+[%collapsible]
+====
+
+
 [options="header",cols="1,3",width="80%"]
 |====
 2+| **BPI-R4Pro DCIN Connector(CN44) PIN define**
@@ -934,7 +949,7 @@ root@R4Pro-01i-NAND:~#
 |1			 |DCIN_12_24V
 |2		 	 |GND
 |====
-
+====
 
 
 == DC-IN connector(CN6)
@@ -969,6 +984,7 @@ root@R4Pro-01i-NAND:~#
 
 [%collapsible]
 ====
+
 
 [options="header",cols="1,3",width="80%"]
 |====
