@@ -171,6 +171,10 @@ dd if=mtk-bpi-r4pro-EMMC-20250928.img of=/dev/mmcblk0
 * when Connect power adapter to DC-IN connector(CN44),Green LED “PWR” light up， +
   And there will be characters similar to the following on the console. +
   This means you have successfully started BPI-R4Pro. +
+  
+[%collapsible]
+====
+
 ```bash
 F0: 102B 0000
 FA: 1042 0000
@@ -224,7 +228,7 @@ MMC:   mmc@11230000: 0
 Loading Environment from UBI... Read 126976 bytes from volume ubootenv to 00000000ff7c1c00
 Read 126976 bytes from volume ubootenv2 to 00000000ff7e0c40
 ```
-
+====
 
  
  
