@@ -367,7 +367,7 @@ root@R4Pro-01i-NAND:~#
 ==== 10G RJ45 WAN
 
 On the other hand, when MT7988A's GPIO3 ouput=Low, USXGMII Port1 switches to 10G RJ45 WAN Port. +
-You need to load the AS21010P's driver to make the 10G RJ45 LAN work. +
+You need to load the 10G PHY AS21010P's driver to make the 10G RJ45 LAN work. +
 At this time, 10G RJ45 WAN is functional, but 10G SFP+ WAN will be ineffective.  +
  +
  
@@ -432,7 +432,7 @@ Now, you can insert a 10G SFP+ Copper/Fibre Module to get a 10G network interfac
 ==== 10G RJ45 LAN
 
 On the other hand, when MT7988A's GPIO54 ouput=High,MxL86252C's USXGMII1 switches to 10G RJ45 WAN Port. +
-You need to load the AS21010P's driver to make the 10G RJ45 LAN work. +
+You need to load the 10G PHY AS21010P's driver to make the 10G RJ45 LAN work. +
 At this time, 10G RJ45 LAN is functional, but 10G SFP+ LAN will be ineffective.  +
  +
  
