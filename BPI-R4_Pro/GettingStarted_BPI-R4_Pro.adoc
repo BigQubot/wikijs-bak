@@ -546,7 +546,63 @@ xiao@FN-NUC5:~$
 ====
 
 ```bash
+root@R4Pro-01i-NAND:~# iperf3 -c 10.0.1.12 -t 30 -i 30
+Connecting to host 10.0.1.12, port 5201
+[  5] local 10.0.1.16 port 42746 connected to 10.0.1.12 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-30.02  sec  32.9 GBytes  9.41 Gbits/sec   41   3.40 MBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-30.02  sec  32.9 GBytes  9.41 Gbits/sec   41             sender
+[  5]   0.00-30.02  sec  32.9 GBytes  9.41 Gbits/sec                  receiver
 
+iperf Done.
+root@R4Pro-01i-NAND:~# 
+root@R4Pro-01i-NAND:~# iperf3 -c 10.0.1.12 -t 30 -i 30 -R
+Connecting to host 10.0.1.12, port 5201
+Reverse mode, remote host 10.0.1.12 is sending
+[  5] local 10.0.1.16 port 60504 connected to 10.0.1.12 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-30.03  sec  21.5 GBytes  6.16 Gbits/sec                  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-30.03  sec  21.5 GBytes  6.16 Gbits/sec  558             sender
+[  5]   0.00-30.03  sec  21.5 GBytes  6.16 Gbits/sec                  receiver
+
+iperf Done.
+root@R4Pro-01i-NAND:~# 
+root@R4Pro-01i-NAND:~# iperf3 -c 10.0.1.12 -t 30 -i 30 -R -P 5
+Connecting to host 10.0.1.12, port 5201
+Reverse mode, remote host 10.0.1.12 is sending
+[  5] local 10.0.1.16 port 49938 connected to 10.0.1.12 port 5201
+[  7] local 10.0.1.16 port 49950 connected to 10.0.1.12 port 5201
+[  9] local 10.0.1.16 port 49958 connected to 10.0.1.12 port 5201
+[ 11] local 10.0.1.16 port 49974 connected to 10.0.1.12 port 5201
+[ 13] local 10.0.1.16 port 49976 connected to 10.0.1.12 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-30.02  sec  8.66 GBytes  2.48 Gbits/sec                  
+[  7]   0.00-30.02  sec  5.39 GBytes  1.54 Gbits/sec                  
+[  9]   0.00-30.02  sec  5.57 GBytes  1.59 Gbits/sec                  
+[ 11]   0.00-30.03  sec  7.81 GBytes  2.23 Gbits/sec                  
+[ 13]   0.00-30.03  sec  5.41 GBytes  1.55 Gbits/sec                  
+[SUM]   0.00-30.02  sec  32.8 GBytes  9.39 Gbits/sec                  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-30.03  sec  8.66 GBytes  2.48 Gbits/sec  2641             sender
+[  5]   0.00-30.02  sec  8.66 GBytes  2.48 Gbits/sec                  receiver
+[  7]   0.00-30.03  sec  5.39 GBytes  1.54 Gbits/sec  1541             sender
+[  7]   0.00-30.02  sec  5.39 GBytes  1.54 Gbits/sec                  receiver
+[  9]   0.00-30.03  sec  5.57 GBytes  1.59 Gbits/sec  2280             sender
+[  9]   0.00-30.02  sec  5.57 GBytes  1.59 Gbits/sec                  receiver
+[ 11]   0.00-30.03  sec  7.81 GBytes  2.23 Gbits/sec  3222             sender
+[ 11]   0.00-30.02  sec  7.81 GBytes  2.23 Gbits/sec                  receiver
+[ 13]   0.00-30.03  sec  5.41 GBytes  1.55 Gbits/sec  1766             sender
+[ 13]   0.00-30.02  sec  5.41 GBytes  1.55 Gbits/sec                  receiver
+[SUM]   0.00-30.03  sec  32.9 GBytes  9.40 Gbits/sec  11450             sender
+[SUM]   0.00-30.02  sec  32.8 GBytes  9.39 Gbits/sec                  receiver
+
+iperf Done.
+root@R4Pro-01i-NAND:~# 
 ```
 ====
 
