@@ -787,7 +787,7 @@ The 1G ETH FPC connector of BPI-R4Pro is connected to Port3 of the internal swit
 
 image::/bpi-r4_pro/bpi-r4pro-1g_sfp_lan.png[bpi-r4pro-1g_sfp_lan.png,width=800]
 
-If you want to use this RJ45, you need a customized RJ45 adapter board and connect it with FPC (1.0MM Pitch, 11PIN). +
+If you want to use this RJ45, you need a customized RJ45 adapter board and connect it with 1.0MM Pitch 11PIN FPC (Flexible Printed Circuit). +
 The RJ45 layout needs to comply with its requirements, such as the differential Ethernet signals should be routed as 100Ω differential pairs, with suitable clearances, etc. +
  +
 
