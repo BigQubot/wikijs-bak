@@ -938,6 +938,9 @@ root@R4Pro-01i-NAND:~#
 
 
 == DC-IN connector(CN6)
+[%collapsible]
+====
+
 [options="header",cols="1,3",width="80%"]
 |====
 2+| **BPI-R4Pro DCIN Connector(CN6) PIN define**
@@ -945,10 +948,12 @@ root@R4Pro-01i-NAND:~#
 |1			 |VH396_DCIN
 |2		 	 |GND
 |====
-
+====
 
 
 == DC-OUT connector(CN3)
+[%collapsible]
+====
 [options="header",cols="1,3",width="80%"]
 |====
 2+| **BPI-R4Pro DCOUT Connector(CN3) PIN define**
@@ -956,10 +961,15 @@ root@R4Pro-01i-NAND:~#
 |1			 |VDD_SYS
 |2		 	 |GND
 |====
+====
 
 
 
 == DC-OUT connector(CN2)
+
+[%collapsible]
+====
+
 [options="header",cols="1,3",width="80%"]
 |====
 2+| **BPI-R4Pro DCOUT Connector(CN2) PIN define**
@@ -970,5 +980,5 @@ root@R4Pro-01i-NAND:~#
 |4		 	 |+5VD
 |====
 
-
+====
 
