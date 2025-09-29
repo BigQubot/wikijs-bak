@@ -253,10 +253,17 @@ Read 126976 bytes from volume ubootenv2 to 00000000ff7e0c40
 
 
 == M.2 B-KEY Slot(For 4G/5G Module)
-=== SIM Slot
-=== EXT SIM Slot
-=== eSIM
-=== 3.3V/3.95V Power
+
+=== SIM Card
+==== SIM Slot
+==== EXT SIM Slot
+==== eSIM
+
+=== Power
+==== Power ON/OFF
+==== 3.3V/3.95V Switch
+==== Reset
+
 === LED
 
 
