@@ -241,14 +241,118 @@ link:https://docs.banana-pi.org/en/BPI-R4/BananaPi_BPI-R4#_10g_sfp_module[Tested
 === 10G  WAN
 ==== Block Diagram
 
-image::/bpi-r4_pro/bpi-r4pro-10g_wan.png[bpi-r4pro-10g_wan.png,width=600]
+image::/bpi-r4_pro/bpi-r4pro-10g_wan.png[bpi-r4pro-10g_wan.png,width=800]
 
 ==== 10G SFP+ WAN
 When MT7988A's GPIO3 ouput=High, USXGMII Port1 switches to SFP WAN Port. +
 At this time, 10G SFP+ WAN is functional, but 10G RJ45 WAN will be ineffective. +
 Now, you can insert a 10G SFP+ Copper/Fibre Module to get a 10G network interface. +
-Or you can also insert a 10G XGSPON Stick to access the operator's network.
+Or you can also insert a 10G XGSPON Stick to access the operator's network. +
+ +
+```bash
 
+root@R4Pro-01i-NAND:~# [   84.886999] sfp sfp2: SM: enter empty:down:down event insert
+[   84.892666] sfp sfp2: SM: exit probe:down:down
+[   85.185321] mtk_soc_eth 15100000.ethernet: ethernet mux: switch to channel1
+[   85.192285] mtk_soc_eth 15100000.ethernet eth1: configuring for inband/10gbase-r link mode
+[   85.211253] sfp sfp2: SM: enter probe:down:down event dev_up
+[   85.216906] sfp sfp2: SM: exit probe:up:down
+[   85.221181] sfp sfp2: SM: enter probe:up:down event timeout
+[   85.237792] sfp sfp2: module OEM              SFP-10G-T        rev 10   sn 2309250002       dc 230925  
+[   85.247181] sfp sfp2: module OEM              SFP-10G-T        rev 10   has been found in the quirk list
+[   85.256652] sfp sfp2: sfp: support mode 00,00000000,00000800,00007040
+[   85.263083] sfp sfp2: tx disable 1 -> 0
+[   85.266923] sfp sfp2: SM: exit present:up:wait
+[   85.286250] hwmon hwmon1: temp1_input not attached to any thermal zone
+[   85.325328] sfp sfp2: SM: enter present:up:wait event timeout
+[   85.331066] sfp sfp2: probing phy device through the [MDIO_I2C_ROLLBALL] protocol
+[   86.437671] hwmon hwmon2: temp1_input not attached to any thermal zone
+[   87.407412] sfp sfp2: CL45 PHY device [0x31c3:0x1c13] found!
+[   87.413081] sfp sfp2: CL45 PHY device [0x31c3:0x1c13] found!
+[   87.418744] sfp sfp2: CL45 PHY device [0x31c3:0x1c13] found!
+[   87.424392] sfp sfp2: CL45 PHY device [0x31c3:0x1c13] found!
+[   87.430044] sfp sfp2: CL45 PHY device [0x31c3:0x1c13] found!
+[   87.435697] sfp sfp2: CL45 PHY device [0x31c3:0x1c13] found!
+[   87.441344] sfp sfp2: CL45 PHY device [0x0000:0x0000] found!
+[   87.446992] sfp sfp2: CL45 PHY driver [Aquantia AQR113C] found!
+[   87.452899] sfp sfp2: phy: support mode 00,00000000,00018000,000e706c
+[   87.459339] mtk_soc_eth 15100000.ethernet eth1: requesting link mode inband/10gbase-r with support 00,00000000,00018000,000e706c
+[   88.677484] mtk_soc_eth 15100000.ethernet eth1: PHY [i2c:sfp2:11] driver [Aquantia AQR113C] (irq=POLL)
+[   88.767362] sfp sfp2: SM: exit present:up:link_up
+[   88.772542] sfp sfp2: SM: enter present:up:link_up event los_high
+[   88.793265] mtk_soc_eth 15100000.ethernet eth1: resolve link status: system iface=0, line iface=0
+[   88.802137] sfp sfp2: SM: exit present:up:wait_los
+[   93.766046] sfp sfp2: SM: enter present:up:wait_los event los_low
+[   93.772150] sfp sfp2: SM: exit present:up:link_up
+[   93.772161] mtk_soc_eth 15100000.ethernet eth1: resolve link status: system iface=1, line iface=0
+[   94.795333] mtk_soc_eth 15100000.ethernet eth1: resolve link status: system iface=1, line iface=0
+[   95.480326] mtk_soc_eth 15100000.ethernet eth1: Link is Up - 10Gbps/Full - flow control off
+[   95.480351] br-wan: port 1(eth1) entered blocking state
+[   95.493886] br-wan: port 1(eth1) entered forwarding state
+[  100.489488] br-wan: entered allmulticast mode
+[  100.493951] br-lan: entered allmulticast mode
+
+root@R4Pro-01i-NAND:~# 
+root@R4Pro-01i-NAND:~# 
+root@R4Pro-01i-NAND:~# ethtool eth1
+Settings for eth1:
+        Supported ports: [  ]
+        Supported link modes:   100baseT/Full
+                                1000baseT/Full
+                                10000baseT/Full
+                                1000baseKX/Full
+                                10000baseKX4/Full
+                                10000baseKR/Full
+                                2500baseT/Full
+                                5000baseT/Full
+        Supported pause frame use: Symmetric Receive-only
+        Supports auto-negotiation: Yes
+        Supported FEC modes: Not reported
+        Advertised link modes:  100baseT/Full
+                                1000baseT/Full
+                                10000baseT/Full
+                                1000baseKX/Full
+                                10000baseKX4/Full
+                                10000baseKR/Full
+                                2500baseT/Full
+                                5000baseT/Full
+        Advertised pause frame use: Symmetric Receive-only
+        Advertised auto-negotiation: Yes
+        Advertised FEC modes: Not reported
+        Link partner advertised link modes:  10baseT/Half 10baseT/Full
+                                             100baseT/Half 100baseT/Full
+                                             1000baseT/Half 1000baseT/Full
+                                             10000baseT/Full
+                                             2500baseT/Full
+                                             5000baseT/Full
+        Link partner advertised pause frame use: No
+        Link partner advertised auto-negotiation: Yes
+        Link partner advertised FEC modes: Not reported
+        Speed: 10000Mb/s
+        Duplex: Full
+        Auto-negotiation: on
+        Port: Twisted Pair
+        PHYAD: 11
+        Transceiver: external
+        MDI-X: Unknown
+        Current message level: 0x000000ff (255)
+                               drv probe link timer ifdown ifup rx_err tx_err
+        Link detected: yes
+root@R4Pro-01i-NAND:~# 
+root@R4Pro-01i-NAND:~# 
+root@R4Pro-01i-NAND:~# i2cdetect -y 5
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:                         -- -- -- -- -- -- -- -- 
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+50: 50 51 -- -- -- -- 56 -- -- -- -- -- -- -- -- -- 
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+70: UU -- -- -- -- -- -- --                         
+root@R4Pro-01i-NAND:~# 
+
+```
 
 ==== 10G RJ45 WAN
 
