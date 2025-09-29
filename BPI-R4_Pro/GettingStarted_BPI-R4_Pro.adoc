@@ -596,6 +596,50 @@ dd if=mtk-bpi-r4pro-EMMC-20250928.img of=/dev/mmcblk0
 
 == M.2 M-KEY Slot2(CN14)
 
+[options="header",cols="3,1,1,3",width="80%"]
+|====
+4+| **BPI-R4Pro M.2 M-KEY Slot2(CN14) PIN define**
+|Connection Destination	|PIN		|PIN	|Connection Destination
+|GND	|1		|2	|VDD_MKEY_B
+|GND	|3		|4	|VDD_MKEY_B
+|NI	|5	|	6	|NI
+|NI	|7		|8	|NI
+|GND	|9		|10	|MKEY-B-SSD-LEDn
+|NI	|11		|12	|VDD_MKEY_B
+|NI	|13		|14	|VDD_MKEY_B
+|GND	|15		|16	|VDD_MKEY_B
+|NI	|17		|18	|VDD_MKEY_B
+|NI	|19		|20	|NI
+|GND	|21		|22	|NI
+|NI	|23		|24	|NI
+|NI	|25		|26	|NI
+|GND	|27		|28	|NI
+|NI	|29		|30|	NI
+|NI	|31		|32	|NI
+|GND|	33		|34	|NI
+|NI	|35		|36	|NI
+|NI	|37		|38	|NI
+|GND	|39		|40	|NI
+|PCIE_SW_B_B_RXn	|41		|42|	NI
+|PCIE_SW_B_B_RXp	|43	|	44|	NI
+|GND	|45		|46|	NI
+|PCIE_SW_B_B_TXn	|47	|	48	|NI
+|PCIE_SW_B_B_TXp	|49	|	50|	MKEY-B-PRESET_3P3V
+|GND	|51	|	52|	MKEY-B-CLKREQ_3P3V
+|PCIE_SW_B_B_CKn	|53	|	54|	MKEY-B-WAKE_3P3V
+|PCIE_SW_B_B_CKp	|55		|56|	NI
+|GND	|57		|58	|NI
+|NOCTH	|59		|60	|NOCTH
+|NOCTH |	61	|	62	|NOCTH
+|NOCTH	|63	|	64|	NOCTH
+|NOCTH |	65		|66	|NOCTH
+|NI	|67		|68	|NI
+|NI	|69		|70	|VDD_MKEY_B
+|GND	|71		|72	|VDD_MKEY_B
+|GND	|73	|	74	|VDD_MKEY_B
+|GND	|75|	|		
+|====
+
 
 
 
