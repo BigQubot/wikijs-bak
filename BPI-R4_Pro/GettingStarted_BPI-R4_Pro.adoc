@@ -519,6 +519,10 @@ root@R4Pro-01i-NAND:~#
 
 == miniPCIe Slot1(CN7)
 
+[%collapsible]
+====
+
+
 [options="header",cols="3,1,1,3",width="80%"]
 |====
 4+| **BPI-R4Pro miniPCIe Slot1(CN7) PIN define**		
@@ -551,11 +555,16 @@ root@R4Pro-01i-NAND:~#
 |MT7996_EINT_RESETB(1.8V)	|51		|52	|PCIe_3V3#2
 |====
 
-
+====
 
 
 
 == miniPCIe Slot2(CN9)
+
+[%collapsible]
+====
+
+
 [options="header",cols="3,1,1,3",width="80%"]
 |====
 4+| **BPI-R4Pro miniPCIe Slot2(CN9) PIN define**	
@@ -588,10 +597,14 @@ root@R4Pro-01i-NAND:~#
 |NI	|51		|52|	PCIe_3V3#1
 |====
 
-
+====
 
 
 == M.2 B-KEY Slot1(CN15)
+
+[%collapsible]
+====
+
 
 [options="header",cols="3,1,1,3",width="80%"]
 |====
@@ -637,9 +650,13 @@ root@R4Pro-01i-NAND:~#
 |NI	|75	| |		
 |====
 
-
+====
 
 == M.2 B-KEY Slot2(CN18)
+
+[%collapsible]
+====
+
 
 [options="header",cols="3,1,1,3",width="80%"]
 |====
@@ -685,7 +702,7 @@ root@R4Pro-01i-NAND:~#
 |NI	|75	| |		
 |====
 
-
+====
 
 
 
