@@ -839,6 +839,8 @@ You can insert the BPI WiFi NIC into CN7 and CN9 on top of BPI-R4Pro, and then f
 
 image::/bpi-r4_pro/bpi-r4pro-be14.png[bpi-r4pro-be14.png,width=500]
 
+link:https://docs.banana-pi.org/en/BPI-R4/BananaPi_BPI-R4-NIC-BE14[BPI WiFi NIC: BE14 Specification]
+
 === 12V ON/OFF
 BPI WiFi NIC module requires 12V power supply, so the power supply on the BPI-R4Pro must be turned on before powering on. +
 (SW4 is turned to the "ON" position, and the 12V LED will lights up when power on)
