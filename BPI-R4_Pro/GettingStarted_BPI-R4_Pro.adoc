@@ -615,7 +615,7 @@ root@R4Pro-01i-NAND:~#
 
 
 == 2.5G RJ45
-The four 2.5G RJ45 ports of BPI-R4Pro are expanded through MxL86252C.
+The four 2.5G RJ45 ports of BPI-R4Pro are expanded through MxL86252C(Port0~Port3).
 
 image::/bpi-r4_pro/bpi-r4pro-mxl86252c.png[bpi-r4pro-mxl86252c.png,width=500]
 === iperf3 test
