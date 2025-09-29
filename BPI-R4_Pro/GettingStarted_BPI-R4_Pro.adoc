@@ -371,7 +371,7 @@ You need to load the 10G PHY AS21010P's driver to make the 10G RJ45 LAN work. +
 At this time, 10G RJ45 WAN is functional, but 10G SFP+ WAN will be ineffective.  +
 
 
-NOTE: The power consumption of AS21010P is very high, so a good heat dissipation effect heat sink must be used. +
+NOTE: The power consumption of AS21010P is very high,a good heat dissipation effect heat sink must be used. +
 
  
 [%collapsible]
@@ -436,7 +436,8 @@ Now, you can insert a 10G SFP+ Copper/Fibre Module to get a 10G network interfac
 On the other hand, when MT7988A's GPIO54 ouput=High,MxL86252C's USXGMII1 switches to 10G RJ45 WAN Port. +
 You need to load the 10G PHY AS21010P's driver to make the 10G RJ45 LAN work. +
 At this time, 10G RJ45 LAN is functional, but 10G SFP+ LAN will be ineffective.  +
- +
+ 
+NOTE: The power consumption of AS21010P is very high,a good heat dissipation effect heat sink must be used. +
  
  
 
