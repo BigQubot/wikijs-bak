@@ -627,22 +627,68 @@ image::/bpi-r4_pro/bpi-r4pro-mxl86252c.png[bpi-r4pro-mxl86252c.png,width=500]
 
 ```bash
 
+root@R4Lite-A:/# iperf3 -c 10.0.1.12 -t 30 -i 30
+Connecting to host 10.0.1.12, port 5201
+[  5] local 10.0.11.126 port 33872 connected to 10.0.1.12 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-30.00  sec  8.22 GBytes  2.35 Gbits/sec   33   1.39 MBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-30.00  sec  8.22 GBytes  2.35 Gbits/sec   33             sender
+[  5]   0.00-30.00  sec  8.21 GBytes  2.35 Gbits/sec                  receiver
 
+iperf Done.
+root@R4Lite-A:/# 
+root@R4Lite-A:/# iperf3 -c 10.0.1.12 -t 30 -i 30 -R
+Connecting to host 10.0.1.12, port 5201
+Reverse mode, remote host 10.0.1.12 is sending
+[  5] local 10.0.11.126 port 42032 connected to 10.0.1.12 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-30.00  sec  8.22 GBytes  2.35 Gbits/sec                  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-30.00  sec  8.22 GBytes  2.35 Gbits/sec  1628             sender
+[  5]   0.00-30.00  sec  8.22 GBytes  2.35 Gbits/sec                  receiver
+
+iperf Done.
+root@R4Lite-A:/# 
 
 ```
 ====
 
 
 
-
-- BPI-R4Lite<- ->(2.5G LAN)  BPI-R4Pro
+- BPI-R4Lite-A<- (2.5G LAN)  BPI-R4Pro (2.5G LAN)  ->BPI-R4Lite-B
 
 [%collapsible]
 ====
 
 ```bash
 
+root@R4Lite-A:/# iperf3 -c 10.0.11.217 -t 30 -i 30
+Connecting to host 10.0.11.217, port 5201
+[  5] local 10.0.11.126 port 59182 connected to 10.0.11.217 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-30.00  sec  8.22 GBytes  2.35 Gbits/sec    0   2.09 MBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-30.00  sec  8.22 GBytes  2.35 Gbits/sec    0             sender
+[  5]   0.00-30.00  sec  8.22 GBytes  2.35 Gbits/sec                  receiver
 
+iperf Done.
+root@R4Lite-A:/# iperf3 -c 10.0.11.217 -t 30 -i 30 -R
+Connecting to host 10.0.11.217, port 5201
+Reverse mode, remote host 10.0.11.217 is sending
+[  5] local 10.0.11.126 port 59276 connected to 10.0.11.217 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-30.00  sec  8.21 GBytes  2.35 Gbits/sec                  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-30.00  sec  8.21 GBytes  2.35 Gbits/sec    0             sender
+[  5]   0.00-30.00  sec  8.21 GBytes  2.35 Gbits/sec                  receiver
+
+iperf Done.
+root@R4Lite-A:/# 
 
 ```
 ====
@@ -650,7 +696,8 @@ image::/bpi-r4_pro/bpi-r4pro-mxl86252c.png[bpi-r4pro-mxl86252c.png,width=500]
 
 
 
-- BPI-R4Lite-A<- (2.5G LAN)  BPI-R4Pro (2.5G LAN)  ->BPI-R4Lite-B
+
+- BPI-R4Lite<- ->(2.5G LAN)  BPI-R4Pro
 
 [%collapsible]
 ====
