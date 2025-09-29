@@ -835,7 +835,19 @@ root@R4Lite-C:/#
 
 
 == miniPCIe Slot(For WiFi NIC)
+You can insert the BPI WiFi NIC into CN7 and CN9 at the top of BPI-R4Pro, and then fix it with two M2 screws. +
+
+image::/bpi-r4_pro/bpi-r4pro-be14.png[bpi-r4pro-be14.png,width=500]
+
 === 12V ON/OFF
+BPI WiFi NIC module requires 12V power supply, so the power supply on the BPI-R4Pro must be turned on before powering on. +
+(SW4 is turned to the "ON" position, and the 12V LED will lights up when power on)
+
+IMPORTANT:  The 12V power supply will be supplied to the BPI WiFi NIC through PIN6/28/48 of the miniPCI socket. +
+When plugging in other modules, be sure to turn off SW4 if you cannot confirm whether the module can withstand 12V.
+
+
+=== 3.3V ON/OFF
 === PCIe
 === USB2.0
 
