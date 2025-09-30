@@ -861,7 +861,7 @@ image::/bpi-r4_pro/bpi-r4pro-12v-switch.png[bpi-r4pro-12v-switch.png,width=300]
 |Connection Destination |	Output=High	 |Output=Low
 |PCA_A_IO1_0/mPCIe_A_PDN			 |PCIeA_3P3V = ON		|PCIeA_3P3V = OFF
 |PCA_A_IO1_1/mPCIe_B_PDN			 |PCIeB_3P3V = ON		|PCIeB_3P3V = OFF
-|PCA_A_IO0_7/mPCIe_AB_Vset		 	 |PCIeA_3P3V = PCIeB_3P3V = 3.57V	|PCIeA_3P3V = PCIeB_3P3V = 3.3V
+|PCA_A_IO0_7/mPCIe_AB_Vset		 	 |PCIeA_3P3V=PCIeB_3P3V=3.57V	|PCIeA_3P3V=PCIeB_3P3V=3.3V
 
 
 |====
