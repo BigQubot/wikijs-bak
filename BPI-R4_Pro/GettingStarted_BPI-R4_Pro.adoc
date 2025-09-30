@@ -1075,7 +1075,16 @@ A reset button is connect to GPIO13，used for restore to factory default settin
 A reset button is connect to GPIO14，used for new devices quickly connect to the router.
 
 == LEDs
+BPI-R4Pro has  LEDs to indicate various operating states, including power, WiFi, Ethernet, 4G/5G cellular, SSD, etc. +
 
+* 1x Power Green LED, Silkscreen "PWR" on the PCB，lights up when powered on and cannot be controlled by the software. +
+* 1x Status Red LED，Silkscreen "R" on the PCB，Controlled by GPIO "PCA_A_IO1_7/SYS_LEDR". +
+* 1x Status Blue LED，Silkscreen "B" on the PCB，Controlled by GPIO "PCA_A_IO1_6/SYS_LEDB". +
+* 3x WiFi Status Blue LEDs,The silk screen printing"W2G","W5G","W6G". +
+	 The specific function depends on the module. Some modules do not have this function (including BPI-BE14 V1.0). +
+* 2x SSD Status Blue LEDs,The silk screen printing"SSD1","SSD2", Controlled by SSD. +
+* 3x 5G cellular Status Blue LEDs,The silk screen printing"SIM1","SIM2","SIM3",Controlled by 5G Module. +
+* Each 10G/2.5G RJ45 has two LEDs, and each 1G RJ45 has one LED to indicate the network status. +
 
 
 == DC-IN 
