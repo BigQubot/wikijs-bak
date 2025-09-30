@@ -1117,14 +1117,26 @@ You can use the BPI-RT5400-12V module, but this module does not exceed 30W at mo
 
 
 == DC-OUT
-=== DCOUT(XH2.54-2PIN)
-=== DCOUT(XH2.54-4PIN)
+BPI-R4Pro has two power output sockets, but it is not recommended to use them to connect too many devices, 
+because it consumes too much power and may cause BPI-R4Pro to work unstably. +
+
+The dimensions of the CN2/CN3 slot are as follows:
+
+image::/bpi-r4_pro/xh254.png[xh254.png,width=300]
+
+=== DCOUT(CN3，XH2.54-2PIN)
+
+
+=== DCOUT(CN2，XH2.54-4PIN)
+
+
 
 === 26PIN GPIO Header 
 
 
-= PIN Definition 
 
+
+= PIN Definition 
 == FAN (CN36/CN38)
 
 [%collapsible]
