@@ -1051,7 +1051,7 @@ It operates with a 12V supply voltage and supports PWM speed control, but lacks 
 
 image::/bpi-r4_pro/bpi-r4pro-fan3.png[bpi-r4pro-fan3.png,width=500]
 
-These two FAN interfaces are controlled by the same PWM (GPIO57_PWMD0). +
+These two FAN connectors are controlled by the same PWM (GPIO57_PWMD0). +
 
 image::/bpi-r4_pro/bpi-r4pro-fan4.png[bpi-r4pro-fan4.png,width=500]
 
