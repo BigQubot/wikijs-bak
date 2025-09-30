@@ -1105,7 +1105,7 @@ image::/bpi-r4_pro/bpi-r4pro-dc5521.png[bpi-r4pro-dc5521.png,width=300]
 You can also use a VH3.96 plug and connect it to CN6 for power supply. +
 The dimensions of the CN46 slot are as follows:
 
-image::/bpi-r4_pro/vh396.png[vh396.png,width=300]
+image::/bpi-r4_pro/vh396.png[vh396.png,width=500]
 
 === USB TypeC PD
 The USB Type-C PD connector is connected to a CH224K chip, which is used to communicate with the USB adapter and allow the adapter to output 20V voltage. +
@@ -1122,7 +1122,7 @@ because it consumes too much power and may cause BPI-R4Pro to work unstably. +
 
 The dimensions of the CN2/CN3 slot are as follows:
 
-image::/bpi-r4_pro/xh254.png[xh254.png,width=300]
+image::/bpi-r4_pro/xh254.png[xh254.png,width=500]
 
 === DCOUT(CN3，XH2.54-2PIN)
 Connect directly to VDD_SYS_IN, the output voltage is equal to the input‘s. 
