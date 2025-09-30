@@ -880,10 +880,27 @@ The BPI-R4Pro has three M.2 B-KEY slots, all for 4G/5G Cellular Modules. +
 Each slot supports a pair of USB2.0 and USB3.0 signals, both extended via a USB 3.0 hub. +
 In addition, the CN15 and CN18 slots each have an additional PCIe3.0 1lane signal. +
 
-
+image::/bpi-r4_pro/bpi-r4pro-bkey.png[bpi-r4pro-bkey.png,width=500]
 
 === Power
+All modules are powered by independent DC-DC step-down.  +
+GPIO can be used to shut down the power output and adjust the output voltage.
+
 ==== Power ON/OFF
+The power on/off control is as follows. +
+[%collapsible]
+====
+[options="header",cols="3,3,3",width="80%"]
+|====
+3+| **miniPCIe Slot 3.3V Power**
+|Connection Destination |	Output=High	 |Output=Low
+|PCA_A_IO0_0/BKEY-A-PDN			 |VDD_BKEY_A = ON		|VDD_BKEY_A = OFF
+|PCA_A_IO0_2/BKEY-B-PDN			 |VDD_BKEY_B = ON		|VDD_BKEY_B = OFF
+|PCA_A_IO0_4/BKEY-C-PDN		 	 |VDD_BKEY_C = ON 	|VDD_BKEY_C = OFF
+|====
+====
+
+
 ==== 3.3V Power adjustment
 ==== Reset
 
