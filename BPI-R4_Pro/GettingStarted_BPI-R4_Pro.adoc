@@ -1060,17 +1060,22 @@ These two FAN connectors are controlled by the same PWM (GPIO57_PWMD0). +
 image::/bpi-r4_pro/bpi-r4pro-fan4.png[bpi-r4pro-fan4.png,width=500]
 
 == RTC
-Built-in RTC clock chip, and you only need to install a CR1220, 3V battery to work.
+Built-in one RTC clock chip, and you only need to install a 3V CR1220 battery to work.
 
 
 == EEPROM
-
-== LEDs
+Built-in one EEPROM chip (P24C02A), can be used to store small amounts of data.
 
 
 == Buttons
 === Reset
+A reset button is connect to GPIO13，used for restore to factory default settings.
+
 === WPS
+A reset button is connect to GPIO14，used for new devices quickly connect to the router.
+
+== LEDs
+
 
 
 == DC-IN 
