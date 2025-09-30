@@ -445,7 +445,7 @@ NOTE: The power consumption of AS21010P is very high,a good heat dissipation eff
  
  
 
-=== iperf3 test
+=== 10G iperf3 test
 - PC1 <-(10G LAN)  BPI-R4Pro  (10G WAN)->PC2
 
 [%collapsible]
@@ -620,7 +620,7 @@ The four 2.5G RJ45 ports of BPI-R4Pro are expanded through MxL86252C(Port0~Port3
 NOTE: The power consumption of MxL86252C also very high,a good heat dissipation effect heat sink must be used. +
 
 image::/bpi-r4_pro/bpi-r4pro-mxl86252c.png[bpi-r4pro-mxl86252c.png,width=500]
-=== iperf3 test
+=== 2.5G iperf3 test
 
 - BPI-R4Lite<- (2.5G LAN)  BPI-R4Pro (10G WAN)  ->PC2
 
@@ -743,7 +743,7 @@ The 1G RJ45 of BPI-R4Pro is connected to Port0 of the internal switch of MT7988A
 image::/bpi-r4_pro/bpi-r4pro-1g_rj45_lan.png[bpi-r4pro-1g_rj45_lan.png,width=800]
 
 
-=== iperf3 test
+=== 1G iperf3 test
 - BPI-R4Lite <-(1G LAN)  BPI-R4Pro  (10G WAN)->PC2
 
 [%collapsible]
@@ -794,7 +794,7 @@ The RJ45  adapter board layout needs to comply with its requirements, such as th
 image::/bpi-r4_pro/bpi-r4pro-1g_sfp_rj45.png[bpi-r4pro-1g_sfp_rj45.png,width=500]
 
 
-=== iperf3 test
+=== 1G iperf3 test
 - BPI-R4Lite <-(1G FPC LAN)  BPI-R4Pro  (10G WAN)->PC2
 
 [%collapsible]
