@@ -926,7 +926,7 @@ Each module can be reset by GPIO.
 ====
 [options="header",cols="3,3,3",width="80%"]
 |====
-3+| **M.2 B-KEY Slot 3.3V Power adjustment**
+3+| **M.2 B-KEY Slot Reset**
 |Connection Destination |	Output=High	 |Output=Low
 |PCA_A_IO1_3/BKEY-A-RST		 |Module = Reset		|Module = Functional
 |PCA_A_IO1_4/BKEY-B-RST			 |Module = Reset		|Module = Functional
