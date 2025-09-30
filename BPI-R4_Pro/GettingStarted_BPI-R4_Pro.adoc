@@ -1,6 +1,6 @@
 = Overview
 
-Banana Pi BPI-R4Pro Router board with MediaTek MT7988A (Filogic 880) quad-core ARM Corex-A73 design ,4GB DDR4 RAM,8GB eMMC,128MB SPI-NAND flash onboard, also have 2x 10Gbe SFP, 4x Gbe network port,with USB3.2 port,M.2 support 4G/5G/NVME SSD.2x miniPCIe slots with PCIe3.0 2lane interface for Wi-Fi 7 NIC (Network Interface Card). It is a very high performance open source router development board.
+Banana Pi BPI-R4Pro Router board with MediaTek MT7988A (Filogic 880) quad-core ARM Corex-A73 design ,4GB DDR4 RAM,8GB eMMC,128MB SPI-NAND flash onboard, also have 2x 10Gbe SFP+, 4x Gbe network port,with USB3.2 port,M.2 support 4G/5G/NVME SSD.2x miniPCIe slots with PCIe3.0 2lane interface for Wi-Fi 7 NIC (Network Interface Card). It is a very high performance open source router development board.
 
 TIP: More Infomation: link:https://docs.banana-pi.org/en/BPI-R4_Pro/BananaPi_BPI-R4_Pro[Banana Pi BPI-R4Pro]
 
@@ -851,7 +851,7 @@ When plugging in other modules, be sure to turn off SW4 if you cannot confirm wh
 image::/bpi-r4_pro/bpi-r4pro-12v-switch.png[bpi-r4pro-12v-switch.png,width=300]
 
 === PCIe
-The BPI WiFi NIC BE14/BE19 requires two 2-lane PCIe , but the standard for miniPCIe slots only defines one 1-lane PCIe. +
+The BPI WiFi NIC BE14/BE19 requires two 2lane PCIe , but the standard for miniPCIe slots only defines one 1lane PCIe. +
 Therefore, we used two miniPCIe slots and modified the pins 17/19/45/47 of each slot to be the second lane signal of PCIe. +
 
 === USB2.0
