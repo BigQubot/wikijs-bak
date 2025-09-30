@@ -1102,8 +1102,19 @@ image::/bpi-r4_pro/bpi-r4pro-dc5521.png[bpi-r4pro-dc5521.png,width=300]
 
 
 === DCIN(VH396)
+You can also use a VH3.96 plug and connect it to CN6 for power supply. +
+The dimensions of the CN46 slot are as follows:
+
+image::/bpi-r4_pro/vh396.png[vh396.png,width=300]
+
 === USB TypeC PD
+The USB Type-C PD connector is connected to a CH224K chip, which is used to communicate with the USB adapter and allow the adapter to output 20V voltage. +
+It is recommended to use a PD power supply that can output 20V and 65W or more. +
+
 === POE
+You can use the BPI-RT5400-12V module, but this module does not exceed 30W at most. So when more peripherals are connected, the power consumption will exceed the maximum power of RT5400. Therefore, it is recommended to change to other power supply.
+
+
 
 == DC-OUT
 === DCOUT(XH2.54-2PIN)
