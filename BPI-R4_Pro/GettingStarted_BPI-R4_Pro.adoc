@@ -1024,9 +1024,18 @@ so that the corresponding signal can be switched over.
 
 == USB connector
 === USB3.2 connector
+The power output of the USB3.2 connector (CN11) is 5V/1300mA, which can be turned off via "PCA_A_IO1_3/VBUS_AB_PDN" output low. +
+
+
 === USB2.0 connector
+The power output of the USB3.2 connector (CN12) is 5V/1300mA, which can be turned off via "PCA_A_IO1_3/VBUS_AB_PDN" output low. +
 
 == USB TypC Debug Console connector
+The BPI-R4Pro has an onboard USB-to-UART chip(HT42B534-2), connected to the MT7988A's Debug UART. +
+When connected USB Type-c connector(CN41) to PC, a USB-to-serial device will appear, which can be used for debugging. +
+Terminal setting : Baud=115200,Data bits: 8bit,Parity: none,Stop: 1bit, Flow control: none, +
+
+image::/bpi-r4_pro/bpi-r4pro-usb_serial.png[bpi-r4pro-usb_serial.png,width=200]
 
 == MicroSD Card
 
