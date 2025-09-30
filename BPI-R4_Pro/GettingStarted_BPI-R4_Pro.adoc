@@ -794,6 +794,8 @@ The RJ45  adapter board layout needs to comply with its requirements, such as th
 image::/bpi-r4_pro/bpi-r4pro-1g_sfp_rj45.png[bpi-r4pro-1g_sfp_rj45.png,width=500]
 
 
+image::/bpi-r4_pro/bpi-r4pro-1g_rj45_fpc_con.png[bpi-r4pro-1g_rj45_fpc_con.png,width=500]
+
 === 1G iperf3 test
 - BPI-R4Lite <-(1G FPC LAN)  BPI-R4Pro  (10G WAN)->PC2
 
