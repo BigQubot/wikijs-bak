@@ -851,7 +851,7 @@ When plugging in other modules, be sure to turn off SW4 if you cannot confirm wh
 image::/bpi-r4_pro/bpi-r4pro-12v-switch.png[bpi-r4pro-12v-switch.png,width=300]
 
 === 3.3V Power adjustment
-"PCA_A_IO1_0/mPCIe_A_PDN" and "PCA_A_IO0_7/mPCIe_AB_Vset" and "PCA_A_IO1_1/mPCIe_B_PDN"extended from PCA9555 can be turned off and the voltage of PCIe 3.3V can be adjusted. +
+Three GPIOs extended from PCA9555 can be used to turn off and the voltage of PCIe 3.3V adjustment. +
 
 [%collapsible]
 ====
@@ -892,7 +892,7 @@ The power on/off control is as follows. +
 ====
 [options="header",cols="3,3,3",width="80%"]
 |====
-3+| **miniPCIe Slot 3.3V Power**
+3+| **M.2 B-KEY Slot Power**
 |Connection Destination |	Output=High	 |Output=Low
 |PCA_A_IO0_0/BKEY-A-PDN			 |VDD_BKEY_A = ON		|VDD_BKEY_A = OFF
 |PCA_A_IO0_2/BKEY-B-PDN			 |VDD_BKEY_B = ON		|VDD_BKEY_B = OFF
@@ -900,8 +900,24 @@ The power on/off control is as follows. +
 |====
 ====
 
-
 ==== 3.3V Power adjustment
+The operating voltage of most 5G modules is 3.3V~4.2V. Due to the large current, using 3.3V will cause module instability, +
+so it is recommended to adjust it to 3.95V. +
+But before adjustment, please make sure that your 5G module can withstand 3.95V!!!
+
+[%collapsible]
+====
+[options="header",cols="3,3,3",width="80%"]
+|====
+3+| **M.2 B-KEY Slot 3.3V Power adjustment**
+|Connection Destination |	Output=High	 |Output=Low
+|PCA_A_IO0_1/BKEY-A-Vset		 |VDD_BKEY_A = 3.95V		|VDD_BKEY_A = 3.3V
+|PCA_A_IO0_3/BKEY-B-Vset			 |VDD_BKEY_B = 3.95V		|VDD_BKEY_B = 3.3V
+|PCA_A_IO0_5/BKEY-C-Vset		 	 |VDD_BKEY_C = 3.95V 	|VDD_BKEY_C = 3.3V
+|====
+====
+
+
 ==== Reset
 
 
