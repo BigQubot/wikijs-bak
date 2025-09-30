@@ -935,16 +935,47 @@ Each module can be reset by GPIO.
 ====
 
 
-
 === SIM Card
-==== Onboard NANO SIM Slot
-==== External SIM Slot Conector
-==== eSIM
+Each M.2 B-KEY Slot supports two sets of SIM card signals. +
+We connected SIM1 to the onboard NANO SIM Slot and SIM2 to the eSIM. +
+However, the eSIM does not have components. If you need it, please contact our sales. +
 
+image::/bpi-r4_pro/bpi-r4pro-sim.png[bpi-r4pro-sim.png,width=500]
+
+==== Onboard NANO SIM Slot
+SIM1 can use the onboard NANO SIM Slot or an external SIM Slot (this requires a self-designed expansion board connected via CN45) +
+when "PCA_A_IO0_6/SIM_SEL" Output=Low,SIM1 Connect to Onboard NANO SIM Slot, +
+when "PCA_A_IO0_6/SIM_SEL" Output=High,SIM1 Route to FPC Connector, +
+
+==== External SIM Slot Conector
+The SIM card signals from the three B-KEYs and two miniPCIe sockets can be connected to the FPC Connector (CN45). +
+This allows you to easily design a SIM card adapter board to fit your enclosure.
+
+==== eSIM
+PIN42/44/46/48 of M.2 B-KEY Slot is the second set of SIM card signals. +
+Of course, this requires your module to support it. +
+ +
+ 
+ 
+image::/bpi-r4_pro/bpi-r4pro-sim2.png[bpi-r4pro-sim2.png,width=500]
 
 === Cellular network LED
+PIN10 of each M.2 B-KEY Slot is connected to an LED. This LED is the module's network status indicator output. +
+For specific functions, please refer to your module's datasheet. +
+ +
+ 
+image::/bpi-r4_pro/bpi-r4pro-sim_led2.png[bpi-r4pro-sim_led2.png,width=500]
+
 ==== Onboard LED
+We place LEDs next to each SIM card slot to make it easier to check the status. +
+
+image::/bpi-r4_pro/bpi-r4pro-sim_led.png[bpi-r4pro-sim_led.png,width=500]
+
+
 ==== External LED Conector
+We also route the LED signal to FPC slot(CN40). +
+If necessary, you can design an LED adapter board to adapt to your enclosure.
+
 
 
 === USB3.0
