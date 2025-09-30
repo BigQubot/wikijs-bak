@@ -45,9 +45,6 @@ image::/bpi-rv2/bpi-rv2_burn_image_2.jpg[bpi-rv2_burn_image_2.jpg]
 
 It restarts automatically after burning
  
-NOTE: Q: How to deal with uboot burning failure +
-A：If the uboot fails to be burned, the image cannot be updated through the uboot. You can download the image through the irom usb, or remove the flash and re-burn the image in mode of the burner.
-
 = BPI-RV2 function development
 
 == Network Function Virtualization（DPNS）
