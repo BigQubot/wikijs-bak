@@ -1038,8 +1038,20 @@ Terminal setting : Baud=115200,Data bits: 8bit,Parity: none,Stop: 1bit, Flow con
 image::/bpi-r4_pro/bpi-r4pro-usb_serial.png[bpi-r4pro-usb_serial.png,width=200]
 
 == MicroSD Card
+The BPI-R4Pro has a Micro SD (Secure Digital) card slot, which can be used for bootup and storage. +
+
+However, the MT7988A only has one controller of MSDC, which outputs two pinmux ports for SD 4.5 and eMMC 5.1, +
+so you can only choose between SD and eMMC functions.
+
 
 == FAN
+The BPI-R4Pro has two fan connectors, with pin assignments compatible with 4-wire PWM-controlled fans on Intel PC motherboards. +
+
+It operates with a 12V supply voltage and supports PWM speed control, but lacks a sense pin for speed detection.
+
+image::/bpi-r4_pro/bpi-r4pro-fan.png[bpi-r4pro-fan.png,width=200]
+
+image::/bpi-r4_pro/bpi-r4pro-fan2.png[bpi-r4pro-fan2.png,width=500]
 
 == RTC
 
