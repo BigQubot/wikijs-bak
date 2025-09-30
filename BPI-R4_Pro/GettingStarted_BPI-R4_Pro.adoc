@@ -1088,7 +1088,19 @@ BPI-R4Pro has  LEDs to indicate various operating states, including power, WiFi,
 
 
 == DC-IN 
+BPI-R4Pro requires a single +12V supply,and has multiple power supply , including DC power adapter, USB PD, POE, etc. 
+ +
+The supply voltage range is 9~24V, 12V or 20V is recommended, and it will automatically shut down when it exceeds 25.3V.
+
 === DCIN(5521)
+You can use a 12V/5A power adapter and plug it into the CN44 to power it. +
+However, if other power supply  exist at the same time, it will be switched to other power supply. +
+
+The dimensions of the CN44 slot are as follows(Inner Positive, Outer Negative):
+
+image::/bpi-r4_pro/bpi-r4pro-dc5521.png[bpi-r4pro-dc5521.png,width=300]
+
+
 === DCIN(VH396)
 === USB TypeC PD
 === POE
