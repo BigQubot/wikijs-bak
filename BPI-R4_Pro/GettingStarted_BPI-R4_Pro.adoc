@@ -1003,6 +1003,24 @@ image::/bpi-r4_pro/bpi-r4pro-bkey_pcie.png[bpi-r4pro-bkey_pcie.png,width=500]
 
 
 == M.2 M-KEY Slot(For PCIe NVME SSD)
+The size of the M.2 M-KEY Slot is 2280, which can be connected to PCIe NVME SSD or PCIe to SATA, PCIe to Ethernet and other modules. +
+
+However, because the PCIe signal is multiplexed with the M.2 B-KEY Slot,  +
+if you want to use it in the M.2 M-KEY Slot, you need to set GPIO79 or GPIO63 output high,  +
+so that the corresponding signal can be switched over.
+
+[%collapsible]
+====
+[options="header",cols="3,3,3",width="80%"]
+|====
+3+| **M.2 M-KEY Slot PCIe**
+|GPIO |	Output=High	 |Output=Low
+|GPIO79/PCIE_1L0_SEL_1p8V		 |PCIE_1L_0 = M.2 M-KEY(CN13)		|PCIE_1L_0 = M.2 B-KEY(CN15)
+|GPIO63/PCIE_1L1_SEL_1p8V		 |PCIE_1L_1 = M.2 M-KEY(CN14)		|PCIE_1L_1 = M.2 B-KEY(CN18)
+|====
+====
+
+
 
 == USB connector
 === USB3.2 connector
