@@ -1060,6 +1060,8 @@ These two FAN connectors are controlled by the same PWM (GPIO57_PWMD0). +
 image::/bpi-r4_pro/bpi-r4pro-fan4.png[bpi-r4pro-fan4.png,width=500]
 
 == RTC
+Built-in RTC clock chip, and you only need to install a CR1220, 3V battery to work.
+
 
 == EEPROM
 
