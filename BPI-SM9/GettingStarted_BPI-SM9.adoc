@@ -83,6 +83,15 @@ NOTE: For the level selection of different modules, here it is assumed that 1.8V
 
 = Accessories
 
+== SD card burn image
+
+. First, download the corresponding SD card burning package, and then copy the files in it to the SD card.
+
+. Insert the card into the BPI-SM9 and power it on to start.
+
+. Finally, it will automatically be updated and burned.
+
+image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_sd_burn1.jpg[bananapi-pi_sm9_sd_burn1.jpg]
 
 == USB3.0
 
