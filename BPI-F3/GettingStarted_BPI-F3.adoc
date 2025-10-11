@@ -326,6 +326,30 @@ cd v24.04.30
 ./compile.sh build BOARD=bananapif3 BRANCH=legacy BUILD_DESKTOP=yes BUILD_MINIMAL=no DESKTOP_APPGROUPS_SELECTED= DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base KERNEL_CONFIGURE=no RELEASE=mantic
 ```
 
+== RTC
+NOTE: After the system is powered on, the RTC will automatically synchronize the system time. You can use commands to query the system time and the RTC time. The system time here is CST time, while the RTC shows UTC time. The difference of 8 hours is within the normal range.
+
+image::/bpi-f3/banana_pi_bpi-f3_rtc1.jpg[banana_pi_bpi-f3_rtc1.jpg]
+. Connect the battery to the RTC interface of F3.Then Connect the power supply of BPI-F3 and turn on the power to start the device.Connect to the network to obtain real-time time.
++
+```sh
+root@k1:~# date
+2025年 10月 11日 星期六 14:25:47 CST
+root@k1:~# cat /sys/class/rtc/rtc0/{date,time}
+2025-10-11
+06:25:59
+```
+
+. Turn off the power supply and disconnect the network cable. Wait for a while. After powering on again, it was confirmed that the RTC time was operating correctly, but the system time could not be synchronized as the network cable was disconnected.
++
+```sh
+root@k1:~# date
+2025年 10月 11日 星期六 14:02:48 CST
+root@k1:~# cat /sys/class/rtc/rtc0/{date,time}
+2025-10-11
+06:38:37
+```
+
 == FAN
 ```sh
 echo 0 > /sys/class/pwm/pwmchip1/export
