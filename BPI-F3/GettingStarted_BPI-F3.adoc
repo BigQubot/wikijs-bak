@@ -204,6 +204,24 @@ After clicking "Start writing number", you may be asked to enter again. Re-enter
 
 
 = Other Development
+
+== Network
+There are 2 Gigabit Ethernet ports here (one of which can also use POE module to supply power to BPI-F3 when available).
+
+image::/bpi-f3/banana_pi_bpi-f3_network1.jpg[banana_pi_bpi-f3_network1.jpg]
+
+Connect the network cable to the F3 board and conduct the test using iperf3.
+
+=== RJ45_1
+
+image::/bpi-f3/banana_pi_bpi-f3_network2.jpg[banana_pi_bpi-f3_network2.jpg]
+
+=== RJ45_2
+
+image::/bpi-f3/banana_pi_bpi-f3_network3.jpg[banana_pi_bpi-f3_network3.jpg]
+
+The network speeds of both network interfaces can almost reach 1000 Mbit/s.
+
 == WiFi/BT
 **You have two ways to setup WiFi**
 
