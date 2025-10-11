@@ -271,6 +271,52 @@ image::/bpi-f3/banana_pi_bpi-f3_m2_keym_3.jpg[banana_pi_bpi-f3_m2_keym_3.jpg]
 
 . Now it has been identified and this device can be used.
 
+=== mPCIe
+
+Here we take the EC25-E module as an example.
+
+. Insert the SIM card and the EC25-E module onto the BPI-F3, and then power it on to start.
++
+image::/bpi-f3/banana_pi_bpi-f3_mpcie_1.jpg[banana_pi_bpi-f3_mpcie_1.jpg]
+
+. Use the instruction query module to check the status.
++
+```sh
+lsusb
+```
+image::/bpi-f3/banana_pi_bpi-f3_mpcie_2.jpg[banana_pi_bpi-f3_mpcie_2.jpg]
+
+. Use the AT command to query the module and SIM card status
++
+```sh
+AT+CGMM   //Module status
+AT+CPIN?  //SIM card status
+```
+image::/bpi-f3/banana_pi_bpi-f3_mpcie_3.jpg[banana_pi_bpi-f3_mpcie_3.jpg]
+
+. Use nmcli to enable the module for dialing.
++
+```sh
+root@k1:~# nmcli connection delete wwan
+成功删除连接 "wwan" (cf521d55-c9b0-48d3-96b7-d544cee4b054)。
+root@k1:~# nmcli connection add type gsm ifname "*" con-name wwan apn cmnet
+连接 "wwan" (cc1953ac-27d9-4bed-98c7-2256c6c6135a) 已成功添加。
+root@k1:~#
+root@k1:~#
+root@k1:~#
+root@k1:~# nmcli connection up wwan
+连接已成功激活（D-Bus 活动路径：/org/freedesktop/NetworkManager/ActiveConnection/3）
+```
+
+. you can see that the wwan0 interface has been assigned an IP address.
++
+image::/bpi-f3/banana_pi_bpi-f3_mpcie_4.jpg[banana_pi_bpi-f3_mpcie_4.jpg]
+
+.  by using the ping command to test the external network, it can be seen that the system is now able to access the internet normally.
++
+image::/bpi-f3/banana_pi_bpi-f3_mpcie_5.jpg[banana_pi_bpi-f3_mpcie_5.jpg]
+
+
 == Armbian Compilation
 Perform the following three steps to complete the armbian image.
 
