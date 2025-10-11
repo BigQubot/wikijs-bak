@@ -251,6 +251,26 @@ sudo rfcomm bind /dev/rfcomm0 xx:xx:xx:xx
 sudo cat >/dev/rfcomm0
 ```
 
+== Storage
+
+=== KEY.M
+This interface allows you to connect SSDs that comply with the NMVe protocol, or you can use other compatible KEY.M adapter boards.
+
+Take the conversion from KEY.M to STAT as an example
+
+. Connect the equipment to the BPI-F3 board.
++
+image::/bpi-f3/banana_pi_bpi-f3_m2_keym_2.jpg[banana_pi_bpi-f3_m2_keym_2.jpg]
+
++
+image::/bpi-f3/banana_pi_bpi-f3_m2_keym_1.jpg[banana_pi_bpi-f3_m2_keym_1.jpg]
+
+. Query the storage of the corresponding device
++
+image::/bpi-f3/banana_pi_bpi-f3_m2_keym_3.jpg[banana_pi_bpi-f3_m2_keym_3.jpg]
+
+. Now it has been identified and this device can be used.
+
 == Armbian Compilation
 Perform the following three steps to complete the armbian image.
 
