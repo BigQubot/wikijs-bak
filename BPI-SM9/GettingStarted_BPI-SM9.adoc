@@ -202,6 +202,9 @@ image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_uart3.jpg[bananapi-pi_sm9_u
 = GPIO Define
 == 40-pin interface
 NOTE: The default level of the 40-pin GPIO is 3.3V (except for the 5V pin)
+[%collapsible]
+====
+
 [options="header",cols="3,1,1,4",width="70%"]
 |====
 4+| **BPI-SM9 40 PIN Header GPIO define of BPI-SM9**
@@ -226,3 +229,5 @@ NOTE: The default level of the 40-pin GPIO is 3.3V (except for the 5V pin)
 | UART1_CTS | 35 | 36 | I2S0_LRCK
 | I2S0_SDIN | 37 | 38 | SPI1_MOSI
 | I2S0_SDOUT | 39 | 40 | GND
+
+====
