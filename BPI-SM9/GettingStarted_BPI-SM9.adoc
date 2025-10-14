@@ -94,6 +94,22 @@ NOTE: Please pay attention to whether the TF card clips on the board are correct
 
 image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_sd_burn1.jpg[bananapi-pi_sm9_sd_burn1.jpg]
 
+
+== OTG typeC burn image
+
+. Please download and unzip the tool flashing package "usb_tool".
+. Double-click on CviUsbInstallDriver.exe to install the driver for your PC.
+. Open the Windows Command Prompt in the directory of the usb_dl.exe file and enter:
++
+```bash
+./usb_dl.exe -c cv186x -i usb\
+```
+image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_otgburn1.jpg[bananapi-pi_sm9_otgburn1.jpg]
+
+. When the above interface appears, simply reinsert and remove the OTG type C interface to proceed with the burning process.
+
+image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_otgburn2.jpg[bananapi-pi_sm9_otgburn2.jpg]
+
 == USB3.0
 
 image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_usbport1.jpg[bananapi-pi_sm9_usbport1.jpg]
