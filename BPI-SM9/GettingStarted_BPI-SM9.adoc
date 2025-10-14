@@ -304,3 +304,85 @@ NOTE: The default level of the 40-pin GPIO is 3.3V (except for the 5V pin)
 
 ====
 
+== Camera interface
+=== Camera1
+[%collapsible]
+====
+
+[options="header",cols="1,1,1",width="70%"]
+|====
+3+| **BPI-SM9 Camera1 of JP13**
+|PIN	| Definition		| Level	
+| 1 | GND | /
+| 2 | NC | / 
+| 3 | CSI2_D0_N | 1V8
+| 4 | NC | /
+| 5 | CSI2_D0_P | 1V8 
+| 6 | NC | /
+| 7 | GND | /
+| 8 | NC | /
+| 9 | CSI2_D1_N | 1V8
+| 10 | NC | 1V8 
+| 11 | CSI2_D1_P | 1V8
+| 12 | NC | /
+| 13 | GND | / 
+| 14 | NC | /
+| 15 | CSI2_CLK_N | 1V8
+| 16 | NC | /
+| 17 | CSI2_CLK_P | 1V8 
+| 18 | NC | /
+| 19 | GND | /
+| 20 | NC | /
+| 21 | CAM1_PWDN | 1V8
+| 22 | NC | /
+| 23 | CAM1_MCLK | 1V8
+| 24 | NC | /
+| 25 | CAM1_I2C_SCL | 3V3 
+| 26 | NC | / 
+| 27 | CAM1_I2C_SDA | 3V3
+| 28 | NC | /
+| 29 | 3V3 | 3V3 
+| 30 | NC | /
+
+====
+
+=== Camera2
+[%collapsible]
+====
+
+[options="header",cols="1,1,1",width="70%"]
+|====
+3+| **BPI-SM9 Camera2 of JP49**
+|PIN	| Definition		| Level	
+| 1 | GND | /
+| 2 | NC | / 
+| 3 | CSI0_D0_N | 1V8
+| 4 | NC | /
+| 5 | CSI0_D0_P | 1V8 
+| 6 | NC | /
+| 7 | GND | /
+| 8 | NC | /
+| 9 | CSI0_D1_N | 1V8
+| 10 | NC | 1V8 
+| 11 | CSI0_D1_P | 1V8
+| 12 | NC | /
+| 13 | GND | / 
+| 14 | NC | /
+| 15 | CSI0_CLK_N | 1V8
+| 16 | NC | /
+| 17 | CSI0_CLK_P | 1V8 
+| 18 | NC | /
+| 19 | GND | /
+| 20 | NC | /
+| 21 | CAM0_PWDN | 1V8
+| 22 | NC | /
+| 23 | CAM0_MCLK | 1V8
+| 24 | NC | /
+| 25 | CAM0_I2C_SCL | 3V3 
+| 26 | NC | / 
+| 27 | CAM0_I2C_SDA | 3V3
+| 28 | NC | /
+| 29 | 3V3 | 3V3 
+| 30 | NC | /
+
+====
