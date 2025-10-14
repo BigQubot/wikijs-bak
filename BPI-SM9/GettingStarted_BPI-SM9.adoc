@@ -248,3 +248,19 @@ NOTE: The default level of the 40-pin GPIO is 3.3V (except for the 5V pin)
 
 ====
 
+== POE interface
+
+[%collapsible]
+====
+
+[options="header",cols="1,1,1",width="70%"]
+|====
+3+| **BPI-SM9 POE interface of BPI-SM9**
+|PIN	| Definition		| Level	
+| 1 | POE_VC2 | / 
+| 2 | POE_VC1 | / 
+| 3 | POE_VC4 | /
+| 4 | POE_VC3 | /
+
+====
+
