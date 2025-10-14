@@ -231,3 +231,20 @@ NOTE: The default level of the 40-pin GPIO is 3.3V (except for the 5V pin)
 | I2S0_SDOUT | 39 | 40 | GND
 
 ====
+
+== Fan control interface
+
+[%collapsible]
+====
+
+[options="header",cols="1,1,1",width="70%"]
+|====
+3+| **BPI-SM9 Fan control interface of BPI-SM9**
+|PIN	| Definition		| Level	
+| 1 | GND | / 
+| 2 | 5V | 5V 
+| 3 | TACH | 5V
+| 4 | PWM | 5V 
+
+====
+
