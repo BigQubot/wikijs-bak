@@ -207,7 +207,7 @@ NOTE: The default level of the 40-pin GPIO is 3.3V (except for the 5V pin)
 
 [options="header",cols="3,1,1,4",width="70%"]
 |====
-4+| **BPI-SM9 40 PIN Header GPIO define of BPI-SM9**
+4+| **BPI-SM9 40 PIN Header GPIO define of JP41**
 |BPI-SM9-CON	|PIN		|PIN	|BPI-SM9-CON
 | 5V | 1 | 2 | 3V3
 | 5V | 3 | 4 | I2C1_SDA
@@ -239,7 +239,7 @@ NOTE: The default level of the 40-pin GPIO is 3.3V (except for the 5V pin)
 
 [options="header",cols="1,1,1",width="70%"]
 |====
-3+| **BPI-SM9 Fan control interface of BPI-SM9**
+3+| **BPI-SM9 Fan control interface of JP4**
 |PIN	| Definition		| Level	
 | 1 | GND | / 
 | 2 | 5V | 5V 
@@ -255,12 +255,52 @@ NOTE: The default level of the 40-pin GPIO is 3.3V (except for the 5V pin)
 
 [options="header",cols="1,1,1",width="70%"]
 |====
-3+| **BPI-SM9 POE interface of BPI-SM9**
+3+| **BPI-SM9 POE interface of JP38**
 |PIN	| Definition		| Level	
 | 1 | POE_VC2 | / 
 | 2 | POE_VC1 | / 
 | 3 | POE_VC4 | /
 | 4 | POE_VC3 | /
+
+====
+
+== CANH/L interface
+
+[%collapsible]
+====
+
+[options="header",cols="1,1,1",width="70%"]
+|====
+3+| **BPI-SM9 CANH/L interface of JP5**
+|PIN	| Definition		| Level	
+| 1 | CANH | 3V3 
+| 2 | CANL | 3V3 
+| 3 | GND | /
+| 4 | 3V3 | 3V3
+
+====
+
+== 12-pin interface
+
+[%collapsible]
+====
+
+[options="header",cols="1,1,1",width="70%"]
+|====
+3+| **BPI-SM9 12-pin interface of JP50**
+|PIN	| Definition		| Level	
+| 1 | PC_LED- | 5V 
+| 2 | PC_LED+ | 5V 
+| 3 | UART2_RX | 3V3
+| 4 | UART2_TX | 3V3
+| 5 | LATCH_SET | 5V 
+| 6 | LATCH_SET_BUT | 5V
+| 7 | GND | /
+| 8 | SYS_RST | 1V8
+| 9 | GND | /
+| 10 | FORCE_RECOVERY | 1V8 
+| 11 | GND | /
+| 12 | PWR_BTN | 5V
 
 ====
 
