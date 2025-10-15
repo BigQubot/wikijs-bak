@@ -1114,6 +1114,8 @@ It is recommended to use a PD power supply that can output 20V and 65W or more. 
 === POE
 You can use the BPI-RT5400-12V module, but this module does not exceed 30W at most. So when more peripherals are connected, the power consumption will exceed the maximum power of RT5400. Therefore, it is recommended to change to other power supply.
 
+image::/bpi-r4_pro/bpi-r4pro-poe.png[bpi-r4pro-poe.png,width=500]
+
 
 
 == DC-OUT
