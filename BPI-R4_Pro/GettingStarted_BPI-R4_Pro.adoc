@@ -256,6 +256,13 @@ Or you can also insert a 10G XGSPON Stick to access the Telecom operator's netwo
  +
 
 
+NOTE: Our default image configuration: After inserting the SFP module, USXGMII will automatically switch to 10G SFP+, and 10G RJ45 will not be usable；  +
+**Therefore, if you want to use 10G RJ45, do NOT insert the module on SFP+. **
+
+
+
+
+
 [%collapsible]
 ====
 
@@ -433,6 +440,14 @@ At this time, 10G SFP+ LAN is functional, but 10G RJ45 LAN will be ineffective.
 
 Now, you can insert a 10G SFP+ Copper/Fibre Module to get a 10G network interface. +
  +
+
+
+
+NOTE: Our default image configuration: After inserting the SFP module, USXGMII will automatically switch to 10G SFP+, and 10G RJ45 will not be usable；  +
+**Therefore, if you want to use 10G RJ45, do NOT insert the module on SFP+. **
+
+
+
 
 
 ==== 10G RJ45 LAN(Only available on 8X)
