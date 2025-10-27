@@ -352,6 +352,15 @@ $ sudo sh -c 'echo 1 > /sys/class/hwmon/hwmon3/fan1_target'
 $ sudo sh -c 'echo 0 > /sys/class/hwmon/hwmon3/fan1_target'
 ```
 
+== ADC
+There have 3 units 12-bit adc in RZV2N, up to 8 channels per unit. The board adc pin header CN3 connected to adc1.
+
+Read the adc data from iio sysfs
+
+```sh
+$ cat /sys/bus/iio/devices/iio:device1/in_voltage0_raw
+```
+
 == M.2 NVME
 The board has a PCIe ×2 m.2 M-key connector (Pcie 3.0), and standard M.2 2280 mounting hole, allowing for the deployment of an M.2 2280 NVMe SSD.
 
@@ -457,6 +466,7 @@ Discovery started
 == Camera
 
 == Type-C OTG
+The USB Type-c port Only support device mode.
 
 == DTB overlay
 DTB overlay is used for 40pin gpios multi-function configuration 
