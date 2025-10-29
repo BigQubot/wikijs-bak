@@ -186,6 +186,26 @@ sudo chmod +x /usr/bin/rknn_server /usr/bin/start_rknn.sh
 restart_rknn.sh # Restart the NPU service
 ```
 
+Compile the official examples (to verify NPU functionality):
+```
+cd src/rknn_model_zoo
+./build-linux.sh -t rk3588 -a aarch64 # Compile examples for RK3588
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
