@@ -173,7 +173,7 @@ Install the RKNN toolkit (make sure to match the RK3588's arm64 architecture and
 cd rknn-toolkit2/rknn-toolkit2
 pip install -r packages/arm64/arm64_requirements_cp310.txt && pip install packages/arm64/rknn_toolkit2-2.3.2-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
 ```
-Verify that the installation is successful: Enter **Python** interactive mode and enter "**from rknn.api import RKNN**". If no error is reported, it means it is OK.
+Verify that the installation is successful: Enter `Python*` interactive mode and enter `from rknn.api import RKNN`. If no error is reported, it means it is OK.
 
 Deploy the libraries used by the NPU runtime:
 
@@ -191,14 +191,40 @@ Compile the official examples (to verify NPU functionality):
 cd src/rknn_model_zoo
 ./build-linux.sh -t rk3588 -a aarch64 # Compile examples for RK3588
 ```
+Pitfall: When running the example, the library file may not be found. Solution:
+```
+cd /usr
+sudo mkdir lib64 # Create the lib64 directory
+sudo ln -s /usr/lib/librknnrt.so /usr/lib64/librknnrt.so # Create a symbolic link
+```
 
+=== From Camera Streaming to Model Inference
+The environment is set up, time to get hands-on! We'll share 3 practical examples, covering everything from basic to advanced.
 
+1、 Real-time Object Detection: Recognizing Objects with a Gemini2 Camera + YOLOv5
 
+This example allows you to see the camera's live feed and outline detected objects (such as people, cars, phones, etc.) on the screen.
 
+Steps:
+Replace the example folder: Copy `src/ros_docker_image/object_detection` to `src/pyorbbecsdk/examples/` (overwriting the original folder).
 
+Activate the environment and configure the path:
+```
+source src/pyorbbecsdk/venv/bin/activate
+cd src/pyorbbecsdk
+export PYTHONPATH=$PYTHONPATH:$(pwd)/install/lib/
+```
+Run the program:
+```
+cd examples/object_detection
+python object_detection_sw_align.py
+```
 
+Regarding custom models: If you want to use your own trained YOLO model, simply modify two parameters in object_detection_sw_align.py:
 
+**coco.names**: Replace with your class name file
 
+**models/yolov5s.onnx**: Replace with your model file path
 
 
 
