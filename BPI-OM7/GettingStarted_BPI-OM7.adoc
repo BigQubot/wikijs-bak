@@ -173,10 +173,18 @@ Install the RKNN toolkit (make sure to match the RK3588's arm64 architecture and
 cd rknn-toolkit2/rknn-toolkit2
 pip install -r packages/arm64/arm64_requirements_cp310.txt && pip install packages/arm64/rknn_toolkit2-2.3.2-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
 ```
+Verify that the installation is successful: Enter **Python** interactive mode and enter "**from rknn.api import RKNN**". If no error is reported, it means it is OK.
 
+Deploy the libraries used by the NPU runtime:
 
-
-
+```
+cd rknn-toolkit2/rknpu2 # Enter the NPU runtime directory
+sudo cp runtime/Linux/rknn_server/aarch64/usr/bin/* /usr/bin/
+sudo cp runtime/Linux/librknn_api/aarch64/librknnrt.so /usr/lib
+sudo chmod +x /usr/bin/rknn_server /usr/bin/start_rknn.sh
+/usr/bin/restart_rknn.sh
+restart_rknn.sh # Restart the NPU service
+```
 
 
 
