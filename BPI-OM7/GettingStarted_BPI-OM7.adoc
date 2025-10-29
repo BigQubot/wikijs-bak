@@ -99,3 +99,110 @@ Use Docker to isolate the environment, avoid dependency conflicts, and deploy th
 
 1、 Build a dedicated Docker image
 
+First, grant the current user permission to access the display interface (otherwise, the Qt window won't open later):
+```
+xhost +local: # Execute on the host machine to allow the local container to access the display.
+```
+Then import and tag the image:
+```
+cd ~/ros2_ws/src/ros_docker_image/image
+docker load -i ros_humble.tar # Import the base image
+docker tag ros:humble my_gemini2_camera # Give the image a memorable name, such as "My Gemini2 
+```
+Camera Environment." Navigate to the directory containing the Dockerfile and build the custom image (this step may take 10-20 minutes; ensure a clear network connection):
+```
+cd ~/ros2_ws/src/ros_docker_image # Switch to the directory containing the Dockerfile.
+docker build -t my_gemini2_camera . # Note the trailing "."
+```
+
+2、Start the container
+
+Use the existing script to start the container (the parameters are important, don't make any mistakes):
+```
+./run_ros2_docker.sh devcamnpu # devcamnpu is a default parameter corresponding to the camera + NPU configuration.
+```
+
+Docker Tips:
+
+Exit a container: Type exit View all containers (including stopped ones): **docker ps -a**
+
+Reenter a stopped container: **docker start -ai container ID** (remember to execute **xhost +local**: on the host machine before reentering)
+
+Open a new terminal and enter a running container: **docker exec -it container ID /bin/bash**
+
+3、Deploy pyorbbecsdk: Make the development board "recognize" the camera.
+
+First, execute the following commands in the host terminal:
+```
+cd ~/ros2_ws/src/pyorbbecsdk
+export PYTHONPATH=$PYTHONPATH:$(pwd)/install/lib/
+sudo bash ./scripts/install_udev_rules.sh
+sudo udevadm control --reload-rules && sudo udevadm trigger
+```
+Then, enter the container and deploy the Gemini2 camera SDK:
+```
+cd src/pyorbbecsdk # Enter the SDK directory
+python3 -m venv ./venv # Create a virtual environment to isolate Python dependencies
+source venv/bin/activate # Activate the virtual environment (required, otherwise dependencies won't be found)
+pip3 install -r requirements.txt # Install dependency packages
+```
+Compile and install the SDK:
+```
+mkdir build # Create a build directory
+cd build
+cmake -Dpybind11_DIR=`pybind11-config --cmakedir` .. # Configure compilation parameters
+make -j4 # Compile with 4 threads for speed
+make install # Install to the system
+```
+Key operation: Execute these two commands each time you re-enter the container, otherwise the camera program will report an error:
+```
+cd src/pyorbbecsdk # Change to the SDK directory
+export PYTHONPATH=$PYTHONPATH:$(pwd)/install/lib/ # Tell the system where the SDK is installed
+```
+
+4、Configuring the RKNPU: Getting the NPU Running
+
+The RK3588's NPU is a performance core, requiring manual toolchain deployment.
+
+First, activate the virtual environment (skip this if you've already done so): 
+```
+source src/pyorbbecsdk/venv/bin/activate
+```
+Install the RKNN toolkit (make sure to match the RK3588's arm64 architecture and Python version):
+```
+cd rknn-toolkit2/rknn-toolkit2
+pip install -r packages/arm64/arm64_requirements_cp310.txt && pip install packages/arm64/rknn_toolkit2-2.3.2-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
