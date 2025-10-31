@@ -224,7 +224,17 @@ Regarding custom models: If you want to use your own trained YOLO model, simply 
 
 **models/yolov5s.onnx**: Replace with your model file path
 
+2、Multi-stream Data Acquisition: Simultaneously Acquire Color, Depth, and Infrared Images
 
+The Gemini2 camera supports multiple image output types. This example displays three images simultaneously:
+```
+source src/pyorbbecsdk/venv/bin/activate
+cd src/pyorbbecsdk
+export PYTHONPATH=$PYTHONPATH:$(pwd)/install/lib/
+cd src/pyorbbecsdk/examples
+python multi_streams.py
+```
+After running, three windows will pop up, displaying the color image (RGB), the depth image (black and white, the brighter the image, the closer the image), and the infrared image (recognizable at night). This is suitable for applications such as 3D reconstruction and gesture recognition.
 
 
 
