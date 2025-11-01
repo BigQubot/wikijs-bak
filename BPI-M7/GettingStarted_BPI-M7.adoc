@@ -50,9 +50,14 @@ We don't have a 3-pin debugging interface on BPI-M7, so if you want to use ttl l
 
 Connect pins 6, 8, and 10 on the 40pin.
 
+
 image::/bpi-m7/bpi-m7_debug_interface_diagram.png[bpi-m7_debug_interface_diagram.png]
 
 The serial port baud rate is **1500000**. **Don't make the wrong choice.**
+
+= Flash image
+
+link:/en/BPI-M7/BananaPi_BPI-M7[How to Flash image to board]
 
 = Android
  
