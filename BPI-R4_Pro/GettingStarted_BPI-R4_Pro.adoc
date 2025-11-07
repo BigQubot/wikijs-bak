@@ -245,7 +245,8 @@ link:https://docs.banana-pi.org/en/BPI-R4/BananaPi_BPI-R4#_10g_sfp_module[Tested
 === 10G  WAN
 ==== Block Diagram
 
-image::/bpi-r4_pro/bpi-r4pro-10g_wan.png[bpi-r4pro-10g_wan.png,width=800]
+image::/bpi-r4_pro/bpi-r4pro-10g_wan-b.png[bpi-r4pro-10g_wan-b.png,width=800]
+
 
 ==== 10G SFP+ WAN
 When MT7988A's GPIO3 ouput=High, USXGMII Port1 switches to SFP+ WAN Port. +
