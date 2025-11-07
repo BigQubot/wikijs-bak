@@ -80,12 +80,15 @@ The SPI bootloader consists of three parts: the Flash Writer file, ATF firmware,
 
 - Flash bootloader via the serial port
 
-1. Copy Flash_Writer*.mot, bl2_bp_spi.srec, and fip.srec to your Windows PC
+1. Copy Flash_Writer*.mot, bl2_bp_spi.srec, and fip.srec to your Windows PC.
 2. Connect Windows PC to Board via usb cabe to typec port bellow core board.
 3. Change bootsel switch to SCIF download mode.
++
 image::/picture/ai2n-spiflash-bootsel.png[ai2n-spiflash-bootsel.png]
 
-4.
+4. dffd
+
+
 
 == Build Armbian Source Code
 
