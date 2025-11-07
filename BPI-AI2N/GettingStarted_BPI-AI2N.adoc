@@ -74,17 +74,15 @@ $ sudo armbian-config --cmd STO001
 +
 image::/picture/ai2n-armbian-install-emmc.png[ai2n-armbian-install-emmc.png]
 
-== Build Linux Source Code
-Get source code
+== Build Armbian Source Code
 
 ```sh
-$ git clone 
+$ git clone -b bpi-v25.8.1 https://github.com/BPI-SINOVOIP/armbian-build.git
+$ cd armbian-build
+$ ./compile.sh
 ```
-Build source code
 
-```sh
-$  
-```
+More info about armbian build, please refer to link:https://docs.armbian.com/Developer-Guide_Build-Preparation/[Armbian Build Framework Quick Start Guide]
 
 == First boot
 Insert the SD card into a slot and power on the board. The first boot will log you in automatically if you have connected a display via HDMI or if you are connected to the serial console.
@@ -1312,21 +1310,9 @@ umount SDcard device /dev/sdX partition if mounted automatically.
 ```
 
 == Build Yocoto AI SDK Source Code
-Get source code
 
-```sh
- $ git clone 
-```
-Build source code
+link:https://github.com/BPI-SINOVOIP/meta-bananapi/blob/bpi-ai2n/README.md[Build Guide]
 
-```sh
- $  
-```
+== Yocto AI SDK and AI Application
 
-== Yocto AI SDK Overview
-
-== Obtain Yocto AI SDK
-
-== Setup Yocto AI SDK
-
-== Build Yocto AI Application
+link:https://renesas-rz.github.io/rzv_ai_sdk/6.00/ai-sdk.html[Renesas Wiki]
