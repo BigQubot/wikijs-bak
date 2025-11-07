@@ -432,8 +432,8 @@ root@R4Pro-01i-NAND:~#
 
 === 10G LAN
 ==== Block Diagram
-image::/bpi-r4_pro/bpi-r4pro-10g_lan.png[bpi-r4pro-10g_lan.png,width=800]
 
+image::/bpi-r4_pro/bpi-r4pro-10g_lan-b.png[bpi-r4pro-10g_lan-b.png,width=800]
 
 ==== 10G SFP+ LAN
 When MT7988A's GPIO54 ouput=Low, MxL86252C's USXGMII1 switches to 10G SFP+ LAN Port. +
