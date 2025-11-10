@@ -81,7 +81,7 @@ The SPI bootloader consists of three parts: the Flash Writer file, ATF firmware,
 - Flash bootloader via the serial port
 
 1. Copy Flash_Writer*.mot, bl2_bp_spi.srec, and fip.srec to your Windows PC.
-2. Connect Windows PC to Board via usb cabe to typec port bellow core board.
+2. Connect Windows PC to Board via usb cabe to usb typec uart port bellow core board.
 3. Change Bootsel Switch to SCIF download mode.
 +
 image::/picture/ai2n-bootsel-scidownload.png[ai2n-bootsel-scidownload.png]
