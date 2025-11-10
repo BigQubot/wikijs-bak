@@ -86,7 +86,14 @@ The SPI bootloader consists of three parts: the Flash Writer file, ATF firmware,
 +
 image::/picture/ai2n-spiflash-bootsel.png[ai2n-spiflash-bootsel.png]
 
-4. dffd
+4. On Windows PC, open the terminal emulator. Here, we use link:https://github.com/TeraTermProject/teraterm/releases/tag/v4.108[Tera Term 4.108] as an example.
+5. Select "File" > "New Connection" and select "Serial" port as shown below.
+6. Open the configuration window from the "Setup">"Terminal" and change the setting as follows.
+7. Open the configuration window from the "Setup">"Serial port" and change the setting as follows.
+8. Connect the power cable to power on the board and following message will be displayed on the terminal.
+
+9. 
+
 
 
 
@@ -95,7 +102,7 @@ image::/picture/ai2n-spiflash-bootsel.png[ai2n-spiflash-bootsel.png]
 ```sh
 $ git clone -b bpi-v25.8.1 https://github.com/BPI-SINOVOIP/armbian-build.git
 $ cd armbian-build
-$ ./compile.sh
+$ ./compile.sh BOARD=bpi-ai2n BRANCH=legacy
 ```
 
 More info about armbian build, please refer to link:https://docs.armbian.com/Developer-Guide_Build-Preparation/[Armbian Build Framework Quick Start Guide]
