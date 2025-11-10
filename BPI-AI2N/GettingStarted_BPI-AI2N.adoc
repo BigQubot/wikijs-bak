@@ -76,7 +76,7 @@ image::/picture/ai2n-armbian-install-emmc.png[ai2n-armbian-install-emmc.png]
 
 == Flash Spi Bootloader
 
-The SPI bootloader consists of three parts: the Flash Writer file, ATF firmware, and U-Boot. There are three files: Flash_Writer*.mot, bl2_bp_spi.srec, and fip.srec, which can be found in the /boot directory of the Linux image.
+The SPI bootloader consists of three parts: the Flash Writer file, ATF firmware, and U-Boot. There are three files: Flash_Writer*.mot, bl2_bp_spi.srec(bl2_bp_spi.bin), and fip.srec(fip.bin), which can be found in the /boot directory of the Linux image.
 
 - Flash bootloader via the serial port
 
