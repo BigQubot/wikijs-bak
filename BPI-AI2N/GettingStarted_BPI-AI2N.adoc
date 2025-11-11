@@ -73,126 +73,6 @@ $ sudo armbian-config --cmd STO001
 +
 image::/picture/ai2n-armbian-install-emmc.png[ai2n-armbian-install-emmc.png]
 
-== Flash Spi Bootloader
-
-The SPI bootloader consists of three parts: the Flash Writer file, ATF firmware, and U-Boot. There are three files: Flash_Writer*.mot, bl2_bp_spi.srec(bl2_bp_spi.bin), and fip.srec(fip.bin), which can be found in the /boot directory of the Linux image.
-
-- Flash bootloader via the serial port
-
-1. Copy Flash_Writer*.mot, bl2_bp_spi.srec and fip.srec to your Windows PC.
-2. Connect Windows PC to Board via usb cabe to usb typec uart port bellow core board.
-3. Change Bootsel Switch to SCIF download mode.
-+
-image::/picture/ai2n-bootsel-scidownload.png[ai2n-bootsel-scidownload.png]
-4. On Windows PC, open the terminal emulator. Here, we use link:https://github.com/TeraTermProject/teraterm/releases/tag/v4.108[Tera Term 4.108] as an example.
-+
-Note: Select "Send in same way as Tera Term 4" in Send file Window if Tera Term 5.x version used.
-+
-image::/picture/ai2n-spiflash-teraterm5.png[ai2n-spiflash-teraterm5.png]
-5. Select "File" > "New Connection" and select "Serial" port as shown below.
-+
-image::/picture/ai2n-spiflash-serial1.png[ai2n-spiflash-serial1.png]
-6. Open the configuration window from the "Setup">"Terminal" and change the setting as follows.
-+
-image::/picture/ai2n-spiflash-serial2.png[ai2n-spiflash-serial2.png]
-7. Open the configuration window from the "Setup">"Serial port" and change the setting as follows.
-+
-image::/picture/ai2n-spiflash-serial3.png[ai2n-spiflash-serial3.png]
-8. Connect the power cable to power on the board and following message will be displayed on the terminal.
-+
-```sh
-SCI Download mode (Normal SCI boot)
--- Load Program to SRAM ---------------
-```
-9. Open "File" > "Send file..." and send the Flash Writer file (*.mot) as a text. If following message is displayed, the file transfer succeeded.
-+
-```sh
-Flash writer for RZ/V2x Series Vx.xx xxx.xx,20xx
- Product Code : RZ/V2x
->
-```
-10. Enter "XLS2" on the terminal to get following messages.
-+
-```sh
-> XLS2
-===== Qspi writing of RZ/V2x Board Command =============
-Load Program to Spiflash
-Writes to any of SPI address.
-Program size & Qspi Save Address
-===== Please Input Program Top Address ============
-  Please Input : H'
-```
-11. Enter "8101e00". The log continues.
-+
-```sh
-  Please Input : H'8101e00
-===== Please Input Qspi Save Address ===
-  Please Input : H'
-```
-12. Enter "00000". The log continues.
-+
-```sh
-  Please Input : H'00000
-please send ! ('.' & CR stop load)
-```
-13. After the "please send!" message, open "File" > "Send file..." and send the bl2_bp_spi-rzv2*.srec file as a text from the terminal software.
-14. In case a message to prompt to clear data like below, please enter "y".
-+
-```sh
-SPI Data Clear(H'FF) Check : H'00000000-0000FFFF,Clear OK?(y/n)
-```
-15. Following log will be displayed. The end address is depending on the version of AI SDK.
-+
-```sh
-Write to SPI Flash memory.
-======= Qspi Save Information =================
-SpiFlashMemory Stat Address : H'00000000
-SpiFlashMemory End Address  : H'00036D17
-===========================================================
-```
-16. Enter "XLS2" on the terminal to get following messages.
-+
-```sh
-> XLS2
-===== Qspi writing of RZ/V2x Board Command =============
-Load Program to Spiflash
-Writes to any of SPI address.
-Program size & Qspi Save Address
-===== Please Input Program Top Address ============
-  Please Input : H'
-```
-17. Enter "00000". The log continues.
-+
-```sh
-  Please Input : H'00000
-===== Please Input Qspi Save Address ===
-  Please Input : H'
-```
-18. Enter "60000". The log continues.
-+
-```sh
-  Please Input : H'60000
-please send ! ('.' & CR stop load)
-```
-19. After the "please send!" message, open "File" > "Send file..." and send the fip-rzv2*.srec file as a text from the terminal software.
-20. In case a message to prompt to clear data like below, please enter "y".
-+
-```sh
-SPI Data Clear(H'FF) Check : H'00000000-0000FFFF,Clear OK?(y/n)
-```
-21. Following log will be displayed. The end address is depending on the version of AI SDK.
-+
-```sh
-Write to SPI Flash memory.
-======= Qspi Save Information =================
-SpiFlashMemory Stat Address : H'00060000
-SpiFlashMemory End Address  : H'0011C2EE
-===========================================================
-```
-22. Power-off the board and change Bootsel Switch to default Boot Mode for booting the board.
-+
-image::/picture/ai2n-bootsel-spiboot.png[ai2n-bootsel-spiboot.png]
-
 == Build Armbian Source Code
 
 ```sh
@@ -1438,6 +1318,127 @@ link:https://github.com/BPI-SINOVOIP/meta-bananapi/blob/bpi-ai2n/README.md[Build
 link:https://renesas-rz.github.io/rzv_ai_sdk/6.00/ai-sdk.html[Renesas Wiki]
 
 = Other Development
+
+== Flash Spi Bootloader
+
+The SPI bootloader consists of three parts: the Flash Writer file, ATF firmware, and U-Boot. There are three files: Flash_Writer*.mot, bl2_bp_spi.srec(bl2_bp_spi.bin), and fip.srec(fip.bin), which can be found in the /boot directory of the Linux image.
+
+- Flash bootloader via the serial port
+
+1. Copy Flash_Writer*.mot, bl2_bp_spi.srec and fip.srec to your Windows PC.
+2. Connect Windows PC to Board via usb cabe to usb typec uart port bellow core board.
+3. Change Bootsel Switch to SCIF download mode.
++
+image::/picture/ai2n-bootsel-scidownload.png[ai2n-bootsel-scidownload.png]
+4. On Windows PC, open the terminal emulator. Here, we use link:https://github.com/TeraTermProject/teraterm/releases/tag/v4.108[Tera Term 4.108] as an example.
++
+Note: Select "Send in same way as Tera Term 4" in Send file Window if Tera Term 5.x version used.
++
+image::/picture/ai2n-spiflash-teraterm5.png[ai2n-spiflash-teraterm5.png]
+5. Select "File" > "New Connection" and select "Serial" port as shown below.
++
+image::/picture/ai2n-spiflash-serial1.png[ai2n-spiflash-serial1.png]
+6. Open the configuration window from the "Setup">"Terminal" and change the setting as follows.
++
+image::/picture/ai2n-spiflash-serial2.png[ai2n-spiflash-serial2.png]
+7. Open the configuration window from the "Setup">"Serial port" and change the setting as follows.
++
+image::/picture/ai2n-spiflash-serial3.png[ai2n-spiflash-serial3.png]
+8. Connect the power cable to power on the board and following message will be displayed on the terminal.
++
+```sh
+SCI Download mode (Normal SCI boot)
+-- Load Program to SRAM ---------------
+```
+9. Open "File" > "Send file..." and send the Flash Writer file (*.mot) as a text. If following message is displayed, the file transfer succeeded.
++
+```sh
+Flash writer for RZ/V2x Series Vx.xx xxx.xx,20xx
+ Product Code : RZ/V2x
+>
+```
+10. Enter "XLS2" on the terminal to get following messages.
++
+```sh
+> XLS2
+===== Qspi writing of RZ/V2x Board Command =============
+Load Program to Spiflash
+Writes to any of SPI address.
+Program size & Qspi Save Address
+===== Please Input Program Top Address ============
+  Please Input : H'
+```
+11. Enter "8101e00". The log continues.
++
+```sh
+  Please Input : H'8101e00
+===== Please Input Qspi Save Address ===
+  Please Input : H'
+```
+12. Enter "00000". The log continues.
++
+```sh
+  Please Input : H'00000
+please send ! ('.' & CR stop load)
+```
+13. After the "please send!" message, open "File" > "Send file..." and send the bl2_bp_spi-rzv2*.srec file as a text from the terminal software.
+14. In case a message to prompt to clear data like below, please enter "y".
++
+```sh
+SPI Data Clear(H'FF) Check : H'00000000-0000FFFF,Clear OK?(y/n)
+```
+15. Following log will be displayed. The end address is depending on the version of AI SDK.
++
+```sh
+Write to SPI Flash memory.
+======= Qspi Save Information =================
+SpiFlashMemory Stat Address : H'00000000
+SpiFlashMemory End Address  : H'00036D17
+===========================================================
+```
+16. Enter "XLS2" on the terminal to get following messages.
++
+```sh
+> XLS2
+===== Qspi writing of RZ/V2x Board Command =============
+Load Program to Spiflash
+Writes to any of SPI address.
+Program size & Qspi Save Address
+===== Please Input Program Top Address ============
+  Please Input : H'
+```
+17. Enter "00000". The log continues.
++
+```sh
+  Please Input : H'00000
+===== Please Input Qspi Save Address ===
+  Please Input : H'
+```
+18. Enter "60000". The log continues.
++
+```sh
+  Please Input : H'60000
+please send ! ('.' & CR stop load)
+```
+19. After the "please send!" message, open "File" > "Send file..." and send the fip-rzv2*.srec file as a text from the terminal software.
+20. In case a message to prompt to clear data like below, please enter "y".
++
+```sh
+SPI Data Clear(H'FF) Check : H'00000000-0000FFFF,Clear OK?(y/n)
+```
+21. Following log will be displayed. The end address is depending on the version of AI SDK.
++
+```sh
+Write to SPI Flash memory.
+======= Qspi Save Information =================
+SpiFlashMemory Stat Address : H'00060000
+SpiFlashMemory End Address  : H'0011C2EE
+===========================================================
+```
+22. Power-off the board and change Bootsel Switch to default Boot Mode for booting the board.
++
+image::/picture/ai2n-bootsel-spiboot.png[ai2n-bootsel-spiboot.png]
+
 == How to erase emmc
 Bootup the board with sdcard, erase the emmc with dd command as follows.
 ```sh
