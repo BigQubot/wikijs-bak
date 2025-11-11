@@ -141,7 +141,31 @@ image::/bpi-2k3000/banana_pi_bpi-2k3000_base_board_interface.jpg[banana_pi_bpi-2
 
 Banana Pi 开源硬件社区与深圳市吉斯凯达公司紧密合作，基于吉斯凯达强大的工业软件能力，共同为客户提供产品级的整体解决方案。
 
+== 软件主要支持技术
 
+[options="header",cols="1,5"]
+|====
+2+| BPI-2K3000软件及解决方案支持
+|数据库|达梦，MySQL，PostGreSQL，海量，TIDB，Influxdb
+|PLC|Beremiz
+.2+|网关
+|CSGateway（海量协议库，支持300+电力、水务、水利、环境、PLC、物联网等行业），
+|支持：节点主备冗余/网络冗余/通道冗余
+.2+|视频
+|CSVideo（RTSP/RTMP协议，嵌入式流媒体服务器，报警联动录像，NVR功能）
+|Onvif/GB28181
+|HMI|GS-X5/HMI（CS架构嵌入式HMI、B/S架构HMI服务器/HMI）
+.2+|SCADA
+|GS-X5/SCADA（CS架构嵌入式SCADA、B/S架构SCADA）
+|支持：节点冗余/网络冗余/通道冗余
+|AI|支持多款M.2算力卡
+|驱动支持 |提供完整外设驱动,BSP（板级支持包）
+|开发工具|SDK（支持交叉编译）,调试工具（JTAG/SWD） 
+.3+|认证与可靠性 
+|EMC：CE/FCC Class A
+|安规：UL/IEC 62368 
+|MTBF：≥50,000 小时
+|====
 
 == interface
 
