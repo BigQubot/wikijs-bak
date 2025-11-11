@@ -1439,4 +1439,22 @@ link:https://renesas-rz.github.io/rzv_ai_sdk/6.00/ai-sdk.html[Renesas Wiki]
 
 = Other Development
 == How to erase emmc
+Bootup the board with sdcard, erase the emmc with dd command as follows.
+```sh
+$ sudo dd if=/dev/zero of=/dev/mmcblk0 bs=1M status=noxfer
+$ sync
+```
 
+== Third part carrier board
+- link:https://www.waveshare.com/jetson-nano-dev-kit-a.htm?sku=21650[Waveshare JETSON-IO-BASE-A carrier board]
++
+Edit /boot/armbianEnv.txt in armbian image or /boot/env.txt in yocto image as follow.
++
+```sh
+overlay_prefix=bpi-ai2n-waveshare-jetson-io
+fdtfile=renesas/bananapi-ai2n-waveshare-jetson-io-a.dtb
+```
+Note: 
+1. HDMI and DP are not support by AI2N hardware. 
+2. JETSON-IO-BASE-A use 5V DC, not 12V.
+```
