@@ -1,3 +1,57 @@
-== header
+= BPI-2K3000 工业计算机
 
-content
+Banana Pi BPI-2K3000工业计算机开发平台，基于龙芯最新一代2K3000（3B6000M）处理器研发的高性能嵌入式工业计算机，以满足不同客户对高性能信创嵌入式计算机的多样化需求。
+
+BPI - 2K3000可应用于企业办公、个人微型计算机、高性能工业计算机，以及教育、医疗、金融、边缘计算等领域。它具有高性能计算、便携、低能耗和易于管理等优点。
+
+== 设计原则
+
+* 1)	设计基于2K3000处理器的全功能COM-E（Type6）核心板，覆盖处理器所有资源，避免因需求变化，而必须对核心板进行裁剪及重新设计的工作量，增强通用性和可靠性。
+* 2)	配合核心板，同步设计能广泛应用于工业控制领域的典型工控主板，具备多IO接口、高可靠性、强干扰性特点。以工控硬件整体产品方式，配合第三方应用软件，即刻应用于现场。
+* 3)	同步移植适配吉斯凯达公司成熟的工业软件，形成硬软件融合产品。
+
+
+
+== 应用场景
+
+
+
+== Application scenarios
+
+
+== Product feature
+
+
+== getting started
+
+= Hardware
+
+== PCBA Hardware interface
+
+=== Core board
+
+image::/bpi-2k3000/banana_pi_bpi-2k3000_core_board_interface.jpg[banana_pi_bpi-2k3000_core_board_interface.jpg]
+
+=== Base board
+
+image::/bpi-2k3000/banana_pi_bpi-2k3000_base_board_interface.jpg[banana_pi_bpi-2k3000_base_board_interface.jpg]
+
+== Product photo
+
+== Hardware spec
+
+
+= Product
+
+
+== interface
+
+
+== hardware spec
+
+
+=  source code
+
+
+= image
+
