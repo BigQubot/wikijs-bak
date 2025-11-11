@@ -19,36 +19,35 @@ Banana Pi BPI-AI2N System-on-Module (SoM) and BPI-AI2N carrier board are open-so
 
 - Linux image support SDcard or EMMC bootup.
 - It’s recommended to use A1 rated cards, 16GB at least.
-- Make sure bootable EMMC is formatted if you want bootup from SDcard Yocto
 - Download latest Linux Image, and confirm that the checksum is correct.
 - Default login: pi/bananapi or root/bananapi
 
 == Install Image to SDcard
 
-> Install Image with Balena Etcher on Windows, Linux and MacOS.
-
+- Install Image with Balena Etcher on Windows, Linux and MacOS.
++
 link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
 
-- Click on "**Flash from file**" to select image. 
-- Click on "**Select target**" to select USB device. 
-- Click on "**Flash!**" Start burning.
+1. Click on "**Flash from file**" to select image. 
+2. Click on "**Select target**" to select USB device. 
+3. Click on "**Flash!**" Start burning.
 +
 image::/picture/etcher.jpg[etcher.jpg]
 
-> Install Image with Balena Cli on Windows, Linux and MacOS.
-
+- Install Image with Balena Cli on Windows, Linux and MacOS.
++
 link:https://github.com/balena-io/balena-cli[Balena CLI] is a Command Line Interface for balenaCloud or openBalena. It can be used to flash linux image. Download the installer or standalone package from link:https://github.com/balena-io/balena-cli/releases[balena-io] and link:https://github.com/balena-io/balena-cli/blob/master/INSTALL.md[install ]it correctly to your PC, then you can use the "link:https://docs.balena.io/reference/balena-cli/#local-flash-image[local flash]" command option of balena to flash a linux image to sdcard or usb drive.
-
++
 ```sh
 $ sudo balena local flash xxx-bpi-ai2n-xxx.img.xz
 $ sudo balena local flash xxx-bpi-ai2n-xxx.img.xz --drive /dev/sdX
 $ sudo balena local flash xxx-bpi-ai2n-xxx.img.xz --drive /dev/sdX --yes
 ```
 
-> Install Image with dd command on Linux
-
+- Install Image with dd command on Linux
++
 umount SDcard device /dev/sdX partition if mounted automatically. 
-
++
 ```sh
 $ sudo apt-get install xz-utils pv
 $ sudo sh -c 'xzcat xxx-bpi-ai2n-xxx.img.xz | pv | dd of=/dev/sdX bs=1M status=progress && sync'
@@ -56,9 +55,9 @@ $ sudo sh -c 'xzcat xxx-bpi-ai2n-xxx.img.xz | pv | dd of=/dev/sdX bs=1M status=p
 
 == Install Image to eMMC
 
-. Prepare a SDcard with Linux image flashed and bootup board with this SDcard.
-. Copy target image to udisk, plug the udisk to board and mount it.
-. Install image to emmc.
+1. Prepare a SDcard with Linux image flashed and bootup board with this SDcard.
+2. Copy target image to udisk, plug the udisk to board and mount it.
+3. Install image to emmc.
 - Write with dd command, umount mmcblk0p1 and mmcblk0p2 partition if mounted automatically. 
 +
 ```sh
@@ -1384,35 +1383,36 @@ image::/picture/ai2n-localisation.png[ai2n-localisation.png]
 == Prepare
 - Yocto image support SDcard or EMMC bootup.
 - It’s recommended to use A1 rated cards, 16GB at least.
+- Make sure bootable EMMC is formatted if you want bootup from SDcard Yocto
 - Download latest Yocto Image, and confirm that the checksum is correct.
 - root login without passwd.
 
 == Install Yocto Image to SDcard
 
-> Install Image with Balena Etcher on Windows, Linux and MacOS.
-
+- Install Image with Balena Etcher on Windows, Linux and MacOS.
++
 link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
 
-- Click on "**Flash from file**" to select image. 
-- Click on "**Select target**" to select USB device. 
-- Click on "**Flash!**" Start burning.
+1. Click on "**Flash from file**" to select image. 
+2. Click on "**Select target**" to select USB device. 
+3. Click on "**Flash!**" Start burning.
 +
 image::/picture/etcher.jpg[etcher.jpg]
 
-> Install Image with Balena Cli on Windows, Linux and MacOS.
-
+- Install Image with Balena Cli on Windows, Linux and MacOS.
++
 link:https://github.com/balena-io/balena-cli[Balena CLI] is a Command Line Interface for balenaCloud or openBalena. It can be used to flash linux image. Download the installer or standalone package from link:https://github.com/balena-io/balena-cli/releases[balena-io] and link:https://github.com/balena-io/balena-cli/blob/master/INSTALL.md[install ]it correctly to your PC, then you can use the "link:https://docs.balena.io/reference/balena-cli/#local-flash-image[local flash]" command option of balena to flash a linux image to sdcard or usb drive.
-
++
 ```sh
   $ sudo balena local flash core-image-weston-bananapi-ai2n-xxx.rootfs.wic.gz
   $ sudo balena local flash core-image-weston-bananapi-ai2n-xxx.rootfs.wic.gz --drive /dev/sdX
   $ sudo balena local flash core-image-weston-bananapi-ai2n-xxx.rootfs.wic.gz --drive /dev/sdX --yes
 ```
 
-> Install Image with dd command on Linux
-
+- Install Image with dd command on Linux
++
 umount SDcard device /dev/sdX partition if mounted automatically. 
-
++
 ```sh
  $ sudo apt-get install gunzip pv
  $ sudo sh -c 'gunzip -c core-image-weston-bananapi-ai2n-xxx.rootfs.wic.gz | pv | dd of=/dev/sdX bs=1M status=progress && sync'
@@ -1420,9 +1420,9 @@ umount SDcard device /dev/sdX partition if mounted automatically.
 
 == Install Yocto Image to eMMC
 
-. Prepare a SDcard with Linux image flashed and bootup board with this SDcard.
-. Copy Linux image to udisk, plug the udisk to board and mount it.
-. Install with dd command, umount mmcblk0p1 and mmcblk0p2 partition if mounted automatically. 
+1. Prepare a SDcard with Linux image flashed and bootup board with this SDcard.
+2. Copy Linux image to udisk, plug the udisk to board and mount it.
+3. Install with dd command, umount mmcblk0p1 and mmcblk0p2 partition if mounted automatically. 
 +
 ```sh
  $ sudo apt-get install gunzip pv
@@ -1436,3 +1436,7 @@ link:https://github.com/BPI-SINOVOIP/meta-bananapi/blob/bpi-ai2n/README.md[Build
 == Yocto AI SDK and AI Application
 
 link:https://renesas-rz.github.io/rzv_ai_sdk/6.00/ai-sdk.html[Renesas Wiki]
+
+= Other Development
+== How to erase emmc
+
