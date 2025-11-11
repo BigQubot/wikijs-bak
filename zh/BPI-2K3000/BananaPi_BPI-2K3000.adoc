@@ -10,38 +10,136 @@ BPI - 2K3000可应用于企业办公、个人微型计算机、高性能工业�
 * 2)	配合核心板，同步设计能广泛应用于工业控制领域的典型工控主板，具备多IO接口、高可靠性、强干扰性特点。以工控硬件整体产品方式，配合第三方应用软件，即刻应用于现场。
 * 3)	同步移植适配吉斯凯达公司成熟的工业软件，形成硬软件融合产品。
 
+== 主要目标市场：
+*	工业控制与自动化：PLC、工业网关、工业控制器、HMI/SCADA
+*	能源与电力：变电站自动化设备、风电/光伏/储能控制器、微电网协调控制器
+* 教育培训：面向信创+工业互联网/人工智能/自动控制/计算机等专业的教育与实训
+*	边缘计算与IoT：边缘服务器、智能视频分析、本地AI推理、机器人控制
+*	通讯与网络设备：路由器、小型边缘服务器、虚拟化设备、NAS存储
+*	医疗电子：CT、核磁共振
+*	航天航空与国防：飞控/星载/弹载计算机、雷达信号处理计算机
 
 
-== 应用场景
 
 
+== 快速上手开发手册
 
-== Application scenarios
+= 硬件
 
-
-== Product feature
-
-
-== getting started
-
-= Hardware
-
-== PCBA Hardware interface
-
-=== Core board
+== 核心板
 
 image::/bpi-2k3000/banana_pi_bpi-2k3000_core_board_interface.jpg[banana_pi_bpi-2k3000_core_board_interface.jpg]
 
-=== Base board
+=== 核心特性
+
+* 1)	全功能核心板：	COM-E Type标准，440个引脚引出所有信号，扩展能力强
+* 2)	多功能工业级底板：	全部工业级（EMC3-4级）保护的多种通讯与交互接口
+* 3)	AI能力强劲：		除处理器自带AI算力外，可板载（M.2）接入多种AI算力卡
+* 4)	配套软件丰富：	支持系列化工控软件，良好的开发环境，轻松适配更多应用
+* 5)	国产化率100%：	可选择100%国产化元器件方案
+* 6)	多种产品形态：	台式、壁挂、机架、桌面高散热工控机箱/一体机
+
+=== 核心板技术规格
+
+[options="header",cols="1,5"]
+|====
+2+| BPI-2K3000核心板技术规格 
+.2+|处理器
+|	处理器：龙芯2K3000、3B6000M
+|系统：默认Loongnix 20.7，支持麒麟、统信
+.2+|内存 
+|类型：单通道64位DDR4-3200 SO-DIMM插槽
+|容量：8GB，可支持16GB/32GB 
+.2+|Flash
+|8MB SPI Flash，启动引导配置、默认UEFI启动 
+|16MB SE SPI Flash：内置安全模块，实现可信计算，支持SM2/3/4算法（默认不贴片）
+|硬盘 |	8GB，可选128GB
+
+|GPU|	龙芯自研第二代LG200，支持OpenGL3.3、OpenCL 1.1。支持AI加速，7.2TOPS (INT8)
+.2+|VPU
+|支持VVC/AV1/HEVC/VP9/AVS2.0/High10H264/H.264/VP8/VC1解码4K@60fps
+|支持MPEG-2&MPEG-1/VP7/H.263/RV8/RV9/RV10解码1080P@60fps
+.3+|显示
+|1x HDMI，最大支持4K 60Hz
+|1xDP，最大支持4K 60Hz
+|1xeDP，最大支持4K 60Hz 
+|音频|HDA/I2S音频接口，支持16、18、20位采样精度，最高采样频率192KHz
+.2+|以太网
+|1路千兆以太网GMAC
+|1路千兆以太网PHY 
+GMAC0板上集成YT8531千兆以太网PHY芯片
+.2+|PCIE
+|PCIE0：PCIE3.0x4 支持拆分为4路PCIE3.0x1，可复用位RapidIO
+|PCIE1：PCIE3.0x4 支持拆分为2路PCIE3.0x1，可复用位RapidIO
+|SATA|	1路SATA3.0，6Gbps，与1路USB3.0接口复用
+|USB2.0|最大支持8路USB2.0 HOST，其中4路USB2.0可与USB3.1组成全功能USB3接口
+|USB3.0|最大支持4路USB3.1 Gen1(5Gbps)，1路USB3接口可复用为SATA3.0
+|LPC|1路LPC1.1接口
+|SPI|默认预留1路SPI，最大支持2路，预留3个片选信号
+|I2C|1路I2C
+|UART|默认预留2路UART，含CPU调试串口
+|CAN|默认预留4路CANFD，3路与SD卡信号复用
+|SDIO|预留2路SDIO 3.0，SDIO0与CANFD复用，SDIO1与SPI1复用
+|PWM|默认预留3路
+|GPIO|若干，请看具体定义
+|尺寸|95mm x 95mm，线序参考PICMG COM Express兼容COMeType6标准
+|封装|BTB连接器，220pin + 220pin
+|电源设计|DC12V、DC5V 输入
+|典型功率|35W（TDP）
+|工作温度|-40~85℃
+|====
+
+== 底板
 
 image::/bpi-2k3000/banana_pi_bpi-2k3000_base_board_interface.jpg[banana_pi_bpi-2k3000_base_board_interface.jpg]
 
+
+=== 底板硬件规格
+
+[options="header",cols="1,5"]
+|====
+2+| BPI-2K3000底板技术规格 
+|底板与核心板接口|COM-E/Type6接口，BTB连接
+|以太网接口|4+1 千兆独立IP网口，4个外置RJ45，1个内置9P排针
+|显示接口| HDMI+eDP双显。eDP内置，可构成一体机形态
+.2+|USB接口
+|2 x USB3.0（外置，TypeA）
+|2 x USB2.0（内置，4P插座）
+|RS232接口|2 x RS232，带隔离，其中一路为Console，3.81mm凤凰端子
+|RS485接口|8 x RS485，带隔离，3.81mm凤凰端子
+|CAN接口|4 x CAN FD，带隔离，3.81mm凤凰端子
+|DI接口|8 x DI，带隔离，无源输入，检测电压24V，3.81mm凤凰端子
+|DO接口|8 x DO，继电器输出，6x400mA+2x2A，3.81mm凤凰端子
+.2+|SSD接口
+|1 x SATA，M.2/2242/SATA协议
+|1 x NVME，M.2/2280/NVME协议，PCIE X4，支持AI算力卡
+.3+|无线通信接口
+|1 x MPCIE，支持4G/RedCap模组，USB2.0，与5G共用SIM卡
+|1 x M.2/3050，支持5G/4G模组，USB3.0/2.0，与4G共用SIM卡
+|1 x Wifi/BT，2.4G
+| CAMERA接口|USB2.0+UART，支持双目摄像头模组
+|TOUCH接口|1 x USB2.0，内置，与eDP组成触摸一体机
+.2+|加密芯片
+|1 x 国网配电专用
+|1 x 软件授权（软件狗）专用
+|RTC|1 x SD3068
+|AUDIO|1 x EarPhone+Mic
+|供电|DC 24V，5.08mm凤凰端子3P
+|功耗|TBD，理论值< 40W
+|尺寸|215mm x 175mm
+.3+|操作系统 
+|Loongnix 20.7
+|麒麟V10/V11
+|统信
+|====
+
 == Product photo
 
-== Hardware spec
+
+= BPI-2K3000整机产品解决方案
 
 
-= Product
+
 
 
 == interface
