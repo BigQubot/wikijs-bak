@@ -1439,7 +1439,7 @@ SpiFlashMemory End Address  : H'0011C2EE
 +
 image::/picture/ai2n-bootsel-spiboot.png[ai2n-bootsel-spiboot.png]
 
-== How to erase emmc
+== Erase emmc
 Bootup the board with sdcard, erase the emmc with dd command as follows.
 ```sh
 $ sudo dd if=/dev/zero of=/dev/mmcblk0 bs=1M status=noxfer
