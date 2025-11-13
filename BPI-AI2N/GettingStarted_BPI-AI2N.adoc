@@ -1458,4 +1458,5 @@ fdtfile=renesas/bananapi-ai2n-waveshare-jetson-io-a.dtb
 Note: 
 1. HDMI and DP are not support by AI2N hardware. 
 2. JETSON-IO-BASE-A use 5V DC, not 12V.
-```
+
+== Boot from NVME SSD
