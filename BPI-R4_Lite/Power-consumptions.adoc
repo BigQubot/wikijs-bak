@@ -1,6 +1,22 @@
 = Power consumption
 
-image::/e4bbdef5-39b9-47f0-8f23-5c3f90ead47d.png[e4bbdef5-39b9-47f0-8f23-5c3f90ead47d.png]
+image::/bpi-r4_lite/power_consumption.png[power_consumption.png]
+
+= Temperature testing with the housing installed.
+
+ Traffic Test Diagram
+ 
+image::/bpi-r4_lite/打流.png[打流.png]
+
+Test Location (with the SOC master control chip located below)
+
+image::/bpi-r4_lite/测试位置.png[测试位置.png]
+
+Comparison of Test Results Between Sheet Metal Enclosure and Aluminum Enclosure
+
+image::/bpi-r4_lite/外壳温度测试.png[外壳温度测试.png]
+
+Under identical conditions, the aluminum enclosure provides a heat dissipation effect approximately 4-5 degrees Celsius lower than that of the sheet metal enclosure.
 
 = How to assemble the casing for R4 Lite
 First, secure the PCB board to the housing using the four mounting holes.
