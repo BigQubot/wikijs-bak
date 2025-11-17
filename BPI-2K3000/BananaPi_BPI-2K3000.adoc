@@ -108,8 +108,8 @@ image::/bpi-2k3000/banana_pi_bpi-2k3000_base_interface1.jpg[banana_pi_bpi-2k3000
 |RS232|2 x RS232，With isolation，one is Console，3.81mm port
 |RS485|8 x RS485，With isolation，3.81mm port
 |CAN|4 x CAN FD，With isolation，3.81mm port
-|DI|8 x DI，With isolation，无源输入，检测电压24V，3.81mm凤凰端子
-|DO|8 x DO，继电器输出，6x400mA+2x2A，3.81mm凤凰端子
+|DI|8 x DI，With isolation，无源输入，检测电压24V，3.81mm port
+|DO|8 x DO，继电器输出，6x400mA+2x2A，3.81mm port
 .2+|SSD接口
 |1 x SATA，M.2/2242/SATA协议
 |1 x NVME，M.2/2280/NVME协议，PCIE X4，支持AI算力卡
