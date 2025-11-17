@@ -78,8 +78,8 @@ image::/bpi-2k3000/banana_pi_bpi-2k3000_core_interface_2.jpg[banana_pi_bpi-2k300
 |LPC|1 x LPC1.1 interface
 |SPI|By default, 1 SPI channel is reserved. It supports a maximum of 2 channels and reserves 3 chip select signals
 |I2C|1 x I2C
-|UART|默认预留2路UART，含CPU调试串口
-|CAN|默认预留4路CANFD，3路与SD卡信号复用
+|UART|By default, 2 channels of UART are reserved, including the CPU debugging serial port.
+|CAN|By default, 4 channels of CANFD are reserved, and 3 of them are multiplexed with SD card signals.
 |SDIO|预留2路SDIO 3.0，SDIO0与CANFD复用，SDIO1与SPI1复用
 |PWM|默认预留3路
 |GPIO|若干，请看具体定义
