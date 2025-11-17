@@ -1,14 +1,25 @@
 = BPI-2K3000 industrial computer
 
-BPI-2K3000 is industrial Mini PC developed by Banana Pi open source community with Loongson 2K3000 processor.
+The Banana Pi BPI-2K3000 industrial computer development platform is a high-performance embedded industrial computer developed based on Loongson's latest generation 2K3000 (3B6000M) processor to meet the diverse needs of different customers for high-performance Xinchuang (indigenous innovation) embedded computers.
 
-BPI-2K3000 can be applied to enterprise office, personal minicomputs, high-performance industrial computer, as well as education, medical, finance, edge computing and other fields. It has the advantages of high performance computing, portability, low energy consumption and easy management.
+The BPI-2K3000 can be applied in enterprise office work, personal microcomputers, high-performance industrial computers, as well as in fields such as education, healthcare, finance, and edge computing. It has advantages such as high-performance computing, portability, low energy consumption, and easy management.
+
+== Design principles
+
+* 1,Design a full - function COM - E (Type 6) core board based on the 2K3000 processor, covering all resources of the processor. This can avoid the workload of cutting and redesigning the core board due to changes in requirements, and enhance its versatility and reliability.
+* 2,In conjunction with the core board, simultaneously design a typical industrial control motherboard that can be widely used in the industrial control field. It features multiple IO interfaces, high reliability, and strong anti - interference ability. As an overall industrial control hardware product, it can be immediately applied on - site when paired with third - party application software.
+* 3,Simultaneously transplant and adapt the mature industrial software of Jiskeda Company to form a product integrating hardware and software.
 
 
 == Application scenarios
 
-
-== Product feature
+* Industrial Control and Automation: PLC, Industrial Gateways, Industrial Controllers, HMI/SCADA
+* Energy and Power: Substation Automation Equipment, Wind/PV/Energy Storage Controllers, Microgrid Coordination Controllers
+* Education and Training: Education and Practical Training for Majors such as Information Technology Innovation + Industrial Internet/Artificial Intelligence/Automatic Control/Computer
+* Edge Computing and IoT: Edge Servers, Intelligent Video Analysis, Local AI Inference, Robot Control
+* Communication and Network Equipment: Routers, Small Edge Servers, Virtualization Equipment, NAS Storage
+* Medical Electronics: CT, MRI
+* Aerospace and Defense: Flight Control/Satellite/Bullet-Borne Computers, Radar Signal Processing Computers
 
 
 == getting started
