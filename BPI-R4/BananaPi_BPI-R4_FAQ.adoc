@@ -177,37 +177,33 @@ image::/bpi-r4/r4-faq/r4-faq-be14notstart2.jpg[r4-faq-be14notstart2.jpg]
 Describe how you caused this phenomenon.
 Photo of the board powered on (the TTL line and DIP switch should be clearly visible), and photos of the MobaXterm software. You can also take a video.
 
-== Improve the performance of radio frequency under OpenWrt24.10 firmware
-Use ssh to replace the old file with the new file update, or use a USB flash drive to copy and update.
+== OpenWRT mainline image txpower low
 
-NOTE: New mt7996_eeprom_233_2i5i6i.bin
+Customers who purchased our BPI-R4+BE14 and are using the OpenWRT mainline image have found that their 2.4G and 5G WiFi transmit power is only 6dBm and 7dBm respectively. Here is the solution:
 
-Google drive: https://drive.google.com/file/d/1qneVF1a6ZGMDoLLPpQw2LPYZsRKXto1T/view?usp=sharing
+1. Prepare a Linux host.
 
-Baidu cloud: https://pan.baidu.com/s/1wAzWVMooAofpQiBy7Gov_A?pwd=8888 （pincode: 8888)
+2. Download the source code for the corresponding mainline branch.
 
-=== Using ssh
-Connect the computer network cable to R4 LAN port and login to ssh.
-In to the corresponding path/lib/firmware/mediatek/mt7996:
+3. Place the link:https://github.com/immortalwrt/immortalwrt/blob/master/package/kernel/mt76/patches/100-wifi-mt76-mt7996-Use-tx_power-from-default-fw-if-EEP.patch[patch] file in the `**package/kernel/mt76/patches/**` directory.
 
-image::/bpi-r4/bpi-r4-openwrt24.10-1.jpg[bpi-r4-openwrt24.10-1.jpg]
+4. Execute the following command:
++
+```
+make clean
+make
+```
+5. Burn the compiled image to SD/NAND/eMMC and boot.
 
-Pull the mt7996_eeprom_233_2i5i6i.bin file into this directory and replace it with a new file.
+6. Update and install the web page.
++
+```
+opkg update
+opkg install luci
 
-=== Use a USB disk
-Copy the new file mt7996_eeprom_233_2i5i6i.bin to the U disk and use the cp command to copy to the corresponding path.
+/etc/init.d/uhttpd enable
+/etc/init.d/uhttpd start
+```
+7. Go to the web page and turn on WiFi. Then use the `iw dev` command to see that the WiFi speed is now 20dBm.
 
-image::/bpi-r4/bpi-r4-openwrt24.10-2.jpg[bpi-r4-openwrt24.10-2.jpg]
-
-Check the corresponding file
-Just change the file weight back.
-
-image::/bpi-r4/bpi-r4-openwrt24.10-3.jpg[bpi-r4-openwrt24.10-3.jpg]
-
-The original file:
-
-image::/bpi-r4/bpi-r4-openwrt24.10-4.jpg[bpi-r4-openwrt24.10-4.jpg]
-
-Replace the new file:
-
-image::/bpi-r4/bpi-r4-openwrt24.10-5.jpg[bpi-r4-openwrt24.10-5.jpg]
+image::/bpi-r4/bpi-r4_iw_dev_check_tx_power.png[bpi-r4_iw_dev_check_tx_power.png]
