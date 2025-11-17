@@ -83,11 +83,11 @@ image::/bpi-2k3000/banana_pi_bpi-2k3000_core_interface_2.jpg[banana_pi_bpi-2k300
 |SDIO|Reserve 2 channels of SDIO 3.0. SDIO0 is multiplexed with CANFD, and SDIO1 is multiplexed with SPI1.
 |PWM|3 channels are reserved by default.
 |GPIO|Several, please refer to the specific definition.
-|Size|95mm x 95mm，线序参考PICMG COM Express兼容COMeType6标准
-|封装|BTB连接器，220pin + 220pin
-|电源设计|DC12V、DC5V 输入
-|典型功率|35W（TDP）
-|工作温度|-40~85℃
+|Size|95mm x 95mm，The pinout sequence refers to the PICMG COM Express, which is compatible with the COMe Type 6 standard.
+|Encapsulate|BTB connector，220pin + 220pin
+|DC |DC12V、DC5V input
+|Typical power|35W（TDP）
+|Operating temperature|-40~85℃
 
 === Base board
 
