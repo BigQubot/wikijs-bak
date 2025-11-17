@@ -105,33 +105,33 @@ image::/bpi-2k3000/banana_pi_bpi-2k3000_base_interface1.jpg[banana_pi_bpi-2k3000
 .2+|USB
 |2 x USB3.0（outside，TypeA）
 |2 x USB2.0（inside，4P slot）
-|RS232|2 x RS232，With isolation，one is Console，3.81mm port
-|RS485|8 x RS485，With isolation，3.81mm port
-|CAN|4 x CAN FD，With isolation，3.81mm port
-|DI|8 x DI，With isolation，Passive input, detection voltage 24V，3.81mm port
-|DO|8 x DO，Relay output，6x400mA+2x2A，3.81mm port
+|RS232|2 x RS232，With isolation，one is Console，3.81mm Phoenix terminal
+|RS485|8 x RS485，With isolation，3.81mm Phoenix terminal
+|CAN|4 x CAN FD，With isolation，3.81mm Phoenix terminal
+|DI|8 x DI，With isolation，Passive input, detection voltage 24V，3.81mm Phoenix terminal
+|DO|8 x DO，Relay output，6x400mA+2x2A，3.81mm Phoenix terminal
 .2+|SSD
 |1 x SATA，M.2/2242/SATA protocol
 |1 x NVME，M.2/2280/NVME protocol，PCIE X4，Support AI computing power cards
-.3+|无线通信接口
-|1 x MPCIE，支持4G/RedCap模组，USB2.0，与5G共用SIM卡
-|1 x M.2/3050，支持5G/4G模组，USB3.0/2.0，与4G共用SIM卡
+.3+|Wireless communication
+|1 x MPCIE，support 4G/RedCap Module，USB2.0，Share the SIM card with 5G.
+|1 x M.2/3050，support 5G/4G module，USB3.0/2.0，Share the SIM card with 4G.
 |1 x Wifi/BT，2.4G
-| CAMERA接口|USB2.0+UART，支持双目摄像头模组
-|TOUCH接口|1 x USB2.0，内置，与eDP组成触摸一体机
-.2+|加密芯片
-|1 x 国网配电专用
-|1 x 软件授权（软件狗）专用
+| CAMERA|USB2.0+UART，Support binocular camera module
+|TOUCH|1 x USB2.0，Built-in, combined with eDP to form a touch all-in-one machine.
+.2+|Encryption chip
+|1 x Special for State Grid power distribution
+|1 x Dedicated to software authorization (dongle)
 |RTC|1 x SD3068
 |AUDIO|1 x EarPhone+Mic
-|供电|DC 24V，5.08mm凤凰端子3P
-|功耗|TBD，理论值< 40W
-|尺寸|215mm x 175mm
-.4+|操作系统 
+|Power|DC 24V，5.08mm Phoenix terminal 3P
+|Power consumption|TBD，theoretical value< 40W
+|Size|215mm x 175mm
+.4+|System
 |Loongnix 20.7
-|麒麟V10/V11
-|统信
-|鸿蒙、欧拉，适配中...... 
+|kylin V10/V11
+|UOS
+|HarmonyOS and OpenEuler are being adapted...
 |====
 
 == Product photo
