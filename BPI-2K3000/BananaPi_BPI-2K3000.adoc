@@ -94,6 +94,46 @@ image::/bpi-2k3000/banana_pi_bpi-2k3000_core_interface_2.jpg[banana_pi_bpi-2k300
 
 image::/bpi-2k3000/banana_pi_bpi-2k3000_base_interface1.jpg[banana_pi_bpi-2k3000_base_interface1.jpg]
 
+=== Base board hardware spec
+
+[options="header",cols="1,5"]
+|====
+2+| BPI-2K3000 Base board hardware spec
+|Interface of base board and core board|COM-E/Type6 interface，BTB connect
+|Network|4+1 Gigabit independent IP network ports, 4 external RJ45 ports and 1 internal 9P pin header.
+|Display| HDMI+eDP double。eDP inside，Can form an all-in-one machine configuration.
+.2+|USB
+|2 x USB3.0（outside，TypeA）
+|2 x USB2.0（inside，4P slot）
+|RS232接口|2 x RS232，带隔离，其中一路为Console，3.81mm凤凰端子
+|RS485接口|8 x RS485，带隔离，3.81mm凤凰端子
+|CAN接口|4 x CAN FD，带隔离，3.81mm凤凰端子
+|DI接口|8 x DI，带隔离，无源输入，检测电压24V，3.81mm凤凰端子
+|DO接口|8 x DO，继电器输出，6x400mA+2x2A，3.81mm凤凰端子
+.2+|SSD接口
+|1 x SATA，M.2/2242/SATA协议
+|1 x NVME，M.2/2280/NVME协议，PCIE X4，支持AI算力卡
+.3+|无线通信接口
+|1 x MPCIE，支持4G/RedCap模组，USB2.0，与5G共用SIM卡
+|1 x M.2/3050，支持5G/4G模组，USB3.0/2.0，与4G共用SIM卡
+|1 x Wifi/BT，2.4G
+| CAMERA接口|USB2.0+UART，支持双目摄像头模组
+|TOUCH接口|1 x USB2.0，内置，与eDP组成触摸一体机
+.2+|加密芯片
+|1 x 国网配电专用
+|1 x 软件授权（软件狗）专用
+|RTC|1 x SD3068
+|AUDIO|1 x EarPhone+Mic
+|供电|DC 24V，5.08mm凤凰端子3P
+|功耗|TBD，理论值< 40W
+|尺寸|215mm x 175mm
+.4+|操作系统 
+|Loongnix 20.7
+|麒麟V10/V11
+|统信
+|鸿蒙、欧拉，适配中...... 
+|====
+
 == Product photo
 
 link:/en/BPI-2K3000/Photo_BPI-2K3000[Banana Pi BPI-2K3000 product photo]
