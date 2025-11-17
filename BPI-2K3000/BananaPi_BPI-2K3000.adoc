@@ -70,14 +70,14 @@ image::/bpi-2k3000/banana_pi_bpi-2k3000_core_interface_2.jpg[banana_pi_bpi-2k300
 |1 x 1000M GMAC
 |1 x 1000M PHY,The YT8531 Gigabit Ethernet PHY chip is integrated on the board.
 .2+|PCIE
-|PCIE0：PCIE3.0x4 支持拆分为4路PCIE3.0x1，可复用位RapidIO
-|PCIE1：PCIE3.0x4 支持拆分为2路PCIE3.0x1，可复用位RapidIO
-|SATA|	1路SATA3.0，6Gbps，与1路USB3.0接口复用
-|USB2.0|最大支持8路USB2.0 HOST，其中4路USB2.0可与USB3.1组成全功能USB3接口
-|USB3.0|最大支持4路USB3.1 Gen1(5Gbps)，1路USB3接口可复用为SATA3.0
-|LPC|1路LPC1.1接口
-|SPI|默认预留1路SPI，最大支持2路，预留3个片选信号
-|I2C|1路I2C
+|PCIE0：PCIE3.0x4 Support splitting into 4 paths.PCIE3.0x1， can significantly RapidIO
+|PCIE1：PCIE3.0x4 Support splitting into 4 paths.PCIE3.0x1， can significantly RapidIO
+|SATA|	1xSATA3.0，6Gbps，Shared with 1-way USB 3.0 interface
+|USB2.0|max support 8 x USB2.0 HOST，Among them, 4 USB 2.0 ports can form a full-featured USB 3 interface with USB 3.1.
+|USB3.0|max support 4xUSB3.1 Gen1(5Gbps)，One USB 3 interface can be multiplexed as SATA 3.0.
+|LPC|1 x LPC1.1 interface
+|SPI|By default, 1 SPI channel is reserved. It supports a maximum of 2 channels and reserves 3 chip select signals
+|I2C|1 x I2C
 |UART|默认预留2路UART，含CPU调试串口
 |CAN|默认预留4路CANFD，3路与SD卡信号复用
 |SDIO|预留2路SDIO 3.0，SDIO0与CANFD复用，SDIO1与SPI1复用
