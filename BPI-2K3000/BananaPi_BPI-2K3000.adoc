@@ -43,7 +43,51 @@ image::/bpi-2k3000/banana_pi_bpi-2k3000_core_interface_2.jpg[banana_pi_bpi-2k300
 
 === Core board spec
 
+[options="header",cols="1,5"]
+|====
+2+| BPI-2K3000 Core board hardware spec
+.2+|CPU
+|	CPU：龙芯2K3000、3B6000M
+|System：default is Loongnix 20.7，Support Kirin and UOS
+.2+|RAM 
+|Type：Single-channel 64-bit DDR4-3200 SO-DIMM slot
+|8GB，support 16GB/32GB 
+.2+|Flash
+|8MB SPI Flash，Startup boot configuration, default UEFI startup
+|16MB SE SPI Flash：Built-in security module to achieve trusted computing, supporting SM2/3/4 algorithms (SMT is not applied by default).
+|Hardisk |	8GB，support 128GB
 
+|GPU|	Loongson's self-developed second generation LG200，support OpenGL3.3、OpenCL 1.1。support AI，7.2TOPS (INT8)
+.2+|VPU
+|support VVC/AV1/HEVC/VP9/AVS2.0/High10H264/H.264/VP8/VC1 decode 4K@60fps
+|support MPEG-2&MPEG-1/VP7/H.263/RV8/RV9/RV10 decode 1080P@60fps
+.3+|Display
+|1x HDMI，Max support 4K 60Hz
+|1xDP，Max support 4K 60Hz
+|1xeDP，Max support 4K 60Hz 
+|Voice|HDA/I2S Voice interface，support 16、18、20 bit sampling accuracy, with a maximum sampling frequency of 192KHz.
+.2+|Network
+|1 x 1000M GMAC
+|1 x 1000M PHY,The YT8531 Gigabit Ethernet PHY chip is integrated on the board.
+.2+|PCIE
+|PCIE0：PCIE3.0x4 支持拆分为4路PCIE3.0x1，可复用位RapidIO
+|PCIE1：PCIE3.0x4 支持拆分为2路PCIE3.0x1，可复用位RapidIO
+|SATA|	1路SATA3.0，6Gbps，与1路USB3.0接口复用
+|USB2.0|最大支持8路USB2.0 HOST，其中4路USB2.0可与USB3.1组成全功能USB3接口
+|USB3.0|最大支持4路USB3.1 Gen1(5Gbps)，1路USB3接口可复用为SATA3.0
+|LPC|1路LPC1.1接口
+|SPI|默认预留1路SPI，最大支持2路，预留3个片选信号
+|I2C|1路I2C
+|UART|默认预留2路UART，含CPU调试串口
+|CAN|默认预留4路CANFD，3路与SD卡信号复用
+|SDIO|预留2路SDIO 3.0，SDIO0与CANFD复用，SDIO1与SPI1复用
+|PWM|默认预留3路
+|GPIO|若干，请看具体定义
+|尺寸|95mm x 95mm，线序参考PICMG COM Express兼容COMeType6标准
+|封装|BTB连接器，220pin + 220pin
+|电源设计|DC12V、DC5V 输入
+|典型功率|35W（TDP）
+|工作温度|-40~85℃
 
 === Base board
 
