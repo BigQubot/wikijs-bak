@@ -105,9 +105,9 @@ image::/bpi-2k3000/banana_pi_bpi-2k3000_base_interface1.jpg[banana_pi_bpi-2k3000
 .2+|USB
 |2 x USB3.0（outside，TypeA）
 |2 x USB2.0（inside，4P slot）
-|RS232|2 x RS232，With isolation，其中一路为Console，3.81mm凤凰端子
-|RS485|8 x RS485，With isolation，3.81mm凤凰端子
-|CAN|4 x CAN FD，With isolation，3.81mm凤凰端子
+|RS232|2 x RS232，With isolation，one is Console，3.81mm port
+|RS485|8 x RS485，With isolation，3.81mm port
+|CAN|4 x CAN FD，With isolation，3.81mm port
 |DI|8 x DI，With isolation，无源输入，检测电压24V，3.81mm凤凰端子
 |DO|8 x DO，继电器输出，6x400mA+2x2A，3.81mm凤凰端子
 .2+|SSD接口
