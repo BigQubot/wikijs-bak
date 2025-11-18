@@ -1,0 +1,11 @@
+= Introduction
+
+The “OpenWrt One/AP-24.XY” router board based on MediaTek MT7981B (Filogic 820) SoC and MediaTek MT7976C dual-band WiFi 6 chipset.It is the first official development board of the OpenWRT open source community
+
+OpenWrt One is a device based on the MediaTek Filogic 820 SoC that has WiFi 6, dual-band, 3×3/2×2, 1 x 2.5Gbit WAN, 1 x 1Gbit LAN, 1GB DDR4 RAM, 256 MiB NAND, 16 MiB NOR, M.2 SSD and USB 2.0.
+
+OpenWrt One uses Mediatek’s MT7981B SoC with a dual-arm Cortex-a53 core at 1.3 GHz, 1 GB DDR4 RAM and 256 MiB SPI NAND storage. It also integrates 16 MiB of additional protected storage as a system backup, dual storage hardware to ensure that the onboard system is unbrickable, and finally integrated M.2. 2230/2242 NVMe PCIe 2 X1 ports can be used to add external storage. And with a battery holder for an internal clock, OpenWrt One offers a USB 2.0 Type-A and a mikroBUS expansion port to provide more interfaces to a host of technical possibilities
+
+OpenWrt One is the first board design with OpenWrt opensource communtity.and designed in collaboration with Banana Pi that will also handle manufacturing and distribution of the router board. The OpenWrt One/AP-24.XY router should provide a source of income for the project, for example, to cover the cost of hosting and OpenWrt conferences, with Banana Pi selling the board through their distribution network, and for every device sold, donating to the Software Freedom Conservancy (SDC) with the funds earmarked for OpenWrt.
+
+TIP: More Infomation: link:/en/OpenWRT-One/BananaPi_OpenWRT-One[Banana Pi OpenWrt One]
