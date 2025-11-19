@@ -177,6 +177,10 @@ image::/bpi-r4/r4-faq/r4-faq-be14notstart2.jpg[r4-faq-be14notstart2.jpg]
 Describe how you caused this phenomenon.
 Photo of the board powered on (the TTL line and DIP switch should be clearly visible), and photos of the MobaXterm software. You can also take a video.
 
+If WiFi is available, you can view the WiFi configuration on this web interface.
+
+image::/bpi-r4/r4-faq/r4-faq-be14notstart3.jpg[r4-faq-be14notstart3.jpg]
+
 == OpenWRT mainline image txpower low
 
 Customers who purchased our BPI-R4+BE14 and are using the OpenWRT mainline image have found that their 2.4G and 5G WiFi transmit power is only 6dBm and 7dBm respectively. Here is the solution:
