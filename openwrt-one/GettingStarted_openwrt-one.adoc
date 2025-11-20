@@ -65,4 +65,34 @@ link:https://downloads.openwrt.org/snapshots//targets/mediatek/filogic/openwrt-m
 
 TIP: link:https://www.youtube.com/shorts/BLCLpHFkNl8[Reference for video effects] 
 
+= Accessories
+
+== KEY-M
+
+. Prepare a NVME SSD
+. Connect the SSD to the KEY-M interface on the board.
++
+image::/openwrt-one/gettingstart/banana_pi_openwrt_one_gettingstart_key_m1.jpg[banana_pi_openwrt_one_gettingstart_key_m1.jpg]
+
+. Start OpenWrt One and by using the command to query, you can see the corresponding storage.
++
+```bash
+root@OpenWrt:~#
+root@OpenWrt:~# lsblk
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+mtdblock0    31:0    0   256K  0 disk
+mtdblock1    31:1    0   768K  1 disk
+mtdblock2    31:2    0   512K  0 disk
+mtdblock3    31:3    0  12.5M  0 disk
+mtdblock4    31:4    0     1M  1 disk
+mtdblock5    31:5    0   255M  0 disk
+ubiblock0_4 254:0    0  10.3M  0 disk
+fit0        259:0    0   4.8M  1 disk /rom
+nvme0n1     259:1    0 119.2G  0 disk
+root@OpenWrt:~# lspci
+00:00.0 PCI bridge: MEDIATEK Corp. Device 1f32 (rev 01)
+01:00.0 Non-Volatile memory controller: Solid State Storage Technology Corporation CL1-3D256-Q11 NVMe SSD M.2 (rev 03)
+root@OpenWrt:~#
+```
+
 
