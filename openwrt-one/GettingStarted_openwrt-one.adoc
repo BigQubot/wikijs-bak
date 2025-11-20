@@ -30,6 +30,14 @@ The up position of the dip switch indicates NAND, while the down position indica
 
 image::/openwrt-one/gettingstart/banana_pi_openwrt_one_gettingstart_bootstrap.jpg[banana_pi_openwrt_one_gettingstart_bootstrap.jpg]
 
+== Debug Console
+
+. Use Type A to convert to Type C for debugging
+
+. Using your USB-Serial cable(3.3V TTL,Baud=115200) Connect to debug console on BPI-OpenWrt One
+G=GND; RX=BPI-OpenWrt One input; TX=BPI-OpenWrt One output
+
+image::/openwrt-one/gettingstart/banana_pi_openwrt_one_gettingstart_debug1.jpg[banana_pi_openwrt_one_gettingstart_debug1.jpg]
 
 == Flashing image
 
