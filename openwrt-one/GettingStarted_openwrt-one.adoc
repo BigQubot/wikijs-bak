@@ -9,3 +9,31 @@ OpenWrt One uses Mediatek’s MT7981B SoC with a dual-arm Cortex-a53 core at 1.3
 OpenWrt One is the first board design with OpenWrt opensource communtity.and designed in collaboration with Banana Pi that will also handle manufacturing and distribution of the router board. The OpenWrt One/AP-24.XY router should provide a source of income for the project, for example, to cover the cost of hosting and OpenWrt conferences, with Banana Pi selling the board through their distribution network, and for every device sold, donating to the Software Freedom Conservancy (SDC) with the funds earmarked for OpenWrt.
 
 TIP: More Infomation: link:/en/OpenWRT-One/BananaPi_OpenWRT-One[Banana Pi OpenWrt One]
+
+= Development
+
+== Preparation
+* Three antennas +
+* USB flash drive or other USB storage devices +
+* PD15V power adapter +
+* USB Type C to Type A Cable +
+* Ethernet cable +
+* link:https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=mediatek%2Ffilogic&id=openwrt_one[OpenWrt One image]
+
+== OpenWrt bootstrap setting
+
+NOTE: Please choose NAND for regular use. NOR is applicable to "recovery".
+
+This switch enables the system to start from either NAND or NOR.
+
+The up position of the dip switch indicates NAND, while the down position indicates NOR.
+
+image::/openwrt-one/gettingstart/banana_pi_openwrt_one_gettingstart_bootstrap.jpg[banana_pi_openwrt_one_gettingstart_bootstrap.jpg]
+
+
+
+== Flashing image
+
+
+
+
