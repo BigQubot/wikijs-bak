@@ -31,9 +31,26 @@ The up position of the dip switch indicates NAND, while the down position indica
 image::/openwrt-one/gettingstart/banana_pi_openwrt_one_gettingstart_bootstrap.jpg[banana_pi_openwrt_one_gettingstart_bootstrap.jpg]
 
 
-
 == Flashing image
 
+TIP: link:https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=mediatek%2Ffilogic&id=openwrt_one[You can also click here to select the OpenWrt version you need]
 
+. Prepare a FAT32 format USB drive containing the following files:
++
+link:https://downloads.openwrt.org/snapshots//targets/mediatek/filogic/openwrt-mediatek-filogic-openwrt_one-snand-preloader.bin[openwrt-mediatek-filogic-openwrt_one-snand-preloader.bin]
++
+link:https://downloads.openwrt.org/snapshots//targets/mediatek/filogic/openwrt-mediatek-filogic-openwrt_one-factory.ubi[openwrt-mediatek-filogic-openwrt_one-factory.ubi]
 
+. Please turn off the power of the equipment.
 
+. Insert the USB drive that contains the two files to the TypeA.
+
+. Set the  bootstrap to NOR.
+
+. Press and hold the USER button on the front(The buttons on the side with the Type A interface).
+
+. Connect the power supply and start the equipment.
+
+. Wait for the LED to turn green.
+
+. Simply release the USER button and the burning process will be completed successfully.
