@@ -915,7 +915,7 @@ In addition, the CN15 and CN18 slots each have an additional PCIe3.0 1lane signa
 image::/bpi-r4_pro/bpi-r4pro-bkey.png[bpi-r4pro-bkey.png,width=500]
 
 === Power
-All modules are powered by independent DC-DC step-down.  +
+All modules are powered by independent step-down DC-DC.  +
 GPIO can be used to shut down the power output and adjust the output voltage.
 
 ==== Power ON/OFF
