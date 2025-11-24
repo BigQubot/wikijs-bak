@@ -105,11 +105,11 @@ to install image on your MicroSD card
 
 
 === How to flash image to NAND Flash
-Before flashing image into Nand, please prepare a USB disk. Let's take OpenWrt image (**mtk-bpi-r4pro-NAND-20250928.img**) for example, the steps are below:
+Before flashing image into Nand, please prepare a USB disk. Let's take OpenWrt image (**BPI-R4Pro-8X-BE14-MT76-OpenWRT24.10-DSA-snand-factory-251120.bin**) for example, the steps are below:
 
 . Format the USB disk to FAT32.
-. Copy Nand boot OpenWrt image(**mtk-bpi-r4pro-NAND-20250928.img**) to USB disk. 
-. Change the bootstrap to sd boot, then power up the board.
+. Copy Nand boot OpenWrt image(**BPI-R4Pro-8X-BE14-MT76-OpenWRT24.10-DSA-snand-factory-251120.bin**) to USB disk. 
+. Change the bootstrap to sd or eMMC boot, then power up the board.
 . Plug in USB disk to the board, and mount the USB to /mnt or other directory as follows: (you can skip mounting if it is mounted automatically)
 +
 ```SH
@@ -117,10 +117,23 @@ mount -t vfat /dev/sda1 /mnt
 cd /mnt
 ```
 . Execute following command to erase the whole Nand flash and copy image to nand device:
++ 
+
+NOTE: The BPI-R4Pro's NAND image is flashed to MTD3 (unlike the BPI-R4, which is flashed to MTD0).
+
 +
 ```sh
-mtd erase /dev/mtd0
-mtd write mtk-bpi-r4pro-NAND-20250928.img /dev/mtd0
+cat /proc/mtd
+dev:    size   erasesize  name
+mtd0: 00200000 00020000 "bl2"
+mtd1: 00400000 00020000 "Factory"
+mtd2: 0fa00000 00020000 "ubi"
+mtd3: 10000000 00020000 "nand"
+
+mtd erase /dev/mtd3
+
+mtd write mtk-bpi-r4pro-NAND-20250928.img /dev/mtd3
+
 ```
 . Power off BPI-R4Po, remove u-disk driver, change bootstrap to nand boot and power up again.
 
