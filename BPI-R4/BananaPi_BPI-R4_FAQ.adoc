@@ -81,6 +81,33 @@ Check that the PC has the corresponding serial port driver.
 - Describe how you caused this phenomenon.
 - Photo of the board powered on (the TTL line and DIP switch should be clearly visible), and photos of the MobaXterm software. You can also take a video.
 
+== Determine the size of the DDR memory in R4
+
+NOTE: Before verification, please ensure that the image is used correctly. You can download the correct image from the official website to perform the verification. link:/en/BPI-R4/BananaPi_BPI-R4#_openwrt[image Link]
+
+. Judging by the model number of DDR
++
+R4 4G board DDR: Samsung
++
+image::/bpi-r4/r4-faq/r4-faq-ddrtest1.jpg[r4-faq-ddrtest1.jpg]
++
+R4 8G board DDR：TAIXIN
++
+image::/bpi-r4/r4-faq/r4-faq-ddrtest2.jpg[r4-faq-ddrtest2.jpg]
+
+. Use the command "cat /proc/meminfo" to query the size of DDR.
++
+R4 4G board DDR
++
+image::/bpi-r4/r4-faq/r4-faq-ddrtest4.jpg[r4-faq-ddrtest4.jpg]
+R4 8G board DDR
++
+image::/bpi-r4/r4-faq/r4-faq-ddrtest3.jpg[r4-faq-ddrtest3.jpg]
+
+. You can also check the DDR size on the main page of the web interface or use the command "free -h" to do the query.
++
+image::/bpi-r4/r4-faq/r4-faq-ddrtest5.jpg[r4-faq-ddrtest5.jpg]
+
 == The system cannot start or fails to start
 === Check the DIP switch
 Before booting, check and use the correct DIP switch.(BPI-R4 will burn img in NAND when it leaves the factory.)
