@@ -133,11 +133,12 @@ There is another connector between the GPIO terminals and the Type-C (USB SERIAL
 
 You can directly power the board using a power cable connected to this socket.
 
-PS: The cable must be 0.5 mm² (AWG20).
+PS: 
+(1)The cable must be 0.5 mm² (AWG20).
 
-Also, do not connect the positive and negative terminals incorrectly.
+(2)Also, do not connect the positive and negative terminals incorrectly.
 
-Do not power the board together with the DC power socket.
+(3)Do not power the board together with the DC power socket.
 
 image::/bpi-f4/bpi-f4_power_socket.png[bpi-f4_power_socket.png]
 
