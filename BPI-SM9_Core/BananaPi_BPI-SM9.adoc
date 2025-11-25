@@ -53,6 +53,7 @@ link:/en/BPI-sm9/Photo_BPI-sm9[Banana Pi BPI-SM9 Product photo gallery]
 |hashrate |16 HD video intelligent analysis
 |RAM |8GB LPDDR4x 64bits 4266Mbps
 |Flash| 32GB eMMC 5.1
+| TF card | 1 * TF card Interface
 |Video decode |H.264&H.265: 16x 1080P@30fps，support 8192 * 8192 / 8K / 4K / 1080P / 720P / D1 / CIF
 |Video incode |H.264&H.265: 10x 1080P@30fps，support 8K / 4K / 1080P / 720P / D1 / CIF
 |Picture codec |JPEG：1080P@480fps，max support 32768 * 32768
@@ -60,11 +61,14 @@ link:/en/BPI-sm9/Photo_BPI-sm9[Banana Pi BPI-SM9 Product photo gallery]
 |6x VI
 |2x I2S 2x Dual channel input and output (optional)
 |ISP |2x8Mp30, 2f-HDR, 3DNR / LDC / 3A / Dehaze 
+|CAN | 4PIN CANH/L
 |CV |IVE/VPSS + DPU(Binocular depth) + Stitch(image stitching) + Dewarp
-|PCIE |PCIe Gen3 1 x2 + 1 x2 RC&EP
-|USB |2x USB3.0, 2x USB2.0
+|PCIE |PCIe Gen3 1 x2 + 1 x 2.0 TYPE-C
+|KEY M.2| M.2 KeyM * 1 + M.2 KeyE * 1
+|USB |2x USB3.0, 1x USB2.0
 |Network |2x GbE
 |Display |1x HDMI 2.0
+|CAMERA | 2X MIPI-CSI camera
 |Others |2x SATA3.0, 1x CAN, 1x SD/SDIO, 4x UART, 4x I2C, 6x PWM, 2x SPI, ADC, GPIOs
 |Power| DC 12V
 |Operating temperature |-10℃ ~ +60℃
