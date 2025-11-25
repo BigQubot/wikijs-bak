@@ -264,7 +264,7 @@ NOTE: The default level of the 40-pin GPIO is 3.3V (except for the 5V pin)
 3+| **BPI-SM9 Fan control interface of JP4**
 |PIN	| Definition		| Level	
 | 1 | GND | / 
-| 2 | 5V | 5V 
+| 2 | 12V | 12V 
 | 3 | TACH | 5V
 | 4 | PWM | 5V 
 
