@@ -50,6 +50,7 @@ link:/en/BPI-sm9/Photo_BPI-sm9[Banana Pi BPI-SM9 产品图片]
 |算力 |16路高清视频智能分析
 |内存 |8GB LPDDR4x 64bits 4266Mbps
 |存储| 32GB eMMC 5.1
+|TF 卡| TF卡槽 x 1
 |视频解码 |H.264&H.265: 16x 1080P@30fps，支持 8192 * 8192 / 8K / 4K / 1080P / 720P / D1 / CIF
 |视频编码 |H.264&H.265: 10x 1080P@30fps，支持 8K / 4K / 1080P / 720P / D1 / CIF
 |图片编解码 |JPEG：1080P@480fps，最大支持 32768 * 32768
@@ -57,16 +58,19 @@ link:/en/BPI-sm9/Photo_BPI-sm9[Banana Pi BPI-SM9 产品图片]
 |6x VI
 |2x I2S 2x 双声道输入和输出(可选)
 |ISP |2x8Mp30, 2f-HDR, 3DNR / LDC / 3A / Dehaze 
+|CAN |4接口CAN x 1
 |CV |IVE/VPSS + DPU(双目深度) + Stitch(图像拼接) + Dewarp(鱼眼展开)
-|PCIE |PCIe Gen3 1 x2 + 1 x2 RC&EP
+|PCIE |PCIe Gen3 1 x2 + 1 x2.0 TYPE-C
+|KEY M.2| M.2 KeyM x 1 + M.2 KeyE x 1
 |USB |2x USB3.0, 2x USB2.0
 |网络 |2x GbE
 |显示接口 |1x HDMI 2.0
+|摄像头接口 | 	2X MIPI-CSI camera
 |其他接口 |2x SATA3.0, 1x CAN, 1x SD/SDIO, 4x UART, 4x I2C, 6x PWM, 2x SPI, ADC, GPIOs
-|电源| DC 5V
-|工作温度 |-20℃ ~ +70℃
+|电源| DC 12V
+|工作温度 |-10℃ ~ +60℃
 |连接器 |260-pin SO-DIMM
-|尺寸 |69.6mm x 45mm x 6mm
+|尺寸 |100mm *79mm *16mm
 |=====
 
 == 核心板算力指标 
@@ -136,8 +140,8 @@ link:/en/BPI-sm9/Photo_BPI-sm9[Banana Pi BPI-SM9 产品图片]
 
 == BPI-SM9开发者套件
 
-image::/bpi-sm9/banana_pi_bpi_sm9_kit_3.jpg[banana_pi_bpi_sm9_kit_3.jpg]
-
+//image::/bpi-sm9/banana_pi_bpi_sm9_kit_3.jpg[banana_pi_bpi_sm9_kit_3.jpg]
+image::/bpi-sm9/banana_pi_bpi_sm9_kit_4.jpg[banana_pi_bpi_sm9_kit_4.jpg]
 
 = 开发
 
