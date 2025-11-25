@@ -78,7 +78,7 @@ link:/en/BPI-sm9/Photo_BPI-sm9[Banana Pi BPI-SM9 产品图片]
 [options="header",cols="1,4",width="70%"]
 |=====
 2+| **Banana Pi BPI-SM9 算力指标**
-|操作系统 |Ubuntu20.04 或 Linux 系统 V4.19 以上 
+|操作系统 | ubuntu22.04或Linux5.10+QT5.15
 |处理器 |BM1688：8 核 ARM A53，1.6GHz 主频 
 |数据处理能力 |支持 FP32/FP16/INT8，可同时进行 16 路高清视频解码与智能分析 
 .3+|内存 
@@ -135,6 +135,22 @@ link:/en/BPI-sm9/Photo_BPI-sm9[Banana Pi BPI-SM9 产品图片]
 |	|CAM2_MCLK
 |	|CAM3_MCLK
 |GPIO*14	|GPIO*14
+
+|=====
+
+== BPI-SM9 电流参数表
+[options="header",cols="1,1,1,1,1",width="70%"]
+|=====
+5+| **Banana Pi BPI-SM9 电流参数表**
+2+|项目	|最小  |典型  |最大
+.3+|电源参数
+|电压 |11V |12V |13V
+|纹波 | | 50mV |
+|3V RTC 耗电 | | 0.9uA |
+.3+|环境
+|相对湿度 |- - | 65% | 75%
+|工作温度 | -10℃ | - - | 60℃
+|存储温度 | -30℃ | -0℃ | 100℃
 
 |=====
 
