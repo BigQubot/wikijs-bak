@@ -79,8 +79,13 @@ link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by 
 
 image::/picture/etcher.jpg[etcher.jpg]
 
+You can also use this tool for burning. link:https://win32diskimager.org/[win32diskimager]
 
+- Click on "**Image file**" to select image. 
+- Click on "**Equipment**" to select USB device. 
+- Click on "**Write down**" Start flashing.
 
+image::/bpi-r4_pro/bpi-r4pro-burnimage.jpg[bpi-r4pro-burnimage.jpg]
 
 **Flash image to SD card on linux computer**
 
