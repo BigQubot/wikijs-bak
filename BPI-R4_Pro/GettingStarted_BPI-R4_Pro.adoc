@@ -976,12 +976,9 @@ Each module can be reset by GPIO.
 === SIM Card
 Each M.2 B-KEY Slot supports two sets of SIM card signals. +
 We connected SIMA to the onboard NANO SIM Slot and SIMB to the eSIM. +
-However, the eSIM does not have components. If you need it, please contact our sales. +
+However, the eSIM does not have components onboard. If you need it, please contact our sales. +
 
-image::/bpi-r4_pro/bpi-r4_pro/b-key-sim.png[b-key-sim.png,width=300]
-
-image::/bpi-r4_pro/bpi-r4pro-sim.png[bpi-r4pro-sim.png,width=300]
-
+image::/bpi-r4_pro/b-key-sim2.png[b-key-sim2.png,width=500]
 
 ==== Onboard NANO SIM Slot
 SIM1 can use the onboard NANO SIM Slot or an external SIM Slot (this requires a self-designed expansion board connected via CN45) +
