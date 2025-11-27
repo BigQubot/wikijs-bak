@@ -987,13 +987,12 @@ when "PCA_A_IO0_6/SIM_SEL" Output=High,SIM1 Route to FPC Connector, +
 
 ==== External SIM Slot Conector
 The SIM card signals from the three B-KEYs and two miniPCIe sockets can be connected to the FPC Connector (CN45). +
-This allows you to easily design a SIM card adapter board to fit your enclosure.
+note:: This allows you to easily design a SIM card adapter board to fit your enclosure.
 
 ==== eSIM
 PIN42/44/46/48 of M.2 B-KEY Slot is the second set of SIM card signals. +
-Of course, this requires your module to support it. +
+NOTE : This requires your module to support it. +
  +
- 
  
 image::/bpi-r4_pro/bpi-r4pro-sim2.png[bpi-r4pro-sim2.png,width=500]
 
