@@ -43,7 +43,6 @@ NOTE:Some functions require continuous software updates and improvements.
 * 8GB DDR4
 * 8GB eMMC flash
 * 256MB SPI-NAND Flash
-* Micro SD card slot
 
 * 1x 10G SFP WAN
 * 1x 10G RJ45 WAN(combo with 10G SFP WAN)
@@ -54,11 +53,10 @@ NOTE:Some functions require continuous software updates and improvements.
 * 1x 1G LAN(FPC Connector)
 
 * 2x miniPCIe slots with PCIe3.0 2lane interface for Wi-Fi NIC
-* 2x M.2 M-KEY slots with PCIe3.0 1lane interface for NVME SSD (PCIe signal can switch to M.2 B-KEY slot)
+* 2x M.2 M-KEY slots with PCIe3.0 1lane interface for NVME SSD 
 * 3x M.2 B-KEY slots with USB3.2 for 5G Module
 * 1x USB3.2 slot
 * 1x USB2.0 slot
-* 1x USB TypeC Debug Console
 * 2x13 PIN Header for expanding application
 
 
@@ -102,6 +100,7 @@ link:/en/BPI-R4_Pro/Photo_BPI-R4_Pro[Banana Pi BPI-R4 Pro Product photo gallery]
                      3x M.2 B-KEY slots with USB3.2 for 4G/5G Cellular Module
 | USB              | 1x USB3.2 TypeA Connector + 
                      1x USB2.0 TypeA Connector
+| Debug            | 1x USB TypeC on board USB-UART Debug Console
 | GPIO             | 2x13 PIN Header for expanding application
 | Buttons          | Reset button,WPS botton, bootstrap switch 
 | Leds             | Power status Led and RJ45 Led 
