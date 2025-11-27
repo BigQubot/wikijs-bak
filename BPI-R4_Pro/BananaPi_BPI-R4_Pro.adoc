@@ -87,18 +87,21 @@ link:/en/BPI-R4_Pro/Photo_BPI-R4_Pro[Banana Pi BPI-R4 Pro Product photo gallery]
 2+| **HardWare Specification of Banana Pi R4 Pro**
 | CPU              | MediaTek MT7988A Quad-core Arm Cortex-A73,1.8GHz processor
 | SDRAM            | 8GB DDR4
-| On board Storage | MicroSD (TF) card,8GB eMMC flash,256MB SPI-NAND Flash
-| GPIO             | 2x13 PIN Header for expanding application
-| On board Network | 1x 10G RJ45 WAN(combo with 10G SFP WAN) + 
-                     1x 10G RJ45 LAN(combo with 10G SFP LAN) + 
+| On board Storage | MicroSD (TF) card + 
+                     8GB eMMC flash + 
+                     256MB SPI-NAND Flash + 
+| On board Network | 1x 10G RJ45 WAN(combo with 10G SFP+ WAN) + 
+                     1x 10G RJ45 LAN(combo with 10G SFP+ LAN) + 
                      4x 2.5G RJ45 LAN + 
                      1x 1G RJ45 LAN + 
                      1x 1G LAN(FPC Connector)
-| SFP              |1x 10G SFP WAN and 1x 10G SFP LAN
+| SFP              |1x 10G SFP+ WAN + 
+                    1x 10G SFP+ LAN + 
 | Wifi             | Wifi6/Wifi 7 
 | mini PCIE        | 2x miniPCIe slots with PCIe3.0 2lane interface for Wi-Fi NIC
 | M.2 interface    | 2x M.2 M-KEY slots with PCIe3.0 1lane interface for NVME SSD (PCIe signal can switch to M.2 B-KEY slot) and 3x M.2 B-KEY slots with USB3.2 for 5G Module
 | USB              | 1x USB3.2 slot and 1x USB2.0 slot
+| GPIO             | 2x13 PIN Header for expanding application
 | Buttons          | Reset button,WPS botton, boot switch 
 | Leds             | Power status Led and RJ45 Led 
 | DC Power         | 12V/5.2A or 19V 3.2A
