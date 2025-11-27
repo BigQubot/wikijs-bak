@@ -89,7 +89,11 @@ link:/en/BPI-R4_Pro/Photo_BPI-R4_Pro[Banana Pi BPI-R4 Pro Product photo gallery]
 | SDRAM            | 8GB DDR4
 | On board Storage | MicroSD (TF) card,8GB eMMC flash,256MB SPI-NAND Flash
 | GPIO             | 2x13 PIN Header for expanding application
-| On board Network | 1x 10G RJ45 WAN(combo with 10G SFP WAN),1x 10G RJ45 LAN(combo with 10G SFP LAN),4x 2.5G RJ45 LAN,1x 1G RJ45 LAN and 1x 1G LAN(FPC Connector)
+| On board Network | 1x 10G RJ45 WAN(combo with 10G SFP WAN), + 
+                     1x 10G RJ45 LAN(combo with 10G SFP LAN), + 
+                     4x 2.5G RJ45 LAN, + 
+                     1x 1G RJ45 LAN, + 
+                     1x 1G LAN(FPC Connector)
 | SFP              |1x 10G SFP WAN and 1x 10G SFP LAN
 | Wifi             | Wifi6/Wifi 7 
 | mini PCIE        | 2x miniPCIe slots with PCIe3.0 2lane interface for Wi-Fi NIC
