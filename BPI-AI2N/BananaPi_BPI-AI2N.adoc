@@ -30,6 +30,41 @@ image::/bpi-ai2n/bpi-ai2n_core_interface1.jpg[bpi-ai2n_core_interface1.jpg]
 
 image::/bpi-ai2n/bpi-ai2n-carrier_interface1.jpg[bpi-ai2n-carrier_interface1.jpg]
 
+== Hardware spec
+
+[options="header",cols="1,5"]
+|====
+2+| HardWare Specification of BPI-AI2N
+|SoC |RZ/V2N
+|System Memory | 8GB LPDDR4X
+.3+|Storage
+|64 MB SPI NAND flash
+|32GB eMMC
+|SD card Slot
+.3+|Button
+|Sleep button
+|Power button
+|recovery button
+|Networking |2 x GbE RJ45 port
+.3+|USB 
+|2x USB 3.0 Type-A  port
+|1x USB2.0 Type-A On back
+|1x USB3.0 Type-A On back
+|DSI|1x MIPI DSI
+|CSI|2x MIPI CSI
+|FAN| PH-3PIN Connector(5V FAN with PWM)
+|Debugging | USB TypeC Console
+|M.2 KEY | M.2 KEYM For SSD (2280)
+|RTC | support RTC onboard(CR1220)
+|WiFi | WiFi module on board
+|GPIO | 40PIN GPIO
+.2+|Power Supply 
+|12V USB-PD on USB-C port
+|DC12V IN
+|Size | 79 x 100 mm compatible with BPI-AI2N 
+|====
+
+
 = Software
 == Source Code
 
