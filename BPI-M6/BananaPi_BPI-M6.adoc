@@ -186,6 +186,12 @@ image::/bpi-m6/banana_pi_bpi-m6_cooling_fin_5.jpg[banana_pi_bpi-m6_cooling_fin_5
 
 - Taobao Shop: https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-25059194413.13.6fc048a90nGI4k&id=778298735276
 
+== POE
+
+The BPI-M6 is compatible with Raspberry Pi's PoE+ HAT, so you can directly power it using the Ethernet port after connecting it.
+
+However, using this PoE module will occupy 40 pins.
+
 = Source code
 
 == Armbian Source code
