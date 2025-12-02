@@ -27,3 +27,12 @@ image::/picture/bpi-wifi6_upgrade_4.png[bpi-wifi6_upgrade_4.png]
 . Wait a few minutes, after the upgrade is completed, it will automatically restart and the web page will automatically refresh.
 +
 image::/picture/bpi-wifi6_upgrade_5.png[bpi-wifi6_upgrade_5.png]
+
+= Development
+== WiFi
+You can check the WiFi startup status in the Network's wireless section. Among them, Triductor_2GAp and Triductor_5GAp are the WiFi of BPI-WiFi6. You can also make the configuration in the "Edit" section.
+
+image::/bpi-wifi6/bpi-wifi6_wifi1.jpg[bpi-wifi6_wifi1.jpg]
+
+
+
