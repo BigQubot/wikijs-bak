@@ -110,6 +110,9 @@ to install image on your MicroSD card
 
 
 === How to flash image to NAND Flash
+
+NOTE: Factory image information：OpenWrt 24.10-SNAPSHOT Architecture：aarch64_cortex-a53
+
 Before flashing image into Nand, please prepare a USB disk. Let's take OpenWrt image (**BPI-R4Pro-8X-BE14-MT76-OpenWRT24.10-DSA-snand-251120.bin**) for example, the steps are below:
 
 . Format the USB disk to FAT32.
