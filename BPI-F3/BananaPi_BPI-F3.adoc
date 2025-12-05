@@ -30,6 +30,8 @@ link:https://developer.spacemit.com/[SpacemiT official development center]
 
 * 5-lane PCIE2.1 expansion capability
 
+* WiFi(RTL8852BS WIFI6) and Bluetooth 4.2
+
 * 4x USB 3.0 + 1x USB 2.0 OTG interfaces
 
 * 12x UART serial ports
@@ -67,7 +69,7 @@ image::/bpi-f3/bpi-f3_sch.png[bpi-f3_sch.png]
 | Memory                            | 2/4/8/16 GB LPDDR4 (Supports up to 16G LPDDR4)                                                                                 
 | Storage                           | 8/16/32/128 GB eMMC flash.(optional 4M SPI NOR,32M SPI NAND)                                                                              
 | SD card                           | MicroSD card slot (Use SD card larger than 256M, no upper limit)                                                                           
-| Wireless                          | 2.4G/5G WiFi and Bluetooth 4.2                                                               
+| Wireless                          | 2.4G/5G WiFi(RTL8852BS WIFI6) and Bluetooth 4.2                                                               
 | Ethernet                          | 2x GbE Ethernet port(supports PoE with add-on PoE HAT)                                       
 | HDMI                              | 1x full-size HDMI digital Audio output(HDMI1.4,up to 1080p@60fps ) 
 | Display                           | MIPI DSI interface
