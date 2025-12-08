@@ -147,6 +147,31 @@ test_disp setformat 0 64 2 0
 ```
 
 
+== GPIO
+
+=== PWM
+
+The BPI-M6 has three PWM pins, and their corresponding GPIOs are GPIO53, GPIO36 and GPIO37.
+
+image::/bpi-m6/bpi-m6_pwm1.jpg[bpi-m6_pwm1.jpg]
+
+You can use the following command to enable it.
+
+```sh
+echo 1 |sudo tee /sys/class/pwm/pwmchip0/export
+```
+
+Then you can use this command to check if the pwm is enabled.
+
+```sh
+ls /sys/class/pwm/pwmchip0
+```
+
+For example:
+
+image::/bpi-m6/bpi-m6_pwm2.jpg[bpi-m6_pwm2.jpg]
+
+
 == Ethernet
 
 
