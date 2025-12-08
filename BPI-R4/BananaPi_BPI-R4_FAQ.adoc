@@ -13,6 +13,7 @@ TIP: More Infomation: link:/en/BPI-R4/BananaPi_BPI-R4[Banana Pi BPI-R4]
 . link:/en/BPI-R4/BananaPi_BPI-R4_FAQ#_openwrt_mainline_image_txpower_low[Openwrt mainline image txpower low]
 
 
+
 == R4 Debugging Methods
 
 Debugging methods include TTL serial line debugging and SSH debugging.
@@ -209,6 +210,18 @@ Photo of the board powered on (the TTL line and DIP switch should be clearly vis
 If WiFi is available, you can view the WiFi configuration on this web interface.
 
 image::/bpi-r4/r4-faq/r4-faq-be14notstart3.jpg[r4-faq-be14notstart3.jpg]
+
+== Restore factory settings on OpenWrt
+. click "perform reset" on the web page.
+
++ 
+image::/bpi-r4/r4-faq/r4-faq-reset1.jpg[r4-faq-reset1.jpg]
+
+. Use the command
+```
+firstboot -y && reboot
+```
+
 
 == OpenWRT mainline image txpower low
 
