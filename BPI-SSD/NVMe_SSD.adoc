@@ -1,2 +1,25 @@
-= SSD
+= NVMe SSD
 
+If your board has the M2.KEYM interface, then you can connect an NVMe SSD for use.
+
+```sh
+root@OpenWrt:/# lsblk
+NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+mtdblock0     31:0    0   128M  0 disk
+mtdblock1     31:1    0     1M  1 disk
+mtdblock2     31:2    0   512K  0 disk
+mtdblock3     31:3    0     4M  0 disk
+mtdblock4     31:4    0     2M  0 disk
+mtdblock5     31:5    0 112.5M  0 disk
+mmcblk0      179:0    0   7.3G  0 disk
+├─mmcblk0p1  179:1    0 256.3M  0 part
+└─mmcblk0p2  179:2    0     7G  0 part
+mmcblk0boot0 179:8    0     4M  1 disk
+mmcblk0boot1 179:16   0     4M  1 disk
+ubiblock0_1  253:0    0  59.7M  0 disk /rom
+nvme0n1      259:0    0 119.2G  0 disk
+root@OpenWrt:/# lspci
+0002:00:00.0 PCI bridge: MEDIATEK Corp. Device 7988 (rev 01)
+0002:01:00.0 Non-Volatile memory controller: SK hynix Gold P31 SSD
+0004:00:00.0 Unclassified device [0002]: MEDIATEK Corp. Device 7981
+```
