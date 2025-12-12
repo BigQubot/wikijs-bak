@@ -2,6 +2,8 @@
 
 If your board has the M2.KEYM interface, then you can connect an NVMe SSD for use.
 
+image::/bpi-accessories/banana_pi_bpi-accessor-nvmessd1.jpg[banana_pi_bpi-accessor-nvmessd1.jpg]
+
 ```sh
 root@OpenWrt:/# lsblk
 NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
