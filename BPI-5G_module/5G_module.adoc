@@ -2,3 +2,130 @@
 
 
 = RM520N-GL
+
+image::/bpi-r4/bpi-r4_4g5g_1.jpg[bpi-r4_4g5g_1.jpg]
+
+= EM05-CN
+
+
+= Usage method
+
+NOTE: In order to ensure that your roaming signal can be connected to the antenna of the corresponding module.
+
+Find the corresponding SIM card slot and insert the SIM card. There are roughly two types of slots.
+
+The first type of card slot is similar to R4.This requires that Cato be plugged into the SIM card slot.
+
+image::/bpi-r4/bpi-r4_4g5g_2.jpg[bpi-r4_4g5g_2.jpg]
+
+The other type is similar to R3mini.
+
+image::/picture/bpi-r3_mini_cellular.jpg[bpi-r3_mini_cellular.jpg]
+
+== RM520N-GL to use
+**Quectel RM520N-GL**
+```sh
+Quectel RM520N-GL
+wwan0     Link encap:Ethernet  HWaddr A6:35:F7:7A:9E:A7  
+         inet6 addr: fe80::a435:f7ff:fe7a:9ea7/64 Scope:Link
+         UP RUNNING NOARP  MTU:1500  Metric:1
+         RX packets:4 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:9 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000 
+         RX bytes:1272 (1.2 KiB)  TX bytes:1932 (1.8 KiB)
+wwan0_1   Link encap:Ethernet  HWaddr A6:35:F7:7A:9E:A7  
+         inet addr:10.46.121.135  Mask:255.255.255.240
+         inet6 addr: fe80::a435:f7ff:fe7a:9ea7/64 Scope:Link
+         UP RUNNING NOARP  MTU:1500  Metric:1
+         RX packets:4 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:9 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000 
+         RX bytes:1292 (1.2 KiB)  TX bytes:1932 (1.8 KiB)
+root@R4CN:/# 
+root@R4CN:/# lsusb
+Bus 002 Device 003: ID 2c7c:0801 Quectel RM520N-GL
+Bus 002 Device 002: ID 2109:0822 VIA Labs, Inc.          USB3.1 Hub             
+Bus 002 Device 001: ID 1d6b:0003 Linux 5.4.246 xhci-hcd xHCI Host Controller
+Bus 001 Device 003: ID 2109:8822 VIA Labs, Inc.          USB Billboard Device   
+Bus 001 Device 002: ID 2109:2822 VIA Labs, Inc.          USB2.0 Hub             
+Bus 001 Device 001: ID 1d6b:0002 Linux 5.4.246 xhci-hcd xHCI Host Controller
+root@R4CN:/# 
+root@R4CN:/# ping www.baidu.com
+PING www.baidu.com (120.232.145.185): 56 data bytes
+64 bytes from 120.232.145.185: seq=0 ttl=52 time=30.712 ms
+64 bytes from 120.232.145.185: seq=1 ttl=52 time=32.774 ms
+64 bytes from 120.232.145.185: seq=2 ttl=52 time=45.222 ms
+64 bytes from 120.232.145.185: seq=3 ttl=52 time=37.850 ms
+64 bytes from 120.232.145.185: seq=4 ttl=52 time=53.459 ms
+^C
+--- www.baidu.com ping statistics ---
+5 packets transmitted, 5 packets received, 0% packet loss
+round-trip min/avg/max = 30.712/40.003/53.459 ms
+root@R4CN:/#
+```
+
+== RM500-CNV to use
+**RM500U-CN**
+```sh
+usb0      Link encap:Ethernet  HWaddr 5E:3B:9C:76:7C:46  
+         inet addr:10.95.9.23  Bcast:10.95.9.255  Mask:255.255.255.0
+         inet6 addr: fe80::5c3b:9cff:fe76:7c46/64 Scope:Link
+         UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+         RX packets:34 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:62 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000 
+         RX bytes:7908 (7.7 KiB)  TX bytes:10100 (9.8 KiB)
+root@R4CN:/# 
+root@R4CN:/# lsusb
+Bus 002 Device 003: ID 2c7c:0900 Quectel RM500U-CN
+Bus 002 Device 002: ID 2109:0822 VIA Labs, Inc.          USB3.1 Hub             
+Bus 002 Device 001: ID 1d6b:0003 Linux 5.4.246 xhci-hcd xHCI Host Controller
+Bus 001 Device 003: ID 2109:8822 VIA Labs, Inc.          USB Billboard Device   
+Bus 001 Device 002: ID 2109:2822 VIA Labs, Inc.          USB2.0 Hub             
+Bus 001 Device 001: ID 1d6b:0002 Linux 5.4.246 xhci-hcd xHCI Host Controller
+root@R4CN:/# 
+root@R4CN:/# ping www.baidu.com
+PING www.baidu.com (2409:8c54:870:34e:0:ff:b024:1916): 56 data bytes
+64 bytes from 2409:8c54:870:34e:0:ff:b024:1916: seq=0 ttl=51 time=55.105 ms
+64 bytes from 2409:8c54:870:34e:0:ff:b024:1916: seq=1 ttl=51 time=38.725 ms
+64 bytes from 2409:8c54:870:34e:0:ff:b024:1916: seq=2 ttl=51 time=39.890 ms
+^C
+--- www.baidu.com ping statistics ---
+3 packets transmitted, 3 packets received, 0% packet loss
+round-trip min/avg/max = 38.725/44.573/55.105 ms
+root@R4CN:/#
+```
+
+== EM05-CN to use
+
+**EM05-CE**
+```sh
+wwan0     Link encap:Ethernet  HWaddr F2:CC:52:10:2E:27  
+         inet addr:10.21.103.116  Bcast:0.0.0.0  Mask:255.255.255.248
+         inet6 addr: fe80::f0cc:52ff:fe10:2e27/64 Scope:Link
+         UP BROADCAST RUNNING NOARP MULTICAST  MTU:1500  Metric:1
+         RX packets:56 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:91 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000 
+         RX bytes:7868 (7.6 KiB)  TX bytes:10133 (9.8 KiB)
+root@R4CN:/# 
+root@R4CN:/# lsusb
+Bus 001 Device 012: ID 2c7c:0125 Quectel Incorporated LTE Module
+Bus 002 Device 002: ID 2109:0822 VIA Labs, Inc.          USB3.1 Hub             
+Bus 002 Device 001: ID 1d6b:0003 Linux 5.4.246 xhci-hcd xHCI Host Controller
+Bus 001 Device 003: ID 2109:8822 VIA Labs, Inc.          USB Billboard Device   
+Bus 001 Device 002: ID 2109:2822 VIA Labs, Inc.          USB2.0 Hub             
+Bus 001 Device 001: ID 1d6b:0002 Linux 5.4.246 xhci-hcd xHCI Host Controller
+root@R4CN:/# 
+root@R4CN:/# ping www.baidu.com
+PING www.baidu.com (120.232.145.144): 56 data bytes
+64 bytes from 120.232.145.144: seq=0 ttl=53 time=47.085 ms
+64 bytes from 120.232.145.144: seq=1 ttl=53 time=36.447 ms
+^C
+--- www.baidu.com ping statistics ---
+2 packets transmitted, 2 packets received, 0% packet loss
+round-trip min/avg/max = 36.447/41.766/47.085 ms
+root@R4CN:/#
+
+```
+
