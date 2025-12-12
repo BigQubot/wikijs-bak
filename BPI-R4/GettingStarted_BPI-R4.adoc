@@ -331,7 +331,7 @@ image::/picture/r4_sfp_power.png[r4_sfp_power.png]
 
 The temperature of this module is very high when used for a long time, It can reach 90℃ without a heat sink or cooling fan. Be careful to prevent burns!
 
-image::/bpi-r4/sfp_10g_t.png[sfp_10g_t.png, width=800]image::/bpi-r4/sfp_10g_t_copper_module.jpg[sfp_10g_t_copper_module.jpg]image::/picture/sfp-10g-t-aqr.png[sfp-10g-t-aqr.png]
+image::/bpi-r4/sfp_10g_t.png[sfp_10g_t.png, width=1000px]image::/bpi-r4/sfp_10g_t_copper_module.jpg[sfp_10g_t_copper_module.jpg]image::/picture/sfp-10g-t-aqr.png[sfp-10g-t-aqr.png]
 
 ```bash
 root@R4CN:/# [   67.870063] sfp sfp@0: SM: enter empty:up:down event insert
