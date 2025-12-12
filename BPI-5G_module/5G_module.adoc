@@ -12,15 +12,18 @@ image::/bpi-r4/bpi-r4_4g5g_1.jpg[bpi-r4_4g5g_1.jpg]
 
 NOTE: In order to ensure that your roaming signal can be connected to the antenna of the corresponding module.
 
-Find the corresponding SIM card slot and insert the SIM card. There are roughly two types of slots.
-
+. Find the corresponding SIM card slot and insert the SIM card. There are roughly two types of slots.
++
 The first type of card slot is similar to R4.This requires that Cato be plugged into the SIM card slot.
-
++
 image::/bpi-r4/bpi-r4_4g5g_2.jpg[bpi-r4_4g5g_2.jpg]
-
++
 The other type is similar to R3mini.
-
++
 image::/picture/bpi-r3_mini_cellular.jpg[bpi-r3_mini_cellular.jpg]
+
+. The system will automatically make a call and obtain the IP address.
+
 
 == RM520N-GL to use
 **Quectel RM520N-GL**
