@@ -1,10 +1,56 @@
-= FAQ
+= Basic test
 
 TIP: More Infomation: link:https://docs.banana-pi.org/en/BPI-R4_Pro/BananaPi_BPI-R4_Pro[Banana Pi BPI-R4 Pro]
 
-*Table of contents*
+== BPI-R4Pro Power test
+NOTE: Due to the 1W fluctuation during usage, the following is the approximate instantaneous power.
 
-. link:/en/BPI-R4_Pro/TEST-R4_Pro#_problem_of_sd_card_startup_failure[Problem of SD card startup failure]
+=== No-load power
+
+[options="header",cols="1,1,1,1"]
+|====
+4+| **BPI-R4Pro Power Usage Test	**	
+|Peripheral device status| Equipment in unused state	Voltage（V）	|Electric current(A)	|Power consumption(W)
+
+|Only the board	|20.26|	0.45	|9.18
+|BE14 WiFi	|20.20 |	0.78	|15.90 
+|One EM05 on M.2KEY B	|20.26|	0.46|	9.33
+|Two EM05 on M.2KEY B	|20.25|	0.49	|9.97
+|Three EM05 on M.2KEY B|	20.25|	0.52|	10.57
+|Two SFP network ports	|20.23|	0.61	|12.53
+|BE14 WiFi+Two SFP network ports	|20.18	|0.94	|19.07
+|One NVME SSD	|20.26	|0.47	|9.64
+|Two NVME SSD	|20.25	|0.54	|10.95
+
+|====
+
+=== Load power
+
+[options="header",cols="1,1,1,1"]
+|====
+4+| **BPI-R4Pro Power Usage Test	**		
+|Equipment usage status	|Voltage（V）	|Electric current(A)	|Power consumption(W)
+|Only the board
+(stress-ng --cpu 4)|20.23|	0.54	|11.03
+|BE14 WiFi	|20.21 	|0.81	|16.39 		
+|Two SFP network ports	|20.21	|0.63	|13.19
+|BE14 WiFi+Two SFP network ports	|20.19|	0.93	|18.82 
+|One NVME SSD	|20.25	|0.55	|11.31
+|Two NVME SSD|	20.20| 	0.73	|14.93
+|Two FAN
+ (One 4010 FAN+One 5020 FAN)|	20.23|	0.52|	10.65
+|Two FAN
+ (Two 4010 FAN)	|20.24	|0.48	|9.74
+|BE14 WiFi+Two SFP network ports+Two FAN(One 4010 FAN+One 5020 FAN)|	20.16|	1.01	|20.50 
+|BE14 WiFi+Two SFP network ports+Two FAN(Two 4010 FAN)
+|	20.18|0.97	|19.70 
+|====
 
 
-== Problem of SD card startup failure
+
+
+
+
+
+
+
