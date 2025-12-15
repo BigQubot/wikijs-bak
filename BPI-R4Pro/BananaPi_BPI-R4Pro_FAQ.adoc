@@ -16,3 +16,1025 @@ image::/bpi-r4_pro/bpi-r4_pro_faq/bpi_r4pro_faq_sdfail1.jpg[bpi_r4pro_faq_sdfail
 image::/picture/low_level_format_sd_card.png[low_level_format_sd_card.png,width=300]
 
 . Use another high-speed SD card for burning.
+
+TIP: We successfully booted the image using a 64G high-speed SanDisk card.
+
+image::/bpi-r4_pro/bpi-r4_pro_faq/bpi_r4pro_faq_sdfail2.jpg[bpi_r4pro_faq_sdfail2.jpg]
+
+[%collapsible]
+====
+```bash
+F0: 102B 0000
+FA: 1042 0000
+FA: 1042 0000 [0200]
+F9: 1041 0000
+F3: 1001 0000 [0200]
+F3: 1001 0000
+F6: 380E 5012
+F5: 0000 0000
+V0: 0000 0000 [0001]
+00: 0000 0000
+BP: 0600 0041 [0000]
+G0: 1190 0000
+EC: 0000 0000 [3000]
+MK: 0000 0000 [0000]
+T0: 0000 0227 [0101]
+Jump to BL
+
+NOTICE:  BL2: v2.10.0   (release):OpenWrt v2024.01.17~bacca82a-3 (mt7988-sdmmc-comb)
+NOTICE:  BL2: Built : 03:09:13, Jun 17 2025
+NOTICE:  WDT: Cold boot
+NOTICE:  WDT: disabled
+NOTICE:  CPU: MT7988
+NOTICE:  EMI: DDR4 4BG mode
+NOTICE:  EMI: Using DDR unknown settings
+NOTICE:  EMI: Detected DRAM size: 8192 MB
+NOTICE:  EMI: complex R/W mem test passed
+NOTICE:  BL2: Booting BL31
+NOTICE:  BL31: v2.10.0  (release):OpenWrt v2024.01.17~bacca82a-3 (mt7988-sdmmc-comb)
+NOTICE:  BL31: Built : 03:09:13, Jun 17 2025
+
+
+U-Boot 2024.10-OpenWrt-unknown (Jun 17 2025 - 03:09:13 +0000)
+
+CPU:   MediaTek MT7988
+Model: BananaPi BPI-R4 Pro 8X
+DRAM:  8 GiB
+Core:  65 devices, 23 uclasses, devicetree: embed
+spi-nand: spi_nand spi_nand@0: Winbond SPI NAND was found.
+spi-nand: spi_nand spi_nand@0: 256 MiB, block size: 128 KiB, page size: 2048, OOB size: 128
+MMC:   mmc@11230000: 0
+Loading Environment from MMC... *** Warning - bad CRC, using default environment
+
+Reading from MMC(0)... In:    serial@11000000
+Out:   serial@11000000
+Err:   serial@11000000
+reset button found
+Loading Environment from MMC... *** Warning - bad CRC, using default environment
+
+Reading from MMC(0)... Net:
+Warning: ethernet@15100000 (eth0) using random MAC address - 06:40:7d:d8:70:8e
+eth0: ethernet@15100000
+Saving Environment to MMC... Writing to MMC(0)... OK
+Saving Environment to MMC... Writing to MMC(0)... OK
+off
+
+        ( ( ( OpenWrt ) ) )  [SD card]       U-Boot 2024.10-OpenWrt-unknown (Jun 17 2025 - 03:09:13 +0000)
+
+      1. Run default boot command.
+      2. Boot system via TFTP.
+      3. Boot production system from SD card.
+      4. Boot recovery system from SD card.
+      5. Load production system via TFTP then write to SD card.
+      6. Load recovery system via TFTP then write to SD card.
+      7. Install bootloader, recovery and production to NAND.
+      8. Reboot.
+      9. Reset all settings to factory defaults.
+      0. Exit
+
+
+  Press UP/DOWN to move, ENTER to select, ESC to quit
+
+MMC read: dev # 0, block # 327680, count 256 ... 256 blocks read: OK
+
+MMC read: dev # 0, block # 327680, count 218616 ... 218616 blocks read: OK
+## Loading kernel from FIT Image at 50000000 ...
+   Using 'config-mt7988a-bananapi-bpi-r4-pro-8x' configuration
+   Trying 'kernel-1' kernel subimage
+     Description:  ARM64 OpenWrt Linux-6.6.93
+     Type:         Kernel Image
+     Compression:  gzip compressed
+     Data Start:   0x50001000
+     Data Size:    6744266 Bytes = 6.4 MiB
+     Architecture: AArch64
+     OS:           Linux
+     Load Address: 0x46000000
+     Entry Point:  0x46000000
+     Hash algo:    crc32
+     Hash value:   64e7916c
+     Hash algo:    sha1
+     Hash value:   5a60d0813ea4d5f9e42657baf57d1c5706457e21
+   Verifying Hash Integrity ... crc32+ sha1+ OK
+## Loading fdt from FIT Image at 50000000 ...
+   Using 'config-mt7988a-bananapi-bpi-r4-pro-8x' configuration
+   Trying 'fdt-1' fdt subimage
+     Description:  ARM64 OpenWrt bananapi_bpi-r4-pro-8x device tree blob
+     Type:         Flat Device Tree
+     Compression:  uncompressed
+     Data Start:   0x50670000
+     Data Size:    55785 Bytes = 54.5 KiB
+     Architecture: AArch64
+     Load Address: 0x45f00000
+     Hash algo:    crc32
+     Hash value:   09f6aff4
+     Hash algo:    sha1
+     Hash value:   4820e0bb1b5b2e5928dc040fc15d8e906fb4424b
+   Verifying Hash Integrity ... crc32+ sha1+ OK
+   Loading fdt from 0x50670000 to 0x45f00000
+## Loading fdt from FIT Image at 50000000 ...
+   Using 'mt7988a-bananapi-bpi-r4-pro-8x-sd' configuration
+   Trying 'fdt-mt7988a-bananapi-bpi-r4-pro-8x-sd' fdt subimage
+     Description:  ARM64 OpenWrt bananapi_bpi-r4-pro-8x device tree overlay mt7988a-bananapi-bpi-r4-pro-8x-sd
+     Type:         Flat Device Tree
+     Compression:  uncompressed
+     Data Start:   0x50680000
+     Data Size:    1478 Bytes = 1.4 KiB
+     Architecture: AArch64
+     Hash algo:    crc32
+     Hash value:   014fa155
+     Hash algo:    sha1
+     Hash value:   b38566e58ee64a3933cc1fa057f9dd70ae509834
+   Verifying Hash Integrity ... crc32+ sha1+ OK
+## Loading fdt from FIT Image at 50000000 ...
+Could not find configuration node
+load of <NULL> failed
+   Booting using the fdt blob at 0x45f00000
+Working FDT set to 45f00000
+## Loading loadables from FIT Image at 50000000 ...
+   Trying 'rootfs-1' loadables subimage
+     Description:  ARM64 OpenWrt bananapi_bpi-r4-pro-8x rootfs
+     Type:         Filesystem Image
+     Compression:  uncompressed
+     Data Start:   0x50682000
+     Data Size:    105107456 Bytes = 100.2 MiB
+     Hash algo:    crc32
+     Hash value:   fa7a0ddf
+     Hash algo:    sha1
+     Hash value:   8b6f4b6c6638c6b2df6f34de3b6a0c416693a5d4
+   Verifying Hash Integrity ... crc32+ sha1+ OK
+   Uncompressing Kernel Image to 46000000
+   Loading Device Tree to 00000000fe7db000, end 00000000fe7eac8d ... OK
+Working FDT set to fe7db000
+set /chosen/rootdisk to bootrom media: rootdisk-sd (phandle 0x000000d8)
+
+Starting kernel ...
+
+[    0.000000] Booting Linux on physical CPU 0x0000000000 [0x411fd090]
+[    0.000000] Linux version 6.6.93 (linux@ubuntu2004-devel) (aarch64-openwrt-linux-musl-gcc (OpenWrt GCC 13.3.0 unknown) 13.3.0, GNU ld (GNU Binutils) 2.42) #0 SMP Tue Jun 17 03:09:13 2025
+[    0.000000] Machine model: Bananapi BPI-R4-PRO-8X
+[    0.000000] OF: reserved mem: 0x0000000042ff0000..0x0000000042ffffff (64 KiB) map non-reusable ramoops@42ff0000
+[    0.000000] OF: reserved mem: 0x0000000043000000..0x000000004304ffff (320 KiB) nomap non-reusable secmon@43000000
+[    0.000000] OF: reserved mem: 0x0000000047cc0000..0x0000000047dbffff (1024 KiB) nomap non-reusable wmcpu-reserved@47cc0000
+[    0.000000] OF: reserved mem: 0x000000004f600000..0x000000004f63ffff (256 KiB) nomap non-reusable wo-emi@4f600000
+[    0.000000] OF: reserved mem: 0x000000004f640000..0x000000004f67ffff (256 KiB) nomap non-reusable wo-emi@4f640000
+[    0.000000] OF: reserved mem: 0x000000004f680000..0x000000004f6bffff (256 KiB) nomap non-reusable wo-emi@4f680000
+[    0.000000] OF: reserved mem: 0x000000004f700000..0x000000004fefffff (8192 KiB) nomap non-reusable wo-data@4f700000
+[    0.000000] Zone ranges:
+[    0.000000]   DMA      [mem 0x0000000040000000-0x00000000ffffffff]
+[    0.000000]   DMA32    empty
+[    0.000000]   Normal   [mem 0x0000000100000000-0x000000023fffffff]
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000040000000-0x0000000042ffffff]
+[    0.000000]   node   0: [mem 0x0000000043000000-0x000000004304ffff]
+[    0.000000]   node   0: [mem 0x0000000043050000-0x0000000047cbffff]
+[    0.000000]   node   0: [mem 0x0000000047cc0000-0x0000000047dbffff]
+[    0.000000]   node   0: [mem 0x0000000047dc0000-0x000000004f5fffff]
+[    0.000000]   node   0: [mem 0x000000004f600000-0x000000004f6bffff]
+[    0.000000]   node   0: [mem 0x000000004f6c0000-0x000000004f6fffff]
+[    0.000000]   node   0: [mem 0x000000004f700000-0x000000004fefffff]
+[    0.000000]   node   0: [mem 0x000000004ff00000-0x000000023fffffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000040000000-0x000000023fffffff]
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] psci: PSCIv1.1 detected in firmware.
+[    0.000000] psci: Using standard PSCI v0.2 function IDs
+[    0.000000] psci: MIGRATE_INFO_TYPE not supported.
+[    0.000000] psci: SMC Calling Convention v1.4
+[    0.000000] percpu: Embedded 28 pages/cpu s74472 r8192 d32024 u114688
+[    0.000000] pcpu-alloc: s74472 r8192 d32024 u114688 alloc=28*4096
+[    0.000000] pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3
+[    0.000000] Detected VIPT I-cache on CPU0
+[    0.000000] CPU features: detected: GIC system register CPU interface
+[    0.000000] CPU features: detected: Spectre-BHB
+[    0.000000] CPU features: kernel page table isolation disabled by kernel configuration
+[    0.000000] alternatives: applying boot alternatives
+[    0.000000] Kernel command line: console=ttyS0,115200n1 pci=pcie_bus_perf root=/dev/fit0 rootwait
+[    0.000000] Dentry cache hash table entries: 1048576 (order: 11, 8388608 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 524288 (order: 10, 4194304 bytes, linear)
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 2064384
+[    0.000000] mem auto-init: stack:off, heap alloc:off, heap free:off
+[    0.000000] software IO TLB: area num 4.
+[    0.000000] software IO TLB: mapped [mem 0x00000000fa7db000-0x00000000fe7db000] (64MB)
+[    0.000000] Memory: 8135452K/8388608K available (9984K kernel code, 1640K rwdata, 3284K rodata, 576K init, 308K bss, 253156K reserved, 0K cma-reserved)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] rcu: Hierarchical RCU implementation.
+[    0.000000]  Tracing variant of Tasks RCU enabled.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 10 jiffies.
+[    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+[    0.000000] GICv3: GIC: Using split EOI/Deactivate mode
+[    0.000000] GICv3: 416 SPIs implemented
+[    0.000000] GICv3: 0 Extended SPIs implemented
+[    0.000000] Root IRQ handler: gic_handle_irq
+[    0.000000] GICv3: GICv3 features: 16 PPIs
+[    0.000000] GICv3: CPU0: found redistributor 0 region 0:0x000000000c080000
+[    0.000000] rcu: srcu_init: Setting srcu_struct sizes based on contention.
+[    0.000000] arch_timer: cp15 timer(s) running at 13.00MHz (phys).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x2ff89eacb, max_idle_ns: 440795202429 ns
+[    0.000000] sched_clock: 56 bits at 13MHz, resolution 76ns, wraps every 4398046511101ns
+[    0.000245] Calibrating delay loop (skipped), value calculated using timer frequency.. 26.00 BogoMIPS (lpj=130000)
+[    0.000253] pid_max: default: 32768 minimum: 301
+[    0.002357] Mount-cache hash table entries: 16384 (order: 5, 131072 bytes, linear)
+[    0.002380] Mountpoint-cache hash table entries: 16384 (order: 5, 131072 bytes, linear)
+[    0.003887] cacheinfo: Unable to detect cache hierarchy for CPU 0
+[    0.004172] RCU Tasks Trace: Setting shift to 2 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=4.
+[    0.004252] rcu: Hierarchical SRCU implementation.
+[    0.004254] rcu:     Max phase no-delay instances is 1000.
+[    0.004667] smp: Bringing up secondary CPUs ...
+[    0.004897] Detected VIPT I-cache on CPU1
+[    0.004936] GICv3: CPU1: found redistributor 1 region 0:0x000000000c0a0000
+[    0.004960] CPU1: Booted secondary processor 0x0000000001 [0x411fd090]
+[    0.005228] Detected VIPT I-cache on CPU2
+[    0.005248] GICv3: CPU2: found redistributor 2 region 0:0x000000000c0c0000
+[    0.005259] CPU2: Booted secondary processor 0x0000000002 [0x411fd090]
+[    0.005501] Detected VIPT I-cache on CPU3
+[    0.005521] GICv3: CPU3: found redistributor 3 region 0:0x000000000c0e0000
+[    0.005532] CPU3: Booted secondary processor 0x0000000003 [0x411fd090]
+[    0.005563] smp: Brought up 1 node, 4 CPUs
+[    0.005567] SMP: Total of 4 processors activated.
+[    0.005570] CPU features: detected: 32-bit EL0 Support
+[    0.005572] CPU features: detected: CRC32 instructions
+[    0.005606] CPU features: emulated: Privileged Access Never (PAN) using TTBR0_EL1 switching
+[    0.005609] CPU: All CPU(s) started at EL2
+[    0.005611] alternatives: applying system-wide alternatives
+[    0.009915] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.009928] futex hash table entries: 1024 (order: 4, 65536 bytes, linear)
+[    0.010736] pinctrl core: initialized pinctrl subsystem
+[    0.011538] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+[    0.011929] DMA: preallocated 1024 KiB GFP_KERNEL pool for atomic allocations
+[    0.012118] DMA: preallocated 1024 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+[    0.012299] DMA: preallocated 1024 KiB GFP_KERNEL|GFP_DMA32 pool for atomic allocations
+[    0.012597] thermal_sys: Registered thermal governor 'fair_share'
+[    0.012600] thermal_sys: Registered thermal governor 'bang_bang'
+[    0.012602] thermal_sys: Registered thermal governor 'step_wise'
+[    0.012604] thermal_sys: Registered thermal governor 'user_space'
+[    0.012644] hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
+[    0.012678] ASID allocator initialised with 65536 entries
+[    0.013416] pstore: Using crash dump compression: deflate
+[    0.013421] printk: console [ramoops-1] enabled
+[    0.013658] pstore: Registered ramoops as persistent store backend
+[    0.013662] ramoops: using 0x10000@0x42ff0000, ecc: 0
+[    0.015922] /soc/interrupt-controller@c000000: Fixed dependency cycle(s) with /soc/interrupt-controller@c000000
+[    0.022035] Modules: 28784 pages in range for non-PLT usage
+[    0.022044] Modules: 520304 pages in range for PLT usage
+[    0.022860] cryptd: max_cpu_qlen set to 1000
+[    0.024392] SCSI subsystem initialized
+[    0.024605] libata version 3.00 loaded.
+[    0.025559] clocksource: Switched to clocksource arch_sys_counter
+[    0.044448] NET: Registered PF_INET protocol family
+[    0.044676] IP idents hash table entries: 131072 (order: 8, 1048576 bytes, linear)
+[    0.048721] tcp_listen_portaddr_hash hash table entries: 4096 (order: 4, 65536 bytes, linear)
+[    0.048763] Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+[    0.048774] TCP established hash table entries: 65536 (order: 7, 524288 bytes, linear)
+[    0.048966] TCP bind hash table entries: 65536 (order: 9, 2097152 bytes, linear)
+[    0.049806] TCP: Hash tables configured (established 65536 bind 65536)
+[    0.050148] MPTCP token hash table entries: 8192 (order: 5, 196608 bytes, linear)
+[    0.050321] UDP hash table entries: 4096 (order: 5, 131072 bytes, linear)
+[    0.050411] UDP-Lite hash table entries: 4096 (order: 5, 131072 bytes, linear)
+[    0.050658] NET: Registered PF_UNIX/PF_LOCAL protocol family
+[    0.050690] PCI: CLS 0 bytes, default 64
+[    0.051711] workingset: timestamp_bits=46 max_order=21 bucket_order=0
+[    0.055386] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.055393] jffs2: version 2.2 (NAND) (SUMMARY) (LZMA) (RTIME) (CMODE_PRIORITY) (c) 2001-2006 Red Hat, Inc.
+[    0.087232] mtk-xsphy soc:xphy@11e10000: failed to get ref_clk(id-1)
+[    0.087865] mtk-pcie-gen3 11280000.pcie: host bridge /soc/pcie@11280000 ranges:
+[    0.087882] mtk-pcie-gen3 11280000.pcie: Parsing ranges property...
+[    0.087894] mtk-pcie-gen3 11280000.pcie:       IO 0x0020000000..0x00201fffff -> 0x0020000000
+[    0.087907] mtk-pcie-gen3 11280000.pcie:      MEM 0x0020200000..0x0027ffffff -> 0x0020200000
+[    0.088000] mtk-pcie-gen3 11290000.pcie: host bridge /soc/pcie@11290000 ranges:
+[    0.088010] mtk-pcie-gen3 11290000.pcie: Parsing ranges property...
+[    0.088020] mtk-pcie-gen3 11290000.pcie:       IO 0x0028000000..0x00281fffff -> 0x0028000000
+[    0.088029] mtk-pcie-gen3 11290000.pcie:      MEM 0x0028200000..0x002fffffff -> 0x0028200000
+[    0.088048] /soc/pcie@11290000: Failed to get clk index: 0 ret: -517
+[    0.088056] mtk-pcie-gen3 11290000.pcie: failed to get clocks
+[    0.088119] mtk-pcie-gen3 11300000.pcie: host bridge /soc/pcie@11300000 ranges:
+[    0.088128] mtk-pcie-gen3 11300000.pcie: Parsing ranges property...
+[    0.088137] mtk-pcie-gen3 11300000.pcie:       IO 0x0030000000..0x00301fffff -> 0x0030000000
+[    0.088146] mtk-pcie-gen3 11300000.pcie:      MEM 0x0030200000..0x0037ffffff -> 0x0030200000
+[    0.088162] /soc/pcie@11300000: Failed to get clk index: 0 ret: -517
+[    0.088170] mtk-pcie-gen3 11300000.pcie: failed to get clocks
+[    0.088245] mtk-pcie-gen3 11310000.pcie: host bridge /soc/pcie@11310000 ranges:
+[    0.088255] mtk-pcie-gen3 11310000.pcie: Parsing ranges property...
+[    0.088264] mtk-pcie-gen3 11310000.pcie:       IO 0x0038000000..0x00381fffff -> 0x0038000000
+[    0.088273] mtk-pcie-gen3 11310000.pcie:      MEM 0x0038200000..0x003fffffff -> 0x0038200000
+[    0.088290] /soc/pcie@11310000: Failed to get clk index: 0 ret: -517
+[    0.088297] mtk-pcie-gen3 11310000.pcie: failed to get clocks
+[    0.093106] Serial: 8250/16550 driver, 3 ports, IRQ sharing disabled
+[    0.093896] printk: console [ttyS0] disabled
+[    0.114151] 11000000.serial: ttyS0 at MMIO 0x11000000 (irq = 99, base_baud = 2500000) is a ST16650V2
+[    0.114187] printk: console [ttyS0] enabled
+[    1.132436] 11000100.serial: ttyS1 at MMIO 0x11000100 (irq = 100, base_baud = 2500000) is a ST16650V2
+[    1.162341] 11000200.serial: ttyS2 at MMIO 0x11000200 (irq = 101, base_baud = 2500000) is a ST16650V2
+[    1.174258] loop: module loaded
+[    1.179469] spi-nand spi0.0: CASN page check failed
+[    1.184352] spi-nand spi0.0: Fallback to read ID
+[    1.189067] spi-nand spi0.0: Winbond SPI NAND was found.
+[    1.194370] spi-nand spi0.0: 256 MiB, block size: 128 KiB, page size: 2048, OOB size: 128
+[    1.202711] 4 fixed-partitions partitions found on MTD device spi0.0
+[    1.209158] OF: Bad cell count for /soc/spi@11007000/spi_nand@0/partitions
+[    1.216045] OF: Bad cell count for /soc/spi@11007000/spi_nand@0/partitions
+[    1.223071] Creating 4 MTD partitions on "spi0.0":
+[    1.227879] 0x000000000000-0x000000200000 : "bl2"
+[    1.234164] 0x000000200000-0x000000600000 : "Factory"
+[    1.242038] OF: Bad cell count for /soc/spi@11007000/spi_nand@0/partitions
+[    1.249053] 0x000000600000-0x000010000000 : "ubi"
+[    1.420079] ubi0: default fastmap pool size: 100
+[    1.424693] ubi0: default fastmap WL pool size: 50
+[    1.429480] ubi0: attaching mtd2
+[    2.335558] random: crng init done
+[    2.962540] ubi0: scanning is finished
+[    2.976089] ubi0: attached mtd2 (name "ubi", size 250 MiB)
+[    2.981575] ubi0: PEB size: 131072 bytes (128 KiB), LEB size: 126976 bytes
+[    2.988445] ubi0: min./max. I/O unit sizes: 2048/2048, sub-page size 2048
+[    2.995220] ubi0: VID header offset: 2048 (aligned 2048), data offset: 4096
+[    3.002171] ubi0: good PEBs: 2000, bad PEBs: 0, corrupted PEBs: 0
+[    3.008254] ubi0: user volume: 6, internal volumes: 1, max. volumes count: 128
+[    3.015463] ubi0: max/mean erase counter: 2/0, WL threshold: 4096, image sequence number: 1750129753
+[    3.024582] ubi0: available PEBs: 0, total reserved PEBs: 2000, PEBs reserved for bad PEB handling: 40
+[    3.033880] ubi0: background thread "ubi_bgt0d" started, PID 261
+[    3.033957] OF: Bad cell count for /soc/spi@11007000/spi_nand@0/partitions
+[    3.046832] OF: Bad cell count for /soc/spi@11007000/spi_nand@0/partitions
+[    3.054424] block ubiblock0_4: created from ubi0:4(fit)
+[    3.059718] 0x000000000000-0x000010000000 : "nand"
+[    3.067491] mt7530-mmio 15020000.switch: Failed to register DSA switch: -517
+[    3.207235] i2c_dev: i2c /dev entries driver
+[    3.212013] /soc/i2c@11003000/rt5190a@64: Fixed dependency cycle(s) with /soc/i2c@11003000/rt5190a@64/regulators/buck1
+[    3.228713] mtk-wdt 1001c000.watchdog: Watchdog enabled (timeout=31 sec, nowayout=0)
+[    3.241483] mtk-msdc 11230000.mmc: Got CD GPIO
+[    3.246688] hw perfevents: enabled with armv8_cortex_a73 PMU driver, 7 counters available
+[    3.256276] NET: Registered PF_INET6 protocol family
+[    3.261580] Segment Routing with IPv6
+[    3.265241] In-situ OAM (IOAM) with IPv6
+[    3.269204] NET: Registered PF_PACKET protocol family
+[    3.274256] bridge: filtering via arp/ip/ip6tables is no longer available by default. Update your scripts to load br_netfilter if you need this.
+[    3.287302] 8021q: 802.1Q VLAN Support v1.8
+[    3.302862] phy phy-soc:xphy@11e10000.3: type_sw - reg 0x218, index 0
+[    3.309319] mmc0: host does not support reading read-only switch, assuming write-enable
+[    3.317429] mmc0: new high speed SDXC card at address aaaa
+[    3.318078] mtk-pcie-gen3 11280000.pcie: host bridge /soc/pcie@11280000 ranges:
+[    3.323467] mmcblk0: mmc0:aaaa SD64G 59.5 GiB
+[    3.330240] mtk-pcie-gen3 11280000.pcie: Parsing ranges property...
+[    3.340865] mtk-pcie-gen3 11280000.pcie:       IO 0x0020000000..0x00201fffff -> 0x0020000000
+[    3.349317] mtk-pcie-gen3 11280000.pcie:      MEM 0x0020200000..0x0027ffffff -> 0x0020200000
+[    3.357853] mtk-pcie-gen3 11280000.pcie: failed to get max link width
+[    3.366974] Alternate GPT is invalid, using primary GPT.
+[    3.372289]  mmcblk0: p1 p2 p3 p4 p5 p6 p7
+[    3.695580] mtk-pcie-gen3 11280000.pcie: PCIe link down, current LTSSM state: detect.quiet (0x1)
+[    3.704384] mtk-pcie-gen3: probe of 11280000.pcie failed with error -110
+[    3.711467] mtk-pcie-gen3 11290000.pcie: host bridge /soc/pcie@11290000 ranges:
+[    3.718783] mtk-pcie-gen3 11290000.pcie: Parsing ranges property...
+[    3.725045] mtk-pcie-gen3 11290000.pcie:       IO 0x0028000000..0x00281fffff -> 0x0028000000
+[    3.733477] mtk-pcie-gen3 11290000.pcie:      MEM 0x0028200000..0x002fffffff -> 0x0028200000
+[    3.741948] mtk-pcie-gen3 11290000.pcie: failed to get max link width
+[    4.085553] mtk-pcie-gen3 11290000.pcie: PCIe link down, current LTSSM state: detect.quiet (0x1)
+[    4.094330] mtk-pcie-gen3: probe of 11290000.pcie failed with error -110
+[    4.101207] mtk-pcie-gen3 11300000.pcie: host bridge /soc/pcie@11300000 ranges:
+[    4.108516] mtk-pcie-gen3 11300000.pcie: Parsing ranges property...
+[    4.114774] mtk-pcie-gen3 11300000.pcie:       IO 0x0030000000..0x00301fffff -> 0x0030000000
+[    4.123205] mtk-pcie-gen3 11300000.pcie:      MEM 0x0030200000..0x0037ffffff -> 0x0030200000
+[    4.131657] mtk-pcie-gen3 11300000.pcie: failed to get max link width
+[    4.475591] mtk-pcie-gen3 11300000.pcie: PCIe link down, current LTSSM state: detect.quiet (0x1)
+[    4.484393] mtk-pcie-gen3: probe of 11300000.pcie failed with error -110
+[    4.491400] mtk-pcie-gen3 11310000.pcie: host bridge /soc/pcie@11310000 ranges:
+[    4.498727] mtk-pcie-gen3 11310000.pcie: Parsing ranges property...
+[    4.504990] mtk-pcie-gen3 11310000.pcie:       IO 0x0038000000..0x00381fffff -> 0x0038000000
+[    4.513423] mtk-pcie-gen3 11310000.pcie:      MEM 0x0038200000..0x003fffffff -> 0x0038200000
+[    4.521892] mtk-pcie-gen3 11310000.pcie: failed to get max link width
+[    4.865559] mtk-pcie-gen3 11310000.pcie: PCIe link down, current LTSSM state: detect.quiet (0x1)
+[    4.874335] mtk-pcie-gen3: probe of 11310000.pcie failed with error -110
+[    4.881831] FIT: Detected U-Boot 2024.10-OpenWrt-unknown
+[    4.887139] FIT: Selected configuration: "config-mt7988a-bananapi-bpi-r4-pro-8x" (OpenWrt bananapi_bpi-r4-pro-8x)
+[    4.897394] FIT:           kernel sub-image 0x00001000..0x0066f8c9 "kernel-1" (ARM64 OpenWrt Linux-6.6.93)
+[    4.907127] FIT:          flat_dt sub-image 0x00670000..0x0067d9e8 "fdt-1" (ARM64 OpenWrt bananapi_bpi-r4-pro-8x device tree blob)
+[    4.918942] FIT:          flat_dt sub-image 0x0067e000..0x0067e60d "fdt-mt7988a-bananapi-bpi-r4-pro-8x-emmc" (ARM64 OpenWrt bananapi_bpi-r4-pro-8x device tree overlay mt7988a-bananapi-bpi-r4-pro-8x-emmc)
+[    4.937091] FIT:          flat_dt sub-image 0x0067f000..0x0067f120 "fdt-mt7988a-bananapi-bpi-r4-pro-8x-rtc" (ARM64 OpenWrt bananapi_bpi-r4-pro-8x device tree overlay mt7988a-bananapi-bpi-r4-pro-8x-rtc)
+[    4.955065] FIT:          flat_dt sub-image 0x00680000..0x006805c5 "fdt-mt7988a-bananapi-bpi-r4-pro-8x-sd" (ARM64 OpenWrt bananapi_bpi-r4-pro-8x device tree overlay mt7988a-bananapi-bpi-r4-pro-8x-sd)
+[    4.972871] FIT:          flat_dt sub-image 0x00681000..0x006818f4 "fdt-mt7988a-bananapi-bpi-r4-pro-8x-wifi-mt7996a" (ARM64 OpenWrt bananapi_bpi-r4-pro-8x device tree overlay mt7988a-bananapi-bpi-r4-pro-8x-wifi-mt7996a)
+[    4.992408] FIT:       filesystem sub-image 0x00682000..0x06abefff "rootfs-1" (ARM64 OpenWrt bananapi_bpi-r4-pro-8x rootfs)
+[    5.003840] block mmcblk0p7: mapped 1 uImage.FIT filesystem sub-image as /dev/fit0
+[    5.011564] block mmcblk0p7: mapped remaining space as /dev/fitrw
+[    5.018664] mt7530-mmio 15020000.switch: Failed to register DSA switch: -517
+[    5.158259] mtk_soc_eth 15100000.ethernet: generated random MAC address 65:74:68:25:64:00
+[    5.166842] mtk_soc_eth 15100000.ethernet: generated random MAC address 65:74:68:25:64:00
+[    6.508974] mtk_soc_eth 15100000.ethernet eth0: mediatek frame engine at 0xffffffc082b00000, irq 110
+[    6.518867] mtk_soc_eth 15100000.ethernet eth1: mediatek frame engine at 0xffffffc082b00000, irq 110
+[    6.528777] mtk_soc_eth 15100000.ethernet eth2: mediatek frame engine at 0xffffffc082b00000, irq 110
+[    6.537929] (unnamed net_device) (dummy): netif_napi_add_weight() called with weight 256
+[    6.625596] mt7530-mmio 15020000.switch: configuring for fixed/internal link mode
+[    6.633093] mt7530-mmio 15020000.switch: Link is Up - 10Gbps/Full - flow control rx/tx
+[    6.662690] mt7530-mmio 15020000.switch lan0 (uninitialized): PHY [mt7530-0:00] driver [MediaTek MT7988 PHY] (irq=124)
+[    6.673401] mt7530-mmio 15020000.switch: nonfatal error -34 setting MTU to 1500 on port 0
+[    6.711587] mt7530-mmio 15020000.switch lan3 (uninitialized): PHY [mt7530-0:03] driver [MediaTek MT7988 PHY] (irq=127)
+[    6.722289] mt7530-mmio 15020000.switch: nonfatal error -34 setting MTU to 1500 on port 3
+[    6.730725] eth0: mtu greater than device maximum
+[    6.735419] mtk_soc_eth 15100000.ethernet eth0: error -22 setting MTU to 1504 to include DSA overhead
+[    6.744632] mtk_soc_eth 15100000.ethernet eth0: entered promiscuous mode
+[    6.751336] DSA: tree 1 setup
+[    6.754292] mt7530-nl: genl_register_family_with_ops
+[    6.759628] mxl862xx mdio-bus:10:    Mxl862xx CPU Port 8, User Port number 5
+[    6.776378] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:00: Firmware Version: 0.77 (0x004D test version)
+[    6.814444] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:01: Firmware Version: 0.77 (0x004D test version)
+[    6.852632] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:02: Firmware Version: 0.77 (0x004D test version)
+[    6.890717] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:03: Firmware Version: 0.77 (0x004D test version)
+[   11.034619] mxl862xx mdio-bus:10: failed to enable MAC learning on port 8
+[   11.041402] mxl862xx mdio-bus:10: mxl862xx_set_vlan_filter_limits: user_pnum:5, priv->max_vlans: 36, cpu_ingress_entries: 11, cpu_egress_entries: 74, user_ingress_entries: 77, user_egress_entries: 75
+[   11.132692] mxl862xx mdio-bus:10: failed to disable SDMA on port 0
+[   11.817936] mxl862xx mdio-bus:10: configuring for fixed/usxgmii link mode
+[   11.824722] mxl862xx mdio-bus:10: Link is Up - 10Gbps/Full - flow control off
+[   11.827024] mxl862xx mdio-bus:10 mxl_lan0 (uninitialized): PHY [mxl862xx_dsa-0:00] driver [MaxLinear Ethernet MxL862XX] (irq=POLL)
+[   11.846066] mxl862xx mdio-bus:10 mxl_lan1 (uninitialized): PHY [mxl862xx_dsa-0:01] driver [MaxLinear Ethernet MxL862XX] (irq=POLL)
+[   11.860030] mxl862xx mdio-bus:10 mxl_lan2 (uninitialized): PHY [mxl862xx_dsa-0:02] driver [MaxLinear Ethernet MxL862XX] (irq=POLL)
+[   11.873978] mxl862xx mdio-bus:10 mxl_lan3 (uninitialized): PHY [mxl862xx_dsa-0:03] driver [MaxLinear Ethernet MxL862XX] (irq=POLL)
+[   11.886238] eth2: mtu greater than device maximum
+[   11.890935] mtk_soc_eth 15100000.ethernet eth2: error -22 setting MTU to 1504 to include DSA overhead
+[   11.900147] mtk_soc_eth 15100000.ethernet eth2: entered promiscuous mode
+[   11.906850] DSA: tree 0 setup
+[   11.910624] mxl862xx mdio-bus:10: Firmware version 1.0.70.70
+[   11.916561] clk: Disabling unused clocks
+[   11.924502] VFS: Mounted root (squashfs filesystem) readonly on device 259:0.
+[   11.931767] Freeing unused kernel memory: 576K
+[   11.936231] Run /sbin/init as init process
+[   11.940316]   with arguments:
+[   11.943271]     /sbin/init
+[   11.945969]   with environment:
+[   11.949097]     HOME=/
+[   11.951445]     TERM=linux
+[   12.067902] init: Console is alive
+[   12.071383] init: - watchdog -
+[   12.581151] kmodloader: loading kernel modules from /etc/modules-boot.d/*
+[   12.606004] aeon_as21xxx: loading out-of-tree module taints kernel.
+[   12.612818] mdio_bus mdio-bus:18: aeon_read_pid aeonsemi1 PHY = 7500 - 9410
+[   21.262895] Enable 10G LAN RJ45 LED.
+[   21.631589] Aeonsemi AS21xxx mdio-bus:18: Firmware Version: 1.9.1
+[   21.735878] mdio_bus mdio-bus:1c: aeon_read_pid aeonsemi1 PHY = 7500 - 9410
+[   24.147504] init: - preinit -
+[   24.413556] mtk_ppe: roaming work has been activated
+[   24.418548] mtk_soc_eth 15100000.ethernet eth0: configuring for fixed/internal link mode
+[   24.426681] mtk_soc_eth 15100000.ethernet eth0: Link is Up - 10Gbps/Full - flow control rx/tx
+Cannot find device "lan1"
+Cannot find device "lan1"
+Press the [f] key and hit [enter] to enter failsafe mode
+Press the [1], [2], [3] or [4] key and hit [enter] to select the debug level
+sendto(): Network unreachable
+sendto(): Network unreachable
+sendto(): Network unreachable
+sendto(): Network unreachable
+[   29.063465] mount_root: loading kmods from internal overlay
+[   29.079373] kmodloader: loading kernel modules from //etc/modules-boot.d/*
+[   29.099221] usbcore: registered new interface driver usbfs
+[   29.104748] usbcore: registered new interface driver hub
+[   29.110095] usbcore: registered new device driver usb
+[   29.122232] xhci-mtk 11190000.usb: supply vbus not found, using dummy regulator
+[   29.129639] xhci-mtk 11190000.usb: supply vusb33 not found, using dummy regulator
+[   29.137401] xhci-mtk 11190000.usb: xHCI Host Controller
+[   29.142625] xhci-mtk 11190000.usb: new USB bus registered, assigned bus number 1
+[   29.150073] xhci-mtk 11190000.usb: hcc params 0x01403f99 hci version 0x110 quirks 0x0000000000200010
+[   29.159227] xhci-mtk 11190000.usb: irq 128, io mem 0x11190000
+[   29.165021] xhci-mtk 11190000.usb: xHCI Host Controller
+[   29.170239] xhci-mtk 11190000.usb: new USB bus registered, assigned bus number 2
+[   29.177648] xhci-mtk 11190000.usb: Host supports USB 3.2 Enhanced SuperSpeed
+[   29.184957] hub 1-0:1.0: USB hub found
+[   29.188720] hub 1-0:1.0: 1 port detected
+[   29.192801] usb usb2: We don't know the algorithms for LPM for this host, disabling LPM.
+[   29.201063] hub 2-0:1.0: USB hub found
+[   29.204814] hub 2-0:1.0: 1 port detected
+[   29.208995] xhci-mtk 11200000.usb: supply vbus not found, using dummy regulator
+[   29.216371] xhci-mtk 11200000.usb: supply vusb33 not found, using dummy regulator
+[   29.224267] xhci-mtk 11200000.usb: xHCI Host Controller
+[   29.229492] xhci-mtk 11200000.usb: new USB bus registered, assigned bus number 3
+[   29.239917] xhci-mtk 11200000.usb: hcc params 0x01403f99 hci version 0x110 quirks 0x0000000000200010
+[   29.249065] xhci-mtk 11200000.usb: irq 129, io mem 0x11200000
+[   29.254858] xhci-mtk 11200000.usb: xHCI Host Controller
+[   29.260077] xhci-mtk 11200000.usb: new USB bus registered, assigned bus number 4
+[   29.267462] xhci-mtk 11200000.usb: Host supports USB 3.2 Enhanced SuperSpeed
+[   29.274727] hub 3-0:1.0: USB hub found
+[   29.278484] hub 3-0:1.0: 1 port detected
+[   29.282555] usb usb4: We don't know the algorithms for LPM for this host, disabling LPM.
+[   29.290808] hub 4-0:1.0: USB hub found
+[   29.294558] hub 4-0:1.0: 1 port detected
+[   29.301800] usbcore: registered new interface driver usb-storage
+[   29.308464] usbcore: registered new interface driver uas
+[   29.313906] kmodloader: done loading kernel modules from //etc/modules-boot.d/*
+[   29.645567] usb 1-1: new high-speed USB device number 2 using xhci-mtk
+[   29.725560] usb 3-1: new high-speed USB device number 2 using xhci-mtk
+[   29.836211] hub 1-1:1.0: USB hub found
+[   29.839999] hub 1-1:1.0: 4 ports detected
+[   29.919533] hub 3-1:1.0: USB hub found
+[   29.923485] hub 3-1:1.0: 4 ports detected
+[   30.085867] usb 4-1: new SuperSpeed USB device number 2 using xhci-mtk
+[   30.155355] hub 4-1:1.0: USB hub found
+[   30.159327] hub 4-1:1.0: 4 ports detected
+[   30.406174] Aeonsemi AS21xxx mdio-bus:1c: Firmware Version: 1.9.1
+[   30.516051] MediaTek MT7988 PHY mt7530-0:00: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   30.523811] MediaTek MT7988 PHY mt7530-0:01: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   30.531565] MediaTek MT7988 PHY mt7530-0:02: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   30.539312] MediaTek MT7988 PHY mt7530-0:03: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   30.548439] mxl862xx: failed to write mmd on port 30
+[   30.554689] mxl862xx: failed to write mmd on port 30
+[   30.559645] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:00: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   30.569998] mxl862xx: failed to write mmd on port 30
+[   30.576176] mxl862xx: failed to write mmd on port 30
+[   30.581128] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:01: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   30.591477] mxl862xx: failed to write mmd on port 30
+[   30.597658] mxl862xx: failed to write mmd on port 30
+[   30.602610] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:02: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   30.612958] mxl862xx: failed to write mmd on port 30
+[   30.619139] mxl862xx: failed to write mmd on port 30
+[   30.624092] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:03: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   30.633509] Aeonsemi AS21xxx mdio-bus:18: aeon_read_pid aeonsemi1 PHY = 7500 - 9422
+[   30.641389] Aeonsemi AS21xxx mdio-bus:1c: aeon_read_pid aeonsemi1 PHY = 7500 - 9422
+[   30.649407] MediaTek MT7988 PHY mt7530-0:00: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   30.657166] MediaTek MT7988 PHY mt7530-0:01: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   30.664918] MediaTek MT7988 PHY mt7530-0:02: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   30.672673] MediaTek MT7988 PHY mt7530-0:03: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   30.681358] mxl862xx: failed to write mmd on port 30
+[   30.687538] mxl862xx: failed to write mmd on port 30
+[   30.692490] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:00: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   30.702840] mxl862xx: failed to write mmd on port 30
+[   30.738804] mxl862xx: failed to write mmd on port 30
+[   30.743756] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:01: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   30.774150] mxl862xx: failed to write mmd on port 30
+[   30.809009] mxl862xx: failed to write mmd on port 30
+[   30.813961] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:02: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   30.843840] mxl862xx: failed to write mmd on port 30
+[   30.879134] mxl862xx: failed to write mmd on port 30
+[   30.884085] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:03: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   30.893473] Aeonsemi AS21xxx mdio-bus:18: aeon_read_pid aeonsemi1 PHY = 7500 - 9422
+[   30.901349] Aeonsemi AS21xxx mdio-bus:1c: aeon_read_pid aeonsemi1 PHY = 7500 - 9422
+[   30.909355] MediaTek MT7988 PHY mt7530-0:00: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   30.917116] MediaTek MT7988 PHY mt7530-0:01: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   30.924869] MediaTek MT7988 PHY mt7530-0:02: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   30.932624] MediaTek MT7988 PHY mt7530-0:03: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   30.965785] mxl862xx: failed to write mmd on port 30
+[   31.000559] mxl862xx: failed to write mmd on port 30
+[   31.005511] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:00: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   31.018645] mxl862xx: failed to write mmd on port 30
+[   31.024821] mxl862xx: failed to write mmd on port 30
+[   31.029777] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:01: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   31.040123] mxl862xx: failed to write mmd on port 30
+[   31.046307] mxl862xx: failed to write mmd on port 30
+[   31.051258] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:02: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   31.061606] mxl862xx: failed to write mmd on port 30
+[   31.067786] mxl862xx: failed to write mmd on port 30
+[   31.072738] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:03: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   31.082127] Aeonsemi AS21xxx mdio-bus:18: aeon_read_pid aeonsemi1 PHY = 7500 - 9422
+[   31.090002] Aeonsemi AS21xxx mdio-bus:1c: aeon_read_pid aeonsemi1 PHY = 7500 - 9422
+[   31.098018] MediaTek MT7988 PHY mt7530-0:00: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   31.105770] MediaTek MT7988 PHY mt7530-0:01: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   31.113521] MediaTek MT7988 PHY mt7530-0:02: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   31.121277] MediaTek MT7988 PHY mt7530-0:03: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   31.129888] mxl862xx: failed to write mmd on port 30
+[   31.136065] mxl862xx: failed to write mmd on port 30
+[   31.141017] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:00: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   31.151439] mxl862xx: failed to write mmd on port 30
+[   31.157624] mxl862xx: failed to write mmd on port 30
+[   31.162580] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:01: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   31.172930] mxl862xx: failed to write mmd on port 30
+[   31.207763] mxl862xx: failed to write mmd on port 30
+[   31.212715] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:02: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   31.242578] mxl862xx: failed to write mmd on port 30
+[   31.277849] mxl862xx: failed to write mmd on port 30
+[   31.282801] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:03: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   31.292199] Aeonsemi AS21xxx mdio-bus:18: aeon_read_pid aeonsemi1 PHY = 7500 - 9422
+[   31.300075] Aeonsemi AS21xxx mdio-bus:1c: aeon_read_pid aeonsemi1 PHY = 7500 - 9422
+[   31.308093] MediaTek MT7988 PHY mt7530-0:00: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   31.315846] MediaTek MT7988 PHY mt7530-0:01: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   31.323598] MediaTek MT7988 PHY mt7530-0:02: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   31.331353] MediaTek MT7988 PHY mt7530-0:03: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   31.364340] mxl862xx: failed to write mmd on port 30
+[   31.399458] mxl862xx: failed to write mmd on port 30
+[   31.404410] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:00: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   31.434125] mxl862xx: failed to write mmd on port 30
+[   31.468878] mxl862xx: failed to write mmd on port 30
+[   31.473830] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:01: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   31.487566] mxl862xx: failed to write mmd on port 30
+[   31.493816] mxl862xx: failed to write mmd on port 30
+[   31.498770] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:02: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   31.509117] mxl862xx: failed to write mmd on port 30
+[   31.515294] mxl862xx: failed to write mmd on port 30
+[   31.520248] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:03: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   31.529633] Aeonsemi AS21xxx mdio-bus:18: aeon_read_pid aeonsemi1 PHY = 7500 - 9422
+[   31.537509] Aeonsemi AS21xxx mdio-bus:1c: aeon_read_pid aeonsemi1 PHY = 7500 - 9422
+[   31.545522] MediaTek MT7988 PHY mt7530-0:00: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   31.553277] MediaTek MT7988 PHY mt7530-0:01: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   31.561032] MediaTek MT7988 PHY mt7530-0:02: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   31.568786] MediaTek MT7988 PHY mt7530-0:03: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   31.577398] mxl862xx: failed to write mmd on port 30
+[   31.583577] mxl862xx: failed to write mmd on port 30
+[   31.588532] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:00: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   31.598878] mxl862xx: failed to write mmd on port 30
+[   31.605055] mxl862xx: failed to write mmd on port 30
+[   31.610009] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:01: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   31.620354] mxl862xx: failed to write mmd on port 30
+[   31.626531] mxl862xx: failed to write mmd on port 30
+[   31.631482] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:02: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   31.641830] mxl862xx: failed to write mmd on port 30
+[   31.676586] mxl862xx: failed to write mmd on port 30
+[   31.681537] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:03: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   31.690921] Aeonsemi AS21xxx mdio-bus:18: aeon_read_pid aeonsemi1 PHY = 7500 - 9422
+[   31.698796] Aeonsemi AS21xxx mdio-bus:1c: aeon_read_pid aeonsemi1 PHY = 7500 - 9422
+[   31.706810] MediaTek MT7988 PHY mt7530-0:00: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   31.714561] MediaTek MT7988 PHY mt7530-0:01: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   31.722315] MediaTek MT7988 PHY mt7530-0:02: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   31.730068] MediaTek MT7988 PHY mt7530-0:03: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   31.763645] mxl862xx: failed to write mmd on port 30
+[   31.798839] mxl862xx: failed to write mmd on port 30
+[   31.803790] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:00: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   31.833508] mxl862xx: failed to write mmd on port 30
+[   31.868261] mxl862xx: failed to write mmd on port 30
+[   31.873213] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:01: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   31.903664] mxl862xx: failed to write mmd on port 30
+[   31.938419] mxl862xx: failed to write mmd on port 30
+[   31.943371] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:02: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   31.956514] mxl862xx: failed to write mmd on port 30
+[   31.962692] mxl862xx: failed to write mmd on port 30
+[   31.967646] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:03: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   31.977030] Aeonsemi AS21xxx mdio-bus:18: aeon_read_pid aeonsemi1 PHY = 7500 - 9422
+[   31.984901] Aeonsemi AS21xxx mdio-bus:1c: aeon_read_pid aeonsemi1 PHY = 7500 - 9422
+[   31.992920] MediaTek MT7988 PHY mt7530-0:00: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   32.000675] MediaTek MT7988 PHY mt7530-0:01: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   32.008429] MediaTek MT7988 PHY mt7530-0:02: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   32.016182] MediaTek MT7988 PHY mt7530-0:03: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   32.024864] mxl862xx: failed to write mmd on port 30
+[   32.031046] mxl862xx: failed to write mmd on port 30
+[   32.035999] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:00: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   32.046342] mxl862xx: failed to write mmd on port 30
+[   32.052520] mxl862xx: failed to write mmd on port 30
+[   32.057474] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:01: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   32.067819] mxl862xx: failed to write mmd on port 30
+[   32.073997] mxl862xx: failed to write mmd on port 30
+[   32.078953] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:02: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   32.089374] mxl862xx: failed to write mmd on port 30
+[   32.095550] mxl862xx: failed to write mmd on port 30
+[   32.100502] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:03: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   32.109886] Aeonsemi AS21xxx mdio-bus:18: aeon_read_pid aeonsemi1 PHY = 7500 - 9422
+[   32.117761] Aeonsemi AS21xxx mdio-bus:1c: aeon_read_pid aeonsemi1 PHY = 7500 - 9422
+[   32.125757] MediaTek MT7988 PHY mt7530-0:00: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   32.133508] MediaTek MT7988 PHY mt7530-0:01: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   32.141264] MediaTek MT7988 PHY mt7530-0:02: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   32.149018] MediaTek MT7988 PHY mt7530-0:03: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   32.157630] mxl862xx: failed to write mmd on port 30
+[   32.192382] mxl862xx: failed to write mmd on port 30
+[   32.197338] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:00: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   32.227492] mxl862xx: failed to write mmd on port 30
+[   32.262316] mxl862xx: failed to write mmd on port 30
+[   32.267270] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:01: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   32.297128] mxl862xx: failed to write mmd on port 30
+[   32.332537] mxl862xx: failed to write mmd on port 30
+[   32.337491] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:02: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   32.367347] mxl862xx: failed to write mmd on port 30
+[   32.402021] mxl862xx: failed to write mmd on port 30
+[   32.406975] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:03: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   32.416359] Aeonsemi AS21xxx mdio-bus:18: aeon_read_pid aeonsemi1 PHY = 7500 - 9422
+[   32.424230] Aeonsemi AS21xxx mdio-bus:1c: aeon_read_pid aeonsemi1 PHY = 7500 - 9422
+[   32.432247] MediaTek MT7988 PHY mt7530-0:00: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   32.440002] MediaTek MT7988 PHY mt7530-0:01: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   32.447756] MediaTek MT7988 PHY mt7530-0:02: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   32.455507] MediaTek MT7988 PHY mt7530-0:03: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   32.472075] mxl862xx: failed to write mmd on port 30
+[   32.478256] mxl862xx: failed to write mmd on port 30
+[   32.483208] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:00: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   32.493555] mxl862xx: failed to write mmd on port 30
+[   32.499809] mxl862xx: failed to write mmd on port 30
+[   32.504760] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:01: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   32.515106] mxl862xx: failed to write mmd on port 30
+[   32.521287] mxl862xx: failed to write mmd on port 30
+[   32.526241] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:02: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   32.536584] mxl862xx: failed to write mmd on port 30
+[   32.542762] mxl862xx: failed to write mmd on port 30
+[   32.547716] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:03: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   32.557096] Aeonsemi AS21xxx mdio-bus:18: aeon_read_pid aeonsemi1 PHY = 7500 - 9422
+[   32.564966] Aeonsemi AS21xxx mdio-bus:1c: aeon_read_pid aeonsemi1 PHY = 7500 - 9422
+[   32.572984] MediaTek MT7988 PHY mt7530-0:00: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   32.580739] MediaTek MT7988 PHY mt7530-0:01: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   32.588493] MediaTek MT7988 PHY mt7530-0:02: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   32.596247] MediaTek MT7988 PHY mt7530-0:03: aeon_read_pid aeonsemi1 PHY = 0 - 0
+[   32.604856] mxl862xx: failed to write mmd on port 30
+[   32.611037] mxl862xx: failed to write mmd on port 30
+[   32.615992] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:00: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   32.626336] mxl862xx: failed to write mmd on port 30
+[   32.661080] mxl862xx: failed to write mmd on port 30
+[   32.666036] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:01: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   32.695891] mxl862xx: failed to write mmd on port 30
+[   32.731228] mxl862xx: failed to write mmd on port 30
+[   32.736183] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:02: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   32.765966] mxl862xx: failed to write mmd on port 30
+[   32.800788] mxl862xx: failed to write mmd on port 30
+[   32.805743] MaxLinear Ethernet MxL862XX mxl862xx_dsa-0:03: aeon_read_pid aeonsemi1 PHY = c133 - 5528
+[   32.817942] kmodloader: done loading kernel modules from /etc/modules-boot.d/*
+[   44.095937] block: attempting to load /tmp/overlay/upper/etc/config/fstab
+[   44.103763] block: unable to load configuration (fstab: Entry not found)
+[   44.110545] block: attempting to load /tmp/overlay/etc/config/fstab
+[   44.116925] block: unable to load configuration (fstab: Entry not found)
+[   44.123645] block: attempting to load /etc/config/fstab
+[   44.138789] block: extroot: not configured
+[   44.145670] UBIFS (ubi0:5): Mounting in unauthenticated mode
+[   44.151381] UBIFS (ubi0:5): background thread "ubifs_bgt0_5" started, PID 1102
+[   44.198454] UBIFS (ubi0:5): recovery needed
+[   44.322128] UBIFS (ubi0:5): recovery completed
+[   44.326615] UBIFS (ubi0:5): UBIFS: mounted UBI device 0, volume 5, name "rootfs_data"
+[   44.334434] UBIFS (ubi0:5): LEB size: 126976 bytes (124 KiB), min./max. I/O unit sizes: 2048 bytes/2048 bytes
+[   44.344337] UBIFS (ubi0:5): FS size: 56250368 bytes (53 MiB, 443 LEBs), max 453 LEBs, journal size 2793472 bytes (2 MiB, 22 LEBs)
+[   44.355976] UBIFS (ubi0:5): reserved for root: 2656843 bytes (2594 KiB)
+[   44.362579] UBIFS (ubi0:5): media format: w5/r0 (latest is w5/r0), UUID 87224234-D0AF-4F55-9DF2-293331B54669, small LPT model
+[   44.375579] block: attempting to load /tmp/ubifs_cfg/upper/etc/config/fstab
+[   44.389929] block: extroot: not configured
+[   44.394084] UBIFS (ubi0:5): un-mount UBI device 0
+[   44.398792] UBIFS (ubi0:5): background thread "ubifs_bgt0_5" stops
+[   44.410753] mount_root: overlay filesystem in /dev/fitrw has not been formatted yet
+[   44.798099] F2FS-fs (fitrw): Found nat_bits in checkpoint
+[   44.808758] F2FS-fs (fitrw): Mounted with checkpoint version = 6ae201cd
+[   45.327395] block: attempting to load /tmp/overlay/upper/etc/config/fstab
+[   45.334253] block: unable to load configuration (fstab: Entry not found)
+[   45.341013] block: attempting to load /tmp/overlay/etc/config/fstab
+[   45.347335] block: unable to load configuration (fstab: Entry not found)
+[   45.354053] block: attempting to load /etc/config/fstab
+[   45.359406] block: extroot: not configured
+[   45.365995] UBIFS (ubi0:5): Mounting in unauthenticated mode
+[   45.371701] UBIFS (ubi0:5): background thread "ubifs_bgt0_5" started, PID 1111
+[   45.477950] UBIFS (ubi0:5): UBIFS: mounted UBI device 0, volume 5, name "rootfs_data"
+[   45.485773] UBIFS (ubi0:5): LEB size: 126976 bytes (124 KiB), min./max. I/O unit sizes: 2048 bytes/2048 bytes
+[   45.495675] UBIFS (ubi0:5): FS size: 56250368 bytes (53 MiB, 443 LEBs), max 453 LEBs, journal size 2793472 bytes (2 MiB, 22 LEBs)
+[   45.507312] UBIFS (ubi0:5): reserved for root: 2656843 bytes (2594 KiB)
+[   45.513913] UBIFS (ubi0:5): media format: w5/r0 (latest is w5/r0), UUID 87224234-D0AF-4F55-9DF2-293331B54669, small LPT model
+[   45.527597] block: attempting to load /tmp/ubifs_cfg/upper/etc/config/fstab
+[   45.541961] block: extroot: not configured
+[   45.549590] UBIFS (ubi0:5): un-mount UBI device 0
+[   45.554291] UBIFS (ubi0:5): background thread "ubifs_bgt0_5" stops
+[   45.562544] mount_root: overlay filesystem has not been fully initialized yet
+[   45.569903] mount_root: switching to f2fs overlay
+[   45.578128] overlayfs: null uuid detected in lower fs '/', falling back to xino=off,index=off,nfs_export=off.
+[   45.588930] urandom-seed: Seed file not found (/etc/urandom.seed)
+Device "lan1" does not exist.
+Cannot find device "lan1"
+[   45.742418] procd: - early -
+[   45.745344] procd: - watchdog -
+[   46.270451] procd: - watchdog -
+[   46.285777] procd: - ubus -
+[   46.441027] procd: - init -
+Please press Enter to activate this console.
+[   46.645979] kmodloader: loading kernel modules from /etc/modules.d/*
+[   46.672230] NET: Registered PF_ALG protocol family
+[   46.706475] RPC: Registered named UNIX socket transport module.
+[   46.712398] RPC: Registered udp transport module.
+[   46.717158] RPC: Registered tcp transport module.
+[   46.721850] RPC: Registered tcp-with-tls transport module.
+[   46.727328] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[   46.743016] l2tp_core: L2TP core driver, V2.0
+[   46.747985] l2tp_netlink: L2TP netlink interface
+[   46.753413] gre: GRE over IPv4 demultiplexor driver
+[   46.756943] urngd: v1.0.2 started.
+[   46.761822] ip_gre: GRE over IPv4 tunneling driver
+[   46.815712] pca954x 2-0070: supply vdd not found, using dummy regulator
+[   46.823020] i2c i2c-2: Added multiplexed i2c bus 3
+[   46.827944] i2c i2c-2: Added multiplexed i2c bus 4
+[   46.832811] i2c i2c-2: Added multiplexed i2c bus 5
+[   46.837755] i2c i2c-2: Added multiplexed i2c bus 6
+[   46.842546] pca954x 2-0070: registered 4 multiplexed busses for I2C switch pca9545
+[   46.851323] pca953x 3-0020: supply vcc not found, using dummy regulator
+[   46.858084] pca953x 3-0020: using no AI
+[   46.870527] ntfs3: Enabled Linux POSIX ACLs support
+[   46.877289] crypto-safexcel 15600000.crypto: EIP197:331(7,1,8,4)-HIA:272(2,5,5),PE:151/450(alg:7fe1fc00)/240/240/450
+[   46.888590] crypto-safexcel 15600000.crypto: TRC init: 8704d,48a (32r,128h)
+[   46.912578] at24 3-0057: supply vcc not found, using dummy regulator
+[   46.919631] at24 3-0057: 256 byte 24c02 EEPROM, writable, 1 bytes/write
+[   46.926372] at24 6-0051: supply vcc not found, using dummy regulator
+[   46.959624] Bridge firewalling registered
+[   46.964292] usbcore: registered new interface driver cdc_wdm
+[   46.970682] Loading modules backported from Linux version wireless-next-2025-03-20-0-g1794d7ab34d2
+[   46.979650] Backport generated by backports.git a8086f9c
+[   46.985678] ina2xx 3-0040: supply vs not found, using dummy regulator
+[   46.992686] ina2xx 3-0040: error configuring the device: -6
+[   47.014523] rtc-pcf8563 3-0051: low voltage detected, date/time is not reliable.
+[   47.022093] rtc-pcf8563 3-0051: registered as rtc0
+[   47.028106] rtc-pcf8563 3-0051: low voltage detected, date/time is not reliable.
+[   47.035493] rtc-pcf8563 3-0051: hctosys: unable to read the hardware clock
+[   47.044358] sfp sfp1: nonexclusive access to GPIO for mod-def0
+[   47.050273] sfp sfp1: Host maximum power 3.0W
+[   47.054631] sfp sfp1: tx disable 1 -> 1
+[   47.058666] sfp sfp1: SM: enter empty:detached:down event dev_attach
+[   47.065017] sfp sfp1: SM: exit empty:down:down
+[   47.069733] sfp sfp2: nonexclusive access to GPIO for mod-def0
+[   47.075625] sfp sfp2: Host maximum power 3.0W
+[   47.079996] sfp sfp2: tx disable 1 -> 1
+[   47.083978] sfp sfp2: SM: enter empty:detached:down event dev_attach
+[   47.090363] sfp sfp2: SM: exit empty:down:down
+[   47.096773] usbcore: registered new interface driver ums-alauda
+[   47.103353] usbcore: registered new interface driver ums-cypress
+[   47.110100] usbcore: registered new interface driver ums-datafab
+[   47.116693] usbcore: registered new interface driver ums-freecom
+[   47.123275] usbcore: registered new interface driver ums-isd200
+[   47.129967] usbcore: registered new interface driver ums-jumpshot
+[   47.136679] usbcore: registered new interface driver ums-karma
+[   47.143204] usbcore: registered new interface driver ums-sddr09
+[   47.149757] usbcore: registered new interface driver ums-sddr55
+[   47.156469] usbcore: registered new interface driver ums-usbat
+[   47.174317] xt_time: kernel timezone is -0000
+[   47.268312] PPP generic driver version 2.4.2
+[   47.273160] PPP MPPE Compression module registered
+[   47.278534] NET: Registered PF_PPPOX protocol family
+[   47.284016] PPTP driver version 0.8.5
+[   47.288681] usbcore: registered new interface driver qmi_wwan
+[   47.295362] l2tp_ppp: PPPoL2TP kernel driver, V2.0
+[   47.301501] kmodloader: done loading kernel modules from /etc/modules.d/*
+
+login[1242]: root login on 'ttyS0'
+
+
+BusyBox v1.36.1 (2025-06-17 03:09:13 UTC) built-in shell (ash)
+
+  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ -----------------------------------------------------
+ OpenWrt 24.10-SNAPSHOT, unknown
+ -----------------------------------------------------
+=== WARNING! =====================================
+There is no root password defined on this device!
+Use the "passwd" command to set up a new password
+in order to prevent unauthorized SSH logins.
+--------------------------------------------------
+root@(none):~# [   55.875032] UBIFS (ubi0:5): Mounting in unauthenticated mode
+[   55.880768] UBIFS (ubi0:5): background thread "ubifs_bgt0_5" started, PID 2374
+[   56.010424] UBIFS (ubi0:5): UBIFS: mounted UBI device 0, volume 5, name "rootfs_data"
+[   56.018264] UBIFS (ubi0:5): LEB size: 126976 bytes (124 KiB), min./max. I/O unit sizes: 2048 bytes/2048 bytes
+[   56.028166] UBIFS (ubi0:5): FS size: 56250368 bytes (53 MiB, 443 LEBs), max 453 LEBs, journal size 2793472 bytes (2 MiB, 22 LEBs)
+[   56.039804] UBIFS (ubi0:5): reserved for root: 2656843 bytes (2594 KiB)
+[   56.046408] UBIFS (ubi0:5): media format: w5/r0 (latest is w5/r0), UUID 87224234-D0AF-4F55-9DF2-293331B54669, small LPT model
+
+root@OpenWrt:~# [   58.548024] mtk_soc_eth 15100000.ethernet eth0: Link is Down
+[   59.005594] mtk_ppe: roaming work has been deactivated
+[   59.019247] mtk_ppe: roaming work has been activated
+[   59.024220] mtk_soc_eth 15100000.ethernet eth0: configuring for fixed/internal link mode
+[   59.032360] mtk_soc_eth 15100000.ethernet eth0: Link is Up - 10Gbps/Full - flow control rx/tx
+[   59.035174] mt7530-mmio 15020000.switch lan0: configuring for phy/internal link mode
+[   59.049350] br-lan: port 1(lan0) entered blocking state
+[   59.054570] br-lan: port 1(lan0) entered disabled state
+[   59.059846] mt7530-mmio 15020000.switch lan0: entered allmulticast mode
+[   59.066459] mtk_soc_eth 15100000.ethernet eth0: entered allmulticast mode
+[   59.073379] mt7530-mmio 15020000.switch lan0: entered promiscuous mode
+[   59.084270] mt7530-mmio 15020000.switch lan3: configuring for phy/internal link mode
+[   59.092833] br-lan: port 2(lan3) entered blocking state
+[   59.098099] br-lan: port 2(lan3) entered disabled state
+[   59.103353] mt7530-mmio 15020000.switch lan3: entered allmulticast mode
+[   59.110192] mt7530-mmio 15020000.switch lan3: entered promiscuous mode
+[   59.118908] mtk_soc_eth 15100000.ethernet eth2: configuring for fixed/10gbase-r link mode
+[   59.171242] mtk_soc_eth 15100000.ethernet eth2: Link is Up - 10Gbps/Full - flow control rx/tx
+[   59.195790] mxl862xx mdio-bus:10 mxl_lan0: configuring for phy/internal link mode
+[   59.222394] br-lan: port 3(mxl_lan0) entered blocking state
+[   59.228016] br-lan: port 3(mxl_lan0) entered disabled state
+[   59.233618] mxl862xx mdio-bus:10 mxl_lan0: entered allmulticast mode
+[   59.239984] mtk_soc_eth 15100000.ethernet eth2: entered allmulticast mode
+[   59.478467] mxl862xx mdio-bus:10 mxl_lan0: entered promiscuous mode
+[   59.510506] mxl862xx mdio-bus:10: mxl862xx_port_vlan_add: port:0 setting VLAN:1 with vlan_filtering disabled
+[   59.635310] mxl862xx mdio-bus:10 mxl_lan1: configuring for phy/internal link mode
+[   59.660755] br-lan: port 4(mxl_lan1) entered blocking state
+[   59.666366] br-lan: port 4(mxl_lan1) entered disabled state
+[   59.671966] mxl862xx mdio-bus:10 mxl_lan1: entered allmulticast mode
+[   59.895211] mxl862xx mdio-bus:10 mxl_lan1: entered promiscuous mode
+[   59.920733] mxl862xx mdio-bus:10: mxl862xx_port_vlan_add: port:1 setting VLAN:1 with vlan_filtering disabled
+[   60.038164] mxl862xx mdio-bus:10 mxl_lan2: configuring for phy/internal link mode
+[   60.063581] br-lan: port 5(mxl_lan2) entered blocking state
+[   60.069159] br-lan: port 5(mxl_lan2) entered disabled state
+[   60.074753] mxl862xx mdio-bus:10 mxl_lan2: entered allmulticast mode
+[   60.318398] mxl862xx mdio-bus:10 mxl_lan2: entered promiscuous mode
+[   60.343716] mxl862xx mdio-bus:10: mxl862xx_port_vlan_add: port:2 setting VLAN:1 with vlan_filtering disabled
+[   60.460790] mxl862xx mdio-bus:10 mxl_lan3: configuring for phy/internal link mode
+[   60.486203] br-lan: port 6(mxl_lan3) entered blocking state
+[   60.491766] br-lan: port 6(mxl_lan3) entered disabled state
+[   60.497355] mxl862xx mdio-bus:10 mxl_lan3: entered allmulticast mode
+[   60.758450] mxl862xx mdio-bus:10 mxl_lan3: entered promiscuous mode
+[   60.783686] mxl862xx mdio-bus:10: mxl862xx_port_vlan_add: port:3 setting VLAN:1 with vlan_filtering disabled
+[   60.861159] mxl862xx mdio-bus:10 mxl_lan5: configuring for fixed/usxgmii link mode
+[   60.869239] mxl862xx mdio-bus:10 mxl_lan5: Link is Up - 10Gbps/Full - flow control off
+[   60.869445] br-lan: port 7(mxl_lan5) entered blocking state
+[   60.882717] br-lan: port 7(mxl_lan5) entered disabled state
+[   60.888317] mxl862xx mdio-bus:10 mxl_lan5: entered allmulticast mode
+[   61.167538] mxl862xx mdio-bus:10 mxl_lan5: entered promiscuous mode
+[   61.193069] mxl862xx mdio-bus:10: mxl862xx_port_vlan_add: port:12 setting VLAN:1 with vlan_filtering disabled
+[   61.258673] br-lan: port 7(mxl_lan5) entered blocking state
+[   61.264238] br-lan: port 7(mxl_lan5) entered forwarding state
+[   61.274735] mxl862xx mdio-bus:10 mxl_lan5: Link is Down
+[   61.661125] Aeonsemi AS21xxx mdio-bus:18: Firmware Version: 1.9.1
+[   61.667419] mxl862xx mdio-bus:10 mxl_lan5: PHY [mdio-bus:18] driver [Aeonsemi AS21xxx] (irq=POLL)
+[   61.676291] mxl862xx mdio-bus:10 mxl_lan5: configuring for phy/10gbase-r link mode
+[   61.684252] mxl862xx mdio-bus:10: dsa mux: switch to channel1
+[   61.690242] br-lan: port 7(mxl_lan5) entered disabled state
+[   62.081134] Aeonsemi AS21xxx mdio-bus:1c: Firmware Version: 1.9.1
+[   62.087484] mtk_soc_eth 15100000.ethernet eth1: PHY [mdio-bus:1c] driver [Aeonsemi AS21xxx] (irq=POLL)
+[   62.096785] mtk_soc_eth 15100000.ethernet eth1: configuring for phy/10gbase-r link mode
+[   62.116671] br-wan: port 1(eth1) entered blocking state
+[   62.121906] br-wan: port 1(eth1) entered disabled state
+[   62.127159] mtk_soc_eth 15100000.ethernet eth1: entered allmulticast mode
+[   62.134035] mtk_soc_eth 15100000.ethernet eth1: entered promiscuous mode
+
+root@OpenWrt:~#
+root@OpenWrt:~# [   66.213241] Per-port-per-queue mode is going to be enabled !
+[   66.218973] PPPQ use qid 3~14 (scheduler 0).
+ifconfig
+br-lan    Link encap:Ethernet  HWaddr 06:40:7D:D8:70:8E
+          inet addr:192.168.1.1  Bcast:192.168.1.255  Mask:255.255.255.0
+          inet6 addr: fe80::440:7dff:fed8:708e/64 Scope:Link
+          inet6 addr: fd05:af69:dc21::1/60 Scope:Global
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:2 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 (0.0 B)  TX bytes:256 (256.0 B)
+
+br-wan    Link encap:Ethernet  HWaddr C2:AC:30:A3:99:55
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+eth0      Link encap:Ethernet  HWaddr 06:40:7D:D8:70:8E
+          inet6 addr: fe80::440:7dff:fed8:708e/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:2 overruns:0 frame:0
+          TX packets:26 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 (0.0 B)  TX bytes:3532 (3.4 KiB)
+          Interrupt:110
+
+eth1      Link encap:Ethernet  HWaddr C2:AC:30:A3:99:55
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+          Interrupt:110
+
+eth2      Link encap:Ethernet  HWaddr 02:EB:B7:2A:86:52
+          inet6 addr: fe80::eb:b7ff:fe2a:8652/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:1
+          TX packets:14 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 (0.0 B)  TX bytes:2256 (2.2 KiB)
+          Interrupt:110
+
+lan0      Link encap:Ethernet  HWaddr 06:40:7D:D8:70:8E
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+lan3      Link encap:Ethernet  HWaddr 06:40:7D:D8:70:8E
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+lo        Link encap:Local Loopback
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:34 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:34 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:3526 (3.4 KiB)  TX bytes:3526 (3.4 KiB)
+
+mxl_lan0  Link encap:Ethernet  HWaddr 02:EB:B7:2A:86:52
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+mxl_lan1  Link encap:Ethernet  HWaddr 02:EB:B7:2A:86:52
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+mxl_lan2  Link encap:Ethernet  HWaddr 02:EB:B7:2A:86:52
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+mxl_lan3  Link encap:Ethernet  HWaddr 02:EB:B7:2A:86:52
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+mxl_lan5  Link encap:Ethernet  HWaddr 02:EB:B7:2A:86:52
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:1 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 (0.0 B)  TX bytes:46 (46.0 B)
+
+root@OpenWrt:~#
+
+```
+====
