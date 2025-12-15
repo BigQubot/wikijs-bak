@@ -8,3 +8,11 @@ TIP: More Infomation: link:https://docs.banana-pi.org/en/BPI-R4_Pro/BananaPi_BPI
 
 
 == Problem of SD card startup failure
+
+image::/bpi-r4_pro/bpi-r4_pro_faq/bpi_r4pro_faq_sdfail1.jpg[bpi_r4pro_faq_sdfail1.jpg]
+
+. Please follow the following diagram for Windows PC.
++
+image::/picture/low_level_format_sd_card.png[low_level_format_sd_card.png,width=300]
+
+. Use another high-speed SD card for burning.
