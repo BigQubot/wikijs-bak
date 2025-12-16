@@ -40,6 +40,8 @@ G=GND; RX=BPI-OpenWrt One input; TX=BPI-OpenWrt One output
 image::/openwrt-one/gettingstart/banana_pi_openwrt_one_gettingstart_debug1.jpg[banana_pi_openwrt_one_gettingstart_debug1.jpg]
 
 == Flashing image
+NOTE: Factory image version：openwrt-24.10.0-rc2
+
 
 TIP: link:https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=mediatek%2Ffilogic&id=openwrt_one[You can also click here to select the OpenWrt version you need]
 
