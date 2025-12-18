@@ -125,7 +125,7 @@ dd if=/dev/zero of=/dev/mmcblk0
 
 
 
-=== Network-Configuration
+== Network-Configuration
 Network-Configuration refer to: http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:network:start
 
 Network Interface: eth1 is for WAN; eth0, rax0, ra0 is for LAN, ra0 is for 2.4G wireless, rax0 is for 5G wireless.
@@ -231,6 +231,68 @@ iPhone 5Gwifi <-------iperf3------> (Wi-Fi) BPI-R3mini
 WARNING: Note: The distance between iPhone and R3mini is about one meter.
 
 image::/picture/r3mini-wifitesta.png[r3mini-wifitesta.png]
+
+=== WiFi settings
+
+. You can change its configuration in the system's /etc/config/wireless directory.
++
+```sh
+
+config wifi-device 'radio0'
+        option type 'mac80211'
+        option path 'platform/18000000.wbsys'
+        option channel '1'
+        option band '2g'
+        option htmode 'HE20'
+        option cell_density '0'
+
+config wifi-iface 'default_radio0'
+        option device 'radio0'
+        option network 'lan'
+        option mode 'ap'
+        option encryption 'none'
+        option ssid 'OpenWrt-2.4G'
+
+config wifi-device 'radio1'
+        option type 'mac80211'
+        option path 'platform/18000000.wbsys+1'
+        option channel '36'
+        option band '5g'
+        option htmode 'HE80'
+        option cell_density '0'
+
+config wifi-iface 'default_radio1'
+        option device 'radio1'
+        option network 'lan'
+        option mode 'ap'
+        option encryption 'none'
+        option ssid 'OpenWrt-5G'
+```
+
+. You can set it up via the web.the WiFi setup interfaces differ between the two official websites.
+
+NOTE: If MTK is listed in the section, then the WiFi settings interface will be the one within MTK.
+
+.. The first method involves using the Wireless interface within the Network settings. You'll see the corresponding 2.4G and 5G WiFi connections, with an Edit button on the right for configuration.
++
+image::/bpi-r3mini/bpi-r3_mini_wifi_setting1.jpg[bpi-r3_mini_wifi_setting1.jpg]
++
+Setting Mode
++
+image::/bpi-r3mini/bpi-r3_mini_wifi_setting2.jpg[bpi-r3_mini_wifi_setting2.jpg]
++
+Set encryption (set password)
++
+image::/bpi-r3mini/bpi-r3_mini_wifi_setting3.jpg[bpi-r3_mini_wifi_setting3.jpg]
+
+.. The second method involves configuring WiFi within the MTK settings.
++
+image::/bpi-r3mini/bpi-r3_mini_wifi_setting4.jpg[bpi-r3_mini_wifi_setting4.jpg]
++
+There is a config button on the right.
++
+image::/bpi-r3mini/bpi-r3_mini_wifi_setting5.jpg[bpi-r3_mini_wifi_setting5.jpg]
+
 
 == Advanced Development
 === GPIO Control
