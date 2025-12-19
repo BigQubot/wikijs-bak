@@ -53,6 +53,76 @@ NOTE: Due to the 1W fluctuation during usage, the following is the approximate i
 = Installation Details
 NOTE: The left side of the R4Pro casing must be equipped with a 4010 fan fixed in place.
 
+. Make sure you have all the necessary accessories and screws for installing R4Pro. You can consult through the corresponding sales platform. (The 4PIN fan cable marked 1/2 requires you to purchase it yourself. The R4Pro heat sink pad has already been installed on the board.)
++
+There are four installation methods here:
+
+* 4010 fan + BE14 fanless heat sink +
+
+* 4010 fan + BE14 fan heat sink +
+
+* 5020 fan + BE14 fanless heat sink +
+
+* 5020 fan + BE14 fan heat sink +
+
+. First, take out a board of the R4Pro (some of these boards have already had the heat sink installed when they were taken out of the packaging box)
++
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install1.jpg[banana_pi_bpi-r4_pro_install1.jpg]
+
+. Attach the heat dissipation pads according to the size.
++
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install2.jpg[banana_pi_bpi-r4_pro_install2.jpg]
+
+. Install the heat sink
++
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install3.jpg[banana_pi_bpi-r4_pro_install3.jpg]
+
+. Take out your R4Pro case.
++
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install4.jpg[banana_pi_bpi-r4_pro_install4.jpg]
+
+. Install four foot pads below the R4Pro.
++
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install5.jpg[banana_pi_bpi-r4_pro_install5.jpg]
+
+. Prepare to install the interior of the casing.
++
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install6.jpg[banana_pi_bpi-r4_pro_install6.jpg]
+
+. First, install the fan on the left side.
++
+WARNING: make sure the airflow is directed towards the left, because if you have the 5020 fan, the cooling duct is on the left side.
++
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install7.jpg[banana_pi_bpi-r4_pro_install7.jpg]
+
+. Fix R4Pro with 4 fixed screws.
++
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install8.jpg[banana_pi_bpi-r4_pro_install8.jpg]
+
+. Install the 5020 fan using 3 long screws.
++
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install9.jpg[banana_pi_bpi-r4_pro_install9.jpg]
+
+. Install the 4010 fan.
++
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install10.jpg[banana_pi_bpi-r4_pro_install10.jpg]
+
+. Install four copper columns into the corresponding holes of the BE14 heat sink. Secure the BE14 with M2 screws and attach the heat pad.
++
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install11.jpg[banana_pi_bpi-r4_pro_install11.jpg]
+
+. Install the BE14 fanless heat sink.
++
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install12.jpg[banana_pi_bpi-r4_pro_install12.jpg]
+
+. Install the BE14 with the fan heat sink.
++
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install13.jpg[banana_pi_bpi-r4_pro_install13.jpg]
+
+
+
+
+
 
 == 4010 fan + BE14 fanless heat sink
 
