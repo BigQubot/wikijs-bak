@@ -57,13 +57,13 @@ NOTE: The left side of the R4Pro casing must be equipped with a 4010 fan fixed i
 +
 There are four installation methods here:
 
-* 4010 fan + BE14 fanless heat sink +
+* 4010 fan + BE14 fanless heat sink(do 11+13,not do 10+14) + 
 
-* 4010 fan + BE14 fan heat sink +
+* 4010 fan + BE14 fan heat sink(do 11+14,not do 10+13) +  
 
-* 5020 fan + BE14 fanless heat sink +
+* 5020 fan + BE14 fanless heat sink(do 10+13,not do 11+14) + 
 
-* 5020 fan + BE14 fan heat sink +
+* 5020 fan + BE14 fan heat sink (do 10+14,not do 11+13)+ 
 
 . First, take out a board of the R4Pro (some of these boards have already had the heat sink installed when they were taken out of the packaging box)
 +
@@ -120,11 +120,25 @@ image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install12.jpg[banana_pi_
 image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install13.jpg[banana_pi_bpi-r4_pro_install13.jpg]
 
 
+. Install the corresponding antenna.
++
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install14.jpg[banana_pi_bpi-r4_pro_install14.jpg]
 
+. Install the antenna fixing slot.
++
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install15.jpg[banana_pi_bpi-r4_pro_install15.jpg]
 
+. Fixed antenna.
++
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install16.jpg[banana_pi_bpi-r4_pro_install16.jpg]
 
+. Install the outer casing.(with two screws on the front side)
++
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install17.jpg[banana_pi_bpi-r4_pro_install17.jpg]
 
-
+. Install the antenna glue stick and the installation of the housing is complete.
++
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install18.jpg[banana_pi_bpi-r4_pro_install18.jpg]
 
 
 == 4010 fan + BE14 fanless heat sink
