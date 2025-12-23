@@ -2,7 +2,7 @@
 
 image::/bpi-cm6/banana_pi_bpi-cm5_banner_1.jpg[banana_pi_bpi-cm5_banner_1.jpg]
 
-香蕉派BPI-CM6是一款工业级RISC-V核心板，它采用SpacemiT K1 8核RISC-V芯片设计，CPU集成2.0 TOPs AI计算能力。8/16G DDR和8/16/32/128G eMMC。设计了板对板连接器，以增强稳定性，与树莓派CM4尺寸相同，并兼容Raspberry Pi CM4底板。
+香蕉派BPI-CM6是一款工业级RISC-V核心板，它采用SpacemiT K1 8核RISC-V芯片设计，CPU集成2.0 TOPs AI计算能力。4/8/16G DDR和8/16/32/128G eMMC。设计了板对板连接器，以增强稳定性，与树莓派CM4尺寸相同，并兼容Raspberry Pi CM4底板。
 
 TIP: 进迭时空 K1 RISC-V link:/zh/BPI-F3/BananaPi_BPI-F3[香蕉派 BPI-F3] AI 单板计算机 +
 进迭时空 K1 RISC-V link:/zh/BPI-CM6/BananaPi_BPI-CM6[香蕉派 BPI-CM6] AI 计算机模组
@@ -21,9 +21,9 @@ link:https://developer.spacemit.com/[进迭时空（SpacemiT）官方开发者�
 == 主要特点
 
 * 进迭时空8核RISC-V芯片，CPU集成2.0 TOPs AI算力
-* 8GB LPDDR4内存(支持可选16GB)
+* 4GB LPDDR4内存(支持可选,4,8,16GB)
 * 16GB eMMC存储
-* 1x SDIO WiFi/BT 模组
+* 1x SDIO RTL8852BS Wifi6 /BT5.2模块
 * 1x Integrates RTL8211F PHY
 * 5-lane PCIE2.1 扩展能力接口
 * 1x USB 3.0 + 2x USB 2.0 接口
