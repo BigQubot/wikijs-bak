@@ -66,7 +66,6 @@ TIP: Banana Pi BPI-WiFi6 Product introduction Video: https://www.youtube.com/wat
 == Source Code
 TIP: Source code on github: https://github.com/BPI-SINOVOIP/THG6500-TAX2-OPENWRT-BSP
 
-This source code is no longer compatible due to a change in the WiFi chip's packaging.
 
 == Resources
 TIP: Banana Pi BPI wifi6 router with Triductor TR6560 + TR5220 wifi SOC test PoE and OpenWRT: https://www.youtube.com/watch?v=Nf03ssN8ez0
@@ -81,7 +80,7 @@ Baidu Cloud: https://pan.baidu.com/s/1vFJER_fpwLw2e3bP0-Y-HA PIN code:8888
 
 Google Drive:  https://drive.google.com/file/d/1N2mw9fty6fgZEh9WqI_PpTZcNz5vQBfJ/view?usp=sharing
 
-For PSB boards with silkscreen markings of XXX or later, please use the TGP 3.3.4 version image file, which is pre-programmed at the factory. (Previous batches of development boards are also compatible with older chips.)
+
 
 NOTE: 2024-01-05 OpenWRT-TGP3.1.0_rc8
 
