@@ -439,6 +439,11 @@ linux-6.1 kernel don't include MT76 wifi driver, it can't support BE14000 wifi c
 
 == Third Party
 
+=== Armbian
+
+https://www.armbian.com/bananapi-r4/
+
+
 === OpenWrt
 
 NOTE: BL2 for openwrt 21 version
@@ -460,9 +465,6 @@ Note:
 1. Pre-release and Beta instructions are listed alongside latest official release(s)
 2. RDK Official releases are available here, license required -> https://wiki.rdkcentral.com/display/CMF/RDK-B+Releases
 
-=== Armbian(Community maintained)
-
-https://www.armbian.com/bananapi-r4/
 
 = FAQ
 
