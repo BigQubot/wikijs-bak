@@ -62,7 +62,6 @@ TIP: Please refer to github bsp's pdf document: 创耀_TGP3.0开发手册_2023.4
 == 源代码
 TIP: Source code on github: https://github.com/BPI-SINOVOIP/THG6500-TAX2-OPENWRT-BSP
 
-由于WiFi芯片更换了封装，这份源码不适配了。
 
 == 开发资源
 TIP: Banana Pi BPI wfi6 router with Triductor TR6560 + TR5220 wifi SOC test PoE and OpenWRT: https://www.youtube.com/watch?v=Nf03ssN8ez0
@@ -77,7 +76,6 @@ Baidu Cloud: https://pan.baidu.com/s/1vFJER_fpwLw2e3bP0-Y-HA PIN code:8888
 
 Google Drive:  https://drive.google.com/file/d/1N2mw9fty6fgZEh9WqI_PpTZcNz5vQBfJ/view?usp=sharing
 
-PSB板上丝印为XXX及以后的，请使用TGP3.3.4版本img，出厂时已经默认烧录好了。（之前批次的开发板也可以使用，兼容旧芯片）
 
 NOTE: 2024-01-05 OpenWRT-TGP3.1.0_rc8
 
