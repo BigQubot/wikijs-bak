@@ -1,7 +1,7 @@
-= EM05-CN
+= RM500-CNV
 
 
-= EC25-E
+= RM520N-GL
 
 
 = Usage method
@@ -201,36 +201,4 @@ round-trip min/avg/max = 38.725/44.573/55.105 ms
 root@R4CN:/#
 ```
 
-== EM05-CN to use
-
-**EM05-CN**
-```sh
-wwan0     Link encap:Ethernet  HWaddr F2:CC:52:10:2E:27  
-         inet addr:10.21.103.116  Bcast:0.0.0.0  Mask:255.255.255.248
-         inet6 addr: fe80::f0cc:52ff:fe10:2e27/64 Scope:Link
-         UP BROADCAST RUNNING NOARP MULTICAST  MTU:1500  Metric:1
-         RX packets:56 errors:0 dropped:0 overruns:0 frame:0
-         TX packets:91 errors:0 dropped:0 overruns:0 carrier:0
-         collisions:0 txqueuelen:1000 
-         RX bytes:7868 (7.6 KiB)  TX bytes:10133 (9.8 KiB)
-root@R4CN:/# 
-root@R4CN:/# lsusb
-Bus 001 Device 012: ID 2c7c:0125 Quectel Incorporated LTE Module
-Bus 002 Device 002: ID 2109:0822 VIA Labs, Inc.          USB3.1 Hub             
-Bus 002 Device 001: ID 1d6b:0003 Linux 5.4.246 xhci-hcd xHCI Host Controller
-Bus 001 Device 003: ID 2109:8822 VIA Labs, Inc.          USB Billboard Device   
-Bus 001 Device 002: ID 2109:2822 VIA Labs, Inc.          USB2.0 Hub             
-Bus 001 Device 001: ID 1d6b:0002 Linux 5.4.246 xhci-hcd xHCI Host Controller
-root@R4CN:/# 
-root@R4CN:/# ping www.baidu.com
-PING www.baidu.com (120.232.145.144): 56 data bytes
-64 bytes from 120.232.145.144: seq=0 ttl=53 time=47.085 ms
-64 bytes from 120.232.145.144: seq=1 ttl=53 time=36.447 ms
-^C
---- www.baidu.com ping statistics ---
-2 packets transmitted, 2 packets received, 0% packet loss
-round-trip min/avg/max = 36.447/41.766/47.085 ms
-root@R4CN:/#
-
-```
 
