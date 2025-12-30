@@ -63,7 +63,15 @@ TIP: OEM&ODM support : this board support customized service. You can quickly pr
 TIP: Banana Pi BPI-WiFi6 Product introduction Video: https://www.youtube.com/watch?v=jTuLyygpkWA
 
 == Source Code
-TIP: Source code on github: https://github.com/BPI-SINOVOIP/THG6500-TAX2-OPENWRT-BSP_TGP3
+TIP: Source code on github:  +
+Old source code: https://github.com/BPI-SINOVOIP/THG6500-TAX2-OPENWRT-BSP +
+New source code: https://github.com/BPI-SINOVOIP/THG6500-TAX2-OPENWRT-BSP_TGP3
+
+WARNING: **Note**: The old source code is incompatible with the new hardware and will cause WiFi malfunctions. +
+ +
+The new source code is compatible with the old hardware, but its use is not recommended. The new source code requires a MAC address and corresponding key; otherwise, WiFi functionality will be limited, and the device will restart every hour. +
+ +
+The silkscreen markings on the new WiFi chip are vertical, while those on the old chip are horizontal.
 
 == Resources
 TIP: Banana Pi BPI wifi6 router with Triductor TR6560 + TR5220 wifi SOC test PoE and OpenWRT: https://www.youtube.com/watch?v=Nf03ssN8ez0
