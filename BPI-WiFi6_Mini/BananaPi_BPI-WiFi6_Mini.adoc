@@ -35,9 +35,26 @@ image::/bpi-wifi6/banana_pi_bpi-wifi6_mini_inerface.png[banana_pi_bpi-wifi6_mini
 TIP: Please refer to github bsp's pdf document: Triductor_TGP3.0开发手册_2023.4.20.pdf ----- gtihub website: https://github.com/BPI-SINOVOIP/THG6500-TAX2-OPENWRT-BSP
 
 == Source Code
-TIP: Source code on github: https://github.com/BPI-SINOVOIP/THG6500-TAX2-mini-OPENWRT-BSP
+TIP: Source code on github
+Old source code: https://github.com/BPI-SINOVOIP/THG6500-TAX2-mini-OPENWRT-BSP +
+New source code: 
+
+WARNING: **Note**: The old source code is incompatible with the new hardware and will cause WiFi malfunctions. +
+ +
+The new source code is compatible with the old hardware, but its use is not recommended. The new source code requires a MAC address and corresponding key; otherwise, WiFi functionality will be limited, and the device will restart every hour. +
+ +
+The silkscreen markings on the new WiFi chip are vertical, while those on the old chip are horizontal.
+
 
 = Software (upgrade on web ui)
+NOTE: 20251223-tgp3.3.4-WiFi6-mini-THG6500-TAX2-squashfs-sysupgrade.bin
+
+Baidu cloud:
+
+Google drive:
+
+NOTE: tgp3.1.0-THG6500-TAX2-squashfs-sysupgrade.bin
+
 Baidu cloud: https://pan.baidu.com/s/1ytTnbUGetBd6foVDBTwTWg?pwd=8888 (pincode: 8888)
 
 Google drive:
