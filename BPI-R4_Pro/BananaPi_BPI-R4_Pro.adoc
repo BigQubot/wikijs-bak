@@ -408,6 +408,18 @@ TIP: MLO in Wi-Fi 7: https://mediatek-marketing.files.svdcdn.com/production/docu
 = System Image
 == OpenWRT
 
+NOTE: BPI-R4Pro-8X-BE14-MT76-OpenWRT24.10-DSA-251229
+
+TIP: 1. Added support for 4G/5G cellular modules (Quectel RM500U and EM05) + 
+2. Added MLD configuration (configuration is not available via the web，it can only be done via SSH) + 
+3. Added support for 1000BASE-T and 2.5GBASE-T for 10G RJ45 WAN/LAN
+
+Baidu : https://pan.baidu.com/s/15oDSZpSMqhSY1x5hPW9oUw?pwd=8888 (pincode: 8888)
+
+Google drive: 
+https://drive.google.com/file/d/1hjnuJb-BgeMq4YS53VQVeG1MvW6gMbo-/view?usp=sharing
+
+
 NOTE: BPI-R4Pro-8X-BE14-MT76-OpenWRT24.10-DSA-251125
 
 WARNING: This image does not support 5G Cellular network modules and 10G RJ45 WAN/LAN only supports 10GBASE-T.
@@ -416,15 +428,6 @@ Baidu Could: https://pan.baidu.com/s/1_h0JLKi-Bms7pLfGfLX1EA?pwd=8888 (pincode: 
 
 Google drive: https://drive.google.com/drive/folders/1CX69Psq1pP6AcNJoHAFFRbRbhPBrn1kJ?usp=sharing
 
-NOTE: BPI-R4Pro-8X-BE14-MT76-OpenWRT24.10-DSA-251229
-
-TIP: 1.Increase the driving force for 5G and 4G.
-2.Increase the MLD configuration (but the web interface still cannot be used for configuration; it can only be done through the system files)
-
-Baidu : https://pan.baidu.com/s/15oDSZpSMqhSY1x5hPW9oUw?pwd=8888 (pincode: 8888)
-
-Google drive: 
-https://drive.google.com/file/d/1hjnuJb-BgeMq4YS53VQVeG1MvW6gMbo-/view?usp=sharing
 
 = FAQ
 link:/en/BPI-R4Pro/BananaPi_BPI-R4Pro_FAQ[BPI-R4Pro FAQ]
