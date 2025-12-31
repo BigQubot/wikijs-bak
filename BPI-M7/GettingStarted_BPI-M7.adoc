@@ -473,7 +473,7 @@ armsom@armsom-sige5:/# echo activity > /sys/class/leds/red/trigger
 == RTC
 
 * The BPI-M5 Pro features an LK8563S RTC chip.
-* First, insert the RTC battery using the 2-pin header to supply power to the RTC IC.
+* First, insert the RTC battery using the 2-pin 0.8mm header to supply power to the RTC IC.
 
 NOTE: that we should keep the RTC battery in the RTC connector and confirm the rtc LK8563S device which has been created.
 ```sh
