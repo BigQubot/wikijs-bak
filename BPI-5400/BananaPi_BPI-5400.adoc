@@ -54,13 +54,13 @@ image::/bpi-poe/bpi-5400b_poe_2.png[bpi-5400b_poe_2.png]
 |5400B |-24V 	|	30W	|YES	|RT5400B-24V	|DIP
 |====
 
-== 5400B Pin Description
+== 5400 Pin Description
 
 [options="header",cols="1,1,6"]
 |====
 |Pin |	Name	|Description
-|1	|VA1	|RX Input (1). This input pin is used in conjunction with VA2 and connects to the centre tap of the transformer connected to pins 1 & 2 of the RJ45 connector (RX) - it is not polarity sensitive.(5400B-S, POE Direct Input +. This pin connects to the positive (+) output of the POE input bridge rectifiers.)
-|2	|VA2	|TX Input (2). This input pin is used in conjunction with VA1 and connects to the centre tap of the transformer connected to pins 3 & 6 of the RJ45 connector (TX) - it is not polarity sensitive.(5400B-S,POE Direct Input -. POE Direct Input -. This pin connects to the negative (-) output of the POE input bridge rectifiers..)
+|1	|VA1	|RX Input (1). This input pin is used in conjunction with VA2 and connects to the centre tap of the transformer connected to pins 1 & 2 of the RJ45 connector (RX) - it is not polarity sensitive.(5400-S, POE Direct Input +. This pin connects to the positive (+) output of the POE input bridge rectifiers.)
+|2	|VA2	|TX Input (2). This input pin is used in conjunction with VA1 and connects to the centre tap of the transformer connected to pins 3 & 6 of the RJ45 connector (TX) - it is not polarity sensitive.(5400-S,POE Direct Input -. POE Direct Input -. This pin connects to the negative (-) output of the POE input bridge rectifiers..)
 |3	|VB1|	Direct Input (1). This input pin is used in conjunction with VB2 and connects to pin 4 & 5 of the RJ45 connector - it is not polarity sensitive.
 |4	|VB2	|Direct Input (2). This input pin is used in conjunction with VB1 and connects to pin 7 & 8 of the RJ45 connector - it is not polarity sensitive.
 |5	|cap+	|Internal cap, need Match Dynamic load ,connecting A 22uf-100uf  63V
