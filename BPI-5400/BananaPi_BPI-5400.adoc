@@ -1,11 +1,11 @@
 = Description
 
-The BPI-5400B series of modules are designed to extract power from a conventional
+The BPI-5400 series of modules are designed to extract power from a conventional
 twisted pair Category 5 Ethernet cable, conforming to the IEEE 802.3af and IEEE 802.3at    Power-over-Ethernet(PoE) standard.
 
 image::/bpi-poe/banana_pi_poe-5400_5.jpg[banana_pi_poe-5400_5.jpg]
 
-The BPI-5400B signature and control circuit provides the PoE compatibility signature and
+The BPI-5400 signature and control circuit provides the PoE compatibility signature and
 power classification required by the Power Sourcing Equipment (PSE) before applying up
 to 30W power to the port. 
 
@@ -33,7 +33,7 @@ output. The DC/DC converter also has built-in short-circuit output protection.
 * Point of sale network terminal equipment
 
 
-= BPI-5400B PoE Hardware
+= BPI-5400 PoE Hardware
 
 == Module Size
 
