@@ -6,4 +6,22 @@ BPI-RT2 Router dual-band wireless router, 2.4G 2T2R, 5G 2T2R coexist at the same
 
 == Realtek RTL8189D
 The Realtek RTL8198D is a highly integrated system-on-chip (SoC) designed for high-performance networking devices. It integrates a dual-core CPU, a hardware switching engine, multi-port Gigabit Ethernet PHY transceivers, and comprehensive network protocol processing acceleration functions, making it an ideal core solution for building enterprise-grade gateways, smart routers, and network switching equipment.
-The RTL8198D integrates four Gigabit Ethernet physical layer transceivers for 10Base-T, 100Base-TX, and 1000Base-TX, and and 1 USB 3.0 port.
+The RTL8198D integrates four Gigabit Ethernet physical layer transceivers for 10Base-T, 100Base-TX, and 1000Base-TX, and two HSGMII interfaces to operate with an external phy
+
+== Key Features
+* The RTL8198D Dual core MIPS interAptivTM CPU
+* 256MB DDR3(embedded with the RTL8198D)
+* 128MB SPI-NAND Flash
+* 1 x 1 G RJ45 WAN
+* 3 x 1 G RJ45 LAN
+* 1x  UART Debug
+* 1x USB 3.0 slot
+
+== Application direction
+
+* Gigabit enterprise gateways 
+* VPN routers
+* smart Wi-Fi APs
+* network switching equipment
+* integrated access devices
+* other embedded systems requiring high-performance network processing and VoIP functionality.
