@@ -316,6 +316,42 @@ image::/bpi-r4/bpi-r4_bl2_original.jpg[bpi-r4_bl2_original.jpg]
 
 image::/bpi-r4/bpi-r4_bl2_change.jpg[bpi-r4_bl2_change.jpg]
 
+== Reading and writing EEPROM
+
+1、Reading EEPROM
+```
+hexdump -C /sys/bus/i2c/devices/3-0057/eeprom
+```
+2、Write content to EEPROM
+```
+printf '\x01\x02\x03\x04\x05\x06' | dd of=/sys/bus/i2c/devices/3-0057/eeprom bs=1 seek=32 conv=notrunc
+```
+"**\x01\x02\x03\x04\x05\x06**" is the content you want to write, which can be a MAC address, serial number, or other information. +
+"**bs=1**" means the block size is 1. +
+"**seek=32**" means the offset (how many blocks to skip). +
+**"bs=1 seek=32**" means to skip 32 bytes, which corresponds to skipping bytes from 0x00 to 0x1F, and start writing content from 0x20. +
+"**conv=notrunc**" do not truncate the EEPROM, preserve the original data.
+
+For example, I want to write two sets of MAC addresses to addresses **0x20** and **0x30** respectively:
+```
+printf '\x12\x41\x89\x7F\x64\xD3' | dd of=/sys/bus/i2c/devices/3-0057/eeprom bs=1 seek=32 conv=notrunc
+printf '\x7E\xF5\x56\x36\x4C\xD1' | dd of=/sys/bus/i2c/devices/3-0057/eeprom bs=1 seek=48 conv=notrunc
+
+```
+WARNING:  **PS: Since subsequent batches of the V1.2 version are planned to write data to the EEPROM, addresses ranging from 0x00 to 0x1F must be avoided.**
+
+3、Read all contents of the EEPROM.
+```
+hexdump -C /sys/bus/i2c/devices/3-0057/eeprom
+```
+Read the content at a specified location in the EEPROM.
+```
+hexdump -C /sys/bus/i2c/devices/3-0057/eeprom | tail -n +3
+```
+"**tail -n +3**" indicates that only the data starting from the third line should be displayed, which is 0x20.
+
+
+
 = Accessories
 
 == 10G SFP Module
