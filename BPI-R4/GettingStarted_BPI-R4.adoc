@@ -317,6 +317,7 @@ image::/bpi-r4/bpi-r4_bl2_original.jpg[bpi-r4_bl2_original.jpg]
 image::/bpi-r4/bpi-r4_bl2_change.jpg[bpi-r4_bl2_change.jpg]
 
 == Reading and writing EEPROM
+WARNING: **The image files we release use a random MAC address on each boot and do not utilize EEPROM. If you wish to use EEPROM, you will need to write a script to read the data and update the port.**
 
 1、Reading EEPROM
 ```
