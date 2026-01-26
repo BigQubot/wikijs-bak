@@ -279,6 +279,87 @@ image::/bpi-cm6/cm6-io_interface_250321_1500px.jpg[cm6-io_interface_250321_1500p
 |====
 ====
 
+.BPI-CM6 IO board MIPI DSI definitions
+[%collapsible]
+====
+[options="header",cols="1,1,1,1"]
+|====
+4+| MIPI DSI define of BPI-CM6 IO board
+|Function|	Pin	|Pin	|Function	
+| MIPI_DSI1_LANE0_DN | 1 | 2 | MIPI_DSI1_LANE0_DP
+| GND | 3 | 4 | MIPI_DSI1_LANE1_DN
+| MIPI_DSI1_LANE1_DP | 5 | 6 | GND 
+| MIPI_DSI1_CLK_N | 7 | 8 | MIPI_DSI1_CLK_P
+| GND | 9 | 10 | MIPI_DSI1_LANE2_DN
+| MIPI_DSI1_LANE2_DP | 11 | 12 | GND 
+| MIPI_DSI1_LANE3_DN | 13 | 14 | MIPI_DSI1_LANE3_DP 
+| GND | 15 | 16 | MIPI_DSI0_ADC_1P8V
+| MIPI_DSI0_PWREN_1P8/3P3V | 17 | 18 | MIPI_DSI0_RSTn_1P8/3P3V
+| MIPI_DSI0_BLEN_1P8/3P3V | 19 | 20 | MIPI_DSI0_BLPWM_1P8/3P3V
+|GND | 21 | 22 | MIPI_DSI0_cTP_INT_1P8V
+| MIPI_DSI0_cTP_RST_1P8V | 23 | 24 | MIPI_DSI0_cTP_SCL_1P8V
+| MIPI_DSI0_cTP_SDA_1P8V | 25 | 26 | VDDIO-DSI0
+| GND |27 | 28 | GND
+| VDD5P0V-DSI0 | 29 | 30 | VDD5P0V-DSI0
+| VDD5P0V-DSI0 | 31 |  | 
+|====
+====
+
+.BPI-CM6 IO board MIPI CSI0 definitions
+[%collapsible]
+====
+[options="header",cols="1,1,1,1"]
+|====
+4+| MIPI CSI0 define of BPI-CM6 IO board
+|Function|	Pin	|Pin	|Function	
+| MIPI_CSI1_D3N | 1 | 2 | MIPI_CSI1_D3P
+| GND | 3 | 4 | MIPI_CSI1_D2N
+| MIPI_CSI1_D2P | 5 | 6 | GND 
+|  | 7 | 8 | 
+| GND | 9 | 10 | MIPI_CSI1_D1N
+| MIPI_CSI1_D1P | 11 | 12 | GND 
+| MIPI_CSI1_D0N | 13 | 14 | MIPI_CSI1_D0P 
+| GND | 15 | 16 | MIPI_CSI1_CLKN
+| MIPI_CSI1_CLKP | 17 | 18 | GND
+| MIPI_CSIA_MCLK_1P8V | 19 | 20 | MIPI_CSIA_PWDN_1P8V
+|MIPI_CSIA_RST_1P8V | 21 | 22 | MIPI_CSIA_SCL_1P8V
+| MIPI_CSIA_SDA_1P8V | 23 | 24 | GND
+|  | 25 | 26 | 
+|  |27 | 28 | 
+|  | 29 | 30 | VCC1V8_CSI0
+| GND | 31 | 32 | GND
+| VCC3V3_CSI0 | 33 | 34 | VCC3V3_CSI0
+| VCC3V3_CSI0 | 35 | |
+|====
+====
+
+.BPI-CM6 IO board MIPI CSI1 definitions
+[%collapsible]
+====
+[options="header",cols="1,1,1,1"]
+|====
+4+| MIPI CSI1 define of BPI-CM6 IO board
+|Function|	Pin	|Pin	|Function	
+| MIPI_CSI3_D3N | 1 | 2 | MIPI_CSI3_D3P
+| GND | 3 | 4 | MIPI_CSI3_D2N
+| MIPI_CSI3_D2P | 5 | 6 | GND 
+| MIPI_CSI2_CLKN | 7 | 8 | MIPI_CSI2_CLKP
+| GND | 9 | 10 | MIPI_CSI3_D1N
+| MIPI_CSI3_D1P | 11 | 12 | GND 
+| MIPI_CSI3_D0N | 13 | 14 | MIPI_CSI3_D0P 
+| GND | 15 | 16 | MIPI_CSI3_CLKN
+| MIPI_CSI3_CLKP | 17 | 18 | GND
+| MIPI_CSIB_MCLK_1P8V | 19 | 20 | MIPI_CSIB_PWDN_1P8V
+|MIPI_CSIB_RST_1P8V | 21 | 22 | MIPI_CSIB_SCL_1P8V
+| MIPI_CSIB_SDA_1P8V | 23 | 24 | GND
+| MIPI_CSID_MCLK_1P8V | 25 | 26 | MIPI_CSID_PWDN_1P8V
+| MIPI_CSID_RST_1P8V |27 | 28 | MIPI_CSID_SCL_1P8V
+| MIPI_CSID_SDA_1P8V | 29 | 30 | VCC1V8_CSI1
+| GND | 31 | 32 | GND
+| VCC3V3_CSI1 | 33 | 34 | VCC3V3_CSI1
+| VCC3V3_CSI1 | 35 | |
+|====
+====
 
 = Development
 
