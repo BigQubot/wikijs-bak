@@ -256,6 +256,30 @@ image::/bpi-cm6/cm6-io_interface_250321_1500px.jpg[cm6-io_interface_250321_1500p
 
 == GPIO define
 
+.BPI-CM6 IO board 26pin definitions
+[%collapsible]
+====
+[options="header",cols="1,1,1,1,1,1"]
+|====
+6+| 26 GPIO define of BPI-CM6 IO board
+|GPIO number	|Function|	Pin	|Pin	|Function	|GPIO number
+| | VDD_3V3 | 1 | 2 | VDD_5V0 | 
+|GPIO52 | AP_I2C4_SDA_3V3 | 3 | 4 | VDD_5V0 |
+|GPIO51 | AP_I2C4_SCL_3V3 | 5 | 6 | GND |
+| GPIO_70 | PWM | 7 | 8 | R_UART0_TXD_3V3 | GPIO47
+|  | GND | 9 | 10 | R_UART0_RXD_3V3 | GPIO48
+| GPIO_71 | UART1_TXD | 11 | 12 | PCM_BITCLK | GPIO_44
+| GPIO_72 | UART1_RXD | 13 | 14 | GND |
+| GPIO_73 | GPIO22 | 15 | 16 | UART0_RTS | GPIO_91
+| | VDD_3V3 | 17 | 18 | UART0_CTS | GPIO_92
+| GPIO77 | SPI3_MOSI_3V3 | 19 | 20 | GND | 
+| GPIO78 | SPI3_MISO_3V3 | 21 | 22 | GPIO_49_3V3 | GPIO49
+| GPIO75 |  SPI3_SCLK_3V3 | 23 | 24 | SPI3_CS_3V3 | GPIO76
+| | GND | 25 | 26 | GPIO_50_3V3 | GPIO50
+|====
+====
+
+
 = Development
 
 == Source code
