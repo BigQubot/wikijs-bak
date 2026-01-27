@@ -118,6 +118,12 @@ TIP: The default NAND image for the board: OpenWrt 24.10.0 rc2. You can find the
 
 Official image link: https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=mediatek%2Ffilogic&id=openwrt_one
 
+== Debian Linux on Openwrt One
+The OpenWrt One is a nice open hardware access point, running OpenWrt by default. As the hardware is reasonably powerful and expandable, running a more general purpose OS like Debian on it can be rather convenient.
+
+https://github.com/sjoerdsimons/openwrt-one-debian
+
+
 = Accessories
 == Case design
 
