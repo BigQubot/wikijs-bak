@@ -1,5 +1,18 @@
 = BPI-SM10 (K3-CoM260) Introduction
 
+Banana Pi BPI-SM10 (K3-CoM260) delivers up to 60 TOPS of general-purpose AI compute and can smoothly run 30-billion-parameter(30B) large models such as the 30B-A3B series. It offers highly accessible, user-friendly development environment for developers , students and makers.
+
+The developer kit includes a BPI-SM10 Core module and universal reference carrier board. The carrier board is fully compatible with K3-CoM260 series and provides ready-to-use demos for edge AI agent development.
+
+The BPI-SM10 (K3-CoM260) module integrates 8x100™ general-purpose CPU cores and 8x A100m Al CPU cores, delivering 130 KDMlPS of general compute and 60 TOPS of general Al compute Real-world testing shows inference performance is greater than 10 Tokens/S@30B. It supports multi-pipeline concurrent Al workloads and high-performance inference tasks. And the included carrier board offers a wide range of I/O interfaces while remaining hardware-compatible with NVIDIA Jetson Orin Nano to simplify hardware migration.
+
+The BPI-SM10 (K3-CoM260) Developer Kit supports deployment of a broad set of Al algorithms and model types It follows a standard CPU programming model and provides system software, Al runtime, and a complete developer toolchain, enabling zero-effort migration of existing Al workloads.
+
+Banana Pi also provides custom software development services, along with support for camera and sensor integration, carrier-board design, and full system engineering to accelerate productization
+
+As the world's first compact edge-computing platform based on the RISC-V architecture with full RVA23 support, the SpacemiT K3-CoM260 Developer Kit is idea for Al edge devices, service robots, and a wide range of autonomous on-device Al agent applications
+
+
 == About SpacemiT K3
 
 image::/bpi-sm10/spacemit_k3_ai_chip.jpg[spacemit_k3_ai_chip.jpg]
