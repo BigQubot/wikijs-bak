@@ -20,3 +20,28 @@ image::/bpi-sm10/spacemit_k3_ai_chip.jpg[spacemit_k3_ai_chip.jpg]
 === K3 Brief 
 
 * Google drie link : https://drive.google.com/file/d/1BTGIb1Xchi3w1ICUPXK_TaWwqjhtNEkm/view?usp=sharing
+
+== Key Features 
+
+* 8x X100™ 64-bit RISC-V CPU cores
+** 4-issue out-of-order pipeline,12 stages.Compliant with the RVA23 specification.
+** Shared 8MB L2 cache
+
+* 8 x A100™ 64-bit AI CPU cores
+** 60 TOPS general-purpose Al compute
+** 1024-bit RW 1.0 vector processing width
+** Shared 2MB L2+3 MB TCM
+
+* 64-bit LPDDR5, 6400 MT/s
+* Support for external NVMe storage devices
+
+* Reference Carrier Board
+** 2 x MlPI CSl-2 (22-pin) camera connectors
+** 2x M.2 Key M, M.2 Key E
+** 4x USB 3.0 Type-A
+** USB Type-C for UFP
+** Gigabit Ethernet port
+** Display Port
+** 40-pin expansion header>MIPI DSI (30-pin) connector
+** DC power input
+
