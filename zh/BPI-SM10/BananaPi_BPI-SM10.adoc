@@ -1,3 +1,115 @@
-== header
+= BPI-SM10 (K3-CoM260) 产品介绍 
 
-content
+image::/bpi-sm10/banana_pi_bpi-sm10_banner_1.jpg[banana_pi_bpi-sm10_banner_1.jpg]
+
+Banana Pi BPI-SM10 (K3-CoM260) delivers up to 60 TOPS of general-purpose AI compute and can smoothly run 30-billion-parameter(30B) large models such as the 30B-A3B series. It offers highly accessible, user-friendly development environment for developers , students and makers.
+
+The developer kit includes a BPI-SM10 Core module and universal reference carrier board. The carrier board is fully compatible with K3-CoM260 series and provides ready-to-use demos for edge AI agent development.
+
+The BPI-SM10 (K3-CoM260) module integrates 8x100™ general-purpose CPU cores and 8x A100m Al CPU cores, delivering 130 KDMlPS of general compute and 60 TOPS of general Al compute Real-world testing shows inference performance is greater than 10 Tokens/S@30B. It supports multi-pipeline concurrent Al workloads and high-performance inference tasks. And the included carrier board offers a wide range of I/O interfaces while remaining hardware-compatible with NVIDIA Jetson Orin Nano to simplify hardware migration.
+
+The BPI-SM10 (K3-CoM260) Developer Kit supports deployment of a broad set of Al algorithms and model types It follows a standard CPU programming model and provides system software, Al runtime, and a complete developer toolchain, enabling zero-effort migration of existing Al workloads.
+
+Banana Pi also provides custom software development services, along with support for camera and sensor integration, carrier-board design, and full system engineering to accelerate productization
+
+As the world's first compact edge-computing platform based on the RISC-V architecture with full RVA23 support, the SpacemiT K3-CoM260 Developer Kit is idea for Al edge devices, service robots, and a wide range of autonomous on-device Al agent applications
+
+
+== About SpacemiT K3
+
+image::/bpi-sm10/spacemit_k3_ai_chip.jpg[spacemit_k3_ai_chip.jpg]
+
+=== K3 Brief 
+
+* Google drie link : https://drive.google.com/file/d/1BTGIb1Xchi3w1ICUPXK_TaWwqjhtNEkm/view?usp=sharing
+
+== Key Features 
+
+* 8x X100™ 64-bit RISC-V CPU cores
+** 4-issue out-of-order pipeline,12 stages.Compliant with the RVA23 specification.
+** Shared 8MB L2 cache
+
+* 8 x A100™ 64-bit AI CPU cores
+** 60 TOPS general-purpose Al compute
+** 1024-bit RW 1.0 vector processing width
+** Shared 2MB L2+3 MB TCM
+
+* 64-bit LPDDR5, 6400 MT/s
+* Support for external NVMe storage devices
+
+* Reference Carrier Board
+** 2 x MlPI CSl-2 (22-pin) camera connectors
+** 2x M.2 Key M, M.2 Key E
+** 4x USB 3.0 Type-A
+** USB Type-C for UFP
+** Gigabit Ethernet port
+** Display Port
+** 40-pin expansion header>MIPI DSI (30-pin) connector
+** DC power input
+
+= Hardware 
+
+== BPI-SM10 core board
+
+=== Core board interface
+
+=== Core board Specification
+
+[options="header",cols="2,6",width="70%"]
+|=====
+2+| **HardWare Specification of Banana Pi BPI-SM10 RISC-V core board**
+|Chip |SpacemiT K3 RISC-V AI CPU
+
+.6+|CPU
+|8x X100™ 64-bit RISC-V CPU cores, 2.4GHz
+|2 clusters x 4 cores per cluster, each cluster includes 4 MB shared      L2 cache, with cross-cluster access
+|Each X100 cores includes 64 KB I-cache and 64 KB D-cache
+|Complaint with the RVA23 profile
+|Supports RVV 1.0, VLEN:256 bits
+|
+.4+|AI performance
+|8 x A100™ AI CPU cores, delivering 60 TOS
+|2 cluster x 4 cores per cluster, each cluster includes 1 MB shared L2 cache and 1.5MB TCM(Tightly Coupled Memory), with cross-cluster access
+|Each A100 core includes 32KB I-cache and 32KB D-cache
+|Supports RVV 1.0, VLEN:1024 bits
+
+|GPU | Integrated 3D GPU, with support for Vulkan, openCL, and openGL ES
+|Memory|8GB/16GB/32GB 64-bit LPDDR5,6400MT/s
+|Storage|supports internal UFS, SD card, and external NVMe
+|video Encoding|4K60 (H.264/H.265)
+.4+|video Decoding
+|1 x 4K120 (H2.64/H.265/VP9)
+|2 x 4K60 (H2.64/H.265/VP9)
+|8 x 1080P60 (H2.64/H.265/VP9) 
+|16 x 1080P30 (H2.64/H.265/VP9)
+|Power consumption|18W-35W
+|=====
+
+NOTE: Refer to the software Features section of the latest SpacemiT K3 Datasheet for a list of supported features.
+
+== Carrier Board
+
+=== Carrier Board interface
+
+=== Carrier Board Specification
+
+[options="header",cols="2,6",width="70%"]
+|=====
+2+| **HardWare Specification of Banana Pi BPI-SM10 RISC-V Carrier Board**
+|camera|2xMIPI CSI-2, 22-pin camera connectors
+.3+|PCIe|M.2 Key M slot (PCIe Gen 3 x 4)
+|M.2 key M slot (PCIe Gen 3 x 1)
+|M.2 key E slot
+.2+|USB|4 x USB 3.0 Type-A
+|1 x USB Type-C(UFP device mode supported)
+|Networking|1 x GbE connector
+.2+|Display|1 x DP 1.2 connector
+|1 x MIPI DSI-1.2 30-pin display connector
+.4+|Other I/O|pin expansion header (UART,SPI, I2S, I2C, GPIO)
+|pin button header
+|pin fan header
+|DC power jack
+|Mechanical|103mm x 90.5mm x35mm (Height includes feet, carrier board, module and thermal solution)
+|=====
+
+
