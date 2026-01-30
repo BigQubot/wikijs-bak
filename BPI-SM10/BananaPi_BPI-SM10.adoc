@@ -45,3 +45,47 @@ image::/bpi-sm10/spacemit_k3_ai_chip.jpg[spacemit_k3_ai_chip.jpg]
 ** 40-pin expansion header>MIPI DSI (30-pin) connector
 ** DC power input
 
+= Hardware 
+
+== BPI-SM10 core board
+
+=== Core board interface
+
+=== Core board Specification
+
+[options="header",cols="2,5",width="70%"]
+|=====
+2+| **HardWare Specification of Banana Pi BPI-F3 RISC-V SBC**
+|Chip |SpacemiT K3 RISC-V AI CPU
+
+.6+|CPU
+|8x X100™ 64-bit RISC-V CPU cores, 2.4GHz
+|2 clusters x 4 cores per cluster, each cluster includes 4 MB shared      L2 cache, with cross-cluster access
+|Each X100 cores includes 64 KB I-cache and 64 KB D-cache
+|Complaint with the RVA23 profile
+|Supports RVV 1.0, VLEN:256 bits
+|
+.4+|AI performance
+|8 x A100™ AI CPU cores, delivering 60 TOS
+|2 cluster x 4 cores per cluster, each cluster includes 1 MB shared L2 cache and 1.5MB TCM(Tightly Coupled Memory), with cross-cluster access
+|Each A100 core includes 32KB I-cache and 32KB D-cache
+|Supports RVV 1.0, VLEN:1024 bits
+
+|GPU | Integrated 3D GPU, with support for Vulkan, openCL, and openGL ES
+|Memory|8GB/16GB/32GB 64-bit LPDDR5,6400MT/s
+|Storage|supports internal UFS, SD card, and external NVMe
+|video Encoding|4K60 (H.264/H.265)
+.4+|video Decoding
+|1 x 4K120 (H2.64/H.265/VP9)
+|2 x 4K60 (H2.64/H.265/VP9)
+|8 x 1080P60 (H2.64/H.265/VP9) 
+|16 x 1080P30 (H2.64/H.265/VP9)
+|Power consumption|18W-35W
+|=====
+
+== Carrier Board
+
+=== Carrier Board interface
+
+=== Carrier Board Specification
+
