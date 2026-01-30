@@ -83,9 +83,31 @@ image::/bpi-sm10/spacemit_k3_ai_chip.jpg[spacemit_k3_ai_chip.jpg]
 |Power consumption|18W-35W
 |=====
 
+NOTE: Refer to the software Features section of the latest SpacemiT K3 Datasheet for a list of supported features.
+
 == Carrier Board
 
 === Carrier Board interface
 
 === Carrier Board Specification
+
+[options="header",cols="2,6",width="70%"]
+|=====
+2+| **HardWare Specification of Banana Pi BPI-SM10 RISC-V Carrier Board**
+|camera|2xMIPI CSI-2, 22-pin camera connectors
+.3+|PCIe|M.2 Key M slot (PCIe Gen 3 x 4)
+|M.2 key M slot (PCIe Gen 3 x 1)
+|M.2 key E slot
+.2+|USB|4 x USB 3.0 Type-A
+|1 x USB Type-C(UFP device mode supported)
+|Networking|1 x GbE connector
+.2+|Display|1 x DP 1.2 connector
+|1 x MIPI DSI-1.2 30-pin display connector
+.4+|Other I/O|pin expansion header (UART,SPI, I2S, I2C, GPIO)
+|pin button header
+|pin fan header
+|DC power jack
+|Mechanical|103mm x 90.5mm x35mm (Height includes feet, carrier board, module and thermal solution)
+|=====
+
 
