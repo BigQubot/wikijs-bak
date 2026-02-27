@@ -48,6 +48,40 @@ NOTE: Due to the 1W fluctuation during usage, the following is the approximate i
 
 == BPI-R4Pro Heat dissipation test
 
+WARNING: The experimental data provided is for reference only,actual application should be determined based on specific circumstances.
+
+NOTE: "Idle Load" indicates low network traffic; the function is simply started but not running.
+"Full Load" simulates real-world usage, transmitting data at the iperf rate on each channel.
+
+These points were tested using a temperature probe.
+
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_heartsink_test1.jpg[banana_pi_bpi-r4_pro_heartsink_test1.jpg]
+
+=== Temperature data
+
+[options="header",cols="1,1,1,1,1"]
+|====
+5+| **BPI-R4Pro Temperature Test	**		
+|Equipment usage status	|CPU heatsink temperature(℃)	|BE14 heatsink temperature(℃)	|SFP WAN module temperature(℃) | SFP LAN module temperature(℃)
+|without BE14 fan
+(with One 4010 FAN+One 5020 FAN) + Idle load|35.44|	32.2	|32.24 | 31.23
+|without BE14 fan
+(with One 4010 FAN+One 5020 FAN) + Full load	|40.83 	|33.64	|43.59 | 40.7		
+|without BE14 fan
+(with Two 4010 FAN) + Idle load	|41.45	|32.97	|38.21 | 37.42
+|without BE14 fan
+(with Two 4010 FAN) + Full load	|49.58|	34.09	|57.1 |55.42 
+|with BE14 fan
+(with One 4010 FAN+One 5020 FAN) + Idle load	|34.63	|28.91	|32.01 |30.67
+|with BE14 fan
+(with One 4010 FAN+One 5020 FAN) + Full load|	38.06| 	28.95	|42.23 |38.39
+|with BE14 fan
+(with Two 4010 FAN) + Idle load|	37.59|	29.67|	36.36 | 35.83
+|without BE14 fan
+(with Two 4010 FAN) + Full load	|45.24	|31.09	|54.7 |52.97
+
+|====
+
 
 
 = Installation Details
