@@ -221,6 +221,46 @@ test
 
 image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_uart3.jpg[bananapi-pi_sm9_uart3.jpg]
 
+== CAN
+
+TIP: blue ：CAN_H   Green： CAN_L
+
+Connection interface
+
+image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_can1.jpg[bananapi-pi_sm9_can1.jpg]
+
+CAN communication can be easily implemented using the scripts in the SM9 folder.
+
+=== send
+
+Use a script to send.
+
+```bash
+ ./can_send.sh can0 250000
+```
+
+image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_can4.jpg[bananapi-pi_sm9_can4.jpg]
+
+=== receive
+
+Use a script to receive.
+
+```bash
+ ./can_receive.sh can0 250000
+```
+
+image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_can3.jpg[bananapi-pi_sm9_can3.jpg]
+
+=== send and receive
+
+Use a script to send and receive.
+
+```bash
+ ./can_echo.sh can0 250000
+```
+
+image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_can2.jpg[bananapi-pi_sm9_can2.jpg]
+
 = GPIO Define
 == 40-pin interface
 NOTE: The default level of the 40-pin GPIO is 3.3V (except for the 5V pin)
