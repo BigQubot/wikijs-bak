@@ -287,6 +287,39 @@ iperf3 test speed
 
 image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_eth2.jpg[bananapi-pi_sm9_eth2.jpg]
 
+== M.2 KeyE 
+
+Supported network cards: Intel RTL8822CE
+
+=== STA
+
+NOTE: You can modify the WiFi username and password you want to connect to in /etc/wpa_supplicant.conf
+
+. First, execute the command to add the WiFi driver.
+
+```bash
+sudo insmod /mnt/system/ko/3rd/xxx.ko //xxx is the network cards name
+```
+
+. Connect to WiFi using a script
+
+```bash
+./wifista.sh
+```
+image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_wifi1.jpg[bananapi-pi_sm9_wifi1.jpg]
+
+=== AP
+
+NOTE: You can modify the WiFi username and password to be created in /etc/hostapd.conf
+
+If you have already loaded the driver in your system, you can directly execute the script to create a Wi-Fi network.
+
+```bash
+./wifiap.sh
+```
+
+image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_wifi2.jpg[bananapi-pi_sm9_wifi2.jpg]
+
 = GPIO Define
 == 40-pin interface
 NOTE: The default level of the 40-pin GPIO is 3.3V (except for the 5V pin)
