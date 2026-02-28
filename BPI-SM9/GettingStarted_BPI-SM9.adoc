@@ -261,8 +261,31 @@ Use a script to send and receive.
 
 image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_can2.jpg[bananapi-pi_sm9_can2.jpg]
 
+== eth interface
 
+NOTE: The eth0 interface is located near the type-c interface.The other one is the eth1 interface.
 
+TIP: The default static IP address for the eth1 network interface mirror is 192.168.150.1.You can modify the IP address in /etc/netplan/01-netcfg.yaml
+
+Connect the network port to the computer using a network cable.
+
+=== eth0
+
+. Use the command to set the IP address of eth0.
+
+```bash
+ sudo ifconfig eth0 xxx(xxx is ip)
+```
+
+iperf3 test speed
+
+image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_eth1.jpg[bananapi-pi_sm9_eth1.jpg]
+
+=== eth1
+
+iperf3 test speed
+
+image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_eth2.jpg[bananapi-pi_sm9_eth2.jpg]
 
 = GPIO Define
 == 40-pin interface
