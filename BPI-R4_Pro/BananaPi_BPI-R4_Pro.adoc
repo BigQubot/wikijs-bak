@@ -68,6 +68,12 @@ TIP: link:/en/BPI-R4_Pro/TEST-R4_Pro[BPI-R4 Pro hardware test]
 = Hardware
 == Hardware Layout
 
+TIP:  The EXT LED Connector and the EXT SIMCard Connector are reserved functional interfaces.
+
+NOTE: The EXT LED Connector integrates LEDs, WPS Key, RST Key, and other functionalities into this interface.
+
+NOTE: The EXT SIMCard Connector centralizes the SIM card signals from minipcie and M.2 KEYB to this interface.
+
 **BPI-R4Pro(8X)**
 
 image::/bpi-r4_pro/8x.jpg[8x.jpg, width=800px]
