@@ -1,3 +1,65 @@
+== Basic usage
+=== Log in
+
+Username is **pi**
+
+Password is **bananapi**
+
+=== Expanding the Partition Space
+
+. Since the `dd` command only burned the img file to the eMMC, leaving only 15GB of unused space, it needs to be manually expanded.
+
+. Execute the command `lsblk` to view the partition structure:
++
+```
+pi@pi-desktop:~$ lsblk
+NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+loop0          7:0    0 102.3M  1 loop /snap/lxd/37562
+loop1          7:1    0  69.2M  1 loop /snap/core22/1624
+loop2          7:2    0  61.9M  1 loop /snap/core24/1350
+loop3          7:3    0  94.4M  1 loop /snap/lxd/30134
+loop4          7:4    0  33.7M  1 loop /snap/snapd/21761
+mmcblk0      179:0    0  58.2G  0 disk
+└─mmcblk0p1  179:1    0  14.8G  0 part /
+mmcblk0boot0 179:32   0     4M  1 disk
+mmcblk0boot1 179:64   0     4M  1 disk
+```
+You can see that the eMMC is `mmcblk0`. Execute the command:
++
+
+```
+sudo growpart /dev/mmcblk0 1
+```
++
+Upon success, you will see something like:
++
+```
+CHANGED: partition=1 start=32768 old: size=31083487 end=31116254 new: size=241663967 end=241696734
+```
+This successfully modifies the partition table.
+
+. Execute the command 
++
+```
+sudo resize2fs /dev/mmcblk0p1
+```
+To maximize the partition size.
+
+. Check
++
+```
+lsblk
+NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+loop0          7:0    0 41.6M  1 loop /snap/snapd/25939
+loop1          7:1    0 69.2M  1 loop /snap/core22/1624
+loop2          7:2    0 94.4M  1 loop /snap/lxd/30134
+loop3          7:3    0 33.7M  1 loop /snap/snapd/21761
+mmcblk0      179:0    0 58.2G  0 disk
+└─mmcblk0p1  179:1    0 58.2G  0 part /
+mmcblk0boot0 179:32   0    4M  1 disk
+mmcblk0boot1 179:64   0    4M  1 disk
+```
+
 == Development environment setup
 
 === Development environment basics
