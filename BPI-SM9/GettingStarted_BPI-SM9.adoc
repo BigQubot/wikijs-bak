@@ -365,11 +365,33 @@ image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_wifi2.jpg[bananapi-pi_sm9_w
 | HDMI_P2 | 65 | / | 1V8 | 66 | RGMII1_RXCTRL
 | GND | 67 | / | / | 68 | GND
 | HDMI_N1 | 69 | / | 1V8 | 70 | RGMII1_TXD0
-| HDMI_P1 | 71 | /| / | 1V8 | RGMII1_TXD1
+| HDMI_P1 | 71 | /| 1V8 | 72 | RGMII1_TXD1
 | GND | 73 | / | / | 74 | GND
 | HDMI_N0 | 75 | / | 1V8 | 76 | RGMII1_TXD2
 | HDMI_P0 | 77 | / | 1V8 | 78 | RGMII1_TXD3
 | GND | 79 | / | / | 80 | GND
+|HDMI_CLKN | 81 |/ | / | 82 | RGMII1_TXC
+| HDMI_CLKP | 83 | /| /| 84 | RGMII1_TXCTRL
+| GND | 85 | 3V3 | 1V8 | 86 | GND
+| PWR_GPIO14 | 87 | 1V8| 1V8 | 88 | I2S1_DOUT
+| SPI3_MOSI | 89 | 1V8 | 1V8 | 90 | I2S1_DIN
+| SPI3_SCK | 91 | 1V8 | 1V8 | 92 | I2S1_FS
+| SPI3_MISO | 93 | 1V8 | 1V8 | 94 | I2S2_MCLK
+| SPI3_CS0* | 95 | 1V8 | 1V8 | 96 | HDMI_HPD
+| SPI3_CS1* | 97 | 1V8 | 1V8 | 98 | HDMI_DDC_SDA
+| UART4_TXD | 99 | 1V8 | 1V8 | 100 | HDMI_DDC_SCL
+| UART4_RXD | 101 | 1V8 | / |102 | GND
+| UART4_RTS | 103 | 1V8 | 1V8 | 104 | SPI1_MOSI
+| UART4_CTS | 105 | 1V8 | 1V8 | 106 | SPI1_SCK
+| GND | 107 | / | 1V8 | 108 | SPI1_MISO
+| USB0_D_N | 109 | 3V3 | 1V8 | 110 | SPI1_CS0*
+| USB0_D_P | 111 | 3V3| 1V8 | 112 | SPI1_CS1*
+| GND | 113 | / | 1V8 | 114 | CAM0_PWDN
+| USB1_D_N | 115 | 3V3 | 1V8 | 116 | CAM0_MCLK
+| USB1_D_P | 117 | 3V3 | 1V8 | 118 | GPIO01/I2S0_MCLK
+| GND | 119 | / | 1V8 | 120 | CAM1_PWDN
+
+
 
 ====
 
