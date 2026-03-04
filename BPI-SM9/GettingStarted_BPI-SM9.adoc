@@ -319,9 +319,40 @@ If you have already loaded the driver in your system, you can directly execute t
 ```
 image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_wifi2.jpg[bananapi-pi_sm9_wifi2.jpg]
 
-
-
 = GPIO Define
+
+== 260PIN Gold Finger interface
+
+[%collapsible]
+====
+
+[options="header",cols="3,1,1,1,1,4",width="70%"]
+|====
+6+| **BPI-SM9 260PIN Gold Finger interface**
+|BPI-SM9-CON	|PIN | Level | Level |PIN	|BPI-SM9-CON
+| GND | 1 | / | /| 2 | GND
+| CSI1_D0_N | 3 | 1V8| 1V8| 4 | CSI0_D0_N
+| CSI1_D0_P | 5 | 1V8 | 1V8 | 6 | CSI0_D0_P
+| GND | 7 | /| / | 8 | GND
+| CSI1_CLK_N | 9 | 1V8 | 1V8 | 10 | CSI0_CLK_N
+| CSI1_CLK_P | 11 | 1V8 | 1V8 | 12 | CSI0_CLK_P
+| GND | 13 | / | / | 14 | GND
+| CSI1_D1_N | 15 | 1V8 | 1V8 | 16 | CSI0_D1_N
+| CSI1_D1_P | 17 | 1V8 | 1V8 | 18 | CSI0_D1_P
+| GND | 19 | / | / |  20 | GND
+| CSI3_D0_N | 21 | 1V8 | 1V8 | 22 | CSI2_D0_N
+| CSI3_D0_P | 23 | 1V8 | 1V8 | 24 | CSI2_D0_P
+| GND | 25 | / | / | 26 | GND
+| CSI3_CLK_N | 27 | 1V8 | 1V8 | 28 | CSI2_CLK_N
+| CSI3_CLK_P | 29 | 1V8 | 1V8 | 30 | CSI2_CLK_P
+| GND | 31 | /| / | 32 | GND
+| CSI3_D1_N | 33 | 1V8 | 1V8 | 34 | CSI2_D1_N
+| CSI3_D1_P | 35 | 1V8 | 1V8 | 36 | CSI2_D1_P
+| GND | 37 | / | / | 38 | GND
+| USBSS1_RX_N | 39 | 3V3 | 1V8 | 40 | I_VDD_IN
+
+====
+
 == 40-pin interface
 NOTE: The default level of the 40-pin GPIO is 3.3V (except for the 5V pin)
 [%collapsible]
