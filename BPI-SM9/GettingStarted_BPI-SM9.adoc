@@ -391,7 +391,27 @@ image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_wifi2.jpg[bananapi-pi_sm9_w
 | USB1_D_P | 117 | 3V3 | 1V8 | 118 | GPIO01/I2S0_MCLK
 | GND | 119 | / | 1V8 | 120 | CAM1_PWDN
 
-
+| CAM2_MCLK | 121 | 1V8 | 1V8 |122 | CAM1_MCLK
+| CAM3_MCLK | 123 | 1V8 | 1V8 | 124 | PWR_GPIO17
+| GND | 125 | / | 1V8 | 126 | GPIO61
+| GPIO68 | 127 | 1V8 | 1V8 | 128 | GPIO05/SD_CD
+| GND | 129 | / | 1V8 | 130 | GPIO60/SD0_PWR_E
+N
+| PCIE1_RX0_N | 131 | 1V8| / | 132 | GND
+| PCIE1_RX0_P | 133 | 1V8 | 1V8 | 134 | PCIE1_TX0_N
+| GND | 135 | / | 1V8 | 136 | PCIE1_TX0_P
+| PCIE1_RX1_N | 137 | 1V8 | / | 138 | GND
+| PCIE1_RX1_P | 139 | 1V8 | 1V8 | 140 | PCIE1_TX1_N
+| GND | 141 | /	 | 1V8 |142 | PCIE1_TX1_P
+| CAN0_RX | 143 | 3V3 | / | 144 | GND
+| CAN0_TX | 145 | 3V3 | / | 146 | GND
+| GND | 147 | / | 1V8 | 148 | I2S2_FS
+| I2S2_DOUT | 149 | 1V8 | 1V8 | 150 | I2S2_SCLK
+| I2S2_DIN | 151 | 1V8 | / | 152 | GND
+| GND | 153 | / | 1V8 | 154 | PCIE0_TX1_N
+| PCIE0_RX1_N | 155 | 1V8 | 1V8 | 156 | PCIE0_TX1_P
+| PCIE0_RX1_R | 157 | 1V8 | / | 158 | GND
+| GND | 159 | / | 1V8 | 160 | PCIE1_EP_CLK_N
 
 ====
 
