@@ -350,6 +350,26 @@ image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_wifi2.jpg[bananapi-pi_sm9_w
 | CSI3_D1_P | 35 | 1V8 | 1V8 | 36 | CSI2_D1_P
 | GND | 37 | / | / | 38 | GND
 | USBSS1_RX_N | 39 | 3V3 | 1V8 | 40 | I_VDD_IN
+| USBSS1_RX_P | 41 | 3V3 | 3V3| 42 | TEMP_ALR_N(GPIO130)
+| GND | 43 | /| /| 44 | GND
+| USBSS1_TX_N | 45 | 3V3 | 1V8 | 46 | CSI5_CLK_N
+| USBSS1_TX_P | 47 | 3V3| 1V8 | 48 | CSI5_CLK_P
+| GND | 49 | / | / | 50 | GND
+| CSI5_D0_N | 51 | 1V8 | 1V8 | 52 | RGMII1_RXD0
+| CSI5_D0_P | 53 | 1V8 | 1V8 | 54 | RGMII1_RXD1
+| GND | 55 | / | / | 56 | GND
+| CSI5_D1_N | 57 | 1V8 | 1V8 | 58 | RGMII1_RXD2
+| CSI5_D1_P | 59 | 1V8 | 1V8 |  60 | RGMII1_RXD3
+| GND | 61 | / | / | 62 | GND
+| HDMI_N2 | 63 | / | 1V8 | 64 | RGMII1_RXC
+| HDMI_P2 | 65 | / | 1V8 | 66 | RGMII1_RXCTRL
+| GND | 67 | / | / | 68 | GND
+| HDMI_N1 | 69 | / | 1V8 | 70 | RGMII1_TXD0
+| HDMI_P1 | 71 | /| / | 1V8 | RGMII1_TXD1
+| GND | 73 | / | / | 74 | GND
+| HDMI_N0 | 75 | / | 1V8 | 76 | RGMII1_TXD2
+| HDMI_P0 | 77 | / | 1V8 | 78 | RGMII1_TXD3
+| GND | 79 | / | / | 80 | GND
 
 ====
 
