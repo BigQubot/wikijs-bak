@@ -1,5 +1,7 @@
 = BPI-OM7 3D Camera
 
+== Key Features
+
 The Banana Pi BPI-OM7 is an integrated AI 3D vision computing platform consisting of the Banana Pi BPI-M7 development board and an ORBBEC Gemini 2 3D camera.
 
 Based on the high-performance RK3588 SoC, this platform combines active binocular infrared depth sensing technology, targeting applications in 3D vision, robotics, edge AI, and spatial perception.
@@ -10,14 +12,21 @@ TIP: Rockchip RK3588 design link:/en/BPI-M7/BananaPi_BPI-M7[Banana Pi BPI-M7] AI
 
 TIP: ORBBEC link:https://www.orbbec.com/products/stereo-vision-camera/gemini-2/[Gemini 2] 3D Camera
 
-== System Architecture
-The BPI-OM7 consists of two main parts:
+=== Orbbec Gemini 2
 
-**Computing Unit: Banana Pi BPI-M7.**  +
-Based on the Rockchip RK3588 AI SBC, it is responsible for data processing, AI inference, system control, and network communication.
+The Orbbec Gemini 2 is a binocular structured light 3D camera powered by the Orbbec MX6600 depth engine chip. It features three depth modes, providing high-quality depth data for various applications. It offers a wide field of view, with a depth image measurement range of 0.15-10m, and integrates auxiliary point ranging functionality, enabling zero-blind-zone depth measurement up to 10m.
 
-**Perception Unit: ORBBEC Gemini 2 3D Camera.** +
-Provides inputs of RGB images, depth maps, point clouds, and IMU data.
+The Gemini 2 is small yet powerful, featuring a built-in six-axis IMU and integrated hardware D2C functionality (depth and RGB image pixel-by-pixel alignment), significantly reducing the computational requirements of the host computer. It also supports flexible multi-camera synchronization, providing a wider field of view and more comprehensive data, easily adaptable to various sensing and measurement solutions.
+
+== Key Specifications:
+- Main controller uses Rockchip RK3588 4x Cortex-A76 @ 2.4GHz + 4x Cortex-A55 @ 1.8GHz, 8nm
+- 8GB LPDDR4 memory
+- 64GB eMMC storage
+- Hardware D2C: Significantly reduces the computing power requirements of the host computer
+- High precision and large FoV, depth diagonal FoV greater than 100°
+- Zero blind zone, providing depth measurement values ​​at extremely close distances of 0-0.4m
+- Multi-machine synchronization, enabling multi-machine combined linkage
+- Compact size, integrating a high-performance 6-axis IMU
 
 == Functions
 
@@ -42,17 +51,21 @@ Provides inputs of RGB images, depth maps, point clouds, and IMU data.
 - Outputs computation results via Ethernet or wireless network
 - Supports integration with host computers, robot control systems, or cloud services
 
-== Use Cases
+== Application scenarios
 
-- Robot Navigation and Obstacle Avoidance (AMR / AGV / Service Robots)
+- Automated sorting
 
-- 3D SLAM and Environmental Mapping
+- Moving environment perception
 
-- Industrial 3D Vision Inspection and Measurement
+- 3D human/object reconstruction
 
-- Intelligent Spatial Perception and Crowd Flow Analysis
+- Interactive fitness
 
-- AI and Computer Vision Teaching and Research Experiment Platform
+- Developer development
+
+- Intelligent spatial perception and people flow analysis
+
+- AI and computer vision teaching and research experimental platform
 
 == Getting Start
 
@@ -129,3 +142,64 @@ image::/bpi-om7/bananapi-bpi-om7_back_view.png[bananapi-bpi-om7_back_view.png]
 2+|*Precision:≤2%@2m
 |====
 
+== Development
+=== Source code
+TIP: BPI-M7 github source code： https://github.com/ArmSoM/armsom-build
+
+TIP: BPI-M7 kernel code: https://github.com/ArmSoM/linux-rockchip
+
+TIP: BPI-M7 uboot code ： https://github.com/ArmSoM/u-boot
+
+TIP: openwrt(istoreos) ： https://github.com/istoreos/istoreos
+
+TIP: RKNN-LLM Code repository: https://github.com/ArmSoM/rknn-llm
+
+=== Resources
+
+TIP: BPI-M7 Component diagram
+
+Baidu Cloud: https://pan.baidu.com/s/1Klh1xt_2Qkd8ZKZ6EIbEbg?pwd=8888 （pincode:8888)
+
+Google Drive: https://drive.google.com/drive/folders/13WhoyLEXPj6DJKkY3ceRTgJQR7U53NOn?usp=sharing
+
+TIP: BPI-M7 2D CAD
+
+Baidu Cloud: https://pan.baidu.com/s/1spHZGhDMC4TW9G9HTei7rA?pwd=8888 (pincode:8888)
+
+Google Drive: https://drive.google.com/drive/folders/1rh1abnNbTly3O69uWi0fQsSZdRvm6_oO?usp=sharing
+
+TIP: BPI-M7 Schematic
+
+Baidu Cloud: https://pan.baidu.com/s/17_2BTwBnIsmeCV5V7xNXRA?pwd=8888 （pincode:8888)
+
+Google Drive: https://drive.google.com/file/d/1-Fz3oNMEvrztWFvQs_RUv_kGpvyORcaI/view?usp=sharing
+
+TIP: Rockchip RK3588 datasheet :
+
+Baidu cloud: https://pan.baidu.com/s/1GeskKfLFwjgmz0pgt7sICg?pwd=8888 (pincode:8888)
+
+Google Drive: https://drive.google.com/drive/folders/1l1YmUdBaLuDkJma3CYZJWjYug9D-jV_4?usp=sharing
+
+TIP: BPI-M7 GPU and CPU performance test: https://www.youtube.com/watch?v=C4ofIZLixpM
+
+TIP: BPI-M7 3D file: https://drive.google.com/drive/folders/1jMrzK29BGL-MvSF8JiTV1ekhT6T5UK_O
+
+
+== System Image
+=== Ubuntu
+NOTE: BPI-OM7-Ubuntu-24.04-preinstalled-desktop-arm64.img
+
+Baidu cloud: 
+
+Google Drive:
+
+== Easy to buy
+WARNING: BANANAPI Official Shop:
+
+WARNING: Taobao Shop:
+
+WARNING: Bipai Aliexpress shop:
+
+WARNING: SINOVOIP Aliexpress shop:
+
+WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
