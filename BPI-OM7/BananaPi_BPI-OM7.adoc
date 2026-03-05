@@ -18,7 +18,7 @@ The Orbbec Gemini 2 is a binocular structured light 3D camera powered by the Orb
 
 The Gemini 2 is small yet powerful, featuring a built-in six-axis IMU and integrated hardware D2C functionality (depth and RGB image pixel-by-pixel alignment), significantly reducing the computational requirements of the host computer. It also supports flexible multi-camera synchronization, providing a wider field of view and more comprehensive data, easily adaptable to various sensing and measurement solutions.
 
-== Key Specifications:
+== Key Specifications
 - Main controller uses Rockchip RK3588 4x Cortex-A76 @ 2.4GHz + 4x Cortex-A55 @ 1.8GHz, 8nm
 - 8GB LPDDR4 memory
 - 64GB eMMC storage
@@ -27,29 +27,6 @@ The Gemini 2 is small yet powerful, featuring a built-in six-axis IMU and integr
 - Zero blind zone, providing depth measurement values ​​at extremely close distances of 0-0.4m
 - Multi-machine synchronization, enabling multi-machine combined linkage
 - Compact size, integrating a high-performance 6-axis IMU
-
-== Functions
-
-**3D Data Acquisition**
-
-* Real-time Acquisition:
-- Depth Image
-- RGB Color Image
-- Point Cloud Data
-- IMU Pose Information
-* Supports depth and RGB alignment and basic filtering processing
-
-**AI Vision Processing**
-
-- Locally runs target detection, recognition, and tracking algorithms
-- Supports 3D target localization and distance measurement
-- Can be used for pose recognition, gesture recognition, and other applications
-
-**Edge Computing and Communication**
-
-- Performs AI inference on the device side, reducing system latency
-- Outputs computation results via Ethernet or wireless network
-- Supports integration with host computers, robot control systems, or cloud services
 
 == Application scenarios
 
