@@ -1,10 +1,46 @@
 = BPI-OM7 3D Camera
 
-BananaPi BPI-OM7 is a 3D Camera, which is composed of the BPI-M7 (RK3588) development board and the Gemini 2 camera of ORBBEC.
+The Banana Pi BPI-OM7 is an integrated AI 3D vision computing platform consisting of the Banana Pi BPI-M7 development board and an ORBBEC Gemini 2 3D camera.
+
+Based on the high-performance RK3588 SoC, this platform combines active binocular infrared depth sensing technology, targeting applications in 3D vision, robotics, edge AI, and spatial perception.
+
+The BPI-OM7 provides a complete hardware foundation, from RGB/Depth/IMU data acquisition to local AI inference and edge computing. It supports multiple mainstream operating systems and AI frameworks, making it suitable for development, testing, and product deployment.
 
 TIP: Rockchip RK3588 design link:/en/BPI-M7/BananaPi_BPI-M7[Banana Pi BPI-M7] AI SBC design
 
 TIP: ORBBEC link:https://www.orbbec.com/products/stereo-vision-camera/gemini-2/[Gemini 2] 3D Camera
+
+== System Architecture
+The BPI-OM7 consists of two main parts:
+
+**Computing Unit: Banana Pi BPI-M7.**  +
+Based on the Rockchip RK3588 AI SBC, it is responsible for data processing, AI inference, system control, and network communication.
+
+**Perception Unit: ORBBEC Gemini 2 3D Camera.** +
+Provides inputs of RGB images, depth maps, point clouds, and IMU data.
+
+== Functions
+
+**3D Data Acquisition**
+
+* Real-time Acquisition:
+- Depth Image
+- RGB Color Image
+- Point Cloud Data
+- IMU Pose Information
+* Supports depth and RGB alignment and basic filtering processing
+
+**AI Vision Processing**
+
+- Locally runs target detection, recognition, and tracking algorithms
+- Supports 3D target localization and distance measurement
+- Can be used for pose recognition, gesture recognition, and other applications
+
+**Edge Computing and Communication**
+
+- Performs AI inference on the device side, reducing system latency
+- Outputs computation results via Ethernet or wireless network
+- Supports integration with host computers, robot control systems, or cloud services
 
 == Getting Start
 
