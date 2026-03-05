@@ -58,29 +58,58 @@ Finally, simply restart.
 image::/bpi-rt2/rt2-reboot.png[rt2-reboot.png]
 
 = dual backup
-== Switching logic
+== Dual-Backup Partition Structure
 
+image::/bpi-rt2/bpt-rt2-dualbackup4.png[bpt-rt2-dualbackup4.png]
+
+== Variable Meaning
+`sw_tryactive=0`: Attempts to boot system 0 (ubi_k0 + ubi_r0)
+
+`sw_tryactive=1`: Attempts to boot system 1 (ubi_k1 + ubi_r1)
+
+`sw_tryactive=2`: Uses the default system for this boot (determined by `sw_commit`)
+
+`sw_commit=0`: Default system is system 0
+
+`sw_commit=1`: Default system is system 1
+
+== Start-up procedure
+UBoot reads `sw_tryactive`:
+
+If `sw_tryactive`=0 or 1: Attempts to load the corresponding system
+
+If boot succeeds, UBoot automatically sets `sw_tryactive` to 2, booting the default system next time
+
+If boot fails (e.g. kernel crash, mount failure), executes 4.2 fault switching
+
+If `sw_tryactive`=2: Directly reads `sw_commit` and perform manual switching
 
 == Dual backup manual switchover
 Execute in U-Boot mode
-'''
-asd 
-'''
-
+```bash
+setenv sw_tryactive 0
+saveenv
+Boot
+```
 image::/bpi-rt2/bpt-rt2-dualbackup1.png[bpt-rt2-dualbackup1.png]
-
-image::/bpi-rt2/bpt-rt2-dualbackup2.png[bpt-rt2-dualbackup2.png]
-
-image::/bpi-rt2/bpt-rt2-dualbackup3.png[bpt-rt2-dualbackup3.png]
 
 You can see switching to system 0 (root=31:7)
 
+image::/bpi-rt2/bpt-rt2-dualbackup2.png[bpt-rt2-dualbackup2.png]
+
 Execute in U-Boot mode:
 
+```bash
 setenv sw_tryactive 1
-
 saveenv
-
 Boot
-
+```
 You will observe the system switching to System 1 (root=31:9)
+
+image::/bpi-rt2/bpt-rt2-dualbackup3.png[bpt-rt2-dualbackup3.png]
+
+View current settings
+```bash
+printenv sw_tryactive
+printenv sw_commit
+```
