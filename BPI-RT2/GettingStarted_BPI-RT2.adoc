@@ -1,3 +1,88 @@
-== Getting start
+= Introduction
 
-content
+BPI-RT2 Router use Realtek RTL8198D design. It is a high performance wireless router for small and micro businesses, homes and other networking environments.
+
+BPI-RT2 Router dual-band wireless router, 2.4G 2T2R, 5G 2T2R coexist at the same time. The use of four omni-directional high-gain antennas, with strong signal penetration and wider coverage, which makes the already strong signal more powerful, data transmission is also smoother. MU-MIMO multi-device transceiver technology has low latency and multiple devices are stably connected simultaneously, thus ensuring a good experience for multiple devices.
+
+TIP: link:/en/BPI-RT2/BananaPi_BPI-RT2[BananaPi_BPI-RT2]
+
+= Development
+== Prepare
+* 12V/2A power adapter
+* Serial cable
+
+= Image
+1. Connect the serial port tool. Upon power-up, hold down the ESC key continuously to enter boot mode.
+
+image::/bpi-rt2/rt2-uboot.png[rt2-uboot.png]
+
+image::/bpi-rt2/rt2-ip.png[rt2-ip.png]
+image::/bpi-rt2/rt2-printip.png[rt2-printip.png]
+
+image::/bpi-rt2/rt2-reboot.png[rt2-reboot.png]
+
+image::/bpi-rt2/rt2-tftp3.png[rt2-tftp3.png]
+image::/bpi-rt2/rt2-tftp4.png[rt2-tftp4.png]
+image::/bpi-rt2/rt2-tftp5.png[rt2-tftp5.png]
+
+image::/bpi-rt2/rt2-update.png[rt2-update.png]
+
+2. Download the TFTPD64 tool
+
+image::/bpi-rt2/rt2-tftp.png[rt2-tftp.png]
+
+3. Connect the computer to the board using an Ethernet cable, then check the board's IP address in boot mode.
+Execute `printenv`.Then modify the computer's IP address (the last host number of the computer's IP must be 66) Change it to be within the same subnet Modify it as follows:
+
+4. Launch TFTPD64 and place the file to be transferred into E:\tftp-root.
+If this folder does not exist, create a new folder named tftp-root on the E drive.
+Under Server interfaces, select 192.168.1.66.
+Host: Enter 192.168.1.6 (the board's IP address).
+Local File: Click the adjacent ... or Browse button.
+In the pop-up window, navigate to and enter the E:\tftp-root folder.
+Select the file to be transferred and click ‘Open’.
+Leave the remaining settings unchanged.
+
+image::/bpi-rt2/rt2-tftp2.png[rt2-tftp2.png]
+
+5. Execute the following command at the serial port:
+tftpboot 0x82000000 ubi_device_img.ubi
+(The filename 98D_ubi_device.ubi must match the selected file in Local File exactly)
+Upon observing the prompt ‘Loading...’ or ‘TFTP from server...’ appear in the serial port, immediately click the Put button within Tftpd64 using the mouse.
+
+Board serial input: run updev
+
+6. Upload img.tar again. The procedure is similar to the above. 
+
+Board serial input: run upt
+Finally, simply restart.
+
+= dual backup
+Environment Variables
+sw_active: Current active system (0 or 1)
+sw_commit: Used to set the default system (0 or 1). Setting to 0 means it will be 0 after restart.
+sw_tryactive: Boot flag (0=Test System 0, 1=Test System 1, 2=Use stable system)
+
+NAND Flash storage partitions
+ubi_Config: Configuration data
+ubi_k0: Kernel 0 mapped to mtd6
+ubi_r0: Root filesystem 0 mapped to mtd7, corresponding device node 31:7
+ubi_k1: Kernel 1 mapped to mtd8
+ubi_r1: Root filesystem 1 mapped to mtd9, corresponding device node 31:9
+
+== Switching logic
+
+== Dual backup manual switchover
+Execute in U-Boot mode
+
+You can see switching to system 0 (root=31:7)
+
+Execute in U-Boot mode:
+
+setenv sw_tryactive 1
+
+saveenv
+
+Boot
+
+You will observe the system switching to System 1 (root=31:9)
