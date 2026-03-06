@@ -296,13 +296,13 @@ Supported network cards: Intel RTL8822CE
 NOTE: You can modify the WiFi username and password you want to connect to in /etc/wpa_supplicant.conf
 
 . First, execute the command to add the WiFi driver.
-
++
 ```bash
 sudo insmod /mnt/system/ko/3rd/xxx.ko //xxx is the network cards name
 ```
 
 . Connect to WiFi using a script
-
++
 ```bash
 ./wifista.sh
 ```
@@ -318,6 +318,37 @@ If you have already loaded the driver in your system, you can directly execute t
 ./wifiap.sh
 ```
 image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_wifi2.jpg[bananapi-pi_sm9_wifi2.jpg]
+
+=== bluetooth
+
+. Load driver: sudo insmod /mnt/system/ko/3rd/rtk_btusb.ko
+
+. Verify driver functionality,
+use
++
+```bash
+hciconfig
+```
++
+If a Bluetooth node is present, the driver is functioning correctly.
+
++
+image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_bluetooth1.jpg[bananapi-pi_sm9_bluetooth1.jpg]
+
+. Confirm Bluetooth service is running normally
++
+image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_bluetooth2.jpg[bananapi-pi_sm9_bluetooth2.jpg]
+
+. Use BlueZ tools for communication
++
+```bash
+bluetoothctl  //Enter Bluetooth debugging tool
+power on      //Turn on Bluetooth power
+scan on       //Scan for surrounding Bluetooth
+pair XX:XX:XX:XX:XX:XX   //Connect via Bluetooth (The following is MAC address)
+```
+
+image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_bluetooth3.jpg[bananapi-pi_sm9_bluetooth3.jpg]
 
 = GPIO Define
 
