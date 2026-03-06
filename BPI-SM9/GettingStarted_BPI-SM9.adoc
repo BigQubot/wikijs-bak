@@ -350,6 +350,38 @@ pair XX:XX:XX:XX:XX:XX   //Connect via Bluetooth (The following is MAC address)
 
 image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_bluetooth3.jpg[bananapi-pi_sm9_bluetooth3.jpg]
 
+== RTC
+
+Please install a CR1220 button battery in the SM9 before use.
+
+. View the current clock use the command: 
++
+`sudo hwclock -r --show`
+
+. Set the clock: 
++
+`sudo date -s "20xx-xx-xx 09:09:55"`
+
+. Synchronize to hardware clock: 
++
+`sudo hwclock --systohc`
+
+
+. Power off and restart, then check the clock: 
++
+`sudo hwclock -r --show`
+
+. It can be determined that the displayed time is an RTC clock.
+
+== NVME
+
+Connect NVMe to the M.2 SSD interface.Then you can use this hard drive.
+
+image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_nvme1.jpg[bananapi-pi_sm9_nvme1.jpg]
+
+
+
+
 = GPIO Define
 
 == 260PIN Gold Finger interface
