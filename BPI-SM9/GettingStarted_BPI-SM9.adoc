@@ -379,8 +379,59 @@ Connect NVMe to the M.2 SSD interface.Then you can use this hard drive.
 
 image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_nvme1.jpg[bananapi-pi_sm9_nvme1.jpg]
 
+== CAMERA
 
+WARNING: They cannot be used simultaneously.
 
+=== CAM1
+
+TIP: Near the JP7 
+
+If you are using a different MIPI camera, please uninstall the driver for that camera first: 
+`rmmod /mnt/system/ko/v4l2_csi0_ov5647.ko`
+
+. Switch I2C to csi2:
++
+`echo 8 > /proc/zkwl/gpio`
+
+. Install driver: 
++
+`sudo insmod /mnt/system/ko/v4l2_csi2_ov5647.ko`
+
+. Create a video stream:
++
+`cd /opt/sophon/sophon-soc-libisp-dev_1.0.0/bin/`
++
+`sudo ./CviIspTool.sh`
+
+. Use your video software to pull the video stream from VLC.
+
+image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_csi1.jpg[bananapi-pi_sm9_csi1.jpg]
+
+=== CAM2
+
+TIP: Near the 12V power port
+
+If you are using a different MIPI camera, please uninstall the driver for that camera first: 
+`rmmod /mnt/system/ko/v4l2_csi2_ov5647.ko`
+
+. Switch I2C to csi0:
++
+`echo 9 > /proc/zkwl/gpio`
+
+. Install driver: 
++
+`sudo insmod /mnt/system/ko/v4l2_csi0_ov5647.ko`
+
+. Create video stream length
++
+`cd /opt/sophon/sophon-soc-libisp-dev_1.0.0/bin/`
++
+`sudo ./CviIspTool.sh`
+
+. . Use your video software to pull the video stream from VLC.
+
+image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_csi2.jpg[bananapi-pi_sm9_csi2.jpg]
 
 = GPIO Define
 
