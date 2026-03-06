@@ -291,7 +291,7 @@ image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_eth2.jpg[bananapi-pi_sm9_et
 
 Supported network cards: Intel RTL8822CE
 
-=== STA
+=== WiFi STA
 
 NOTE: You can modify the WiFi username and password you want to connect to in /etc/wpa_supplicant.conf
 
@@ -308,7 +308,7 @@ sudo insmod /mnt/system/ko/3rd/xxx.ko //xxx is the network cards name
 ```
 image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_wifi1.jpg[bananapi-pi_sm9_wifi1.jpg]
 
-=== AP
+=== WiFi AP
 
 NOTE: You can modify the WiFi username and password to be created in /etc/hostapd.conf
 
