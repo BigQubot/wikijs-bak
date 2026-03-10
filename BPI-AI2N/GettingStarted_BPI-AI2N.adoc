@@ -1343,7 +1343,8 @@ The SPI bootloader consists of three parts: the Flash Writer file, ATF firmware,
 2. Connect Windows PC to Board via usb cabe to usb typec uart port bellow core board.
 3. Change Bootsel Switch to SCIF download mode.
 +
-image::/picture/ai2n-bootsel-scidownload.png[ai2n-bootsel-scidownload.png]
+image::/picture/ai2n-boot-scidownload.png[ai2n-boot-scidownload.png]
+
 4. On Windows PC, open the terminal emulator. Here, we use link:https://github.com/TeraTermProject/teraterm/releases/tag/v4.108[Tera Term 4.108] as an example.
 +
 Note: Select "Send in same way as Tera Term 4" in Send file Window if Tera Term 5.x version used.
@@ -1451,7 +1452,7 @@ SpiFlashMemory End Address  : H'0011C2EE
 ```
 22. Power-off the board and change Bootsel Switch to default Boot Mode for booting the board.
 +
-image::/picture/ai2n-scidownload.png[ai2n-scidownload.png]
+image::/picture/ai2n-boot-spiboot.png[ai2n-boot-spiboot.png]
 
 == Erase emmc
 Bootup the board with sdcard, erase the emmc with dd command as follows.
