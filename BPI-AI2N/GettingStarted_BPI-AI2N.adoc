@@ -328,7 +328,7 @@ image::/picture/ai2n-hdmi.png[ai2n-hdmi.png]
 Connect the Bananapi 7" HC070 touch panel to the carrier board's MIPI DSI interface via an FPC cable. Enable panel-hc070iy30025 device-tree overlay.
 +
 ```sh
-overlays=i2c1 spi2 uart0
+overlays=panel-hc070iy30025
 ```
 +
 image::/picture/ai2n-lcd7-hc070.png[ai2n-lcd7-hc070.png]
