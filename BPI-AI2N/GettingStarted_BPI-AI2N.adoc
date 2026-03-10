@@ -1451,7 +1451,7 @@ SpiFlashMemory End Address  : H'0011C2EE
 ```
 22. Power-off the board and change Bootsel Switch to default Boot Mode for booting the board.
 +
-image::/picture/ai2n-bootsel-spiboot.png[ai2n-bootsel-spiboot.png]
+image::/picture/ai2n-scidownload.png[ai2n-scidownload.png]
 
 == Erase emmc
 Bootup the board with sdcard, erase the emmc with dd command as follows.
