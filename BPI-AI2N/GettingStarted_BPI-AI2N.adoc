@@ -315,21 +315,22 @@ image::/picture/ai2n-network.png[ai2n-network.png]
 
 == Display
 
+The RZ/V2N chip features a single MIPI DSI interface for display output. We have developed a DSI-to-HDMI adapter board and a 7-inch HC070 Touch Panel board. 
+
 - HDMI
 
-The RZ/V2N chip features a single MIPI DSI interface for display output. We have developed a DSI-to-HDMI adapter board that connects to the carrier board’s MIPI DSI interface via an FPC cable, enabling connection to an HDMI display. It supports resolutions up to 1080p at 60Hz.
+Connect the HDMI bridge board to the carrier board’s MIPI DSI interface using an FPC cable, It supports resolutions up to 1080p@60Hz.
 
-image::/picture/ai2n-dsi-hdmi.png[ai2n-dsi-hdmi.png]
+image::/picture/ai2n-hdmi.png[ai2n-hdmi.png]
 
 - Lcd Panel
 
-Connecting the Bananapi 7" HC070 touch panel to the carrier board's MIPI DSI interface via an FPC cable. enable panel-hc070iy30025 device-tree overlay.
+Connect the Bananapi 7" HC070 touch panel to the carrier board's MIPI DSI interface via an FPC cable. Enable panel-hc070iy30025 device-tree overlay.
 
 ```sh
 overlays=i2c1 spi2 uart0
 ```
-
-image::/picture/ai2n-dsi-lcd7.png[ai2n-dsi-lcd7.png]
+image::/picture/ai2n-lcd7-hc070.png[ai2n-lcd7-hc070.png]
 
 == RGB LED
 The board has two RGB LEDs for user control
