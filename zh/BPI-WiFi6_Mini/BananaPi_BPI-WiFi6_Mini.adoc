@@ -39,8 +39,13 @@ TIP: Please refer to github bsp's pdf document: Triductor_TGP3.0开发手册_202
 
 == 软件源代码
 
-TIP: github 软件源代码: https://github.com/BPI-SINOVOIP/THG6500-TAX2-OPENWRT-BSP
+TIP: GitHub 上的源代码： +
+旧源代码： https://github.com/BPI-SINOVOIP/THG6500-TAX2-mini-OPENWRT-BSP +
+新源代码： https://github.com/BPI-SINOVOIP/THG6500-MINI-TAX2-OPENWRT-BSP_TGP3
 
+WARNING: 注意：旧源代码与新硬件不兼容，会导致 WiFi 故障。 +
+新源代码与旧硬件兼容，但不建议使用。新源代码需要 MAC 地址和对应的密钥；否则，WiFi 功能将受到限制，并且设备会每小时重启一次。 +
+新 WiFi 芯片上的丝印标识是垂直的，而旧芯片上的标识是水平的。
 
 = 配件
 
