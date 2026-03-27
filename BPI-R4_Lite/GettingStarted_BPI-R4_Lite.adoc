@@ -373,6 +373,10 @@ br-lan          7fff.baf0a327b253       no              apclii0
 root@OpenWrt:~# 
 ```
 
+=== 2.5G SFP
+
+TIP: SFP-2.5G-T electrical modules supporting R3
+
 = Accessories
 == 4G/5G Module
 
@@ -514,6 +518,7 @@ root@Simon-R4:/#
 ```
 
 == Storage
+
 ===  PCIe to SATA
 When using the PCIe to SATA or PCIe to USB, you must flash the 2PCIe-1Lane firmware image, since  mPCIe A/B lanes have two configuration options: a single 2-lane interface(mPCIe A) or two separate 1-lane interfaces(mPCIe A+mPCIe B).
 
