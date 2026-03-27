@@ -2,7 +2,7 @@
 
 image::/bpi-r4_lite/r4-lite-banner1.jpg[r4-lite-banner1.jpg, width=1000]
 
-Banana Pi BPI-R4 Lite smart router board design with MediaTek MT7987A Quad-core Arm Cortex-A53,it support 2GB DDR4 and 8G eMMC Flash on board. 1 2.5G SFP and 1 2.5G RJ45 WAN , support 4 x 1G RJ45 LAN port. support M.2 for 4G/5G module.1x miniPCIe slot with PCIe3.0 2lane interface for Wi-Fi 7 NIC.   
+Banana Pi BPI-R4 Lite smart router board design with MediaTek MT7987A Quad-core Arm Cortex-A53,it support 2GB DDR4 and 8G eMMC Flash on board. 1 2.5G SFP LAN and 1 2.5G RJ45 WAN , support 4 x 1G RJ45 LAN port. support M.2 for 4G/5G module.1x miniPCIe slot with PCIe3.0 2lane interface for Wi-Fi 7 NIC.   
 
 
 TIP: MediaTek MT7988 (Filogic 880) design: link:/en/BPI-R4_Pro/BananaPi_BPI-R4_Pro[Banana Pi BPI-R4 Pro] Router development board +
@@ -29,7 +29,7 @@ The MT7987A further enables seamless Wi-Fi 7 connectivity with its Wi-Fi 7 compa
 * 256MB SPI-NAND Flash
 * 32MB SPI-NOR Flash
 * Micro SD card slot
-* 1x 2.5G SFP
+* 1x 2.5G SFP LAN
 * 1x 2.5G RJ45 WAN(support POE with POE Module soldered)
 * 4x 1G RJ45 LAN
 * 1x USB3.0 slot
@@ -71,7 +71,7 @@ link:/en/BPI-R4_Lite/BPIR4LiteProductphotogallery[BPIR4LiteProductphotogallery]
 | On board Storage | MicroSD (TF) card,8GB eMMC onboard
 | GPIO             | 2x8 PIN MikroBUS Header for expanding application,some of which can be used for specific functions including UART, I2C, SPI, PWM.
 | On board Network | 5 Port 10/100/1000Mbps Ethernet
-| SFP              | 1x 2.5G SFP 
+| SFP              | 1x 2.5G SFP LAN
 | Wifi             | Wifi6/Wifi 7 
 | mini PCIE        | 1x miniPCIe slots with PCIe3.0 2lane interface for Wi-Fi 7 NIC (Network Interface Card) and 1x miniPCIe slot with USB2.0 interface
 | M.2 interface    | 1x M.2 KEY-B slot with USB3.0 for 5G Module
