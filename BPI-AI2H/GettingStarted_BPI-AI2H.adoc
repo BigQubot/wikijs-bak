@@ -1298,9 +1298,9 @@ image::/picture/etcher.jpg[etcher.jpg]
 link:https://github.com/balena-io/balena-cli[Balena CLI] is a Command Line Interface for balenaCloud or openBalena. It can be used to flash linux image. Download the installer or standalone package from link:https://github.com/balena-io/balena-cli/releases[balena-io] and link:https://github.com/balena-io/balena-cli/blob/master/INSTALL.md[install ]it correctly to your PC, then you can use the "link:https://docs.balena.io/reference/balena-cli/#local-flash-image[local flash]" command option of balena to flash a linux image to sdcard or usb drive.
 +
 ```sh
-  $ sudo balena local flash core-image-weston-bananapi-ai2n-xxx.rootfs.wic.gz
-  $ sudo balena local flash core-image-weston-bananapi-ai2n-xxx.rootfs.wic.gz --drive /dev/sdX
-  $ sudo balena local flash core-image-weston-bananapi-ai2n-xxx.rootfs.wic.gz --drive /dev/sdX --yes
+  $ sudo balena local flash core-image-weston-bananapi-ai2h-xxx.rootfs.wic.gz
+  $ sudo balena local flash core-image-weston-bananapi-ai2h-xxx.rootfs.wic.gz --drive /dev/sdX
+  $ sudo balena local flash core-image-weston-bananapi-ai2h-xxx.rootfs.wic.gz --drive /dev/sdX --yes
 ```
 
 - Install Image with dd command on Linux
@@ -1309,7 +1309,7 @@ umount SDcard device /dev/sdX partition if mounted automatically.
 +
 ```sh
  $ sudo apt-get install gunzip pv
- $ sudo sh -c 'gunzip -c core-image-weston-bananapi-ai2n-xxx.rootfs.wic.gz | pv | dd of=/dev/sdX bs=1M status=progress && sync'
+ $ sudo sh -c 'gunzip -c core-image-weston-bananapi-ai2h-xxx.rootfs.wic.gz | pv | dd of=/dev/sdX bs=1M status=progress && sync'
 ```
 
 == Install Yocto Image to eMMC
@@ -1320,7 +1320,7 @@ umount SDcard device /dev/sdX partition if mounted automatically.
 +
 ```sh
  $ sudo apt-get install gunzip pv
- $ sudo sh -c 'gunzip -c core-image-weston-bananapi-ai2n-xxx.rootfs.wic.gz | pv | dd of=/dev/sdX bs=1M status=progress && sync'
+ $ sudo sh -c 'gunzip -c core-image-weston-bananapi-ai2h-xxx.rootfs.wic.gz | pv | dd of=/dev/sdX bs=1M status=progress && sync'
 ```
 
 == Build Yocoto AI SDK Source Code
@@ -1467,11 +1467,11 @@ $ sync
 Edit /boot/armbianEnv.txt in armbian image or /boot/env.txt in yocto image as follow.
 +
 ```sh
-overlay_prefix=bpi-ai2n-waveshare-jetson-io
-fdtfile=renesas/bananapi-ai2n-waveshare-jetson-io-a.dtb
+overlay_prefix=bpi-ai2h-waveshare-jetson-io
+fdtfile=renesas/bananapi-ai2h-waveshare-jetson-io-a.dtb
 ```
 Note: 
-1. HDMI and DP are not support by AI2N hardware. 
+1. HDMI and DP are not support by AI2H hardware. 
 2. JETSON-IO-BASE-A use 5V DC, not 12V.
 
 == Boot from NVME SSD
