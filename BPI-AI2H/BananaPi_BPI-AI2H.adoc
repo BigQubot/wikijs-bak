@@ -1,7 +1,15 @@
 = BPI-AI2H Introduction
 
+Banana Pi BPI-AI2H System-on-Module (SoM) and BPI-AI2H carrier board are open-source hardware solutions designed to leverage the advanced capabilities of the RZ/V2H Vision AI MPU. Designed with a flexible, community-driven ecosystem, the BPI-AI2H platform empowers developers to accelerate innovation and streamline application development. Powered by the RZ/V2H MPU, it delivers industry-leading AI acceleration of 15 TOPS (Sparse) and high-performance computing with 4x Arm® Cortex®-A55 processors, making it an ideal choice for creating cutting-edge vision AI solutions.
 
 = Key Features
+
+* Small Form Factor: Compact SO-DIMM 260PINs design (SOM module size: 45x69.6mm) 
+* Open-source development kit, including SOM, BPI-AI2H Carrier board and a rich ecosystem of tools and support from the Banana Pi developer community 
+* Customizable hardware & software by OEM&ODM
+* Yocto and other open-source software support
+* Memory & storage: 8GB LPDDR4x, 32GB eMMC, 64MB QSPI Flash
+* Wide operating temperature range from -40℃ to 85℃
 
 
 = Getting Started
