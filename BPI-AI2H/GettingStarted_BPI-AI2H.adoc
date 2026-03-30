@@ -1,15 +1,15 @@
 = Introduction
 
-Banana Pi BPI-AI2N System-on-Module (SoM) and BPI-AI2N carrier board are open-source hardware solutions designed to leverage the advanced capabilities of the RZ/V2N Vision AI MPU. It supports 8GB memory, 32GB emmc, dual gigabit ethernet ports, 2x USB3 interface.
+Banana Pi BPI-AI2H System-on-Module (SoM) and BPI-AI2H carrier board are open-source hardware solutions designed to leverage the advanced capabilities of the RZ/V2H Vision AI MPU. It supports 8GB memory, 32GB emmc, dual gigabit ethernet ports, 2x USB3 interface.
 
 == Specifications
 
-- SoC – Renesas RZ/V2N quad-core 64bit Arm Cortex-A55 processor @ up to 1.8 GHz with Mali-G31 GPU
+- SoC – Renesas RZ/V2H quad-core 64bit Arm Cortex-A55 processor @ up to 1.8 GHz with Mali-G31 GPU
 - System Memory – 8GB LPDDR4
 - Storage – 32GB eMMC flash, MicroSD slot
 - Video Output – MIPI DSI to hdmi connector, up to 1080p
 - Connectivity – Dual Gigabit Ethernet
-- USB – 2x USB 3.0 ports,1x USB-C port
+- USB – 3x USB 3.0 ports,1x USB 2.0 port,1x USB-C port
 - Expansion – 40-pin header with 28x GPIO, UART, I2C, SPI, PWM, and power signal (+5V, +3.3V, GND).
 - Debugging – USB Type-C debug header
 - Power Supply – 12V @3A DC adapter
@@ -39,9 +39,9 @@ image::/picture/etcher.jpg[etcher.jpg]
 link:https://github.com/balena-io/balena-cli[Balena CLI] is a Command Line Interface for balenaCloud or openBalena. It can be used to flash linux image. Download the installer or standalone package from link:https://github.com/balena-io/balena-cli/releases[balena-io] and link:https://github.com/balena-io/balena-cli/blob/master/INSTALL.md[install ]it correctly to your PC, then you can use the "link:https://docs.balena.io/reference/balena-cli/#local-flash-image[local flash]" command option of balena to flash a linux image to sdcard or usb drive.
 +
 ```sh
-$ sudo balena local flash xxx-bpi-ai2n-xxx.img.xz
-$ sudo balena local flash xxx-bpi-ai2n-xxx.img.xz --drive /dev/sdX
-$ sudo balena local flash xxx-bpi-ai2n-xxx.img.xz --drive /dev/sdX --yes
+$ sudo balena local flash xxx-bpi-ai2h-xxx.img.xz
+$ sudo balena local flash xxx-bpi-ai2h-xxx.img.xz --drive /dev/sdX
+$ sudo balena local flash xxx-bpi-ai2h-xxx.img.xz --drive /dev/sdX --yes
 ```
 
 - Install Image with dd command on Linux
@@ -50,7 +50,7 @@ umount SDcard device /dev/sdX partition if mounted automatically.
 +
 ```sh
 $ sudo apt-get install xz-utils pv
-$ sudo sh -c 'xzcat xxx-bpi-ai2n-xxx.img.xz | pv | dd of=/dev/sdX bs=1M status=progress && sync'
+$ sudo sh -c 'xzcat xxx-bpi-ai2h-xxx.img.xz | pv | dd of=/dev/sdX bs=1M status=progress && sync'
 ```
 
 == Install Image to eMMC
@@ -62,7 +62,7 @@ $ sudo sh -c 'xzcat xxx-bpi-ai2n-xxx.img.xz | pv | dd of=/dev/sdX bs=1M status=p
 +
 ```sh
 $ sudo apt-get install xz-utils pv
-$ sudo sh -c 'xzcat xxx-bpi-ai2n-xxx.img.xz | pv | dd of=/dev/sdX bs=1M status=progress && sync'
+$ sudo sh -c 'xzcat xxx-bpi-ai2h-xxx.img.xz | pv | dd of=/dev/sdX bs=1M status=progress && sync'
 ```
 
 - another way is transfer the live running Armbian system from an SD card to internal storage devices such as eMMC. It prepares the target storage, copies the active system, adjusts bootloader settings, and ensures the system can boot independently without requiring reinstallation.
@@ -76,9 +76,9 @@ image::/picture/ai2n-armbian-install-emmc.png[ai2n-armbian-install-emmc.png]
 == Build Armbian Source Code
 
 ```sh
-$ git clone -b bpi-v25.8.1 https://github.com/BPI-SINOVOIP/armbian-build.git
+$ git clone -b bpi-v26.2.1 https://github.com/BPI-SINOVOIP/armbian-build.git
 $ cd armbian-build
-$ ./compile.sh BOARD=bpi-ai2n BRANCH=legacy
+$ ./compile.sh BOARD=bpi-ai2h BRANCH=legacy
 ```
 
 More info about armbian build, please refer to link:https://docs.armbian.com/Developer-Guide_Build-Preparation/[Armbian Build Framework Quick Start Guide]
@@ -153,7 +153,7 @@ Generating locales: zh_CN.UTF-8
  | _ \/ _` | ' \/ _` | ' \/ _` | '_ \ |___/ _ \| '_| '  \| '_ \ / _` | ' \ 
  |___/\__,_|_||_\__,_|_||_\__,_| .__/_|  /_/ \_\_| |_|_|_|_.__/_\__,_|_||_|
                                |_|                                         
- v25.5.1 for Banana Pi AI2N running Armbian Linux 6.1.107-legacy-renesas
+ v25.5.1 for Banana Pi AI2H running Armbian Linux 6.1.141-legacy-renesas
 
  Packages:     Ubuntu stable (jammy), possible distro upgrade (noble)
  Support:      DIY (custom image)
@@ -315,7 +315,7 @@ image::/picture/ai2n-network.png[ai2n-network.png]
 
 == Display
 
-The RZ/V2N chip features a single MIPI DSI interface for display output. We have developed a DSI-to-HDMI adapter board and a 7-inch HC070 Touch Panel board. 
+The RZ/V2H chip features a single MIPI DSI interface for display output. We have developed a DSI-to-HDMI adapter board and a 7-inch HC070 Touch Panel board. 
 
 - HDMI
 +
@@ -364,7 +364,7 @@ $ sudo sh -c 'echo 0 > /sys/class/hwmon/hwmon3/fan1_target'
 ```
 
 == ADC
-There have 3 units 12-bit adc in RZV2N, up to 8 channels per unit. The board adc pin header CN3 connected to adc1.
+There have 3 units 12-bit adc in RZV2H, up to 8 channels per unit. The board adc pin header CN3 connected to adc1.
 
 Read the adc data from iio sysfs
 
