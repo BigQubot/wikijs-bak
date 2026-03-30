@@ -239,8 +239,9 @@ sync
 
 * Network-Configuration refer to: http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:network:start
 * Network Interface: lan5 is for WAN;eth1, lan0, lan1, lan2,lan3 is for LAN, ra0/ra1 is for 2.4G wireless, rai0 is for 5G wifi6 wireless, rax0 is for 6G wifi7 wireless.
+
+image::/bpi-r4_lite/r4-lite_rj45.png[r4-lite_rj45.png]
     
-//image::/bpi-r4_lite/r4-lite_wan.png[r4-lite_wan.png]
 
 ```bash
 root@OpenWrt:~# ifconfig
