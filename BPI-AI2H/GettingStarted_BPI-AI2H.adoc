@@ -1337,7 +1337,7 @@ link:https://renesas-rz.github.io/rzv_ai_sdk/6.00/ai-sdk.html[Renesas Wiki]
 
 The SPI bootloader consists of three parts: the Flash Writer file, ATF firmware, and U-Boot. There are three files: Flash_Writer*.mot, bl2_bp_spi.srec(bl2_bp_spi.bin), and fip.srec(fip.bin), which can be found in the /boot directory of the Linux image.
 
-- Flash bootloader via the serial port
+- Flash bootloader via the serial port on Windows PC
 
 1. Copy Flash_Writer*.mot, bl2_bp_spi.srec and fip.srec to your Windows PC.
 2. Connect Windows PC to Board via usb cabe to usb typec uart port bellow core board.
@@ -1460,6 +1460,10 @@ Bootup the board with sdcard, erase the emmc with dd command as follows.
 $ sudo dd if=/dev/zero of=/dev/mmcblk0 bs=1M status=noxfer
 $ sync
 ```
+
+- Flash bootloader via the serial port on Linux PC
+
+- Flash bootloader on AI2H board
 
 == Third part carrier board
 - link:https://www.waveshare.com/jetson-nano-dev-kit-a.htm?sku=21650[Waveshare JETSON-IO-BASE-A carrier board]
