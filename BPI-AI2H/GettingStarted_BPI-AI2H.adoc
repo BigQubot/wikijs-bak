@@ -483,7 +483,7 @@ The USB Type-c port Only support device mode.
 DTB overlay is used for 40pin gpios multi-function configuration 
 
 ```sh
-pi@bpi-ai2n:/boot/dtb/renesas/overlay$ ls bpi-ai2h*
+pi@bpi-ai2h:/boot/dtb/renesas/overlay$ ls bpi-ai2h*
 bpi-ai2h-i2c0-mux.dtbo               bpi-ai2h-spi0.dtbo
 bpi-ai2h-i2c1.dtbo                   bpi-ai2h-spi2.dtbo
 bpi-ai2h-i2c1-flash.dtbo             bpi-ai2h-spi2-flash.dtbo
@@ -787,7 +787,7 @@ serial.close()
 
 link:https://github.com/adafruit/Adafruit_Blinka[Adafruit Blinka] is a compatibility layer that brings the CircuitPython hardware API on Linux OS using Python3, making it easy to use sensors, displays, and other I2C/SPI/UART devices. More info please ref to link:https://learn.adafruit.com/[Adafruit wiki] and link:https://github.com/adafruit[adafruit github]
 
-It already supports the RZ/V2N chip and the BPI-AI2N board. Dtb overlay must be enabled before using 40pin header bus control
+It already supports the RZ/V2H chip and the BPI-AI2H board. Dtb overlay must be enabled before using 40pin header bus control
 
 . Install packages
 +
@@ -803,25 +803,25 @@ $ sudo su
 # cd project
 # python3 -m venv myenv
 # source myenv/bin/activate
-(myenv) root@bpi-ai2n:~/project#
+(myenv) root@bpi-ai2h:~/project#
 ```
 
 . Install gpiod python binding library
 +
 ```sh
-(myenv) root@bpi-ai2n:~/project# pip3 install gpiod
+(myenv) root@bpi-ai2h:~/project# pip3 install gpiod
 ```
 
 . Virtual env Install Adafruit Blinka
 - Install from PyPI.
 +
 ```sh
-(myenv) root@bpi-ai2n:~/project# pip3 install Adafruit-Blinka
+(myenv) root@bpi-ai2h:~/project# pip3 install Adafruit-Blinka
 ```
 - Install from git source
 +
 ```sh
-(myenv) root@bpi-ai2n:~/project# pip3 install git+https://github.com/adafruit/Adafruit_Blinka
+(myenv) root@bpi-ai2h:~/project# pip3 install git+https://github.com/adafruit/Adafruit_Blinka
 ```
 
 . Blinka Test
@@ -851,7 +851,7 @@ print("done!")
 The execution result of this example is as follows:
 +
 ```sh
-(myenv) root@bpi-ai2n:~/project# python3 test_blinka.py
+(myenv) root@bpi-ai2h:~/project# python3 test_blinka.py
 Hello, blinka!
 Digital IO ok!
 I2C ok!
@@ -906,14 +906,14 @@ while True:
 Installing libraries from git repo, these two repo forked from link:https://github.com/adafruit/Adafruit_CircuitPython_CharLCD[Adafruit_CircuitPython_CharLCD] and link:https://github.com/adafruit/Adafruit_CircuitPython_MCP230xx[Adafruit_CircuitPython_MCP230xx], modified to match the hardware link:https://docs.banana-pi.org/en/BPI-LCD_1602/BananaPi_BPI-LCD_1602[MCP23017 I2C Lcd1602 Module]. Examples in these two repo also should be modified to match the hardware design
 +
 ```sh
-(myenv) root@bpi-ai2n:~/project# pip3 install git+https://github.com/Dangku/Adafruit_CircuitPython_CharLCD
-(myenv) root@bpi-ai2n:~/project# pip3 install git+https://github.com/Dangku/Adafruit_CircuitPython_MCP230xx
+(myenv) root@bpi-ai2h:~/project# pip3 install git+https://github.com/Dangku/Adafruit_CircuitPython_CharLCD
+(myenv) root@bpi-ai2h:~/project# pip3 install git+https://github.com/Dangku/Adafruit_CircuitPython_MCP230xx
 ```
 Running test example
 +
 ```sh
-(myenv) root@bpi-ai2n:~/project# wget https://raw.githubusercontent.com/Dangku/Adafruit_CircuitPython_CharLCD/main/examples/charlcd_i2c_rgb_simpletest.py
-(myenv) root@bpi-ai2n:~/project# python3 charlcd_i2c_rgb_simpletest.py
+(myenv) root@bpi-ai2h:~/project# wget https://raw.githubusercontent.com/Dangku/Adafruit_CircuitPython_CharLCD/main/examples/charlcd_i2c_rgb_simpletest.py
+(myenv) root@bpi-ai2h:~/project# python3 charlcd_i2c_rgb_simpletest.py
 ```
 image::/picture/ai2n-blinka-lcd1602.png[ai2n-blinka-lcd1602.png]
 
@@ -922,18 +922,18 @@ image::/picture/ai2n-blinka-lcd1602.png[ai2n-blinka-lcd1602.png]
 Installing the library from git repo, this repo forked from link:https://github.com/adafruit/Adafruit_CircuitPython_SSD1306[Adafruit_CircuitPython_SSD1306], libs and examples modified to match the hardware link:https://docs.banana-pi.org/en/BPI-OLED/BananaPi_BPI-OLED[SSD1306 SPI Oled Module].
 +
 ```sh
-(myenv) root@bpi-ai2n:~/project# pip3 install git+https://github.com/Dangku/Adafruit_CircuitPython_SSD1306
+(myenv) root@bpi-ai2h:~/project# pip3 install git+https://github.com/Dangku/Adafruit_CircuitPython_SSD1306
 ```
 Installing pillow for some examples which import PIL, pip3 install Pillow command causes ImportError: cannot import name ‘_imagingft’ from ‘PIL’, so instead with the following command.
 +
 ```sh
-(myenv) root@bpi-ai2n:~/project# pip3 install Pillow --no-binary :all:
+(myenv) root@bpi-ai2h:~/project# pip3 install Pillow --no-binary :all:
 ```
 Running test example
 +
 ```sh
-(myenv) root@bpi-ai2n:~/project# wget https://raw.githubusercontent.com/Dangku/Adafruit_CircuitPython_SSD1306/main/examples/ssd1306_stats.py
-(myenv) root@bpi-ai2n:~/project# python3 ssd1306_stats.py
+(myenv) root@bpi-ai2h:~/project# wget https://raw.githubusercontent.com/Dangku/Adafruit_CircuitPython_SSD1306/main/examples/ssd1306_stats.py
+(myenv) root@bpi-ai2h:~/project# python3 ssd1306_stats.py
 ```
 image::/picture/ai2n-blinka-ssd1306-spi.png[ai2n-blinka-ssd1306-spi.png]
 
@@ -962,7 +962,7 @@ sp_cs)
 Running test example
 +
 ```sh
-(myenv) root@bpi-ai2n:~/project# python3 ssd1306_stats.py
+(myenv) root@bpi-ai2h:~/project# python3 ssd1306_stats.py
 ```
 image::/picture/ai2n-blinka-ssd1306-i2c.png[ai2n-blinka-ssd1306-i2c.png]
 
@@ -981,7 +981,7 @@ Build and install wiringPi, for debian, you must install sudo before build
 Run gpio readall to show all 40pins status.
 ```sh
  $ sudo gpio readall
- +-----+-----+---------+------+---+-- AI2N --+---+------+---------+-----+-----+
+ +-----+-----+---------+------+---+-- AI2H --+---+------+---------+-----+-----+
  | I/O | wPi |   Name  | Mode | V | Physical | V | Mode |  Name   | wPi | I/O |
  +-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+
  |     |     |    3.3V |      |   |  1 || 2  |   |      | 5V      |     |     |
@@ -1006,7 +1006,7 @@ Run gpio readall to show all 40pins status.
  |     |     |      0V |      |   | 39 || 40 | 0 | HI-Z | IO.420  | 29  | 420 |
  +-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+
  | I/O | wPi |   Name  | Mode | V | Physical | V | Mode |  Name   | wPi | I/O |
- +-----+-----+---------+------+---+-- AI2N --+---+------+---------+-----+-----+
+ +-----+-----+---------+------+---+-- AI2H --+---+------+---------+-----+-----+
 ```
 
 Set 40pin phy pin.31 high/low, wPi number is 22.
