@@ -16,6 +16,25 @@ TIP: link:/en/BPI-RT2/BananaPi_BPI-RT2[BananaPi_BPI-RT2]
  . First, download the image what you want to upgrade
 . Power on the BPI-RT2 and connect it to the computer using a network cable.
 . Enter the webpage (default IP is 192.168.1.1，the user is root and does not have a password.)
++
+image::/bpi-rt2/bpi-rt2-web.png[bpi-rt2-web.png]
+
+. Select “System", then select "System"->"Firmware".
+. Then, Click Flash image.
+. Select the image you want to upgrade, and then click "Upload".
++
+image::/bpi-rt2/bpi-rt2-web2.png[bpi-rt2-web2.png]
+
+. Uncheck "Keep settings and retain the current configuration".Select "Continue.
++
+image::/bpi-rt2/bpi-rt2-web3.png[bpi-rt2-web3.png]
+
+. Wait a few minutes, after the upgrade is completed, it will automatically restart and the web page will automatically refresh.
+
+
+
+
+
 
 
 
