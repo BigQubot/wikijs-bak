@@ -170,3 +170,28 @@ image::/bpi-rt2/bpi-rt2-ssid3.png[bpi-rt2-ssid3.png]
 After the modification, you will see
 
 image::/bpi-rt2/bpi-rt2-ssid2.png[bpi-rt2-ssid2.png]
+
+
+
+= GPIO Define 
+== 5 Pin GPIO define
+[options="header",cols="3,1,1,4",width="70%"]
+|====
+4+| **BPI-RT2 5 PIN Header GPIO define of BPI-RT2**
+|BPI-RT2-CON6	|PIN		|PIN	|BPI-RT2-CON5
+|GPIO28	|1		|2	| GPIO36
+|VDD33	|3	|	4|	GND
+|GPIO25	|5	|	|
+|====
+
+== 9 Pin GPIO define
+[options="header",cols="3,1,1,4",width="70%"]
+|====
+4+| **BPI-RT2 5 PIN Header GPIO define of BPI-RT2**
+|BPI-RT2-CON6	|PIN		|PIN	|BPI-R4-CON6
+|	I2C0_SCL|1		|2	|GPIO30
+| I2C0_SDA	|3	|	4|	GPIO5
+|GND	|5	| 6	|	GPIO3
+|VDD33	|7	|	8|	GPIO2
+|	|9	| 10	|GPIO37	
+|====
