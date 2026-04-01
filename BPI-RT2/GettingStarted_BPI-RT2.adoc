@@ -23,6 +23,13 @@ echo "HelloPuya" > /sys/bus/i2c/devices/1-0057/eeprom
 
 image::/bpi-rt2/bpi-eeprom.png[bpi-eeprom.png]
 
+== USB
+The BPI-RT2 is equipped with a USB 3.0 interface. You can detect both USB 3.0 and USB 2.0 devices when connected。
+
+image::/bpi-rt2/bpi-rt2-usb3.0&2.0.png[bpi-rt2-usb3.0&2.0.png]
+
+
+
 = Image
 == Web page upgrade
  . First, download the image what you want to upgrade
@@ -42,11 +49,6 @@ image::/bpi-rt2/bpi-rt2-web2.png[bpi-rt2-web2.png]
 image::/bpi-rt2/bpi-rt2-web3.png[bpi-rt2-web3.png]
 
 . Wait a few minutes, after the upgrade is completed, it will automatically restart and the web page will automatically refresh.
-
-
-
-
-
 
 
 
@@ -154,3 +156,17 @@ View current settings
 printenv sw_tryactive
 printenv sw_commit
 ```
+
+= Open WRT
+== WiFi
+You can check the WiFi startup status in the Network’s wireless section. Among them, BPI-RT2-2.4G and BPI-RT2-5G are the WiFi of BPI-RT2. You can also make the configuration in the "Edit" section.
+
+image::/bpi-rt2/bpi-rt2-ssid.png[bpi-rt2-ssid.png] 
+
+You can change the router's ESSID
+
+image::/bpi-rt2/bpi-rt2-ssid3.png[bpi-rt2-ssid3.png]
+
+After the modification, you will see
+
+image::/bpi-rt2/bpi-rt2-ssid2.png[bpi-rt2-ssid2.png]
