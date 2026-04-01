@@ -338,8 +338,40 @@ After successful conversion, you can use the NPU to accelerate inference, which 
 image::/bpi-om7/onnx_model_converted_to_rknn.jpg[onnx_model_converted_to_rknn.jpg]
 
 
+=== Troubleshooting Summary
 
+1、 Qt interface cannot be opened, error "could not connect to display"
 
+Cause: Docker container does not have permission to access the host machine's display.
+
+Solution:
+
+• Execute `xhost +local:` in the host machine terminal
+
+• Execute `xhost +local:` again after entering Docker.
+
+2、 Camera device not found, error "No device found"
+
+Cause: USB device permission or driver issue.
+
+Solution:
+
+• Simple and brute-force method: Restart the development board
+
+• Elegant solution: Exit Docker → Start OrbbecViewer (contact Orbbec customer service for details) → Close Viewer → Re-enter Docker, execute `export PYTHONPATH=$PYTHONPATH:$(pwd)/install/lib/` and then run the program.
+
+3、 Rknn module not found, error "ModuleNotFoundError: No module named 'rknn'"
+
+Cause: RKNN toolkit not installed correctly or incorrect path. 
+
+Solution:
+```
+cd src/rknn-toolkit2
+
+# Reinstall, using Tsinghua University mirror for acceleration
+
+pip3 install rknn-toolkit2/packages/arm64/rknn_toolkit2-2.3.2-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl --timeout 120 --retries 10 -i https://pypi.tuna.tsinghua.edu.cn/simple
+```
 
 
 
