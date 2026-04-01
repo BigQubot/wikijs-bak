@@ -79,6 +79,8 @@ If you are unable to access or experience slow access to the default Ubuntu soft
 cd /etc/apt
 sudo vim sources.list
 ```
+image::/bpi-om7/vi_sources.jpg[vi_sources.jpg]
+
 Press the "**I**" key to enter the editing state, and then replace the source you want to change.
 (The following use cases use the Tsinghua University source in China.)
 ```
@@ -92,6 +94,8 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main
 restricted universe multiverse
 ```
 After replacement, press the "**ESC**" key and enter "**:wq**" to exit.
+
+image::/bpi-om7/vi_sources-2.jpg[vi_sources-2.jpg]
 
 3、**Installing the necessary tools: From Git to Docker**
 
@@ -140,9 +144,11 @@ Permanent solution:
 cd /etc/default
 sudo vim grub
 ```
+image::/bpi-om7/vi_grub.jpg[vi_grub.jpg]
 
 Find this line: **GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"** and replace it with: **GRUB_CMDLINE_LINUX_DEFAULT="quiet splash usbcore.usbfs_memory_mb=128"**
 
+image::/bpi-om7/vi_grub-2.jpg[vi_grub-2.jpg]
 
 Save and exit, then update the configuration:
 ```
@@ -175,12 +181,15 @@ cd ~/ros2_ws/src/ros_docker_image # Switch to the directory containing the Docke
 docker build -t my_gemini2_camera . # Note the trailing "."
 ```
 
+image::/bpi-om7/om7-docker.jpg[om7-docker.jpg]
+
 2、Start the container
 
 Use the existing script to start the container (the parameters are important, don't make any mistakes):
 ```
 ./run_ros2_docker.sh devcamnpu # devcamnpu is a default parameter corresponding to the camera + NPU configuration.
 ```
+image::/bpi-om7/run-docker.jpg[run-docker.jpg]
 
 Docker Tips:
 
@@ -233,7 +242,12 @@ Install the RKNN toolkit (make sure to match the RK3588's arm64 architecture and
 cd rknn-toolkit2/rknn-toolkit2
 pip install -r packages/arm64/arm64_requirements_cp310.txt && pip install packages/arm64/rknn_toolkit2-2.3.2-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
 ```
+
+image::/bpi-om7/install_rknn.jpg[install_rknn.jpg]
+
 Verify that the installation is successful: Enter `Python*` interactive mode and enter `from rknn.api import RKNN`. If no error is reported, it means it is OK.
+
+image::/bpi-om7/verify_rknn.jpg[verify_rknn.jpg]
 
 Deploy the libraries used by the NPU runtime:
 
@@ -246,6 +260,8 @@ sudo chmod +x /usr/bin/rknn_server /usr/bin/start_rknn.sh
 restart_rknn.sh # Restart the NPU service
 ```
 
+image::/bpi-om7/deploy_npu.jpg[deploy_npu.jpg]
+
 Compile the official examples (to verify NPU functionality):
 ```
 cd src/rknn_model_zoo
@@ -257,6 +273,8 @@ cd /usr
 sudo mkdir lib64 # Create the lib64 directory
 sudo ln -s /usr/lib/librknnrt.so /usr/lib64/librknnrt.so # Create a symbolic link
 ```
+
+image::/bpi-om7/verify_npu.jpg[verify_npu.jpg]
 
 === From Camera Streaming to Model Inference
 The environment is set up, time to get hands-on! We'll share 3 practical examples, covering everything from basic to advanced.
@@ -282,6 +300,9 @@ python object_detection_sw_align.py
 
 Regarding custom models: If you want to use your own trained YOLO model, simply modify two parameters in object_detection_sw_align.py:
 
+
+image::/bpi-om7/switching_yolo_models.jpg[switching_yolo_models.jpg]
+
 **coco.names**: Replace with your class name file
 
 **models/yolov5s.onnx**: Replace with your model file path
@@ -298,11 +319,23 @@ python multi_streams.py
 ```
 After running, three windows will pop up, displaying the color image (RGB), the depth image (black and white, the brighter the image, the closer the image), and the infrared image (recognizable at night). This is suitable for applications such as 3D reconstruction and gesture recognition.
 
+3、 Model Conversion: Converting ONNX Models to RKNN Format for NPU Compatibility
 
+Your self-trained model needs to be converted to RKNN format to run on an NPU. Taking the YOLO model as an example:
 
+```
+source src/pyorbbecsdk/venv/bin/activate
+cd src/pyorbbecsdk
+export PYTHONPATH=$PYTHONPATH:$(pwd)/install/lib/
+cd src/rknn_model_zoo
+export PYTHONPATH=/home/myuser/ros2_ws/rknn_model_zoo:$PYTHONPATH # Configure Model Library Path
+cd examples/yolov5/python # Conversion Command: Input ONNX model path, target device (rk3588), quantization method (i8), output path
+python convert.py
+/home/myuser/ros2_ws/src/pyorbbecsdk/examples/object_detection/models/numbe r_detect.onnx rk3588 i8 ../model/number.rknn
+```
+After successful conversion, you can use the NPU to accelerate inference, which is faster than CPU. 5-10 times!
 
-
-
+image::/bpi-om7/onnx_model_converted_to_rknn.jpg[onnx_model_converted_to_rknn.jpg]
 
 
 
