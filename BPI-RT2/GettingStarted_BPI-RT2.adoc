@@ -11,6 +11,18 @@ TIP: link:/en/BPI-RT2/BananaPi_BPI-RT2[BananaPi_BPI-RT2]
 * 12V/2A power adapter
 * Serial cable
 
+== Reading and writing EEPROM
+```
+hexdump -C /sys/bus/i2c/devices/1-0057/eeprom | head -n 2
+```
+
+2、Write content to EEPROM
+```
+echo "HelloPuya" > /sys/bus/i2c/devices/1-0057/eeprom
+```
+
+image::/bpi-rt2/bpi-eeprom.png[bpi-eeprom.png]
+
 = Image
 == Web page upgrade
  . First, download the image what you want to upgrade
