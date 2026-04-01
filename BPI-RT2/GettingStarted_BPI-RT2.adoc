@@ -12,6 +12,16 @@ TIP: link:/en/BPI-RT2/BananaPi_BPI-RT2[BananaPi_BPI-RT2]
 * Serial cable
 
 = Image
+== Web page upgrade
+ . First, download the image what you want to upgrade
+. Power on the BPI-RT2 and connect it to the computer using a network cable.
+. Enter the webpage (default IP is 192.168.1.1，the user is root and does not have a password.)
+
+
+
+== TFTP
+
+
 1. Connect the serial port tool. Upon power-up, hold down the ESC key continuously to enter boot mode.
 
 image::/bpi-rt2/rt2-uboot.png[rt2-uboot.png]
