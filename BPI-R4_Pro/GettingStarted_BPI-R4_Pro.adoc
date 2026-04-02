@@ -258,6 +258,8 @@ Read 126976 bytes from volume ubootenv2 to 00000000ff7e0c40
 
 == Mxl862 update
 
+TIP: The current firmware version of the Mlx862 chip is V1.0.70.70.
+
 . First, upload the ML and FW files that need updating to the board.You can copy it via TFTP or USB drive.
 
 . Use the command ethswbox to check the status.
