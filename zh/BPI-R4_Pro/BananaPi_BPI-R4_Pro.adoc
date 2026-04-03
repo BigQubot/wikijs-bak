@@ -70,6 +70,7 @@ TIP: link:/en/BPI-R4/GettingStarted_BPI-R4[Getting Started BPI-R4]
 TIP: link:https://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r4:start#linux[Frank wiki for BPI-R4]
 
 = 硬件
+
 == 硬件接口示意图
 
 image::/bpi-r4_pro/bpi-r4pro-interface-8x-top.jpg[bpi-r4pro-interface-8x-top.jpg,width=1000]
@@ -137,9 +138,6 @@ Easy to buy 5020 FAN sample ::
 
 * BIPAI Aliexpress shop: https://ko.aliexpress.com/item/1005010545605871.html?gatewayAdapt=glo2kor   
 
-== 主板散热片 
-
-image::/bpi-r4_pro/bpi-r4_pro_with_heatsink_1.jpg[bpi-r4_pro_with_heatsink_1.jpg]
 
 == 10G SFP 模组
 
@@ -172,6 +170,10 @@ link:/en/BPI-R4/GettingStarted_BPI-R4#_4g_5g_module[Getting_Started_with_BPI-R4#
 link:/en/BPI-R4/GettingStarted_BPI-R4#_storage[Getting_Started_with_BPI-R4#Storage]
 
 == 散热片
+
+=== 主板散热片 
+
+image::/bpi-r4_pro/bpi-r4_pro_with_heatsink_1.jpg[bpi-r4_pro_with_heatsink_1.jpg]
 
 === BE14 heatsink
 
