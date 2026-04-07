@@ -162,21 +162,15 @@ link:/en/BPI-M4_Zero/Photo_BPI-M4_Zero[Banana Pi BPI-M4 Zero Product photo galle
 TIP: Android source code https://github.com/BPI-SINOVOIP/BPI-H618-Android12
 
 === Linux
-TIP: Linux BSP source code https://github.com/BPI-SINOVOIP/BPI-M4B-bsp
+* Bananapi Armbian build source code https://github.com/BPI-SINOVOIP/armbian-build/tree/bpi-v24.11.01
 
-TIP: Linux Armbian build source code https://github.com/BPI-SINOVOIP/armbian-build/tree/bpi-v24.11.01
+* Upstream Armbian build source code https://github.com/armbian/build
 
-TIP: Linux 5.4 boot pack source code https://github.com/Dangku/allwinner-boot-pack
+* WringPi source code https://github.com/Dangku/WiringPi
 
-TIP: Linux 5.4 uboot source code https://github.com/BPI-SINOVOIP/pi-u-boot/tree/sun50iw9-v2018.05
+* RPi.GPIO source code https://github.com/Dangku/RPi.GPIO
 
-TIP: Linux 5.4 kernel source code https://github.com/BPI-SINOVOIP/pi-linux/tree/sun50iw9-5.4
-
-TIP: WringPi source code https://github.com/Dangku/WiringPi
-
-TIP: RPi.GPIO source code https://github.com/Dangku/RPi.GPIO
-
-TIP: WiringPi-Python source code https://github.com/Dangku/WiringPi-Python
+* WiringPi-Python source code https://github.com/Dangku/WiringPi-Python
 
 
 == Resources
