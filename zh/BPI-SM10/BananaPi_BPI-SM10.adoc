@@ -96,19 +96,19 @@ image::/bpi-sm10/spacemit_k3_ai_chip.jpg[spacemit_k3_ai_chip.jpg]
 |=====
 2+| **香蕉派BPI-SM10 RISC - V载板的硬件规格**
 |摄像头|2xMIPI CSI-2, 22-pin 连接器
-.3+|PCIe|M.2 Key M slot (PCIe Gen 3 x 4)
-|M.2 key M slot (PCIe Gen 3 x 1)
-|M.2 key E slot
-.2+|USB|4 x USB 3.0 Type-A
-|1 x USB Type-C(UFP device mode supported)
-|Networking|1 x GbE connector
-.2+|Display|1 x DP 1.2 connector
-|1 x MIPI DSI-1.2 30-pin display connector
-.4+|Other I/O|pin expansion header (UART,SPI, I2S, I2C, GPIO)
-|pin button header
-|pin fan header
-|DC power jack
-|Mechanical|103mm x 90.5mm x35mm (Height includes feet, carrier board, module and thermal solution)
+.3+|PCIe接口|M.2 Key M 座子 (PCIe Gen 3 x 4)
+|M.2 key M 座子 (PCIe Gen 3 x 1)
+|M.2 key E 座子
+.2+|USB接口|4 x USB 3.0 Type-A
+|1 x USB Type-C(支持UFP设备模式)
+|网络接口|1 x GbE 连接口
+.2+|显示接口|1 x DP 1.2 连接口
+|1 x MIPI DSI-1.2 30-pin 显示连接器
+.4+|Other I/O|pin 扩展接口 (UART,SPI, I2S, I2C, GPIO)
+|按键接口
+|风扇接口
+|DC 供电头
+|机械规格 | 103毫米×90.5毫米×35毫米（高度包括支脚、载板、模块和散热解决方案）
 |=====
 
 
