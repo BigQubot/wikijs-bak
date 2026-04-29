@@ -75,27 +75,27 @@ image::/bpi-sm10/spacemit_k3_ai_chip.jpg[spacemit_k3_ai_chip.jpg]
 |GPU | 集成3D图形处理器，支持Vulkan、OpenCL和OpenGL ES
 |内存|8GB/16GB/32GB 64-bit LPDDR5,6400MT/s
 |存储|支持内置UFS、SD卡和外置NVMe
-|video Encoding|4K60 (H.264/H.265)
-.4+|video Decoding
+|视频编码|4K60 (H.264/H.265)
+.4+|视频解码
 |1 x 4K120 (H2.64/H.265/VP9)
 |2 x 4K60 (H2.64/H.265/VP9)
 |8 x 1080P60 (H2.64/H.265/VP9) 
 |16 x 1080P30 (H2.64/H.265/VP9)
-|Power consumption|18W-35W
+|功率|18W-35W
 |=====
 
-NOTE: Refer to the software Features section of the latest SpacemiT K3 Datasheet for a list of supported features.
+注意：有关支持功能列表，请参考最新版SpacemiT K3数据表的软件功能部分。
 
-== Carrier Board
+== 底板
 
-=== Carrier Board interface
+=== 底板界面示意图
 
-=== Carrier Board Specification
+=== 底板规格
 
 [options="header",cols="2,6",width="70%"]
 |=====
-2+| **HardWare Specification of Banana Pi BPI-SM10 RISC-V Carrier Board**
-|camera|2xMIPI CSI-2, 22-pin camera connectors
+2+| **香蕉派BPI-SM10 RISC - V载板的硬件规格**
+|摄像头|2xMIPI CSI-2, 22-pin 连接器
 .3+|PCIe|M.2 Key M slot (PCIe Gen 3 x 4)
 |M.2 key M slot (PCIe Gen 3 x 1)
 |M.2 key E slot
