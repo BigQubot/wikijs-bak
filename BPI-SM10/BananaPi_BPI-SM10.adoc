@@ -87,7 +87,6 @@ image::/bpi-sm10/k3_com260_core_board.jpg[k3_com260_core_board.jpg]
 |8 x 1080P60 (H2.64/H.265/VP9) 
 |16 x 1080P30 (H2.64/H.265/VP9)
 |Power consumption|18W-35W
-|DC |19V-2.37A;12V=5V
 |=====
 
 NOTE: Refer to the software Features section of the latest SpacemiT K3 Datasheet for a list of supported features.
@@ -112,10 +111,10 @@ image::/bpi-sm10/k3_com260_kit_(2).jpg[k3_com260_kit_(2).jpg]
 |Networking|1 x GbE connector
 .2+|Display|1 x DP 1.2 connector
 |1 x MIPI DSI-1.2 30-pin display connector
-.4+|Other I/O|pin expansion header (UART,SPI, I2S, I2C, GPIO)
+.3+|Other I/O|pin expansion header (UART,SPI, I2S, I2C, GPIO)
 |pin button header
 |pin fan header
-|DC power jack
+|DC power |19V-2.37A;12V=5V
 |Mechanical|103mm x 90.5mm x35mm (Height includes feet, carrier board, module and thermal solution)
 |=====
 
