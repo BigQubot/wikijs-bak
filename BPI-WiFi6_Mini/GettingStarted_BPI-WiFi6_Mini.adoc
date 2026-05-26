@@ -1,0 +1,46 @@
+= Introduction
+
+TIP: More Infomation:link:/en/BPI-WiFi6_Router/BananaPi_BPI-WiFi6_Router[Banana Pi WiFi6 Router]
+
+= Prepare
+
+- Ethernet cable, BPI-WiFi6, 12V power supply
+
+== Web page upgrade
+. First, download the link:/en/BPI-WiFi6_Router/BananaPi_BPI-WiFi6_Router#_system_image[image] you want to upgrade.
+. Power on the BPI-WiFi 6 and connect it to the computer using a network cable.
+. Enter the webpage (default IP is 192.168.1.1，the user is root and does not have a password.)
++
+image::/picture/bpi-wifi6_upgrade_5.png[bpi-wifi6_upgrade_5.png]
+. Select “System", then select "Backup/Flash Firmware".
++
+image::/picture/bpi-wifi6_upgrade_1.png[bpi-wifi6_upgrade_1.png]
+. Select "Flash image...".
++
+image::/picture/bpi-wifi6_upgrade_2.png[bpi-wifi6_upgrade_2.png]
+. Select the image you want to upgrade, and then click "Upload".
++
+image::/picture/bpi-wifi6_upgrade_3.png[bpi-wifi6_upgrade_3.png]
+. Uncheck "Keep settings and retain the current configuration".Select "Continue".
++
+image::/picture/bpi-wifi6_upgrade_4.png[bpi-wifi6_upgrade_4.png]
+. Wait a few minutes, after the upgrade is completed, it will automatically restart and the web page will automatically refresh.
++
+image::/picture/bpi-wifi6_upgrade_5.png[bpi-wifi6_upgrade_5.png]
+
+= Development
+== WiFi
+You can check the WiFi startup status in the Network's wireless section. Among them, Triductor_2GAp and Triductor_5GAp are the WiFi of BPI-WiFi6. You can also make the configuration in the "Edit" section.
+
+image::/bpi-wifi6/bpi-wifi6_wifi1.jpg[bpi-wifi6_wifi1.jpg]
+
+== USB
+You can view USB devices by executing the lsusb command.
+```
+root@OpenWrt:/# lsusb
+Bus 001 Device 002: ID 05e3:0751 USB Storage USB Storage
+Bus 002 Device 001: ID 1d6b:0003 Linux 5.10.138 xhci-hcd xHCI Host Controller
+Bus 001 Device 001: ID 1d6b:0002 Linux 5.10.138 xhci-hcd xHCI Host Controller
+```
+Furthermore, the USB interface is already configured in the source code, so it can be used without any modifications.
+
