@@ -40,7 +40,7 @@ WARNING: **Note**: The old source code is incompatible with the new hardware and
  +
 The new source code is compatible with the old hardware, but its use is not recommended. The new source code requires a MAC address and corresponding key; otherwise, WiFi functionality will be limited, and the device will restart every hour. +
  +
-The silkscreen markings on the new WiFi chip are vertical, while those on the old chip are horizontal.
+Based on the BPI-WIFI6 Mini silkscreen on the board, the new WiFi chip is parallel, while the old WiFi chip is vertical.
 
 
 = Software (upgrade on web ui)
