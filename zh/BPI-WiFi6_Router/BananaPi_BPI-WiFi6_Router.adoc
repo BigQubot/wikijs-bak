@@ -64,7 +64,7 @@ New source code: https://github.com/BPI-SINOVOIP/THG6500-TAX2-OPENWRT-BSP_TGP3
 
 WARNING: **Note**: 旧版源代码与新硬件不兼容，会导致 WiFi 功能异常。 +
 新版源代码与旧硬件兼容，但不建议旧硬件使用。新版源代码需要 MAC 地址和对应的密钥；否则，WiFi 功能将受到限制，设备每小时会重启一次。 +
-根据主芯片上的丝印标记，新款 WiFi 芯片为竖向排列，而旧款 WiFi 芯片为横向排列。
+根据主芯片上的丝印标记，新款 WiFi 芯片是垂直的，而旧款 WiFi 芯片是水平的。
 
 
 == 开发资源
