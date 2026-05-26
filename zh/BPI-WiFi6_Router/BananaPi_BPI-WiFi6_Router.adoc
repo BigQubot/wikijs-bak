@@ -58,10 +58,24 @@ TIP: OEM&ODM支持：此板支持定制服务。您可以快速生产自己的wi
 
 = 发展
 == 源代码
-TIP: Source code on github: https://github.com/BPI-SINOVOIP/THG6500-TAX2-OPENWRT-BSP_TGP3
+TIP: Source code on github:  +
+Old source code: https://github.com/BPI-SINOVOIP/THG6500-TAX2-OPENWRT-BSP +
+New source code: https://github.com/BPI-SINOVOIP/THG6500-TAX2-OPENWRT-BSP_TGP3
+
+WARNING: **Note**: 旧版源代码与新硬件不兼容，会导致 WiFi 功能异常。 +
+新版源代码与旧硬件兼容，但不建议旧硬件使用。新版源代码需要 MAC 地址和对应的密钥；否则，WiFi 功能将受到限制，设备每小时会重启一次。 +
+根据主芯片上的丝印标记，新款 WiFi 芯片为竖向排列，而旧款 WiFi 芯片为横向排列。
 
 
 == 开发资源
+TIP: BPI-WiFi6 Schematic
+
+Baidu cloud: https://pan.baidu.com/s/16c8t09cWXovTMgPh2XYeKg?pwd=8888 (pincode: 8888)
+
+Google drive: 
+https://drive.google.com/file/d/1ACCs0LddjU0Za6j25xwjp2C_CsRR9AMN/view?usp=sharing
+
+
 TIP: Banana Pi BPI wfi6 router with Triductor TR6560 + TR5220 wifi SOC test PoE and OpenWRT: https://www.youtube.com/watch?v=Nf03ssN8ez0
 
 = 系统镜像
