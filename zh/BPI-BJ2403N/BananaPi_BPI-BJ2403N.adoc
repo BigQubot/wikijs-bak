@@ -29,10 +29,10 @@ ME2 第二代电机控制引擎
 点击链接->快速调试指南
 
 = **硬件**
-== **硬件接口示意图**
+== **1、硬件接口示意图**
 image::/bpi-bj2403n/bpi-bj2403n-hd-def1.gif[bpi-bj2403n-hd-def1.gif]
 image::/bpi-bj2403n/bpi-bj2403n-hd-def2.gif[bpi-bj2403n-hd-def2.gif]
-== **硬件规格描述**
+== **2、硬件规格描述**
 [cols="2*", options="header"]
 |=============================================
 | MCU      | FU7512L，峰岹科技双核MCU，基于 RISC-V核和ME核)
@@ -46,3 +46,42 @@ image::/bpi-bj2403n/bpi-bj2403n-hd-def2.gif[bpi-bj2403n-hd-def2.gif]
 | 编码器接口    | 电机编码器反馈接口                        
 | 动力线/电源接口 | 电机动力线及驱动板电源接口                    
 |=============================================
+== **3、485接口定义**
+[cols="2*", options="header"]
+|==============
+   
+| 接口引脚 | 功能    
+| 1    | VMCU  
+| 2    | 485_B 
+| 3    | 485_A 
+| 4    | GND   
+ 
+|==============
+image::/bpi-bj2403n/485-def.png[485-def.png]
+== **4、动力线/电源接口定义**
+[cols="2*", options="header"]
+|============
+| 接口引脚 | 功能  
+| 1    | U红  
+| 2    | V蓝  
+| 3    | W黑  
+| 4    | VDC 
+| 5    | GND 
+     
+|============
+image::/bpi-bj2403n/bpi-bj2403n-hd-power-def.png[bpi-bj2403n-hd-power-def.png]
+== **5、编码器接口定义**
+[cols="4*", options="header"]
+|===========================================
+| 接口引脚 | 功能           | 接口引脚 | 功能           
+| 1    | HALL_U       | 2    | PE           
+| 3    | HALL_V       | 4    | GND          
+| 5    | HALL_W       | 6    | 5V           
+| 7    | 增量编码器Z+      | 8    | 增量编码器Z-      
+.2+| 9    | 增量编码器B+      .2+| 10   | 增量编码器B-      
+|      | SSI编码器data+  |      | SSI编码器data-  
+.2+| 11   | 增量编码器A+      .2+| 12   | 增量编码器A-      
+|      | SSI编码器clock+ |      | SSI编码器clock- 
+|      |              |      |              
+|===========================================
+image::/bpi-bj2403n/bpi-bj2403n-code-def.png[bpi-bj2403n-code-def.png]
