@@ -52,6 +52,11 @@ image::/picture/bpi-xxxx.png[bpi-xxxx.png]
 NOTE: 注意图片名称，如果有相同名字的，将会覆盖旧图片。还有注意图片格式，如果新图片和旧的格式不同，记得更新一下图片链接。
 +
 WARNING: 图片上传前请确定好文件夹。以及删除图片时，请确保没有其他页面也在使用该图片。
++
+图片如果想要居中
+```
+image:://图片链接[图片名字 , align=center]
+```
 
 image::/picture/a_bpi-m1.jpg[a_bpi-m1.jpg , align=center]
 
