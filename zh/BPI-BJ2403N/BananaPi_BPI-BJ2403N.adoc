@@ -78,8 +78,21 @@ image::/bpi-bj2403n/bpi-bj2403n-hd-power-def.png[bpi-bj2403n-hd-power-def.png]
 | 3    | HALL_V       | 4    | GND          
 | 5    | HALL_W       | 6    | 5V           
 | 7    | 增量编码器Z+      | 8    | 增量编码器Z-      
-.2+| 9    | 增量编码器B+      .2+| 10   | 增量编码器B-      
+.2+|9| 增量编码器B+      .2+|10   | 增量编码器B-      
 |      | SSI编码器data+  |      | SSI编码器data-  
-.2+| 11   | 增量编码器A+      .2+| 12   | 增量编码器A-      
+.2+|11   | 增量编码器A+      .2+|12   | 增量编码器A-      
 |      | SSI编码器clock+ |      | SSI编码器clock- 
 |===========================================
+
+[cols="4*",options="header",frame="all",grid="all"]
+|===|接口引脚 |功能 |接口引脚 |功能
+|1  | HALL_U      |2  | PE
+|3  | HALL_V      |4  | GND
+|5  | HALL_W      |6  | 5V
+|7  | 增量编码器Z+  |8  | 增量编码器Z-
+|9  |增量编码器B+   |10 |增量编码器B-
+|9  |SSI编码器data+|10 |SSI编码器data-
+|11 |增量编码器A+   |12 |增量编码器A-
+|11 |SSI编码器clock+  |12 |SSI编码器clock-
+|===
+
