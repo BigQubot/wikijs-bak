@@ -57,7 +57,7 @@ image::/bpi-bj2403n/bpi-bj2403n-hd-def2.gif[bpi-bj2403n-hd-def2.gif,align=center
 | 4    | GND   
  
 |==============
-image::/bpi-bj2403n/485-def.png[485-def.png]
+image::/bpi-bj2403n/485-def.png[485-def.png,align=center]
 == **4、动力线/电源接口定义**
 [cols="2*", options="header"]
 |============
@@ -83,7 +83,7 @@ image::/bpi-bj2403n/bpi-bj2403n-hd-power-def.png[bpi-bj2403n-hd-power-def.png]
 |11    | 增量编码器A+      |12   | 增量编码器A-      
 | 11     | SSI编码器clock+ |12     | SSI编码器clock- 
 |===========================================
-image::/bpi-bj2403n/bpi-bj2403n-code-def.png[bpi-bj2403n-code-def.png]
+image::/bpi-bj2403n/bpi-bj2403n-code-def.png[bpi-bj2403n-code-def.png,align=center]
 == **6、IO接口定义**
 [cols="2*", options="header"]
 |===================
@@ -99,5 +99,5 @@ image::/bpi-bj2403n/bpi-bj2403n-code-def.png[bpi-bj2403n-code-def.png]
 | 9    | ANALOG_P   
 |===================
 
-image::/bpi-bj2403n/bpi-bj2403n-io-def.png[bpi-bj2403n-io-def.png]
+image::/bpi-bj2403n/bpi-bj2403n-io-def.png[bpi-bj2403n-io-def.png,align=center]
 
