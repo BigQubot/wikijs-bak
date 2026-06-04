@@ -1,0 +1,13 @@
+= Fortior Tech 峰岹低压伺服模块使用说明
+
+== 1	接线说明
+参考下面依次接上电源线、电机动力线、编码线、485串口线。电源请接24V直流电压。
+
+**主电源接通前，请再次确认电源线正负向是否正确连接。**
+
+image::/bpi-bj2403n/bj-2304n-gs-line.gif[bj-2304n-gs-line.gif]
+
+== 2	试运行调试
+试运行调试使用上位机软件FortiorTechServoStudio。
+
+image::/bpi-bj2403n/bj-2403n-gs-degug.jpg[bj-2403n-gs-degug.jpg]
