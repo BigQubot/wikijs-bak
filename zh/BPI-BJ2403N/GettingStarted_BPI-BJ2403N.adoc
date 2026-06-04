@@ -5,12 +5,12 @@
 
 **主电源接通前，请再次确认电源线正负向是否正确连接。**
 
-image::/bpi-bj2403n/bj-2304n-gs-line.gif[bj-2304n-gs-line.gif]
+image::/bpi-bj2403n/bj-2304n-gs-line.gif[bj-2304n-gs-line.gif,align=center]
 
 == 2	试运行调试
 试运行调试使用上位机软件FortiorTechServoStudio。
 
-image::/bpi-bj2403n/bj-2403n-gs-degug-0.png[bj-2403n-gs-degug-0.png]
+image::/bpi-bj2403n/bj-2403n-gs-degug-0.png[bj-2403n-gs-degug-0.png,align=center]
 
 === 2.1	通信连接
 
@@ -27,7 +27,7 @@ image::/bpi-bj2403n/bj-2403n-gs-debug-1.png[bj-2403n-gs-debug-1.png, align=cente
 
 (5) 点击“连接”按钮，实现通信连接。
 
-image::/bpi-bj2403n/bj-2403n-gs-debug-2.png[bj-2403n-gs-debug-2.png]
+image::/bpi-bj2403n/bj-2403n-gs-debug-2.png[bj-2403n-gs-debug-2.png,align=center]
 
 === 2.2	导入参数
 
@@ -60,7 +60,7 @@ Hall学习步骤：
 
 (4) 寻相结束后会弹出框提示寻相成功，如果寻相失败，可以提高寻相电流再试试，检查一下电机及反馈参数设置是否正确，电机读数是否正常，Hall信号是否正常。
 
-image::/bpi-bj2403n/bj-2403n-gs-debug-5.png[bj-2403n-gs-debug-5.png]
+image::/bpi-bj2403n/bj-2403n-gs-debug-5.png[bj-2403n-gs-debug-5.png,align=center]
 
 === 2.4	跑电机
 
@@ -80,13 +80,13 @@ image::/bpi-bj2403n/bj-2403n-gs-debug-5.png[bj-2403n-gs-debug-5.png]
 
 ⑥ “运动指令”选择“增量”“往返”“重复”，“目标位置”取一个合适的移动距离，“速度”设为额定速度的40%，“加速度”取一个偏小的值，“时间”设为500ms，点击“开始”按钮。
 
-image::/bpi-bj2403n/bj-2403n-gs-debug-6.png[bj-2403n-gs-debug-6.png]
+image::/bpi-bj2403n/bj-2403n-gs-debug-6.png[bj-2403n-gs-debug-6.png,align=center]
 
 == 3	更新程序
 
 如果需要更新下位机程序，需要用峰岹的编程环境FTM32ForgeIDE通过峰岹仿真器来下载新的程序。
 
-image::/bpi-bj2403n/bj-2403n-gs-debug-7.png[bj-2403n-gs-debug-image::/bpi-bj2403n/bj-2403n-gs-update-1.png[bj-2403n-gs-update-1.png]7.png]
+image::/bpi-bj2403n/bj-2403n-gs-debug-7.png[bj-2403n-gs-debug-7.png,align=center]
 
 请先到 https://www.fortiortech.com/en/download/FTM32ForgeIDE 下载峰岹FTM32ForgeIDE，安装选项都选择默认。
 
@@ -101,18 +101,25 @@ image::/bpi-bj2403n/bj-2403n-gs-debug-7.png[bj-2403n-gs-debug-image::/bpi-bj2403
 | GND   | G     
 |===============
 
-image::/bpi-bj2403n/bj-2403n-gs-update-1.png[bj-2403n-gs-update-1.png]
-image::/bpi-bj2403n/bj-2403n-gs-update-2.png[bj-2403n-gs-update-2.png]
+image::/bpi-bj2403n/bj-2403n-gs-update-1.png[bj-2403n-gs-update-1.png,align=center]
+image::/bpi-bj2403n/bj-2403n-gs-update-2.png[bj-2403n-gs-update-2.png,align=center]
 双击.ftproj打开工程
 
-image::/bpi-bj2403n/bj-2403n-gs-update-3.png[bj-2403n-gs-update-3.png]
+image::/bpi-bj2403n/bj-2403n-gs-update-3-2.png[bj-2403n-gs-update-3-2.png,align=center]
+点击下图红色方框所示按钮，对代码进行编译
 
-点击 image::/bpi-bj2403n/bj-2403n-gs-update-4.png[bj-2403n-gs-update-4.png]   按钮，对代码进行编译
-
-image::/bpi-bj2403n/bj-2403n-gs-update-5.png[bj-2403n-gs-update-5.png]
+image::/bpi-bj2403n/bj-2403n-gs-update-5-1.png[bj-2403n-gs-update-5-1.png,align=center]
 编译成功后输出窗口 Output 显示 “Build Project successfully”
 
+image::/bpi-bj2403n/bj-2403n-gs-update-6-1.png[bj-2403n-gs-update-6-1.png,align=center]
+
+点击下图红色方框所示按钮，将程序下载到板子
+
+image::/bpi-bj2403n/bj-2403n-gs-update-8-1.png[bj-2403n-gs-update-8-1.png,align=center]
 等下载进度条达到 100%时，表明程序代码已成功下载到芯片中，
+
+image::/bpi-bj2403n/bj-2403n-gs-update-9.png[bj-2403n-gs-update-9.png,align=center]
 
 下载成功后输出窗口 Output 显示 “done”，CRC显示非零表示校验成功。
 
+image::/bpi-bj2403n/bj-2403n-gs-update-10-1.png[bj-2403n-gs-update-10-1.png,align=center]
