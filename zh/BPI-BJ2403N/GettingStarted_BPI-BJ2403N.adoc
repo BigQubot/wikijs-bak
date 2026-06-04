@@ -10,4 +10,92 @@ image::/bpi-bj2403n/bj-2304n-gs-line.gif[bj-2304n-gs-line.gif]
 == 2	试运行调试
 试运行调试使用上位机软件FortiorTechServoStudio。
 
-image::/bpi-bj2403n/bj-2403n-gs-degug.jpg[bj-2403n-gs-degug.jpg]
+image::/bpi-bj2403n/bj-2403n-gs-degug-0.png[bj-2403n-gs-degug-0.png]
+
+=== 2.1	通信连接
+
+(1) 安装串口驱动程序；
+
+(2) 使用485串口数据线连接上位机和驱动器；
+
+(3) 双击打开FortiorTechServoStudio.exe，在侧边导航栏，点击“连接”子菜单；
+
+image::/bpi-bj2403n/bj-2403n-gs-debug-1.png[bj-2403n-gs-debug-1.png, align=center]
+
+
+(4) 点击端口下拉框来刷新端口列表，选择与驱动器连接的端口，波特率选择500000；
+
+(5) 点击“连接”按钮，实现通信连接。
+
+image::/bpi-bj2403n/bj-2403n-gs-debug-2.png[bj-2403n-gs-debug-2.png]
+
+=== 2.2	导入参数
+
+第一次使用伺服驱动模块，可以先导入参数：
+
+(1) 在侧边导航栏，点击 “备份与恢复”子菜单；
+
+(2) 点击“导入参数”，选择附件中的.rpc文件，稍等片刻，弹出“导入参数成功”的提示框；
+
+image::/bpi-bj2403n/bj-2403n-gs-debug-3.png[bj-2403n-gs-debug-3.png]
+
+(3) 在上方工具栏，点击 “Save”按钮，保存参数到驱动器Flash。
+
+image::/bpi-bj2403n/bj-2403n-gs-debug-4.png[bj-2403n-gs-debug-4.png]
+
+=== 2.3	Hall学习
+
+由于配套的电机编码器类型是ABZ+Hall，第一次适配时需要进行一次Hall学习。
+Hall学习包括了自动换相，自动换相是确定电机的相序，检测电机极对数或者极距与设置值是否一致，以及确定电角度偏置值。自动换相时电机会移动一个磁极的距离。
+Hall学习是确定Hall信号和电机电角度之间的关系，Hall学习时电机会移动一个磁极的距离。
+做完Hall学习后只需要保存参数到Flash或者保存到本地参数文件，以后只要不修改电机UVW接线顺序，就只需要从Flash加载参数或者导入参数文件即可，下次重新上电就可以直接跑速度环和位置环，无需重新Hall学习。
+
+Hall学习步骤：
+(1) 在侧边导航栏，点击“反馈”子菜单；
+
+(2) “寻相方式”选择“3-HallLearning”，寻相电流设为2.2A；
+
+(3) 点击“寻找相位角”按钮。
+
+(4) 寻相结束后会弹出框提示寻相成功，如果寻相失败，可以提高寻相电流再试试，检查一下电机及反馈参数设置是否正确，电机读数是否正常，Hall信号是否正常。
+
+image::/bpi-bj2403n/bj-2403n-gs-debug-5.png[bj-2403n-gs-debug-5.png]
+
+=== 2.4	跑电机
+
+由于刚才导入的参数文件已经把三环增益调好了，所以这时可以跳过调增益环节直接跑位置环.
+
+跑位置环步骤：
+
+① 示波器“采样点数”设为4000，“时间间隔”设为21；
+
+② 示波器记录变量右键选择“Default Variable”；
+
+③ 点击示波器“连续采样”按钮，开始采集波形；
+
+④ “运行模式”选择 “5-串口位置”；
+
+⑤ 点击上方工具栏“Enable”，使能位置环；
+
+⑥ “运动指令”选择“增量”“往返”“重复”，“目标位置”取一个合适的移动距离，“速度”设为额定速度的40%，“加速度”取一个偏小的值，“时间”设为500ms，点击“开始”按钮。
+
+image::/bpi-bj2403n/bj-2403n-gs-debug-6.png[bj-2403n-gs-debug-6.png]
+
+== 3	更新程序
+
+如果需要更新下位机程序，需要用峰岹的编程环境FTM32ForgeIDE通过峰岹仿真器来下载新的程序。
+
+image::/bpi-bj2403n/bj-2403n-gs-debug-7.png[bj-2403n-gs-debug-7.png]
+
+请先到 https://www.fortiortech.com/en/download/FTM32ForgeIDE 下载峰岹FTM32ForgeIDE，安装选项都选择默认。
+
+用峰岹的仿真器连接板子的下载口，接线定义如下：
+
+[cols="2*", options="header"]
+|===============
+| 仿真器   | 板子下载口 
+| VDD   | V     
+| FICEK | K     
+| FICED | D     
+| GND   | G     
+|===============
