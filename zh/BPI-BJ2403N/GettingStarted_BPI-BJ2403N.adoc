@@ -37,11 +37,12 @@ image::/bpi-bj2403n/bj-2403n-gs-debug-2.png[bj-2403n-gs-debug-2.png]
 
 (2) 点击“导入参数”，选择附件中的.rpc文件，稍等片刻，弹出“导入参数成功”的提示框；
 
-image::/bpi-bj2403n/bj-2403n-gs-debug-3.png[bj-2403n-gs-debug-3.png]
+image::/bpi-bj2403n/bj-2403n-gs-debug-3.png[bj-2403n-gs-debug-3.png,align=center]
+
 
 (3) 在上方工具栏，点击 “Save”按钮，保存参数到驱动器Flash。
 
-image::/bpi-bj2403n/bj-2403n-gs-debug-4.png[bj-2403n-gs-debug-4.png]
+image::/bpi-bj2403n/bj-2403n-gs-debug-4.png[bj-2403n-gs-debug-4.png,align=center]
 
 === 2.3	Hall学习
 
@@ -85,7 +86,7 @@ image::/bpi-bj2403n/bj-2403n-gs-debug-6.png[bj-2403n-gs-debug-6.png]
 
 如果需要更新下位机程序，需要用峰岹的编程环境FTM32ForgeIDE通过峰岹仿真器来下载新的程序。
 
-image::/bpi-bj2403n/bj-2403n-gs-debug-7.png[bj-2403n-gs-debug-7.png]
+image::/bpi-bj2403n/bj-2403n-gs-debug-7.png[bj-2403n-gs-debug-image::/bpi-bj2403n/bj-2403n-gs-update-1.png[bj-2403n-gs-update-1.png]7.png]
 
 请先到 https://www.fortiortech.com/en/download/FTM32ForgeIDE 下载峰岹FTM32ForgeIDE，安装选项都选择默认。
 
@@ -99,3 +100,19 @@ image::/bpi-bj2403n/bj-2403n-gs-debug-7.png[bj-2403n-gs-debug-7.png]
 | FICED | D     
 | GND   | G     
 |===============
+
+image::/bpi-bj2403n/bj-2403n-gs-update-1.png[bj-2403n-gs-update-1.png]
+image::/bpi-bj2403n/bj-2403n-gs-update-2.png[bj-2403n-gs-update-2.png]
+双击.ftproj打开工程
+
+image::/bpi-bj2403n/bj-2403n-gs-update-3.png[bj-2403n-gs-update-3.png]
+
+点击 image::/bpi-bj2403n/bj-2403n-gs-update-4.png[bj-2403n-gs-update-4.png]   按钮，对代码进行编译
+
+image::/bpi-bj2403n/bj-2403n-gs-update-5.png[bj-2403n-gs-update-5.png]
+编译成功后输出窗口 Output 显示 “Build Project successfully”
+
+等下载进度条达到 100%时，表明程序代码已成功下载到芯片中，
+
+下载成功后输出窗口 Output 显示 “done”，CRC显示非零表示校验成功。
+
