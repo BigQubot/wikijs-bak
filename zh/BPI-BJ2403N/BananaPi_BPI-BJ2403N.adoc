@@ -47,6 +47,9 @@ image::/bpi-bj2403n/bpi-bj2403n-hd-def2.gif[bpi-bj2403n-hd-def2.gif,align=center
 | 动力线/电源接口 | 电机动力线及驱动板电源接口                    
 |=============================================
 == **3、485接口定义**
+++++
+<div style="width:fit-content;margin:2em auto;">
+++++
 [cols="2*", options="header"]
 |==============
    
@@ -59,6 +62,9 @@ image::/bpi-bj2403n/bpi-bj2403n-hd-def2.gif[bpi-bj2403n-hd-def2.gif,align=center
 |==============
 image::/bpi-bj2403n/485-def.png[485-def.png,align=center]
 == **4、动力线/电源接口定义**
+++++
+<div style="width:fit-content;margin:2em auto;">
+++++
 [cols="2*", options="header"]
 |============
 | 接口引脚 | 功能  
@@ -69,6 +75,9 @@ image::/bpi-bj2403n/485-def.png[485-def.png,align=center]
 | 5    | GND 
      
 |============
+
+
+
 image::/bpi-bj2403n/bpi-bj2403n-hd-power-def.png[bpi-bj2403n-hd-power-def.png,align=center]
 == **5、编码器接口定义**
 [cols="4*", options="header"]
@@ -85,6 +94,9 @@ image::/bpi-bj2403n/bpi-bj2403n-hd-power-def.png[bpi-bj2403n-hd-power-def.png,al
 |===========================================
 image::/bpi-bj2403n/bpi-bj2403n-code-def.png[bpi-bj2403n-code-def.png,align=center]
 == **6、IO接口定义**
+++++
+<div style="width:fit-content;margin:2em auto;">
+++++
 [cols="2*", options="header"]
 |===================
 | 接口引脚 | 功能         
