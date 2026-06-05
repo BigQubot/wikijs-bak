@@ -29,10 +29,14 @@ ME2 第二代电机控制引擎
 点击链接-> |link:/zh/BPI-BJ2403N/GettingStarted_BPI-BJ2403N[快速调式指南]
 
 = **硬件**
-== **1、硬件接口示意图**
+== **硬件接口示意图**
 image::/bpi-bj2403n/bpi-bj2403n-hd-def1.gif[bpi-bj2403n-hd-def1.gif]
 image::/bpi-bj2403n/bpi-bj2403n-hd-def2.gif[bpi-bj2403n-hd-def2.gif]
-== **2、硬件规格描述**
+== **产品图片**
+
+|link:/zh/BPI-BJ2403N/Photo-BPI-BJ2403N[BPI-BJ-2403N产品图片]
+
+== **硬件规格描述**
 [cols="2*", options="header"]
 |=============================================
 | MCU      | FU7512L，峰岹科技双核MCU，基于 RISC-V核和ME核)
@@ -46,7 +50,7 @@ image::/bpi-bj2403n/bpi-bj2403n-hd-def2.gif[bpi-bj2403n-hd-def2.gif]
 | 编码器接口    | 电机编码器反馈接口                        
 | 动力线/电源接口 | 电机动力线及驱动板电源接口                    
 |=============================================
-== **3、485接口定义**
+== **485接口定义**
 [cols="2*", options="header"]
 |==============
    
@@ -58,7 +62,7 @@ image::/bpi-bj2403n/bpi-bj2403n-hd-def2.gif[bpi-bj2403n-hd-def2.gif]
  
 |==============
 image::/bpi-bj2403n/485-def.png[485-def.png]
-== **4、动力线/电源接口定义**
+== **动力线/电源接口定义**
 
 [cols="2*", options="header"]
 |============
@@ -87,7 +91,7 @@ image::/bpi-bj2403n/bpi-bj2403n-hd-power-def.png[bpi-bj2403n-hd-power-def.png]
 | 11     | SSI编码器clock+ |12     | SSI编码器clock- 
 |===========================================
 image::/bpi-bj2403n/bpi-bj2403n-code-def.png[bpi-bj2403n-code-def.png]
-== **6、IO接口定义**
+== **IO接口定义**
 
 [cols="2*", options="header"]
 |===================
