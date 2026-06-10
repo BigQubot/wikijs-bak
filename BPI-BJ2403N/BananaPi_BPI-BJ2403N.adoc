@@ -75,20 +75,48 @@ image::/bp-en-bj2303n/bj2403n-hw-3.jpg[bj2403n-hw-3.jpg]
 
 image::/bp-en-bj2303n/bj2403n-hw-4.jpg[bj2403n-hw-4.jpg]
 
+
 [cols="2*", options="header"]
 |================
 | Pin | Function 
-| 1   | U(Red)   
-| 2   | V(Blue)  
-| 3   | W(Black) 
-| 4   | VDC      
-| 5   | GND 
-|===============
-
+| 1   | U(Red)    
+| 2   | V(Blue)   
+| 3   | W(Black)   
+| 4   | VDC          
+| 5   | GND    
+|================
 == 5. Encoder Interface Definition
 
 image::/bp-en-bj2303n/bj2403n-hw-5.jpg[bj2403n-hw-5.jpg]
 
+[cols="4*", options="header"]
+|=============================================================
+| Pin | Function               | Pin | Function               
+| 1   | HALL_U                 | 2   | PE                     
+| 3   | HALL_V                 | 4   | GND                    
+| 5   | HALL_W                 | 6   | 5V                     
+| 7   | Incremental encoder Z+ | 8   | Incremental encoder Z- 
+| 9   | Incremental encoder B+ | 10  | Incremental encoder B- 
+| 9   | SSI encoder data+      | 10  | SSI encoder data-      
+| 11  | Incremental encoder A+ | 12  | Incremental encoder A- 
+| 11  | SSI encoder clock+     | 12  | SSI encoder clock-     
+|=============================================================
+
 == 6. I/O Interface Definition
 
+image::/bp-en-bj2303n/bj2403n-hw-6.jpg[bj2403n-hw-6.jpg]
 
+[cols="2*", options="header"]
+|==================
+| Pin | Function   
+| 1   | PULSE_IN+  
+| 2   | PULSE_IN-  
+| 3   | DIR_IN+    
+| 4   | DIR_IN-    
+| 5   | ENABLE_IN+ 
+| 6   | ENABLE_IN- 
+| 7   | ALARM_OUT+ 
+| 8   | ALARM_OUT- 
+| 9   | ANALOG_P   
+| 10  | ANALOG_N   
+|==================
