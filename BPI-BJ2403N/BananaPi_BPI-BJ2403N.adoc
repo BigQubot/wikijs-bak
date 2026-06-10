@@ -35,3 +35,60 @@ The seamless collaboration between the two ensures sufficient capacity to handle
 = Getting Start 
 Click the link ->  link:/en/BPI-BJ2403N/GettingStarted_BPI-BJ2403N[Quick Start Debugging Guide]
 
+= Hardware
+
+== 1. Hardware Interface Diagrams
+
+image::/bp-en-bj2303n/bj2403n-hw-1.jpg[bj2403n-hw-1.jpg]
+
+image::/bp-en-bj2303n/bj2403n-hw-2.jpg[bj2403n-hw-2.jpg]
+== 2. Hardware Specifications
+
+[cols="2*", options="header"]
+|==========================================================================================================================================================================
+| Item                          | Description                                                                                                                              
+| MCU-FU7512L                   | FU7512L, Fortior Technology self-developed dual-core MCU (32-bit RISC-V core + motor control engine ME2 core)                            
+| Pre-driver FD6288             | FD6288, Fortior Technology self-developed pre-driver, integrates three independent half-bridge gate drivers                              
+| MOS                           |                                                                                                                                          
+| EEPROM                        | 24LC16B, used for saving servo tuning parameters                                                                                         
+| Code download interface       | For downloading code to the MCU for debugging                                                                                            
+| 485 debug interface           | For connecting to the servo PC tuning software to drive the servo motor                                                                  
+| Indicator LEDs                | Green LED: steady on indicates power-on; Red LED: blinking indicates fault                                                               
+| I/O interface                 | External motion controller pulse/dir command input, servo enable command input, servo drive fault signal output, and analog signal input 
+| Encoder interface             | Servo motor feedback encoder interface                                                                                                   
+| Power / motor cable interface | Servo motor power lines (U/V/W) and servo drive power input                                                                              
+|==========================================================================================================================================================================
+== 3. 485 Debug Interface Definition
+
+image::/bp-en-bj2303n/bj2403n-hw-3.jpg[bj2403n-hw-3.jpg]
+
+[cols="2*", options="header"]
+|================
+| Pin | Function 
+| 1   | VMCU     
+| 2   | 485_B    
+| 3   | 485_A    
+| 4   | GND           
+|================
+
+== 4. Power / Motor Cable Interface Definition
+
+image::/bp-en-bj2303n/bj2403n-hw-4.jpg[bj2403n-hw-4.jpg]
+
+[cols="2*", options="header"]
+|================
+| Pin | Function 
+| 1   | U(Red)   
+| 2   | V(Blue)  
+| 3   | W(Black) 
+| 4   | VDC      
+| 5   | GND 
+|===============
+
+== 5. Encoder Interface Definition
+
+image::/bp-en-bj2303n/bj2403n-hw-5.jpg[bj2403n-hw-5.jpg]
+
+== 6. I/O Interface Definition
+
+
