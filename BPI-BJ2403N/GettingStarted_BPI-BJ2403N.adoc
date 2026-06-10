@@ -1,0 +1,113 @@
+= User Manual for Fortior Servo Module
+
+== 1	Wiring Instructions
+Connect the power, motor, encoder, and RS485 cables in the specified order. A 24V DC power supply is required. Important: Before applying main power, verify that the power cable polarity is correct to prevent damage.
+
+image::/bp-en-bj2303n/bj2404n-gs-1-1.png[bj2404n-gs-1-1.png]
+== 2	Trial Run and Test
+Please use the **FortiorTechServoStudio** PC software for commissioning and test running.
+
+image::/bp-en-bj2303n/bj2403n-gs-2.png[bj2403n-gs-2.png]
+
+=== 2.1	Communication Connection
+(1) Install the serial driver. 
+
+(2) Connect the PC and the drive via the RS485 cable. 
+
+(3) Open **FortiorTechServoStudio.exe** and click the "**Connect**" submenu in the side navigation panel.
+
+image::/bp-en-bj2303n/bj2403n-gs-3.png[bj2403n-gs-3.png]
+
+(4) Refresh the port list from the dropdown, select the port for the drive, and set the baud rate to 500000. 
+
+(5) Click "**Connect**" to establish the communication link.
+
+image::/bp-en-bj2303n/bj2403n-gs-4.png[bj2403n-gs-4.png]
+=== 2.2	Importing Parameters
+When using the servo drive module for the first time, you can start by importing the parameters: 
+
+(1) In the side navigation bar, click the "**Backup & Restore**" submenu. 
+
+(2) Click "**Load**" select the .rpc file from the attachment, and wait a moment until the "Import parameters successfully" prompt box appears.
+
+image::/bp-en-bj2303n/bj2403n-gs-5.png[bj2403n-gs-5.png]
+(3) On the top toolbar, click the "Save" button to save the parameters to the drive's Flash memory.
+
+image::/bp-en-bj2303n/bj2403n-gs-6.png[bj2403n-gs-6.png]
+=== 2.3	Hall Learning
+Since the matching motor encoder type is ABZ+Hall, a "**Hall Learning**" process is required during the initial adaptation. 
+
+Hall learning includes automatic commutation, which is used to determine the motor phase sequence, verify if the motor pole pairs or pole pitch match the set values, and determine the electrical angle offset. During automatic commutation, the motor will move a distance equal to one magnetic pole.
+
+Hall learning determines the relationship between Hall signals and the motor's electrical angle. During this process, the motor will move by one magnetic pole distance. After completing Hall learning, simply save the parameters to Flash or to a local parameter file. As long as the motor UVW wiring sequence is not modified, you only need to load parameters from Flash or import the parameter file in the future. The motor can run speed and position loops directly upon the next power-on without repeating the Hall learning process.
+
+**Hall Learning Steps: **
+
+(1) In the side navigation bar, click the "**Feedback**" submenu. 
+
+(2) Set "**Phasing Method**" to "**3-HallLearning**" and set the Phasing Current to 2.2A. 
+
+(3) Click the "**Phase Find Start**" button. 
+
+(4) A prompt box will appear upon successful completion. If it fails, try increasing the phasing current, check that the motor and feedback parameters are set correctly, and ensure the motor readings and Hall signals are normal.
+
+image::/bp-en-bj2303n/bj2403n-gs-7.png[bj2403n-gs-7.png]
+
+=== 2.4	Running the Motor
+Since the parameter file imported earlier already includes pre-tuned gains for the three loops, you can skip the tuning process and run the position loop directly. 
+
+**Position Loop Steps: **
+
+① Set the Oscilloscope "**Sample Size**" to 4000 and "**Time Interval**" to 21. 
+
+② Right-click on the oscilloscope recording variables and select "**Default Variable**". 
+
+③ Click the "**Continuous Sampling**" button in the oscilloscope to start waveform acquisition. 
+
+④ Set "**Operation Mode**" to "**5-Serial Position**". 
+
+⑤ Click the "**Enable**" button on the top toolbar to enable the position loop. 
+
+⑥ In "Motion Command", select "**Incremental**," "**Round**," and "**Repeat**". Set a suitable distance for "**Target Position**", set "**Speed**" to 40% of the rated speed, use a relatively low value for "**Acceleration**", set "**Time**" to 500ms, and click the "**Start**" button.
+
+image::/bp-en-bj2303n/bj2403n-gs-8.png[bj2403n-gs-8.png]
+
+== 3	Updating the Firmware
+
+To update the firmware, you must use Fortior's development environment, **FTM32ForgeIDE**, via the Fortior emulator to download the new program.
+
+image::/bp-en-bj2303n/bj2403n-gs-9.png[bj2403n-gs-9.png]
+Please download the Fortior FTM32ForgeIDE from https://www.fortiortech.com/en/download/FTM32ForgeIDE and use the default settings during installation. Connect the Fortior emulator to the board's download port. The pinout definition is as follows:
+
+[cols="2*", options="header"]
+|===================================
+| Emulator | Board Programming Port 
+| VDD      | V                      
+| FICEK    | K                      
+| FICED    | D                      
+| GND      | G                      
+|===================================
+
+image::/bp-en-bj2303n/bj2403n-gs-10.png[bj2403n-gs-10.png]
+
+image::/bp-en-bj2303n/bj2403n-gs-11.png[bj2403n-gs-11.png]
+
+**Double-click** the .ftproj file to open the project
+
+image::/bp-en-bj2303n/bj2403n-gs-12.png[bj2403n-gs-12.png]
+
+Once compiled successfully, the Output window will display "Build Project successfully."
+
+image::/bp-en-bj2303n/bj2403n-gs-13.png[bj2403n-gs-13.png]
+
+Click the button as following picture to download the program to the board.
+
+image::/bp-en-bj2303n/bj2403n-gs-14.png[bj2403n-gs-14.png]
+
+When the download progress bar reaches 100%, the code has been successfully downloaded to the chip.
+
+image::/bp-en-bj2303n/bj2403n-gs-15.png[bj2403n-gs-15.png]
+
+After a successful download, the Output window will display "done," and a non-zero CRC value indicates that the verification was successful.
+
+image::/bp-en-bj2303n/bj2403n-gs-16.png[bj2403n-gs-16.png]
