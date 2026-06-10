@@ -1,0 +1,43 @@
+= Introduction
+
+K3-CoM260 supports a variety of operating systems and development kits, including the native Bianbu system, Ubuntu operating system, Linux and OpenHarmony, etc., with AI full-stack development kits, it can meet the diverse development needs of AI.
+
+K3-CoM260 provides a rich interface, Covers MIPI-DSI, MIPI-CSI, DP 1.2, SDIO 3.0, eSPI, SPI, I2S, I2C, CAN-FD, PWM, UART, USB 2.0, USB 3.0, PCIe 3.0, GMAC, etc. With its high performance and rich interface resources, K3-CoM260 is a better choice for RISC-V end-side application solutions and product development.
+
+== Specifications
+
+- Superior CPU Performance
+
+Eight high-performance computing cores (X100) combined with eight AI cores (A100) deliver over 130 KDMIPS of CPU computing power. The X100 single-core SPECint2006 performance is >9.0/GHz, with a maximum clock speed of 2.4 GHz.
+
+- Homogeneous AI Computing Power
+
+Provides 60 TOPS of AI computing power, leveraging ultra-wide parallel computing AI cores to offer powerful general-purpose AI computing power, enabling rapid integration with all mainstream AI ecosystems. It boasts 7B local large-model computing power > 10 Tokens/s.
+
+- Latest RISC-V Architecture, Super Parallel Computing Capabilities
+
+The A100 supports up to 1024-bit RVV 1.0 parallel computing and the latest RVA23 Profile and Vector Crypto standards.
+
+- Rich I/O Expansion Interfaces
+
+Integrates multiple high-speed expansion interfaces to flexibly meet various computer expansion needs: 8-lane PCIe, 3 USB 3.0 ports, 1 GMAC port, etc.
+
+- Complete Hardware Virtualization
+
+Features complete hardware virtualization technology, supporting RV Hypervisor 1.0 expansion, RV AIA expansion, and RV IOMMU expansion, providing complete hardware virtualization for CPU, memory, interrupts, and I/O.
+
+- Advanced Security Defense Technology
+
+Supports M/S/U processor privileges; supports hardware resistance against Spectre and Meltdown attacks; supports Chinese national cryptographic standards 2, 3, and 4 hardware security technologies.
+
+- Industry-Grade Compliance
+
+CPU cores, multi-level cache, and SRAM support ECC design, providing stable and reliable continuous computing power output even in ambient temperatures ranging from -40˚C to 85˚C, meeting the harsh environmental requirements of industrial applications.
+
+
+
+
+
+
+
+
