@@ -1,0 +1,37 @@
+= Development Board Introduction
+
+The **BJ2403N** is an open-source, low-voltage servo drive platform specifically designed for industrial control applications. Developed based on Fortior Technology's **FU7512L** MCU and **FD6288Q** pre-driver chip, this platform covers power ranges for 100W/200W servo applications. It supports multiple control modes, including Pulse/Direction, Analog, and RS485. Compatible encoder types include Absolute Encoders (Tamagawa/BiSS-C protocols), Incremental Encoders, and Hall Encoders. This platform enables developers to accelerate product commercialization and perform secondary development to create customized products tailored to specific requirements.
+
+= Chip Introduction
+== About the FU7512L
+The FU75xx series from Fortior Technology is the industry’s first motor control-specific MCU based on a 32-bit RISC-V dual-core architecture. This chip integrates high-performance computing with real-time control capabilities. Leveraging the proprietary 2nd generation ME (Motor Engine) core, it effectively addresses the challenges of complex application scenarios. Whether for industrial servo drives, robotic joints, smart home appliances, or new energy vehicles, it provides an unprecedented motor control experience.
+
+The FU75xx series MCU combines the **Motor Engine 2 (ME2)** with the 32-bit RISC-V core. Through this innovative heterogeneous architecture, it provides an ideal solution for high-performance motor applications:
+
+**•	ME2 (Motor Engine 2)**: Integrates dedicated and flexible hardware algorithm modules that can be called directly or replaced by custom software, achieving efficiency far superior to pure software implementations. Compared to the first-generation ME, it offers significantly enhanced performance and a 100% increase in functional modules.
+
+**•	RISC-V Core**: Provides flexible processing for system communication, application logic, and user interface functions.
+
+The seamless collaboration between the two ensures sufficient capacity to handle diverse application scenarios. In servo applications, the FOC (Field Oriented Control) calculation time is as low as **5μs**.
+
+= Key Features (Chip + Board)
+
+**•	Core**: 32-bit RISC-V architecture.
+
+**•	Motor Control**: ME2 (2nd Generation Motor Engine), supporting hardware FOC modules, dual-sampling for current loops, hardware speed loops, hardware PI controllers, hardware CORDIC modules, and 4-level configurable hardware filters.
+
+**•	Clock**: 24MHz/48MHz high-precision oscillator.
+
+**•	Memory**: 64KB Flash, 12KB SRAM.
+
+**•	Temperature Range**: Junction temperature (Tj): -40°C to 150°C; Operating ambient temperature (Ta): -40°C to 125°C.
+
+**•	Encoder Support**: Supports Absolute Encoders (Tamagawa/BiSS-C protocols), Incremental Encoders, and Hall Encoders.
+
+**•	Pulse Input**: Supports a maximum Pulse/Direction input frequency of 4MHz.
+
+**•	Power Capability**: Supports 100W/200W servo applications.
+
+= Getting Start 
+Click the link -> Quick Start Debugging Guide
+
