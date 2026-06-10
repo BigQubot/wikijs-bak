@@ -44,6 +44,12 @@ CPU cores, multi-level cache, and SRAM support ECC design, providing stable and 
 
 . Download the corresponding image to your PC and prepare to burn it.
 
+. Install and download the burning software.
+
+https://cloud.spacemit.com/prod-api/release/download/tools?token=titantools_for_windows_X86_X64[TITANTOOLS FOR WINDOWS]
+
+https://cloud.spacemit.com/prod-api/release/download/tools?token=titantools_for_linux_64BIT_APPIMAGE[TITANTOOLS FOR Linux]
+
 == Entering Flashing Mode
 
 Before entering flashing mode, please prepare two buttons, one for shorting FC_REC and GND, and the other for shorting SYS_RST and GND.
