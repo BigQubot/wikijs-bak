@@ -4,6 +4,8 @@ K3-CoM260 supports a variety of operating systems and development kits, includin
 
 K3-CoM260 provides a rich interface, Covers MIPI-DSI, MIPI-CSI, DP 1.2, SDIO 3.0, eSPI, SPI, I2S, I2C, CAN-FD, PWM, UART, USB 2.0, USB 3.0, PCIe 3.0, GMAC, etc. With its high performance and rich interface resources, K3-CoM260 is a better choice for RISC-V end-side application solutions and product development.
 
+TIP: More Infomation: link:/en/BPI-SM10/BananaPi_BPI-SM10[Banana Pi BPI-SM10 Main Page]
+
 == Specifications
 
 - Superior CPU Performance
@@ -33,6 +35,47 @@ Supports M/S/U processor privileges; supports hardware resistance against Spectr
 - Industry-Grade Compliance
 
 CPU cores, multi-level cache, and SRAM support ECC design, providing stable and reliable continuous computing power output even in ambient temperatures ranging from -40˚C to 85˚C, meeting the harsh environmental requirements of industrial applications.
+
+= Development
+
+== Prepare
+
+. Prepare a TTL cable, a 12V PD power supply, USB cable, and a minimum of 8G TF card.
+
+. Download the corresponding image to your PC and prepare to burn it.
+
+== Entering Flashing Mode
+
+Before entering flashing mode, please prepare two buttons, one for shorting FC_REC and GND, and the other for shorting SYS_RST and GND.
+
+=== power-off state
+
+. Press and hold the FC_REC button.
+
+. Connect the power adapter to power on the device.
+
+. Release the FC_REC button.
+
+. Connect the development board's Type-C interface to the host computer using a Type-C data cable.
+
+. Use the Titan flashing tool or execute the fastboot command to flash the firmware.
+
+=== power-on state
+
+. Press and hold the FC_REC button.
+
+. Briefly press the RST button.
+
+. Release the FC_REC button.
+
+. Connect the development board's Type-C port to the host computer using a Type-C data cable.
+
+. Use the Titan flashing tool or execute the fastboot command to flash the firmware.
+
+
+
+
+
 
 
 
