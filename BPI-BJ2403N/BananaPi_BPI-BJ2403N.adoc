@@ -44,8 +44,8 @@ image::/bp-en-bj2303n/bj2403n-hw-1.jpg[bj2403n-hw-1.jpg]
 image::/bp-en-bj2303n/bj2403n-hw-2.jpg[bj2403n-hw-2.jpg]
 == 2. Hardware Specifications
 
-[cols="2*", options="header"]
-|==========================================================================================================================================================================
+[cols="1,3", options="header" ]
+|====
 | Item                          | Description                                                                                                                              
 | MCU-FU7512L                   | FU7512L, Fortior Technology self-developed dual-core MCU (32-bit RISC-V core + motor control engine ME2 core)                            
 | Pre-driver FD6288             | FD6288, Fortior Technology self-developed pre-driver, integrates three independent half-bridge gate drivers                              
@@ -57,7 +57,7 @@ image::/bp-en-bj2303n/bj2403n-hw-2.jpg[bj2403n-hw-2.jpg]
 | I/O interface                 | External motion controller pulse/dir command input, servo enable command input, servo drive fault signal output, and analog signal input 
 | Encoder interface             | Servo motor feedback encoder interface                                                                                                   
 | Power / motor cable interface | Servo motor power lines (U/V/W) and servo drive power input                                                                              
-|==========================================================================================================================================================================
+|====
 == 3. 485 Debug Interface Definition
 
 image::/bp-en-bj2303n/bj2403n-hw-3.jpg[bj2403n-hw-3.jpg]
