@@ -4,7 +4,10 @@ image::/bp-en-bj2303n/bj2303n_banana1_260610.jpg[bj2303n_banana1_260610.jpg, wid
 
 The Banana Pi **BPI-BJ2403N** is an open-source, low-voltage servo drive platform specifically designed for industrial control applications. Developed based on Fortior Technology's **FU7512L** MCU and **FD6288Q** pre-driver chip, this platform covers power ranges for 100W/200W servo applications. It supports multiple control modes, including Pulse/Direction, Analog, and RS485. Compatible encoder types include Absolute Encoders (Tamagawa/BiSS-C protocols), Incremental Encoders, and Hall Encoders. This platform enables developers to accelerate product commercialization and perform secondary development to create customized products tailored to specific requirements.
 
+This open-source project is jointly launched by the Banana Pi Open-Source Community and the official of Fortior Technology to promote open the sourcing of industrial servo systems.
+
 = Chip Introduction
+
 == About the FU7512L
 The FU75xx series from Fortior Technology is the industry’s first motor control-specific MCU based on a 32-bit RISC-V dual-core architecture. This chip integrates high-performance computing with real-time control capabilities. Leveraging the proprietary 2nd generation ME (Motor Engine) core, it effectively addresses the challenges of complex application scenarios. Whether for industrial servo drives, robotic joints, smart home appliances, or new energy vehicles, it provides an unprecedented motor control experience.
 
