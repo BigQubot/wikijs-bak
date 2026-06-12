@@ -40,6 +40,9 @@ CPU cores, multi-level cache, and SRAM support ECC design, providing stable and 
 
 == Prepare
 
+- 
+
+
 . Prepare a TTL cable, a 12V PD power supply, USB cable, and a minimum of 8G TF card.
 
 . Download the corresponding image to your PC and prepare to burn it.
@@ -81,9 +84,106 @@ Before entering flashing mode, please prepare two buttons, one for shorting FC_R
 
 
 
+= GPIO Define
+
+== 12 button pin define
+[options="header",cols="1,1,1,1",width="70%"]
+|====
+4+| **BPI-SM10 12 button pin define**
+|PIN	|PIN number		|PIN number	|Pin
+|PC_LED-	|1		|2	|PC_LED+
+|UART0_RXD	|3	|	4|UART0_TXD
+|BMCU_ACOK	|5		|6	|AUTO_ON_DIS
+|GND	|7		|8	|PMIC_RST_OUTn
+|GND	|9		|10	|FORCE_RECOVERY
+|UART1_RTS_LS	|11		|12	| SLEEP/WAKE
+|====
 
 
+== 40 Pin GPIO define
+[options="header",cols="1,1,1,1",width="70%"]
+|====
+4+| **BPI-SM10 40 PIN GPIO define**
+|Pin	|PIN	number	|PIN	number|Pin
+|VDD_3V3_SYS	|1		|2	|VDD_5V_GPIO
+|I2C3_SDA	|3	|	4|VDD_5V_GPIO
+|I2C3_SCL	|5		|6	|GND
+|GPIO09	|7		|8	|UART1_TXD_LS
+|GND	|9		|10	|UART1_RXD_LS
+|UART1_RTS_LS	|11		|12	|I2S0_SCLK_LS
+|R-SPI0_SCK_LS	|13		|14	|GND
+| GPIO12_LS	|15		|16	|R-SPI0_CS1_LS
+|VDD_3V3_SYS	|17		|18	|R-SPI0_CS_LS
+|SPI0_MOSI_LS	|19		|20	|GND
+|SPI0_MISO_LS|	21	|	22	|R-SPI0_MISO_LS
+|SPI0_SCK_LS	|23	|24	|SPI0_CS0_LS
+|GND	|25		|26	|SPI0_CS1_LS
+|I2C0_SDA	|27	|28	|I2C0_SCL
+|GPIO01_LS	|29		|30	|GND
+|GPIO11_LS|	31	|	32	|GPIO07_LS
+|GPIO13_LS	|33	|34	|GND
+|I2S0_LRCK_LS	|35		|36	|UART1_CTS_LS
+|R-SPI0_MOSI_LS	|37	|38	|I2S0_SDIN_LS
+|GND	|39		|40	|I2S0_SDOUT_LS
+|====
 
+== MIPI CSI CAM0 define
+[options="header",cols="1,1,1,1",width="70%"]
+|====
+4+| **BPI-SM10 MIPI CSI CAM0 define**
+|Pin	|PIN	number	|PIN	number|Pin
+|VDD_3V3_SYS	|1		|2	|I2C4_SDA
+|I2C4_SCL	|3	|	4|GND
+|CLK_CAMCK	|5		|6	|CAM_PWDN
+|GND	|7		|8	|MIPI_CSI0_DP1
+|MIPI_CSI0_DN1	|9		|10	|GND
+|MIPI_CSI0_DP0	|11		|12	|MIPI_CSI0_DN0
+|GND	|13		|14	|MIPI_CSI1_CLKP
+|MIPI_CSI1_CLKN	|15		|16	|GND
+|MIPI_CSI1_DP1	|17		|18	|MIPI_CSI1_DN1
+|GND	|19		|20	|MIPI_CSI1_DP0
+|MIPI_CSI1_DN0|	21	|	22	|GND
+|====
+
+== MIPI CSI CAM1 define
+[options="header",cols="1,1,1,1",width="70%"]
+|====
+4+| **BPI-SM10 MIPI CSI CAM1 define**
+|Pin	|PIN	number	|PIN	number|Pin
+|VDD_3V3_SYS	|1		|2	|I2C4_SDA
+|I2C4_SCL	|3	|	4|GND
+|CLK_CAMCK	|5		|6	|CAM_PWDN
+|GND	|7		|8	|MIPI_CSI3_DP1
+|MIPI_CSI3_DN1	|9		|10	|GND
+|MIPI_CSI3_DP0	|11		|12	|MIPI_CSI3_DN0
+|GND	|13		|14	|MIPI_CSI2_CLKP
+|MIPI_CSI2_CLKN	|15		|16	|GND
+|MIPI_CSI2_DP1	|17		|18	|MIPI_CSI2_DN1
+|GND	|19		|20	|MIPI_CSI2_DP0
+|MIPI_CSI2_DN0|	21	|	22	|GND
+|====
+
+== MIPI DSI define
+[options="header",cols="1,1,1,1",width="70%"]
+|====
+4+| **BPI-SM10 MIPI DSI define**
+|Pin	|PIN	number	|PIN	number|Pin
+|GND	|1		|2	|GND
+|MIPI_DSI1_LANE1_DN	|3	|	4|MIPI_DSI1_LANE1_DN
+|MIPI_DSI1_LANE1_DP	|5		|6	|MIPI_DSI1_LANE1_DP
+|GND	|7		|8	|GND
+|MIPI_DSI1_CLK_N	|9		|10	|MIPI_DSI1_CLK_N
+|MIPI_DSI1_CLK_P	|11		|12	|MIPI_DSI1_CLK_P
+|GND	|13		|14	|GND
+|MIPI_DSI1_LANE0_DN	|15		|16	|MIPI_DSI1_LANE0_DN
+|MIPI_DSI1_LANE0_DP	|17		|18	|MIPI_DSI1_LANE0_DP
+|GND	|19		|20	|GND
+|I2C3_SCL|	21	|	22	|I2C3_SCL
+|I2C3_SDA	|23	|24	|I2C3_SDA
+|GND	|25		|26	|GND
+|LCD_VCC33	|27	|28	|LCD_VCC33
+|LCD_VCC33	|29		|30	|LCD_VCC33
+|====
 
 
 
