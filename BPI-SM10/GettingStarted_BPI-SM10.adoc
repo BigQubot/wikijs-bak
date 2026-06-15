@@ -128,7 +128,155 @@ image::/bpi-sm10/gettingstart/bananapi-pi_sm10_burn7.jpg[bananapi-pi_sm10_burn7.
 +
 image::/bpi-sm10/gettingstart/bananapi-pi_sm10_burn8.jpg[bananapi-pi_sm10_burn8.jpg]
 
+=== Burn to SDcard
 
+. Similarly, open the Tian software and click "Card Boot" to open the SD card burning interface.
++
+image::/bpi-sm10/gettingstart/bananapi-pi_sm10_sdburn1.jpg[bananapi-pi_sm10_sdburn1.jpg]
+
+. select your SD card storage and the image you want to burn
++
+image::/bpi-sm10/gettingstart/bananapi-pi_sm10_sdburn2.jpg[bananapi-pi_sm10_sdburn2.jpg]
+
+. Click "Execute" and wait for decompression.
++
+image::/bpi-sm10/gettingstart/bananapi-pi_sm10_sdburn3.jpg[bananapi-pi_sm10_sdburn3.jpg]
+
+. After decompression, the burning process will begin.
++
+image::/bpi-sm10/gettingstart/bananapi-pi_sm10_sdburn4.jpg[bananapi-pi_sm10_sdburn4.jpg]
+
+
+. The burning process is complete when it reaches 100%.
++
+image::/bpi-sm10/gettingstart/bananapi-pi_sm10_sdburn5.jpg[bananapi-pi_sm10_sdburn5.jpg]
+
+
+== RJ45 interface
+
+Connect the network cable to the RJ45 port, and the system will automatically obtain an IP address and be able to access the external network.
+
+image::/bpi-sm10/gettingstart/bananapi-pi_sm10_rj45_interface1.jpg[bananapi-pi_sm10_rj45_interface1.jpg]
+
+```
+root@k3:~# ifconfig
+end1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.168.1.217  netmask 255.255.255.0  broadcast 10.168.1.255
+        inet6 fe80::7611:efda:6a9c:82a  prefixlen 64  scopeid 0x20<link>
+        inet6 fd0b:9aaf:b1a:0:b96f:ebf9:bb0b:3799  prefixlen 64  scopeid 0x0<global>
+        inet6 fd0b:9aaf:b1a:0:5ca4:965a:fc72:5422  prefixlen 64  scopeid 0x0<global>
+        ether fe:fe:fe:2a:78:3c  txqueuelen 1000  (以太网)
+        RX packets 169  bytes 23868 (23.8 KB)
+        RX errors 0  dropped 8  overruns 0  frame 0
+        TX packets 122  bytes 14625 (14.6 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+        device interrupt 51  base 0xa000
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (本地环回)
+        RX packets 103471  bytes 7522335 (7.5 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 103471  bytes 7522335 (7.5 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+wlP4p1s0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        ether 0c:cd:d0:8d:4e:30  txqueuelen 1000  (以太网)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+root@k3:~# ping baidu.com
+PING baidu.com (110.242.74.102) 56(84) bytes of data.
+64 bytes from 110.242.74.102: icmp_seq=1 ttl=50 time=52.6 ms
+64 bytes from 110.242.74.102: icmp_seq=2 ttl=50 time=66.2 ms
+64 bytes from 110.242.74.102: icmp_seq=3 ttl=50 time=46.3 ms
+64 bytes from 110.242.74.102: icmp_seq=4 ttl=50 time=44.6 ms
+64 bytes from 110.242.74.102: icmp_seq=5 ttl=50 time=51.1 ms
+64 bytes from 110.242.74.102: icmp_seq=6 ttl=50 time=44.9 ms
+64 bytes from 110.242.74.102: icmp_seq=7 ttl=50 time=51.4 ms
+64 bytes from 110.242.74.102: icmp_seq=8 ttl=50 time=44.6 ms
+64 bytes from 110.242.74.102: icmp_seq=9 ttl=50 time=44.9 ms
+64 bytes from 110.242.74.102: icmp_seq=10 ttl=50 time=50.5 ms
+64 bytes from 110.242.74.102: icmp_seq=11 ttl=50 time=44.6 ms
+64 bytes from 110.242.74.102: icmp_seq=12 ttl=50 time=44.7 ms
+
+--- baidu.com ping statistics ---
+12 packets transmitted, 12 received, 0% packet loss, time 15237ms
+rtt min/avg/max/mdev = 44.582/48.871/66.243/6.053 ms
+
+```
+== WiFi
+The BPI-SM10(K3 CoM260) development kit supports access to the M.2 2230 E-Key module, enabling wireless network and Bluetooth functionality.
+
+. Connect the module to the M.2 KEY E interface.
++
+image::/bpi-sm10/gettingstart/bananapi-pi_sm10_wifibt1.jpg[bananapi-pi_sm10_wifibt1.jpg]
+
+. Start the system and use lspci to query modules.
++
+```
+root@k3:~# lspci
+0000:00:00.0 PCI bridge: SpacemiT X100 PCIe Root Complex (rev 01)
+0003:00:00.0 PCI bridge: SpacemiT X100 PCIe Root Complex (rev 01)
+0004:00:00.0 PCI bridge: SpacemiT X100 PCIe Root Complex (rev 01)
+0004:01:00.0 Network controller: Realtek Semiconductor Co., Ltd. RTL8852BE PCIe 802.11ax Wireless Network Controller
+```
+
+. Use the nmcli command to check the surrounding WiFi network.
++ 
+```
+root@k3:~# nmcli device wifi list
+IN-USE  BSSID              SSID                             MODE   CHAN  RATE         SIGNAL  BARS  SECURITY
+        FC:A0:5A:07:00:72  BPI-FAE                          Infra  9     1170 Mbit/s  100     ▂▄▆█  WPA2 WPA3
+        FE:A0:5A:57:00:72  BPI-FAE-5G                       Infra  56    1170 Mbit/s  100     ▂▄▆█  WPA2 WPA3
+        00:0C:43:26:60:D0  BPI-R4-2.4G                      Infra  6     1170 Mbit/s  77      ▂▄▆_  --
+        00:0C:43:26:60:A8  BPI-R4-5G                        Infra  36    405 Mbit/s   75      ▂▄▆_  --
+        1C:11:52:8A:C3:57  BPI-FT_5G                        Infra  149   1170 Mbit/s  74      ▂▄▆_  WPA2 WPA3
+        3C:67:84:04:DD:E8  chen-MIFI_DDE8                   Infra  60    1170 Mbit/s  67      ▂▄▆_  WPA2
+        54:A3:1B:28:69:BE  BPI-RD_Center                    Infra  1     270 Mbit/s   65      ▂▄▆_  WPA2
+        D8:32:14:7E:EF:E5  Tenda_7EEFE0_5G                  Infra  153   1170 Mbit/s  65      ▂▄▆_  WPA1 WPA2
+        C0:11:52:77:F4:9A  BPI-FT                           Infra  2     1170 Mbit/s  60      ▂▄▆_  WPA2 WPA3
+        84:E5:D8:00:B2:15  MohenClass                       Infra  149   1170 Mbit/s  60      ▂▄▆_  WPA2
+        4C:EF:56:82:95:1B  mohen                            Infra  44    1170 Mbit/s  57      ▂▄▆_  WPA2
+        90:B9:42:CD:56:D8  ZHongDi                          Infra  6     1170 Mbit/s  54      ▂▄__  WPA2
+        4C:EF:56:02:95:1B  mohen                            Infra  11    1170 Mbit/s  54      ▂▄__  WPA2
+        54:A3:1B:28:69:BF  BPI-RD_Center-5g                 Infra  36    1170 Mbit/s  52      ▂▄__  WPA2
+        D8:32:14:7E:EF:E1  Tenda_7EEFE0                     Infra  8     130 Mbit/s   50      ▂▄__  WPA1 WPA2
+        AA:3B:76:CC:95:EA  DIRECT-ea-HP 2606 LaserJet Tank  Infra  36    65 Mbit/s    50      ▂▄__  WPA2
+        92:F0:52:3C:FE:91  cc                               Infra  1     1170 Mbit/s  45      ▂▄__  WPA2 WPA3
+        90:B9:42:CD:55:30  ZHongDi                          Infra  6     1170 Mbit/s  39      ▂▄__  WPA2
+        92:B9:42:7D:56:D9  --                               Infra  40    270 Mbit/s   29      ▂___  WPA2 WPA3
+
+```
+
+. Connect to WiFi
++
+```
+root@k3:~# nmcli device wifi connect "BPI-FAE" password "xxxx"
+设备 "wlP4p1s0" 成功以 "7227dc15-6a29-4582-98fe-43d1c2b50016" 激活。
+```
+
+. Connection successful, IP address obtained.
++
+```
+root@k3:~# nmcli
+wlP4p1s0：已连接 到 BPI-FAE
+        "Realtek RTL8852BE 802.11ax"
+        wifi (rtw89_8852be), 0C:CD:D0:8D:4E:30, 硬件, mtu 1500
+        inet4 10.168.1.107/24
+        route4 10.168.1.0/24 metric 600
+        route4 default via 10.168.1.1 metric 600
+        inet6 fd0b:9aaf:b1a:0:af91:b9f7:af83:a12d/64
+        inet6 fd0b:9aaf:b1a:0:fd60:b4fa:7472:e935/64
+        inet6 fe80::25fa:1374:9e85:aa8c/64
+        route6 fe80::/64 metric 1024
+        route6 fd0b:9aaf:b1a::/64 metric 600
+        route6 fd0b:9aaf:b1a::/48 via fe80::fea0:5aff:fe07:70 metric 600
+
+```
 
 = GPIO Define
 
