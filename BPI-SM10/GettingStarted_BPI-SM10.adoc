@@ -277,6 +277,154 @@ wlP4p1s0：已连接 到 BPI-FAE
 
 ```
 
+== BT
+The BPI-SM10(K3 CoM260) development kit supports access to the M.2 2230 E-Key module, enabling wireless network and Bluetooth functionality.
+```
+root@k3:~# bluetoothctl
+[NEW] Media /org/bluez/hci0
+        SupportedUUIDs: 0000110a-0000-1000-8000-00805f9b34fb
+        SupportedUUIDs: 0000110b-0000-1000-8000-00805f9b34fb
+Agent registered
+[CHG] Controller 0C:CD:D0:8D:4E:31 Pairable: yes
+hci0 new_settings: powered bondable ssp br/edr le secure-conn wide-band-speech cis-central cis-peripheral
+[bluetoothctl]>
+[bluetoothctl]>power on //Turn on Bluetooth
+[bluetoothctl]> scan on  //Scan for surrounding Bluetooth
+[bluetoothctl]> agent on //Enable Proxy
+Agent is already registered 
+
+[bluetoothctl]> discoverable on  //Set Bluetooth to visible
+hci0 new_settings: powered connectable bondable ssp br/edr le secure-conn wide-band-speech cis-central cis-peripheral
+[CHG] Controller 0C:CD:D0:8D:4E:31 Connectable: yes
+hci0 new_settings: powered connectable discoverable bondable ssp br/edr le secure-conn wide-band-speech cis-central cis-peripheral
+Changing discoverable on succeeded
+[CHG] Controller 0C:CD:D0:8D:4E:31 Discoverable: yes
+
+// Connect to K3 via Bluetooth on the device
+
+hci0 28:64:B0:83:6F:73 type BR/EDR connected eir_len 13
+[NEW] Device 28:64:B0:83:6F:73 392933
+Request confirmation
+[agent] Confirm passkey 140038 (yes/no): yes
+hci0 new_link_key 28:64:B0:83:6F:73 type 0x05 pin_len 0 store_hint 1
+hci0 device_flags_changed: 28:64:B0:83:6F:73 (BR/EDR)
+     supp: 0x00000001  curr: 0x00000000
+[CHG] Device 28:64:B0:83:6F:73 Bonded: yes
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 0000111f-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 Modalias: bluetooth:v010Fp107Ed1436
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 0000046a-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 00001105-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 0000110a-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 0000110c-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 00001112-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 00001115-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 00001116-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 0000111f-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 0000112f-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 00001132-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 00001200-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 00001800-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 00001801-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 0000fdd1-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 0000fe35-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 11c8b310-80e4-4276-afc0-f81590b2177f
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 8ce255c0-200a-11e0-ac64-0800200c9a66
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 9664aa26-d76c-43ad-9775-d310f253a408
+[CHG] Device 28:64:B0:83:6F:73 ServicesResolved: yes
+[CHG] Device 28:64:B0:83:6F:73 Paired: yes
+Authorize service
+[agent] Authorize service 0000111e-0000-1000-8000-00805f9b34fb (yes/no): yess
+Authorize service
+[agent] Authorize service 0000110d-0000-1000-8000-00805f9b34fb (yes/no): yes
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 0000046a-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 00001105-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 0000110a-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 0000110c-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 0000110d-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 00001112-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 00001115-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 00001116-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 0000111f-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 0000112f-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 00001132-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 00001200-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 00001800-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 00001801-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 0000fdd1-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 0000fe35-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 11c8b310-80e4-4276-afc0-f81590b2177f
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 8ce255c0-200a-11e0-ac64-0800200c9a66
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 9664aa26-d76c-43ad-9775-d310f253a408
+[NEW] Transport /org/bluez/hci0/dev_28_64_B0_83_6F_73/fd0
+[NEW] Endpoint /org/bluez/hci0/dev_28_64_B0_83_6F_73/sep1
+[NEW] Endpoint /org/bluez/hci0/dev_28_64_B0_83_6F_73/sep2
+[NEW] Endpoint /org/bluez/hci0/dev_28_64_B0_83_6F_73/sep3
+[NEW] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 [default]
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Playlist is nil
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Type: Audio
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Subtype: None
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Status: paused
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Name: Bluetooth Player
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Repeat: off
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Shuffle: off
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Status: stopped
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Track.Title: Not Provided
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Track.TrackNumber: 0x00000001 (1)
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Track.NumberOfTracks: 0x00000001 (1)
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Track.Duration: 0x00000000 (0)
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Track.Title: Not Provided
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Track.TrackNumber: 0x00000001 (1)
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Track.NumberOfTracks: 0x00000001 (1)
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Track.Duration: 0x00000000 (0)
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Position: 0xffffffff (-1)
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Track.Title: Not Provided
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Track.TrackNumber: 0x00000001 (1)
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Track.NumberOfTracks: 0x00000001 (1)
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Track.Duration: 0x00000000 (0)
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Position: 0xffffffff (-1)
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Track.Title: Not Provided
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Track.TrackNumber: 0x00000001 (1)
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Track.NumberOfTracks: 0x00000001 (1)
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Track.Duration: 0x00000000 (0)
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Position: 0xffffffff (-1)
+Authorize service
+[agent] Authorize service 0000111e-0000-1000-8000-00805f9b34fb (yes/no): yes
+hci0 new_settings: powered connectable bondable ssp br/edr le secure-conn wide-band-speech cis-central cis-peripheral
+[CHG] Controller 0C:CD:D0:8D:4E:31 Discoverable: no
+```
+
+Bluetooth connection successful
+
+image::/bpi-sm10/gettingstart/bananapi-pi_sm10_wifibt2.jpg[bananapi-pi_sm10_wifibt2.jpg,width=50%]
+
+== M.2 KEYM
+
+The BPI-SM10(K3 CoM260) development kit provides two M.2 M-Key interfaces, supporting NVMe SSDs of the 2280 (longer SSD in the diagram) and 2230 (shorter SSD in the diagram) form factors respectively, facilitating the connection of SSDs and other M.2 M-Key devices.
+
+image::/bpi-sm10/gettingstart/bananapi-pi_sm10_m2keym1.jpg[bananapi-pi_sm10_m2keym1.jpg]
+```
+root@k3:~# lspci
+0000:00:00.0 PCI bridge: SpacemiT X100 PCIe Root Complex (rev 01)
+0000:01:00.0 Non-Volatile memory controller: SK hynix BC501 NVMe Solid State Drive
+0003:00:00.0 PCI bridge: SpacemiT X100 PCIe Root Complex (rev 01)
+0004:00:00.0 PCI bridge: SpacemiT X100 PCIe Root Complex (rev 01)
+0004:01:00.0 Network controller: Realtek Semiconductor Co., Ltd. RTL8852BE PCIe 802.11ax Wireless Network Controller
+root@k3:~# lsblk
+NAME      MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+sda         8:0    0 119.3G  0 disk
+├─sda1      8:1    0   256M  0 part
+├─sda2      8:2    0   256M  0 part /boot
+└─sda3      8:3    0 118.8G  0 part /
+mtdblock0  31:0    0     8M  0 disk
+mtdblock1  31:1    0   128K  0 disk
+mtdblock2  31:2    0   512K  0 disk
+mtdblock3  31:3    0    64K  0 disk
+mtdblock4  31:4    0     1M  0 disk
+mtdblock5  31:5    0   384K  0 disk
+mtdblock6  31:6    0   5.9M  0 disk
+nvme0n1   259:0    0 119.2G  0 disk
+```
+
 = GPIO Define
 
 == 12 button pin define
