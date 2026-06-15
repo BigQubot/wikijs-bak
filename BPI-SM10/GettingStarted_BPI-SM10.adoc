@@ -97,17 +97,32 @@ Before entering flashing mode, please prepare two buttons, one for shorting FC_R
 . Install and open the Titan burning software.
 
 . Click on the R&D Tools on the homepage to be redirected to the R&D Tools interface.
-
++
 image::/bpi-sm10/gettingstart/bananapi-pi_sm10_burn1.jpg[bananapi-pi_sm10_burn1.jpg]
 
 . The R&D tools page has stand-alone burning options and card boot options; here, we choose the stand-alone burning option.
-
++
 image::/bpi-sm10/gettingstart/bananapi-pi_sm10_burn2.jpg[bananapi-pi_sm10_burn2.jpg]
 
-. 
-
+. Follow https://docs.banana-pi.org/en/BPI-SM10/GettingStarted_BPI-SM10#_entering_flashing_mode[the steps] to enter the burning mode,click "Scan Device," and select the target device.
++
 image::/bpi-sm10/gettingstart/bananapi-pi_sm10_burn3.jpg[bananapi-pi_sm10_burn3.jpg]
 
+. Select the device to be burned.
++
+image::/bpi-sm10/gettingstart/bananapi-pi_sm10_burn4.jpg[bananapi-pi_sm10_burn4.jpg]
+
+. Select the file to burn
++
+image::/bpi-sm10/gettingstart/bananapi-pi_sm10_burn5.jpg[bananapi-pi_sm10_burn5.jpg]
+
+. Waiting for decompression
++
+image::/bpi-sm10/gettingstart/bananapi-pi_sm10_burn6.jpg[bananapi-pi_sm10_burn6.jpg]
+
+. After decompression, click "Start Flashing".
++
+image::/bpi-sm10/gettingstart/bananapi-pi_sm10_burn7.jpg[bananapi-pi_sm10_burn7.jpg]
 
 
 = GPIO Define
