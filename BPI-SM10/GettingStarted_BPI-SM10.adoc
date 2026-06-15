@@ -1,8 +1,8 @@
 = Introduction
 
-K3-CoM260 supports a variety of operating systems and development kits, including the native Bianbu system, Ubuntu operating system, Linux and OpenHarmony, etc., with AI full-stack development kits, it can meet the diverse development needs of AI.
+BPI-SM10(K3-CoM260) supports a variety of operating systems and development kits, including the native Bianbu system, Ubuntu operating system, Linux and OpenHarmony, etc., with AI full-stack development kits, it can meet the diverse development needs of AI.
 
-K3-CoM260 provides a rich interface, Covers MIPI-DSI, MIPI-CSI, DP 1.2, SDIO 3.0, eSPI, SPI, I2S, I2C, CAN-FD, PWM, UART, USB 2.0, USB 3.0, PCIe 3.0, GMAC, etc. With its high performance and rich interface resources, K3-CoM260 is a better choice for RISC-V end-side application solutions and product development.
+BPI-SM10(K3-CoM260) provides a rich interface, Covers MIPI-DSI, MIPI-CSI, DP 1.2, SDIO 3.0, eSPI, SPI, I2S, I2C, CAN-FD, PWM, UART, USB 2.0, USB 3.0, PCIe 3.0, GMAC, etc. With its high performance and rich interface resources, K3-CoM260 is a better choice for RISC-V end-side application solutions and product development.
 
 TIP: More Infomation: link:/en/BPI-SM10/BananaPi_BPI-SM10[Banana Pi BPI-SM10 Main Page]
 
@@ -40,10 +40,7 @@ CPU cores, multi-level cache, and SRAM support ECC design, providing stable and 
 
 == Prepare
 
-- 
-
-
-. Prepare a TTL cable, a 12V PD power supply, USB cable, and a minimum of 8G TF card.
+. Prepare a TTL cable, a 12V/5A or 19V/2.37A DC power supply, USB cable, and a minimum of 8G TF card.
 
 . Download the corresponding image to your PC and prepare to burn it.
 
@@ -52,6 +49,18 @@ CPU cores, multi-level cache, and SRAM support ECC design, providing stable and 
 https://cloud.spacemit.com/prod-api/release/download/tools?token=titantools_for_windows_X86_X64[TITANTOOLS FOR WINDOWS]
 
 https://cloud.spacemit.com/prod-api/release/download/tools?token=titantools_for_linux_64BIT_APPIMAGE[TITANTOOLS FOR Linux]
+
+== Serial port debugging
+
+Please connect the host computer to the TX, RX and GND pins of the 12-pin interface on the BPI-SM10(K3-CoM260) carrier board correctly via a USB-to-TTL adapter.
+
+image::/bpi-sm10/gettingstart/bananapi-pi_sm10_debug1.jpg[bananapi-pi_sm10_debug1.jpg]
+
+. Open the host computer's serial port debugging software, select the serial port, and set the baud rate to 115200.
+
+. Connect the serial cable and power the board using a DC power supply.
+
+. The host computer's serial port software should then function normally.
 
 == Entering Flashing Mode
 
@@ -81,6 +90,23 @@ Before entering flashing mode, please prepare two buttons, one for shorting FC_R
 
 . Use the Titan flashing tool or execute the fastboot command to flash the firmware.
 
+== Start burning
+
+=== Burn to onboard
+
+. Install and open the Titan burning software.
+
+. Click on the R&D Tools on the homepage to be redirected to the R&D Tools interface.
+
+image::/bpi-sm10/gettingstart/bananapi-pi_sm10_burn1.jpg[bananapi-pi_sm10_burn1.jpg]
+
+. The R&D tools page has stand-alone burning options and card boot options; here, we choose the stand-alone burning option.
+
+image::/bpi-sm10/gettingstart/bananapi-pi_sm10_burn2.jpg[bananapi-pi_sm10_burn2.jpg]
+
+. 
+
+image::/bpi-sm10/gettingstart/bananapi-pi_sm10_burn3.jpg[bananapi-pi_sm10_burn3.jpg]
 
 
 
