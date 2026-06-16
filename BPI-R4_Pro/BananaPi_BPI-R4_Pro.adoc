@@ -372,7 +372,7 @@ TIP: Banana Pi BPI-R4-NIC-BE14: https://wikidevi.wi-cat.ru/Banana_Pi_BPI-R4-NIC-
 = System Image
 
 TIP: Some network ports on the 8X and 4E models have a combo relationship; only one port in a combo can be used at a time. When one port is in use, the other will become unusable.
-On the 4E model, the combo ports need to be switched in U-Boot, while on the 8X model, the combo ports will switch automatically depending on the connected network port.For instructions on switching the 4E combo network port, please refer to gettingstart.
+On the 4E model, the combo ports need to be switched in U-Boot, while on the 8X model, the combo ports will switch automatically depending on the connected network port.For instructions on switching the 4E combo network port, please refer to https://docs.banana-pi.org/en/BPI-R4_Pro/GettingStarted_BPI-R4_Pro#_r4pro_4e_switchable_combo_network_port[this].
 
 == R4Pro 8X OpenWRT
 
@@ -397,6 +397,8 @@ Baidu Could: https://pan.baidu.com/s/1_h0JLKi-Bms7pLfGfLX1EA?pwd=8888 (pincode: 
 Google drive: https://drive.google.com/drive/folders/1CX69Psq1pP6AcNJoHAFFRbRbhPBrn1kJ?usp=sharing
 
 == R4Pro 4E OpenWRT
+
+TIP: This image uses the RJ45 WAN port by default. If you need to switch the network port, please see gettingstart.
 
 NOTE: BPI-R4Pro-4E-BE14-MT76-OpenWRT24.10-260325
 
