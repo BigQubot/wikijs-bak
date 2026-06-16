@@ -251,8 +251,43 @@ Read 126976 bytes from volume ubootenv2 to 00000000ff7e0c40
 ====
 
 
-
 = Interfaces
+
+== R4Pro 4E switchable combo network port
+
+First, you need to enter the uboot interface, which can be done by pressing Esc in the ubootmenu.
+
+=== Switch to 10G SFP WAN port
+
+You can switch network ports by entering the command below
+
+```bash
+MT7988> printenv 
+MT7988> setenv bootconf_extra mt7988a-bananapi-bpi-r4-pro-4e-sfp 
+MT7988> saveenv
+
+Saving Environment to UBI... UBI partition 'ubi' already selected
+Writing to UBI... done
+OK
+
+MT7988> reset
+```
+
+=== Switch to 2.5G RJ45 WAN port
+
+You can switch network ports by entering the command below
+
+```bash
+MT7988> printenv 
+MT7988> setenv bootconf_extra mt7988a-bananapi-bpi-r4-pro-4e-iphy 
+MT7988> saveenv
+
+Saving Environment to UBI... UBI partition 'ubi' already selected
+Writing to UBI... done
+OK
+
+MT7988> reset
+```
 
 == 10G Ethernet
 
