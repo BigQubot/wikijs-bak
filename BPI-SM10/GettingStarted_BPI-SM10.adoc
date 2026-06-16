@@ -425,6 +425,37 @@ mtdblock6  31:6    0   5.9M  0 disk
 nvme0n1   259:0    0 119.2G  0 disk
 ```
 
+== USB
+
+You can find the corresponding device by connecting the USB flash drive to the USB port, such as the sdb device below, with ID 05e3:0747.
+
+```
+root@k3:~# lsblk
+NAME      MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+sda         8:0    0 119.3G  0 disk
+├─sda1      8:1    0   256M  0 part
+├─sda2      8:2    0   256M  0 part /boot
+└─sda3      8:3    0 118.8G  0 part /
+sdb         8:16   1  59.5G  0 disk
+└─sdb1      8:17   1  59.5G  0 part
+mtdblock0  31:0    0     8M  0 disk
+mtdblock1  31:1    0   128K  0 disk
+mtdblock2  31:2    0   512K  0 disk
+mtdblock3  31:3    0    64K  0 disk
+mtdblock4  31:4    0     1M  0 disk
+mtdblock5  31:5    0   384K  0 disk
+mtdblock6  31:6    0   5.9M  0 disk
+root@k3:~# lsusb
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 001 Device 002: ID 0bda:b85b Realtek Semiconductor Corp. Bluetooth Radio
+Bus 002 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 002 Device 002: ID 2109:2817 VIA Labs, Inc. USB2.0 Hub
+Bus 002 Device 004: ID 2109:8817 VIA Labs, Inc. USB Billboard Device
+Bus 003 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 003 Device 002: ID 2109:0817 VIA Labs, Inc. USB3.0 Hub
+Bus 003 Device 003: ID 05e3:0747 Genesys Logic, Inc. USB Storage
+```
+
 = GPIO Define
 
 == 12 button pin define
