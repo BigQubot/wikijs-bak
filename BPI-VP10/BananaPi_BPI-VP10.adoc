@@ -1,0 +1,184 @@
+= Development Board Introduction
+
+
+The Banana Pi **BPI-V1-P** is an open-source, low-voltage servo drive platform specifically designed for industrial control applications. Developed based on Fortior Technology's **FU7512L** MCU and **FD6288Q** pre-driver chip, this platform covers power ranges for 100W/200W servo applications. It supports multiple control modes, including Pulse/Direction, Analog, and RS485. Compatible encoder types include Absolute Encoders (Tamagawa/BiSS-C protocols), Incremental Encoders, and Hall Encoders. This platform enables developers to accelerate product commercialization and perform secondary development to create customized products tailored to specific requirements.
+
+This open-source project is jointly launched by the Banana Pi Open-Source Community and the official of Fortior Technology to promote open the sourcing of industrial servo systems.
+
+image::/bp-en-bj2303n/bj2303n_banana1_260610.jpg[bj2303n_banana1_260610.jpg, width=1500px]
+
+= Chip Introduction
+
+== About the FU7512L
+The FU75xx series from Fortior Technology is the industry’s first motor control-specific MCU based on a 32-bit RISC-V dual-core architecture. This chip integrates high-performance computing with real-time control capabilities. Leveraging the proprietary 2nd generation ME (Motor Engine) core, it effectively addresses the challenges of complex application scenarios. Whether for industrial servo drives, robotic joints, smart home appliances, or new energy vehicles, it provides an unprecedented motor control experience.
+
+The FU75xx series MCU combines the **Motor Engine 2 (ME2)** with the 32-bit RISC-V core. Through this innovative heterogeneous architecture, it provides an ideal solution for high-performance motor applications:
+
+
+**•	ME2 (Motor Engine 2)**: Integrates dedicated and flexible hardware algorithm modules that can be called directly or replaced by custom software, achieving efficiency far superior to pure software implementations. Compared to the first-generation ME, it offers significantly enhanced performance and a 100% increase in functional modules.
+
+**•	RISC-V Core**: Provides flexible processing for system communication, application logic, and user interface functions.
+
+The seamless collaboration between the two ensures sufficient capacity to handle diverse application scenarios. In servo applications, the FOC (Field Oriented Control) calculation time is as low as **5μs**.
+
+= Key Features 
+
+**•	Core**: 32-bit RISC-V architecture.
+
+**•	Motor Control**: ME2 (2nd Generation Motor Engine), supporting hardware FOC modules, dual-sampling for current loops, hardware speed loops, hardware PI controllers, hardware CORDIC modules, and 4-level configurable hardware filters.
+
+**•	Clock**: 24MHz/48MHz high-precision oscillator.
+
+**•	Memory**: 64KB Flash, 12KB SRAM.
+
+**•	Temperature Range**: Junction temperature (Tj): -40°C to 150°C; Operating ambient temperature (Ta): -40°C to 125°C.
+
+**•	Encoder Support**: Supports Absolute Encoders (Tamagawa/BiSS-C protocols), Incremental Encoders, and Hall Encoders.
+
+**•	Pulse Input**: Supports a maximum Pulse/Direction input frequency of 4MHz.
+
+**•	Power Capability**: Supports 100W/200W servo applications.
+
+== BPI-BJ2403N Photo
+
+link:/zh/BPI-BJ2403N/Photo-BPI-BJ2403N[BPI-BJ-2403N Photo]
+
+= Getting Start 
+Click the link ->  link:/en/BPI-BJ2403N/GettingStarted_BPI-BJ2403N[Quick Start Debugging Guide]
+
+
+= Hardware
+
+== 1. Hardware Interface Diagrams
+
+image::/bp-en-bj2303n/bj2403n_interface_260608.jpg[bj2403n_interface_260608.jpg, width=1000px]
+
+== 2. Hardware Specifications
+
+[cols="1,3", options="header" ]
+|====
+| Item                          | Description                                                                                                                              
+| MCU-FU7512L                   | FU7512L, Fortior Technology self-developed dual-core MCU (32-bit RISC-V core + motor control engine ME2 core)                            
+| Pre-driver FD6288             | FD6288, Fortior Technology self-developed pre-driver, integrates three independent half-bridge gate drivers                              
+| MOS                           |                                                                                                                                          
+| EEPROM                        | 24LC16B, used for saving servo tuning parameters                                                                                         
+| Code download interface       | For downloading code to the MCU for debugging                                                                                            
+| 485 debug interface           | For connecting to the servo PC tuning software to drive the servo motor                                                                  
+| Indicator LEDs                | Green LED: steady on indicates power-on; Red LED: blinking indicates fault                                                               
+| I/O interface                 | External motion controller pulse/dir command input, servo enable command input, servo drive fault signal output, and analog signal input 
+| Encoder interface             | Servo motor feedback encoder interface                                                                                                   
+| Power / motor cable interface | Servo motor power lines (U/V/W) and servo drive power input                                                                              
+|====
+
+== 3. 485 Debug Interface Definition
+
+image::/bp-en-bj2303n/bj2403n-hw-3.jpg[bj2403n-hw-3.jpg]
+
+[cols="2*", options="header"]
+|================
+| Pin | Function 
+| 1   | VMCU     
+| 2   | 485_B    
+| 3   | 485_A    
+| 4   | GND           
+|================
+
+== 4. Power / Motor Cable Interface Definition
+
+image::/bp-en-bj2303n/bj2403n-hw-4.jpg[bj2403n-hw-4.jpg]
+
+
+[cols="2*", options="header"]
+|================
+| Pin | Function 
+| 1   | U(Red)    
+| 2   | V(Blue)   
+| 3   | W(Black)   
+| 4   | VDC          
+| 5   | GND    
+|================
+== 5. Encoder Interface Definition
+
+image::/bp-en-bj2303n/bj2403n-hw-5.jpg[bj2403n-hw-5.jpg]
+
+[cols="4*", options="header"]
+|=============================================================
+| Pin | Function               | Pin | Function               
+| 1   | HALL_U                 | 2   | PE                     
+| 3   | HALL_V                 | 4   | GND                    
+| 5   | HALL_W                 | 6   | 5V                     
+| 7   | Incremental encoder Z+ | 8   | Incremental encoder Z- 
+| 9   | Incremental encoder B+ | 10  | Incremental encoder B- 
+| 9   | SSI encoder data+      | 10  | SSI encoder data-      
+| 11  | Incremental encoder A+ | 12  | Incremental encoder A- 
+| 11  | SSI encoder clock+     | 12  | SSI encoder clock-     
+|=============================================================
+
+== 6. I/O Interface Definition
+
+image::/bp-en-bj2303n/bj2403n-hw-6.jpg[bj2403n-hw-6.jpg]
+
+[cols="2*", options="header"]
+|==================
+| Pin | Function   
+| 1   | PULSE_IN+  
+| 2   | PULSE_IN-  
+| 3   | DIR_IN+    
+| 4   | DIR_IN-    
+| 5   | ENABLE_IN+ 
+| 6   | ENABLE_IN- 
+| 7   | ALARM_OUT+ 
+| 8   | ALARM_OUT- 
+| 9   | ANALOG_P   
+| 10  | ANALOG_N   
+|==================
+
+= Development
+== **Source Code**
+
+TIP: Software Code:
+
+Baidu NetDisk：  https://pan.baidu.com/s/1JcfDO4rF5mPyuTYJgNgSFQ?pwd=8888 Extraction code: 8888
+
+Google: https://drive.google.com/file/d/1-G69BqBdBsL_TREm43NfljfbC0_O370n/view?usp=sharing
+
+
+TIP: Firware Code: https://github.com/BPI-SINOVOIP/BPI-BJ2403N
+
+TIP: Code Description：
+
+Baidu NetDisk: https://pan.baidu.com/s/1k6hvK2HOgbZ4e_BfVn8TNw?pwd=8888 Extraction code: 8888 
+
+Google:  https://drive.google.com/file/d/1cAaahMfeH01dn0BJEtFCus8Zhjp3k8RL/view?usp=sharing
+
+== **Reference**
+
+TIP: Structure:
+
+Baidu NetDisk: https://pan.baidu.com/s/14mMEGj2UYs6HB2q_ca49Mw?pwd=8888 Extraction code: 8888 
+Google:  https://drive.google.com/file/d/1SNPk1LAxt5X_uFg2vik_7DIoKmtVWKdc/view?usp=sharing
+
+TIP: schematic diagram: 
+
+Baidu NetDisk: https://pan.baidu.com/s/10_PMIxe9Pn85eXwPRYro2A?pwd=8888 Extraction code: 8888 
+
+Google:  https://drive.google.com/drive/folders/1oW317kMc3wlTgo6sXIzXJDErHly9cIfB?usp=sharing
+
+TIP: Certificate: 
+
+Baidu NetDisk ： https://pan.baidu.com/s/1mC-oKbKlDyAVbcIMAgKSgw?pwd=8888 Extraction code: 8888 
+
+Google ：https://drive.google.com/drive/folders/1SQxrIoXkDVfvoQuAB9oD2g5ITSa0Fh2C?usp=sharing
+
+TIP: Chip Manual : 
+
+Baidu NetDisk： https://pan.baidu.com/s/1JE63r_Zsb8soWjhvH2KwVA?pwd=8888 Extraction code: 8888 
+
+Google:  https://drive.google.com/drive/folders/1BeWPmPMzTlh6OMiN7FveUMt9DyGiNFDu?usp=sharing
+
+TIP: Registered trademark:
+
+Baidu NetDisk：  https://pan.baidu.com/s/1RUuF54AFCgCuOiNy-0j4bg?pwd=8888 Extraction code: 8888
+
+Google: https://drive.google.com/drive/folders/1czPbi7lwhLs7DChSnJuXdrBco7cg0ypD?usp=sharing
+
