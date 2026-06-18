@@ -1,3 +1,4 @@
+= 介绍
 香蕉派 BPI-VP10 是一款专为工业控制设计的低压伺服驱动开源平台。
 该平台基于峰岹科技主控芯片FU7512L+预驱芯片FD6288Q研发设计，功率范围覆盖100W/200W伺服应用。控制方式支持脉冲方向、模拟量控制、RS485控制。编码器支持绝对式编码器（多摩川/BiSS-C协议）、增量式编码器、霍尔编码器等。开发人员可以利用此平台快速完成产品落地，也可以在此平台上进行二次开发，创造出更符合需求的产品。
 
@@ -5,7 +6,7 @@
 
 image::/bp-en-bj2303n/bj2303n_banner_zh_260612.jpg[bj2303n_banner_zh_260612.jpg, width=1500px]
 
-== **芯片介绍**
+== 芯片介绍
 
 峰岹科技的FU75xx系列业界首款基于32位RISC-V双核架构的电机驱动专用MCU！这款芯片不仅融合了高性能计算与实时控制能力，更通过自主研发的第2代ME内核，解决了复杂应用场景中的诸多挑战。无论是工业伺服驱动器、机器人关节，还是智能家电、新能源汽车，它都将为电机控制带来前所未有的新体验！ 
 
@@ -26,7 +27,7 @@ FU75xx系列MCU融合了第二代电机控制引擎（ME2）与32位RISC-V内核
 * 支持最大脉冲方向输入频率4MHz
 * 支持100W/200W伺服应用
 
-== **Getting Start 快速入门**
+== Getting Start 快速入门
 
 TIP: link:/zh/BPI-BJ2403N/GettingStarted_BPI-BJ2403N[快速调式指南]
 
@@ -36,11 +37,11 @@ TIP: link:/zh/BPI-BJ2403N/GettingStarted_BPI-BJ2403N[快速调式指南]
 
 image::/bp-en-bj2303n/bj2303n_interface_zh_260612.jpg[bj2303n_interface_zh_260612.jpg, width=1000px]
 
-== **产品图片**
+== 产品图片
 
 link:/zh/BPI-BJ2403N/Photo-BPI-BJ2403N[BPI-VP10 产品图片]
 
-== **硬件规格描述**
+== 硬件规格描述
 [options="header",cols="1,5"]
 |====
 2+| 香蕉派 BPI-VP10 硬件规格
@@ -56,7 +57,7 @@ link:/zh/BPI-BJ2403N/Photo-BPI-BJ2403N[BPI-VP10 产品图片]
 | 动力线/电源接口 | 电机动力线及驱动板电源接口                    
 |====
 
-== **485接口定义**
+== 485接口定义
 [cols="2*", options="header"]
 |==============
    
@@ -68,7 +69,7 @@ link:/zh/BPI-BJ2403N/Photo-BPI-BJ2403N[BPI-VP10 产品图片]
  
 |==============
 image::/bpi-bj2403n/485-def.png[485-def.png]
-== **动力线/电源接口定义**
+== 动力线/电源接口定义
 
 [cols="2*", options="header"]
 |============
@@ -82,7 +83,7 @@ image::/bpi-bj2403n/485-def.png[485-def.png]
 |============
 
 image::/bpi-bj2403n/bpi-bj2403n-hd-power-def.png[bpi-bj2403n-hd-power-def.png]
-== **编码器接口定义**
+== 编码器接口定义
 
 [cols="4*", options="header"]
 |===========================================
@@ -97,7 +98,7 @@ image::/bpi-bj2403n/bpi-bj2403n-hd-power-def.png[bpi-bj2403n-hd-power-def.png]
 | 11     | SSI编码器clock+ |12     | SSI编码器clock- 
 |===========================================
 image::/bpi-bj2403n/bpi-bj2403n-code-def.png[bpi-bj2403n-code-def.png]
-== **IO接口定义**
+== IO接口定义
 
 [cols="2*", options="header"]
 |===================
@@ -114,8 +115,8 @@ image::/bpi-bj2403n/bpi-bj2403n-code-def.png[bpi-bj2403n-code-def.png]
 |===================
 
 image::/bpi-bj2403n/bpi-bj2403n-io-def.png[bpi-bj2403n-io-def.png]
-= **开发**
-== **软件源代码**
+= 开发
+== 软件源代码
 TIP: 上位机软件:
 
 百度：  https://pan.baidu.com/s/1JcfDO4rF5mPyuTYJgNgSFQ?pwd=8888 提取码: 8888
@@ -130,7 +131,7 @@ TIP: 代码说明：
 
 Google:  https://drive.google.com/file/d/1cAaahMfeH01dn0BJEtFCus8Zhjp3k8RL/view?usp=sharing
 
-== **参考资料**
+== 参考资料
 
 TIP: 结构图:
 
@@ -169,7 +170,8 @@ Google: https://drive.google.com/drive/folders/1czPbi7lwhLs7DChSnJuXdrBco7cg0ypD
 
 = 样品购买
 
-* 淘宝： https://item.taobao.com/item.htm?ft=t&id=1059789833642
-* 官方独立商城： https://www.bpi-shop.com/products/banana-pi-bpi-vp10-servo-motor-controller.html
+WARNING: 淘宝： https://item.taobao.com/item.htm?ft=t&id=1059789833642
+
+WARNING: 官方独立商城： https://www.bpi-shop.com/products/banana-pi-bpi-vp10-servo-motor-controller.html
 
 
