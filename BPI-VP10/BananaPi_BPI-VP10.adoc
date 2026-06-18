@@ -58,7 +58,7 @@ image::/bp-en-bj2303n/bj2403n_interface_260608.jpg[bj2403n_interface_260608.jpg,
 | Item                          | Description                                                                                                                              
 | MCU-FU7512L                   | FU7512L, Fortior Technology self-developed dual-core MCU (32-bit RISC-V core + motor control engine ME2 core)                            
 | Pre-driver FD6288             | FD6288, Fortior Technology self-developed pre-driver, integrates three independent half-bridge gate drivers                              
-| MOS                           |                                                                                                                                          
+| MOS                           | ZMS009N06HNC                                                                                                                                         
 | EEPROM                        | 24LC16B, used for saving servo tuning parameters                                                                                         
 | Code download interface       | For downloading code to the MCU for debugging                                                                                            
 | 485 debug interface           | For connecting to the servo PC tuning software to drive the servo motor                                                                  
