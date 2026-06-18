@@ -37,21 +37,17 @@ The seamless collaboration between the two ensures sufficient capacity to handle
 
 **•	Power Capability**: Supports 100W/200W servo applications.
 
-== BPI-BJ2403N Photo
-
-link:/zh/BPI-BJ2403N/Photo-BPI-BJ2403N[BPI-VP10 Photo]
-
 = Getting Start 
-Click the link ->  link:/en/BPI-BJ2403N/GettingStarted_BPI-BJ2403N[Quick Start Debugging Guide]
+TIP: link:/en/BPI-BJ2403N/GettingStarted_BPI-BJ2403N[Quick Start Debugging Guide]
 
 
 = Hardware
 
-== 1. Hardware Interface Diagrams
+== Hardware Interface Diagrams
 
 image::/bp-en-bj2303n/bj2403n_interface_260608.jpg[bj2403n_interface_260608.jpg, width=1000px]
 
-== 2. Hardware Specifications
+== Hardware Specifications
 
 [cols="1,3", options="header" ]
 |====
@@ -67,8 +63,11 @@ image::/bp-en-bj2303n/bj2403n_interface_260608.jpg[bj2403n_interface_260608.jpg,
 | Encoder interface             | Servo motor feedback encoder interface                                                                                                   
 | Power / motor cable interface | Servo motor power lines (U/V/W) and servo drive power input                                                                              
 |====
+== BPI-BJ2403N Photo
 
-== 3. 485 Debug Interface Definition
+link:/zh/BPI-BJ2403N/Photo-BPI-BJ2403N[BPI-VP10 Photo]
+
+== 485 Debug Interface Definition
 
 image::/bp-en-bj2303n/bj2403n-hw-3.jpg[bj2403n-hw-3.jpg]
 
@@ -81,7 +80,7 @@ image::/bp-en-bj2303n/bj2403n-hw-3.jpg[bj2403n-hw-3.jpg]
 | 4   | GND           
 |================
 
-== 4. Power / Motor Cable Interface Definition
+== Power / Motor Cable Interface Definition
 
 image::/bp-en-bj2303n/bj2403n-hw-4.jpg[bj2403n-hw-4.jpg]
 
@@ -95,7 +94,7 @@ image::/bp-en-bj2303n/bj2403n-hw-4.jpg[bj2403n-hw-4.jpg]
 | 4   | VDC          
 | 5   | GND    
 |================
-== 5. Encoder Interface Definition
+== Encoder Interface Definition
 
 image::/bp-en-bj2303n/bj2403n-hw-5.jpg[bj2403n-hw-5.jpg]
 
@@ -112,7 +111,7 @@ image::/bp-en-bj2303n/bj2403n-hw-5.jpg[bj2403n-hw-5.jpg]
 | 11  | SSI encoder clock+     | 12  | SSI encoder clock-     
 |=============================================================
 
-== 6. I/O Interface Definition
+== I/O Interface Definition
 
 image::/bp-en-bj2303n/bj2403n-hw-6.jpg[bj2403n-hw-6.jpg]
 
