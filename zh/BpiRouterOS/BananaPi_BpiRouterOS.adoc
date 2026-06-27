@@ -2,22 +2,21 @@
  
 **现代 Web 管理 · A/B 双槽防变砖 · 一套固件覆盖 6 款 BPI 路由板**
 
+[options="header",cols="1,4"]
+|====
+| **名称** | BpiRouter OS
+| **类型** | Banana Pi 路由器板的统一固件 + Web 管理系统
 
-| **名称** | BpiRouter OS |
+| **底层系统** | OpenWrt v25.12.2（Linux 内核 6.12）
 
-| **类型** | Banana Pi 路由器板的统一固件 + Web 管理系统 |
+| **支持设备** | BPI-R4 / R4-Lite / R4 Pro / R3 / R3 Mini / OpenWrt One
 
-| **底层系统** | OpenWrt v25.12.2（Linux 内核 6.12） |
+| **界面语言** | 中文 / 英文 
 
-| **支持设备** | BPI-R4 / R4-Lite / R4 Pro / R3 / R3 Mini / OpenWrt One |
+| **默认地址** | `https://192.168.100.1`
 
-| **界面语言** | 中文 / 英文 |
-
-| **默认地址** | `https://192.168.100.1` |
-
-| **状态** | 6 款板已完成真机验收 |
-
----
+| **状态** | 6 款板已完成真机验收 
+|====
 
 =  1. 这是什么
 
