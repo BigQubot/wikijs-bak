@@ -37,13 +37,13 @@ It needs to solve two pain points：
 [options="header",cols="1,4"]
 |====
 | Highlight  | Explanation 
-| 🖥️ **现代 Web 管理界面** | Vue 3 图形界面，响应式（电脑/平板/手机），深色模式，中英双语，常用功能开箱即用
+| 🖥️ **Modern Web management interface** | Vue 3 graphical interface, responsive (for computers/tablets/phones), dark mode, bilingual support (Chinese and English), common functions ready to use out of the box
 
-| 🛡️ **A/B 双槽防变砖** | 双固件槽，在线升级写入备用槽并试运行，失败自动回退到上一个好版本，刷坏不变砖 
+| 🛡️ **A/B dual slots anti - transformation brick ** | Dual firmware slots. During online upgrade, the system writes to the standby slot and runs a trial operation. If it, fails it automatically reverts to the previous good version. Even if the flashing goes wrong, the device won't become a brick.
 
-| 🪜 **四层恢复阶梯** | 从配置回滚到整机救砖，逐级兜底——坏配置、坏固件都能救回出厂状态 
+| 🪜 **Four - layer recovery ladder ** | From configuration rollback to full - machine brick recovery, provide step - by - step fallback support. Both bad configurations and bad firmware can be restored to the factory state.
 
-| 🔐 **企业级安全** | 多用户角色权限、登录防爆破、操作审计日志、全程 HTTPS 
+| 🔐 **Enterprise-level security** | Multi - user role permissions、Login anti - brute force、operation audit log provides、Full - process HTTPS ensures 
 
 | 🔌 **功能齐全** | 网络/无线/VPN（WireGuard + OpenVPN）/防火墙/端口转发/DDNS/诊断，一应俱全
 
