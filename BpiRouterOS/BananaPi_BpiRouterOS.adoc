@@ -1,3 +1,152 @@
-== header
+= 简介
+ 
+**Modern Web management · A/B dual slots to prevent brick failure · One firmware covers 6 BPI router boards**
 
-content
+[options="header",cols="1,4"]
+|====
+| **Name** | BpiRouter OS
+| **Type** | Banana Pi Unified firmware for router boards + Web management system
+
+| **Underlying system** | OpenWrt v25.12.2（Linux Kernel 6.12）
+
+| **Support boards** | BPI-R4 / R4-Lite / R4 Pro / R3 / R3 Mini / OpenWrt One
+
+| **language** | Chinese / English 
+
+| **Default IP** | `https://192.168.100.1`
+
+| **Status** | 6 baords has passed the acceptance test on the real machine. 
+|====
+
+=  1. What is this
+
+**BpiRouter OS** It is a unified firmware designed for the Banana Pi router series - built on top of OpenWrt，provide one**Modern graphical WEB management interface**，And a set of **firmware upgrade and recovery mechanisms to prevent bricks**。
+
+它要解决两个痛点：
+
+- **裸 OpenWrt / LuCI 对普通用户不友好** → 我们提供对标消费级精品路由的图形界面，开箱即用的配置向导，常用功能一屏可达。
+- **路由器刷固件容易刷坏、变砖难救** → 我们提供**固件 A/B 双槽 + 在线升级失败自动回退 + 四层恢复阶梯**，刷坏也救得回。
+
+**一套固件，6 款板通用**：同一个 Web 界面与功能运行在全部 6 款 BPI 路由板上，板间差异只在硬件层，由固件按板自动适配。
+
+---
+
+=  2. 为什么选 BpiRouter OS
+
+
+
+[options="header",cols="1,4"]
+|====
+| 亮点 | 说明 
+| 🖥️ **现代 Web 管理界面** | Vue 3 图形界面，响应式（电脑/平板/手机），深色模式，中英双语，常用功能开箱即用
+
+| 🛡️ **A/B 双槽防变砖** | 双固件槽，在线升级写入备用槽并试运行，失败自动回退到上一个好版本，刷坏不变砖 
+
+| 🪜 **四层恢复阶梯** | 从配置回滚到整机救砖，逐级兜底——坏配置、坏固件都能救回出厂状态 
+
+| 🔐 **企业级安全** | 多用户角色权限、登录防爆破、操作审计日志、全程 HTTPS 
+
+| 🔌 **功能齐全** | 网络/无线/VPN（WireGuard + OpenVPN）/防火墙/端口转发/DDNS/诊断，一应俱全
+
+| 🧩 **6 板统一** | 一套固件覆盖 6 款 BPI 路由板，体验完全一致
+|====
+
+=  3. 支持的设备
+
+[options="header",cols="1,1,3"]
+|====
+| 设备 | 芯片 | 主要硬件能力 
+| **BPI-R4** | MediaTek MT7988A | 2×10G SFP + 4×千兆，Wi-Fi 7
+
+| **BPI-R4 Lite** | MediaTek MT7987A | Wi-Fi 7（出厂 BE14 三频，需 12V 供电） 
+
+| **BPI-R4 Pro (8X)** | MediaTek MT7988A | 8GB 内存，4×2.5G + 10G WAN，系统状态灯 
+
+| **BPI-R3** | MediaTek MT7986A | Wi-Fi 6，多介质（SD/NAND/eMMC）
+
+| **BPI-R3 Mini** | MediaTek MT7986A | Wi-Fi 6，2.5G PHY，紧凑无 SD 卡槽 
+
+| **OpenWrt One** | MediaTek MT7981B | Wi-Fi 6，纯 NAND 
+|====
+
+> 全部 6 款均已完成「固件 A/B + 在线升级回退 + 四层恢复」的真机验收。
+
+---
+
+=  4. 功能总览
+
+==  4.1 开箱即用
+- **首次配置向导**：全新设备开机自动进入向导，3 步设好上网方式（DHCP / 静态 / 宽带拨号）、WiFi、管理密码。
+- **仪表盘**：一屏总览 CPU/温度/内存/存储、联网状态、客户端数、**实时上下行流量曲线**，自动刷新。
+
+==  4.2 网络与无线
+- **上网（WAN）**：DHCP / 静态 IP / PPPoE 宽带拨号，IPv4 + IPv6 双栈。
+- **局域网（LAN）**：LAN IP、DHCP 地址分配（地址池/租期）。
+- **无线**：多频段管理（2.4G / 5G / 6G），信道/带宽/功率/国家码，SSID 与加密（6GHz 强制 WPA3/OWE）。
+- **已连接设备**：实时查看接入设备的 IP / MAC / 主机名 / 在线状态。
+
+==  4.3 安全上网
+- **VPN**：内置 **WireGuard** 与 **OpenVPN**——两种协议**可同时启用**，既能做客户端（连到远程 VPN），也能做服务端（让本机成为 VPN 服务器）。服务端可自定义监听端口与地址段，**一键生成客户端配置 + 二维码**（手机 App 扫码即连），并支持客户端列表查看与吊销。
+- **端口转发**：把外网端口映射到内网设备。
+- **DMZ**：把所有外网入站流量转给指定内网主机。
+- **防火墙规则**：自定义放行 / 拒绝 / 丢弃规则。
+- **DDNS**：动态公网 IP 绑定固定域名（支持 DuckDNS / No-IP / Dynu / Cloudflare / FreeDNS）。
+
+==  4.4 系统管理
+- **主机名 / 时区 / 系统时间**：时区从下拉列表选择（可搜索），时间自动 NTP 对时，也支持手动设置 / 用浏览器时间同步（无 RTC、离线场景兜底校时）。
+- **改密、重启**。
+- **关键改动二次确认**：网络 / WiFi / 防火墙等可能切断管理连接的改动，可开启「保存后限时确认」——改错导致掉线时会自动回滚，默认开启。
+- **固件升级**（A/B 双槽）、**配置备份与恢复**、**恢复出厂**。
+- **诊断工具**：Ping / Traceroute / DNS 查询，结果直接在界面查看。
+- **系统日志**。
+
+==  4.5 多用户与审计
+- **三种角色**：管理员（全部）/ 操作员（日常配置）/ 观察员（只读）。权限最小化，观察员看不到也改不了配置。
+- **审计日志**（仅管理员）：记录登录、权限拒绝、配置变更、固件升级、用户管理等安全相关操作，可事后追溯（不记录任何密码/密钥）。
+
+---
+=  5. 可靠性：永不变砖的升级与恢复
+
+这是 BpiRouter OS 最核心的差异化能力。路由器固件最怕「升级刷坏、远程变砖、要寄回返修」——我们用**双槽 + 四层兜底**根除这个风险。
+
+==  5.1 固件 A/B 双槽升级
+设备有**两个固件槽**。在线升级时：
+
+1. 新固件写入**备用槽**，不动当前正在运行的槽；
+
+2. 自动重启进入新固件，界面弹出**「升级待确认」横幅**（带倒计时）；
+
+3. 确认一切正常 → 点「**确认升级**」转正；
+
+4. **若不确认（比如新固件网络不通、人不在场）→ 倒计时到点自动回退**到升级前的固件和配置。
+
+升级前会自动校验固件，不兼容的镜像直接拒绝；可选「保留配置」让设置随升级延续。
+
+
+==  5.2 四层恢复阶梯
+**从软到硬，逐级兜底：**
+
+[options="header",cols="1,1,3"]
+|====
+| 层级 | 触发方式 | 效果 
+| **L1 配置回滚** | 自动 | 改了导致掉线的配置 → 限时未确认自动撤销 
+
+| **L2 固件自动回退** | 自动 | 坏固件启动失败 → 引导自动切回上一个好固件槽 
+
+| **L3 恢复出厂** | 运行中**长按恢复键约 5 秒** | 清除当前配置回出厂（不重刷固件） 
+
+| **L4 整机救砖** | **断电 → 按住恢复键 → 上电**并持续按住 | 从内置黄金镜像把整机刷回出厂
+|====
+
+> **结果**：即使配置和固件都损坏，L4 也能把设备救回出厂状态——**刷坏也救得回，不会永久变砖**。
+>
+> 💡 **恢复键因板而异**：BPI-R4 使用 **WPS 键**；R4-Lite / R4 Pro / R3 / R3 Mini 使用**物理 reset 键**。详见各板说明。
+
+= 使用
+
+== 开发板如何升级使用BpiRouterOS
+
+== BpiRouterOS 使用说明
+
+
+
