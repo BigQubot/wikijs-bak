@@ -22,14 +22,13 @@
 
 **BpiRouter OS** It is a unified firmware designed for the Banana Pi router series - built on top of OpenWrt，provide one**Modern graphical WEB management interface**，And a set of **firmware upgrade and recovery mechanisms to prevent bricks**。
 
-它要解决两个痛点：
+It needs to solve two pain points：
 
-- **裸 OpenWrt / LuCI 对普通用户不友好** → 我们提供对标消费级精品路由的图形界面，开箱即用的配置向导，常用功能一屏可达。
-- **路由器刷固件容易刷坏、变砖难救** → 我们提供**固件 A/B 双槽 + 在线升级失败自动回退 + 四层恢复阶梯**，刷坏也救得回。
+- **Bare OpenWrt / LuCI is not user-friendly for ordinary users.** → We offer **a graphical interface benchmarked against consumer-grade high-quality routers, an out-of-the-box configuration wizard, and quick access to common functions on a single screen.**
 
-**一套固件，6 款板通用**：同一个 Web 界面与功能运行在全部 6 款 BPI 路由板上，板间差异只在硬件层，由固件按板自动适配。
+- **It's easy to damage a router when flashing its firmware, and it's difficult to rescue a bricked router.** → We provide dual slots for firmware A/B, automatic fallback in case of online upgrade failure, and a four - level recovery ladder, so the device can be rescued even if the firmware flashing goes wrong.
 
----
+**One set of firmware is compatible with 6 types of boards **：The same Web interface and functions run on all six BPI router boards. The differences between the boards are only at the hardware level, and the firmware automatically adapts to each board.
 
 =  2. 为什么选 BpiRouter OS
 
