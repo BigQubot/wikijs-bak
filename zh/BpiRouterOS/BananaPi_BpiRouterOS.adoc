@@ -33,39 +33,41 @@
 
 =  2. 为什么选 BpiRouter OS
 
-**| 亮点 | 说明 |**
 
-|---|---|
 
-| 🖥️ **现代 Web 管理界面** | Vue 3 图形界面，响应式（电脑/平板/手机），深色模式，中英双语，常用功能开箱即用 |
+[options="header",cols="1,4"]
+|====
+| 亮点 | 说明 
+| 🖥️ **现代 Web 管理界面** | Vue 3 图形界面，响应式（电脑/平板/手机），深色模式，中英双语，常用功能开箱即用
 
-| 🛡️ **A/B 双槽防变砖** | 双固件槽，在线升级写入备用槽并试运行，失败自动回退到上一个好版本，刷坏不变砖 |
+| 🛡️ **A/B 双槽防变砖** | 双固件槽，在线升级写入备用槽并试运行，失败自动回退到上一个好版本，刷坏不变砖 
 
-| 🪜 **四层恢复阶梯** | 从配置回滚到整机救砖，逐级兜底——坏配置、坏固件都能救回出厂状态 |
+| 🪜 **四层恢复阶梯** | 从配置回滚到整机救砖，逐级兜底——坏配置、坏固件都能救回出厂状态 
 
-| 🔐 **企业级安全** | 多用户角色权限、登录防爆破、操作审计日志、全程 HTTPS |
+| 🔐 **企业级安全** | 多用户角色权限、登录防爆破、操作审计日志、全程 HTTPS 
 
-| 🔌 **功能齐全** | 网络/无线/VPN（WireGuard + OpenVPN）/防火墙/端口转发/DDNS/诊断，一应俱全 |
+| 🔌 **功能齐全** | 网络/无线/VPN（WireGuard + OpenVPN）/防火墙/端口转发/DDNS/诊断，一应俱全
 
-| 🧩 **6 板统一** | 一套固件覆盖 6 款 BPI 路由板，体验完全一致 |
+| 🧩 **6 板统一** | 一套固件覆盖 6 款 BPI 路由板，体验完全一致
+|====
 
 =  3. 支持的设备
 
-**| 设备 | 芯片 | 主要硬件能力 |**
+[options="header",cols="1,1,3"]
+|====
+| 设备 | 芯片 | 主要硬件能力 
+| **BPI-R4** | MediaTek MT7988A | 2×10G SFP + 4×千兆，Wi-Fi 7
 
-|---|---|---|
+| **BPI-R4 Lite** | MediaTek MT7987A | Wi-Fi 7（出厂 BE14 三频，需 12V 供电） 
 
-| **BPI-R4** | MediaTek MT7988A | 2×10G SFP + 4×千兆，Wi-Fi 7 |
+| **BPI-R4 Pro (8X)** | MediaTek MT7988A | 8GB 内存，4×2.5G + 10G WAN，系统状态灯 
 
-| **BPI-R4 Lite** | MediaTek MT7987A | Wi-Fi 7（出厂 BE14 三频，需 12V 供电） |
+| **BPI-R3** | MediaTek MT7986A | Wi-Fi 6，多介质（SD/NAND/eMMC）
 
-| **BPI-R4 Pro (8X)** | MediaTek MT7988A | 8GB 内存，4×2.5G + 10G WAN，系统状态灯 |
+| **BPI-R3 Mini** | MediaTek MT7986A | Wi-Fi 6，2.5G PHY，紧凑无 SD 卡槽 
 
-| **BPI-R3** | MediaTek MT7986A | Wi-Fi 6，多介质（SD/NAND/eMMC） |
-
-| **BPI-R3 Mini** | MediaTek MT7986A | Wi-Fi 6，2.5G PHY，紧凑无 SD 卡槽 |
-
-| **OpenWrt One** | MediaTek MT7981B | Wi-Fi 6，纯 NAND |
+| **OpenWrt One** | MediaTek MT7981B | Wi-Fi 6，纯 NAND 
+|====
 
 > 全部 6 款均已完成「固件 A/B + 在线升级回退 + 四层恢复」的真机验收。
 
