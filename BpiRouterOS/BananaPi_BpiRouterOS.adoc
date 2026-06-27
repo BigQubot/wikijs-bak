@@ -45,30 +45,30 @@ It needs to solve two pain points：
 
 | 🔐 **Enterprise-level security** | Multi - user role permissions、Login anti - brute force、operation audit log provides、Full - process HTTPS ensures 
 
-| 🔌 **功能齐全** | 网络/无线/VPN（WireGuard + OpenVPN）/防火墙/端口转发/DDNS/诊断，一应俱全
+| 🔌 **Fully functional** | Network/Wireless/VPN（WireGuard + OpenVPN）/Fireware/Port forwarding/DDNS/Diagnosis，All in one
 
-| 🧩 **6 板统一** | 一套固件覆盖 6 款 BPI 路由板，体验完全一致
+| 🧩 ** unification of 6 boards ** | One set of firmware covers 6 Banana Pi router boards, providing a completely consistent experience.
 |====
 
-=  3. 支持的设备
+=  3. Support boards
 
 [options="header",cols="1,1,3"]
 |====
-| 设备 | 芯片 | 主要硬件能力 
-| **BPI-R4** | MediaTek MT7988A | 2×10G SFP + 4×千兆，Wi-Fi 7
+| Board | chip | main hardware capabilities 
+| **BPI-R4** | MediaTek MT7988A | 2×10G SFP + 4× Gigabit Port，Wi-Fi 7
 
-| **BPI-R4 Lite** | MediaTek MT7987A | Wi-Fi 7（出厂 BE14 三频，需 12V 供电） 
+| **BPI-R4 Lite** | MediaTek MT7987A | Wi-Fi 7（Factory - equipped with BE14 triple - band, requires 12V power supply.） 
 
-| **BPI-R4 Pro (8X)** | MediaTek MT7988A | 8GB 内存，4×2.5G + 10G WAN，系统状态灯 
+| **BPI-R4 Pro (8X)** | MediaTek MT7988A | 8GB RAM，4×2.5G + 10G WAN，System status light 
 
-| **BPI-R3** | MediaTek MT7986A | Wi-Fi 6，多介质（SD/NAND/eMMC）
+| **BPI-R3** | MediaTek MT7986A | Wi-Fi 6，Multi - medium（SD/NAND/eMMC）
 
-| **BPI-R3 Mini** | MediaTek MT7986A | Wi-Fi 6，2.5G PHY，紧凑无 SD 卡槽 
+| **BPI-R3 Mini** | MediaTek MT7986A | Wi-Fi 6，2.5G PHY，Compact without SD card slot 
 
-| **OpenWrt One** | MediaTek MT7981B | Wi-Fi 6，纯 NAND 
+| **OpenWrt One** | MediaTek MT7981B | Wi-Fi 6，only NAND 
 |====
 
-> 全部 6 款均已完成「固件 A/B + 在线升级回退 + 四层恢复」的真机验收。
+> All six models have completed the real - machine acceptance of "Firmware A/B + Online upgrade rollback + Four - layer recovery".
 
 ---
 
