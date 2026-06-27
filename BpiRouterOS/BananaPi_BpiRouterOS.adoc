@@ -30,13 +30,13 @@ It needs to solve two pain points：
 
 **One set of firmware is compatible with 6 types of boards **：The same Web interface and functions run on all six BPI router boards. The differences between the boards are only at the hardware level, and the firmware automatically adapts to each board.
 
-=  2. 为什么选 BpiRouter OS
+=  2. Why choose BpiRouter OS?
 
 
 
 [options="header",cols="1,4"]
 |====
-| 亮点 | 说明 
+| Highlight  | Explanation 
 | 🖥️ **现代 Web 管理界面** | Vue 3 图形界面，响应式（电脑/平板/手机），深色模式，中英双语，常用功能开箱即用
 
 | 🛡️ **A/B 双槽防变砖** | 双固件槽，在线升级写入备用槽并试运行，失败自动回退到上一个好版本，刷坏不变砖 
