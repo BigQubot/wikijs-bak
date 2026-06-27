@@ -72,11 +72,13 @@ It needs to solve two pain points：
 
 =  4.Function overview
 
-==  4.1 开箱即用
-- **首次配置向导**：全新设备开机自动进入向导，3 步设好上网方式（DHCP / 静态 / 宽带拨号）、WiFi、管理密码。
-- **仪表盘**：一屏总览 CPU/温度/内存/存储、联网状态、客户端数、**实时上下行流量曲线**，自动刷新。
+==  4.1 Out of the box
+- **First configuration wizard**：When a brand-new device is powered on, it will automatically enter the wizard. You can set up the Internet connection mode (DHCP / Static / Broadband Dial-up), Wi-Fi, and the management password in 3 steps.
 
-==  4.2 网络与无线
+- **Dashboard**：One-screen overview of CPU, temperature, memory, storage, network connection status, and number of clients、**display the real-time upstream and downstream traffic curve**，automatic refresh。
+
+==  4.2 Network and Wireless
+
 - **上网（WAN）**：DHCP / 静态 IP / PPPoE 宽带拨号，IPv4 + IPv6 双栈。
 - **局域网（LAN）**：LAN IP、DHCP 地址分配（地址池/租期）。
 - **无线**：多频段管理（2.4G / 5G / 6G），信道/带宽/功率/国家码，SSID 与加密（6GHz 强制 WPA3/OWE）。
