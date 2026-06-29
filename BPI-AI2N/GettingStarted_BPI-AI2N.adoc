@@ -1311,6 +1311,14 @@ link:https://github.com/balena-io/balena-cli[Balena CLI] is a Command Line Inter
   $ sudo balena local flash core-image-weston-bananapi-ai2n-xxx.rootfs.wic.gz --drive /dev/sdX --yes
 ```
 
+- Install Image with Armbian Imager on Windows, Linux and MacOS.
++
+link:https://imager.armbian.com[Armbian Imager] is an open-source imaging tool for installing Armbian OS.
++
+For un-official board images, please select Use Custom Image->Browse and select the local image file->Select the target storage->Erase&Flash.
++
+image::/picture/armbian-imager.png[armbian-imager.png]
+
 - Install Image with dd command on Linux
 +
 umount SDcard device /dev/sdX partition if mounted automatically. 
