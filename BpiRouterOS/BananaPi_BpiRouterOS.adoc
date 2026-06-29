@@ -94,12 +94,12 @@ It needs to solve two pain points：
 ==  4.4 System management
 - **Hostname / Time zone / System time **：Select the time zone from the drop-down list (searchable). The time is automatically synchronized via NTP. Manual setting is also supported, as well as synchronization with the browser time (used as a fallback for time calibration in scenarios without RTC or offline).
 - **Change password,Reset**。
-- **关键改动二次确认**：网络 / WiFi / 防火墙等可能切断管理连接的改动，可开启「保存后限时确认」——改错导致掉线时会自动回滚，默认开启。
-- **固件升级**（A/B 双槽）、**配置备份与恢复**、**恢复出厂**。
-- **诊断工具**：Ping / Traceroute / DNS 查询，结果直接在界面查看。
-- **系统日志**。
+- **Secondary confirmation of key changes**：newwork / WiFi / firewalla...Changes that may cut off the management connection，You can enable "Time-limited confirmation after saving" - when a disconnection occurs due to error correction, it will automatically roll back. It is enabled by default.
+- **Firmware upgrade**(Dual slots A/B)、**Configuration backup and restoration**、**Restore to settings factory**。
+- **Diagnostic tool**：Ping / Traceroute / DNS inquire，The results can be directly viewed on the WEB UI。
+- **System log**。
 
-==  4.5 多用户与审计
+==  4.5 Multi - user and auditing
 - **三种角色**：管理员（全部）/ 操作员（日常配置）/ 观察员（只读）。权限最小化，观察员看不到也改不了配置。
 - **审计日志**（仅管理员）：记录登录、权限拒绝、配置变更、固件升级、用户管理等安全相关操作，可事后追溯（不记录任何密码/密钥）。
 
