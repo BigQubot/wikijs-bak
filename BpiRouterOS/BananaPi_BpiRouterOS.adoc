@@ -140,17 +140,17 @@ Before upgrading, the firmware will be automatically verified, and incompatible 
 | **L4 Full device rescue from brick** | **Power off → Hold the restore button → Power on** and keep holding | Flash the whole device back to the factory settings from the built-in gold image.
 |====
 
-> **结果**：即使配置和固件都损坏，L4 也能把设备救回出厂状态——**刷坏也救得回，不会永久变砖**。
+> **Result**：Even if both the configuration and the firmware are damaged, L4 can still restore the device to its factory settings.——**Even if the device is bricked during the flashing process, it can still be rescued and won't become a permanent brick**。
 >
-> 💡 **恢复键因板而异**：BPI-R4 使用 **WPS 键**；R4-Lite / R4 Pro / R3 / R3 Mini 使用**物理 reset 键**。详见各板说明。
+> 💡 **The recovery button varies by board**：BPI-R4 use **WPS key**；R4-Lite / R4 Pro / R3 / R3 Mini use **physical reset button**.Please refer to the instructions for each board.
 
-= 使用
+= Use
 
-== 固件下载
+== Image download
 
-== 开发板如何升级使用BpiRouterOS
+== How to upgrade the development board to use BpiOSRouter?
 
-== BpiRouterOS 使用说明
+== BpiRouterOS instruction manual 
 
 
 
