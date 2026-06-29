@@ -82,7 +82,7 @@ It needs to solve two pain points：
 - **Internet（WAN）**：DHCP / Static IP / PPPoE broadband dial - up service，IPv4 + IPv6 support。
 - **Local Area Network（LAN）**：LAN IP、DHCP Address allocation (Address pool / Lease term)。
 - **Wireless**：Multi - band management（2.4G / 5G / 6G），Channel/Bandwidth/Power/Country code，SSID and Encryption（6GHz Compulsory WPA3/OWE）。
-- **已连接设备**：View the connected devices in real-time IP / MAC / Hostname / Online status。
+- **Connected device**：View the connected devices in real-time IP / MAC / Hostname / Online status。
 
 ==  4.3 Surf the Internet safely
 - **VPN**：built - in **WireGuard** and **OpenVPN**——two protocols**can be enabled simultaneously**，It can serve as both a client (connecting to a remote VPN) and a server (making the local machine a VPN server). The server allows users to customize the listening port and address range，**servergenerate configuration with one click + QR code**（Mobile App Scan the code and connect immediately），And support viewing and revoking the client list.
