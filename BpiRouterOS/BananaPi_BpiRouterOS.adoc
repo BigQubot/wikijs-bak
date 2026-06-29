@@ -91,9 +91,9 @@ It needs to solve two pain points：
 - **Firewall rules **：Customize allow / deny / discard rules.
 - **DDNS**：dynamic public IP binding to a fixed domain name.（Support DuckDNS / No-IP / Dynu / Cloudflare / FreeDNS）。
 
-==  4.4 系统管理
-- **主机名 / 时区 / 系统时间**：时区从下拉列表选择（可搜索），时间自动 NTP 对时，也支持手动设置 / 用浏览器时间同步（无 RTC、离线场景兜底校时）。
-- **改密、重启**。
+==  4.4 System management
+- **Hostname / Time zone / System time **：Select the time zone from the drop-down list (searchable). The time is automatically synchronized via NTP. Manual setting is also supported, as well as synchronization with the browser time (used as a fallback for time calibration in scenarios without RTC or offline).
+- **Change password,Reset**。
 - **关键改动二次确认**：网络 / WiFi / 防火墙等可能切断管理连接的改动，可开启「保存后限时确认」——改错导致掉线时会自动回滚，默认开启。
 - **固件升级**（A/B 双槽）、**配置备份与恢复**、**恢复出厂**。
 - **诊断工具**：Ping / Traceroute / DNS 查询，结果直接在界面查看。
