@@ -104,7 +104,9 @@ It needs to solve two pain points：
 - **Audit log**（Only administrator）：Record security-related operations such as logins, permission denials, configuration changes, firmware upgrades, and user management for post-event traceability (no passwords/keys are recorded).
 
 ---
-=  5. Reliability: Upgrade and recovery without the risk of bricking forever.
+=  5. Reliability
+
+**Upgrade and recovery without the risk of bricking forever**.
 
 This is the most core differentiating capability of BpiRouter OS. Router firmware most worried "bricking during upgrade, becoming remotely inoperable, and having to be sent back for repair" —— we use dual slots + four - layer backup to completely eliminate this risk.
 
