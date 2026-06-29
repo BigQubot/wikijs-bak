@@ -104,9 +104,9 @@ It needs to solve two pain points：
 - **Audit log**（Only administrator）：Record security-related operations such as logins, permission denials, configuration changes, firmware upgrades, and user management for post-event traceability (no passwords/keys are recorded).
 
 ---
-=  5. 可靠性：永不变砖的升级与恢复
+=  5. Reliability: Upgrade and recovery without the risk of bricking forever.
 
-这是 BpiRouter OS 最核心的差异化能力。路由器固件最怕「升级刷坏、远程变砖、要寄回返修」——我们用**双槽 + 四层兜底**根除这个风险。
+This is the most core differentiating capability of BpiRouter OS. Router firmware最怕 "bricking during upgrade, becoming remotely inoperable, and having to be sent back for repair" —— we use dual slots + four - layer backup to completely eliminate this risk.
 
 ==  5.1 固件 A/B 双槽升级
 设备有**两个固件槽**。在线升级时：
