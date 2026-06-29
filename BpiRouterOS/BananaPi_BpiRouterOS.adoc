@@ -106,9 +106,10 @@ It needs to solve two pain points：
 ---
 =  5. Reliability: Upgrade and recovery without the risk of bricking forever.
 
-This is the most core differentiating capability of BpiRouter OS. Router firmware最怕 "bricking during upgrade, becoming remotely inoperable, and having to be sent back for repair" —— we use dual slots + four - layer backup to completely eliminate this risk.
+This is the most core differentiating capability of BpiRouter OS. Router firmware most worried "bricking during upgrade, becoming remotely inoperable, and having to be sent back for repair" —— we use dual slots + four - layer backup to completely eliminate this risk.
 
 ==  5.1 固件 A/B 双槽升级
+
 设备有**两个固件槽**。在线升级时：
 
 1. 新固件写入**备用槽**，不动当前正在运行的槽；
