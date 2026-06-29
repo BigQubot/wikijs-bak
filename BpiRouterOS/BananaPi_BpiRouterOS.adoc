@@ -125,19 +125,19 @@ The device has **two firmware slots**. During online upgrade,：
 Before upgrading, the firmware will be automatically verified, and incompatible images will be directly rejected. You can choose to **"retain configuration"** to keep the settings consistent after the upgrade.
 
 
-==  5.2 四层恢复阶梯
-**从软到硬，逐级兜底：**
+==  5.2 Four - layer recovery ladder
 
-[options="header",cols="1,1,3"]
+**From soft to hard, provide support at each level:**
+
+[options="header",cols="1,2,3"]
 |====
-| 层级 | 触发方式 | 效果 
-| **L1 配置回滚** | 自动 | 改了导致掉线的配置 → 限时未确认自动撤销 
+| Level | Trigger mode | Effect
+| **L1 Configuration rollback** | Automatic | Changing the configuration that causes disconnection → Automatic cancellation if not confirmed within the time limit
 
-| **L2 固件自动回退** | 自动 | 坏固件启动失败 → 引导自动切回上一个好固件槽 
+| **L2 Automatic firmware rollback** | Automatic | Failed to start the bad firmware → The boot automatically switches back to the previous good firmware slot.
 
-| **L3 恢复出厂** | 运行中**长按恢复键约 5 秒** | 清除当前配置回出厂（不重刷固件） 
-
-| **L4 整机救砖** | **断电 → 按住恢复键 → 上电**并持续按住 | 从内置黄金镜像把整机刷回出厂
+| **L3 Restore to factory settings** | During operation, **press and hold the restore button for about 5 seconds**. | Clear the current configuration and restore to factory settings (without reflashing the firmware)
+| **L4 Full device rescue from brick** | **Power off → Hold the restore button → Power on** and keep holding | Flash the whole device back to the factory settings from the built-in gold image.
 |====
 
 > **结果**：即使配置和固件都损坏，L4 也能把设备救回出厂状态——**刷坏也救得回，不会永久变砖**。
