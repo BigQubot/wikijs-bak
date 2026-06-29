@@ -100,8 +100,8 @@ It needs to solve two pain points：
 - **System log**。
 
 ==  4.5 Multi - user and auditing
-- **三种角色**：管理员（全部）/ 操作员（日常配置）/ 观察员（只读）。权限最小化，观察员看不到也改不了配置。
-- **审计日志**（仅管理员）：记录登录、权限拒绝、配置变更、固件升级、用户管理等安全相关操作，可事后追溯（不记录任何密码/密钥）。
+- **Three types of roles**：Administrator (full access) / Operator (daily configuration) / Observer (read-only). Minimize permissions. Observers cannot see or modify the configuration.
+- **Audit log**（Only administrator）：Record security-related operations such as logins, permission denials, configuration changes, firmware upgrades, and user management for post-event traceability (no passwords/keys are recorded).
 
 ---
 =  5. 可靠性：永不变砖的升级与恢复
