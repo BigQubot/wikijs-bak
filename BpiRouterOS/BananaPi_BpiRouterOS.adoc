@@ -112,17 +112,17 @@ This is the most core differentiating capability of BpiRouter OS. Router firmwar
 
 ==  5.1 firmware A/B dual - slot upgrade
 
-设备有**两个固件槽**。在线升级时：
+The device has **two firmware slots**. During online upgrade,：
 
-1. 新固件写入**备用槽**，不动当前正在运行的槽；
+1. Write the new firmware to the **backup slot** without touching the currently running slot.；
 
-2. 自动重启进入新固件，界面弹出**「升级待确认」横幅**（带倒计时）；
+2. Automatically restart and enter the new firmware. A **"Upgrade to be confirmed"** banner with a countdown will pop up on the interface.
 
-3. 确认一切正常 → 点「**确认升级**」转正；
+3. Confirm that everything is normal. → check「**confirm upgrade**」become a full ；
 
-4. **若不确认（比如新固件网络不通、人不在场）→ 倒计时到点自动回退**到升级前的固件和配置。
+4. **If not confirmed (for example, the network is not working with the new firmware or the person is not present)→ Automatically roll back when the countdown ends.**revert to the firmware and configuration before the upgrade.
 
-升级前会自动校验固件，不兼容的镜像直接拒绝；可选「保留配置」让设置随升级延续。
+Before upgrading, the firmware will be automatically verified, and incompatible images will be directly rejected. You can choose to **"retain configuration"** to keep the settings consistent after the upgrade.
 
 
 ==  5.2 四层恢复阶梯
