@@ -175,11 +175,19 @@ Before upgrading, the firmware will be automatically verified, and incompatible 
    
 3. Refer to the detailed DIP switch settings, indicator light states, and step-by-step procedures inf [Programming Guide](./flashing.md)。
 
-== 8.2 Initial configuration
+**link:/zh/BpiRouterOS/BananaPi_BpiRouterOS_Flashing[Burning guide]**、
+
+== 8.2 Configuration settings
 
 1. Open the WEB browser `https://192.168.100.1`（There will be a certificate security prompt for the first time. Confirm to continue.）。
 2. Automatically enter **Configuration wizard**，Set up in sequence: Internet access mode → WiFi name/password → Administrator password.
 3. After completion, it will automatically enter the dashboard and start using.
+
+**link:/zh/BpiRouterOS/BananaPi_BpiRouterOS_Setup[Configuration settings]**
+
+== Recovery and unbricking
+
+**link:/zh/BpiRouterOS/BananaPi_BpiRouterOS_Recovery[ Recovery and unbricking]**
 
 =  9. Known restrictions
 
@@ -328,4 +336,8 @@ A：On the system page, you can download the configuration backup with a single 
 **Q9：Will the configuration be lost during the upgrade?**
 
 A：By default, the option "Keep configuration" is selected. After the upgrade, settings such as the hostname/WiFi/users/ VPN will still be retained. You can also choose not to keep the configuration and revert to the factory settings.
+
+= 13. other - sub pages
+
+**link:/zh/BpiRouterOS/BananaPi_BpiRouterOS_Flashing[Burning guide]**、**link:/zh/BpiRouterOS/BananaPi_BpiRouterOS_Setup[Configuration settings]**、**link:/zh/BpiRouterOS/BananaPi_BpiRouterOS_Recovery[ Recovery and unbricking]**
 
