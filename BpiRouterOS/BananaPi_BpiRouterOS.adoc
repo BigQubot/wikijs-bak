@@ -162,7 +162,7 @@ Before upgrading, the firmware will be automatically verified, and incompatible 
 
 =  8. Quick start
 
-> See the corresponding sub - pages for detailed steps：**[[Programming Guide](./flashing.md)**、**[Initial configuration](./setup.md)**、**[恢复与救砖](./recovery.md)**。
+> See the corresponding sub - pages for detailed steps：**link:/zh/BpiRouterOS/BananaPi_BpiRouterOS_Flashing[Burn image]**、**link:/zh/BpiRouterOS/BananaPi_BpiRouterOS_Setup[Configuration settings]**、**link:/zh/BpiRouterOS/BananaPi_BpiRouterOS_Recovery[Recovery and unbricking]**。
 
 ==  8.1 Burn image
 
@@ -175,19 +175,12 @@ Before upgrading, the firmware will be automatically verified, and incompatible 
    
 3. Refer to the detailed DIP switch settings, indicator light states, and step-by-step procedures inf [Programming Guide](./flashing.md)。
 
-**link:/zh/BpiRouterOS/BananaPi_BpiRouterOS_Flashing[Burning guide]**、
 
 == 8.2 Configuration settings
 
 1. Open the WEB browser `https://192.168.100.1`（There will be a certificate security prompt for the first time. Confirm to continue.）。
 2. Automatically enter **Configuration wizard**，Set up in sequence: Internet access mode → WiFi name/password → Administrator password.
 3. After completion, it will automatically enter the dashboard and start using.
-
-**link:/zh/BpiRouterOS/BananaPi_BpiRouterOS_Setup[Configuration settings]**
-
-== Recovery and unbricking
-
-**link:/zh/BpiRouterOS/BananaPi_BpiRouterOS_Recovery[ Recovery and unbricking]**
 
 =  9. Known restrictions
 
