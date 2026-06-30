@@ -8,7 +8,7 @@
 
 ## 0. Must-read before starting
 
-- ⚠️ **拨码（启动介质选择）是最易出错、后果最重的一步。** 拨错只会启动到错介质、不会损坏硬件，但会让流程「看起来没反应」。**完整拨码定义以板实物丝印 + 原理图为准。**
+- ⚠️ **Diping-switch (boot media selection) is the step most prone to errors and the most with serious consequences.** Dialing the wrong switch will only result in booting to the wrong media and will not damage the hardware, but it will make the process [seem unresponsive].**The complete definition of dip-switching shall be based on the silkscreen on the actual board and the schematic diagram.。**
 - 全程 **先断电再拨码 / 插拔**，避免热插拔。
 - **烧录写入期间不要断电。** 系统对写入有 CRC 校验（坏镜像绝不写入），但中途断电仍可能写半截。
 - 注意防静电（ESD）。部分板对供电有要求（如 R4-Lite 的 BE14 三频需 12V）。
