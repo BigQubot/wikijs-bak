@@ -166,9 +166,11 @@ Before upgrading, the firmware will be automatically verified, and incompatible 
 
 ==  8.1 烧录到设备
 1. 从 **下载页**（见 §11）获取对应板型的固件镜像。
+
 2. 按板型烧录：
    - **有 SD 卡槽的板**（R4 / R4-Lite / R4 Pro / R3）：把安装镜像写入 SD 卡，按拨码引导依次写入 NAND、再装入 eMMC。
    - **无 SD 卡槽 / 纯 NAND 板**（R3 Mini / OpenWrt One）：经串口 + U 盘灌入（随固件提供 flashkit 工具与逐步说明）。
+   
 3. 详细的拨码、灯态、逐步流程见 [烧录指南](./flashing.md)。
 
 ### 8.2 首次配置
@@ -239,6 +241,7 @@ Baidu: https://pan.baidu.com/s/1Qsa5wkJ7jRQ97un00kQPeg?pwd=8888 pincode: 8888
 Google:  https://drive.google.com/drive/folders/1MSU0x5Ihz2Ctj0AJ_X0rBUyfcn9nGGaV?usp=sharing
 
 == BPI-R3
+
 NOTE: openwrt-mediatek-filogic-bananapi_bpi-r3-sdcard.img
 
 NOTE: openwrt-mediatek-filogic-bananapi_bpi-r3-squashfs-sysupgrade.itb
