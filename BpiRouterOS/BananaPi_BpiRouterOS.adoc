@@ -144,15 +144,136 @@ Before upgrading, the firmware will be automatically verified, and incompatible 
 >
 > 💡 **The recovery button varies by board**：BPI-R4 use **WPS key**；R4-Lite / R4 Pro / R3 / R3 Mini use **physical reset button**.Please refer to the instructions for each board.
 
-= Use
+=  6. Security features
 
-== Image download
+- **Whole process HTTPS**：For self-signed certificates, you only need to confirm once upon the first visit.
+- **Modern authentication**：JWT login state (expires in 1 hour), password security verification.
+- **Login anti - brute force**：After consecutive failures from the same source, the system will introduce successive delays (maximum 60 seconds), effectively preventing brute-force attacks.
+- **Role permissions（RBAC）**：Method-level minimum permissions + default denial. The back-end intercepts unauthorized ( operationseven if the interface is bypassed, it's invalid).
+- **Operation audit** ：All security-related actions are fully traceable, and no sensitive parameters are recorded.
 
-== How to upgrade the development board to use BpiOSRouter?
+=  7. UEB UI and user experience
 
-== BpiRouterOS instruction manual 
+- **Multilingual**：Chinese / English instant switch
+- **Dark mode**：Light / dark mode, protects your eyes.
+- **Responsive **：Computers, tablets, and mobile phones can adapt automatically, and the sidebar on the mobile phone will fold automatically.
+- **Smooth feedback**：For overall device operations such as upgrading / rolling back /restarting /  restoring to factory settings, there are full - screen progress and prompts "disconnection → reconnection" detection, and no blank screen will appear during the process.
+- **Advanced posterior approach**：Keep the native LuCI entrance. For advanced/diagnostic scenarios not covered by this interface, you can switch to LuCI with one click.
+
+=  8. Quick start
+
+> See the corresponding sub - pages for detailed steps：**[烧录指南](./flashing.md)**、**[首次配置](./setup.md)**、**[恢复与救砖](./recovery.md)**。
+
+==  8.1 烧录到设备
+1. 从 **下载页**（见 §11）获取对应板型的固件镜像。
+2. 按板型烧录：
+   - **有 SD 卡槽的板**（R4 / R4-Lite / R4 Pro / R3）：把安装镜像写入 SD 卡，按拨码引导依次写入 NAND、再装入 eMMC。
+   - **无 SD 卡槽 / 纯 NAND 板**（R3 Mini / OpenWrt One）：经串口 + U 盘灌入（随固件提供 flashkit 工具与逐步说明）。
+3. 详细的拨码、灯态、逐步流程见 [烧录指南](./flashing.md)。
+
+### 8.2 首次配置
+1. 浏览器打开 `https://192.168.100.1`（首次会有一次证书安全提示，确认继续）。
+2. 自动进入**配置向导**，依次设置：上网方式 → WiFi 名称/密码 → 管理员密码。
+3. 完成后自动进入仪表盘，开始使用。
+
+=  9. 已知限制
+
+我们坚持如实告知当前版本的已知限制：
+
+- **BPI-R4 Pro：10G combo-LAN 口暂不可用** — 该多速率组合口**目前只能作 WAN（已验证可用），暂不能作 LAN**。不影响 4×2.5G 网口与面板口正常使用，后续版本将放开。
+- **BPI-R4 Pro：2.5G 口「独立使用」（不加入网桥）转发不通** — 默认部署下 2.5G 口都在 LAN 网桥内、工作正常；若要把某口单独当独立网段/WAN，当前版本不支持。
+
+> 其余功能在 6 款板上均已通过真机验收。
+
+=  10. 技术规格
+
+
+[options="header",cols="1,3"]
+|====
+| 项目 | 内容
+| **底层系统** | OpenWrt v25.12.2 / Linux 6.12 
+
+| **架构** | aarch64（ARM 64 位）
+
+| **后端** | Go 单体服务（JSON-RPC 2.0） 
+
+| **前端** | Vue 3 + Naive UI 
+| **Web服务** | Nginx（TLS 终端 + 反向代理）+ LuCI 共存 
+
+| **VPN** | WireGuard、OpenVPN（含 PKI / 证书吊销）
+
+| **升级机制** | 固件 A/B 双槽 + 在线 OTA + 四层恢复
+|====
+> BpiRouter OS 构建于 OpenWrt 之上，完整复用 OpenWrt 的驱动与软件生态；在其之上提供统一的 Web 管理界面与防变砖的固件升级/恢复体系。
+
+
+=  11. BpiRouterOS Image 
+
+- **Image download**：
+
+== BPI-R4
+
+NOTE: : openwrt-mediatek-filogic-bananapi_bpi-r4-sdcard.img
+
+NOTE: openwrt-mediatek-filogic-bananapi_bpi-r4-squashfs-sysupgrade.itb
+
+Baidu :  https://pan.baidu.com/s/13eOX6TRFw59Icv05yXdPGQ?pwd=8888 pincode: 8888 
+
+Google: https://drive.google.com/drive/folders/1_H2FaK_btdSv0Ofc9F7hLDwgyUr0x6sH?usp=sharing
+
+== BPI-R4 PRO-8X:
+NOTE: openwrt-mediatek-filogic-bananapi_bpi-r4-pro-8x-sdcard.img
+
+NOTE: openwrt-mediatek-filogic-bananapi_bpi-r4-pro-8x-squashfs-sysupgrade.itb
+
+Baidu:  https://pan.baidu.com/s/1b2MzreydWzXxTv3J7N94Og?pwd=8888 pincode: 8888 
+Google: https://drive.google.com/drive/folders/1KybHmzsDeFiFhd1YIlZ0YUiLN0042Dly?usp=sharing
+
+== BPI-R4 LITE
+NOTE: openwrt-mediatek-filogic-bananapi_bpi-r4-lite-sdcard.img
+
+NOTE: openwrt-mediatek-filogic-bananapi_bpi-r4-lite-squashfs-sysupgrade.itb
+
+Baidu: https://pan.baidu.com/s/1Qsa5wkJ7jRQ97un00kQPeg?pwd=8888 pincode: 8888 
+
+Google:  https://drive.google.com/drive/folders/1MSU0x5Ihz2Ctj0AJ_X0rBUyfcn9nGGaV?usp=sharing
+
+== BPI-R3
+NOTE: openwrt-mediatek-filogic-bananapi_bpi-r3-sdcard.img
+
+NOTE: openwrt-mediatek-filogic-bananapi_bpi-r3-squashfs-sysupgrade.itb
+
+Baidu: https://pan.baidu.com/s/1WbHnRUj-fqBdy2IACjSlUQ?pwd=8888 pincode: 8888 
+
+Google: https://drive.google.com/drive/folders/1ZtnUVS4r1MY3I31d8sokPRk7bD1J9hXT?usp=sharing
+
+== BPI-R3 MINI
+
+NOTE: install packages 
+
+NOTE: openwrt-mediatek-filogic-bananapi_bpi-r3-mini-squashfs-sysupgrade.itb
+
+Baidu:  https://pan.baidu.com/s/1DCPW7a9wvLikzV89SNieOg?pwd=8888 pincode: 8888 
+
+Google:  https://drive.google.com/drive/folders/1p2RY4uUv6LxVg1aGo83EcRe2-VjvxgzB?usp=sharing
+
+== OpenWrt One
+
+NOTE: install packages
+
+NOTE: openwrt-mediatek-filogic-openwrt_one-squashfs-sysupgrade.itb
+
+Baidu:  https://pan.baidu.com/s/1SpSH4KRZ0tIUgWEzxw1SGA?pwd=8888 pincode: 8888 
+
+Google: https://drive.google.com/drive/folders/1Ogu34Du_uxqHexs9y-bNgkGmyiZi7WSs?usp=sharing
+
+- **[烧录指南](烧录指南)** — 把板烧成出厂系统（SD 卡 / 串口两种方式）
+- **[首次配置](首次配置)** — 第一次开机的配置向导
+- **[恢复与救砖](恢复与救砖)** — 四层恢复阶梯与各板恢复键
+- **常见问题**：见 §12
+
 
 = Reference
 
 * BpiRouterOS WEB UI demo on youtube: https://www.youtube.com/watch?v=Oi27cqIHO20
-* Discuss on forum : https://forum.banana-pi.org/c/banana-router/bpirouteros/143
+* Discuss on forum : https://forum.banana-pi.org/c/banana-router/bpirouteros/14
