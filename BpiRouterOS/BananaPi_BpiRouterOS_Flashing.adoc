@@ -30,12 +30,12 @@ Depending on whether your board has an SD card slot, choose one of the two:
 
 ---
 
-## 2. 准备文件
+## 2. Prepare image
 
-从 **下载页** 获取你的板型对应文件：
+Get the files corresponding to your board type from the **download page**:
 
-- **方式 A**：`*-sdcard.img`（写入 SD 卡的安装镜像）。
-- **方式 B**：固件附带的 **flashkit** 工具包，含内存引导程序、NAND 黄金镜像 `snand-factory.bin` 及其校验文件 `snand-factory.crc`、串口下载工具与逐步说明。
+- **Method A**：`*-sdcard.img`（Installation image for written to the SD card）。
+- **Method B**：Comes with the firmware**flashkit** toolkit，including memory bootstrap progra、NAND Golden mirror `snand-factory.bin` and verification file `snand-factory.crc`、Serial port download tool and step-by-step instructions。
 
 > ⚠️ **`snand-factory.bin` 与 `snand-factory.crc` 必须来自同一次构建、一起拷贝。** 烧录前会用 .crc 校验 .bin，不匹配则绝不写入——这是防坏镜像保护，但也意味着两文件版本错配会「永远校验失败、写不进」。
 
