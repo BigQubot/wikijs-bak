@@ -37,7 +37,7 @@ Get the files corresponding to your board type from the **download page**:
 - **Method A**：`*-sdcard.img`（Installation image for written to the SD card）。
 - **Method B**：Comes with the firmware**flashkit** toolkit，including memory bootstrap progra、NAND Golden mirror `snand-factory.bin` and verification file `snand-factory.crc`、Serial port download tool and step-by-step instructions。
 
-> ⚠️ **`snand-factory.bin` 与 `snand-factory.crc` 必须来自同一次构建、一起拷贝。** 烧录前会用 .crc 校验 .bin，不匹配则绝不写入——这是防坏镜像保护，但也意味着两文件版本错配会「永远校验失败、写不进」。
+> ⚠️ **`snand-factory.bin` and `snand-factory.crc`  must come from the same build and be copied together.**Before programming, the .bin file will be verified using the .crc file. If they don't match, writing will never be performed. This is a protection mechanism against bad images，But it also means that if the versions of the two files are mismatched, it will「verification always fails and writing is not possible.」。
 
 ---
 
