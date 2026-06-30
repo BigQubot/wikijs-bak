@@ -164,16 +164,19 @@ Before upgrading, the firmware will be automatically verified, and incompatible 
 
 > See the corresponding sub - pages for detailed steps：**[烧录指南](./flashing.md)**、**[首次配置](./setup.md)**、**[恢复与救砖](./recovery.md)**。
 
-==  8.1 烧录到设备
-1. 从 **下载页**（见 §11）获取对应板型的固件镜像。
+==  8.1 Burn image
 
-2. 按板型烧录：
-   - **有 SD 卡槽的板**（R4 / R4-Lite / R4 Pro / R3）：把安装镜像写入 SD 卡，按拨码引导依次写入 NAND、再装入 eMMC。
-   - **无 SD 卡槽 / 纯 NAND 板**（R3 Mini / OpenWrt One）：经串口 + U 盘灌入（随固件提供 flashkit 工具与逐步说明）。
+1. form  **BpiRouterOS Image ** obtain the firmware image corresponding to the type board.
+
+2. Burn according to the board type：
+
+   - **With SD slot boards**（R4 / R4-Lite / R4 Pro / R3）：Write the installation image to the SD card, then write it to the NAND in sequence according to the DIP switch boot, and finally install it into the eMMC.
+   - **Without SD slot / only NAND flash board**（R3 Mini / OpenWrt One）：Load through the serial port + USB flash drive (the flashkit tool and step-by-step instructions are provided with the firmware).
    
-3. 详细的拨码、灯态、逐步流程见 [烧录指南](./flashing.md)。
+3. Refer to the detailed DIP switch settings, indicator light states, and step-by-step procedures inf [Programming Guide](./flashing.md)。
 
-### 8.2 首次配置
+== 8.2 首次配置
+
 1. 浏览器打开 `https://192.168.100.1`（首次会有一次证书安全提示，确认继续）。
 2. 自动进入**配置向导**，依次设置：上网方式 → WiFi 名称/密码 → 管理员密码。
 3. 完成后自动进入仪表盘，开始使用。
