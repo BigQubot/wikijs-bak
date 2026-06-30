@@ -162,7 +162,7 @@ Before upgrading, the firmware will be automatically verified, and incompatible 
 
 =  8. Quick start
 
-> See the corresponding sub - pages for detailed steps：**[烧录指南](./flashing.md)**、**[首次配置](./setup.md)**、**[恢复与救砖](./recovery.md)**。
+> See the corresponding sub - pages for detailed steps：**[[Programming Guide](./flashing.md)**、**[Initial configuration](./setup.md)**、**[恢复与救砖](./recovery.md)**。
 
 ==  8.1 Burn image
 
@@ -175,15 +175,15 @@ Before upgrading, the firmware will be automatically verified, and incompatible 
    
 3. Refer to the detailed DIP switch settings, indicator light states, and step-by-step procedures inf [Programming Guide](./flashing.md)。
 
-== 8.2 首次配置
+== 8.2 Initial configuration
 
-1. 浏览器打开 `https://192.168.100.1`（首次会有一次证书安全提示，确认继续）。
-2. 自动进入**配置向导**，依次设置：上网方式 → WiFi 名称/密码 → 管理员密码。
-3. 完成后自动进入仪表盘，开始使用。
+1. Open the WEB browser `https://192.168.100.1`（There will be a certificate security prompt for the first time. Confirm to continue.）。
+2. Automatically enter **Configuration wizard**，Set up in sequence: Internet access mode → WiFi name/password → Administrator password.
+3. After completion, it will automatically enter the dashboard and start using.
 
-=  9. 已知限制
+=  9. Known restrictions
 
-我们坚持如实告知当前版本的已知限制：
+We adhere to truthfully informing the about known limitations of the current version:
 
 - **BPI-R4 Pro：10G combo-LAN 口暂不可用** — 该多速率组合口**目前只能作 WAN（已验证可用），暂不能作 LAN**。不影响 4×2.5G 网口与面板口正常使用，后续版本将放开。
 - **BPI-R4 Pro：2.5G 口「独立使用」（不加入网桥）转发不通** — 默认部署下 2.5G 口都在 LAN 网桥内、工作正常；若要把某口单独当独立网段/WAN，当前版本不支持。
