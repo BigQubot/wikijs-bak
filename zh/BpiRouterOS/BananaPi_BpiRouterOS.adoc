@@ -33,8 +33,6 @@
 
 =  2. 为什么选 BpiRouter OS
 
-
-
 [options="header",cols="1,4"]
 |====
 | 亮点 | 说明 
@@ -193,24 +191,17 @@
 
 =  10. 技术规格
 
-**| 项目 | 内容 |**
-
-|---|---|
-
-| **底层系统** | OpenWrt v25.12.2 / Linux 6.12 |
-
-| **架构** | aarch64（ARM 64 位） |
-
-| **后端** | Go 单体服务（JSON-RPC 2.0） |
-
-| **前端** | Vue 3 + Naive UI |
-
-| **Web服务** | Nginx（TLS 终端 + 反向代理）+ LuCI 共存 |
-
-| **VPN** | WireGuard、OpenVPN（含 PKI / 证书吊销） |
-
-| **升级机制** | 固件 A/B 双槽 + 在线 OTA + 四层恢复 |
-
+[options="header",cols="2,4"]
+|====
+| 项目 | 内容 
+| 底层系统 | OpenWrt v25.12.2 / Linux 6.12 
+| 架构 | aarch64（ARM 64 位） 
+| 后端 | Go 单体服务（JSON-RPC 2.0） 
+| 前端 | Vue 3 + Naive UI 
+| Web服务 | Nginx（TLS 终端 + 反向代理）+ LuCI 共存 
+| VPN | WireGuard、OpenVPN（含 PKI / 证书吊销） 
+| 升级机制 | 固件 A/B 双槽 + 在线 OTA + 四层恢复 
+|====
 > BpiRouter OS 构建于 OpenWrt 之上，完整复用 OpenWrt 的驱动与软件生态；在其之上提供统一的 Web 管理界面与防变砖的固件升级/恢复体系。
 
 ---
