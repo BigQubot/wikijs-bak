@@ -287,46 +287,45 @@ Google: https://drive.google.com/drive/folders/1Ogu34Du_uxqHexs9y-bNgkGmyiZi7WSs
 
 = 13. Common questions（FAQ）
 
-**Q1：升级固件会不会把设备刷坏？**
+**Q1：Will upgrading the firmware damage the device?**
 
-A：不会变砖。新固件写入备用槽并试运行，确认无误才转正；失败会自动回退到上一个好版本。万一配置和固件都坏了，还有「长按恢复键开机」的整机救砖兜底。
-
-
-**Q2：忘记管理密码 / 配置乱了怎么办？**
-
-A：运行中长按恢复键约 5 秒即可恢复出厂配置（不重刷固件），重新走配置向导即可。
+A：It won't turn into a "brick". The new firmware is written to the backup slot and run in a trial mode. It will only be officially used after being confirmed error-free. If it fails, it will automatically roll back to the previous working version. In case both the configuration and the firmware are damaged, there is a whole-machine recovery option of "pressing and holding the recovery button while powering on" as a last resort.
 
 
-**Q3：和原来的 LuCI 冲突吗？**
+**Q2：What to do if Forgot the management password /the configuration is messed up?**
 
-A：不冲突。界面保留 LuCI 入口，本界面未覆盖的高级场景可随时转 LuCI，两者共存。
+A：During operation, press and hold the "Reset" button for about 5 seconds to restore the factory settings (without re - flashing the firmware). Then, just go through the configuration wizard again.
 
+**Q3：Does it conflict with the original LuCI？**
 
-**Q4：支持 IPv6 吗？**
-A：支持，WAN/LAN 均为 IPv4 + IPv6 双栈。
-
-
-**Q5：一套固件真的 6 款板都能用？**
-
-A：Web 界面与功能完全一致；固件会按板型自动适配硬件差异。按你的板型下载对应镜像即可。
+A：There is no conflict. The interface retains the LuCI entry. For advanced scenarios not covered by this interface, you can switch to LuCI at any time. The two can coexist.
 
 
-**Q6：界面是中文还是英文？**
+**Q4：support IPv6 ？**
 
-A：中英双语，界面内一键切换。
-
-**Q7：WireGuard 和 OpenVPN 能同时用吗？**
-
-A：能。两种协议互不冲突，可同时启用；服务端可自定义端口与地址段，并一键给客户端生成配置与二维码。
+A：It supports dual - stack of IPv4 + IPv6 for both WAN and LAN.
 
 
-**Q8：怎么备份和迁移配置？**
+**Q5：Can one set of firmware really be used for 6 types of boards?**
 
-A：系统页可一键下载配置备份；在新设备或恢复后上传该备份即可还原全部设置。固件升级时勾选「保留配置」也会自动延续设置。
+A：The Web interface and functions are exactly the same; the firmware will automatically adapt to the hardware differences according to the board type. You just need to download corresponding the image according to your board type.
 
 
-**Q9：升级会丢配置吗？**
+**Q6：Is the WEB UIis Chinese or English?？**
 
-A：默认「**保留配置**」，升级后主机名 / WiFi / 用户 / VPN 等设置仍在；也可选择不保留、回到出厂配置。
+A：It supports both Chinese and English, and you can switch between the two languages with a single click within the interface.
 
----
+**Q7：WireGuard and OpenVPN Can use them at the same time?**
+
+A：Yes. The two protocols do not conflict with each other and can be enabled simultaneously. The server can customize the port and address range, and generate configurations and QR codes for the clients with a single click.
+
+
+**Q8：How to back up and migrate configurations?**
+
+A：On the system page, you can download the configuration backup with a single click. Upload the backup on a new device or after recovery to restore all settings. When upgrading the firmware, check the option "Keep configuration" to automatically continue the settings.
+
+
+**Q9：Will the configuration be lost during the upgrade?**
+
+A：By default, the option "Keep configuration" is selected. After the upgrade, settings such as the hostname/WiFi/users/ VPN will still be retained. You can also choose not to keep the configuration and revert to the factory settings.
+
