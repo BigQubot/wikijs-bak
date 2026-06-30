@@ -15,18 +15,18 @@
 
 ---
 
-## 1. 选择烧录方式
+## 1.Select the programming method 
 
-按你的板有没有 SD 卡槽，二选一：
+Depending on whether your board has an SD card slot, choose one of the two:
 
 [options="header",cols="2,3,5"]
 |====
-| 方式 | 适用板 | 何时用 1
-| **方式 A — SD 卡** | R4 / R4-Lite / R4 Pro / R3（**有 SD 卡槽**） | 主流程，首选 
-| **方式 B — 串口 + U 盘** | R3 Mini / OpenWrt One（**无 SD 卡槽**）；及任意板的砖机救援 | 无 SD 槽的板，或彻底变砖需从底层救回 
+| Method | applicable board | When to use 
+| **Method A — SD card** | R4 / R4-Lite / R4 Pro / R3（**with SD slot**） | Main process，Preferred
+| **Method B — Serial port + USB flash drive** | R3 Mini / OpenWrt One（**without SD slot**）；And the brick machine rescue for any board. | A board an without SD slot, or a completely bricked board that needs to be recovered from the bottom layer.
 |====
 
-> 为什么分两种：有 SD 槽的板，SD 卡自带可启动的安装器，插卡上电即自动烧录、无需串口；无 SD 槽的板只能靠串口经芯片 BootROM 把第一份引导程序送进内存。
+> Why are there two types? For boards with an SD slot, the SD card comes with a bootable installer. When the card is inserted and the power is turned on, it will automatically flash without the need for a serial port. For boards without an SD slot, the first boot program can only be sent into the memory via the serial port through the chip's BootROM.
 
 ---
 
