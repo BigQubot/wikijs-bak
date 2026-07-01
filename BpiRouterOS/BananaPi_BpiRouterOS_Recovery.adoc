@@ -80,11 +80,11 @@ when **Both the configuration and the firmware are damaged. / The device fails t
 
 ---
 
-## 3. 常见问题
+## 3. Common problems
 
-**长按 reset 没反应？（R4）**
+**There is no response when long - pressing the reset key?（R4）**
 
-R4 的 reset 键是硬复位线、软件读不到——**R4 的恢复键是 WPS 键**，请改用 WPS。其余板用物理 reset。
+The reset key of BPI-R4 is a hard reset key, and the software cannot read it.——**The recovery key of BPI-R4 is the WPS key**，please use WPS botton。other board use physics reset botton。
 
 **L4 按了没进救砖？**
 
