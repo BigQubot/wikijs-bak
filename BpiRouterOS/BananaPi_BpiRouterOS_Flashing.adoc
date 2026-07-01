@@ -73,9 +73,10 @@ Step-by-step commands、wiring（UART0 / Type-C）、lamp status can be found in
 
 ## 5. Verification after burning
 
-进入系统后：
+After entering the system:
 
-1. 浏览器打开 `https://192.168.100.1`，应出现配置向导 → 继续到 [link:/zh/BpiRouterOS/BananaPi_BpiRouterOS_Setup[首次配置]]。
+1.  open with browser `https://192.168.100.1`，A configuration wizard should appear → continue to [link:/en/BpiRouterOS/BananaPi_BpiRouterOS_Setup[Configuration settings]]。
+
 2. 如接了串口，可确认两个固件槽都能正常引导（A/B 双槽就绪）。
 
 完成后即可正常使用。若中途出问题，见 [link:/zh/BpiRouterOS/BananaPi_BpiRouterOS_Recovery[恢复与救砖]]。
