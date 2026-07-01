@@ -38,7 +38,8 @@ When you modify network / WiFi / Firewall settings that may cut off the manageme
 
 This layer of protection is enabled by default, ensuring that [even if you make a mistake, you won't lock yourself out].
 
-### L2 · 固件自动回退（自动，无需操作）
+### L2 · Firmware automatic rollbac（automatic，no operation required）
+
 固件升级用 A/B 双槽：新固件若启动失败，**引导程序会自动切回上一个好固件槽**。你无需任何操作，设备自己回到能用的版本。
 
 ### L3 · 恢复出厂（运行中长按恢复键约 5 秒）
