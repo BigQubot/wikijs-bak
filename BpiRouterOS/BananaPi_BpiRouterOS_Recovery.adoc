@@ -40,16 +40,17 @@ This layer of protection is enabled by default, ensuring that [even if you make 
 
 ### L2 · Firmware automatic rollbac（automatic，no operation required）
 
-固件升级用 A/B 双槽：新固件若启动失败，**引导程序会自动切回上一个好固件槽**。你无需任何操作，设备自己回到能用的版本。
+Firmware upgrade uses A/B dual slots: If the new firmware fails to start,**The bootloader will automatically switch back to the previous working firmware slot.**.You don't need to perform any operations. The device will automatically return to a usable version.
 
-### L3 · 恢复出厂（运行中长按恢复键约 5 秒）
-设备能正常运行、但**配置乱了 / 忘了密码**时：
+### L3 · Restore to factory settings（Press and hold the recovery key for about 5 seconds during operation.）
 
-1. 在设备运行状态下，**按住恢复键约 5 秒**后松手。
-2. 设备清除当前配置、重启回到出厂状态（**不重刷固件**）。
-3. 重新打开 `https://192.168.100.1` 走 [link:/zh/BpiRouterOS/BananaPi_BpiRouterOS_Setup[首次配置]]。
+When the device can run normally, but the **configuration is messed up / the password is forgotten**:
 
-> 仅清当前固件槽的配置，不动另一个槽、不重刷固件。
+1. When the device is in operation.，**Press and hold the recovery key for about 5 seconds** and then release it.
+2. The device clears the current configuration, restarts and returns to the factory state.（**Do not reflash the firmware**）.
+3. Reopen `https://192.168.100.1` and do [link:/en/BpiRouterOS/BananaPi_BpiRouterOS_Setup[Configuration settings]]。
+
+> Only clear the configuration of the current firmware slot, leave the other slot unchanged, do not and re-flash the firmware.
 
 ### L4 · 整机救砖（断电后长按恢复键开机）
 **配置和固件都坏了 / 设备起不来**时的终极兜底：
