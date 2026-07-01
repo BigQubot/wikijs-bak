@@ -58,12 +58,12 @@ For the key DIP switch positions, lamp states, and special notes (such as the NO
 
 ---
 
-## 4. 方式 B：串口 + U 盘烧录
+## 4. Method B：Serial port + USB flash drive burning
 
-适用 R3 Mini / OpenWrt One，以及任意板的砖机救援。大致流程：
+Suitable R3 Mini / OpenWrt One，And the rescue of brick machines for any board. General process:
 
-1. 按 flashkit 说明，用串口下载工具把内存引导程序送进设备内存（不写 flash）。
-2. 把 `snand-factory.bin` + `snand-factory.crc` 拷到 **FAT32 U 盘**根目录，插入设备 USB 口。
+1. According to the instructions of FlashKit, use the serial port download tool to send the memory boot program into the device's memory (without writing to the flash).
+2. Copy `snand-factory.bin` + `snand-factory.crc` to **FAT32 USB flash drive**root directory and insert the device into the USB port.
 3. 设备**自动检测 U 盘并写入 NAND**（写前 CRC 校验、写后回读校验）。
 4. R3 Mini 还需一步：拔掉 U 盘、拨到 NAND 启动，自动把系统装入 eMMC；OpenWrt One 是纯 NAND，一步写完即可。
 
