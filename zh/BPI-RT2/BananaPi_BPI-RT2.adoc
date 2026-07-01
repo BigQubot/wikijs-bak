@@ -36,37 +36,37 @@ link:/en/BPI-RT2/Photo_BPI-RT2[Banana Pi BPI-RT2 Product photo gallery]
 
 == 硬件规格
 |====
-2+| **HardWare Specification of Banana Pi BPI-RT2 **
+2+|  ** BPI-RT2硬件规格 **
 | CPU主控          | RTL8198D 双核MIPS interAptivTM CPU
-| SDRAM            | 256MB DDR3（与RTL8198D内嵌）
-| On board Storage | 128MB SPI-NAND 闪存
-| On board Network | 	4端口 10/100/1000Mbps 以太网
-| Wifi 6           | 支持RTL8832和RTL8192 Wifi6 
+| SDRAM内存          | 256MB DDR3（与RTL8198D内嵌）
+| 板载存储 | 128MB SPI-NAND 闪存
+| 板载网口 | 	4端口 10/100/1000Mbps 以太网
+| Wifi 无线         | 支持RTL8832和RTL8192 Wifi6 
 
-| USB              | 1x USB 3.0 TypeA
-| Buttons          | 重置按钮，WPS键启动开关
-| Leds             |重置按钮，WPS键，启动开关
-| DC Power         | 12V/1A 
-| Sizes            | 97mm x 65mm
-| Weight           | 250g 
+| USB接口              | 1x USB 3.0 TypeA
+| 按键        | 重置按钮，WPS键启动开关
+| Led指示灯             |重置按钮，WPS键，启动开关
+| DC 供电        | 12V/1A 
+| 尺寸          | 97mm x 65mm
+| 重量          | 250g 
 |====
 
 = 配件
 = 开发
-==  源代码
+==  软件代码
 TIP: BPI-RT2 OpenWRT 22.03 BSP on Github: https://github.com/BPI-SINOVOIP/BPI-RT2/
 
 == Resources
-TIP: BPI-RT2 SCH
+TIP: BPI-RT2 原理图
 
-Baidu Cloud： https://pan.baidu.com/s/1Wd4yxy1mUXu1eSa3Pi-yMw?pwd=8888
+百度网盘： https://pan.baidu.com/s/1Wd4yxy1mUXu1eSa3Pi-yMw?pwd=8888
 
-Google drive: 
+Google硬盘: 
 https://drive.google.com/file/d/1t1pO8gN1v9Q2bq5pGJ9on1ZpqPjUqGAE/view?usp=sharing
 
-TIP: BPI-RT2 DXF
+TIP: BPI-RT2 DXF 文档
 
-Baidu Cloud： https://pan.baidu.com/s/1CKIfFioLkRqG26FEJBSLYA?pwd=8888 
+百度网盘： https://pan.baidu.com/s/1CKIfFioLkRqG26FEJBSLYA?pwd=8888 
 
-Google drive: 
+Google硬盘： 
 https://drive.google.com/file/d/11G-rkszFZTKMLRdHuoz0WHshGo_mjhWF/view?usp=sharing
