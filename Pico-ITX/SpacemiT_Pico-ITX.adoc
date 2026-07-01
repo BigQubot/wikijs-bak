@@ -1,3 +1,37 @@
-== header
+= K3 Pico-ITX  Introduction
 
-content
+The K3 Pico-ITX is an ultra-integrated mini AI single-board computer. Within a compact 2.5-inch form factor, it integrates 60 TOPS of general-purpose AI computing power, an 8-core RVA23 processor, and 8 intelligent computing cores. Its unified memory architecture allows for smooth deployment of large models with 30 billion parameters. Onboard UFS storage (3.4 times faster than eMMC) and a full-featured Type-C port (65W PD power supply + 4K DP display) enable a "one-line-to-use" experience. Dual M.2 expansion slots (including PCIe Gen3 x4) and a 10 Gigabit fiber optic port support high-speed storage and cluster deployment. Real-time core-to-core output of flexible I/O such as EtherCAT and CAN-FD meets microsecond-level motion control requirements. Its industrial-grade architecture, combined with the eDP display interface, helps industry customers quickly evaluate and integrate systems, accelerating the commercialization of AI edge computing and robotics.
+
+== About SpacemiT K3
+
+image::/bpi-sm10/spacemit_k3_ai_chip.jpg[spacemit_k3_ai_chip.jpg]
+
+* SpacemiT K3 chip : https://www.spacemit.com/products/keystone/k3
+
+=== K3 Brief 
+
+* Google drie link : https://drive.google.com/file/d/1BTGIb1Xchi3w1ICUPXK_TaWwqjhtNEkm/view?usp=sharing
+
+== Key Features 
+
+* Intelligent computing integration
+
+** The K3 8-core processor is compliant with RVA23 standards, offering 60 TOPS of general-purpose AI computing power, and supports IME extensions and full virtualization.
+** The computing cores and intelligent computing cores share a unified memory architecture, supporting the deployment of models with 30 billion parameters.
+
+*  Ready to use
+** Onboard UFS local storage offers 3.4 times faster speeds than industry-standard onboard eMMC.
+** A full-featured Type-C interface supports 65W PD protocol power supply and 4K DP display, requiring only one cable to instantly power up computing capabilities.
+
+* Flexible expansion
+
+** It features dual expansion slots: an M.2 B-Key slot and an M-Key slot. The M-Key slot uses a 4-lane PCIe Gen3 design, allowing for full-chain NVMe SSD expansion.
+
+** It features onboard 10 Gigabit PCIe Ethernet and supports 10G-BASE-R fiber optic interfaces, enabling low-latency, high-throughput data transmission and supporting clustered deployment.
+
+* Rapid integration
+** Onboard eDP interface for high-definition screens used in industrial applications, supporting system integration of display products.
+** The RT24 real-time core features a flexible expansion I/O slot that supports interfaces such as EtherCAT and CAN-FD, meeting the needs of applications such as microsecond-level motion control and robotics.
+** The MUSE series architecture features a tiered cooling and heating system for optimal CPU computing power release.
+
+
