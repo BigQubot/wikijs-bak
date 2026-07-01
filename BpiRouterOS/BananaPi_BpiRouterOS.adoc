@@ -125,9 +125,11 @@ The device has **two firmware slots**. During online upgrade,：
 Before upgrading, the firmware will be automatically verified, and incompatible images will be directly rejected. You can choose to **"retain configuration"** to keep the settings consistent after the upgrade.
 
 
-==  5.2 Four - layer recovery ladder
+==  5.2 Recovery and unbricking
 
 **From soft to hard, provide support at each level:**
+
+Four - layer recovery ladder
 
 [options="header",cols="1,2,3"]
 |====
