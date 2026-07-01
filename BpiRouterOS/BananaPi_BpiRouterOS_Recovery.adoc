@@ -33,10 +33,10 @@ From the lightest (not losing anything) to the heaviest (resetting the whole dev
 ### L1 · Configure automatic rollback (automatic，no operation required)
 When you modify network / WiFi / Firewall settings that may cut off the management connection, a message will appear **confirmation banner appears  + confirmation banner appears ** at the top of the interface：
 
-- 改动正常、你仍能访问 → 点「保留变更」让它生效；
-- 改错导致掉线、你没点确认 → **倒计时到点自动恢复**到改动前的配置。
+- The changes are normal. You can still access it. → Click [Save Changes] to make it take effect;
+- Correcting mistakes led to disconnection. You didn't click confirm. → **Automatically resume when the countdown ends ** return the configuration before the change.
 
-这层保护默认开启，让你「改错也不会把自己锁在外面」。
+This layer of protection is enabled by default, ensuring that [even if you make a mistake, you won't lock yourself out].
 
 ### L2 · 固件自动回退（自动，无需操作）
 固件升级用 A/B 双槽：新固件若启动失败，**引导程序会自动切回上一个好固件槽**。你无需任何操作，设备自己回到能用的版本。
