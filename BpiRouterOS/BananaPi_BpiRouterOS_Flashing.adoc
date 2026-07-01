@@ -46,9 +46,9 @@ Get the files corresponding to your board type from the **download page**:
 Board products with SD slots will ultimately run on. eMMC；Since SD and eMMC share the same controller, NAND needs to be used for transit.The process is**SD boot to write NAND → NAND boot to write eMMC → eMMC boot into the system **，Don't enter the operating system at each jump. When you see the completion prompt, power off and change the DIP switch.
 
 1. **make SD card**：Write *-sdcard.img to the SD card.（use Etcher / `dd` ）。
-2. **1 jump **：Dial to **SD boot** → 插卡上电 → 写入 NAND，完成后断电。
-3. **2 jump**：Dial to **NAND boot** → 上电 → 自动装入 eMMC，完成后断电。
-4. **3 jump**：Dial to **eMMC boot** → 上电 → 进入系统（A 槽）。SD 卡可拔出。
+2. **1 jump **：Dial to **SD boot** → Insert the card and power on → Write to NAND, then power off after completion.
+3. **2 jump**：Dial to **NAND boot** → Power on → Automatically load eMMC, then power off after completion.
+4. **3 jump**：Dial to **eMMC boot** → Power on → Enter the system (Slot A). The SD card can be removed.
 
 > 💡 **关键提醒：每一跳是「从 A 启动、写入 B」，A 和 B 的拨码都要对。** 第 1 跳除了拨 SD 启动，**NAND 对应的跳线也要选对**；第 2 跳除了拨 NAND 启动，**eMMC 对应的 pin 也要选对**。否则会「看似没反应」。
 >
