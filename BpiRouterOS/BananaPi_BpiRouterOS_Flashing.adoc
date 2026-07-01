@@ -77,10 +77,10 @@ After entering the system:
 
 1.  open with browser `https://192.168.100.1`，A configuration wizard should appear → continue to [link:/en/BpiRouterOS/BananaPi_BpiRouterOS_Setup[Configuration settings]]。
 
-2. 如接了串口，可确认两个固件槽都能正常引导（A/B 双槽就绪）。
+2. If the serial port is connected, you can confirm that both firmware slots can boot normally (both slots A and B are ready).
 
-完成后即可正常使用。若中途出问题，见 [link:/zh/BpiRouterOS/BananaPi_BpiRouterOS_Recovery[恢复与救砖]]。
+You can use it normally after completion. If there is a problem during the process, see [link:/en/BpiRouterOS/BananaPi_BpiRouterOS_Recovery[Recovery and unbricking]]。
 
 ---
 
-[← link:/zh/BpiRouterOS/BananaPi_BpiRouterOS[返回首页]] · [link:/zh/BpiRouterOS/BananaPi_BpiRouterOS_Setup[首次配置] →] · [link:/zh/BpiRouterOS/BananaPi_BpiRouterOS_Recovery[恢复与救砖] →]
+[← link:/en/BpiRouterOS/BananaPi_BpiRouterOS[Return home page]]] · [link:/en/BpiRouterOS/BananaPi_BpiRouterOS_Setup[Configuration settings] →] · [link:/en/BpiRouterOS/BananaPi_BpiRouterOS_Recovery[Recovery and unbricking] →]
