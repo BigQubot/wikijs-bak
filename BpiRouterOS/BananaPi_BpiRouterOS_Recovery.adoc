@@ -7,21 +7,22 @@
 
 ---
 
-## 0. 先认准你的「恢复键」
+## 0. First, identify your [Restore button]
 
-不同板用来恢复的按键不同（这一点很关键）：
+Different boards use different keys for recovery.（This point is very crucial.）：
 
 [options="header",cols="2,4"]
 |====
-| **设备** | **恢复键** 
-| **BPI-R4** | **WPS 键**（R4 的 reset 键是硬复位线、软件不可见，所以恢复用 WPS） 
-| **BPI-R4 Lite** | 物理 **reset** 键 
-| **BPI-R4 Pro** | 物理 **reset** 键 
-| **BPI-R3** | 物理 **reset** 键 
-| **BPI-R3 Mini** | 物理 **reset** 键 
-| **OpenWrt One** | 后部 **reset** 键 
+| **Board** | **Reset button** 
+| **BPI-R4** | **WPS button**（The reset key of R4 is a hard reset line and is invisible to software, so use WPS for recovery.） 
+| **BPI-R4 Lite** | Physics  **reset** botton
+| **BPI-R4 Pro** | Physics  **reset** botton
+| **BPI-R3** | Physics  **reset** botton
+| **BPI-R3 Mini** | Physics **reset** botton
+| **OpenWrt One** | Back **reset** botton
 |====
-> 下文说的「恢复键」= 你这块板对应的那一个。
+
+> The "reset button" mentioned below corresponds =  the one on your board.
 
 ---
 
