@@ -52,8 +52,9 @@ When the device can run normally, but the **configuration is messed up / the pas
 
 > Only clear the configuration of the current firmware slot, leave the other slot unchanged, do not and re-flash the firmware.
 
-### L4 · 整机救砖（断电后长按恢复键开机）
-**配置和固件都坏了 / 设备起不来**时的终极兜底：
+### L4 · Full device recovery（Press and hold the recovery key to power on after the power is cut off.）
+
+when **Both the configuration and the firmware are damaged. / The device fails to start up** ultimate fallback：
 
 1. **断电。**
 2. **按住恢复键不放**，给设备上电，**全程持续按住**。
