@@ -67,11 +67,11 @@ Suitable R3 Mini / OpenWrt One，And the rescue of brick machines for any board.
 3. Board **Automatically detect the USB flash drive and write to the NAND.**（CRC check before writing、Read-back check after writing）。
 4. R3 Mini one more step is needed: unplug the USB flash drive and switch to NAND boot，Automatically install the system into the eMMC.；OpenWrt One is only NAND，It can be written in one step.
 
-逐步命令、接线（UART0 / Type-C）、灯态见固件附带的串口烧录说明（flashkit 工具包内含对应板型的逐步指南）。
+Step-by-step commands、wiring（UART0 / Type-C）、lamp status can be found in the serial port burning instructions attached to the firmware （flashkit toolkit contains step-by-step guides for the corresponding board types.）。
 
 ---
 
-## 5. 烧录后验证
+## 5. Verification after burning
 
 进入系统后：
 
