@@ -56,27 +56,28 @@ When the device can run normally, but the **configuration is messed up / the pas
 
 when **Both the configuration and the firmware are damaged. / The device fails to start up** ultimate fallback：
 
-1. **断电。**
-2. **按住恢复键不放**，给设备上电，**全程持续按住**。
-3. 设备从内置黄金镜像把整机刷回出厂（接串口能看到 `*** GOLDEN RESTORE` 之类提示）。
-4. 完成后自动重启，回到纯出厂状态。
+1. **Power off.**
+2. **Keep pressing the reset button.**， power on the device. **Keep pressing throughout the whole process**。
+3. The device restores the whole machine to the factory settings from the built-in golden image.（When connecting to the serial port, you can see prompts like **GOLDENORE REST**.）。
+4. After completion, it will automatically restart and to return the pure factory state.
 
-> ⚠️ **要持续按住跨过开机的自检/倒计时**，直到看到救砖开始的提示再松手；松手太早会被当作正常开机。
+> ⚠️ **You need to keep pressing to get past the self-check/countdown during startup.**，Release your finger only when you see the prompt indicating that the device recovery process has started. Releasing it too early will be regarded as a normal startup.
 
-> 💡 R4-Lite 等带独立 NOR+NAND 的板，救砖前可能需要把板上的 NAND/NOR 拨码拨到 NAND——详见随固件附带的工厂烧录说明。
+> 💡 R4-Lite with independent NOR+NAND ，Before rescuing the bricked device, you may need to switch the NAND/NOR DIP switch to Nand on the board .——Please refer to the factory programming instructions that come with the firmware for details.
 
 ---
 
-## 2. 怎么选用哪一层？
+## 2. How to choose which layer?
 
 [options="header",cols="5,6"]
 |====
-| **情况** | **用哪层** 
-| 改了个设置就连不上了 | L1（等倒计时自动回滚，或下次进去手动回退） 
-| 升级后新固件有问题 | L2 自动回退；或在系统页点「回退到上一版本」 
-| 忘了管理密码 / 配置乱了，但设备还能开机 | **L3**：运行中长按恢复键 5 秒 
-| 设备起不来 / 刷坏了 / 反复重启 | **L4**：断电→按住恢复键→上电 
+| **Situation** | **Which layer to use** 
+| It can't connect after I changed a setting.| L1（Wait for the countdown to automatically roll back, or manually roll back the next time you enter.） 
+| There are problems with the new firmware after the upgrade. | L2 automatic rollback ；Or click [Roll back to the previous version] on the system page.
+| Forgot the management password / The configuration is in a mess, but the device can still be powered on. | **L3**：Press and hold the reset key for 5 seconds during operation.
+| Fails to start up / device is bricked / device restarts repeatedly | **L4**：Power off→Press and hold the reset key→Power on
 |====
+
 ---
 
 ## 3. 常见问题
