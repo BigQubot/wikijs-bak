@@ -50,11 +50,11 @@ Board products with SD slots will ultimately run on. eMMC；Since SD and eMMC sh
 3. **2 jump**：Dial to **NAND boot** → Power on → Automatically load eMMC, then power off after completion.
 4. **3 jump**：Dial to **eMMC boot** → Power on → Enter the system (Slot A). The SD card can be removed.
 
-> 💡 **关键提醒：每一跳是「从 A 启动、写入 B」，A 和 B 的拨码都要对。** 第 1 跳除了拨 SD 启动，**NAND 对应的跳线也要选对**；第 2 跳除了拨 NAND 启动，**eMMC 对应的 pin 也要选对**。否则会「看似没反应」。
+> 💡 **Key reminder: Each hop is [start from A and write to B]. The DIP switches of both A and B must be set correctly.** In the first jump, apart from booting by inserting the SD card,，**The corresponding jumper for NAND also needs to be selected correctly.**；In the second jump, in addition to setting it for NAND boot,，**The corresponding pins for eMMC also need to be selected correctly.**。Otherwise, it will [seem to have no response].。
 >
-> 💡 **完成判据以串口输出为准**；接一路串口（115200 8N1）能看到每跳的写入进度与完成提示。部分板另有 LED 辅助（写入时点亮、完成熄灭）。
+> 💡 **The completion criterion is based on the serial port output.**；Connect to a serial port (115200 8N1), and you can see the writing progress and completion prompt for each jump. Some boards are additionally assisted by LEDs (the LEDs light up during writing and turn off upon completion).
 
-各板的拨码关键位、灯态、特别注意（如 R4-Lite 的 NOR/NAND 开关、BE14 需 12V）详见随固件附带的工厂烧录说明。
+For the key DIP switch positions, lamp states, and special notes (such as the NOR/NAND switch on the R4-Lite and the requirement of 12V for the BE14) of each board, please refer to the factory programming instructions attached to the firmware.
 
 ---
 
