@@ -23,50 +23,50 @@ A brand-new device (without a set management password) will automatically enter 
 Select your broadband access method:
 
 - **DHCP** (Automatically obtain) - The most common method. The optical modem/upstream router automatically assigns an IP address.
-- **静态 IP** —— 手动填 IP / 子网掩码 / 网关 / DNS。
-- **PPPoE 宽带拨号** —— 填运营商给的账号和密码。
+- **Static IP** —— Manually fill in the IP, subnet mask, gateway, and DNS in the network settings.
+- **PPPoE broadband dial-up** —— Fill in the account and password provided by the operator.
 
-**第 2 步 · 无线（WiFi）**
+**Step 2: Wireless（WiFi）**
 
-设置 WiFi 名称（SSID）与密码。
+Set the WiFi name (SSID) and password.
 
-**第 3 步 · 管理员密码**
+**Step 3：Administrator password**
 
-设置登录管理后台的密码（≥ 8 位）。
+Set the password for logging in to the management background.（≥ 8 bit）。
 
 
-完成后**自动登录进入仪表盘**，无需再单独登录一次。
-
----
-
-## 3. 之后还能改什么
-
-进入后台后，所有设置都可随时调整：
-
-- **网络**：WAN / LAN、IPv6、DHCP 地址池。
-- **无线**：多频段、信道、加密、国家码。
-- **系统**：主机名、时区与系统时间、改密、备份/恢复、固件升级。
-- **高级**：VPN、端口转发、DMZ、防火墙、DDNS、诊断、日志。
-- **用户**：添加操作员 / 观察员账户，分配角色权限。
-
-界面右上角可切换 **中文 / 英文** 与 **浅色 / 深色** 模式。
+After completion**Automatically log in and enter the dashboard.**，There is no need to log in separately again.
 
 ---
 
-## 4. 常见问题
+## 3. Others setting 
 
-**进不去 `192.168.100.1`？**
+After entering the background, all settings can be adjusted at any time:
 
-确认电脑已从路由器获取到 `192.168.100.x` 网段的 IP；或尝试在地址前加 `https://`。
+- **Network**：WAN / LAN、IPv6、DHCP address pool。
+- **Wifi**：multi-band、channel、encryption、country code。
+- **System**：Hostname、time zone and system tim、change password、backup/restore、firmware upgrade.
+- **advanced**：VPN、Port forwarding 、DMZ、Firewall、DDNS、Diagnosis 、Log。
+- **User**：Add operator/observer accounts and assign role permissions.
 
-**忘了刚设的密码？**
-
-运行中长按设备的恢复键约 5 秒可恢复出厂、重走向导。见 [link:/zh/BpiRouterOS/BananaPi_BpiRouterOS_Recovery[恢复与救砖]]。
-
-**向导没出现，直接到登录页？**
-
-说明设备已设过密码（非全新状态）。用已设的密码登录即可；要回到向导可先恢复出厂。
+You can switch in upper corner the right of the Web page **Chinese/ English** 与 **Light color / Dark coloe**.
 
 ---
 
-[← link:/zh/BpiRouterOS/BananaPi_BpiRouterOS[返回首页]] · [link:/zh/BpiRouterOS/BananaPi_BpiRouterOS_Flashing[烧录指南] →] · [link:/zh/BpiRouterOS/BananaPi_BpiRouterOS_Recovery[恢复与救砖] →]
+## 4. Frequently asked questions
+
+**Can not login `192.168.100.1`？**
+
+Confirm that the computer has obtained an IP address in the 192.168.100.x network segment from the router; or try adding "https://" before the address.
+
+**Forgot the password?**
+
+Press and hold the device's recovery button for approximately 5 seconds during operation to restore the factory settings restart the and wizard. see [link:/en/BpiRouterOS/BananaPi_BpiRouterOS_Recovery[Recovery and unbricking]]。
+
+**The wizard didn't appear and it went straight to the login page?**
+
+It indicates that the device has already had a password set (it's not in a brand - new state). You can log in with the set password. To return to the wizard, you can first restore the device to its factory settings.
+
+---
+
+[← link:/en/BpiRouterOS/BananaPi_BpiRouterOS[Return home page]] · [link:/en/BpiRouterOS/BananaPi_BpiRouterOS_Flashing[Burning guide] →] · [link:/en/BpiRouterOS/BananaPi_BpiRouterOS_Recovery[Recovery and unbricking] →]
