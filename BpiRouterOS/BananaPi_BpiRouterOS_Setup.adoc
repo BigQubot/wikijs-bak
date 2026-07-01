@@ -6,11 +6,11 @@
 
 ---
 
-## 1. 连接设备
+## 1. connect devices
 
-1. 用网线把电脑接到路由器的 **LAN 口**（或连接它的默认 WiFi）。
-2. 浏览器打开 **`https://192.168.100.1`**。
-   - 首次为自签名证书，浏览器会提示一次安全警告——确认「继续访问」即可（这是设备本地证书，安全）。
+1. Connect the computer to the router **LAN port** with an Ethernet cable. （Or connect to its default WiFi.）。
+2. open with browser **`https://192.168.100.1`**。
+   - For the first time, since it is a self-signed certificate, the browser will prompt a security warning once. Just confirm "Continue to access" (this is a local device certificate and is safe).
 
 ---
 
