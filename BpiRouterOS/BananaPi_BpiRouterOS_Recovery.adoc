@@ -86,15 +86,15 @@ when **Both the configuration and the firmware are damaged. / The device fails t
 
 The reset key of BPI-R4 is a hard reset key, and the software cannot read it.——**The recovery key of BPI-R4 is the WPS key**，please use WPS botton。other board use physics reset botton。
 
-**L4 按了没进救砖？**
+**L4 Pressed botton but didn't enter the brick rescue mode?**
 
-多半是松手太早。务必**持续按住跨过开机倒计时**，直到看到救砖提示。
+Most likely, you released your finger too early.Be sure to keep pressing and skip the boot countdown until you see the prompt for rescuing a bricked device.
 
-**救砖会丢配置吗？**
+**Will rescuing a bricked device cause the loss of configurations?**
 
-会——L4 是回到纯出厂状态。日常的配置丢失风险由 L1（自动回滚）和「升级保留配置」覆盖；L4 是最后兜底。建议平时用系统页的「下载备份」留一份配置，恢复后上传即可还原。
+Yes——L4 It will return to the pure factory state. The risk of losing daily configurations is covered by L1 (automatic rollback) and [retain configurations during upgrade]；L4 is the last resort。It is recommended to use the [Download Backup] function on the system page to save a copy of the configuration. You can upload it after restoration to revert to the previous settings.
 
 ---
 
-[← link:/zh/BpiRouterOS/BananaPi_BpiRouterOS[返回首页]] ·  [link:/zh/BpiRouterOS/BananaPi_BpiRouterOS_Flashing[烧录指南] →] · [link:/zh/BpiRouterOS/BananaPi_BpiRouterOS_Setup[首次配置] →]
+[← link:/en/BpiRouterOS/BananaPi_BpiRouterOS[ Return home page]] ·  [link:/em/BpiRouterOS/BananaPi_BpiRouterOS_Flashing[Burning guide] →] · [link:/em/BpiRouterOS/BananaPi_BpiRouterOS_Setup[Configuration settings] →]
 
