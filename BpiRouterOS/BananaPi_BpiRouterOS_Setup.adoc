@@ -14,15 +14,15 @@
 
 ---
 
-## 2. 配置向导（3 步）
+## 2. Configuration wizard (3 steps)
 
-全新设备（未设管理密码）会自动进入向导：
+A brand-new device (without a set management password) will automatically enter the wizard:
 
-**第 1 步 · 上网方式（WAN）**
+**Step 1: Internet connection method（WAN）**
 
-选择你的宽带接入方式：
+Select your broadband access method:
 
-- **DHCP**（自动获取）—— 最常见，光猫/上级路由自动分配 IP。
+- **DHCP** (Automatically obtain) - The most common method. The optical modem/upstream router automatically assigns an IP address.
 - **静态 IP** —— 手动填 IP / 子网掩码 / 网关 / DNS。
 - **PPPoE 宽带拨号** —— 填运营商给的账号和密码。
 
