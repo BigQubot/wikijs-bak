@@ -44,7 +44,57 @@ TIP: link:/en/Pico-ITX/GettingStarted_K3Pico-ITX[Getting Started K3 Pico-ITX]
 
 === board Specification
 
+NOTE: The M.2 B-Key PCIe ×2 lanes are shared with the M-Key slot; when both are populated, the M.2 M-Key operates at PCIe Gen3 ×2.
+
+[options="header",cols="2,6",width="70%"]
+|=====
+2+| **HardWare Specification of K3 Pico-ITX RISC-V core board**
+|Module | describe
+|processor | The SpacemiT K3, with 8 cores at 2.4GHz, integrates 60 TOPS of AI computing power, complies with the RVA23 standard, and supports IME vector extension and full virtualization.
+.2+| display 
+| DP Type-C interface, supports up to 4K 3840 × 2160 resolution, 60Hz refresh rate 
+| 40-pin EDP interface, supports up to 2.5K 2560 × 1600 resolution, 90Hz refresh rate
+| Memory | Dual-channel 2 × 32bit LPDDR5, 6400MT/s speed, 16GB/32GB capacity optional.
+| Local storage | UFS 2.2, 128GB/256GB capacity available
+| Storage expansion | M.2 B-Key connector, compatible with 2242/3042 form factor expansion cards, PCIe Gen3 x2 and USB signal*
+| Real-time scaling | FPC connectors support real-time signal expansion such as EtherCAT, 5-channel CAN-FD, SPI, I2C, and UART
+| Wireless | Onboard PCIe Wi-Fi 6 + BT5.2 module, compliant with 802.11a/b/g/n/ac/ax standards, dual antennas, dual frequency
+| wired network | Supports one Ethernet port, RJ45 interface, 1000M/100M adaptive speed
+| Optical Network | 10GbE SFP+ port, supports 10GBASE-R / 10GBASE-X, QinQ, MSI-X, WOL, and clustering
+| Audio | Onboard CODEC, internal audio input/output
+.2+| USB	 | 2 × USB 3.2 Gen1 Type-C (1 full-featured, one OTG) |4 × USB 2.0 Type-A Host
+|Debug	|UART, JTAG, and 3 side buttons for power, reset, and firmware update
+|System Management	| Onboard EC controller for power, thermal, and system status; includes I²C/UART/GPIO expansion
+|Form Factor	|100 × 86 mm, Pico-ITX Plus single-board computer, approx. size of a 2.5" drive
+|OS	| Pre-installed Bianbu 3.0; supports Ubuntu 26.04, OpenHarmony 6.0, OpenKylin, Deepin, Fedora, etc.
+|Power Input	|Type-C USB-PD (65 W) or ATX 2-pin 12 V @ 7 A
+.2+|Reliability	|ESD protection: board: ±4 kV (contact), ±8 kV (air); system: ±6 kV (contact), ±12 kV (air)
+|Compliant with CCC, CE, and FCC; operating temp: -20 °C ～ 70 °C (consumer) / -40 °C ～ 85 °C (industrial)
+|Clock	|Onboard RTC with battery interface, supports G3 state
+.3+|Structure	 |Optional single-board or fan-cooled heatsink assembly
+|Optional single-board or fully-metal industrial chassis
+|Optional real-time board, touchscreen, terminal blocks
+
+|=====
+
 = Accessories
+
+[options="header",cols="1,1,3,1",width="70%"]
+|=====
+| Category | 	Name | Description | Interface
+.7+| Peripheral 
+| SSD | 	980 NVMe™ M.2 SSD, PCIe Gen 3.0 ×4, NVMe 1.4,sequential read up to 3,500 MB/s,sequential write up to 3,000 MB/s | M.2 M-Key 2280
+| SSD | 	B+M NVMe SSD 128 GB | M.2 B-Key 2242
+| 4G Module | EM05 | M.2 B-Key 3042
+|SATA Expansion Card	|PCIe to 5 × SATA interface	|M.2 M-Key 2280
+|Docking Station	|Type-C dock for HD 4K display, PD charging,USB 3.0 for tablets/laptops (3-in-1)	|Full-featured Type-C
+|Ultra HD Display	|16" 2.5K LCD, 90 Hz, 2560 × 1600	|40-pin eDP
+|Real-time Control Expansion |Board	19 V input, 5 × CAN-FD, EtherCAT, RS232 & RS485 I/O,
+industrial-grade isolation protection	|FPC
+.2+|Structural Accessory	|Embedded Fan Heatsink	|Custom aluminum design	|FAN
+|Metal Chassis	|120 × 120 × 48 mm self-developed metal chassis	|BTN
+
+|=====
 
 = Development
 
