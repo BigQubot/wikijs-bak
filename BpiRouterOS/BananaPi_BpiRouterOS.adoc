@@ -147,7 +147,7 @@ The firmware is validated before flashing; incompatible images are rejected. An 
 
 Four - layer recovery ladder
 
-[options="header",cols="5,5,9"]
+[options="header",cols="5,7,9"]
 |====
 | Level | Trigger mode | Effect
 | **L1 Config rollback** | Automatic | A change that drops your connection → auto-reverted if not confirmed in time
