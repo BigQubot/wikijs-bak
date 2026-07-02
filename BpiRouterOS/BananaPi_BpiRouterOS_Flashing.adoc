@@ -1,86 +1,88 @@
-# BpiRouter OS —  burning guide
+# BpiRouter OS —  Flashing Guide
 
-> Burn a board to make it bootable with the factory system. This page serves as an operation guide for users; for the complete technical details (bit-by-bit DIP switch settings, light state timing, and step-by-step serial port procedures) on the production line/for maintenance, refer to the factory burn instructions that come with the firmware.
+> How to flash a board into a bootable factory system. This is a user-facing walkthrough; the full production/repair technical detail (per-bit boot-strap, LED timing, step-by-step serial flow) is in the factory flashing notes shipped with the firmware.
 
-[← link:/en/BpiRouterOS/BananaPi_BpiRouterOS[Return home page]]
-
----
-
-## 0. Must-read before starting
-
-- ⚠️ **Diping-switch (boot media selection) is the step most prone to errors and the most with serious consequences.** Dialing the wrong switch will only result in booting to the wrong media and will not damage the hardware, but it will make the process [seem unresponsive].**The complete definition of dip-switching shall be based on the silkscreen on the actual board and the schematic diagram.。**
-- **Power off first and then switch the DIP switches / plug and unplug** throughout the process, avoid hot plugging.
-- **Do not cut off the power during the programming and writing process.** The system has CRC verification for writing (a bad image will never be written), but a power outage during the process may still result in incomplete writing.
-- Pay attention to anti-static (ESD). Some boards have requirements for power supply.（For example, the BE14 triple-band of R4-Lite requires 12V）。
+[← link:/en/BpiRouterOS/BananaPi_BpiRouterOS[Home]]
 
 ---
 
-## 1.Select the programming method 
+## 0. Read first
 
-Depending on whether your board has an SD card slot, choose one of the two:
+- ⚠️ **Boot-strap (selecting the boot medium) is the most error-prone, highest-impact step.** A wrong strap only boots the wrong medium — it won't damage hardware, but the process will "look like nothing happens". **The complete boot-strap definition is per the board's silkscreen + schematic.**
+- Always **power off before changing straps / plugging-unplugging** — avoid hot-swapping.
+- **Do not cut power during a write.** Writes are CRC-checked (a bad image is never written), but cutting power mid-write can still leave it half-written.
+- Mind ESD. Some boards have power requirements (e.g. R4-Lite's BE14 tri-band Wi-Fi needs 12V).
+
+---
+
+## 1. Choose a flashing method
+
+Pick one based on whether your board has an SD slot:
 
 [options="header",cols="2,3,5"]
 |====
-| Method | applicable board | When to use 
-| **Method A — SD card** | R4 / R4-Lite / R4 Pro / R3（**with SD slot**） | Main process，Preferred
-| **Method B — Serial port + USB flash drive** | R3 Mini / OpenWrt One（**without SD slot**）；And the brick machine rescue for any board. | A board an without SD slot, or a completely bricked board that needs to be recovered from the bottom layer.
+| Method | Boards | When 
+| **A : SD card** | R4 / R4-Lite / R4 Pro / R3 (**have an SD slot**) | The main flow, preferred
+|**B : Serial + USB stick** | R3 Mini / OpenWrt One (**no SD slot**); plus brick-rescue for any board | No-SD boards, or recovering a fully bricked device from the bottom layer
 |====
 
-> Why are there two types? For boards with an SD slot, the SD card comes with a bootable installer. When the card is inserted and the power is turned on, it will automatically flash without the need for a serial port. For boards without an SD slot, the first boot program can only be sent into the memory via the serial port through the chip's BootROM.
+> Why two: boards with an SD slot carry a bootable installer on the card — insert and power on to auto-flash, no serial needed. No-SD boards can only push the first bootloader into memory via the SoC's BootROM over serial.
 
 ---
 
-## 2. Prepare image
+## 2. Prepare the files
 
-Get the files corresponding to your board type from the **download page**:
+Get the files for your board from the **Downloads** page:
 
-- **Method A**：`*-sdcard.img`（Installation image for written to the SD card）。
-- **Method B**：Comes with the firmware**flashkit** toolkit，including memory bootstrap progra、NAND Golden mirror `snand-factory.bin` and verification file `snand-factory.crc`、Serial port download tool and step-by-step instructions。
+- **Method A**: `*-sdcard.img` (the installer image written to the SD card).
+- **Method B**: the **flashkit** bundle shipped with the firmware — the in-memory bootloader, the NAND golden image `snand-factory.bin` and its checksum file `snand-factory.crc`, the serial download tool, and step-by-step notes.
 
-> ⚠️ **`snand-factory.bin` and `snand-factory.crc`  must come from the same build and be copied together.**Before programming, the .bin file will be verified using the .crc file. If they don't match, writing will never be performed. This is a protection mechanism against bad images，But it also means that if the versions of the two files are mismatched, it will「verification always fails and writing is not possible.」。
-
----
-
-## 3. Method A：SD burn（Triple jump）
-
-Board products with SD slots will ultimately run on. eMMC；Since SD and eMMC share the same controller, NAND needs to be used for transit.The process is**SD boot to write NAND → NAND boot to write eMMC → eMMC boot into the system **，Don't enter the operating system at each jump. When you see the completion prompt, power off and change the DIP switch.
-
-1. **make SD card**：Write *-sdcard.img to the SD card.（use Etcher / `dd` ）。
-2. **1 jump **：Dial to **SD boot** → Insert the card and power on → Write to NAND, then power off after completion.
-3. **2 jump**：Dial to **NAND boot** → Power on → Automatically load eMMC, then power off after completion.
-4. **3 jump**：Dial to **eMMC boot** → Power on → Enter the system (Slot A). The SD card can be removed.
-
-> 💡 **Key reminder: Each hop is [start from A and write to B]. The DIP switches of both A and B must be set correctly.** In the first jump, apart from booting by inserting the SD card,，**The corresponding jumper for NAND also needs to be selected correctly.**；In the second jump, in addition to setting it for NAND boot,，**The corresponding pins for eMMC also need to be selected correctly.**。Otherwise, it will [seem to have no response].。
->
-> 💡 **The completion criterion is based on the serial port output.**；Connect to a serial port (115200 8N1), and you can see the writing progress and completion prompt for each jump. Some boards are additionally assisted by LEDs (the LEDs light up during writing and turn off upon completion).
-
-For the key DIP switch positions, lamp states, and special notes (such as the NOR/NAND switch on the R4-Lite and the requirement of 12V for the BE14) of each board, please refer to the factory programming instructions attached to the firmware.
+> ⚠️ **`snand-factory.bin` and `snand-factory.crc` must come from the same build and be copied together.** The .crc verifies the .bin before flashing; a mismatch is never written — this protects against a corrupt image, but it also means a version mismatch will "fail verification forever and never write".
 
 ---
 
-## 4. Method B：Serial port + USB flash drive burning
+## 3. Method A: SD-card flashing (3 hops)
 
-Suitable R3 Mini / OpenWrt One，And the rescue of brick machines for any board. General process:
+On SD-slot boards the product runs on eMMC; since SD and eMMC share one controller, NAND is used as a relay. The flow is **boot from SD → write NAND → boot from NAND → write eMMC → boot from eMMC → into the system**. No hop enters the OS — power off and re-strap when you see the completion prompt.
 
-1. According to the instructions of FlashKit, use the serial port download tool to send the memory boot program into the device's memory (without writing to the flash).
-2. Copy `snand-factory.bin` + `snand-factory.crc` to **FAT32 USB flash drive**root directory and insert the device into the USB port.
-3. Board **Automatically detect the USB flash drive and write to the NAND.**（CRC check before writing、Read-back check after writing）。
-4. R3 Mini one more step is needed: unplug the USB flash drive and switch to NAND boot，Automatically install the system into the eMMC.；OpenWrt One is only NAND，It can be written in one step.
+1. **Make the card**: write `*-sdcard.img` to an SD card (Etcher / `dd`, etc.).
+2. **Hop 1**: strap to **SD boot** → insert card, power on → writes NAND; power off when done.
+3. **Hop 2**: strap to **NAND boot** → power on → auto-installs to eMMC; power off when done.
+4. **Hop 3**: strap to **eMMC boot** → power on → into the system (slot A). The SD card can be removed.
 
-Step-by-step commands、wiring（UART0 / Type-C）、lamp status can be found in the serial port burning instructions attached to the firmware （flashkit toolkit contains step-by-step guides for the corresponding board types.）。
+
+> 💡 **Key tip: each hop "boots from A, writes to B", so BOTH straps must be right.** Hop 1: besides strapping SD boot, **the NAND strap must also be correct**; Hop 2: besides strapping NAND boot, **the eMMC pin must also be correct**. Otherwise it "looks like nothing happens".
+
+
+> 💡 **Completion is judged by serial output**; attaching a serial line (115200 8N1) shows each hop's write progress and completion. Some boards also have an LED aid (lit while writing, off when done).
+
+Per-board strap bits, LED states, and special notes (e.g. R4-Lite's NOR/NAND switch, BE14 needing 12V) are in the factory flashing notes shipped with the firmware.
 
 ---
 
-## 5. Verification after burning
+## 4. Method B: Serial + USB-stick flashing
+
+For R3 Mini / OpenWrt One, and brick-rescue on any board. Rough flow:
+
+1. Per the flashkit notes, use the serial download tool to push the in-memory bootloader into the device's RAM (no flash write).
+2. Copy `snand-factory.bin` + `snand-factory.crc` to the root of a **FAT32 USB stick**, plug it into the device's USB port.
+3. The device **auto-detects the stick and writes NAND** (CRC-checked before writing, read-back verified after).
+4. R3 Mini needs one more step: remove the stick, strap to NAND boot, and it auto-installs the system to eMMC; OpenWrt One is NAND-only, so a single write is enough.
+
+Step-by-step commands, wiring (UART0 / Type-C), and LED states are in the serial-flashing notes shipped with the firmware (the flashkit bundle includes a per-board step-by-step guide).
+
+---
+
+## 5. Post-flash check
 
 After entering the system:
 
-1.  open with browser `https://192.168.100.1`，A configuration wizard should appear → continue to [link:/en/BpiRouterOS/BananaPi_BpiRouterOS_Setup[Configuration settings]]。
+1. Open `https://192.168.100.1` in a browser — the setup wizard should appear → continue to  [link:/en/BpiRouterOS/BananaPi_BpiRouterOS_Setup[First-time Setup]].
 
-2. If the serial port is connected, you can confirm that both firmware slots can boot normally (both slots A and B are ready).
+2. If a serial line is attached, you can confirm both firmware slots boot (A/B dual slot ready).
 
-You can use it normally after completion. If there is a problem during the process, see [link:/en/BpiRouterOS/BananaPi_BpiRouterOS_Recovery[Recovery and unbricking]]。
+You're ready to use it. If something goes wrong, see [link:/en/BpiRouterOS/BananaPi_BpiRouterOS_Recovery[Recovery and Rescue]]。
 
 ---
 
-[← link:/en/BpiRouterOS/BananaPi_BpiRouterOS[Return home page]]] · [link:/en/BpiRouterOS/BananaPi_BpiRouterOS_Setup[Configuration settings] →] · [link:/en/BpiRouterOS/BananaPi_BpiRouterOS_Recovery[Recovery and unbricking] →]
+[← link:/en/BpiRouterOS/BananaPi_BpiRouterOS[Home]]] · [link:/en/BpiRouterOS/BananaPi_BpiRouterOS_Setup[First-time Setup] →] · [link:/en/BpiRouterOS/BananaPi_BpiRouterOS_Recovery[Recovery & Rescue] →]
