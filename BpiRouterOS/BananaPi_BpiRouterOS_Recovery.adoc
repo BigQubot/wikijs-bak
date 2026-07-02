@@ -1,100 +1,99 @@
-# BpiRouter OS —  Recovery and unbricking
+# BpiRouter OS — Recovery & Rescue
 
 
-> BpiRouter OS Core reliability capabilities: Form「error correction configuration」to「whole device becomes a brick」，There are rescue measures at each level. **If it's flashed incorrectly, it can still be rescued and won't become a permanent brick.**
+> BpiRouter OS's core reliability: from "wrong config" to "fully bricked", every level has a way back. **A bad flash can be recovered; it won't brick permanently.**
 
-[← link:/en/BpiRouterOS/BananaPi_BpiRouterOS[ Return home page]]
+[← link:/en/BpiRouterOS/BananaPi_BpiRouterOS[Home]]
 
 ---
 
-## 0. First, identify your [Restore button]
+## 0. Know your "recovery button"
 
-Different boards use different keys for recovery.（This point is very crucial.）：
+Different boards use different buttons for recovery (this matters):
 
 [options="header",cols="2,4"]
 |====
 | **Board** | **Reset button** 
-| **BPI-R4** | **WPS button**（The reset key of R4 is a hard reset line and is invisible to software, so use WPS for recovery.） 
-| **BPI-R4 Lite** | Physics  **reset** botton
-| **BPI-R4 Pro** | Physics  **reset** botton
-| **BPI-R3** | Physics  **reset** botton
-| **BPI-R3 Mini** | Physics **reset** botton
-| **OpenWrt One** | Back **reset** botton
+| **BPI-R4** | **WPS button** (R4's reset is a hard-reset line invisible to software, so recovery uses WPS) 
+| **BPI-R4 Lite** | Physical **reset** button
+| **BPI-R4 Pro** | Physical **reset** button
+| **BPI-R3** | Physical **reset** button
+| **BPI-R3 Mini** | Physical **reset** button
+| **OpenWrt One** | Rear **reset** button 
 |====
 
-> The "reset button" mentioned below corresponds =  the one on your board.
+> Below, the "recovery button" means the one for your board.
 
 ---
 
 ## 1.  Four-layer recovery ladder
 
-From the lightest (not losing anything) to the heaviest (resetting the whole device to factory settings), provide support at each level. **Usually, you'll only use L3.**
+From lightest (lose nothing) to heaviest (whole device back to factory), each layer is a fallback. **You'll usually only need L3.**
 
-### L1 · Configure automatic rollback (automatic，no operation required)
-When you modify network / WiFi / Firewall settings that may cut off the management connection, a message will appear **confirmation banner appears  + confirmation banner appears ** at the top of the interface：
+### L1 · Config auto-rollback (automatic, no action)
+When you change network / WiFi / firewall settings that could cut the management link, the UI shows a **confirmation banner + countdown**:
+- Change is fine and you can still reach it → click "Keep changes" to commit;
+- Change locked you out and you didn't confirm → **at the end of the countdown it auto-reverts** to the previous config.
 
-- The changes are normal. You can still access it. → Click [Save Changes] to make it take effect;
-- Correcting mistakes led to disconnection. You didn't click confirm. → **Automatically resume when the countdown ends ** return the configuration before the change.
+This layer is on by default, so "a mistake won't lock you out".
 
-This layer of protection is enabled by default, ensuring that [even if you make a mistake, you won't lock yourself out].
+### L2 · Firmware auto-rollback (automatic, no action)
 
-### L2 · Firmware automatic rollbac（automatic，no operation required）
+Firmware upgrades use A/B dual slots: if the new firmware fails to boot, **the bootloader automatically switches back to the last good slot**. No action needed — the device returns to a working version by itself.
 
-Firmware upgrade uses A/B dual slots: If the new firmware fails to start,**The bootloader will automatically switch back to the previous working firmware slot.**.You don't need to perform any operations. The device will automatically return to a usable version.
+### L3 ·  Factory reset (hold the recovery button ~5s while running)
 
-### L3 · Restore to factory settings（Press and hold the recovery key for about 5 seconds during operation.）
+When the device runs fine but **the config is messed up / you forgot the password**:
 
-When the device can run normally, but the **configuration is messed up / the password is forgotten**:
+1. While the device is running, **hold the recovery button for ~5 seconds**, then release.
+2. The device clears the current config and reboots to factory state (**without re-flashing firmware**).
+3. Open `https://192.168.100.1` again and run [link:/en/BpiRouterOS/BananaPi_BpiRouterOS_Setup[First-time Setup]]。
 
-1. When the device is in operation.，**Press and hold the recovery key for about 5 seconds** and then release it.
-2. The device clears the current configuration, restarts and returns to the factory state.（**Do not reflash the firmware**）.
-3. Reopen `https://192.168.100.1` and do [link:/en/BpiRouterOS/BananaPi_BpiRouterOS_Setup[Configuration settings]]。
+> Only the current slot's config is cleared — the other slot is untouched and firmware is not re-flashed.
 
-> Only clear the configuration of the current firmware slot, leave the other slot unchanged, do not and re-flash the firmware.
+### L4 · Whole-device rescue (hold the recovery button at power-on)
 
-### L4 · Full device recovery（Press and hold the recovery key to power on after the power is cut off.）
-
-when **Both the configuration and the firmware are damaged. / The device fails to start up** ultimate fallback：
+The ultimate fallback when **both config and firmware are corrupted / the device won't boot**:
 
 1. **Power off.**
-2. **Keep pressing the reset button.**， power on the device. **Keep pressing throughout the whole process**。
-3. The device restores the whole machine to the factory settings from the built-in golden image.（When connecting to the serial port, you can see prompts like **GOLDENORE REST**.）。
-4. After completion, it will automatically restart and to return the pure factory state.
+2. **Hold the recovery button** and power on, **keep holding the whole time**.
+3. The device re-flashes itself from a built-in golden image back to factory (over serial you'll see something like `*** GOLDEN RESTORE`).
+4. It reboots automatically into a clean factory state.
 
-> ⚠️ **You need to keep pressing to get past the self-check/countdown during startup.**，Release your finger only when you see the prompt indicating that the device recovery process has started. Releasing it too early will be regarded as a normal startup.
+> ⚠️ **Keep holding across the boot self-test / countdown**, until you see the rescue start; releasing too early is treated as a normal boot.
 
-> 💡 R4-Lite with independent NOR+NAND ，Before rescuing the bricked device, you may need to switch the NAND/NOR DIP switch to Nand on the board .——Please refer to the factory programming instructions that come with the firmware for details.
+> 💡 On boards with separate NOR+NAND (e.g. R4-Lite), you may need to set the board's NAND/NOR strap to NAND before rescue — see the factory flashing notes shipped with the firmware.
 
 ---
 
-## 2. How to choose which layer?
+## 2. Which layer to use?
 
 [options="header",cols="5,6"]
 |====
 | **Situation** | **Which layer to use** 
-| It can't connect after I changed a setting.| L1（Wait for the countdown to automatically roll back, or manually roll back the next time you enter.） 
-| There are problems with the new firmware after the upgrade. | L2 automatic rollback ；Or click [Roll back to the previous version] on the system page.
-| Forgot the management password / The configuration is in a mess, but the device can still be powered on. | **L3**：Press and hold the reset key for 5 seconds during operation.
-| Fails to start up / device is bricked / device restarts repeatedly | **L4**：Power off→Press and hold the reset key→Power on
+| Changed a setting and lost connection | L1 (wait for auto-rollback, or revert manually next time in) 
+| New firmware has problems after upgrade | L2 auto-rollback; or click "Roll back to previous version" on the System page
+| Forgot the admin password / config messed up, but the device still boots | **L3**: hold the recovery button ~5s while running
+| Device won't boot / bad flash / reboot loop | **L4**: power off → hold the recovery button → power on
 |====
 
 ---
 
-## 3. Common problems
+## 3. FAQ
 
-**There is no response when long - pressing the reset key?（R4）**
+**Holding reset does nothing? (R4)**
 
-The reset key of BPI-R4 is a hard reset key, and the software cannot read it.——**The recovery key of BPI-R4 is the WPS key**，please use WPS botton。other board use physics reset botton。
+R4's reset is a hard-reset line that software can't read — **R4's recovery button is the WPS button**, use that instead. Other boards use the physical reset.
 
-**L4 Pressed botton but didn't enter the brick rescue mode?**
+**Pressed for L4 but rescue didn't start?**
 
-Most likely, you released your finger too early.Be sure to keep pressing and skip the boot countdown until you see the prompt for rescuing a bricked device.
+Most likely released too early. Be sure to **keep holding across the boot countdown**, until the rescue prompt appears.
 
-**Will rescuing a bricked device cause the loss of configurations?**
+**Does rescue lose config?**
 
-Yes——L4 It will return to the pure factory state. The risk of losing daily configurations is covered by L1 (automatic rollback) and [retain configurations during upgrade]；L4 is the last resort。It is recommended to use the [Download Backup] function on the system page to save a copy of the configuration. You can upload it after restoration to revert to the previous settings.
+Yes — L4 returns to a clean factory state. Day-to-day config-loss risk is covered by L1 (auto-rollback) and "keep settings on upgrade"; L4 is the last resort. Keep a config backup via the System page's "Download backup" and re-upload it after recovery to restore.
 
 ---
 
-[← link:/en/BpiRouterOS/BananaPi_BpiRouterOS[ Return home page]] ·  [link:/en/BpiRouterOS/BananaPi_BpiRouterOS_Flashing[Burning guide] →] · [link:/en/BpiRouterOS/BananaPi_BpiRouterOS_Setup[Configuration settings] →]
+[← link:/en/BpiRouterOS/BananaPi_BpiRouterOS[Home]] ·  [link:/en/BpiRouterOS/BananaPi_BpiRouterOS_Flashing[Flashing Guide] →] · [link:/en/BpiRouterOS/BananaPi_BpiRouterOS_Setup[First-time Setup] →]
 
