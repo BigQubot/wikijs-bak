@@ -1,55 +1,55 @@
-# BpiRouter OS — Configuration settings
+# BpiRouter OS — First-time Setup
 
-> The configuration process for the first boot after the device has been flashed with the system.
+> The first-boot configuration flow after the device is flashed.
 
-[← link:/en/BpiRouterOS/BananaPi_BpiRouterOS[ Return home page]]
-
----
-
-## 1. connect devices
-
-1. Connect the computer to the router **LAN port** with an Ethernet cable. （Or connect to its default WiFi.）。
-2. open with browser **`https://192.168.100.1`**。
-   - For the first time, since it is a self-signed certificate, the browser will prompt a security warning once. Just confirm "Continue to access" (this is a local device certificate and is safe).
+[← link:/en/BpiRouterOS/BananaPi_BpiRouterOS[Home]]
 
 ---
 
-## 2. Configuration wizard (3 steps)
+## 1. Connect to the device
 
-A brand-new device (without a set management password) will automatically enter the wizard:
+1. Connect your computer to the router's **LAN port** with a cable (or join its default WiFi).
+2. Open **`https://192.168.100.1`** in a browser.
+   - The first time uses a self-signed certificate, so the browser shows a security warning once — click "proceed / continue". (This is the device's local certificate; it is safe.)
 
-**Step 1: Internet connection method（WAN）**
+---
 
-Select your broadband access method:
+## 2. Setup wizard (3 steps)
 
-- **DHCP** (Automatically obtain) - The most common method. The optical modem/upstream router automatically assigns an IP address.
-- **Static IP** —— Manually fill in the IP, subnet mask, gateway, and DNS in the network settings.
-- **PPPoE broadband dial-up** —— Fill in the account and password provided by the operator.
+A brand-new device (no admin password set) enters the wizard automatically:
+
+**Step 1: Internet (WAN)**
+
+Choose your broadband connection type:
+
+- **DHCP** (automatic) — most common; the modem / upstream router assigns the IP.
+- **Static IP** — enter IP / netmask / gateway / DNS manually.
+- **PPPoE** — enter the account and password from your ISP.
 
 **Step 2: Wireless（WiFi）**
 
 Set the WiFi name (SSID) and password.
 
-**Step 3：Administrator password**
+**Step 3：Admin password**
 
-Set the password for logging in to the management background.（≥ 8 bit）。
+Set the password for the management console (≥ 8 characters).
 
 
-After completion**Automatically log in and enter the dashboard.**，There is no need to log in separately again.
+When done, you are **logged in to the dashboard automatically** — no separate login needed.
 
 ---
 
-## 3. Others setting 
+## 3. What you can change later 
 
-After entering the background, all settings can be adjusted at any time:
+Once inside, every setting can be adjusted anytime:
 
-- **Network**：WAN / LAN、IPv6、DHCP address pool。
-- **Wifi**：multi-band、channel、encryption、country code。
-- **System**：Hostname、time zone and system tim、change password、backup/restore、firmware upgrade.
-- **advanced**：VPN、Port forwarding 、DMZ、Firewall、DDNS、Diagnosis 、Log。
-- **User**：Add operator/observer accounts and assign role permissions.
+- **Network**: WAN / LAN, IPv6, DHCP pool.
+- **Wireless**: multi-band, channel, encryption, country.
+- **System**: hostname, timezone & system clock, password, backup/restore, firmware upgrade.
+- **Advanced**: VPN, port forwarding, DMZ, firewall, DDNS, diagnostics, logs.
+- **Users**: add operator / viewer accounts and assign role permissions.
 
-You can switch in upper corner the right of the Web page **Chinese/ English** 与 **Light color / Dark coloe**.
+The top-right corner switches between **English / Chinese** and **light / dark** mode.
 
 ---
 
@@ -57,16 +57,16 @@ You can switch in upper corner the right of the Web page **Chinese/ English** �
 
 **Can not login `192.168.100.1`？**
 
-Confirm that the computer has obtained an IP address in the 192.168.100.x network segment from the router; or try adding "https://" before the address.
+Make sure your computer got an IP in the `192.168.100.x` range from the router; or try prefixing the address with `https://`.
 
-**Forgot the password?**
+**Forgot the password you just set?**
 
-Press and hold the device's recovery button for approximately 5 seconds during operation to restore the factory settings restart the and wizard. see [link:/en/BpiRouterOS/BananaPi_BpiRouterOS_Recovery[Recovery and unbricking]]。
+Hold the device's recovery button for ~5s while running to factory-reset and re-run the wizard. See [Recovery & Rescue].
 
-**The wizard didn't appear and it went straight to the login page?**
+**The wizard didn't appear, it went straight to login?**
 
-It indicates that the device has already had a password set (it's not in a brand - new state). You can log in with the set password. To return to the wizard, you can first restore the device to its factory settings.
+That means a password was already set (not a brand-new state). Log in with the set password; to return to the wizard, factory-reset first.
 
 ---
 
-[← link:/en/BpiRouterOS/BananaPi_BpiRouterOS[Return home page]] · [link:/en/BpiRouterOS/BananaPi_BpiRouterOS_Flashing[Burning guide] →] · [link:/en/BpiRouterOS/BananaPi_BpiRouterOS_Recovery[Recovery and unbricking] →]
+[← link:/en/BpiRouterOS/BananaPi_BpiRouterOS[Home]] · [link:/en/BpiRouterOS/BananaPi_BpiRouterOS_Flashing[Blashing Guide] →] · [link:/en/BpiRouterOS/BananaPi_BpiRouterOS_Recovery[Recovery & Rescue] →]
