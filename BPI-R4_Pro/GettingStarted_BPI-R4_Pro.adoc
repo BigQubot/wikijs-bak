@@ -1184,6 +1184,8 @@ Built-in one EEPROM chip (P24C02A), can be used to store small amounts of data.
 
 == Buttons
 === Reset
+TIP: In the BPI-R4Pro-8X-BE14-MT76-OpenWRT24.10-DSA-251229 image, a short press of RST restarts the system, while a long press resets the system.
+
 A reset button is connect to GPIO13，used for restore to factory default settings.
 
 === WPS
