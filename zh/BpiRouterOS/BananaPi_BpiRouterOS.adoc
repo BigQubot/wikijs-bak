@@ -90,13 +90,25 @@ image::/bpi_os_ch/4.2.1-network.png[4.2.1-network.png]
 
 image::/bpi_os_ch/4.2.2-device.png[4.2.2-device.png]
 ==  4.3 安全上网
+
 - **VPN**：内置 **WireGuard** 与 **OpenVPN**——两种协议**可同时启用**，既能做客户端（连到远程 VPN），也能做服务端（让本机成为 VPN 服务器）。服务端可自定义监听端口与地址段，**一键生成客户端配置 + 二维码**（手机 App 扫码即连），并支持客户端列表查看与吊销。
+
+image::/bpi_os_ch/4.3_vpn.png[4.3_vpn.png]
 - **端口转发**：把外网端口映射到内网设备。
+
+image::/bpi_os_ch/4.3_port.png[4.3_port.png]
 - **DMZ**：把所有外网入站流量转给指定内网主机。
+
+image::/bpi_os_ch/4.3_dmz.png[4.3_dmz.png]
 - **防火墙规则**：自定义放行 / 拒绝 / 丢弃规则。
+
+image::/bpi_os_ch/4.3.2-firewall.png[4.3.2-firewall.png]
 - **DDNS**：动态公网 IP 绑定固定域名（支持 DuckDNS / No-IP / Dynu / Cloudflare / FreeDNS）。
 
+image::/bpi_os_ch/4.3_ddns.png[4.3_ddns.png]
 ==  4.4 系统管理
+image::/bpi_os_ch/4.4.1_normal_and_passwd.png[4.4.1_normal_and_passwd.png]
+image::/bpi_os_ch/4.4.2_firmware_backup_security.png[4.4.2_firmware_backup_security.png]image::/bpi_os_ch/4.4.3_diagnosis_syslog.png[4.4.3_diagnosis_syslog.png]
 - **主机名 / 时区 / 系统时间**：时区从下拉列表选择（可搜索），时间自动 NTP 对时，也支持手动设置 / 用浏览器时间同步（无 RTC、离线场景兜底校时）。
 - **改密、重启**。
 - **关键改动二次确认**：网络 / WiFi / 防火墙等可能切断管理连接的改动，可开启「保存后限时确认」——改错导致掉线时会自动回滚，默认开启。
@@ -105,9 +117,13 @@ image::/bpi_os_ch/4.2.2-device.png[4.2.2-device.png]
 - **系统日志**。
 
 ==  4.5 多用户与审计
+
 - **三种角色**：管理员（全部）/ 操作员（日常配置）/ 观察员（只读）。权限最小化，观察员看不到也改不了配置。
+
+image::/bpi_os_ch/4.5.1_user.png[4.5.1_user.png]
 - **审计日志**（仅管理员）：记录登录、权限拒绝、配置变更、固件升级、用户管理等安全相关操作，可事后追溯（不记录任何密码/密钥）。
 
+image::/bpi_os_ch/4.5.2_audit.png[4.5.2_audit.png]
 ---
 =  5. 可靠性：永不变砖的升级与恢复
 
@@ -161,7 +177,11 @@ image::/bpi_os_ch/4.2.2-device.png[4.2.2-device.png]
 =  7. 界面与使用体验
 
 - **多语言**：中文 / 英文即时切换。
+
+image::/bpi_os_ch/7.1_login.png[7.1_login.png]
 - **深色模式**：浅色 / 深色，护眼。
+
+image::/bpi_os_ch/7.2_dark.png[7.2_dark.png]
 - **响应式**：电脑、平板、手机自适应，手机端侧边栏自动折叠。
 - **顺滑反馈**：升级 / 回退 / 重启 / 恢复出厂等整机操作，有全屏进度提示与「掉线→上线」探测，过程不留白屏。
 - **高级后路**：保留原生 LuCI 入口，本界面未覆盖的高级/诊断场景可一键转 LuCI。
