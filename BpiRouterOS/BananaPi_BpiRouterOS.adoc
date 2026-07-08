@@ -95,23 +95,42 @@ BpiRouter OS keeps all of OpenWrt's power and ecosystem, and adds consumer-grade
 
 ==  4.1 Out of the box
 - **First-boot wizard**: a brand-new device boots straight into a wizard — set up internet (DHCP / static / PPPoE), WiFi, and the admin password in 3 steps.
+
 - **Dashboard**: one-screen overview of CPU/temperature/memory/storage, internet status, client count, and a **live up/down traffic chart**, auto-refreshing.
+
+image::/bpi_os_en/4.1_dashboard.png[4.1_dashboard.png]
 
 ==  4.2 Network & Wireless
 
 - **WAN**: DHCP / static IP / PPPoE, dual-stack IPv4 + IPv6.
+
+image::/bpi_os_en/4.2.1_network.png[4.2.1_network.png]
 - **LAN**: LAN IP, DHCP allocation (pool / lease time).
+
 - **Wireless**: multi-band (2.4G / 5G / 6G), channel/width/power/country, SSID & encryption (6GHz enforces WPA3/OWE).
 - **Connected devices**: live view of attached devices' IP / MAC / hostname / online status.
 
+image::/bpi_os_en/4.2.2_device.png[4.2.2_device.png]
 ==  4.3 Secure connectivity
 - **VPN**: built-in **WireGuard** and **OpenVPN** — both protocols can run at the same time, as a client (connect to a remote VPN) or a server. The server supports a custom listen port and address range, **one-click client config + QR code** (scan to connect from a phone app), plus a client list and revocation.
+
+image::/bpi_os_en/4.3_vpn.png[4.3_vpn.png]
 - **Port forwarding**: map external ports to internal devices.
+
+image::/bpi_os_en/4.3_port.png[4.3_port.png]
 - **DMZ**: forward all inbound WAN traffic to a single internal host.
+
+image::/bpi_os_en/4.3_dmz.png[4.3_dmz.png]
 - **Firewall rules**: custom accept / reject / drop rules.
+
+image::/bpi_os_en/4.3.2_firewall.png[4.3.2_firewall.png]
 - **DDNS**: bind a dynamic public IP to a fixed domain (DuckDNS / No-IP / Dynu / Cloudflare / FreeDNS).
 
+image::/bpi_os_en/4.3_ddns.png[4.3_ddns.png]
 ==  4.4 System management
+
+image::/bpi_os_en/4.4.1_normal_password.png[4.4.1_normal_password.png]
+image::/bpi_os_en/4.4.2_firmware_backup_security.png[4.4.2_firmware_backup_security.png]
 - **Hostname / timezone / system clock**: pick the timezone from a searchable dropdown; time syncs via NTP automatically, with manual / browser-time fallback (for RTC-less or offline cases).
 - **Change password, reboot.**
 - **Confirm-on-critical-change**: changes that could cut the management link (network / WiFi / firewall) can require a timed confirmation — if a change locks you out, it auto-rolls back (see §5.2 L1). On by default.
@@ -121,8 +140,11 @@ BpiRouter OS keeps all of OpenWrt's power and ecosystem, and adds consumer-grade
 
 ==  4.5 Multi-user & audit
 - **Three roles**: Admin (everything) / Operator (day-to-day config) / Viewer (read-only). Least-privilege — a viewer can neither see nor change configuration.
+
+image::/bpi_os_en/4.5.1_user.png[4.5.1_user.png]
 - **Audit log** (admin only): records security-relevant actions — logins, permission denials, config changes, firmware upgrades, user management — for later review (no passwords/keys are ever recorded).
 
+image::/bpi_os_en/4.5.2_audit.png[4.5.2_audit.png]
 ---
 =  5. Reliability: updates and recovery that never brick
 
@@ -177,7 +199,11 @@ Four - layer recovery ladder
 =  7. Interface & experience
 
 - **Bilingual**: instant switch between English and Chinese.
+
+image::/bpi_os_en/7.1_login.png[7.1_login.png]
 - **Dark mode**: light / dark.
+
+image::/bpi_os_en/7.2_dark.png[7.2_dark.png]
 - **Responsive**: adapts to desktop, tablet, and phone; the sidebar collapses on phones.
 - **Smooth feedback**: whole-device operations (upgrade / rollback / reboot / factory reset) show a full-screen progress indicator with offline→online probing, so there's no blank-screen gap.
 - **Advanced fallback**: the native LuCI entry is kept; switch to it anytime for advanced/diagnostic tasks not covered here.
