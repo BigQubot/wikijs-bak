@@ -8,6 +8,7 @@
 
 ## 1. Connect to the device
 
+image::/bpi_os_en/setup.1.png[setup.1.png]
 1. Connect your computer to the router's **LAN port** with a cable (or join its default WiFi).
 2. Open **`https://192.168.100.1`** in a browser.
    - The first time uses a self-signed certificate, so the browser shows a security warning once — click "proceed / continue". (This is the device's local certificate; it is safe.)
@@ -16,6 +17,7 @@
 
 ## 2. Setup wizard (3 steps)
 
+image::/bpi_os_en/setup.2.png[setup.2.png]
 A brand-new device (no admin password set) enters the wizard automatically:
 
 **Step 1: Internet (WAN)**
@@ -41,6 +43,7 @@ When done, you are **logged in to the dashboard automatically** — no separate 
 
 ## 3. What you can change later 
 
+image::/bpi_os_en/setup.3.png[setup.3.png]
 Once inside, every setting can be adjusted anytime:
 
 - **Network**: WAN / LAN, IPv6, DHCP pool.
