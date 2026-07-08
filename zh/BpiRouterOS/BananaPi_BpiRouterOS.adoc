@@ -78,9 +78,13 @@
 - **首次配置向导**：全新设备开机自动进入向导，3 步设好上网方式（DHCP / 静态 / 宽带拨号）、WiFi、管理密码。
 - **仪表盘**：一屏总览 CPU/温度/内存/存储、联网状态、客户端数、**实时上下行流量曲线**，自动刷新。
 
+image::/bpi_os_ch/4.1dashboard.png[4.1dashboard.png]
 ==  4.2 网络与无线
 - **上网（WAN）**：DHCP / 静态 IP / PPPoE 宽带拨号，IPv4 + IPv6 双栈。
+
+image::/bpi_os_ch/4.2.1-network.png[4.2.1-network.png]
 - **局域网（LAN）**：LAN IP、DHCP 地址分配（地址池/租期）。
+
 - **无线**：多频段管理（2.4G / 5G / 6G），信道/带宽/功率/国家码，SSID 与加密（6GHz 强制 WPA3/OWE）。
 - **已连接设备**：实时查看接入设备的 IP / MAC / 主机名 / 在线状态。
 
