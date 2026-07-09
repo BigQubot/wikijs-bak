@@ -82,6 +82,7 @@ image::/bpi_os_ch/4.1dashboard.png[4.1dashboard.png]
 ==  4.2 网络与无线
 - **上网（WAN）**：DHCP / 静态 IP / PPPoE 宽带拨号，IPv4 + IPv6 双栈。
 
+
 image::/bpi_os_ch/4.2.1-network.png[4.2.1-network.png]
 - **局域网（LAN）**：LAN IP、DHCP 地址分配（地址池/租期）。
 
