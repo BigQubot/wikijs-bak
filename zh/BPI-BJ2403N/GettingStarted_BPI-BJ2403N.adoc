@@ -84,6 +84,8 @@ image::/bpi-bj2403n/bj-2403n-gs-debug-6.png[bj-2403n-gs-debug-6.png]
 
 == 3	更新程序
 
+=== 1 通过峰岹仿真器更新程序
+
 如果需要更新下位机程序，需要用峰岹的编程环境FTM32ForgeIDE通过峰岹仿真器来下载新的程序。
 
 image::/bpi-bj2403n/bj-2403n-gs-debug-7.png[bj-2403n-gs-debug-7.png]
@@ -124,3 +126,31 @@ image::/bpi-bj2403n/bj-2403n-gs-update-9.png[bj-2403n-gs-update-9.png]
 下载成功后输出窗口 Output 显示 “done”，CRC显示非零表示校验成功。
 
 image::/bpi-bj2403n/bj-2403n-gs-update-10-1.png[bj-2403n-gs-update-10-1.png]
+
+=== 2 通过串口更新程序
+
+板子出厂已刷Bootloader程序，也可以通过串口来更新程序。
+
+image::/bp-en-bj2303n/bj2403n-gs-17.png[bj2403n-gs-17.png]
+
+点击按钮，对代码进行编译
+
+image::/bp-en-bj2303n/bj2403n-gs-18.png[bj2403n-gs-18.png]
+
+编译完成后输出窗口 Output 显示如下信息，请忽略该报错。
+
+image::/bp-en-bj2303n/bj2403n-gs-19.png[bj2403n-gs-19.png]
+
+这时文件夹ServoControl\ForgeIDE\Debug_App中生成了新的ServoControl_App.bin
+选择合适的通信连接设置，可以不用点击“连接”。
+
+image::/bp-en-bj2303n/bj2403n-gs-20.png[bj2403n-gs-20.png]
+
+打开固件下载页面，选择刚才生成ServoControl_App.bin，点击“开始”。等下载进度条达到 100%时，表明程序代码已成功下载到芯片中。
+
+image::/bp-en-bj2303n/bj2403n-gs-21.png[bj2403n-gs-21.png]
+
+注意：
+1. 若出现固件下载中断或异常导致连不上上位机，可以先点击“开始”，再上电。
+2. 板子出厂已刷Bootloader程序，若用峰岹仿真器下载过一次程序，则无法再通过串口更新程序。
+
