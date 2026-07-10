@@ -73,7 +73,7 @@ Since the parameter file imported earlier already includes pre-tuned gains for t
 image::/bp-en-bj2303n/bj2403n-gs-8.png[bj2403n-gs-8.png]
 
 == 3	Updating the Firmware
-
+=== 1 Update Firmware via Fortior Emulator
 To update the firmware, you must use Fortior's development environment, **FTM32ForgeIDE**, via the Fortior emulator to download the new program.
 
 image::/bp-en-bj2303n/bj2403n-gs-9.png[bj2403n-gs-9.png]
@@ -111,3 +111,33 @@ image::/bp-en-bj2303n/bj2403n-gs-15.png[bj2403n-gs-15.png]
 After a successful download, the Output window will display "done," and a non-zero CRC value indicates that the verification was successful.
 
 image::/bp-en-bj2303n/bj2403n-gs-16.png[bj2403n-gs-16.png]
+
+=== 2 Update Firmware via Serial Port
+
+The board is pre-flashed with a Bootloader at the factory, allowing the program to be updated via the serial port.
+Double-click ServoControl_App.ftproj to open the project.
+
+image::/bp-en-bj2303n/bj2403n-gs-17.png[bj2403n-gs-17.png]
+
+Click the  button to compile the code.
+
+image::/bp-en-bj2303n/bj2403n-gs-18.png[bj2403n-gs-18.png]
+
+Once compilation is complete, the Output window will display the information shown below. Please ignore the error message.
+
+image::/bp-en-bj2303n/bj2403n-gs-19.png[bj2403n-gs-19.png]
+
+A new ServoControl_App.bin file will be generated in the ServoControl\ForgeIDE\Debug_App folder.
+Select the appropriate communication connection settings (you do not need to click "Connect").
+
+image::/bp-en-bj2303n/bj2403n-gs-20.png[bj2403n-gs-20.png]
+
+Open the firmware download page, select the ServoControl_App.bin file just generated, and click "Start". When the progress bar reaches 100%, it indicates that the program has been successfully downloaded to the chip.
+
+image::/bp-en-bj2303n/bj2403n-gs-21.png[bj2403n-gs-21.png]
+
+NOTE: 1.If the firmware download is interrupted or an anomaly prevents the board from connecting to the host computer, click "Start" first, then power on the board.
+2.The board is shipped with a Bootloader. Please note that if you have used a Fortior emulator to download a program to the board, it will no longer be possible to update the program via the serial port.
+
+
+
