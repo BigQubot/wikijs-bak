@@ -428,6 +428,27 @@ WARNING: NOTE: If your computer does not support USB PD, then the R3mini will mo
 
 Because the power consumption of R3mini is relatively large (all peripherals are plugged in and the power consumption is close to 20W when running)
 
+== Source code image burning
+
+Source code address： https://github.com/BPI-SINOVOIP/BPI-R3MINI-OPENWRT-V21.02.3
+
+NAND-generated image name: openwrt-mediatek-mt7986-BPI-R3MINI-NAND-squashfs-sysupgrade.bin
+
+NAND image Generate path：BPI-R3MINI-OPENWRT-V21.02.3/bin/targets/mediatek/mt7986
+
+EMMC-generated image name： mtk-bpi-r3mini-EMMC.img
+
+EMMC image Generate path：BPI-R3MINI-OPENWRT-V21.02.3/build_dir/target-aarch64_cortex-a53_musl/linux-mediatek_mt7986
+
+NAND burn :
+
+You can flash the program using Xmodem by selecting "upgrading single image" in the uboot menu.
+
+image::/bpi-r3mini/r3mini-source_code-nandimage.jpg[r3mini-source_code-nandimage.jpg]
+
+TIP: You can refer to the EMMC programming method:
+https://docs.banana-pi.org/en/BPI-R3_Mini/GettingStarted_BPI-R3_Mini#_install_image_to_onboard_emmc
+
 = FAQ
 MT7986a Reference Manual for Develope Board(BPi)
 
