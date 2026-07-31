@@ -291,6 +291,8 @@ MT7988> reset
 
 == 10G Ethernet
 
+TIP: Some of these boards will use the MxL86252S-ABE-R. The MxL86252S-ABE-R and MxL86252C are also compatible, the software is universal, and no modifications are required to use them.
+
 MT7988A has two USXGMIIs for 10G ethernet, of which USXGMII Port1 is used as a WAN port (10G SFP+ WAN/10G RJ45 WAN), USXGMII Port0 is connected to USXGMII0 of Switch MxL86252C, and USXGMII1 of MxL86252C is used as a LAN port (10G SFP+ LAN/10G RJ45 LAN)
 
 The SFP serdes speed of BPI-R4Pro is fixed at 10Gbps, so only SFP that support this can be used！ +
@@ -315,13 +317,8 @@ NOTE: Our default image configuration:  +
 After inserting the SFP module, USXGMII will automatically switch to 10G SFP+, and 10G RJ45 will not be usable；  +
 **Therefore, if you want to use 10G RJ45, Do NOT insert any module on SFP+. **
 
-
-
-
-
 [%collapsible]
 ====
-
 
 ```bash
 
@@ -440,11 +437,6 @@ At this time, 10G RJ45 WAN is functional, but 10G SFP+ WAN will be ineffective. 
 
 NOTE: The power consumption of AS21010P is very high,a good heat dissipation effect heat sink must be used. +
 
-
-
-
-
- 
 [%collapsible]
 ====
 
@@ -506,9 +498,6 @@ Now, you can insert a 10G SFP+ Copper/Fibre Module to get a 10G network interfac
 NOTE: Our default image configuration:  + 
 After inserting the SFP module, USXGMII will automatically switch to 10G SFP+, and 10G RJ45 will not be usable；  +
 **Therefore, if you want to use 10G RJ45, Do NOT insert any module on SFP+. **
-
-
-
 
 
 ==== 10G RJ45 LAN(Only available on 8X)
@@ -692,6 +681,9 @@ root@R4Pro-01i-NAND:~#
 
 
 == 2.5G RJ45
+
+TIP: Some of these boards will use the MxL86252S-ABE-R. The MxL86252S-ABE-R and MxL86252C are also compatible, the software is universal, and no modifications are required to use them.
+
 The four 2.5G RJ45 ports of BPI-R4Pro are expanded through MxL86252C(Port0~Port3).
 
 NOTE: The power consumption of MxL86252C also very high,a good heat dissipation effect heat sink must be used. +
@@ -773,9 +765,6 @@ root@R4Lite-A:/#
 ====
 
 
-
-
-
 - BPI-R4Lite<- ->(2.5G LAN)  BPI-R4Pro
 
 [%collapsible]
@@ -814,6 +803,8 @@ root@R4Lite-A:/#
 == MxL86252C update
 
 TIP: The current firmware version of the Mlx862 chip is V1.0.70.70.
+
+TIP: Some of these boards will use the MxL86252S-ABE-R. The MxL86252S-ABE-R and MxL86252C are also compatible, the software is universal, and no modifications are required to use them.
 
 . First, upload the Mlx files that need updating to the board.You can copy it via TFTP or USB drive.
 
