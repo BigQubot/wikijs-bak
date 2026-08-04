@@ -89,4 +89,33 @@ image::/bpi-m7s/rk3588s_block_diagram.png[rk3588s_block_diagram.png]
 
 == Hardware Pin Definitions
 
+.40 Pin GPIO
+[%collapsible]
+====
+[options="header",cols="1,5,1,1,5,1"]
+|====
+6+| 40 GPIO define of Banana Pi BPI-M7S
 
+| GPIO number	| Function	| Pin	| Pin| 	Function| 	GPIO number
+| | +3.3V	| 1| 2| +5.0V	| 
+| /dev/i2c1 | sda	I2C1_SDA \ GPIO0_D5	| 3| 4| +5.0V	| 
+|/dev/i2c1 |scl	I2C1_SCL \ GPIO0_D4	|5|6|GND	|
+|47	|GPIO1_B7 \ PWM3_M3	|7|8|UART2_TX_M0|
+|| GND	|9|10|UART2_RX_M0|
+|128|	GPIO4_A0	|11|12|GPIO1_A7	|39
+|129	|GPIO4_A1	|13|14|GND	|
+|130	|GPIO4_A2	|15|16|UART6_TX_M1 \ GPIO1_A1	|/dev/ttyS2 uart txd
+||+3.3V	|17|18|UART6_RX_M1 GPIO1_A0	|/dev/ttyS2 uart rxd
+|spi mosi	|SPI0_MOSI_M2	|19|20|GND	|
+|spi miso|	SPI0_MISO_M2	|21|22|GPIO1_B0	|40
+|spi clk	|SPI0_CLK_M2	|23|24|spi cs 0	|SPI0_CS0_M2
+||GND	|25|26|spi cs 1|	SPI0_CS1_M2
+|/dev/i2c6 sda	|f2C6_SDA_M3	|27|28|I2C6_SCL_M3	|/dev/i2c6 scl
+|131	|GPIO4_A3 \ UART0_TXD_M2	|29|30|GND	|
+|132	|GPIO4_A4 \ UART0_RXD_M2	|31|32|PWM2	|105
+|133	|GPIO4_A5 \ UART3_TXD_M2	|33|34|GND	|
+|134	|GPIO4_A6 \ UART3_RXD_M2	|35|36|GPIO4_B2 \ CAN1_RXD_M1	|138
+|135	|GPIO4_A7	|37|38|GPIO4_B3 \ CAN1_TXD_M1	|139
+||GND	|39|40|GPIO3_C3	|115
+|====
+====
