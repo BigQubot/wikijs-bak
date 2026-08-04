@@ -203,4 +203,12 @@ image::/bpi-m7s/rk3588s_block_diagram.png[rk3588s_block_diagram.png]
 
 = Image
 
+The following systems have been tested and verified by Banana Pi official:
+
+[options="header",cols="5,1"]
+|=====
+|Description	|Cloud drive path
+|debian-bullseye	debian12 for Sige7s :Debian 12 brings thousands of new and updated packages, supporting multiple desktop environments and processor architectures (including 32-bit and 64-bit PC, ARM, MIPS, and PowerPC). But one of the biggest changes is the upgrade of the Linux kernel from version 5.10 to version 6.1 LTS.	|ArmSoM->ArmSoM-Sige7s->software->Debianfirmware
+|ubuntu	ubuntu22.04 for Sige7s :Ubuntu 22.04, code-named 'Jammy Jellyfish', is a version officially released by Canonical on April 21, 2022.	|ArmSoM->ArmSoM-Sige7s->software->Ubuntufirmware
+|=====
 
