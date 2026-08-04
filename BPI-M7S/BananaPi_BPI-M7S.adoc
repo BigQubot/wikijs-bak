@@ -119,3 +119,70 @@ image::/bpi-m7s/rk3588s_block_diagram.png[rk3588s_block_diagram.png]
 ||GND	|39|40|GPIO3_C3	|115
 |====
 ====
+
+.MIPI CSI
+[%collapsible]
+====
+0.5mm FPC connector (J10)
+
+[options="header",cols="1,1"]
+|====
+|PIN	|Name
+|1|	VCC_CAM(3.3v)
+|2|	I2C8_SDA_M2
+|3|	I2C8_SCL_M2
+|4|	CIF_CLKOUT
+|5|	PWDN_GPIO1_A6
+|6|	GND
+|7|	MIPI_CSI_RX_CLK0P
+|8|	MIPI_CSI_RX_CLK0N
+|9|	GND
+|10|	MIPI_CSI_RX_D1P
+|11|	MIPI_CSI_RX_D1N
+|12|	GND
+|13|	MIPI_CSI_RX_D0P
+|14|	MIPI_CSI_RX_D0N
+|15|	GND
+|====
+==== 
+
+.MIPI DSI
+
+[%collapsible]
+====
+0.5mm FPC connector (J11)
+
+[options="header",cols="1,1"]
+|====
+|PIN	|Name
+|1|	VCC_MIPI
+|2|	VCC_MIPI
+|3|	GND
+|4|	I2C4_SDA_M3
+|5|	I2C4_SCL_M3
+|6|	GND
+|7|	MIPI_DSI_TX1_D0P
+|8|	MIPI_DSI_TX1_D0N
+|9|	GND
+|10|	MIPI_DSI_TX1_CLKP
+|11|	MIPI_DSI_TX1_CLKN
+|12|	GND
+|13|	MIPI_DSI_TX1_D1P
+|14	|MIPI_DSI_TX1_D1N
+|15	|GND
+|====
+====
+
+.VRTC
+[%collapsible]
+====
+0.8mm connector(J18)
+[options="header",cols="1,1,1"]
+|====
+|Pin	|Assignment	|Description
+|1	|+	|Positive pole
+|2	|-	|Negative pole
+|====
+====
+
+= Resources
