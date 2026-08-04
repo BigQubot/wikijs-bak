@@ -1,0 +1,177 @@
+= Overview
+
+Banana Pi BPI-R4 Mini Wifi7 smart router board design with MediaTek MT7987A Quad-core Arm Cortex-A53,it support 2GB DDR4 and 8G eMMC Flash on board. 2 x 2.5G RJ45, Wifi7 onboard,Mini Size . 
+
+= Development
+== Preparation
+* USB Disk +
+* USB TypeC cable +
+* CAT6A/Cat5e Ethernet cable +
+* 12V/5A power adapter（without any peripherals and network cable inset, the power consumption of BPI-R4MINI Main Board is about 10W, so 12V/2A will work.
+But you need to determine whether you need a higher power power adapter according to your own accessory usage,12V/5A is recommended） +
+* Windows/unbuntu system +
+* link:https://docs.banana-pi.org/en/BPI-R4_Mini/BananaPi_BPI-R4_Mini#_system_image[BPI-R4Mini image] +
+* link:https://docs.banana-pi.org/en/BPI-R4_Mini/BananaPi_BPI-R4_Mini#_source_code[BPI-R4Mini Source Code] +
+
+== Bootstrap setting
+image::/bpi-r4_mini_en/bootstrap-setup.png[bootstrap-setup.png]
+1.	All Jumper is "1", BPI-R4Mini will boot from emmc card
+
+image::/bpi-r4_mini_en/emmc_boot-withstrap.png[emmc_boot-withstrap.png]
+2.	SW3-B is "0" and SW3-A is "1" , BPI-R4Mini will boot from SPI NAND
+
+image::/bpi-r4_mini_en/nand-boot-with-strap.png[nand-boot-with-strap.png]
+3.	SW3-B is "1" and SW3-A is "0" , BPI-R4Mini will boot from SPI NOR
+
+image::/bpi-r4_mini_en/nor-boot-with-strap.png[nor-boot-with-strap.png]
+4.	If the console said "system halt!", it means that the bootup storage does not cotain any OS
+
+== Flashing image
+=== How to flashing image to NAND Flash
+TIP: Factory image information：OpenWrt 24.10-SNAPSHOT Architecture：aarch64_cortex-a53
+
+
+Before flashing image into Nand, please prepare a USB disk. Let’s take OpenWrt image (mtk-bpi-r4mini-NAND-20260721.img) for example, the steps are below:
+
+1.	Format the USB disk to FAT32.
+
+2.	Copy Nand boot OpenWrt image(mtk-bpi-r4mini-NAND-20260721.img) to USB disk.
+3.	Change the bootstrap to eMMC boot, then power up the board.
+4.	Plug in USB disk to the board, and mount the USB to /mnt or other directory as follows: (you can skip mounting if it is mounted automatically)
++
+```SH
+mount -t vfat /dev/sda1 /mnt 
+cd /mnt
+```
+5.	Execute following command to erase the whole Nand flash and copy image to nand device:
+Notice:The R4mini’s NAND image is flashed to MTD0
+
++
+```sh
+mtdinfo /dev/mtd0
+mtd0
+Name:                           spi0.0
+Type:                           nand
+Eraseblock size:                131072 bytes, 128.0 KiB
+Amount of eraseblocks:          2048 (268435456 bytes, 256.0 MiB)
+Minimum input/output unit size: 2048 bytes
+Sub-page size:                  2048 bytes
+OOB size:                       128 bytes
+Character device major/minor:   90:0
+Bad blocks are allowed:         true
+Device is writable:             true
+
+cat /proc/mtd
+dev:    size   erasesize  name
+mtd0: 10000000 00020000 "spi0.0"
+mtd1: 0f000000 00020000 "nmbm_spim_nand"
+mtd2: 00480000 00010000 "BL2"
+mtd3: 00400000 00010000 "Factory"
+mtd4: 00200000 00010000 "FIP"
+mtd5: 02000000 00010000 "Kernel"
+mtd6: 40000000 00010000 "rootfs"
+mtd7: 3cb90000 00010000 "rootfs_data"
+mtd8: 80000000 00010000 "usrdata"
+mtd9: 10f580000 00010000 "bmtpool"
+
+flash_erase /dev/mtd0 0 2048
+Erasing 128 Kibyte @ ffe0000 -- 100 % complete 
+
+mtd erase /dev/mtd0
+
+mtd write mtk-bpi-r4mini-NAND-20260721 /dev/mtd0
+
+```
+6.	Power off BPI-R4Mini, remove usb disk , change bootstrap to nand boot and power up again.
+
+=== How to flashing image to eMMC Flash
+NOTE:  It is necessary to switch to NAND startup and then burn the EMMC image into the EMMC. Finally, you will change the bootstrap to boot from EMMC.
+
+Let’s take OpenWrt image (bl2_emmc-r4mini.img, mtk-bpi-r4mini-EMMC-20260721) for example, the steps are below:
+
+1.	Format the USB disk to FAT32.
+2.	Copy EMMC boot OpenWrt image(bl2_emmc-r4mini.img, mtk-bpi-r4mini-EMMC-20260721) to USB disk,
+if the image is compressed please uncompress it before copying to USB disk.
+3.	Change the bootstrap to Nand boot and power up R4Mini.
+4.	Plug in USB disk to the board, and mount the USB to /mnt or other directory as follows: (you can skip mounting if it is mounted automatically)
++
+```sh
+mount -t vfat /dev/sda1 /mnt 
+cd /mnt
+```
+5.	Execute command
++
+```sh
+dmesg | grep mmcblk0
+[    5.778706] mmcblk0: mmc0:0001 8GTF4R 7.28 GiB 
+[    5.783936] mmcblk0boot0: mmc0:0001 8GTF4R partition 1 4.00 MiB
+[    5.790558] mmcblk0boot1: mmc0:0001 8GTF4R partition 2 4.00 MiB
+[    5.796568] mmcblk0rpmb: mmc0:0001 8GTF4R partition 3 512 KiB, chardev (245:0)
+[    5.831079]  mmcblk0: p1 p2 p3 p4 p5
+
+echo 0 > /sys/block/mmcblk0boot0/force_ro
+dd if=bl2_emmc-r4mini.img of=/dev/mmcblk0boot0
+489+1 records in
+489+1 records out
+
+dd if=mtk-bpi-r4mini-EMMC-20260721.img of=/dev/mm
+194335+1 records in
+194335+1 records out
+
+mmc bootpart enable 1 1 /dev/mmcblk0
+
+sync
+sync
+
+```
+6.	Power off BPI-R4Mini, remove u-disk driver, change bootstrap to emmc boot and power up again.
+
+
+=== How to recovery system from NOR flash
+Method:Recovery emmc system first,then see "How to flashing image to NAND Flash"
+
+1.	Make sure that the NOR flash is ready.
+2.	Install the NOR flash to the board(CN15).
+
+
+NOR Flash:
+
+image::/bpi-r4_mini_en/nor-flash.png[nor-flash.png]
+Before installation:
+
+image::/bpi-r4_mini_en/nor-before-installtion.png[nor-before-installtion.png]
+
+After installation:
+
+image::/bpi-r4_mini_en/nor-after-installtion.png[nor-after-installtion.png,width=55%]
+
+3.	Switch the bootstrap to NOR and boot up.
+4.	Format the USB disk to FAT32.
+5.	Copy EMMC boot OpenWrt image(bl2_emmc-r4mini.img, mtk-bpi-r4mini-EMMC-20260721) to USB disk,
+6.	Plug in USB disk to the board, and mount the USB to /mnt or other directory as follows: (you can skip mounting if it is mounted automatically)
++
+```sh
+mount -t vfat /dev/sda1 /mnt 
+cd /mnt
+```
+7.	Execute command
++
+```sh
+echo 0 > /sys/block/mmcblk0boot0/force_ro
+dd if=bl2_emmc-r4mini.img of=/dev/mmcblk0boot0
+dd if=mtk-bpi-r4pro-EMMC-20250928.img of=/dev/mmcblk0
+ mmc bootpart enable 1 1 /dev/mmcblk0
+```
+8.	Power off BPI-R4Mini, remove u-disk driver, change bootstrap to emmc boot and power up again.
+
+== Power ON
+•	Using your USB TypeC cable Connect to debug console(CN3) on BPI-R4Mini
+•	Install Terminal Emulator or use a serial terminal that you are familiar with，
+•	change the setting as follows: Baud=115200,Data bits: 8bit,Parity: none,Stop: 1bit, Flow control: none;
+•	Set up the bootstrap before supplying power，
+（If you are using BPI-R4Mini for the first time, it is recommended to set it to NAND boot)
+•	when Connect power adapter to DC-IN connector(CN6),Green LED “PWR” light up，And there will be characters similar to the following on the console. This means you have successfully started BPI-R4Mini.
+
+= Interfaces
+
+= PIN Definition
