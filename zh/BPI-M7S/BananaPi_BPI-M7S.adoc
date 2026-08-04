@@ -183,3 +183,16 @@ image::/bpi-m7s/rk3588s_block_diagram.png[rk3588s_block_diagram.png]
 ====
 
 = 开发资源 
+
+== SDK源码
+
+* BSP源码： https://github.com/ArmSoM/manifests
+* Armbian: https://github.com/armbian/build
+* Rockchip Linux kernel: https://github.com/ArmSoM/rockchip-kernel
+* Uboot: https://github.com/ArmSoM/u-boot
+* mainline linux kernel: https://github.com/torvalds/linux/blob/master/arch/arm64/boot/dts/rockchip/rk3588-armsom-sige7s.dts
+* RKNN-LLM: https://docs.armsom.org/zh/advanced-manual/rknn-llm
+* 百度网盘总链接，包括软件资料、硬件资料： https://pan.baidu.com/share/init?surl=ZPrdoa3bddkwRvbF-_DbvA&pwd=arms
+
+== 官方镜像
+
