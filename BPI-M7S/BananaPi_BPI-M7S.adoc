@@ -1,0 +1,28 @@
+= Overview
+
+Banana Pi BPI-M7S (ArmSoM-Sige7) is powered by Rockchip's latest flagship RK3588s,octa-core 64-bit processor, with a max frequency of 2.4GHz, a 6 TOPS NPU, and up to 32GB of RAM.
+
+image::/bpi-m7s/banana_pi_bpi-m7s_banner.png[banana_pi_bpi-m7s_banner.png]
+
+BPI-M7S is applied for various applications,such as, ARM PCs, edge computing, cloud servers, AI, cloud computing, virtual/augmented reality, blockchain, smart NVRs and more.
+
+== Key Parameter
+* SoC: Rockchip RK3588s
+* CPU: 4x Cortex-A76 @ 2.4GHz + 4x Cortex-A55 @ 1.8GHz, 8nm
+* GPU: ARM Mali-G610 MP4
+* NPU: Up to 6 TOPS (INT8), supports INT4/INT8/INT16 mixed computing
+* VPU/Codec:
+** Hardware Decode: 8K@60fps H.265/VP9/AVS2, 8K@30fps H.264 AVC/MVC, 4K@60fps AV1, 1080P@60fps MPEG-2/-1/VC-1/VP8
+** Hardware Encode: 8K@30fps H.265 / H.264
+* RAM: 2GB/4GB/8GB/16GB/32GB (max 32GB) 64bit LPDDR4/LPDDR4x
+* Storage: 32GB/64GB/128GB eMMC Module
+* WIFI/BT: IEEE 802.11a/b/g/n/ac/ax WIFI6 and BT5 AP6275P
+* Operating Voltage: Wide input voltage, 5V to 23V (±5% tolerance)
+* Operating temperature: 0°C ~ 80°C
+* OS:
+** Official: Debian 11, Ubuntu 22.04, Ubuntu 24.04
+** 3rd party: Armbian, Arch Linux, openSUSE
+* PCB: 12-layer
+* Weight: 46.6g
+* Size: 92mm × 62mm x 14.6mm
+
