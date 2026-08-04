@@ -22,3 +22,164 @@ image::/bpi-m7s/banana_pi_bpi-m7s_banner.png[banana_pi_bpi-m7s_banner.png]
 * PCB：12 层 PCB 板设计
 * 重量：46.6g
 * 大小：85 mm × 56 mm × 17 mm
+
+== 快速上手工发
+
+= 硬件
+
+== 硬件接品示意图
+
+image::/bpi-m7s/banana_pi_bpi-m7s_interface.jpg[banana_pi_bpi-m7s_interface.jpg]
+
+== 硬件规格
+
+[options="header",cols="1,5"]
+|=====
+2+| **Banana Pi BPI-M7S 硬件规格**
+|类别	|功能参数
+|SOC主控	|瑞芯微(Rockchip) RK3588s
+|CPU	|RK3588s 四核Cortex-A76@ 2.4GHz+四核Cortex-A55@ 1.8GHz，8纳米制程
+.2+|GPU	|Mali-G610 MP4 GPU (4x256KB L2 Cache)
+|支持 OpenGL ES3.2 / OpenCL2.2 / Vulkan1.1
+.3+|NPU	|6 TOPS @ INT8 (3 NPU cores)
+|支持 INT4/INT8/INT16 混合运算
+|支持深度学习框架：TensorFlow/MXNet/PyTorch/Caffe/Tflite/Onnx NN/Android NN 等
+.2+|VPU / 编解码|硬解码：8K@60fps H.265/VP9/AVS2、 8K@30fps H.264 AVC/MVC、 4K@60fps AV1、1080P@60fps MPEG-2/-1/VC-1/VP8
+|硬编码：8K@30fps H.265 / H.264
+|ISP	|集成48MP ISP with HDR&3DNR
+|RAM内存	|8GB/16GB/32GB（最高可配 32GB ）64bit LPDDR4/LPDDR4x
+.2+|存储	|16GB / 32GB / 64GB / 128GB eMMC
+|支持MicroSD卡扩展
+.2+|Networking	|Wi-Fi 6 + BT5.0 (AIC8800)
+|千兆网口支持PoE网线供电 (需要另外加PoE模组)
+.3+|视频输出	
+|1x DP1.4 (2-Lane), supports up to 4K @ 60fps
+|1x HDMI 2.1, supports up to 8K @ 60fps
+|1x DSI (2-Lane), supports max 1280×800 display resolution
+|视频输入	|1x CSI (2-Lane), supports up to 5MP camera input resolution
+.3+|音频
+|1x HDMI音频输出
+|1x HP-OUT 音频输出
+|1x USB Type-C 3.0 (DP1.4)音频输出
+.2+|USB 接口
+|2x USB3.0（支持USB3.1 Gen1），高达5Gbps数据速率
+|2x USB2.0，支持高速（480Mbps）、全速（12Mbps）和低速（1.5Mbps）模式
+.2+|40-PIN	|和树莓派40pin可完全兼容，可接丰富的配件外设
+|支持 UART/SPI/I2C/I2S/PWM/ADC/5V Power/3.3V Power
+.2+|其他	
+|1x 电池输入连接器用于低功耗RTC芯片 LK8563S 的供电
+|2x LED灯，系统正常时绿色灯亮
+|电源|宽范围的输入电压 5V-23V
+.2+|按键
+|1x PWRON键，支持休眠唤醒
+|1x Maskrom键，支持进入maskrom烧录模式
+.2+|系统
+|官方支持：Debian12，ubuntu22.04，ubuntu24.04
+|第三方支持：Armbian
+|尺寸	|85 mm × 56 mm × 17 mm
+|工作温度	|0°C ~ 80°C
+|=====
+
+== RK3588s框图
+
+image::/bpi-m7s/rk3588s_block_diagram.png[rk3588s_block_diagram.png]
+
+== 引脚定义
+
+.40 Pin GPIO
+[%collapsible]
+====
+[options="header",cols="1,2,1,1,2,1"]
+|====
+6+| 40 GPIO define of Banana Pi BPI-M7S
+
+| GPIO number	| Function	| Pin	| Pin| 	Function| 	GPIO number
+| | +3.3V	| 1| 2| +5.0V	| 
+| /dev/i2c1 | sda	I2C1_SDA \ GPIO0_D5	| 3| 4| +5.0V	| 
+|/dev/i2c1 |scl	I2C1_SCL \ GPIO0_D4	|5|6|GND	|
+|47	|GPIO1_B7 \ PWM3_M3	|7|8|UART2_TX_M0|
+|| GND	|9|10|UART2_RX_M0|
+|128|	GPIO4_A0	|11|12|GPIO1_A7	|39
+|129	|GPIO4_A1	|13|14|GND	|
+|130	|GPIO4_A2	|15|16|UART6_TX_M1 \ GPIO1_A1	|/dev/ttyS2 uart txd
+||+3.3V	|17|18|UART6_RX_M1 GPIO1_A0	|/dev/ttyS2 uart rxd
+|spi mosi	|SPI0_MOSI_M2	|19|20|GND	|
+|spi miso|	SPI0_MISO_M2	|21|22|GPIO1_B0	|40
+|spi clk	|SPI0_CLK_M2	|23|24|spi cs 0	|SPI0_CS0_M2
+||GND	|25|26|spi cs 1|	SPI0_CS1_M2
+|/dev/i2c6 sda	|f2C6_SDA_M3	|27|28|I2C6_SCL_M3	|/dev/i2c6 scl
+|131	|GPIO4_A3 \ UART0_TXD_M2	|29|30|GND	|
+|132	|GPIO4_A4 \ UART0_RXD_M2	|31|32|PWM2	|105
+|133	|GPIO4_A5 \ UART3_TXD_M2	|33|34|GND	|
+|134	|GPIO4_A6 \ UART3_RXD_M2	|35|36|GPIO4_B2 \ CAN1_RXD_M1	|138
+|135	|GPIO4_A7	|37|38|GPIO4_B3 \ CAN1_TXD_M1	|139
+||GND	|39|40|GPIO3_C3	|115
+|====
+====
+
+.MIPI CSI
+[%collapsible]
+====
+0.5mm FPC connector (J10)
+
+[options="header",cols="1,1"]
+|====
+|PIN	|Name
+|1|	VCC_CAM(3.3v)
+|2|	I2C8_SDA_M2
+|3|	I2C8_SCL_M2
+|4|	CIF_CLKOUT
+|5|	PWDN_GPIO1_A6
+|6|	GND
+|7|	MIPI_CSI_RX_CLK0P
+|8|	MIPI_CSI_RX_CLK0N
+|9|	GND
+|10|	MIPI_CSI_RX_D1P
+|11|	MIPI_CSI_RX_D1N
+|12|	GND
+|13|	MIPI_CSI_RX_D0P
+|14|	MIPI_CSI_RX_D0N
+|15|	GND
+|====
+==== 
+
+.MIPI DSI
+
+[%collapsible]
+====
+0.5mm FPC connector (J11)
+
+[options="header",cols="1,1"]
+|====
+|PIN	|Name
+|1|	VCC_MIPI
+|2|	VCC_MIPI
+|3|	GND
+|4|	I2C4_SDA_M3
+|5|	I2C4_SCL_M3
+|6|	GND
+|7|	MIPI_DSI_TX1_D0P
+|8|	MIPI_DSI_TX1_D0N
+|9|	GND
+|10|	MIPI_DSI_TX1_CLKP
+|11|	MIPI_DSI_TX1_CLKN
+|12|	GND
+|13|	MIPI_DSI_TX1_D1P
+|14	|MIPI_DSI_TX1_D1N
+|15	|GND
+|====
+====
+
+.VRTC
+[%collapsible]
+====
+0.8mm connector(J18)
+[options="header",cols="1,1,1"]
+|====
+|Pin	|Assignment	|Description
+|1	|+	|Positive pole
+|2	|-	|Negative pole
+|====
+====
+
+= 开发资源 
