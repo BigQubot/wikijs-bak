@@ -480,3 +480,229 @@ armsom@armsom:/$ df -h | grep "sd"
 
 == Micro SD card slot
 
+BPI-M7S comes with a standard microSD card slot, mainly used as a system boot disk or for expanding storage space.
+
+* When using an SD card as the system boot disk, just insert the prepared SD boot card into the Micro SD card slot before powering on, then power on. The Sige7s will prioritize booting from the SD card.
+
+* When using an SD card to expand storage space, you can follow these steps. First, check the insertion log of the SD card:
+
+```sh
+armsom@armsom:~$ [  293.228591] mmc_host mmc1: Bus speed (slot 0) = 148500000Hz (slot req 150000000Hz, actual 148500000HZ div = 0)
+[  293.309039] dwmmc_rockchip fe2c0000.mmc: Successfully tuned phase to 155
+[  293.309114] mmc1: new ultra high speed SDR104 SDHC card at address 0001
+[  293.310505] mmcblk1: mmc1:0001 ASTC 7.44 GiB
+[  293.326321]  mmcblk1: p1 p2
+```
+
+From the output information, it can be seen that the system has recognized the inserted SD card (mmcblk1, capacity 7.44 GiB, partitions p1 and p2), and then we confirm the SD card device information
+
+```sh
+armsom@armsom:~$ sudo fdisk -l /dev/mmcblk1
+Disk /dev/mmcblk1: 7.44 GiB, 7990149120 bytes, 15605760 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: BDFDC9CF-2FC3-46BB-AF10-C9DF254BB1E2
+
+Device           Start      End  Sectors  Size Type
+/dev/mmcblk1p1   32768  1081343  1048576  512M Linux extended boot
+/dev/mmcblk1p2 1081344 15605726 14524383  6.9G Linux filesystem
+```
+
+You can see the file system partition is /dev/mmcblk1p2. Next, we attach our SD card as follows
+
+```sh
+armsom@armsom:~$ sudo mkdir -p /mnt/sdcard
+armsom@armsom:~$ sudo mount /dev/mmcblk1p2 /mnt/sdcard
+[  491.938107] EXT4-fs (mmcblk1p2): recovery complete
+[  491.939897] EXT4-fs (mmcblk1p2): mounted filesystem with ordered data mode. Quota mode: disabled.
+mount: (hint) your fstab has been modified, but systemd still uses
+       the old version; use 'systemctl daemon-reload' to reload.
+armsom@armsom:~$ df -h /mnt/sdcard
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/mmcblk1p2  6.8G  6.6G     0 100% /mnt/sdcard
+armsom@armsom:~$ cd /mnt/sdcard/
+armsom@armsom:/mnt/sdcard$ ls
+bin   dev  home  lost+found  mnt  proc  run   snap  swapfile  tmp  var
+boot  etc  lib   media       opt  root  sbin  srv   sys       usr
+```
+
+== Audio
+
+1 .Check the sound card in the system.
+
+```sh
+armsom@armsom:~$ aplay -l
+**** List of PLAYBACK Hardware Devices ****
+card 0: rockchipdp0 [rockchip-dp0], device 0: rockchip-dp0 spdif-hifi-0 [rockchip-dp0 spdif-hifi-0]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 1: rockchiphdmi0 [rockchip-hdmi0], device 0: rockchip-hdmi0 i2s-hifi-0 [rockchip-hdmi0 i2s-hifi-0]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 2: rockchipes8316c [rockchip,es8316-codec], device 0: dailink-multicodecs ES8316 HiFi-0 [dailink-multicodecs ES8316 HiFi-0]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+```
+
+Among the listed sound card information, card 2: rockchipes8316c is the onboard es8316 audio codec, used for the 3.5mm headphone jack input (microphone) and output (audio playback).
+
+2 .Enable audio services
+
+Before testing recording and playback, we first run the following command to automate audio configuration
+```sh
+armsom@armsom:~$ sudo systemctl start es8316-audio-setup
+```
+3 .Record audio
+
+This feature requires the headphones to support microphone functionality and record audio using the arecord command.
+
+```sh
+armsom@armsom:~$ arecord -D hw:2,0 -f S16_LE -r 44100 -c 2 -d 5 /tmp/record.wav
+Recording WAVE '/tmp/record.wav' : Signed 16 bit Little Endian, Rate 44100 Hz, Stereo
+```
+
+4 .Play audio
+```sh
+armsom@armsom:~$ aplay -D hw:2,0 /tmp/record.wav
+Playing WAVE '/tmp/record.wav' : Signed 16 bit Little Endian, Rate 44100 Hz, Stereo
+```
+
+== 40 PIN GPIO
+
+BPI-M7S offers a 40-pin GPIO socket compatible with most sensor applications on the market.
+
+wiring-armbian method
+
+Download the wiringOP code to the development board ； https://github.com/ArmSoM/wiring-armbian
+
+After downloading the wiringOP code, first compile and install it, then execute the following command:
+```sh
+armsom@armsom:/$ cd wiring-armbian/
+armsom@armsom:/wiring-armbian$ ./build clean
+armsom@armsom:/wiring-armbian$ ./build 
+```
+
+After compilation, the output of the test gpio readall command is as follows
+
+```sh
+armsom@armsom:/wiring-armbian$ gpio readall
+ +------+-----+----------+--------+---+  ArmSoM-Sige7s +---+--------+----------+-----+------+
+ | GPIO | wPi |   Name   |  Mode  | V | Physical | V |  Mode  | Name     | wPi | GPIO |
+ +------+-----+----------+--------+---+----++----+---+--------+----------+-----+------+
+ |      |     |     3.3V |        |   |  1 || 2  |   |        | 5V       |     |      |
+ |   29 |   0 | I2C1_SDA |   ALT9 | 1 |  3 || 4  |   |        | 5V       |     |      |
+ |   28 |   1 | I2C1_SCL |   ALT9 | 1 |  5 || 6  |   |        | GND      |     |      |
+ |   47 |   2 | GPIO1_B7 |   ALT3 | 0 |  7 || 8  | 1 | ALT10  | UART2_TX | 3   | 13   |
+ |      |     |      GND |        |   |  9 || 10 | 1 | ALT10  | UART2_RX | 4   | 14   |
+ |  128 |   5 | GPIO4_A0 |     IN | 0 | 11 || 12 | 1 | IN     | GPIO1_A7 | 6   | 39   |
+ |  129 |   7 | GPIO4_A1 |     IN | 0 | 13 || 14 |   |        | GND      |     |      |
+ |  130 |   8 | GPIO4_A2 |     IN | 0 | 15 || 16 | 1 | ALT10  | UART6_TX | 9   | 33   |
+ |      |     |     3.3V |        |   | 17 || 18 | 1 | ALT10  | UART6_RX | 10  | 32   |
+ |   43 |  11 |  SPI0_TX |     IN | 0 | 19 || 20 |   |        | GND      |     |      |
+ |   42 |  12 |  SPI0_RX |     IN | 0 | 21 || 22 | 1 | IN     | GPIO1_B0 | 13  | 40   |
+ |   44 |  14 | SPI0_CLK |     IN | 1 | 23 || 24 | 1 | IN     | SPI0_CS0 | 15  | 45   |
+ |      |     |      GND |        |   | 25 || 26 | 1 | IN     | SPI0_CS1 | 16  | 46   |
+ |  136 |  17 | I2C6_SDA |   ALT9 | 1 | 27 || 28 | 1 | ALT9   | I2C6_SCL | 18  | 137  |
+ |  131 |  19 | GPIO4_A3 |     IN | 0 | 29 || 30 |   |        | GND      |     |      |
+ |  132 |  20 | GPIO4_A4 |     IN | 0 | 31 || 32 | 1 | ALT11  | PWM2     | 21  | 105  |
+ |  133 |  22 | GPIO4_A5 |     IN | 0 | 33 || 34 |   |        | GND      |     |      |
+ |  134 |  23 | GPIO4_A6 |     IN | 0 | 35 || 36 | 1 | IN     | GPIO4_B2 | 24  | 138  |
+ |  135 |  25 | GPIO4_A7 |     IN | 0 | 37 || 38 | 1 | IN     | GPIO4_B3 | 26  | 139  |
+ |      |     |      GND |        |   | 39 || 40 | 1 | IN     | GPIO4_C3 | 27  | 115  |
+ +------+-----+----------+--------+---+----++----+---+--------+----------+-----+------+
+ | GPIO | wPi |   Name   |  Mode  | V | Physical | V |  Mode  | Name     | wPi | GPIO |
+ +------+-----+----------+--------+---+  ArmSoM-Sige7s +---+--------+----------+-----+------+
+ 
+```
+
+Set the GPIO port as output mode, where the third parameter requires the WPI index corresponding to the pin input
+```sh
+armsom@armsom:/wiring-armbian$ gpio mode 5 out
+```
+Read the current level status of the corresponding pin
+
+```sh
+armsom@armsom:/wiring-armbian$ gpio read 5
+0
+```
+
+Set the GPIO port output to a high level. After setting, you can use a multimeter to measure the voltage at the pins. If it is 3.3V, it means the high level setting was successful
+```sh
+armsom@armsom:/wiring-armbian$ gpio write 5 1
+armsom@armsom:/wiring-armbian$ gpio read 5
+1
+```
+
+Set the GPIO port output to low. After setting, you can use a multimeter to measure the voltage on the pins. If it is 0V, it means the low level was set successfully
+```sh
+armsom@armsom:/wiring-armbian$ gpio write 5 0
+armsom@armsom:/wiring-armbian$ gpio read 5
+0
+```
+
+The other pin settings are similar; just change the wPi serial number to match the pin's serial number
+
+== RGB LED
+
+The BPI-M7S has a user (green light) and a power indicator (red light).
+
+* User light By default, it is turned off and can be controlled by the user.
+
+* Power indicator light By default, its always-on mode means the system is running normally.
+
+User lights can be controlled via command
+```sh
+armsom@armsom:~$ echo 1 | sudo tee /sys/class/leds/led2-green-usr/brightness （Light up）
+armsom@armsom:~$ echo 0 | sudo tee /sys/class/leds/led2-green-usr/brightness （Close）
+armsom@armsom:~$ echo heartbeat | sudo tee /sys/class/leds/led2-green-usr/trigger （Heartbeat light）
+```
+== RTC
+
+The Sige7s integrates an RTC clock chip LK8563 within the board.
+```sh
+armsom@armsom:~$ dmesg | grep rtc
+[    1.707045] [drm] Cluster1-win0(possible_vp_mask = 0x00000002) has no possible crtcs
+[    1.707074] [drm] Cluster1-win1(possible_vp_mask = 0x00000002) has no possible crtcs
+[    1.707093] [drm] Cluster3-win0(possible_vp_mask = 0x00000008) has no possible crtcs
+[    1.707119] [drm] Cluster3-win1(possible_vp_mask = 0x00000008) has no possible crtcs
+[    1.707132] [drm] Esmart1-win0(possible_vp_mask = 0x00000002) has no possible crtcs
+[    1.707150] [drm] Esmart3-win0(possible_vp_mask = 0x00000008) has no possible crtcs
+[    1.774649] rtc-hym8563 6-0051: rtc information is invalid
+[    1.783043] rtc-hym8563 6-0051: registered as rtc0
+[    1.784043] rtc-hym8563 6-0051: setting system clock to 2021-01-01T12:00:00 UTC (1609502400)
+```
+Find rtc0, then use the following command to set the system time and sync to rtc0.
+
+```sh
+# Read the current time from the RTC chip
+armsom@armsom:~$ sudo hwclock -r -f /dev/rtc0
+2026-04-28 04:10:12.869672+08:00
+
+# Check the system's current time
+armsom@armsom:~$ date
+Tue Apr 28 04:11:21 AM CST 2026
+
+# Set system time
+armsom@armsom:~$ sudo date -s "2026-07-13 10:30:00"
+Mon Jul 13 10:30:00 AM CST 2026
+
+# Write the system's current time to the RTC
+armsom@armsom:~$ sudo hwclock -w -f /dev/rtc0
+
+# Then read the current time from the RTC chip
+armsom@armsom:~$ sudo hwclock -r -f /dev/rtc0
+2026-07-13 10:30:58.518923+08:00
+```
+
+Turn off the RTC battery (shut down the power), wait for 10 minutes or longer, then restart the Sige7s and check the RTC time.
+```sh
+# Because the RTC lost power and the data was lost, when I use the hwclock command to check the RTC clock, it goes back to the previous initial date.
+armsom@armsom:~$ sudo hwclock -r -f /dev/rtc0
+2026-04-28 03:50:21.479385+08:00
+
+```
+
+== MIPI-CSI
+
