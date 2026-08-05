@@ -100,6 +100,7 @@ mount -t vfat /dev/sda1 /mnt
 cd /mnt
 ```
 5.	Execute command
+
 +
 ```sh
 dmesg | grep mmcblk0
@@ -155,13 +156,26 @@ mount -t vfat /dev/sda1 /mnt
 cd /mnt
 ```
 7.	Execute command
+
 +
 ```sh
+
+mtdinfo /dev/mtd0
+
+dmesg | grep mmcblk0
+
 echo 0 > /sys/block/mmcblk0boot0/force_ro
+
 dd if=bl2_emmc-r4mini.img of=/dev/mmcblk0boot0
-dd if=mtk-bpi-r4pro-EMMC-20250928.img of=/dev/mmcblk0
- mmc bootpart enable 1 1 /dev/mmcblk0
+
+dd if=mtk-bpi-r4mini-EMMC-20260721.img of=/dev/mmcblk0
+
+mmc bootpart enable 1 1 /dev/mmcblk0
+
+sync
+sync
 ```
+
 8.	Power off BPI-R4Mini, remove u-disk driver, change bootstrap to emmc boot and power up again.
 
 == Power ON
@@ -172,6 +186,177 @@ dd if=mtk-bpi-r4pro-EMMC-20250928.img of=/dev/mmcblk0
 （If you are using BPI-R4Mini for the first time, it is recommended to set it to NAND boot)
 •	when Connect power adapter to DC-IN connector(CN6),Green LED “PWR” light up，And there will be characters similar to the following on the console. This means you have successfully started BPI-R4Mini.
 
-= Interfaces
+[%collapsible]
+====
 
+```bash
+F0: 102B 0000
+F9: 0000 0000
+V0: 0000 0000 [0001]
+00: 0000 0000
+BP: 0680 0041 [0000]
+G0: 1190 0000
+EC: 0000 0000 [1000]
+MK: 0000 0000 [0000]
+T0: 0000 0364 [0101]
+Jump to BL
+
+NOTICE:  BL2: v2.12.0(release):
+NOTICE:  BL2: Built : 13:41:03, Jul 14 2026
+NOTICE:  WDT: Cold boot
+NOTICE:  WDT: disabled
+NOTICE:  CPU: MT7987A
+NOTICE:  EMI: Using DDR4 settings
+NOTICE:  DDR4 Speed: 3200 Mbps
+NOTICE:  DDR tREFI: 3.9 us
+NOTICE:  DDR power-down option: 2
+NOTICE:  EMI: Detected DRAM size: 2048 MB
+NOTICE:  EMI: complex R/W mem test passed
+NOTICE:  LVTS: Enable thermal HW reset
+NOTICE:  BL2: Booting BL31
+NOTICE:  BL31: v2.12.0(release):
+NOTICE:  BL31: Built : 13:41:05, Jul 14 2026
+
+
+U-Boot 2025.07-rc3 (Jul 14 2026 - 20:49:48 +0800)
+
+CPU:   MediaTek MT7987
+Model: mt7987
+       (mediatek,mt7987-spim-nor-rfb)
+DRAM:  2 GiB
+Core:  79 devices, 13 uclasses, devicetree: separate
+Loading Environment from MTD... SF: Detected w25q256 with page size 256 Bytes, erase size 4 KiB, total 32 MiB
+```
+====
+
+== Network configuration
+
+• Network-Configuration refer to: http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:network:start
+• Network Interface: eth1,br-wan is for WAN; eth1, br-lan is for LAN, ra0 is for 2.4G wireless, rai0 is for 5G wireless.
+
+
+
++
+```sh
+
+root@OpenWrt:/# ifconfig 
+br-lan    Link encap:Ethernet  HWaddr DA:1F:26:22:7B:5E  
+          inet addr:192.168.1.1  Bcast:192.168.1.255  Mask:255.255.255.0
+          inet6 addr: fd2b:6d4e:9e56::1/60 Scope:Global
+          inet6 addr: fe80::d81f:26ff:fe22:7b5e/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:939 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:537 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:77387 (75.5 KiB)  TX bytes:55390 (54.0 KiB)
+
+br-wan    Link encap:Ethernet  HWaddr 1A:DB:A6:84:0A:E0  
+          inet6 addr: fe80::18db:a6ff:fe84:ae0/64 Scope:Link
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:10 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:1626 (1.5 KiB)
+
+eth0      Link encap:Ethernet  HWaddr DA:1F:26:22:7B:5E  
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:1121 errors:0 dropped:1 overruns:0 frame:0
+          TX packets:531 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:113218 (110.5 KiB)  TX bytes:55674 (54.3 KiB)
+          Interrupt:73 
+
+eth1      Link encap:Ethernet  HWaddr 1A:DB:A6:84:0A:E0  
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+          Interrupt:73 
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:330 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:330 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:26614 (25.9 KiB)  TX bytes:26614 (25.9 KiB)
+
+ra0       Link encap:Ethernet  HWaddr 00:0C:43:26:60:38  
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+rai0      Link encap:Ethernet  HWaddr 00:0C:43:26:60:11  
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+root@OpenWrt:/# brctl show br-wan
+bridge name     bridge id               STP enabled     interfaces
+br-wan          7fff.1adba6840ae0       no              eth1
+root@OpenWrt:/# brctl show br-lan
+bridge name     bridge id               STP enabled     interfaces
+br-lan          7fff.da1f26227b5e       no              eth0
+                                                        apclii0
+                                                        apcli0
+                                                        rai0
+                                                        ra0
+root@OpenWrt:/#  
+```
+
+
+== Reading and writing EEPROM
+WARNING:  NOTE:  The image files we release use a random MAC address on each boot and do not utilize EEPROM. If you wish to use EEPROM, you will need to write a script to read the data and update the port.
+
+=== Reading EEPROM +
+
+```sh
+
+hexdump -C /sys/bus/i2c/devices/0-0057/eeprom 
+```
+
+
+=== Write content to EEPROM
+
+```sh
+printf '\x01\x02\x03\x04\x05\x06' | dd of=/sys/bus/i2c/devices/0-0057/eeprom bs=1 seek=32 conv=notrunc
+```
+
+"**\x01\x02\x03\x04\x05\x06**" is the content you want to write, which can be a MAC address, serial number, or other information. +
+"**bs=1**" means the block size is 1. +
+"**seek=32**" means the offset (how many blocks to skip). +
+**"bs=1 seek=32**" means to skip 32 bytes, which corresponds to skipping bytes from 0x00 to 0x1F, and start writing content from 0x20. +
+"**conv=notrunc**" do not truncate the EEPROM, preserve the original data.
+
+For example, I want to write two sets of MAC addresses to addresses **0x20** and **0x30** respectively:
+
+```
+printf '\x12\x41\x89\x7F\x64\xD3' | dd of=/sys/bus/i2c/devices/0-0057/eeprom bs=1 seek=32 conv=notrunc
+printf '\x7E\xF5\x56\x36\x4C\xD1'  | dd of=/sys/bus/i2c/devices/0-0057/eeprom bs=1 seek=48 conv=notrunc
+```
+
+WARNING:  **PS: Since subsequent batches of the V1.2 version are planned to write data to the EEPROM, addresses ranging from 0x00 to 0x1F must be avoided.**
+
+= Interfaces
+= Accessories
+== 4G/5G Module
+=== M.2 4G/5G Module(USB Interface)
+BPI-R4Mini supports M.2 USB Interface 4G LTE/5G Modules: Quectel EM05, RM500U-CN.
+
+If you want to use M.2 Cellular Module on BPI-R4Mini:
+
+. Install 4G/5G Cellular Module into CN16 Slot(M.2 KEYB)
+. Inset NANOSIM Card into SIMSlot 
+. Install antenna on the module
+. After powering on, it will automatically dial
+
+NOTE: The availability of 4G/5G depends on the local carrier frequency band
+
+== Storage
+== Heat sink
 = PIN Definition
