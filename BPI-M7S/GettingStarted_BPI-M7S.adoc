@@ -401,3 +401,37 @@ After a successful connection, it shows connected on the phone:
 image::/bpi-m7s/sige7s-bt-connect_en.png[sige7s-bt-connect_en.png]
 
 == HDMI&DP
+
+There are two ways to connect the Sige7s to an HDMI or DP monitor:
+
+[options="header",cols="1,1,1"]
+|====
+|Onboard interface	|HDMI out	|DP out
+|Resolution	|8Kp60	|4Kp60
+|====
+
+1. Use a Micro HDMI cable to connect the HDMI out port of the BPI-M7S and the HDMI monitor
+
+* Use one Micro HDMI to HDMI bus cable (requires an additional dual HDMI cable).
+
+image::/bpi-m7s/sige7s-microhdmi-a.jpg[sige7s-microhdmi-a.jpg]
+
+* Use a Micro HDMI to HDMI public cable (can connect directly to HDMI screens)
+
+image::/bpi-m7s/sige7s-microhdmi-b.jpg[sige7s-microhdmi-b.jpg]
+
+2 .Use a Mini DP cable to connect the BPI-M7S's DP out port and the HDMI monitor or DP monitor:
+
+* Using one active Mini DP to HDMI male cable (can connect directly to HDMI screen)
+
+image::/bpi-m7s/sige7s-minidp-a.jpg[sige7s-minidp-a.jpg]
+
+* Use one Mini DP to DP bus (requires an additional dual DP cable)
+
+image::/bpi-m7s/sige7s-minidp-b.jpg[sige7s-minidp-b.jpg]
+
+3 .After starting the Linux system, if the monitor outputs images, it means HDMI and DP ports are working normally
+
+TIP: Many laptops have HDMI ports, but their HDMI ports usually only provide output functions and do not have HDMI IN functionality, meaning they cannot display other devices' HDMI outputs on the laptop's screen. +
+If HDMI does not display, please first check whether the system you are using is the desktop version; if it is the server version, only the terminal is visible +
+The Mini DP to HDMI cable must be active and cannot be passive
