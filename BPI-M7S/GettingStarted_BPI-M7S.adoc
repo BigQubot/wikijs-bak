@@ -741,3 +741,7 @@ root@armsom:~# v4l2-ctl -d /dev/video0 --set-fmt-video=width=1920,height=1080,pi
 ```
 
 Use the Bayer ```sh Raw Image Viewer``` software to view the captured image output.raw, and set the parameters as shown in the right-side panel in the picture:
+
+image::/bpi-m7s/armsom-sige7s-raw.png[armsom-sige7s-raw.png]
+
+== MIPI DSI
