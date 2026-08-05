@@ -312,3 +312,92 @@ image::/bpi-m7s/wifi-desktop-sig7s.jpg[wifi-desktop-sig7s.jpg]
 
 == BT
 
+1 Before using the Bluetooth feature, let's first check if the Bluetooth device node exists to make sure Bluetooth initializes properly.
+
+```sh
+armsom@armsom:~$ hciconfig -a
+hci0:   Type: Primary  Bus: UART
+        BD Address: 0C:CD:D0:E0:96:D4  ACL MTU: 1021:9  SCO MTU: 255:4
+        UP RUNNING
+        RX bytes:918 acl:0 sco:0 events:71 errors:0
+        TX bytes:5480 acl:0 sco:0 commands:71 errors:0
+        Features: 0xbf 0xee 0xcd 0xfe 0xd8 0x3f 0x7b 0x87
+        Packet type: DM1 DM3 DM5 DH1 DH3 DH5 HV1 HV3
+        Link policy: RSWITCH SNIFF
+        Link mode: PERIPHERAL ACCEPT
+        Name: 'armsom'
+        Class: 0x7c0000
+        Service Classes: Rendering, Capturing, Object Transfer, Audio, Telephony
+        Device Class: Miscellaneous,
+        HCI Version: 5.2 (0xb)  Revision: 0x14
+        LMP Version: 5.2 (0xb)  Subversion: 0x14
+        Manufacturer: RivieraWaves S.A.S (96)
+        
+```
+
+2 Next, you can use bluetoothctl to connect Bluetooth.
+
+```sh
+root@localhost:/# bluetoothctl
+Agent registered
+1. Enable Bluetooth controller
+[bluetooth]# power on    
+Changing power on succeeded
+2. Set the controller to be discoverable
+[bluetooth]# discoverable on
+Changing discoverable on succeeded
+[CHG] Controller 0C:CD:D0:E0:96:D4 Discoverable: yes
+3. Set the controller to pairable
+[bluetooth]# pairable on
+Changing pairable on succeeded
+4. Turn on Bluetooth device scanning
+[bluetooth]# scan on
+Discovery started
+[NEW] Device 53:18:0C:5D:37:D7 53-18-0C-5D-37-D7
+[CHG] Device 5E:16:CF:E1:CF:8A RSSI: -79
+[NEW] Device 24:2A:EA:61:0F:28 Donleon  # Jot down the MAC address of the device you want to connect
+[NEW] Device 20:45:30:42:40:8A V9
+5. Turn off scanning
+[bluetooth]# scan off
+Discovery stopped
+[CHG] Device 24:2A:EA:61:0F:28 RSSI is nil
+[CHG] Controller 0C:CD:D0:E0:96:D4 Discovering: no
+6. Set this device as a trusted device
+[bluetooth]# trust 24:2A:EA:61:0F:28
+[CHG] Device 24:2A:EA:61:0F:28 Trusted: yes  
+Changing 24:2A:EA:61:0F:28 trust succeeded
+7. Pair with the device via MAC address
+[bluetooth]# pair 24:2A:EA:61:0F:28
+Attempting to pair with 24:2A:EA:61:0F:28
+[CHG] Device 24:2A:EA:61:0F:28 Connected: yes
+Request confirmation
+[agent] Confirm passkey 514608 (yes/no): yes     # Enter yes here, and you also need to confirm the pairing on your phone
+[CHG] Device 24:2A:EA:61:0F:28 ServicesResolved: yes
+[CHG] Device 24:2A:EA:61:0F:28 Paired: yes
+Pairing successful    # When it shows pairing successful here, we can exit (might need to wait a bit)
+8. Connect Bluetooth device
+[bluetooth]# connect 24:2A:EA:61:0F:28
+Attempting to connect to 24:2A:EA:61:0F:28
+[CHG] Device 24:2A:EA:61:0F:28 Connected: yes
+Connection successful
+[CHG] Device 24:2A:EA:61:0F:28 ServicesResolved: yes  # Just show that the connection is successful here
+9. View paired devices
+[Donleon]# devices
+Device 24:2A:EA:61:0F:28 Donleon
+10. Check the details of a device
+[Donleon]# info 24:2A:EA:61:0F:28
+11. Remove a device
+[Donleon]# remove 24:2A:EA:61:0F:28
+12. Exit
+[Donleon]# exit
+```
+
+Check that your phone is paired with the development board in the Bluetooth settings:
+
+image::/bpi-m7s/sige7s-bt-pair_en.png[sige7s-bt-pair_en.png]
+
+After a successful connection, it shows connected on the phone:
+
+image::/bpi-m7s/sige7s-bt-connect_en.png[sige7s-bt-connect_en.png]
+
+== HDMI&DP
