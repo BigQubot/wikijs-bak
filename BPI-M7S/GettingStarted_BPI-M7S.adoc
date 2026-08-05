@@ -177,4 +177,138 @@ NOTE: Only regular users need to use sudo; the root user doesn't.
 
 == WIFI
 
+BPI-M7S is an onboard WiFi module and antenna, no need for an external network device or external antenna.
+
+The server version image connects to Wi-Fi via command
+
+1 First, log in to the Linux system; there are three ways to do this:
+
+* If the ArmSoM-Sige7s is connected to a network cable, you can use SSH to remotely log in to the Linux system.
+* If the ArmSoM-Sige7s is connected to a debug serial port, you can use a serial terminal to log in to the Linux system.
+* If the ArmSoM-Sige7s is connected to an HDMI monitor, you can log in to the Linux system through the terminal displayed on HDMI.
+
+2 Use the nmcli dev wifi command to scan nearby Wi-Fi hotspots
+
+```sh
+# 1. Open the WIFI
+armsom@armsom:~$ sudo nmcli r wifi on
+# 2. Scan WIFI
+armsom@armsom:~$ sudo nmcli dev wifi
+# 3. Connect to WIFI network
+armsom@armsom:~$ sudo nmcli dev wifi connect "wifi_name" password "wifi_password"
+
+```
+image::/bpi-m7s/sige7s-wifi.png[sige7s-wifi.png]
+
+3 Use the nmcli command to connect to a scanned Wi-Fi
+
+* Change wifi_name to the name of the Wi-Fi hotspot you want to connect to
+* Change wifi_passwd to the password of the Wi-Fi hotspot you want to connect to
+
+```sh
+armsom@armsom:~$ sudo nmcli dev wifi connect "wifi_name" password "wifi_password"
+Device 'wlan0' successfully activated with '31dbde81-1528-4d2b-839b-422cf88cb7d4'.
+```
+
+4 You can check the Wi-Fi IP address using the 'ip addr show wlan0' command
+
+```sh
+armsom@armsom:~$ ip addr show wlan0
+4: wlan0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether 0c:cd:d0:e0:96:d3 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.1.205/24 brd 192.168.1.255 scope global dynamic noprefixroute wlan0
+       valid_lft 43029sec preferred_lft 43029sec
+    inet6 fd45:d3b4:e549::468/128 scope global dynamic noprefixroute
+       valid_lft 43028sec preferred_lft 43028sec
+    inet6 fd45:d3b4:e549:0:20df:5d70:a5e:c43c/64 scope global dynamic noprefixroute
+       valid_lft 5229sec preferred_lft 2529sec
+    inet6 fe80::86c0:175a:be0d:28e1/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever
+```
+
+5 You can use the ping command to test Wi-Fi network connectivity, and you can stop it by pressing Ctrl+C.
+```sh
+armsom@armsom:~$ sudo ping -I wlan0 www.baidu.com
+PING www.wshifen.com (103.235.46.115) from 192.168.1.205 wlan0: 56(84) bytes of data.
+64 bytes from 103.235.46.115 (103.235.46.115): icmp_seq=1 ttl=47 time=193 ms
+64 bytes from 103.235.46.115 (103.235.46.115): icmp_seq=4 ttl=47 time=161 ms
+64 bytes from 103.235.46.115 (103.235.46.115): icmp_seq=5 ttl=47 time=169 ms
+64 bytes from 103.235.46.115 (103.235.46.115): icmp_seq=6 ttl=47 time=162 ms
+^C
+--- www.wshifen.com ping statistics ---
+6 packets transmitted, 4 received, 33.3333% packet loss, time 5047ms
+rtt min/avg/max/mdev = 160.909/171.260/193.269/13.133 ms
+```
+
+6 After using Wi-Fi, if you want to disconnect, you can run the following command, where wifi_name is the name of the Wi-Fi you're connected to.
+
+```sh
+armsom@armsom:~$ sudo nmcli con down "ydtx"
+Connection 'ydtx' successfully deactivated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/3)
+```
+
+The server edition image connects through a graphical interface WIFI
+
+1 There are three ways to log in to a Linux system
+
+* If the development board is connected to a network cable, you can log in to the Linux system remotely via SSH.
+* If the development board has a debug serial port connected, you can use a serial terminal to log in to the Linux system (please use MobaXterm for the serial software, minicom cannot display the graphical interface).
+* If the development board is connected to an HDMI monitor, you can log in to the Linux system through the terminal displayed on HDMI.
+
+2 Type the command 'nmtui' in the command line to open the Wi-Fi connection interface.
+
+image::/bpi-m7s/wifi_nmtui.png[wifi_nmtui.png]
+
+```sh
+armsom@armsom:~$ sudo nmtui
+```
+
+3 Select 'Activate a connect' and press Enter
+
+image::/bpi-m7s/wifi-nmcli-connect.png[wifi-nmcli-connect.png]
+
+4 Choose the Wi-Fi hotspot you want to connect to and enter the password. Once connected, a '*' will appear in front of the Wi-Fi name.
+
+image::/bpi-m7s/wifi-nmcli-success.png[wifi-nmcli-success.png]
+
+5 You can check the Wi-Fi IP address using the 'ip addr show wlan0' command
+
+```sh
+armsom@armsom:~$ ip addr show wlan0
+4: wlan0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether 0c:cd:d0:e0:96:d3 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.1.205/24 brd 192.168.1.255 scope global dynamic noprefixroute wlan0
+       valid_lft 43029sec preferred_lft 43029sec
+    inet6 fd45:d3b4:e549::468/128 scope global dynamic noprefixroute
+       valid_lft 43028sec preferred_lft 43028sec
+    inet6 fd45:d3b4:e549:0:20df:5d70:a5e:c43c/64 scope global dynamic noprefixroute
+       valid_lft 5229sec preferred_lft 2529sec
+    inet6 fe80::86c0:175a:be0d:28e1/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever
+       
+```
+ 
+6 You can use the ping command to test Wi-Fi network connectivity, and you can stop it by pressing Ctrl+C.
+
+```sh
+armsom@armsom:~$ sudo ping -I wlan0 www.baidu.com
+PING www.wshifen.com (103.235.46.115) from 192.168.1.205 wlan0: 56(84) bytes of data.
+64 bytes from 103.235.46.115 (103.235.46.115): icmp_seq=1 ttl=47 time=193 ms
+64 bytes from 103.235.46.115 (103.235.46.115): icmp_seq=4 ttl=47 time=161 ms
+64 bytes from 103.235.46.115 (103.235.46.115): icmp_seq=5 ttl=47 time=169 ms
+64 bytes from 103.235.46.115 (103.235.46.115): icmp_seq=6 ttl=47 time=162 ms
+^C
+--- www.wshifen.com ping statistics ---
+6 packets transmitted, 4 received, 33.3333% packet loss, time 5047ms
+rtt min/avg/max/mdev = 160.909/171.260/193.269/13.133 ms
+```
+
+Testing methods for the desktop version image
+
+* 1 Click the network setup icon in the top right corner of the desktop [Available Network]. When testing Wi-Fi, please don’t plug in an Ethernet cable.
+* 2 After connecting to Wi-Fi, you can open the browser to check if you can access the internet.
+
+image::/bpi-m7s/wifi-desktop-sig7s.jpg[wifi-desktop-sig7s.jpg]
+
+== BT
 
