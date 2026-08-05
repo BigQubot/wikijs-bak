@@ -435,3 +435,48 @@ image::/bpi-m7s/sige7s-minidp-b.jpg[sige7s-minidp-b.jpg]
 TIP: Many laptops have HDMI ports, but their HDMI ports usually only provide output functions and do not have HDMI IN functionality, meaning they cannot display other devices' HDMI outputs on the laptop's screen. +
 If HDMI does not display, please first check whether the system you are using is the desktop version; if it is the server version, only the terminal is visible +
 The Mini DP to HDMI cable must be active and cannot be passive
+
+== USB
+[options="header",cols="1,1"]
+|====
+|Model	|BPI-M7S
+|USB	|2x USB3.0, 2x USB2.0
+|====
+
+NOTE: USB ports allow you to connect a USB hub to expand the number of USB ports.
+
+Connect a USB mouse or keyboard for testing
+
+* 1.Insert the USB keyboard into the Sige7s's USB port
+* 2.Connect the Sige7s to an HDMI or DP monitor
+* 3.If the mouse or keyboard works properly, the operating system means the USB port is working properly (the mouse can only be used on desktop systems).
+
+Testing by connecting USB storage devices
+
+* 1.First, insert a USB drive or USB external hard drive into the USB port of the ArmSoM-Sige7s
+* 2.If you see the output of sdX by executing the following command, it means the USB drive has been successfully recognized
+
+```sh
+armsom@armsom:~$ cat /proc/partitions | grep "sd*"
+major minor  #blocks  name
+   8        0   30720000 sda
+   8        1   30718976 sda1
+```
+
+* 3.You can use the mount command to mount the USB drive into /mnt, and then you can view the files on the USB drive
+
+```sh
+armsom@armsom:~$ mkdir -p /test
+armsom@armsom:~$ sudo mount /dev/sda1 /test/
+mount: /test: /dev/sda1 already mounted on /test.
+```
+
+* 4.After mounting, you can use the df -h command to check the USB drive's capacity usage and mounting points
+
+```sh
+armsom@armsom:/$ df -h | grep "sd"
+/dev/sda1        30G   64K   30G   1% /test
+```
+
+== Micro SD card slot
+
