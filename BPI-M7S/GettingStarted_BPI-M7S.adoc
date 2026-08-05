@@ -154,3 +154,23 @@ There are three ways to check the IP address after starting BPI-M7S:
 ** Try another router. Router issues are pretty common, like the router not assigning an IP address properly, or even if it has assigned an IP address, you might not see it in the router.
 ** If you don’t have another router,you’ll have to connect an HDMI display or use the debug serial port to check the IP address.
 
+NOTE: Another thing to note is that BPI-M7S automatically assigns IP addresses via DHCP, so no setup is needed.
+
+Use the ping tool to check if the network is connected.
+
+The command to test network connectivity is as follows, and the ping command can be interrupted using the Ctrl+C shortcut.
+
+```sh
+armsom@armsom:~$ sudo ping -I enP4p65s0 www.baidu.com
+PING www.wshifen.com (103.235.46.115) from 192.168.1.132 enP4p65s0: 56(84) bytes of data.
+64 bytes from 103.235.46.115 (103.235.46.115): icmp_seq=1 ttl=47 time=156 ms
+64 bytes from 103.235.46.115 (103.235.46.115): icmp_seq=2 ttl=47 time=157 ms
+64 bytes from 103.235.46.115 (103.235.46.115): icmp_seq=7 ttl=47 time=156 ms
+64 bytes from 103.235.46.115 (103.235.46.115): icmp_seq=11 ttl=47 time=156 ms
+64 bytes from 103.235.46.115 (103.235.46.115): icmp_seq=12 ttl=47 time=158 ms
+^C
+--- www.wshifen.com ping statistics ---
+12 packets transmitted, 5 received, 58.3333% packet loss, time 11087ms
+tt min/avg/max/mdev = 155.723/156.571/157.717/0.699 ms
+```
+NOTE: Only regular users need to use sudo; the root user doesn't.
