@@ -745,3 +745,12 @@ Use the Bayer ```sh Raw Image Viewer``` software to view the captured image outp
 image::/bpi-m7s/armsom-sige7s-raw.png[armsom-sige7s-raw.png]
 
 == MIPI DSI
+
+BPI-M7S MIPI DSI interface compatible with the wareshare (compatible with Raspberry Pi) 7-inch screen, 
+
+1 .Connect the flex cable as shown in the diagram below
+
+* DSI connector: Use 15 channels of flat flexible cable (FFC) to connect ① the screen FFC connector and ② the SIGE7s MIPI DSI
+
+* GPIO pin headers: Use a GPIO power cable to connect the screen ③ at the 5V & GND interface and ④ the 5V & GND pins in the 40pin Sige7s, such as pin 4 and pin 6 (if pin 6 is used here, the serial port GND pin needs to be connected to other GND pins).
+
