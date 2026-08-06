@@ -496,7 +496,9 @@ image::/bpi-r4_pro/bpi-r4pro-dc5521.png[bpi-r4pro-dc5521.png,width=300]
 The USB Type-C PD connector is connected to a CH224Q chip, which is used to communicate with the USB adapter and allow the adapter to output 20V voltage. +
 It is recommended to use a PD power supply that can output 20V and 65W or more. 
 
-== USB 2.0
+== USB 2.0 connector
+BPI-R4Mini has a USB2.0 Type-A connector that can be used to connect a USB flash drive or other USB devices. +
+The power output of the USB2.0 connector (CN12) is 5V/1300mA, which can be turned off via "PCA_A_IO1_3/VBUS_AB_PDN" output low. +
 
 = Accessories
 == 4G/5G Module
