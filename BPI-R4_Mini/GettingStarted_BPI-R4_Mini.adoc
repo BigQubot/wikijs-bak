@@ -416,19 +416,85 @@ iperf Done.
 ```
 ====
 
-== FPC connector
-
 == M.2 key(B+M) Slot(for 4G/5G module or NVMe SSD)
 
+=== 4G/5G module
+The BPI-R4Pro has one M.2 B-KEY slots, all for 4G/5G Cellular Modules.
+
+it supports a pair of USB2.0 and USB3.0 signals, both extended via a USB 3.0 hub.
+
+In addition, the CN8h have an additional PCIe3.0 1lane signal.
+
+image::/bpi-r4_mini_en/m.2_key_b_slot.png[m.2_key_b_slot.png]
+
+=== NVMe SSD
+
+The M.2 key Slot can only install one type of M.2 key module.
+
+So the 4G/5G module and NvMe SSD can be installed only one.
+
+
+== NANO SimSlot
+SIM1 can use the onboard NANO SIM Slot
+
+== FPC connector
+It's a 16pin conncetor.
+
+It is usually used to connect spi lcd or i2c capacitive touch screen.
+
+image::/bpi-r4_mini_en/fpc.png[fpc.png]
+
+
 == Debug UART 
+The BPI-R4Mini has an onboard USB-to-UART chip(HT42B534-2), connected to the MT7988A’s Debug UART.
+
+When connected USB Type-c connector(CN41) to PC, a USB-to-serial device will appear, which can be used for debugging.
+
+Terminal setting : Baud=115200,Data bits: 8bit,Parity: none,Stop: 1bit, Flow control: none.
+
+== eSIM
+PIN42/44/46/48 of M.2 B-KEY Slot is the second set of SIM card signals.
+
+NOTE : This requires your module to support it and this requires additional installtion of eSIM module.
+
+image::/bpi-r4_mini_en/esim.png[esim.png]
+
+== EEPROM
+Built-in one EEPROM chip (P24C02A), can be used to store small amounts of data.
 
 == Buttons
+=== Reset
+TIP: A short press of RST restarts the system, while a long press resets the system.
+
+A reset button is connect to GPIO1，used for restore to factory default settings.
+
+=== WPS
+A reset button is connect to GPIO0，used for new devices quickly connect to the router.
 
 == LEDs
+BPI-R4Mini has LEDs to indicate various operating states, including power, WiFi, Ethernet, 4G/5G cellular, etc
+
+* 1x Power Green LED, Silkscreen "PWR" on the PCB，lights up when powered on and cannot be controlled by the software.
+* 1x Status Blue LED，Silkscreen "B" on the PCB，Controlled by GPIO "PCA_A_IO1_6/SYS_LEDB".
+* 2x WiFi Status Blue LEDs,The silk screen printing"W2G","W5G".
+* 1x 5G cellular Status Blue LEDs,The silk screen 
+* Each 2.5G RJ45 has two LEDs, and each 1G RJ45 has one LED to indicate the network status.
 
 == DCIN
+BPI-R4Pro requires a single +12V supply,and has multiple power supply , including DC power adapter, USB PD, POE, etc.
 
-== TypeC PD
+The supply voltage range is 9~24V, 12V or 20V is recommended, and it will automatically shut down when it exceeds 25.3V.
+
+=== DCIN(5521)
+You can use a 12V/5A power adapter and plug it into the CN44 to power it.
+However, if other power supply exist at the same time, it will be switched to other power supply.
+
+The dimensions of the CN44 slot are as follows(Inner Positive, Outer Negative):
+
+image::/bpi-r4_pro/bpi-r4pro-dc5521.png[bpi-r4pro-dc5521.png,width=300]
+== USB TypeC PD
+The USB Type-C PD connector is connected to a CH224Q chip, which is used to communicate with the USB adapter and allow the adapter to output 20V voltage. +
+It is recommended to use a PD power supply that can output 20V and 65W or more. 
 
 == USB 2.0
 
