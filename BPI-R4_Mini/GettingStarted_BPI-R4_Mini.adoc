@@ -343,6 +343,95 @@ printf '\x7E\xF5\x56\x36\x4C\xD1'  | dd of=/sys/bus/i2c/devices/0-0057/eeprom bs
 WARNING:  **PS: Since subsequent batches of the V1.2 version are planned to write data to the EEPROM, addresses ranging from 0x00 to 0x1F must be avoided.**
 
 = Interfaces
+
+== 2.5G RJ45 LAN and WAN
+
+BPI-R4Mini (2.5G WAN)→ BPI-R4Min (2.5G LAN)
+
+[%collapsible]
+====
+
+```sh
+root@OpenWrt:~# iperf3 -c 192.168.2.1 
+Connecting to host 192.168.2.1, port 5201
+[  5] local 192.168.2.219 port 41332 connected to 192.168.2.1 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-1.00   sec   275 MBytes  2.31 Gbits/sec    0    991 KBytes       
+[  5]   1.00-2.00   sec   275 MBytes  2.31 Gbits/sec    0   1.02 MBytes       
+[  5]   2.00-3.00   sec   274 MBytes  2.30 Gbits/sec    0   1.02 MBytes       
+[  5]   3.00-4.00   sec   275 MBytes  2.31 Gbits/sec    0   1.02 MBytes       
+[  5]   4.00-5.00   sec   274 MBytes  2.30 Gbits/sec    0   1.08 MBytes       
+[  5]   5.00-6.00   sec   274 MBytes  2.30 Gbits/sec    0   1.08 MBytes       
+[  5]   6.00-7.00   sec   274 MBytes  2.30 Gbits/sec    0   1.14 MBytes       
+[  5]   7.00-8.00   sec   275 MBytes  2.31 Gbits/sec    0   1.14 MBytes       
+[  5]   8.00-9.00   sec   274 MBytes  2.30 Gbits/sec    0   1.14 MBytes       
+[  5]   9.00-10.00  sec   275 MBytes  2.31 Gbits/sec    0   1.14 MBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-10.00  sec  2.68 GBytes  2.30 Gbits/sec    0             sender
+[  5]   0.00-10.00  sec  2.68 GBytes  2.30 Gbits/sec                  receiver
+
+iperf Done.
+root@OpenWrt:~# iperf3 -c 192.168.2.1 -R 
+Connecting to host 192.168.2.1, port 5201
+Reverse mode, remote host 192.168.2.1 is sending
+[  5] local 192.168.2.219 port 52400 connected to 192.168.2.1 port 5201
+[ ID] Interval           Transfer     Bitrate
+[  5]   0.00-1.00   sec   272 MBytes  2.28 Gbits/sec                  
+[  5]   1.00-2.00   sec   273 MBytes  2.29 Gbits/sec                  
+[  5]   2.00-3.00   sec   273 MBytes  2.29 Gbits/sec                  
+[  5]   3.00-4.00   sec   272 MBytes  2.28 Gbits/sec                  
+[  5]   4.00-5.00   sec   273 MBytes  2.29 Gbits/sec                  
+[  5]   5.00-6.00   sec   271 MBytes  2.28 Gbits/sec                  
+[  5]   6.00-7.00   sec   273 MBytes  2.29 Gbits/sec                  
+[  5]   7.00-8.00   sec   273 MBytes  2.29 Gbits/sec                  
+[  5]   8.00-9.00   sec   273 MBytes  2.29 Gbits/sec                  
+[  5]   9.00-10.00  sec   273 MBytes  2.29 Gbits/sec                  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-10.00  sec  2.66 GBytes  2.29 Gbits/sec    0             sender
+[  5]   0.00-10.00  sec  2.66 GBytes  2.29 Gbits/sec                  receiver
+
+iperf Done.
+root@OpenWrt:~# iperf3 -c 192.168.2.1 -bidir 
+Connecting to host 192.168.2.1, port 5201
+[  5] local 192.168.2.219 port 55952 connected to 192.168.2.1 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-1.00   sec   271 MBytes  2.27 Gbits/sec    0    867 KBytes       
+[  5]   1.00-2.00   sec   275 MBytes  2.31 Gbits/sec    0    909 KBytes       
+[  5]   2.00-3.00   sec   274 MBytes  2.30 Gbits/sec    0   1.06 MBytes       
+[  5]   3.00-4.00   sec   274 MBytes  2.30 Gbits/sec    0   1.11 MBytes       
+[  5]   4.00-5.00   sec   275 MBytes  2.31 Gbits/sec    0   1.11 MBytes       
+[  5]   5.00-6.00   sec   274 MBytes  2.30 Gbits/sec    0   1.16 MBytes       
+[  5]   6.00-7.00   sec   274 MBytes  2.30 Gbits/sec    0   1.29 MBytes       
+[  5]   7.00-8.00   sec   275 MBytes  2.31 Gbits/sec    0   1.29 MBytes       
+[  5]   8.00-9.00   sec   274 MBytes  2.30 Gbits/sec    0   1.29 MBytes       
+[  5]   9.00-10.00  sec   275 MBytes  2.31 Gbits/sec    0   1.29 MBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-10.00  sec  2.68 GBytes  2.30 Gbits/sec    0             sender
+[  5]   0.00-10.00  sec  2.67 GBytes  2.29 Gbits/sec                  receiver
+
+iperf Done.
+```
+====
+
+== FPC connector
+
+== M.2 key(B+M) Slot(for 4G/5G module or NVMe SSD)
+
+== Debug UART 
+
+== Buttons
+
+== LEDs
+
+== DCIN
+
+== TypeC PD
+
+== USB 2.0
+
 = Accessories
 == 4G/5G Module
 === M.2 4G/5G Module(USB Interface)
@@ -483,8 +572,8 @@ tmpfs                   512.0K         0    512.0K   0% /dev
 root@OpenWrt:/mnt/nvme#
 ```
 
-== SPI NAND FLASH
-   SPI NAND FLASH is used to rescue system.
+== SPI NOR FLASH
+   SPI NOR FLASH is used to rescue system.
 
 Please refer to: https://docs.banana-pi.org/en/BPI-R4_Mini/GettingStarted_BPI-R4_Mini#_flashing_image[Flashing image]
    
