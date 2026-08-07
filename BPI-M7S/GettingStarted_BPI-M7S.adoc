@@ -482,7 +482,7 @@ armsom@armsom:/$ df -h | grep "sd"
 
 BPI-M7S comes with a standard microSD card slot, mainly used as a system boot disk or for expanding storage space.
 
-* When using an SD card as the system boot disk, just insert the prepared SD boot card into the Micro SD card slot before powering on, then power on. The Sige7s will prioritize booting from the SD card.
+* When using an SD card as the system boot disk, just insert the prepared SD boot card into the Micro SD card slot before powering on, then power on. The BPI-M7S will prioritize booting from the SD card.
 
 * When using an SD card to expand storage space, you can follow these steps. First, check the insertion log of the SD card:
 
