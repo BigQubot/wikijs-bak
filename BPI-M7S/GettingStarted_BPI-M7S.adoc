@@ -660,7 +660,8 @@ armsom@armsom:~$ echo heartbeat | sudo tee /sys/class/leds/led2-green-usr/trigge
 ```
 == RTC
 
-The Sige7s integrates an RTC clock chip LK8563 within the board.
+The BPI-M7S integrates an RTC clock chip LK8563 within the board.
+
 ```sh
 armsom@armsom:~$ dmesg | grep rtc
 [    1.707045] [drm] Cluster1-win0(possible_vp_mask = 0x00000002) has no possible crtcs
@@ -750,7 +751,7 @@ BPI-M7S MIPI DSI interface compatible with the wareshare (compatible with Raspbe
 
 1 .Connect the flex cable as shown in the diagram below
 
-* DSI connector: Use 15 channels of flat flexible cable (FFC) to connect ① the screen FFC connector and ② the SIGE7s MIPI DSI
+* DSI connector: Use 15 channels of flat flexible cable (FFC) to connect ① the screen FFC connector and ② the BPI-M7S MIPI DSI
 
 * GPIO pin headers: Use a GPIO power cable to connect the screen ③ at the 5V & GND interface and ④ the 5V & GND pins in the 40pin Sige7s, such as pin 4 and pin 6 (if pin 6 is used here, the serial port GND pin needs to be connected to other GND pins).
 
@@ -767,7 +768,7 @@ After overlay is activated, observe whether the LCD screen displays and enters t
 
 == CPU/GPU/NPU/DDR
 
-Below are the methods for setting the CPU, GPU, NPU DDR, frequency fixing, and performance mode settings for the ArmSoM-Sige7s
+Below are the methods for setting the CPU, GPU, NPU DDR, frequency fixing, and performance mode settings for the BPI-M7S
 
 Fixed frequency
 
