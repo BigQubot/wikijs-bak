@@ -656,21 +656,23 @@ armsom@armsom:/wiring-armbian$ gpio read 5
 
 == RGB LED
 
-The BPI-M7S has a user (green light) and a power indicator (red light).
+有一个用户（绿灯）和一个电源指示灯（红灯）。
 
-* User light By default, it is turned off and can be controlled by the user.
+* 用户灯 默认情况下为关闭，可由用户自行操控。
 
-* Power indicator light By default, its always-on mode means the system is running normally.
+* 电源指示灯 默认情况下，其常亮表示系统运行正常。
 
-User lights can be controlled via command
+用户灯可通过命令控制：
+
 ```sh
 armsom@armsom:~$ echo 1 | sudo tee /sys/class/leds/led2-green-usr/brightness （Light up）
 armsom@armsom:~$ echo 0 | sudo tee /sys/class/leds/led2-green-usr/brightness （Close）
 armsom@armsom:~$ echo heartbeat | sudo tee /sys/class/leds/led2-green-usr/trigger （Heartbeat light）
 ```
-== RTC
+== RTC实时时钟
 
-The Sige7s integrates an RTC clock chip LK8563 within the board.
+BPI-M7S板内集成一颗RTC时钟芯片 LK8563.
+
 ```sh
 armsom@armsom:~$ dmesg | grep rtc
 [    1.707045] [drm] Cluster1-win0(possible_vp_mask = 0x00000002) has no possible crtcs
@@ -683,54 +685,56 @@ armsom@armsom:~$ dmesg | grep rtc
 [    1.783043] rtc-hym8563 6-0051: registered as rtc0
 [    1.784043] rtc-hym8563 6-0051: setting system clock to 2021-01-01T12:00:00 UTC (1609502400)
 ```
-Find rtc0, then use the following command to set the system time and sync to rtc0.
+找到rtc0，然后使用以下命令设置系统时间并同步到rtc0。
 
 ```sh
-# Read the current time from the RTC chip
+//读取RTC芯片当前时间
 armsom@armsom:~$ sudo hwclock -r -f /dev/rtc0
 2026-04-28 04:10:12.869672+08:00
-
-# Check the system's current time
+￼
+//查看系统当前时间
 armsom@armsom:~$ date
 Tue Apr 28 04:11:21 AM CST 2026
-
-# Set system time
+￼
+//设置系统时间
 armsom@armsom:~$ sudo date -s "2026-07-13 10:30:00"
 Mon Jul 13 10:30:00 AM CST 2026
-
-# Write the system's current time to the RTC
+￼
+//将系统当前时间写入 RTC
 armsom@armsom:~$ sudo hwclock -w -f /dev/rtc0
-
-# Then read the current time from the RTC chip
+￼
+//然后读取 RTC 芯片当前时间
 armsom@armsom:~$ sudo hwclock -r -f /dev/rtc0
 2026-07-13 10:30:58.518923+08:00
 ```
 
-Turn off the RTC battery (shut down the power), wait for 10 minutes or longer, then restart the Sige7s and check the RTC time.
+关闭RTC电池（关闭电源），10分钟或更长时间后，重新启动BPI-M7S，查看rtc时间
+
 ```sh
-# Because the RTC lost power and the data was lost, when I use the hwclock command to check the RTC clock, it goes back to the previous initial date.
+//由于rtc掉电丢失数据，使用hwclock命令查看rtc时钟又回到了之前的初始日期
 armsom@armsom:~$ sudo hwclock -r -f /dev/rtc0
 2026-04-28 03:50:21.479385+08:00
-
 ```
 
-== MIPI-CSI
+== MIPI-CSI摄像头
 
-The MIPI-CSI interface supports the imx219 camera
+MIPI-CSI接口支持imx219摄像头
 
-* Connect the imx219 camera to the development board's MIPI-CSI interface, as shown in the picture:
+* imx219摄像头接开发板的MIPI-CSI接口，如图所示：
 
 image::/bpi-m7s/armsom-sige7s-mipi-csi.png[armsom-sige7s-mipi-csi.png]
 
-The system has the camera function turned off by default. If you want to turn it on, you need to follow the steps below to enable the MIPI-CSI camera overlay.
+系统默认关闭摄像头功能，若要打开，需要按如下操作打开MIPI-CSI摄像头overlay
+
 ```sh
 root@armsom:~# vi /boot/uEnv/uEnvarmsom-sige7s.txt
-Find this part, and just uncomment the line below to enable the overlay:
+找到这部分，将下面这行解除注释即可启用overlay:
 #dtoverlay=/dtb/overlay/rk3588-armsom-sige7s-camera-imx219-overlay.dtbo
-root@armsom:~#  # Save and restart after exiting
+root@armsom:~# reboot    #保存退出后重启
 ```
 
-After opening the camera settings, let's first check if the driver is loading properly.
+打开摄像头配置后，我们先查看驱动是否正常加载
+
 ```sh
 root@armsom:~# dmesg | grep imx219        
 [    2.045457] platform csi2-dphy0: Fixed dependency cycle(s) with /i2c@feca0000/imx219@10
@@ -745,45 +749,48 @@ root@armsom:~# dmesg | grep imx219
 [    2.345406] rockchip-csi2-dphy csi2-dphy0: dphy0 matches m01_f_imx219 8-0010:bus type 5
 ```
 
-After confirming the driver is loaded, run the following command to take a screenshot
+确认驱动加载以后，执行下面命令抓图
+
 ```sh
 root@armsom:~# v4l2-ctl -d /dev/video0 --set-fmt-video=width=1920,height=1080,pixelformat='BG10' --stream-mmap=3 --stream-skip=4 --stream-to=output.raw --stream-count=1 --stream-poll
 ```
 
-Use the Bayer ```sh Raw Image Viewer``` software to view the captured image output.raw, and set the parameters as shown in the right-side panel in the picture:
+将抓取的图片 output.raw 使用 Bayer Raw Image Viewer 软件查看,设置参数按如图右侧栏填写即可：
 
 image::/bpi-m7s/armsom-sige7s-raw.png[armsom-sige7s-raw.png]
 
-== MIPI DSI
+== MIPI DSI显示
 
-BPI-M7S MIPI DSI interface compatible with the wareshare (compatible with Raspberry Pi) 7-inch screen, 
+BPI-M7S MIPI DSI接口适配微雪（兼容树莓派）7寸屏，参考购买链接：
 
-1 .Connect the flex cable as shown in the diagram below
+1 .按照下图连接好排线
 
-* DSI connector: Use 15 channels of flat flexible cable (FFC) to connect ① the screen FFC connector and ② the SIGE7s MIPI DSI
+* DSI连接器：使用15路扁平柔性线缆（FFC）连接①屏幕FFC连接器和② BPI-M7S MIPI DSI
 
-* GPIO pin headers: Use a GPIO power cable to connect the screen ③ at the 5V & GND interface and ④ the 5V & GND pins in the 40pin Sige7s, such as pin 4 and pin 6 (if pin 6 is used here, the serial port GND pin needs to be connected to other GND pins).
+* GPIO排针: 使用GPIO电源线连接屏幕③5V&GND接口处和④sige7s 40pin中5V&GND引脚，如pin4和pin6（如果这里pin6被使用，那么串口GND引脚需要接其他GND引脚）
 
 image::/bpi-m7s/display-7-hd-sige7s.jpg[display-7-hd-sige7s.jpg]
 
-2 .By default, the system turns off the MIPI-DSI screen. To turn it on, follow these steps to enable the LCD display overlay
+2 .系统默认关闭MIPI-DSI屏幕,若要打开，需要按如下操作打开LCD显示屏overlay
+
 ```sh
 armsom@armsom:~$ sudo vi /boot/uEnv/uEnvarmsom-sige7s.txt
-#Find this part and just uncomment the line below to enable the overlay:
+#找到这部分，将下面这行解除注释即可启用overlay:
 #dtoverlay=/dtb/overlay/rk3588-armsom-sige7s-display-800x480-7hd-overlay.dtbo
-armsom@armsom:~$ sudo reboot  #Save and restart after exiting
+armsom@armsom:~$ sudo reboot  #保存退出后重启
 ```
-After overlay is activated, observe whether the LCD screen displays and enters the desktop
+overlay生效后，观察LCD屏幕是否显示并进入桌面
 
 == CPU/GPU/NPU/DDR
 
-Below are the methods for setting the CPU, GPU, NPU DDR, frequency fixing, and performance mode settings for the ArmSoM-Sige7s
+以下为BPI-M7S 的CPU GPU NPU DDR定频和性能模式设置方法
 
-Fixed frequency
+定频
 
-CPU fixed frequency
+CPU 定频
 
-The thd BPI-M7S CPUs consist of 4 A55 + 4 A76 processors, managed separately in 3 groups. The nodes are:
+BPI-M7S 的cpu是4个A55+4个A76，分为3组单独管理，节点分别是：
+
 ```sh
 armsom@armsom:~$ ls /sys/devices/system/cpu/cpufreq/policy0  （Corresponding to 4 A55：CPU0-3）
 affected_cpus               related_cpus                   scaling_max_freq
@@ -816,110 +823,110 @@ interactive conservative ondemand userspace powersave performance schedutil
 # The default is the on-demand frequency scaling mode: ondemand (if you want to restore it, just set it to this mode)
 ```
 
-NOTE: The following operations should be performed as the root user
+NOTE: 以下操作切换为root用户执行
 
-Set manual frequency
+设置手动定频:
 
 ```sh
-root@armsom:~$ cat /sys/devices/system/cpu/cpufreq/policy6/cpuinfo_cur_freq
-600000   # Check current frequency
-root@armsom:~$ echo userspace > /sys/devices/system/cpu/cpufreq/policy6/scaling_governor  # Manual fixed-frequency mode:userspace
-root@armsom:~$ echo 1608000 > /sys/devices/system/cpu/cpufreq/policy6/scaling_setspeed  # Set the frequency to 1,608,000
-root@armsom:~$ cat /sys/devices/system/cpu/cpufreq/policy6/cpuinfo_cur_freq    # Check if the setup was successful
+root@armsom:~# cat /sys/devices/system/cpu/cpufreq/policy6/cpuinfo_cur_freq
+600000   //查看当前频率
+root@armsom:~# echo userspace > /sys/devices/system/cpu/cpufreq/policy6/scaling_governor  //手动定频模式：userspace
+root@armsom:~# echo 1608000 > /sys/devices/system/cpu/cpufreq/policy6/scaling_setspeed  设置频率为1608000 
+root@armsom:~# cat /sys/devices/system/cpu/cpufreq/policy6/cpuinfo_cur_freq  // 确认是否设置成功
 1608000
 ```
 
-The other two CPU groups are configured similarly; just operate the corresponding node.
+其他两组CPU也是类似的方式进行设置，操作对应的节点即可。
 
-GPU fixed frequency
+GPU定频
 
-GPU node path
+GPU的节点路径
 
 ```sh
-root@armsom:~$ ls /sys/class/devfreq/fb000000.gpu
+root@armsom:~# ls /sys/class/devfreq/fb000000.gpu
 available_frequencies  governor  name              target_freq
 available_governors    load      polling_interval  timer
 cur_freq               max_freq  power             trans_stat
 device                 min_freq  subsystem         uevent
-root@armsom:~$ cat /sys/class/devfreq/fb000000.gpu/available_frequencies  # Get GPU-supported frequency bands
+root@armsom:~# cat /sys/class/devfreq/fb000000.gpu/available_frequencies // 获取GPU支持的频点
 1000000000 900000000 800000000 700000000 600000000 500000000 400000000 300000000  
-root@armsom:~$ cat /sys/class/devfreq/fb000000.gpu/available_governors  # Get the mode in which the GPU is running
+root@armsom:~# cat /sys/class/devfreq/fb000000.gpu/available_governors // 获取GPU运行的模式
 rknpu_ondemand dmc_ondemand userspace powersave performance simple_ondemand
 ```
 
-The default is the general on-demand frequency scaling mode: simple_ondemand (to restore, just set it to this mode).
+默认是通用按需调频模式：simple_ondemand（恢复的话设置为该模式即可）
 
-Set manual frequency
+设置手动定频
 
 ```sh
-root@armsom:~$ cat /sys/class/devfreq/fb000000.gpu/cur_freq # Check current frequency
+root@armsom:~# cat /sys/class/devfreq/fb000000.gpu/cur_freq //查看当前频率
 300000000
-root@armsom:~$ echo userspace > /sys/class/devfreq/fb000000.gpu/governor  # Manual fixed-frequency mode: userspace
-root@armsom:~$ echo 600000000 > /sys/class/devfreq/fb000000.gpu/userspace/set_freq  # Set the frequency to 600,000,000
-root@armsom:~$ cat /sys/class/devfreq/fb000000.gpu/cur_freq  # Check if it's set up successfully
+root@armsom:~# echo userspace > /sys/class/devfreq/fb000000.gpu/governor  // 手动定频模式：userspace
+root@armsom:~# echo 600000000 > /sys/class/devfreq/fb000000.gpu/userspace/set_freq  // 设置频率为600000000
+root@armsom:~# cat /sys/class/devfreq/fb000000.gpu/cur_freq  // 确认是否设置成功
 600000000
 ```
 
-NPU fixed frequency
+NPU定频
 
-NPU node path
+NPU的节点路径
 
 ```sh
-root@armsom:~$ ls /sys/class/devfreq/fdab0000.npu/
+root@armsom:~# ls /sys/class/devfreq/fdab0000.npu/
 available_frequencies  device    max_freq  power        trans_stat
 available_governors    governor  min_freq  subsystem    uevent
 cur_freq               load      name      target_freq
-root@armsom:~$ cat /sys/class/devfreq/fdab0000.npu/available_frequencies  # Get the frequency bands supported by the NPU
+root@armsom:~# cat /sys/class/devfreq/fdab0000.npu/available_frequencies  // 获取NPU支持的频点
 300000000 400000000 500000000 600000000 700000000 800000000 900000000 1000000000
-root@armsom:~$ cat /sys/class/devfreq/fdab0000.npu/available_governors # Get the mode in which the NPU is running 
+root@armsom:~# cat /sys/class/devfreq/fdab0000.npu/available_governors // 获取NPU运行的模式 
 rknpu_ondemand dmc_ondemand userspace powersave performance simple_ondemand
 ```
 
-The default is the on-demand frequency mode: rknpu_ondemand (to restore, just set it to this mode).
+默认是按需调频模式：rknpu_ondemand（恢复的话设置为该模式即可）
 
-Set manual frequency
+设置手动定频
 
 ```sh
-root@armsom:~$ cat /sys/class/devfreq/fdab0000.npu/cur_freq # Check current NPU frequency
+root@armsom:~# cat /sys/class/devfreq/fdab0000.npu/cur_freq //查看当前npu频率
 1000000000
-root@armsom:~$ echo userspace > /sys/class/devfreq/fdab0000.npu/governor # Manual Frequency Mode: userspace 
-root@armsom:~$ echo 600000000 > /sys/class/devfreq/fdab0000.npu/userspace/set_freq # Set the frequency to 600,000,000
-root@armsom:~$ cat /sys/class/devfreq/fdab0000.npu/cur_freq  # Check if it's set up successfully
+root@armsom:~# echo userspace > /sys/class/devfreq/fdab0000.npu/governor // 手动定频模式：userspace 
+root@armsom:~# echo 600000000 > /sys/class/devfreq/fdab0000.npu/userspace/set_freq // 设置频率为600000000
+root@armsom:~# cat /sys/class/devfreq/fdab0000.npu/cur_freq  // 确认是否设置成功
 600000000
-root@armsom:~$ cat /sys/kernel/debug/rknpu/load # Check the NPU load
+root@armsom:~# cat /sys/kernel/debug/rknpu/load // 查看NPU的负载
 NPU load:  Core0:  0%, Core1:  0%, Core2:  0%,
 ```
 
-DDR fixed frequency
+DDR定频
 
-DDR node path
+DDR的节点路径
 
 ```sh
-root@armsom:~$ ls /sys/class/devfreq/dmc/
+root@armsom:~# ls /sys/class/devfreq/dmc/
 available_frequencies  downdifferential  min_freq   system_status  upthreshold
 available_governors    governor          name       target_freq
 cur_freq               load              power      trans_stat
 device                 max_freq          subsystem  uevent
-root@armsom:~$ cat /sys/class/devfreq/dmc/available_frequencies # Get DDR-supported frequency bands
+root@armsom:~# cat /sys/class/devfreq/dmc/available_frequencies // 获取DDR支持的频点
 528000000 1068000000 1560000000 2112000000
-root@armsom:~$ cat /sys/class/devfreq/dmc/available_governors # Get the mode in which DDR is running
+root@armsom:~# cat /sys/class/devfreq/dmc/available_governors // 获取DDR运行的模式
 rknpu_ondemand dmc_ondemand userspace powersave performance simple_ondemand
 ```
 
-The default is the on-demand frequency mode: dmc_ondemand (to restore it, just set it to this mode).
+默认是按需频模式：dmc_ondemand（恢复的话设置为该模式即可）
 
-Set manual frequency
+设置手动定频
 
 ```sh
-root@armsom:~$ cat /sys/class/devfreq/dmc/cur_freq # Check current frequency
+root@armsom:~# cat /sys/class/devfreq/dmc/cur_freq // 查看当前频率
 528000000
-root@armsom:~$ echo userspace > /sys/class/devfreq/dmc/governor # Manual fixed frequency mode: userspace
-root@armsom:~$ echo 1560000000 > /sys/class/devfreq/dmc/userspace/set_freq  # Set the frequency to 1560000000
-root@armsom:~$ cat /sys/class/devfreq/dmc/cur_freq   # Check if the setup was successful
+root@armsom:~# echo userspace > /sys/class/devfreq/dmc/governor // 手动定频模式：userspace
+root@armsom:~# echo 1560000000 > /sys/class/devfreq/dmc/userspace/set_freq  // 设置频率为1560000000
+root@armsom:~# cat /sys/class/devfreq/dmc/cur_freq   // 确认是否设置成功
 1560000000
 ```
 
-Performance Mode
+性能模式
 
 ```sh
 root@armsom:~$ echo performance > /sys/devices/system/cpu/cpufreq/policy6/scaling_governor
