@@ -700,3 +700,130 @@ root@OpenWrt:~#
 ```
 
 = PIN Definition
+== FAN(CN4)
+[%collapsible]
+====
+
+
+[options="header",cols="1,3",width="80%"]
+|====
+2+| **BPI-R4Mini FAN Connector PIN define**
+|PIN No. |Connection Destination		
+|1			 |5V		
+|2		 	 |GND	
+|3 	   	 |PWM	
+|====
+
+====
+== M.2 Key B Slot(CN8)
+
+[%collapsible]
+====
+
+
+[options="header",cols="3,1,1,3",width="80%"]
+|====
+4+| **BPI-R4Mini M.2 B-KEY Slot1(CN8) PIN define**
+|Connection Destination	|PIN No.		|PIN NO.	|Connection Destination
+|NI	|1	|	2	|VDD_BKEY_A
+|GND	|3		|4	|VDD_BKEY_A
+|GND	|5	|	6	|NI(10K PullUp to 3.3V)
+|USBHUB_USB1_Dp	|7		|8	|NI
+|USBHUB_USB1_Dn |9		|10|	BKEY-A-NET-STUn LED
+|GND	|11		|12	|NOTCH
+|NOTCH	|13		|14	|NOTCH
+|NOTCH	|15		|16	|NOTCH
+|NOTCH	|17		|18	|NOTCH
+|NOTCH|	19	|	20	|NI
+|NI	|21		|22|	NI
+|NI |23	|	24	|NI
+|NI	|25		|26|	NI
+|GND	|27		|28|	NI
+|USBHUB_USB1_RXn	|29		|30	|USIM_RST-1A
+|USBHUB_USB1_RXp	|31		|32	|USIM_CLK-1A
+|GND	|33	|	34	|USIM_DATA-1A
+|USBHUB_USB1_TXn	|35	|36|	USIM_VDD-1A
+|USBHUB_USB1_TXp	|37|		38|	NI
+|GND|	39	|	40|	NI
+|PCIE_SW_A_C_RXn	|41		|42	|USIM_DATA-1B
+|PCIE_SW_A_C_RXp|	43	|	44	|USIM_CLK-1B
+|GND	|45	|	46	|USIM_RST-1B
+|PCIE_SW_A_C_TXn	|47		|48	|USIM_VDD-1B
+|PCIE_SW_A_C_TXp	|49		|50	|BKEY-A-PRESET_3P3V
+|GND	|51	|	52	|BKEY-A-CLKREQ_3P3V
+|PCIE_SW_A_C_CKn	|53		|54	|BKEY-A-WAKE_3P3V
+|PCIE_SW_A_C_CKp|	55	|	56|NI
+|GND	|57	|	58	|NI
+|NI	|59		|60	|NI
+|NI	|61		|62	|NI
+|NI|	63|		64	|NI
+|NI	|65	|	66|	USIM_DET-1A
+|BKEY-A-RST	|67		|68|	NI
+|NI	|69	|	70	|VDD_BKEY_A
+|GND|	71	|	72|	VDD_BKEY_A
+|GND	|73	|	74|	VDD_BKEY_A
+|NI	|75	| |		
+|====
+
+====
+== FPC Connector(CN13)
+
+[%collapsible]
+====
+
+
+[options="header",cols="3,1,1,3",width="80%"]
+|====
+4+| **BPI-R4Mini FPC Connector(CN13) PIN define**
+|Connection Destination	|PIN No.		|PIN NO.	|Connection Destination
+|SPI_MOSI	|1	|	2	|SPI_MISO
+|SPI_CLK	|3		|4	|SPI_CS
+|SPI_IO1	|5	|	6	|SPI_IO2
+|GND	|7		|8	|CTP_SCL
+|CTP_SDA |9		|10|	CTP_INT
+|CTP_RST	|11		|12	|GND
+|D1M	|13		|14	|D1P
+|5V0	|15		|16	|3V3
+|====
+
+====
+
+== DC-IN Connector(CN7)
+
+[%collapsible]
+====
+
+
+[options="header",cols="1,3",width="80%"]
+|====
+2+| **BPI-R4mINI DCIN Connector(CN7) PIN define**
+|PIN No. |Connection Destination		
+|1			 |DCIN_12_24V
+|2		 	 |GND
+|====
+====
+
+== SPI NOR(CN15)
+
+[%collapsible]
+====
+
+
+[options="header",cols="3,1,1,3",width="80%"]
+|====
+4+| **BPI-R4Mini SPI NOR(CN15) PIN define**
+|Connection Destination	|PIN No.		|PIN NO.	|Connection Destination
+|SPI_MOSI	|1	|	2	|BOOT_SEL2
+|SPI_MISO	|3		|4	|NOTCH
+|SPI_CLK	|5	|	6	|NOTCH
+|SPI_CS	|7		|8	|NOTCH
+|SPI_WP |9		|10|	NOTCH
+|SPI_HOLD	|11		|12	|NOTCH
+|VCC33	|13		|14	|DNU
+|GND	|15		|16	|DNU
+|NOR/NAND_CS_SEL	|17		|18	|DNU
+|BOOT_SEL1	|19		|20	|DNU
+|====
+
+===
+
