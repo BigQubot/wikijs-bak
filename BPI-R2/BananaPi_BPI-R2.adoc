@@ -1,10 +1,21 @@
 = BPI-R2 Introduction
 
+
+image::/picture/banana_pi_bpi-r2.jpg[banana_pi_bpi-r2.jpg]
+
+
 The Banana Pi R2 is a router based development board, which can run on a variety of open source operating systems including OpenWrt, Android, and Linux. It has 4 Gigabit LAN ports, 1 Gigabit WAN, and 300Mbs wireless N capabilities.
 
 BPI-R2 integrate a Quad-code ARM Cortex-A7 MPcore operating up to 1.3GHz, The Router also includes a variety of peripherals, including HDMI TX, MIPI DSI, PCIe2.0, USB2.0 OTG, USB3.0 Port, SATA port，5 Gbps Port Gigabit Ethernet port, 802.11a/b/g/n wifi & BT4.1 onboard, also support 802.11ac/n WLAN connection thru mini PCI-e port
 
-image::/picture/banana_pi_bpi-r2.jpg[banana_pi_bpi-r2.jpg]
+TIP: MediaTek MT7988 (Filogic 880) design: link:/en/BPI-R4_Pro/BananaPi_BPI-R4_Pro[Banana Pi BPI-R4 Pro] Router development board +
+MediaTek MT7988 (Filogic 880) design: link:/en/BPI-R4/BananaPi_BPI-R4[Banana Pi BPI-R4] Router development board +
+MediaTek MT7987 (Filogic 860) design: link:/en/BPI-R4_Lite/BananaPi_BPI-R4_Lite[Banana Pi BPI-R4 Lite]  Router board +
+MediaTek MT7987 (Filogic 860) design: link:/en/BPI-R4_Mini/BananaPi_BPI-R4_Mini[Banana Pi BPI-R4 Mini]  Wifi7 Router board +
+MediaTek MT7986(Filogic 830) design: link:/en/BPI-R3_Mini/BananaPi_BPI-R3_Mini[Banana Pi BPI-R3 Mini] Mini size Router development board +
+MediaTek MT7986(Filogic 830) design: link:/en/BPI-R3/BananaPi_BPI-R3[Banana Pi BPI-R3] Router development board  +
+MediaTek MT7981(Filogic 820) design: link:/en/OpenWRT-One/BananaPi_OpenWRT-One[Banana Pi Openwrt One] Router development board  +
+MediaTek MT7623N design: link:/en/BPI-R2/BananaPi_BPI-R2[Banana Pi BPI-R2] Router development board 
 
 == Key Features
 
