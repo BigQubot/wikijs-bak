@@ -12,11 +12,15 @@ image::/bpi-lm7/bpi-lm7_core_board.jpg[bpi-lm7_core_board.jpg]
 BPI-LM7核心板采用瑞芯微RK3588旗舰芯片，集成6Tops NPU和高性能四核Mali-G610 MP4 GPU。采用LGA 506pin封装方式，可扩展多种显示接口和工业应用接口。使用开放的基板设计材料和开源sdk，可以有效地开发它。它支持多种操作系统，如Android, Ubuntu
 
 
-TIP: 瑞芯微（Rockchip） RK3588 设计 link:/zh/BPI-LM7/LM7[香蕉派 BPI-LM7] LGA 核心板 +
-瑞芯微（Rockchip） RK3588 设计 link:/zh/BPI-W3/BananaPi_BPI-W3[香蕉派 BPI-W3] LGA 核心板开发套件 +
-瑞芯微（Rockchip） RK3588 设计 link:/zh/BPI-M7/BananaPi_BPI-M7[香蕉派 BPI-M7] AI 单板计算机开发板 +
+TIP: 瑞芯微（Rockchip） RK3588 设计 link:/zh/BPI-M7/BananaPi_BPI-M7[香蕉派 BPI-M7] AI 单板计算机开发板 +
+瑞芯微（Rockchip） RK3576 设计 link:/zh/BPI-M5/BananaPi_BPI-M5_Pro[香蕉派 BPI-M5 Pro] AI 单板计算机开发板 +
+瑞芯微（Rockchip） RK3576 设计 link:/en/BPI-CM5_Pro/BananaPi_BPI-CM5_Pro[香蕉派 BPI-CM5 Pro] AI 核心板套件 +
+瑞芯微（Rockchip） RK3588s 设计 link:/zh/BPI-M7S/BananaPi_BPI-M7S[香蕉派 BPI-M7S] AI 单板计算机开发板 +
 瑞芯微（Rockchip） RK3588 设计 link:/zh/BPI-AIM7/BananaPi_BPI-AIM7[香蕉派 BPI-AIM7] 核心计算模块完全兼容 Jetson Nano/TX2 NX +
+瑞芯微（Rockchip） RK3588 设计 link:/zh/BPI-LM7/LM7[香蕉派 BPI-LM7] LGA 核心板 +
+瑞芯微（Rockchip） RK3588 设计 link:/zh/BPI-W3/BananaPi_BPI-W3[香蕉派 BPI-W3] LGA 核心板开发套件 +
 瑞芯微（Rockchip） RK3588 设计 link:/zh/BPI-RK3588_CoreBoardAndDevelopmentKit/BananaPi_BPI-RK3588_CoreBoardAndDevelopmentKit[BPI-RK3588 系列核心板] 核心板设计 
+
 
 
 == LGA 核心板关键特性
