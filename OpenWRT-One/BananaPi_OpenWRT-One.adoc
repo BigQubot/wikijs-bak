@@ -10,6 +10,15 @@ OpenWrt One uses Mediatek's MT7981B SoC with a dual-arm Cortex-a53 core at 1.3 G
 
 OpenWrt One is the first board design with OpenWrt opensource communtity.and designed in collaboration with Banana Pi that will also handle manufacturing and distribution of the router board. The OpenWrt One/AP-24.XY router should provide a source of income for the project, for example, to cover the cost of hosting and OpenWrt conferences, with Banana Pi selling the board through their distribution network, and for every device sold, donating to the Software Freedom Conservancy (SDC) with the funds earmarked for OpenWrt.
 
+TIP: MediaTek MT7988 (Filogic 880) design: link:/en/BPI-R4_Pro/BananaPi_BPI-R4_Pro[Banana Pi BPI-R4 Pro] Router development board +
+MediaTek MT7988 (Filogic 880) design: link:/en/BPI-R4/BananaPi_BPI-R4[Banana Pi BPI-R4] Router development board +
+MediaTek MT7987 (Filogic 860) design: link:/en/BPI-R4_Lite/BananaPi_BPI-R4_Lite[Banana Pi BPI-R4 Lite]  Router board +
+MediaTek MT7987 (Filogic 860) design: link:/en/BPI-R4_Mini/BananaPi_BPI-R4_Mini[Banana Pi BPI-R4 Mini]  Wifi7 Router board +
+MediaTek MT7986(Filogic 830) design: link:/en/BPI-R3_Mini/BananaPi_BPI-R3_Mini[Banana Pi BPI-R3 Mini] Mini size Router development board +
+MediaTek MT7986(Filogic 830) design: link:/en/BPI-R3/BananaPi_BPI-R3[Banana Pi BPI-R3] Router development board  +
+MediaTek MT7981(Filogic 820) design: link:/en/OpenWRT-One/BananaPi_OpenWRT-One[Banana Pi Openwrt One] Router development board  +
+MediaTek MT7623N design: link:/en/BPI-R2/BananaPi_BPI-R2[Banana Pi BPI-R2] Router development board 
+
 == MediaTek MT7981B(Filogic 820)
 
 MediaTek MT7981B is a compact Wi-Fi System-on-Chip (SoC) for IoT devices that includes an embedded TCP/IP stack. Using the MT7981B an IoT device can connect to other smart devices or to cloud applications and services. Connectivity on the MT7981B is achieved using Wi-Fi in either Wi-Fi station or access point (AP) modes. 
