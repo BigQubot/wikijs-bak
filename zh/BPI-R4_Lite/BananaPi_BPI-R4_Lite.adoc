@@ -4,6 +4,22 @@ image::/bpi-r4_lite/r4-lite-banner1.jpg[r4-lite-banner1.jpg, width=1000]
 
 Banana Pi BPI-R4 Lite 智能路由器板采用联发科MT7987A四核Arm Cortex-A53芯片设计，板载支持2GB DDR4和8G eMMC 存储。支持1个2.5G SFP光口和1个2.5G RJ45 WAN口，支持4个1G RJ45 LAN接口。支持M.2接口，可以扩展 4G/5G模块。1x miniPCIe插槽，PCIe3.0 2lane接口，用于Wi-Fi 7无线网卡。
 
+TIP: 联发科 MT7988(Filogic 880) 芯片设计: link:/zh/BPI-R4_Pro/BananaPi_BPI-R4_Pro[香蕉派 BPI-R4 Pro] 高性能路由器开发板 +
+9
+联发科 MT7988(Filogic 880) 芯片设计: link:/zh/BPI-R4/BananaPi_BPI-R4[香蕉派 BPI-R4] 高性能路由器开发板 +
+10
+联发科 MT7987(Filogic 860) 芯片设计: link:/zh/BPI-R4_Lite/BananaPi_BPI-R4_Lite[香蕉派 BPI-R4 Lite] 高性能路由器开发板 +
+11
+联发科 MT7987(Filogic 860) 芯片设计: link:/zh/BPI-R4_Mini/BananaPi_BPI-R4_Mini[香蕉派 BPI-R4 Mini] 迷你尺寸高性能路由器开发板 +
+12
+联发科 MT7986(Filogic 830) 芯片设计: link:/zh/BPI-R3_Mini/BananaPi_BPI-R3_Mini[香蕉派 BPI-R3 Mini] 迷你尺寸高性能路由器开发板 +
+13
+联发科 MT7986(Filogic 830) 芯片设计: link:/zh/BPI-R3/BananaPi_BPI-R3[香蕉派 BPI-R3] 高性能路由器开发  +
+14
+联发科 MT7981(Filogic 820) 芯片设计: link:/zh/OpenWRT-One/BananaPi_OpenWRT-One[香蕉派 Openwrt One] Openwrt社区官方开发板  +
+15
+联发科 MT7623N 芯片设计: link:/zh/BPI-R2/BananaPi_BPI-R2[香蕉派 BPI-R2] 高性能路由器开发板  +
+
 == MediaTek MT7987 芯片
 
 联发科MT7987A是世界领先的网络处理平台，可在有线和无线应用中提供高性能和可靠的网络体验。MT7987A包含丰富的连接接口集，包括1个12 2.5千兆以太网端口、2个HSGMII/SGMII接口、1个PCIe 3.0 2L/1+1L接口、1个USB 3.2 Gen1端口和1个USB 2.0 13端口，其中USB3端口与1个HSGMII/SGMII接口共用同一个接口；一次只能激活一个。MT7987A通过其Wi-Fi 7 配套芯片进一步实现无缝 Wi-Fi 7连接。
