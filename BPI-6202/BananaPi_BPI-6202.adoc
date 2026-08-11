@@ -4,9 +4,14 @@ BPI-6202 as a simple embedded general controller hardware and software developme
 
 BPI-6204 is an upgraded version of BPI-6202. The hardware is upgraded from RS485 x 2 + RS232 x 1 to RS485 x 4 + RS232 x 1+CAN x 1.
 
-TIP: Allwinner A40i design link:/en/BPI-M2_Berry/BananaPi_BPI-M2_Berry[Banana Pi BPI-M2 Berry] SBC design +
-Allwinner A40i design link:/en/BPI-AIM7/BananaPi_BPI-AIM7[Banana Pi BPI-M2 Ultra] SBC design +
+TIP: Allwinner H618 design : link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry[Banana Pi BPI-M4 Berry] Same size as Raspberry Pi 4B +
+Allwinner H618 design : link:/en/BPI-M4_Zero/BananaPi_BPI-M4_Zero[Banana Pi BPI-M4 Zero] Same size as Raspberry Pi Zere W +
+Allwinner A40i design link:/en/BPI-M2_Berry/BananaPi_BPI-M2_Berry[Banana Pi BPI-M2 Berry] SBC design +
+Allwinner A40i design link:/en/BPI-M2_Ultra/BananaPi_BPI-M2_Ultra[Banana Pi BPI-M2 Ultra] SBC design +
 Allwinner A40i design link:/en/BPI-6202/BananaPi_BPI-6202[Banana Pi BPI-6202] Industrial control gateway +
+Allwinner H3 design: link:/en/BPI-M2_Plus/BananaPi_BPI-M2_Plus[Banana Pi BPI-M2+] SBC with eMMC onboard +
+Allwinner H3 design: link:/en/BPI-M2_Zero/BananaPi_BPI-M2_Zero[Banana Pi BPI-M2 Zero] same size as Raspberry Pi Zero W +
+Allwinner H3 design: link:/en/BPI-P2_Zero/BananaPi_BPI-P2_Zero[Banana Pi BPI-P2 Zero] for IoT design +
 Loongson 2K1000LA design: link:/en/BPI-5202/BananaPi_BPI-5202[Banana Pi BPI-5202] Embedded single board industrial computer
 
 = Getting Start
