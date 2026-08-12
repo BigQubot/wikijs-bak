@@ -29,3 +29,58 @@ The BPI-M8 boasts a rich array of peripherals, including USB, DP, UFS, HDMI, MIP
 | Size & Weight   | 
 | OS              | 
 |=====
+
+== GPIO Pin Define
+
+.BPI-M8 40PIN GPIO
+[%collapsible]
+====
+[options="header",cols="1,2",width="70%"]
+|=====
+2+| **40 PIN GPIO of Banana pi BPI-M8**
+| Pin Num | Pin Name 
+| 1  | DCDC1 
+| 2  | VBUS-AXP318 
+| 3  | PJ23/TWI7-SDA
+| 4  | VBUS-AXP318
+| 5  | PJ22/TWI7-SCK
+| 6  | GND 
+| 7  | PL05/PWM0-3
+| 8  | PB00/UART2-TX 
+| 9  | GND 
+| 10 | PB01/UART2-RX
+| 11 | PL12/S-UART1-TX
+| 12 | HD-PIN12 
+| 13 | PL13/S-UART1-RX 
+| 14 | GND 
+| 15 | PL06/S-UART0-TX 
+| 16 | PB02/UART2-RTS 
+| 17 | DCDC1
+| 18 | PB03/UART2-CTS
+| 19 | PJ25/SPI3-MOSI
+| 20 | GND  
+| 21 | PJ26/SPI3-MISO 
+| 22 | HD-PIN22 
+| 23 | PJ24/SPI3-CLK 
+| 24 | HD-PIN24
+| 25 | GND 
+| 26 | PJ27/SPI3-CS0 
+| 27 | HD-PIN27
+| 28 | HD-PIN28 
+| 29 | PL07/S-UART0-RX
+| 30 | GND 
+| 31 | HD-PIN31 
+| 32 | HD-PIN32
+| 33 | HD-PIN33 
+| 34 | GND 
+| 35 | HD-PIN35 
+| 36 | HD-PIN36
+| 37 | HD-PIN37 
+| 38 | HD-PIN38
+| 39 | GND 
+| 40 | HD-PIN40
+|=====
+====
+
+
+
