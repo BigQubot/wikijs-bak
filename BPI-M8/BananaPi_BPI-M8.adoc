@@ -94,5 +94,185 @@ The BPI-M8 boasts a rich array of peripherals, including USB, DP, UFS, HDMI, MIP
 |=====
 ====
 
+.BPI-M8 MIPI CSIA
+[%collapsible]
+====
+[options="header",cols="1,2",width="70%"]
+|=====
+2+| **MIPI CSIA of Banana pi BPI-M8**
+| Pin Num | Pin Name 
+| 1  | MCSIA-D3N 
+| 2  | MCSIA-D3P
+| 3  | GND
+| 4  | MCSIA-D2N
+| 5  | MCSIA-D2P
+| 6  | GND 
+| 7  | NC
+| 8  | NC
+| 9  | GND 
+| 10 | MCSIA-D1N
+| 11 | MCSIA-D1P
+| 12 | GND 
+| 13 | MCSIA-D0N
+| 14 | MCSIA-D0P
+| 15 | GND
+| 16 | MCSIA-CKN
+| 17 | MCSIA-CKP
+| 18 | GND
+| 19 | PE00/MCSI-A-MCLK
+| 20 | PE06/MCSI-A-STBY
+| 21 | PE07/MCSI-A-RST
+| 22 | PE10/TWI4-SCK
+| 23 | PE11/TWI4-SDA
+| 24 | GND
+| 25 | NC
+| 26 | NC
+| 27 | NC
+| 28 | NC
+| 29 | NC
+| 30 | VCC1V8_CSI0
+| 31 | GND
+| 32 | GND
+| 33 | VCC3V3_CSI0 
+| 34 | VCC3V3_CSI0
+| 35 | VCC3V3_CSI0
+| 36 | GND
+| 37 | GND
+|=====
+====
+
+.BPI-M8 MIPI CSIB
+[%collapsible]
+====
+[options="header",cols="1,2",width="70%"]
+|=====
+2+| **MIPI CSIB of Banana pi BPI-M8**
+| Pin Num | Pin Name 
+| 1  | MCSIB-D3N
+| 2  | MCSIB-D3P
+| 3  | GND
+| 4  | MCSIB-D2N
+| 5  | MCSIB-D2P
+| 6  | GND 
+| 7  | NC
+| 8  | NC
+| 9  | GND 
+| 10 | MCSIB-D1N
+| 11 | MCSIB-D1P
+| 12 | GND 
+| 13 | MCSIB-D0N
+| 14 | MCSIB-D0P
+| 15 | GND
+| 16 | MCSIB-CKN
+| 17 | MCSIB-CKP
+| 18 | GND
+| 19 | PE05/MCSI-B-MCLK
+| 20 | PE08/MCSI-B-STBY
+| 21 | PE09/MCSI-B-RST
+| 22 | PE03/TWI3-SCK
+| 23 | PE04/TWI3-SDA
+| 24 | GND
+| 25 | AP-NMI
+| 26 | PMU-PWRON
+| 27 | AP-RESET
+| 28 | PMU-SCK
+| 29 | PMU-SDA
+| 30 | VCC1V8_CSI1
+| 31 | GND
+| 32 | GND
+| 33 | VCC3V3_CSI1 
+| 34 | VCC3V3_CSI1
+| 35 | VCC3V3_CSI1
+| 36 | GND
+| 37 | GND
+|=====
+====
+
+.BPI-M8 PCIe+DP
+[%collapsible]
+====
+[options="header",cols="1,2",width="70%"]
+|=====
+2+| **PCIe+DP of Banana pi BPI-M8**
+| Pin Num | Pin Name 
+| 1  | COMB1-TX0P
+| 2  | COMB1-TX0N
+| 3  | GND
+| 4  | COMB1-RX0P
+| 5  | COMB1-RX0N
+| 6  | GND 
+| 7  | COMB1-REFP
+| 8  | COMB1-REFN
+| 9  | GND 
+| 10 | DP_TX0P
+| 11 | DP_TX0N
+| 12 | GND 
+| 13 | DP_TX1P
+| 14 | DP_TX1N
+| 15 | GND
+| 16 | DP_AUXP
+| 17 | DP_AUXN
+| 18 | DP_HPD
+| 19 | HOST-D4M
+| 20 | HOST-D4P
+| 21 | GND
+| 22 | PCIE-PERSTn-3p3V
+| 23 | PCIE-WAKEn-3p3v
+| 24 | PCIE-CLKREQn-3p3v
+| 25 | PCIE-PWREN-3p3v
+| 26 | VDD1P8V-PCIe
+| 27 | GND
+| 28 | GND
+| 29 | VDD5P0V-PCIe
+| 30 | VDD5P0V-PCIe
+| 31 | VDD5P0V-PCIe
+| 32 | GND
+| 33 | GND
+|=====
+====
+
+.BPI-M8 MIPI DSI0
+[%collapsible]
+====
+[options="header",cols="1,2",width="70%"]
+|=====
+2+| **MIPI DSI0 of Banana pi BPI-M8**
+| Pin Num | Pin Name 
+| 1  | MIPI-DSI0-D0N
+| 2  | MIPI-DSI0-D0P
+| 3  | GND
+| 4  | MIPI-DSI0-D0P
+| 5  | MIPI-DSI0-D1P
+| 6  | GND 
+| 7  | MIPI-DSI0-CKN
+| 8  | MIPI-DSI0-CKP
+| 9  | GND 
+| 10 | MIPI-DSI0-D2N
+| 11 | MIPI-DSI0-D2P
+| 12 | GND 
+| 13 | MIPI-DSI0-D3N
+| 14 | MIPI-DSI0-D3P
+| 15 | GND
+| 16 | GPADC6
+| 17 | PD18/LCD-PWREN
+| 18 | PD21/LCD-RST
+| 19 | PD19/LCD-BLEN
+| 20 | PD22/LCD-PWM
+| 21 | GND
+| 22 | PD23/TP-INT
+| 23 | PD20/TP-RST
+| 24 | PD16/TWI2-SCK
+| 25 | PD17/TWI2-SDA
+| 26 | VDD1P8V-DSI0
+| 27 | GND
+| 28 | GND
+| 29 | VDD5P0V-DSI0
+| 30 | VDD5P0V-DSI0
+| 31 | VDD5P0V-DSI0
+| 32 | GND
+| 33 | GND
+|=====
+====
+
 
 
