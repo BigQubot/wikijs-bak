@@ -1,0 +1,192 @@
+= 概述
+
+Banana Pi BPI-Secure-Pi SP2302 单板计算机 (SBC) 基于 Secure MPU MH1905 核心板，是一款先进的单板计算机，集成了 Megahunt 的 Secure MPU MH1905 和 Linux 操作系统，专为严苛的工业级应用而设计。与 Raspberry Pi 类似，它配备 40 针扩展接口，支持 100Mbps 以太网、WiFi/BLE 无线网卡，提供多样化的连接方式，以及包括四个 USB 端口和 HDMI 输出在内的多种接口。SP2302 是寻求可靠物联网解决方案平台的开发人员的理想之选，它提供增强的性能和安全性，完美适用于从自动化到工业嵌入式系统的各种应用。
+
+BPI-Secure-Pi 基于 Secure MPU MH1905 的安全基础，旨在为您的工业开发项目提供无与伦比的安全性。MH1905 已通过严格的金融级 PCI PTS 6.X 安全认证，显著降低了高标准应用合规的难度和时间。 BPI-Secure-Pi 通过安全启动技术确保可信启动过程，并提供强大的物理攻击防护，例如差分功耗分析 (DPA) 和简单功耗分析 (SPA)。此外，它还包含先进的硬件加密加速功能，支持包括 AES、DES、SHA、RSA 和 ECC 在内的多种算法。这些特性使 BPI-Secure-Pi 成为一个极其安全的平台，是处理敏感数据和在任何物联网或嵌入式应用中执行安全交易的理想之选。
+
+== 主要特点
+
+* 高性能处理器和内存：
+
+** 处理器：MH1905 处理器，Cortex-A5，最高主频 1.2GHz
+
+** 内存：512MB DDR3L，512MB NAND 闪存
+
+* 增强的连接性和接口选项：
+
+** 网络通信：提供以太网、WiFi 和蓝牙等多种连接方式，满足多样化的连接需求。
+
+** HDMI 接口：支持高清输出。
+
+** MIPI 摄像头接口：支持高级成像解决方案。
+
+* 紧凑坚固的设计：
+
+** 尺寸：120mm x 70mm
+
+** 电源：Type-C USB
+
+** 等级：提供商用级和工业级两种选择
+
+* 主板参数和特性：
+
+** 以太网：10/1000M 接口，实现高速网络连接。
+
+** USB 端口：四个 USB 2.0 端口，可连接多种外设。
+
+**兼容GPIO引脚：兼容树莓派2和3的GPIO引脚
+
+**通信：包含用于串行通信的UART接口。
+
+**无线连接：双频2.4GHz/5GHz WiFi和蓝牙模块。
+
+**扩展：Micro SD卡槽以及多种传感器（电压、毛刺、温度、时钟）。
+
+== 高级安全功能
+
+SP2302 凭借其全面的安全防护功能，为嵌入式系统安全树立了新的标杆：
+
+** PCI PTS 6.X 安全认证：符合金融级安全标准。
+
+** 安全启动和主动屏蔽：确保可信的启动过程并抵御物理攻击。
+
+** 防 DPA/SPA 技术：抵御电源分析攻击。
+
+** 防篡改保护：最多支持 10 个通道，有效防止篡改。
+
+** 硬件加密加速：支持多种算法，包括 AES、DES、SHA、RSA、ECC 等，确保快速、安全的数据加密和认证。
+
+== MH1905 应用
+
+* 门禁系统
+
+* 智能家电
+
+* 人机界面 (HMI)
+
+* 自动售货机
+
+* 支付终端/销售点 (POS) 系统
+
+* 电子阅读器
+
+* 一维/二维条码扫描器/二维码扫描器
+
+* 高性能打印机
+
+* 带支付功能的电动汽车充电器
+
+* 电动两轮车控制器和显示屏
+
+* 物联网网关/集成连接
+
+image::/bpi-secure-pi/target_app.png[target_app.png]
+
+== 快速入门
+
+= 硬件
+
+== 硬件接口
+
+image::/bpi-secure-pi/banana_pi_bpi-secure-pi_interface.jpg[banana_pi_bpi-secure-pi_interface.jpg]
+
+== 硬件照片
+
+link:/en/BPI-Secure-Pi/BPI-Secure-Pi[Banana Pi BPI-Secure-Pi Product photo gallery]
+
+== 硬件规格
+
+[options="header",cols="1,4",width="70%"]
+|=====
+2+| **BPI-Secure-Pi 硬件规格**
+|中央处理器 |MH1905 处理器 - Cortex-A5，最高主频 1.2GHz，32 位 RISC 内核，最高频率 200MHz
+|存储 | 512MB DDR3L，512MB NAND闪存
+|无线| SDIO AP6212 用于 Wi-Fi 和蓝牙 4.0
+.2+|USB |1 个 USB2.0 Type-C OTG 接口，5V 电源适配器
+|4 个 USB2.0 Type-A 主机接口
+|网口| 10/100Mbps 以太网接口
+.2+|HDMI| HDMI接口
+|MIPI LCD接口
+|摄像| 1* MIPI 摄像头接口
+.2+|音频|1 个 3.5 毫米耳机插孔，用于音频输出
+|耳机插孔麦克风用于音频输入
+|电池| 支持 3.7V 锂电池供电
+|灯|1 个蓝色 LED 灯，HDMI LED 灯
+|安全功能|PSAM插座/温度传感器
+|GPIO|树莓派40引脚兼容布局
+|=====
+
+== 引脚定义
+
+=== 40 引脚 GPIO 定义
+
+[options="header",cols="1,1,1,1",width="70%"]
+|=====
+4+| **BPI-Secure-Pi 硬件规格**
+|GPIO引脚名称	|默认功能	|功能2：GPIO	|功能3
+|CON1-P01	|VDD_3V3	|	|
+|CON1-P02	|VDD_5V	|	|
+|CON1-P03	|I2C0_SDA	|GPIO_116	|
+|CON1-P04	|VDD_5V		| |
+|CON1-P05	|I2C0_SCL	|GPIO_115	|
+|CON1-P06	|GND	| |	
+|CON1-P07	|PWM7	|GPIO_79	 |
+|CON1-P08	|UART2_TXD	GPIO_18	| |
+|CON1-P09	|GND	 | |	
+|CON1-P10	|UART2_RXD	|GPIO_19	 |
+|CON1-P11	|GPIO_03	|GPIO_03	|
+|CON1-P12	|SPI3_SCLK	|GPIO_28	|
+|CON1-P13	|GPIO_17	|GPIO_17	|PWM7
+|CON1-P14	|GND		||
+|CON1-P15	|UART2_RTS	|GPIO_21	|
+|CON1-P16|	UART2_CTS|	GPIO_20	|
+|CON1-P17	|VDD_3V3	|	|
+|CON1-P18	|PWM3	|GPIO_35	|UART3_RXD
+|CON1-P19	|SPI2_MOSI	|GPIO_111	|
+|CON1-P20	|GND	||	
+|CON1-P21	|SPI2_MISO|	GPIO_112	|
+|CON1-P22|	PWM2|	GPIO_34|	UART3_TXD
+|CON1-P23	|SPI2_CLK	|GPIO_109	|PWM6
+|CON1-P24	|SPI2_CS0|	GPIO_110|	PWM7
+|CON1-P25	|GND	||	
+|CON1-P26	|SPI2_CS1|	GPIO_77	|PWM5
+|CON1-P27	|I2C0_SDA|	GPIO_51|	
+|CON1-P28	|I2C0_SCL	|GPIO_50	|
+|CON1-P29	|GPIO_104|	GPIO_104|	PWM1
+|CON1-P30	|GND	||	
+|CON1-P31	|GPIO_101	|GPIO_101|	UART0_TXD
+|CON1-P32	|PWM6	|GPIO_16	|
+|CON1-P33	|PWM1	|GPIO_33	|
+|CON1-P34	|GND		| |
+|CON1-P35	|SPI3_CS	|GPIO_29	|
+|CON1-P36	|GPIO_102|	GPIO_102	|UART0_RXD
+|CON1-P37	|GPIO_103|	GPIO_103	|PWM0
+|CON1-P38	|SPI3_MISO|	GPIO_31	|
+|CON1-P39	|GND		||
+|CON1-P40	|SPI3_MOSI|	GPIO_30	|		
+|=====
+
+= 开发
+
+== 源代码
+
+GitHub上的源码： https://github.com/SecurePi
+
+== 资源
+
+* 原理图
+
+* DXF 文件
+
+* MH1905 数据手册
+
+* Hackster 文档： https://www.hackster.io/securepi1905
+
+* Banana Pi BPI-Secure-Pi SP2302 单板计算机： https://www.youtube.com/watch?v=6L_DRB6vcOE
+
+图片发布
+
+购买便捷
+
+* OEM&ODM 设计，请联系：judyhuang@banana-pi.com
+
