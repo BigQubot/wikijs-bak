@@ -28,21 +28,98 @@ image::/bpi-ai2n/bpi-ai2n_core_interface1.jpg[bpi-ai2n_core_interface1.jpg]
 
 image::/bpi-ai2n/bpi-ai2n-carrier_interface1.jpg[bpi-ai2n-carrier_interface1.jpg]
 
+== 硬件规格
+
+[options="header",cols="1,5"]
+|====
+2+| BPI-AI2N硬件规格
+|SoC |RZ/V2N
+|系统内存 | 8GB LPDDR4X
+.3+|Storage
+|64 MB SPI NAND 闪存
+|32GB eMMC
+|SD卡插槽
+.3+|Button
+|睡眠按钮
+|电源按钮
+|恢复按钮
+|网口 |2 x GbE RJ45 接口
+.1+|USB 
+|2x USB 3.0 Type-A 接口
+|DSI|1x MIPI DSI
+|CSI|2x MIPI CSI
+|风扇接口| PH-3PIN 连接器（5V 风扇，带 PWM）
+|调试口 | USB Type-C 接口
+|M.2 KEY | M.2 KEYM 接口，适用于 SSD (2280)
+|RTC | 支持板载实时时钟（CR1220）
+|WiFi | 板载WiFi模块
+|GPIO | 40 PIN GPIO
+.2+|电源
+|USB-C 端口支持 12V USB-PD 快充
+|DC12V 输入
+|Size | 79 x 100 毫米，兼容 BPI-AI2N
+|====
+
+
+
 = 参考资料
 
+== 资源
+
+NOTE: V2N 数据手册： http://renesas.com/en/products/rz-v2n
+
+NOTE: BPI-AI2N-Carrier-V11_ASSY.pdf
+
+Baidu:  https://pan.baidu.com/s/1WcI0hORq8NtA-7m_SjiDLg?pwd=8888 code: 8888 
+
+Google: https://drive.google.com/file/d/1Lh3W8pPI7_a78VOXuSWRO80hXKQRzr5D/view?usp=sharing
+
+NOTE: BPI-AI2N-Carrier-V11-SCH-20250521-Release.pdf
+
+Baidu: https://pan.baidu.com/s/1cQWpGZbI_dHCeybN0lQNLw?pwd=8888 code: 8888 
+
+Google: https://drive.google.com/file/d/1AfuJh56Ryc3_p1U4Tr921ElB-rj53UfO/view?usp=sharing
+
+NOTE: BPI-AI2N-Core-V11_ASSY.pdf
+
+Baidu: https://pan.baidu.com/s/1kZc02ibslznrzENGnqaVNA?pwd=8888 code: 8888 
+
+Google: https://drive.google.com/file/d/1-uIA5pMMAMq55QmFPGwChTTA6hPeua5A/view?usp=sharing
+
+NOTE: BPI-AI2N-Core-V11-SCH-20250512.pdf
+
+Baidu: https://pan.baidu.com/s/177iqvUA8cJeoi8Y2zq5I6w?pwd=8888 code: 8888 
+
+Google: https://drive.google.com/file/d/1qzXm5ewjoLi1XCA6IGpTQ08pZScMkjhc/view?usp=sharing
+
+
 == 软件源代码
+
+== Source Code
+
+TIP: Yocto 的github源码: https://github.com/BPI-SINOVOIP/meta-bananapi/tree/bpi-ai2n
+
+TIP: Armbian 的github源码: https://github.com/BPI-SINOVOIP/armbian-build/tree/bpi-v25.8.1
+
 
 == Linux 系统镜像
 
 === Armbian
 
-link:https://pan.baidu.com/s/1wpXLLBD5IIUrGFpgq6BvIA?pwd=hkga[Baidu Pan]
+NOTE: Baidu: https://pan.baidu.com/s/1ucllxx5UUVwTaAQMy7rKOQ?pwd=8888 pwd: 8888 
+
+NOTE: Google drive: https://drive.google.com/file/d/1t5pGPPl7_NGYN-mj5P4UbdGDlyp1hX65/view?usp=sharing
 
 === Yocto
 
-link:https://pan.baidu.com/s/16l5zZ5rMoAt4xLy_KXXIlw?pwd=bmrn[Baidu Pan]
+NOTE: Baidu: https://pan.baidu.com/s/1tgnlPEBOr0Ijfhx1F4eoRw?pwd=8888 pwd: 8888 
+
+NOTE: Google drive: https://drive.google.com/file/d/1MhvyBq8eGBg2dmXOngnVh41kNgicJwXj/view?usp=sharing
 
 = 样品购买
 
-* Taobao shop: https://item.taobao.com/item.htm?ft=t&id=1074257311649
+* 淘宝商店: https://item.taobao.com/item.htm?ft=t&id=1074257311649
+
+* Banana Pi 官网商店: https://www.bpi-shop.com/products/bananapi-bpi-ai2n-with-renesas-rzv2n-ai-chip-design.html
+
 
