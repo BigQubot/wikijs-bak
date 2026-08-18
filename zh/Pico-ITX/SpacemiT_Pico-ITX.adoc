@@ -1,0 +1,114 @@
+= K3 Pico-ITX 简介
+
+K3 Pico-ITX 是一款超集成迷你 AI 单板计算机。它采用紧凑的 2.5 英寸尺寸，集成了 60 TOPS 的通用 AI 计算能力、一颗 8 核 RVA23 处理器和 8 个智能计算核心。其统一的内存架构可流畅部署拥有 300 亿个参数的大型模型。板载 UFS 存储（速度比 eMMC 快 3.4 倍）和功能齐全的 Type-C 接口（支持 65W PD 供电和 4K DP 显示）可实现“一线即用”的体验。双 M.2 扩展插槽（包括 PCIe Gen3 x4）和 10Gb 光纤端口支持高速存储和集群部署。EtherCAT 和 CAN-FD 等灵活 I/O 的实时核心间输出可满足微秒级运动控制要求。其工业级架构与 eDP 显示接口相结合，可帮助行业客户快速评估和集成系统，加速 AI 边缘计算和机器人技术的商业化。
+
+== 关于 SpacemiT K3
+
+image::/bpi-sm10/spacemit_k3_ai_chip.jpg[spacemit_k3_ai_chip.jpg]
+
+* SpacemiT K3 芯片 : https://www.spacemit.com/products/keystone/k3
+
+=== K3简报
+
+* Google 云端硬盘链接: https://drive.google.com/file/d/1BTGIb1Xchi3w1ICUPXK_TaWwqjhtNEkm/view?usp=sharing
+
+== 主要特点
+
+* 智能计算集成
+
+** K3 八核处理器符合 RVA23 标准，提供 60 TOPS 的通用 AI 计算能力，并支持 IME 扩展和全虚拟化。
+
+** 计算核心和智能计算核心共享统一的内存架构，支持部署 300 亿参数的模型。
+
+* 即插即用
+
+** 板载 UFS 本地存储速度比业界标准的板载 eMMC 快 3.4 倍。
+
+** 功能齐全的 Type-C 接口支持 65W PD 协议供电和 4K DP 显示，只需一根线缆即可立即启动计算功能。
+
+* 灵活扩展
+
+** 配备双扩展插槽：一个 M.2 B-Key 插槽和一个 M-Key 插槽。M-Key 插槽采用 4 通道 PCIe Gen3 设计，支持全链 NVMe SSD 扩展。
+
+** 板载 10 千兆 PCIe 以太网，并支持 10G-BASE-R 光纤接口，可实现低延迟、高吞吐量的数据传输，并支持集群部署。
+
+* 快速集成
+
+** 板载 eDP 接口，适用于工业应用中的高清显示屏，支持显示产品的系统集成。
+
+** RT24 实时内核配备灵活的扩展 I/O 插槽，支持 EtherCAT 和 CAN-FD 等接口，满足微秒级运动控制和机器人等应用的需求。
+
+** MUSE 系列架构采用分层式散热系统，可优化 CPU 计算能力的释放。
+
+= 快速入门
+
+TIP: link:/en/Pico-ITX/GettingStarted_K3Pico-ITX[K3 Pico-ITX 快速入门]
+
+= 硬件
+
+== 板接口
+
+=== 电路板规格
+
+NOTE: M.2 B-Key PCIe ×2 通道与 M-Key 插槽共享；当两者都安装时，M.2 M-Key 以 PCIe Gen3 ×2 运行。
+
+[options="header",cols="2,6",width="70%"]
+|=====
+2+| **K3 Pico-ITX RISC-V 核心板硬件规格**
+|类型 | 描述
+|处理器 | SpacemiT K3 拥有 8 个 2.4GHz 的核心，集成了 60 TOPS 的 AI 计算能力，符合 RVA23 标准，支持 IME 向量扩展和完全虚拟化。
+.2+| 显示
+| DP Type-C接口，支持最高4K 3840 × 2160分辨率，60Hz刷新率
+| 40针EDP接口，支持最高2.5K（2560×1600）分辨率，90Hz刷新率
+| 内存 | 双通道 2 × 32 位 LPDDR5，速度 6400MT/s，可选 16GB/32GB 容量。
+| 内置存储 | UFS 2.2，可选容量：128GB/256GB
+| 存储扩展 | M.2 B-Key 接口，兼容 2242/3042 规格扩展卡，PCIe Gen3 x2 和 USB 信号*
+| 实时扩展 | FPC 连接器支持实时信号扩展，例如 EtherCAT、5 通道 CAN-FD、SPI、I2C 和 UART。
+| 无线 | 板载 PCIe Wi-Fi 6 + BT5.2 模块，符合 802.11a/b/g/n/ac/ax 标准，双天线，双频
+| 有线网络 | 支持一个以太网端口，RJ45接口，1000M/100M自适应速率
+| 可选网络 | 10GbE SFP+ 端口，支持 10GBASE-R / 10GBASE-X、QinQ、MSI-X、WOL 和集群功能
+| 音频 | 板载编解码器，内部音频输入/输出
+.2+| USB接口 | 2 个 USB 3.2 Gen1 Type-C 接口（1 个全功能接口，1 个 OTG 接口） |4 个 USB 2.0 Type-A 主机接口
+|调试	|UART、JTAG接口，以及用于电源、复位和固件更新的3个侧边按钮
+|系统管理	| 板载EC控制器，用于显示电源、温度和系统状态；包含I²C/UART/GPIO扩展接口
+|外形尺寸	|100 × 86 毫米，Pico-ITX Plus 单板计算机，尺寸与 2.5 英寸硬盘大致相同
+|操作系统	| 预装 Bianbu 3.0；支持 Ubuntu 26.04、OpenHarmony 6.0、OpenKylin、Deepin、Fedora 等。
+|电源输入	|Type-C USB-PD (65W) 或 ATX 2 针 12V @ 7A
+.2+|可靠性 | ESD 防护：电路板：±4 kV（接触），±8 kV（空气）；系统：±6 kV（接触），±12 kV（空气）
+|符合 CCC、CE 和 FCC 标准；工作温度：-20 °C ～ 70 °C（消费级）/ -40 °C ～ 85 °C（工业级）
+|时钟	|板载实时时钟，带电池接口，支持G3状态
+.3+|结构 | 可选单板或风冷散热器组件
+| 可选单板或全金属工业机箱
+| 可选实时板、触摸屏、接线端子
+|=====
+
+= 配件
+
+[options="header",cols="1,1,3,1",width="70%"]
+|=====
+| 类别 | 名称 | 描述 | 规格
+.7+| 外设
+| 固态硬盘 | 980GB NVMe™ M.2 固态硬盘，PCIe Gen 3.0 ×4，NVMe 1.4，顺序读取速度高达 3,500 MB/s，顺序写入速度高达 3,000 MB/s | M.2 M-Key 2280
+| 固态硬盘 | B+M NVMe 固态硬盘 128GB | M.2 B-Key 2242
+| 4G 模块 | EM05 | M.2 B-Key 3042
+|SATA 扩展卡 |PCIe 转 5 个 SATA 接口 |M.2 M-Key 2280
+|扩展坞 |Type-C 扩展坞，支持高清 4K 显示器、PD 充电、USB 3.0（平板电脑/笔记本电脑三合一）|全功能 Type-C 接口
+|超高清显示屏 |16 英寸 2.5K LCD，90 Hz，2560 × 1600 分辨率 |40 针 eDP 接口
+|实时控制扩展 |板载 19V 输入，5 个 CAN-FD、EtherCAT、RS232 和 RS485 I/O 接口
+工业级隔离保护 |FPC
+.2+|结构配件 | 嵌入式风扇散热器 | 定制铝制设计 | 风扇
+| 金属机箱 | 120 × 120 × 48 毫米自主研发金属机箱 | BTN
+
+|=====
+
+= 文件
+
+== 资源
+
+== 源代码
+
+= 系统镜像
+
+= 购买样品
+
+
