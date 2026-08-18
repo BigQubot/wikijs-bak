@@ -413,11 +413,22 @@ Google：   https://drive.google.com/file/d/14yLY03b0ZTOKOQII_fjmhaBkov8ja-oC/vi
 
 == mxl chip firmware
 
-TIP: mxl862xxc_1030_1085_1085_0069_signed_xfi_upgrade_fca
+TIP: mxl862xxc_1030_1085_1085_0069_signed_xfi_upgrade_fca.bin
 
 google: https://drive.google.com/file/d/1UWM9FcXXODB3urIuEHKBPlv8zLsU08_E/view?usp=sharing
 
 Baidu:  https://pan.baidu.com/s/1dgXbMNBZUGYdJ9GgM0ZB4g?pwd=8888 code: 8888
+
+TIP: mxl862xxc_1030_1085_1085_0069_signed_upgrade_xfi_v2.bin
+
+- Change the default configurations for _dsa.bin and _xfi.bin.
+- Reduce the startup configuration size to 4 KB.
+- Disable the port map update service in cfg_in_seq_attached.c.
+
+Google  : https://drive.google.com/file/d/1N6zv__mFRzfGyTEvkQuqRd5JhEtRrqs0/view?usp=sharing
+
+Baidu:  https://pan.baidu.com/s/1dl2jbVtLR3KKGyu78D-Lug?pwd=8888 code: 8888
+
 
 = FAQ
 link:/en/BPI-R4Pro/BananaPi_BPI-R4Pro_FAQ[BPI-R4Pro FAQ]
