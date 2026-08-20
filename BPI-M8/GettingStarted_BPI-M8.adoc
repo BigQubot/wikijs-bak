@@ -185,3 +185,113 @@ PING baidu.com (124.237.177.164) 56(84) bytes of data.
 Connect to the display via HDMI cable.
 
 image::/bpi-m8/bananapi-pi_m8_hdmi_1.jpg[bananapi-pi_m8_hdmi_1.jpg]
+
+== Button
+
+=== PWR
+
+Power off by short pressing the PWR button. 
+
+The following log will appear when shutting down:
+```sh
+root@bananapim8:~#
+[ 2010.090118][    T1] npu[1][1] unregister cooling
+[ 2010.095369][    T1] npu[1][1] remove opp freq: 492000000
+[ 2010.101349][    T1] npu[1][1] remove opp freq: 852000000
+[ 2010.107323][    T1] npu[1][1] remove opp freq: 1008000000
+[ 2010.113401][    T1] sunxi:vin:[WARN]: video0 device have been closed!
+[ 2010.193946][    T1] reboot: Power down
+```
+
+Power on by long pressing the PWR button.
+
+== Audio
+
+Using aplay commands, you can find that the M8's sound card has two outputs:
+
+. HP headphone output
+. HDMI output
+
+```sh
+root@bananapim8:~# aplay -l
+**** List of PLAYBACK Hardware Devices ****
+card 0: sndi2s0 [sndi2s0], device 0: sunxi-snd-plat-i2s-ac101-codec sunxi-ac101.15-001a-0 []
+  Subdevices: 0/1
+  Subdevice #0: subdevice #0
+card 1: allwinnerhdmi [allwinner-hdmi], device 0: sunxi-snd-plat-i2s-sunxi-snd-codec-hdmi soc@3000000:hdmi_codec- []
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+```
+
+== RTC
+
+Connect batteries with a 2mm spacing to power the RTC.
+
+View system RTC configuration
+
+```sh
+root@bananapim8:~# dmesg | grep -Ei "rtc|sunxi-rtc"
+[    0.054099] sunxi:ccu-ng:[INFO]: sunxi rtc-ccu version: 0.5.5
+[    0.065807] sunxi:ccu-ng:[INFO]: rtc_ccu: sunxi ccu init OK
+[    0.201736] axp8191-rtcldo: supplied by regulator-dummy
+[    2.838689] sunxi-rtc 7090000.rtc: errata__fix_alarm_day_reg_default_value(): ALARM0_DAY_REG=0, set it to 1
+[    2.850795] sunxi-rtc 7090000.rtc: registered as rtc0
+[    2.857255] sunxi-rtc 7090000.rtc: sunxi rtc probed
+[    5.509982] [drm] sunxi_de_bind crtc init for de 0 ok
+[    5.517001] [drm] sunxi_de_bind crtc init for de 1 ok
+[   21.530070] [drm] [SUNXI-CRTC]sunxi_crtc_atomic_enable
+```
+
+Set RTC time
+
+```sh
+root@bananapim8:~# date -s "2026-08-20 16:30:00" //Set system time
+2026年 08月 20日 星期四 16:30:00 CST  
+root@bananapim8:~# hwclock -w -f /dev/rtc0 //RTC writing time
+root@bananapim8:~# hwclock -r -f /dev/rtc0 //RTC reading time
+2026-08-20 16:30:28.460504+08:00
+root@bananapim8:~# date  //Query system time
+2026年 08月 20日 星期四 16:30:42 CST
+root@bananapim8:~# hwclock -r -f /dev/rtc0
+2026-08-20 16:30:52.447590+08:00
+```
+
+Power off to verify if RTC is working
+
+```sh
+root@bananapim8:~# date -s "2026-08-20 16:30:00" //Set system time
+2026年 08月 20日 星期四 16:30:00 CST  
+root@bananapim8:~# hwclock -w -f /dev/rtc0 //RTC writing time
+root@bananapim8:~# hwclock -r -f /dev/rtc0 //RTC reading time
+2026-08-20 16:30:28.460504+08:00
+root@bananapim8:~# date  //Query system time
+2026年 08月 20日 星期四 16:30:42 CST
+root@bananapim8:~# hwclock -r -f /dev/rtc0
+2026-08-20 16:30:52.447590+08:00
+```
+
+A few minutes after a power outage, the RTC clock is still active, but the system clock has been stopped for several minutes.
+
+```sh
+root@bananapim8:~# date
+2026年 08月 20日 星期四 16:41:54 CST
+root@bananapim8:~# hwclock -r -f /dev/rtc0
+2026-08-20 16:43:04.558201+08:00
+```
+
+== FAN
+
+Query system fan control PWM device
+
+```sh
+root@bananapim8:~# cat /sys/class/hwmon/hwmon0/name
+pwmfan
+root@bananapim8:~# ls /sys/class/hwmon/
+hwmon0
+```     
+Use commands to control the fan switch
+
+```sh
+root@bananapim8:~# echo 1 > /sys/class/hwmon/hwmon0/pwm1
+root@bananapim8:~# echo 0 > /sys/class/hwmon/hwmon0/pwm1
+```     
