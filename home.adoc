@@ -9,57 +9,77 @@ Welcome free discuss on link:http://forum.banana-pi.org/[Banana Pi Forum], Becau
 = Banana Pi Products
 == Single Board Computer
 |=====
- 2+| Banana Pi Single Board Computer(SBC)
+2+| Banana Pi Single Board Computer(SBC)
 
-2+^| Allwinner
- 
-| link:/en/BPI-M1/BananaPi_BPI-M1[Banana Pi BPI-M1] [Allwinner A20]
-| link:/en/BPI-F2/BananaPi_BPI-F2[Banana Pi BPI-F2] [Freescale IMX6 industrial-grade] 
- 
-| link:/en/BPI-M1_Plus/BananaPi_BPI-M1_Plus[Banana Pi BPI-M1_Plus] [Allwinner A20]
-| link:/en/BPI-F2S/BananaPi_BPI-F2S[Banana Pi BPI-F2S] [SunPlus SP7021 industrial-grade]
- 
-| link:/en/BPI-M2_Magic/BananaPi_BPI-M2_Magic[Banana Pi BPI-M2 Magic] [Allwinner A33/R16]
-| link:/en/BPI-F2P/BananaPi_BPI-F2P[Banana Pi BPI-F2P] [SunPlus SP7021 industrial control gateway board]
+2+| Allwinner
 
-| link:/en/BPI-P2_Zero/BananaPi_BPI-P2_Zero[Banana Pi BPI-P2 Zero] [Allwinner H3] 
-| link:/en/BPI-F3/BananaPi_BPI-F3[Banana Pi BPI-F3] [SpacemiT K1 RISC-V]
-
-| link:/en/BPI-M2_Plus/BananaPi_BPI-M2_Plus[Banana Pi BPI-M2 Plus] [Allwinner H3] 
-| link:/en/BPI-M5/BananaPi_BPI-M5[Banana Pi BPI-M5] [Amlogic S905X3] 
-
-| link:/en/BPI-M2_Zero/BananaPi_BPI-M2_Zero[Banana Pi BPI-M2_Zero] [Allwinner H3]  
-| link:/en/BPI-M2_Pro/BananaPi_BPI-M2_Pro[Banana Pi BPI-M2 Pro] [Amlogic S905X3]
-
-| link:/en/BPI-M2_Berry/BananaPi_BPI-M2_Berry[Banana Pi BPI-M2 Berry] [Allwinner R40/V40/A40i] 
-| link:/en/BPI-M2_Super/BananaPi_BPI-M2_Super[Banana Pi BPI-M2S] [Amlogic A311D&S922X]
-
-| link:/en/BPI-M2_Ultra/BananaPi_BPI-M2_Ultra[Banana Pi BPI-M2 Ultra] [Allwinner R40/V40/A40i] 
-| link:/en/BPI-M6/BananaPi_BPI-M6[Banana Pi BPI-M6] [Synaptics VS680/SL1680]
-
-| link:/en/BPI-M64/BananaPi_BPI-M64[Banana Pi BPI-M64] [Allwinner A64] 
-| link:/en/BPI-P2_Pro/BananaPi_BPI-P2_Pro[Banana Pi BPI-P2 Pro] [Rockchip RK3308]
-
-| link:/en/BPI-M3/BananaPi_BPI-M3[Banana Pi BPI-M3] [Allwinner A83T] 
-|link:/en/BPI-M4/BananaPi_BPI-M4[Banana Pi BPI-M4] [Realtek RTD1395]
-
-| link:/en/BPI-M4_Zero/BananaPi_BPI-M4_Zero[Banana Pi BPI-M4 Zero] [Allwinner H618] 
-| link:/en/BPI-M5/BananaPi_BPI-M5_Pro[Banana Pi BPI-M5 Pro] [Rockchip RK3576]  
+| link:/en/BPI-M8/BananaPi_BPI-M8[Banana Pi BPI-M8] [Allwinner A733]
+|link:/en/BPI-F5/BananaPI_BPI-F5[Banana Pi BPI-F5][Allwinner T527]
 
 | link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry[Banana Pi BPI-M4 Berry] [Allwinner H618]
-| link:/en/BPI-M1S/BananaPi_BPI-M1S[Banana Pi BPI-M1 Super] [Rockchip RK3528]
- 
+| link:/en/BPI-M4_Zero/BananaPi_BPI-M4_Zero[Banana Pi BPI-M4 Zero] [Allwinner H618] 
+
+| link:/en/BPI-M3/BananaPi_BPI-M3[Banana Pi BPI-M3] [Allwinner A83T] 
+| link:/en/BPI-M64/BananaPi_BPI-M64[Banana Pi BPI-M64] [Allwinner A64] 
+
+| link:/en/BPI-M2_Ultra/BananaPi_BPI-M2_Ultra[Banana Pi BPI-M2 Ultra] [Allwinner R40/V40/A40i]
+| link:/en/BPI-M2_Berry/BananaPi_BPI-M2_Berry[Banana Pi BPI-M2 Berry] [Allwinner R40/V40/A40i] 
+
+| link:/en/BPI-M2_Zero/BananaPi_BPI-M2_Zero[Banana Pi BPI-M2_Zero] [Allwinner H3] 
+| link:/en/BPI-M2_Plus/BananaPi_BPI-M2_Plus[Banana Pi BPI-M2 Plus] [Allwinner H3] 
+
+| link:/en/BPI-P2_Zero/BananaPi_BPI-P2_Zero[Banana Pi BPI-P2 Zero] [Allwinner H3] 
+| link:/en/BPI-M2_Magic/BananaPi_BPI-M2_Magic[Banana Pi BPI-M2 Magic] [Allwinner A33/R16]
+
+| link:/en/BPI-M1_Plus/BananaPi_BPI-M1_Plus[Banana Pi BPI-M1_Plus] [Allwinner A20]
+| link:/en/BPI-M1/BananaPi_BPI-M1[Banana Pi BPI-M1] [Allwinner A20]
+
+2+| Amlogic
+
+| link:/en/BPI-M2_Super/BananaPi_BPI-M2_Super[Banana Pi BPI-M2S] [Amlogic A311D&S922X]
+| link:/en/BPI-M2_Pro/BananaPi_BPI-M2_Pro[Banana Pi BPI-M2 Pro] [Amlogic S905X3]
+
+| link:/en/BPI-M5/BananaPi_BPI-M5[Banana Pi BPI-M5] [Amlogic S905X3] 
+|
+
+2+| Rockchip
+
+| link:/en/BPI-Forge1/BananaPi_BPI-Forge1[Banana Pi BPI-Forge1] [Rockchip RK3506J]
+| link:/en/BPI-M4S/BananaPi_BPI-M4S[Banana Pi BPI-M4 Super] [Rockchip RK3568]
+
 | link:/en/BPI-M7/BananaPi_BPI-M7[Banana Pi BPI-M7] [Rockchip RK3588]  
 | link:/en/BPI-M7S/BananaPi_BPI-M7S[Banana Pi BPI-M7S] [Rockchip RK3588s]  
 
-| link:/en/BPI-CanMV-K230D/BananaPi_BPI-CanMV-K230D-Zero[Banana Pi BPI-CanMV-K230D Zero][Canaan K230D]
-| link:/en/BPI-M4S/BananaPi_BPI-M4S[Banana Pi BPI-M4 Super] [Rockchip RK3568]
+| link:/en/BPI-M5/BananaPi_BPI-M5_Pro[Banana Pi BPI-M5 Pro] [Rockchip RK3576]  
+| link:/en/BPI-M1S/BananaPi_BPI-M1S[Banana Pi BPI-M1 Super] [Rockchip RK3528]
+
+| link:/en/BPI-P2_Pro/BananaPi_BPI-P2_Pro[Banana Pi BPI-P2 Pro] [Rockchip RK3308]
+|
+
+2+| SpacemiT
+
+| link:/en/BPI-F3/BananaPi_BPI-F3[Banana Pi BPI-F3] [SpacemiT K1 RISC-V]
+|
+
+2+| other
 
 | link:/en/BPI-F4/BananaPi_BPI-F4[Banana Pi BPI-F4] [Sunplus SP7350]
-| link:/en/BPI-Forge1/BananaPi_BPI-Forge1[Banana Pi BPI-Forge1] [Rockchip RK3506J]
+| link:/en/BPI-CanMV-K230D/BananaPi_BPI-CanMV-K230D-Zero[Banana Pi BPI-CanMV-K230D Zero][Canaan K230D]
 
-|link:/en/BPI-F5/BananaPI_BPI-F5[Banana Pi BPI-F5][Allwinner T527]
-| link:/en/BPI-M8/BananaPi_BPI-M8[Banana Pi BPI-M8] [Allwinner A733]
+| link:/en/BPI-F2P/BananaPi_BPI-F2P[Banana Pi BPI-F2P] [SunPlus SP7021 industrial control gateway board]
+| link:/en/BPI-F2S/BananaPi_BPI-F2S[Banana Pi BPI-F2S] [SunPlus SP7021 industrial-grade]
+
+| link:/en/BPI-F2/BananaPi_BPI-F2[Banana Pi BPI-F2] [Freescale IMX6 industrial-grade] 
+| link:/en/BPI-M6/BananaPi_BPI-M6[Banana Pi BPI-M6] [Synaptics VS680/SL1680]
+
+|link:/en/BPI-M4/BananaPi_BPI-M4[Banana Pi BPI-M4] [Realtek RTD1395]
+|
+
+
+ 
+
+ 
+
 
 |=====
 
