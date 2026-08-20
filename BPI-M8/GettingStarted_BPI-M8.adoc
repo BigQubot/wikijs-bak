@@ -20,3 +20,45 @@ TIP: More Infomation: link:/en/BPI-M8/BananaPi_BPI-M8[Banana Pi BPI-M8]
 == HDMI
 
 == WiFi
+
+Use the nmcli command to connect to WiFi.
+
+```sh
+sudo nmcli dev wifi connect "<SSID>" password "<password>"
+```
+Then you can use WiFi.
+```sh
+root@bananapim8:~# ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host noprefixroute
+       valid_lft forever preferred_lft forever
+2: ip_vti0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN group default qlen 1000
+    link/ipip 0.0.0.0 brd 0.0.0.0
+3: ip6_vti0@NONE: <NOARP> mtu 1364 qdisc noop state DOWN group default qlen 1000
+    link/tunnel6 :: brd :: permaddr b621:40ef:3118::
+4: sit0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN group default qlen 1000
+    link/sit 0.0.0.0 brd 0.0.0.0
+5: ip6tnl0@NONE: <NOARP> mtu 1452 qdisc noop state DOWN group default qlen 1000
+    link/tunnel6 :: brd :: permaddr 2af0:cf62:c68a::
+6: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN group default qlen 1000
+    link/ether 88:49:2d:60:20:3e brd ff:ff:ff:ff:ff:ff
+7: p2p0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether 8a:49:2d:60:20:3e brd ff:ff:ff:ff:ff:ff
+    inet 10.168.1.160/24 brd 10.168.1.255 scope global dynamic noprefixroute p2p0
+       valid_lft 43193sec preferred_lft 43193sec
+    inet6 fe80::e2d8:3f6a:f09d:f52b/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever
+8: wlan1: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN group default qlen 1000
+    link/ether 82:49:2d:60:20:3e brd ff:ff:ff:ff:ff:ff
+9: end0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN group default qlen 1000
+    link/ether b4:7a:5c:89:ac:59 brd ff:ff:ff:ff:ff:ff
+root@bananapim8:~# ping baidu.com
+PING baidu.com (124.237.177.164) 56(84) bytes of data.
+64 bytes from 124.237.177.164 (124.237.177.164): icmp_seq=1 ttl=52 time=146 ms
+64 bytes from 124.237.177.164 (124.237.177.164): icmp_seq=2 ttl=52 time=98.4 ms
+64 bytes from 124.237.177.164 (124.237.177.164): icmp_seq=3 ttl=52 time=97.8 ms
+^C64 bytes from 124.237.177.164: icmp_seq=4 ttl=52 time=99.5 ms
+```
