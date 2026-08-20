@@ -13,7 +13,7 @@ Welcome free discuss on link:http://forum.banana-pi.org/[Banana Pi Forum], Becau
 |=====
 2+| Banana Pi Single Board Computer(SBC)
 
-2+| Allwinner
+2+| **Allwinner**
 
 | link:/en/BPI-M8/BananaPi_BPI-M8[Banana Pi BPI-M8] [Allwinner A733]
 |link:/en/BPI-F5/BananaPI_BPI-F5[Banana Pi BPI-F5][Allwinner T527]
@@ -36,7 +36,7 @@ Welcome free discuss on link:http://forum.banana-pi.org/[Banana Pi Forum], Becau
 | link:/en/BPI-M1_Plus/BananaPi_BPI-M1_Plus[Banana Pi BPI-M1_Plus] [Allwinner A20]
 | link:/en/BPI-M1/BananaPi_BPI-M1[Banana Pi BPI-M1] [Allwinner A20]
 
-2+| Amlogic
+2+| **Amlogic**
 
 | link:/en/BPI-M2_Super/BananaPi_BPI-M2_Super[Banana Pi BPI-M2S] [Amlogic A311D&S922X]
 | link:/en/BPI-M2_Pro/BananaPi_BPI-M2_Pro[Banana Pi BPI-M2 Pro] [Amlogic S905X3]
@@ -44,7 +44,7 @@ Welcome free discuss on link:http://forum.banana-pi.org/[Banana Pi Forum], Becau
 | link:/en/BPI-M5/BananaPi_BPI-M5[Banana Pi BPI-M5] [Amlogic S905X3] 
 |
 
-2+| [.halign="center"] Rockchip
+2+| **Rockchip**
 
 | link:/en/BPI-Forge1/BananaPi_BPI-Forge1[Banana Pi BPI-Forge1] [Rockchip RK3506J]
 | link:/en/BPI-M4S/BananaPi_BPI-M4S[Banana Pi BPI-M4 Super] [Rockchip RK3568]
@@ -58,7 +58,7 @@ Welcome free discuss on link:http://forum.banana-pi.org/[Banana Pi Forum], Becau
 | link:/en/BPI-P2_Pro/BananaPi_BPI-P2_Pro[Banana Pi BPI-P2 Pro] [Rockchip RK3308]
 |
 
-2+| SpacemiT
+2+| **SpacemiT**
 
 | link:/en/BPI-F3/BananaPi_BPI-F3[Banana Pi BPI-F3] [SpacemiT K1 RISC-V]
 |
@@ -83,7 +83,7 @@ Welcome free discuss on link:http://forum.banana-pi.org/[Banana Pi Forum], Becau
 |=====
 2+| Banana Pi Smart Router
 
-2+| MTK
+2+| **MediaTek**
 
 | link:/en/BPI-R2_Mini/BananaPi_BPI-R2_Mini[Banana Pi BPI-R2 Mini ] [MTK MT7981B] 
 | link:/en/BPI-R4_Mini/BananaPi_BPI-R4_Mini[Banana Pi BPI-R4 Mini ] [MTK MT7987,Wifi7 Onboard]
@@ -100,11 +100,11 @@ Welcome free discuss on link:http://forum.banana-pi.org/[Banana Pi Forum], Becau
 | link:/en/BPI-R2/BananaPi_BPI-R2[Banana Pi BPI-R2] [MTK MT7623N] 
 | link:/en/BPI-R3/BananaPi_BPI-R3[Banana Pi BPI-R3] [MTK MT7986(Filogic 830)]
 
-2+| Rockchip
+2+| **Rockchip**
 | link:/en/BPI-W3/BananaPi_BPI-W3[Banana Pi BPI-W3] [Rockchip RK3588] 
 | link:/en/BPI-R2_Pro/BananaPi_BPI-R2_Pro[Banana Pi BPI-R2 Pro] [Rockchip RK3568]
 
-2+| Triductor
+2+| **Triductor**
 | link:/en/BPI-WiFi6_Router/BananaPi_BPI-WiFi6_Router[Banana Pi BPI-WiFi6 Router] [Triductor TR6560 + TR5220 wifi SOC]
 | link:/en/BPI-WiFi6_Mini/BananaPi_BPI-WiFi6_Mini[Banana Pi BPI-WiFi6 Mini] [Triductor TR6560 + TR5220 wifi SOC]
 
@@ -112,7 +112,7 @@ Welcome free discuss on link:http://forum.banana-pi.org/[Banana Pi Forum], Becau
 | link:/en/BPI-RV2/BananaPi_BPI-RV2[Banana Pi BPI-RV2 Gateway] [Siflower SF21H8898 RISC-V] 
 | link:/en/BPI-WiFi5/BananaPi_BPI-WiFi5_Router[Banana Pi BPI-WiFi5 Router] [Siflower SF19A2890S + AN8855R]
 
-2+| Other
+2+| **Other**
 | link:/en/BPI-RT2/BananaPi_BPI-RT2[Banana Pi BPI-RT2(AX3000)] [Realtek RTL8198]
 | link:/en/BPI-W2/BananaPi_BPI-W2[Banana Pi BPI-W2] [Realtek 1296] 
 
@@ -131,7 +131,7 @@ link:/en/BpiRouterOS/BananaPi_BpiRouterOS[Banana Pi BpiRouterOS]
 |=====
 2+| Banana Pi Compute Module and Development Kit
 
-2+| Rockchip
+2+| **Rockchip**
 |link:/en/BPI-AIM7/BananaPi_BPI-AIM7[Banana Pi BPI-AIM7] [Rockchip RK3588] 
 |link:/en/BPI-CM5_Pro/BananaPi_BPI-CM5_Pro[Banana Pi BPI-CM5 Pro] [Rockchip RK3576] 
 
@@ -140,23 +140,23 @@ link:/en/BpiRouterOS/BananaPi_BpiRouterOS[Banana Pi BpiRouterOS]
 | link:/en/BPI-CM2/BananaPi_BPI-CM2[Banana Pi BPI-CM2] [Rockchip RK3568] 
 |
 
-2+| Amlogic
+2+| **Amlogic**
 
 |link:/en/BPI-CM4/BananaPi_BPI-CM4[Banana Pi BPI-CM4] [Amlogic A311D] 
 |link:/en/BPI-CM5/BananaPi_BPI-CM5[Banana Pi BPI-CM5] [Amlogic A311D2] 
 
-2+| SpacemiT
+2+| **SpacemiT**
 |link:/en/Pico-ITX/SpacemiT_Pico-ITX[K3 Pico-ITX] [SpacemiT K3 Pico-ITX]
 |link:/en/BPI-SM10/BananaPi_BPI-SM10[Banana Pi BPI-SM10] [SpacemiT K3-CoM260 RISC-V]
 
 |link:/en/BPI-CM6/BananaPi_BPI-CM6[Banana Pi BPI-CM6] [SpacemiT K1 RISC-V] 
 |
 
-2+|Renesas
+2+| **Renesas**
 |link:/en/BPI-AI2H/BananaPi_BPI-AI2H[Banana Pi BPI-AI2H] [Renesas RZ/V2H]
 |link:/en/BPI-AI2N/BananaPi_BPI-AI2N[Banana Pi BPI-AI2N] [Renesas RZ/V2N]
 
-2+|Other
+2+| **Other**
 |link:/en/BPI-SM9_Core/BananaPi_BPI-SM9[Banana Pi BPI-SM9][SOPHGO BM1688]
 |link:/en/BPI-Secure-Pi/BananaPi_Secure-Pi[Banana Pi BPI-Secure-Pi][MegaHunt SP2302]
 
