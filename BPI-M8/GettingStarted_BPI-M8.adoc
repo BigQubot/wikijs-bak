@@ -13,18 +13,135 @@ TIP: More Infomation: link:/en/BPI-M8/BananaPi_BPI-M8[Banana Pi BPI-M8]
 
 == Linux
 
+=== Install Image to SDcard
+**Windows PC**
+
+Install Image with Balena Etcher. +
+link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
+
+. Click on "**Flash from file**" to select image. 
+. Click on "**Select target**" to select USB device. 
+. Click on "**Flash!**" Start burning.
+
+image::/picture/etcher.jpg[etcher.jpg]
+
+**Linux PC**
+
+**There are two methods for you to choose from.**
+
+. Install Image with dd command on Linux, umount SDcard device /dev/sdX partition if mounted automatically. Actually bpi-copy is the same as this dd command.
++
+```sh
+ $ sudo apt-get install pv unzip
+ $ sudo unzip -p xxx-bpi-m2-ultra-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxfer
+```
+. Install image with bpi-tools on Linux, plug SDcard to Linux PC and run
++
+```sh
+ $ sudo apt-get install pv unzip
+ $ sudo bpi-copy xxx-bpi-m2-ultra-xxx.img.zip /dev/sdX
+```
+
 = Other Development
 
 == USB
 
-== HDMI
+Connect the USB device you want to use to the M8.
+
+```sh
+root@bananapim8:~# lsblk
+NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+sda           8:0    1    0B  0 disk
+sdb           8:16   1    0B  0 disk
+sdc           8:32   1 59.5G  0 disk
+└─sdc1        8:33   1 59.5G  0 part
+sdd           8:48   1    0B  0 disk
+mmcblk1     179:0    0 29.1G  0 disk
+mmcblk0     179:8    0  7.4G  0 disk
+├─mmcblk0p1 179:9    0  256M  0 part /boot
+└─mmcblk0p2 179:10   0    7G  0 part /var/log.hdd
+                                     /
+zram0       254:0    0  1.9G  0 disk [SWAP]
+zram1       254:1    0   50M  0 disk /var/log
+zram2       254:2    0    0B  0 disk
+root@bananapim8:~# lsusb
+Bus 004 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
+Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 001 Device 003: ID 0bda:0301 Realtek Semiconductor Corp. multicard reader
+Bus 001 Device 002: ID 1a86:8091 QinHeng Electronics USB HUB
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+```
+
+== network
+
+Connect the network cable to the network port.
+
+```sh
+root@bananapim8:~# ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host noprefixroute
+       valid_lft forever preferred_lft forever
+2: ip_vti0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN group default qlen 1000
+    link/ipip 0.0.0.0 brd 0.0.0.0
+3: ip6_vti0@NONE: <NOARP> mtu 1364 qdisc noop state DOWN group default qlen 1000
+    link/tunnel6 :: brd :: permaddr 96a4:9905:4718::
+4: sit0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN group default qlen 1000
+    link/sit 0.0.0.0 brd 0.0.0.0
+5: ip6tnl0@NONE: <NOARP> mtu 1452 qdisc noop state DOWN group default qlen 1000
+    link/tunnel6 :: brd :: permaddr c660:9fcf:33dc::
+6: end0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether d0:96:16:de:fa:97 brd ff:ff:ff:ff:ff:ff
+    inet 10.168.1.199/24 brd 10.168.1.255 scope global dynamic noprefixroute end0
+       valid_lft 43022sec preferred_lft 43022sec
+    inet6 fd0b:9aaf:b1a:0:5525:fc96:c1bb:9b64/64 scope global noprefixroute
+       valid_lft forever preferred_lft forever
+    inet6 fe80::289c:25a6:4957:e0d9/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever
+root@bananapim8:~# ping baidu.com
+PING baidu.com (124.237.177.164) 56(84) bytes of data.
+64 bytes from 124.237.177.164 (124.237.177.164): icmp_seq=1 ttl=52 time=35.0 ms
+64 bytes from 124.237.177.164 (124.237.177.164): icmp_seq=2 ttl=52 time=34.6 ms
+64 bytes from 124.237.177.164 (124.237.177.164): icmp_seq=3 ttl=52 time=34.6 ms
+^C64 bytes from 124.237.177.164: icmp_seq=4 ttl=52 time=34.4 ms
+
+--- baidu.com ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 15651ms
+rtt min/avg/max/mdev = 34.434/34.657/34.988/0.203 ms
+```
+
+The network port speed, tested with the iperf3 tool, is normally around 1Gbps.
+
+```sh
+[ ID] Interval           Transfer     Bitrate
+[  5]   0.00-1.00   sec   111 MBytes   928 Mbits/sec
+[  5]   1.00-2.00   sec   110 MBytes   921 Mbits/sec
+[  5]   2.00-3.00   sec   111 MBytes   933 Mbits/sec
+[  5]   3.00-4.00   sec   112 MBytes   938 Mbits/sec
+[  5]   4.00-5.00   sec   112 MBytes   938 Mbits/sec
+[  5]   5.00-6.00   sec   112 MBytes   938 Mbits/sec
+[  5]   6.00-7.00   sec   112 MBytes   938 Mbits/sec
+[  5]   7.00-8.00   sec   112 MBytes   938 Mbits/sec
+[  5]   8.00-9.00   sec   112 MBytes   936 Mbits/sec
+[  5]   9.00-10.00  sec   112 MBytes   938 Mbits/sec
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate
+[  5]   0.00-10.00  sec  1.09 GBytes   934 Mbits/sec                  sender
+[  5]   0.00-10.00  sec  1.09 GBytes   934 Mbits/sec                  receiver
+
+iperf Done.
+```
 
 == WiFi
 
 Use the nmcli command to connect to WiFi.
 
 ```sh
-sudo nmcli dev wifi connect "<SSID>" password "<password>"
+sudo nmcli dev wifi connect "<SSID>" password "<password>" //connect WiFi
+sudo nmcli connection down "SSID" //disconnect WiFi
 ```
 Then you can use WiFi.
 ```sh
@@ -62,3 +179,5 @@ PING baidu.com (124.237.177.164) 56(84) bytes of data.
 64 bytes from 124.237.177.164 (124.237.177.164): icmp_seq=3 ttl=52 time=97.8 ms
 ^C64 bytes from 124.237.177.164: icmp_seq=4 ttl=52 time=99.5 ms
 ```
+
+== HDMI
