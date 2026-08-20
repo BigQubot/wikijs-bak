@@ -1,0 +1,22 @@
+= Introduction
+
+The BPI-M8 is built on the high-performance octa-core AI platform chip A733, which combines a dual-core Arm® Cortex®-A76 and a hexa-core Arm Cortex-A55. It supports an Imagination PowerVR BXM-4-64 MC1 GPU, a 3TOPS NPU, and LPDDR4, LPDDR4x, LPDDR5 DRAM and UFS/eMMC memory.
+
+The BPI-M8 boasts a rich array of peripherals, including USB, DP, UFS, HDMI, MIPI CSI, MIPI DSI, FAN, RTC, and one Gigabit Ethernet port (supporting PoE). It also supports SD card booting and features an onboard KEIIOT K038 WiFi/Bluetooth chip. It is equipped with 4GB of LPDDR5 RAM, 32GB of eMMC storage, and two 12x12mm single-antenna modules.
+content
+
+TIP: More Infomation: link:/en/BPI-M8/BananaPi_BPI-M8[Banana Pi BPI-M8]
+
+= Development
+
+== Andriod
+
+== Linux
+
+= Other Development
+
+== USB
+
+== HDMI
+
+== WiFi
