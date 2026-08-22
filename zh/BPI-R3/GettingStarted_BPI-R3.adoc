@@ -1,0 +1,372 @@
+= 简介
+
+香蕉派 BPI-R3 Mini 路由器板带有 MediaTek MT7986(Filogic 830) 四核ARM A53芯片设计，2G DDR RAM ,8G eMMC 板载flash，是一款非常高性能的开源路由器开发板，支持Wi-Fi6 2.4G wifi使用MT7975N和5G wifi使用MT7975P，支持2个2.5GbE网络端口。
+
+=== MediaTek MT7986(Filogic 830)
+MT7986(Filogic 830) 集成了四个高达 2GHz 的 Arm Cortex-A53 内核，具有高达 18,000 DMIP 的处理能力和 6Gbps 的双 4x4 Wi-Fi6 连接。有两个2.5g Ethernet 接口和串行外设接口 (SPI). Filogic 830 的内置硬件加速引擎可实现快速可靠的 Wi-Fi 卸载和无线网络连接。此外，该芯片还支持 Mediatek FastPath™技术，适用于游戏， AR/VR 和其他低延迟应用程序。
+
+Wi-fi 6 相比其前身具有许多优势，包括更低的延迟、更大的带宽容量和更快的传输速率。支持6GHz频段的无线网络设备主要利用160MHz宽信道和6GHz不拥塞带宽提供多千兆传输和低延迟Wi-Fi连接，为流媒体、游戏、 AR/VR 和其他应用程序。
+
+TIP: 更多信息： link:/en/BPI-R3/BananaPi_BPI-R3[香蕉派 BPI-R3]
+
+== 规格参数
+
+- MediaTek MT7986(Filogic 830) 四核 ARM Cortex A53
+- 无线网络6 2.4G/5G（MT7976C）
+- 2G内存 RAM
+- 8G eMMC 闪光
+- 128MB Nand 闪光
+- 2 个 2.5GbE 网络端口
+- 1x M.2 钥匙 B USB 接口
+- 1x M.2 钥匙 M PCIe 接口
+- 1个USB2.0接口
+
+
+= 开发
+
+== 准备
+
+准备 8G/above TF卡、 USB-串行接口。
+
+使用您的 USB-串行连接调试控制台打开 BPI-R3.
+
+**调试 Uart 3.3v TTL，波特率：115200。**
+
+LAN口默认IP地址：**192.168.1.1**
+
+用户 name/password: **pi/bananapi ,root/bananapi**. +
+或者用户是 **root 无需密码**.
+ 
+无线网络： **奥珀沃特**
+ 
+image::/picture/r3_debug_console.jpg[r3_debug_console.jpg]
+
+R3 引导程序和设备选择跳线设置
+
+image::/picture/bpi-r3-jumper.png[bpi-r3-jumper.png]
+
+NOTE: SW1-A和SW1-B用于引导选择； +
+SW1-C是那个 SPI-Nand 或 SPI- 设备也未连接到 CPU's SPI 巴士； +
+SW1-D是SD卡或 EMMC 设备已连接 tp CPU's EMMC 巴士。
+
+== 将映像安装到 SD 卡
+NOTE: **请对SD卡进行低级格式化并清除SD卡中的所有数据。这非常重要。
+否则，在启动过程中会遇到“jffs2”错误。**
+
+**Windows 电脑**
+
+使用 Balena Etcher 安装映像。 +
+link:https://balena.io/etcher[巴莱纳蚀刻机] 是 Balena 的开源 GUI 闪存工具，可将操作系统映像闪存到 SD 卡或 USB 开车。
+
+- 点击“**从文件闪存**”来选择镜像。 
+- 点击“**选择目标**”来选择 USB 设备。 
+- 点击“**快闪！**“开始燃烧。
+
+image::/picture/etcher.jpg[etcher.jpg]
+ 
+**Linux 电脑**
+
+. 安装 bpi-tools。如果您无法访问此网址或有任何其他问题，请访问 bpi-tools 存储库并手动安装此工具。
++
+```sh
+apt-get install pv
+curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
+``` 
+. 下载镜像后，将TF卡插入电脑Ubuntu. +
+执行 
++
+```sh
+bpi-copy xxx.img /dev/sdx
+```
+将镜像安装到 TF 卡上。
+ 
+. 将TF卡插入R3，切换到正确启动，上电启动R3。
+
+TIP: 将启动跳线更改为从 SD 启动，启用 SD 卡设备。
+
+image::/picture/bpi-r3-jumper-all-high.png[bpi-r3-jumper-all-high.png]
+
+== 安装镜像到 NAND
+
+让我们采取 OpenWrt 镜像 (mtk-bpi-r3-SD-WAN1-SFP1-20220619-single-image.img, mtk-bpi-r3-NAND-WAN1-SFP1-20220619-single-image.bin) 例如，步骤如下：
+
+. 插入闪存的SD卡并通电以启动开发板。(镜像”**mtk-bpi-r3-SD-WAN1-SFP1-20220619-single-image.img**“在SD卡上可以 OpenWrt 或其他 linux 操作系统类似 ubuntu...)
+. 复制 Nand 可启动的 OpenWrt 镜像(**mtk-bpi-r3-NAND-WAN1-SFP1-20220619-single-image.bin**) 到 USB 磁盘，如果镜像被压缩，请在复制到之前解压 USB 磁盘。
+. 插入 USB 磁盘到板上，并安装 USB 到 /mnt 或其他目录如下： (如果自动安装则可以跳过安装)
++
+```sh
+mount -t vfat /dev/sda1 /mnt 
+```
+将目录更改为安装点，这里是： 
++
+```sh
+cd /mnt
+```
+. 执行以下命令以启用并将镜像复制到 nand 闪光：
++
+```sh
+mtd erase /dev/mtd0
+dd if=mtk-bpi-r3-NAND-WAN1-SFP1-20220619-single-image.bin of=/dev/mtdblock0
+```
+. 拔掉SD卡，更改启动开关 nand 闪存，重新启动板 Nand 闪光。
++
+TIP: 启用设备，引导带来自 nand
++
+image::/picture/bpi-r3-jumper-flash-nand.png[bpi-r3-jumper-flash-nand.png]
+
+== 安装镜像到 eMMC
+WARNING: 注：SD 卡和 EMMC 设备共享一个SOC 接口
+
+NOTE: 将按钮切换到 NAND 然后开始 BPI-R3
+
+. 插入 USB 驾驶与 **bl2_emmc.img** 和 **mtk-bpi-r3-EMMC-xxx.img** 进入 BPI-R3.
+. 安装 USB 开车 to/mnt，然后执行以下命令将镜像刻录到 EMMC:
++
+```sh
+mount -t vfat /dev/sda1 /mnt
+cd /mnt
+echo 0 > /sys/block/mmcblk0boot0/force_ro
+dd if=bl2_emmc.img of=/dev/mmcblk0boot0
+dd if=mtk-bpi-r3-EMMC-WAN1-SFP1-20220619-single-image.img of=/dev/mmcblk0
+mmc bootpart enable 1 1 /dev/mmcblk0
+```
+. 关闭R3板电源，删除U盘驱动，更改引导程序以从 emmc 设备。
++
+TIP: 启用 EMMC 设备，引导带来自 EMMC.
++
+image::/picture/bpi-r3-jumper-boot-emmc.png[bpi-r3-jumper-boot-emmc.png]
+
+== 将映像安装到 NOR
+
+
+. 插入闪存的SD卡并通电以启动开发板。(镜像”**mtk-bpi-r3-SD-WAN1-SFP1-20220619-single-image.img**“在SD卡上可以 OpenWrt 或其他 linux 操作系统类似 ubuntu...)
++
+NOTE: 要从 SD 卡启动，拉动 C 跳线以启用 SPI-也不。
++
+image::/picture/bpi-r3_jumper_sd_card_boot_burn_nor.png[bpi-r3_jumper_sd_card_boot_burn_nor.png]
+
+. 复制或可启动 OpenWrt 镜像(**mtk-bpi-r3-NOR-WAN1-SFP1-20220619-single-image.bin**) 到 USB 磁盘，如果镜像被压缩，请在复制到之前解压 USB 磁盘。
+. 插入 USB 磁盘到板上，并安装 USB 到 /mnt 或其他目录如下： (如果自动安装则可以跳过安装)
++
+```sh
+mount -t vfat /dev/sda1 /mnt 
+```
+将目录更改为安装点，这里是： 
++
+```sh
+cd /mnt
+```
+. 执行以下命令以启用并将镜像复制到 nand 闪光：
++
+```sh
+mtd erase /dev/mtd0
+dd if=mtk-bpi-r3-NOR-WAN1-SFP1-20220619-single-image.bin of=/dev/mtdblock0
+```
+. 取出SD卡并将跳线更改为NOR启动。
++
+image::/picture/bpi-r3-jumper-flash-nor.png[bpi-r3-jumper-flash-nor.png]
+
+== 网络配置
+网络配置参考： http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:network:start
+
+网络接口：eth1、lan0用于WAN； lan4、rax0、lan2、lan5、ra0、lan3、lan1用于LAN，ra0用于2.4G无线，rax0用于5G无线。
+
+image::/picture/bpi-r3_network_interface.jpg[bpi-r3_network_interface.jpg]
+
+```sh
+root@OpenWrt:/# ifconfig
+br-lan Link encap:Ethernet HWaddr EE:A1:57:81:CA:19
+         inet addr:192.168.1.1  Bcast:192.168.1.255  Mask:255.255.255.0
+         inet6 addr: fe80::eca1:57ff:fe81:ca19/64 Scope:Link
+         inet6 addr: fd63:8bea:d5ce::1/60 Scope:Global
+         UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+         RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:15 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:0 (0.0 B)  TX bytes:2418 (2.3 KiB)
+
+br-wan Link encap:Ethernet HWaddr EE:A1:57:81:CA:19
+         inet6 addr: fe80::eca1:57ff:fe81:ca19/64 Scope:Link
+         UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+         RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:34 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:0 (0.0 B)  TX bytes:8538 (8.3 KiB)
+
+eth0 Link encap:Ethernet HWaddr EE:A1:57:81:CA:19
+         inet6 addr: fe80::eca1:57ff:fe81:ca19/64 Scope:Link
+         UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+         RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:32 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:0 (0.0 B)  TX bytes:4408 (4.3 KiB)
+         Interrupt:124
+
+eth1 Link encap:Ethernet HWaddr 4A:BB:84:B4:5D:3F
+         UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+         RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:34 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:0 (0.0 B)  TX bytes:8674 (8.4 KiB)
+         Interrupt:124
+
+lan0 Link encap:Ethernet HWaddr EE:A1:57:81:CA:19
+         UP BROADCAST MULTICAST  MTU:1500  Metric:1
+         RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+lan1 Link encap:Ethernet HWaddr EE:A1:57:81:CA:19
+         UP BROADCAST MULTICAST  MTU:1500  Metric:1
+         RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+lan2 Link encap:Ethernet HWaddr EE:A1:57:81:CA:19
+         UP BROADCAST MULTICAST  MTU:1500  Metric:1
+         RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+lan3 Link encap:Ethernet HWaddr EE:A1:57:81:CA:19
+         UP BROADCAST MULTICAST  MTU:1500  Metric:1
+         RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+lan4 Link encap:Ethernet HWaddr EE:A1:57:81:CA:19
+         UP BROADCAST MULTICAST  MTU:1500  Metric:1
+         RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+lan5 Link encap:Ethernet HWaddr EE:A1:57:81:CA:19
+         UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+         RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:15 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:0 (0.0 B)  TX bytes:2418 (2.3 KiB)
+
+lo Link encap:Local Loopback
+         inet addr:127.0.0.1  Mask:255.0.0.0
+         inet6 addr: ::1/128 Scope:Host
+         UP LOOPBACK RUNNING  MTU:65536  Metric:1
+         RX packets:56 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:56 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:4368 (4.2 KiB)  TX bytes:4368 (4.2 KiB)
+
+ra0 Link encap:Ethernet HWaddr 00:0C:43:26:60:38
+         UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+         RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+         Interrupt:6
+
+rax0 Link encap:Ethernet HWaddr 02:0C:43:36:60:38
+         UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+         RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+```
+```sh
+root@OpenWrt:/# brctl show br-wan
+bridge name bridge id STP enabled interfaces br-wan 7fff.eea15781ca19 no lan0, eth1
+root@OpenWrt:/# brctl show br-lan
+bridge name bridge id STP enabled interfaces br-lan 7fff.eea15781ca19 no lan4, rax0, lan2, lan5, ra0, lan3, lan1
+```
+
+== GPIO
+**26针脚定义**
+
+image::/picture/r3_gpio_40.jpg[r3_gpio_40.jpg]
+
+**GPIO 控制**
+
+```sh
+echo xxx > /sys/class/gpio/export
+echo in/out > /sys/class/gpio/gpioxxx/direction
+echo 0/1 > /sys/class/gpio/gpioxxx/value
+```
+检查底座 gpio，你可以看到我的是411
+
+image::/picture/bpi-r3-gpio-base.jpg[bpi-r3-gpio-base.jpg]
+
+例如：如果你想改变 gpio 22 作为高级，你需要输入这样的命令：
+```sh
+echo 433（22+411） > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio433/direction
+echo 1 > /sys/class/gpio/gpio433/value
+```
+
+== 风扇
+
+image::/picture/fan.png[fan.png]
+
+R317 用于 5V 风扇，R318 用于 12V 风扇。
+
+CN23支持 PWM 控制而CN22不支持。
+
+== PWM 风扇控制
+```sh
+echo 0 > /sys/class/pwm/pwmchip0/export
+echo 10000 > /sys/class/pwm/pwmchip0/pwm0/period
+echo 5000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+echo normal > /sys/class/pwm/pwmchip0/pwm0/polarity
+echo 1 > /sys/class/pwm/pwmchip0/pwm0/enable
+```
+
+== MiniPCIe插槽
+目前miniPCIe插槽仅支持1个 USB 4G模块，例如：EC25 当您插入一个EC25模块时，您可以检查它。
+
+image::/picture/bpi-r3-minipcie-slot-ec25.jpg[bpi-r3-minipcie-slot-ec25.jpg]
+
+== SFP
+经过高低温测试，支持以下模块 BPI-R3:
+
+image::/picture/sfp.png[sfp.png]
+
+== 4G&5G
+
+BPI-R3 支持4G LTE EC25。
+
+如果你想使用5G BPI-R3:
+
+. 将 5G 适配器插入 USB3.0。
+. 连接RG200U-CN至mini PCIe, 连接 SoC 通过USB2.0(限速).
+. 制作一块RG200U-CN LGA转接板并将其插入M.2 KEY M。
+
+WARNING: 注：可用性 4G/5G 取决于本地载波频段。
+
+== AP模式开启 BPI-R3
+
+ra0是MT7986a 2.4G wifi
+
+rax0是MT7986a 5G wifi
+
+=== 无线网络和串行电缆
+
+如果串口线的芯片类型是pl2303，驱动程序显然无法加载固件，从而导致wifi无法工作。
+
+其他型号包括cp2102、ch340、FDTI均可，串口线电压必须为3.3v LVTTL标准。
+
+串口_TX0 是引导引脚，在上电期间必须保持低电平。
+
+image::/picture/strapping.png[strapping.png]
+
+
+= FAQ
+
+MT7986a开发板参考手册(BPi)
+谷歌云端硬盘： https://drive.google.com/file/d/1biSJmxnIpNzQroYDg9mtPtSTAv4i0DFf/view?usp=sharing
+
+**TTL电压**
+
+调试-uart TTL 耐受 3.3V。
