@@ -1,6 +1,6 @@
 = 前言
 
-服用 BPI-M5 例如。请准备一份 Linux 电脑。
+本文以 BPI-M5 为例。请准备一台 Linux 计算机。
 
 = 安装 Docker
 有一个一键安装脚本用于安装 Docker，安装命令如下：
@@ -16,25 +16,25 @@ sudo usermod -aG docker $USER
 ```
 
 = 配置 Docker
-首先，获取图像。
+首先获取 Docker 镜像。
 
 ```sh
 docker pull sinovoip/bpi-build-linux-4.4:ubuntu16.04
 ```
-创建文件并运行图像。
+创建文件并运行镜像。
 
 ```sh
 mkdir /home/bpi/image
 docker run -d -p 2222:22 -v /home/bpi/image:/root sinovoip/bpi-build-linux-4.4:ubuntu16.04
 ```
 
-的“/home/bpi/image:/root“上面映射的是物理机的”/home/bpi/image“到”/root"目录，端口2222
+上面的“/home/bpi/image:/root”将宿主机的“/home/bpi/image”映射到容器的“/root”目录，并使用端口 2222。
 
-运行后，您可以使用“DockerContainer ls”查看已经启动的docker。
+运行后，可使用“docker container ls”查看已启动的容器。
 
-然后连接到 Docker 通过 SSH 使用密码 root。
+然后通过 SSH 连接到 Docker 容器，密码为 root。
 
-在中创建一个文件夹 Docker，在物理机上也可以看到。
+在 Docker 容器中创建文件夹后，也可在宿主机上看到该文件夹。
 
 = 编译镜像
 . 首先拉取源码
@@ -44,7 +44,7 @@ docker run -d -p 2222:22 -v /home/bpi/image:/root sinovoip/bpi-build-linux-4.4:u
 git clone https://github.com/BPI-SINOVOIP/BPI-M5-bsp
 ```
 
-. 转到文件夹并拉出 submiodule
+. 进入目录并拉取子模块
 
 +
 ```sh
@@ -74,7 +74,7 @@ git submodule update --init --recursive
 curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash -
 ```
 +
-注意，如果没有反应，也可以使用下面的
+如果上述命令没有响应，也可使用下面的命令。
 +
 ```sh
 git clone https://github.com/BPI-SINOVOIP/bpi-tools
@@ -82,7 +82,7 @@ cd bpi-tools
 sudo cp ./bpi* /bin/
 ```
 
-. 输入lsblk命令查看SD卡路径。 (我的路 is/dev/sdd)
+. 输入 lsblk 命令查看 SD 卡设备路径（本例为 /dev/sdd）。
 
 . 进入物理机的代码目录
 +
