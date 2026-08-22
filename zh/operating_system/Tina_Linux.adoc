@@ -1,47 +1,47 @@
-= Allwinner Tina-IoT 操作系统 BPI-M2 Ultra
+= 适用于 BPI-M2 Ultra 的全志 Tina-IoT 操作系统
 
-== 关于蒂娜物联网 Linux
+== 关于 Tina-IoT Linux
 
-尊敬的用户 BPI-M2 Ultra R40 蒂娜 Linux V1.0已经公开，快来试试
+BPI-M2 Ultra R40 Tina Linux V1.0 已正式发布，欢迎体验。
 
-蒂娜 Linux 开发者 Allwinner TinaTEAM，它基于 OpenWrt,构建一个嵌入式 Linux 发行版，本次发布的目的是提供快速学习开发简单方便量产的方式 Linux 交钥匙解决方案。
+Tina Linux 由全志 TinaTEAM 开发，是基于 OpenWrt 构建的嵌入式 Linux 发行版，旨在提供易于学习、开发和量产的 Linux TurnKey 解决方案。
 
-R40蒂娜的发布 Linux 是基于 BPI-M2 Ultra 参考硬件，即源码下载直接支持香蕉派 BPI-M2 Ultra.
+R40 Tina Linux 以 BPI-M2 Ultra 为参考硬件，下载的源代码可直接支持 Banana Pi BPI-M2 Ultra。
 
-R40 蒂娜 Linux V1.0版本基于 Linux-3.10和蒂娜 Linux V2.1，支持很多好玩又实用的支持功能：
+R40 Tina Linux V1.0 基于 Linux 3.10 和 Tina Linux V2.1，提供许多有趣且实用的功能：
 
-1.支持smartlink（超声波、airkiss、cooee）
+1. 支持 Smartlink（ultrasonic wave、Airkiss、Cooee）
 
-2.支持DLNA、QPlay音频传输及控制协议
+2. 支持 DLNA、QPlay 音频传输与控制协议
 
-太多了，就不一一讲了，支持所有硬件模块 BPI-M2 Ultra
+此外还有许多功能，此处不再逐一列出。系统支持 BPI-M2 Ultra 上的所有硬件模块。
 
-== 如何使用R40蒂娜 Linux
+== 如何使用 R40 Tina Linux
 
-玩Tina需要64位 Linux PC，我们推荐使用 Ubuntu 12.04或14.04 64位版本，使用以下命令安装，安装编译环境依赖：
+使用 Tina 需要一台 64 位 Linux 电脑，建议安装 64 位 Ubuntu 12.04 或 14.04。使用以下命令安装编译环境依赖：
 
 
 sudo apt-get install build-essential subversion git-core libncurses5-dev zlib1g-dev gawk flex quilt libssl-dev xsltproc libxml-parser-perl mercurial bzr ecj cvs unzip
 
 
-详细的你可以参考 link:https://wiki.openwrt.org/doc/howto/buildroot.exigence[OpenWrt维基百科]
+详细要求可参考 link:https://wiki.openwrt.org/doc/howto/buildroot.exigence[OpenWrt Wiki]。
 
-下载源代码
+下载源代码：
 
-使用repo工具下载该代码，工具下载方法如下：
+使用 repo 工具下载代码。该工具的下载方法如下：
 
 ```sh
 curl https://raw.githubusercontent.com/tinalinux/repo/stable/repo > ~/bin/repo $ chmod +x ~/bin/repo
 ```
 
-然后在环境变量中添加“repo”，最好放下面这句话。里面的.bashrc
+然后将 repo 加入环境变量，建议把下面这行内容添加到 .bashrc 中：
 
 
 ```sh
 export PATH=~/binPATH
 ```
 
-下载repo，接下来下载Tina的源码，如下：
+安装 repo 后，使用以下命令下载 Tina 源代码：
 
 ```sh
 repo init -u https://github.com/tinalinux/manifest -b r40-v1.y -m r40/v1.y.xml
@@ -49,7 +49,7 @@ repo sync
 repo start r40-v1.y --all
 ```
 
-下载源代码后，在编译好的Tina目录下执行以下命令：
+源代码下载完成后，进入 Tina 目录并执行以下编译命令：
 
 ```sh
 source build/envsetup.sh
@@ -58,40 +58,40 @@ make -j4
 pack [-d]
 ```
 
-蒂娜 SDK 每次编译前都需要执行“source”和“lunch”commond，然后再执行其他操作。
+每次编译 Tina SDK 前，都需要先执行 source 和 lunch 命令，然后再进行其他操作。
 
-pack命令有一个“-d”参数，该参数的作用是：不加-d使用默认的uart0作为串口输出，加-d使用TF卡口IO口组作为uart0
+pack 命令提供 “-d” 参数：不添加 -d 时，默认使用 UART0 作为串口输出；添加 -d 后，则使用 TF 卡槽的 IO 引脚组作为 UART0。
 
 == 烧录镜像
 
-Tina镜像打包有15M左右，支持直接烧录到 eMMC 闪光 BPI-M2 Ultra.
+打包后的 Tina 镜像约为 15 MB，支持直接烧录到 BPI-M2 Ultra 的 eMMC 闪存。
 
-烧制方法如下：
+烧录方法如下：
 
-如果你使用 Linux 系统，直接使用LiveSuit进行刷机。使用方法如下：
+在 Linux 系统中可直接使用 LiveSuit 烧录，操作方法如下：
 
-. LiveSuit 我们把它放在 tina 处 SDK tools/aw\_工具目录
+. LiveSuit 位于 Tina SDK 的 tools/aw\_tools 目录中。
 
-. unzip LiveSuit 64bit version，run./LiveSuit.sh
+. 解压 64 位版 LiveSuit，然后运行 ./LiveSuit.sh。
 
-. LiveSuit 将安装在 ~/Bin dir，使用 dpkg -i install aw driver,driver也在 ~/Bin 目录。
+. LiveSuit 将安装到 ~/Bin 目录。使用 dpkg -i 安装全志驱动，驱动文件也位于 ~/Bin 目录中。
 
-. 运行LiveSuit，选择tina图片
+. 运行 LiveSuit，并选择 Tina 镜像。
 
-. 按住 BPI-M2 Ultra uboot键，插入 usb ，就可以开始刻录镜像了
+. 按住 BPI-M2 Ultra 的 U-Boot 按键并插入 USB 线，即可开始烧录镜像。
 
-如果使用 Windows 系统请使用烧录工具：phoenixsuit
+在 Windows 系统中，请使用 PhoenixSuit 烧录工具。
 
-我们把它放在 tools/aw\_工具目录
+该工具位于 tools/aw\_tools 目录中。
 
-== 如何配置蒂娜
+== 如何配置 Tina
 
-Tina固件配置，常用的命令有两个：“make menuconfig”和“make kernel”\_菜单配置”。
+配置 Tina 固件常用两个命令：“make menuconfig”和“make kernel\_menuconfig”。
 
-这两个命令必须在“source”和“lunch”commond运行完成后执行，
+这两个命令必须在执行完 “source” 和 “lunch” 命令后再运行。
 
-make menuconfig : Which software is used to configure the system use
+make menuconfig：配置系统使用的软件。
 
-make kernel\_menuconfig:Used to configure the kernel options.
+make kernel\_menuconfig：配置内核选项。
 
-TinaLinux 源代码 github: https://github.com/tinalinux/
+Tina Linux GitHub 源代码：https://github.com/tinalinux/
