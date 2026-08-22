@@ -1,0 +1,211 @@
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_development_tutorialbased_on_microbit[BPI:bit 的 MicroPython 开发]
+
+= 面板显示图像
+现在已经知道面板上有一块 LED 点阵。Python 提供了丰富的显示控制功能，可以利用它制作各种有趣的视觉效果，为创意开发提供良好载体。
+
+开始之前先看看 Python 提供的内置图像。例如，要显示笑脸，只需运行以下代码：
+```sh
+from microbit import *
+display.show(Image.HAPPY)
+```
+第一行的作用在前面的章节中已经介绍。第二行调用 display 模块显示 Image 中的内置图像；这里选择的笑脸图案名为 HAPPY。执行 display.show(Image.HAPPY) 即可开始显示。
+
+image::/bpi-bit/emoj.jpg[emoj.jpg]
+
+== 内置图片列表如下
+```sh
+Image.HEART
+Image.HEART_SMALL
+Image.HAPPY
+Image.SMILE
+Image.SAD
+Image.CONFUSED
+Image.ANGRY
+Image.ASLEEP
+Image.SURPRISED
+Image.SILLY
+Image.FABULOUS
+Image.MEH
+Image.YES
+Image.NO
+Image.CLOCK12, 
+Image.CLOCK11, 
+Image.CLOCK10,
+Image.CLOCK9,
+Image.CLOCK8, 
+Image.CLOCK7, 
+Image.CLOCK6,
+Image.CLOCK5,
+Image.CLOCK4,
+Image.CLOCK3,
+Image.CLOCK2,
+Image.CLOCK1
+Image.ARROW_N, 
+Image.ARROW_NE, 
+Image.ARROW_E, 
+Image.ARROW_SE, 
+Image.ARROW_S,
+Image.ARROW_SW,
+Image.ARROW_W,
+Image.ARROW_NW
+Image.TRIANGLE
+Image.TRIANGLE_LEFT
+Image.CHESSBOARD
+Image.DIAMOND
+Image.DIAMOND_SMALL
+Image.SQUARE
+Image.SQUARE_SMALL
+Image.RABBIT
+Image.COW
+Image.MUSIC_CROTCHET
+Image.MUSIC_QUAVER
+Image.MUSIC_QUAVERS
+Image.PITCHFORK
+Image.XMAS
+Image.PACMAN
+Image.TARGET
+Image.TSHIRT
+Image.ROLLERSKATE
+Image.DUCK
+Image.HOUSE
+Image.TORTOISE
+Image.BUTTERFLY
+Image.STICKFIGURE
+Image.GHOST
+Image.SWORD
+Image.GIRAFFE
+Image.SKULL
+Image.UMBRELLA
+Image.SNAKE
+```
+内置图像的数量很多，可以尝试显示列表中的其他图案。
+
+= 尝试自定义图像
+除了内置图像，还可以进一步创建自己的图案。
+
+显示屏上的每个 LED 都可设置一个亮度值。像素值为 0 时亮度为 0，值为 9 时亮度最高；从 0 到 9，亮度依次增加。利用这些数值即可创建需要的图像。
+```sh
+from microbit import *
+```
+```sh
+boat = Image("05050:"
+            "05050:"
+            "05050:"
+            "99999:"
+            "09990")
+```
+```sh
+display.show(boat)
+```
+运行后应能看到如下图案：
+
+image::/bpi-bit/emoj2.jpg[emoj2.jpg]
+
+现在已经了解如何绘制图案。请注意，每行像素数据以冒号分隔，整段数据放在双引号内；其中的数字就是各像素的亮度值。
+
+只要确保每行像素数据正确，也可以把它们写在同一行：
+```sh
+boat = Image("05050:05050:05050:99999:09990")
+```
+= 如何制作一个简单的动画
+静态图像很有趣，让图案动起来则更有趣。在 Python 中，只需使用图像列表即可实现动画。
+
+先从普通列表开始。假设购物清单中包含 Eggs、Bacon 和 Tomatoes，可以在 Python 中这样表示：
+```sh
+shopping = ["Eggs", "Bacon", "Tomatoes" ]
+```
+这种数据结构称为 list（列表）。这里创建了名为 shopping、包含 3 个元素的列表。方括号 [] 表示列表，各元素用逗号分隔；元素放在引号中，因此它们都是字符串对象。
+
+Python 列表可以存放各种对象，下面的列表存放数字：
+
+在 Python 中可写为：
+```sh
+shopping = [2, 3, 5，11 ]
+```
+列表还包含许多不同类型的变量：
+```sh
+mixed_up_list = ["hello!", 1.234, Image.HAPPY]
+```
+请注意，最后一个元素不是数字或字符串，而是 Image 对象。因此，Python 列表也可以存放图像。系统已经提供两个内置图像列表：Image.ALL_CLOCKS 和 Image.ALL_ARROWS。
+```sh
+from microbit import *
+display.show(Image.ALL_CLOCKS, loop=True, delay=100)
+```
+与显示单个图像一样，这里也使用 display.show；传入 Image.ALL_CLOCKS 列表后，Python 会按顺序显示其中的所有图像。可以通过 delay 参数调整速度：
+```sh
+code.Delay = 100.
+```
+现在可以思考如何创建动画、如何关闭无限循环，以及如何调整动画速度。下面创建自定义动画列表，让小船逐渐下沉。
+```sh
+from microbit import *
+```
+```sh
+boat1 = Image("05050:"
+             "05050:"
+             "05050:"
+             "99999:"
+             "09990")
+boat2 = Image("00000:"
+             "05050:"
+             "05050:"
+             "05050:"
+             "99999")
+boat3 = Image("00000:"
+             "00000:"
+             "05050:"
+             "05050:"
+             "05050")
+boat4 = Image("00000:"
+             "00000:"
+             "00000:"
+             "05050:"
+             "05050")
+boat5 = Image("00000:"
+             "00000:"
+             "00000:"
+             "00000:"
+             "05050")
+boat6 = Image("00000:"
+             "00000:"
+             "00000:"
+             "00000:"
+             "00000")
+```
+```sh
+all_boats = [boat1, boat2, boat3, boat4, boat5, boat6]
+display.show(all_boats, delay=500, loop=True)
+```
+运行效果：
+
+image::/bpi-bit/running_display_image.png[running_display_image.png]
+
+= 更改图像的颜色
+上一节“面板滚动文字”介绍了如何修改文字颜色，下面继续修改图像颜色。
+```sh
+from microbit import *
+from display import *
+display.show(Image.ALL_CLOCKS, color=Blue, loop=True, delay=100)
+```
+在前面的示例上稍作修改即可改变颜色。与之前代码相比，这里在 show() 中增加了 color=Blue 参数，作为图像参数之后的第二个参数，因此图像会显示为蓝色。
+
+image::/bpi-bit/blueaa_display_images.png[blueaa_display_images.png]
+
+如上一节所述，要使用内置颜色，需要先导入 display 模块。这里使用内置的 Blue，因此程序开头加入 from display import *。
+
+当然，如果内置颜色不起作用怎么办？同样参考我们之前的章节，我们可以自定义一个颜色。
+```sh
+from microbit import *
+mycolor = [3, 1, 1]
+display.show(Image.ALL_CLOCKS, color=mycolor, loop=True, delay=500)
+```
+
+image::/bpi-bit/mycolor_display_images.png[mycolor_display_images.png]
+
+那么，让我解释一下代码为何有效。
+
+- 首先，我创建了 6 艘船的图像。
+- 然后我们将它们存储在一个列表中。
+- 然后使用 display 显示图像，并把延迟设为 500 毫秒。
+- 最后设置 loop=True，让小船下沉动画循环播放。
+
+好了，这就是本章的全部内容，所以你可以花时间消化它并制作你自己的精彩动画！
