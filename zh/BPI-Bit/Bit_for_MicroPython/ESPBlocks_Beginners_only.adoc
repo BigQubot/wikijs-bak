@@ -1,0 +1,87 @@
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_board_development_tools[BPI-Bit 的 MicroPython 开发工具]
+
+
+= 开发工具
+
+- Windows 版本请 link:https://github.com/BPI-STEAM/BPI-BIT-MicroPython/releases/tag/BlocksTools[点击此处下载]。
+- Python 源代码请 link:https://github.com/junhuanchen/ESPBlocks[点击此处下载]。从源代码构建需要配置 Python 依赖环境，此处不作展开。
+
+= 连接开发板
+以 Windows 为例，程序可放在任意位置运行，但建议路径中不要包含中文字符。
+
+双击 ESPblocks.exe 启动程序，等待片刻以完成资源释放。
+
+启动后，无论开发板是否已连接，程序都会弹出一次搜索开发板的窗口；也可以单击 Connect 手动打开该窗口。
+
+image::/bpi-bit/index_espblocks.png[index_espblocks.png]
+
+现在用数据线连接开发板，程序会自动查找并显示当前开发板使用的串口，如下图所示。
+
+image::/bpi-bit/search.png[search.png]
+
+然后单击图中的按钮，确认所选设备为自己的开发板后即可连接。
+
+连接完成后如下图所示：
+
+image::/bpi-bit/connected_espblocks.png[connected_espblocks.png]
+
+当前不支持无线连接。
+
+= 使用编辑器运行程序
+准备一段代码，将其复制到白框中。
+```sh
+print('\n')
+print('test')
+print('\n')
+```
+
+image::/bpi-bit/ready_espblocks.png[ready_espblocks.png]
+
+单击 Run 按钮运行程序。
+
+image::/bpi-bit/running.png[running.png]
+
+= 使用 Blockly 运行程序
+按照下图中的箭头进行操作。
+
+image::/bpi-bit/blockly.png[blockly.png]
+
+当您单击菜单中的 Blockly 按钮时，会弹出一个固定大小的窗口。该功能目前无法重复使用，需要关闭程序才能再次使用。
+
+在 Blockly 中选择一个显示接口积木块，它会同步出现在右侧编辑框中；Blockly 模式下不能直接编辑代码。
+
+image::/bpi-bit/blockly1.png[blockly1.png]
+
+然后选择第二个积木块，即图形界面积木块。
+
+image::/bpi-bit/blockly2.png[blockly2.png]
+
+然后把它们放在一起。
+
+image::/bpi-bit/blockly3.png[blockly3.png]
+
+代码是自动生成的。
+
+image::/bpi-bit/blockly4.png[blockly4.png]
+
+单击右上角的运行按钮来运行程序。
+
+image::/bpi-bit/blockly5.png[blockly5.png]
+
+结果如下所示。
+
+image::/bpi-bit/result.jpg[result.jpg]
+
+Important: 目前仅兼容 micro:bit 的大部分功能，因此部分接口可能不兼容。如果使用过程中遇到问题，可以提交 Issue，我会尝试从底层固件中修复。
+
+请注意，BPI:bit 并不是 micro:bit，只兼容其常用功能，因此无法保证可以完全当作 micro:bit 使用，尤其是 BPI:bit 本身并不存在的硬件接口。
+
+= 已知限制
+该软件完全开源，主要面向初学者，因此仍有部分功能不受支持。如需更复杂的功能，请使用我维护的 mpfshell 系列工具。
+
+已知问题列表：
+
+. REPL 支持较弱，缺少 Tab 自动补全等影响使用体验的功能；如果不了解 REPL，也可以暂时不使用。
+. Blockly 生成的代码中有许多不兼容的接口，而且窗口无法打开第二次。
+. 不支持代码辅助，也没有 PyCharm 那样的智能开发功能。
+. 不支持文件操作，无法像 mpfshell 一样管理文件。
