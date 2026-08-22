@@ -1,0 +1,82 @@
+= BPI-AI2H 简介
+
+香蕉派 BPI-AI2H 模块系统 (索姆) 和 BPI-AI2H 载板是开源硬件解决方案，旨在利用 RZ/V2H 视觉AI MPU。采用灵活的、社区驱动的生态系统设计， BPI-AI2H 平台使开发人员能够加速创新并简化应用程序开发。动力由 RZ/V2H MPU，通过DRP-AI3加速器提供业界领先的AI加速 (8 TOPS/dense, 80 TOPS/sparse) 以及采用 4 个 Arm® Cortex®-A55 处理器的高性能计算，使其成为创建尖端视觉 AI 解决方案的理想选择。
+
+= 主要特性
+
+* 小外形：紧凑型 SO-DIMM 260PIN 设计 (SOM模块尺寸：45x69.6mm) 
+* 开源开发套件，包括 SOM、 BPI-AI2H 载板和丰富的工具生态系统以及来自 香蕉派 开发者社区的支持 
+* OEM&ODM 可定制的硬件和软件
+* Yocto 等开源软件支持
+* 内存和存储：8GB LPDDR4x、32GB eMMC, 64MB QSPI 闪存
+* 宽工作温度范围：-40℃至85℃
+
+
+= 快速入门
+
+TIP: link:/en/BPI-AI2H/GettingStarted_BPI-AI2H[快速入门 BPI-AI2H]
+
+= 资源
+
+= 硬件
+== 硬件接口
+=== BPI-AI2H-Core
+
+image::/bpi-ai2h/bpi-ai2h_core_interface1.jpg[bpi-ai2h_core_interface1.jpg]
+
+image::/bpi-ai2h/bpi-ai2h_core_interface2.jpg[bpi-ai2h_core_interface2.jpg]
+
+=== BPI-AI2H-Carrier
+
+//image::/bpi-ai2n/bpi-ai2n-carrier_interface.jpg[bpi-ai2n-carrier_interface.jpg]
+
+image::/bpi-ai2n/bpi-ai2n-carrier_interface1.jpg[bpi-ai2n-carrier_interface1.jpg]
+
+== 硬件规格
+
+[options="header",cols="1,5"]
+|====
+2+| 硬件规格 BPI-AI2H
+|SoC |RZ/V2H
+|系统内存 | 8GB LPDDR4X
+.3+|存储
+|64MB SPI NAND 闪光
+|32GB eMMC
+|SD卡插槽
+.3+|按钮
+|睡眠按钮
+|电源按钮
+|恢复按钮
+|网络 |2 个千兆以太网 RJ45 端口
+.3+|USB 
+|2x USB 3.0 A型接口
+|背面 1 个 USB2.0 Type-A
+|背面 1 个 USB3.0 Type-A
+|数字SI|1 个 MIPI DSI
+|CSI|4x MIPI CSI
+|风扇| PH-3PIN连接器(5V 风扇 PWM)
+|调试 | USB TypeC控制台
+|M.2键 | M.2 KEYM 对于 SSD (2280)
+|实时时钟 | 支持板载RTC(CR1220)
+|无线网络 | 板载WiFi模块
+|GPIO | 40针 GPIO
+.2+|电源 
+|12V USB-PD 开启 USB-C端口
+|直流12V输入
+|尺寸 | 79 x 100 毫米兼容 BPI-AI2N 
+|====
+
+= 开发
+
+== 源代码
+
+== 资源
+
+NOTE: V2H 数据表： 
+https://www.renesas.com/en/products/rz-v2h
+
+= 软件
+
+== Linux 图片
+
+= 购买样品
