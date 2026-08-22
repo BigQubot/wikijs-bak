@@ -1,47 +1,47 @@
-TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_basic_board_development[位用于 MicroPython]
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_basic_board_development[BPI-Bit 的 MicroPython 教程]
 
 = 了解项目
 
-Github 是一个公共且免费的版本管理存储库，其中大部分是开源项目。你可以在这里得到很多你需要的资料或者代码等等，而我们的开源代码等东西都存放在 git 仓库中 Github.
+GitHub 是公共代码托管与版本管理平台，其中包含大量开源项目。可以在这里获取所需资料和代码；本项目的开源代码也存放在 GitHub 仓库中。
 
 image::/bpi-bit/base.png[base.png]
 
-圆圈按钮选项为用户提供以下功能 (尽管文档内容可能随时代更新，但图像中显示的一般内容不会改变).
+图中圈出的选项提供以下功能（页面内容可能随时间更新，但整体布局和主要功能基本不变）：
 
 . Code：是项目存储的开源代码，在本例中是可直接用于开发板的示例代码。
 +
 image::/bpi-bit/code.png[code.png]
  
-. 问题：如果有任何疑问，无论是错误报告还是需要帮助等，都可以在这里发布。
+. Issues：可在此报告错误、提出问题或寻求帮助。
 +
 image::/bpi-bit/issues.png[issues.png]
   
-. 项目：指目前正在开发的项目。您可以在这里看到整个项目的开发。
+. Projects：用于查看和管理项目的开发进度。
 +
 image::/bpi-bit/project.png[project.png]
   
-. Wiki：查看项目的文档，github 是中文版，这是英文版
+. Wiki：查看项目文档；GitHub 上为中文版，此处为英文版。
 +
 image::/bpi-bit/wiki.png[wiki.png]
    
-. 提交：描述特定项目当前的更改或提交。
+. Commits：查看项目的提交记录和变更内容。
 +
 image::/bpi-bit/commits.png[commits.png]
   
-. release：是存放用户可以直接使用的工具套件、源代码等的地方。
+. Releases：存放可直接下载使用的工具套件、源代码和发布文件。
 +
 image::/bpi-bit/release.png[release.png]
 
 = 下载项目
 
-可以看到下面的Clone或者Download按钮，将当前项目的示例代码捆绑起来，直接进行下载 (没有开发套件).
+单击 Clone or Download 按钮，可将当前项目的示例代码打包下载（不包含开发工具套件）。
 
 image::/bpi-bit/into.png[into.png]
 
-获取开发套件： https://github.com/BPI-STEAM/BPI-BIT-MicroPython/releases
+获取开发套件：https://github.com/BPI-STEAM/BPI-BIT-MicroPython/releases
 
 image::/bpi-bit/list.png[list.png]
 
 点击蓝色字体即可下载文件。在本项目中，开发包工具是按需下载的，因此当您需要工具时，文档会在开头提到所需的材料。
 
-您可以返回开头重新学习或继续下一章 link:/en/BPI-Bit/Bit_for_MicroPython/Wired_connection_board[2 有线连接板]
+可返回开头复习，或继续下一章 link:/en/BPI-Bit/Bit_for_MicroPython/Wired_connection_board[2 通过有线方式连接开发板]。
