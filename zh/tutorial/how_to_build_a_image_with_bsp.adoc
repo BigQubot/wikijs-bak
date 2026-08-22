@@ -1,0 +1,70 @@
+= 简介
+
+== 第一步：下载并编译BSP代码
+这里我使用 BPI-M4 举个例子：
+
+. 下载bsp代码，执行
++
+```sh
+git clone https://github.com/BPI-SINOVOIP/BPI-M4-bsp.git
+```
+
+. 构建bsp，执行
++
+```sh
+./build.sh
+```
+然后选择“**1**".
+
++
+image::/picture/build_image_1.png[build_image_1.png]
+
+. 构建bsp代码后，将在“中生成引导文件和内核文件**SD/bpi-m4**".
++
+image::/picture/build_image_2.png[build_image_2.png]
+
+== 第二步：将镜像安装到SD卡上
+. 您可以通过以下方式安装映像：安装 Linux & Android 香蕉派 SBC 上的镜像
+
+. 这里我在 a 下安装了一个镜像 ubuntu 操作系统
++
+```sh
+bpi-copy 2019-07-23-ubuntu-18.04-mate-desktop-preview-bpi-w2-m4-sd-emmc.img.zip /dev/sde
+```
++
+image::/picture/build_image_3.png[build_image_3.png]
+
+== 第三步：制作图像
+. 我们的bsp无法直接构建镜像，因此我们需要从已安装镜像的sd卡中制作镜像。
+
+. 将我们刚刚安装镜像的SD卡插入 ubuntu PC，那么PC就会识别“**BPI-BOOT**” 和 “**BPI-ROOT**".
+
+. 现在我们在制作图像之前做一些准备工作：
++
+```sh
+cd /media
+ln -s <your account> pi
+mkdir <directory>
+cp <BPI-M4-Project>/SD/bpi-m4/*.tgz <BPI-M4-Project>/SD/bpi-m4/100MB/* image
+```
+
+. 如您所见，我链接了一个名为“**圆周率**“下”**/media**”，创建一个文件夹并将所有 bsp 文件复制到其中。
+
+. 现在我们可以使用命令
++
+```sh
+bpi-migrate -c bpi-w2-m4.conf -c ubuntu-18.04-mate-from-sd.conf
+```
++
+image::/picture/build_image_4.png[build_image_4.png]
+
+. 此命令将从 sd 卡复制操作系统，并替换您刚刚在新映像中构建的新内核和 uboot。
+
+== 注意事项
+WARNING: 如何找到主板.conf文件？
+
+您可以在这里看到这些文件： https://github.com/BPI-SINOVOIP/BPI-files/tree/69594603ab8ceb102d77818982897c00c86d6d15/others/for-bpi-tools/conf/board
+
+WARNING: 如何找到 os.conf 文件？
+
+您可以在这里看到这些文件： https://github.com/BPI-SINOVOIP/BPI-files/tree/c2f1fcaf34cf8e5b58b1e0093c7597b0d31ca0f6/others/for-bpi-tools/conf/os
