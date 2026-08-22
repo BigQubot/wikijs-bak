@@ -1,0 +1,255 @@
+= FAQ
+
+TIP: 更多信息：link:/en/BPI-R4/BananaPi_BPI-R4[Banana Pi BPI-R4]
+
+*目录*
+
+. link:/en/BPI-R4/BananaPi_BPI-R4_FAQ#_r4_debugging_methods[R4 调试方法]
+. link:/en/BPI-R4/BananaPi_BPI-R4_FAQ#_no_serial_port_output[无串口输出]
+. link:/en/BPI-R4/BananaPi_BPI-R4_FAQ#_determine_the_size_of_the_ddr_memory[确定 DDR 内存容量]
+
+. link:/en/BPI-R4/BananaPi_BPI-R4_FAQ#_the_system_cannot_start_or_fails_to_start[系统无法启动或启动失败]
+. link:/en/BPI-R4/BananaPi_BPI-R4_FAQ#_be14_cannot_be_started[BE14 无法启动]
+. link:/en/BPI-R4/BananaPi_BPI-R4_FAQ#_restore_factory_settings_on_openwrt[在 OpenWrt 上恢复出厂设置]
+. link:/en/BPI-R4/BananaPi_BPI-R4_FAQ#_openwrt_mainline_image_txpower_low[OpenWrt 主线镜像发射功率低]
+
+
+== R4 调试方法
+
+可通过 TTL 串口线或 SSH 调试。
+
+=== TTL 串口线调试
+连接方法：
+[ptions="header"]
+|===
+2+|R4 开发板 — USB 转 TTL 串口线
+|GND |GND
+|RX |TX
+|TX |RX
+|===
+
+开发板上的串口位置如下图所示：
+
+
+市面上常用的调试线为 USB 转 TTL 串口线，其线序定义如下图所示。
+
+image::/picture/ttl.jpg[ttl.jpg]
+
+打开 link:https://mobaxterm.mobatek.net/download.html[MobaXterm]，单击左上角的 Session，然后选择 Serial。
+
+image::/picture/log_export-1.jpg[log_export-1.jpg]
+image::/picture/log_export-2.jpg[log_export-2.jpg]
+在 Serial port 中选择端口，在 Speed 中将波特率设为 115200 bps，然后单击 OK。
+
+image::/picture/log_export-3.jpg[log_export-3.jpg]
+
+=== SSH 调试
+
+使用网线将 PC 连接到任一 LAN 口（即下图圈出的端口）。
+
+
+
+也可连接 R4 路由器的 WiFi（WiFi 使用方法请参阅 link:/en/BPI-R4/BananaPi_BPI-R4_FAQ[此页面]）。
+
+
+获取 IP 地址后，在 PC 上使用 SSH 工具连接该 IP 进行调试。
+
+打开 link:https://mobaxterm.mobatek.net/download.html[MobaXterm]，单击左上角的 Session，然后选择 SSH。
+
+image::/picture/log_export-1.jpg[log_export-1.jpg]
+
+在 Remote host 中填写目标设备的 IP 地址，勾选 Specify username 并填写登录用户名，然后填写端口号。
+
+（默认 IP 地址为 192.168.1.1，也可根据 PC 获取到的地址判断。例如，PC 地址为 192.168.11.213 时，R4 的地址通常为 192.168.11.1。）
+
+（默认登录用户名为 root，默认端口为 22。）
+
+
+
+== 无串口输出
+
+如果串口没有输出，请先按 link:/en/BPI-R4/BananaPi_BPI-R4_FAQ#_ssh_debugging[R4 调试方法—SSH] 中的说明通过 SSH 检查系统是否正常启动。（如果无法获取 IP 地址或 SSH 连接失败，请参阅 link:/en/BPI-R4/BananaPi_BPI-R4_FAQ#_the_system_cannot_start_or_fails_to_start[系统无法启动或启动失败]。）
+
+. 检查计算机是否识别到可用的串口线。
++
+检查 PC 是否安装了相应的串口驱动。
+
+. 也可更换串口线，以判断线材是否存在硬件故障。
+
+. 检查 TTL 线序是否正确，并确认波特率设置无误。
+
+. 重新插拔 TTL 线，排查接触不良问题。
+
+. 如果您检查了上述步骤并确认问题出在主板硬件上，请联系我们并提供以下信息： 
+- 说明问题现象及其出现过程。
+- 提供开发板上电后的照片（须清晰显示 TTL 线和 DIP 开关），以及 MobaXterm 界面截图；也可提供视频。
+
+== 确定 DDR 内存容量
+
+NOTE: 验证前请确认使用了正确的系统镜像。可从官网的 link:/en/BPI-R4/BananaPi_BPI-R4#_openwrt[镜像链接] 下载正确镜像进行验证。
+
+. 根据 DDR 型号判断
++
+R4 4 GB 版 DDR：Samsung
++
+image::/bpi-r4/r4-faq/r4-faq-ddrtest1.jpg[r4-faq-ddrtest1.jpg]
++
+R4 8 GB 版 DDR：TAIXIN
++
+image::/bpi-r4/r4-faq/r4-faq-ddrtest2.jpg[r4-faq-ddrtest2.jpg]
+
+. 使用命令“cat /proc/meminfo”查询 DDR 容量。
++
+R4 4 GB 版 DDR
++
+image::/bpi-r4/r4-faq/r4-faq-ddrtest4.jpg[r4-faq-ddrtest4.jpg,width=40%]
+R4 8 GB 版 DDR
++
+image::/bpi-r4/r4-faq/r4-faq-ddrtest3.jpg[r4-faq-ddrtest3.jpg,width=40%]
+
+. 也可在 Web 管理界面首页查看 DDR 容量，或使用命令“free -h”查询。
++
+image::/bpi-r4/r4-faq/r4-faq-ddrtest5.jpg[r4-faq-ddrtest5.jpg]
+
+== 系统无法启动或启动失败
+=== 检查 DIP 开关
+开机前，请检查 DIP 开关是否处于正确位置。（BPI-R4 出厂时已在 NAND 中烧录镜像。）
+
+. 所有开关均为“1”时，BPI-R4 从 SD 卡启动。
++
+image::/picture/r4_sdboot.jpg[r4_sdboot.jpg]
+
+. SW3-A 为“0”、SW3-B 为“1”时，BPI-R4 从 SPI NAND 启动。
++
+image::/picture/r4_nandboot.jpg[r4_nandboot.jpg]
+
+. SW3-A 为“1”、SW3-B 为“0”时，BPI-R4 从 eMMC 启动。
++
+image::/picture/r4_emmcboot.jpg[r4_emmcboot.jpg]
+
+=== SD 卡
+
+如果您已确认 DIP 开关位置正确，请继续执行以下步骤。
+
+. 开发板上电后，检查右上角的 PWR 指示灯是否点亮。（如果未点亮，请直接执行步骤 5。）
+
+. 重新插拔 SD 卡，检查是否接触不良。
+
+. 如果系统因镜像异常而无法启动，请格式化 SD 卡并重新烧录镜像。（请使用 link:/en/BPI-R4/BananaPi_BPI-R4#_openwrt_mtk_mp4_1_wifi_sdk_wifi_driver_for_be14000_wifi_card[MP4.1] 镜像；烧录方法参阅 link:/en/BPI-R4/GettingStarted_BPI-R4#_how_to_burn_image_to_sd_card[入门指南]。）
+. 更换 SD 卡，重新烧录镜像后再次验证。
+
+. 确认问题后，请联系我们并提供以下信息：
+
+- 描述您遇到的问题以及它是如何发生的。
+
+- 开发板上电后的照片（须清晰显示 TTL 线和 DIP 开关）。
+
+- 提供串口日志文件。
+
+NOTE: 烧录完成后，启动时可能出现 JFFS2 错误。
+
+image::/bpi-r4/r4-faq/r4-faq-jffs1.jpg[r4-faq-jffs1.jpg]
+
+请对 SD 卡执行完整格式化并删除其中的全部数据，格式化时不要选择“快速格式化”。
+
+image::/bpi-r4/r4-faq/r4-faq-jffs2.jpg[r4-faq-jffs2.jpg]
+
+=== NAND
+
+如果您已确认 DIP 开关位置正确，请继续执行以下步骤。
+
+. 开发板上电后，检查右上角的 PWR 指示灯是否点亮。
+
+. 如果启动失败，请先从 SD 卡启动，再将镜像重新烧录到 NAND。（请使用 link:/en/BPI-R4/BananaPi_BPI-R4#_openwrt_mtk_mp4_1_wifi_sdk_wifi_driver_for_be14000_wifi_card[MP4.1] 镜像；烧录方法参阅 link:/en/BPI-R4/GettingStarted_BPI-R4#_how_to_burn_image_to_onboard_nand[入门指南]。）
+
+. 确认问题后，请联系我们并提供以下信息：
+
+- 描述您遇到的问题以及它是如何发生的。
+
+- 开发板上电后的照片（须清晰显示 TTL 线和 DIP 开关）。
+
+- 提供串口日志文件。
+
+==== 使用 Ubuntu 或 Debian 6.1 内核的 SD 卡
+从使用 Ubuntu 或 Debian 6.1 内核的 SD 卡镜像启动后，NAND 中的镜像将无法继续启动。如需从 NAND 启动，必须重新将镜像烧录到 NAND。
+
+烧录方法请参阅 link:/en/BPI-R4/GettingStarted_BPI-R4#_how_to_burn_image_to_onboard_nand[BPI-R4 入门指南]。
+
+=== eMMC
+如果您已确认 DIP 开关位置正确，请继续执行以下步骤。
+
+. 开发板上电后，检查右上角的 PWR 指示灯是否点亮。
+
+. 如果启动失败，请先从 NAND 启动，再将镜像重新烧录到 eMMC。（请使用 link:/en/BPI-R4/BananaPi_BPI-R4#_openwrt_mtk_mp4_1_wifi_sdk_wifi_driver_for_be14000_wifi_card[MP4.1] 镜像；烧录方法参阅 link:/en/BPI-R4/GettingStarted_BPI-R4#_how_to_burn_image_to_onboard_EMMC[入门指南]。）
+
+. 确认问题后，请联系我们并提供以下信息：
+
+- 描述您遇到的问题以及它是如何发生的。
+
+- 开发板上电后的照片（须清晰显示 TTL 线和 DIP 开关）。
+
+- 提供串口日志文件。
+
+== BE14 无法启动
+. 请确保 SW4 开关置于“ON”，使 R4 能够为 BE14 提供 12 V 电源。
++
+image::/bpi-r4/r4-faq/r4-faq-be14notstart1.jpg[r4-faq-be14notstart1.jpg]
+
+. 检查 BE14 上的指示灯：PWR 灯（红色）表示供电状态，其他指示灯（蓝色）表示 WiFi 运行状态。
++
+image::/bpi-r4/r4-faq/r4-faq-be14notstart2.jpg[r4-faq-be14notstart2.jpg]
+
+. 如果 WiFi 指示灯未点亮，请关闭设备电源，重新插拔 BE14，然后再次启动。
+
+. 如果完成前三步后 BE14 仍无法启动，可尝试重新烧录 link:/en/BPI-R4/BananaPi_BPI-R4#_system_image[系统镜像]。
+
+. 如果您检查了上述步骤并确认问题出在主板硬件上，请联系我们并提供以下信息：
+说明问题现象及其出现过程。
+提供开发板上电后的照片（须清晰显示 TTL 线和 DIP 开关），以及 MobaXterm 界面截图；也可提供视频。
+
+如果 WiFi 可以正常使用，可在此 Web 界面查看 WiFi 配置。
+
+image::/bpi-r4/r4-faq/r4-faq-be14notstart3.jpg[r4-faq-be14notstart3.jpg]
+
+== 在 OpenWrt 上恢复出厂设置
+. 在 Web 管理界面中单击“Perform reset”。
+
++ 
+image::/bpi-r4/r4-faq/r4-faq-reset1.jpg[r4-faq-reset1.jpg]
+
+. 或执行以下命令：
+```
+firstboot -y && reboot
+```
+
+
+== OpenWrt 主线镜像发射功率低
+
+部分购买 BPI-R4 + BE14 并使用 OpenWrt 主线镜像的用户发现，2.4 GHz 和 5 GHz WiFi 发射功率分别只有 6 dBm 和 7 dBm。解决方法如下：
+
+1. 准备一个 Linux 主机。
+
+2. 下载对应主线分支的源码。
+
+3. 将 link:https://github.com/immortalwrt/immortalwrt/blob/master/package/kernel/mt76/patches/100-wifi-mt76-mt7996-Use-tx_power-from-default-fw-if-EEP.patch[补丁] 文件放入 `**package/kernel/mt76/patches/**` 目录。
+
+4. 执行以下命令：
++
+```
+make clean
+make
+```
+5. 将编译好的镜像烧录到 SD/NAND/eMMC 并启动。
+
+6. 更新软件包列表并安装 Web 管理界面。
++
+```
+opkg update
+opkg install luci
+
+/etc/init.d/uhttpd enable
+/etc/init.d/uhttpd start
+```
+7. 进入 Web 管理界面并启用 WiFi，然后执行 `iw dev`；此时可看到 WiFi 发射功率已变为 20 dBm。
+
+image::/bpi-r4/bpi-r4_iw_dev_check_tx_power.png[bpi-r4_iw_dev_check_tx_power.png]
