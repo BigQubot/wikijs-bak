@@ -1,34 +1,34 @@
 = 简介
 
-香蕉派 BPI-CM7 是一个 Allwinner H618 计算模块设计用于与 BPI-CM7IO 载板。
+Banana Pi BPI-CM7 是一款基于 Allwinner H618 的计算模块，配合 BPI-CM7IO 载板使用。
 
-TIP: 更多信息： link:/en/BPI-CM7/BananaPi_BPI-CM7[香蕉派 BPI-CM7 主页]
+TIP: 更多信息：link:/en/BPI-CM7/BananaPi_BPI-CM7[Banana Pi BPI-CM7 主页]
 
 == 规格参数
 
 * Allwinner H618，四核 ARM Cortex™-A53 处理器，高达 1.5 GHz
-* ARM 马里 G31 GPU
+* ARM Mali G31 GPU
 * 板载 LPDDR4 内存
-* 机上 eMMC 存储
-* K019-CW43-Dw Wi-Fi 5和蓝牙5.0模块
-* 1x USB 2.0OTG
-* 3x USB 2.0主机
+* 板载 eMMC 存储
+* K019-CW43-Dw Wi-Fi 5 和蓝牙 5.0 模块
+* 1 个 USB 2.0 OTG
+* 3 个 USB 2.0 Host
 * 1 个 HDMI 输出
 * 1x 10/100M Ethernet
 * 1 个 microSD 接口
-* 2x 100 针板对板连接器
+* 2 个 100-pin 板对板连接器
 
-= 安卓
+= Android
 
 == 准备
 
-== 安装镜像 USB 工具 ==
+== 使用 USB 工具安装镜像 ==
 
 = Linux 开发
 
 == 准备
 
-使用以下命令确认板子型号、操作系统、 CPU、内存和启动存储。
+使用以下命令确认开发板型号、操作系统、CPU、内存和启动存储设备。
 
 ```bash
 hostnamectl
@@ -43,25 +43,25 @@ findmnt -no SOURCE,FSTYPE,SIZE,USED,AVAIL,USE%,TARGET /
 
 测试结果：
 
-* 主板：香蕉派 BPI-CM7 与 BPI-CM7IO
-* 操作系统：Armbian 24.11.1 jammy / Ubuntu 22.04.5 长期支持
+* 开发板：Banana Pi BPI-CM7 + BPI-CM7IO
+* 操作系统：Armbian 24.11.1 Jammy / Ubuntu 22.04.5 LTS
 * 内核： Linux 5.4.125-legacy-sunxi64
 * 架构：arm64
 * CPU：4 个 Cortex-A53，高达 1512 MHz
-* 内存：1.9 GiB 可用 Linux
+* 内存：Linux 可用 1.9 GiB
 * 启动设备：microSD， `/dev/mmcblk1p1`
 * eMMC: `/dev/mmcblk0`, 29.3 GiB
 * 用于测试的登录用户： `pi`
 
-== 将映像安装到 SD 卡
+== 将镜像安装到 SD 卡
 
-== 将映像安装到 eMMC
+== 将镜像安装到 eMMC
 
 == 擦除 eMMC
 
 == 桌面
 
-使用以下命令检查系统是否引导到图形目标以及显示管理器是否正在运行。
+使用以下命令检查系统是否已启动到 graphical target，以及显示管理器是否正在运行。
 
 ```bash
 systemctl get-default
@@ -81,27 +81,27 @@ active
 == SSH
 
 . 准备好网线和路由器。
-. 连接 BPI-CM7IO Ethernet 端口和PC连接到同一局域网。
-. 从路由器管理页面查看单板IP地址，或者在单板上本地终端运行以下命令。
+. 将 BPI-CM7IO 的以太网口和 PC 接入同一局域网。
+. 从路由器管理页面查看开发板的 IP 地址，或在开发板本地终端中执行以下命令。
 +
 ```bash
 ip -brief address show eth0
 hostname -I
 ```
 
-. 检查单板上的SSH服务状态。
+. 检查开发板上的 SSH 服务状态。
 +
 ```bash
 systemctl is-active ssh
 ```
 
-. 在 PC 上打开终端并连接到开发板。更换 `<board-ip>` 与路由器分配的实际地址。
+. 在 PC 上打开终端并连接开发板，将 `<board-ip>` 替换为路由器实际分配的地址。
 +
 ```bash
 ssh pi@<board-ip>
 ```
 
-. 登录后，使用以下命令确认远程用户、板卡名称和内核。
+. 登录后，使用以下命令确认远程用户名、开发板名称和内核版本。
 +
 ```bash
 whoami
@@ -119,17 +119,17 @@ Hostname: bpi-cm7
 Kernel: 5.4.125-legacy-sunxi64
 ```
 
-== NoMachine远程桌面
+== NoMachine 远程桌面
 
-== armbian 配置
+== armbian-config
 
-检查是否 `armbian-config` 已安装。
+检查 `armbian-config` 是否已安装。
 
 ```bash
 command -v armbian-config
 ```
 
-使用以下命令进入 Armbian 配置实用程序。
+使用以下命令启动 Armbian 配置工具。
 
 ```bash
 sudo armbian-config
@@ -141,9 +141,9 @@ sudo armbian-config
 /usr/bin/armbian-config
 ```
 
-== 无线网络
+== WiFi
 
-使用 `nmcli` 用于列出网络设备并扫描 Wi-Fi 接入点的命令。
+使用 `nmcli` 命令列出网络设备并扫描 Wi-Fi 接入点。
 
 ```bash
 nmcli device # List devices
@@ -178,11 +178,11 @@ rfkill hard blocked: no
 Wi-Fi scan: successful
 ```
 
-== 设置静态IP、DNS
+== 设置静态 IP 和 DNS
 
 == 网络时间同步
 
-测试镜像中使用Chrony进行网络时间同步。
+测试所用镜像通过 Chrony 进行网络时间同步。
 
 使用以下命令检查系统时钟、同步状态、Chrony 服务和时间源。
 
@@ -194,7 +194,7 @@ chronyc sources -v
 date
 ```
 
-使用以下命令来管理 Chrony 服务。
+使用以下命令管理 Chrony 服务。
 
 ```bash
 sudo systemctl start chrony
@@ -218,11 +218,11 @@ Chrony service: active
 Time zone during test: Etc/UTC
 ```
 
-* link:https://chrony-project.org/documentation.html[慢性参考文档]
+* link:https://chrony-project.org/documentation.html[Chrony 参考文档]
 
 == 查看硬件温度
 
-使用以下命令来识别四个热区域。
+使用以下命令识别 4 个 thermal zone。
 
 ```bash
 cat /sys/class/thermal/thermal_zone0/type
@@ -240,7 +240,7 @@ cat /sys/class/thermal/thermal_zone2/temp
 cat /sys/class/thermal/thermal_zone3/temp
 ```
 
-将每个返回值除以 1000 以获得以摄氏度为单位的温度。
+将每个返回值除以 1000，即可得到摄氏温度。
 
 测试结果：
 
@@ -251,13 +251,13 @@ gpu_thermal_zone: 53.4 °C
 ve_thermal_zone: 50.8 °C
 ```
 
-== 使用 USB 磁盘
+== 使用 U 盘
 
 == 使用音频设备
 
-=== HDMI音频
+=== HDMI 音频
 
-=== 3.5毫米音频插孔
+=== 3.5 mm 音频插孔
 
 === 播放音频文件的终端命令
 
@@ -279,7 +279,7 @@ card 1: ahubhdmi [ahubhdmi], device 0: ahub_plat-snd-soc-dummy-dai snd-soc-dummy
   Subdevice #0: subdevice #0
 ```
 
-==== 通过 3.5 毫米音频插孔播放
+==== 通过 3.5 mm 音频插孔播放
 
 ==== 通过 HDMI 播放音频
 
@@ -289,11 +289,11 @@ card 1: ahubhdmi [ahubhdmi], device 0: ahub_plat-snd-soc-dummy-dai snd-soc-dummy
 
 == 传输文件
 
-=== SCP
+=== scp
 
-SCP使用SSH协议在PC和PC之间安全地复制文件 BPI-CM7。首先确保PC和开发板连接到同一局域网并且SSH登录有效。
+SCP 使用 SSH 协议，在 PC 与 BPI-CM7 之间安全复制文件。请先确认 PC 和开发板已连接到同一局域网，且 SSH 可以正常登录。
 
-SCP命令格式为：
+SCP 命令格式如下：
 
 ```bash
 scp [options] file_source file_target
@@ -301,13 +301,13 @@ scp [options] file_source file_target
 
 使用 `-r` 递归复制目录。
 
-将本地文件从PC复制到 BPI-CM7:
+将本地文件从 PC 复制到 BPI-CM7：
 
 ```bash
 scp local-file pi@<board-ip>:/home/pi/
 ```
 
-复制文件从 BPI-CM7 至电脑：
+将文件从 BPI-CM7 复制到 PC：
 
 ```bash
 scp pi@<board-ip>:/home/pi/remote-file ./
@@ -321,20 +321,20 @@ Remote file size and SHA-256 verification: successful
 Temporary test file removal: successful
 ```
 
-=== 莫巴克斯术语
+=== MobaXterm
 
-== 纳米 - 文本编辑器
+== nano 文本编辑器
 
-https://www.nano-editor.org/[GNU纳米] 是一个命令行文本编辑器，安装在测试的映像中。
+https://www.nano-editor.org/[GNU nano] 是命令行文本编辑器，测试所用镜像已预装该工具。
 
-. 打开文件 `nano [file path]`.
+. 使用 `nano [file path]` 打开文件。
 . 编辑文件。
-. 新闻 `Ctrl+O` 写入文件。
-. 编辑或确认文件路径，然后按 `Enter`.
-. 新闻 `Ctrl+X` 退出纳米。
+. 按 `Ctrl+O` 写入文件。
+. 编辑或确认文件路径，然后按 `Enter`。
+. 按 `Ctrl+X` 退出 nano。
 
-* https://www.nano-editor.org/dist/latest/cheatsheet.html[纳米捷径]
-* https://www.nano-editor.org/dist/latest/nano.html[纳米文档]
+* https://www.nano-editor.org/dist/latest/cheatsheet.html[nano 快捷键]
+* https://www.nano-editor.org/dist/latest/nano.html[nano 文档]
 
 测试结果：
 
@@ -342,13 +342,13 @@ https://www.nano-editor.org/[GNU纳米] 是一个命令行文本编辑器，安�
 /usr/bin/nano
 ```
 
-== 设置开机标志
+== 设置开机 Logo
 
-=== on/off 开机标志
+=== 开启/关闭开机 Logo
 
-=== 更换开机标志
+=== 更换开机 Logo
 
-== 40针接口 GPIO, I2C, UART, SPI, 和 PWM 测试
+== 40-pin 接口 GPIO、I2C、UART、SPI 和 PWM 测试
 
 === GPIO
 
