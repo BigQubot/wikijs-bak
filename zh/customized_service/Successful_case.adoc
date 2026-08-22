@@ -1,145 +1,145 @@
-= Allwinner A40i用于工业控制网关设计
+= 基于 Allwinner A40i 的工业控制网关方案
 
 image::/bpi-4_0-oem-odm/industrial_control_gateway_1.jpg[industrial_control_gateway_1.jpg]
 
 
-有关该项目的更多信息，请参阅：
+有关此项目的更多信息，请参阅：
 
-Awinner A40I 用于工业控制网关设计
+基于 Allwinner A40i 的工业控制网关方案
 
-= Realtek RTD1296 智能语音、视频处理平台
+= Realtek RTD1296 智能语音与视频处理平台
 image::/bpi-4_0-oem-odm/rtd_1296_design_1.jpg[rtd_1296_design_1.jpg]
 
 image::/bpi-4_0-oem-odm/rtd_1296_design_case.jpg[rtd_1296_design_case.jpg]
 
-有关该项目的更多信息，请参阅：
+有关此项目的更多信息，请参阅：
 
-Realtek RTD1296 智能语音、视频处理平台
+Realtek RTD1296 智能语音与视频处理平台
 
-= MediaTek MT7622 5G + 4G LTE+无线网络空调+千兆复用聚合路由
+= MediaTek MT7622 5G + 4G LTE + WiFi AC + 千兆多链路聚合路由器
 
 image::/bpi-4_0-oem-odm/bpi-r64_4g_1.jpg[bpi-r64_4g_1.jpg]
 
 image::/bpi-4_0-oem-odm/5g_gateway_2.jpg[5g_gateway_2.jpg]
 
-. MediaTek MT7622,1.35GHZ 64位双核ARM Cortex-A53
-. (1-2)G DDR 和 8G eMMC 闪光
-. 1x5G端口，使用 USB 3.0或 PCIe 巴士。
-. 4x4G LTE ，支持OpenMPTCProuter多重聚合协议。
-. 5 个千兆端口。支持VPN、路由器功能。
-. 无线网络802.11 b/g/n/ac 功能支持。
-. 物联网拓展应用
-. 基于香蕉派 BPI-R64 硬件设计
+. MediaTek MT7622，1.35 GHz 64 位双核 ARM Cortex-A53
+. 1～2 GB DDR 内存和 8 GB eMMC 闪存
+. 1 个 5G 接口，使用 USB 3.0 或 PCIe 总线
+. 4 个 4G LTE 接口，支持 OpenMPTCProuter 多链路聚合协议
+. 5 个千兆以太网口，支持 VPN 和路由功能
+. 支持 WiFi 802.11 b/g/n/ac
+. 支持物联网扩展应用
+. 基于 Banana Pi BPI-R64 硬件设计
 
-摩尔，请看这里：
+更多信息请参阅：
 
-link:https://docs.banana-pi.org/en/BPI-MNF/BananPI_CPI-MNF[5G + 4G LTE+无线网络空调+千兆复用聚合路由]
+link:https://docs.banana-pi.org/en/BPI-MNF/BananPI_CPI-MNF[5G + 4G LTE + WiFi AC + 千兆多链路聚合路由器]
 
-在论坛上讨论： http://forum.banana-pi.org/t/bpi-4-0-bpi-r64-for-5g-4g-lte-wifi-ac-gigabit-for-converged-communication-gateway/9555
+论坛讨论：http://forum.banana-pi.org/t/bpi-4-0-bpi-r64-for-5g-4g-lte-wifi-ac-gigabit-for-converged-communication-gateway/9555
 
-= ESP32香薰机 智能睡眠计
+= ESP32 香薰机智能睡眠监测仪
 
 image::/bpi-4_0-oem-odm/sweet_fume_machine_4.jpg[sweet_fume_machine_4.jpg]
 
-采用ESP32设计，支持WiFi和BT连接网络。
+采用 ESP32 设计，支持通过 WiFi 和蓝牙连接网络。
 
-更多规格请参见：
+更多规格请参阅：
 
-= 4G LTE路由器设计
+= 4G LTE 路由器方案
 
 image::/bpi-4_0-oem-odm/banana_pi_4g_router_1.jpg[banana_pi_4g_router_1.jpg]
 
-更多规格请参见： http://forum.banana-pi.org/t/bpi-4-0-4g-lte-router-design/9277
+更多规格请参阅：http://forum.banana-pi.org/t/bpi-4-0-4g-lte-router-design/9277
 
-= 道场智能家居
+= DOJO 智能家居
 image::/bpi-4_0-oem-odm/dogo.png[dogo.png]
 
-道场官方网站： https://dojo.bullguard.com/
+DOJO 官方网站：https://dojo.bullguard.com/
 
 = 魔镜
 
 image::/bpi-4_0-oem-odm/magic_mirror_2.jpg[magic_mirror_2.jpg]
 
-PCBA基础 BPI-M3 与 allwinner A83T芯片设计
+PCBA 基于采用 Allwinner A83T 芯片的 BPI-M3 设计。
 
 image::/bpi-4_0-oem-odm/magic_mirror_1.jpg[magic_mirror_1.jpg]
 
 
-论坛讨论： http://forum.banana-pi.org/t/banana-pi-bpi-4-0-oem-odm-project-magic-mirror-base-bpi-m3-allwinner-a83t-chip-design/7410
+论坛讨论：http://forum.banana-pi.org/t/banana-pi-bpi-4-0-oem-odm-project-magic-mirror-base-bpi-m3-allwinner-a83t-chip-design/7410
 
-= 4G多网融合服务器
-这是基于 BPI-R2，采用4个4G模块设计。我们可以与客户合作提供整体解决方案
+= 4G 多网络融合服务器
+该服务器基于 BPI-R2 设计，搭载 4 个 4G 模块。我们可与客户合作提供整体解决方案。
 
-== 4G多网融合服务器
+== 4G 多网络融合服务器
 
 image::/bpi-4_0-oem-odm/4g_multiple_2.jpg[4g_multiple_2.jpg]
 
-底盘设计文件： https://drive.google.com/file/d/1C9LuXVgexsUN3K8DqApFNG4FLpwn54Ms/view?usp=sharing
+机箱设计文件：https://drive.google.com/file/d/1C9LuXVgexsUN3K8DqApFNG4FLpwn54Ms/view?usp=sharing
 
-== 4G多网络融合终端
+== 4G 多网络融合终端
 
 image::/bpi-4_0-oem-odm/4g_multiple_1.jpg[4g_multiple_1.jpg]
 
-产品网站： https://www.aixiaocao.com/
+产品网站：https://www.aixiaocao.com/
 
-== OpenMPTCP路由器
-NOTE: 2018-10-12更新，OpenMPTCProuter使用MultiPath TCP (多点TCP)聚合多个互联网连接并 OpenWrt。并有官方支持 BPI-R2.
+== OpenMPTCProuter
+NOTE: 2018-10-12 更新：OpenMPTCProuter 基于 OpenWrt，使用 MultiPath TCP（MPTCP）聚合多个互联网连接，并已正式支持 BPI-R2。
 
-图片下载： https://www.openmptcprouter.com/download
+镜像下载：https://www.openmptcprouter.com/download
 
-源代码在 github: https://github.com/Ysurac/openmptcprouter
+GitHub 源代码：https://github.com/Ysurac/openmptcprouter
 
-论坛线程： http://forum.banana-pi.org/t/banana-pi-bpi-r2-new-image-openmptcprouter-official-support/7229
+论坛主题：http://forum.banana-pi.org/t/banana-pi-bpi-r2-new-image-openmptcprouter-official-support/7229
 
-= MultiQB家庭多媒体网关
-我们所做的：硬件设计、BSP软件设计、工装设计、批量生产、产品认证
+= MultiQB 家庭多媒体网关
+我们提供：硬件设计、BSP 软件设计、模具设计、批量生产和产品认证。
 
 image::/bpi-4_0-oem-odm/multiqb_front.jpg[multiqb_front.jpg]
 
-内部PCBA：
+内部 PCBA：
 
 image::/bpi-4_0-oem-odm/multiqb_front_pcba.jpg[multiqb_front_pcba.jpg]
 
-案例设计：
+外壳设计：
 
 image::/bpi-4_0-oem-odm/multiqb_front_case.png[multiqb_front_case.png]
 
 == 硬件规格
 
-- 尺寸：两层，88x88 毫米
+- 尺寸：双层，88 × 88 mm
 - CPU 芯片组：A20 ARM Cortex™-A7 双核 1 GHz
 - GPU 芯片组：ARM Mali400MP2 符合 OpenGL ES 2.0/1.1
 - 内存：1 GB DDR3
-- 存储插槽：微型SD卡16G字节
-- 网络 Ethernet: – 10/100/1000Mbps 广域网 x 1 – 10/100/1000Mbps 局域网×4
-- WIFI： – 3x 2.4GHz，支持 IEEE 802.11b/g/n，高达300Mbps – 1x 5GHz，支持IEEE 802.11a/n/ac，高达433Mbps – 外置高增益天线2.4GHz x3，5GHz x1 –WIFI型号MT7632或AP6335
-- 4G LTE – SimCom Sim7100C、FDD B3 LTE 1800、 – 型号 SIM7100C – 外部高增益天线 4G x1
-- USB: USB 主机2.0×1
-- 摄像头：摄像头 x 1，屏幕分辨率高清 1280x720 像素，30 FPS，UVC H.264 编码技术，CSI 连接器
+- 存储卡槽：microSD 卡，容量 16 GB
+- 以太网：1 个 10/100/1000 Mbps WAN 口，4 个 10/100/1000 Mbps LAN 口
+- WiFi：3 路 2.4 GHz，支持 IEEE 802.11b/g/n，最高 300 Mbps；1 路 5 GHz，支持 IEEE 802.11a/n/ac，最高 433 Mbps；外置高增益天线为 3 根 2.4 GHz、1 根 5 GHz；WiFi 模块为 MT7632 或 AP6335
+- 4G LTE：SimCom SIM7100C，FDD Band 3 LTE 1800；1 根 4G 外置高增益天线
+- USB：1 个 USB 2.0 Host 接口
+- 摄像头：1 个摄像头，HD 1280 × 720 像素、30 FPS，支持 UVC H.264 编码，采用 CSI 接口
 - 音频输入：麦克风 x 1
-- 视频输出： HDMI 输出 x 1
-- 音频输出：3.5mm 插孔和 HDMI
-- 扬声器：BP-5032-44，1x扬声器，直径50mm，深度32mm，功率4w，阻抗4±15%Ω
-- 按键： 电源键 x 1 触摸传感器电源按钮 重置键 x 1
-- LED：RJ45 LED (上传、下载) 5 个无线网络 LED (2.4G, 5.8G) x 2 电源状态 LED x 1 GPIO LED (4 针 LED) x 1 USB LED x 1 相机 LED x 1 4G LED x 1 音频 LED x1 麦克风 LED x1
+- 视频输出：1 个 HDMI 输出
+- 音频输出：3.5 mm 插孔和 HDMI
+- 扬声器：BP-5032-44，1 个；直径 50 mm、深度 32 mm、功率 4 W、阻抗 4 Ω（±15%）
+- 按键：1 个触摸感应电源键，1 个复位键
+- LED：5 个 RJ45 收发指示灯、2 个 WiFi 指示灯（2.4G、5.8G）、1 个电源状态灯、1 组 GPIO LED（4 引脚）、1 个 USB 指示灯、1 个摄像头指示灯、1 个 4G 指示灯、1 个音频指示灯、1 个麦克风指示灯
 - 调试：串行控制台、JTAG
-- 预留引脚： GPIO PIN x 26， UART, 12C 总线, SPI 具有两个片选的总线，CAN总线， ADC, PWM, +5V, +3.3V，接地
-- 红外接收器：x1
-- 电源：微型USB 直流电源 5V/2A
-- 电池：锂离子 4400 mAh 3.7V，电池连接器：x1
-- 适配器：直流适配器 5V/2A 与微USB 电缆
-- 轻松添加zigbee、z-wave、NB-IoT等物联网功能。
+- 预留引脚：26 个 GPIO 引脚，以及 UART、I2C、带两个片选的 SPI、CAN、ADC、PWM、+5V、+3.3V 和 GND
+- 红外接收器：1 个
+- 电源：Micro-USB，DC 5 V/2 A
+- 电池：3.7 V、4400 mAh 锂离子电池，1 个电池连接器
+- 适配器：5 V/2 A DC 适配器，配 Micro-USB 线
+- 易于扩展 Zigbee、Z-Wave、NB-IoT 等物联网功能。
 
-= KANO 像素套件
-我们所做的：硬件设计、批量生产
+= KANO Pixel Kit
+我们提供：硬件设计和批量生产。
 
 image::/bpi-4_0-oem-odm/kano_1.jpg[kano_1.jpg]
 
-该产品适用于带有 KANO 刮擦应用程序的 STEAM 教育：
+该产品配合 KANO Scratch 应用，用于 STEAM 教育：
 
 image::/bpi-4_0-oem-odm/blockly_web.jpg[blockly_web.jpg]
 
-的 link:https://kano.me/store/uk/products/pixel-kit[卡诺像素套件] 是一个有趣的自行搭建、自行编程的数字显示器，针对刚刚对编码和玩弄技术感兴趣的年轻人。
+link:https://kano.me/store/uk/products/pixel-kit[Kano Pixel Kit] 是一款可自行组装、编程的趣味数字显示器，面向刚开始接触编程和科技创作的青少年。
 
 https://www.youtube.com/watch?v=-Gs5UuEjYgI&list=PLGddqVjX_E2EGskc9rP9eEf7tJ8K-V0du
 
@@ -147,57 +147,57 @@ https://www.youtube.com/watch?v=As4HTgXgyPY
 
 http://upflow.co/l/LHkO/2017/08/kano-pixel-kit-review.html
 
-= 电子拦截器
-我们所做的：硬件设计、BSP软件设计、PCBA支持、产品认证
+= eBlocker
+我们提供：硬件设计、BSP 软件设计、PCBA 支持和产品认证。
 
 image::/bpi-4_0-oem-odm/new_eblocker_family_shop_money_back.png[new_eblocker_family_shop_money_back.png]
 
-eBlocker 的工作方式既高效又简单：打开包装，插入电源，准备就绪。无需额外的软件安装和配置。您所需要的只是一个免费的 Ethernet 端口连接到您的家庭网络，然后就可以开始使用了。
+eBlocker 使用起来简单高效：开箱、接线即可使用，无需安装或配置其他软件。只要家庭网络中有一个可用的以太网端口，就可以开始使用。
 
-eBlocker官方网站： https://www.eblocker.com/en/
+eBlocker 官方网站：https://www.eblocker.com/en/
 
-视频演示： https://www.eblocker.com/wp-content/uploads/2016/02/whatiseblocker-1280x720.mp4
+视频演示：https://www.eblocker.com/wp-content/uploads/2016/02/whatiseblocker-1280x720.mp4
 
-图片下载链接： https://www.eblocker.com/en/download/
+镜像下载：https://www.eblocker.com/en/download/
 
-= 3G信息安全终端
-我们所做的：硬件设计、BSP软件设计、工装设计、批量生产、产品认证
+= 3G 信息安全终端
+我们提供：硬件设计、BSP 软件设计、模具设计、批量生产和产品认证。
 
 image::/bpi-4_0-oem-odm/img_3036.jpg[img_3036.jpg]
 
-PCBA内部：
+内部 PCBA：
 
 image::/bpi-4_0-oem-odm/a20_for_4g.jpg[a20_for_4g.jpg]
 
-= 4G工业安全平板电脑
-我们所做的：硬件设计、BSP软件设计、工装设计、批量生产、产品认证
+= 4G 工业安全平板电脑
+我们提供：硬件设计、BSP 软件设计、模具设计、批量生产和产品认证。
 
 image::/bpi-4_0-oem-odm/img_3085.jpg[img_3085.jpg]
 
-PCBA内部：
+内部 PCBA：
 
 image::/bpi-4_0-oem-odm/a20_for_4g_mid.jpg[a20_for_4g_mid.jpg]
 
 = MTK MT6737 4G 手表
-硬件设计、全软件设计、工装设计、批量生产、产品认证
+提供硬件设计、全套软件设计、模具设计、批量生产和产品认证。
 
 image::/bpi-4_0-oem-odm/4g_watch_1.jpg[4g_watch_1.jpg]
 
-MTK MT6737 4G 手表 UI，我们可以定制。
+我们可定制 MTK MT6737 4G 手表的用户界面。
 
 image::/bpi-4_0-oem-odm/4g_watch_6.jpg[4g_watch_6.jpg]
 
-使用MTK MT6737为中国移动设计4G手表项目，该产品已通过中国移动认证。
+该 4G 手表项目采用 MTK MT6737，为中国移动设计，并已通过中国移动认证。
 
-4G手表PCBA：
+4G 手表 PCBA：
 
 image::/bpi-4_0-oem-odm/4g_watch_pcba.jpg[4g_watch_pcba.jpg]
 
-4G手表PCBA带屏蔽罩：
+带屏蔽罩的 4G 手表 PCBA：
 
 image::/bpi-4_0-oem-odm/4g_watch_pcba_1.jpg[4g_watch_pcba_1.jpg]
 
-4G手表规格
+4G 手表规格
 
 系统物理标准配置：
 
