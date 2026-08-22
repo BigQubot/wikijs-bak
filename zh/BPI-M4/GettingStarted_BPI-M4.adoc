@@ -1,0 +1,136 @@
+= 简介
+
+香蕉派 BPI-M4 采用Realtek RTD1395芯片设计，是一款64位四核A53迷你单板计算机。它具有 1 GB RAM 和 8 GB eMMC。它还具有板载 WiFi b/g/n/ac 和英国电信 4.2。在端口方面， BPI-M4 有 4 个 USB 2.0端口，1个 USB TYPE C 端口、1 个 HDMI 端口、1 个音频插孔。支持M.2键E PCIE 2.0界面。 
+
+TIP: 更多信息： link:/en/BPI-M4/BananaPi_BPI-M4[香蕉派 BPI-M4]
+
+== 规格参数
+
+- Realtek RTD1395 ARM Cortex-A53 四核 64 位
+- 马里470 MP4 GPU OpenGL ES 1.1/2.0 H.264 H.265,2K4K
+- 板载1GB DDR4 (选项 2 GB)
+- 8G eMMC 闪光 (最大 64 GB)
+- 10/100 Mbit/s Ethernet 和RTL8821模块支持Wi-Fi 802.11 b/g/n/AC + 蓝牙4.2
+- USB 2.0 C型
+- M.2键E槽 PCIE 2.0 和 USB 2.0
+- PoE 功能支持
+
+= 开发
+== Android
+=== 准备
+
+. BPI-M4 Android8镜像仅支持2GB ddr板。
+. BPI-M4 USB 闪存工具是一个 usb 下载刷机工具 android 镜像到板 emmc，并且只支持 Windows 平台。
+. 确保SW2 (主板底部靠近 SD 插槽) 切换到1
+. 阅读 document/bananapi_m4_usb_download_tool_guide.doc 在 usb 在刷写镜像之前刷写工具包。
+
+下载 link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/files/?p=%2FTools%2Fimage_download_tools%2Fm4_android_usb_download_tool.zip[BPI-M4 USB 闪存工具]
+
+=== 安装镜像到 eMMC
+
+. xxx
+. xxx
+. xxx
+. xxx
+
+== Linux
+=== 准备
+
+. 板SW2 (主板底部靠近 SD 插槽) 切换到0
+. 为了兼容新的 2GB 和 1GB 板卡 Linux 镜像，旧批次 (2020年5月之前) 1GB 板必须更新 spirom 固件，以便它可以运行新版本的映像。
+. 登录 user/password: pi/bananapi 或 root/bananapi
+
+=== 安装带有 xxx 的映像
+
+. xxx
+. xxx
+. xxx
+. xxx
+
+=== 安装带有 xxx 的映像
+
+. xxx
+. xxx
+. xxx
+. xxx
+
+=== 启用 SPI
+无设备树覆盖支持，40 针接头 SPI 由于引脚与uart2复用，该功能默认关闭，可根据本主题开启
+
+https://forum.banana-pi.org/t/banana-pi-bpi-m4-how-to-get-i2c-and-spi-running-tutorial/12824
+或通过 fdtput 命令而不构建内核。在执行此操作之前，请确保已安装引导分区。
+```sh
+ # fdtput -t s /media/pi/BPI-BOOT/bananapi/bpi-m4/linux/rtd-1395-bananapi-m4-2GB.dtb /spi@9801BD00 status okay
+ # fdtput -t s /media/pi/BPI-BOOT/bananapi/bpi-m4/linux/rtd-1395-bananapi-m4-1GB.dtb /spi@9801BD00 status okay
+ # reboot
+```
+
+=== 已安装 Docker
+进行测试，如果 docker 已安装在您的映像中。
+```sh
+sudo docker run --rm hello-world
+```
+=== 埃玛克
+使用iperf3测试gmac
+
+. 在PC终端上执行 
++
+```sh
+iperf3 -s
+```
+. 在 M3 控制台上：
+
+- TCP测试
++
+```sh
+iperf3 -c serverIP
+```
+- UDP测试
++
+```sh
+iperf3 -u -c serverIP
+```
++
+image::/picture/m4_emac_test.jpg[m4_emac_test.jpg]
+
+=== 蓝牙
+**您有两种设置 BT 的方法**
+
+. 使用命令设置BT
+
+- 使用bluetoothctl工具操作BT
+- 执行“**蓝牙控制**"
+- 如果您不知道如何使用 bluetoothctl，请输入“**帮助**”，你会看到更多命令
+- 执行这些命令：
++
+image::/picture/m4_bluetooth.jpg[m4_bluetooth.jpg]
+
+. 使用UI界面设置BT
+
+=== WiFi客户端
+**您有两种方法来设置 WiFi 客户端**
+
+. 使用命令设置 WiFi 客户端
++
+```sh
+ip link set wlan0 up
+iw dev wlan0 scan | grep SSID
+vim /etc/wpa_supplicant/wpa_supplicant.conf
+```
++
+```sh
+ network={    
+ ssid="ssid"    
+ psk="password"    
+ priority=1 
+ }
+```
++
+```sh
+wpa_supplicant -iwlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf
+dhclient wlan0
+```
+
+. 使用UI界面设置WiFi Client
++
+image::/picture/m4_wifi_iperf3.jpg[m4_wifi_iperf3.jpg]
