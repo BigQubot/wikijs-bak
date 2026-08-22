@@ -1,0 +1,828 @@
+= 概述
+
+香蕉派 BPI-R4 Mini Wifi7智能路由器板设计与 MediaTek MT7987A 四核 Arm Cortex-A53，支持 2GB DDR4 和 8G eMMC 船上闪光。 2 x 2.5G RJ45，板载 Wifi7，迷你尺寸。 
+
+= 开发
+== 准备工作
+* USB 磁盘 +
+* USB C型数据线 +
+* CAT6A/Cat5e Ethernet 电缆 +
+* 12V/5A 电源适配器（无任何外设和网线插入时，功耗 BPI-R4MINI 主板大约10W，所以 12V/2A 会起作用的。
+但您需要根据自己的配件使用情况来确定是否需要更高功率的电源适配器，12V/5A 推荐） +
+* Windows/unbuntu 系统 +
+* link:https://docs.banana-pi.org/en/BPI-R4_Mini/BananaPi_BPI-R4_Mini#_system_image[BPI-R4Mini 镜像] +
+* link:https://docs.banana-pi.org/en/BPI-R4_Mini/BananaPi_BPI-R4_Mini#_source_code[BPI-R4Mini 源代码] +
+
+== 引导程序设置
+image::/bpi-r4_mini_en/bootstrap-setup.png[bootstrap-setup.png]
+1.	所有跳线都是“1”， BPI-R4Mini 将从以下位置启动 emmc 卡
+
+image::/bpi-r4_mini_en/emmc_boot-withstrap.png[emmc_boot-withstrap.png]
+2.	SW3-B 为“0”，SW3-A 为“1”， BPI-R4Mini 将从以下位置启动 SPI NAND
+
+image::/bpi-r4_mini_en/nand-boot-with-strap.png[nand-boot-with-strap.png]
+3.	SW3-B 为“1”，SW3-A 为“0”， BPI-R4Mini 将从以下位置启动 SPI 或非
+
+image::/bpi-r4_mini_en/nor-boot-with-strap.png[nor-boot-with-strap.png]
+4.	如果控制台显示“systemhalt!”，则表示启动存储不包含任何操作系统
+
+== 闪烁图像
+=== 如何将镜像闪烁到 NAND 闪光灯
+TIP: 工厂形象信息：OpenWrt 24.10-快照架构：aarch64_皮质-a53
+
+
+将镜像闪烁之前 Nand，请准备一个 USB 磁盘。让我们采取 OpenWrt 镜像 (mtk-bpi-r4mini-NAND-20260721.img) 例如，步骤如下：
+
+1.	格式化 USB 磁盘到 FAT32。
+
+2.	复制 Nand 启动 OpenWrt 镜像(mtk-bpi-r4mini-NAND-20260721.img) 到 USB 磁盘。
+3.	将引导程序更改为 eMMC 启动，然后给开发板上电。
+4.	插入 USB 磁盘到板上，并安装 USB 到 /mnt 或其他目录如下： (如果自动安装则可以跳过安装)
++
+```SH
+mount -t vfat /dev/sda1 /mnt 
+cd /mnt
+```
+5.	执行以下命令即可全部擦除 Nand 闪存并将镜像复制到 nand 设备：
+注意：R4mini 的 NAND 镜像闪存至 MTD0
+
++
+```sh
+mtdinfo /dev/mtd0
+mtd0
+Name:                           spi0.0
+Type:                           nand
+Eraseblock size:                131072 bytes, 128.0 KiB
+Amount of eraseblocks:          2048 (268435456 bytes, 256.0 MiB)
+Minimum input/output unit size: 2048 bytes
+Sub-page size:                  2048 bytes
+OOB size:                       128 bytes
+Character device major/minor:   90:0
+Bad blocks are allowed:         true
+Device is writable:             true
+
+cat /proc/mtd
+dev:    size   erasesize  name
+mtd0: 10000000 00020000 "spi0.0"
+mtd1: 0f000000 00020000 "nmbm_spim_nand"
+mtd2: 00480000 00010000 "BL2"
+mtd3: 00400000 00010000 "Factory"
+mtd4: 00200000 00010000 "FIP"
+mtd5: 02000000 00010000 "Kernel"
+mtd6: 40000000 00010000 "rootfs"
+mtd7: 3cb90000 00010000 "rootfs_data"
+mtd8: 80000000 00010000 "usrdata"
+mtd9: 10f580000 00010000 "bmtpool"
+
+flash_erase /dev/mtd0 0 2048
+Erasing 128 Kibyte @ ffe0000 -- 100 % complete 
+
+mtd erase /dev/mtd0
+
+mtd write mtk-bpi-r4mini-NAND-20260721 /dev/mtd0
+
+```
+6.	关闭电源 BPI-R4Mini, 删除 usb 磁盘，将引导程序更改为 nand 再次启动并通电。
+
+=== 如何将镜像闪烁到 eMMC 闪光灯
+NOTE:  需要切换到 NAND 启动然后刻录 EMMC 镜像进入 EMMC。最后，您将更改引导程序以从 EMMC.
+
+让我们采取 OpenWrt 镜像 (bl2_emmc-r4mini.img,mtk-bpi-r4mini-EMMC-20260721) 例如，步骤如下：
+
+1.	格式化 USB 磁盘到 FAT32。
+2.	复制 EMMC 启动 OpenWrt 镜像(bl2_emmc-r4mini.img,mtk-bpi-r4mini-EMMC-20260721) 到 USB 磁盘,
+如果图像被压缩，请在复制到之前解压缩 USB 磁盘。
+3.	将引导程序更改为 Nand 启动并给 R4Mini 通电。
+4.	插入 USB 磁盘到板上，并安装 USB 到 /mnt 或其他目录如下： (如果自动安装则可以跳过安装)
++
+```sh
+mount -t vfat /dev/sda1 /mnt 
+cd /mnt
+```
+5.	执行命令
+
++
+```sh
+dmesg | grep mmcblk0
+[    5.778706] mmcblk0: mmc0:0001 8GTF4R 7.28 GiB 
+[    5.783936] mmcblk0boot0: mmc0:0001 8GTF4R partition 1 4.00 MiB
+[    5.790558] mmcblk0boot1: mmc0:0001 8GTF4R partition 2 4.00 MiB
+[    5.796568] mmcblk0rpmb: mmc0:0001 8GTF4R partition 3 512 KiB, chardev (245:0)
+[    5.831079]  mmcblk0: p1 p2 p3 p4 p5
+
+echo 0 > /sys/block/mmcblk0boot0/force_ro
+dd if=bl2_emmc-r4mini.img of=/dev/mmcblk0boot0
+489+1 records in
+489+1 records out
+
+dd if=mtk-bpi-r4mini-EMMC-20260721.img of=/dev/mm
+194335+1 records in
+194335+1 records out
+
+mmc bootpart enable 1 1 /dev/mmcblk0
+
+sync
+sync
+
+```
+6.	关闭电源 BPI-R4Mini，删除u盘驱动，将bootstrap改为 emmc 再次启动并通电。
+
+
+=== 如何从 NOR 闪存恢复系统
+方法：恢复 emmc 首先系统，然后看“如何将镜像刷新到 NAND 闪光”
+
+1.	确保 NOR 闪存已准备就绪。
+2.	将 NOR 闪存安装到板上(CN15).
+
+
+NOR 闪存：
+
+image::/bpi-r4_mini_en/nor-flash.png[nor-flash.png]
+安装前：
+
+image::/bpi-r4_mini_en/nor-before-installtion.png[nor-before-installtion.png]
+
+安装后：
+
+image::/bpi-r4_mini_en/nor-after-installtion.png[nor-after-installtion.png,width=55%]
+
+3.	将引导程序切换到 NOR 并启动。
+4.	格式化 USB 磁盘到 FAT32。
+5.	复制 EMMC 启动 OpenWrt 镜像(bl2_emmc-r4mini.img,mtk-bpi-r4mini-EMMC-20260721) 到 USB 磁盘,
+6.	插入 USB 磁盘到板上，并安装 USB 到 /mnt 或其他目录如下： (如果自动安装则可以跳过安装)
++
+```sh
+mount -t vfat /dev/sda1 /mnt 
+cd /mnt
+```
+7.	执行命令
+
++
+```sh
+
+mtdinfo /dev/mtd0
+
+dmesg | grep mmcblk0
+
+echo 0 > /sys/block/mmcblk0boot0/force_ro
+
+dd if=bl2_emmc-r4mini.img of=/dev/mmcblk0boot0
+
+dd if=mtk-bpi-r4mini-EMMC-20260721.img of=/dev/mmcblk0
+
+mmc bootpart enable 1 1 /dev/mmcblk0
+
+sync
+sync
+```
+
+8.	关闭电源 BPI-R4Mini，删除u盘驱动，将bootstrap改为 emmc 再次启动并通电。
+
+== 电源开启
+• 使用您的 USB TypeC 电缆 连接到调试控制台(CN3) 上 BPI-R4Mini
+• 安装终端仿真器或使用您熟悉的串行终端，
+• 更改设置如下： 波特率=115200，数据位：8位，奇偶校验：无，停止位：1位，流控制：无；
+• 上电前设置自举，
+（如果您正在使用 BPI-R4Mini 首次使用，建议设置为 NAND 启动)
+• 当将电源适配器连接至DC-IN 连接器时(CN6),绿色 LED “PWR”亮起，控制台上会出现类似如下的字符。这说明你已经成功启动了 BPI-R4Mini.
+
+[%collapsible]
+====
+
+```bash
+F0: 102B 0000
+F9: 0000 0000
+V0: 0000 0000 [0001]
+00: 0000 0000
+BP: 0680 0041 [0000]
+G0: 1190 0000
+EC: 0000 0000 [1000]
+MK: 0000 0000 [0000]
+T0: 0000 0364 [0101]
+Jump to BL
+
+NOTICE:  BL2: v2.12.0(release):
+NOTICE:  BL2: Built : 13:41:03, Jul 14 2026
+NOTICE:  WDT: Cold boot
+NOTICE:  WDT: disabled
+NOTICE:  CPU: MT7987A
+NOTICE:  EMI: Using DDR4 settings
+NOTICE:  DDR4 Speed: 3200 Mbps
+NOTICE:  DDR tREFI: 3.9 us
+NOTICE:  DDR power-down option: 2
+NOTICE:  EMI: Detected DRAM size: 2048 MB
+NOTICE:  EMI: complex R/W mem test passed
+NOTICE:  LVTS: Enable thermal HW reset
+NOTICE:  BL2: Booting BL31
+NOTICE:  BL31: v2.12.0(release):
+NOTICE:  BL31: Built : 13:41:05, Jul 14 2026
+
+
+U-Boot 2025.07-rc3 (Jul 14 2026 - 20:49:48 +0800)
+
+CPU:   MediaTek MT7987
+Model: mt7987
+       (mediatek,mt7987-spim-nor-rfb)
+DRAM:  2 GiB
+Core:  79 devices, 13 uclasses, devicetree: separate
+Loading Environment from MTD... SF: Detected w25q256 with page size 256 Bytes, erase size 4 KiB, total 32 MiB
+```
+====
+
+== 网络配置
+
+• 网络配置请参阅： http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:network:start
+• 网络接口：eth1,br-wan 用于WAN； eth1，br-lan用于LAN，ra0用于2.4G无线，rai0用于5G无线。
+
+
+
++
+```sh
+
+root@OpenWrt:/# ifconfig 
+br-lan    Link encap:Ethernet  HWaddr DA:1F:26:22:7B:5E  
+          inet addr:192.168.1.1  Bcast:192.168.1.255  Mask:255.255.255.0
+          inet6 addr: fd2b:6d4e:9e56::1/60 Scope:Global
+          inet6 addr: fe80::d81f:26ff:fe22:7b5e/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:939 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:537 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:77387 (75.5 KiB)  TX bytes:55390 (54.0 KiB)
+
+br-wan    Link encap:Ethernet  HWaddr 1A:DB:A6:84:0A:E0  
+          inet6 addr: fe80::18db:a6ff:fe84:ae0/64 Scope:Link
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:10 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:1626 (1.5 KiB)
+
+eth0      Link encap:Ethernet  HWaddr DA:1F:26:22:7B:5E  
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:1121 errors:0 dropped:1 overruns:0 frame:0
+          TX packets:531 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:113218 (110.5 KiB)  TX bytes:55674 (54.3 KiB)
+          Interrupt:73 
+
+eth1      Link encap:Ethernet  HWaddr 1A:DB:A6:84:0A:E0  
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+          Interrupt:73 
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:330 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:330 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:26614 (25.9 KiB)  TX bytes:26614 (25.9 KiB)
+
+ra0       Link encap:Ethernet  HWaddr 00:0C:43:26:60:38  
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+rai0      Link encap:Ethernet  HWaddr 00:0C:43:26:60:11  
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+root@OpenWrt:/# brctl show br-wan
+bridge name     bridge id               STP enabled     interfaces
+br-wan          7fff.1adba6840ae0       no              eth1
+root@OpenWrt:/# brctl show br-lan
+bridge name     bridge id               STP enabled     interfaces
+br-lan          7fff.da1f26227b5e       no              eth0
+                                                        apclii0
+                                                        apcli0
+                                                        rai0
+                                                        ra0
+root@OpenWrt:/#  
+```
+
+
+== 读写EEPROM
+WARNING:  注意：我们发布的映像文件在每次启动时使用随机 MAC 地址，并且不使用 EEPROM。如果您希望使用 EEPROM，则需要编写脚本来读取数据并更新端口。
+
+=== 读取EEPROM +
+
+```sh
+
+hexdump -C /sys/bus/i2c/devices/0-0057/eeprom 
+```
+
+
+=== 将内容写入EEPROM
+
+```sh
+printf '\x01\x02\x03\x04\x05\x06' | dd of=/sys/bus/i2c/devices/0-0057/eeprom bs=1 seek=32 conv=notrunc
+```
+
+"**\x01\x02\x03\x04\x05\x06**" 是你要写入的内容，可以是MAC地址、序列号或者其他信息。 +
+"**废话=1**" 表示块大小为 1。 +
+"**寻找=32**" 表示偏移量 (要跳过多少个块). +
+**“废话=1 次寻找=32**"表示跳过32个字节，相当于从0x00到0x1F跳过字节，从0x20开始写入内容。 +
+"**转化次数=不截断**“不截断EEPROM，保留原始数据。
+
+比如我想向地址中写入两组MAC地址 **0x20** 和 **0x30** 分别：
+
+```
+printf '\x12\x41\x89\x7F\x64\xD3' | dd of=/sys/bus/i2c/devices/0-0057/eeprom bs=1 seek=32 conv=notrunc
+printf '\x7E\xF5\x56\x36\x4C\xD1'  | dd of=/sys/bus/i2c/devices/0-0057/eeprom bs=1 seek=48 conv=notrunc
+```
+
+WARNING:  **PS：由于V1.2版本后续批次计划向EEPROM写入数据，因此必须避免0x00到0x1F范围内的地址。**
+
+= 接口
+
+== 2.5G RJ45 局域网和广域网
+
+BPI-R4Mini (2.5G广域网)→ BPI-R4Min (2.5G局域网)
+
+[%collapsible]
+====
+
+```sh
+root@OpenWrt:~# iperf3 -c 192.168.2.1 
+Connecting to host 192.168.2.1, port 5201
+[  5] local 192.168.2.219 port 41332 connected to 192.168.2.1 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-1.00   sec   275 MBytes  2.31 Gbits/sec    0    991 KBytes       
+[  5]   1.00-2.00   sec   275 MBytes  2.31 Gbits/sec    0   1.02 MBytes       
+[  5]   2.00-3.00   sec   274 MBytes  2.30 Gbits/sec    0   1.02 MBytes       
+[  5]   3.00-4.00   sec   275 MBytes  2.31 Gbits/sec    0   1.02 MBytes       
+[  5]   4.00-5.00   sec   274 MBytes  2.30 Gbits/sec    0   1.08 MBytes       
+[  5]   5.00-6.00   sec   274 MBytes  2.30 Gbits/sec    0   1.08 MBytes       
+[  5]   6.00-7.00   sec   274 MBytes  2.30 Gbits/sec    0   1.14 MBytes       
+[  5]   7.00-8.00   sec   275 MBytes  2.31 Gbits/sec    0   1.14 MBytes       
+[  5]   8.00-9.00   sec   274 MBytes  2.30 Gbits/sec    0   1.14 MBytes       
+[  5]   9.00-10.00  sec   275 MBytes  2.31 Gbits/sec    0   1.14 MBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-10.00  sec  2.68 GBytes  2.30 Gbits/sec    0             sender
+[  5]   0.00-10.00  sec  2.68 GBytes  2.30 Gbits/sec                  receiver
+
+iperf Done.
+root@OpenWrt:~# iperf3 -c 192.168.2.1 -R 
+Connecting to host 192.168.2.1, port 5201
+Reverse mode, remote host 192.168.2.1 is sending
+[  5] local 192.168.2.219 port 52400 connected to 192.168.2.1 port 5201
+[ ID] Interval           Transfer     Bitrate
+[  5]   0.00-1.00   sec   272 MBytes  2.28 Gbits/sec                  
+[  5]   1.00-2.00   sec   273 MBytes  2.29 Gbits/sec                  
+[  5]   2.00-3.00   sec   273 MBytes  2.29 Gbits/sec                  
+[  5]   3.00-4.00   sec   272 MBytes  2.28 Gbits/sec                  
+[  5]   4.00-5.00   sec   273 MBytes  2.29 Gbits/sec                  
+[  5]   5.00-6.00   sec   271 MBytes  2.28 Gbits/sec                  
+[  5]   6.00-7.00   sec   273 MBytes  2.29 Gbits/sec                  
+[  5]   7.00-8.00   sec   273 MBytes  2.29 Gbits/sec                  
+[  5]   8.00-9.00   sec   273 MBytes  2.29 Gbits/sec                  
+[  5]   9.00-10.00  sec   273 MBytes  2.29 Gbits/sec                  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-10.00  sec  2.66 GBytes  2.29 Gbits/sec    0             sender
+[  5]   0.00-10.00  sec  2.66 GBytes  2.29 Gbits/sec                  receiver
+
+iperf Done.
+root@OpenWrt:~# iperf3 -c 192.168.2.1 -bidir 
+Connecting to host 192.168.2.1, port 5201
+[  5] local 192.168.2.219 port 55952 connected to 192.168.2.1 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-1.00   sec   271 MBytes  2.27 Gbits/sec    0    867 KBytes       
+[  5]   1.00-2.00   sec   275 MBytes  2.31 Gbits/sec    0    909 KBytes       
+[  5]   2.00-3.00   sec   274 MBytes  2.30 Gbits/sec    0   1.06 MBytes       
+[  5]   3.00-4.00   sec   274 MBytes  2.30 Gbits/sec    0   1.11 MBytes       
+[  5]   4.00-5.00   sec   275 MBytes  2.31 Gbits/sec    0   1.11 MBytes       
+[  5]   5.00-6.00   sec   274 MBytes  2.30 Gbits/sec    0   1.16 MBytes       
+[  5]   6.00-7.00   sec   274 MBytes  2.30 Gbits/sec    0   1.29 MBytes       
+[  5]   7.00-8.00   sec   275 MBytes  2.31 Gbits/sec    0   1.29 MBytes       
+[  5]   8.00-9.00   sec   274 MBytes  2.30 Gbits/sec    0   1.29 MBytes       
+[  5]   9.00-10.00  sec   275 MBytes  2.31 Gbits/sec    0   1.29 MBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-10.00  sec  2.68 GBytes  2.30 Gbits/sec    0             sender
+[  5]   0.00-10.00  sec  2.67 GBytes  2.29 Gbits/sec                  receiver
+
+iperf Done.
+```
+====
+
+== M.2键(B+M) 插槽(为了 4G/5G 模块或 NVMe SSD)
+
+=== 4G/5G 模块
+的 BPI-R4Pro 拥有1个M.2 B-KEY插槽，全部用于 4G/5G蜂窝模块。
+
+它支持一对 USB2.0 和 USB3.0 信号，均通过扩展 USB 3.0 枢纽。
+
+此外，CN8h 还具有额外的 PCIe3.0 1lane 信号。
+
+image::/bpi-r4_mini_en/m.2_key_b_slot.png[m.2_key_b_slot.png]
+
+=== NVMe SSD
+
+M.2按键插槽只能安装一种类型的M.2按键模块。
+
+所以 4G/5G 模块和 NvMe SSD 只能安装一个。
+
+
+== NANO SimSlot
+SIM1可以使用板载NANO SIM插槽
+
+== FPC连接器
+这是一个 16 针连接器。
+
+通常用于连接 spi lcd 或 i2c 电容式触摸屏。
+
+image::/bpi-r4_mini_en/fpc.png[fpc.png]
+
+
+== 调试 UART 
+的 BPI-R4Mini 机载有 USB-到-UART 芯片(HT42B534-2)，连接到MT7988A的调试 UART.
+
+连接时 USB Type-c连接器(CN41) 到 PC，一个 USB就会出现-to-serial设备，可以用来调试。
+
+终端设置：波特率=115200，数据位：8位，奇偶校验：无，停止位：1位，流控制：无。
+
+== 嵌入式SIM卡
+PIN42/44/46/48 M.2 B-KEY Slot 是第二组SIM 卡信号。
+
+注意：这需要您的模块支持，并且需要额外安装 eSIM 模块。
+
+image::/bpi-r4_mini_en/esim.png[esim.png]
+
+== EEPROM
+内置1颗EEPROM芯片 (P24C02A)，可用于存储少量数据。
+
+== 按钮
+=== 重置
+TIP: 短按 RST 可重新启动系统，长按可重置系统。
+
+GPIO1 连接有复位按钮，用于恢复出厂默认设置。
+
+=== WPS
+GPIO0连接有复位按钮，用于新设备快速连接路由器。
+
+== LED
+BPI-R4Mini有 LED 来指示各种操作状态，包括电源、WiFi、 Ethernet, 4G/5G 蜂窝等
+
+* 1x 动力绿 LED，PCB上丝印“PWR”，上电时亮起，无法通过软件控制。
+* 1x 蓝色状态 LED，PCB上丝印“B”，由控制 GPIO "PCA_A_IO1_6/SYS_LEDB".
+* 2x WiFi 状态蓝色 LED，丝印“W2G”、“W5G”。
+* 1x 5G 蜂窝状态蓝色 LED，丝印 
+* 每个 2.5G RJ45 有 2 个 LED，每个 1G RJ45 有 1 个 LED LED 以指示网络状态。
+
+== DCIN
+BPI-R4Pro 需要一个单一的 +12V供电，并具有多种电源，包括直流电源适配器， USB PD， POE等
+
+电源电压范围为9~建议使用24V、12V或20V，超过25.3V会自动关机。
+
+=== DCIN(5521)
+您可以使用 12V/5A 电源适配器插入CN44即可为其供电。
+但如果同时存在其他电源，则会切换到其他电源。
+
+CN44插槽尺寸如下(内在正，外在负):
+
+image::/bpi-r4_pro/bpi-r4pro-dc5521.png[bpi-r4pro-dc5521.png,width=300]
+== USB C型PD
+的 USB Type-C PD连接器连接有CH224Q芯片，用于与设备通信 USB 适配器并允许适配器输出20V电压。 +
+建议使用可输出20V、65W以上的PD电源。 
+
+== USB 2.0连接器
+BPI-R4Mini 有一个 USB2.0 Type-A 连接器，可用于连接 USB 闪存驱动器或其他 USB 设备。 +
+USB2.0连接器的电源输出 (CN12) 是 5V/1300mA，可以通过“PCA_A_IO1_3/VBUS_AB_PDN” 输出低。 +
+
+== WIFI天线
+有 3 个 ANT 用于 WIFI。
+
+== 4G/5G 蚂蚁
+4G 有 3 个 ANT。 +
+5G 有 4 个 ANT。
+
+= 配件
+== 4G/5G 模块
+=== M.2 4G/5G 模块(USB 接口)
+BPI-R4Mini 支持M.2 USB 接口4G LTE/5G 模块：移远EM05、RM500U-CN。
+
+如果您想在以下设备上使用 M.2 蜂窝模块 BPI-R4Mini:
+
+. 安装 4G/5G 蜂窝模块插入 CN16 插槽(M.2 键盘)
+. 将 NANOSIM 卡插入 SIMSlot 
+. 在模块上安装天线
+. 开机后会自动拨号
+
+NOTE: 的可用性 4G/5G 取决于本地载波频段
+
+image::/bpi-r4_mini_en/rm500u-cnv.png[rm500u-cnv.png]
+image::/bpi-r4_mini_en/em05-ce.png[em05-ce.png]
+image::/bpi-r4_mini_en/simslot.png[simslot.png]
+**移远RM500U-CNV**
+```sh
+Quectel RM520N-GL
+root@OpenWrt:/# ifconfig usb0 
+usb0      Link encap:Ethernet  HWaddr 66:95:BC:F5:84:B3  
+          inet addr:10.1.58.8  Bcast:10.1.58.255  Mask:255.255.255.0
+          inet6 addr: fe80::6495:bcff:fef5:84b3/64 Scope:Link
+          inet6 addr: 2409:895a:30b6:738:6495:bcff:fef5:84b3/64 Scope:Global
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:587 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:867 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:262208 (256.0 KiB)  TX bytes:200656 (195.9 KiB
+root@OpenWrt:/# lsusb 
+Bus 001 Device 002: ID 1a86:8091  USB HUB
+Bus 001 Device 001: ID 1d6b:0002 Linux 5.4.300 xhci-hcd xHCI Host Controller
+Bus 002 Device 002: ID 2c7c:0900 Quectel RM500U-CNV
+Bus 002 Device 001: ID 1d6b:0003 Linux 5.4.300 xhci-hcd xHCI Host Controller
+root@OpenWrt:/# 
+root@OpenWrt:/# ping www.baidu.com
+PING www.baidu.com (2409:8c54:870:310:0:ff:b0ed:40ac): 56 data bytes
+64 bytes from 2409:8c54:870:310:0:ff:b0ed:40ac: seq=0 ttl=51 time=64.183 ms
+64 bytes from 2409:8c54:870:310:0:ff:b0ed:40ac: seq=1 ttl=52 time=26.048 ms
+64 bytes from 2409:8c54:870:310:0:ff:b0ed:40ac: seq=2 ttl=52 time=25.857 ms
+64 bytes from 2409:8c54:870:310:0:ff:b0ed:40ac: seq=3 ttl=52 time=26.411 ms
+64 bytes from 2409:8c54:870:310:0:ff:b0ed:40ac: seq=4 ttl=52 time=61.369 ms
+64 bytes from 2409:8c54:870:310:0:ff:b0ed:40ac: seq=5 ttl=52 time=165.066 ms
+64 bytes from 2409:8c54:870:310:0:ff:b0ed:40ac: seq=6 ttl=52 time=60.570 ms
+64 bytes from 2409:8c54:870:310:0:ff:b0ed:40ac: seq=7 ttl=52 time=35.351 ms
+^C
+--- www.baidu.com ping statistics ---
+8 packets transmitted, 8 packets received, 0% packet loss
+round-trip min/avg/max = 25.857/58.106/165.066 ms
+root@OpenWrt:/#
+```
+
+**EM05-CE**
+```sh
+wwan0     Link encap:Ethernet  HWaddr 02:45:EC:8E:AD:80  
+          inet addr:10.7.83.4  Bcast:0.0.0.0  Mask:255.255.255.248
+          inet6 addr: fe80::45:ecff:fe8e:ad80/64 Scope:Link
+          UP BROADCAST RUNNING NOARP MULTICAST  MTU:1500  Metric:1
+          RX packets:2 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:23 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:236 (236.0 B)  TX bytes:3626 (3.5 KiB)
+
+root@OpenWrt:/# lsusb 
+Bus 001 Device 013: ID 2c7c:0125 Quectel Incorporated LTE Module
+Bus 002 Device 001: ID 1d6b:0003 Linux 5.4.300 xhci-hcd xHCI Host Controller
+Bus 001 Device 002: ID 1a86:8091  USB HUB
+Bus 001 Device 001: ID 1d6b:0002 Linux 5.4.300 xhci-hcd xHCI Host Controller
+root@OpenWrt:/# ping www.baidu.com
+PING www.baidu.com (111.45.11.5): 56 data bytes
+64 bytes from 111.45.11.5: seq=0 ttl=52 time=80.437 ms
+64 bytes from 111.45.11.5: seq=1 ttl=52 time=36.296 ms
+64 bytes from 111.45.11.5: seq=2 ttl=53 time=41.240 ms
+64 bytes from 111.45.11.5: seq=3 ttl=53 time=36.076 ms
+64 bytes from 111.45.11.5: seq=4 ttl=53 time=41.002 ms
+^C
+--- www.baidu.com ping statistics ---
+5 packets transmitted, 5 packets received, 0% packet loss
+round-trip min/avg/max = 36.076/47.010/80.437 ms
+root@OpenWrt:/# 
+```
+=== M.2 4G/5G 模块(PCIe 接口)
+理论上也支持 PCIe 蜂窝模块，但尚未测试
+
+== 存储
+=== NVMe SSD
+
+请插入一个M.2  NVMe SSD(PCI接口) 插入 KeyB 插槽(CN8).
+
+NOTE: 未进行兼容性测试，不保证所有SSD都可以使用。
+
+image::/bpi-r4_mini_en/nvme_ssd.png[nvme_ssd.png]
+
+```bash
+root@OpenWrt:/# lspci
+0000:00:00.0 PCI bridge: MEDIATEK Corp. Device 7987 (rev 01)
+0000:01:00.0 Non-Volatile memory controller: Intel Corporation NVMe Optane Memory Series
+0001:00:00.0 PCI bridge: MEDIATEK Corp. Device 7987 (rev 01)
+0001:01:00.0 Network controller: MEDIATEK Corp. Device 7993
+root@OpenWrt:/# cat /proc/partitions
+major minor  #blocks  name
+
+ 259        0   14065664 nvme0n1
+ 259        1   14063616 nvme0n1p1
+ 179        0    7634944 mmcblk0
+ 179        1        512 mmcblk0p1
+ 179        2       4096 mmcblk0p2
+ 179        3       2048 mmcblk0p3
+ 179        4      32768 mmcblk0p4
+ 179        5     262144 mmcblk0p5
+  31        0       4608 mtdblock0
+  31        1       4096 mtdblock1
+  31        2       2048 mtdblock2
+  31        3      32768 mtdblock3
+  31        4    1048576 mtdblock4
+  31        5     994880 mtdblock5
+  31        6    2097152 mtdblock6
+  31        7    4445696 mtdblock7
+root@OpenWrt:/# ls /dev/nvm*
+/dev/nvme0      /dev/nvme0n1    /dev/nvme0n1p1
+root@OpenWrt:/# df -h 
+Filesystem                Size      Used Available Use% Mounted on
+/dev/root                52.5M     52.5M         0 100% /rom
+tmpfs                   997.4M    164.0K    997.2M   0% /tmp
+/dev/mtdblock5          971.6M      5.6M    965.9M   1% /overlay
+overlayfs:/overlay      971.6M      5.6M    965.9M   1% /
+tmpfs                   512.0K         0    512.0K   0% /dev 
+root@OpenWrt:/mnt/nvme# mount /dev/nvme0n1p1 /mnt/nvme
+root@OpenWrt:/mnt/nvme# df -h 
+Filesystem                Size      Used Available Use% Mounted on
+/dev/root                52.5M     52.5M         0 100% /rom
+tmpfs                   997.4M    164.0K    997.2M   0% /tmp
+/dev/mtdblock5          971.6M      5.6M    965.9M   1% /overlay
+overlayfs:/overlay      971.6M      5.6M    965.9M   1% /
+tmpfs                   512.0K         0    512.0K   0% /dev
+/dev/nvme0n1p1           13.4G     80.2M     13.3G   1% /mnt/nvme
+root@OpenWrt:/mnt/nvme#
+```
+
+== SPI 也非闪存
+   SPI NOR FLASH is used to rescue system.
+
+请参考： https://docs.banana-pi.org/en/BPI-R4_Mini/GettingStarted_BPI-R4_Mini#_flashing_image[闪烁图像]
+   
+image::/bpi-r4_mini_en/nor-flash.png[nor-flash.png]
+
+== 散热片
+
+MTK OpwnWRT MP4.0 风扇带 PWM 控制参考。
+```bash
+root@OpenWrt:~# cat /sbin/fan-speed 
+#!/bin/sh /etc/rc.common
+
+if [ ! -f /sys/class/pwm/pwmchip0/export ]; then
+        exit 0
+fi
+
+### enable fan ###
+echo 2 > /sys/class/pwm/pwmchip0/export
+echo 10000 > /sys/class/pwm/pwmchip0/pwm2/period
+echo 7000 >  /sys/class/pwm/pwmchip0/pwm2/duty_cycle
+echo normal > /sys/class/pwm/pwmchip0/pwm2/polarity
+echo 1 > /sys/class/pwm/pwmchip0/pwm2/enable
+
+while :
+do
+        sleep 20
+        result=`cat /sys/class/thermal/thermal_zone0/temp`
+
+        temperature=$((result))
+        #echo $temperature
+        if [ ${temperature} -ge 53000 ]; then
+                echo 7000 >  /sys/class/pwm/pwmchip0/pwm2/duty_cycle
+        fi
+
+        if [ ${temperature} -ge 62000 ]; then
+                echo 10000 >  /sys/class/pwm/pwmchip0/pwm2/duty_cycle
+        fi
+
+        if [ ${temperature} -le 4800 ]; then
+                echo 5000 >  /sys/class/pwm/pwmchip0/pwm2/duty_cycle
+        fi
+
+        if [ ${temperature} -le 4000 ]; then
+                echo 3000 >  /sys/class/pwm/pwmchip0/pwm2/duty_cycle
+        fi
+done
+root@OpenWrt:~# 
+
+```
+
+= 引脚定义
+== 风扇(CN4)
+[%collapsible]
+====
+
+
+[options="header",cols="1,3",width="80%"]
+|====
+2+| **BPI-R4Mini 风扇连接器引脚定义**
+|密码号 |连接目的地		
+|1			 |5V		
+|2		 	 |接地	
+|3 	   	 |PWM	
+|====
+
+====
+== M.2 键 B 插槽(CN8)
+
+[%collapsible]
+====
+
+
+[options="header",cols="3,1,1,3",width="80%"]
+|====
+4+| **BPI-R4Mini M.2 B-KEY 插槽1(CN8) PIN码定义**
+|连接目的地	|密码号		|PIN 码	|连接目的地
+|NI	|1	|	2	|电源电压_密钥_A
+|接地	|3		|4	|电源电压_密钥_A
+|接地	|5	|	6	|NI(10K 上拉至 3.3V)
+|USB集线器_USB1_压差	|7		|8	|NI
+|USB集线器_USB1_DN |9		|10|	BKEY-A-NET-STUn LED
+|接地	|11		|12	|缺口
+|缺口	|13		|14	|缺口
+|缺口	|15		|16	|缺口
+|缺口	|17		|18	|缺口
+|缺口|	19	|	20	|NI
+|NI	|21		|22|	NI
+|NI |23	|	24	|NI
+|NI	|25		|26|	NI
+|接地	|27		|28|	NI
+|USB集线器_USB1_接收	|29		|30	|通用SIM卡_RST-1A
+|USB集线器_USB1_RXp	|31		|32	|通用SIM卡_时钟-1A
+|接地	|33	|	34	|通用SIM卡_数据-1A
+|USB集线器_USB1_TXn	|35	|36|	通用SIM卡_电源电压-1A
+|USB集线器_USB1_TXp	|37|		38|	NI
+|接地|	39	|	40|	NI
+|PCIE_SW_A_C_接收	|41		|42	|通用SIM卡_数据-1B
+|PCIE_SW_A_C_RXp|	43	|	44	|通用SIM卡_时钟-1B
+|接地	|45	|	46	|通用SIM卡_RST-1B
+|PCIE_SW_A_C_TXn	|47		|48	|通用SIM卡_电源电压-1B
+|PCIE_SW_A_C_TXp	|49		|50	|BKEY-A-预设_3P3V
+|接地	|51	|	52	|BKEY-A-CLKREQ_3P3V
+|PCIE_SW_A_C_CKn	|53		|54	|BKEY-A-唤醒_3P3V
+|PCIE_SW_A_C_肌酸激酶|	55	|	56|NI
+|接地	|57	|	58	|NI
+|NI	|59		|60	|NI
+|NI	|61		|62	|NI
+|NI|	63|		64	|NI
+|NI	|65	|	66|	通用SIM卡_DET-1A
+|BKEY-A-RST	|67		|68|	NI
+|NI	|69	|	70	|电源电压_密钥_A
+|接地|	71	|	72|	电源电压_密钥_A
+|接地	|73	|	74|	电源电压_密钥_A
+|NI	|75	| |		
+|====
+
+====
+== FPC连接器(CN13)
+
+[%collapsible]
+====
+
+
+[options="header",cols="3,1,1,3",width="80%"]
+|====
+4+| **BPI-R4Mini FPC连接器(CN13) PIN码定义**
+|连接目的地	|密码号		|PIN 码	|连接目的地
+|SPI_莫西	|1	|	2	|SPI_味噌
+|SPI_时钟脉冲	|3		|4	|SPI_计算机科学
+|SPI_IO1	|5	|	6	|SPI_IO2
+|接地	|7		|8	|CTP_SCL
+|CTP_SDA |9		|10|	CTP_INT
+|CTP_快速恢复时间	|11		|12	|接地
+|D1M	|13		|14	|D1P
+|5V0	|15		|16	|3V3
+|====
+
+====
+
+== 直流输入连接器(CN7)
+
+[%collapsible]
+====
+
+
+[options="header",cols="1,3",width="80%"]
+|====
+2+| **BPI-R4mINI DCIN连接器(CN7) PIN码定义**
+|密码号 |连接目的地		
+|1			 |DCIN_12_24V
+|2		 	 |接地
+|====
+====
+
+== SPI 或非(CN15)
+
+[%collapsible]
+====
+
+
+[options="header",cols="3,1,1,3",width="80%"]
+|====
+4+| **BPI-R4Mini SPI 或非(CN15) PIN码定义**
+|连接目的地	|密码号		|PIN 码	|连接目的地
+|SPI_莫西	|1	|	2	|启动_选择2
+|SPI_味噌	|3		|4	|缺口
+|SPI_时钟脉冲	|5	|	6	|缺口
+|SPI_计算机科学	|7		|8	|缺口
+|SPI_湿性粉剂 |9		|10|	缺口
+|SPI_保持	|11		|12	|缺口
+|VCC33|13		|14	|东风大学
+|接地	|15		|16	|东风大学
+|NOR/NAND_CS_SEL	|17		|18	|DNU
+|启动_选择1	|19		|20	|东风大学
+|====
+
+
