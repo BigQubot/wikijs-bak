@@ -1,0 +1,148 @@
+TIP: link:/en/BPI-Leaf-S3/BananaPi_BPI-Leaf-S3[香蕉派 BPI-Leaf-S3 主页]
+
+我们编写了这份入门指南来帮助您开始使用
+BPI-Leaf-S3 开发板快。
+
+== MicroPython 固件下载并烧录
+
+上 https://micropython.org/[MicroPython 官方网站]，可以找到支持RP2040芯片的固件。的 BPI-Pico-RP2040 与Raspberry Pi Pico的固件完全兼容： https://micropython.org/download/rp2-pico/
+
+点击链接进入页面后，可以看到下面几个固件下载地址列表。考虑到稳定性和新功能，建议选择Releases栏第一项下载。后续例程基于v1.19.1固件编写。
+
+image::/picture/bpi_pico_rp2040_micropython_env_1.png[bpi_pico_rp2040_micropython_env_1.png]
+
+Nightly builds 专栏中提供的固件是每日构建，将具有最新功能，但稳定性可能稍差，并且可能没有最新功能的文档。
+
+下载完成后，您将获得一个扩展名为.uf2的文件。烧录方法 BPI-Pico-RP2040 开发板很简单。首先，确保有一根type-c数据线，将一端连接到PC上，拿起开发板，保持上面没有任何连接或外围硬件，按住Boot按钮，将type-c数据线连接到开发板，松开Boot按钮，PC系统中会出现一个名为RPI-RP2的新磁盘，并将.uf2文件复制到此磁盘中。拷贝完成后，开发板会自动复位并进入 MicroPython 模式。
+
+== 安装桑尼 IDE
+
+桑尼 IDE 是一个非常适合初学者的工具。在其官网找到与您当前操作系统对应的安装包后或 GitHub 发布页面，下载并按照提示完成安装。
+
+* https://thonny.org/[桑尼官方网站] 
+* https://github.com/thonny/thonny/releases[GitHub 发布]
+
+按照安装提示一步一步完成安装。
+
+也可以通过pip安装， `pip install thonny`，需要 https://www.python.org/[Python] 环境，适合 macOS 或 Linux.
+
+== 建立开发板和 Thonny 之间的连接
+
+将开发板连接到电脑。
+
+. 要运行 Thonny，请单击运行 > 选择解释器。
++
+image::/picture/bpi_pico_rp2040_micropython_env_2.png[bpi_pico_rp2040_micropython_env_2.png]
+
+. 选择 MicroPython(树莓派 Pico).
++
+image::/picture/bpi_pico_rp2040_micropython_env_3.png[bpi_pico_rp2040_micropython_env_3.png]
+
+. 。选择开发板所在串口，点击确定确认设置。
++
+image::/picture/bpi_pico_rp2040_micropython_env_4.png[bpi_pico_rp2040_micropython_env_4.png]
+
+. 检查“视图”>“文件”以打开文件管理栏。
++
+image::/picture/bpi_pico_rp2040_micropython_env_5.png[bpi_pico_rp2040_micropython_env_5.png]
+
+== 使用 REPL 输出Hello World
+
+**REPL** 是的缩写 **读取-求值-打印-循环**，翻译为 **读取评估输出循环**.
+
+我们可以通过实际操作来理解它的含义。
+
+连接开发板后 MicroPython 安装到计算机并运行 Thonny 的固件 IDE 正确配置后，Shell 窗口中将出现以下文本：
+
+```
+MicroPython v1.19.1 on 2022-06-18; Raspberry Pi Pico with RP2040
+Type "help()" for more information.
+>>>
+```
+
+注意 `>>>` 最后一行提示，我们可以直接在后面输入公式或代码，然后按 `enter` 按键盘上的 键立即得到下一行的输出结果。
+
+```python
+>>> 1+2
+3
+>>> print("Hello World")
+hello world
+>>>
+```
+
+现在可以很直观地理解了。它会读取我们输入的信息，进行计算评估，输出结果，然后等待我们后续的输入，不断循环这个过程。这就是为什么 **REPL** 被翻译成 ** 交互式解释器的原因是我们可以通过输入代码直接与硬件进行交互。不需要像传统C语言那样中间执行编译过程。我们输入的信息会传输到芯片进行解释和运算，无需编译。是的，这是一个重要的功能 Python 语言，以及 MicroPython 完美继承了它。
+
+如果你只是使用 MicroPython REPL，可以操作很多具有串口信息发送和接收功能的软件。如果有兴趣，可以尝试一下各种串口工具，可以让人更深入地理解“没有中间编译过程”的含义。
+
+> 关于应用 REPL，更详细全面的内容可以参考 https://docs.micropython.org/en/latest/reference/repl.html[MicroPython 文档： REPL]
+
+== 代码编辑器
+
+当然，桑尼 IDE 不仅可以执行 REPL 操作，但作为python代码编辑器，它还是有自己的功能的。
+
+创建一个新文件并在其编辑区域中输入代码。
+
+```python
+print(1+2)
+print("Hello World")
+```
+
+代码编辑完成后，点击 **保存**，可以选择将文件保存到开发板，这样会直接将整个文件传输到开发板的flash中。您可以命名该文件 `main.py`，设备每次上电或复位后都会执行。
+
+现在点击 **运行当前脚本**运行。也不需要编译，在Shell中立即得到结果。
+
+```
+3
+hello world
+```
+
+此外，您还可以尝试 REPL 键盘快捷键 **控制键+D** 软件复位，可以看到复位后立即执行程序并打印出信息。
+
+== 打开 LED
+
+船上的 LED 于 BPI-Pico-RP2040 连接到 GPIO 25针，可以点亮它 REPL。当你看到 REPL 提示 `>>>`，请输入以下代码。
+```python
+>>> from machine import Pin
+>>> led = Pin(25, Pin.OUT)
+```
+> 的 `machine` 模块用于控制开发板上的硬件。这是所有标准 MicroPython 端口，您可以在 https://docs.micropython.org/en/v1.19.1/library/machine.html[MicroPython 文档：机器].
+
+输入以下代码和 LED 会亮起。
+```python
+>>> led. value(1)
+```
+
+输入以下代码将关闭 LED.
+```python
+>>> led. value(0)
+```
+
+== 使用板载RGB LED
+
+板载WS2812 RGB LED 上 BPI-Pico-RP2040 连接到 GPIO 3针，只需要一根信号线即可控制，在中输入以下代码 REPL.
+```python
+>>> from machine import Pin
+>>> from neopixel import NeoPixel
+>>> neo = NeoPixel(Pin(3), 1)
+```
+> 的 `neopixel` 模块提供WS2812 RGB驱动 LED。您可以在以下位置了解更多相关信息 https://docs.micropython.org/en/v1.19.1/library/neopixel.html[MicroPython 文档：neopixel].
+输入下面的代码和RGB LED 会亮起红色。
+```python
+>>> neo[0] = (25,0,0)
+>>> neo.write()
+```
+`neo[0] = (25,0,0)` 设置第一个灯笼的颜色。
+
+WS2812灯笼中有3个纯色LED，颜色为红、绿、蓝。中的元素 `(25,0,0)` tuple依次控制它们的亮度，取值范围为0 ~ 255.元素的值越大，纯色越亮 LED 它控制。
+建议将该元素的值控制在50以下。该值太高时，近距离直视会很刺眼。
+
+之后 `neo.write()` 执行后，芯片会将控制信号发送给板载的WS2812彩灯。
+
+您可以尝试自己修改元组中的数据来控制RGB LED的颜色。例如继续在下面的代码中输入 REPL 使 RGB LED 变成白色。
+```python
+>>> neo[0] = (25,25,25)
+>>> neo.write()
+```
+
+== 参考资源
+TIP: https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-python-sdk.pdf[raspberry-pi-pico-python-sdk.pdf]
