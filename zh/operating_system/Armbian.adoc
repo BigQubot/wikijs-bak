@@ -1,0 +1,39 @@
+= 编译
+
+今天给大家介绍一下如何编译armbian镜像。
+
+. 访问armbian网站： https://www.armbian.com/
++
+在这里您可以下载bpi板的最新镜像，您也可以访问 github 下载代码。
+
+. 阿姆比安 github 网站： https://github.com/armbian/build/tree/master
++
+```sh
+git clone https://github.com/armbian/build.git --branch sunxi-4.18
+```
++
+image::/picture/armbian_clone.png[armbian_clone.png]
++
+```sh
+git branch
+```
+执行此命令后您将看到分支是sunxi-4.18
++
+image::/picture/armbian_branch.png[armbian_branch.png]
++
+```sh
+cd build
+./compile.sh
+```
+
+NOTE: 如何在 SBC 上安装 Armbian - 桌面设置： https://www.youtube.com/watch?v=pnxUctyqx4c
+
+
+  Due to the compatibility of the BPI-R4 with Qualcomm/Unisoc modules,
+  the EC25 module cannot directly access the DNS server and connect to 
+  the internet due to software differences. Therefore, manual configuration 
+  is required to modify the default.script file via serial port.
+
+---
+
+  Due to the compatibility of the BPI-R4 with Qualcomm/Unisoc modules, the EC25 module cannot directly access the DNS server and connect to the internet due to software differences. Therefore, manual configuration is required to modify the default.script file via serial port.
