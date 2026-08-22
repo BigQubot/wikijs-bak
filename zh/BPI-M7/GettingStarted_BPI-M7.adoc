@@ -1,8 +1,8 @@
 = 简介
 
-香蕉派 BPI-M7 用户手册帮助用户了解基本使用方法和所需的准备工作 BPI-M7
+Banana Pi BPI-M7 用户手册介绍 BPI-M7 的基本使用方法和准备工作。
 
-拿到后可以在板上找到它的型号和硬件版本 BPI-M7.
+BPI-M7 的型号和硬件版本印在开发板上，收到产品后即可查看。
 
 本文尽可能详细地向您概述产品信息。
 
@@ -13,75 +13,75 @@ TIP: 更多信息： link:/en/BPI-M7/BananaPi_BPI-M7[香蕉派 BPI-M7]
 == 工具准备
 
 * BPI-M7 主板
-* 电源： USB Type-C PD
-** 支持 9V/2A, 12V/2A, 15V/2A
-* 系统安装 (选择一个)
-** 微型SD卡 /TF 卡启动
-*** 微型SD卡 card/TF, Class 10 或以上，至少 8GB SDHC 和读卡器
-*** 经ArmSoM团队测试的高速TF卡：
-**** 闪迪 32GB TF (微型SD卡) (开发商推荐)
-**** 闪迪 32GB TF (微型SD卡) 行车记录仪和安全摄像头存储卡 (建议长期运行)
+* 电源：USB Type-C PD
+** 支持 9 V/2 A、12 V/2 A、15 V/2 A
+* 系统安装介质（任选一种）
+** MicroSD/TF 卡启动
+*** 一张 Class 10 或更高等级、容量至少为 8 GB 的 MicroSD/TF（SDHC）卡，以及一个读卡器
+*** 以下高速 TF 卡已经 ArmSoM 团队测试：
+**** SanDisk 32 GB TF（MicroSD）卡（推荐开发使用）
+**** SanDisk 32 GB TF（MicroSD）行车记录仪/监控摄像机存储卡（推荐长期运行使用）
 **** 闪迪 TF 8G Class10 microSD
 **** 闪迪 TF 128G Class10 microSD XC TF 128G 48MB/S：
-** 机上 eMMC 启动
-*** USBType-C 数据线，用于从 Type-C 端口写入镜像 BPI-M7 到 eMMC。您需要连接 BPI-M7 使用 Type-C 电缆连接至 PC。
+** 板载 eMMC 启动
+*** 一根 USB Type-C 数据线，用于通过 BPI-M7 的 Type-C 接口将镜像写入 eMMC；使用时连接 BPI-M7 与电脑。
 
 == 可选配件
 
 * USB 键盘和鼠标
-* HDMI 显示器和 HDMI 电缆
+* HDMI 显示器和 HDMI 线缆
 ** BPI-M7 具有全尺寸 HDMI 端口，最高支持 8K@60 显示
-** HDMI EDID 用于确定最佳显示分辨率。 1080p (或 4K/8K) 将在支持它的显示器和电视上选择。如果不支持 1080p，EDID 将查找下一个可用的分辨率。
-* Ethernet 电缆
-** BPI-M7 支持2.5Gb Ethernet
-** 网线用于连接 BPI-M7 到本地网络和互联网
+** 系统通过 HDMI EDID 确定最佳显示分辨率。支持 1080p（或 4K/8K）的显示器和电视会选择相应分辨率；如果不支持 1080p，则选择下一个可用分辨率。
+* 以太网线
+** BPI-M7 支持 2.5GbE
+** 网线用于将 BPI-M7 连接到本地网络和互联网
 * 摄像头模组
-** BPI-M7 支持拍照功能
-** 我们推荐使用imx415模块或ov13850，可通过香蕉派淘宝店或速卖通购买 
-* LCD 显示
+** BPI-M7 支持摄像头功能
+** 推荐使用 IMX415 或 OV13850 模块，可通过 Banana Pi 淘宝店或 AliExpress 购买 
+* LCD 显示屏
 ** BPI-M7 支持 LCD 显示
-** 我们推荐 Display 10.1 HD，可通过 香蕉派 淘宝店或速卖通购买 
+** 推荐使用 Display 10.1 HD，可通过 Banana Pi 淘宝店或 AliExpress 购买 
 * 音频线
-** 适用于 0.8mm 垂直插座
-* USB-A 至 USB-C数据线
+** 适用于 0.8 mm 立式插座
+* USB-A 转 USB-C 数据线
 
 == 调试接口
-我们没有3针调试接口 BPI-M7，所以如果想用ttl线调试的话只能接40pin。
+BPI-M7 没有独立的 3 针调试接口；使用 TTL 串口线调试时，需要连接 40 针排针。
 
-连接 40 针上的针脚 6、8 和 10。
+连接 40 针排针的第 6、8 和 10 号引脚。
 
 
 image::/bpi-m7/bpi-m7_debug_interface_diagram.png[bpi-m7_debug_interface_diagram.png]
 
-串口波特率为**1500000**. **不要做出错误的选择。**
+串口波特率为 **1500000**，**请勿选择错误的波特率。**
 
-= 闪光镜像
+= 烧录镜像
 
-TIP: 选择燃烧方法： link:/en/BPI-M5/BananaPi_Flash_image[Rockchip 芯片Flash系统镜像]
+TIP: 烧录方法参见：link:/en/BPI-M5/BananaPi_Flash_image[Rockchip 芯片系统镜像烧录]
 
-= 界面设置
+= 接口设置
 
-如果您使用的是香蕉派 BPI-M5 Pro 首次使用时，请先熟悉一下外围接口，以便更好地理解以下内容。
+首次使用 Banana Pi BPI-M5 Pro 时，请先熟悉各个外设接口，以便理解以下内容。
 
 == 调试串口
 
-连接 USB TTL串口线如下，波特率=1500000:
+按照下表连接 USB 转 TTL 串口线，并将波特率设为 1500000：
 
 image::/bpi-m5pro/armsom-sige7-debug.png[armsom-sige7-debug.png]
 
 [options="header",cols="1,1,1"]
 |====
 |BPI-M5 Pro	|连接	|串口模块
-|接地 (引脚 6)	|<--->	|接地
-|TX (针脚 8)	|<--->|	接收
-|接收 (引脚 10)	|<--->|	TX
+|GND（引脚 6）	|<--->	|GND
+|TX（引脚 8）	|<--->|	RX
+|RX（引脚 10）	|<--->|	TX
 |====
 
-== Ethernet 端口
+== 以太网接口
 
-* 1.首先将网线一端插入 Ethernet ArmSoM-SigeX 的端口，并将另一端连接到路由器。确保网络正常运行。
-* 2.系统启动后会自动分配IP地址 Ethernet 通过 DHCP 端口，无需任何额外配置。
-* 3.检查ArmSoM-SigeX中的IP地址 Linux 系统，使用以下命令：
+* 1. 将网线一端插入 ArmSoM-SigeX 的以太网接口，另一端连接到网络正常的路由器。
+* 2. 系统启动后会通过 DHCP 自动为以太网接口分配 IP 地址，无需额外配置。
+* 3. 使用以下命令查看 ArmSoM-SigeX Linux 系统中的 IP 地址：
 
 ```sh
 armsom@armsom-sige7:~$ ip a
@@ -103,21 +103,21 @@ armsom@armsom-sige7:~$ ip a
     link/ether b8:2d:28:5a:52:6a brd ff:ff:ff:ff:ff:ff
 ```
 
-可以通过三种方式查看IP地址 Rockchip 启动后的产品：
+Rockchip 产品启动后，可通过以下三种方式查看 IP 地址：
 
-** 连接 HDMI 显示器，登录系统，使用终端命令 ip a 查看 IP 地址。
-** 使用debug串口终端输入ip a命令查看IP地址。
-** 如果调试串口和HDMI监视器均不可用，您可以检查ArmSoM-SigeX的IP地址 Ethernet 通过路由器的管理接口端口。但是，此方法有时可能无法显示 ArmSoM-SigeX IP 地址。如果看不到它，请尝试以下故障排除步骤：
-*** 检查是否 Linux 系统已正常启动。如果ArmSoM-SigeX上的绿灯常亮，一般说明系统已正确启动；如果只有红灯亮，则系统尚未正常启动。
-*** 确保网络电缆连接牢固，或尝试使用其他电缆。
+** 连接 HDMI 显示器并登录系统，在终端中输入 ip a 查看 IP 地址。
+** 使用调试串口终端登录，输入 ip a 查看 IP 地址。
+** 如果没有调试串口或 HDMI 显示器，可通过路由器管理界面查看 ArmSoM-SigeX 以太网接口的 IP 地址。但路由器有时可能不显示该地址；遇到这种情况时，请按以下步骤排查：
+*** 确认 Linux 系统已正常启动。ArmSoM-SigeX 的绿灯常亮时通常表示启动正常；如果只有红灯亮，则系统未正常启动。
+*** 检查网线是否连接牢固，或更换一根网线。
 尝试使用不同的路由器。路由器的常见问题包括无法分配 IP 地址或正确分配 IP 地址但未在路由器界面中显示它们。
-*** 如果没有可用的替代路由器，请使用 HDMI 监视器或调试串行端口检查 IP 地址。
+*** 如果没有其他路由器可用，请使用 HDMI 显示器或调试串口查看 IP 地址。
 
-TIP: 请注意，DHCP 会自动为您分配 IP 地址 Rockchip 产品无需额外配置。
+TIP: Rockchip 产品通过 DHCP 自动获取 IP 地址，无需额外配置。
 
-* 4.使用ping工具检查网络连通性。
+* 4. 使用 ping 工具检查网络连通性。
 
-** 测试网络连接的命令如下所示。您可以使用 Ctrl 停止 ping 命令+C 快捷方式。
+** 测试命令如下；按 Ctrl+C 可停止 ping。
 ```sh
 armsom@armsom-sige7:~$ ping www.baidu.com
 PING www.a.shifen.com (183.2.172.185): 56 data bytes
@@ -131,19 +131,19 @@ PING www.a.shifen.com (183.2.172.185): 56 data bytes
 round-trip min/avg/max/stddev = 8.370/8.618/8.917/0.203 ms
 ```
 
-== 无线网络
+== WiFi
 
-香蕉派 设计 Rockchip 系列产品板载WIFI模块，无需外接网络设备。他们使用标准的第四代天线。
+Banana Pi 采用 Rockchip 平台的产品配有板载 WiFi 模块，无需外接无线网卡，并使用标准第四代天线。
 
-=== 通过服务器映像上的命令行连接到 WIFI
+=== 在服务器版镜像中通过命令行连接 WiFi
 
-1.首先，登录 Linux 系统使用以下方法之一：
+1. 首先登录 Linux 系统，可使用以下方式之一：
 
-* 如果板子连接了网线，则可以通过SSH远程登录。
-* 如果开发板是通过调试串口连接的，则使用串口终端登录开发板 Linux 系统。
-* 如果开发板连接了 HDMI 显示器，您可以登录 Linux 系统通过 HDMI 显示器。
+* 开发板已连接网线时，可通过 SSH 远程登录。
+* 开发板已连接调试串口时，可通过串口终端登录 Linux 系统。
+* 开发板已连接 HDMI 显示器时，可使用屏幕上显示的终端登录 Linux 系统。
 
-2.使用 nmcli dev wifi 命令扫描可用的 WIFI 热点：
+2. 使用 nmcli dev wifi 命令扫描可用的 WiFi 热点：
 ```sh
 # 1. Enable WIFI
 armsom@armsom-sige:/# nmcli r wifi on
@@ -154,15 +154,15 @@ armsom@armsom-sige:/# nmcli dev wifi connect "wifi_name" password "wifi_password
 ```
 image::/bpi-m5pro/wifi_1.png[wifi_1.png]
 
-3.使用nmcli命令连接扫描到的WIFI：
+3. 使用 nmcli 命令连接扫描到的 WiFi 网络：
 
-* 更换无线网络_name 为您要连接的 WIFI 热点的名称。
-* 更换无线网络_密码为WIFI热点密码。
+* 将 wifi_name 替换为要连接的 WiFi 热点名称。
+* 将 wifi_password 替换为该热点的密码。
 ```sh
 armsom@armsom-sige7:~$ nmcli dev wifi connect "ydtx_5G" password "ydtx123456"
 Device 'wlan0' successfully activated with "wlan0b6d10bba-e1d5-4b6d-a17f-7d5ab44bbb6f".
 ```
-4.使用ip addr show wlan0命令查看WIFI IP地址：
+4. 使用 ip addr show wlan0 命令查看 WiFi 连接的 IP 地址：
 ```sh
 armsom@armsom-sige7:~$ ip addr show wlan0
 4: wlan0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
@@ -172,7 +172,7 @@ armsom@armsom-sige7:~$ ip addr show wlan0
     inet6 fe80::850d:3119:e0:afa3/64 scope link noprefixroute
        valid_lft forever preferred_lft forever
 ```
-5.使用ping命令测试WIFI网络连通性。您可以使用 Ctrl 中断 ping 命令+C 快捷键：
+5. 使用 ping 命令测试 WiFi 网络连通性；按 Ctrl+C 可停止测试：
 ```sh
 armsom@armsom-sige7:~$ ping www.baidu.com
 PING www.a.shifen.com (183.2.172.185): 56 data bytes
@@ -185,30 +185,30 @@ PING www.a.shifen.com (183.2.172.185): 56 data bytes
 4 packets transmitted, 4 packets received, 0% packet loss
 round-trip min/avg/max/stddev = 8.370/8.618/8.917/0.203 ms
 ```
-=== 通过服务器映像上的 GUI 连接到 WIFI
+=== 在服务器版镜像中通过图形界面连接 WiFi
 
-1.Log 到 Linux 系统使用以下方法之一：
+1. 登录 Linux 系统，可使用以下方式之一：
 
-* 如果开发板连接了网线，则可以通过SSH远程登录。
-* 如果开发板是通过调试串口连接的，则使用串口终端登录开发板 Linux 系统 (串口软件使用MobaXterm，minicom无法显示图形界面).
-* 如果开发板连接了HDMI显示器，则登录 Linux 系统通过 HDMI 显示器。
+* 开发板已连接网线时，可通过 SSH 远程登录。
+* 开发板已连接调试串口时，可通过串口终端登录 Linux 系统；请使用 MobaXterm，因为 Minicom 无法显示图形界面。
+* 开发板已连接 HDMI 显示器时，可使用屏幕上显示的终端登录 Linux 系统。
 
-2.在终端输入nmtui命令，打开WIFI连接界面：
+2. 在终端输入 nmtui，打开 WiFi 连接界面：
 
 image::/bpi-m5pro/wifi_2.png[wifi_2.png]
 
 ```sh 
 armsom@armsom-sige7:~$ nmtui
 ```
-3.选择“激活连接”并按Enter键：
+3. 选择“Activate a connection”，然后按 Enter 键：
 
 image::/bpi-m5pro/wifi_3.png[wifi_3.png]
 
-4.选择您要连接的WIFI热点并输入密码。连接成功后，出现星号“*” 将出现在已连接的 WIFI 名称旁边：
+4. 选择要连接的 WiFi 热点并输入密码。连接成功后，该网络名称旁会显示星号“*”：
 
 image::/bpi-m5pro/wifi_4.png[wifi_4.png]
 
-5.使用ip addr show wlan0命令查看WIFI IP地址：
+5. 使用 ip addr show wlan0 命令查看 WiFi 连接的 IP 地址：
 ```sh 
 armsom@armsom-sige7:~$ ip addr show wlan0
 4: wlan0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
@@ -219,7 +219,7 @@ armsom@armsom-sige7:~$ ip addr show wlan0
        valid_lft forever preferred_lft forever
 ```
 
-6.使用ping命令测试WIFI网络连通性。您可以使用 Ctrl 中断 ping 命令+C 快捷键：
+6. 使用 ping 命令测试 WiFi 网络连通性；按 Ctrl+C 可停止测试：
 ```sh 
 armsom@armsom-sige7:~$ ping www.baidu.com
 PING www.a.shifen.com (183.2.172.185): 56 data bytes
@@ -233,11 +233,11 @@ PING www.a.shifen.com (183.2.172.185): 56 data bytes
 round-trip min/avg/max/stddev = 8.370/8.618/8.917/0.203 ms
 ```
 
-=== 桌面图像测试方法
+=== 桌面版镜像测试方法
 
-1.点击桌面上的网络配置图标 (确保测试WIFI时不要连接网线).
+1. 单击桌面上的网络配置图标（测试 WiFi 时请断开网线）。
 
-2.连接WIFI后，打开浏览器检查是否可以上网：
+2. 连接 WiFi 后，打开浏览器检查能否访问互联网：
 
 image::/bpi-m5pro/wifi_5.png[wifi_5.png]
 
@@ -258,7 +258,7 @@ armsom@armsom-sige5:/# pair yourDeviceMAC
 
 == HDMI
 
-的 BPI-M5 Pro 具有HDMI输出端口，支持CEC和HDMI 2.1，最高分辨率可达4Kp120。
+BPI-M5 Pro 配有一个 HDMI 输出接口，支持 CEC 和 HDMI 2.1，最高分辨率为 4Kp120。
 
 [options="header",cols="1,1,1,1"]
 |====
@@ -266,65 +266,65 @@ armsom@armsom-sige5:/# pair yourDeviceMAC
 |分辨率|	8Kp60	|4Kp120	|4Kp60
 |====
 
-使用 HDMI 电缆将开发板连接到 HDMI 显示器。
+使用 HDMI 线缆将开发板连接到 HDMI 显示器。
 
-启动后 Linux 系统中，如果 HDMI 显示器显示镜像，则 HDMI 接口工作正常。
+Linux 系统启动后，如果 HDMI 显示器能正常显示画面，则 HDMI 接口工作正常。
 
-NOTE: 许多笔记本电脑虽然具有 HDMI 端口，但通常仅具有 HDMI 输出，并且不支持 HDMI 输入。这意味着您无法在笔记本电脑的屏幕上显示其他设备的 HDMI 输出。在将开发板的 HDMI 连接到笔记本电脑的 HDMI 端口之前，请确保您的笔记本电脑支持 HDMI 功能。如果没有显示，首先检查您的系统是否是桌面版本；服务器版本可能只显示一个终端。
+NOTE: 许多笔记本电脑虽有 HDMI 接口，但通常只支持输出，不支持 HDMI 输入，因此不能直接显示开发板输出的画面。连接前请确认笔记本电脑支持 HDMI 输入。如果没有画面，还应确认使用的是桌面版系统；服务器版可能只显示终端。
 
-* 1.HDMI转VGA显示测试
+* 1. HDMI 转 VGA 显示测试
 ** 所需配件：
 ** HDMI 转 VGA 转换器
-* 2.一条VGA线和一个带VGA端口的显示器
+* 2. 一条 VGA 线和一台带 VGA 接口的显示器
 
-HDMI转VGA显示测试如下图：
+HDMI 转 VGA 显示测试如下图所示：
 
 image::/bpi-m5pro/hdmi_.jpg[hdmi_.jpg]
 
-TIP: 当使用 HDMI 到 VGA 转换时，ArmSoM-Sige 产品或 Linux 系统。如果遇到问题，请检查 HDMI 至 VGA 转换器、VGA 电缆和显示器是否存在问题。
+TIP: 使用 HDMI 转 VGA 时，无需在 ArmSoM-Sige 产品或 Linux 系统中进行额外配置。如遇问题，请检查 HDMI 转 VGA 转换器、VGA 线和显示器。
 
 == USB
 
-的 BPI-M5 Pro 提供一个 USB2.0和1 USB 3.0端口。
+BPI-M5 Pro 提供一个 USB 2.0 接口和一个 USB 3.0 接口。
 
 [options="header",cols="1,2,2,1"]
 |====
 |型号	|BPI-M7	|BPI-M5 Pro |BPI-M1 Super
-|USB	|1 个 Type-C 3.0、1 个 USB3.0、1 个 USB2.0	|1 个 Type-C 3.0、1 个 USB3.0、1 个 USB2.0 |	2个USB2.0
+|USB	|1 × Type-C 3.0、1 × USB 3.0、1 × USB 2.0	|1 × Type-C 3.0、1 × USB 3.0、1 × USB 2.0 |	2 × USB 2.0
 |====
 
-NOTE: USB 接口可以通过使用扩展 USB 枢纽。
+NOTE: 可使用 USB 集线器扩展 USB 接口。
 
 === 测试 USB 鼠标或键盘
 
-* 1.插入一个 USB 键盘插入主板的 USB 端口。
-* 2.将开发板连接到 HDMI 显示器。
-* 3.如果鼠标或键盘操作系统正常， USB 界面工作正常 (鼠标仅适用于桌面版本的系统).
+* 1. 将 USB 键盘或鼠标插入开发板的 USB 接口。
+* 2. 将开发板连接到 HDMI 显示器。
+* 3. 如果键盘或鼠标能正常操作系统，则 USB 接口工作正常（鼠标仅适用于桌面版系统）。
 
 === 测试 USB 存储设备
 
-* 1.插入一个 USB 闪存驱动器或 USB 将外部硬盘驱动器插入 ArmSoM-Sige 产品的 USB 端口。
-* 2.运行以下命令；如果您看到 sdX 输出，则 USB 驱动器识别成功：
+* 1. 将 U 盘或 USB 移动硬盘插入 ArmSoM-Sige 产品的 USB 接口。
+* 2. 运行以下命令；如果输出中出现 sdX 设备，则表示 USB 存储设备已被识别：
 ```sh
 armsom@armsom-sige7:/# cat /proc/partitions | grep "sd*"
 major minor  #blocks  name
    8        0  122880000 sda
 ```
-* 3.使用mount命令挂载 USB 开车去 /mnt 并查看文件 USB 驱动器：
+* 3. 使用 mount 命令将 USB 存储设备挂载到 /mnt，然后即可查看其中的文件：
 ```sh
 armsom@armsom-sige7:/# sudo mount /dev/sda1 /test/
 ```
 
-* 4.挂载后使用df -h命令查看 USB 驱动器的容量使用情况和安装点：
+* 4. 挂载后，使用 df -h 命令查看设备容量使用情况和挂载点：
 ```sh
 armsom@armsom-sige7:/test# df -h | grep "sd"
 /dev/sda        4.7G  4.7G     0  100% /test
 ```
-=== USB 相机
+=== USB 摄像头
 
-* 1.准备一个 USB 支持UVC协议的相机并将其连接到板上 USB 端口。
+* 1. 准备一个支持 UVC 协议的 USB 摄像头，并将其连接到开发板的 USB 接口。
 
-* 2.使用v4l2-ctl命令查看 USB 相机的设备节点信息，应该是 /dev/video0:
+* 2. 使用 v4l2-ctl 命令查看 USB 摄像头的设备节点信息，通常为 /dev/video0：
 
 ```sh
 armsom@armsom-sige7:/# v4l2-ctl --list-devices
@@ -334,11 +334,11 @@ Logitech HD Webcam C93 (usb-xhci-hcd.5.auto-1):
         /dev/media4
 ```
 
-* 3.在桌面系统上，您可以使用 Cheese/V4L2 测试台打开 USB 直接相机。
+* 3. 在桌面版系统中，可使用 Cheese/V4L2 Test Bench 直接打开 USB 摄像头。
 
 image::/bpi-m5pro/usb-camera.jpg[usb-camera.jpg]
 
-您还可以使用终端命令来预览相机：
+也可使用终端命令预览摄像头：
 ```sh
 armsom@armsom-sige7:/# gst-launch-1.0 v4l2src device=/dev/video0 io-mode=4 ! videoconvert ! video/x-raw,format=NV12,width=1920,height=1080 ! xvimagesink;
 ```
@@ -375,38 +375,38 @@ card 2: rockchiphdmi0 [rockchip-hdmi0], device 0: rockchip-hdmi0 i2s-hifi-0 [roc
 
 == 风扇
 
-BPI-M5 Pro 产品配备使用 0.8mm 连接器的 5V 风扇。
+BPI-M5 Pro 产品支持使用 0.8 mm 连接器的 5 V 风扇。
 
-风扇当前运行在五种默认状态：
+风扇默认具有以下五档状态：
 
 [options="header",cols="2,1,1"]
 |====
 |温度范围| 状态 |PWM 速度  
-|低于50°C |0 |0  
+|低于 50 °C |0 |0  
 |50°C - 55°C| 1 |50  
 |55°C - 60°C |2 |100  
 |60°C - 65°C |3 |150  
 |65°C - 70°C |4 |200  
-|70℃以上 |5 |250
+|高于 70 °C |5 |250
 |====
 
 ```sh
 armsom@armsom-sige5:/# echo 100 > /sys/devices/platform/pwm-fan/hwmon/hwmon6/pwm1  
 ```
 
-== C型
+== USB Type-C
 
-的 BPI-M5 Pro 具有功能齐全的 USB Type-C 3.0 端口，最高支持 8K@30fps DP 显示。
+BPI-M5 Pro 配备全功能 USB Type-C 3.0 接口，支持最高 8K@30fps 的 DP 显示输出。
 
-== 40针
+== 40 针 GPIO
 
-的 BPI-M5 Pro/BPI-M7 提供一个40针 GPIO 接头，与市场上大多数传感器兼容。
+BPI-M5 Pro/BPI-M7 提供一个 40 针 GPIO 排针，可兼容市面上的大多数传感器。
 
-=== 接线-armbian 说明
+=== wiring-armbian 使用说明
 
-从wiring-armbian下载wiringOP代码： https://github.com/ArmSoM/wiring-armbian
+从 wiring-armbian 下载 wiringOP 代码：https://github.com/ArmSoM/wiring-armbian
 
-* 测试输出 gpio readall命令如下图：
+* 使用 gpio readall 命令查看引脚状态，输出如下图所示：
 
  +------+-----+----------+--------+---+  ArmSoM-Sige7(BPI-M7) +---+--------+----------+-----+------+  
  | GPIO | wPi |   Name   |  Mode  | V | Physical | V |  Mode  | Name     | wPi | GPIO |  
@@ -436,7 +436,7 @@ armsom@armsom-sige5:/# echo 100 > /sys/devices/platform/pwm-fan/hwmon/hwmon6/pwm
  +------+-----+----------+--------+---+  ArmSoM-Sige7(BPI-M7) +---+--------+----------+-----+------+  
  
  
- * 设置 GPIO 引脚到输出模式。第三个参数需要引脚对应的wPi编号。
+ * 将 GPIO 引脚设为输出模式。第三个参数应填写该引脚对应的 wPi 编号。
  
 ```sh
  root@armsom-sige7:~/wiring-armbian# gpio mode 2 out
@@ -454,14 +454,14 @@ root@armsom-sige7:~/wiring-armbian# gpio write 2 0
 root@armsom-sige7:~/wiring-armbian# gpio write 2 1
 ```
 
-* 其他管脚的设置方法类似；只需将 wPi 编号更改为相应的引脚编号即可。
+* 其他引脚的设置方法相同，只需将 wPi 编号改为对应引脚的编号。
 
 == RGB LED
 
-的 BPI-M5 Pro 有两个用户 LED - 绿色和红色。
+BPI-M5 Pro 配有绿色和红色两个用户 LED。
 
-* 用户绿色 LED 默认情况下不断指示正在运行的内核。
-* 用户红 LED 默认关闭，可由用户控制。
+* 绿色用户 LED 默认常亮，表示内核正在运行。
+* 红色用户 LED 默认熄灭，可由用户控制。
 
 用户可以通过命令进行控制：
 
@@ -472,10 +472,10 @@ armsom@armsom-sige5:/# echo activity > /sys/class/leds/red/trigger
 ```
 == 实时时钟
 
-* 的 BPI-M5 Pro 采用 LK8563S RTC 芯片。
-* 首先，使用 2 针 0.8mm 接头插入 RTC 电池，为 RTC IC 供电。
+* BPI-M5 Pro 配备 LK8563S RTC 芯片。
+* 首先通过 2 针 0.8 mm 接口连接 RTC 电池，为 RTC 芯片供电。
 
-NOTE: 我们应该将RTC电池保留在RTC连接器中，并确认已创建的rtc LK8563S设备。
+NOTE: RTC 电池应保持连接，并确认系统已经创建 LK8563S RTC 设备。
 ```sh
 armsom@armsom-sige5:/# dmesg | grep rtc  
 [ 6.407133] rtc-hym8563 6-0051: rtc information is valid  
@@ -483,7 +483,7 @@ armsom@armsom-sige5:/# dmesg | grep rtc
 [ 6.413779] rtc-hym8563 6-0051: setting system clock to 2022-06-22T01:22:26 UTC (1655860946)  
 ```
 
-* 找到rtc0，然后使用以下命令设置系统时间并同步到rtc0：
+* 找到 rtc0 后，使用以下命令设置系统时间并同步到 rtc0：
 ```sh
 armsom@armsom-sige5:/# hwclock -r  
 2023-11-03 10:32:40.461910+00:00  
@@ -494,7 +494,7 @@ armsom@armsom-sige5:/# hwclock -r
 armsom@armsom-sige5:/# poweroff  
 ```
 
-* 关闭 RTC 电池 10+ 分钟，重新插入电池并启动Sige5，检查RTC是否与系统时钟同步：
+* 取出 RTC 电池，等待至少 10 分钟后重新装入并启动 Sige5，检查 RTC 时间是否与系统时钟同步：
 ```sh
 armsom@armsom-sige5:/# hwclock -r  
 2023-11-03 10:35:40.461910+00:00  
@@ -502,13 +502,13 @@ armsom@armsom-sige5:/# date
 Fri 3rd Nov 10:36:01 UTC 2023
 ```
 
-== M.2接口
+== M.2 接口
 
 BPI-M5 Pro 提供 M.2 连接器：
 
-产品背面有一个 M.2 M Key 连接器，带有一个 PCIe 2.0接口支持1路。该板包括一个标准 M.2 2280 安装孔，允许部署 M.2 2280 NVMe SSD.
+产品背面有一个单通道 PCIe 2.0 的 M.2 M Key 连接器，并设有标准 2280 安装孔，可安装 M.2 2280 NVMe SSD。
 
-NOTE: 该M.2接口不支持M.2 SATA SSD。
+NOTE: 此 M.2 接口不支持 M.2 SATA SSD。
 
 ```sh
 armsom@armsom-sige5:/# mkdir temp
@@ -519,7 +519,7 @@ armsom@armsom-sige5:/# mount /dev/nvme0n1 temp
 
 === IMX415 
 
-相机使用IMX415模组。连接摄像头模块并上电后可以查看启动日志：
+摄像头采用 IMX415 模块。连接摄像头模块并上电后，可查看启动日志：
 ```sh
 armsom@armsom-sige5:/# dmesg | grep imx415
 [    2.547754] imx415 3-001a: driver version: 00.01.08
@@ -545,7 +545,7 @@ armsom@armsom-sige5:/# v4l2-ctl -d /dev/video31 --set-fmt-video=width=3840,heigh
 armsom@armsom-sige5:/# v4l2-ctl -d /dev/video22 --set-fmt-video=width=3840,height=2160,pixelformat=NV12 --stream-mmap=3 --stream-skip=60 --stream-to=/tmp/cif73.out --stream-count=3 --stream-poll
 ```
 
-直接使用 gst-launch-1.0 录制视频：
+使用 gst-launch-1.0 直接显示视频：
 ```sh
 // MIPI-CSI1
 armsom@armsom-sige5:/# gst-launch-1.0 v4l2src device=/dev/video31 ! video/x-raw,format=NV12,width=3840,height=2160, framerate=30/1 ! xvimagesink
@@ -555,9 +555,9 @@ armsom@armsom-sige5:/# gst-launch-1.0 v4l2src device=/dev/video22 ! video/x-raw,
 ```
 
 === ov13850 
-该模块与IMX415类似，如下：
+此模块的使用方法与 IMX415 类似，具体如下：
 
-摄像头采用ov13850。连接摄像头模块并上电后，可以查看启动日志。
+摄像头采用 OV13850。连接摄像头模块并上电后，可查看启动日志。
 ```sh
 root@armsom-sige7:/# dmesg | grep ov13850
 [    2.302905] ov13850 5-0010: driver version: 00.01.05
@@ -580,7 +580,7 @@ root@armsom-sige7:/# v4l2-ctl -d /dev/video31 --set-selection=target=crop,top=0,
 root@armsom-sige7:/# v4l2-ctl -d /dev/video22 --set-selection=target=crop,top=0,left=0,width=2112,height=1568 --set-fmt-video=width=2112,height=1568,pixelformat=NV12 --stream-mmap=3 --stream-to=/nv12.bin --stream-count=1 --stream-poll
 ```
 
-使用 gst-launch-1.0 录制视频
+使用 gst-launch-1.0 显示视频
 
 ```sh
 // MIPI-CSI1
@@ -595,42 +595,42 @@ image::/bpi-m7/bpi-m7_mipi_csi.jpeg[bpi-m7_mipi_csi.jpeg]
 
 == MIPI DSI
 
-BPI-M7 支持最高分辨率4K@120Hz。
+BPI-M7 的 MIPI DSI 最高支持 4K@120Hz 分辨率。
 
-* 1.如下图所示连接电缆。
+* 1. 按照下图连接排线。
 
 //image::/bpi-m5pro/mipi_dsi.jpg[mipi_dsi.jpg]
 image::/bpi-m7/banana_pi_bpi-m7_touch_screen_7.jpg[banana_pi_bpi-m7_touch_screen_7.jpg]
 
-* 2.配置10.1英寸MIPI LCD 屏幕
+* 2. 配置 10.1 英寸 MIPI LCD 屏幕
 
-** 默认情况下， Linux 镜像没有 MIPI LCD 屏幕配置已启用。使用 MIPI LCD 屏幕，您需要手动启用它。
+** Linux 镜像默认未启用 MIPI LCD 屏幕配置，使用前需要手动启用。
 
-** 使用nano打开 /boot/armbianEnv.txt 文件：
+** 使用 nano 打开 /boot/armbianEnv.txt 文件：
 ```sh
 sudo nano /boot/armbianEnv.txt
 ```
 
-** 在此文件中，找到或添加关键字“overlays=".
+** 在文件中查找或添加“overlays=”配置项。
 ```sh
 // Choose according to your product
 overlays=armsom-sige7-display-10hd // Sige7
 overlays=armsom-sige5-display-10hd // Sige5
 overlays=armsom-sige3-display-10hd // Sige3
 ```
-快捷键：Ctrl + S 保存 Ctrl + X 退出
+快捷键：按 Ctrl+S 保存，按 Ctrl+X 退出。
 
-编辑后，重新启动设备以应用叠加设置并支持 Display 10 HD。
+编辑完成后重启设备，使 Display 10 HD 的 Overlay 设置生效。
 
 = CPU/GPU/NPU/DDR
 
-下面的例子使用 BPI-M7 说明如何设置固定频率和性能模式 CPU, GPU, NPU和DDR。
+以下以 BPI-M7 为例，说明如何设置 CPU、GPU、NPU 和 DDR 的固定频率及性能模式。
 
 == 固定频率设置
 
 === CPU 固定频率
 
-的 BPI-M7 CPU 由 4 个 A55 核心和 4 个 A76 核心组成，分三个独立组进行管理。节点如下：
+BPI-M7 的 CPU 由四个 A55 核心和四个 A76 核心组成，分为三个独立组管理，对应节点如下：
 
 ```sh
 /sys/devices/system/cpu/cpufreq/policy0: (corresponding to 4 A55: CPU0-3)
@@ -651,7 +651,7 @@ root@armsom-sige7:/ # cat /sys/devices/system/cpu/cpufreq/policy6/scaling_availa
 conservative ondemand userspace powersave performance schedutil 
 
 ```
-默认为自动频率缩放模式：schedutil (要恢复，请设置为该模式).
+默认使用自动调频模式 schedutil；需要恢复自动调频时，请重新设为此模式。
 
 手动固定频率设置
 
@@ -663,7 +663,7 @@ root@armsom-sige7:/ # cat /sys/devices/system/cpu/cpufreq/policy6/cpuinfo_cur_fr
 2016000
 
 ```
-另外两个 CPU 通过操作相应的节点可以类似地设置组。
+另外两个 CPU 组可通过各自对应的节点以相同方式设置。
 
 === GPU 固定频率
 
@@ -678,7 +678,7 @@ root@armsom-sige7:/ # cat /sys/class/devfreq/fb000000.gpu/available_governors //
 dmc_ondemand userspace powersave performance simple_ondemand
 ```
 
-默认为自动频率缩放模式：simple_点播 (要恢复，请设置为该模式).
+默认使用自动调频模式 simple_ondemand；需要恢复自动调频时，请重新设为此模式。
 
 手动固定频率设置
 
@@ -692,7 +692,7 @@ root@armsom-sige7:/ # cat /sys/class/devfreq/fb000000.gpu/load   // Check GPU lo
 28@300000000Hz
 ```
 
-=== DDR定频
+=== DDR 固定频率
 
 DDR 节点路径
 ```sh
@@ -705,7 +705,7 @@ root@armsom-sige7:/ # cat /sys/class/devfreq/dmc/available_governors // Get DDR 
 dmc_ondemand userspace powersave performance simple_ondemand
 ```
 
-默认为自动频率缩放模式：dmc_点播 (要恢复，请设置为该模式).
+默认使用自动调频模式 dmc_ondemand；需要恢复自动调频时，请重新设为此模式。
 
 手动固定频率设置
 
@@ -733,7 +733,7 @@ root@armsom-sige7:/ # cat /sys/class/devfreq/fdab0000.npu/available_governors //
 dmc_ondemand userspace powersave performance simple_ondemand
 ```
 
-默认为自动频率缩放模式：simple_点播 (要恢复，请设置为该模式).
+默认使用自动调频模式 simple_ondemand；需要恢复自动调频时，请重新设为此模式。
 
 手动固定频率设置
 
@@ -747,7 +747,7 @@ root@armsom-sige7:/ # cat /sys/kernel/debug/rknpu/load // Check NPU load
 NPU load:  Core0:  0%, Core1:  0%, Core2:  0%,
 ```
 
-== 表演模式
+== 性能模式
 ```sh
 root@armsom-sige7:/ $ su
 root@armsom-sige7:/ # echo performance > /sys/devices/system/cpu/cpufreq/policy6/scaling_governor
@@ -756,18 +756,18 @@ root@armsom-sige7:/ # echo performance > /sys/class/devfreq/dmc/governor
 root@armsom-sige7:/ # echo performance > /sys/class/devfreq/fdab0000.npu/governor
 ```
 
-= 人工智能开发
+= AI 开发
 
-== 克洛尔LM 
+== RKLLM 
 
 TIP: 如何使用 RKLLM ： link:/en/BPI-M7/how-touse-llm[香蕉派 BPI-M7 RKLLM开发 ]
 
-== RK神经网络
+== RKNN
 
-TIP: link:/en/BPI-CM5_Pro/BananaPi_BPI-CM5_Pro/Rockchip_RKNN_Guide[Rockchip RK神经网络 SDK 快速入门指南]
+TIP: link:/en/BPI-CM5_Pro/BananaPi_BPI-CM5_Pro/Rockchip_RKNN_Guide[Rockchip RKNN SDK 快速入门指南]
 
 
-= 注释
+= 注意事项
 
 NOTE: 静电保护
 
@@ -783,7 +783,7 @@ NOTE: 静电保护
 
 . 设备运行时请勿插拔电线或其他设备，以免电涌造成损坏。
 
-. 连接或断开连接时 GPIO/MIPI扩展接口时，请务必关闭电源并拔下电源线，以免电流损坏。
+. 连接或断开 GPIO/MIPI 扩展接口时，请务必关闭电源并拔下电源线，避免带电操作造成损坏。
 
 NOTE: 热量管理
 
