@@ -1,0 +1,59 @@
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_development_tutorialbased_on_microbit[BPI-Bit 的 MicroPython 开发教程]
+
+= 光敏传感器
+细心的同学可能已经发现，BPI-Bit 开发板上有两个这样的器件，它们就是光敏传感器。光敏传感器通过采样电路将光照强度转换为电压值。
+
+image::/bpi-bit/bpisenser.png[bpisenser.png]
+
+传感器型号为 link:https://github.com/BPI-STEAM/BPI-BIT/blob/master/doc/LightSensor-PTSMD021-0805.pdf[PTSMD021]，点击链接可了解更多信息。
+
+= 获取光的强度
+固件提供了 light 模块，调用其中的函数即可轻松获取光照强度。
+
+== 示例代码
+```sh
+import light
+from time import sleep_ms
+R = light.Intensity(39)
+L = light.Intensity(36)
+while True:
+   print('R=',R.read())
+   print('L=',L.read())
+   sleep_ms(1000)
+```
+- 使用光照模块前，先通过 import light 导入模块。程序还需要延时功能，因此也要导入 sleep_ms() 函数。
+- light.Intensity(39) 和 light.Intensity(36) 用于初始化两个光敏传感器。
+- 为什么使用 36 和 39？这个问题会在课程最后一部分结合引脚知识说明，现在暂时记住这两个参数即可。
+- 初始化完成后，调用 read() 函数即可读取光照强度。该函数返回 0～1000 的数值，用于表示当前的大致光照强度。
+- 最后将数据输出到串口。
++
+image::/bpi-bit/message.png[message.png]
+
+= 光敏手势识别
+前面已经介绍了开发板上的两个光敏传感器。下面利用它们实现一个有趣的功能：简单的手势识别。
+
+light 模块内置了 Gesture() 类，可以用它实现简单的手势识别。下面动手试一试。
+
+== 示例代码
+```sh
+import light
+from display import*
+ts = light.Gesture()
+display = Display()
+t = 0
+while True:
+   res = ts.get_gesture()
+   if res != None:
+       t = t+1
+       print(res, t)
+       if res == 'right':
+           display.show(Image.ARROW_E)
+       else:
+           display.show(Image.ARROW_W)
+```
+- 首先导入 light 模块，然后通过 ts = light.Gesture() 实例化 Gesture() 类并初始化手势检测。
+- 调用 get_gesture() 方法检测动作，每次检测约需 25 ms。这里使用 while True 持续检测；如果只需检测一段时间，也可以使用 for 循环。例如，检测 10 秒可使用 for i in range(10 * 1000 / 25)，让 get_gesture() 循环 400 次。
+- get_gesture() 检测到向左滑动时返回 'right'，检测到向右滑动时返回 'left'。
+- 用手依次掠过两个光敏传感器，程序便会识别动作并返回结果。手在开发板上方来回掠过时的输出如下图所示。
++
+image::/bpi-bit/message1.png[message1.png]
