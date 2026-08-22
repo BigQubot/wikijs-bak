@@ -1,0 +1,38 @@
+. `board.LED`控制单色 LED 在PicoW-S3上，高电平亮，低电平灭，在 REPL:
++
+```py
+import board
+import digitalio
+ledpin = digitalio.DigitalInOut(board.LED)
+ledpin.direction = digitalio.Direction.OUTPUT
+ledpin.value = True
+```
+
+. 或者：
++
+```py
+import board
+import digitalio
+ledpin = digitalio.DigitalInOut(board.LED)
+ledpin.switch_to_output(value=True) # value=1
+```
+
+. 使 LED 每 0.5 秒闪烁一次：
+```py
+import board
+import digitalio
+import time
+ledpin = digitalio.DigitalInOut(board.LED)
+while True:
+    ledpin.switch_to_output(value=1)
+    time.sleep(0.5)
+    ledpin.switch_to_output(value=0)
+    time.sleep(0.5)
+
+```
+
+. 使用键盘中断(控制键+c) 在 REPL 停止程序的运行。
+
+. 输入 `import board;help(board)` 在 REPL Mu 编辑器界面列出所有可控引脚。
+
+. `board.GP25` 完全一样 `board.LED`.
