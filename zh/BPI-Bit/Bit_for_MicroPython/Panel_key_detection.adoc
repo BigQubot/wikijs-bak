@@ -1,0 +1,48 @@
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_development_tutorialbased_on_microbit[BPI-Bit 的 MicroPython 教程]
+
+= 面板按键检测
+
+前面已经编写代码控制开发板执行动作，接下来学习按键等设备输入。先了解两个概念：Output 表示设备向外设输出信息，Input 表示设备接收外部信息。
+
+开发板上最直观的输入设备是 LED 点阵两侧的 A、B 两个按钮。如何判断按钮是否按下、是否曾被按下，以及按下了多少次？
+
+实现起来并不复杂。
+```sh
+from microbit import *
+sleep(2000)
+display.scroll(str(button_a.get_presses()))
+```
+代码先暂停两秒，等待按键操作，然后滚动显示按钮 A 被按下的次数。虽然示例很简单，但展示了处理硬件输入的基本方法。
+
+. sleep 函数可让开发板暂停指定的毫秒数；需要延时的地方可按上例调用。
+. button_a 对象可通过 get_presses 方法获取一段时间内的按键次数。
+
+获取 get_presses 的返回值后，将其传给 display.scroll。scroll 只接受字符串，因此要用 str 函数把整数转换为字符串。假设 10 秒内按了 10 次，第三行代码会按 Python 从内到外的顺序执行：
+```sh
+display.scroll(str(button_a.get_presses()))
+```
+当然，这会显示您按下按钮的次数 (一段时间，可以指定).
+```sh
+display.scroll(str(10))
+```
+Python 得到按键次数后，先执行最内层的 str("10")，把数值转换为字符串。
+```sh
+display.scroll(str("10"))
+```
+
+= 处理事件
+如果需要开发板响应按钮按下事件，可使用 if 判断按钮状态，并建议在无限循环中持续检测，例如：
+```sh
+while True:
+   # Do stuff
+```
+所以我们可以构建一个非常简单的代码
+```sh
+from microbit import *
+
+while True:
+   if button_a.is_pressed():
+       display.show(Image.HAPPY)
+       display.clear()
+```
+此时按下按钮 A，即可显示之前介绍过的 Image 图案，将所学内容应用起来。
