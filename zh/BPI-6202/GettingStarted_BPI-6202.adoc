@@ -1,53 +1,53 @@
-BPI-6202 作为简单的嵌入式通用控制器软硬件开发平台，为应用开发者提供功能齐全的硬件解决方案，并支持BSP+docker 开发环境。提供强大的边缘计算支持。开发者可以快速利用开发平台，进行开发和产品化
+BPI-6202 是一款通用嵌入式控制器软硬件开发平台，为应用开发者提供功能完整的硬件方案，并支持 BSP + Docker 开发环境和强大的边缘计算能力。开发者可利用该平台快速完成开发和产品化。
 
-TIP: link:/en/BPI-6202/BananaPi_BPI-6202[BananaPi BPI-6202 嵌入式单板工控机]
+TIP: link:/en/BPI-6202/BananaPi_BPI-6202[Banana Pi BPI-6202 嵌入式单板工业计算机]
 
 = 开发
 
 == 准备
-. 一张至少8GB的TF卡
+. 一张容量至少为 8 GB 的 TF 卡
 . 读卡器
-. 3.3V TTL线。波特率：115200
-. 24V电源
+. 3.3 V TTL 串口线，波特率：115200
+. 24 V 电源
 
-== 将镜像安装到TF卡
-您可以根据您的电脑系统选择方法1和方法2。
+== 将镜像写入 TF 卡
+可根据电脑操作系统选择方法 1 或方法 2。
 
-**方法一**：(windows 宿主环境)
+**方法一**：（Windows 主机环境）
 
-. 使用 Balena Etcher 安装映像。 +
-link:https://balena.io/etcher[巴莱纳蚀刻机] 是 Balena 的开源 GUI 闪存工具，可将操作系统映像闪存到 SD 卡或 USB 开车。
+. 使用 Balena Etcher 写入镜像。 +
+link:https://balena.io/etcher[Balena Etcher] 是 Balena 开发的开源 GUI 烧录工具，可将操作系统镜像写入 SD 卡或 U 盘。
 +
-- 点击“**从文件闪存**”来选择镜像。 
+- 单击 “**Flash from file（从文件烧录）**”选择镜像。
 
-- 点击“**选择目标**”来选择 USB 设备。 
+- 单击 “**Select target（选择目标）**”选择 USB 设备。
 
-- 点击“**快闪！**“开始燃烧。
+- 单击 “**Flash!（烧录）**”开始写入。
 +
 image::/picture/etcher.jpg[etcher.jpg]
 
-**方法二**：(x86/64 Linux 宿主环境)
+**方法二**：（x86/64 Linux 主机环境）
 
-. 在一个 x86/64 Linux 主机环境，将TF卡插入主机，假设TF卡呈现的块设备在 Linux 是 /dev/sdz，以及文件的完整路径名 cs6202-xxx.img is/home/foobar/cs6202-xxx.img. 执行以下命令创建tf卡。
+. 在 x86/64 Linux 主机中插入 TF 卡。假设 TF 卡对应的块设备为 /dev/sdz，cs6202-xxx.img 文件的完整路径为 /home/foobar/cs6202-xxx.img，执行以下命令制作 TF 卡。
 +
 ```sh
 sudo dd if=/home/foobar/ cs6202-xxx.img of=/dev/sdz bs=16M status=progress
 sync && sleep 2 && sync && sudo udisksctl power-off -b /dev/sdz
 ```
-. 如果插入前tf卡上已经存在有效的文件系统分区，则插入后，运行上述命令之前，使用umount命令自动卸载 mounted/dev/sdzN 分区。
+. 如果 TF 卡上已有有效的文件系统分区，插入后可能会自动挂载；运行上述命令前，请使用 umount 卸载 /dev/sdzN 分区。
 
-== 将映像安装到 eMMC
-NOTE: 请根据您的形象进行选择。
+== 将镜像安装到 eMMC
+NOTE: 请根据所使用的镜像选择对应方法。
 
 === cs6202-starter-install-tfcard.img
-. 将tf卡插入CS6202并通电启动。
-. 如果启动正常，RUN灯会亮 (不断地) 通电后5秒内；
+. 将 TF 卡插入 CS6202，然后接通电源启动。
+. 如果启动正常，上电后 5 秒内 RUN 指示灯会常亮。
 +
 image::/picture/cs6202-starter-install-tfcard_1.jpg[cs6202-starter-install-tfcard_1.jpg]
-. 当RUN灯由常亮变为心跳闪烁时， eMMC tf 中包含的镜像正在被烧录到板载中 eMMC。此时Fn灯由常灭变为常亮 (始终开启)
+. 当 RUN 指示灯由常亮变为心跳闪烁时，TF 卡中的 eMMC 镜像正在写入板载 eMMC。此时 Fn 指示灯会由熄灭变为常亮。
 +
 image::/picture/cs6202-starter-install-tfcard_2.jpg[cs6202-starter-install-tfcard_2.jpg]
-. 等待大约 6-8 分钟。烧录成功后Fn灯会显示心跳闪烁 (类似于RUN灯的心跳闪烁)
+. 等待约 6～8 分钟。烧录成功后，Fn 指示灯会呈心跳式闪烁（与 RUN 指示灯类似）。
 +
 **LED 灯：**
 +
@@ -56,23 +56,23 @@ image::/picture/cs6202-starter-install-tfcard_3.jpg[cs6202-starter-install-tfcar
 **显示屏幕：**
 +
 image::/picture/cs6202-starter-install-tfcard.jpg[cs6202-starter-install-tfcard.jpg]
-. 刻录过程中，如果Fn灯由常亮变为熄灭，则表明刻录失败。原因可能是两个之一：验证 eMMC tf卡中的镜像失败，或者刻录时遇到错误 eMMC.
-. 当安装过程完成步骤 4 时 (即成功燃烧)、关闭电源并取出tf卡 (否则tf卡会重新开始安装)。然后上电，cs6202启动 eMMC.
+. 烧录过程中，如果 Fn 指示灯由常亮变为熄灭，表示烧录失败。可能有两个原因：TF 卡中的 eMMC 镜像校验失败，或写入 eMMC 时发生错误。
+. 完成步骤 4（即烧录成功）后，关闭电源并取出 TF 卡，否则会再次开始安装。重新上电后，CS6202 将从 eMMC 启动。
 
 === cs6202-ubuntu-mate-20.04.1-desktop-armhf-docker-sd-emmc.img
-. 将tf卡插入CS6202并通电启动。
-. 启动CS6202后，有两种烧录方法 cs6202-ubuntu-mate-20.04.1-desktop-armhf-docker-sd-emmc.img.gz 进入 eMMC.
+. 将 TF 卡插入 CS6202，然后接通电源启动。
+. CS6202 启动后，可通过以下两种方法将 cs6202-ubuntu-mate-20.04.1-desktop-armhf-docker-sd-emmc.img.gz 烧录到 eMMC。
 +
-**方法一**：使用 USB 开车
+**方法一**：使用 U 盘
 
-a. 复制文件 cs6202-ubuntu-mate-20.04.1-desktop-armhf-docker-sd-emmc.img.gz 到 USB 驱动器，然后插入 USB 驾驶进入CS6202。 
-b. 一般情况下，CS6202会自动挂载 USB 开车。如果 USB 驱动器不会自动挂载，您也可以使用mount命令手动挂载 USB 开车。 
+a. 将 cs6202-ubuntu-mate-20.04.1-desktop-armhf-docker-sd-emmc.img.gz 文件复制到 U 盘，然后把 U 盘插入 CS6202。
+b. 通常 CS6202 会自动挂载 U 盘。如果未自动挂载，也可以使用 mount 命令手动挂载。
 +
 ```sh
 mount /dev/sda1 /mnt/media/foobar
 ```
-c. 我们假设文件的完整路径 cs6202-ubuntu-mate-20.04.1-desktop-armhf-docker-sd-emmc.img.gz 之后 USB 驱动器是**/mnt/media/foobar/ cs6202-ubuntu-mate-20.04.1-desktop-armhf-docker-sd-emmc.img.gz**. 
-d. 在cs6202中运行以下命令将镜像烧录到 eMMC.
+c. 假设 U 盘中 cs6202-ubuntu-mate-20.04.1-desktop-armhf-docker-sd-emmc.img.gz 文件的完整路径为 **/mnt/media/foobar/ cs6202-ubuntu-mate-20.04.1-desktop-armhf-docker-sd-emmc.img.gz**。
+d. 在 CS6202 中运行以下命令，将镜像烧录到 eMMC。
 +
 ```sh
 gunzip -c /mnt/media/foobar/cs6202-ubuntu-mate-20.04.1-desktop-armhf-docker-sd-emmc.img.gz | sudo dd of=/dev/mmcblk1 bs=16M status=progress
@@ -81,12 +81,12 @@ sync && sleep 2 && sync
 
 +
 **方法二**：使用网络
-a. 将图像文件复制到网络发布目录
-b. 假设完整的 URL 路径是：“http://a.b.c/pub/ cs6202-ubuntu-mate-20.04.1-desktop-armhf-docker-sd-emmc.img.gz"
-c. 在CS6202中运行以下命令将镜像烧录到 eMMC.
+a. 将镜像文件复制到 Web 发布目录。
+b. 假设完整 URL 为：“http://a.b.c/pub/ cs6202-ubuntu-mate-20.04.1-desktop-armhf-docker-sd-emmc.img.gz”。
+c. 在 CS6202 中运行以下命令，将镜像烧录到 eMMC。
 +
 ```sh
 curl -fsSL "http://a.b.c/pub/cs6202-ubuntu-mate-20.04.1-desktop-armhf-docker-sd-emmc.img.gz" | gunzip -c | sudo dd of=/dev/mmcblk1 bs=16M status=progress
 sync && sleep 2 && sync
 ```
-. 烧完后 eMMC 按照步骤，拔掉TF卡，重新上电，cs6202就会从 eMMC.
+. 按上述步骤完成 eMMC 烧录后，拔出 TF 卡并重新上电，CS6202 将从 eMMC 启动。
