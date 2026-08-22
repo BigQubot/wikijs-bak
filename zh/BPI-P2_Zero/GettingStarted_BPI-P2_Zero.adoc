@@ -1,151 +1,151 @@
 = 简介
 
-香蕉派 BPI-P2 Zero 是一款超紧凑型单板计算机，尺寸仅为 65 毫米*52.5毫米。它采用四核 Cortex A7 allwinner H2+ 处理器(选项：H3 和 H5), 512MB RAM 内存.8G eMMC 闪存,100M LAN,添加 PoE 功能支持，非常适合一些空间有限的应用的轻量级系统。与 香蕉派 的其他成员一样，它支持 linux 和 android 操作系统。
+Banana Pi BPI-P2 Zero 是一款超紧凑型单板计算机，尺寸仅为 65 mm × 52.5 mm。它采用 Allwinner H2+ 四核 Cortex-A7 处理器（可选 H3 或 H5），配备 512 MB 内存、8 GB eMMC 闪存、百兆以太网和 PoE 功能，适合空间受限的轻量级应用。与其他 Banana Pi 产品一样，它支持 Linux 和 Android 操作系统。
 
-TIP: 更多信息： link:/en/BPI-P2_Zero/BananaPi_BPI-P2_Zero[香蕉派 BPI-P2 Zero]
+TIP: 更多信息：link:/en/BPI-P2_Zero/BananaPi_BPI-P2_Zero[Banana Pi BPI-P2 Zero]
 
 == 规格参数
 
 - CPU: Allwinner H2+, 四核 Cortex-A7
-- 512MB DDR 3 SDRAM
-- 无线网络 (AP6212) & 板载蓝牙
-- 迷你 HDMI
-- 40针 GPIO，它包括 UART, SPI, I2C、IO等
-- 100M局域网
-- IEEE 802.3af PoE 标准 PoE 模块支持
-- 8G eMMC 板载闪存
+- 512 MB DDR3 SDRAM
+- WiFi（AP6212）及板载蓝牙
+- Mini HDMI
+- 40 针 GPIO，包含 UART、SPI、I2C、通用 IO 等接口
+- 百兆以太网
+- 支持符合 IEEE 802.3af 标准的 PoE 模块
+- 板载 8 GB eMMC 闪存
 
 = 开发
 == Android
 === 准备
-下载凤凰卡： https://pan.baidu.com/s/1-fjvPqtG_zewVzqnXf1AHw?pwd=eid9
+下载 PhoenixCard：https://pan.baidu.com/s/1-fjvPqtG_zewVzqnXf1AHw?pwd=eid9
 
-=== 将映像安装到 SD 卡
+=== 将镜像烧录到 SD 卡
  
-. 将您的 TF 卡插入 TF-USB 适配器，然后将适配器插入您的 Windows 电脑 usb 界面。
-. 准备好镜像，下载镜像刻录工具PhoenixCard.exe。
-. 使用“PhoenixCard.exe”进行刻录 android 镜像到TF卡。
-- 在图像路径选项中选择图像
+. 将 TF 卡插入 TF-USB 读卡器，再将读卡器连接到 Windows 电脑的 USB 接口。
+. 准备好镜像，并下载镜像烧录工具 PhoenixCard.exe。
+. 使用 PhoenixCard.exe 将 Android 镜像烧录到 TF 卡。
+- 在镜像路径选项中选择镜像
 +
 image::/picture/m2z-android-sd-1.jpg[m2z-android-sd-1.jpg]
 image::/picture/m2z-android-sd-2.jpg[m2z-android-sd-2.jpg]
 
-- 选择设置为卡启动，然后点击刻录镜像
+- 选择“卡启动”，然后单击烧录镜像
 +
 image::/picture/m2z-android-sd-3.jpg[m2z-android-sd-3.jpg]
 
-- 燃烧结束，
+- 等待烧录完成
 +
 image::/picture/m2z-android-sd-4.jpg[m2z-android-sd-4.jpg]
 
-=== 安装镜像到 eMMC
+=== 将镜像烧录到 eMMC
 
-. 将您的 TF 卡插入 TF-USB 适配器，然后将适配器插入您的 Windows 电脑 usb 界面。
-. 准备好镜像，下载镜像刻录工具PhoenixCard.exe。
-. 使用“PhoenixCard.exe”进行刻录 android 镜像到TF卡。
-- 在图像路径选项中选择图像
+. 将 TF 卡插入 TF-USB 读卡器，再将读卡器连接到 Windows 电脑的 USB 接口。
+. 准备好镜像，并下载镜像烧录工具 PhoenixCard.exe。
+. 使用 PhoenixCard.exe 将 Android 镜像烧录到 TF 卡。
+- 在镜像路径选项中选择镜像
 +
 image::/picture/m2z-android-sd-1.jpg[m2z-android-sd-1.jpg]
 image::/picture/m2z-android-sd-2.jpg[m2z-android-sd-2.jpg]
 
-- 选择量产卡，然后点击烧录镜像
+- 选择“量产卡”，然后单击烧录镜像
 +
 image::/picture/m2z-android-emmc-1.jpg[m2z-android-emmc-1.jpg]
 
-- 燃烧结束。
+- 等待烧录完成。
 +
 image::/picture/m2z-android-emmc.jpg[m2z-android-emmc.jpg]
 
-. 镜像烧录完成后，将SD卡插入板子，上电启动。启动后，镜像会自动烧录到板子上 eMMC.
+. 镜像烧录到 SD 卡后，将该卡插入开发板并上电启动。系统启动后，镜像会自动写入开发板的 eMMC。
 +
 image::/picture/m2z-android-emmc-2.jpg[m2z-android-emmc-2.jpg]
 +
-也可以通过灯光来判断。当红灯由常亮变为熄灭时，表示燃烧完成。
+也可以通过指示灯判断进度：红灯由常亮变为熄灭时，表示烧录完成。
 +
 image::/picture/m2z-android-emmc-3.jpg[m2z-android-emmc-3.jpg]
 
-.  烧录完成后，将切断电源，并取出SD卡。再次通电即可从 eMMC.
+. 烧录完成后切断电源并取出 SD 卡。再次上电时，开发板将从 eMMC 启动。
 
 == Linux
 === 准备
-. Linux 镜像支持SD卡或 EMMC 启动
-. 建议使用A1级卡，至少8GB。
-. 安装 bpi-tools 在你的 Linux 电脑(如果使用其他工具刷入镜像，请忽略此步骤)。如果您无法访问此 URL 或出现任何其他安装问题，请转至 link:https://github.com/bpi-sinovoip/bpi-tools[bpi-tools] 源存储库，手动下载并安装此工具。
+. Linux 镜像支持从 SD 卡或 eMMC 启动。
+. 建议使用 A1 等级、容量至少为 8 GB 的存储卡。
+. 在 Linux 电脑上安装 bpi-tools（如果使用其他工具烧录镜像，可跳过此步）。如果无法访问该网址或遇到其他安装问题，请前往 link:https://github.com/bpi-sinovoip/bpi-tools[bpi-tools] 源码仓库手动下载并安装。
 +
 ```sh
  $ apt-get install pv
  $ curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
 ```
-. 下载最新的 Linux 镜像，并确认md5校验和正确。
-. 默认登录： pi/bananapi 或 root/bananapi
+. 下载最新的 Linux 镜像，并确认 MD5 校验值正确。
+. 默认登录账号：pi/bananapi 或 root/bananapi
 
-=== 将映像安装到 SD 卡
+=== 将镜像烧录到 SD 卡
 **Windows 电脑**
 
-使用 Balena Etcher 安装映像。 +
-link:https://balena.io/etcher[巴莱纳蚀刻机] 是 Balena 的开源 GUI 闪存工具，可将操作系统映像闪存到 SD 卡或 USB 开车。
+使用 Balena Etcher 烧录镜像。+
+link:https://balena.io/etcher[Balena Etcher] 是 Balena 提供的开源图形化烧录工具，可将操作系统镜像写入 SD 卡或 USB 存储设备。
 
-. 点击“**从文件闪存**”来选择镜像。 
-. 点击“**选择目标**”来选择 USB 设备。 
-. 点击“**快闪！**“开始燃烧。
+. 单击“**Flash from file**”选择镜像。 
+. 单击“**Select target**”选择目标设备。 
+. 单击“**Flash!**”开始烧录。
 
 image::/picture/etcher.jpg[etcher.jpg]
 
 **Linux 电脑**
 
-**有两种方法供您选择。**
+**可以选择以下两种方法。**
 
-. 使用 dd 命令安装镜像 Linux,卸载SD卡设备 /dev/sdX 如果自动安装则分区。其实 bpi-copy 与此 dd 命令相同。
+. 使用 Linux 的 dd 命令烧录镜像。如果 /dev/sdX 的分区被自动挂载，请先卸载。bpi-copy 实际执行的操作与此 dd 命令相同。
 +
 ```sh
  $ sudo apt-get install pv unzip
  $ sudo unzip -p xxx-bpi-p2_zero-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxfer
 ```
-. 安装镜像 bpi-tools 上 Linux，插入SD卡 Linux 电脑并运行
+. 使用 Linux 上的 bpi-tools 烧录镜像。将 SD 卡插入 Linux 电脑并执行
 +
 ```sh
  $ sudo apt-get install pv unzip
  $ sudo bpi-copy xxx-bpi-p2_zero-xxx.img.zip /dev/sdX
 ```
 
-=== 安装镜像到 eMMC
+=== 将镜像烧录到 eMMC
 
-. 准备一张SD卡 Linux 镜像闪存和启动板与此 SD 卡。
-. 解压镜像并将其复制到 USB 驱动器，将U盘插入板上并安装。（如果自动安装，请忽略此步骤）
+. 准备一张已烧录 Linux 镜像的 SD 卡，并用该卡启动开发板。
+. 解压镜像并复制到 U 盘，将 U 盘插入开发板并挂载。（如果已自动挂载，可跳过此步）
 +
 ```sh
 mount /dev/sdx /mnt
 ```
-. 有两种安装方式linux镜像到板上。
+. 可通过以下两种方式将 Linux 镜像安装到开发板。
 
-IMPORTANT: 请检查您的 EMMC 分区为mmcblk0，以下只是使用示例，重点关注实际分区。
+IMPORTANT: 请确认 eMMC 对应的设备分区。以下命令仅以 mmcblk0 为例，请以实际设备为准。
 
-- 使用dd命令安装。
+- 使用 dd 命令烧录。
 +
 ```sh
 sudo dd if=/mnt/xxx.bpi-p2_zero-xxx.img of=/dev/mmcblk0 bs=10M status=noxfer
 ```
-- 安装 linux 乌磁盘中的镜像 bpi-tools 命令
+- 使用 bpi-tools 命令烧录 U 盘中的 Linux 镜像
 +
 ```sh
  $ sudo bpi-copy xxx-bpi-p2_zero-xxx.img.zip /dev/mmcblk0
 ```
-. 下载完成后，安全关闭电源并弹出 SD 卡。
+. 烧录完成后，安全关机并取出 SD 卡。
 
-=== 更新您的图像
-. 获取p2零bsp源代码
+=== 更新镜像
+. 获取 P2 Zero BSP 源代码
 +
 ```sh
 $ git clone https://github.com/BPI-SINOVOIP/BPI-M2P-bsp-4.4
 ```
 
-. 根据以下内容构建源代码 README.md，并将软件包更新到带有 bpi 映像的 sdcard。
+. 按照 README.md 构建源代码，并将生成的软件包更新到已烧录 BPI 镜像的 SD 卡。
 
-== 高级开发
-=== 如何创建图像
-- 准备一张已安装好系统的SD卡(Ubuntu/Raspbian/..)
-- 使用 M2 Zero 启动 SD 卡，M2 Zero 启动完成后，复制文件并配置系统，然后关闭 M2 Zero 电源。 [如果您不想配置系统，可以跳过此步骤]
-- 将 SD 卡插入 PC(正在运行 Linux)
+== 进阶开发
+=== 制作镜像
+- 准备一张已安装系统（Ubuntu、Raspbian 等）的 SD 卡
+- 使用该 SD 卡启动 P2 Zero。P2 Zero 启动完成后，复制所需文件并配置系统，然后关闭 P2 Zero 电源。[如果不需要配置系统，可跳过此步]
+- 将 SD 卡插入运行 Linux 的电脑
 +
 ```sh
 cd /media
@@ -156,10 +156,10 @@ ln -s <your account> pi
 ```sh
 bpi-migrate -c bpi-m2z.conf -c ubuntu-mate-from-sd.conf -d /dev/sdx
 ```
-- 那么你现在就可以得到你自己的图像了
+- 完成后即可得到自己的镜像
 
 === OTG
-. 在 M2 零控制台上：
+. 在 P2 Zero 控制台中：
 +
 执行 
 +
@@ -167,45 +167,45 @@ bpi-migrate -c bpi-m2z.conf -c ubuntu-mate-from-sd.conf -d /dev/sdx
 ./adbd.sh
 ps -ax | grep adbd
 ```
-查看adbd是否设置
+检查 adbd 是否已启动
 
-. PC端：
+. 在电脑终端中：
 +
 --
-如果adbd设置成功，插入OTG-USB 与 M2 Zero 和 PC 的接口(与 Ubuntu 系统)
+如果 adbd 已成功启动，请用 OTG-USB 线连接 P2 Zero 和运行 Ubuntu 的电脑。
 
 执行 
 ```sh
 adb devices
 ```
-查看 PC 是否已识别 M2 ZeroP OTG。
+检查电脑是否已识别 P2 Zero 的 OTG 设备。
 
-如果是的话，我们可以执行
+如果已经识别，可以执行
 ```sh
 adb shel
 ```
-立即通过 adb 连接 M2 零
+此时即可通过 adb 连接 P2 Zero
 --
 
-=== 埃马克
-使用iperf3测试网络
+=== EMAC
+使用 iperf3 测试网络
 
 
 
 === 蓝牙
-- 使用bluetoothctl工具操作BT
+- 使用 bluetoothctl 工具管理蓝牙
 - 执行
 +
 ```sh
 bluetoothctl
 ```
-- 如果您不知道如何使用 bluetoothctl，请输入“**帮助**”，你会看到更多命令
-- 执行这些命令：
+- 如果不熟悉 bluetoothctl，请输入“**help**”查看更多命令
+- 执行以下命令：
 
 
 
-=== WiFi客户端
-**您有两种方法来设置 WiFi 客户端**
+=== WiFi 客户端
+**可以使用以下两种方法设置 WiFi 客户端**
 
 . 使用命令设置 WiFi 客户端
 +
@@ -228,27 +228,27 @@ dhclient wlan0
 ```
 --
 
-. 使用UI界面设置WiFi Client
+. 使用图形界面设置 WiFi 客户端
 
-=== 清除启动
+=== 清除启动区
 ```sh
 git clone https://github.com/BPI-SINOVOIP/BPI-files/tree/master/SD/100MB
 bpi-bootsel BPI-cleanboot-8k.img.gz /dev/sdX
 ```
-=== 相机功能
-我们使用HDF5640摄像机。
+=== 摄像头功能
+本例使用 HDF5640 摄像头。
 
 image::/picture/ov5640_camara.png[ov5640_camara.png]
 
-**古维视**
+**Guvcview**
 
-使用您的UI界面来操作相机
+通过图形界面操作摄像头
 
-应用程序 -> 声音和视频 -> guvcview
+Applications -> Sound & Video -> guvcview
 
-**壳牌**
+**Shell**
 
-- 我们还有内置命令 **/usr/local/bin** 测试相机
+- 系统还在 **/usr/local/bin** 中提供了摄像头测试脚本
 - 测试拍照功能
 +
 ```sh
@@ -262,7 +262,7 @@ image::/picture/ov5640_camara.png[ov5640_camara.png]
 
 === 显示
 如何更改显示分辨率
-例如：我们将M2Z HDMI显示改为1080P。
+例如，将 P2 Zero 的 HDMI 显示分辨率改为 1080p。
 
 . 执行
 +
@@ -270,19 +270,19 @@ image::/picture/ov5640_camara.png[ov5640_camara.png]
 mount /dev/mmcblk0p1 /mnt
 cd /mnt/bananapi/bpi-m2z/linux
 ```
-找到“**系统_配置文件**"
+找到“**sys_config.fex**”
 
 . 执行
 +
 ```sh
 vim sys_config.fex
 ```
-改变
+将
 +
 ```sh
 screen0_output_mode = 5
 ```
-到 
+改为
 +
 ```sh
 screen0_output_mode = 10
@@ -295,7 +295,7 @@ image::/picture/display_output.png[display_output.png]
 ```sh
 fex2bin
 ```
-传输系统命令_config.fex 到 bin 文件，“**fex2bin系统_配置文件 script.bin** ”，重新启动。
+命令将 sys_config.fex 转换为二进制文件：“**fex2bin sys_config.fex script.bin**”，然后重新启动。
 +
 参数含义：
 +
@@ -316,8 +316,8 @@ bpi-tools
 
 image::/picture/bpi-tools.png[bpi-tools.png]
 
-=== RPi。GPIO
-**安装 RPi。GPIO**
+=== RPi.GPIO
+**安装 RPi.GPIO**
 
 ```sh
 git clone https://github.com/BPI-SINOVOIP/RPi.GPIO
@@ -329,12 +329,12 @@ sudo apt-get install python-dev python3-dev
 ```sh
 sudo python setup.py install
 ```
-或
+或者
 ```sh
 sudo python3 setup.py install
 ```
 
-**使用 RPi。GPIO**
+**使用 RPi.GPIO**
 ```sh
 cd /usr/local/bin
 ./bpi_test_g40.py
@@ -343,11 +343,11 @@ cd /usr/local/bin
 image::/picture/rpi_gpio.png[rpi_gpio.png]
 
 
-=== 接线Pi
+=== WiringPi
 
 GitHub: https://github.com/BPI-SINOVOIP/BPI-WiringPi2.git
 
-我们还有内置的测试命令
+系统还提供了内置测试命令，位于
 ```sh
 /usr/local/bin
 ```
@@ -370,17 +370,16 @@ image::/picture/update_wringpi.png[update_wringpi.png]
 ```sh
 /usr/local/bin/bpi_test_lcd1602.sh
 ```
-**0.96英寸 OLED 显示**
+**0.96 英寸 OLED 显示屏**
 ```sh
 /usr/local/bin/bpi_test_52pi.sh
 ```
-**8x8 RGB LED 马蒂克斯**
+**8×8 RGB LED 矩阵**
 
-首先你需要一个 GPIO 8x8 扩展板 LED 马蒂克斯
+首先需要一块用于 8×8 LED 矩阵的 GPIO 扩展板
 
 image::/picture/wringpi_led_martix_extend_board.png[wringpi_led_martix_extend_board.png]
 
 ```sh
 /usr/local/bin/bpi_test_gpio40.sh
 ```
-
