@@ -1,27 +1,27 @@
 = 简介
 
-TIP: 更多信息：link:/en/BPI-WiFi6_Mini/BananaPi_BPI-WiFi6_Mini[香蕉派 WiFi6 迷你]
+TIP: 更多信息：link:/en/BPI-WiFi6_Mini/BananaPi_BPI-WiFi6_Mini[Banana Pi BPI-WiFi6 Mini]
 
-= 准备
+= 准备工作
 
-- Ethernet 电缆, BPI-WiFi6 Mini,12V电源
+- 以太网线、BPI-WiFi6 Mini、12 V 电源
 
 == 网页升级
-. 首先，下载 link:/en/BPI-WiFi6_Router/BananaPi_BPI-WiFi6_Router#_system_image[镜像] 你想升级。
+. 首先，下载要升级的 link:/en/BPI-WiFi6_Router/BananaPi_BPI-WiFi6_Router#_system_image[系统镜像]。
 . 打开电源 BPI-WiFi6 Mini 并使用网线将其连接至计算机。
-. 输入网页 (默认IP为192.168.1.1，用户为root，无密码。)
+. 打开管理页面（默认 IP 地址为 192.168.1.1，用户名为 root，密码为空）。
 +
 image::/picture/bpi-wifi6_upgrade_5.png[bpi-wifi6_upgrade_5.png]
-. 选择“系统”，然后选择“Backup/Flash 固件”。
+. 选择“System”，再选择“Backup / Flash Firmware”。
 +
 image::/picture/bpi-wifi6_upgrade_1.png[bpi-wifi6_upgrade_1.png]
-. 选择“Flash 镜像...”。
+. 选择“Flash image...”。
 +
 image::/picture/bpi-wifi6_upgrade_2.png[bpi-wifi6_upgrade_2.png]
-. 选择需要升级的镜像，然后点击“上传”。
+. 选择要升级的镜像，再单击“Upload”。
 +
 image::/picture/bpi-wifi6_upgrade_3.png[bpi-wifi6_upgrade_3.png]
-. 取消选中“保留设置并保留当前配置”。选择“继续”。
+. 取消选中“Keep settings and retain the current configuration”，再选择“Continue”。
 +
 image::/picture/bpi-wifi6_upgrade_4.png[bpi-wifi6_upgrade_4.png]
 . 等待几分钟，升级完成后会自动重启，网页会自动刷新。
@@ -29,18 +29,17 @@ image::/picture/bpi-wifi6_upgrade_4.png[bpi-wifi6_upgrade_4.png]
 image::/picture/bpi-wifi6_upgrade_5.png[bpi-wifi6_upgrade_5.png]
 
 = 开发
-== 无线网络
-您可以在网络的无线部分检查 WiFi 启动状态。其中，Triductor_2GAp 和 Triductor_5GAP 是 WiFi BPI-WiFi6。您也可以在“编辑”部分进行配置。
+== Wi-Fi
+可在“Network”的无线网络页面检查 Wi-Fi 启动状态。Triductor_2GAp 和 Triductor_5GAp 是 BPI-WiFi6 的两个 Wi-Fi 网络，也可在“Edit”页面修改配置。
 
 image::/bpi-wifi6/bpi-wifi6_wifi1.jpg[bpi-wifi6_wifi1.jpg]
 
 == USB
-您可以查看 USB 通过执行 lsusb 命令来连接设备。
+执行 lsusb 命令可查看 USB 设备。
 ```
 root@OpenWrt:/# lsusb
 Bus 001 Device 002: ID 05e3:0751 USB Storage USB Storage
 Bus 002 Device 001: ID 1d6b:0003 Linux 5.10.138 xhci-hcd xHCI Host Controller
 Bus 001 Device 001: ID 1d6b:0002 Linux 5.10.138 xhci-hcd xHCI Host Controller
 ```
-此外， USB 源码中已经配置了接口，无需任何修改即可使用。
-
+此外，源码中已经配置好 USB 接口，无需修改即可使用。
