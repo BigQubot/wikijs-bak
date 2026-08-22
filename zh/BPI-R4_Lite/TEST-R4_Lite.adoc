@@ -1,0 +1,41 @@
+= 功耗
+
+image::/bpi-r4_lite/power_consumption.png[power_consumption.png]
+
+= 安装外壳后进行温度测试。
+
+ Traffic Test Diagram
+ 
+image::/bpi-r4_lite/打流.png[打流.png]
+
+测试地点 (与 SOC 主控芯片位于下方)
+
+image::/bpi-r4_lite/测试位置.png[测试位置.png]
+
+钣金外壳与铝外壳测试结果对比
+
+image::/bpi-r4_lite/外壳温度测试.png[外壳温度测试.png]
+
+在同等条件下，铝制外壳的散热效果比钣金外壳低约4-5摄氏度。
+
+= 如何组装 R4 Lite 外壳
+首先，使用四个安装孔将 PCB 板固定到外壳上。
+
+image::/bpi-r4_lite/assembled_1.jpg[assembled_1.jpg]
+
+如图所示，用螺丝固定散热器。
+
+image::/bpi-r4_lite/assembled_2.jpg[assembled_2.jpg]
+
+如图所示对齐并插入 SMA 端口
+
+image::/bpi-r4_lite/assembled_3.jpg[assembled_3.jpg]
+
+拧紧 SMA 连接器并连接天线
+
+image::/bpi-r4_lite/assembled_4.jpg[assembled_4.jpg]
+image::/bpi-r4_lite/assembled_5.jpg[assembled_5.jpg]
+
+最终安装应该如图所示
+
+image::/bpi-r4_lite/assembled_6.jpg[assembled_6.jpg]
