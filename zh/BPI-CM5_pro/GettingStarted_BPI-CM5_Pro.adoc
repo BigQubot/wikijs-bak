@@ -1,0 +1,766 @@
+= 简介
+
+香蕉派 BPI-CM5 Pro是一个计算模块，由 Rockchip RK3576第二代8nm高性能AIOT平台。它集成了四核 Cortex-A72 @ 2.2GHz 和四核 Cortex-A53 @ 1.8GHz，以及专用 NEON 协处理器、6 TOPS NPU，并支持最大16GB大内存。支持4K视频编解码，接口丰富，支持多种操作系统。
+
+TIP: Rockchip RK3576设计 link:/en/BPI-CM5_Pro/BananaPi_BPI-CM5_Pro[香蕉派 BPI-CM5 Pro] AI计算机模块设计 
+
+= 准备
+
+== 工具准备
+
+* 电源
+* 系统安装 (选择一个)
+** eMMC 开机
+*** USB Type-C 电缆：使用 Type-C 电缆通过 Type-C 端口将图像写入 CM5 套件。您需要使用 Type-C 电缆将 CM5 套件连接到 PC。
+** MicroSD/TF 卡启动
+*** MicroSD/TF 卡：Class 10 或以上，至少 8GB SDHC，以及读卡器。
+*** 以下是经过ArmSoM团队测试验证的高速TF卡：
+**** 闪迪 32GB TF (微型SD卡) (推荐给开发者)
+**** 闪迪 32GB TF (微型SD卡) 行车记录仪和监控专用存储卡 (建议长期运行)
+**** 闪迪 TF 8G Class10 microSD
+**** 闪迪 TF 128G Class10 microSD XC TF 128G 48MB/S
+
+您可以将 CM5 套件设置为交互式台式计算机或只能通过网络访问的无头计算机。要将 CM5 套件设置为无头计算机，请在初始操作系统安装期间配置主机名、用户帐户、网络连接和 SSH。如果您打算直接使用 CM5 套件，则需要以下附加配件：
+
+可选配件
+
+* 键盘和鼠标
+* HDMI 显示器和 HDMI 电缆
+* Ethernet 电缆
+* 摄像头模组
+** 对于4路摄像头，建议使用camera-module1。
+** 对于 2 通道相机，请使用 Raspberry Picamera-module-v2。
+* LCD 显示
+** 建议使用 Display 10 HD。
+* 音频线，0.8mm垂直插座。
+* RTC 电池，0.8mm 垂直插座。
+* 风扇，0.8mm立式插座。
+* 电源：支持DC 12V适配器，2.5mm
+
+= Android
+CM5_Pro需要扩展IO板才能安装Image。
+
+== 安装镜像 Usb 下载工具
+ 
+. 下载并安装 link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FDriverAssitant_v5.11.zip[Rockchip USB 司机]
++
+image::/picture/driver_install_2.png[driver_install_2.png]
+ 
+. 下载 link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FUpdate-EMMC-Tools.zip[Rockchip USB 下载工具] +
+该工具默认语言为中文。解压后可以将其更改为英文。打开 **RKDevTool_Release_v2.84/config.ini** 使用文本编辑器 (像记事本)。起始线是：
++
+image::/picture/r2-pro_usb-tool-1.jpg[r2-pro_usb-tool-1.jpg]
++
+```sh
+#Language Selection: Selected=1(Chinese); Selected=2(English)
+[Language]
+Kinds=2
+Selected=1
+LangPath=Language\
+```
+. 打开 RKDevTool.exe，切换到“**升级固件**”页面。按“**固件**”按钮打开需要升级的镜像文件。升级工具显示详细的固件信息。
++
+ 
+. 断开电源适配器，将 type-c 数据线连接至 BPI-CM5pro IO板和PC。
+ 
+. 有两个 usb 下载模式进行镜像升级。
+ 
+- **Uboot Usb 下载模式 (加载模式)** +
+如果主板之前已经闪现了可引导的 uboot，则应该使用这种方式。
+- **马斯罗姆 Usb 下载模式(掩模ROM模式)** +
+按RESET按钮或Maskrom按钮连接电源适配器。如果已连接电源适配器，请按住 Maskrom 按钮，同时按下 RESET 按钮，松开 RESET 按钮，然后松开 Maskrom 按钮。如果 RK USB 驱动程序安装正确后，PC将识别该设备。
++
+image::/picture/r2-pro_usb-tool-4.jpg[r2-pro_usb-tool-4.jpg]
+如果设备已连接，下载工具还会显示下载模式。
++
+ 
+ 
+. 按“**升级**”按钮开始升级。
++
+ 
+ 
+. 如果升级失败，可以尝试清除 Emmc 首先按 EraseFlash 按钮，然后再次升级映像。
++
+
+
+= Linux
+CM5_Pro需要扩展IO板才能安装Image。
+
+== 将映像安装到 SD 卡 1
+NOTE: 使用此方法 **Ubuntu** 和 **阿姆比安** 镜像。
+ 
+使用 Balena Etcher 安装映像。 +
+link:https://balena.io/etcher[巴莱纳蚀刻机] 是 Balena 的开源 GUI 闪存工具，可将操作系统映像闪存到 SD 卡或 USB 开车。
+ 
+. 点击“**从文件闪存**”来选择镜像。 
+. 点击“**选择目标**”来选择 USB 设备。 
+. 点击“**快闪！**“开始燃烧。
+ 
+image::/picture/etcher.jpg[etcher.jpg]
+
+将 SD 卡插入 BPI-CM5pro IO板并插上电源适配器。然后按电源键，如果仍然没有反应，按RST键。
+
+NOTE: 启动桌面镜像时请连接 HDMI 显示器。您需要在桌面上创建一个用户。
+
+BPI-CM5pro 如何刻录镜像视频： https://www.youtube.com/watch?v=80RULZRRM58
+
+
+== 将映像安装到 SD 卡 2
+ 
+NOTE: **Debian** 镜像使用此方法。
+
+. 下载 link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FUpdate-SD-Tools.zip[Rockchip SD盘工具].
+. 将读卡器插入 Windows PC，至少 8GB SD 卡大小。
+. 运行标清_固件_工具，选中“SD卡启动”框并选择正确的可移动磁盘设备，选择固件映像，然后单击“创建”按钮来制作并等待完成。
++
+image::/picture/bpi-m7_debian_burning.png[bpi-m7_debian_burning.png]
+
+== 安装镜像到 eMMC 1
+
+NOTE: 请准备一张烧录镜像的SD卡，以及一张 USB 包含镜像的驱动器。
+
+. 将 SD 卡插入 BPI-CM5pro IO板，连接电源并启动。插入USB 开车。
+
+. 执行
++
+```sh
+lsblk
+```
+检查是否 USB 驱动器已安装。 (如果已经安装，则可以跳过第三步))
+
+. 安装 USB 开车去mnt。
++
+```sh
+sudo mount /dev/sda1 /mnt
+cd /mnt
+```
+
+. 执行
++
+```sh
+sudo dd if=bpi-cm5-Pro-xxx.img of=/dev/mmcblk0 bs=10M
+```
+
+. 断开电源并取出 SD 卡。再次通电并从 EMMC.
+
+== 安装镜像到 eMMC 2
+NOTE: Maskrom：当Flash没有烧录固件时，芯片会启动进入Maskrom模式，可以进行第一次烧录。在开发调试过程中，如果Loader无法正常启动，也可以进入Maskrom模式烧录固件。     
+
+NOTE: Loader：原理是在uboot启动过程中，检测到引脚被按下。 Loader模式下可以进行固件的烧录和升级。您可以通过该工具单独烧录分区镜像文件，以方便调试。
+
+=== Debian
+
+NOTE: 请准备Type-C线用于图像刻录。
+
+我们打开RKDevTool烧录工具 (RKDevTool 烧录工具包含在 Android 使用教程) 并将产品设置为刻录模式。
+
+.  断开所有可能为产品供电的电缆，例如电源线和 USB 电缆。
+
+.  Type-C线一端连接产品的OTG接口，另一端连接产品 USB 打开电脑界面，然后打开软件RKDevTool。
+
+.  按住 Recovery 键或 Maskrom 键，然后使用 DC 为产品供电。
+
+.  等待软件提示找到LOADER设备或Maskrom设备 (如下图所示)，然后松开按键。
+
+.  按固件按钮选择要升级的固件，然后单击升级按钮。
+
+.  提示栏提示升级成功后，重启设备即可完成烧录。
+
+image::/bpi-m7/bpi-m7-rkdevtool-1.jpg[bpi-m7-rkdevtool-1.jpg]
+
+=== Ubuntu，阿姆比安，Openwrt
+
+我们打开RKDevTool烧录工具 (RKDevTool 烧录工具包含在 Android 使用教程) 并将产品设置为刻录模式。
+
+.  断开所有可能为产品供电的电缆，例如电源线和 USB 电缆。
+
+.  Type-C线一端连接产品的OTG接口，另一端连接产品 USB 打开电脑界面，然后打开软件RKDevTool。
+
+.  按住 Recovery 键或 Maskrom 键，然后使用 DC 为产品供电。
+
+.  等待软件提示找到LOADER设备或Maskrom设备 (如下图所示)，然后松开按键。
+
+.  选择“下载镜像”选项卡，然后单击空白单元格以选择要使用的 MiniLoaderAll 和镜像文件。
+
+.  在“存储”选项中，选择目标媒体 EMMC，选择强制写入地址，然后单击执行。
+
+.  等待写入完成，设备会自动重启，如右图下载OK。
+
+image::/bpi-m7/bpi-m7-rkdevtool-2.jpg[bpi-m7-rkdevtool-2.jpg]
+
+= 接口使用
+
+如果您是第一次使用CM5套件，请先熟悉一下各个产品的硬件接口，这将有助于您更好地理解以下内容。
+
+== 调试串口
+
+连接 USB 转TTL串口线如下图：
+
+image::/bpi-cm5_pro/bpi-cm5_pro_debug_port.png[bpi-cm5_pro_debug_port.png]
+
+[options="header",cols="1,1,1"]
+|====
+|CM5-IO	|连接	|串口模块
+|接地 (引脚 6)|	--->	|接地
+|TX (针脚 8)|	--->|	接收
+|接收 (引脚 10)	|--->	|TX
+|====
+
+== Ethernet 端口
+
+1、首先将一端插入 Ethernet 将电缆插入 CM5 套件的 Ethernet 端口，并将另一端连接到路由器，确保网络正常运行。
+
+2、系统启动后，会自动分配一个IP地址 Ethernet 通过 DHCP 获取卡，无需额外配置。
+
+3、查看IP地址 Linux CM5 套件上的系统，使用以下命令：
+
+```sh
+root@armsom-cm5:/# ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host noprefixroute
+       valid_lft forever preferred_lft forever
+2: end0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether c6:9c:b0:7e:2b:1f brd ff:ff:ff:ff:ff:ff permaddr aa:a6:84:1b:0d:21
+    inet 192.168.10.78/24 brd 192.168.10.255 scope global dynamic noprefixroute enP4p65s0
+       valid_lft 86221sec preferred_lft 86221sec
+    inet6 fe80::5bb0:d96f:926d:b334/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever
+3: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN group default qlen 1000
+    link/ether cc:64:1a:33:b5:40 brd ff:ff:ff:ff:ff:ff
+4: wlan1: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN group default qlen 1000
+    link/ether ce:64:1a:33:b5:40 brd ff:ff:ff:ff:ff:ff
+    
+```
+
+之后 BPI-CM5 Pro 套件启动后，可以通过三种方式查看IP地址：
+
+* 连接HDMI显示器，登录系统，使用终端输入ip a命令查看IP地址。
+* 连接一个 [调试串口](#Debugging Serial Port) 使用终端输入ip a命令查看IP地址。
+* 如果您没有调试串口或 HDMI 监视器，您还可以检查 CM5 套件的 IP 地址 Ethernet 通过路由器的管理接口端口。但是，有时 IP 地址可能在路由器上不可见。如果看不到IP地址，请按如下方式排查：
+** 首先，检查是否 Linux 系统已正常启动。如果CM5套件上的绿灯稳定，则通常已正确启动。
+** 检查是否 Ethernet 电缆已牢固连接，或尝试使用其他电缆。
+** 尝试使用其他路由器，因为遇到了路由器无法正确分配 IP 地址或分配的 IP 地址未显示在路由器上的问题。
+**如果没有其他可用的路由器，则需要连接 HDMI 显示器或使用调试串口来检查 IP 地址。
+
+TIP: 请注意，CM5 套件上的 DHCP 自动 IP 分配不需要任何配置。
+
+4、使用ping工具检查网络连通性。
+
+** 测试网络连接的命令如下所示。您可以按 Ctrl 来中断 ping 命令+C.
+
+```sh
+root@armsom-cm5:~$ ping www.baidu.com
+PING www.a.shifen.com (183.2.172.185): 56 data bytes
+64 bytes from 183.2.172.185: icmp_seq=0 ttl=53 time=8.370 ms
+64 bytes from 183.2.172.185: icmp_seq=1 ttl=53 time=8.917 ms
+64 bytes from 183.2.172.185: icmp_seq=2 ttl=53 time=8.511 ms
+64 bytes from 183.2.172.185: icmp_seq=3 ttl=53 time=8.673 ms
+^C
+--- www.a.shifen.com ping statistics ---
+4 packets transmitted, 4 packets received, 0% packet loss
+round-trip min/avg/max/stddev = 8.370/8.618/8.917/0.203 ms
+
+```
+== 40针
+
+的 BPI-M5 Pro/BPI-M7 提供一个40针 GPIO 接头，与市场上大多数传感器兼容。
+
+=== 接线-armbian 说明
+
+从wiring-armbian下载wiringOP代码： https://github.com/ArmSoM/wiring-armbian
+
+* 测试输出 gpio readall命令如下图：
+
+ +------+-----+----------+--------+---+  ArmSoM-Sige7(BPI-M7) +---+--------+----------+-----+------+  
+ | GPIO | wPi |   Name   |  Mode  | V | Physical | V |  Mode  | Name     | wPi | GPIO |  
+ +------+-----+----------+--------+---+----++----+---+--------+----------+-----+------+  
+ |      |     |     3.3V |        |   |  1 || 2  |   |        | 5V       |     |      |  
+ |  139 |   0 |    SDA.7 |     IN | 1 |  3 || 4  |   |        | 5V       |     |      |  
+ |  138 |   1 |    SCL.7 |     IN | 1 |  5 || 6  |   |        | GND      |     |      |  
+ |  115 |   2 |    PWM15 |    OUT | 0 |  7 || 8  | 1 | ALT10  | GPIO0_B5 | 3   | 13   |  
+ |      |     |      GND |        |   |  9 || 10 | 1 | ALT10  | GPIO0_B6 | 4   | 14   |  
+ |  113 |   5 | GPIO3_C1 |     IN | 0 | 11 || 12 | 1 | IN     | GPIO3_B5 | 6   | 109  |  
+ |  111 |   7 | GPIO3_B7 |     IN | 0 | 13 || 14 |   |        | GND      |     |      |  
+ |  112 |   8 | GPIO3_C0 |     IN | 0 | 15 || 16 | 0 | IN     | GPIO3_A4 | 9   | 100  |  
+ |      |     |     3.3V |        |   | 17 || 18 | 1 | IN     | GPIO4_C4 | 10  | 148  |  
+ |   42 |  11 | SPI0_TXD |     IN | 1 | 19 || 20 |   |        | GND      |     |      |  
+ |   41 |  12 | SPI0_RXD |     IN | 1 | 21 || 22 |   |        | SARADC_IN4 |     |      |  
+ |   43 |  14 | SPI0_CLK |     IN | 1 | 23 || 24 | 1 | IN     | SPI0_CS0 | 15  | 44   |  
+ |      |     |      GND |        |   | 25 || 26 | 1 | IN     | SPI0_CS1 | 16  | 45   |  
+ |  150 |  17 | GPIO4_C6 |     IN | 1 | 27 || 28 | 0 | OUT    | GPIO4_C5 | 18  | 149  |  
+ |   63 |  19 | GPIO1_D7 |     IN | 1 | 29 || 30 |   |        | GND      |     |      |  
+ |   47 |  20 | GPIO1_B7 |     IN | 1 | 31 || 32 | 0 | IN     | GPIO3_C2 | 21  | 114  |  
+ |  103 |  22 | GPIO3_A7 |     IN | 1 | 33 || 34 |   |        | GND      |     |      |  
+ |  110 |  23 | GPIO3_B6 |     IN | 0 | 35 || 36 | 0 | IN     | GPIO3_B1 | 24  | 105  |  
+ |    0 |  25 | GPIO0_A0 |     IN | 1 | 37 || 38 | 0 | IN     | GPIO3_B2 | 26  | 106  |  
+ |      |     |      GND |        |   | 39 || 40 | 1 | IN     | GPIO3_B3 | 27  | 107  |  
+ +------+-----+----------+--------+---+----++----+---+--------+----------+-----+------+  
+ | GPIO | wPi |   Name   |  Mode  | V | Physical | V |  Mode  | Name     | wPi | GPIO |  
+ +------+-----+----------+--------+---+  ArmSoM-Sige7(BPI-M7) +---+--------+----------+-----+------+  
+ 
+ 
+ * 设置 GPIO 引脚到输出模式。第三个参数需要引脚对应的wPi编号。
+ 
+```sh
+ root@armsom-sige7:~/wiring-armbian# gpio mode 2 out
+```
+
+* 设置 GPIO 引脚输出低电平。设置完毕后，可以用万用表测量该引脚上的电压；如果读数为0V，则低电平设置成功。
+
+```sh
+root@armsom-sige7:~/wiring-armbian# gpio write 2 0
+```
+
+* 设置 GPIO 引脚输出高电平。设置完毕后，可以用万用表测量该引脚上的电压；如果读取到3.3V，则高电平设置成功。
+
+```sh
+root@armsom-sige7:~/wiring-armbian# gpio write 2 1
+```
+
+* 其他管脚的设置方法类似；只需将 wPi 编号更改为相应的引脚编号即可。
+
+== RGB LED
+
+的 BPI-M5 Pro 有两个用户 LED - 绿色和红色。
+
+* 用户绿色 LED 默认情况下不断指示正在运行的内核。
+* 用户红 LED 默认关闭，可由用户控制。
+
+用户可以通过命令进行控制：
+
+```sh
+armsom@armsom-sige5:/# sudo su  
+armsom@armsom-sige5:/# echo timer > /sys/class/leds/red/trigger  
+armsom@armsom-sige5:/# echo activity > /sys/class/leds/red/trigger
+
+== WiFi
+
+The BPI-CM5 Pro Kit includes an onboard WiFi module, so no external network devices are required. It uses the standard 4th generation antenna.
+
+=== Connect to WiFi using the server image via command line
+
+1,First, log in to the Linux system. You can do this in one of three ways:
+
+* If the CM5 Kit is connected to a network cable, you can remotely log in via SSH.
+* If the CM5 Kit is connected to a debug serial port, you can use a serial terminal to log in.
+* If the CM5 Kit is connected to an HDMI display, you can log in using the terminal displayed on the HDMI screen.
+
+2,Use the nmcli dev wifi command to scan for nearby WiFi hotspots.
+
+```sh
+# 1. 启用WiFi
+root@armsom-cm5:/# nmcli r wifi on
+# 2. 扫描WiFi
+root@armsom-cm5:/# nmcli dev wifi
+# 3. 连接至 WiFi 网络
+root@armsom-cm5:/# nmcli dev wifi connect "wifi_name" password "wifi_password"
+```
+image::/bpi-cm5_pro/banana_pi_bpi-cm5_pro_wifi_setting.png[banana_pi_bpi-cm5_pro_wifi_setting.png]
+
+3,Use the nmcli command to connect to the scanned WiFi network:
+
+* Replace wifi_name with the name of the WiFi hotspot you want to connect to.
+* Replace wifi_password with the password for that WiFi hotspot.
+
+```sh
+root@armsom-cm5:~$ nmcli dev wifi connect "wifi_name" password "wifi_password"
+使用“wlan0b6d10bba-e1d5-4b6d-a17f-7d5ab44bbb6f”成功激活设备“wlan0”。
+```
+4,Use the ip addr show wlan0 command to view the IP address of the WiFi connection.
+```sh
+root@armsom-cm5:~$ ip addr show wlan0
+4: 无线局域网0: <BROADCAST,MULTICAST,UP,LOWER_UP> MTU 1500 qdisc pfifo_快速状态UP组默认qlen 1000
+    link/ether b8:2d:28:5a:52:6a brd ff:ff:ff:ff:ff:ff
+    inet 192.168.10.9/24 brd 192.168.10.255 scope global dynamic noprefixroute wlan0
+       valid_lft 86321sec preferred_lft 86321sec
+    inet6 fe80::850d:3119:e0:afa3/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever
+```
+
+5,Use the "ping" command to test network connectivity over WiFi. You can interrupt the ping command using Ctrl+C.
+```sh
+root@armsom-cm5:~$ ping www.baidu.com
+PING www.a.shifen.com (183.2.172.185)：56个数据字节
+来自 183.2.172.185 的 64 字节：icmp_序列=0 TTL=53次=8.370 毫秒
+来自 183.2.172.185 的 64 字节：icmp_序列=1 TTL=53次=8.917 毫秒
+来自 183.2.172.185 的 64 字节：icmp_序列=2 TTL=53次=8.511 毫秒
+来自 183.2.172.185 的 64 字节：icmp_序列=3 TTL=53次=8.673 毫秒
+^C
+--- www.a.shifen.com ping 统计 ---
+发送 4 个数据包，接收 4 个数据包，0% 数据包丢失
+往返 min/avg/max/stddev = 8.370/8.618/8.917/0.203 女士
+```
+=== Connect to WiFi using the server image via graphical interface
+
+1,Log in to the Linux system. You can do this in one of three ways:
+
+* If the CM5 Kit is connected to a network cable, you can remotely log in via SSH.
+* If the CM5 Kit is connected to a debug serial port, you can use a serial terminal to log in (use MobaXterm, as Minicom cannot display the graphical interface).
+* If the CM5 Kit is connected to an HDMI display, you can log in using the terminal displayed on the HDMI screen.
+
+2,In the command line, enter the nmtui command to open the WiFi connection interface.
+
+image::/bpi-cm5_pro/banana_pi_bpi-cm5_pro_wifi_setting_2.png[banana_pi_bpi-cm5_pro_wifi_setting_2.png]
+```sh
+root@armsom-cm5:~$ nmtui
+
+```
+
+3,Select "Activate a connection" and press Enter.
+
+image::/bpi-cm5_pro/banana_pi_bpi-cm5_pro_wifi_setting_3.png[banana_pi_bpi-cm5_pro_wifi_setting_3.png]
+
+4,Select the WiFi hotspot you want to connect to and enter the password. Once connected, an asterisk (*) will appear next to the connected WiFi network.
+
+image::/bpi-cm5_pro/banana_pi_bpi-cm5_pro_wifi_setting_4.png[banana_pi_bpi-cm5_pro_wifi_setting_4.png]
+
+5,Use the ip addr show wlan0 command to view the WiFi connection's IP address.
+
+```sh
+root@armsom-cm5:~$ ip addr show wlan0
+4: 无线局域网0: <BROADCAST,MULTICAST,UP,LOWER_UP> MTU 1500 qdisc pfifo_快速状态UP组默认qlen 1000
+    link/ether b8:2d:28:5a:52:6a brd ff:ff:ff:ff:ff:ff
+    inet 192.168.10.9/24 brd 192.168.10.255 scope global dynamic noprefixroute wlan0
+       valid_lft 86316sec preferred_lft 86316sec
+    inet6 fe80::a422:3494:3147:92d/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever
+
+```
+6,Use the ping command to test WiFi network connectivity. You can interrupt the ping command using Ctrl+C.
+```sh
+root@armsom-cm5:~$ ping www.baidu.com
+PING www.a.shifen.com (183.2.172.185)：56个数据字节
+来自 183.2.172.185 的 64 字节：icmp_序列=0 TTL=53次=8.370 毫秒
+来自 183.2.172.185 的 64 字节：icmp_序列=1 TTL=53次=8.917 毫秒
+来自 183.2.172.185 的 64 字节：icmp_序列=2 TTL=53次=8.511 毫秒
+来自 183.2.172.185 的 64 字节：icmp_序列=3 TTL=53次=8.673 毫秒
+^C
+--- www.a.shifen.com ping 统计 ---
+发送 4 个数据包，接收 4 个数据包，0% 数据包丢失
+往返 min/avg/max/stddev = 8.370/8.618/8.917/0.203 女士
+```
+
+=== Test method for desktop image
+
+1,Click the network configuration icon on the desktop (make sure the network cable is disconnected when testing WiFi).
+
+2,After successfully connecting to WiFi, you can open a browser to check if you can access the internet.
+
+image::/bpi-cm5_pro/banana_pi_bpi-cm5_pro_wifi_setting_5.jpg[banana_pi_bpi-cm5_pro_wifi_setting_5.jpg]
+
+== Bluetooth
+```sh
+# 1. 激活蓝牙
+root@armsom-cm5:/# service bluetooth start
+# 2.输入bluetoothctl
+root@armsom-cm5:/# bluetoothctl
+# 3.输入以下命令进行连接
+root@armsom-cm5:/# power on
+root@armsom-cm5:/# agent on
+root@armsom-cm5:/# default-agent
+root@armsom-cm5:/# scan on
+root@armsom-cm5:/# pair yourDeviceMAC
+```
+
+== HDMI
+
+The BPI-CM5 Pro Kit supports HDMI up to 4Kp120.
+
+* Use an HDMI cable to connect the CM5 Kit to an HDMI display.
+* After booting the Linux system, if the HDMI display has an image output, it indicates that the HDMI interface is working normally.
+
+TIP: Note: Many laptops have an HDMI port, but it usually only supports output, not HDMI input. This means it cannot display the HDMI output from other devices on the laptop screen. If you plan to connect the development board's HDMI to a laptop's HDMI port, please first confirm that your laptop supports HDMI input. If HDMI does not display anything, please check if the system you are using has a desktop version, as the server version will only display a terminal.
+
+HDMI to VGA Display Test
+
+1,You will need the following accessories:
+
+* HDMI to VGA adapter
+* A VGA cable and a monitor that supports VGA input
+
+2,The HDMI to VGA display test is shown below:
+
+image::/bpi-cm5_pro/banana_pi_bpi-cm5_pro_hdmi_setting.jpg[banana_pi_bpi-cm5_pro_hdmi_setting.jpg]
+
+TIP: When using HDMI to VGA display, there is no need to configure anything on the CM5 Kit or Linux system. As long as the HDMI interface on the development board displays correctly, it should work. If you encounter issues, please check the HDMI to VGA adapter, VGA cable, and monitor.
+
+== USB
+=== USB Mouse or Keyboard Connection Test
+
+* Insert a USB keyboard into the CM5 Kit's USB port.
+* Connect the CM5 Kit to an HDMI display.
+* If the mouse or keyboard can operate the system normally, it indicates that the USB port is working correctly (the mouse can only be used in a desktop version of the system).
+
+=== USB Storage Device Connection Test
+
+* Insert a USB flash drive or USB external hard drive into the CM5 Kit's USB port.
+* Run the following command. If you see an output for sdX, it indicates that the USB drive is recognized successfully:
+```sh
+root@armsom-cm5:/# cat /proc/partitions | grep "sd*"
+大调小调  #区块名称
+   8        0  122880000 sda
+```
+
+* Use the mount command to mount the USB drive to /mnt/, and then you can view the files on the USB drive:
+```sh
+root@armsom-cm5:/# sudo mount /dev/sda1 /test/
+```
+* After mounting, use the df -h command to check the USB drive’s capacity and mount point:
+```sh
+root@armsom-cm5:/test# df -h | grep "sd"
+/dev/sda        4.7G  4.7G     0  100% /test
+```
+
+=== USB Camera
+
+* Prepare a USB camera that supports the UVC protocol, then insert the USB camera into the CM5 Kit's USB port.
+
+* Use the v4l2-ctl command to see the device node information for the USB camera, which will be /dev/video0:
+```sh
+root@armsom-cm5:/# v4l2-ctl --list-devices
+罗技高清网络摄像头 C93 (usb-xhci-hcd.5.auto-1):
+        /dev/video40
+        /dev/video41
+        /dev/media4
+```
+* On a desktop system, you can use Cheese/V4L2 Test Bench to directly open the USB camera:
+
+image::/bpi-cm5_pro/banana_pi_bpi-cm5_pro_usb_camera_setting.jpg[banana_pi_bpi-cm5_pro_usb_camera_setting.jpg]
+
+You can also use terminal commands to open the camera preview:
+```sh
+root@armsom-cm5:/# gst-launch-1.0 v4l2src device=/dev/video0 io-mode=4 ! videoconvert ! video/x-raw,format=NV12,width=1920,height=1080 ! xvimagesink;
+```
+
+Command to take a photo:
+```sh```
+root@armsom-cm5:/# gst-launch-1.0 v4l2src device=/dev/video0 io-mode=4 ! videoconvert ! video/x-raw,format=NV12,width=1920,height=1080 ! jpegenc ! multifilesink location=/home/armsom/test.jpg;
+```
+
+Command to record a video:
+
+```sh
+gst-launch-1.0 v4l2src num-buffers=512装置=/dev/video0 io模式=4！视频转换！ video/x-raw, 格式=NV12，宽度=1920年，身高=1080，帧率=30/1 ！球座名称=t！队列 ！ mpph264enc ！队列 ！ h264解析！ mpegtsmux！文件接收器位置=/home/armsom/test.mp4
+```
+image::/bpi-cm5_pro/banana_pi_bpi-cm5_pro_usb_camera_1.jpg[banana_pi_bpi-cm5_pro_usb_camera_1.jpg]
+
+== M.2 Key M
+
+The BPI-CM5 Ror Kit features an M.2 Key M connector:
+
+* On the back of the product, there is an M.2 Key M connector. The board includes a standard M.2 2280 mounting hole for deploying an M.2 2280 NVMe SSD.
+
+TIP: Note: This M.2 interface does not support M.2 SATA SSDs.
+
+```sh
+root@armsom-cm5:/# mkdir temp
+root@armsom-cm5:/# mount /dev/nvme0n1 temp
+```
+
+== Audio
+
+Check the sound cards in the system.
+```sh
+root@armsom-cm5:/# aplay -l
+**** 播放硬件设备列表 ****
+卡 0：rockchipes8388c [rockchip,es8388-编解码器]，设备 0：2a610000.sai-ES8323 HiFi ES8323 HiFi-0 [2a610000.sai-ES8323 HiFi ES8323 HiFi-0]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+卡 1：rockchipdp0 [rockchip-dp0]，设备0： rockchip-dp0 spdif-hifi-0 [rockchip-dp0 spdif-hifi-0]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+卡2：rockchiphdmi [rockchip-hdmi]，设备0： rockchip-hdmi i2s-hifi-0 [rockchip-hdmi i2s-hifi-0]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+```
+
+Play audio
+
+```sh
+root@armsom-cm5:/# aplay -D plughw:1,0 ./usr/share/sounds/alsa/Front_Right.wav
+```
+
+== FAN
+
+The BPI-CM5 Pro Kit comes with a 5V fan using a 0.8mm connector.
+
+The fan has five default states:
+
+[options="header",cols="1,1,1"]
+|====
+|Temperature	|State	|PWM Speed
+|Below 50°C|	0|	0
+|50°C-55°C|1	|50
+|55°C-60°C	|2	|100
+|60°C-65°C	|3	|150
+|65°C-70°C	|4	|200
+|Above 70°C	|5	|250
+|====
+
+Check the current speed 
+```sh
+root@armsom-cm5:/# cat /sys/class/hwmon/hwmon9/pwm1
+```
+
+== 40 PIN GPIO
+
+The CM5 Kit provides a 40-pin GPIO header, compatible with most sensors on the market.
+
+== RGB LED
+
+The CM5 Kit has a green LED.
+
+* User Green LED: By default, it remains on to indicate that the system is operating normally.
+
+== RTC
+
+* The CM5 Kit is equipped with an RTC IC LK8563S.
+* First, insert the RTC battery into the 2-pin header to power the RTC IC.
+
+TIP: Note: The RTC battery should remain in the RTC connector, and confirm that the rtc LK8563S device has been created.
+
+```sh
+root@armsom-cm5:/# dmesg | grep rtc
+[    3.476710] rtc-hym8563 2-0051: rtc information is valid
+[    3.488534] rtc-hym8563 2-0051: registered as rtc0
+[    3.490109] rtc-hym8563 2-0051: setting system clock to 2024-06-16T09:45:52 UTC (1718531152)
+```
+
+* Locate rtc0, then use the following commands to set the system time and synchronize it with rtc0.
+
+```sh
+root@armsom-cm5:/# hwclock -r
+2023-11-03 10:32:40.461910+00:00
+root@armsom-cm5:/# date
+2023年11月03日 星期五 10:33:12 UTC
+root@armsom-cm5:/# hwclock -w
+root@armsom-cm5:/# hwclock -r
+root@armsom-cm5:/# poweroff
+```
+
+* Remove the RTC battery, wait for 10 minutes or longer, reinsert the RTC battery, and power on Sige7. Check if the RTC is synchronized with the system clock.
+
+```sh
+root@armsom-cm5:/# hwclock -r
+2023-11-03 10:35:40.461910+00:00
+root@armsom-cm5:/# date
+2023年11月03日 星期五 10:36:01 UTC
+```
+
+== MIPI-CSI
+
+Basic Commands
+
+```sh
+// Check the video formats supported by the video node
+root@armsom-cm5:/# v4l2-ctl -d /dev/video11 --get-fmt-video
+多平面视频捕捉格式：
+        Width/Height      : 1920/1080
+        Pixel Format      : 'RG10' (10-bit Bayer RGRG/GBGB)
+        Field             : None
+        Number of planes  : 1
+        Flags             : premultiplied-alpha, 0x000000fe
+        Colorspace        : Default
+        Transfer Function : Default
+        YCbCr/HSV Encoding: Unknown (0x000000ff)
+        Quantization      : Default
+        Plane 0           :
+           Bytes per Line : 2560
+           Size Image     : 2764800
+
+// Check the topology
+root@armsom-cm5:/# media-ctl -d /dev/media0 -p
+```
+
+=== Using ArmSoM Camera Module 1
+
+The camera uses the camera-module1 module. After connecting and powering the camera module, check the startup logs.
+
+```sh
+root@armsom-cm5:/# dmesg | grep ov13850
+[    2.302905] ov13850 5-0010: driver version: 00.01.05
+[    2.302944] ov13850 5-0010: Failed to get power-gpios, maybe no use
+[    2.303067] ov13850 5-0010: supply avdd not found, using dummy regulator
+[    2.303153] ov13850 5-0010: supply dovdd not found, using dummy regulator
+[    2.303186] ov13850 5-0010: supply dvdd not found, using dummy regulator
+[    2.303213] ov13850 5-0010: could not get default pinstate
+[    2.303220] ov13850 5-0010: could not get sleep pinstate
+[    2.308532] ov13850 5-0010: Detected OV00d850 sensor, REVISION 0xb2
+[    2.332058] ov13850 5-0010: Consider updating driver ov13850 to match on endpoints
+[    2.332084] rockchip-csi2-dphy csi2-dphy0: dphy0 matches m00_b_ov13850 5-0010:bus type 5
+```
+
+Capture an image using v4l2-ctl
+
+```sh
+// MIPI-CSI1
+root@armsom-cm5:/# v4l2-ctl -d /dev/video22 --set-selection=target=crop,top=0,left=0,width=2112,height=1568 --set-fmt-video=width=2112,height=1568,pixelformat=NV12 --stream-mmap=3 --stream-to=/nv12.bin --stream-count=1 --stream-poll
+
+```
+
+Record video using gst-launch-1.0
+
+```sh
+// MIPI-CSI1
+root@armsom-cm5:/# gst-launch-1.0 v4l2src device=/dev/video22 ! video/x-raw,format=NV12,width=2112,height=1568, framerate=30/1 ! xvimagesink
+```
+=== Using Raspberry Pi Camera Module 2
+
+The camera uses the Raspberry Pi Camera Module 2 module. After connecting and powering the camera module, check the startup logs.
+```sh
+root@armsom-cm5:/# dmesg | grep imx219
+[    4.049680] imx219 4-0010: driver version: 00.01.02
+[    4.074430] imx219 4-0010: Model ID 0x0219, Lot ID 0x258b89, Chip ID 0x056c
+[    4.074460] imx219 4-0010: Consider updating driver imx219 to match on endpoints
+[    4.074477] rock
+
+芯片-csi2-dphy csi2-dphy4：dphy4 匹配 m01_b_imx219 4-0010：总线类型 5
+```
+
+Capture an image using v4l2-ctl
+
+```sh
+root@armsom-cm5:/# v4l2-ctl -d /dev/video11 --set-selection=target=crop,top=0,left=0,width=2112,height=1568 --set-fmt-video=width=1920,height=1080,pixelformat=NV12 --stream-mmap=3 --stream-to=/nv12.bin --stream-count=1 --stream-poll
+```
+
+Record video using gst-launch-1.0
+
+```sh
+root@armsom-cm5:/# sudo apt-get update
+root@armsom-cm5:/# sudo apt-get install gstreamer1.0*
+root@armsom-cm5:/# gst-launch-1.0 v4l2src ! 'video/x-raw, format=NV12, width=1920, height=1080' ! autovideosink
+```
+
+== MIPI DSI
+
+The BPI-CM5 Pro Kit supports resolutions up to 2K@60Hz.
+
+* Connect the ribbon cable as shown in the image below:
+
+image::/bpi-cm5_pro/banana_pi_bpi-cm5_pro_mipi_dsi_setting.jpg[banana_pi_bpi-cm5_pro_mipi_dsi_setting.jpg]
+
+* Configuring a 10.1-inch MIPI LCD screen:
+
+** The Linux image does not enable the MIPI LCD screen configuration by default. To use the MIPI LCD screen, you need to enable it manually.
+
+** Use nano to open the /boot/armbianEnv.txt file:
+
+```sh
+sudo nano /boot/armbianEnv.txt
+```
+
+** Find or add the "overlays=" keyword in the file.
+
+```sh
+// Select according to your product
+overlays=armsom-cm5-io-display-10hd // cm5-kit
+```
+
+Shortcut keys: Ctrl + S to save, Ctrl + X to exit
+
+After editing, restart the device to apply the Overlays settings for Display 10 HD.
+
+
