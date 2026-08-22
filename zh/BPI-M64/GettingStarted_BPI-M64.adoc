@@ -1,49 +1,49 @@
 = 简介
 
-香蕉派 BPI-M64 是一款64位四核迷你单板计算机。它具有 2GB RAM 和8GB eMMC。它还具有板载 WiFi 和 BT。在端口方面， BPI-M64 有 2 USB A 2.0端口，1个 USB OTG 端口、1 个 HDMI 端口、1 个音频插孔，最后是一个直流电源端口。该处理器与R18引脚兼容，因此有两个版本：M64和M64-R18。
+Banana Pi BPI-M64 是一款 64 位四核迷你单板计算机，配备 2 GB 内存和 8 GB eMMC，并集成 WiFi 与蓝牙。接口包括两个 USB 2.0 Type-A、一个 USB OTG、一个 HDMI、一个音频插孔和一个直流电源接口。其处理器与 R18 引脚兼容，因此产品分为 M64 和 M64-R18 两个版本。
 
-TIP: 更多信息： link:/en/BPI-M64/BananaPi_BPI-M64[香蕉派 BPI-M64]
+TIP: 更多信息：link:/en/BPI-M64/BananaPi_BPI-M64[Banana Pi BPI-M64]
 
 == 规格参数
 
 **A64**
 
-- 1.2 Ghz 四核 ARM Cortex A53 64 位处理器-A64
-- 2GB DDR3 内存
-- 8G EMMC
-- 10/100/1000Mbps Ethernet
-- 无线网络 (AP6212) & 蓝牙
+- 1.2 GHz 四核 64 位 ARM Cortex-A53 处理器（A64）
+- 2 GB DDR3 SDRAM
+- 8 GB eMMC
+- 10/100/1000 Mbps 以太网
+- WiFi（AP6212）及蓝牙
 
 **R18**
 
-- 1.2 Ghz 四核 ARM Cortex A53 64 位处理器-R18
-- 2GB DDR3 内存
-- 8G EMMC
-- 10/100/1000Mbps Ethernet
-- 无线网络 (AP6212) & 蓝牙
+- 1.2 GHz 四核 64 位 ARM Cortex-A53 处理器（R18）
+- 2 GB DDR3 SDRAM
+- 8 GB eMMC
+- 10/100/1000 Mbps 以太网
+- WiFi（AP6212）及蓝牙
 
 = 开发
 
 == Android
 === 准备
 
-. 准备一个 USB- 串行电缆、MicroUSB 电缆和 PC Linux 或 WIndows 7/10
-. 的 USB-串行电缆用于控制台调试，MicroUSB电缆用于镜像下载和ADB调试。
-. M64板仅支持直流电源启动。
-. 如果您想插入 SD 卡 Android 存储使用，并且您的 SD 卡已下载 Linux 图片或任何其他 allwinner 可启动 SD 卡映像，请从块 0 开始格式化 SD 卡。
-. 下载并安装 Allwinner 图片下载工具，PhoenixSuit适用于window，LiveSuit适用于 Linux
+. 准备一根 USB 转串口线、一根 Micro-USB 线，以及一台运行 Linux 或 Windows 7/10 的电脑。
+. USB 转串口线用于控制台调试，Micro-USB 线用于下载镜像和 ADB 调试。
+. M64 开发板只能通过直流电源启动。
+. 如果要将 SD 卡用作 Android 存储，而该卡曾烧录过 Linux 镜像或其他 Allwinner 可启动镜像，请从第 0 个块开始格式化 SD 卡。
+. 下载并安装 Allwinner 镜像下载工具：Windows 使用 PhoenixSuit，Linux 使用 LiveSuit。
 
-=== 使用 PhoenixSuit 安装镜像 Windows
+=== 在 Windows 上使用 PhoenixSuit 安装镜像
 
-. 打开PhoenixSuit，点击Firmware图标切换到固件下载面板，然后点击Image按钮并选择 Android 镜像文件。
+. 打开 PhoenixSuit，单击 Firmware 图标切换到固件下载面板，再单击 Image 按钮并选择 Android 镜像文件。
 +
 image::/picture/m64-android-1.png[m64-android-1.png]
 
-. M64板断开DC电源，按住uboot-key按钮(新的 uart 调试引脚), 插件微-usb 电缆连接到 PC，弹出警告对话框。
+. 断开 M64 的直流电源，按住 uboot-key 按钮（新版开发板上的 UART 调试引脚），再用 Micro-USB 线连接电脑，此时会弹出警告对话框。
 +
 image::/picture/m64-android-2.png[m64-android-2.png]
 
-. 按“是”继续并弹出另一个警告对话框，按“是”继续
+. 单击 Yes 继续；出现第二个警告对话框后，再次单击 Yes。
 . 正在下载
 +
 image::/picture/m64-android-3.png[m64-android-3.png]
@@ -52,9 +52,9 @@ image::/picture/m64-android-3.png[m64-android-3.png]
 +
 image::/picture/m64-android-4.png[m64-android-4.png]
 
-=== 安装带有 LiveSuit 的镜像 Linux
+=== 在 Linux 上使用 LiveSuit 安装镜像
 
-. 根据LiveSuit安装包中的Readme.pdf，安装LiveSuit成功后请运行 LiveSuit.sh 有了root权限，那么下载过程就和PhoenixSuit几乎一样了。
+. 按照 LiveSuit 安装包中的 Readme.pdf 完成安装后，以 root 权限运行 LiveSuit.sh。后续下载流程与 PhoenixSuit 基本相同。
 +
 image::/picture/live_suit.png[live_suit.png]
 
@@ -75,91 +75,91 @@ image::/picture/live_suit.png[live_suit.png]
 == Linux
 === 准备
 
-. 准备 8G/above TF卡、 USB-串行接口，PC Ubuntu 系统
-. 使用您的 USB-M64 上的串行连接调试控制台
-. M64板仅支持直流电源启动
-. 安装 bpi-tools 在你的 Linux 电脑。如果您无法访问此网址或有任何其他问题，请访问 bpi-tools 存储库并手动安装此工具。
+. 准备一张至少 8 GB 的 TF 卡、一个 USB 转串口适配器，以及一台运行 Ubuntu 的电脑。
+. 使用 USB 转串口适配器连接 M64 的调试控制台。
+. M64 开发板只能通过直流电源启动。
+. 在 Linux 电脑上安装 bpi-tools。如果无法访问该网址或遇到其他问题，请前往 bpi-tools 仓库手动安装该工具。
 +
 ```sh
   $ apt-get install pv
   $ curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
 ```
-. 下载BPI最新镜像
-. 登录 user/password: pi/bananapi 或 root/bananapi
+. 下载最新的 BPI 镜像。
+. 登录用户名/密码：pi/bananapi 或 root/bananapi
 
-=== 将映像安装到 SD 卡
+=== 将镜像烧录到 SD 卡
 **Windows 电脑**
 
-使用 Balena Etcher 安装映像。 +
-link:https://balena.io/etcher[巴莱纳蚀刻机] 是 Balena 的开源 GUI 闪存工具，可将操作系统映像闪存到 SD 卡或 USB 开车。
+使用 Balena Etcher 烧录镜像。+
+link:https://balena.io/etcher[Balena Etcher] 是 Balena 提供的开源图形化烧录工具，可将操作系统镜像写入 SD 卡或 USB 存储设备。
 
-. 点击“**从文件闪存**”来选择镜像。 
-. 点击“**选择目标**”来选择 USB 设备。 
-. 点击“**快闪！**“开始燃烧。
+. 单击“**Flash from file**”选择镜像。 
+. 单击“**Select target**”选择目标设备。 
+. 单击“**Flash!**”开始烧录。
 
 image::/picture/etcher.jpg[etcher.jpg]
 
 **Linux 电脑**
 
-**有两种方法供您选择。**
+**可以选择以下两种方法。**
 
-. 使用 dd 命令安装镜像 Linux,卸载SD卡设备 /dev/sdX 如果自动安装则分区。其实 bpi-copy 与此 dd 命令相同。
+. 使用 Linux 的 dd 命令烧录镜像。如果 /dev/sdX 的分区被自动挂载，请先卸载。bpi-copy 实际执行的操作与此 dd 命令相同。
 +
 ```sh
  $ sudo apt-get install pv unzip
  $ sudo unzip -p xxx-bpi-m64-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxfer
 ```
-. 安装镜像 bpi-tools 上 Linux，插入SD卡 Linux 电脑并运行
+. 使用 Linux 上的 bpi-tools 烧录镜像。将 SD 卡插入 Linux 电脑并执行
 +
 ```sh
  $ sudo apt-get install pv unzip
  $ sudo bpi-copy xxx-bpi-m64-xxx.img.zip /dev/sdX
 ```
 
-=== 安装镜像到 EMMC
-. 准备一张SD卡 Linux 镜像闪存和启动板与此 SD 卡。
-. 解压镜像并将其复制到 USB 驱动器，将U盘插入板上并安装。（如果自动安装，请忽略此步骤）
+=== 将镜像烧录到 eMMC
+. 准备一张已烧录 Linux 镜像的 SD 卡，并用该卡启动开发板。
+. 解压镜像并复制到 U 盘，将 U 盘插入开发板并挂载。（如果已自动挂载，可跳过此步）
 +
 ```sh
 mount /dev/sdx /mnt
 ```
-. 有两种安装方式linux镜像到板上。
-- 使用dd命令安装。
+. 可通过以下两种方式将 Linux 镜像安装到开发板。
+- 使用 dd 命令烧录。
 +
 ```sh
 sudo dd if=/mnt/xxx.bpi-p2_zero-xxx.img of=/dev/mmcblk0 bs=10M status=noxfer
 ```
-- 安装 linux 乌磁盘中的镜像 bpi-tools 命令
+- 使用 bpi-tools 命令烧录 U 盘中的 Linux 镜像
 +
 ```sh
  $ sudo bpi-copy xxx-bpi-p2_zero-xxx.img.zip /dev/mmcblk0
 ```
-. 下载完成后，安全关闭电源并弹出 SD 卡。
+. 烧录完成后，安全关机并取出 SD 卡。
 
-=== 切换到 LCD 引导类型
-. 默认发布镜像为HDMI启动类型，您可以切换为 LCD BPI 7" 的引导类型 LCD 首次启动后支持。
+=== 切换为 LCD 启动模式
+. 默认发布镜像使用 HDMI 启动模式。首次启动后，可以切换为 LCD 启动模式，以支持 BPI 7 英寸 LCD。
 +
 ```sh
  $ sudo bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m64/BPI-M64-LCD7-linux4.4-8k.img.gz
  $ reboot
 ```
-. 如果您想使用TP，请加载触摸屏驱动程序
+. 如需使用触摸面板（TP），请加载触摸屏驱动程序
 +
 ```sh
  $ sudo modprobe gt9xxnew_ts.ko
 ```
 
 === 构建 Linux 源代码
-获取bsp源代码
+获取 BSP 源代码
 ```SH
  $ git clone https://github.com/BPI-SINOVOIP/BPI-M64-bsp-4.4
 ```
 
 == 其他开发
-=== 通用汽车MAC
-使用iperf3测试gmac
+=== GMAC
+使用 iperf3 测试 GMAC
 
-. 在PC端：
+. 在电脑终端中：
 +
 - 执行
 +
@@ -167,15 +167,15 @@ sudo dd if=/mnt/xxx.bpi-p2_zero-xxx.img of=/dev/mmcblk0 bs=10M status=noxfer
 iperf3 -s
 ```
 
-. 在 M2U 控制台上：
+. 在 M64 控制台中：
 +
 --
-- TCP测试： 
+- TCP 测试：
 +
 ```sh
 iperf3 -c serverIP
 ```
-- UDP测试： 
+- UDP 测试：
 +
 ```sh
 iperf3 -u -c serverIP
@@ -185,21 +185,21 @@ iperf3 -u -c serverIP
 image::/picture/a64_gmac_test.png[a64_gmac_test.png]
 
 === 蓝牙
--  使用bluetoothctl工具操作BT
+- 使用 bluetoothctl 工具管理蓝牙
 - 执行 
 +
 ```sh
 bluetoothctl
 ```
-- 如果您不知道如何使用 bluetoothctl，请输入“**帮助**”，你会看到更多命令
-- 执行这些命令：
+- 如果不熟悉 bluetoothctl，请输入“**help**”查看更多命令
+- 执行以下命令：
 +
 image::/picture/a64_bluetooth.png[a64_bluetooth.png]
 
-=== 无线网络
-==== WiFi客户端
+=== WiFi
+==== WiFi 客户端
 
-**您有两种方法来设置 WiFi 客户端**
+**可以使用以下两种方法设置 WiFi 客户端**
 
 . 使用命令设置 WiFi 客户端
 +
@@ -221,10 +221,10 @@ vim /etc/wpasupplicant/wpa_supplicant.conf
 wpa_supplicant -iwlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf
 dhclient wlan0
 ```
-. 使用UI界面设置WiFi Client
+. 使用图形界面设置 WiFi 客户端
 
-==== 应用模式
-. 安装hostapd并创建hostapd配置文件 hostapd.conf:
+==== AP 模式
+. 安装 hostapd 并创建配置文件 hostapd.conf：
 +
 ```sh
 interface=wlan0
@@ -238,11 +238,11 @@ channel=1
 ```sh
 hostapd -d /<path>/hostapd.conf
 ```
-- 如果你遇到这样的问题：
+- 如果遇到如下问题：
 +
 image::/picture/a64_ap_1.png[a64_ap_1.png]
 
-- 然后，可以通过以下命令解决：
+- 可以使用以下命令解决：
 +
 ```sh
 nmcli radio wifi off
@@ -259,43 +259,43 @@ hostapd -d hostapd.conf
 +
 image::/picture/a64_ap_3.png[a64_ap_3.png]
 
-=== 清除启动
+=== 清除启动区
 ```sh
 git clone https://github.com/BPI-SINOVOIP/BPI-files/tree/master/SD/100MB
 bpi-bootsel BPI-cleanboot-8k.img.gz /dev/sdX
 ```
 
 === GPIO 控制
-. 要访问一个 GPIO 您首先需要将其导出
+. 要访问 GPIO 引脚，首先需要使用以下命令将其导出
 +
 ```sh
  echo XX > /sys/class/gpio/export
 ```
 
-. XX 是所需引脚的编号。要获得正确的数字，您必须根据引脚名称进行计算 (像PH18)
+. XX 是目标引脚的编号。要得到正确编号，需要根据引脚名称（如 PH18）进行计算。
 +
-NOTE: (字母在字母表中的位置 - 1) * 32 + 引脚号 +
-对于 PH18 这将是 ( 8 - 1) * 32 + 18 = 224 + 18 = 242 (因为 'h' 是第 8 个字母)
+NOTE: （字母在字母表中的序号 - 1）× 32 + 引脚号。+
+以 PH18 为例：（8 - 1）× 32 + 18 = 224 + 18 = 242，因为 h 是第 8 个字母。
 +
 ```sh
 echo "out/in" > /sys/class/gpio/gpio*NUMBER*/direction
 echo "0/1" > /sys/class/gpio/gpio*NUMBER*/value
 ```
 
-=== 相机功能
-我们使用HDF5640摄像机。
+=== 摄像头功能
+本例使用 HDF5640 摄像头。
 
 image::/picture/ov5640_camara.png[ov5640_camara.png]
 
-**古维视**
+**Guvcview**
 
-使用您的UI界面来操作相机
+通过图形界面操作摄像头
 
-应用程序 -> 声音和视频 -> guvcview
+Applications -> Sound & Video -> guvcview
 
-**壳牌**
+**Shell**
 
-我们还有内置命令“/usr/local/bin“测试相机
+系统还在“/usr/local/bin”中提供了摄像头测试脚本
 
 - 测试拍照功能
 +
@@ -315,10 +315,10 @@ image::/picture/ov5640_camara.png[ov5640_camara.png]
 ```sh
 getevent
 ```
-- 使用您的 IR 设备向 A64 发送信息
+- 使用红外设备向 A64 发送信息
 
-=== RPi。GPIO
-**安装 RPi。GPIO**
+=== RPi.GPIO
+**安装 RPi.GPIO**
 
 ```sh
 git clone https://github.com/BPI-SINOVOIP/RPi.GPIO
@@ -330,12 +330,12 @@ sudo apt-get install python-dev python3-dev
 ```sh
 sudo python setup.py install
 ```
-或
+或者
 ```sh
 sudo python3 setup.py install
 ```
 
-**使用 RPi。GPIO**
+**使用 RPi.GPIO**
 ```sh
 cd /usr/local/bin
 ./bpi_test_g40.py
@@ -344,11 +344,11 @@ cd /usr/local/bin
 image::/picture/rpi_gpio.png[rpi_gpio.png]
 
 
-=== 接线Pi
+=== WiringPi
 
 GitHub: https://github.com/BPI-SINOVOIP/BPI-WiringPi2.git
 
-我们还有内置的测试命令
+系统还提供了内置测试命令，位于
 ```sh
 /usr/local/bin
 ```
@@ -371,13 +371,13 @@ image::/picture/update_wringpi.png[update_wringpi.png]
 ```sh
 /usr/local/bin/bpi_test_lcd1602.sh
 ```
-**0.96英寸 OLED 显示**
+**0.96 英寸 OLED 显示屏**
 ```sh
 /usr/local/bin/bpi_test_52pi.sh
 ```
-**8x8 RGB LED 马蒂克斯**
+**8×8 RGB LED 矩阵**
 
-首先你需要一个 GPIO 8x8 扩展板 LED 马蒂克斯
+首先需要一块用于 8×8 LED 矩阵的 GPIO 扩展板
 
 image::/picture/wringpi_led_martix_extend_board.png[wringpi_led_martix_extend_board.png]
 
@@ -386,7 +386,7 @@ image::/picture/wringpi_led_martix_extend_board.png[wringpi_led_martix_extend_bo
 ```
 
 === 文件系统
-只读系统更改为读写模式
+将只读文件系统切换为读写模式
 ```sh
 mount -o remount,rw /
 ```
