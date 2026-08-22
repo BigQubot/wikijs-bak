@@ -1,0 +1,176 @@
+TIP: link:../GettingStarted_BPI-Centi-S3[返回开始使用 BPI-Centi-S3]
+
+> 需要先安装Visual Studio Code和mpbridge工具，参见 link:./environment[安装并配置环境].
+
+== Python 扩展
+
+搜索 `python` 在扩展项中安装 Python 延伸
+支持。
+
+image::/picture/bpi_centi_s3_vscode_mpbridge_1.png[]
+
+== 打开文件夹
+
+点击 `Open Folder` 在文件资源管理器项中打开文件夹，或者
+创建一个新的空白文件夹。
+
+特别建议新手从空白文件夹开始。
+
+image::/picture/bpi_centi_s3_vscode_mpbridge_2.png[]
+
+== 打开终端
+
+单击 `Terminal` 项目，单击 `New Terminal` 项目，以及一个新的
+将打开终端窗口，该窗口通常出现在下部框中。
+
+image::/picture/bpi_centi_s3_vscode_mpbridge_3.png[]
+
+== mpbridge 列出串口号
+
+首先确保您的 MicroPython 开发板有串口数据
+连接到您的计算机。
+
+在终端中输入以下命令并按回车键，所有
+将列出计算机上的串行端口号。
+
+
+```
+mpbridge list
+```
+
+image::/picture/bpi_centi_s3_vscode_mpbridge_4.png[]
+
+如果只有一个串行设备连接到您的计算机，并且它是
+你的 MicroPython 开发板，那么串口号就是
+开发板的。
+
+如果您的电脑连接了多个串口设备，您可以检查
+通过连接设备一次查看号码列表，并查看号码列表
+一次通过拔掉设备来找到唯一发生变化的项目，
+是您的序列号 MicroPython 开发板。端口号。
+
+== mpbridge连接开发板
+
+在终端输入以下命令，修改串口
+将末尾的数字添加到上一步中确定的数字，然后点击
+输入键。如果您当前正在打开一个空白文件夹，则 mpbridge
+工具将首先将文件复制到 MicroPython 开发板至
+这个文件夹。
+
+```
+mpbridge dev --auto-reset hard COM6
+```
+
+image::/picture/bpi_centi_s3_vscode_mpbridge_5.png[]
+
+文件复制完成后，终端会显示：
+
+```
+  ? Press [Enter] to Clean Sync & Enter REPL
+    Press [Ctrl + C] to exit
+```
+
+要输入 REPL，再次按 Enter 键，然后要退出该工具，请使用
+的 `Ctrl + C` 捷径。
+
+进入之前 REPL，开发板将被硬重置一次，
+以便立即查看程序结果。
+
+如果您不想硬重置，请使用以下命令：
+
+```
+mpbridge dev COM6
+```
+
+如果您想使用软重置，则：
+
+```
+mpbridge --auto-reset soft COM6
+```
+
+image::/picture/bpi_centi_s3_vscode_mpbridge_6.png[]
+
+一旦您进入 REPL，您可以退出 REPL 任何时候只需简单地
+使用 `Ctrl + X` 捷径。
+
+image::/picture/bpi_centi_s3_vscode_mpbridge_7.png[]
+
+== 修改或添加新文件
+
+如果修改文件中的代码或者在本地文件夹中添加文件
+在退出之前REPL，mpbridge工具会自动检查
+更改文件并同步到开发板。
+
+```
+mpbridge dev --auto-reset hard COM6
+```
+
+在终端中启动命令时也会执行此操作。
+
+image::/picture/bpi_centi_s3_vscode_mpbridge_11.png[../assets/images/vscode_mpbridge_11]
+
+== 删除文件
+
+```
+mpbridge dev --auto-reset hard COM6
+```
+
+当此命令完成文件同步时，终端将显示：
+
+```
+  ? Press [Enter] to Clean Sync & Enter REPL
+    Press [Ctrl + C] to exit
+```
+
+如果需要删除一个或多个文件，请在本地文件夹中删除
+首先。然后点击回车键，mpbridge工具会自动
+执行 `Clean Sync`，删除其中同名文件
+开发板，最后进入 REPL.
+
+image::/picture/bpi_centi_s3_vscode_mpbridge_8.png[]
+
+image::/picture/bpi_centi_s3_vscode_mpbridge_9.png[]
+
+image::/picture/bpi_centi_s3_vscode_mpbridge_10.png[]
+
+如果您只想暂时删除开发上的文件
+板并需要将文件保存在计算机本地，请
+记得提前将文件备份到其他文件夹。
+
+=== mpbridge 做了什么？
+
+```
+mpbridge dev --auto-reset hard COM6
+```
+
+当开始运行此命令时，以及退出后 REPL, 桥接器
+将自动执行这些文件操作：
+
+[arabic]
+. 将不在设备中但本地存在的文件推送到
+设备。
+. 检查本地和设备上文件的hash，然后
+将不同的文件从本地推送到设备。
+. 将不在本地但存在于设备中的文件拉取到
+当地的。
+
+每当终端显示此提示时：
+
+```
+  ? Press [Enter] to Clean Sync & Enter REPL
+    Press [Ctrl + C] to exit
+```
+
+再按回车键，mpbridge会自动执行这些
+文件操作：
+
+. 将不在设备中但本地存在的文件推送到
+设备。
+. 检查本地和设备上文件的hash，然后
+将不同的文件从本地推送到设备。
+. 删除设备中不在本地但存在的文件
+在设备中。
+. 硬重置设备并输入 REPL.
+
+如果您按 `Ctrl + C` 此时按快捷键，就会退出
+mpbridge 工具。
