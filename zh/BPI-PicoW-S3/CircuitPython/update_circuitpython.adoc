@@ -1,0 +1,24 @@
+WARNING: 小UF2 + CircuitPython 出厂前已安装好固件。升级Circuitython时，只需双击复位按钮即可进入UF2 Bootloader模式，无需擦除Flash。
+
+TIP: 此方法适用于已经有tinyUF2固件的开发板。如果开发板flash被擦除或者无法进入UF2模式，请参考 link:en/BPI-PicoW-S3/CircuitPython/flash_tinyuf2[如何刷写tinyUF2固件].
+
+. 输入 https://circuitpython.org/board/bpi_picow_s3/[BPI-PicoW-S3 CircuitPython 下载] 页。
++
+image::/picture/bpi_picow_s3_circuitpython_download.jpg[bpi_picow_s3_circuitpython_download.jpg]
+
+. 单击“立即下载 UF2”按钮下载最新发布的版本 `.uf2` 固件。
+. 将开发板与电脑连接通过 USB，和一个名为 `CIRCUITPY` 会出现在电脑文件管理页面。这是一个磁盘 CircuitPython 模式。双击 `Reset` 开发板上的 按钮可以将其更改为 UF2 模式的磁盘，具体步骤如下。
+..快速按下 `Reset` 按钮一次。
++
+image::/picture/bpi_picow_s3_circuitpython_download_2.jpg[bpi_picow_s3_circuitpython_download_2.jpg]
+
+..快速按下 `Reset` 当紫灯亮起时，再次按下按钮。
++
+image::/picture/bpi_picow_s3_circuitpython_download_3.jpg[bpi_picow_s3_circuitpython_download_3.jpg]
+
+.. 触发成功的标志是彩灯一会儿变红，一会儿变绿。如果您没有得到此结果，您可以再次尝试前两个步骤。
++
+image::/picture/bpi_picow_s3_circuitpython_download_4.jpg[bpi_picow_s3_circuitpython_download_4.jpg]
+
+. UF2模式下的磁盘名称为 `UF2BOOT`，复制 `.uf2` 将步骤1中的固件下载到此盘中，过程中彩灯会闪烁橙色，请不要断开或修改开发板进行任何操作。
+. 之后 CircuitPython 固件更新完成后，会自动复位，并显示 `CIRCUITPY` 电脑文件管理页面会重新出现磁盘，具体固件版本可以通过查看 REPL.
