@@ -1,6 +1,6 @@
 = 简介
 
-TIP: 更多信息： link:/en/BPI-M2_Super/BananaPi_BPI-M2_Super[香蕉派 BPI-M2_Super]
+TIP: 更多信息： link:/en/BPI-M2_Super/BananaPi_BPI-M2_Super[Banana Pi BPI-M2 Super]
 
 == 规格参数
 
@@ -8,39 +8,39 @@ TIP: 更多信息： link:/en/BPI-M2_Super/BananaPi_BPI-M2_Super[香蕉派 BPI-M
 = 开发
 == 准备
 
-. 准备一个 usb-串行电缆，一个 5V/3A 适配器 type-c 电源。串口线用于控制台调试，type-c线用于 android 镜像下载和ADB调试。
-. 准备一张至少8GB的SD卡 linux 开发, android 只支持 emmc 启动。
-. 的 SOC ROM 第一启动媒体是 emmc，因此板无法从 SD 卡启动，如果 emmc 可以使用任何闪现的映像启动，更多信息请参阅板启动顺序。
-. 仅 A311D 变体板有摄像头、mipi 面板和 npu 支持。
+. 准备一根 USB 转串口线和一个 5 V/3 A Type-C 电源适配器。串口线用于控制台调试，Type-C 数据线用于下载 Android 镜像和 ADB 调试。
+. Linux 开发需要一张至少 8 GB 的 SD 卡；Android 仅支持从 eMMC 启动。
+. SoC ROM 首先尝试从 eMMC 启动。因此，只要 eMMC 中存在可启动镜像，开发板就无法从 SD 卡启动。更多信息请参阅“启动顺序”一节。
+. 仅 A311D 版本的开发板支持摄像头、MIPI 显示屏和 NPU。
 
 == Android
 === 准备
 
-. 下载并安装 link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/files/?p=%2FTools%2Fimage_download_tools%2Faml_usb_burning_tool_V2_setup_v2.2.3.3.zip[反洗钱 Usb 烧录工具] 为了 android 通过type-c下载图片，仅支持 windows.
-. 下载最新的 android 镜像，并确认 md5 校验和正确。
+. 下载并安装 link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/files/?p=%2FTools%2Fimage_download_tools%2Faml_usb_burning_tool_V2_setup_v2.2.3.3.zip[AML USB Burning Tool]，用于通过 Type-C 下载 Android 镜像；该工具仅支持 Windows。
+. 下载最新的 Android 镜像，并确认 MD5 校验值正确。
 
-=== 安装镜像 Usb 烧录工具
+=== 使用 USB Burning Tool 安装镜像
 
-. 打开USB_燃烧_Tool.exe，选择菜单File->Import image，选择 android 镜像文件 aml_upgrade_package.img.
+. 打开 USB_Burning_Tool.exe，选择菜单 File -> Import image，然后选择 Android 镜像文件 aml_upgrade_package.img。
 +
 image::/picture/m2s_android_install_1.png[m2s_android_install_1.png]
-. 按住 USB 板上按钮，插件 type-c usb 电缆连接到 PC 或如果已连接电源适配器，请按 RST 按钮，大约两秒钟后，松开按钮，板将被正确识别。
+. 按住开发板上的 USB 按钮，同时用 Type-C USB 数据线连接 PC；如果已经接通电源适配器，也可以按 RST 按钮。约两秒后松开按钮，工具应能正确识别开发板。
 +
 image::/picture/m2s_android_install_3.png[m2s_android_install_3.png]
 image::/picture/m2s_android_install_2.png[m2s_android_install_2.png]
 
-. 点击下载工具的开始按钮，等待升级完成。
+. 单击下载工具中的 Start 按钮，等待升级完成。
 +
 image::/picture/m2s_android_install_4.png[m2s_android_install_4.png]
 
-. 烧录成功后，拔掉type-c usb 并连接电源适配器即可启动。
+. 写入成功后，拔下 Type-C USB 数据线，再连接电源适配器启动开发板。
 +
 image::/picture/m2s_android_install_5.png[m2s_android_install_5.png]
 
-. 单击“停止”按钮取消升级过程并关闭 USB 燃烧工具。
+. 单击 Stop 按钮取消升级过程，然后关闭 USB Burning Tool。
 
-=== 使用 Aml Flash 工具安装映像
-link:https://github.com/Dangku/aml-flash-tool[Aml 闪存工具] 是一个 linux 平台开源镜像 flash util Amlogic android.
+=== 使用 Aml Flash Tool 安装镜像
+link:https://github.com/Dangku/aml-flash-tool[Aml-flash-tool] 是一款在 Linux 平台上为 Amlogic Android 设备写入镜像的开源工具。
 ```sh
 
  $ ./flash-tool.sh --img=/path/to/aml_upgrade_package.img --parts=all --wipe --soc=g12a --reset=y
@@ -54,27 +54,27 @@ image::/picture/m5_linux_flash.png[m5_linux_flash.png]
 ```sh
 git clone https://github.com/BPI-SINOVOIP/BPI-A311D-Android9
 ```
-或者您可以从以下位置获取源代码 tar 存档 link:https://pan.baidu.com/s/1rANGEB-1MLPCBXqOR5aYCg?pwd=8888[百度盘(密码：8888)] 或 link:https://drive.google.com/drive/folders/1INIABp_MbB5UcwfqujTngGLOZN7YGuWp?usp=share_link[谷歌云端硬盘]
+也可以从 link:https://pan.baidu.com/s/1rANGEB-1MLPCBXqOR5aYCg?pwd=8888[百度网盘（提取码：8888）]或 link:https://drive.google.com/drive/folders/1INIABp_MbB5UcwfqujTngGLOZN7YGuWp?usp=share_link[Google Drive]下载源码 tar 包。
 
 . 构建 Android 9.0 源代码 +
 请阅读源代码 link:https://github.com/BPI-SINOVOIP/BPI-A311D-Android9/blob/master/README.md[README.md]
 
-=== Android DTB 叠加
-Bananapi M2S DTBO idx 值表，发布镜像中默认 idx 值为 0。
+=== Android DTB Overlay
+下表列出 Banana Pi M2S 的 DTBO idx 值；发布镜像中的默认 idx 为 0。
 
 [options="header" cols="1,2,2" width="68%"]
 |=====
-3+|**Bananapi M2S DTBO idx值表**
-| idx值 | 设备树覆盖 | 描述    
-| 0 | 安卓_p_覆盖 | 默认dtbo，没用                
-| 1 | 无线网络_BT_rtl8822cs | 启用bpi rtl8822cs wifi/bt 模块 
+3+|**Banana Pi M2S DTBO idx 值表**
+| idx 值 | 设备树 Overlay | 说明    
+| 0 | android_p_overlay | 默认 DTBO，不启用额外功能                
+| 1 | wifi_bt_rtl8822cs | 启用 Banana Pi RTL8822CS Wi-Fi/蓝牙模块 
 | 2 | i2c1              | 启用 i2c 1                        
 | 3 | i2c2              | 启用 i2c 2                        
-| 4 | sdio              | 启用sdio                         
-| 5 | 串口1             | 启用2个引脚 uart 1                
-| 6 | 串口1_cts_实时传输     | 启用 4 个引脚 uart 1                
-| 7 | 串口2             | 启用2个引脚 uart 2                
-| 8 | 高保真_PCM5122      | 启用 i2s link:https://shumeipai.nxez.com/hifidac-hat-for-raspberry-pi[pcm5122 HiFi DAC]   
+| 4 | sdio              | 启用 SDIO                         
+| 5 | uart1             | 启用双引脚 UART 1                
+| 6 | uart1_cts_rts     | 启用四引脚 UART 1                
+| 7 | uart2             | 启用双引脚 UART 2                
+| 8 | hifi_pcm5122      | 启用 I2S link:https://shumeipai.nxez.com/hifidac-hat-for-raspberry-pi[PCM5122 HiFi DAC]   
 |=====
 
 **如何应用新的 dtbo**
@@ -91,7 +91,7 @@ Bananapi M2S DTBO idx 值表，发布镜像中默认 idx 值为 0。
  bananapi_m2s:/ # echo "1" > /sys/class/unifykeys/write                                                
  bananapi_m2s:/ # reboot
 ```
-. Uart 通过 sysfs 的控制台命令
+. 通过 sysfs 执行 UART 控制台命令
 +
 ```sh
  console:/ $ 
@@ -108,9 +108,9 @@ Bananapi M2S DTBO idx 值表，发布镜像中默认 idx 值为 0。
  console:/ # 
  console:/ # reboot
 ```
-. 设置应用程序(待办事项)
+. 设置应用（待完成）
 +
-检查启动情况 uart 调试消息并确认实际加载了哪个 dtbo，这里“1”表示设置 idx=1申请wifi_BT_rtl8822cs dtbo。
+检查启动时的 UART 调试信息，确认实际加载的 DTBO。这里的“1”表示设置 idx=1，以应用 wifi_bt_rtl8822cs DTBO。
 +
 ```sh
  load dtb from 0x1000000 ......
@@ -120,67 +120,67 @@ Bananapi M2S DTBO idx 值表，发布镜像中默认 idx 值为 0。
  dtbos to be applied: 1
  Apply dtbo 1
 ```
-Unifykeys 存储在特定的 emmc 部分，在 USB 中选择“正常擦除”_燃烧_工具不会在下次更新时删除此数据，如果您希望在镜像下载后应用默认的 dtbo idx，则必须选择“全部删除”。
+Unifykeys 保存在 eMMC 的特定分区中。在 USB_Burning_Tool 中选择“Normal erase”不会清除该数据，后续升级仍会保留。若希望下载镜像后应用默认 DTBO idx，必须选择“Erase all”。
 +
 image::/picture/m2s_android_erase_all.png[m2s_android_erase_all.png]
 
-**构建 Android 具有特定 DTBO 默认值的镜像。**
+**构建使用指定默认 DTBO 的 Android 镜像。**
 
-. 默认内置覆盖层定义在 device/bananapi/bananapi_m2s/Kernel.mk，您可以在此处添加新的覆盖 dtbo。
+. 默认内置 Overlay 定义在 device/bananapi/bananapi_m2s/Kernel.mk 中，可以在此处添加新的 DTBO Overlay。
 +
 ```sh
  DTBO_DEVICETREE := android_p_overlay wifi_bt_rtl8822cs i2c1 i2c2 sdio uart1 uart1_cts_rts uart2 hifi_pcm5122
 ```
-. 默认应用 DTBO idx 定义在 device/bananapi/bananapi_m2s/BoardConfig.mk，您可以更改 idx 值来设置默认应用哪个覆盖 dtbo。
+. 默认应用的 DTBO idx 定义在 device/bananapi/bananapi_m2s/BoardConfig.mk 中，可以修改 idx 值来选择默认应用的 DTBO Overlay。
 +
 ```sh
  BOARD_KERNEL_CMDLINE += androidboot.dtbo_idx=0
 ```
 . DTS 文件位于 common/arch/arm64/boot/dts/amlogic/overlay/bananapi_m2s/ +
-更多信息关于 android 设备树覆盖，请参考 link:https://source.android.com/devices/architecture/dto[谷歌 android 官方网站]
+有关 Android 设备树 Overlay 的更多信息，请参阅 link:https://source.android.com/devices/architecture/dto[Android 官方文档]。
 
 === 安装 OpenGapps
-. 从 OpenGapps 下载安装包， Android 发布镜像是 arm/android 9.0 版本。
+. 从 OpenGApps 下载安装包；Android 发布镜像使用 ARM/Android 9.0 版本。
 +
 image::/picture/opengapps.png[opengapps.png]
 
-. 下载 link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fapps%2Fdevice_id_v1.3.2.apk[装置_id.apk].
-. 将 OpenGapp 包复制到 udisk 或 sdcard 根目录。
-. 创建一个txt文件，名称为 **工厂_更新_参数aml** 在 udisk 或 sdcard 根目录中包含以下内容 android 恢复参数内容，并将文件名替换为实际下载的包。 +
-优盘：
+. 下载 link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fapps%2Fdevice_id_v1.3.2.apk[device_id.apk]。
+. 将 OpenGApps 软件包复制到 U 盘或 SD 卡根目录。
+. 在 U 盘或 SD 卡根目录创建名为 **factory_update_param.aml** 的文本文件，写入以下 Android Recovery 参数，并将文件名替换为实际下载的软件包名称。 +
+U 盘：
 +
 ```sh
  --wipe_cache
  --update_package=/udisk/open_gapps-arm-9.0-pico-20210327.zip
 ```
-SD卡：
+SD 卡：
 +
 ```sh
  --wipe_cache
  --update_package=/sdcard/open_gapps-arm-9.0-pico-20210327.zip
 ```
-. 将 udisk 或 sdcard 插入开发板并开机。
-. OpenGapps 安装并认证。
+. 将 U 盘或 SD 卡插入开发板，然后开机。
+. 安装 OpenGApps 并完成认证。
 +
-Youtube 视频： https://youtu.be/fXOKmWfpqF8
+YouTube 视频： https://youtu.be/fXOKmWfpqF8
 +
-您还可以在以下位置观看此视频link:https://www.bilibili.com/video/BV13y4y1s77i/[哔哩哔哩]
+也可以在 link:https://www.bilibili.com/video/BV13y4y1s77i/[哔哩哔哩]观看此视频。
 
-=== 开关Mipi面板
-默认 android 发布映像仅支持一种 mipi 面板，因为硬件在启动时没有检测不同面板的逻辑，因此 [800x1280 bpi 面板] 默认启用，但您可以更改为 [1200x1920 bpi 面板] 默认设置为“设置”->“面板输出”
+=== 切换 MIPI 显示屏
+由于硬件在启动时无法自动识别不同的 MIPI 显示屏，默认 Android 发布镜像一次只支持一种显示屏。系统默认启用 [800x1280 BPI panel]，也可以在 Settings -> Panel Output 中将默认显示屏切换为 [1200x1920 BPI panel]。
 
 image::/picture/m2s_panel_switch.png[m2s_panel_switch.png]
 
 === 面板旋转
-两个 10" mipi 面板都是纵向硬件显示，所以默认 android 发布镜像是纵向模式，但您可以将其旋转到 90/180/270 有两种方式。
+两款 10 英寸 MIPI 显示屏在硬件上均为竖屏，因此默认 Android 发布镜像采用竖屏模式。可以通过以下两种方式将其旋转 90/180/270 度。
 
-. 设置->显示->屏幕旋转中的UI旋转
+. 在 Settings -> Display -> Screen rotation 中旋转 UI
 +
 image::/picture/m2s-rotation.png[m2s-rotation.png]
 
-. SurfaceFlinger旋转，需要 link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_build_android_source_code[修改 android 源代码] 并建立
+. 使用 SurfaceFlinger 旋转，需要 link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_build_android_source_code[修改 Android 源代码]并重新构建
 +
-更改默认的 sf 旋转属性
+修改默认的 SurfaceFlinger 旋转属性：
 +
 ```sh
    diff --git a/device/bananapi/bananapi_m2s/bananapi_m2s.mk b/device/bananapi/bananapi_m2s/bananapi_m2s.mk
@@ -195,7 +195,7 @@ image::/picture/m2s-rotation.png[m2s-rotation.png]
    +    ro.sf.primary_display_orientation=90
     endif
 ```
-更改 dts 中的触摸面板旋转
+修改 DTS 中的触摸屏旋转配置：
 +
 ```sh
    diff --git a/common/arch/arm64/boot/dts/amlogic/bananapi_m2s.dts b/common/arch/arm64/boot/dts/amlogic/bananapi_m2s.dts
@@ -214,17 +214,17 @@ image::/picture/m2s-rotation.png[m2s-rotation.png]
                    //rotation = <3>; /* sf_rotation 270 */
 ```                   
                    
-=== 定制 Android 开机标志
-Android bootloader限制启动标志fb显示大小是 1080p60hz/1920x1080 默认值，以及 android 内核 dtb 分区表将引导徽标分区大小默认限制为 16MB。
+=== 自定义 Android 启动徽标
+Android 引导加载程序默认将启动徽标帧缓冲区限制为 1080p60/1920x1080；Android 内核 DTB 分区表默认将启动徽标分区大小限制为 16 MB。
 
-. 准备一个16位bmp文件，命名为boot-logo.bmp
+. 准备一个 16 位 BMP 文件，并命名为 boot-logo.bmp。
 . 将 bmp 文件压缩为 boot-logo.bmp.gz
 +
 ```sh
  $ gzip boot-logo.bmp
 ```
 . 下载 link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Flogo_create_tools%2Fm2s_android_bootlogo_tool.zip[m2s_android_bootlogo_tool.zip]
-. 提取此工具
+. 解压该工具包。
 +
 ```sh
  $ unzip m2s_android_bootlogo_tool.zip
@@ -246,19 +246,19 @@ Android bootloader限制启动标志fb显示大小是 1080p60hz/1920x1080 默认
  $ cp boot-logo.bmp.gz logo/bootup.bmp
  $ cp boot-logo.bmp.gz logo/bootup_secondary.bmp
 ```
-. 创建目标 logo.img 使用img pack工具，m2s的二进制和相关库_安卓_开机标志_工具是复制自 <android-source-dir>/out/host/linux-x86
+. 使用镜像打包工具创建目标 logo.img；m2s_android_bootlogo_tool 的二进制文件和相关库复制自 <android-source-dir>/out/host/linux-x86。
 +
 ```sh
  $ ./logo_img_packer -r logo logo.img
 ```
-. 带有 fastboot 的 Flash 启动徽标
+. 使用 fastboot 写入启动徽标
 +
 ```sh
  $ adb root
  $ adb remount
  $ adb reboot fastboot
 ```
-等待几秒，检查fastboot是否连接
+等待几秒，然后检查 fastboot 是否已连接：
 +
 ```sh
  $ fastboot device
@@ -272,48 +272,48 @@ Android bootloader限制启动标志fb显示大小是 1080p60hz/1920x1080 默认
 == Linux
 === 准备
 
-. Linux 镜像支持SD卡或 EMMC 启动。
-. 建议使用A1级卡，至少8GB。
-. 确保可启动 EMMC 如果您想从 SD 卡启动，请格式化
-. 确保 SD 卡已格式化 Linux 如果您想从以下位置启动，镜像会闪烁 EMMC 并使用Sd卡作为存储。
-. 安装 bpi-tools 在你的 Linux 电脑(如果使用其他工具刷入镜像，请忽略此步骤)。如果您无法访问此 URL 或出现任何其他安装问题，请转至 link:https://github.com/bpi-sinovoip/bpi-tools[bpi-tools] 源存储库，手动下载并安装此工具。
+. Linux 镜像支持从 SD 卡或 eMMC 启动。
+. 建议使用容量至少为 8 GB 的 A1 等级存储卡。
+. 若要从 SD 卡启动，请先格式化带有可启动系统的 eMMC。
+. 若要从 eMMC 启动并将 SD 卡用作存储，请确保 SD 卡已格式化且未写入 Linux 镜像。
+. 在 Linux PC 上安装 bpi-tools（如果使用其他工具写入镜像，可跳过此步）。如果无法访问该地址或安装时遇到问题，请前往 link:https://github.com/bpi-sinovoip/bpi-tools[bpi-tools] 源码仓库手动下载并安装。
 +
 ```sh
  $ apt-get install pv
  $ curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
 ```
-. 下载 Linux 最新的 Linux 镜像，并确认md5校验和正确。
+. 下载最新的 Linux 镜像，并确认 MD5 校验值正确。
 . 默认登录： pi/bananapi 或 root/bananapi
-. 维基指南仅适用于 bananapi 4.9 桶 ubuntu/debian 镜像。
+. 本 Wiki 指南仅适用于 Banana Pi 4.9 BSP Ubuntu/Debian 镜像。
 
-=== 将映像安装到 SD 卡
-> 使用 Balena Etcher 安装映像 Windows, Linux 和 MacOS.
+=== 将镜像写入 SD 卡
+> 使用 Balena Etcher 写入镜像，支持 Windows、Linux 和 macOS。
 
-link:https://balena.io/etcher[巴莱纳蚀刻机] 是 Balena 的开源 GUI 闪存工具，可将操作系统映像闪存到 SD 卡或 USB 开车。
+link:https://balena.io/etcher[Balena Etcher] 是 Balena 提供的开源图形化镜像写入工具，可将操作系统镜像写入 SD 卡或 U 盘。
 
-单击“Flash from file”以选择镜像。点击“选择目标”进行选择 USB 设备。点击“闪光！”开始燃烧。
+单击“Flash from file”选择镜像，单击“Select target”选择目标设备，再单击“Flash!”开始写入。
 
 image::/picture/etcher.jpg[etcher.jpg]
 
-> 使用 Balena Cli 安装镜像 Windows, Linux 和 MacOS.
+> 使用 Balena CLI 写入镜像，支持 Windows、Linux 和 macOS。
 
-link:https://github.com/balena-io/balena-cli[巴莱纳 CLI] 是 balenaCloud 或 openBalena 的命令行界面。可以用来闪光 linux 镜像。从以下位置下载安装程序或独立包 link:https://github.com/balena-io/balena-cli/releases[巴莱纳-io] 和 link:https://github.com/balena-io/balena-cli/blob/master/INSTALL.md[安装 ]正确连接到您的 PC，然后您就可以使用“link:https://docs.balena.io/reference/balena-cli/#local-flash-image[本地闪存]" balena 的命令选项闪现 linux 镜像到 SD 卡或usb 开车。
+link:https://github.com/balena-io/balena-cli[Balena CLI] 是 balenaCloud/openBalena 的命令行工具，可用于写入 Linux 镜像。从 link:https://github.com/balena-io/balena-cli/releases[balena-io Releases]下载安装程序或独立软件包，并按照 link:https://github.com/balena-io/balena-cli/blob/master/INSTALL.md[安装说明]正确安装到 PC。随后可使用 Balena 的“link:https://docs.balena.io/reference/balena-cli/#local-flash-image[local flash]”命令将 Linux 镜像写入 SD 卡或 U 盘。
 ```sh
  $ sudo balena local flash path/to/xxx-bpi-m2s-xxx.img.zip
  $ sudo balena local flash path/to/xxx-bpi-m2s-xxx.img.zip --drive /dev/disk2
  $ sudo balena local flash path/to/xxx-bpi-m2s-xxx.img.zip --drive /dev/disk2 --yes
 ```
 
-> 使用 dd 命令安装镜像 Linux
+> 在 Linux 中使用 dd 命令写入镜像
 
-挂载SD卡设备 /dev/sdX 如果自动安装则分区。其实 bpi-copy 与此 dd 命令相同。
+如果 SD 卡设备 /dev/sdX 的分区已自动挂载，请先将其卸载。bpi-copy 的实际写入方式与此 dd 命令相同。
 ```sh
  $ sudo apt-get install pv unzip
  $ sudo unzip -p xxx-bpi-m2s-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxfer
 ```
-> 安装镜像 bpi-tools 上 Linux 
+> 在 Linux 中使用 bpi-tools 写入镜像 
 
-将 SD 卡插入 Linux 电脑并运行
+将 SD 卡插入 Linux PC，然后运行：
 ```sh
  $ sudo apt-get install pv unzip
  $ sudo bpi-copy xxx-bpi-m2s-xxx.img.zip /dev/sdX
@@ -321,16 +321,16 @@ link:https://github.com/balena-io/balena-cli[巴莱纳 CLI] 是 balenaCloud 或 
 
 === 安装镜像到 eMMC
 
-. 准备一张SD卡 Linux 镜像闪存和启动板与此 SD 卡。
-. 复制 Linux 镜像到udisk，将udisk插入主板并安装。
-. 有两种安装方式linux镜像到板上。
+. 准备一张已写入 Linux 镜像的 SD 卡，并用该 SD 卡启动开发板。
+. 将 Linux 镜像复制到 U 盘，把 U 盘插入开发板并挂载。
+. 可通过以下两种方式将 Linux 镜像安装到开发板。
 - 使用 dd 命令安装，如果自动安装，则 umount mmcblk0p1 和 mmcblk0p2 分区。其实 bpi-copy 与此 dd 命令相同。
 +
 ```sh
  $ sudo apt-get install pv unzip
  $ sudo unzip -p xxx-bpi-m2s-xxx.img.zip | pv | dd of=/dev/mmcblk0 bs=10M status=noxfer
 ```
-- 安装 linux 乌磁盘中的镜像 bpi-tools 命令
+- 使用 bpi-tools 命令安装 U 盘中的 Linux 镜像
 +
 ```sh
  $ sudo apt-get install pv unzip
@@ -339,17 +339,17 @@ link:https://github.com/balena-io/balena-cli[巴莱纳 CLI] 是 balenaCloud 或 
 . 下载完成后，安全关闭电源并弹出 SD 卡。
 
 === 构建 Linux 源代码
-. 获取 Linux .bsp 源代码
+. 获取 Linux BSP 源代码
 +
 ```sh
  $  git clone https://github.com/BPI-SINOVOIP/BPI-M2S-bsp
 ```
-. 构建bsp源代码 +
+. 构建 BSP 源代码 +
 请阅读源代码 link:https://github.com/BPI-SINOVOIP/BPI-M2S-bsp/blob/master/README.md[README.md]
-. 如果你想单独构建uboot和内核，请下载 link:https://github.com/Dangku/amlogic-u-boot/tree/khadas-g12b-v2015.01-m2s[u启动] 的 link:https://github.com/Dangku/amlogic-linux/tree/khadas-g12b-4.9.y-m2s[内核] 仅从以下位置获取工具链、启动脚本和其他配置文件 link:https://github.com/BPI-SINOVOIP/BPI-M2S-bsp/tree/master/aml-pack/g12b/bpi-m2s/linux[BPI-M2S-bsp]
+. 如果要分别构建 U-Boot 和内核，请下载 link:https://github.com/Dangku/amlogic-u-boot/tree/khadas-g12b-v2015.01-m2s[U-Boot] 和 link:https://github.com/Dangku/amlogic-linux/tree/khadas-g12b-4.9.y-m2s[内核]源码，并从 link:https://github.com/BPI-SINOVOIP/BPI-M2S-bsp/tree/master/aml-pack/g12b/bpi-m2s/linux[BPI-M2S-bsp]获取工具链、启动脚本和其他配置文件。
 
-=== DTB 叠加
-. DTB 覆盖用于 40pin gpios 多功能配置并安装在 vfat 引导分区中，您可以使用 mount 命令检查挂载点。
+=== DTB Overlay
+. DTB Overlay 用于配置 40 针 GPIO 的复用功能，文件安装在 VFAT 启动分区中。可以使用 mount 命令查看挂载点。
 +
 ```sh
  root@bananapi:~# ls /boot/overlays/
@@ -361,7 +361,7 @@ link:https://github.com/balena-io/balena-cli[巴莱纳 CLI] 是 balenaCloud 或 
  i2c2.dtbo           pwm_ef-f.dtbo         waveshare_tft35c_lcd.dtbo
  pwm_ab.dtbo         sdio.dtbo             waveshare_tft35c_rtp.dtbo
 ```
-. 更新 vfat 中的覆盖环境 /boot/env.txt 启用您想要的功能。
+. 更新 VFAT 分区中 /boot/env.txt 的 Overlay 环境变量，启用所需功能。
 +
 ```sh
  # Device Tree Overlays
@@ -371,17 +371,17 @@ link:https://github.com/balena-io/balena-cli[巴莱纳 CLI] 是 balenaCloud 或 
  #   spi0            -- Enable SPI0 (GPIO Header PIN19 & PIN21 & PIN23 & PIN24)
  overlays="i2c2 spi0 uart1"
 ```
-. 必须重新启动板才能加载覆盖 dtb。
+. 必须重新启动开发板才能加载 DTB Overlay。
 
-=== 启用相机
-的 linux 发布镜像默认是关闭摄像头的，按照如下配置，可以自行开启。
+=== 启用摄像头
+Linux 发布镜像默认禁用摄像头，可按以下步骤启用。
 
-. 更新 link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_dtb_overlay[DTB 覆盖] 环境在 /boot/env.txt 启用相机 dtbo。
+. 更新 /boot/env.txt 中的 link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_dtb_overlay[DTB Overlay] 环境变量，启用摄像头 DTBO。
 +
 ```sh
  overlays="os08a10"
 ```
-. 添加摄像头模块/etc/modules
+. 将摄像头模块添加到 /etc/modules：
 +
 ```sh
  iv009_isp_iq
@@ -389,7 +389,7 @@ link:https://github.com/balena-io/balena-cli[巴莱纳 CLI] 是 balenaCloud 或 
  iv009_isp_sensor
  iv009_isp
 ```
-. 创建并添加相机模块选项 /etc/modprobe.d/os08a10.conf
+. 创建 /etc/modprobe.d/os08a10.conf，并添加摄像头模块选项：
 +
 ```sh
  #choose camera calibration parameters
@@ -397,15 +397,15 @@ link:https://github.com/balena-io/balena-cli[巴莱纳 CLI] 是 balenaCloud 或 
  #choose isp register sequence
  options iv009_isp_sensor isp_seq_num=0
 ``` 
-. 启用相机 isp systemd 服务
+. 启用摄像头 ISP systemd 服务：
 +
 ```sh
  $ sudo systemctl enable camera_isp_3a_server.service
 ```
-摄像头设备是 /dev/video0 重新启动后。
+重新启动后，摄像头设备为 /dev/video0。
 
-=== 开关Mipi面板
-默认 linux 发布映像仅支持一种 mipi 面板，因为硬件在启动时没有检测不同面板的逻辑，因此默认启用 800x1280 bpi 面板，但您可以更改为 [1200x1920 bpi 面板] 作为默认值 /boot/lcd_env.txt
+=== 切换 MIPI 显示屏
+由于硬件在启动时无法自动识别不同的 MIPI 显示屏，默认 Linux 发布镜像一次只支持一种显示屏。系统默认启用 800x1280 BPI 显示屏，也可以在 /boot/lcd_env.txt 中将默认显示屏改为 [1200x1920 BPI panel]。
 ```sh
  # Mipi panel type
  #    Symbol    | Resolution
@@ -414,11 +414,11 @@ link:https://github.com/balena-io/balena-cli[巴莱纳 CLI] 是 balenaCloud 或 
  #    "lcd_1"   | 10" 1200x1920 panel
  panel_type=lcd_0
 ```
-WARNING: 注意：双屏显示不工作 linux，所以使用mipi时请断开hdmi线。
+WARNING: 注意：Linux 不支持双屏显示，因此使用 MIPI 显示屏时请断开 HDMI 线。
 
 === 面板旋转
-两个 10" mipi 面板都是纵向硬件显示，因此默认发布图像是纵向模式，但您可以将其旋转到 90/180/270. +
-对于桌面映像，创建 xorg 配置文件 /usr/share/X11/xorg.conf.d/10-fbdev-rotate.conf 内容：
+两款 10 英寸 MIPI 显示屏在硬件上均为竖屏，因此默认发布镜像采用竖屏模式，也可以将其旋转 90/180/270 度。 +
+对于桌面镜像，创建 Xorg 配置文件 /usr/share/X11/xorg.conf.d/10-fbdev-rotate.conf，内容如下：
 ```sh
  Section "Device"
      Identifier "Configured Video Device"
@@ -448,9 +448,9 @@ WARNING: 注意：双屏显示不工作 linux，所以使用mipi时请断开hdmi
  
  EndSection
 ```
-对于服务器图像，您可以通过两种方式更改帧缓冲区旋转：
+对于服务器镜像，可以通过以下两种方式更改帧缓冲区旋转：
 
-. Sysfs 动态变化。
+. 通过 sysfs 动态修改。
 +
 ```sh
  echo 0 > /sys/class/graphics/fbcon/rotate    //origin 0 degree
@@ -458,8 +458,8 @@ WARNING: 注意：双屏显示不工作 linux，所以使用mipi时请断开hdmi
  echo 2 > /sys/class/graphics/fbcon/rotate    //180 degree
  echo 3 > /sys/class/graphics/fbcon/rotate    //270 degree
 ```
-. 引导配置更改。 +
-改变脸书_旋转环境 /boot/env.txt
+. 修改启动配置。 +
+更改 /boot/env.txt 中的 fb_rotate 环境变量：
 +
 ```sh
  # Framebuffer Rotate
@@ -470,11 +470,11 @@ WARNING: 注意：双屏显示不工作 linux，所以使用mipi时请断开hdmi
  fb_rotate=0
 ```
 
-=== 接线Pi
+=== WiringPi
 
-WARNING: 注意：此WiringPi仅支持设置40pin gpio 输出、输入、 pwm 或软件 pwm，对于 io 函数为 i2c, spi，...，您必须启用 dtb 覆盖 boot.ini
+WARNING: 注意：此 WiringPi 仅支持配置 40 针 GPIO 的输出、输入、PWM 或软件 PWM。对于 I2C、SPI 等 I/O 功能，必须在 boot.ini 中启用 DTB Overlay。
 
-. 构建并安装wiringPi，用于 debian，你必须 link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_enable_sudo_for_debian[安装须藤] 构建之前
+. 构建并安装 WiringPi。在 Debian 中，构建前必须 link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_enable_sudo_for_debian[安装 sudo]。
 +
 ```sh
  $ sudo apt-get update
@@ -484,19 +484,19 @@ WARNING: 注意：此WiringPi仅支持设置40pin gpio 输出、输入、 pwm �
  $ chmod a+x build
  $ sudo ./build
 ```
-. 运行 gpio readall 显示所有 40 针状态。
+. 运行 gpio readall 查看全部 40 针引脚的状态。
 +
 image::/picture/m2s_wiringpi.png[m2s_wiringpi.png]
 
-. BPI GPIO 扩展板和示例 link:https://github.com/Dangku/amlogic-wiringPi/tree/master/examples[amlogic-wiringPi/examples] +
-blinkall，闪烁所有针头 gpios，无扩展板。 +
-lcd-bpi， link:https://docs.banana-pi.org/en/BPI_LCD_1602_display_module[BPI LCD 1602显示模块] 示例。 +
-52pi-bpi， link:https://docs.banana-pi.org/en/BPI_OLED_Display_Module[BPI OLED 显示模块] 示例。 +
-矩阵bpi， link:https://docs.banana-pi.org/en/BPI_RGB_LED_Matrix_Expansion_Module[BPI RGB LED 矩阵扩展模块] 示例。 +
-berryclip-bpi， link:https://docs.banana-pi.org/en/BPI_BerryClip_Module[BPI BerryClip 模块]
+. BPI GPIO 扩展板及示例见 link:https://github.com/Dangku/amlogic-wiringPi/tree/master/examples[amlogic-wiringPi/examples]。 +
+blinkall：不使用扩展板，使所有 GPIO 引脚闪烁。 +
+lcd-bpi：link:https://docs.banana-pi.org/en/BPI_LCD_1602_display_module[BPI LCD 1602 显示模块]示例。 +
+52pi-bpi：link:https://docs.banana-pi.org/en/BPI_OLED_Display_Module[BPI OLED 显示模块]示例。 +
+matrix-bpi：link:https://docs.banana-pi.org/en/BPI_RGB_LED_Matrix_Expansion_Module[BPI RGB LED 矩阵扩展模块]示例。 +
+berryclip-bpi：link:https://docs.banana-pi.org/en/BPI_BerryClip_Module[BPI BerryClip 模块]示例。
 
-=== RPi。GPIO
-构建并安装，用于 debian，你必须 link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_enable_sudo_for_debian[安装须藤] 构建之前
+=== RPi.GPIO
+构建并安装 RPi.GPIO。在 Debian 中，构建前必须 link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_enable_sudo_for_debian[安装 sudo]。
 ```sh
  $ sudo apt-get update
  $ sudo apt-get install build-essential python3 python3-pip python3-dev python3-setuptools git
@@ -505,19 +505,19 @@ berryclip-bpi， link:https://docs.banana-pi.org/en/BPI_BerryClip_Module[BPI Ber
  $ sudo python3 setup.py clean --all
  $ sudo python3 setup.py install
 ```
-创建并安装wheel包
+创建并安装 wheel 软件包：
 ```sh
  $ sudo python3 setup.py bdist_wheel
  $ sudo pip3 install dist/RPi.GPIO-XXX.whl
 ```
-直接从git源码安装，无需开发
+直接从 Git 源码安装，无需本地构建：
 ```sh
  $ sudo pip3 install git+https://github.com/Dangku/RPi.GPIO-Amlogic.git
 ```
-如果该软件包已安装，则应在安装新软件包之前将其卸载，或者使用 --force-reinstall 选项安装新软件包。
+如果已经安装该软件包，应先卸载旧版本再安装新版本，或使用 --force-reinstall 选项强制重新安装。
 
-=== 接线Pi2-Python
-构建并安装，用于 debian，你必须 link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_enable_sudo_for_debian[安装须藤] 构建之前
+=== WiringPi2-Python
+构建并安装 WiringPi2-Python。在 Debian 中，构建前必须 link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_enable_sudo_for_debian[安装 sudo]。
 ```sh
  $ sudo apt-get update
  $ sudo apt-get install build-essential python3 python3-dev python3-setuptools swig git
@@ -526,11 +526,11 @@ berryclip-bpi， link:https://docs.banana-pi.org/en/BPI_BerryClip_Module[BPI Ber
  $ sudo python3 setup.py install
 ```
 
-=== 亮度示例
-link:https://github.com/rm-hull/luma.examples[Luma.examples] 使用 GPIO.BCM gpio 默认模式，因此您应该将 40pin 接头引脚映射到 bcm gpio 编号并正确连接硬件。
+=== Luma 示例
+link:https://github.com/rm-hull/luma.examples[Luma.examples] 默认使用 GPIO.BCM 编号模式，因此需要将 40 针排针映射到 BCM GPIO 编号，并正确连接硬件。
 
-. 构建并安装 RPi。GPIO
-建造 bananapi m2s RPi。GPIO 用 python3 代替 python 因为luma使用的是python3。
+. 构建并安装 RPi.GPIO
+由于 Luma 使用 Python 3，请用 python3 而不是 python 构建 Banana Pi M2S 的 RPi.GPIO。
 +
 ```sh
  $ sudo apt-get update
@@ -540,12 +540,12 @@ link:https://github.com/rm-hull/luma.examples[Luma.examples] 使用 GPIO.BCM gpi
  $ sudo python3 setup.py clean --all
  $ sudo python3 setup.py install
 ```
-您可以更改 bcmledpin 变量 test/led.py 到你的硬件背光 gpio 并运行它来检查 RPi。GPIO 效果很好。
+可以根据硬件背光 GPIO 修改 test/led.py 中的 bcmledpin 变量，然后运行脚本检查 RPi.GPIO 是否正常工作。
 +
 ```sh
  $ sudo python3 test/led.py
 ```
-硬件背光将重复打开和关闭
+硬件背光会反复开启和关闭。
 . luma.examples 库安装
 +
 ```sh
@@ -560,7 +560,7 @@ link:https://github.com/rm-hull/luma.examples[Luma.examples] 使用 GPIO.BCM gpi
  $ git clone https://github.com/rm-hull/luma.examples.git
  $ cd luma.examples
 ```
-安装luma.core、luma.emulator、luma。lcd，luma.le-matrix，亮度。oled pip libs，请确保此步骤没有错误或下载中断，如果出现错误，请重试
+安装 luma.core、luma.emulator、luma.lcd、luma.led-matrix 和 luma.oled 等 pip 库。确保此步骤没有报错或下载中断；如有错误，请重试。
 +
 ```sh
  $ sudo -H pip install -e .
@@ -570,7 +570,7 @@ link:https://github.com/rm-hull/luma.examples[Luma.examples] 使用 GPIO.BCM gpi
 ```sh
  $ sudo -H pip3 install -e .
 ```
-为了 debian 巴斯特(python 3.7) 其中不包括 /usr/bin/pip 在 python3-pip 包中，使用 pip3 安装 luma 包时会出现以下错误
+Debian Buster（Python 3.7）的 python3-pip 软件包不包含 /usr/bin/pip，使用 pip3 安装 Luma 软件包时可能出现以下错误：
 +
 ```sh
  ...
@@ -582,7 +582,7 @@ link:https://github.com/rm-hull/luma.examples[Luma.examples] 使用 GPIO.BCM gpi
  /bin/sh: 1: sdl2-config: not found
  ...
 ```
-安装 sdl2 相关软件包来解决此问题，然后使用 pip3 再次安装 luma libs
+安装 SDL2 相关软件包解决此问题，然后再次使用 pip3 安装 Luma 库：
 +
 ```sh
  $ sudo apt-get install libsdl2-dev libsdl2-ttf-dev libsdl2-mixer-dev libsdl2-image-dev
@@ -596,8 +596,8 @@ check installed luma pip libs
    luma.led-matrix    1.7.0
    luma.oled          3.11.0
 ```
-. 例子测试 +
-启用 i2c 或 spi link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_dtb_overlay[覆盖层] 在运行测试示例之前
+. 示例测试 +
+运行测试示例前，先启用 I2C 或 SPI link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_dtb_overlay[Overlay]。
 +
 ```sh
  $ cd examples
@@ -607,37 +607,37 @@ check installed luma pip libs
 === HDMI LCD
 [options="header" cols="1,1"]
 |=====
-2+| **Bananapi M2 超级测试 HDMI LCD**
-| 面板                             | /boot/boot.ini                    
-| link:https://www.waveshare.com/3.5inch-hdmi-lcd.htm[微享 3.5寸 480x320]                 | 设置环境显示_自动检测“假” +
+2+| **Banana Pi M2 Super 已测试的 HDMI LCD**
+| 显示屏                             | /boot/boot.ini                    
+| link:https://www.waveshare.com/3.5inch-hdmi-lcd.htm[Waveshare 3.5 英寸 480x320]                 | setenv display_autodetect "false" +
 setenv hdmimode "480x320p60hz" 
-| link:https://www.waveshare.com/3.5inch-hdmi-lcd-e.htm[微享 3.5寸 640x480]                 |                                   
-| link:https://www.waveshare.com/4inch-hdmi-lcd-c.htm[威享4寸720x720]                 |                                   
-| link:https://www.waveshare.com/5inch-hdmi-amoled.htm[威享5寸960x544]                 |                                   
-| link:https://www.waveshare.com/5inch-hdmi-lcd-h.htm[威享5寸800x480]                 |                                   
-| link:https://www.waveshare.com/5.5inch-1440x2560-lcd.htm[微享 5.5寸 1440x2560]               | 设置环境显示_自动检测“假” +
+| link:https://www.waveshare.com/3.5inch-hdmi-lcd-e.htm[Waveshare 3.5 英寸 640x480]                 |                                   
+| link:https://www.waveshare.com/4inch-hdmi-lcd-c.htm[Waveshare 4 英寸 720x720]                 |                                   
+| link:https://www.waveshare.com/5inch-hdmi-amoled.htm[Waveshare 5 英寸 960x544]                 |                                   
+| link:https://www.waveshare.com/5inch-hdmi-lcd-h.htm[Waveshare 5 英寸 800x480]                 |                                   
+| link:https://www.waveshare.com/5.5inch-1440x2560-lcd.htm[Waveshare 5.5 英寸 1440x2560]               | setenv display_autodetect "false" +
 setenv hdmimode "1440x2560p60hz"
-| link:https://www.waveshare.com/7inch-hdmi-lcd-b.htm[威享 7寸 800x480]                 |                                   
-| link:https://www.waveshare.com/7inch-hdmi-lcd-c.htm[威享 7寸 1024x600]                |                                   
-| link:https://www.waveshare.com/7.9inch-HDMI-LCD.htm[微享 7.9英寸 400x1280]                |                                   
-| link:https://www.waveshare.com/8inch-1536x2048-LCD.htm[威享 8寸 1536x2048]               | 设置环境显示_自动检测“假” +
+| link:https://www.waveshare.com/7inch-hdmi-lcd-b.htm[Waveshare 7 英寸 800x480]                 |                                   
+| link:https://www.waveshare.com/7inch-hdmi-lcd-c.htm[Waveshare 7 英寸 1024x600]                |                                   
+| link:https://www.waveshare.com/7.9inch-HDMI-LCD.htm[Waveshare 7.9 英寸 400x1280]                |                                   
+| link:https://www.waveshare.com/8inch-1536x2048-LCD.htm[Waveshare 8 英寸 1536x2048]               | setenv display_autodetect "false" +
 setenv hdmimode "1536x2048p60hz"
-| link:https://www.waveshare.com/8.8inch-Side-Monitor.htm[微享 8.8寸 480x1920]                |                                   
-| link:https://www.waveshare.com/9inch-2560x1600-Monitor.htm[威享9寸2560x1600]               | 设置环境显示_自动检测“假” +
+| link:https://www.waveshare.com/8.8inch-Side-Monitor.htm[Waveshare 8.8 英寸 480x1920]                |                                   
+| link:https://www.waveshare.com/9inch-2560x1600-Monitor.htm[Waveshare 9 英寸 2560x1600]               | setenv display_autodetect "false" +
 setenv hdmimode "2560x1600p60hz"
-| link:https://www.waveshare.com/10.1inch-HDMI-LCD-E.htm[微享 10.1英寸 1024x600]	               |
-| link:https://www.waveshare.com/10.1inch-hdmi-lcd-b-with-case.htm[微享 10.1寸 1280x800]	      |
-| link:https://www.waveshare.com/11.9inch-HDMI-LCD.htm[微享 11.9英寸 320x1480]	               |
-| link:https://www.waveshare.com/12.3inch-hdmi-lcd.htm[微享 12.3英寸 1920x720]	               |
-| link:https://www.waveshare.com/13.3inch-HDMI-LCD-H.htm[微享 13.3英寸 1920x1080]	             |
-| link:https://www.waveshare.com/15.6inch-hdmi-lcd-h-with-case.htm[微享 15.6英寸 1920x1080]	    |
+| link:https://www.waveshare.com/10.1inch-HDMI-LCD-E.htm[Waveshare 10.1 英寸 1024x600]	               |
+| link:https://www.waveshare.com/10.1inch-hdmi-lcd-b-with-case.htm[Waveshare 10.1 英寸 1280x800]	      |
+| link:https://www.waveshare.com/11.9inch-HDMI-LCD.htm[Waveshare 11.9 英寸 320x1480]	               |
+| link:https://www.waveshare.com/12.3inch-hdmi-lcd.htm[Waveshare 12.3 英寸 1920x720]	               |
+| link:https://www.waveshare.com/13.3inch-HDMI-LCD-H.htm[Waveshare 13.3 英寸 1920x1080]	             |
+| link:https://www.waveshare.com/15.6inch-hdmi-lcd-h-with-case.htm[Waveshare 15.6 英寸 1920x1080]	    |
 |=====
 背光控制：https://github.com/Dangku/Waveshare-USB-Brightness
 
-=== 定制 Linux 开机标志
-Linux uboot 将启动徽标 fb 大小限制为 1080p60hz/1920x1080 默认情况下，默认镜像不支持超大分辨率，但可以修改uboot源代码以支持它。
+=== 自定义 Linux 启动徽标
+Linux U-Boot 默认将启动徽标帧缓冲区限制为 1080p60/1920x1080，因此默认镜像不支持更高分辨率；可以修改 U-Boot 源代码来提供支持。
 
-. 准备一个24位bmp文件，命名为boot-logo.bmp
+. 准备一个 24 位 BMP 文件，并命名为 boot-logo.bmp。
 . 将目标文件复制到 /boot/firmware/ 或 /boot/ 目录。
 
 == 其他开发
@@ -645,9 +645,9 @@ Linux uboot 将启动徽标 fb 大小限制为 1080p60hz/1920x1080 默认情况�
 
 image::/picture/m5_linux_boot_squence.png[m5_linux_boot_squence.png]
 
-检查从 SD 卡加载的引导加载程序或 EMMC 在控制台调试消息的开头
+在控制台调试信息开头检查引导加载程序是从 SD 卡还是 eMMC 加载。
 
-. ROM 从 SD 卡加载引导加载程序 (Linux 日志示例)
+. ROM 从 SD 卡加载引导加载程序（Linux 日志示例）
 +
 ```sh
  ...
@@ -672,7 +672,7 @@ image::/picture/m5_linux_boot_squence.png[m5_linux_boot_squence.png]
  
  ...
 ```
-. ROM 加载引导加载程序 EMMC(Android 日志示例)
+. ROM 从 eMMC 加载引导加载程序（Android 日志示例）
 +
 ```sh
  ...
@@ -699,15 +699,15 @@ image::/picture/m5_linux_boot_squence.png[m5_linux_boot_squence.png]
  ...
 ``` 
 
-=== 擦除 EMMC 用于 SD 卡启动
-有四种可能的情况需要注意， EMMC 已经闪现了 Android 镜像， EMMC 已经闪现了 Linux 镜像、BL2 中的启动进程挂起以及 EMMC 空的。
+=== 为从 SD 卡启动而擦除 eMMC
+需要注意四种情况：eMMC 中已写入 Android 镜像、eMMC 中已写入 Linux 镜像、启动过程在 BL2 阶段挂起，以及 eMMC 为空。
 
-. 可启动 EMMC 与 Android 镜像闪烁
-- 使用 usb 烧录工具，拔掉type-c usb 下载过程中的电缆 **7% 格式化**
+. eMMC 中存在可启动的 Android 镜像
+- 使用 USB Burning Tool，在下载进度到达 **7% formatting** 时拔下 Type-C USB 数据线。
 +
 image::/picture/m5_android_format.png[m5_android_format.png]
 
-- 使用 Android Fastboot 工具，确保 adb/fastboot 在执行此操作之前，工具已在您的 PC 上运行。
+- 使用 Android Fastboot 工具。操作前请确认 PC 上的 adb/fastboot 工具可以正常工作。
 +
 ```sh
    root@dangku-desktop:/tmp# adb root
@@ -717,7 +717,7 @@ image::/picture/m5_android_format.png[m5_android_format.png]
    root@dangku-desktop:/tmp# adb shell
    bananapi_m2s:/ # reboot fastboot
 ```
-等待几秒钟，主板重新启动至快速启动模式
+等待几秒，让开发板重新启动到 fastboot 模式。
 +
 ```sh
    root@dangku-desktop:/tmp# fastboot devices
@@ -743,7 +743,7 @@ image::/picture/m5_android_format.png[m5_android_format.png]
    OKAY [  0.035s]
    finished. total time: 0.035s
 ```
-- 使用uboot命令，连接调试控制台电缆并在开机时按ESC键进入uboot命令行
+- 使用 U-Boot 命令：连接调试控制台线，开机时按 Esc 键进入 U-Boot 命令行。
 +
 ```sh
    bananapi_m2s_v1#amlmmc erase 1
@@ -758,9 +758,9 @@ image::/picture/m5_android_format.png[m5_android_format.png]
    resetting ...
    SM1:BL:511f6b:81ca2f;FEAT:A0F83180:20282000;POC:F;RCY:0;EMMC:0;READ:0;CHK:1F;READ:0;CHK:1F;READ:0;CHK;
 ```
-这两种方式实际上是擦除了bootloader部分 EMMC android, 从 SD 卡启动后 Linux, 你最好 link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_erase_emmc_android_by_dd_command[格式化整体 EMMC 通过 dd 命令].
+以上两种方法实际擦除的是 eMMC 中 Android 引导加载程序所在的分区。从 SD 卡启动 Linux 后，建议 link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_erase_emmc_android_by_dd_command[使用 dd 命令格式化整个 eMMC]。
 
-- 最简单的方法是插入 SD 卡 Linux 开机前镜像闪烁， Android 引导加载程序将检查 boot.ini 文件是否存在于SD卡vfat分区，以便SD卡 Linux 将启动。启动后，您可以 link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_erase_emmc_android_by_dd_command[格式化整体 EMMC 通过 dd 命令] 然后闪烁 Linux 镜像到 EMMC.
+- 最简单的方法是在开机前插入已写入 Linux 镜像的 SD 卡。Android 引导加载程序会检查 SD 卡 VFAT 分区中是否存在 boot.ini，从而启动 SD 卡中的 Linux。启动后，可以 link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_erase_emmc_android_by_dd_command[使用 dd 命令格式化整个 eMMC]，再将 Linux 镜像写入 eMMC。
 +
 ```sh
    ...
@@ -781,28 +781,28 @@ image::/picture/m5_android_format.png[m5_android_format.png]
    reading overlays/wifi_bt_rtl8822cs.dtbo
    729 bytes read in 6 ms (118.2 KiB/s)
 ```
-. 可启动 EMMC 与 Linux 镜像闪烁
-- 使用uboot命令，连接调试控制台电缆并在开机时按ESC键进入uboot命令行
+. eMMC 中存在可启动的 Linux 镜像
+- 使用 U-Boot 命令：连接调试控制台线，开机时按 Esc 键进入 U-Boot 命令行。
 +
 ```sh
    bananapi_m2s# mmc erase 0 1000
 ```
-- Linux u-boot 还检查 boot.ini 文件是否存在于SD卡vfat分区中，以便SD卡 Linux 将启动。开机后可以格式化整个 EMMC 通过 dd 命令或 flash Linux 镜像直接到 EMMC.
+- Linux U-Boot 也会检查 SD 卡 VFAT 分区中是否存在 boot.ini，以便从 SD 卡启动 Linux。启动后，可以使用 dd 命令格式化整个 eMMC，或直接将 Linux 镜像写入 eMMC。
 
-. A **极端情况** bootloader 或 uboot 是否损坏，ROM 从中加载 EMMC 但在u-boot或BL2中挂起，例如启动过程会在BL2中挂起 EMMC 如果 dram 初始化失败，唯一的方法是格式化 EMMC 与 usb 烧录工具，或下载 Android 镜像完全，然后尝试其他方法擦除 EMMC 或闪光 Linux 镜像到 EMMC.
+. 一种 **极端情况** 是引导加载程序或 U-Boot 已损坏：ROM 从 eMMC 加载后在 U-Boot 或 BL2 阶段挂起，例如 DRAM 初始化失败时会停在 eMMC 的 BL2 阶段。此时只能使用 USB Burning Tool 格式化 eMMC，或先完整下载 Android 镜像，再尝试用其他方法擦除 eMMC 或写入 Linux 镜像。
 
-. 如果出现以下情况，Rom 将尝试直接从 SD 卡加载引导加载程序 EMMC 是空的。
+. 如果 eMMC 为空，ROM 会直接尝试从 SD 卡加载引导加载程序。
 
-=== 擦除 Emmc Android 通过 dd 命令
-如果板子闪了 android 之前，整个 emmc 如果你想用SD卡启动它，必须通过这些命令擦除 Linux 镜像。
+=== 使用 dd 命令擦除 eMMC 中的 Android
+如果开发板此前写入过 Android，而现在要从 SD 卡启动 Linux，则必须使用以下命令擦除整个 eMMC。
 ```sh
  $ sudo dd if=/dev/zero of=/dev/mmcblk0boot0 bs=1M status=noxfer 
  $ sudo dd if=/dev/zero of=/dev/mmcblk0boot1 bs=1M status=noxfer
  $ sudo dd if=/dev/zero of=/dev/mmcblk0 bs=1M status=noxfer 
  $ sync
 ```
-=== Wifi/BT 支持
-. Android 测试和支持。
+=== Wi-Fi/蓝牙支持
+. Android 已测试和支持的设备：
 +
 ```sh
  rtl8723bu wifi/bt(usb)
@@ -811,13 +811,13 @@ image::/picture/m5_android_format.png[m5_android_format.png]
  rtl8822cs wifi/bt(sdio/uart)
  rtl8814au wifi(usb), please get the aircrack-ng driver and install.
 ```
-**如何启用 Android Wifi/BT** +
-USB 类型： 插入式 usb 加密狗到 usb 主机端口并重新启动系统，启动后，您可以在“设置”应用程序中启用或禁用 wifi 和蓝牙。 +
-SDIO/UART 类型：将硬件模块正确连接到40针排座上并 link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_android_dtb_overlay[配置 Android DTB 叠加] 来启用它。
+**如何启用 Android Wi-Fi/蓝牙** +
+USB 类型：将 USB 网卡插入 USB Host 接口并重新启动系统。启动后，可以在 Settings 应用中启用或禁用 Wi-Fi 和蓝牙。 +
+SDIO/UART 类型：将硬件模块正确连接到 40 针排针，并 link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_android_dtb_overlay[配置 Android DTB Overlay]以启用模块。
 +
-WARNING: 注意： Android 不支持那个 ethernet 和wifi同时连接， Ethernet 比wifi有更高的优先级，这意味着wifi无法连接网络，如果 ethernet 已经连接，如果出现以下情况，wifi 将断开连接 ethernet 电缆插件。
+WARNING: 注意：Android 不支持以太网与 Wi-Fi 同时联网。以太网优先级高于 Wi-Fi：以太网已连接时 Wi-Fi 无法联网，插入网线后 Wi-Fi 连接也会断开。
 
-. Linux 测试和支持。
+. Linux 已测试和支持的设备：
 +
 ```sh
  rtl8188eu wifi(usb)
@@ -831,20 +831,20 @@ WARNING: 注意： Android 不支持那个 ethernet 和wifi同时连接， Ether
 ```
 +
 --
-**如何启用 Linux 无线网络**
+**如何启用 Linux Wi-Fi**
 
-Wifi 模块驱动程序已在发布映像中预构建。
+Wi-Fi 模块驱动程序已预编译到发布镜像中。
 
-USB 类型： 插入式 usb 加密狗到 usb 主机端口和驱动程序将自动加载。
+USB 类型：将 USB 网卡插入 USB Host 接口，驱动程序会自动加载。
 SDIO/UART 类型：
 
-- 将硬件模块正确连接到40针排座。
-- 配置 link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_dtb_overlay[DTB 覆盖]
+- 将硬件模块正确连接到 40 针排针。
+- 配置 link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_dtb_overlay[DTB Overlay]。
 +
 ```sh
    overlays="wifi_bt_rtl8822cs"
 ```
-- 添加wifi模块名称 /etc/modules 用于下次启动时自动加载。
+- 将 Wi-Fi 模块名称添加到 /etc/modules，以便下次启动时自动加载。
 +
 ```sh
  # This file contains the names of kernel modules that should be loaded
@@ -856,13 +856,13 @@ SDIO/UART 类型：
 --
 **如何启用 Linux 蓝牙**
 
-- 请下载 link:https://github.com/Dangku/m5-rtk-linux-bt-driver[rtk-linux-bt-驱动程序] 源代码、构建和安装 usb 或 uart RTK linux 蓝牙 drivers/firmwares 到你的形象。
-- 对于 USB 类型，插入 usb 加密狗到 usb 主机端口和驱动程序将自动加载。
-- 对于 UART 类型，在安装蓝牙之前将 dtb 覆盖配置为与 wifi 相同 drivers/firmwares. 人机交互_当rtk-hciuart.service启动时，uart驱动将被加载。
+- 下载 link:https://github.com/Dangku/m5-rtk-linux-bt-driver[rtk-linux-bt-driver] 源代码，构建 USB 或 UART 版 Realtek Linux 蓝牙驱动与固件，并安装到镜像中。
+- USB 类型：将 USB 蓝牙适配器插入 USB Host 接口，驱动程序会自动加载。
+- UART 类型：安装蓝牙驱动和固件前，按照与 Wi-Fi 相同的方式配置 DTB Overlay。rtk-hciuart.service 启动时会加载 hci_uart 驱动。
 
 --
 
-=== 云初始化&Snap
+=== Cloud-init 和 Snap
 Cloud-init 和 Snap 服务默认启用，您可以禁用或删除它们。
 
 . 禁用或删除 cloud-init
@@ -875,14 +875,14 @@ Cloud-init 和 Snap 服务默认启用，您可以禁用或删除它们。
 ```sh
  $ sudo apt purge cloud-init
 ```
-. 禁用或删除快照
+. 禁用或删除 Snap
 +
 ```sh
  $ sudo apt purge snapd
 ```
 
 === 启用 rc-local
-systemd 服务 rc-local.service 已存在于发布映像中，但没有 [安装] 单元文件中的一部分。因此，Systemd 无法启用它。首先，我们必须更新文件。
+发布镜像中已包含 systemd 服务 rc-local.service，但其单元文件中没有 [Install] 部分，因此 systemd 无法启用该服务。首先需要更新此文件。
 ```sh
  $ sudo nano /lib/systemd/system/rc-local.service
 ```
@@ -922,18 +922,18 @@ systemd 服务 rc-local.service 已存在于发布映像中，但没有 [安装]
  
  exit 0
 ```
-添加可执行权限 /etc/rc.local
+为 /etc/rc.local 添加可执行权限：
 ```sh
  $ sudo chmod +x /etc/rc.local
 ```
-启用 rc-local.service 并重新启动
+启用 rc-local.service 并重新启动：
 ```sh
  $ sudo systemctl enable rc-local.service
  $ sudo reboot
 ```
 
-=== 启用 sudo Debian
-发布 Debian image默认不安装sudo，使用“su -”命令，用户可以更改为root。如果你喜欢sudo，可以安装它。
+=== 在 Debian 中启用 sudo
+Debian 发布镜像默认不安装 sudo，可以使用“su -”命令切换到 root。如果需要 sudo，可以按以下方式安装。
 ```sh
  $ su root
  Password:(enter bananapi)
@@ -942,10 +942,10 @@ systemd 服务 rc-local.service 已存在于发布映像中，但没有 [安装]
  # apt-get install sudo
  # adduser pi sudo
 ```
-然后请注销并重新登录
+然后注销并重新登录。
 
-=== 安装 Docker发动机
-安装 Docker 发动机开启 Ubuntu 20.04 服务器
+=== 安装 Docker Engine
+在 Ubuntu 20.04 Server 上安装 Docker Engine
 
 . 设置存储库
 更新 apt 软件包索引并安装软件包以允许 apt 通过 HTTPS 使用存储库：
@@ -954,7 +954,7 @@ systemd 服务 rc-local.service 已存在于发布映像中，但没有 [安装]
  $ sudo apt-get update
  $ sudo apt-get install apt-transport-https ca-certificates curl gnupg lsb-release
 ```
-添加 Docker官方GPG密钥：
+添加 Docker 官方 GPG 密钥：
 +
 ```sh
  $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
@@ -966,13 +966,13 @@ systemd 服务 rc-local.service 已存在于发布映像中，但没有 [安装]
     "deb [arch=arm64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
     $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
-. 安装 Docker发动机
+. 安装 Docker Engine
 +
 ```sh
  $ sudo apt-get update
  $ sudo apt-get install docker-ce docker-ce-cli containerd.io
 ```
-. 验证 Docker 通过运行 hello-world 映像正确安装引擎。
+. 运行 hello-world 镜像，验证 Docker Engine 是否正确安装。
 +
 ```sh
  $ sudo docker run hello-world
@@ -980,10 +980,9 @@ systemd 服务 rc-local.service 已存在于发布映像中，但没有 [安装]
 +
 image::/picture/docker-test.png[docker-test.png]
 +
-安装 docker 用一个简单的命令
+也可以使用以下简单命令安装 Docker：
 +
 ```sh
  $ curl -sSL get.docker.com | sudo sh
 ```
-link:https://docs.docker.com/engine/install/[安装 Docker发动机] 在其他方面 Linux 分布
-
+其他 Linux 发行版请参阅 link:https://docs.docker.com/engine/install/[Docker Engine 安装文档]。
