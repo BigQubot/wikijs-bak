@@ -1,0 +1,29 @@
+TIP: link:../GettingStarted_BPI-Leaf-S3[返回 BPI-Leaf-S3 入门指南]
+
+== 所需外部硬件
+
+一个可在 3.3 V 电压下工作的 LED。
+
+== 接线方法
+
+本例使用 GPIO13 引脚。将 LED 正极连接到 GPIO13，负极连接到 GND。
+
+== 代码
+
+```py
+from machine import Pin, PWM
+import time
+
+PWM_LED = PWM(Pin(13))
+PWM_LED.freq(1000)
+PWM_LED. duty(0)
+
+while True:
+     for i in range(0,1024,1):
+        PWM_LED. duty(i)
+        time. sleep_ms(2)
+     for i in range(1022,0,-1):
+        PWM_LED. duty(i)
+        time. sleep_ms(1)
+    
+```
