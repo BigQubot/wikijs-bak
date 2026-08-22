@@ -1,69 +1,69 @@
-TIP: link:/en/BPI-Centi-S3/BananaPi_BPI-Centi-S3[香蕉派 BPI-Centi-S3 主页]
+TIP: link:/en/BPI-Centi-S3/BananaPi_BPI-Centi-S3[Banana Pi BPI-Centi-S3 主页]
 
-我们编写了这份入门指南来帮助您开始使用
-BPI-Centi-S3 开发板快。
+我们编写了这份入门指南，帮助你快速开始使用
+BPI-Centi-S3 开发板。
 
-== 第一件事
+== 首次使用
 
-使用一个 USB-C 电缆具有电源和数据功能，用于连接
-BPI-Centi-S3 开发板连接到您的计算机。
+使用一根同时支持供电和数据传输的 USB-C 线，将
+BPI-Centi-S3 开发板连接到计算机。
 
-第一次使用时，屏幕会立即显示
-开机后进入欢迎界面，蜂鸣器响两声。
+首次使用时，开发板上电后屏幕会立即显示
+欢迎界面，同时蜂鸣器响两声。
 
-BPI-Centi-S3 已编程为 MicroPython 1.19.1 固件和
-出厂时已集成ST7789 C模块驱动。它是
-推荐初学者使用 MicroPython 发展和学习。
+BPI-Centi-S3 出厂时已预烧录 MicroPython 1.19.1 固件，并
+集成了 ST7789 C 模块驱动。建议
+初学者使用 MicroPython 进行开发和学习。
 
-== 使用 MicroPython 快速开始
+== 使用 MicroPython 快速入门
 
 . 参见 link:./MicroPython/environment.md[安装并配置
-环境]，安装 Python 3、mpremote工具、mpbridge工具、VScode
-IDE.
-. 参见 link:./MicroPython/VScode_mpbridge.md[如何使用VScode + MP桥
-工具] 学习如何连接开发板、复制、修改、
-并删除开发板上的文件。
-. 参见 link:./MicroPython/REPL_use_case.md[REPL 使用案例] 快点
-了解常用快捷键 MicroPython REPL 和方法
-查看模块。
+环境]，安装 Python 3、mpremote、mpbridge 和 VS Code
+IDE。
+. 参见 link:./MicroPython/VScode_mpbridge.md[如何使用 VS Code + mpbridge
+工具]，学习如何连接开发板，以及复制、修改和
+删除开发板上的文件。
+. 参见 link:./MicroPython/REPL_use_case.md[REPL 使用示例]，快速
+了解 MicroPython REPL 的常用快捷键，以及
+查看模块的方法。
 
-. 经过以上三步，就可以开始开发了。
+. 完成以上三个步骤后，即可开始开发。
 
-. 用于学习 Python 和 MicroPython，我们建议开始使用
-Python 在 link:https://docs.python.org/3.10/tutorial/index.html[Python
-教程]. 
+. 学习 Python 和 MicroPython 时，建议先从
+link:https://docs.python.org/3.10/tutorial/index.html[Python
+教程]开始学习 Python。
 +
-另外，尝试了解 link:./MicroPython/What_is_MicroPython[什么是 MicroPython?]
+另外，也可以阅读 link:./MicroPython/What_is_MicroPython[什么是 MicroPython？]
 
-. 应用您所学到的知识 Python，然后看看
+. 将学到的 Python 知识应用起来，并查阅
 link:https://docs.micropython.org/en/latest/index.html[MicroPython
-文档]，您可以快速参考 MicroPython的专门图书馆，
-供我们开发的ESP32端口专用库。
+文档]，以便快速查找 MicroPython 专用库和
+本项目开发所需的 ESP32 移植版专用库。
 
-. 在页面上了解两者之间的一些区别
+. 通过以下页面了解二者的部分差异：
 link:https://docs.micropython.org/en/latest/genrst/index.html#[Differences
-之间 MicroPython 和 CPython].
+between MicroPython and CPython（MicroPython 与 CPython 的区别）]。
 
-. 在本页的下一部分中，您可以找到一些 MicroPython 例子
-这可能对你有帮助。
+. 在本页下一节中可以找到一些 MicroPython 示例，
+它们可能会对你有所帮助。
 
-. ST7789 C模块驱动来自：
+. ST7789 C 模块驱动来源：
 +
 link:https://github.com/russhughes/st7789s3_esp_lcd[russhughes/st7789s3_esp_lcd],
-麻省理工学院许可证
+采用 MIT License
 +
-在这个 GitHub 存储库，您可以查看st7789的所有方法
-模块，以及编译的方法，感谢 russhughes 的帮助
+在该 GitHub 仓库中，可以查看 st7789
+模块的全部方法及编译方式。感谢 russhughes 的
 开源贡献。
 
-. 如果您在开发过程中遇到意想不到的恶性BUG导致无法
-开发板无法正常启动，或其他原因导致
+. 如果开发过程中出现严重 BUG，导致
+开发板无法正常启动，或者因其他原因造成
 固件被擦除或损坏，请参阅
-link:./MicroPython/Burn_firmware.md[烧录固件].
+link:./MicroPython/Burn_firmware.md[烧录固件]。
 
-=== MicroPython 例子
+=== MicroPython 示例
 
-NOTE:  link:https://github.com/BPI-STEAM/BPI-Centi-S3-Doc/tree/main/micropython_example[代码上 GitHub]，请讨论 GitHub 问题
+NOTE:  link:https://github.com/BPI-STEAM/BPI-Centi-S3-Doc/tree/main/micropython_example[GitHub 上的代码]；如有问题，请在 GitHub Issue 中讨论。
 
 . link:./MicroPython/lcd_init[LCD 初始化]
 . link:./MicroPython/Display_jpg_images[显示 jpg 图像]
@@ -75,18 +75,18 @@ NOTE:  link:https://github.com/BPI-STEAM/BPI-Centi-S3-Doc/tree/main/micropython_
 
 ==== 待办事项
 
-* [x] LCD init
-* [x] Display jpg
-* [x] Display text
-* [ ] Rotary encoder
-* [ ] Buzzer
+* [x] LCD 初始化
+* [x] 显示 JPG 图像
+* [x] 显示文本
+* [ ] 旋转编码器
+* [ ] 蜂鸣器
 * [ ] WS2812 LED
-* [ ] WiFi
-* [ ] ESP NOW
+* [ ] Wi-Fi
+* [ ] ESP-NOW
 
-== 使用 Arduino 快速开始
+== 使用 Arduino 快速入门
 
 . link:./Arduino/Environment[安装并配置环境]
 . link:./Arduino/Arduino_upload[连接、上传]
-. link:./Arduino/Arduino_GFX_Install[安装 Arduino GFX库]
-. link:./Arduino/Arduino_GFX_show_characters[Arduino GFX，显示角色]
+. link:./Arduino/Arduino_GFX_Install[安装 Arduino GFX 库]
+. link:./Arduino/Arduino_GFX_show_characters[使用 Arduino GFX 显示字符]
