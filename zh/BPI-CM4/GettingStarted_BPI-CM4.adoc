@@ -1,0 +1,1135 @@
+= 简介
+
+BananaPi BPI-CM4 新设计与 Amlogic A311D 四核 ARM Cortex-A73 和双核 ARM Cortex-A53 CPU ,ARM G52 MP4(6EE) GPU,NPU 适用于5.0 TOPS的AI，支持Camera和MIPI-CSI接口，HDMI输出，2个千兆端口。 4G RAM 和 16 GB eMMC 闪光。
+
+TIP: 更多信息： link:/en/BPI-CM4/BananaPi_BPI-CM4[香蕉派 BPI-CM4]
+
+= 开发准备
+
+. 准备一个 usb-串行电缆，一个 5V/3A 适配器 type-c 电源。串口线用于控制台调试，type-c线用于 android 镜像下载和ADB调试。
+. 准备一张至少8GB的SD卡 linux 开发, android 只支持 emmc 启动。
+. 的 SOC ROM 第一启动媒体是 emmc，因此板无法从 SD 卡启动，如果 emmc 任何镜像均可启动，更多信息请参阅主板 link:/en/BPI-CM4/GettingStarted_BPI-CM4#_boot_sequence[启动顺序].
+
+= Android
+== 准备
+
+. 下载并安装 link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/files/?p=%2FTools%2Fimage_download_tools%2Faml_usb_burning_tool_V2_setup_v2.2.3.3.zip[反洗钱 Usb 烧录工具] 为了 android 通过type-c下载图片，仅支持 windows.
+. 下载最新的 android 镜像，并确认 md5 校验和正确。
+
+== 安装镜像 Usb 烧录工具
+. 打开USB_燃烧_Tool.exe，选择菜单文件->导入镜像，然后选择 android 镜像。
++
+image::/picture/cm4_android_install_1.png[cm4_android_install_1.png]
+
+. 短路 usb 主板上的启动测试点，插件type-c usb 电缆连接到 PC 或按 RST 按钮（如果已连接电源适配器），大约两秒后，板将进入 usb 下载模式并能被PC正确识别。您还可以输入usb使用 adb 命令“adb restart update”或控制台命令“reboot update”下载模式（如果可启动） android 已经闪烁，请确保 typec usb 在执行此操作之前连接到 PC。
++
+image::/picture/cm4_usb_download.jpg[cm4_usb_download.jpg]
++
+image::/picture/m2s_android_install_3.png[M2s android install 3.png]
++
+image::/picture/cm4_android_install_4.png[cm4_android_install_4.png]
+
+. 点击下载工具的开始按钮，等待升级完成。
++
+image::/picture/cm4_android_install_3.png[cm4_android_install_3.png]
+
+. 烧录成功后，拔掉type-c usb 并连接电源适配器即可启动。
++
+image::/picture/cm4_android_install_2.png[cm4_android_install_2.png]
+
+. 单击“停止”按钮取消升级过程并关闭 USB 燃烧工具。
+
+== 使用 Aml Flash 工具安装映像
+link:https://github.com/Dangku/aml-flash-tool[Aml 闪存工具] 是一个 linux 平台开源镜像 flash util Amlogic android.
+```sh
+ $ ./flash-tool.sh --img=/path/to/aml_upgrade_package.img --parts=all --wipe --soc=g12a --reset=y
+```
+
+M5 linux 闪光.PNG
+
+== 构建 Android 源代码
+
+. 获取 Android 9.0源代码：
++
+https://github.com/BPI-SINOVOIP/BPI-A311D-Android9
++
+或者您可以从以下位置获取源代码 tar 存档 link:https://pan.baidu.com/s/1rANGEB-1MLPCBXqOR5aYCg?pwd=8888[百度盘(密码：8888)] 或 link:https://drive.google.com/drive/folders/1INIABp_MbB5UcwfqujTngGLOZN7YGuWp?usp=share_link[谷歌云端硬盘]
+
+. 构建 Android 9.0 源代码
+请阅读源代码 link:https://github.com/BPI-SINOVOIP/BPI-A311D-Android9/blob/master/README.md[README.md]
+
+== Android DTB 叠加
+Bananapi CM4 DTBO idx 值表，发布映像中默认 idx 值为 0。
+
+[options="header",cols="1,2,3"]
+|======
+3+| Bananapi CM4 DTBO idx 值表
+| idx值  | 设备树覆盖 | 描述                         
+| 0          | 安卓_p_覆盖   | 默认dtbo，没用                
+| 1          | 无线网络_BT_rtl8822cs   | 启用bpi rtl8822cs wifi/bt 模块 
+| 2          | i2c1                | 启用 i2c 1                        
+| 3          | i2c2                | 启用 i2c 2                        
+| 4          | sdio                | 启用sdio                         
+| 5          | 串口1               | 启用2个引脚 uart 1                
+| 6          | 串口1_cts_实时传输       | 启用 4 个引脚 uart 1                
+| 7          | 串口2               | 启用2个引脚 uart 2                
+| 8          | 高保真_PCM5122        | 启用 i2s link:https://shumeipai.nxez.com/hifidac-hat-for-raspberry-pi[pcm5122 HiFi DAC]
+|======
+
+**如何应用新的 dtbo**
+
+. 通过 sysfs 的 ADB 命令
++
+```sh
+ root@dangku-desktop:/tmp# adb root
+ restarting adbd as root
+ root@dangku-desktop:/tmp# adb remount
+ remount succeeded
+ root@dangku-desktop:/tmp# adb shell
+ bananapi_m2s:/ # echo dtbo > /sys/class/unifykeys/name
+ bananapi_m2s:/ # echo "1" > /sys/class/unifykeys/write
+ bananapi_m2s:/ # reboot
+```
+. Uart 通过 sysfs 的控制台命令
++
+```sh
+ console:/ $ 
+ console:/ $ su
+ console:/ # echo dtbo > /sys/class/unifykeys/name                              
+ [  115.702781@0] unifykey: name_store() 1302, name dtbo, 4
+ [  115.702856@0] unifykey: name_store() 1311
+ console:/ #
+ console:/ # echo "1" > /sys/class/unifykeys/write                              
+ [  129.262659@0] unifykey: write_store()  is a string
+ [  129.262733@0] unifykey: dtbo, 1, 1
+ [  129.265312@0] unifykey: amlkey_write 393
+ [  129.292347@1] emmc_key_write:149, write ok
+ console:/ # 
+ console:/ # reboot
+```
+. 设置应用程序(待办事项)
++
+检查启动情况 uart 调试消息并确认实际加载了哪个 dtbo，这里“1”表示设置 idx=1申请wifi_BT_rtl8822cs dtbo。
++
+```sh
+ load dtb from 0x1000000 ......
+       Amlogic multi-dtb tool
+       Single dtb detected
+ find 2 dtbos
+ dtbos to be applied: 1
+ Apply dtbo 1
+```
+Unifykeys 存储在特定的 emmc 部分，在 USB 中选择“正常擦除”_燃烧_工具不会在下次更新时删除此数据，如果您希望在镜像下载后应用默认的 dtbo idx，则必须选择“全部删除”。
+
+**构建 Android 具有特定 DTBO 默认值的镜像。**
+
+. 默认内置覆盖层定义在 device/bananapi/bananapi_m2s/Kernel.mk，您可以在此处添加新的覆盖 dtbo。
++
+```sh
+ DTBO_DEVICETREE := android_p_overlay wifi_bt_rtl8822cs i2c1 i2c2 sdio uart1 uart1_cts_rts uart2 hifi_pcm5122
+```
+. 默认应用 DTBO idx 定义在 device/bananapi/bananapi_m2s/BoardConfig.mk，您可以更改 idx 值来设置默认应用哪个覆盖 dtbo。
++
+```sh
+ BOARD_KERNEL_CMDLINE += androidboot.dtbo_idx=0
+```
+. DTS 文件位于 common/arch/arm64/boot/dts/amlogic/overlay/bananapi_m2s/
++
+更多信息关于 android 设备树覆盖，请参考 link:https://source.android.com/devices/architecture/dto[谷歌 android 官方网站]
+
+== 安装 OpenGapps
+. 从以下位置下载安装包 link:https://opengapps.org/[OpenGapps], Android 发布镜像是 arm/android 9.0 版本。
++
+image::/picture/opengapps.png[opengapps.png]
+
+. 下载 link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fapps%2Fdevice_id_v1.3.2.apk[装置_id.apk].
+. 将 OpenGapp 包复制到 udisk 或 sdcard 根目录。
+. 创建一个名为factory的txt文件_更新_udisk 或 sdcard 根目录下的 param.aml 内容如下 android 恢复参数内容，并将文件名替换为实际下载的包。
++
+优盘：
++
+```sh
+ --wipe_cache
+ --update_package=/udisk/open_gapps-arm-9.0-pico-20210327.zip
+```
+SD卡：
++
+```sh
+ --wipe_cache
+ --update_package=/sdcard/open_gapps-arm-9.0-pico-20210327.zip
+```
+. 将 udisk 或 sdcard 插入开发板并开机。
+. OpenGapps 安装并认证。
++
+YouTube： https://youtu.be/fXOKmWfpqF8
++
+哔哩哔哩： https://www.bilibili.com/video/BV13y4y1s77i/
+
+== 开关Mipi面板
+默认 android 发布映像仅支持一种 mipi 面板，因为硬件在启动时没有检测不同面板的逻辑，因此 [800x1280 bpi 面板] 默认启用，但您可以更改为 [1200x1920 bpi 面板] 默认设置为“设置”->“面板输出”
+
+image::/picture/m2s_panel_switch.png[m2s_panel_switch.png]
+
+== 面板旋转
+两个 10" mipi 面板都是纵向硬件显示，所以默认 android 发布镜像是纵向模式，但您可以将其旋转到 90/180/270 有两种方式。
+
+. 设置->显示->屏幕旋转中的UI旋转
++
+image::/picture/m2s-rotation.png[m2s-rotation.png]
+
+. SurfaceFlinger旋转，需要 link:/en/BPI-CM4/GettingStarted_BPI-CM4#_build_android_source_code[修改 android 源代码和构建]
++
+更改默认的 sf 旋转属性
++
+```sh
+   diff --git a/device/bananapi/bananapi_m2s/bananapi_m2s.mk b/device/bananapi/bananapi_m2s/bananapi_m2s.mk
+   index 1f51703..d592a44 100644
+   --- a/device/bananapi/bananapi_m2s/bananapi_m2s.mk
+   +++ b/device/bananapi/bananapi_m2s/bananapi_m2s.mk
+   @@ -579,6 +579,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
+    else
+    PRODUCT_PROPERTY_OVERRIDES += \
+        ro.sf.lcd_density=213 \
+    -    ro.sf.primary_display_orientation=0
+   +    ro.sf.primary_display_orientation=90
+    endif
+```
+更改 dts 中的触摸面板旋转
++
+```sh
+   diff --git a/common/arch/arm64/boot/dts/amlogic/bananapi_m2s.dts b/common/arch/arm64/boot/dts/amlogic/bananapi_m2s.dts
+   index 4a698b0..3d41b63 100755
+   --- a/common/arch/arm64/boot/dts/amlogic/bananapi_m2s.dts
+   +++ b/common/arch/arm64/boot/dts/amlogic/bananapi_m2s.dts
+   @@ -876,8 +876,8 @@
+                   reg = <0x5d>;
+                   reset-gpio = <&gpio GPIOA_6 GPIO_ACTIVE_HIGH>;
+                   irq-gpio = <&gpio GPIOA_5 GPIO_ACTIVE_HIGH>;
+   -               rotation = <4>; /* sf_rotation 0 */
+   -               //rotation = <0>; /* sf_rotation 90*/
+  +               //rotation = <4>; /* sf_rotation 0 */
+  +               rotation = <0>; /* sf_rotation 90*/
+                   //rotation = <5>; /* sf_rotation 180 */
+                   //rotation = <3>; /* sf_rotation 270 */
+```
+
+== 定制 Android 开机标志
+Android bootloader限制启动标志fb显示大小是 1080p60hz/1920x1080 默认值，以及 android 内核 dtb 分区表将引导徽标分区大小默认限制为 16MB。
+
+. 准备一个16位bmp文件，命名为boot-logo.bmp
+. 将 bmp 文件压缩为 boot-logo.bmp.gz
++
+```sh
+ $ gzip boot-logo.bmp
+```
+. 下载 link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Flogo_create_tools%2Fm2s_android_bootlogo_tool.zip[m2s_android_bootlogo_tool.zip]
+. 提取此工具
++
+```sh
+ $ unzip m2s_android_bootlogo_tool.zip
+ $ cd m2s_android_bootlogo_tool/
+ $ ls -l logo/
+ -rwxr--r-- 1 dangku dangku 525054 Sep 25 16:54 bootup.bmp
+ -rwxr--r-- 1 dangku dangku 525054 Sep 25 16:54 bootup_secondary.bmp
+ -rwxr--r-- 1 dangku dangku    184 May 19  2020 upgrade_bar.bmp
+ -rwxr--r-- 1 dangku dangku 180072 May 19  2020 upgrade_error.bmp
+ -rwxr--r-- 1 dangku dangku 180072 May 19  2020 upgrade_fail.bmp
+ -rwxr--r-- 1 dangku dangku 180072 May 19  2020 upgrade_logo.bmp
+ -rwxr--r-- 1 dangku dangku 180072 May 19  2020 upgrade_success.bmp
+ -rwxr--r-- 1 dangku dangku    184 May 19  2020 upgrade_unfocus.bmp
+ -rwxr--r-- 1 dangku dangku 180072 May 19  2020 upgrade_upgrading.bmp
+```
+. 复制 boot-logo.bmp.gz
++
+```sh
+ $ cp boot-logo.bmp.gz logo/bootup.bmp
+ $ cp boot-logo.bmp.gz logo/bootup_secondary.bmp
+```
+. 创建目标 logo.img 使用img pack工具，m2s的二进制和相关库_安卓_开机标志_工具是复制自 <android-source-dir>/out/host/linux-x86
++
+```sh
+ $ ./logo_img_packer -r logo logo.img
+. Flash boot logo with fastboot
+ $ adb root
+ $ adb remount
+ $ adb reboot fastboot
+```
+等待几秒，检查fastboot是否连接
++
+```sh
+ $ fastboot device
+ 1234567890      fastboot
+ $ fastboot flashing unlock_critical
+ $ fastboot flashing unlock
+ $ fastboot flash logo logo.img
+ $ fastboot reboot
+```
+
+= Linux
+== 准备
+
+. Linux 镜像支持SD卡或 EMMC 启动。
+. 建议使用A1级卡，至少8GB。
+. 确保可启动 EMMC 如果您想从 SD 卡启动，请格式化
+. 确保 SD 卡已格式化 Linux 如果您想从以下位置启动，镜像会闪烁 EMMC 并使用Sd卡作为存储。
+. 安装 bpi-tools 在你的 Linux 电脑(如果使用其他工具刷入镜像，请忽略此步骤)。如果您无法访问此 URL 或出现任何其他安装问题，请转至 link:https://github.com/bpi-sinovoip/bpi-tools[bpi-tools] 源存储库，手动下载并安装此工具。
++
+```sh
+ $ apt-get install pv
+ $ curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
+```
+. 下载 Linux 最新的 Linux 镜像，并确认md5校验和正确。
+. 默认登录： pi/bananapi 或 root/bananapi
+
+== 将映像安装到 SD 卡
+> 使用 Balena Etcher 安装映像 Windows, Linux 和 MacOS.
+
+link:https://balena.io/etcher[巴莱纳蚀刻机] 是 Balena 的开源 GUI 闪存工具，可将操作系统映像闪存到 SD 卡或 USB 开车。
+
+- 单击“Flash from file”以选择镜像。 
+- 点击“选择目标”进行选择 USB 设备。
+- 点击“闪光！”开始燃烧。
+
+image::/picture/etcher.jpg[etcher.jpg]
+
+> 使用 Balena Cli 安装镜像 Windows, Linux 和 MacOS.
+
+link:https://github.com/balena-io/balena-cli[巴莱纳 CLI] 是 balenaCloud 或 openBalena 的命令行界面。可以用来闪光 linux 镜像。从以下位置下载安装程序或独立包 link:https://github.com/balena-io/balena-cli/releases[巴莱纳-io] 和 link:https://github.com/balena-io/balena-cli/blob/master/INSTALL.md[安装 ]正确连接到您的 PC，然后您就可以使用“link:https://docs.balena.io/reference/balena-cli/#local-flash-image[本地闪存]" balena 的命令选项闪现 linux 镜像到 SD 卡或usb 开车。
+```sh
+ $ sudo balena local flash path/to/xxx-bpi-m2s-xxx.img.zip
+ $ sudo balena local flash path/to/xxx-bpi-m2s-xxx.img.zip --drive /dev/disk2
+ $ sudo balena local flash path/to/xxx-bpi-m2s-xxx.img.zip --drive /dev/disk2 --yes
+```
+
+> 使用 dd 命令安装镜像 Linux
+
+挂载SD卡设备 /dev/sdX 如果自动安装则分区。其实 bpi-copy 与此 dd 命令相同。
+```sh
+ $ sudo apt-get install pv unzip
+ $ sudo unzip -p xxx-bpi-cm4-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxfer
+```
+> 安装镜像 bpi-tools 上 Linux 
+
+将 SD 卡插入 Linux 电脑并运行
+```sh
+ $ sudo apt-get install pv unzip
+ $ sudo bpi-copy xxx-bpi-cm4-xxx.img.zip /dev/sdX
+```
+
+== 安装镜像到 eMMC
+
+. 准备一张SD卡 Linux 镜像闪存和启动板与此 SD 卡。
+. 复制 Linux 镜像到udisk，将udisk插入主板并安装。
+. 有两种安装方式linux镜像到板上。
+- 使用 dd 命令安装，如果自动安装，则 umount mmcblk0p1 和 mmcblk0p2 分区。其实 bpi-copy 与此 dd 命令相同。
++
+```sh
+ $ sudo apt-get install pv unzip
+ $ sudo unzip -p xxx-bpi-cm4-xxx.img.zip | pv | dd of=/dev/mmcblk0 bs=10M status=noxfer
+```
+- 安装 linux 乌磁盘中的镜像 bpi-tools 命令
++
+```sh
+ $ sudo apt-get install pv unzip
+ $ sudo bpi-copy xxx-bpi-cm4-xxx.img.zip /dev/mmcblk0
+```
+. 下载完成后，安全关闭电源并弹出 SD 卡。
+
+== 构建 Linux 源代码
+. 获取 Linux .bsp 源代码
++
+```sh
+ $  git clone https://github.com/BPI-SINOVOIP/BPI-M2S-bsp
+```
+. 构建bsp源代码 +
+请阅读源代码 link:https://github.com/BPI-SINOVOIP/BPI-M2S-bsp/blob/master/README.md[README.md]
+. 如果你想单独构建uboot和内核，请下载 link:https://github.com/Dangku/amlogic-u-boot/tree/khadas-g12b-v2015.01-m2s[u启动] 的 link:https://github.com/Dangku/amlogic-linux/tree/khadas-g12b-4.9.y-m2s[内核] 仅从以下位置获取工具链、启动脚本和其他配置文件 link:https://github.com/BPI-SINOVOIP/BPI-M2S-bsp/tree/master/aml-pack/g12b/bpi-m2s/linux[BPI-M2S-bsp]
+
+== DTB 叠加
+. DTB 覆盖用于 40pin gpios 多功能配置并安装在 vfat 引导分区中，您可以使用 mount 命令检查挂载点。
++
+```sh
+ root@bananapi:~# ls /boot/overlays/
+ custom_ir.dtbo      pwm_b-backlight.dtbo  spi0.dtbo
+ ds3231.dtbo         pwm_c-beeper.dtbo     uart1_cts_rts.dtbo
+ hifi_pcm5102a.dtbo  pwm_cd-c.dtbo         uart1.dtbo
+ hifi_pcm5122.dtbo   pwm_cd.dtbo           uart2.dtbo
+ i2c1.dtbo           pwm_ef.dtbo           waveshare_tft24_lcd.dtbo
+ i2c2.dtbo           pwm_ef-f.dtbo         waveshare_tft35c_lcd.dtbo
+ pwm_ab.dtbo         sdio.dtbo             waveshare_tft35c_rtp.dtbo
+```
+. 更新 vfat 中的覆盖环境 /boot/env.txt 启用您想要的功能。
++
+```sh
+ # Device Tree Overlays
+ #   uart1           -- Enable UART1 (uart_A, GPIO Header PIN8 & PIN10)
+ #   pwm_c           -- Enable PWM_C (GPIO Header PIN7)
+ #   i2c2            -- Enable i2c2 (GPIO Header PIN3 & PIN5)
+ #   spi0            -- Enable SPI0 (GPIO Header PIN19 & PIN21 & PIN23 & PIN24)
+ overlays="i2c2 spi0 uart1"
+```
+. 必须重新启动板才能加载覆盖 dtb。
+
+== 启用相机
+的 linux 发布镜像默认是关闭摄像头的，按照如下配置，可以自行开启。
+
+. 更新 link:/en/BPI-CM4/GettingStarted_BPI-CM4#_dtb_overlay[DTB 覆盖] 环境在 /boot/env.txt 启用相机 dtbo。
++
+```sh
+ overlays="os08a10"
+```
+. 添加摄像头模块/etc/modules
++
+```sh
+ iv009_isp_iq
+ iv009_isp_lens
+ iv009_isp_sensor
+ iv009_isp
+```
+. 创建并添加相机模块选项 /etc/modprobe.d/os08a10.conf
++
+```sh
+ #choose camera calibration parameters
+ options iv009_isp_iq cali_name=0
+ #choose isp register sequence
+ options iv009_isp_sensor isp_seq_num=0
+``` 
+. 启用相机 isp systemd 服务
++
+```sh
+ $ sudo systemctl enable camera_isp_3a_server.service
+```
+摄像头设备是 /dev/video0 重新启动后。
+
+== 开关Mipi面板
+默认 linux 发布映像仅支持一种 mipi 面板，因为硬件在启动时没有检测不同面板的逻辑，因此默认启用 800x1280 bpi 面板，但您可以更改为 [1200x1920 bpi 面板] 作为默认值 /boot/lcd_env.txt
+```sh
+ # Mipi panel type
+ #    Symbol    | Resolution
+ # ----------------------+-------------
+ #    "lcd_0"   | 10" 800x1280 panel
+ #    "lcd_1"   | 10" 1200x1920 panel
+ panel_type=lcd_0
+```
+WARNING: 注意：双屏显示不工作 linux，所以使用mipi时请断开hdmi线。
+
+== 面板旋转
+两个 10" mipi 面板都是纵向硬件显示，因此默认发布图像是纵向模式，但您可以将其旋转到 90/180/270. +
+对于桌面映像，创建 xorg 配置文件 /usr/share/X11/xorg.conf.d/10-fbdev-rotate.conf 内容：
+```sh
+ Section "Device"
+     Identifier "Configured Video Device"
+     # Rotate off
+ #   Option "Rotate" "off"
+     # Rotate Right / clockwise, 90 degrees
+     Option "Rotate" "CW"
+     # Rotate upside down, 180 degrees
+ #   Option "Rotate" "UD"
+     # Rotate counter clockwise, 270 degrees
+ #   Option "Rotate" "CCW"
+ 
+ EndSection
+ 
+ Section "InputClass"
+     Identifier "Coordinate Transformation Matrix"
+     MatchIsTouchscreen "on"
+     MatchProduct "goodix-ts"
+     MatchDevicePath "/dev/input/event0"
+     MatchDriver "libinput"
+     # Rotate Right / clockwise, 90 degrees 
+     Option "CalibrationMatrix" "0 1 0 -1 0 1 0 0 1"
+     # Rotate upside down, 180 degrees
+ #   Option "CalibrationMatrix" "-1 0 1 0 -1 1 0 0 1"
+     # otate counter clockwise, 270 degrees 
+ #   Option "CalibrationMatrix" "0 -1 1 1 0 0 0 0 1"
+ 
+ EndSection
+```
+对于服务器图像，您可以通过两种方式更改帧缓冲区旋转：
+
+. Sysfs 动态变化。
++
+```sh
+ echo 0 > /sys/class/graphics/fbcon/rotate    //origin 0 degree
+ echo 1 > /sys/class/graphics/fbcon/rotate    //90 degree
+ echo 2 > /sys/class/graphics/fbcon/rotate    //180 degree
+ echo 3 > /sys/class/graphics/fbcon/rotate    //270 degree
+```
+. 引导配置更改。 +
+改变脸书_旋转环境 /boot/env.txt
++
+```sh
+ # Framebuffer Rotate
+ # 0 - origin 0 degree
+ # 1 - 90 degree
+ # 2 - 180 degree
+ # 3 - 270 degree
+ fb_rotate=0
+```
+
+== 接线Pi
+
+WARNING: 注意：此WiringPi仅支持26pin集 gpio 输出、输入、 pwm 或软件 pwm，对于 io 函数为 i2c, spi，...，您必须启用 dtb 覆盖 boot.ini
+
+. 构建并安装wiringPi，用于 debian，你必须 link:/en/BPI-CM4/GettingStarted_BPI-CM4#_enable_sudo_for_debian[安装须藤] 构建之前
++
+```sh
+ $ sudo apt-get update
+ $ sudo apt-get install build-essential git
+ $ git clone https://github.com/Dangku/amlogic-wiringPi
+ $ cd amlogic-wiringPi
+ $ chmod a+x build
+ $ sudo ./build
+```
+. 运行 gpio readall 显示所有 40 针状态。
++
+image::/picture/cm4_wiringpi.png[cm4_wiringpi.png]
+. BPI GPIO 扩展板和示例 link:https://github.com/Dangku/amlogic-wiringPi/tree/master/examples[amlogic-wiringPi/examples] +
+blinkall，闪烁所有针头 gpios，无扩展板。 +
+lcd-bpi， link:https://docs.banana-pi.org/en/BPI-LCD_1602/BananaPi_BPI-LCD_1602[BPI LCD 1602显示模块] 示例。 +
+52pi-bpi， link:https://docs.banana-pi.org/en/BPI-OLED/BananaPi_BPI-OLED[BPI OLED 显示模块] 示例。 +
+矩阵bpi， link:https://docs.banana-pi.org/en/BPI-RGB_LED/BananaPi_BPI_RGB_LED[BPI RGB LED 矩阵扩展模块] 示例。 +
+berryclip-bpi， link:https://docs.banana-pi.org/en/BPI-BerrClip/BananaPi_BPI-BerryClip[BPI BerryClip 模块]
+
+== RPi。GPIO
+构建并安装，用于 debian，你必须 link:/en/BPI-CM4/GettingStarted_BPI-CM4#_enable_sudo_for_debian[安装须藤] 构建之前
+```sh
+ $ sudo apt-get update
+ $ sudo apt-get install build-essential python python-dev python-setuptools git
+ $ git clone https://github.com/Dangku/RPi.GPIO-Amlogic.git
+ $ cd RPi.GPIO-Amlogic
+ $ sudo python setup.py clean --all
+ $ sudo python setup.py build install
+```
+
+== 接线Pi2-Python
+构建并安装，用于 debian，你必须 link:/en/BPI-CM4/GettingStarted_BPI-CM4#_enable_sudo_for_debian[安装须藤] 构建之前
+```sh
+ $ sudo apt-get update
+ $ sudo apt-get install build-essential python python-dev python-setuptools swig git
+ $ git clone --recursive  https://github.com/Dangku/WiringPi2-Python-Amlogic.git
+ $ cd WiringPi2-Python-Amlogic
+ $ sudo python setup.py install
+```
+== 定制 Linux 开机标志
+Linux uboot 将启动徽标 fb 大小限制为 1080p60hz/1920x1080 默认情况下，默认镜像不支持超大分辨率，但可以修改uboot源代码以支持它。
+
+. 准备一个24位bmp文件，命名为boot-logo.bmp
+. 将目标文件复制到 /boot/firmware/ 或 /boot/ 目录。
+
+== EC20 LTE 4G 模块
+. AT测试
++
+模块连接好后 Linux 操作系统启动。几个ttyUSB* 在目录中创建设备文件 /dev. 对于 EC20， /dev/ttyUSB2 是AT端口。
+. 通过 qmi 连接网络_旺安 Ubuntu 桌面
++
+单击网络管理器菜单中的编辑连接
++
+image::/picture/ec20_desktop_0.png[ec20_desktop_0.png]
++
+添加新的移动宽带连接
++
+image::/picture/ec20_desktop_1.png[ec20_desktop_1.png]
++
+选择qmi通道设备
++
+当 qmi_旺旺_模块中已安装 q 驱动程序，已创建网络设备和 QMI 通道。网络设备名为 wwanX，QMI 通道为 /dev/cdc-wdmX. 网络设备用于数据传输，QMI通道用于QMI消息交互
++
+image::/picture/ec20_desktop_2.png[ec20_desktop_2.png]
++
+选择运营商所在国家/地区
++
+image::/picture/ec20_desktop_3.png[ec20_desktop_3.png]
++
+选择运营商。
++
+image::/picture/ec20_desktop_4.png[ec20_desktop_4.png]
+image::/picture/ec20_desktop_5.png[ec20_desktop_5.png]
++
+设置连接名称、运营商连接 username/password 以及 APN（如果需要）。
++
+image::/picture/ec20_desktop_6.png[ec20_desktop_6.png]
++
+设置完成，现在可以连接了。
++
+image::/picture/ec20_desktop_7.png[ec20_desktop_7.png]
+
+. 通过 pppd 连接网络 Ubuntu&Debian 服务器
++
+安装 pppd
++
+```sh
+ $ sudo apt install ipppd
+```
+将 AT 设备、用户名和密码更改为您当地的运营商 /etc/ppp/peers/quectel-ppp
++
+image::/picture/ec20_server_pppd_uname.png[ec20_server_pppd_uname.png]
+将 APN 更改为您当地的运营商 /etc/ppp/peers/quectel-chat-connect
++
+image::/picture/ec20_server_pppd_apn.png[ec20_server_pppd_apn.png]
+两种方式命令启动pppd，可以查看PPP调用设置日志的过程 link:https://github.com/Dangku/readme/blob/master/cm4/ec20_pppd.log[这里].
++
+```sh
+ # pppd call quectel-ppp &
+```
+或
++
+```sh
+ # quectel-pppd.sh /dev/ttyUSB2 <apn> <username> <password>
+```
+终止 pppd 进程：
++
+```sh
+ # quectel-ppp-kill
+```
+. 通过 qmi 连接网络_旺安 Ubuntu&Debian 服务器
+[quectel-CM] is a connection manager program for you to set up data connection manually. You can check the process of qmi_wwan calling setup log link:https://github.com/Dangku/readme/blob/master/cm4/ec20_pppd.log[here].
++
+```sh
+ # quectel-CM &
+```
+终止quectel-CM进程：
++
+```sh
+ # killall quectel-CM
+```
+
+== 开机 Linux 来自 SSD
+A311d soc ROM 和 link:https://github.com/BPI-SINOVOIP/BPI-M2S-bsp[BPI-M2S-bsp] uboot 都不支持 nvme 启动，所以启动的唯一方法 linux 来自 SSD 是创建一个可启动的 SD 卡或 emmc 刷入引导加载程序和引导分区，然后从以下位置加载 rootfs SSD。启动后，一切都会从 SSD。你需要一个迷你电脑 nvme 转接板因为 bananapi cm4io 板上有一个 minipcie 插槽。
+
+. 简单的方法是 link:/en/BPI-CM4/GettingStarted_BPI-CM4#_install_image_to_sdcard[刷入 CM4 Linux 镜像到 SD 卡或emmc] 可启动并将其闪存到 nvme ssd 用于加载 rootfs。
+. 启动 CM4 板 link:/en/BPI-CM4/GettingStarted_BPI-CM4#_boot_sequence[SD 卡或 emmc], 修改 /boot/boot.ini 从中加载 rootfs nvme 内核分区。
++
+```sh
+ diff a/boot/boot.ini b/boot/boot.ini
+ index 2222e79..c485067 100755
+ --- a/boot/boot.ini
+ +++ b/boot/boot.ini
+ @@ -20,6 +20,8 @@ fi;
+
+  if test "${devtype}" = "usb"; then setenv rootfsdev "/dev/sda2"; fi
+
+ +# force set root=/dev/nvme0n1p2
+ +setenv rootfsdev "/dev/nvme0n1p2"
+ +
+  # Load env.txt
+  fatload ${devtype} ${devno}:1 ${env_loadaddr} env.txt
+  env import -t ${env_loadaddr} ${filesize};
+```
+. 重新启动系统，内核将从中加载rootfs nvme ssd.
++
+image::/picture/cm4_ssd_rootfs.png[cm4_ssd_rootfs.png]
+
+. 测试性能
+您可以验证您的性能 SSD 使用以下命令在 Pi 基准上：
++
+```sh
+ sudo curl https://raw.githubusercontent.com/TheRemote/PiBenchmarks/master/Storage.sh | sudo bash
+```
+SD 的测试结果， emmc 和 nvme ssd (三星970EVOPlus)
+
+[options="header",cols="1,2,2,2,2"]
+|=====
+| 类别    | 测试             | SD卡测试结果    | Emmc 测试结果        | Nvme SSD 测试结果      
+| 高清参数      | 磁盘读取        | 60.67 MB/s            | 148.80 MB/s             | 351.29 MB/s               
+| 高清参数      | 缓存磁盘读取 | 56.71 MB/s            | 141.02 MB/s             | 347.03 MB/s               
+| DD          | 磁盘写入       | 14 MB/s               | 51.0 MB/s               | 244 MB/s                  
+| 菲奥         | 4k随机读取   | 2176 IOPS (8704 KB/s) | 8438 IOPS (33753 KB/s)  | 101386 IOPS (405544 KB/s) 
+| 菲奥         | 4k随机写入  | 932 IOPS (3729 KB/s)  | 10876 IOPS (43505 KB/s) | 43206 IOPS (172827 KB/s)  
+| IO区      | 4k 阅读          | 8586 KB/s             | 20311 KB/s              | 119475 KB/s               
+| IO区      | 4k写入         | 2385 KB/s             | 19016 KB/s              | 90619 KB/s                
+| IO区      | 4k随机读取   | 6734 KB/s             | 20807 KB/s              | 51517 KB/s                
+| IO区      | 4k随机写入  | 3737 KB/s             | 22731 KB/s              | 95139 KB/s                
+||| 分数：1076 | 分数：5446      | 分数：24550
+|=====
+
+== 禁用 SD 卡 UHS 模式
+将disableuhs选项添加到内核bootargs中 /boot/env.txt 禁用 sdcard uhs 功能
+```sh
+ # User kernel args
+ # Add customer kernel args here
+ user_kernel_args=pci=pcie_bus_safe disableuhs
+```
+
+== 启用 Wifi 和 BT
+CM4 机载 wifi/bt RTL8822CS，在默认映像中未启用，您可以通过以下步骤启用它。
+
+. 添加wifi模块名称 /etc/modules 用于下次启动时自动加载。
++
+```sh
+ # This file contains the names of kernel modules that should be loaded
+ # at boot time, one per line. Lines beginning with "#" are ignored.
+ 88x2cs
+```
+. 为服务器映像安装蓝牙包
++
+```sh
+ $ sudo apt update
+ $ sudo apt install bluez rfkill
+```
+. 重启系统
+
+== Linux 服务器镜像网络配置
+link:https://netplan.io/[Netplan]
+
+**Linux WiFi STA 模式**
+
+wifi sta 模式 netplan 配置文件示例， 01-wlan0-sta.yaml
+```sh
+network:
+  version: 2
+  renderer: networkd
+  wifis:
+    wlan0:
+      dhcp4: true
+      access-points:
+        "bananapi":
+           password: "123456789"
+```
+**Linux 无线AP模式**
+
+. 准备正确设置 wifi 适配器。
+. 获取 WiFi 适配器频段、频率、频道、HT 能力、VHT 能力或其他属性
+$ iw list
+. 使用 Netplan 和 Network-Manager 管理 wifi 接入点模式。
+安装 NetworkManager，因为 ap 仅受 NetworkManager 渲染器支持
++
+```sh
+$ sudo apt install network-manager
+```
+示例 2.4G wifi ap 模式 netplan 配置文件， 01-wlan0-ap-2.4g.yaml
++
+```sh
+network:
+version: 2
+renderer: NetworkManager
+wifis:
+  wlan0:
+    dhcp4: no
+    access-points:
+      "bananapi":
+         mode: ap
+         band: 2.4GHz
+         channel: 6
+         auth:
+           key-management: psk
+           password: "123456789"
+```
+5G wifi ap 模式 netplan 配置文件示例， 01-wlan0-ap-5g.yaml
++
+```sh
+network:
+version: 2
+renderer: NetworkManager
+wifis:
+  wlan0:
+    dhcp4: no
+    access-points:
+      "bananapi":
+         mode: ap
+         band: 5GHz
+         channel: 36
+         auth:
+           key-management: psk
+           password: "123456789"
+```
+. 使用 Netplan 和 Hostapd 管理 wifi 接入点模式。
+- 创建一个netplan配置文件， 01-wlan0-ap-hostapd.yaml
++
+```sh
+network:
+version: 2
+renderer: networkd
+ethernets:
+  wlan0:
+    dhcp4: no
+    addresses:
+      - 192.168.11.1/24
+```
+- 安装hostapd
++
+```sh
+$ sudo apt install hostapd
+```
+创建hostapd配置文件 /etc/hostapd/hostapd.conf，例如
++
+```sh
+interface=wlan0
+ssid=bananapi
+
+driver=nl80211
+
+auth_algs=1
+wpa=2
+wpa_passphrase=123456789
+wpa_key_mgmt=WPA-PSK
+rsn_pairwise=CCMP
+
+#bridge=br0
+beacon_int=500
+#SSID not hidden
+ignore_broadcast_ssid=0
+
+hw_mode=a
+channel=36
+max_num_sta=8
+
+### IEEE 802.11n
+ieee80211n=1
+#require_vht=0
+ht_capab=[HT20][HT40+][SHORT-GI-20][SHORT-GI-40][SHORT-GI-80][DSSS_CCK-40]
+
+### IEEE 802.11ac
+ieee80211ac=1
+#require_vht=0
+#vht_capab=[MAX-MPDU-3895][SHORT-GI-80][SU-BEAMFORMEE]
+#vht_oper_chwidth=1
+#vht_oper_centr_freq_seg0_idx=42
+
+### WMM
+wmm_enabled=1
+```
+- 要支持 80MHz 通道宽度，您需要使用 rtw 加载驱动程序_伏特_启用=2 个选项，或者您可以创建 /etc/modprobe.d/8822cs.conf 有内容
++
+```sh
+options 88x2cs rtw_vht_enable=2
+```
+- 安装并配置dhcp服务器服务，例如使用isc-dhcp-server
++
+```sh
+$ sudo apt install isc-dhcp-server
+```
+配置 dhcp 服务器接口 /etc/default/isc-dhcp-server
++
+```sh
+# On what interfaces should the DHCP server (dhcpd) serve DHCP requests?
+#       Separate multiple interfaces with spaces, e.g. "eth0 eth1".
+INTERFACESv4="wlan0"
+```
+配置 dhcp 子网和 dns /etc/dhcp/dhcpd.conf
++
+```sh
+...
+option domain-name "example.org";
+option domain-name-servers 8.8.8.8, 114.114.114.114;
+...
+# No service will be given on this subnet, but declaring it helps the 
+# DHCP server to understand the network topology.
+subnet 192.168.11.0 netmask 255.255.255.0 {
+  range dynamic-bootp 192.168.11.1 192.168.11.100;
+  option broadcast-address 192.168.11.255;
+  option routers 192.168.11.1;
+}
+```
+- 启动服务
++
+```sh
+$ sudo hostapd /etc/hostapd/hostapd.conf -B
+$ sudo systemctl restart isc-dhcp-server
+```
+- 路由配置。
++
+```sh
+sysctl net.ipv4.ip_forward=1
+iptables -t nat -A POSTROUTING -s 192.168.11.0/24 -o eth0 -j MASQUERADE
+```
+
+= 其他开发
+== 启动顺序
+
+image::/picture/m5_linux_boot_squence.png[m5_linux_boot_squence.png]
+检查从 SD 卡加载的引导加载程序或 EMMC 在控制台调试消息的开头
+
+. ROM 从 SD 卡加载引导加载程序 (Linux 日志示例)
++
+```sh
+ ...
+ 
+ BL2 Built : 15:21:42, Mar 26 2020. g12a g486bc38 - gongwei.chen@droid11-sz
+ 
+ Board ID = 1
+ Set cpu clk to 24M
+ Set clk81 to 24M
+ Use GP1_pll as DSU clk.
+ DSU clk: 1200 Mhz
+ CPU clk: 1200 MHz
+ Set clk81 to 166.6M
+ board id: 1
+ Load FIP HDR DDR from SD, src: 0x00010200, des: 0xfffd0000, size: 0x00004000, part: 0
+ fw parse done
+ PIEI prepare done
+ fastboot data verify
+ result: 255
+ Cfg max: 12, cur: 1. Board id: 255. Force loop cfg
+ DDR4 probe
+ 
+ ...
+```
+. ROM 加载引导加载程序 EMMC(Android 日志示例)
++
+```sh
+ ...
+ 
+ Board ID = 1
+ Set cpu clk to 24M
+ Set clk81 to 24M
+ Use GP1_pll as DSU clk.
+ DSU clk: 1200 Mhz
+ CPU clk: 1200 MHz
+ Set clk81 to 166.6M
+ eMMC boot @ 0
+ sw8 s
+ board id: 1
+ Load FIP HDR DDR from eMMC, src: 0x00010200, des: 0xfffd0000, size: 0x00004000, part: 0
+ fw parse done
+ PIEI prepare done
+ 00000000
+ emmc switch 1 ok
+ ddr saved addr:00016000
+ Load ddr parameter from eMMC, src: 0x02c00000, des: 0xfffd0000, size: 0x00001000, part: 0
+ 00000000
+ 
+ ...
+```
+
+== 擦除 EMMC 用于 SD 卡启动
+有四种可能的情况需要注意， EMMC 已经闪现了 Android 镜像， EMMC 已经闪现了 Linux 镜像、BL2 中的启动进程挂起以及 EMMC 空的。
+
+. 可启动 EMMC 与 Android 镜像闪烁
+- 使用 usb 烧录工具，拔掉type-c usb 下载过程中以 7% 格式连接电缆
++
+M5 android 格式.png
+
+- 使用 Android Fastboot 工具，确保 adb/fastboot 在执行此操作之前，工具已在您的 PC 上运行。
++
+```sh
+   root@dangku-desktop:/tmp# adb root
+   adbd is already running as root
+   root@dangku-desktop:/tmp# adb remount
+   remount succeeded
+   root@dangku-desktop:/tmp# adb shell
+   bananapi_m2s:/ # reboot fastboot
+```
+等待几秒钟，主板重新启动至快速启动模式
++
+```sh
+   root@dangku-desktop:/tmp# fastboot devices
+   1234567890	fastboot
+   root@dangku-desktop:/tmp# fastboot flashing unlock_critical
+   ...
+   OKAY [  0.044s]
+   finished. total time: 0.044s
+   root@dangku-desktop:/tmp# fastboot flashing unlock
+   ...
+   OKAY [  0.047s]
+   finished. total time: 0.047s
+   root@dangku-desktop:/tmp# fastboot erase bootloader
+   erasing 'bootloader'...
+   OKAY [  0.059s]
+   finished. total time: 0.059s
+   root@dangku-desktop:/tmp# fastboot erase bootloader-boot0
+   erasing 'bootloader-boot0'...
+   OKAY [  0.036s]
+   finished. total time: 0.036s
+   root@dangku-desktop:/tmp# fastboot erase bootloader-boot1
+   erasing 'bootloader-boot1'...
+   OKAY [  0.035s]
+   finished. total time: 0.035s
+```
+- 使用uboot命令，连接调试控制台电缆并在开机时按ESC键进入uboot命令行
++
+```sh
+   bananapi_m2s_v1#amlmmc erase 1
+   emmckey_is_protected(): protect
+   start = 0,end = 57343
+   start = 221184,end = 30535679
+   Erasing blocks 0 to 8192 @ boot0
+   start = 0,end = 8191
+   Erasing blocks 0 to 8192 @ boot1
+   start = 0,end = 8191
+   bananapi_m2s_v1#reset
+   resetting ...
+   SM1:BL:511f6b:81ca2f;FEAT:A0F83180:20282000;POC:F;RCY:0;EMMC:0;READ:0;CHK:1F;READ:0;CHK:1F;READ:0;CHK;
+```
+这两种方式实际上是擦除了bootloader部分 EMMC android, 从 SD 卡启动后 Linux, 你最好 link:/en/BPI-CM4/GettingStarted_BPI-CM4#_erase_emmc_android_by_dd_command[格式化整体 EMMC 通过 dd 命令].
+- 最简单的方法是插入 SD 卡 Linux 开机前镜像闪烁， Android 引导加载程序将检查 boot.ini 文件是否存在于SD卡vfat分区，以便SD卡 Linux 将启动。开机后可以格式化整个 EMMC 通过 dd 命令，然后刷新 Linux 镜像到 EMMC.
++
+```sh
+   ...
+   BPI: try boot from sdcard
+   reading boot.ini
+   2453 bytes read in 3 ms (797.9 KiB/s)
+   ## Executing script at 03080000
+   Starting boot.ini...
+   reading env.txt
+   3483 bytes read in 7 ms (485.4 KiB/s)
+   HDMI: Autodetect: 1080p60hz
+   reading Image.gz
+   10924573 bytes read in 611 ms (17.1 MiB/s)
+   reading bananapi_m2s.dtb
+   88054 bytes read in 12 ms (7 MiB/s)
+   reading uInitrd
+   11704481 bytes read in 655 ms (17 MiB/s)
+   reading overlays/wifi_bt_rtl8822cs.dtbo
+   729 bytes read in 6 ms (118.2 KiB/s)
+```
+
+. 可启动 EMMC 与 Linux 镜像闪烁
+- 使用uboot命令，连接调试控制台电缆并在开机时按ESC键进入uboot命令行
++
+```sh
+   bananapi_m2s# mmc erase 0 1000
+```
+- Linux u-boot 还检查 boot.ini 文件是否存在于SD卡vfat分区中，以便SD卡 Linux 将启动。开机后可以格式化整个 EMMC 通过 dd 命令或 flash Linux 镜像直接到 EMMC.
+
+. 极端情况是 bootloader 或 uboot 损坏，ROM 从 EMMC 但在u-boot或BL2中挂起，例如启动过程会在BL2中挂起 EMMC 如果 dram 初始化失败，唯一的方法是格式化 EMMC 与 usb 烧录工具，或下载 Android 镜像完全，然后尝试其他方法擦除 EMMC 或闪光 Linux 镜像到 EMMC.
+
+. 如果出现以下情况，Rom 将尝试直接从 SD 卡加载引导加载程序 EMMC 是空的。
+擦除 Emmc Android 通过 dd 命令
+如果板子闪了 android 之前，整个 emmc 如果你想用SD卡启动它，必须通过这些命令擦除 Linux 镜像。
++
+```sh
+ $ sudo dd if=/dev/zero of=/dev/mmcblk0boot0 bs=1M status=noxfer 
+ $ sudo dd if=/dev/zero of=/dev/mmcblk0boot1 bs=1M status=noxfer
+ $ sudo dd if=/dev/zero of=/dev/mmcblk0 bs=1M status=noxfer 
+ $ sync
+```
+
+== 擦除 Emmc Android 通过 dd 命令
+如果板子闪了 android 之前，整个 emmc 如果你想用SD卡启动它，必须通过这些命令擦除 Linux 镜像。
+```sh
+ $ sudo dd if=/dev/zero of=/dev/mmcblk0boot0 bs=1M status=noxfer 
+ $ sudo dd if=/dev/zero of=/dev/mmcblk0boot1 bs=1M status=noxfer
+ $ sudo dd if=/dev/zero of=/dev/mmcblk0 bs=1M status=noxfer 
+ $ sync
+```
+
+== 云初始化&Snap
+Cloud-init 和 Snap 服务默认启用，您可以禁用或删除它们。
+
+. 禁用或删除 cloud-init
++
+```sh
+ $ sudo touch /etc/cloud/cloud-init.disabled
+```
+或
++
+```sh
+ $ sudo apt purge cloud-init
+```
+. 禁用或删除快照
++
+```sh
+ $ sudo apt purge snapd
+```
+
+== 启用 rc-local
+systemd 服务 rc-local.service 已存在于发布映像中，但没有 [安装] 单元文件中的一部分。因此，Systemd 无法启用它。首先，我们必须更新文件。
+```sh
+ $ sudo nano /lib/systemd/system/rc-local.service
+```
+```sh
+ [Unit]
+ Description=/etc/rc.local Compatibility
+ Documentation=man:systemd-rc-local-generator(8)
+ ConditionFileIsExecutable=/etc/rc.local
+ After=network.target
+ 
+ [Service]
+ Type=forking
+ ExecStart=/etc/rc.local start
+ TimeoutSec=0
+ RemainAfterExit=yes
+ GuessMainPID=no
+ 
+ [Install]
+ WantedBy=multi-user.target
+ Alias=rc-local.service
+```
+创建 /etc/rc.local 文件。
+```sh
+ sudo nano /etc/rc.local
+```
+```sh
+ #!/bin/sh
+ #
+ # rc.local
+ #
+ # This script is executed at the end of each multiuser runlevel.
+ # Make sure that the script will "exit 0" on success or any other
+ # value on error.
+ #
+ # In order to enable or disable this script just change the execution
+ # bits.
+ #
+ # By default this script does nothing.
+ 
+ exit 0
+```
+添加可执行权限 /etc/rc.local
+```sh
+ $ sudo chmod +x /etc/rc.local
+```
+启用 rc-local.service 并重新启动
+```sh
+ $ sudo systemctl enable rc-local.service
+ $ sudo reboot
+```
+
+== 启用 sudo Debian
+发布 Debian image默认不安装sudo，使用“su -”命令，用户可以更改为root。如果你喜欢sudo，可以安装它。
+```sh
+ $ su root
+ Password:(enter bananapi)
+```
+```sh
+ # apt-get update
+ # apt-get install sudo
+ # adduser pi sudo
+```
+然后请注销并重新登录
+
+== 安装 Docker发动机
+安装 Docker 发动机开启 Ubuntu 20.04 服务器
+
+. 设置存储库
++
+更新 apt 软件包索引并安装软件包以允许 apt 通过 HTTPS 使用存储库：
++
+```sh
+ $ sudo apt-get update
+ $ sudo apt-get install apt-transport-https ca-certificates curl gnupg lsb-release
+```
+添加 Docker官方GPG密钥：
++
+```sh
+ $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+```
+设置稳定存储库
++
+```sh
+ $  echo \
+    "deb [arch=arm64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+    $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+```
+. 安装 Docker发动机
++
+```sh
+ $ sudo apt-get update
+ $ sudo apt-get install docker-ce docker-ce-cli containerd.io
+```
+. 验证 Docker 通过运行 hello-world 映像正确安装引擎。
++
+```sh
+ $ sudo docker run hello-world
+```
++
+
+安装 docker 用一个简单的命令
++
+```sh
+ $ curl -sSL get.docker.com | sudo sh
+```
+image::/picture/docker-test.png[docker-test.png]
+
+link:https://docs.docker.com/engine/install/[安装 Docker发动机] 在其他方面 Linux 分布
