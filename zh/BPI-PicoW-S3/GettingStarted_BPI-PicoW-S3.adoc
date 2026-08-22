@@ -1,68 +1,67 @@
-TIP: link:/en/BPI-PicoW-S3/BananaPi_BPI-PicoW-S3[香蕉派 BPI-PicoW-S3 主页]
+TIP: link:/en/BPI-PicoW-S3/BananaPi_BPI-PicoW-S3[Banana Pi BPI-PicoW-S3 主页]
 
-我们编写了这份入门指南来帮助您开始使用
-BPI-PicoW-S3 开发板快。
+我们编写了这份入门指南，帮助你快速开始使用
+BPI-PicoW-S3 开发板。
 
-== 第一件事
+== 首次使用
 
-使用一个 USB-C 电缆具有电源和数据功能，用于连接
-BPI-Centi-S3 开发板连接到您的计算机。
+使用一根同时支持供电和数据传输的 USB-C 线，将
+BPI-PicoW-S3 开发板连接到计算机。
 
-A `CIRCUITPY` 电脑文件管理页面会重新出现磁盘。
+计算机的文件管理器中会重新出现一个 `CIRCUITPY` 磁盘。
 
-> BPI-PicoW-S3 预装了 **微小UF2** 和 **CircuitPython** 开箱即用的固件。推荐使用 CircuitPython 快速开始使用 BPI-PicoW-S3 开发板，因为它被认为是对初学者最友好的平台。
+> BPI-PicoW-S3 出厂时已预装 **tinyUF2** 和 **CircuitPython** 固件。CircuitPython 是对初学者非常友好的平台，建议使用它快速上手 BPI-PicoW-S3 开发板。
 
-== 代码与 CircuitPython
+== 使用 CircuitPython 编程
 
 image::/picture/circuitpython_repo_header_logo.jpg[circuitpython_repo_header_logo.jpg]
 
-. link:./CircuitPython/config_mu-editor[配置使用环境 (穆编辑)]| https://www.youtube.com/watch?v=K2_YXf0Eovc[Youtube 视频] ，那么您可以参考下面的用例并开始编程。
-. 如果您想更新固件，请参阅 link:./CircuitPython/update_circuitpython[如何更新 CircuitPython 固件]| https://www.youtube.com/watch?v=MZlrpOE2y6I[Youtube 视频].
-. 如果发生意外问题导致无法正常启动，或者闪存被擦除，请参阅 link:./CircuitPython/flash_tinyuf2[如何刷写tinyUF2固件]| https://www.youtube.com/watch?v=MZlrpOE2y6I[Youtube 视频].
+. link:./CircuitPython/config_mu-editor[配置使用环境（Mu 编辑器）]| https://www.youtube.com/watch?v=K2_YXf0Eovc[YouTube 视频]。完成后即可参考下方示例开始编程。
+. 如需更新固件，请参阅 link:./CircuitPython/update_circuitpython[如何更新 CircuitPython 固件]| https://www.youtube.com/watch?v=MZlrpOE2y6I[YouTube 视频]。
+. 如果发生意外问题，导致开发板无法正常启动或闪存被擦除，请参阅 link:./CircuitPython/flash_tinyuf2[如何烧录 tinyUF2 固件]| https://www.youtube.com/watch?v=MZlrpOE2y6I[YouTube 视频]。
 
-=== 使用案例
+=== 使用示例
 
-. link:./CircuitPython/REPL_simple_to_use[REPL 使用简单]
-. link:./CircuitPython/Edit_code_py[编辑 code.py 使RGB LED 眨眼]| https://www.youtube.com/watch?v=RdNg8suVBAw[Youtube 视频]
-. link:./CircuitPython/pins_output[使引脚输出高电平或低电平，控制 LED]| https://www.youtube.com/watch?v=-tXQjxDrvSc[Youtube 视频]
-. link:./CircuitPython/PWM_output[PWM 输出、控制 LED 亮度]| https://www.youtube.com/watch?v=rp9lUDSgeds[Youtube 视频]
-. link:./CircuitPython/PWM_controlled_servo[PWM 控制伺服]| https://www.youtube.com/watch?v=82UMfU77mq4[Youtube 视频]
-. link:./CircuitPython/ADC_input[ADC 输入，使用双轴操纵杆]| https://www.youtube.com/watch?v=Eq0NBaAQIS8[Youtube 视频]
-. link:./CircuitPython/Using_incremental_rotary_encoders[使用增量旋转编码器]| https://www.youtube.com/watch?v=E6fLFvamf18[Youtube 视频]
-. link:./CircuitPython/Download_and_install_the_CircuitPython_library[下载并安装 CircuitPython 驱动SSD1306的库 oled 显示模块]| https://www.youtube.com/watch?v=tKRom5dzNDY[Youtube 视频]
-. link:./CircuitPython/OLED_real-time_display_dual-axis_joystick[OLED 双轴摇杆位置实时动画显示]| https://www.youtube.com/watch?v=DGlPyaJRxxc[Youtube 视频]
+. link:./CircuitPython/REPL_simple_to_use[REPL 基础用法]
+. link:./CircuitPython/Edit_code_py[编辑 code.py，使 RGB LED 闪烁]| https://www.youtube.com/watch?v=RdNg8suVBAw[YouTube 视频]
+. link:./CircuitPython/pins_output[让引脚输出高电平或低电平以控制 LED]| https://www.youtube.com/watch?v=-tXQjxDrvSc[YouTube 视频]
+. link:./CircuitPython/PWM_output[PWM 输出：控制 LED 亮度]| https://www.youtube.com/watch?v=rp9lUDSgeds[YouTube 视频]
+. link:./CircuitPython/PWM_controlled_servo[使用 PWM 控制舵机]| https://www.youtube.com/watch?v=82UMfU77mq4[YouTube 视频]
+. link:./CircuitPython/ADC_input[ADC 输入：使用双轴摇杆]| https://www.youtube.com/watch?v=Eq0NBaAQIS8[YouTube 视频]
+. link:./CircuitPython/Using_incremental_rotary_encoders[使用增量式旋转编码器]| https://www.youtube.com/watch?v=E6fLFvamf18[YouTube 视频]
+. link:./CircuitPython/Download_and_install_the_CircuitPython_library[下载并安装用于驱动 SSD1306 OLED 显示模块的 CircuitPython 库]| https://www.youtube.com/watch?v=tKRom5dzNDY[YouTube 视频]
+. link:./CircuitPython/OLED_real-time_display_dual-axis_joystick[在 OLED 上实时显示双轴摇杆位置动画]| https://www.youtube.com/watch?v=DGlPyaJRxxc[YouTube 视频]
 
 
-=== 支持者 CircuitPython
+=== CircuitPython 上游支持
 
-. 支持者： adafruit/circuitpython GitHub 存储库。
+. 已获得 adafruit/circuitpython GitHub 仓库支持。
 +
-https://github.com/adafruit/circuitpython/pull/7031 分支已合并。
+https://github.com/adafruit/circuitpython/pull/7031 已合并。
 
-. 支持者： adafruit/tinyuf2 GitHub 存储库。
+. 已获得 adafruit/tinyuf2 GitHub 仓库支持。
 +
-https://github.com/adafruit/tinyuf2/pull/250 分支已合并。
+https://github.com/adafruit/tinyuf2/pull/250 已合并。
 
-. 支持者： adafruit/circuitpython-org GitHub 存储库。
+. 已获得 adafruit/circuitpython-org GitHub 仓库支持。
 +
-https://github.com/adafruit/circuitpython-org/pull/1070 分支已合并。
+https://github.com/adafruit/circuitpython-org/pull/1070 已合并。
 +
-https://github.com/adafruit/circuitpython-org/pull/1077 分支已合并。
+https://github.com/adafruit/circuitpython-org/pull/1077 已合并。
 
-. 的 circuitpython.org网站可以下载 circuitpython 固件和tinyuf2固件。
+. 可从 circuitpython.org 网站下载 CircuitPython 和 tinyUF2 固件。
 +
 https://circuitpython.org/board/bpi_picow_s3/
 
 === 参考资源
 
-* https://learn.adafruit.com/welcome-to-circuitpython[阿达水果：欢迎来到 CircuitPython]
+* https://learn.adafruit.com/welcome-to-circuitpython[Adafruit：欢迎使用 CircuitPython]
 
-* https://learn.adafruit.com/getting-started-with-web-workflow-using-the-code-editor/overview[阿达果：CircuitPython Web 工作流代码编辑器快速入门]
+* https://learn.adafruit.com/getting-started-with-web-workflow-using-the-code-editor/overview[Adafruit：CircuitPython Web 工作流代码编辑器快速入门]
 
-* https://circuitpython.readthedocs.io/[阿达果：CircuitPython 文档]
+* https://circuitpython.readthedocs.io/[Adafruit：CircuitPython 文档]
 
 * https://github.com/todbot/circuitpython-tricks[GitHub:CircuitPython-tricks]
 
-* https://forum.banana-pi.org/t/bpi-pico-s3-getting-started-code-circuitpython-with-mu-editor/13969[BPI-Pico-S3 入门、代码 CircuitPython 与 Mu 编辑器一起]
-
+* https://forum.banana-pi.org/t/bpi-pico-s3-getting-started-code-circuitpython-with-mu-editor/13969[BPI-Pico-S3 入门：使用 Mu 编辑器编写 CircuitPython 代码]
 
