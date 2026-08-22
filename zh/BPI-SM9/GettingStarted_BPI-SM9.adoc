@@ -1,37 +1,37 @@
 = 简介
 
-香蕉派 BPI-SM9 16-ENC-A3深度学习计算模块搭载高集成计算技术处理器BM1688 8核ARM CA53 1.6GHz、8GB LPDDR4，32GB eMMC 船上。拥有1个RJ45千兆网口、1个M.2 Key E、1个M.2 Key M、4个USB3.2接口、1个TYPE C (USB3.0) 以及多种功能接口。
+Banana Pi BPI-SM9 16-ENC-A3 深度学习计算模块搭载高度集成的 BM1688 处理器，配备八核 Arm Cortex-A53 1.6 GHz CPU、8 GB LPDDR4 内存和 32 GB 板载 eMMC。它提供一个 RJ45 千兆网口、一个 M.2 Key E、一个 M.2 Key M、四个 USB 3.2 接口、一个 Type-C（USB 3.0）接口及多种功能接口。
 
 == 规格参数
-* 支持HDMI 2.0输出；
-* 支持双千兆RJ45 Ethernet;
-* 支持双层USB3.0接口；
-* 支持双层WIFI_蓝牙功能；
-* 支持TF卡或M.2 SSD 扩张；
-* 支持2路MIPI摄像头输入；
-* 支持扩展 GPIO;
-* 支持CAN功能；
-* 支持 USB-C接口升级 (NVIDVI核心板解决方案);
+* 支持 HDMI 2.0 输出；
+* 支持双千兆 RJ45 以太网；
+* 支持双层 USB 3.0 接口；
+* 支持 WiFi/蓝牙功能；
+* 支持 TF 卡或 M.2 SSD 扩展；
+* 支持两路 MIPI 摄像头输入；
+* 支持 GPIO 扩展；
+* 支持 CAN 功能；
+* 支持通过 USB-C 接口升级（NVIDIA 核心板方案）。
 
 = 开发
 
 == 准备
 
-* 12V/3A 电源适配器(电压范围在 11 至 13 伏之间。使用 12V 电源适配器是最合适的选择。)
+* 12 V/3 A 电源适配器（允许电压范围为 11～13 V，推荐使用 12 V 适配器）
 
-* 使用您的 USB-串行电缆(3.3V TTL,波特率=115200) 连接到调试控制台 BPI-SM9
+* 一根 USB 转串口线（3.3 V TTL，波特率 115200），用于连接 BPI-SM9 调试控制台
 
-* 一张TF卡(如果您想使用FT卡启动系统)
+* 一张 TF 卡（如果要从 TF 卡启动系统）
 
-* 一根 Type-C 电缆 (用于升级编程)
+* 一根 Type-C 数据线（用于升级和烧录）
 
 == 工具
 
-百度云： https://pan.baidu.com/s/1_aP12DUw99F8WNFdFH0kXg?pwd=8888 (密码：8888)
+百度网盘：https://pan.baidu.com/s/1_aP12DUw99F8WNFdFH0kXg?pwd=8888 （提取码：8888）
 
-谷歌驱动器： https://drive.google.com/file/d/10slssV4y-A26oLHm8XrtXRGv5f4tKp69/view?usp=sharing
+Google Drive：https://drive.google.com/file/d/10slssV4y-A26oLHm8XrtXRGv5f4tKp69/view?usp=sharing
 
-=== TTL调试端口
+=== TTL 调试端口
 
 image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_debugport.jpg.jpg[bananapi-pi_sm9_debugport.jpg.jpg]
 
@@ -44,75 +44,75 @@ HDMI_DDC 电压连接器跳线帽
 
 image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_jumper_cap2.jpg[bananapi-pi_sm9_jumper_cap2.jpg]
 
-=== TF卡检测及 GPIO 选择
-NOTE: JP7跳线说明： (对于BM1688)
-1. 默认连接：PIN2和PIN3，用于开启对WIFI模块的控制 BM1688/NVIDIA 模块；
-2. 使用BM1688的TF卡功能时，需要将PIN1和PIN2跳线，用于检测BM1688中TF卡的插入；
+=== TF 卡检测与 GPIO 选择
+NOTE: JP7 跳线说明（适用于 BM1688）：
+1. 默认短接 PIN2 与 PIN3，用于 BM1688/NVIDIA 模块控制 WiFi 模块的使能信号；
+2. 使用 BM1688 的 TF 卡功能时，需要短接 PIN1 与 PIN2，用于检测 TF 卡是否插入。
 
 [options="header",cols="1,1,1,5,1",width="90%"]
 |====
-5+| **BPI-SM9 TF 跳线针**
-| 编号位置 | 密码 | 引脚定义 | 密码说明 | 等级
+5+| **BPI-SM9 TF 跳线引脚**
+| 编号位置 | 引脚 | 引脚定义 | 引脚说明 | 电平
 .3+| JP7
-| 1 | SDDMMC_乙二胺四乙酸 | TF卡插入检测 | 1V8
-| 2 | GPIOC0-SDMMC_乙二胺四乙酸 | TF卡插入检测或通用 GPIO | 1V8
-| 3 | W_禁用1_控制键 | WiFi的WIFI使能控制信号_蓝牙模块 | 1V8
+| 1 | SDMMC_DET | TF 卡插入检测 | 1V8
+| 2 | GPIOC0-SDMMC_DET | TF 卡插入检测或通用 GPIO | 1V8
+| 3 | W_DISABLE1_CTRL | WiFi/蓝牙模块的 WiFi 使能控制信号 | 1V8
 
 |====
 
 === PWM 控制跳线帽
-NOTE: 该跳线帽用于 PWM 控制不同模块中的 FAN。默认情况下，使用BM1688模块就足够了。
+NOTE: 此跳线帽用于选择不同模块的风扇 PWM 控制信号；默认连接 BM1688 模块即可。
 
 [options="header",cols="1,1,1,5,1",width="90%"]
 |====
-5+| **BPI-SM9 PWM 控制跳线针**
-| 编号位置 | 密码 | 引脚定义 | 密码说明 | 等级
+5+| **BPI-SM9 PWM 控制跳线引脚**
+| 编号位置 | 引脚 | 引脚定义 | 引脚说明 | 电平
 .3+| JP8
-| 1 | BM1688_风扇_脉宽调制5 | 的 PWM BM1688的控制引脚 | 1V8
-| 2 | 风扇_脉宽调制 | 的 PWM 风扇控制输入 | 1V8
-| 3 | 英伟达_风扇_脉宽调制 | 英伟达的 PWM 控制引脚 | 1V8
+| 1 | BM1688_FAN_PWM5 | BM1688 的 PWM 控制引脚 | 1V8
+| 2 | FAN_PWM | 风扇 PWM 控制输入 | 1V8
+| 3 | NVIDIA_FAN_PWM | NVIDIA 模块的 PWM 控制引脚 | 1V8
 |====
 
 === HDMI_DDC 电压连接器跳线帽
 
-NOTE: 对于不同模块的电平选择，这里假设可以使用1.8V。
+NOTE: 此跳线用于选择不同模块所需的电平，本例使用 1.8 V。
 
 [options="header",cols="1,1,1,5,2",width="90%"]
 |====
-5+| **BPI-SM9 HDMI_DDC 电压连接器跳线针**
-| 编号位置 | 密码 | 引脚定义 | 密码说明 | 等级
+5+| **BPI-SM9 HDMI_DDC 电压选择跳线引脚**
+| 编号位置 | 引脚 | 引脚定义 | 引脚说明 | 电平
 .3+| JP8
-| 1 | 1V8 | 电源1.8V | 1V8
-| 2 | 电源电压_DDC | DDC的电源选择 | 1V8 / 3V3
-| 3 | 3V3 | 电源3.3V | 3V3
+| 1 | 1V8 | 1.8 V 电源 | 1V8
+| 2 | VDD_DDC | DDC 电源选择 | 1V8 / 3V3
+| 3 | 3V3 | 3.3 V 电源 | 3V3
 |====
 
 = 配件
 
-== SD卡烧录镜像
-NOTE: 请注意板上的TF卡夹位置是否正确。请参阅： link:https://docs.banana-pi.org/en/BPI-SM9/GettingStarted_BPI-SM9#_tf_card_detection_and_gpio_selection[TF卡检测及 GPIO 选择]
+== 使用 SD 卡烧录镜像
+NOTE: 请确认开发板上的 TF 卡检测跳线位置正确。参见：link:https://docs.banana-pi.org/en/BPI-SM9/GettingStarted_BPI-SM9#_tf_card_detection_and_gpio_selection[TF 卡检测与 GPIO 选择]
 
-. 首先下载对应的SD卡烧录包，然后将里面的文件复制到SD卡上。
+. 首先下载对应的 SD 卡烧录包，然后将包内文件复制到 SD 卡。
 
 . 将卡插入 BPI-SM9 并打开电源即可启动。
 
-. 最后，它会自动更新并刻录。
+. 系统会自动执行更新和烧录。
 
 image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_sd_burn1.jpg[bananapi-pi_sm9_sd_burn1.jpg]
 
 
-== OTG typeC 烧录镜像
+== 通过 OTG Type-C 烧录镜像
 
-. 请下载并解压烧写工具包“usb_工具”。
+. 下载并解压烧录工具包“usb_tool”。
 . 双击 CviUsbInstallDriver.exe 为您的 PC 安装驱动程序。
-. 打开 Windows USB目录下的命令提示符_dl.exe 文件并输入：
+. 在 usb_dl.exe 所在目录打开 Windows 命令提示符，然后输入：
 +
 ```bash
 ./usb_dl.exe -c cv186x -i usb\
 ```
 image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_otgburn1.jpg[bananapi-pi_sm9_otgburn1.jpg]
 
-. 当出现上述界面时，只需重新插拔OTG Type C接口即可继续烧录过程。
+. 出现上述界面后，重新插拔 OTG Type-C 接口即可继续烧录。
 
 image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_otgburn2.jpg[bananapi-pi_sm9_otgburn2.jpg]
 
@@ -136,7 +136,7 @@ mmcblk0boot0 179:8    0    4M  1 disk
 mmcblk0boot1 179:16   0    4M  1 disk
 ```
 
-== 串口1
+== UART1
 
 image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_uart1.jpg[bananapi-pi_sm9_uart1.jpg]
 
@@ -175,7 +175,7 @@ done
 ```
 image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_uart2.jpg[bananapi-pi_sm9_uart2.jpg]
 
-=== 收到
+=== 接收
 使用脚本接收
 ```bash
 admin@sophon:~/storage-hot-sda1$ cat uart_send.sh
@@ -209,7 +209,7 @@ while true; do
 done
 ```
 
-板上收到
+开发板接收结果
 ```bash
 admin@sophon:~/storage-hot-sda1$ ./uart_receive.sh /dev/ttyS1 9600
 123hello▒▒testhello▒▒testhello
@@ -225,11 +225,11 @@ image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_uart3.jpg[bananapi-pi_sm9_u
 
 TIP: 蓝色：CAN_H 绿色： CAN_L
 
-连接接口
+接线方式
 
 image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_can1.jpg[bananapi-pi_sm9_can1.jpg]
 
-使用SM9文件夹中的脚本可以轻松实现CAN通信。
+使用 SM9 文件夹中的脚本可快速实现 CAN 通信。
 
 === 发送
 
@@ -241,7 +241,7 @@ image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_can1.jpg[bananapi-pi_sm9_ca
 
 image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_can4.jpg[bananapi-pi_sm9_can4.jpg]
 
-=== 收到
+=== 接收
 
 使用脚本来接收。
 
@@ -263,39 +263,39 @@ image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_can2.jpg[bananapi-pi_sm9_ca
 
 == 以太网接口
 
-NOTE: eth0接口位于type-c接口附近。另一个是eth1接口。
+NOTE: 靠近 Type-C 接口的网口为 eth0，另一个网口为 eth1。
 
-TIP: eth1网络接口镜像的默认静态IP地址为192.168.150.1。您可以在 /etc/netplan/01-netcfg.yaml
+TIP: 镜像中 eth1 的默认静态 IP 地址为 192.168.150.1，可在 /etc/netplan/01-netcfg.yaml 中修改。
 
-使用网线将网口连接至计算机。
+使用网线连接开发板网口与电脑。
 
-=== 以太网0
+=== eth0
 
-. 使用该命令设置eth0的IP地址。
+. 使用以下命令设置 eth0 的 IP 地址。
 
 ```bash
  sudo ifconfig eth0 xxx(xxx is ip)
 ```
 
-iperf3测试速度
+使用 iperf3 测试速率
 
 image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_eth1.jpg[bananapi-pi_sm9_eth1.jpg]
 
-=== 以太网1
+=== eth1
 
-iperf3测试速度
+使用 iperf3 测试速率
 
 image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_eth2.jpg[bananapi-pi_sm9_eth2.jpg]
 
-== M.2钥匙E 
+== M.2 Key E 
 
 支持网卡：Intel RTL8822CE
 
-=== 无线网络终端
+=== WiFi STA
 
-NOTE: 您可以在中修改您要连接的WiFi用户名和密码 /etc/wpa_supplicant.conf
+NOTE: 可在 /etc/wpa_supplicant.conf 中修改要连接的 WiFi 网络名称和密码。
 
-. 首先，执行命令添加WiFi驱动程序。
+. 首先执行以下命令加载 WiFi 驱动程序。
 +
 ```bash
 sudo insmod /mnt/system/ko/3rd/xxx.ko //xxx is the network cards name
@@ -308,9 +308,9 @@ sudo insmod /mnt/system/ko/3rd/xxx.ko //xxx is the network cards name
 ```
 image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_wifi1.jpg[bananapi-pi_sm9_wifi1.jpg]
 
-=== 无线网络接入点
+=== WiFi AP
 
-NOTE: 您可以修改创建的WiFi用户名和密码 /etc/hostapd.conf
+NOTE: 可在 /etc/hostapd.conf 中修改要创建的 WiFi 网络名称和密码。
 
 如果您的系统中已经加载了驱动程序，则可以直接执行脚本来创建 Wi-Fi 网络。
 
@@ -323,8 +323,8 @@ image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_wifi2.jpg[bananapi-pi_sm9_w
 
 . 加载驱动程序： sudo insmod /mnt/system/ko/3rd/rtk_btusb.ko
 
-. 验证驱动程序功能，
-使用
+. 验证驱动程序是否正常工作：
+使用以下命令：
 +
 ```bash
 hciconfig
@@ -339,7 +339,7 @@ image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_bluetooth1.jpg[bananapi-pi_
 +
 image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_bluetooth2.jpg[bananapi-pi_sm9_bluetooth2.jpg]
 
-. 使用 BlueZ 工具进行沟通
+. 使用 BlueZ 工具进行通信
 +
 ```bash
 bluetoothctl  //Enter Bluetooth debugging tool
@@ -371,26 +371,26 @@ image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_bluetooth3.jpg[bananapi-pi_
 +
 `sudo hwclock -r --show`
 
-. 可以确定显示的时间为RTC时钟。
+. 如果重启后时间保持正确，则 RTC 工作正常。
 
 == NVME
 
-连接 NVMe 至 M.2 SSD 接口。然后就可以使用该硬盘了。
+将 NVMe SSD 安装到 M.2 SSD 接口后，即可使用该硬盘。
 
 image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_nvme1.jpg[bananapi-pi_sm9_nvme1.jpg]
 
-== 相机
+== 摄像头
 
-WARNING: 它们不能同时使用。
+WARNING: 两个摄像头接口不能同时使用。
 
 === CAM1
 
-TIP: JP7附近 
+TIP: 接口位于 JP7 附近。 
 
 如果您使用其他 MIPI 摄像头，请先卸载该摄像头的驱动程序： 
 `rmmod /mnt/system/ko/v4l2_csi0_ov5647.ko`
 
-. 开关 I2C 至CSI2：
+. 将 I2C 切换到 CSI2：
 +
 `echo 8 > /proc/zkwl/gpio`
 
@@ -404,18 +404,18 @@ TIP: JP7附近
 +
 `sudo ./CviIspTool.sh`
 
-. 使用视频软件从 VLC 中提取视频流。
+. 使用 VLC 等视频软件拉取该视频流。
 
 image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_csi1.jpg[bananapi-pi_sm9_csi1.jpg]
 
 === CAM2
 
-TIP: 靠近12V电源接口
+TIP: 接口位于 12 V 电源接口附近。
 
 如果您使用其他 MIPI 摄像头，请先卸载该摄像头的驱动程序： 
 `rmmod /mnt/system/ko/v4l2_csi2_ov5647.ko`
 
-. 开关 I2C 至 CSI0：
+. 将 I2C 切换到 CSI0：
 +
 `echo 9 > /proc/zkwl/gpio`
 
@@ -423,191 +423,191 @@ TIP: 靠近12V电源接口
 +
 `sudo insmod /mnt/system/ko/v4l2_csi0_ov5647.ko`
 
-. 创建视频流长度
+. 创建视频流：
 +
 `cd /opt/sophon/sophon-soc-libisp-dev_1.0.0/bin/`
 +
 `sudo ./CviIspTool.sh`
 
-. 。使用视频软件从 VLC 中提取视频流。
+. 使用 VLC 等视频软件拉取该视频流。
 
 image::/bpi-sm9/bpi-sm9-gettingstart/bananapi-pi_sm9_csi2.jpg[bananapi-pi_sm9_csi2.jpg]
 
 = GPIO 定义
 
-== 260PIN金手指接口
+== 260 针金手指接口
 
 [%collapsible]
 ====
 
 [options="header",cols="3,1,1,1,1,4",width="70%"]
 |====
-6+| **BPI-SM9 260PIN金手指接口**
-|BPI-SM9-CON	|密码 | 等级 | 等级 |密码	|BPI-SM9-CON
-| 接地 | 1 | / | /| 2 | 接地
+6+| **BPI-SM9 260 针金手指接口**
+|BPI-SM9-CON	|引脚 | 电平 | 电平 |引脚	|BPI-SM9-CON
+| GND | 1 | / | /| 2 | GND
 | CSI1_D0_N | 3 | 1V8| 1V8| 4 | CSI0_D0_N
 | CSI1_D0_P | 5 | 1V8 | 1V8 | 6 | CSI0_D0_P
-| 接地 | 7 | /| / | 8 | 接地
-| CSI1_时钟脉冲_N | 9 | 1V8 | 1V8 | 10 | CSI0_时钟脉冲_N
-| CSI1_时钟脉冲_P | 11 | 1V8 | 1V8 | 12 | CSI0_时钟脉冲_P
-| 接地 | 13 | / | / | 14 | 接地
+| GND | 7 | /| / | 8 | GND
+| CSI1_CLK_N | 9 | 1V8 | 1V8 | 10 | CSI0_CLK_N
+| CSI1_CLK_P | 11 | 1V8 | 1V8 | 12 | CSI0_CLK_P
+| GND | 13 | / | / | 14 | GND
 | CSI1_D1_N | 15 | 1V8 | 1V8 | 16 | CSI0_D1_N
 | CSI1_D1_P | 17 | 1V8 | 1V8 | 18 | CSI0_D1_P
-| 接地 | 19 | / | / |  20 | 接地
+| GND | 19 | / | / |  20 | GND
 | CSI3_D0_N | 21 | 1V8 | 1V8 | 22 | CSI2_D0_N
 | CSI3_D0_P | 23 | 1V8 | 1V8 | 24 | CSI2_D0_P
-| 接地 | 25 | / | / | 26 | 接地
-| CSI3_时钟脉冲_N | 27 | 1V8 | 1V8 | 28 | CSI2_时钟脉冲_N
-| CSI3_时钟脉冲_P | 29 | 1V8 | 1V8 | 30 | CSI2_时钟脉冲_P
-| 接地 | 31 | /| / | 32 | 接地
+| GND | 25 | / | / | 26 | GND
+| CSI3_CLK_N | 27 | 1V8 | 1V8 | 28 | CSI2_CLK_N
+| CSI3_CLK_P | 29 | 1V8 | 1V8 | 30 | CSI2_CLK_P
+| GND | 31 | /| / | 32 | GND
 | CSI3_D1_N | 33 | 1V8 | 1V8 | 34 | CSI2_D1_N
 | CSI3_D1_P | 35 | 1V8 | 1V8 | 36 | CSI2_D1_P
-| 接地 | 37 | / | / | 38 | 接地
-| USBSS1_接收_N | 39 | 3V3 | 1V8 | 40 | I_电源电压_在
-| USBSS1_接收_P | 41 | 3V3 | 3V3| 42 | 温度_ALR_N(GPIO130)
-| 接地 | 43 | /| /| 44 | 接地
-| USBSS1_TX_N | 45 | 3V3 | 1V8 | 46 | CSI5_时钟脉冲_N
-| USBSS1_TX_P | 47 | 3V3| 1V8 | 48 | CSI5_时钟脉冲_P
-| 接地 | 49 | / | / | 50 | 接地
-| CSI5_D0_N | 51 | 1V8 | 1V8 | 52 | RGMII1_接收端0
-| CSI5_D0_P | 53 | 1V8 | 1V8 | 54 | RGMII1_接收端1
-| 接地 | 55 | / | / | 56 | 接地
-| CSI5_D1_N | 57 | 1V8 | 1V8 | 58 | RGMII1_接收端2
+| GND | 37 | / | / | 38 | GND
+| USBSS1_RX_N | 39 | 3V3 | 1V8 | 40 | I_VDD_IN
+| USBSS1_RX_P | 41 | 3V3 | 3V3| 42 | TEMP_ALR_N(GPIO130)
+| GND | 43 | /| /| 44 | GND
+| USBSS1_TX_N | 45 | 3V3 | 1V8 | 46 | CSI5_CLK_N
+| USBSS1_TX_P | 47 | 3V3| 1V8 | 48 | CSI5_CLK_P
+| GND | 49 | / | / | 50 | GND
+| CSI5_D0_N | 51 | 1V8 | 1V8 | 52 | RGMII1_RXD0
+| CSI5_D0_P | 53 | 1V8 | 1V8 | 54 | RGMII1_RXD1
+| GND | 55 | / | / | 56 | GND
+| CSI5_D1_N | 57 | 1V8 | 1V8 | 58 | RGMII1_RXD2
 | CSI5_D1_P | 59 | 1V8 | 1V8 |  60 | RGMII1_RXD3
-| 接地 | 61 | / | / | 62 | 接地
-| HDMI_N2 | 63 | / | 1V8 | 64 | RGMII1_接收中心
-| HDMI_P2 | 65 | / | 1V8 | 66 | RGMII1_接收控制
-| 接地 | 67 | / | / | 68 | 接地
+| GND | 61 | / | / | 62 | GND
+| HDMI_N2 | 63 | / | 1V8 | 64 | RGMII1_RXC
+| HDMI_P2 | 65 | / | 1V8 | 66 | RGMII1_RXCTRL
+| GND | 67 | / | / | 68 | GND
 | HDMI_N1 | 69 | / | 1V8 | 70 | RGMII1_TXD0
 | HDMI_P1 | 71 | /| 1V8 | 72 | RGMII1_TXD1
-| 接地 | 73 | / | / | 74 | 接地
+| GND | 73 | / | / | 74 | GND
 | HDMI_N0 | 75 | / | 1V8 | 76 | RGMII1_TXD2
 | HDMI_P0 | 77 | / | 1V8 | 78 | RGMII1_TXD3
-| 接地 | 79 | / | / | 80 | 接地
-|HDMI_时钟信号 | 81 |/ | / | 82 | RGMII1_TXC
-| HDMI_时钟脉冲 | 83 | /| /| 84 | RGMII1_发送控制
-| 接地 | 85 | 3V3 | 1V8 | 86 | 接地
-| 压水堆_GPIO14 | 87 | 1V8| 1V8 | 88 | I2S1_输出端
-| SPI3_莫西 | 89 | 1V8 | 1V8 | 90 | I2S1_DIN
+| GND | 79 | / | / | 80 | GND
+|HDMI_CLKN | 81 |/ | / | 82 | RGMII1_TXC
+| HDMI_CLKP | 83 | /| /| 84 | RGMII1_TXCTRL
+| GND | 85 | 3V3 | 1V8 | 86 | GND
+| PWR_GPIO14 | 87 | 1V8| 1V8 | 88 | I2S1_DOUT
+| SPI3_MOSI | 89 | 1V8 | 1V8 | 90 | I2S1_DIN
 | SPI3_SCK | 91 | 1V8 | 1V8 | 92 | I2S1_FS
-| SPI3_味噌 | 93 | 1V8 | 1V8 | 94 | I2S2_时钟脉冲
+| SPI3_MISO | 93 | 1V8 | 1V8 | 94 | I2S2_MCLK
 | SPI3_CS0* | 95 | 1V8 | 1V8 | 96 | HDMI_HPD
 | SPI3_CS1* | 97 | 1V8 | 1V8 | 98 | HDMI_DDC_SDA
-| 串口4_TXD | 99 | 1V8 | 1V8 | 100 | HDMI_DDC_SCL
-| 串口4_接收数据 | 101 | 1V8 | / |102 | 接地
-| 串口4_实时传输系统 | 103 | 1V8 | 1V8 | 104 | SPI1_莫西
-| 串口4_CTS | 105 | 1V8 | 1V8 | 106 | SPI1_SCK
-| 接地 | 107 | / | 1V8 | 108 | SPI1_味噌
+| UART4_TXD | 99 | 1V8 | 1V8 | 100 | HDMI_DDC_SCL
+| UART4_RXD | 101 | 1V8 | / |102 | GND
+| UART4_RTS | 103 | 1V8 | 1V8 | 104 | SPI1_MOSI
+| UART4_CTS | 105 | 1V8 | 1V8 | 106 | SPI1_SCK
+| GND | 107 | / | 1V8 | 108 | SPI1_MISO
 | USB0_D_N | 109 | 3V3 | 1V8 | 110 | SPI1_CS0*
 | USB0_D_P | 111 | 3V3| 1V8 | 112 | SPI1_CS1*
-| 接地 | 113 | / | 1V8 | 114 | CAM0_密码网络
-| USB1_D_N | 115 | 3V3 | 1V8 | 116 | CAM0_时钟脉冲
+| GND | 113 | / | 1V8 | 114 | CAM0_PWDN
+| USB1_D_N | 115 | 3V3 | 1V8 | 116 | CAM0_MCLK
 | USB1_D_P | 117 | 3V3 | 1V8 | 118 | GPIO01/I2S0_MCLK
-| 接地 | 119 | / | 1V8 | 120 | CAM1_密码网络
-| CAM2_时钟脉冲 | 121 | 1V8 | 1V8 |122 | CAM1_时钟脉冲
-| CAM3_时钟脉冲 | 123 | 1V8 | 1V8 | 124 | 压水堆_GPIO17
-| 接地 | 125 | / | 1V8 | 126 | GPIO61
+| GND | 119 | / | 1V8 | 120 | CAM1_PWDN
+| CAM2_MCLK | 121 | 1V8 | 1V8 |122 | CAM1_MCLK
+| CAM3_MCLK | 123 | 1V8 | 1V8 | 124 | PWR_GPIO17
+| GND | 125 | / | 1V8 | 126 | GPIO61
 | GPIO68 | 127 | 1V8 | 1V8 | 128 | GPIO05/SD_CD
-| 接地 | 129 | / | 1V8 | 130 | GPIO60/SD0_PWR_E
+| GND | 129 | / | 1V8 | 130 | GPIO60/SD0_PWR_E
 N
-| PCIE1_接收0_N | 131 | 1V8| / | 132 | 接地
-| PCIE1_接收0_P | 133 | 1V8 | 1V8 | 134 | PCIE1_TX0_N
-| 接地 | 135 | / | 1V8 | 136 | PCIE1_TX0_P
-| PCIE1_接收1_N | 137 | 1V8 | / | 138 | 接地
-| PCIE1_接收1_P | 139 | 1V8 | 1V8 | 140 | PCIE1_TX1_N
-| 接地 | 141 | /	 | 1V8 |142 | PCIE1_TX1_P
-| CAN0_接收 | 143 | 3V3 | / | 144 | 接地
-| CAN0_TX | 145 | 3V3 | / | 146 | 接地
-| 接地 | 147 | / | 1V8 | 148 | I2S2_FS
-| I2S2_输出端 | 149 | 1V8 | 1V8 | 150 | I2S2_时钟时钟
-| I2S2_DIN | 151 | 1V8 | / | 152 | 接地
-| 接地 | 153 | / | 1V8 | 154 | PCIE0_TX1_N
-| PCIE0_接收1_N | 155 | 1V8 | 1V8 | 156 | PCIE0_TX1_P
-| PCIE0_接收1_R | 157 | 1V8 | / | 158 | 接地
-| 接地 | 159 | / | 1V8 | 160 | PCIE1_EP_时钟脉冲_N
-| USBSS0_接收_N | 161 | 3V3| 1V8 | 162 | PCIE1_EP_时钟脉冲_P
-| USBSS0_接收_P | 163 | 3V3 | / | 164 | 接地
-| 接地 | 165 | / | 3V3 | 166 | USBSS0_TX_N
-| PCIE0_接收0_N | 167 | 1V8 | 3V3 | 168 | USBSS0_TX_P
-| PCIE0_接收0_P | 169 | 1V8 | / | 170 | 接地
-| 接地 | 171 | /	 | 1V8 |172 | PCIE0_TX0_N
-| PCIE0_EP_时钟脉冲_N | 173 | 1V8 | 1V8 | 174 | PCIE0_TX0_P
-| PCIE0_EP_时钟脉冲_P | 175 | 1V8 | / | 176 | 接地
-| 接地 | 177 | / | 1V8 | 178 | 模组_睡眠*
-| PCIE_唤醒* | 179 | 3V3| 3V3 | 180 | PCIE1_时钟请求*
-| PCIE1_快速恢复时间* | 181 | 3V3 | 3V3 | 182 | PCIE0_时钟请求*
-| PCIE0_快速恢复时间* | 183 | 3V3 | / | 184 | GBE0_MDI0_N
+| PCIE1_RX0_N | 131 | 1V8| / | 132 | GND
+| PCIE1_RX0_P | 133 | 1V8 | 1V8 | 134 | PCIE1_TX0_N
+| GND | 135 | / | 1V8 | 136 | PCIE1_TX0_P
+| PCIE1_RX1_N | 137 | 1V8 | / | 138 | GND
+| PCIE1_RX1_P | 139 | 1V8 | 1V8 | 140 | PCIE1_TX1_N
+| GND | 141 | /	 | 1V8 |142 | PCIE1_TX1_P
+| CAN0_RX | 143 | 3V3 | / | 144 | GND
+| CAN0_TX | 145 | 3V3 | / | 146 | GND
+| GND | 147 | / | 1V8 | 148 | I2S2_FS
+| I2S2_DOUT | 149 | 1V8 | 1V8 | 150 | I2S2_SCLK
+| I2S2_DIN | 151 | 1V8 | / | 152 | GND
+| GND | 153 | / | 1V8 | 154 | PCIE0_TX1_N
+| PCIE0_RX1_N | 155 | 1V8 | 1V8 | 156 | PCIE0_TX1_P
+| PCIE0_RX1_R | 157 | 1V8 | / | 158 | GND
+| GND | 159 | / | 1V8 | 160 | PCIE1_EP_CLK_N
+| USBSS0_RX_N | 161 | 3V3| 1V8 | 162 | PCIE1_EP_CLK_P
+| USBSS0_RX_P | 163 | 3V3 | / | 164 | GND
+| GND | 165 | / | 3V3 | 166 | USBSS0_TX_N
+| PCIE0_RX0_N | 167 | 1V8 | 3V3 | 168 | USBSS0_TX_P
+| PCIE0_RX0_P | 169 | 1V8 | / | 170 | GND
+| GND | 171 | /	 | 1V8 |172 | PCIE0_TX0_N
+| PCIE0_EP_CLK_N | 173 | 1V8 | 1V8 | 174 | PCIE0_TX0_P
+| PCIE0_EP_CLK_P | 175 | 1V8 | / | 176 | GND
+| GND | 177 | / | 1V8 | 178 | MOD_SLEEP*
+| PCIE_WAKE* | 179 | 3V3| 3V3 | 180 | PCIE1_CLKREQ*
+| PCIE1_RST* | 181 | 3V3 | 3V3 | 182 | PCIE0_CLKREQ*
+| PCIE0_RST* | 183 | 3V3 | / | 184 | GBE0_MDI0_N
 | I2C4_SCL | 185 | 3V3 | / | 186 | GBE0_MDI0_P
 | I2C4_SDA | 187 | 3V3 | 3V3 | 188 | PHY0_CFG_LDO0/PH
-Y0_CFG_外部
+Y0_CFG_EXT
 | I2C5_SCL | 189 | 3V3 | / | 190 | GBE0_MDI1_N
 | I2C5_SDA | 191 | 3V3| / | 192 | GBE0_MDI1_P
-| I2S0_输出端 | 193 | 1V8 | 3V3 | 194 | 物理层0_CFG_LDO1
+| I2S0_DOUT | 193 | 1V8 | 3V3 | 194 | PHY0_CFG_LDO1
 | I2S0_DIN | 195 | 1V8 | / | 196 | GBE0_MDI2_N
 | I2S0_FS | 197 | 1V8 | / | 198 | GBE0_MDI2_P
-| I2S0_时钟时钟 | 199 | 1V8 | / | 200 | 接地
-| 接地 | 201 | /	 | / | 202 | GBE0_MDI3_N
-| 串口1_TXD | 203 | / | / | 204 | GBE0_MDI3_P
-| 串口1_接收数据 | 205 | 1V8 | 1V8 | 206 | GPIO79
-| 串口1_实时传输系统* | 207 | 1V8 | 1V8 | 208 | 压水堆_GPIO16
-| 串口1_CTS* | 209 | 1V8| 3V3 | 210 | 时钟脉冲_32K_输出
+| I2S0_SCLK | 199 | 1V8 | / | 200 | GND
+| GND | 201 | /	 | / | 202 | GBE0_MDI3_N
+| UART1_TXD | 203 | / | / | 204 | GBE0_MDI3_P
+| UART1_RXD | 205 | 1V8 | 1V8 | 206 | GPIO79
+| UART1_RTS* | 207 | 1V8 | 1V8 | 208 | PWR_GPIO16
+| UART1_CTS* | 209 | 1V8| 3V3 | 210 | CLK_32K_OUT
 | GPIO09/I2S1_MCLK | 211 | 1V8 | 1V8 | 212 | GPIO100
-| 计算机辅助制造_I2C_SCL | 213 | 3V3 | 1V8 | 214 | 力_恢复*
-| 计算机辅助制造_I2C_SDA | 215 | 3V3 | 1V8 | 216 | GPIO99
-| 模块_身份证号 | 217 | 1V8 | 1V8 | 218 | GPIO80
-| SDDMMC_数据0 | 219 | 3V3 | 1V8 | 220 | RGMII1_多维数据中心
-| SDDMMC_数据传输1 | 221 | 3V3 | 1V8 |222 | RGMII1_MDIO
-| SDDMMC_数据传输2 | 223 | 3V3 | 1V8 | 224 | 物理层1_RGMII_中断请求
-| SDDMMC_数据传输3 | 225 | 3V3 | 1V8 | 226 | I2S1_时钟时钟
-| SDDMMC_指令管理系统 | 227 | 3V3 | 1V8 | 228 | GPIO98
-| SDDMMC_时钟脉冲 | 229 | 3V3 | 1V8 | 230 | GPIO97
-| 接地 | 231 | / | 1V8 | 232 | I2C3_SCL
-| 关机_要求* | 233 | 5V | 1V8 | 234 | I2C3_SDA
-| 电源管理IC_BBAT | 235 | 3V3 | 1V8 | 236 | 串口0_TXD
-| 电源_CN | 237 | 5V | 1V8 | 238 | 串口0_接收数据
-| 模块_重置 | 239 | 1V8 | 5V | 240 | SLEEP/WAKE*
-| 接地 | 241 | /	 | / |242 | 接地
-| 接地 | 243 | / | / | 244 | 接地
-| 接地 | 245 | / | / | 246 | 接地
-| 接地 | 247 | / | / | 248 | 接地
-| 接地 | 249 | / | / | 250 | 接地
-| 电源电压_在 | 251 | 5V | 5V | 252 | 电源电压_在
-| 电源电压_在 | 253 | 5V | 5V | 254 | 电源电压_在
-| 电源电压_在 | 255 | 5V | 5V | 256 | 电源电压_在
-| 电源电压_在 | 257 | 5V | 5V | 258 | 电源电压_在
-| 电源电压_在 | 259 | 5V | 5V | 260 | 电源电压_在
+| CAM_I2C_SCL | 213 | 3V3 | 1V8 | 214 | FORCE_RECOVERY*
+| CAM_I2C_SDA | 215 | 3V3 | 1V8 | 216 | GPIO99
+| MODULE_ID | 217 | 1V8 | 1V8 | 218 | GPIO80
+| SDMMC_DAT0 | 219 | 3V3 | 1V8 | 220 | RGMII1_MDC
+| SDMMC_DAT1 | 221 | 3V3 | 1V8 |222 | RGMII1_MDIO
+| SDMMC_DAT2 | 223 | 3V3 | 1V8 | 224 | PHY1_RGMII_IRQ
+| SDMMC_DAT3 | 225 | 3V3 | 1V8 | 226 | I2S1_SCLK
+| SDMMC_CMD | 227 | 3V3 | 1V8 | 228 | GPIO98
+| SDMMC_CLK | 229 | 3V3 | 1V8 | 230 | GPIO97
+| GND | 231 | / | 1V8 | 232 | I2C3_SCL
+| SHUTDOWN_REQ* | 233 | 5V | 1V8 | 234 | I2C3_SDA
+| PMIC_BBAT | 235 | 3V3 | 1V8 | 236 | UART0_TXD
+| POWER_EN | 237 | 5V | 1V8 | 238 | UART0_RXD
+| MODULE_RESET | 239 | 1V8 | 5V | 240 | SLEEP/WAKE*
+| GND | 241 | /	 | / |242 | GND
+| GND | 243 | / | / | 244 | GND
+| GND | 245 | / | / | 246 | GND
+| GND | 247 | / | / | 248 | GND
+| GND | 249 | / | / | 250 | GND
+| VDD_IN | 251 | 5V | 5V | 252 | VDD_IN
+| VDD_IN | 253 | 5V | 5V | 254 | VDD_IN
+| VDD_IN | 255 | 5V | 5V | 256 | VDD_IN
+| VDD_IN | 257 | 5V | 5V | 258 | VDD_IN
+| VDD_IN | 259 | 5V | 5V | 260 | VDD_IN
 
 ====
 
-== 40针接口
-NOTE: 40针默认电平 GPIO 为3.3V (除5V引脚外)
+== 40 针接口
+NOTE: 40 针 GPIO 的默认电平为 3.3 V（5 V 电源引脚除外）。
 [%collapsible]
 ====
 
 [options="header",cols="3,1,1,4",width="70%"]
 |====
-4+| **BPI-SM9 40 针接头 GPIO JP41的定义**
-|BPI-SM9-CON	|密码		|密码	|BPI-SM9-CON
+4+| **BPI-SM9 JP41 40 针 GPIO 定义**
+|BPI-SM9-CON	|引脚		|引脚	|BPI-SM9-CON
 | 5V | 1 | 2 | 3V3
 | 5V | 3 | 4 | I2C1_SDA
-| 接地 | 5 | 6 | I2C1_SCL
-| 串口1_TXD | 7 | 8 | GPIO09
-| 串口1_接收数据 | 9 | 10 | 接地
-| I2S0_时钟时钟 | 11 | 12 | 串口1_实时传输系统
-| 接地 | 13 | 14 | SPI1_SCK
+| GND | 5 | 6 | I2C1_SCL
+| UART1_TXD | 7 | 8 | GPIO09
+| UART1_RXD | 9 | 10 | GND
+| I2S0_SCLK | 11 | 12 | UART1_RTS
+| GND | 13 | 14 | SPI1_SCK
 | SPI1_CS1 | 15 | 16 | GPIO12
 | SPI1_CS0 | 17 | 18 | 3V3
-| 接地 | 19 | 20 | SPI0_莫西
-| SPI1_味噌 | 21 | 22 | SPI0_味噌
+| GND | 19 | 20 | SPI0_MOSI
+| SPI1_MISO | 21 | 22 | SPI0_MISO
 | SPI0_CS0 | 23 | 24 | SPI0_SCK
-| SPI0_CS1 | 25 | 26 | 接地
-| 身份证号_I2C_SCL | 27 | 28 | 身份证号_I2C_SDA
-| 接地 | 29 | 30 | GPIO01
+| SPI0_CS1 | 25 | 26 | GND
+| ID_I2C_SCL | 27 | 28 | ID_I2C_SDA
+| GND | 29 | 30 | GPIO01
 | GPIO07 | 31 | 32 | GPIO11
-| 接地 | 33 | 34 | GPIO13
-| 串口1_CTS | 35 | 36 | I2S0_LRCK
-| I2S0_斯丁 | 37 | 38 | SPI1_莫西
-| I2S0_输出信号 | 39 | 40 | 接地
+| GND | 33 | 34 | GPIO13
+| UART1_CTS | 35 | 36 | I2S0_LRCK
+| I2S0_SDIN | 37 | 38 | SPI1_MOSI
+| I2S0_SDOUT | 39 | 40 | GND
 
 ====
 
@@ -618,11 +618,11 @@ NOTE: 40针默认电平 GPIO 为3.3V (除5V引脚外)
 
 [options="header",cols="1,1,1",width="70%"]
 |====
-3+| **BPI-SM9 JP4风扇控制接口**
-|密码	| 定义		| 等级	
-| 1 | 接地 | / 
+3+| **BPI-SM9 JP4 风扇控制接口**
+|引脚	| 定义		| 电平	
+| 1 | GND | / 
 | 2 | 12V | 12V 
-| 3 | 转速表 | 5V
+| 3 | TACH | 5V
 | 4 | PWM | 5V 
 
 ====
@@ -634,8 +634,8 @@ NOTE: 40针默认电平 GPIO 为3.3V (除5V引脚外)
 
 [options="header",cols="1,1,1",width="70%"]
 |====
-3+| **BPI-SM9 POE JP38接口**
-|密码	| 定义		| 等级	
+3+| **BPI-SM9 JP38 PoE 接口**
+|引脚	| 定义		| 电平	
 | 1 | POE_VC2 | / 
 | 2 | POE_VC1 | / 
 | 3 | POE_VC4 | /
@@ -650,118 +650,118 @@ NOTE: 40针默认电平 GPIO 为3.3V (除5V引脚外)
 
 [options="header",cols="1,1,1",width="70%"]
 |====
-3+| **BPI-SM9 CANH/L JP5接口**
-|密码	| 定义		| 等级	
-| 1 | 加拿大人协会 | 3V3 
-| 2 | 加拿大堪萨斯州 | 3V3 
-| 3 | 接地 | /
+3+| **BPI-SM9 JP5 CANH/L 接口**
+|引脚	| 定义		| 电平	
+| 1 | CANH | 3V3 
+| 2 | CANL | 3V3 
+| 3 | GND | /
 | 4 | 3V3 | 3V3
 
 ====
 
-== 12针接口
+== 12 针接口
 
 [%collapsible]
 ====
 
 [options="header",cols="1,1,1",width="70%"]
 |====
-3+| **BPI-SM9 JP50的12针接口**
-|密码	| 定义		| 等级	
-| 1 | 电脑_LED- | 5V 
-| 2 | 电脑_LED+ | 5V 
-| 3 | 串口2_接收 | 3V3
-| 4 | 串口2_TX | 3V3
-| 5 | 闩锁_设定 | 5V 
-| 6 | 闩锁_设定_但是 | 5V
-| 7 | 接地 | /
-| 8 | 系统_快速恢复时间 | 1V8
-| 9 | 接地 | /
-| 10 | 力_恢复 | 1V8 
-| 11 | 接地 | /
-| 12 | 压水堆_BTN | 5V
+3+| **BPI-SM9 JP50 12 针接口**
+|引脚	| 定义		| 电平	
+| 1 | PC_LED- | 5V 
+| 2 | PC_LED+ | 5V 
+| 3 | UART2_RX | 3V3
+| 4 | UART2_TX | 3V3
+| 5 | LATCH_SET | 5V 
+| 6 | LATCH_SET_BUT | 5V
+| 7 | GND | /
+| 8 | SYS_RST | 1V8
+| 9 | GND | /
+| 10 | FORCE_RECOVERY | 1V8 
+| 11 | GND | /
+| 12 | PWR_BTN | 5V
 
 ====
 
-== 相机接口
-=== 相机1
+== 摄像头接口
+=== Camera1
 [%collapsible]
 ====
 
 [options="header",cols="1,1,1",width="70%"]
 |====
-3+| **BPI-SM9 JP13的相机1**
-|密码	| 定义		| 等级	
-| 1 | 接地 | /
-| 2 | 数控 | / 
+3+| **BPI-SM9 JP13 Camera1 接口**
+|引脚	| 定义		| 电平	
+| 1 | GND | /
+| 2 | NC | / 
 | 3 | CSI2_D0_N | 1V8
-| 4 | 数控 | /
+| 4 | NC | /
 | 5 | CSI2_D0_P | 1V8 
-| 6 | 数控 | /
-| 7 | 接地 | /
-| 8 | 数控 | /
+| 6 | NC | /
+| 7 | GND | /
+| 8 | NC | /
 | 9 | CSI2_D1_N | 1V8
-| 10 | 数控 | 1V8 
+| 10 | NC | 1V8 
 | 11 | CSI2_D1_P | 1V8
-| 12 | 数控 | /
-| 13 | 接地 | / 
-| 14 | 数控 | /
-| 15 | CSI2_时钟脉冲_N | 1V8
-| 16 | 数控 | /
-| 17 | CSI2_时钟脉冲_P | 1V8 
-| 18 | 数控 | /
-| 19 | 接地 | /
-| 20 | 数控 | /
-| 21 | CAM1_密码网络 | 1V8
-| 22 | 数控 | /
-| 23 | CAM1_时钟脉冲 | 1V8
-| 24 | 数控 | /
+| 12 | NC | /
+| 13 | GND | / 
+| 14 | NC | /
+| 15 | CSI2_CLK_N | 1V8
+| 16 | NC | /
+| 17 | CSI2_CLK_P | 1V8 
+| 18 | NC | /
+| 19 | GND | /
+| 20 | NC | /
+| 21 | CAM1_PWDN | 1V8
+| 22 | NC | /
+| 23 | CAM1_MCLK | 1V8
+| 24 | NC | /
 | 25 | CAM1_I2C_SCL | 3V3 
-| 26 | 数控 | / 
+| 26 | NC | / 
 | 27 | CAM1_I2C_SDA | 3V3
-| 28 | 数控 | /
+| 28 | NC | /
 | 29 | 3V3 | 3V3 
-| 30 | 数控 | /
+| 30 | NC | /
 
 ====
 
-=== 相机2
+=== Camera2
 [%collapsible]
 ====
 
 [options="header",cols="1,1,1",width="70%"]
 |====
-3+| **BPI-SM9 JP49的相机2**
-|密码	| 定义		| 等级	
-| 1 | 接地 | /
-| 2 | 数控 | / 
+3+| **BPI-SM9 JP49 Camera2 接口**
+|引脚	| 定义		| 电平	
+| 1 | GND | /
+| 2 | NC | / 
 | 3 | CSI0_D0_N | 1V8
-| 4 | 数控 | /
+| 4 | NC | /
 | 5 | CSI0_D0_P | 1V8 
-| 6 | 数控 | /
-| 7 | 接地 | /
-| 8 | 数控 | /
+| 6 | NC | /
+| 7 | GND | /
+| 8 | NC | /
 | 9 | CSI0_D1_N | 1V8
-| 10 | 数控 | 1V8 
+| 10 | NC | 1V8 
 | 11 | CSI0_D1_P | 1V8
-| 12 | 数控 | /
-| 13 | 接地 | / 
-| 14 | 数控 | /
-| 15 | CSI0_时钟脉冲_N | 1V8
-| 16 | 数控 | /
-| 17 | CSI0_时钟脉冲_P | 1V8 
-| 18 | 数控 | /
-| 19 | 接地 | /
-| 20 | 数控 | /
-| 21 | CAM0_密码网络 | 1V8
-| 22 | 数控 | /
-| 23 | CAM0_时钟脉冲 | 1V8
-| 24 | 数控 | /
+| 12 | NC | /
+| 13 | GND | / 
+| 14 | NC | /
+| 15 | CSI0_CLK_N | 1V8
+| 16 | NC | /
+| 17 | CSI0_CLK_P | 1V8 
+| 18 | NC | /
+| 19 | GND | /
+| 20 | NC | /
+| 21 | CAM0_PWDN | 1V8
+| 22 | NC | /
+| 23 | CAM0_MCLK | 1V8
+| 24 | NC | /
 | 25 | CAM0_I2C_SCL | 3V3 
-| 26 | 数控 | / 
+| 26 | NC | / 
 | 27 | CAM0_I2C_SDA | 3V3
-| 28 | 数控 | /
+| 28 | NC | /
 | 29 | 3V3 | 3V3 
-| 30 | 数控 | /
+| 30 | NC | /
 
 ====
