@@ -1,21 +1,21 @@
 = BPI-M8 简介
 
-的 BPI-M8 基于高性能八核AI平台芯片A733构建，该芯片结合了双核Arm® Cortex®-A76和六核Arm Cortex-A55。它支持 Imagination PowerVR BXM-4-64 MC1 GPU, 3TOPS NPU、LPDDR4、LPDDR4x、LPDDR5 DRAM 和 UFS/eMMC 记忆。
+BPI-M8 基于高性能八核 AI 平台芯片 A733，集成双核 Arm® Cortex®-A76 与六核 Arm Cortex-A55。它支持 Imagination PowerVR BXM-4-64 MC1 GPU、3 TOPS NPU，以及 LPDDR4、LPDDR4x、LPDDR5 DRAM 和 UFS/eMMC 存储。
 
-的 BPI-M8 拥有丰富的外围设备，包括 USB、DP、UFS、HDMI、MIPI CSI、MIPI DSI、FAN、RTC 和 1 个千兆位 Ethernet 端口 (支持 PoE)。它还支持 SD 卡启动，并具有板载 KEIIOT K038 WiFi/Bluetooth 芯片。配备4GB LPDDR5 RAM, 32GB eMMC 存储和两个 12x12mm 单天线模块。
+BPI-M8 提供丰富的外设接口，包括 USB、DP、UFS、HDMI、MIPI CSI、MIPI DSI、FAN、RTC 和 1 个支持 PoE 的千兆以太网口。它支持从 SD 卡启动，并板载 KEIIOT K038 Wi-Fi/蓝牙芯片；同时配备 4GB LPDDR5 RAM、32GB eMMC 存储和两个 12x12mm 单天线模块。
 
 == 主要特性
 
-* 双核 Arm Cortex-A76 + 六核 Arm Cortex-A55，高达 2.0GHz
-* 想象PowerVR BXM-4-64 MC1
+* 双核 Arm Cortex-A76 + 六核 Arm Cortex-A55，最高 2.0 GHz
+* Imagination PowerVR BXM-4-64 MC1
 * 4GB LPDDR5 RAM
-* 32GB eMMC 闪光
-* 支持MIPI DSI显示接口
-* 支持MIPI CSI相机接口
-* 支持 PCIE/DP 接口
-* 支持UFS模块
-* HDMI输出
-* 40针 GPIO 
+* 32GB eMMC 闪存
+* 支持 MIPI DSI 显示接口
+* 支持 MIPI CSI 摄像头接口
+* 支持 PCIe/DP 接口
+* 支持 UFS 模块
+* HDMI 输出
+* 40 针 GPIO 
 * POE
 
 = 入门
@@ -32,167 +32,167 @@ image::/bpi-m8/bananapi-pi_m8_interface1.jpg[bananapi-pi_m8_interface1.jpg]
 
 [options="header",cols="1,3"]
 |=====
-2+| **香蕉派 M8 硬件规格**
-| CPU             | 双核 Arm Cortex-A76 + 六核 Arm Cortex-A55，高达 2.0GHz
-| GPU             | 想象PowerVR BXM-4-64 MC1
-| 内存          | 4GB LPDDR5 RAM
-| 存储         | MicroSD 插槽，32GB eMMC 存储(支持UFS模块)
-| 网络         | 10/100/1000M Ethernet + K038 WiFi/Bluetooth 芯片
-| 视频输出(s) | HDMI端口输出
-| 音频输出(s) | 3.5mm耳机插孔输出和HDMI声音输出
-| PCIE            | 软板 PCIe 插座 (与 DP 插座重复使用) 
-| USB 端口       | 4x USB 端口
+2+| **Banana Pi M8 硬件规格**
+| CPU             | 双核 Arm Cortex-A76 + 六核 Arm Cortex-A55，最高 2.0 GHz
+| GPU             | Imagination PowerVR BXM-4-64 MC1
+| 内存            | 4GB LPDDR5 RAM
+| 存储            | MicroSD 卡槽、32GB eMMC 存储（支持 UFS 模块）
+| 网络            | 10/100/1000M 以太网 + K038 Wi-Fi/蓝牙芯片
+| 视频输出        | HDMI 端口输出
+| 音频输出        | 3.5mm 耳机插孔输出和 HDMI 音频输出
+| PCIe            | FPC PCIe 插座（与 DP 插座复用） 
+| USB 端口        | 4 个 USB 端口
 | GPIO            | 40 针 GPIO
-| 开关        | PWR 按钮和 ADC 按钮
+| 开关            | PWR 按钮和 ADC 按钮
 | LED             | 电源状态和活动状态
-| 电源    | 通过 Micro 提供 5 伏 @4A USB (C型) 或 PoE 支持
-| 尺寸和重量   | 
-| 操作系统              | 
+| 电源            | 通过 USB Type-C 输入 5 V/4 A，或使用 PoE 供电
+| 尺寸和重量      | 
+| 操作系统        | 
 |=====
 
 == GPIO 引脚定义
 
-.BPI-M8 40针 GPIO
+.BPI-M8 40 针 GPIO
 [%collapsible]
 ====
 [options="header",cols="1,2",width="70%"]
 |=====
-2+| **40针 GPIO 香蕉派 BPI-M8**
+2+| **Banana Pi BPI-M8 的 40 针 GPIO**
 | 引脚号 | 引脚名称 
 | 1  | DCDC1 
 | 2  | VBUS-AXP318 
 | 3  | PJ23/TWI7-SDA
 | 4  | VBUS-AXP318
 | 5  | PJ22/TWI7-SCK
-| 6  | 接地 
+| 6  | GND 
 | 7  | PL05/PWM0-3
 | 8  | PB00/UART2-TX 
-| 9  | 接地 
+| 9  | GND 
 | 10 | PB01/UART2-RX
 | 11 | PL12/S-UART1-TX
 | 12 | HD-PIN12 
 | 13 | PL13/S-UART1-RX 
-| 14 | 接地 
+| 14 | GND 
 | 15 | PL06/S-UART0-TX 
 | 16 | PB02/UART2-RTS 
 | 17 | DCDC1
 | 18 | PB03/UART2-CTS
 | 19 | PJ25/SPI3-MOSI
-| 20 | 接地  
+| 20 | GND  
 | 21 | PJ26/SPI3-MISO 
 | 22 | HD-PIN22 
 | 23 | PJ24/SPI3-CLK 
 | 24 | HD-PIN24
-| 25 | 接地 
+| 25 | GND 
 | 26 | PJ27/SPI3-CS0 
 | 27 | HD-PIN27
 | 28 | HD-PIN28 
 | 29 | PL07/S-UART0-RX
-| 30 | 接地 
+| 30 | GND 
 | 31 | HD-PIN31 
 | 32 | HD-PIN32
 | 33 | HD-PIN33 
-| 34 | 接地 
+| 34 | GND 
 | 35 | HD-PIN35 
 | 36 | HD-PIN36
 | 37 | HD-PIN37 
 | 38 | HD-PIN38
-| 39 | 接地 
+| 39 | GND 
 | 40 | HD-PIN40
 |=====
 ====
 
-.BPI-M8 MIPI中国标准协会
+.BPI-M8 MIPI CSIA
 [%collapsible]
 ====
 [options="header",cols="1,2",width="70%"]
 |=====
-2+| **香蕉派的MIPI CSIA BPI-M8**
+2+| **Banana Pi BPI-M8 的 MIPI CSIA**
 | 引脚号 | 引脚名称 
 | 1  | MCSIA-D3N 
 | 2  | MCSIA-D3P
-| 3  | 接地
+| 3  | GND
 | 4  | MCSIA-D2N
 | 5  | MCSIA-D2P
-| 6  | 接地 
-| 7  | 数控
-| 8  | 数控
-| 9  | 接地 
+| 6  | GND 
+| 7  | NC
+| 8  | NC
+| 9  | GND 
 | 10 | MCSIA-D1N
 | 11 | MCSIA-D1P
-| 12 | 接地 
+| 12 | GND 
 | 13 | MCSIA-D0N
 | 14 | MCSIA-D0P
-| 15 | 接地
+| 15 | GND
 | 16 | MCSIA-CKN
 | 17 | MCSIA-CKP
-| 18 | 接地
+| 18 | GND
 | 19 | PE00/MCSI-A-MCLK
 | 20 | PE06/MCSI-A-STBY
 | 21 | PE07/MCSI-A-RST
 | 22 | PE10/TWI4-SCK
 | 23 | PE11/TWI4-SDA
-| 24 | 接地
-| 25 | 数控
-| 26 | 数控
-| 27 | 数控
-| 28 | 数控
-| 29 | 数控
+| 24 | GND
+| 25 | NC
+| 26 | NC
+| 27 | NC
+| 28 | NC
+| 29 | NC
 | 30 | VCC1V8_CSI0
-| 31 | 接地
-| 32 | 接地
+| 31 | GND
+| 32 | GND
 | 33 | VCC3V3_CSI0 
 | 34 | VCC3V3_CSI0
 | 35 | VCC3V3_CSI0
-| 36 | 接地
-| 37 | 接地
+| 36 | GND
+| 37 | GND
 |=====
 ====
 
-.BPI-M8 MIPICSIB
+.BPI-M8 MIPI CSIB
 [%collapsible]
 ====
 [options="header",cols="1,2",width="70%"]
 |=====
-2+| **香蕉派的MIPI CSIB BPI-M8**
+2+| **Banana Pi BPI-M8 的 MIPI CSIB**
 | 引脚号 | 引脚名称 
 | 1  | MCSIB-D3N
 | 2  | MCSIB-D3P
-| 3  | 接地
+| 3  | GND
 | 4  | MCSIB-D2N
 | 5  | MCSIB-D2P
-| 6  | 接地 
-| 7  | 数控
-| 8  | 数控
-| 9  | 接地 
+| 6  | GND 
+| 7  | NC
+| 8  | NC
+| 9  | GND 
 | 10 | MCSIB-D1N
 | 11 | MCSIB-D1P
-| 12 | 接地 
+| 12 | GND 
 | 13 | MCSIB-D0N
 | 14 | MCSIB-D0P
-| 15 | 接地
+| 15 | GND
 | 16 | MCSIB-CKN
 | 17 | MCSIB-CKP
-| 18 | 接地
+| 18 | GND
 | 19 | PE05/MCSI-B-MCLK
 | 20 | PE08/MCSI-B-STBY
 | 21 | PE09/MCSI-B-RST
 | 22 | PE03/TWI3-SCK
 | 23 | PE04/TWI3-SDA
-| 24 | 接地
+| 24 | GND
 | 25 | AP-NMI
 | 26 | PMU-PWRON
-| 27 | AP复位
+| 27 | AP-RESET
 | 28 | PMU-SCK
 | 29 | PMU-SDA
 | 30 | VCC1V8_CSI1
-| 31 | 接地
-| 32 | 接地
+| 31 | GND
+| 32 | GND
 | 33 | VCC3V3_CSI1 
 | 34 | VCC3V3_CSI1
 | 35 | VCC3V3_CSI1
-| 36 | 接地
-| 37 | 接地
+| 36 | GND
+| 37 | GND
 |=====
 ====
 
@@ -201,41 +201,41 @@ image::/bpi-m8/bananapi-pi_m8_interface1.jpg[bananapi-pi_m8_interface1.jpg]
 ====
 [options="header",cols="1,2",width="70%"]
 |=====
-2+| **PCIe+香蕉派DP BPI-M8**
+2+| **Banana Pi BPI-M8 的 PCIe+DP**
 | 引脚号 | 引脚名称 
 | 1  | COMB1-TX0P
 | 2  | COMB1-TX0N
-| 3  | 接地
+| 3  | GND
 | 4  | COMB1-RX0P
 | 5  | COMB1-RX0N
-| 6  | 接地 
+| 6  | GND 
 | 7  | COMB1-REFP
 | 8  | COMB1-REFN
-| 9  | 接地 
+| 9  | GND 
 | 10 | DP_TX0P
 | 11 | DP_TX0N
-| 12 | 接地 
+| 12 | GND 
 | 13 | DP_TX1P
 | 14 | DP_TX1N
-| 15 | 接地
-| 16 | DP_辅助XP
-| 17 | DP_奥克斯网络
+| 15 | GND
+| 16 | DP_AUXP
+| 17 | DP_AUXN
 | 18 | DP_HPD
-| 19 | 主机-D4M
-| 20 | 主机-D4P
-| 21 | 接地
+| 19 | HOST-D4M
+| 20 | HOST-D4P
+| 21 | GND
 | 22 | PCIE-PERSTn-3p3V
 | 23 | PCIE-WAKEn-3p3v
 | 24 | PCIE-CLKREQn-3p3v
 | 25 | PCIE-PWREN-3p3v
 | 26 | VDD1P8V-PCIe
-| 27 | 接地
-| 28 | 接地
+| 27 | GND
+| 28 | GND
 | 29 | VDD5P0V-PCIe
 | 30 | VDD5P0V-PCIe
 | 31 | VDD5P0V-PCIe
-| 32 | 接地
-| 33 | 接地
+| 32 | GND
+| 33 | GND
 |=====
 ====
 
@@ -244,41 +244,41 @@ image::/bpi-m8/bananapi-pi_m8_interface1.jpg[bananapi-pi_m8_interface1.jpg]
 ====
 [options="header",cols="1,2",width="70%"]
 |=====
-2+| **香蕉派的MIPI DSI0 BPI-M8**
+2+| **Banana Pi BPI-M8 的 MIPI DSI0**
 | 引脚号 | 引脚名称 
 | 1  | MIPI-DSI0-D0N
 | 2  | MIPI-DSI0-D0P
-| 3  | 接地
+| 3  | GND
 | 4  | MIPI-DSI0-D0P
 | 5  | MIPI-DSI0-D1P
-| 6  | 接地 
+| 6  | GND 
 | 7  | MIPI-DSI0-CKN
 | 8  | MIPI-DSI0-CKP
-| 9  | 接地 
+| 9  | GND 
 | 10 | MIPI-DSI0-D2N
 | 11 | MIPI-DSI0-D2P
-| 12 | 接地 
+| 12 | GND 
 | 13 | MIPI-DSI0-D3N
 | 14 | MIPI-DSI0-D3P
-| 15 | 接地
+| 15 | GND
 | 16 | GPADC6
 | 17 | PD18/LCD-PWREN
 | 18 | PD21/LCD-RST
 | 19 | PD19/LCD-BLEN
 | 20 | PD22/LCD-PWM
-| 21 | 接地
+| 21 | GND
 | 22 | PD23/TP-INT
 | 23 | PD20/TP-RST
 | 24 | PD16/TWI2-SCK
 | 25 | PD17/TWI2-SDA
 | 26 | VDD1P8V-DSI0
-| 27 | 接地
-| 28 | 接地
+| 27 | GND
+| 28 | GND
 | 29 | VDD5P0V-DSI0
 | 30 | VDD5P0V-DSI0
 | 31 | VDD5P0V-DSI0
-| 32 | 接地
-| 33 | 接地
+| 32 | GND
+| 33 | GND
 |=====
 ====
 
@@ -296,4 +296,4 @@ image::/bpi-m8/bananapi-pi_m8_interface1.jpg[bananapi-pi_m8_interface1.jpg]
 
 == Linux
 
-= 轻松购买样品
+= 样品购买
