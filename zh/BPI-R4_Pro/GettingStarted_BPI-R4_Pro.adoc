@@ -1,135 +1,135 @@
 = 概述
 
-香蕉派 BPI-R4Pro 路由器板带有 MediaTek MT7988A (Filogic 880)四核ARM Corex-A73设计，4GB/8GB DDR4 RAM,8GB eMMC,128MB SPI-NAND 板载闪存，还有 2x 10Gbe SFP+, 4x Gbe网口,带USB3.2接口,M.2支持 4G/5G/NVME SSD.2x miniPCIe 插槽，带 PCIe3.0 2lane 接口，用于 Wi-Fi 7 NIC (网络接口卡)。它是一款非常高性能的开源路由器开发板。
+Banana Pi BPI-R4 Pro 路由器开发板采用 MediaTek MT7988A（Filogic 880）四核 ARM Cortex-A73 处理器，配备 4GB/8GB DDR4 内存、8GB eMMC 和板载 128MB SPI-NAND 闪存；同时提供 2 个 10GbE SFP+ 接口、4 个千兆以太网口和 USB 3.2 接口。M.2 插槽支持 4G/5G 模块和 NVMe SSD，另有 2 个采用 PCIe 3.0 双通道接口的 miniPCIe 插槽，可安装 Wi-Fi 7 网卡（NIC）。这是一款高性能开源路由器开发板。
 
-TIP: 更多信息： link:https://docs.banana-pi.org/en/BPI-R4_Pro/BananaPi_BPI-R4_Pro[香蕉派 BPI-R4 Pro]
+TIP: 更多信息：link:https://docs.banana-pi.org/en/BPI-R4_Pro/BananaPi_BPI-R4_Pro[Banana Pi BPI-R4 Pro]
 
 TIP: link:/en/BPI-R4_Pro/TEST-R4_Pro[BPI-R4 Pro 硬件测试]
 
-== 框图(8X)
+== 框图（8X）
 
 image::/bpi-r4_pro/bpi-r4pro-blockdiagram-8x-b.png[bpi-r4pro-blockdiagram-8x-b.png,width=800]
 
-== 框图(4e)
+== 框图（4E）
 image::/bpi-r4_pro/bpi-r4pro-block_diagram_4e.png[bpi-r4pro-block_diagram_4e.png,width=800]
 
 
 = 开发
 == 准备工作
 
-* 8G/above MicroSD卡 +
+* 8GB 或更大容量的 MicroSD 卡 +
 * MicroSD 读卡器 +
-* USB 磁盘 +
-* USB C型数据线 +
-* 六类线 Ethernet 电缆 +
+* USB 驱动器 +
+* USB Type-C 数据线 +
+* CAT6A 以太网线 +
 * 12V/5A 电源适配器 +
-(无需任何外设和网线插入，功耗 BPI-R4Pro 主板大约10W，所以 12V/2A 会起作用的。 +
-但您需要根据自己的配件使用情况来确定是否需要更高功率的电源适配器，12V/5A 推荐) +
+（不连接任何外设和网线时，BPI-R4 Pro 主板功耗约为 10W，因此 12V/2A 即可工作。+
+但是否需要功率更高的适配器应根据所用配件确定，建议使用 12V/5A。）+
 * Windows/Ubuntu 系统 +
-* link:https://docs.banana-pi.org/en/BPI-R4_Pro/BananaPi_BPI-R4_Pro#_system_image[BPI-R4Pro 镜像]
-* link:https://docs.banana-pi.org/en/BPI-R4_Pro/BananaPi_BPI-R4_Pro#_source_code[BPI-R4Pro 源代码]
+* link:https://docs.banana-pi.org/en/BPI-R4_Pro/BananaPi_BPI-R4_Pro#_system_image[BPI-R4 Pro 镜像]
+* link:https://docs.banana-pi.org/en/BPI-R4_Pro/BananaPi_BPI-R4_Pro#_source_code[BPI-R4 Pro 源代码]
 
-== BPI-R4Pro 引导程序设置
-下表列出了开关的设置 (SW3) 以及它们的功能。 +
+== BPI-R4 Pro 启动设置
+下表列出了开关（SW3）的设置及其功能。+
 
 image::/bpi-r4_pro/bpi-r4pro-bootstrap3.png[bpi-r4pro-bootstrap3.png,width=300]
 
-. 所有跳线都是“1”， BPI-R4Pro 将从 SD 卡启动 
+. 所有跳线均设为“1”时，BPI-R4 Pro 从 SD 卡启动
 +
 image::/bpi-r4_pro/bpi-r4pro-boot_for_sd.png[bpi-r4pro-boot_for_sd.png,width=600]
 
 
-. SW3-A 为“0”，SW3-B 为“1”， BPI-R4Pro 将从以下位置启动 SPI NAND
+. SW3-A 设为“0”、SW3-B 设为“1”时，BPI-R4 Pro 从 SPI NAND 启动
 +
 image::/bpi-r4_pro/bpi-r4pro-boot_for_nand.png[bpi-r4pro-boot_for_nand.png,width=600]
 
 
-. SW3-A 为“1”，SW3-B 为“0”， BPI-R4Pro 将从以下位置启动 eMMC
+. SW3-A 设为“1”、SW3-B 设为“0”时，BPI-R4 Pro 从 eMMC 启动
 +
 image::/bpi-r4_pro/bpi-r4pro-boot_for_emmc.png[bpi-r4pro-boot_for_emmc.png,width=600]
 
 
-. 如果控制台显示“systemhalt!”，则表示启动存储不包含任何操作系统
+. 如果控制台显示“system halt!”，表示所选启动存储设备中没有操作系统
 +
 ```bash
   System halt!
 ```
 
 
-== 闪烁图像
-如果您想将出厂默认系统更改为其他系统， +
-地点 link:https://docs.banana-pi.org/en/BPI-R4_Pro/BananaPi_BPI-R4_Pro#_system_image[下载图片] 文件到一个 windows/ubuntu PC 并按照以下步骤操作。 +
+== 烧录镜像
+如需将出厂默认系统更换为其他系统，+
+请在 Windows/Ubuntu 电脑上link:https://docs.banana-pi.org/en/BPI-R4_Pro/BananaPi_BPI-R4_Pro#_system_image[下载镜像]，然后按以下步骤操作。+
 
 
-=== 如何将镜像闪存到SD卡
-NOTE: **请对SD卡进行低级格式化并清除SD卡中的所有数据。这非常重要。** +
-**否则，在启动过程中会遇到“jffs2”错误。
+=== 如何将镜像烧录到 SD 卡
+NOTE: **请对 SD 卡进行低级格式化并清除其中的全部数据，这一点非常重要。** +
+**否则，启动过程中会遇到“jffs2”错误。
 **
 
-- 请按照下图进行 Windows 电脑。
+- Windows 电脑请按下图操作。
 +
 image::/picture/low_level_format_sd_card.png[low_level_format_sd_card.png,width=300]
 
-- Linux PC，您可以使用“**麦克斯夫**”命令进行格式化，或使用“**DD**" 命令写入零。 
+- Linux 电脑可使用“**mksf**”命令进行格式化，也可使用“**dd**”命令写入全零数据。
 
 
 
-**将镜像闪存至 SD 卡 windows 电脑**
+**在 Windows 电脑上将镜像烧录到 SD 卡**
 
-link:https://balena.io/etcher[巴莱纳蚀刻机] 是 Balena 的开源 GUI 闪存工具，可将操作系统映像闪存到 SD 卡或 USB 开车。
+link:https://balena.io/etcher[Balena Etcher] 是 Balena 推出的开源图形化烧录工具，可将操作系统镜像写入 SD 卡或 USB 驱动器。
 
-- 点击“**从文件闪存**”来选择镜像。 
-- 点击“**选择目标**”来选择 USB 设备。 
-- 点击“**快闪！**“开始闪烁。
+- 单击“**Flash from file**”选择镜像。
+- 单击“**Select target**”选择 USB 设备。
+- 单击“**Flash!**”开始烧录。
 
 image::/picture/etcher.jpg[etcher.jpg]
 
-您也可以使用此工具进行刻录。 link:https://win32diskimager.org/[win32diskimager]
+也可以使用 link:https://win32diskimager.org/[Win32 Disk Imager] 进行烧录。
 
-- 点击“**图片文件**”来选择图像。 
-- 点击“**设备**”来选择 USB 设备。 
-- 点击“**写下**“开始闪烁。
+- 单击“**Image file**”选择镜像。
+- 单击“**Equipment**”选择 USB 设备。
+- 单击“**Write down**”开始烧录。
 
 image::/bpi-r4_pro/bpi-r4pro-burnimage.jpg[bpi-r4pro-burnimage.jpg]
 
-**将镜像闪存至 SD 卡 linux 电脑**
+**在 Linux 电脑上将镜像烧录到 SD 卡**
 
-. 您可以从我们的论坛下载最新图片     
-. 安装 bpi-tools 在你的 Ubuntu。如果您无法访问此网址或有任何其他问题，请访问 bpi-tools 存储库并手动安装此工具。
+. 可从论坛下载最新镜像。
+. 在 Ubuntu 中安装 bpi-tools。如果无法访问该网址或遇到其他问题，请前往 bpi-tools 仓库手动安装。
 +
 ```sh
 apt-get install pv
 curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
 ```
-. 下载镜像后，将TF卡插入电脑Ubuntu。执行
+. 下载镜像后，将 TF 卡插入 Ubuntu 电脑并执行：
 +
 ```sh
 bpi-copy xxx.img /dev/sdx
 ```
-将映像安装到您的 MicroSD 卡上
+将镜像安装到 MicroSD 卡。
 
-. 步骤3后，您可以将MicroSD卡插入R4Pro，将Bootstrap更改为从SD启动，并为R4Pro供电。
+. 完成第 3 步后，将 MicroSD 卡插入 R4 Pro，切换为从 SD 卡启动，然后给 R4 Pro 上电。
 
 
-=== 如何将镜像闪烁到 NAND 闪光灯
+=== 如何将镜像烧录到 NAND 闪存
 
-NOTE: 工厂形象信息：OpenWrt 24.10-快照架构：aarch64_皮质-a53
+NOTE: 出厂镜像信息：OpenWrt 24.10-SNAPSHOT；架构：aarch64_cortex-a53。
 
-将镜像闪烁之前 Nand，请准备一个 USB 磁盘。让我们采取 OpenWrt 镜像 (**BPI-R4Pro-8X-BE14-MT76-OpenWRT24.10-DSA-snand-251120.bin**) 例如，步骤如下：
+烧录 NAND 镜像前请准备一个 USB 驱动器。以下以 OpenWrt 镜像（**BPI-R4Pro-8X-BE14-MT76-OpenWRT24.10-DSA-snand-251120.bin**）为例：
 
-. 格式化 USB 磁盘到 FAT32。
-. 复制 Nand 启动 OpenWrt 镜像(**BPI-R4Pro-8X-BE14-MT76-OpenWRT24.10-DSA-snand-251120.bin**) 到 USB 磁盘。 
-. 将引导程序更改为 sd 或 eMMC 启动，然后给开发板上电。
-. 插入 USB 磁盘到板上，并安装 USB 到 /mnt 或其他目录如下： (如果自动安装则可以跳过安装)
+. 将 USB 驱动器格式化为 FAT32。
+. 将用于 NAND 启动的 OpenWrt 镜像（**BPI-R4Pro-8X-BE14-MT76-OpenWRT24.10-DSA-snand-251120.bin**）复制到 USB 驱动器。
+. 切换为从 SD 卡或 eMMC 启动，然后给开发板上电。
+. 将 USB 驱动器插入开发板，并按如下方式挂载到 /mnt 或其他目录（若系统已自动挂载，可跳过此步）：
 +
 ```SH
 mount -t vfat /dev/sda1 /mnt 
 cd /mnt
 ```
-. 执行以下命令即可全部擦除 Nand 闪存并将镜像复制到 nand 设备：
+. 执行以下命令擦除整个 NAND，并将镜像写入 NAND 设备：
 + 
 
-NOTE: 的 BPI-R4Pro's NAND 镜像闪现至 MTD3 (不像 BPI-R4，闪存到 MTD0).
+NOTE: BPI-R4 Pro 的 NAND 镜像写入 MTD3（BPI-R4 则写入 MTD0）。
 
 +
 ```sh
@@ -145,22 +145,22 @@ mtd erase /dev/mtd3
 mtd write BPI-R4Pro-8X-BE14-MT76-OpenWRT24.10-DSA-snand-251120.bin /dev/mtd3
 
 ```
-. 关闭电源 BPI-R4Po，删除u盘驱动，将bootstrap改为 nand 再次启动并通电。
+. 关闭 BPI-R4 Pro，拔出 USB 驱动器，切换为从 NAND 启动，然后重新上电。
 
 
-=== 如何将镜像闪烁到 eMMC
-NOTE: 因为SD卡和 EMMC 设备共享一个SOC的控制器，需要切换到 NAND 启动然后刻录 EMMC 镜像进入 EMMC。最后，您将更改启动方式 EMMC.
+=== 如何将镜像烧录到 eMMC
+NOTE: 由于 SD 卡与 eMMC 共用 SoC 的同一个控制器，需要先切换为从 NAND 启动，再将 eMMC 镜像写入 eMMC，最后切换为从 eMMC 启动。
 
 
-让我们采取 OpenWrt 镜像 (**bl2_emmc-r4pro.img, mtk-bpi-r4pro-EMMC-20250928.img**) 例如，步骤如下：
+以下以 OpenWrt 镜像（**bl2_emmc-r4pro.img, mtk-bpi-r4pro-EMMC-20250928.img**）为例：
 
-. 格式化 USB 磁盘到 FAT32。
-. 复制 EMMC 启动 OpenWrt 镜像(**bl2_emmc-r4pro.img, mtk-bpi-r4pro-EMMC-20250928.img**) 到 USB 磁盘, +
-如果图像被压缩，请在复制到之前解压缩 USB 磁盘。
+. 将 USB 驱动器格式化为 FAT32。
+. 将用于 eMMC 启动的 OpenWrt 镜像（**bl2_emmc-r4pro.img, mtk-bpi-r4pro-EMMC-20250928.img**）复制到 USB 驱动器，+
+如果镜像已压缩，请先解压再复制。
 
-. 将引导程序更改为 Nand 启动 R4Pro 并为其供电。
+. 切换为从 NAND 启动，然后给 R4 Pro 上电。
  
-. 插入 USB 磁盘到板上，并安装 USB 到 /mnt 或其他目录如下： (如果自动安装则可以跳过安装)
+. 将 USB 驱动器插入开发板，并按如下方式挂载到 /mnt 或其他目录（若系统已自动挂载，可跳过此步）：
 +
 ```sh
 mount -t vfat /dev/sda1 /mnt 
@@ -176,21 +176,21 @@ dd if=mtk-bpi-r4pro-EMMC-20250928.img of=/dev/mmcblk0
  mmc bootpart enable 1 1 /dev/mmcblk0
 ```
  
-. 关闭电源 BPI-R4Pro，删除u盘驱动，将bootstrap改为 emmc 再次启动并通电。
+. 关闭 BPI-R4 Pro，拔出 USB 驱动器，切换为从 eMMC 启动，然后重新上电。
  
  
  
  
-== 电源开启
+== 上电启动
 
-* 使用您的 USB TypeC 电缆 连接到调试控制台(CN41) 上 BPI-R4Pro +
-* 安装终端仿真器或使用您熟悉的串行终端， +
-  change the setting as follows: Baud=115200,Data bits: 8bit,Parity: none,Stop: 1bit, Flow control: none;
-* 上电前设置自举， +
-  （If you are using BPI-R4Pro for the first time, it is recommended to set it to NAND boot) +
-* 当将电源适配器连接到 DC-IN 连接器时(CN44),绿色 LED “PWR”亮起， +
-  And there will be characters similar to the following on the console. +
-  This means you have successfully started BPI-R4Pro. +
+* 使用 USB Type-C 数据线连接 BPI-R4 Pro 上的调试控制台（CN41）。+
+* 安装终端模拟器，或使用熟悉的串口终端，+
+  设置为：波特率 115200、数据位 8 位、无校验、停止位 1 位、无流控。
+* 供电前先设置启动方式，+
+  （首次使用 BPI-R4 Pro 时，建议设置为从 NAND 启动。）+
+* 将电源适配器连接到 DC-IN 接口（CN44）后，绿色“PWR”LED 会亮起，+
+  控制台中会显示类似下面的字符。+
+  这表示 BPI-R4 Pro 已成功启动。+
   
 [%collapsible]
 ====
@@ -253,13 +253,13 @@ Read 126976 bytes from volume ubootenv2 to 00000000ff7e0c40
 
 = 接口
 
-== R4Pro 4E可切换组合网口
+== R4 Pro 4E 可切换复合网口
 
-首先需要进入uboot界面，可以在uboot菜单中按Esc键来完成。
+首先进入 U-Boot 命令行；可以在 U-Boot 菜单中按 Esc 键进入。
 
-=== 切换到10G SFP 广域网端口
+=== 切换到 10G SFP WAN 口
 
-您可以通过输入以下命令来切换网络端口
+输入以下命令即可切换网口：
 
 ```bash
 MT7988> printenv 
@@ -273,9 +273,9 @@ OK
 MT7988> reset
 ```
 
-=== 切换至2.5G RJ45 WAN口
+=== 切换到 2.5G RJ45 WAN 口
 
-您可以通过输入以下命令来切换网络端口
+输入以下命令即可切换网口：
 
 ```bash
 MT7988> printenv 
@@ -289,33 +289,33 @@ OK
 MT7988> reset
 ```
 
-== 10G Ethernet
+== 10G 以太网
 
-TIP: 其中一些板将使用 MxL86252S-ABE-R。 MxL86252S-ABE-R和MxL86252C也兼容，软件通用，无需修改即可使用。
+TIP: 部分开发板会使用 MxL86252S-ABE-R。MxL86252S-ABE-R 与 MxL86252C 兼容，软件通用，无需修改即可使用。
 
-MT7988A 有两个用于 10G 的 USXGMII ethernet，其中USXGMII Port1用作WAN口 (10G SFP+ WAN/10G RJ45广域网)，USXGMII Port0连接交换机MxL86252C的USXGMII0，MxL86252C的USXGMII1用作LAN口 (10G SFP+ LAN/10G RJ45局域网)
+MT7988A 提供两个用于 10G 以太网的 USXGMII。其中，USXGMII Port1 用作 WAN 口（10G SFP+ WAN/10G RJ45 WAN）；USXGMII Port0 连接到 MxL86252C 交换芯片的 USXGMII0，而 MxL86252C 的 USXGMII1 用作 LAN 口（10G SFP+ LAN/10G RJ45 LAN）。
 
-的 SFP 串行解串器速度 BPI-R4Pro 固定为 10Gbps，因此仅 SFP 支持这个就可以用了！ +
-link:https://docs.banana-pi.org/en/BPI-R4/BananaPi_BPI-R4#_10g_sfp_module[测试10G SFP+ Copper/Fibre 模块] +
+BPI-R4 Pro 的 SFP SerDes 速率固定为 10Gbps，因此只能使用支持该速率的 SFP 模块！+
+link:https://docs.banana-pi.org/en/BPI-R4/BananaPi_BPI-R4#_10g_sfp_module[已测试的 10G SFP+ 电口/光口模块] +
 
-=== 10G广域网
+=== 10G WAN
 ==== 框图
 
 image::/bpi-r4_pro/bpi-r4pro-10g_wan-b.png[bpi-r4pro-10g_wan-b.png,width=800]
 
 
-==== 10G SFP+ 广域网
-当MT7988A的GPIO3输出=高，USXGMII 端口 1 切换到 SFP+ 广域网端口。 +
-此时，10G SFP+ WAN 可用，但 10G RJ45 WAN 将无效。 
+==== 10G SFP+ WAN
+当 MT7988A 的 GPIO3 输出高电平时，USXGMII Port1 切换到 SFP+ WAN 口。+
+此时 10G SFP+ WAN 可用，而 10G RJ45 WAN 不可用。
 
-现在，您可以插入10G SFP+ Copper/Fibre 获得 10G 网络接口的模块。 +
-或者您也可以插入 10G XGSPON Stick 来访问电信运营商的网络。 +
+此时可插入 10G SFP+ 电口或光口模块，以获得 10G 网络接口。+
+也可以插入 10G XGSPON Stick，接入电信运营商网络。+
  +
 
 
-NOTE: 我们的默认图像配置：  + 
-插入后 SFP 模块，USXGMII会自动切换到10G SFP+，10G RJ45将无法使用；  +
-**因此，如果您想使用10G RJ45，请勿在其上插入任何模块。 SFP+. **
+NOTE: 默认镜像的配置如下：+
+插入 SFP 模块后，USXGMII 会自动切换到 10G SFP+，此时 10G RJ45 无法使用；+
+**因此，如果要使用 10G RJ45，请勿在 SFP+ 接口中插入任何模块。**
 
 [%collapsible]
 ====
@@ -428,14 +428,14 @@ root@R4Pro-01i-NAND:~#
 ====
 
 
-==== 10G RJ45 广域网(仅适用于 8X)
+==== 10G RJ45 WAN（仅 8X 提供）
 
-另一方面，当MT7988A的GPIO3输出=低，USXGMII Port1 切换到 10G RJ45 WAN 端口。 +
-您需要加载10G PHY AS21010P的驱动程序才能使10G RJ45 LAN工作。 +
-此时，10G RJ45 WAN 已功能正常，但 10G SFP+ WAN 将无效。  +
+当 MT7988A 的 GPIO3 输出低电平时，USXGMII Port1 切换到 10G RJ45 WAN 口。+
+需要加载 10G PHY AS21010P 的驱动程序，才能使 10G RJ45 接口工作。+
+此时 10G RJ45 WAN 可用，而 10G SFP+ WAN 不可用。+
 
 
-NOTE: AS21010P的功耗很高，必须使用散热效果好的散热器。 +
+NOTE: AS21010P 功耗很高，必须使用散热效果良好的散热片。+
 
 [%collapsible]
 ====
@@ -481,38 +481,38 @@ root@R4Pro-01i-NAND:~#
 ====
 
 
-=== 10G局域网
+=== 10G LAN
 ==== 框图
 
 image::/bpi-r4_pro/bpi-r4pro-10g_lan-b.png[bpi-r4pro-10g_lan-b.png,width=800]
 
-==== 10G SFP+ 局域网
-当MT7988A的GPIO54输出=低，MxL86252C 的 USXGMII1 切换至 10G SFP+局域网端口。 +
-此时，10G SFP+ LAN 可以工作，但 10G RJ45 LAN 将不起作用。 
+==== 10G SFP+ LAN
+当 MT7988A 的 GPIO54 输出低电平时，MxL86252C 的 USXGMII1 切换到 10G SFP+ LAN 口。+
+此时 10G SFP+ LAN 可用，而 10G RJ45 LAN 不可用。
 
-现在，您可以插入10G SFP+ Copper/Fibre 获得 10G 网络接口的模块。 +
+此时可插入 10G SFP+ 电口或光口模块，以获得 10G 网络接口。+
  +
 
 
 
-NOTE: 我们的默认图像配置：  + 
-插入后 SFP 模块，USXGMII会自动切换到10G SFP+，10G RJ45将无法使用；  +
-**因此，如果您想使用10G RJ45，请勿在其上插入任何模块。 SFP+. **
+NOTE: 默认镜像的配置如下：+
+插入 SFP 模块后，USXGMII 会自动切换到 10G SFP+，此时 10G RJ45 无法使用；+
+**因此，如果要使用 10G RJ45，请勿在 SFP+ 接口中插入任何模块。**
 
 
-==== 10G RJ45 网卡(仅适用于 8X)
+==== 10G RJ45 LAN（仅 8X 提供）
 
-另一方面，当MT7988A的GPIO54输出=高，MxL86252C 的 USXGMII1 切换到 10G RJ45 WAN 端口。 +
-您需要加载10G PHY AS21010P的驱动程序才能使10G RJ45 LAN工作。 +
-此时，10G RJ45 LAN 可以使用，但 10G SFP+ 局域网将无效。  +
+当 MT7988A 的 GPIO54 输出高电平时，MxL86252C 的 USXGMII1 切换到 10G RJ45 LAN 口。+
+需要加载 10G PHY AS21010P 的驱动程序，才能使 10G RJ45 LAN 工作。+
+此时 10G RJ45 LAN 可用，而 10G SFP+ LAN 不可用。+
  
-NOTE: AS21010P的功耗很高，必须使用散热效果好的散热器。 +
+NOTE: AS21010P 功耗很高，必须使用散热效果良好的散热片。+
  
 
 
 
-=== 10G iperf3测试
-- PC1 <-(10G局域网)  BPI-R4Pro  (10G广域网)->PC2
+=== 10G iperf3 测试
+- PC1 <-(10G LAN)  BPI-R4Pro  (10G WAN)->PC2
 
 [%collapsible]
 ====
@@ -546,7 +546,7 @@ xiao@FN-NUC5:~$
 ====
 
 
-- PC1 <- ->(10G局域网)  BPI-R4Pro
+- PC1 <- ->(10G LAN)  BPI-R4Pro
 
 [%collapsible]
 ====
@@ -613,7 +613,7 @@ xiao@FN-NUC5:~$
 
 
 
-- BPI-R4Pro (10G广域网)<- ->PC2
+- BPI-R4Pro (10G WAN)<- ->PC2
 
 [%collapsible]
 ====
@@ -682,16 +682,16 @@ root@R4Pro-01i-NAND:~#
 
 == 2.5G RJ45
 
-TIP: 其中一些板将使用 MxL86252S-ABE-R。 MxL86252S-ABE-R和MxL86252C也兼容，软件通用，无需修改即可使用。
+TIP: 部分开发板会使用 MxL86252S-ABE-R。MxL86252S-ABE-R 与 MxL86252C 兼容，软件通用，无需修改即可使用。
 
-四个2.5G RJ45端口 BPI-R4Pro 通过MxL86252C扩展(端口0~端口3).
+BPI-R4 Pro 的四个 2.5G RJ45 端口由 MxL86252C（Port0～Port3）扩展。
 
-NOTE: MxL86252C的功耗也很高，必须使用散热效果好的散热器。 +
+NOTE: MxL86252C 的功耗也很高，必须使用散热效果良好的散热片。+
 
 image::/bpi-r4_pro/bpi-r4pro-mxl86252c.png[bpi-r4pro-mxl86252c.png,width=500]
-=== 2.5G iperf3测试
+=== 2.5G iperf3 测试
 
-- BPI-R4Lite<- (2.5G局域网)  BPI-R4Pro (10G广域网)  ->PC2
+- BPI-R4Lite<- (2.5G LAN)  BPI-R4Pro (10G WAN)  ->PC2
 
 [%collapsible]
 ====
@@ -729,7 +729,7 @@ root@R4Lite-A:/#
 
 
 
-- BPI-R4Lite-A<- (2.5G局域网)  BPI-R4Pro (2.5G局域网)  ->BPI-R4Lite-B
+- BPI-R4Lite-A<- (2.5G LAN)  BPI-R4Pro (2.5G LAN)  ->BPI-R4Lite-B
 
 [%collapsible]
 ====
@@ -765,7 +765,7 @@ root@R4Lite-A:/#
 ====
 
 
-- BPI-R4Lite<- ->(2.5G局域网)  BPI-R4Pro
+- BPI-R4Lite<- ->(2.5G LAN)  BPI-R4Pro
 
 [%collapsible]
 ====
@@ -800,22 +800,22 @@ root@R4Lite-A:/#
 ```
 ====
 
-== MxL86252C 更新
+== 更新 MxL86252C
 
-TIP: Mlx862芯片当前固件版本为V1.0.70.70。
+TIP: MxL862 芯片当前的固件版本为 V1.0.70.70。
 
-TIP: 其中一些板将使用 MxL86252S-ABE-R。 MxL86252S-ABE-R和MxL86252C也兼容，软件通用，无需修改即可使用。
+TIP: 部分开发板会使用 MxL86252S-ABE-R。MxL86252S-ABE-R 与 MxL86252C 兼容，软件通用，无需修改即可使用。
 
-. 首先，将需要更新的Mlx文件上传到开发板上。可以通过TFTP或 USB 开车。
+. 首先，将需要更新的 MxL 文件上传到开发板。可以通过 TFTP 或 USB 驱动器复制。
 
-. 使用命令 ethswbox 检查状态。
+. 使用 ethswbox 命令检查状态。
 +
 ```bash
 root@OpenWrt:~# ethswbox
 Ethernet SW Toolbox version 1.1.0.0 ... Updating symbolic links!
 ```
 
-. 使用命令 fapi-GSW-FW-Update 加载更新。
+. 使用 fapi-GSW-FW-Update 命令加载更新。
 +
 ```bash
 root@OpenWrt:~# fapi-GSW-FW-Update
@@ -823,7 +823,7 @@ cmd: fapi-GSW-FW-Update 0:
 fapi_GSW_FW_Update done
 ```
 
-. 使用MDIO刻录
+. 通过 MDIO 烧录。
 +
 ```bash
 root@OpenWrt:~# ssb_smdio_download “mxl fw name”
@@ -840,18 +840,18 @@ successfully download firmware to target
 FW Upload Failed - Register Read Failed
 ```
 
-. 看到上面的日志就说明刷机成功了。接下来，重新启动以应用更改。
+. 出现上述日志表示烧录成功。接下来重启设备，使更改生效。
 
 
 
 == 1G RJ45
-1G RJ45 的 BPI-R4Pro 连接到MT7988A内部开关的Port0。
+BPI-R4 Pro 的 1G RJ45 连接到 MT7988A 内部交换机的 Port0。
 
 image::/bpi-r4_pro/bpi-r4pro-1g_rj45_lan.png[bpi-r4pro-1g_rj45_lan.png,width=800]
 
 
-=== 1G iperf3测试
-- BPI-R4Lite <-(1G局域网)  BPI-R4Pro  (10G广域网)->PC2
+=== 1G iperf3 测试
+- BPI-R4Lite <-(1G LAN)  BPI-R4Pro  (10G WAN)->PC2
 
 [%collapsible]
 ====
@@ -888,14 +888,14 @@ root@R4Lite-D:/#
 
 
 
-== 1G ETH FPC连接器
-1G ETH FPC连接器 BPI-R4Pro 连接到MT7988A内部开关的Port3。 +
+== 1G 以太网 FPC 接口
+BPI-R4 Pro 的 1G 以太网 FPC 接口连接到 MT7988A 内部交换机的 Port3。+
  +
 
 image::/bpi-r4_pro/bpi-r4pro-1g_sfp_lan.png[bpi-r4pro-1g_sfp_lan.png,width=800]
 
-如果要使用此RJ45，则需要定制RJ45转接板并与1.0MM间距11PIN FPC连接 (柔性印刷电路). +
-RJ45转接板布局需要符合其要求，例如差分 Ethernet 信号应作为 100Ω 差分对布线，并具有适当的间隙等。 +
+如需使用该 RJ45 接口，需要定制 RJ45 转接板，并使用间距 1.0mm 的 11 Pin FPC（柔性印刷电路）连接。+
+RJ45 转接板的 PCB 布局必须符合相关要求，例如以太网差分信号应按 100Ω 差分对布线，并保持适当间距等。+
  +
 
 image::/bpi-r4_pro/bpi-r4pro-1g_sfp_rj45.png[bpi-r4pro-1g_sfp_rj45.png,width=500]
@@ -903,8 +903,8 @@ image::/bpi-r4_pro/bpi-r4pro-1g_sfp_rj45.png[bpi-r4pro-1g_sfp_rj45.png,width=500
 
 image::/bpi-r4_pro/bpi-r4pro-1g_rj45_fpc_con.png[bpi-r4pro-1g_rj45_fpc_con.png,width=500]
 
-=== 1G iperf3测试
-- BPI-R4Lite <-(1G软板网卡)  BPI-R4Pro  (10G广域网)->PC2
+=== 1G iperf3 测试
+- BPI-R4Lite <-(1G FPC LAN)  BPI-R4Pro  (10G WAN)->PC2
 
 [%collapsible]
 ====
@@ -943,156 +943,156 @@ root@R4Lite-C:/#
 
 
 
-== 迷你 PCIe 插槽(对于 WiFi 网卡)
-您可以将 BPI WiFi 网卡插入 CN7 和 CN9 顶部 BPI-R4Pro，然后用两颗M2螺丝固定。 +
+== miniPCIe 插槽（用于 Wi-Fi 网卡）
+可以将 BPI Wi-Fi 网卡插入 BPI-R4 Pro 顶部的 CN7 和 CN9，然后用两颗 M2 螺钉固定。+
 
 image::/bpi-r4_pro/bpi-r4pro-be14.png[bpi-r4pro-be14.png,width=500]
 
-link:https://docs.banana-pi.org/en/BPI-R4/BananaPi_BPI-R4-NIC-BE14[BPI WiFi NIC：BE14 规范]
+link:https://docs.banana-pi.org/en/BPI-R4/BananaPi_BPI-R4-NIC-BE14[BPI Wi-Fi 网卡：BE14 规格]
 
-=== 12V电源 ON/OFF
-BPI WiFi NIC 模块需要 12V 电源，因此电源上 BPI-R4Pro 上电前必须先开机。 +
-(将SW4拨至“ON”位置，12V LED 通电时会亮起)
+=== 12V 电源开关
+BPI Wi-Fi 网卡模块需要 12V 供电，因此上电前必须打开 BPI-R4 Pro 上的相应电源。+
+（将 SW4 拨到“ON”位置；上电后 12V LED 会亮起。）
 
-IMPORTANT:  12V 电源将通过 PIN6/28/48 miniPCI 插槽。 +
-插接其他模块时，如果无法确认模块是否能承受12V，请务必关闭SW4。 +
+IMPORTANT: 12V 电源会通过 miniPCIe 插座的 PIN6/28/48 提供给 BPI Wi-Fi 网卡。+
+插入其他模块时，如果不能确认该模块能否承受 12V，请务必关闭 SW4。+
 
 image::/bpi-r4_pro/bpi-r4pro-12v-switch.png[bpi-r4pro-12v-switch.png,width=300]
 
-=== 3.3V电源调节
-PCA9555扩展的三个GPIO可用于关闭和电压 PCIe 3.3V调节。 +
-通常情况下您不需要调整该电压。
+=== 3.3V 电源调节
+可通过 PCA9555 扩展出的三个 GPIO 关闭 PCIe 3.3V 电源或调节其电压。+
+通常无需调节该电压。
 
 [%collapsible]
 ====
 [options="header",cols="3,3,3",width="80%"]
 |====
 3+| **miniPCIe 插槽 3.3V 电源**
-|GPIO |	输出=高	 |输出=低
-|PCA_A_IO1_0/mPCIe_A_PDN			 |PCIeA_3P3V = 开		|PCIeA_3P3V = 关闭
-|PCA_A_IO1_1/mPCIe_B_PDN			 |PCIeB_3P3V = 开		|PCIeB_3P3V = 关闭
+|GPIO |	Output=High	 |Output=Low
+|PCA_A_IO1_0/mPCIe_A_PDN			 |PCIeA_3P3V = ON		|PCIeA_3P3V = OFF
+|PCA_A_IO1_1/mPCIe_B_PDN			 |PCIeB_3P3V = ON		|PCIeB_3P3V = OFF
 |PCA_A_IO0_7/mPCIe_AB_Vset		 	 |PCIeA_3P3V=PCIeB_3P3V=3.57V	|PCIeA_3P3V=PCIeB_3P3V=3.3V
 |====
 ====
 
 
 === PCIe
-BPI WiFi 网卡 BE14/BE19 需要两个2lane PCIe ，但miniPCIe插槽的标准只定义了1个1lane PCIe. +
-因此，我们使用了两个miniPCIe插槽并修改了引脚 17/19/45/47 每个时隙的第二车道信号 PCIe. +
-除了这四个PIN之外，其他都是标准定义，因此您也可以使用其他模块。
+BPI Wi-Fi 网卡 BE14/BE19 需要两组双通道 PCIe，而标准 miniPCIe 插槽只定义了一组单通道 PCIe。+
+因此，本设计使用两个 miniPCIe 插槽，并将每个插槽的 17/19/45/47 引脚改为 PCIe 第二通道信号。+
+除这四个引脚外，其余均为标准定义，因此也可以使用其他模块。
 
-=== USB2.0
-两个miniPCIe插槽各预留一对从USB2.0 HUB扩展出来的USB2.0信号，用于扩展其他模块。 +
+=== USB 2.0
+两个 miniPCIe 插座各预留一对由 USB 2.0 HUB 扩展出的 USB 2.0 信号，供其他模块扩展使用。+
 
 
-== M.2 B-KEY 插槽(对于 4G/5G 蜂窝模块)
-的 BPI-R4Pro 有3个M.2 B-KEY插槽，全部用于 4G/5G 蜂窝模块。 +
-每个插槽支持一对 USB2.0 和 USB3.0 信号，均通过扩展 USB 3.0 枢纽。 +
-此外，CN15和CN18插槽各有一个额外的PCIe3.0 1lane信号。 +
+== M.2 B-KEY 插槽（用于 4G/5G 蜂窝网络模块）
+BPI-R4 Pro 配有三个 M.2 B-KEY 插槽，均用于安装 4G/5G 蜂窝网络模块。+
+每个插槽都支持一组 USB 2.0 和 USB 3.0 信号，两者均由 USB 3.0 HUB 扩展。+
+此外，CN15 和 CN18 插槽还各有一组 PCIe 3.0 单通道信号。+
 
 image::/bpi-r4_pro/bpi-r4pro-bkey.png[bpi-r4pro-bkey.png,width=500]
 
 === 电源
-所有模块均采用独立降压DC-DC供电。  +
-GPIO 可用于关闭电源输出并调节输出电压。
+所有模块均由独立的降压 DC-DC 供电。+
+可通过 GPIO 关闭电源输出并调节输出电压。
 
-==== 电源 ON/OFF
-电源 on/off 控制如下。 +
+==== 电源开关
+电源开关控制如下。+
 [%collapsible]
 ====
 [options="header",cols="3,3,3",width="80%"]
 |====
 3+| **M.2 B-KEY 插槽电源**
-|GPIO |	输出=高	 |输出=低
-|PCA_A_IO0_0/BKEY-A-PDN			 |电源电压_密钥_A = 开		|电源电压_密钥_A = 关闭
-|PCA_A_IO0_2/BKEY-B-PDN			 |电源电压_密钥_B = 开		|电源电压_密钥_B = 关闭
-|PCA_A_IO0_4/BKEY-C-PDN		 	 |电源电压_密钥_C = 开 	|电源电压_密钥_C = 关闭
+|GPIO |	Output=High	 |Output=Low
+|PCA_A_IO0_0/BKEY-A-PDN			 |VDD_BKEY_A = ON		|VDD_BKEY_A = OFF
+|PCA_A_IO0_2/BKEY-B-PDN			 |VDD_BKEY_B = ON		|VDD_BKEY_B = OFF
+|PCA_A_IO0_4/BKEY-C-PDN		 	 |VDD_BKEY_C = ON 	|VDD_BKEY_C = OFF
 |====
 ====
 
-==== 3.3V电源调节
-大多数5G模块的工作电压为3.3V~4.2V。由于电流较大，使用3.3V会导致模块不稳定， +
-所以建议调整为3.95V。 +
-但在调整之前，请确保您的5G模块可以承受3.95V！
+==== 3.3V 电源调节
+大多数 5G 模块的工作电压为 3.3V～4.2V。由于电流较大，使用 3.3V 可能导致模块工作不稳定，+
+因此建议调节到 3.95V。+
+但调节前请务必确认所用 5G 模块能够承受 3.95V！
 
 [%collapsible]
 ====
 [options="header",cols="3,3,3",width="80%"]
 |====
 3+| **M.2 B-KEY 插槽 3.3V 电源调节**
-|GPIO |	输出=高	 |输出=低
-|PCA_A_IO0_1/BKEY-A-Vset		 |电源电压_密钥_A = 3.95V		|电源电压_密钥_A = 3.3V
-|PCA_A_IO0_3/BKEY-B-Vset			 |电源电压_密钥_B = 3.95V		|电源电压_密钥_B = 3.3V
-|PCA_A_IO0_5/BKEY-C-Vset		 	 |电源电压_密钥_C = 3.95V 	|电源电压_密钥_C = 3.3V
+|GPIO |	Output=High	 |Output=Low
+|PCA_A_IO0_1/BKEY-A-Vset		 |VDD_BKEY_A = 3.95V		|VDD_BKEY_A = 3.3V
+|PCA_A_IO0_3/BKEY-B-Vset			 |VDD_BKEY_B = 3.95V		|VDD_BKEY_B = 3.3V
+|PCA_A_IO0_5/BKEY-C-Vset		 	 |VDD_BKEY_C = 3.95V 	|VDD_BKEY_C = 3.3V
 |====
 ====
 
 
-==== 重置
-每个模块都可以通过以下方式复位 GPIO.
+==== 复位
+每个模块均可通过 GPIO 复位。
 
 [%collapsible]
 ====
 [options="header",cols="3,3,3",width="80%"]
 |====
-3+| **M.2 B-KEY 插槽重置**
-|GPIO |	输出=高	 |输出=低
-|PCA_A_IO1_3/BKEY-A-RST		 |模块 = 重置		|模块 = 功能性
-|PCA_A_IO1_4/BKEY-B-RST			 |模块 = 重置		|模块 = 功能性
-|PCA_A_IO1_5/BKEY-C-RST		 	 |模块 = 重置 	|模块 = 功能性
+3+| **M.2 B-KEY 插槽复位**
+|GPIO |	Output=High	 |Output=Low
+|PCA_A_IO1_3/BKEY-A-RST		 |Module = Reset		|Module = Functional
+|PCA_A_IO1_4/BKEY-B-RST			 |Module = Reset		|Module = Functional
+|PCA_A_IO1_5/BKEY-C-RST		 	 |Module = Reset 	|Module = Functional
 |====
 ====
 
 
-=== SIM卡
-每个M.2 B-KEY插槽支持两组SIM卡信号。 +
-我们将 SIMA 连接到板载 NANO SIM 插槽，将 SIMB 连接到 eSIM。 +
-然而，eSIM 没有板载组件。如果您需要，请联系我们的销售。+
+=== SIM 卡
+每个 M.2 B-KEY 插槽都支持两组 SIM 卡信号。+
+SIMA 连接到板载 Nano SIM 卡槽，SIMB 连接到 eSIM。+
+但 eSIM 相关元件默认未安装；如有需要，请联系销售人员。+
 
 image::/bpi-r4_pro/b-key-sim2.png[b-key-sim2.png,width=500]
 
-==== 板载 NANO SIM 插槽
-SIM1 可以使用板载 NANO SIM 插槽或外部 SIM 插槽 (这需要自行设计的扩展板通过CN45连接) +
-当“PCA_A_IO0_6/SIM_SEL” 输出=低，SIM1 连接到板载 NANO SIM 插槽， +
-当“PCA_A_IO0_6/SIM_SEL” 输出=高，SIM1 路由至 FPC 连接器， +
+==== 板载 Nano SIM 卡槽
+SIM1 可以使用板载 Nano SIM 卡槽或外接 SIM 卡槽（外接方式需要自行设计扩展板，并通过 CN45 连接）。+
+当“PCA_A_IO0_6/SIM_SEL”输出低电平时，SIM1 连接到板载 Nano SIM 卡槽；+
+当“PCA_A_IO0_6/SIM_SEL”输出高电平时，SIM1 连接到 FPC 接口。+
 
-==== 外部 SIM 插槽连接器
-三个B-KEY和两个miniPCIe插槽的SIM卡信号可以连接到FPC连接器 (CN45). +
-note:：这使您可以轻松设计适合您外壳的 SIM 卡适配器板。
+==== 外接 SIM 卡槽接口
+三个 B-KEY 插槽和两个 miniPCIe 插座的 SIM 卡信号都可连接到 FPC 接口（CN45）。+
+note:: 这样可以方便地设计适配机箱的 SIM 卡转接板。
 
-==== 嵌入式SIM卡
-PIN42/44/46/48 M.2 B-KEY Slot 是第二组SIM 卡信号。 +
-注意：这需要您的模块支持它。 +
+==== eSIM
+M.2 B-KEY 插槽的 PIN42/44/46/48 是第二组 SIM 卡信号。+
+NOTE : 此功能需要模块本身支持。+
  +
  
 image::/bpi-r4_pro/bpi-r4pro-sim2.png[bpi-r4pro-sim2.png,width=500]
 
 === 蜂窝网络 LED
-每个 M.2 B-KEY 插槽的 PIN10 连接到 LED。这个 LED 是模块的网络状态指示灯输出。 +
-具体功能请参考模块的数据表。 +
+每个 M.2 B-KEY 插槽的 PIN10 都连接到一颗 LED，该信号是模块的网络状态指示输出。+
+具体功能请参考所用模块的数据手册。+
  +
  
 image::/bpi-r4_pro/bpi-r4pro-sim_led2.png[bpi-r4pro-sim_led2.png,width=500]
 
-==== 机上 LED
-我们在每个 SIM 卡插槽旁边放置 LED，以便更轻松地检查状态。 +
+==== 板载 LED
+每个 SIM 卡槽旁都设有 LED，便于查看状态。+
 
 image::/bpi-r4_pro/bpi-r4pro-sim_led.png[bpi-r4pro-sim_led.png,width=500]
 
 
-==== 外部 LED 连接器
-我们还路由 LED 信号至FPC插槽(CN40). +
-如果有必要，您可以设计一个 LED 适配器板以适应您的外壳。
+==== 外接 LED 接口
+LED 信号也引出到 FPC 插槽（CN40）。+
+如有需要，可设计适配机箱的 LED 转接板。
 
 
 
-=== USB3.0
-大多数 4G/5G 模块可以使用 USB2.0/USB3.0 用于沟通。 +
+=== USB 3.0
+大多数 4G/5G 模块都可通过 USB 2.0/USB 3.0 通信。+
  +
 
 === PCIe
-MT7988A只有四个 PCIe，其中两个用于 WiFi 连接，  +
-另外两个PCIe3.0 1L0和PCIe3.0 1L1可以路由到M.2 M-KEY或M.2 B-KEY。 +
+MT7988A 只有四组 PCIe，其中两组用于 Wi-Fi 连接，+
+另外两组 PCIe 3.0 1L0 和 PCIe 3.0 1L1 可切换到 M.2 M-KEY 或 M.2 B-KEY。+
 
 image::/bpi-r4_pro/bpi-r4pro-bkey_pcie.png[bpi-r4pro-bkey_pcie.png,width=500]
 
@@ -1102,155 +1102,155 @@ image::/bpi-r4_pro/bpi-r4pro-bkey_pcie.png[bpi-r4pro-bkey_pcie.png,width=500]
 [options="header",cols="3,3,3",width="80%"]
 |====
 3+| **M.2 B-KEY 插槽 PCIe**
-|GPIO |	输出=高	 |输出=低
-|GPIO79/PCIE_1L0_SEL_1p8V		 |PCIE_1L_0 = M.2 M键(CN13)		|PCIE_1L_0 = M.2 B-KEY(CN15)
-|GPIO63/PCIE_1L1_SEL_1p8V		 |PCIE_1L_1 = M.2 M键(CN14)		|PCIE_1L_1 = M.2 B-KEY(CN18)
+|GPIO |	Output=High	 |Output=Low
+|GPIO79/PCIE_1L0_SEL_1p8V		 |PCIE_1L_0 = M.2 M-KEY(CN13)		|PCIE_1L_0 = M.2 B-KEY(CN15)
+|GPIO63/PCIE_1L1_SEL_1p8V		 |PCIE_1L_1 = M.2 M-KEY(CN14)		|PCIE_1L_1 = M.2 B-KEY(CN18)
 |====
 ====
 
 
 
-== M.2 M-KEY 插槽(对于 PCIe NVME SSD)
-M.2 M-KEY插槽大小为2280，可连接 PCIe NVME SSD 或 PCIe 到SATA， PCIe 到 Ethernet 和其他模块。 +
+== M.2 M-KEY 插槽（用于 PCIe NVMe SSD）
+M.2 M-KEY 插槽的尺寸为 2280，可连接 PCIe NVMe SSD、PCIe 转 SATA、PCIe 转以太网等模块。+
 
-然而，由于 PCIe 信号与 M.2 B-KEY 插槽复用，  +
-如果要在M.2 M-KEY插槽中使用，需要将GPIO79或GPIO63输出设置为高电平，  +
-从而可以切换相应的信号。
+但由于 PCIe 信号与 M.2 B-KEY 插槽复用，+
+如需在 M.2 M-KEY 插槽中使用，需要将 GPIO79 或 GPIO63 设置为高电平，+
+以切换相应信号。
 
 [%collapsible]
 ====
 [options="header",cols="3,3,3",width="80%"]
 |====
 3+| **M.2 M-KEY 插槽 PCIe**
-|GPIO |	输出=高	 |输出=低
-|GPIO79/PCIE_1L0_SEL_1p8V		 |PCIE_1L_0 = M.2 M键(CN13)		|PCIE_1L_0 = M.2 B-KEY(CN15)
-|GPIO63/PCIE_1L1_SEL_1p8V		 |PCIE_1L_1 = M.2 M键(CN14)		|PCIE_1L_1 = M.2 B-KEY(CN18)
+|GPIO |	Output=High	 |Output=Low
+|GPIO79/PCIE_1L0_SEL_1p8V		 |PCIE_1L_0 = M.2 M-KEY(CN13)		|PCIE_1L_0 = M.2 B-KEY(CN15)
+|GPIO63/PCIE_1L1_SEL_1p8V		 |PCIE_1L_1 = M.2 M-KEY(CN14)		|PCIE_1L_1 = M.2 B-KEY(CN18)
 |====
 ====
 
 
 
-== USB 连接器
-=== USB3.2连接器
-BPI-R4Pro 有一个 USB3.2 Type-A 连接器，可用于连接 USB 闪存驱动器或其他 USB 设备。 +
-USB3.2连接器的电源输出 (CN11) 是 5V/1300mA，可以通过“PCA_A_IO1_3/VBUS_AB_PDN” 输出低。 +
+== USB 接口
+=== USB 3.2 接口
+BPI-R4 Pro 配有一个 USB 3.2 Type-A 接口，可连接 USB 闪存盘或其他 USB 设备。+
+USB 3.2 接口（CN11）的电源输出为 5V/1300mA；将“PCA_A_IO1_3/VBUS_AB_PDN”输出设为低电平即可关闭该电源。+
 
 
-=== USB2.0连接器
-BPI-R4Pro 有一个 USB2.0 Type-A 连接器，可用于连接 USB 闪存驱动器或其他 USB 设备。 +
-USB2.0连接器的电源输出 (CN12) 是 5V/1300mA，可以通过“PCA_A_IO1_3/VBUS_AB_PDN” 输出低。 +
+=== USB 2.0 接口
+BPI-R4 Pro 配有一个 USB 2.0 Type-A 接口，可连接 USB 闪存盘或其他 USB 设备。+
+USB 2.0 接口（CN12）的电源输出为 5V/1300mA；将“PCA_A_IO1_3/VBUS_AB_PDN”输出设为低电平即可关闭该电源。+
 
-== USB TypC 调试控制台连接器
-的 BPI-R4Pro 机载有 USB-到-UART 芯片(HT42B534-2)，连接到MT7988A的调试 UART. +
-连接时 USB Type-c连接器(CN41) 到 PC，一个 USB就会出现-to-serial设备，可以用来调试。 +
-终端设置：波特率=115200，数据位：8位，奇偶校验：无，停止位：1位，流控制：无， +
+== USB Type-C 调试控制台接口
+BPI-R4 Pro 板载 USB 转 UART 芯片（HT42B534-2），连接到 MT7988A 的调试 UART。+
+将 USB Type-C 接口（CN41）连接到电脑后，会出现一个 USB 转串口设备，可用于调试。+
+终端设置：波特率 115200、数据位 8 位、无校验、停止位 1 位、无流控。+
 
 image::/bpi-r4_pro/bpi-r4pro-usb_serial.png[bpi-r4pro-usb_serial.png,width=200]
 
-== MicroSD卡
-的 BPI-R4Pro 有一个 Micro SD (安全数字) 卡槽，可用于启动和存储。 +
+== MicroSD 卡
+BPI-R4 Pro 配有一个 MicroSD（Secure Digital）卡槽，可用于启动和存储。+
 
-然而，MT7988A只有一个MSDC控制器，它输出两个pinmux端口用于SD 4.5和 eMMC 5.1, +
-所以你只能在 SD 和 eMMC 功能。
+但 MT7988A 只有一个 MSDC 控制器，通过两个引脚复用端口分别支持 SD 4.5 和 eMMC 5.1，+
+因此 SD 与 eMMC 功能只能二选一。
 
 
 == 风扇
-的 BPI-R4Pro有两个风扇连接器，引脚分配与 4 线兼容 PWM- Intel PC 主板上的受控风扇。 +
+BPI-R4 Pro 配有两个风扇接口，引脚定义兼容 Intel PC 主板使用的四线 PWM 调速风扇。+
 
-它采用 12V 电源电压运行，并支持 PWM 速度控制，但缺少用于速度检测的感测引脚。
+风扇采用 12V 供电并支持 PWM 调速，但没有用于转速检测的 Sense 引脚。
 
 image::/bpi-r4_pro/bpi-r4pro-fan3.png[bpi-r4pro-fan3.png,width=500]
 
-这两个 FAN 连接器由同一个控制 PWM (GPIO57_脉宽调制D0). +
+两个风扇接口由同一个 PWM（GPIO57_PWMD0）控制。+
 
 image::/bpi-r4_pro/bpi-r4pro-fan4.png[bpi-r4pro-fan4.png,width=500]
 
-== 实时时钟
-内置一颗RTC时钟芯片，只需安装一节3V CR1220电池即可工作。
+== RTC
+板载一颗 RTC 时钟芯片，只需安装一枚 3V CR1220 电池即可工作。
 
 
 == EEPROM
-内置1颗EEPROM芯片 (P24C02A)，可用于存储少量数据。
+板载一颗 EEPROM 芯片（P24C02A），可用于存储少量数据。
 
 
-== 按钮
-=== 重置
-TIP: 在 BPI-R4Pro-8X-BE14-MT76-OpenWRT24.10-DSA-251229 如图，短按RST重启系统，长按复位系统。
+== 按键
+=== 复位
+TIP: 在 BPI-R4Pro-8X-BE14-MT76-OpenWRT24.10-DSA-251229 镜像中，短按 RST 会重启系统，长按则会重置系统。
 
-GPIO13连接有复位按钮，用于恢复出厂默认设置。
+复位按键连接到 GPIO13，用于恢复出厂设置。
 
 === WPS
-GPIO14连接有复位按钮，用于新设备快速连接路由器。
+WPS 按键连接到 GPIO14，用于让新设备快速连接路由器。
 
 == LED
-BPI-R4Pro 有 LED 来指示各种操作状态，包括电源、WiFi、 Ethernet, 4G/5G 细胞, SSD等 +
+BPI-R4 Pro 配有多颗 LED，用于指示电源、Wi-Fi、以太网、4G/5G 蜂窝网络和 SSD 等工作状态。+
 
-* 1x 动力绿 LED，PCB上丝印“PWR”，上电时亮起，无法通过软件控制。 +
-* 1x 红色状态 LED，PCB上丝印“R”，由控制 GPIO "PCA_A_IO1_7/SYS_LEDR". +
-* 1x 蓝色状态 LED，PCB上丝印“B”，由控制 GPIO "PCA_A_IO1_6/SYS_LEDB". +
-* 3x WiFi 状态蓝色 LED，丝印“W2G”、“W5G”、“W6G”。 +
-	 The specific function depends on the module. Some modules do not have this function (including BPI-BE14 V1.0). +
-* 2x SSD 状态蓝色LED，丝印“SSD1”、“SSD2”，控制方式 SSD. +
-* 3x 5G 蜂窝状态蓝色 LED，丝印“SIM1”、“SIM2”、“SIM3”，由 5G 模块控制。 +
-* 每个 10G/2.5G RJ45有两个LED，每个1G RJ45有一个 LED 以指示网络状态。 +
+* 1 颗绿色电源 LED，PCB 丝印为“PWR”；上电时亮起，无法由软件控制。+
+* 1 颗红色状态 LED，PCB 丝印为“R”；由 GPIO“PCA_A_IO1_7/SYS_LEDR”控制。+
+* 1 颗蓝色状态 LED，PCB 丝印为“B”；由 GPIO“PCA_A_IO1_6/SYS_LEDB”控制。+
+* 3 颗蓝色 Wi-Fi 状态 LED，丝印为“W2G”“W5G”“W6G”。+
+	 具体功能取决于模块；部分模块不支持此功能（包括 BPI-BE14 V1.0）。+
+* 2 颗蓝色 SSD 状态 LED，丝印为“SSD1”“SSD2”，由 SSD 控制。+
+* 3 颗蓝色 5G 蜂窝网络状态 LED，丝印为“SIM1”“SIM2”“SIM3”，由 5G 模块控制。+
+* 每个 10G/2.5G RJ45 配有两颗 LED，每个 1G RJ45 配有一颗 LED，用于指示网络状态。+
 
 
-== 直流输入 
-BPI-R4Pro 需要一个单一的 +12V供电，并具有多种电源，包括直流电源适配器， USB PD， POE等 
+== DC-IN
+BPI-R4 Pro 需要一路 +12V 电源，并支持多种供电方式，包括 DC 电源适配器、USB PD 和 PoE 等。
  +
-电源电压范围为9~建议使用24V、12V或20V，超过25.3V会自动关机。
+供电电压范围为 9～24V，建议使用 12V 或 20V；电压超过 25.3V 时会自动关断。
 
-=== DCIN(5521)
-您可以使用 12V/5A 电源适配器插入CN44即可为其供电。 +
-但如果同时存在其他电源，则会切换到其他电源。 +
+=== DC-IN（5521）
+可以使用 12V/5A 电源适配器，将其插入 CN44 供电。+
+但如果同时存在其他电源，系统会切换到其他供电方式。+
 
-CN44插槽尺寸如下(内在正，外在负):
+CN44 接口尺寸如下（内正外负）：
 
 image::/bpi-r4_pro/bpi-r4pro-dc5521.png[bpi-r4pro-dc5521.png,width=300]
 
 
-=== DCIN(VH396)
-也可以使用VH3.96插头连接CN6供电。 +
-CN46插槽尺寸如下：
+=== DC-IN（VH396）
+也可以使用 VH3.96 插头连接 CN6 供电。+
+CN46 接口尺寸如下：
 
 image::/bpi-r4_pro/vh396.png[vh396.png,width=500]
 
-=== USB C型PD
-的 USB Type-C PD连接器连接CH224K芯片，用于与设备通信 USB 适配器并允许适配器输出20V电压。 +
-建议使用可输出20V、65W以上的PD电源。 +
+=== USB Type-C PD
+USB Type-C PD 接口连接到 CH224K 芯片，该芯片用于与 USB 适配器通信，使适配器输出 20V 电压。+
+建议使用支持 20V、65W 或更高功率输出的 PD 电源。+
 
-=== POE
-您可以使用 BPI-RT5400-12V 模块，但是这个模块最大不超过30W。所以当连接更多外设时，功耗会超过RT5400的最大功率。因此，建议更换其他电源。
+=== PoE
+可以使用 BPI-RT5400-12V 模块，但该模块最大功率不超过 30W。连接较多外设时，功耗可能超过 RT5400 的最大输出，因此建议改用其他电源。
 
 image::/bpi-r4_pro/bpi-r4pro-poe.png[bpi-r4pro-poe.png,width=500]
 
 
 
-== 直流输出
-BPI-R4Pro 有两个电源输出插座，但不建议使用它们连接太多设备， 
-因为它消耗太多电力并可能导致 BPI-R4Pro 工作不稳定。 +
+== DC-OUT
+BPI-R4 Pro 配有两个电源输出插座，但不建议用它们连接过多设备，
+因为功耗过高可能导致 BPI-R4 Pro 工作不稳定。+
 
-的尺寸 CN2/CN3 插槽如下：
+CN2/CN3 接口尺寸如下：
 
 image::/bpi-r4_pro/xh254.png[xh254.png,width=500]
 
-=== 直流输出(CN3，XH2.54-2PIN)
-直接连接到 VDD_系统_IN，输出电压等于输入电压。 
+=== DC-OUT（CN3，XH2.54-2PIN）
+该接口直接连接到 VDD_SYS_IN，输出电压等于输入电压。
 
-=== 直流输出(CN2，XH2.54-4PIN)
-该插槽提供两个电压输出： +12V 和 +5V。的 +5V 由 MT6682A PMIC 生成。该电压为很多其他设备供电，建议不要连接大功率设备，以免影响系统稳定性。 +
+=== DC-OUT（CN2，XH2.54-4PIN）
+该接口提供 +12V 和 +5V 两路输出。+5V 由 MT6682A PMIC 生成，并为许多其他器件供电，因此不建议连接大功率设备，以免影响系统稳定性。+
 
-12V 由单独的 DC-DC 转换器产生，能够提供大约 3A 的电流。
+12V 由独立的 DC-DC 转换器生成，可提供约 3A 电流。
 
 
-== 26针 GPIO 标头 
-26针 GPIO 接头座包含 17 个 GPIO。所有 GPIO 均为 3.3V。一些GPIO可以设置为JTAG， I2C, UART, SPI 和其他功能。 +
+== 26 Pin GPIO 排针
+26 Pin GPIO 排针包含 17 个 GPIO，全部为 3.3V 电平。部分 GPIO 可配置为 JTAG、I2C、UART、SPI 等功能。+
 
 image::/bpi-r4_pro/26pin.png[26pin.png,width=800]
 
 
-= 引脚定义 
-== 风扇 (CN36/CN38)
+= 引脚定义
+== 风扇（CN36/CN38）
 
 [%collapsible]
 ====
@@ -1258,17 +1258,17 @@ image::/bpi-r4_pro/26pin.png[26pin.png,width=800]
 
 [options="header",cols="1,3",width="80%"]
 |====
-2+| **BPI-R4Pro 风扇连接器引脚定义**
-|密码号 |连接目的地		
-|1			 |接地		
+2+| **BPI-R4 Pro 风扇接口引脚定义**
+|PIN No. |Connection Destination		
+|1			 |GND		
 |2		 	 |12V	
-|3 	   	 |数控	
+|3 	   	 |NC	
 |4	     |PWM（5V）
 |====
 
 ====
 
-== 26 GPIO 标头(CON1)
+== 26 Pin GPIO 排针（CON1）
 
 [%collapsible]
 ====
@@ -1276,8 +1276,8 @@ image::/bpi-r4_pro/26pin.png[26pin.png,width=800]
 
 [options="header",cols="3,1,1,3",width="80%"]
 |====
-4+| **BPI-R4Pro 26  GPIO 标头(CON1) PIN码定义**
-|连接目的地	|密码号|密码号|连接目的地
+4+| **BPI-R4 Pro 26 Pin GPIO 排针（CON1）引脚定义**
+|Connection Destination	|PIN No.|PIN No.|Connection Destination
 |3.3VD	|1		|2	|5VD
 |GPIO18/I2C_1_SDA	|3	|	4|	5VD
 |GPIO17/I2C_1_SCL	|5		|6	|GND
@@ -1296,7 +1296,7 @@ image::/bpi-r4_pro/26pin.png[26pin.png,width=800]
 ====
  
 
-== miniPCIe 插槽1(CN7)
+== miniPCIe 插槽 1（CN7）
 
 [%collapsible]
 ====
@@ -1304,41 +1304,41 @@ image::/bpi-r4_pro/26pin.png[26pin.png,width=800]
 
 [options="header",cols="3,1,1,3",width="80%"]
 |====
-4+| **BPI-R4Pro miniPCIe 插槽1(CN7) PIN码定义**		
-|连接目的地	|密码号		|PIN 码|连接目的地
-|PCIE_2L_0_唤醒_N(3.3V)	|1	|	2	|PCIe_3V3#2
-|NI	|3	|	4	|接地
+4+| **BPI-R4 Pro miniPCIe 插槽 1（CN7）引脚定义**		
+|Connection Destination	|PIN No.		|PIN	NO.|Connection Destination
+|PCIE_2L_0_WAKE_N(3.3V)	|1	|	2	|PCIe_3V3#2
+|NI	|3	|	4	|GND
 |NI	|5	|	6	|PCIe_12V#2
-|PCIE_2L_0_时钟请求_N(3.3V)	|7		|8|	移动PCIe_A_通用SIM卡_电源电压
-|接地	|9		|10	|移动PCIe_A_通用SIM卡_数据
-|PCIE_2L_0_SOC_CKn	|11		|12	|移动PCIe_A_通用SIM卡_时钟脉冲
-|PCIE_2L_0_SOC_肌酸激酶	|13		|14	|移动PCIe_A_通用SIM卡_快速恢复时间
-|接地	|15		|16 |	NI
-|PCIE_2L_0_液氮1_SOC_接收	|17		|18	|接地
-|PCIE_2L_0_液氮1_SOC_RXp	|19		|20	|NI
-|接地	|21		|22	|PCIE_2L_0_预设_N(3.3V)
-|PCIE_2L_0_液氮0_SOC_接收	|23	|	24	|PCIe_3V3#2
-|PCIE_2L_0_液氮0_SOC_RXp	|25	|	26	|接地
-|接地	|27		|28	|PCIe_12V#2
-|接地	|29		|30	|I2C_SCL_外部_无线网络
-|PCIE_2L_0_液氮0_SOC_TXn	|31		|32	|I2C_SDA_外部_无线网络
-|PCIE_2L_0_液氮0_SOC_TXp	|33		|34|	接地
-|接地	|35		|36	|USB2HUB-D3M
-|接地	|37		|38	|USB2HUB-D3P
-|PCIe_3V3#2	|39		|40	|接地
-|PCIe_3V3#2	|41		|42	|无线网络-LED-5G
-|接地	|43		|44	|移动PCIe_A_通用SIM卡_乙二胺四乙酸
-|PCIE_2L_0_液氮1_SOC_TXn	|45		|46	|无线网络-LED-2G
-|PCIE_2L_0_液氮1_SOC_TXp	|47		|48	|PCIe_12V#2
-|接地	|49		|50	|接地
-|MT7996_电子情报_复位(1.8V)	|51		|52	|PCIe_3V3#2
+|PCIE_2L_0_CLKREQ_N(3.3V)	|7		|8|	mPCIe_A_USIM_VDD
+|GND	|9		|10	|mPCIe_A_USIM_DATA
+|PCIE_2L_0_SOC_CKn	|11		|12	|mPCIe_A_USIM_CLK
+|PCIE_2L_0_SOC_CKp	|13		|14	|mPCIe_A_USIM_RST
+|GND	|15		|16 |	NI
+|PCIE_2L_0_LN1_SOC_RXn	|17		|18	|GND
+|PCIE_2L_0_LN1_SOC_RXp	|19		|20	|NI
+|GND	|21		|22	|PCIE_2L_0_PRESET_N(3.3V)
+|PCIE_2L_0_LN0_SOC_RXn	|23	|	24	|PCIe_3V3#2
+|PCIE_2L_0_LN0_SOC_RXp	|25	|	26	|GND
+|GND	|27		|28	|PCIe_12V#2
+|GND	|29		|30	|I2C_SCL_EXT_WiFi
+|PCIE_2L_0_LN0_SOC_TXn	|31		|32	|I2C_SDA_EXT_WiFi
+|PCIE_2L_0_LN0_SOC_TXp	|33		|34|	GND
+|GND	|35		|36	|USB2HUB-D3M
+|GND	|37		|38	|USB2HUB-D3P
+|PCIe_3V3#2	|39		|40	|GND
+|PCIe_3V3#2	|41		|42	|WiFi-LED-5G
+|GND	|43		|44	|mPCIe_A_USIM_DET
+|PCIE_2L_0_LN1_SOC_TXn	|45		|46	|WiFi-LED-2G
+|PCIE_2L_0_LN1_SOC_TXp	|47		|48	|PCIe_12V#2
+|GND	|49		|50	|GND
+|MT7996_EINT_RESETB(1.8V)	|51		|52	|PCIe_3V3#2
 |====
 
 ====
 
 
 
-== miniPCIe 插槽2(CN9)
+== miniPCIe 插槽 2（CN9）
 
 [%collapsible]
 ====
@@ -1346,40 +1346,40 @@ image::/bpi-r4_pro/26pin.png[26pin.png,width=800]
 
 [options="header",cols="3,1,1,3",width="80%"]
 |====
-4+| **BPI-R4Pro miniPCIe 插槽2(CN9) PIN码定义**	
-|连接目的地	|密码		|密码	|连接目的地
-|PCIE_2L_1_唤醒_N(3.3V)	|1		|2	|PCIe_3V3#1
-|NI	|3	|	4	|接地
+4+| **BPI-R4 Pro miniPCIe 插槽 2（CN9）引脚定义**	
+|Connection Destination	|PIN		|PIN	|Connection Destination
+|PCIE_2L_1_WAKE_N(3.3V)	|1		|2	|PCIe_3V3#1
+|NI	|3	|	4	|GND
 |NI	|5	|	6	|PCIe_12V#1
-|PCIE_2L_1_时钟请求_N(3.3V)	|7		|8	|移动PCIe_B_通用SIM卡_电源电压
-|接地	|9		|10	|移动PCIe_B_通用SIM卡_数据
-|PCIE_2L_1_SOC_CKn	|11		|12	|移动PCIe_B_通用SIM卡_时钟脉冲
-|PCIE_2L_1_SOC_肌酸激酶	|13		|14	|移动PCIe_B_通用SIM卡_快速恢复时间
-|接地	|15		|16	|NI
-|PCIE_2L_1_液氮1_SOC_接收	|17	|	18	|接地
-|PCIE_2L_1_液氮1_SOC_RXp	|19		|20	|NI
-|接地	|21		|22	|PCIE_2L_1_预设_N(3.3V)
-|PCIE_2L_1_液氮0_SOC_接收	|23		|24	|PCIe_3V3#1
-|PCIE_2L_1_液氮0_SOC_RXp	|25	|26	|接地
-|接地	|27		|28	|PCIe_12V#1
-|接地	|29		|30	|I2C_SCL_外部_无线网络
-|PCIE_2L_1_液氮0_SOC_TXn	|31		|32	|I2C_SDA_外部_无线网络
-|PCIE_2L_1_液氮0_SOC_TXp	|33		|34	|接地
-|接地	|35		|36	|USB2HUB-D2M
-|接地	|37		|38 |USB2HUB-D2P
-|PCIe_3V3#1	|39		|40	|接地
-|PCIe_3V3#1	|41		|42	|无线网络-LED-6G
-|接地	|43		|44	|移动PCIe_B_通用SIM卡_乙二胺四乙酸
-|PCIE_2L_1_液氮1_SOC_TXn	|45		|46|	NI
-|PCIE_2L_1_液氮1_SOC_TXp	|47	|	48|	PCIe_12V#1
-|接地	|49		|50|	接地
+|PCIE_2L_1_CLKREQ_N(3.3V)	|7		|8	|mPCIe_B_USIM_VDD
+|GND	|9		|10	|mPCIe_B_USIM_DATA
+|PCIE_2L_1_SOC_CKn	|11		|12	|mPCIe_B_USIM_CLK
+|PCIE_2L_1_SOC_CKp	|13		|14	|mPCIe_B_USIM_RST
+|GND	|15		|16	|NI
+|PCIE_2L_1_LN1_SOC_RXn	|17	|	18	|GND
+|PCIE_2L_1_LN1_SOC_RXp	|19		|20	|NI
+|GND	|21		|22	|PCIE_2L_1_PRESET_N(3.3V)
+|PCIE_2L_1_LN0_SOC_RXn	|23		|24	|PCIe_3V3#1
+|PCIE_2L_1_LN0_SOC_RXp	|25	|26	|GND
+|GND	|27		|28	|PCIe_12V#1
+|GND	|29		|30	|I2C_SCL_EXT_WiFi
+|PCIE_2L_1_LN0_SOC_TXn	|31		|32	|I2C_SDA_EXT_WiFi
+|PCIE_2L_1_LN0_SOC_TXp	|33		|34	|GND
+|GND	|35		|36	|USB2HUB-D2M
+|GND	|37		|38 |USB2HUB-D2P
+|PCIe_3V3#1	|39		|40	|GND
+|PCIe_3V3#1	|41		|42	|WiFi-LED-6G
+|GND	|43		|44	|mPCIe_B_USIM_DET
+|PCIE_2L_1_LN1_SOC_TXn	|45		|46|	NI
+|PCIE_2L_1_LN1_SOC_TXp	|47	|	48|	PCIe_12V#1
+|GND	|49		|50|	GND
 |NI	|51		|52|	PCIe_3V3#1
 |====
 
 ====
 
 
-== M.2 B-KEY 插槽1(CN15)
+== M.2 B-KEY 插槽 1（CN15）
 
 [%collapsible]
 ====
@@ -1387,51 +1387,51 @@ image::/bpi-r4_pro/26pin.png[26pin.png,width=800]
 
 [options="header",cols="3,1,1,3",width="80%"]
 |====
-4+| **BPI-R4Pro M.2 B-KEY 插槽1(CN15) PIN码定义**
-|连接目的地	|密码号		|PIN 码	|连接目的地
-|NI	|1	|	2	|电源电压_密钥_A
-|接地	|3		|4	|电源电压_密钥_A
-|接地	|5	|	6	|NI(10K 上拉至 3.3V)
-|USB集线器_USB1_压差	|7		|8	|NI
-|USB集线器_USB1_DN |9		|10|	BKEY-A-NET-STUn LED
-|接地	|11		|12	|缺口
-|缺口	|13		|14	|缺口
-|缺口	|15		|16	|缺口
-|缺口	|17		|18	|缺口
-|缺口|	19	|	20	|NI
+4+| **BPI-R4 Pro M.2 B-KEY 插槽 1（CN15）引脚定义**
+|Connection Destination	|PIN No.		|PIN NO.	|Connection Destination
+|NI	|1	|	2	|VDD_BKEY_A
+|GND	|3		|4	|VDD_BKEY_A
+|GND	|5	|	6	|NI(10K PullUp to 3.3V)
+|USBHUB_USB1_Dp	|7		|8	|NI
+|USBHUB_USB1_Dn |9		|10|	BKEY-A-NET-STUn LED
+|GND	|11		|12	|NOTCH
+|NOTCH	|13		|14	|NOTCH
+|NOTCH	|15		|16	|NOTCH
+|NOTCH	|17		|18	|NOTCH
+|NOTCH|	19	|	20	|NI
 |NI	|21		|22|	NI
 |NI |23	|	24	|NI
 |NI	|25		|26|	NI
-|接地	|27		|28|	NI
-|USB集线器_USB1_接收	|29		|30	|通用SIM卡_RST-1A
-|USB集线器_USB1_RXp	|31		|32	|通用SIM卡_时钟-1A
-|接地	|33	|	34	|通用SIM卡_数据-1A
-|USB集线器_USB1_TXn	|35	|36|	通用SIM卡_电源电压-1A
-|USB集线器_USB1_TXp	|37|		38|	NI
-|接地|	39	|	40|	NI
-|PCIE_SW_A_C_接收	|41		|42	|通用SIM卡_数据-1B
-|PCIE_SW_A_C_RXp|	43	|	44	|通用SIM卡_时钟-1B
-|接地	|45	|	46	|通用SIM卡_RST-1B
-|PCIE_SW_A_C_TXn	|47		|48	|通用SIM卡_电源电压-1B
-|PCIE_SW_A_C_TXp	|49		|50	|BKEY-A-预设_3P3V
-|接地	|51	|	52	|BKEY-A-CLKREQ_3P3V
-|PCIE_SW_A_C_CKn	|53		|54	|BKEY-A-唤醒_3P3V
-|PCIE_SW_A_C_肌酸激酶|	55	|	56|NI
-|接地	|57	|	58	|NI
+|GND	|27		|28|	NI
+|USBHUB_USB1_RXn	|29		|30	|USIM_RST-1A
+|USBHUB_USB1_RXp	|31		|32	|USIM_CLK-1A
+|GND	|33	|	34	|USIM_DATA-1A
+|USBHUB_USB1_TXn	|35	|36|	USIM_VDD-1A
+|USBHUB_USB1_TXp	|37|		38|	NI
+|GND|	39	|	40|	NI
+|PCIE_SW_A_C_RXn	|41		|42	|USIM_DATA-1B
+|PCIE_SW_A_C_RXp|	43	|	44	|USIM_CLK-1B
+|GND	|45	|	46	|USIM_RST-1B
+|PCIE_SW_A_C_TXn	|47		|48	|USIM_VDD-1B
+|PCIE_SW_A_C_TXp	|49		|50	|BKEY-A-PRESET_3P3V
+|GND	|51	|	52	|BKEY-A-CLKREQ_3P3V
+|PCIE_SW_A_C_CKn	|53		|54	|BKEY-A-WAKE_3P3V
+|PCIE_SW_A_C_CKp|	55	|	56|NI
+|GND	|57	|	58	|NI
 |NI	|59		|60	|NI
 |NI	|61		|62	|NI
 |NI|	63|		64	|NI
-|NI	|65	|	66|	通用SIM卡_DET-1A
+|NI	|65	|	66|	USIM_DET-1A
 |BKEY-A-RST	|67		|68|	NI
-|NI	|69	|	70	|电源电压_密钥_A
-|接地|	71	|	72|	电源电压_密钥_A
-|接地	|73	|	74|	电源电压_密钥_A
+|NI	|69	|	70	|VDD_BKEY_A
+|GND|	71	|	72|	VDD_BKEY_A
+|GND	|73	|	74|	VDD_BKEY_A
 |NI	|75	| |		
 |====
 
 ====
 
-== M.2 B-KEY 插槽2(CN18)
+== M.2 B-KEY 插槽 2（CN18）
 
 [%collapsible]
 ====
@@ -1439,45 +1439,45 @@ image::/bpi-r4_pro/26pin.png[26pin.png,width=800]
 
 [options="header",cols="3,1,1,3",width="80%"]
 |====
-4+| **BPI-R4Pro M.2 B-KEY 插槽2(CN18) PIN码定义**
-|连接目的地	|密码号		|PIN 码	|连接目的地
-|NI	|1	|	2	|电源电压_密钥_B
-|接地	|3		|4	|电源电压_密钥_B
-|接地	|5	|	6	|NI(10K 上拉至 3.3V)
-|USB集线器_USB2_压差	|7		|8	|NI
-|USB集线器_USB2_DN |9		|10|	BKEY-B-NET-STUn LED
-|接地	|11		|12	|缺口
-|缺口	|13		|14	|缺口
-|缺口	|15		|16	|缺口
-|缺口	|17		|18	|缺口
-|缺口|	19	|	20	|NI
+4+| **BPI-R4 Pro M.2 B-KEY 插槽 2（CN18）引脚定义**
+|Connection Destination	|PIN No.		|PIN NO.	|Connection Destination
+|NI	|1	|	2	|VDD_BKEY_B
+|GND	|3		|4	|VDD_BKEY_B
+|GND	|5	|	6	|NI(10K PullUp to 3.3V)
+|USBHUB_USB2_Dp	|7		|8	|NI
+|USBHUB_USB2_Dn |9		|10|	BKEY-B-NET-STUn LED
+|GND	|11		|12	|NOTCH
+|NOTCH	|13		|14	|NOTCH
+|NOTCH	|15		|16	|NOTCH
+|NOTCH	|17		|18	|NOTCH
+|NOTCH|	19	|	20	|NI
 |NI	|21		|22|	NI
 |NI |23	|	24	|NI
 |NI	|25		|26|	NI
-|接地	|27		|28|	NI
-|USB集线器_USB2_接收	|29		|30	|通用SIM卡_RST-2A
-|USB集线器_USB2_RXp	|31		|32	|通用SIM卡_时钟-2A
-|接地	|33	|	34	|通用SIM卡_数据-2A
-|USB集线器_USB2_TXn	|35	|36|	通用SIM卡_电源电压-2A
-|USB集线器_USB2_TXp	|37|		38|	NI
-|接地|	39	|	40|	NI
-|PCIE_SW_B_C_接收	|41		|42	|通用SIM卡_数据-2B
-|PCIE_SW_B_C_RXp|	43	|	44	|通用SIM卡_时钟-2B
-|接地	|45	|	46	|通用SIM卡_RST-2B
-|PCIE_SW_B_C_TXn	|47		|48	|通用SIM卡_电源电压-2B
-|PCIE_SW_B_C_TXp	|49		|50	|BKEY-B-预设_3P3V
-|接地	|51	|	52	|BKEY-B-CLKREQ_3P3V
-|PCIE_SW_B_C_CKn	|53		|54	|BKEY-B-唤醒_3P3V
-|PCIE_SW_B_C_肌酸激酶|	55	|	56|NI
-|接地	|57	|	58	|NI
+|GND	|27		|28|	NI
+|USBHUB_USB2_RXn	|29		|30	|USIM_RST-2A
+|USBHUB_USB2_RXp	|31		|32	|USIM_CLK-2A
+|GND	|33	|	34	|USIM_DATA-2A
+|USBHUB_USB2_TXn	|35	|36|	USIM_VDD-2A
+|USBHUB_USB2_TXp	|37|		38|	NI
+|GND|	39	|	40|	NI
+|PCIE_SW_B_C_RXn	|41		|42	|USIM_DATA-2B
+|PCIE_SW_B_C_RXp|	43	|	44	|USIM_CLK-2B
+|GND	|45	|	46	|USIM_RST-2B
+|PCIE_SW_B_C_TXn	|47		|48	|USIM_VDD-2B
+|PCIE_SW_B_C_TXp	|49		|50	|BKEY-B-PRESET_3P3V
+|GND	|51	|	52	|BKEY-B-CLKREQ_3P3V
+|PCIE_SW_B_C_CKn	|53		|54	|BKEY-B-WAKE_3P3V
+|PCIE_SW_B_C_CKp|	55	|	56|NI
+|GND	|57	|	58	|NI
 |NI	|59		|60	|NI
 |NI	|61		|62	|NI
 |NI|	63|		64	|NI
-|NI	|65	|	66|	通用SIM卡_DET-2A
+|NI	|65	|	66|	USIM_DET-2A
 |BKEY-A_RSTn	|67		|68|	NI
-|NI	|69	|	70	|电源电压_密钥_B
-|接地|	71	|	72|	电源电压_密钥_B
-|接地	|73	|	74|	电源电压_密钥_B
+|NI	|69	|	70	|VDD_BKEY_B
+|GND|	71	|	72|	VDD_BKEY_B
+|GND	|73	|	74|	VDD_BKEY_B
 |NI	|75	| |		
 |====
 
@@ -1485,7 +1485,7 @@ image::/bpi-r4_pro/26pin.png[26pin.png,width=800]
 
 
 
-== M.2 B-KEY 插槽3(CN21)
+== M.2 B-KEY 插槽 3（CN21）
 
 [%collapsible]
 ====
@@ -1493,45 +1493,45 @@ image::/bpi-r4_pro/26pin.png[26pin.png,width=800]
 
 [options="header",cols="3,1,1,3",width="80%"]
 |====
-4+| **BPI-R4Pro M.2 B-KEY 插槽3(CN21) PIN码定义**
-|连接目的地	|密码号		|PIN 码	|连接目的地
-|NI	|1	|	2	|电源电压_密钥_C
-|接地	|3		|4	|电源电压_密钥_C
-|接地	|5	|	6	|NI(10K 上拉至 3.3V)
-|USB集线器_USB4_压差	|7		|8	|NI
-|USB集线器_USB4_DN |9		|10|	BKEY-C-NET-STUn LED
-|接地	|11		|12	|缺口
-|缺口	|13		|14	|缺口
-|缺口	|15		|16	|缺口
-|缺口	|17		|18	|缺口
-|缺口|	19	|	20	|NI
+4+| **BPI-R4 Pro M.2 B-KEY 插槽 3（CN21）引脚定义**
+|Connection Destination	|PIN No.		|PIN NO.	|Connection Destination
+|NI	|1	|	2	|VDD_BKEY_C
+|GND	|3		|4	|VDD_BKEY_C
+|GND	|5	|	6	|NI(10K PullUp to 3.3V)
+|USBHUB_USB4_Dp	|7		|8	|NI
+|USBHUB_USB4_Dn |9		|10|	BKEY-C-NET-STUn LED
+|GND	|11		|12	|NOTCH
+|NOTCH	|13		|14	|NOTCH
+|NOTCH	|15		|16	|NOTCH
+|NOTCH	|17		|18	|NOTCH
+|NOTCH|	19	|	20	|NI
 |NI	|21		|22|	NI
 |NI |23	|	24	|NI
 |NI	|25		|26|	NI
-|接地	|27		|28|	NI
-|USB集线器_USB4_接收	|29		|30	|通用SIM卡_RST-3A
-|USB集线器_USB4_RXp	|31		|32	|通用SIM卡_时钟-3A
-|接地	|33	|	34	|通用SIM卡_数据-3A
-|USB集线器_USB4_TXn	|35	|36|	通用SIM卡_电源电压-3A
-|USB集线器_USB4_TXp	|37|		38|	NI
-|接地|	39	|	40|	NI
-|NI	|41		|42	|通用SIM卡_数据-3B
-|NI|	43	|	44	|通用SIM卡_时钟-3B
-|接地	|45	|	46	|通用SIM卡_RST-3B
-|NI	|47		|48	|通用SIM卡_电源电压-3B
-|NI	|49		|50	|BKEY-C_PCIE_珀斯特_3P3V
-|接地	|51	|	52	|BKEY-C_PCIE_时钟请求_3P3V
-|NI	|53		|54	|BKEY-C_PCIE_佩威克_3P3V
+|GND	|27		|28|	NI
+|USBHUB_USB4_RXn	|29		|30	|USIM_RST-3A
+|USBHUB_USB4_RXp	|31		|32	|USIM_CLK-3A
+|GND	|33	|	34	|USIM_DATA-3A
+|USBHUB_USB4_TXn	|35	|36|	USIM_VDD-3A
+|USBHUB_USB4_TXp	|37|		38|	NI
+|GND|	39	|	40|	NI
+|NI	|41		|42	|USIM_DATA-3B
+|NI|	43	|	44	|USIM_CLK-3B
+|GND	|45	|	46	|USIM_RST-3B
+|NI	|47		|48	|USIM_VDD-3B
+|NI	|49		|50	|BKEY-C_PCIE_PERST_3P3V
+|GND	|51	|	52	|BKEY-C_PCIE_CLKREQ_3P3V
+|NI	|53		|54	|BKEY-C_PCIE_PEWAKE_3P3V
 |NI|	55	|	56|NI
-|接地	|57	|	58	|NI
+|GND	|57	|	58	|NI
 |NI	|59		|60	|NI
 |NI	|61		|62	|NI
 |NI|	63|		64	|NI
-|NI	|65	|	66|	通用SIM卡_DET-3A
+|NI	|65	|	66|	USIM_DET-3A
 |BKEY-C_RSTn	|67		|68|	NI
-|NI	|69	|	70	|电源电压_密钥_C
-|接地|	71	|	72|	电源电压_密钥_C
-|接地	|73	|	74|	电源电压_密钥_C
+|NI	|69	|	70	|VDD_BKEY_C
+|GND|	71	|	72|	VDD_BKEY_C
+|GND	|73	|	74|	VDD_BKEY_C
 |NI	|75	| |		
 |====
 
@@ -1539,7 +1539,7 @@ image::/bpi-r4_pro/26pin.png[26pin.png,width=800]
 
 
 
-== M.2 M-KEY 插槽1(CN13)
+== M.2 M-KEY 插槽 1（CN13）
 
 [%collapsible]
 ====
@@ -1547,51 +1547,51 @@ image::/bpi-r4_pro/26pin.png[26pin.png,width=800]
 
 [options="header",cols="3,1,1,3",width="80%"]
 |====
-4+| **BPI-R4Pro M.2 M-KEY 插槽1(CN13) PIN码定义**
-|连接目的地	|密码		|密码	|连接目的地
-|接地	|1		|2	|电源电压_麦基_A
-|接地	|3		|4	|电源电压_麦基_A
+4+| **BPI-R4 Pro M.2 M-KEY 插槽 1（CN13）引脚定义**
+|Connection Destination	|PIN		|PIN	|Connection Destination
+|GND	|1		|2	|VDD_MKEY_A
+|GND	|3		|4	|VDD_MKEY_A
 |NI	|5	|	6	|NI
 |NI	|7		|8	|NI
-|接地	|9		|10	|MKEY-A-SSD-LEDn
-|NI	|11		|12	|电源电压_麦基_A
-|NI	|13		|14	|电源电压_麦基_A
-|接地	|15		|16	|电源电压_麦基_A
-|NI	|17		|18	|电源电压_麦基_A
+|GND	|9		|10	|MKEY-A-SSD-LEDn
+|NI	|11		|12	|VDD_MKEY_A
+|NI	|13		|14	|VDD_MKEY_A
+|GND	|15		|16	|VDD_MKEY_A
+|NI	|17		|18	|VDD_MKEY_A
 |NI	|19		|20	|NI
-|接地	|21		|22	|NI
+|GND	|21		|22	|NI
 |NI	|23		|24	|NI
 |NI	|25		|26	|NI
-|接地	|27		|28	|NI
+|GND	|27		|28	|NI
 |NI	|29		|30|	NI
 |NI	|31		|32	|NI
-|接地|	33		|34	|NI
+|GND|	33		|34	|NI
 |NI	|35		|36	|NI
 |NI	|37		|38	|NI
-|接地	|39		|40	|NI
-|PCIE_SW_A_B_接收	|41		|42|	NI
+|GND	|39		|40	|NI
+|PCIE_SW_A_B_RXn	|41		|42|	NI
 |PCIE_SW_A_B_RXp	|43	|	44|	NI
-|接地	|45		|46|	NI
+|GND	|45		|46|	NI
 |PCIE_SW_A_B_TXn	|47	|	48	|NI
-|PCIE_SW_A_B_TXp	|49	|	50|	MKEY-A-预设_3P3V
-|接地	|51	|	52|	MKEY-A-CLKREQ_3P3V
-|PCIE_SW_A_B_CKn	|53	|	54|	唤醒键_3P3V
-|PCIE_SW_A_B_肌酸激酶	|55		|56|	NI
-|接地	|57		|58	|NI
-|诺克TH	|59		|60	|诺克TH
-|诺克TH |	61	|	62	|诺克TH
-|诺克TH	|63	|	64|	诺克TH
-|诺克TH |	65		|66	|诺克TH
+|PCIE_SW_A_B_TXp	|49	|	50|	MKEY-A-PRESET_3P3V
+|GND	|51	|	52|	MKEY-A-CLKREQ_3P3V
+|PCIE_SW_A_B_CKn	|53	|	54|	MKEY-A-WAKE_3P3V
+|PCIE_SW_A_B_CKp	|55		|56|	NI
+|GND	|57		|58	|NI
+|NOCTH	|59		|60	|NOCTH
+|NOCTH |	61	|	62	|NOCTH
+|NOCTH	|63	|	64|	NOCTH
+|NOCTH |	65		|66	|NOCTH
 |NI	|67		|68	|NI
-|NI	|69		|70	|电源电压_麦基_A
-|接地	|71		|72	|电源电压_麦基_A
-|接地	|73	|	74	|电源电压_麦基_A
-|接地	|75|	|		
+|NI	|69		|70	|VDD_MKEY_A
+|GND	|71		|72	|VDD_MKEY_A
+|GND	|73	|	74	|VDD_MKEY_A
+|GND	|75|	|		
 |====
 
 ====
 
-== M.2 M-KEY 插槽2(CN14)
+== M.2 M-KEY 插槽 2（CN14）
 
 [%collapsible]
 ====
@@ -1599,52 +1599,52 @@ image::/bpi-r4_pro/26pin.png[26pin.png,width=800]
 
 [options="header",cols="3,1,1,3",width="80%"]
 |====
-4+| **BPI-R4Pro M.2 M-KEY 插槽2(CN14) PIN码定义**
-|连接目的地	|密码		|密码	|连接目的地
-|接地	|1		|2	|电源电压_麦基_B
-|接地	|3		|4	|电源电压_麦基_B
+4+| **BPI-R4 Pro M.2 M-KEY 插槽 2（CN14）引脚定义**
+|Connection Destination	|PIN		|PIN	|Connection Destination
+|GND	|1		|2	|VDD_MKEY_B
+|GND	|3		|4	|VDD_MKEY_B
 |NI	|5	|	6	|NI
 |NI	|7		|8	|NI
-|接地	|9		|10	|MKEY-B-SSD-LEDn
-|NI	|11		|12	|电源电压_麦基_B
-|NI	|13		|14	|电源电压_麦基_B
-|接地	|15		|16	|电源电压_麦基_B
-|NI	|17		|18	|电源电压_麦基_B
+|GND	|9		|10	|MKEY-B-SSD-LEDn
+|NI	|11		|12	|VDD_MKEY_B
+|NI	|13		|14	|VDD_MKEY_B
+|GND	|15		|16	|VDD_MKEY_B
+|NI	|17		|18	|VDD_MKEY_B
 |NI	|19		|20	|NI
-|接地	|21		|22	|NI
+|GND	|21		|22	|NI
 |NI	|23		|24	|NI
 |NI	|25		|26	|NI
-|接地	|27		|28	|NI
+|GND	|27		|28	|NI
 |NI	|29		|30|	NI
 |NI	|31		|32	|NI
-|接地|	33		|34	|NI
+|GND|	33		|34	|NI
 |NI	|35		|36	|NI
 |NI	|37		|38	|NI
-|接地	|39		|40	|NI
-|PCIE_SW_B_B_接收	|41		|42|	NI
+|GND	|39		|40	|NI
+|PCIE_SW_B_B_RXn	|41		|42|	NI
 |PCIE_SW_B_B_RXp	|43	|	44|	NI
-|接地	|45		|46|	NI
+|GND	|45		|46|	NI
 |PCIE_SW_B_B_TXn	|47	|	48	|NI
-|PCIE_SW_B_B_TXp	|49	|	50|	MKEY-B-预设_3P3V
-|接地	|51	|	52|	MKEY-B-CLKREQ_3P3V
-|PCIE_SW_B_B_CKn	|53	|	54|	MKEY-B-唤醒_3P3V
-|PCIE_SW_B_B_肌酸激酶	|55		|56|	NI
-|接地	|57		|58	|NI
-|诺克TH	|59		|60	|诺克TH
-|诺克TH |	61	|	62	|诺克TH
-|诺克TH	|63	|	64|	诺克TH
-|诺克TH |	65		|66	|诺克TH
+|PCIE_SW_B_B_TXp	|49	|	50|	MKEY-B-PRESET_3P3V
+|GND	|51	|	52|	MKEY-B-CLKREQ_3P3V
+|PCIE_SW_B_B_CKn	|53	|	54|	MKEY-B-WAKE_3P3V
+|PCIE_SW_B_B_CKp	|55		|56|	NI
+|GND	|57		|58	|NI
+|NOCTH	|59		|60	|NOCTH
+|NOCTH |	61	|	62	|NOCTH
+|NOCTH	|63	|	64|	NOCTH
+|NOCTH |	65		|66	|NOCTH
 |NI	|67		|68	|NI
-|NI	|69		|70	|电源电压_麦基_B
-|接地	|71		|72	|电源电压_麦基_B
-|接地	|73	|	74	|电源电压_麦基_B
-|接地	|75|	|		
+|NI	|69		|70	|VDD_MKEY_B
+|GND	|71		|72	|VDD_MKEY_B
+|GND	|73	|	74	|VDD_MKEY_B
+|GND	|75|	|		
 |====
 
 ====
 
 
-== 1G FPC连接器(CN37)
+== 1G FPC 接口（CN37）
 
 [%collapsible]
 ====
@@ -1652,8 +1652,8 @@ image::/bpi-r4_pro/26pin.png[26pin.png,width=800]
 
 [options="header",cols="1,3",width="80%"]
 |====
-2+| **BPI-R4Pro 1G Ethernet 连接器(CN37) PIN码定义**
-|密码号 |连接目的地		
+2+| **BPI-R4 Pro 1G 以太网接口（CN37）引脚定义**
+|PIN No. |Connection Destination		
 |1			 |X4N-M8	
 |2		 	 |X4P-M8	
 |3		 	 |X3N-M8	
@@ -1662,7 +1662,7 @@ image::/bpi-r4_pro/26pin.png[26pin.png,width=800]
 |6	     |X2P-M8
 |7	     |X1N-M8
 |8	     |X1P-M8
-|9	     |保护地线
+|9	     |PGND
 |10	     |RJ45_LED_D
 |11	     |3.3VD
 |====
@@ -1670,33 +1670,33 @@ image::/bpi-r4_pro/26pin.png[26pin.png,width=800]
 ====
 
 
-== 外部 LED 连接器(CN40)
+== 外接 LED 接口（CN40）
 [%collapsible]
 ====
 
 
 [options="header",cols="1,3",width="80%"]
 |====
-2+| **BPI-R4Pro 外部 LED 连接器(CN40) PIN码定义**
-|密码号 |连接目的地		
-|1			 |NI(引导程序_SW3_A)	
-|2		 	 |NI(引导程序_SW3_B)
-|3		 	 |NI(系统RSTB_MT7988_1p8V)
-|4 	   	 |NI(GPIO13_重置_1p8V)
+2+| **BPI-R4 Pro 外接 LED 接口（CN40）引脚定义**
+|PIN No. |Connection Destination		
+|1			 |NI(BootStrap_SW3_A)	
+|2		 	 |NI(BootStrap_SW3_B)
+|3		 	 |NI(SYSRSTB_MT7988_1p8V)
+|4 	   	 |NI(GPIO13_RESET_1p8V)
 |5	     |NI(GPIO14_WPS_1p8V)
-|6	     |调试_串口_TXD
-|7	     |调试_串口_接收数据
-|8	     |系统_LEDBN-3p3V
-|9	     |系统_LEDRn-3p3V
+|6	     |DEBUG_UART_TXD
+|7	     |DEBUG_UART_RXD
+|8	     |SYS_LEDBn-3p3V
+|9	     |SYS_LEDRn-3p3V
 |10	     |MKEY-A-SSD-LEDn
 |11	     |MKEY-B-SSD-LEDn
 |12	     |BKEY-A-NET-STUn
 |13	     |BKEY-B-NET-STUn
 |14	     |BKEY-C-NET-STUn
-|15	     |无线网络-LED-2G
-|16	     |无线网络-LED-5G
-|17	     |无线网络-LED-6G
-|18	     |接地
+|15	     |WiFi-LED-2G
+|16	     |WiFi-LED-5G
+|17	     |WiFi-LED-6G
+|18	     |GND
 |19	     |3.3VD
 |20	     |3.3VD
 
@@ -1705,7 +1705,7 @@ image::/bpi-r4_pro/26pin.png[26pin.png,width=800]
 ====
 
 
-== 外部 SIM 卡连接器(CN45)
+== 外接 SIM 卡接口（CN45）
 
 [%collapsible]
 ====
@@ -1713,87 +1713,87 @@ image::/bpi-r4_pro/26pin.png[26pin.png,width=800]
 
 [options="header",cols="1,3",width="80%"]
 |====
-2+| **BPI-R4Pro 外部 SIM 卡连接器(CN45) PIN码定义**
-|密码号 |连接目的地		
-|1			 |通用SIM卡_VDD-1A-FPC
-|2		 	 |通用SIM卡_RST-1A-FPC
-|3		 	 |通用SIM卡_CLK-1A-FPC
-|4 	   	 |通用SIM卡_DATA-1A-FPC
-|5	     |通用SIM卡_DET-1A-FPC
-|6	     |接地
-|7	     |通用SIM卡_VDD-2A-FPC
-|8	     |通用SIM卡_RST-2A-FPC
-|9	     |通用SIM卡_CLK-2A-FPC
-|10	     |通用SIM卡_DATA-2A-FPC
-|11	     |通用SIM卡_DET-2A-FPC
-|12	     |接地
-|13	     |通用SIM卡_VDD-3A-FPC
-|14	     |通用SIM卡_RST-3A-FPC
-|15	     |通用SIM卡_CLK-3A-FPC
-|16	     |通用SIM卡_DATA-3A-FPC
-|17	     |通用SIM卡_DET-3A-FPC
-|18	     |接地
-|19	     |移动PCIe_B_通用SIM卡_电源电压-FPC
-|20	     |移动PCIe_B_通用SIM卡_RST-FPC
-|21	     |移动PCIe_B_通用SIM卡_CLK-FPC
-|22	     |移动PCIe_B_通用SIM卡_DATA-FPC
-|23	     |移动PCIe_B_通用SIM卡_软板
-|24	     |接地
-|25	     |移动PCIe_A_通用SIM卡_电源电压-FPC
-|26	     |移动PCIe_A_通用SIM卡_RST-FPC
-|27	     |移动PCIe_A_通用SIM卡_CLK-FPC
-|28	     |移动PCIe_A_通用SIM卡_DATA-FPC
-|29	     |移动PCIe_A_通用SIM卡_软板
+2+| **BPI-R4 Pro 外接 SIM 卡接口（CN45）引脚定义**
+|PIN No. |Connection Destination		
+|1			 |USIM_VDD-1A-FPC
+|2		 	 |USIM_RST-1A-FPC
+|3		 	 |USIM_CLK-1A-FPC
+|4 	   	 |USIM_DATA-1A-FPC
+|5	     |USIM_DET-1A-FPC
+|6	     |GND
+|7	     |USIM_VDD-2A-FPC
+|8	     |USIM_RST-2A-FPC
+|9	     |USIM_CLK-2A-FPC
+|10	     |USIM_DATA-2A-FPC
+|11	     |USIM_DET-2A-FPC
+|12	     |GND
+|13	     |USIM_VDD-3A-FPC
+|14	     |USIM_RST-3A-FPC
+|15	     |USIM_CLK-3A-FPC
+|16	     |USIM_DATA-3A-FPC
+|17	     |USIM_DET-3A-FPC
+|18	     |GND
+|19	     |mPCIe_B_USIM_VDD-FPC
+|20	     |mPCIe_B_USIM_RST-FPC
+|21	     |mPCIe_B_USIM_CLK-FPC
+|22	     |mPCIe_B_USIM_DATA-FPC
+|23	     |mPCIe_B_USIM_DET-FPC
+|24	     |GND
+|25	     |mPCIe_A_USIM_VDD-FPC
+|26	     |mPCIe_A_USIM_RST-FPC
+|27	     |mPCIe_A_USIM_CLK-FPC
+|28	     |mPCIe_A_USIM_DATA-FPC
+|29	     |mPCIe_A_USIM_DET-FPC
 |30	     |3.3VD
 |====
 
 ====
 
 
-== 直流输入连接器(CN44)
+== DC-IN 接口（CN44）
 [%collapsible]
 ====
 
 
 [options="header",cols="1,3",width="80%"]
 |====
-2+| **BPI-R4Pro DCIN连接器(CN44) PIN码定义**
-|密码号 |连接目的地		
+2+| **BPI-R4 Pro DC-IN 接口（CN44）引脚定义**
+|PIN No. |Connection Destination		
 |1			 |DCIN_12_24V
-|2		 	 |接地
+|2		 	 |GND
 |====
 ====
 
 
-== 直流输入连接器(CN6)
+== DC-IN 接口（CN6）
 [%collapsible]
 ====
 
 [options="header",cols="1,3",width="80%"]
 |====
-2+| **BPI-R4Pro DCIN连接器(CN6) PIN码定义**
-|密码号 |连接目的地		
+2+| **BPI-R4 Pro DC-IN 接口（CN6）引脚定义**
+|PIN No. |Connection Destination		
 |1			 |VH396_DCIN
-|2		 	 |接地
+|2		 	 |GND
 |====
 ====
 
 
-== 直流输出连接器(CN3)
+== DC-OUT 接口（CN3）
 [%collapsible]
 ====
 [options="header",cols="1,3",width="80%"]
 |====
-2+| **BPI-R4Pro 直流输出连接器(CN3) PIN码定义**
-|密码号 |连接目的地		
-|1			 |电源电压_系统
-|2		 	 |接地
+2+| **BPI-R4 Pro DC-OUT 接口（CN3）引脚定义**
+|PIN No. |Connection Destination		
+|1			 |VDD_SYS
+|2		 	 |GND
 |====
 ====
 
 
 
-== 直流输出连接器(CN2)
+== DC-OUT 接口（CN2）
 
 [%collapsible]
 ====
@@ -1801,13 +1801,12 @@ image::/bpi-r4_pro/26pin.png[26pin.png,width=800]
 
 [options="header",cols="1,3",width="80%"]
 |====
-2+| **BPI-R4Pro 直流输出连接器(CN2) PIN码定义**
-|密码号 |连接目的地		
-|1			 |电源电压_12V
-|2		 	 |接地
-|3		 	 |接地
+2+| **BPI-R4 Pro DC-OUT 接口（CN2）引脚定义**
+|PIN No. |Connection Destination		
+|1			 |VDD_12V
+|2		 	 |GND
+|3		 	 |GND
 |4		 	 |+5VD
 |====
 
 ====
-
