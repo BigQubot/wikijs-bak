@@ -1,0 +1,49 @@
+TIP: link:/en/BPI-Bit/Bit_for_Arduino#_lighting_the_rgb_led[位用于 Arduino]
+
+= 如何点亮 RGB LED
+
+== 安装库
+. 从安装库 github:
++
+图书馆：link:https://github.com/Makuna/NeoPixelBus[新像素_巴士] 从马库纳出发
++
+下载库并将其放入安装目录的libraries文件夹中 Arduino IDE
++
+image::/picture/lightingled-1.png[lightingled-1.png]
+
+. 通过管理库安装库：
++
+image::/picture/lightingled-4.png[lightingled-4.png]
+image::/picture/lightingled-6.png[lightingled-6.png]
+
+== 程序代码
+- 打开 Arduino IDE
++
+点击“文件”->“示例”->“NeoPixel Bus”->“简单”打开示例
++
+image::/picture/lightingled-7.png[lightingled-7.png]
+
+- 我们需要改一些代码，在代码中找到下面的代码
++
+```sh
+ const uint16_t PixelCount = 4; // this example assumes 4 pixels, making it smaller will cause a failure
+ const uint8_t PixelPin = 2;  // make sure to set this to the correct pin, ignored for Esp8266
+```
+- 更改为
++
+```sh
+ const uint16_t PixelCount = 25; // this example assumes 4 pixels, making it smaller will cause a failure
+ const uint8_t PixelPin = 4;  // make sure to set this to the correct pin, ignored for Esp8266
+```
+- 然后添加以下代码使设置无效()
++
+```sh
+ #define LED_POWER      2
+ pinMode(LED_POWER, OUTPUT);
+ digitalWrite(LED_POWER, HIGH);
+```
+- 编译这个程序
++
+image::/picture/lightingled-3.png[lightingled-3.png]
++
+并下载它(设置串口和板卡）
