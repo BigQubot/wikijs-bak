@@ -1,81 +1,81 @@
 = BPI-F4 简介
 
-香蕉派 BPI-F4 采用凌阳 SP7350 Quad ARM Cortex-A55 和 4.1 Tops 的工业控制板设计 NPU,形成了4.1 TOPS AI平台，具有广泛的 I/O 与外部设备连接的选项。它提供了一个紧凑而强大的环境，使客户能够开发自己的人工智能软件和应用程序
+Banana Pi BPI-F4 工业控制板采用凌阳 SP7350 四核 Arm Cortex-A55 处理器，并集成 4.1 TOPS NPU。它提供丰富的 I/O 接口，可连接多种外部设备，为用户开发 AI 软件和应用提供紧凑、稳定的平台。
 
-BPI-F4 是香蕉派开源社区与凌阳科技联合开发的官方开源硬件开发板
+BPI-F4 是 Banana Pi 开源社区与凌阳科技联合开发的官方开源硬件开发板。
 
 TIP: 更多信息：link:/en/BPI-F4/BananaPi_BPI-F4[ 香蕉派 BPI-F4]
 
 = 准备 
 
 == 工具准备
-* BPI-F4 core 板和基板
-* 电源：DC Jack插头直径5.5mm
-** 适配器供电电流必须大于1A。
-* 系统安装 (选择一个)
-** 微型SD卡 /TF 卡启动
-*** 微型SD卡 card/TF, Class 10 或以上，至少 8GB SDHC 和读卡器
-*** 经ArmSoM团队测试的高速TF卡：
-**** 闪迪 32GB TF (微型SD卡) (开发商推荐)
-**** 闪迪 32GB TF (微型SD卡) 行车记录仪和安全摄像头存储卡 (建议长期运行)
+* BPI-F4 核心板和底板
+* 电源：DC 插头直径为 5.5 mm
+** 电源适配器的输出电流必须大于 1 A。
+* 系统安装介质（任选一种）
+** MicroSD/TF 卡启动
+*** 一张 Class 10 或更高等级、容量至少为 8 GB 的 MicroSD/TF（SDHC）卡，以及一个读卡器
+*** 以下高速 TF 卡已经 ArmSoM 团队测试：
+**** SanDisk 32 GB TF（MicroSD）卡（推荐开发使用）
+**** SanDisk 32 GB TF（MicroSD）行车记录仪/监控摄像机存储卡（推荐长期运行使用）
 **** 闪迪 TF 8G Class10 microSD
 **** 闪迪 TF 128G Class10 microSD XC TF 128G 48MB/S：
-** 机上 eMMC 启动
+** 板载 eMMC 启动
 
 
 == 可选配件
 * USB 键盘和鼠标
-* HDMI 显示器和 HDMI 电缆
-** BPI-F4 支持1080p、720p、480p分辨率
-* Ethernet 电缆
+* HDMI 显示器和 HDMI 线缆
+** BPI-F4 支持 1080p、720p 和 480p 分辨率
+* 以太网线
 ** BPI-F4 支持 10M/100M/1000M 传输
-** 网线用于连接 BPI-F4 到本地网络和互联网
+** 网线用于将 BPI-F4 连接到本地网络和互联网
 * 摄像头模组
-** BPI-F4 支持拍照功能
-** 我们建议使用 ov5647
-* LCD 显示
+** BPI-F4 支持摄像头功能
+** 推荐使用 OV5647 摄像头
+* LCD 显示屏
 
 
 == 跳线设置
-插入跳线即可自动打开电源。
-否则，需要按唤醒键1秒才能打开电源。
+插上跳线帽后，开发板会在通电时自动开机。
+不安装跳线帽时，需要按住 Wake-up 键 1 秒开机。
 
 image::/bpi-f4/bpi-f4_jumper1r.png[bpi-f4_jumper1r.png,width=40%,height=40%]
 
-插入跳线来选择 USB 3.0 Type C 插座。否则， USB 选择3.0 A型插座。
+插上跳线帽时选择 USB 3.0 Type-C 接口；不安装跳线帽时选择 USB 3.0 Type-A 接口。
 
 image::/bpi-f4/bpi-f4_jumper2.png[bpi-f4_jumper2.png,width=40%,height=40%]
 
-电压选择跳线**3.3V**
+电压选择跳线：**3.3 V**
 
 image::/bpi-f4/bpi-f4_jumper3_1.png[bpi-f4_jumper3_1.png,width=30%,height=30%]
 
-电压选择跳线**5.0V**
+电压选择跳线：**5.0 V**
 
 image::/bpi-f4/bpi-f4_jumper3_2.png[bpi-f4_jumper3_2.png,width=30%,height=30%]
 
-== 启动选择
+== 启动设备选择
 [options="header",cols="10,4,4,4,4",width="50%"]
 |=====
 启动设备      | 1  |2  |3  |4 |
-eMMC 开机         | 1  |1  |1  |1 | 
-SDC启动/ISP     | 1  |1  |0  |0 |
-USB 互联网服务供应商           | 1  |1  |0  |1 | 
+eMMC 启动         | 1  |1  |1  |1 | 
+SDC 启动/ISP     | 1  |1  |0  |0 |
+USB ISP           | 1  |1  |0  |1 | 
 |=====
 
-例如：下图为从SD卡启动
+例如，下图所示拨码状态用于从 SD 卡启动。
 
 image::/bpi-f4/bpi-f4_bootconfigr.png[bpi-f4_bootconfigr.png,width=50%,height=50%]
 
 = Linux
-== 将镜像安装到sd卡
-NOTE: 使用此方法 **Ubuntu** 镜像。
-使用 Balena Etcher 安装映像。 +
-link:https://balena.io/etcher[巴莱纳蚀刻机] 是 Balena 的开源 GUI 闪存工具，可将操作系统映像闪存到 SD 卡或 USB 开车。
+== 将镜像写入 SD 卡
+NOTE: 此方法适用于 **Ubuntu** 镜像。
+使用 Balena Etcher 写入镜像。 +
+link:https://balena.io/etcher[Balena Etcher] 是 Balena 提供的开源图形化镜像写入工具，可将操作系统镜像写入 SD 卡或 U 盘。
  
-. 点击“**从文件闪存**”来选择镜像。 
-. 点击“**选择目标**”来选择 USB 设备。 
-. 点击“**快闪！**“开始燃烧。
+. 单击“**Flash from file**”选择镜像。 
+. 单击“**Select target**”选择目标存储设备。 
+. 单击“**Flash!**”开始写入。
 
 image::/bpi-f4/bpi-f4-img_photor.png[bpi-f4-img_photor.png,width=80%,height=80%]
 
@@ -83,43 +83,43 @@ image::/bpi-f4/bpi-f4-img_photor.png[bpi-f4-img_photor.png,width=80%,height=80%]
 
 . 将 SD 卡插入微型 SD 卡插槽。 
 
-. 插入跳线即可自动打开电源。否则，需要按唤醒键1秒才能打开电源。
+. 插上跳线帽后，开发板会在通电时自动开机；否则需要按住 Wake-up 键 1 秒开机。
 
 image::/bpi-f4/bpi-f4_sdburn.png.png[bpi-f4_sdburn.png.png,width=50%,height=50%]
 
-NOTE: 启动桌面镜像时请连接 HDMI 显示器。您需要在桌面上创建一个用户。
+NOTE: 首次启动桌面版镜像时请连接 HDMI 显示器，并按照桌面向导创建用户。
 
 
 == 安装镜像到 eMMC
 
-NOTE: link:https://docs.banana-pi.org/en/BPI-F4/BananaPi_BPI-F4#_ubuntu[ 下载 eMMc 图像]
+NOTE: link:https://docs.banana-pi.org/en/BPI-F4/BananaPi_BPI-F4#_ubuntu[下载 eMMC 镜像]
 
-首先，检查是否 USB 闪存驱动器的文件系统是 FAT32 或 FAT16。 
+首先检查 U 盘的文件系统是否为 FAT32 或 FAT16。 
 
 image::/bpi-f4/bpi-f4_fatr.png[bpi-f4_fatr.png,width=80%,height=80%]
 
-如果没有，可以使用以下命令进行转换。如果是FAT32或FAT16，则可以跳过此步骤。
+如果不是，可使用以下命令将其格式化为 FAT32；如果已经是 FAT32 或 FAT16，则跳过此步骤。
 ```sh
 sudo umount /dev/sdb1
 sudo mkfs.vfat -F 32 -n "DATA" /dev/sdb1
 ```
-解压下载的 emmc 镜像文件到 USB 闪存驱动器
+将下载的 eMMC 镜像文件解压到 U 盘。
 
-将钥匙切换到 USB
+将启动选择开关拨到 USB 模式。
 
 image::/bpi-f4/bpi-f4_usbbootr.png[bpi-f4_usbbootr.png,width=30%,height=30%]
 
-的 USB 闪存驱动器插入 USB3 TYPE-A、TYPE-C 和 USB2 TYPE-A 端口时可用于升级。
+U 盘插入 USB 3.0 Type-A、USB 3.0 Type-C 或 USB 2.0 Type-A 接口时均可用于升级。
 
-插入 USB 将闪存驱动器插入 USB3 TYPE-A 端口 (无需短接跳线).
+将 U 盘插入 USB 3.0 Type-A 接口（无需短接跳线）。
 
 image::/bpi-f4/bpi-f4_typea3.png[bpi-f4_typea3.png,width=30%,height=30%]
 
-插入 USB 将闪存驱动器插入 USB3 Type-C 端口 (使用TYPE-C端口；这里必须短接跳线)
+将 U 盘插入 USB 3.0 Type-C 接口（使用此接口时必须短接跳线）。
 
 image::/bpi-f4/bpi-f4_typyc.png[bpi-f4_typyc.png,width=30%,height=30%]
 
-插入 USB 闪存驱动器插入 USB 2.0 A 型端口。
+将 U 盘插入 USB 2.0 Type-A 接口。
 
 image::/bpi-f4/bpi-f4_typea2.png[bpi-f4_typea2.png,width=30%,height=30%]
 
@@ -127,53 +127,53 @@ image::/bpi-f4/bpi-f4_typea2.png[bpi-f4_typea2.png,width=30%,height=30%]
 
 image::/bpi-f4/bpi-f4_emmc_successr.png[bpi-f4_emmc_successr.png,width=60%,height=60%]
 
-烧录完成后，关闭电源，将拨码开关改为1111，再次上电即可从 eMMC.
+烧录完成后关闭电源，将拨码开关设为 1111；再次上电后，开发板将从 eMMC 启动。
 
 image::/bpi-f4/bpi-f4_emmcbootr.jpg[bpi-f4_emmcbootr.jpg,width=60%,height=30%]
 
-= 安装并使用smzf AI模型框架
-* 1.首先确认您有足够的存储空间
+= 安装并使用 smzf AI 模型框架
+* 1. 首先确认有足够的存储空间
 ```sh
 df -h
 ```
 
-* 2. 检索内容 Github
+* 2. 从 GitHub 获取代码
 ```sh
 git clone https://github.com/sunplus-plus1/smzf.git -b master
 cd smzf
 ```
 
-* 3.拉取子模块默认使用SSH。我还没有配置密钥，所以需要将其更改为HTTPS
+* 3. 子模块默认通过 SSH 拉取。如果尚未配置 SSH 密钥，需要将地址改为 HTTPS
 ```sh
 nano .gitmodules
 ```
-修改两个网址：
+将其中两个 URL 修改为：
 ```sh
 url = https://github.com/sunplus-plus1/nnthirdparty.git
 url = https://github.com/sunplus-plus1/model-zoo.git
 ```
 
-* 4.接下来，拉取子模块
+* 4. 拉取子模块
 ```sh
 git submodule sync --recursive
 git submodule update --init --recursive --remote
 ```
 
-* 5.修改DNS
+* 5. 修改 DNS
 ```sh
 sudo nano /etc/resolv.conf
 
-#Add the following content:
+# 添加以下内容：
 nameserver 8.8.8.8
 ```
 
-* 6.安装CMake
+* 6. 安装 CMake
 ```sh
 sudo apt update
 sudo apt install cmake
 ```
 
-* 7.解压三个文件
+* 7. 解压以下三个文件
 ```sh
 cd ./nnthirdparty/libtorch
 tar -xzf libtorch.tar.gz
@@ -187,19 +187,19 @@ cd opencv/
 tar -xzf 4.2.tar.gz
 ```
 
-* 8.解压后
+* 8. 解压完成后编译项目
 ```sh
 cd ..
 cd ..
 ./build.sh --c3v
 ```
 
-* 9.进入release目录，使用ldd查找缺少的依赖
+* 9. 进入 release 目录，并使用 ldd 检查缺少的依赖
 ```sh
 export LD_LIBRARY_PATH=$(pwd)/lib:$(pwd)/nnthirdparty/jsoncpp/lib:$(pwd)/nnthirdparty/NADKLogger/lib:$(pwd)/nnthirdparty/NADKRoutines/lib:$(pwd)/nnthirdparty/nnbase/lib:$(pwd)/nnthirdparty/libtorch/lib:$LD_LIBRARY_PATH
 ```
 
-* 10.开始使用AI模型。这里我们以摄像头图像检测为例
+* 10. 运行 AI 模型；以下以摄像头图像检测为例
 ```sh
 ./bin/nnModel -m Yolo11sDetectionHybridI8 -v /dev/video42
 ```
@@ -207,32 +207,32 @@ export LD_LIBRARY_PATH=$(pwd)/lib:$(pwd)/nnthirdparty/jsoncpp/lib:$(pwd)/nnthird
 
 = 散热总结
 == 核心板散热 
-我们使用的散热器与Raspberry Pi CM4使用的散热器尺寸和规格相同，可以有效解决其发热问题，保证设备稳定运行。
+这里使用与 Raspberry Pi CM4 尺寸和规格相同的散热器，可有效降低核心板温度，保证设备稳定运行。
 [options="header",cols="10,4,10,10,6",width="100%"]
 |=====
-组件 |裸板 |CPU裸板 |DDR裸板 eMMC|带散热器|
-测试5分钟后温度 |81.4°C |66.8°C |60.9°C |55.7°C| 
+测试项目 |裸板 CPU |裸板 DDR |裸板 eMMC|安装散热器|
+测试 5 分钟后的温度 |81.4°C |66.8°C |60.9°C |55.7°C| 
 测试结束时的温度          |79.8°C |64.7°C |59.5°C |52.6°C|
 |=====
-NOTE: 根据测试温度，可以观察到带散热器的温度比裸板低10-20°C。
+NOTE: 根据测试结果，安装散热器后的温度比裸板低 10～20 °C。
 
-== AI模型散热
+== 运行 AI 模型时的散热表现
 [options="header",cols="10,4,10,10,6",width="100%"]
 |=====
-人工智能工作负载	|裸板 CPU|	裸板DDR|	裸板 eMMC|	带散热器|
-相机AI识别 |	69.5°C  |	59.0°C  | 54.3°C  |51.2°C |
-视频AI识别| 95.9°C	| 75.3°C	| 66.8°C	|61.2°C |
+AI 工作负载	|裸板 CPU|	裸板 DDR|	裸板 eMMC|	安装散热器|
+摄像头 AI 识别 |	69.5°C  |	59.0°C  | 54.3°C  |51.2°C |
+视频 AI 识别| 95.9°C	| 75.3°C	| 66.8°C	|61.2°C |
 |=====
-NOTE: 在AI模型执行过程中，散热器的冷却效果明显更加明显。与裸板配置相比，使用散热器的温度低 10-30°C。
+NOTE: 运行 AI 模型时，散热器的降温效果更为明显；安装散热器后的温度比裸板低 10～30 °C。
 
-= 界面设置
-如果您使用的是香蕉派 BPI-F4 Pro 首次使用时，请先熟悉一下外围接口，以便更好地理解以下内容。
+= 接口设置
+首次使用 Banana Pi BPI-F4 时，请先熟悉各个外设接口，以便理解以下内容。
 
-== Ethernet 端口
+== 以太网接口
 
-* 1.首先将网线一端插入 Ethernet 端口，并将另一端连接到路由器。确保网络正常运行。
-* 2.系统启动后会自动分配IP地址 Ethernet 端口无需任何额外配置。
-* 3.要检查IP地址，请使用以下命令：
+* 1. 将网线一端插入以太网接口，另一端连接到网络正常的路由器。
+* 2. 系统启动后会自动为以太网接口分配 IP 地址，无需额外配置。
+* 3. 使用以下命令查看 IP 地址：
 
 ```sh
 pi@ubuntu:~$ ifconfig
@@ -256,9 +256,9 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ```
 
-* 4.使用ping工具检查网络连通性。
+* 4. 使用 ping 工具检查网络连通性。
 
-** 测试网络连接的命令如下所示。您可以使用 Ctrl 停止 ping 命令+C 快捷方式。
+** 测试命令如下；按 Ctrl+C 可停止 ping。
 
 ```sh
 pi@ubuntu:~$ sudo ping www.baidu.com
@@ -277,105 +277,105 @@ rtt min/avg/max/mdev = 8.845/9.276/10.566/0.548 ms
 ```
 
 
-== 无线网络
-=== 通过服务器映像上的命令行连接到 WIFI
+== WiFi
+=== 在服务器版镜像中通过命令行连接 WiFi
 
-1.首先...
+1. 首先，打开终端。
 
-2.使用 nmcli dev wifi 命令扫描可用的 WIFI 热点：
+2. 使用 nmcli dev wifi 命令扫描可用的 WiFi 热点：
 
-1. 启用WIFI
+1. 启用 WiFi
 ```sh
 nmcli r wifi on
 ```
-2. 扫描WIFI
+2. 扫描 WiFi
 ```sh
 nmcli dev wifi
 ```
 
-3. 连接至 WIFI 网络
+3. 连接 WiFi 网络
 ```sh
 nmcli dev wifi connect "wifi_name" password "wifi_password"
 ```
 
-=== 桌面图像测试方法
-1.点击桌面上的网络配置图标 (确保测试WIFI时不要连接网线).
+=== 桌面版镜像测试方法
+1. 单击桌面上的网络配置图标（测试 WiFi 时请勿连接网线）。
 
-2.连接WIFI后，打开浏览器检查是否可以上网
+2. 连接 WiFi 后，打开浏览器检查能否访问互联网。
 
-== BT
+== 蓝牙
 
 == HDMI
 [options="header",cols="1,1"]
 |====
-|HDMI输出接口	|支持1080p、720p、480p分辨率
+|HDMI 输出接口	|支持 1080p、720p 和 480p 分辨率
 |====
 
-使用 HDMI 电缆将开发板连接到 HDMI 显示器。
+使用 HDMI 线缆将开发板连接到 HDMI 显示器。
 
-启动后 Linux 系统中，如果 HDMI 显示器显示镜像，则 HDMI 接口工作正常。
+Linux 系统启动后，如果 HDMI 显示器能正常显示画面，则 HDMI 接口工作正常。
 
-NOTE: 许多笔记本电脑虽然具有 HDMI 端口，但通常仅具有 HDMI 输出，并且不支持 HDMI 输入。这意味着您无法在笔记本电脑的屏幕上显示其他设备的 HDMI 输出。在将开发板的 HDMI 连接到笔记本电脑的 HDMI 端口之前，请确保您的笔记本电脑支持 HDMI 功能。如果没有显示，首先检查您的系统是否是桌面版本；服务器版本可能只显示一个终端。
+NOTE: 许多笔记本电脑虽有 HDMI 接口，但通常只支持输出，不支持 HDMI 输入，因此不能直接显示开发板输出的画面。连接前请确认笔记本电脑支持 HDMI 输入。如果显示器没有画面，还应确认安装的是桌面版系统；服务器版可能只显示终端。
 
-* 1.HDMI转VGA显示测试
-** 所需配件： HDMI 转 VGA 转换器
-* 2.一条VGA线和一个带VGA端口的显示器
+* 1. HDMI 转 VGA 显示测试
+** 所需配件：HDMI 转 VGA 转换器
+* 2. 一条 VGA 线和一台带 VGA 接口的显示器
 
-HDMI转VGA显示测试如下图：
+HDMI 转 VGA 显示测试如下图所示：
 
 image::/bpi-f4/bpi-f4bpi-f4_hdmirr.png[bpi-f4bpi-f4_hdmirr.png,width=70%,height=70%]
 
 == USB
-的 BPI-F4 提供一个 USB 3.0 A型，1个 USB 3.0 Type-C 和 1 个 USB 2.0 A 型。
+BPI-F4 提供一个 USB 3.0 Type-A 接口、一个 USB 3.0 Type-C 接口和一个 USB 2.0 Type-A 接口。
 
 image::/bpi-f4/bpi-f4_usb.png[bpi-f4_usb.png,width=40%,height=40%]
 
-NOTE: 请注意 USB 3.0 Type-A与Type-C共用USBSP7350的3.0端口，不能同时使用。插入跳线来选择 USB 3.0 Type C 插座。否则， USB 选择3.0 A型插座。 
+NOTE: USB 3.0 Type-A 与 Type-C 共用 SP7350 的同一个 USB 3.0 端口，不能同时使用。插上跳线帽时选择 Type-C 接口；不安装跳线帽时选择 Type-A 接口。 
 
 === 使用 USB 鼠标或键盘
 
-* 1.插入一个 USB 键盘或鼠标插入板的 USB 端口。
-* 2.将开发板连接到 HDMI 显示器。
-* 3.如果鼠标或键盘操作系统正常， USB 界面工作正常 (鼠标仅适用于桌面版本的系统).
+* 1. 将 USB 键盘或鼠标插入开发板的 USB 接口。
+* 2. 将开发板连接到 HDMI 显示器。
+* 3. 如果键盘或鼠标能正常操作系统，则 USB 接口工作正常（鼠标仅适用于桌面版系统）。
 
 === 使用 USB 存储设备
-* 1.插入一个 USB 闪存驱动器或 USB 将外部硬盘驱动器插入产品的 USB 端口。
+* 1. 将 U 盘或 USB 移动硬盘插入开发板的 USB 接口。
 
-* 2.运行以下命令；如果您看到 sdX 输出，则 USB 驱动器识别成功：insertpng
+* 2. 运行以下命令；如果输出中出现 sdX 设备，则表示 USB 存储设备已被识别：
 ```sh
 sunplus@ubuntu:~$ cat /proc/partitions | grep "sd*"
 major minor  #blocks  name
    8        0    3932160 sda
 ```
-* 3.使用mount命令挂载 USB 开车去 /mnt 并查看文件 USB 驱动器：insertpng
+* 3. 使用 mount 命令将 USB 存储设备挂载到 /test，然后即可查看其中的文件：
 ```sh
 sunplus@ubuntu:/dev$ sudo mkdir /test
 sunplus@ubuntu:/dev$ sudo mount /dev/sda /test/
 ```
 
-* 4.挂载后使用df -h命令查看 USB 驱动器的容量使用情况和安装点：insertpng
+* 4. 挂载后，使用 df -h 命令查看设备容量使用情况和挂载点：
 ```sh
 sunplus@ubuntu:/dev$ df -h | grep "sd"
 /dev/sda        3.8G   16K  3.8G   1% /test
 ```
 
-== 相机Ov5647
-所需配件：摄像机OV5647
+== OV5647 摄像头
+所需配件：OV5647 摄像头模块
 [options="header",cols="1,1"]
 |====
 2+|OV5647 规格         |
-照片分辨率           |5MP 最大照片分辨率 (2592 x 1944 = 5,038,848 像素)
+照片分辨率           |最高 5 MP（2592 × 1944，共 5,038,848 像素）
 像素大小                      |1.4 x 1.4 μm
 光学尺寸                    |1/4"
-镜头                            | f=3.6毫米， f/2.9
-可视角度                   | 54° x 41°
+镜头                            | f=3.6 mm，f/2.9
+视场角                   | 54° × 41°
 最大视频分辨率            | 1080p@30fps
 最大帧率                  | 480p@90fps
-最大曝光时间 (秒)| 0.97
-可选择的视频分辨率：   |1080p@30fps、720p@60fps、480p@90fps
+最长曝光时间（秒）| 0.97
+可选视频分辨率   |1080p@30fps、720p@60fps、480p@90fps
 |====
 
-摄像头采用OV5647。连接摄像头模块并开机后，使用 v4l2-ctl --all --device /dev/video0  命令获取设备所有信息(注意：确保没有接反；金手指必须面向跳线帽)
+摄像头模块采用 OV5647 传感器。连接模块并开机后，使用 v4l2-ctl --all --device /dev/video42 命令查看设备的完整信息。连接时请勿插反，排线金手指应朝向跳线帽。
 
 image::/bpi-f4/bpi-f4_cisi.png[bpi-f4_cisi.png,width=50%,height=70%]
 
@@ -457,23 +457,23 @@ Image Processing Controls
 
 ```
 
-使用 v4l2-ctl -d /dev/video42 --set-ctrl 参数=值设定装置控制。
+使用 v4l2-ctl -d /dev/video42 --set-ctrl params=value 命令设置设备控制项。
 
-启用自动_曝光：
+启用 auto_exposure（自动曝光）：
 ```sh
 v4l2-ctl -d /dev/video42 --set-ctrl auto_exposure=1
 ```
 
-启用增益_自动
+启用 gain_automatic（自动增益）：
 ```sh
 v4l2-ctl -d /dev/video42 --set-ctrl gain_automatic=1
 ```
 
-启用白色_平衡_自动
+启用 white_balance_automatic（自动白平衡）：
 ```sh
 v4l2-ctl -d /dev/video42 --set-ctrl white_balance_automatic=1
 ```
-使用查询设备视频格式
+使用以下命令查询设备支持的视频格式：
 ```sh
 pi@ubuntu:~$ v4l2-ctl --list-formats-ext --device /dev/video42
 ioctl: VIDIOC_ENUM_FMT
@@ -493,15 +493,15 @@ ioctl: VIDIOC_ENUM_FMT
                 Size: Discrete 640x480
 
 ```
-=== 捕获图像然后打开图像
-使用 v4l2-ctl 进行图像捕获：
+=== 捕获并查看图像
+使用 v4l2-ctl 捕获图像：
 ```sh
 pi@ubuntu:~$ v4l2-ctl -d /dev/video42 --set-fmt-video=width=1920,height=1080,pixelformat=pGAA --stream-mmap=3 --stream-to=/home/sunplus/Videos/ov5647.raw --stream-skip=9 --stream-count=1
 <<<<<<<<<<<<<<<<<<<<
 pi@ubuntu:~$
 ```
 
-插入 USB U盘并挂载，然后将生成的OV5647.RAW文件复制到 USB 闪存驱动器
+插入并挂载 U 盘，然后将生成的 OV5647 RAW 文件复制到 U 盘。
 
 ```sh
 
@@ -524,16 +524,16 @@ drwxr-xr-x 4 root root    4096 Aug 21 22:31 ../
 -rwxr-xr-x 1 root root 2592000 Aug 21 23:13 ov5647-111.raw*
 ```
 
-从下载原始镜像查看器 link:https://carinastudio.azurewebsites.net/PixelViewer/[ 像素浏览器 | 卡琳娜工作室]
+从 link:https://carinastudio.azurewebsites.net/PixelViewer/[PixelViewer | Carina Studio] 下载 RAW 图像查看器。
 
 image::/bpi-f4/bpi-f4_catch-image.png[bpi-f4_catch-image.png]
 
-=== 使用OV5647摄像头模块启动实时视频录制
+=== 使用 OV5647 摄像头模块显示实时视频
 TIP: link:https://forum.banana-pi.org/t/banana-pi-bpi-f4-sunpuls-sp7350-ov5647-camera-test/24277[视频工作流程]
 
-首先，将OV5647摄像头连接到F4板
+首先，将 OV5647 摄像头连接到 BPI-F4 开发板。
 
-然后通电并启动系统。如果这是您第一次使用OV5647相机，请执行以下命令；否则，您可以跳过此步骤。
+然后通电启动系统。首次使用 OV5647 摄像头时，请执行以下命令安装工具；已经安装过则跳过此步骤。
 ```sh
 sudo apt update
 sudo apt install v4l-utils
@@ -542,15 +542,11 @@ image::/bpi-f4/5fe0af92368088a2b91ded6dde61c4a1.png[5fe0af92368088a2b91ded6dde61
 
 image::/bpi-f4/8d28e46b7a2e542ec0a67845ebc25c3d.png[8d28e46b7a2e542ec0a67845ebc25c3d.png,width=70%,height=70%]
 
-通过 HDMI 连接，启动终端 Ubuntu 桌面模式，输入以下命令激活OV5647摄像头
+连接 HDMI 显示器，在 Ubuntu 桌面环境中打开终端，然后输入以下命令显示 OV5647 摄像头的实时画面：
 ```sh
 ffplay -f v4l2 -i /dev/video42
 ```
 image::/bpi-f4/bpi-f4_ffplay.png[bpi-f4_ffplay.png,width=70%,height=70%]
-
-
-
-
 
 
 
