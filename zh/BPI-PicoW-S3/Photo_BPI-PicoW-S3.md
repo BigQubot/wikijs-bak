@@ -1,8 +1,8 @@
 ---
-title: 香蕉派 BPI-PicoW-S3 照片
-description: 香蕉派 BPI-PicoW-S3 照片
-published: true
-date: 2026-08-22T11:48:30.688Z
+title: Banana Pi BPI-PicoW-S3 产品图片
+description: Banana Pi BPI-PicoW-S3 产品图片
+published: false
+date: 2026-08-22T17:13:20.181Z
 tags: 
 editor: markdown
 dateCreated: 2026-08-22T11:48:30.688Z
