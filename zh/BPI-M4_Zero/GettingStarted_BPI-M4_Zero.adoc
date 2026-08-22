@@ -1,0 +1,450 @@
+= 简介
+
+TIP: 更多信息： link:/en/BPI-M4_Zero/BananaPi_BPI-M4_Zero[香蕉派 BPI-M4_Zero]
+
+
+= Android
+
+== 准备
+. 下载最新的 link:/en/BPI-M4_Zero/BananaPi_BPI-M4_Zero#_android_2[Android 镜像].
+
+. 下载并安装 link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2Fphoenixsuit_V1.1.0_20150325.rar[Allwinner 图片下载工具]，PhoenixSuit 是针对窗户的。 
+
+. Type-C数据线，5V供电。
+
+== 安装镜像 USB 工具
+
+. 打开PhoenixSuit，点击Firmware图标切换到固件下载面板，然后点击Image按钮并选择 Android 镜像文件。
++
+image::/picture/m4-zero_android_1.jpg[m4-zero_android_1.jpg]
+image::/picture/m4-zero_android_2.jpg[m4-zero_android_2.jpg]
+
+. 使用 type-c 连接到计算机时，按住 M4 Zero 上的 SW2 按钮，弹出警告对话框。按 Yes。
++
+image::/picture/m4-zero_android_3.jpg[m4-zero_android_3.jpg]
+
+. 下载
++
+image::/picture/m4-zero_android_4.jpg[m4-zero_android_4.jpg]
+
+. 下载完成
++
+image::/picture/m4-zero_android_5.jpg[m4-zero_android_5.jpg]
+
+= Linux
+== 准备
+
+. Linux 镜像支持SD卡或 EMMC 启动时，会先从SD卡启动。
+. 建议使用A1级卡，至少8GB。
+. 确保可启动 EMMC 如果您想从 SD 卡启动，请格式化。
+. 确保 SD 卡已格式化 Linux 如果您想从以下位置启动，镜像会闪烁 EMMC 并使用Sd卡作为存储。
+. 下载最新的 [Linux Linux 图片]，并确认md5校验和正确。
+. 默认登录： pi/bananapi 或 root/bananapi
+. 维基指南仅适用于 [bananapi 4.9 桶 ubuntu/debian 图片].
+
+== 将映像安装到 SD 卡
+**Windows**
+
+link:https://balena.io/etcher[巴莱纳蚀刻机] 是 Balena 的开源 GUI 闪存工具，可将操作系统映像闪存到 SD 卡或 USB 开车。
+
+- 点击“**从文件闪存**”来选择镜像。 
+- 点击“**选择目标**”来选择 USB 设备。 
+- 点击“**快闪！**“开始燃烧。
+
+image::/picture/etcher.jpg[etcher.jpg]
+
+== 使用dd命令烧录到 eMMC
+. 将img文件复制到 USB 驱动器并将其插入 M4 ZERO。
+
+. 执行：
++
+```
+root@bpi-m4zero:~# lsblk
+NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+sda            8:0    1   961M  0 disk
+mmcblk1      179:0    0  14.8G  0 disk
+└─mmcblk1p1  179:1    0  14.7G  0 part /var/log.hdd
+                                       /
+mmcblk0      179:16   0   7.3G  0 disk
+├─mmcblk0p1  179:17   0    32M  0 part
+├─mmcblk0p2  179:18   0    32M  0 part
+├─mmcblk0p3  179:19   0   256K  0 part
+├─mmcblk0p4  179:20   0   256K  0 part
+├─mmcblk0p5  179:21   0    64M  0 part
+├─mmcblk0p6  179:22   0    64M  0 part
+├─mmcblk0p7  179:23   0    32M  0 part
+├─mmcblk0p8  179:24   0    32M  0 part
+├─mmcblk0p9  179:25   0     3G  0 part
+├─mmcblk0p10 179:26   0    16M  0 part
+├─mmcblk0p11 179:27   0   128K  0 part
+├─mmcblk0p12 179:28   0   128K  0 part
+├─mmcblk0p13 179:29   0    64K  0 part
+├─mmcblk0p14 179:30   0    64K  0 part
+├─mmcblk0p15 179:31   0    64K  0 part
+├─mmcblk0p16 259:0    0    64K  0 part
+├─mmcblk0p17 259:1    0   512K  0 part
+├─mmcblk0p18 259:2    0    15M  0 part
+├─mmcblk0p19 259:3    0    16M  0 part
+├─mmcblk0p20 259:4    0    16M  0 part
+├─mmcblk0p21 259:5    0     2M  0 part
+├─mmcblk0p22 259:6    0     2M  0 part
+├─mmcblk0p23 259:7    0    16M  0 part
+├─mmcblk0p24 259:8    0    16M  0 part
+└─mmcblk0p25 259:9    0   3.9G  0 part
+mmcblk0boot0 179:32   0     4M  1 disk
+mmcblk0boot1 179:48   0     4M  1 disk
+zram0        254:0    0 982.5M  0 disk [SWAP]
+zram1        254:1    0    50M  0 disk /var/log
+```
+
++
+```
+mount /dev/sda /mnt
+```
++
+安装完成后，打开 `**cd**` 文件。的 `**ls**` 命令将显示您要刻录的 img 文件。
++
+```
+cd /mnt
+ls
+```
+
+. 然后使用dd命令来刻录文件。
++
+```
+sudo dd if=20241011_Bananapi-Armbian_24.8.2_Bpi-m4zero_ubuntu22.04_jammy_legacy_5.4.125_minimal.img of=/dev/mmcblk0
+```
+
+== 安装镜像到 eMMC
+
+. 确保 Linux 镜像已烧录至SD卡并正常启动。
+
+. 在终端中输入以下命令。
++
+```
+sudo bananapi-config
+```
+
+. 请按照以下说明安装 Linux 上的系统映像 eMMC.
+..选择 `Ststem`.
++
+image::/picture/bpi_m4_berry_mobaxterm_12.jpg[bpi_m4_berry_mobaxterm_12.jpg]
+..选择 `Install`.
++
+image::/picture/bpi_m4_berry_mobaxterm_13.jpg[bpi_m4_berry_mobaxterm_13.jpg]
+..选择 `Boot from eMMC`.
++
+image::/picture/bpi_m4_berry_mobaxterm_14.jpg[bpi_m4_berry_mobaxterm_14.jpg]
+..选择 `Yes`.
++
+image::/picture/bpi_m4_berry_mobaxterm_15.jpg[bpi_m4_berry_mobaxterm_15.jpg]
+..选择 `ext4`.
++
+image::/picture/bpi_m4_berry_mobaxterm_16.jpg[bpi_m4_berry_mobaxterm_16.jpg]
+.. 等几分钟。此时请勿关闭或重新启动开发板。
++
+image::/picture/bpi_m4_berry_mobaxterm_17.jpg[bpi_m4_berry_mobaxterm_17.jpg]
+..最后一步是关闭主板。此时，断开电源，取出SD卡，重新接通电源，即可从 eMMC.
++
+image::/picture/bpi_m4_berry_mobaxterm_18.jpg[bpi_m4_berry_mobaxterm_18.jpg]
+
+== Ubuntu 桌面
+. 使用 Ubuntu 桌面版系统镜像，可以获得图形化操作界面。
+. 您需要准备一台带HDMI接口的显示器、一根HDMI线、一个mini HDMI转HDMI转接头。
+. 使用 HDMI 电缆和迷你 HDMI 转 HDMI 适配器连接显示器和 BPI-M4 Zero，将显示器输入接口切换到对应的HDMI接口，开机，稍等片刻即可看到桌面。
++
+image::/picture/bpi_m4_berry_ubuntu_1.jpg[bpi_m4_berry_ubuntu_1.jpg]
+
+== 调试 UART
+. 准备一个3.3v USB 到TTL模块。
+. 使用 USB 转TTL模块连接PC USB 端口和调试 UART 板上的端口。
+. 在PC上打开串口终端软件，例如 link:https://mobaxterm.mobatek.net/[莫巴克斯术语] 或 link:https://www.putty.org/[腻子].
+. 以mobaxterm为例，设置好串口号和115200波特率后，即可打开 BPI-M4 Zero UART 终端。
++
+image::/picture/bpi_m4_berry_mobaxterm_1.jpg[bpi_m4_berry_mobaxterm_1.jpg]
+image::/picture/bpi_m4_berry_mobaxterm_2.jpg[bpi_m4_berry_mobaxterm_2.jpg]
+
+== SSH
+. 准备好网线和路由器。
+. 使用网线将路由器的LAN口连接到路由器的LAN口 BPI-M4 Zero，并将 PC 连接到另一个 LAN 端口。
+. 检查 IP 地址 BPI-M4 Zero 在路由器管理界面上，或者在路由器上使用以下命令 BPI-M4 Zero UART 终端检查IP地址。
++
+```sh
+  ifconfig
+```
++
+```sh
+  eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST> mtu 1500
+        inet 192.168.3.10 netmask 255.255.255.0 broadcast 192.168.3.255
+        inet6 fe80::3e1f:688f:81ab:d8b7 prefixlen 64 scopeid 0x20<link>
+        ether 02:00:54:a0:d6:a6 txqueuelen 1000 (Ethernet)
+        RX packets 553 bytes 92549 (92.5 KB)
+        RX errors 0 dropped 0 overruns 0 frame 0
+        TX packets 329 bytes 26023 (26.0 KB)
+        TX errors 0 dropped 0 overruns 0 carrier 0 collisions 0
+        device interrupt 42
+```
+. 在PC上打开SSH终端软件，例如 link:https://mobaxterm.mobatek.net/[莫巴克斯术语] 或 link:https://www.putty.org/[腻子].
+. 以mobaxterm为例，在IP地址栏填入获取到的IP地址，如上面的192.168.3.10，在Port端口填入22。
++
+image::/picture/bpi_m4_berry_mobaxterm_3.jpg[bpi_m4_berry_mobaxterm_3.jpg]
+
+. 打开SSH终端并输入登录名 username/password: pi/bananapi 或 root/bananapi. 输入密码时不会有提示。请正常输入，完成后按回车键。
++
+image::/picture/bpi_m4_berry_mobaxterm_4.jpg[bpi_m4_berry_mobaxterm_4.jpg]
+
+== NoMachine远程桌面
+. 确保 BPI-M4 Zero 连接互联网，使用以下命令下载系统中的nomachine DEB安装包。
++
+```sh
+  wget https://download.nomachine.com/download/8.9/Arm/nomachine_8.9.1_1_arm64.deb
+```
+. 或打开 link:https://downloads.nomachine.com/download/?id=117&distro=ARM[NoMachine for ARM - arm64 下载页面] 在PC浏览器中下载DEB安装包，然后复制到 BPI-M4 Zero 通过 SSH 或 USB 磁盘。
+. 下载完成后，通过以下命令进行安装。请注意，文件名以实际下载的文件名为准。
++
+```sh
+  sudo dpkg -i nomachine_8.9.1_1_arm64.deb
+```
+. PC端还需要下载并安装NoMachine。 link:https://download.nomachine.com/[NoMachine下载页面] 选择适合PC操作系统的安装包，下载到本地并完成安装。
+. 注意保管好电脑和 BPI-M4 Zero 在同一个局域网内。您可以先尝试SSH连接，确保局域网内正常通信。
+. 在PC上打开NoMachine，点击添加按钮，输入IP地址 BPI-M4 Zero 在跳转后的窗口中的Host栏，然后点击Add按钮。
++
+image::/picture/bpi_m4_berry_nomachine_1.jpg[bpi_m4_berry_nomachine_1.jpg]
+
+. 点击识别的端口图标，输入 username/password 在弹出的新窗口中，然后单击“确定”按钮。
++
+image::/picture/bpi_m4_berry_nomachine_2.jpg[bpi_m4_berry_nomachine_2.jpg]
+image::/picture/bpi_m4_berry_nomachine_3.jpg[bpi_m4_berry_nomachine_3.jpg]
+
+. 完成后续设置后就可以看到桌面了。
++
+image::/picture/bpi_m4_berry_nomachine_4.jpg[bpi_m4_berry_nomachine_4.jpg]
+
+. 如果 HDMI 接口没有连接任何设备，NoMachine 远程桌面将显示黑屏。建议保留 HDMI 连接或连接 HDMI 诱饵设备。
+
+== 无线网络
+使用nmcli命令扫描WiFi热点、连接热点、创建AP热点。
+```sh
+  nmcli device
+  nmcli device wifi list
+  nmcli device wifi connect [SSID] password [PASSWORD]
+  nmcli device disconnect [device name]
+  nmcli device wifi hotspot con-name [NAME] ifname [device name] ssid [SSID] password [PASSWORD]
+```
+```sh
+  nmcli connection show
+  nmcli connection down [NAME]
+  nmcli connection up [NAME]
+  nmcli connection delete [SSID]
+```
+```sh
+  nmcli radio wifi off
+  nmcli radio wifi on
+```
+- link:https://developer-old.gnome.org/NetworkManager/unstable/nmcli.html[nmcli命令参考文档]
+- link:https://developer-old.gnome.org/NetworkManager/unstable/nmcli-examples.html[nmcli 命令参考示例]
+
+== 设置静态IP、DNS
+. 要设置静态IP，您需要先保持连接。如果您想设置一个 Ethernet 静态IP，您必须首先维护 Ethernet 连接；如果要设置无线网络静态IP，首先必须保持WIFI连接。
+. 如果上级路由器已将您要设置的IP地址分配给其他设备，请将其更改为空闲IP，或者要求其他设备放弃该IP。
+. 使用 nmcli connection show 命令显示所有连接，例如：
++
+```sh
+  pi@bpi-m4zero:~$ nmcli connection show
+  NAME UUID TYPE DEVICE
+  TP-LINK_5G_7747 e4a49726-adf1-44d7-a621-0e3af96cc390 wifi wlx2cc3e6acd5d7
+  Wired connection 1 612eda94-55dc-3c85-b05e-f16c41775b4e ethernet --
+```
+. 使用 nmcli 连接显示 [姓名] 命令显示特定连接的所有属性，例如：
++
+```sh
+  nmcli connection show TP-LINK_5G_7747
+```
+ If you want to see Ethernet, change to Wired connection 1
++
+只列出三个常见的项目
++
+```sh
+  ipv4.dns: 192.168.3.1
+  ipv4.addresses: 192.168.3.10/24
+  ipv4.gateway: 192.168.3.1
+```
+- 默认为网关地址
+- 默认为路由器DHCP分配的IP地址
+- 网关地址，默认为路由器的IP地址
+
+. 设置静态IP：
++
+```sh
+  nmcli connection modify TP-LINK_5G_7747 ipv4.addresses 192.168.3.2
+```
+. 设置DNS：
++
+```sh
+  nmcli connection modify TP-LINK_5G_7747 ipv4.dns 8.8.8.8
+```
+. 重置：
++
+```sh
+  reboot
+```
+. 重启后查看是否修改成功：
++
+```sh
+  ifconfig
+  nmcli connection show TP-LINK_5G_7747
+```
+
+== 网络时间同步
+Chrony 是一款开源免费网络时间协议 NTP 客户端和服务器软件。它允许计算机保持系统时钟与时钟服务器同步 (NTP)，从而让您的计算机保持准确的时间。 Chrony还可以作为服务器软件，为其他计算机提供时间同步服务。
+```sh
+  timedatectl set-ntp false
+```
+```sh
+  sudo apt install chrony
+  systemctl start chrony
+  systemctl enable chrony
+  systemctl status chrony
+  systemctl restart chrony
+```
+```sh
+  timedatectl status
+  timedatectl list-timezones
+  timedatectl set-timezone Asia/Shanghai
+  timedatectl set-ntp true
+```
+```sh
+  date
+  sudo hwclock -r
+```
+- link:https://chrony-project.org/documentation.html[慢性参考文档]
+
+== 查看硬件温度
+输入以下命令查看芯片内置传感器返回的温度数据 BPI-M4 Zero 板。
+```sh
+  sensors
+```
+== 修改HDMI输出分辨率
+当使用 Ubuntu 桌面操作系统，可以在设置中找到显示栏，修改分辨率。
+
+image::/picture/bpi_m4_berry_ubuntu_2.jpg[bpi_m4_berry_ubuntu_2.jpg]
+
+== 使用 USB 磁盘
+. 准备一个 USB 将已经正常分区的磁盘插入 USB 的接口 BPI-M4 Zero.如果是一个 USB 带有 A 型插头的磁盘，您还需要一个 A 型转 C 型适配器。
+. 在 Ubuntu 桌面版，您可以看到 USB 磁盘已被识别，可以在文件管理器中打开，也可以通过GParted工具进行分区管理。
++
+image::/picture/bpi_m4_berry_ubuntu_3.jpg[bpi_m4_berry_ubuntu_3.jpg]
+
+. 在终端中，安装 USB 磁盘到本地目录：
++
+```sh
+  mkdir mnt
+  cat /proc/partitions | grep "sd*"
+  sudo mount /dev/sda1 ~/mnt/
+  ls ~/mnt/
+  sudo umount -v /dev/sda1
+```
+
+== 使用音频设备
+准备一个音频文件并将其复制到 BPI-M4 Zero Ubuntu 桌面系统通过 USB 闪存驱动器或 SSH。
+
+**HDMI音频**
+
+. 准备一台具有 HDMI 音频输入功能的显示器，在显示器设置中打开相关功能，使用 HDMI 线和 mini HDMI 转 HDMI 适配器连接显示器。
+. 在设置的声音栏中将输出设备设置为 HDMI 音频。
++
+image::/picture/bpi_m4_berry_ubuntu_4.jpg[bpi_m4_berry_ubuntu_4.jpg]
+
+. 播放音频。
++
+image::/picture/bpi_m4_berry_ubuntu_5.jpg[bpi_m4_berry_ubuntu_5.jpg]
+
+== 使用蓝牙
+. 打开设置中的 Ubuntu 桌面并在蓝牙栏中连接蓝牙设备，例如蓝牙鼠标或键盘。
++
+image::/picture/bpi_m4_berry_ubuntu_7.jpg[bpi_m4_berry_ubuntu_7.jpg]
+
+. 在终端中通过命令行连接蓝牙设备的方法如下：
++
+```sh
+pi@bpi-m4zero:~$ sudo bluetoothctl
+[sudo] password for pi:
+Agent registered
+[CHG] Controller 2C:C3:E6:AC:D5:D8 Pairable: yes
+[bluetooth]# power on
+Changing power on succeeded
+[bluetooth]# discoverable on
+Changing discoverable on succeeded
+[CHG] Controller 2C:C3:E6:AC:D5:D8 Discoverable: yes
+[bluetooth]# pairable on
+Changing pairable on succeeded
+[bluetooth]# scan on
+Discovery started
+[CHG] Controller 2C:C3:E6:AC:D5:D8 Discovering: yes
+[NEW] Device D4:C4:85:A5:C6:B1 Logitech Pebble
+[CHG] Device D4:C4:85:A5:C6:B1 TxPower: 4
+[bluetooth]# pair D4:C4:85:A5:C6:B1
+Attempting to pair with D4:C4:85:A5:C6:B1
+[CHG] Device D4:C4:85:A5:C6:B1 Connected: yes
+[DEL] Device A4:C1:38:9B:F6:FD SLPO20N20200059
+[CHG] Device D4:C4:85:A5:C6:B1 UUIDs: 00001800-0000-1000-8000-00805f9b34fb
+[CHG] Device D4:C4:85:A5:C6:B1 UUIDs: 00001801-0000-1000-8000-00805f9b34fb
+[CHG] Device D4:C4:85:A5:C6:B1 UUIDs: 0000180a-0000-1000-8000-00805f9b34fb
+[CHG] Device D4:C4:85:A5:C6:B1 UUIDs: 0000180f-0000-1000-8000-00805f9b34fb
+[CHG] Device D4:C4:85:A5:C6:B1 UUIDs: 00001812-0000-1000-8000-00805f9b34fb
+[CHG] Device D4:C4:85:A5:C6:B1 UUIDs: 00010000-0000-1000-8000-011f2000046d
+[CHG] Device D4:C4:85:A5:C6:B1 ServicesResolved: yes
+[CHG] Device D4:C4:85:A5:C6:B1 Paired: yes
+Pairing successful #pairing successfully
+[CHG] Device D4:C4:85:A5:C6:B1 Modalias: usb:v046DpB021d0007
+[bluetooth]# exit
+pi@bpi-m4zero:~$
+```
++
+link:https://wiki.archlinux.org/title/bluetooth[archlinux蓝牙参考文档]
+
+== 传输文件
+**SCP**
+
+SCP (安全副本) 命令输入Linux系统用于复制文件(s) 以安全的方式在服务器之间进行。
+
+SCP 命令或安全复制允许在本地主机和远程主机之间或两个远程主机之间安全地传输文件。
+
+它使用与 Secure Shell 中使用的相同的身份验证和安全性 (SSH) 协议。
+
+您可以从以下位置复制文件 Windows 终端到一个 Linux 同一 LAN 上的系统。只需确保 Open SSH 客户端已打开并且可以在“设置”>“应用程序”>“可选功能”中查看。
+
+如果您想从以下位置复制文件 Windows 系统到 Linux 系统中，您还需要启用 Open SSH 服务器。
+
+image::/picture/bpi_m4_berry_mobaxterm_6.jpg[bpi_m4_berry_mobaxterm_6.jpg]
+scp命令格式为：
+```sh
+scp [optionals] file_source file_target
+```
+. [optionals] is an optional parameter, such as -r, which can be used to copy the entire directory recursively.
+. 文件_source 要复制的文件或目录。
+. 文件_如果最后输入了特定的文件名，target 将复制过去的路径并重命名它。
+
+采取从复制本地文件 Windows 系统到一个 Linux 系统为例。在 Windows 终端，输入：
+```sh
+PS D:\temp\temp_4> scp ".\hello.txt" pi@192.168.3.12:"/home/pi/Downloads/"
+```
+您还可以将文件复制到 Linux 系统到本地计算机 Windows 终端：
+```sh
+PS D:\temp\temp_4> scp pi@192.168.3.12:"/home/pi/Downloads/hello.txt" "D:\temp\temp_4"
+```
+- 其中 pi@192.168.3.12 是中的用户名 Linux 系统和 IP 地址 BPI-M4 Zero 在局域网中。
+- 哪里：”/home/pi/Downloads/hello.txt" 是文件路径 Linux 系统。
+- 哪里“D:\temp\temp_4“ 是路径 Windows 系统。
+link:https://www.geeksforgeeks.org/scp-command-in-linux-with-examples/[scp参考文档]
+
+**莫巴克斯术语**
+
+可以使用 mobaxterm 或其他类似软件通过图形界面管理文件。
+
+link:https://mobaxterm.mobatek.net/download.html[mobaxterm 下载] +
+link:https://download.mobatek.net/mobaxterm-on-linux.html[mobaxterm-linux 预览版]
+
+如下图，在mobaxterm中建立SSH连接后，界面左侧会出现文件管理窗口，支持通过拖放文件的方式进行复制粘贴。
+
+image::/picture/bpi_m4_berry_mobaxterm_7.jpg[bpi_m4_berry_mobaxterm_7.jpg]
