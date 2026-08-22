@@ -1,0 +1,564 @@
+= 简介
+
+BPI-SM10(K3-CoM260) 支持多种操作系统和开发包，包括原生的Bianbu系统， Ubuntu 操作系统， Linux 以及OpenHarmony等，拥有AI全栈开发套件，可以满足AI多样化的开发需求。
+
+BPI-SM10(K3-CoM260) 提供丰富的接口，涵盖MIPI-DSI、MIPI-CSI、DP 1.2、SDIO 3.0、eSPI、 SPI, I2S, I2C, CAN-FD, PWM, UART, USB 2.0, USB 3.0, PCIe K3-CoM260凭借其高性能和丰富的接口资源，是RISC-V端侧应用解决方案和产品开发的更好选择。
+
+TIP: 更多信息： link:/en/BPI-SM10/BananaPi_BPI-SM10[香蕉派 BPI-SM10 主页]
+
+== 规格参数
+
+- 高级 CPU 性能
+
+八个高性能计算核心 (X100) 结合八个AI核心 (A100) 提供超过 130 KDMIPS CPU 计算能力。 X100单核SPECint2006性能>9.0/GHz，最大时钟速度为 2.4 GHz。
+
+- 同质AI算力
+
+提供60TOPS的AI算力，利用超宽并行计算AI核心，提供强大的通用AI算力，实现与各主流AI生态的快速融合。拥有7B本地大模型算力>10 Tokens/s.
+
+- 最新RISC-V架构，超强并行计算能力
+
+A100支持高达1024位RVV 1.0并行计算以及最新的RVA23 Profile和Vector Crypto标准。
+
+- 丰富 I/O 扩展接口
+
+集成多个高速扩展接口，灵活满足各种电脑扩展需求：8路 PCIe, 3 USB 3.0端口、1个GMAC端口等
+
+- 完整的硬件虚拟化
+
+具有完整的硬件虚拟化技术，支持RV Hypervisor 1.0扩展、RV AIA扩展、RV IOMMU扩展，为应用程序提供完整的硬件虚拟化 CPU、内存、中断和 I/O.
+
+- 先进的安全防御技术
+
+支持 M/S/U 处理器权限；支持硬件抵抗Spectre和Meltdown攻击；支持国密标准2、3、4级硬件安全技术。
+
+- 工业级合规性
+
+CPU 核心、多级缓存和SRAM支持ECC设计，即使在-40℃至85℃的环境温度下也能提供稳定可靠的持续计算能力输出，满足工业应用的恶劣环境要求。
+
+= 开发
+
+== 准备
+
+. 准备一根TTL线，一根 12V/5A 或 19V/2.37A 直流电源， USB 数据线和至少8G的TF卡。
+
+. 将相应的映像下载到您的PC并准备刻录。
+
+. 安装并下载刻录软件。
+
+https://cloud.spacemit.com/prod-api/release/download/tools?token=titantools_for_windows_X86_X64[泰坦工具适用于 WINDOWS]
+
+https://cloud.spacemit.com/prod-api/release/download/tools?token=titantools_for_linux_64BIT_APPIMAGE[泰坦工具适用于 Linux]
+
+== 串口调试
+
+请将主机连接至主机上12针接口的TX、RX、GND引脚 BPI-SM10(K3-CoM260) 载板正确通过 USB- 至 TTL 适配器。
+
+image::/bpi-sm10/gettingstart/bananapi-pi_sm10_debug1.jpg[bananapi-pi_sm10_debug1.jpg]
+
+. 打开上位机串口调试软件，选择串口，波特率设置为115200。
+
+. 连接串行电缆并使用直流电源为板供电。
+
+. 此时主机的串口软件应该可以正常工作。
+
+== 进入闪烁模式
+
+进入闪烁模式前，请准备两个按钮，一个短接FC_REC和GND，另一个短接SYS_RST 和 GND。
+
+=== 断电状态
+
+. 按住 FC_录音按钮。
+
+. 连接电源适配器给设备供电。
+
+. 释放FC_录音按钮。
+
+. 使用Type-C数据线将开发板的Type-C接口与上位机连接。
+
+. 使用Titan刷机工具或者执行fastboot命令来刷固件。
+
+=== 开机状态
+
+. 按住 FC_录音按钮。
+
+. 短按 RST 按钮。
+
+. 释放FC_录音按钮。
+
+. 使用Type-C数据线将开发板的Type-C口与上位机连接。
+
+. 使用Titan刷机工具或者执行fastboot命令来刷固件。
+
+== 开始燃烧
+
+=== 刻录到机上
+
+. 安装并打开 Titan 刻录软件。
+
+. 点击首页“研发工具”，跳转至“研发工具”界面。
++
+image::/bpi-sm10/gettingstart/bananapi-pi_sm10_burn1.jpg[bananapi-pi_sm10_burn1.jpg]
+
+. 研发工具页面有独立烧录选项和卡启动选项；在这里，我们选择独立刻录选项。
++
+image::/bpi-sm10/gettingstart/bananapi-pi_sm10_burn2.jpg[bananapi-pi_sm10_burn2.jpg]
+
+. 关注 https://docs.banana-pi.org/en/BPI-SM10/GettingStarted_BPI-SM10#_entering_flashing_mode[步骤] 进入刻录模式，单击“扫描设备”，然后选择目标设备。
++
+image::/bpi-sm10/gettingstart/bananapi-pi_sm10_burn3.jpg[bananapi-pi_sm10_burn3.jpg]
+
+. 选择要烧录的设备。
++
+image::/bpi-sm10/gettingstart/bananapi-pi_sm10_burn4.jpg[bananapi-pi_sm10_burn4.jpg]
+
+. 选择要刻录的文件
++
+image::/bpi-sm10/gettingstart/bananapi-pi_sm10_burn5.jpg[bananapi-pi_sm10_burn5.jpg]
+
+. 等待解压
++
+image::/bpi-sm10/gettingstart/bananapi-pi_sm10_burn6.jpg[bananapi-pi_sm10_burn6.jpg]
+
+. 解压后，点击“开始刷机”。
++
+image::/bpi-sm10/gettingstart/bananapi-pi_sm10_burn7.jpg[bananapi-pi_sm10_burn7.jpg]
+
+. 出现“刷机成功！”的提示信息。表明燃烧过程已完成。
++
+image::/bpi-sm10/gettingstart/bananapi-pi_sm10_burn8.jpg[bananapi-pi_sm10_burn8.jpg]
+
+=== 刻录到 SD 卡
+
+. 同样，打开天软件，点击“Card Boot”，打开SD卡烧录界面。
++
+image::/bpi-sm10/gettingstart/bananapi-pi_sm10_sdburn1.jpg[bananapi-pi_sm10_sdburn1.jpg]
+
+. 选择您的 SD 卡存储和要刻录的镜像
++
+image::/bpi-sm10/gettingstart/bananapi-pi_sm10_sdburn2.jpg[bananapi-pi_sm10_sdburn2.jpg]
+
+. 点击“执行”，等待解压。
++
+image::/bpi-sm10/gettingstart/bananapi-pi_sm10_sdburn3.jpg[bananapi-pi_sm10_sdburn3.jpg]
+
+. 解压后，燃烧过程将开始。
++
+image::/bpi-sm10/gettingstart/bananapi-pi_sm10_sdburn4.jpg[bananapi-pi_sm10_sdburn4.jpg]
+
+
+. 当达到100%时，燃烧过程完成。
++
+image::/bpi-sm10/gettingstart/bananapi-pi_sm10_sdburn5.jpg[bananapi-pi_sm10_sdburn5.jpg]
+
+== RJ45接口
+
+将网线连接到RJ45端口，系统将自动获取IP地址并能够访问外部网络。
+
+image::/bpi-sm10/gettingstart/bananapi-pi_sm10_rj45_interface1.jpg[bananapi-pi_sm10_rj45_interface1.jpg]
+
+```
+root@k3:~# ifconfig
+end1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.168.1.217  netmask 255.255.255.0  broadcast 10.168.1.255
+        inet6 fe80::7611:efda:6a9c:82a  prefixlen 64  scopeid 0x20<link>
+        inet6 fd0b:9aaf:b1a:0:b96f:ebf9:bb0b:3799  prefixlen 64  scopeid 0x0<global>
+        inet6 fd0b:9aaf:b1a:0:5ca4:965a:fc72:5422  prefixlen 64  scopeid 0x0<global>
+        ether fe:fe:fe:2a:78:3c  txqueuelen 1000  (以太网)
+        RX packets 169  bytes 23868 (23.8 KB)
+        RX errors 0  dropped 8  overruns 0  frame 0
+        TX packets 122  bytes 14625 (14.6 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+        device interrupt 51  base 0xa000
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (本地环回)
+        RX packets 103471  bytes 7522335 (7.5 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 103471  bytes 7522335 (7.5 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+wlP4p1s0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        ether 0c:cd:d0:8d:4e:30  txqueuelen 1000  (以太网)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+root@k3:~# ping baidu.com
+PING baidu.com (110.242.74.102) 56(84) bytes of data.
+64 bytes from 110.242.74.102: icmp_seq=1 ttl=50 time=52.6 ms
+64 bytes from 110.242.74.102: icmp_seq=2 ttl=50 time=66.2 ms
+64 bytes from 110.242.74.102: icmp_seq=3 ttl=50 time=46.3 ms
+64 bytes from 110.242.74.102: icmp_seq=4 ttl=50 time=44.6 ms
+64 bytes from 110.242.74.102: icmp_seq=5 ttl=50 time=51.1 ms
+64 bytes from 110.242.74.102: icmp_seq=6 ttl=50 time=44.9 ms
+64 bytes from 110.242.74.102: icmp_seq=7 ttl=50 time=51.4 ms
+64 bytes from 110.242.74.102: icmp_seq=8 ttl=50 time=44.6 ms
+64 bytes from 110.242.74.102: icmp_seq=9 ttl=50 time=44.9 ms
+64 bytes from 110.242.74.102: icmp_seq=10 ttl=50 time=50.5 ms
+64 bytes from 110.242.74.102: icmp_seq=11 ttl=50 time=44.6 ms
+64 bytes from 110.242.74.102: icmp_seq=12 ttl=50 time=44.7 ms
+
+--- baidu.com ping statistics ---
+12 packets transmitted, 12 received, 0% packet loss, time 15237ms
+rtt min/avg/max/mdev = 44.582/48.871/66.243/6.053 ms
+
+```
+== 无线网络
+的 BPI-SM10(K3 CoM260) 开发套件支持访问 M.2 2230 E-Key 模块，从而实现无线网络和蓝牙功能。
+
+. 将模块连接至M.2 KEY E接口。
++
+image::/bpi-sm10/gettingstart/bananapi-pi_sm10_wifibt1.jpg[bananapi-pi_sm10_wifibt1.jpg]
+
+. 启动系统，使用lspci查询模块。
++
+```
+root@k3:~# lspci
+0000:00:00.0 PCI bridge: SpacemiT X100 PCIe Root Complex (rev 01)
+0003:00:00.0 PCI bridge: SpacemiT X100 PCIe Root Complex (rev 01)
+0004:00:00.0 PCI bridge: SpacemiT X100 PCIe Root Complex (rev 01)
+0004:01:00.0 Network controller: Realtek Semiconductor Co., Ltd. RTL8852BE PCIe 802.11ax Wireless Network Controller
+```
+
+. 使用 nmcli 命令检查周围的 WiFi 网络。
++ 
+```
+root@k3:~# nmcli device wifi list
+IN-USE  BSSID              SSID                             MODE   CHAN  RATE         SIGNAL  BARS  SECURITY
+        FC:A0:5A:07:00:72  BPI-FAE                          Infra  9     1170 Mbit/s  100     ▂▄▆█  WPA2 WPA3
+        FE:A0:5A:57:00:72  BPI-FAE-5G                       Infra  56    1170 Mbit/s  100     ▂▄▆█  WPA2 WPA3
+        00:0C:43:26:60:D0  BPI-R4-2.4G                      Infra  6     1170 Mbit/s  77      ▂▄▆_  --
+        00:0C:43:26:60:A8  BPI-R4-5G                        Infra  36    405 Mbit/s   75      ▂▄▆_  --
+        1C:11:52:8A:C3:57  BPI-FT_5G                        Infra  149   1170 Mbit/s  74      ▂▄▆_  WPA2 WPA3
+        3C:67:84:04:DD:E8  chen-MIFI_DDE8                   Infra  60    1170 Mbit/s  67      ▂▄▆_  WPA2
+        54:A3:1B:28:69:BE  BPI-RD_Center                    Infra  1     270 Mbit/s   65      ▂▄▆_  WPA2
+        D8:32:14:7E:EF:E5  Tenda_7EEFE0_5G                  Infra  153   1170 Mbit/s  65      ▂▄▆_  WPA1 WPA2
+        C0:11:52:77:F4:9A  BPI-FT                           Infra  2     1170 Mbit/s  60      ▂▄▆_  WPA2 WPA3
+        84:E5:D8:00:B2:15  MohenClass                       Infra  149   1170 Mbit/s  60      ▂▄▆_  WPA2
+        4C:EF:56:82:95:1B  mohen                            Infra  44    1170 Mbit/s  57      ▂▄▆_  WPA2
+        90:B9:42:CD:56:D8  ZHongDi                          Infra  6     1170 Mbit/s  54      ▂▄__  WPA2
+        4C:EF:56:02:95:1B  mohen                            Infra  11    1170 Mbit/s  54      ▂▄__  WPA2
+        54:A3:1B:28:69:BF  BPI-RD_Center-5g                 Infra  36    1170 Mbit/s  52      ▂▄__  WPA2
+        D8:32:14:7E:EF:E1  Tenda_7EEFE0                     Infra  8     130 Mbit/s   50      ▂▄__  WPA1 WPA2
+        AA:3B:76:CC:95:EA  DIRECT-ea-HP 2606 LaserJet Tank  Infra  36    65 Mbit/s    50      ▂▄__  WPA2
+        92:F0:52:3C:FE:91  cc                               Infra  1     1170 Mbit/s  45      ▂▄__  WPA2 WPA3
+        90:B9:42:CD:55:30  ZHongDi                          Infra  6     1170 Mbit/s  39      ▂▄__  WPA2
+        92:B9:42:7D:56:D9  --                               Infra  40    270 Mbit/s   29      ▂___  WPA2 WPA3
+
+```
+
+. 连接至 WiFi
++
+```
+root@k3:~# nmcli device wifi connect "BPI-FAE" password "xxxx"
+设备 "wlP4p1s0" 成功以 "7227dc15-6a29-4582-98fe-43d1c2b50016" 激活。
+```
+
+. 连接成功，获取IP地址。
++
+```
+root@k3:~# nmcli
+wlP4p1s0：已连接 到 BPI-FAE
+        "Realtek RTL8852BE 802.11ax"
+        wifi (rtw89_8852be), 0C:CD:D0:8D:4E:30, 硬件, mtu 1500
+        inet4 10.168.1.107/24
+        route4 10.168.1.0/24 metric 600
+        route4 default via 10.168.1.1 metric 600
+        inet6 fd0b:9aaf:b1a:0:af91:b9f7:af83:a12d/64
+        inet6 fd0b:9aaf:b1a:0:fd60:b4fa:7472:e935/64
+        inet6 fe80::25fa:1374:9e85:aa8c/64
+        route6 fe80::/64 metric 1024
+        route6 fd0b:9aaf:b1a::/64 metric 600
+        route6 fd0b:9aaf:b1a::/48 via fe80::fea0:5aff:fe07:70 metric 600
+
+```
+
+== BT
+的 BPI-SM10(K3 CoM260) 开发套件支持访问 M.2 2230 E-Key 模块，从而实现无线网络和蓝牙功能。
+```
+root@k3:~# bluetoothctl
+[NEW] Media /org/bluez/hci0
+        SupportedUUIDs: 0000110a-0000-1000-8000-00805f9b34fb
+        SupportedUUIDs: 0000110b-0000-1000-8000-00805f9b34fb
+Agent registered
+[CHG] Controller 0C:CD:D0:8D:4E:31 Pairable: yes
+hci0 new_settings: powered bondable ssp br/edr le secure-conn wide-band-speech cis-central cis-peripheral
+[bluetoothctl]>
+[bluetoothctl]>power on //Turn on Bluetooth
+[bluetoothctl]> scan on  //Scan for surrounding Bluetooth
+[bluetoothctl]> agent on //Enable Proxy
+Agent is already registered 
+
+[bluetoothctl]> discoverable on  //Set Bluetooth to visible
+hci0 new_settings: powered connectable bondable ssp br/edr le secure-conn wide-band-speech cis-central cis-peripheral
+[CHG] Controller 0C:CD:D0:8D:4E:31 Connectable: yes
+hci0 new_settings: powered connectable discoverable bondable ssp br/edr le secure-conn wide-band-speech cis-central cis-peripheral
+Changing discoverable on succeeded
+[CHG] Controller 0C:CD:D0:8D:4E:31 Discoverable: yes
+
+// Connect to K3 via Bluetooth on the device
+
+hci0 28:64:B0:83:6F:73 type BR/EDR connected eir_len 13
+[NEW] Device 28:64:B0:83:6F:73 392933
+Request confirmation
+[agent] Confirm passkey 140038 (yes/no): yes
+hci0 new_link_key 28:64:B0:83:6F:73 type 0x05 pin_len 0 store_hint 1
+hci0 device_flags_changed: 28:64:B0:83:6F:73 (BR/EDR)
+     supp: 0x00000001  curr: 0x00000000
+[CHG] Device 28:64:B0:83:6F:73 Bonded: yes
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 0000111f-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 Modalias: bluetooth:v010Fp107Ed1436
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 0000046a-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 00001105-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 0000110a-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 0000110c-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 00001112-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 00001115-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 00001116-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 0000111f-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 0000112f-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 00001132-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 00001200-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 00001800-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 00001801-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 0000fdd1-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 0000fe35-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 11c8b310-80e4-4276-afc0-f81590b2177f
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 8ce255c0-200a-11e0-ac64-0800200c9a66
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 9664aa26-d76c-43ad-9775-d310f253a408
+[CHG] Device 28:64:B0:83:6F:73 ServicesResolved: yes
+[CHG] Device 28:64:B0:83:6F:73 Paired: yes
+Authorize service
+[agent] Authorize service 0000111e-0000-1000-8000-00805f9b34fb (yes/no): yess
+Authorize service
+[agent] Authorize service 0000110d-0000-1000-8000-00805f9b34fb (yes/no): yes
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 0000046a-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 00001105-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 0000110a-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 0000110c-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 0000110d-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 00001112-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 00001115-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 00001116-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 0000111f-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 0000112f-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 00001132-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 00001200-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 00001800-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 00001801-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 0000fdd1-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 0000fe35-0000-1000-8000-00805f9b34fb
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 11c8b310-80e4-4276-afc0-f81590b2177f
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 8ce255c0-200a-11e0-ac64-0800200c9a66
+[CHG] Device 28:64:B0:83:6F:73 UUIDs: 9664aa26-d76c-43ad-9775-d310f253a408
+[NEW] Transport /org/bluez/hci0/dev_28_64_B0_83_6F_73/fd0
+[NEW] Endpoint /org/bluez/hci0/dev_28_64_B0_83_6F_73/sep1
+[NEW] Endpoint /org/bluez/hci0/dev_28_64_B0_83_6F_73/sep2
+[NEW] Endpoint /org/bluez/hci0/dev_28_64_B0_83_6F_73/sep3
+[NEW] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 [default]
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Playlist is nil
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Type: Audio
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Subtype: None
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Status: paused
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Name: Bluetooth Player
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Repeat: off
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Shuffle: off
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Status: stopped
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Track.Title: Not Provided
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Track.TrackNumber: 0x00000001 (1)
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Track.NumberOfTracks: 0x00000001 (1)
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Track.Duration: 0x00000000 (0)
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Track.Title: Not Provided
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Track.TrackNumber: 0x00000001 (1)
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Track.NumberOfTracks: 0x00000001 (1)
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Track.Duration: 0x00000000 (0)
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Position: 0xffffffff (-1)
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Track.Title: Not Provided
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Track.TrackNumber: 0x00000001 (1)
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Track.NumberOfTracks: 0x00000001 (1)
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Track.Duration: 0x00000000 (0)
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Position: 0xffffffff (-1)
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Track.Title: Not Provided
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Track.TrackNumber: 0x00000001 (1)
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Track.NumberOfTracks: 0x00000001 (1)
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Track.Duration: 0x00000000 (0)
+[CHG] Player /org/bluez/hci0/dev_28_64_B0_83_6F_73/avrcp/player0 Position: 0xffffffff (-1)
+Authorize service
+[agent] Authorize service 0000111e-0000-1000-8000-00805f9b34fb (yes/no): yes
+hci0 new_settings: powered connectable bondable ssp br/edr le secure-conn wide-band-speech cis-central cis-peripheral
+[CHG] Controller 0C:CD:D0:8D:4E:31 Discoverable: no
+```
+
+蓝牙连接成功
+
+image::/bpi-sm10/gettingstart/bananapi-pi_sm10_wifibt2.jpg[bananapi-pi_sm10_wifibt2.jpg,width=50%]
+
+== M.2 钥匙
+
+的 BPI-SM10(K3 CoM260) 开发套件提供2个M.2 M-Key接口，支持 NVMe 2280 SSD (更长 SSD 图中) 和 2230 (更短 SSD 图中) 分别的外形尺寸，方便 SSD 和其他 M.2 M-Key 设备的连接。
+
+image::/bpi-sm10/gettingstart/bananapi-pi_sm10_m2keym1.jpg[bananapi-pi_sm10_m2keym1.jpg]
+```
+root@k3:~# lspci
+0000:00:00.0 PCI bridge: SpacemiT X100 PCIe Root Complex (rev 01)
+0000:01:00.0 Non-Volatile memory controller: SK hynix BC501 NVMe Solid State Drive
+0003:00:00.0 PCI bridge: SpacemiT X100 PCIe Root Complex (rev 01)
+0004:00:00.0 PCI bridge: SpacemiT X100 PCIe Root Complex (rev 01)
+0004:01:00.0 Network controller: Realtek Semiconductor Co., Ltd. RTL8852BE PCIe 802.11ax Wireless Network Controller
+root@k3:~# lsblk
+NAME      MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+sda         8:0    0 119.3G  0 disk
+├─sda1      8:1    0   256M  0 part
+├─sda2      8:2    0   256M  0 part /boot
+└─sda3      8:3    0 118.8G  0 part /
+mtdblock0  31:0    0     8M  0 disk
+mtdblock1  31:1    0   128K  0 disk
+mtdblock2  31:2    0   512K  0 disk
+mtdblock3  31:3    0    64K  0 disk
+mtdblock4  31:4    0     1M  0 disk
+mtdblock5  31:5    0   384K  0 disk
+mtdblock6  31:6    0   5.9M  0 disk
+nvme0n1   259:0    0 119.2G  0 disk
+```
+
+== USB
+
+连接即可找到对应的设备 USB 闪存驱动器到 USB 端口，例如下面的 sdb 设备，ID 为 05e3:0747。
+
+```
+root@k3:~# lsblk
+NAME      MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+sda         8:0    0 119.3G  0 disk
+├─sda1      8:1    0   256M  0 part
+├─sda2      8:2    0   256M  0 part /boot
+└─sda3      8:3    0 118.8G  0 part /
+sdb         8:16   1  59.5G  0 disk
+└─sdb1      8:17   1  59.5G  0 part
+mtdblock0  31:0    0     8M  0 disk
+mtdblock1  31:1    0   128K  0 disk
+mtdblock2  31:2    0   512K  0 disk
+mtdblock3  31:3    0    64K  0 disk
+mtdblock4  31:4    0     1M  0 disk
+mtdblock5  31:5    0   384K  0 disk
+mtdblock6  31:6    0   5.9M  0 disk
+root@k3:~# lsusb
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 001 Device 002: ID 0bda:b85b Realtek Semiconductor Corp. Bluetooth Radio
+Bus 002 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 002 Device 002: ID 2109:2817 VIA Labs, Inc. USB2.0 Hub
+Bus 002 Device 004: ID 2109:8817 VIA Labs, Inc. USB Billboard Device
+Bus 003 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 003 Device 002: ID 2109:0817 VIA Labs, Inc. USB3.0 Hub
+Bus 003 Device 003: ID 05e3:0747 Genesys Logic, Inc. USB Storage
+```
+
+= GPIO 定义
+
+== 12按钮引脚定义
+[options="header",cols="1,1,1,1",width="70%"]
+|====
+4+| **BPI-SM10 12按钮引脚定义**
+|密码	|密码		|密码	|销
+|电脑_LED-	|1		|2	|电脑_LED+
+|串口0_接收数据	|3	|	4|串口0_TXD
+|BMCU_ACOK	|5		|6	|自动_开_DIS
+|接地	|7		|8	|电源管理IC_快速恢复时间_输出
+|接地	|9		|10	|力_恢复
+|串口1_实时传输系统_LS	|11		|12	| SLEEP/WAKE
+|====
+
+
+== 40 针 GPIO 定义
+[options="header",cols="1,1,1,1",width="70%"]
+|====
+4+| **BPI-SM10 40针 GPIO 定义**
+|销	|密码	|密码|销
+|电源电压_3V3_系统	|1		|2	|电源电压_5V_通用输入输出接口
+|I2C3_SDA	|3	|	4|电源电压_5V_通用输入输出接口
+|I2C3_SCL	|5		|6	|接地
+|GPIO09	|7		|8	|串口1_TXD_LS
+|接地	|9		|10	|串口1_接收数据_LS
+|串口1_实时传输系统_LS	|11		|12	|I2S0_时钟时钟_LS
+|R-SPI0_SCK_LS	|13		|14	|接地
+| GPIO12_LS	|15		|16	|R-SPI0_CS1_LS
+|电源电压_3V3_系统	|17		|18	|R-SPI0_计算机科学_LS
+|SPI0_莫西_LS	|19		|20	|接地
+|SPI0_味噌_LS|	21	|	22	|R-SPI0_味噌_LS
+|SPI0_SCK_LS	|23	|24	|SPI0_CS0_LS
+|接地	|25		|26	|SPI0_CS1_LS
+|I2C0_SDA	|27	|28	|I2C0_SCL
+|GPIO01_LS	|29		|30	|接地
+|GPIO11_LS|	31	|	32	|GPIO07_LS
+|GPIO13_LS	|33	|34	|接地
+|I2S0_LRCK_LS	|35		|36	|串口1_CTS_LS
+|R-SPI0_莫西_LS	|37	|38	|I2S0_斯丁_LS
+|接地	|39		|40	|I2S0_输出信号_LS
+|====
+
+== MIPI CSI CAM0 定义
+[options="header",cols="1,1,1,1",width="70%"]
+|====
+4+| **BPI-SM10 MIPI CSI CAM0 定义**
+|销	|密码	|密码|销
+|电源电压_3V3_系统	|1		|2	|I2C4_SDA
+|I2C4_SCL	|3	|	4|接地
+|时钟脉冲_CAMCK	|5		|6	|计算机辅助制造_密码网络
+|接地	|7		|8	|米皮_CSI0_DP1
+|米皮_CSI0_DN1	|9		|10	|接地
+|米皮_CSI0_DP0	|11		|12	|米皮_CSI0_DN0
+|接地	|13		|14	|米皮_CSI1_时钟脉冲
+|米皮_CSI1_时钟信号	|15		|16	|接地
+|米皮_CSI1_DP1	|17		|18	|米皮_CSI1_DN1
+|接地	|19		|20	|米皮_CSI1_DP0
+|米皮_CSI1_DN0|	21	|	22	|接地
+|====
+
+== MIPI CSI CAM1 定义
+[options="header",cols="1,1,1,1",width="70%"]
+|====
+4+| **BPI-SM10 MIPI CSI CAM1 定义**
+|销	|密码	|密码|销
+|电源电压_3V3_系统	|1		|2	|I2C4_SDA
+|I2C4_SCL	|3	|	4|接地
+|时钟脉冲_CAMCK	|5		|6	|计算机辅助制造_密码网络
+|接地	|7		|8	|米皮_CSI3_DP1
+|米皮_CSI3_DN1	|9		|10	|接地
+|米皮_CSI3_DP0	|11		|12	|米皮_CSI3_DN0
+|接地	|13		|14	|米皮_CSI2_时钟脉冲
+|米皮_CSI2_时钟信号	|15		|16	|接地
+|米皮_CSI2_DP1	|17		|18	|米皮_CSI2_DN1
+|接地	|19		|20	|米皮_CSI2_DP0
+|米皮_CSI2_DN0|	21	|	22	|接地
+|====
+
+== MIPI DSI 定义
+[options="header",cols="1,1,1,1",width="70%"]
+|====
+4+| **BPI-SM10 MIPI DSI 定义**
+|销	|密码	|密码|销
+|接地	|1		|2	|接地
+|米皮_数字SI1_车道1_DN	|3	|	4|米皮_数字SI1_车道1_DN
+|米皮_数字SI1_车道1_DP	|5		|6	|米皮_数字SI1_车道1_DP
+|接地	|7		|8	|接地
+|米皮_数字SI1_时钟脉冲_N	|9		|10	|米皮_数字SI1_时钟脉冲_N
+|米皮_数字SI1_时钟脉冲_P	|11		|12	|米皮_数字SI1_时钟脉冲_P
+|接地	|13		|14	|接地
+|米皮_数字SI1_车道0_DN	|15		|16	|米皮_数字SI1_车道0_DN
+|米皮_数字SI1_车道0_DP	|17		|18	|米皮_数字SI1_车道0_DP
+|接地	|19		|20	|接地
+|I2C3_SCL|	21	|	22	|I2C3_SCL
+|I2C3_SDA	|23	|24	|I2C3_SDA
+|接地	|25		|26	|接地
+|液晶显示屏_VCC33|27	|28	|液晶显示屏_VCC33
+|液晶显示屏_VCC33|29		|30	|液晶显示屏_VCC33
+|====
+
+
+
+
+
+
