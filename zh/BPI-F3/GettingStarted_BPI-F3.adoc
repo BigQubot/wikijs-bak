@@ -1,36 +1,36 @@
 = 简介
 
-BananaPi BPI-F3 采用K1内核，SPM8821 PMIC+外部DCDC供电方案。存储采用LPDDR4X， eMMC。有外围设备，例如 PCIe 2.0 2车道M.2 KEY M， PCIe 2.0 1车道MINI PCIe, 4xUSB3.0 TYPE-A, WIFI/BT、TF卡、HDMI TX、MIPI DSI、MIPI CSI、TYPE-C、2xRJ45等集成，集成稳定且可扩展的解决方案。
+Banana Pi BPI-F3 采用 K1 处理器核心、SPM8821 PMIC 与外置 DC-DC 电源方案，并配备 LPDDR4X 内存和 eMMC 存储。开发板集成 PCIe 2.0 ×2 M.2 Key M、PCIe 2.0 ×1 Mini PCIe、4 个 USB 3.0 Type-A、WiFi/蓝牙、TF 卡、HDMI TX、MIPI DSI、MIPI CSI、Type-C 和 2 个 RJ45 等接口，构成稳定且易于扩展的解决方案。
 
-TIP: 更多信息： link:/en/BPI-F3/BananaPi_BPI-F3[香蕉派 BPI-F3 主页]
+TIP: 更多信息：link:/en/BPI-F3/BananaPi_BPI-F3[Banana Pi BPI-F3 主页]
 
 = 开发
 == 准备
-. 准备一条TTL线，一个12V PD电源， USB 数据线和至少8G的TF卡。
-. 请 link:/en/BPI-F3/BananaPi_BPI-F3#_system_image[下载] 标准差和 EMMC 要刻录的镜像。
-. 请注意，镜像结尾为“**bianbu-k1-xxx.img.zip**“ 是 **SD卡镜像**，而镜像以“**bianbu-k1-xxx.zip**“ 是 **EMMC 镜像**. **刻录时请不要选择错误。**
+. 准备一根 TTL 串口线、一个 12 V PD 电源、一根 USB 数据线，以及一张至少 8 GB 的 TF 卡。
+. 请 link:/en/BPI-F3/BananaPi_BPI-F3#_system_image[下载] 待烧录的 SD 卡镜像和 eMMC 镜像。
+. 请注意：以“**bianbu-k1-xxx.img.zip**”结尾的是 **SD 卡镜像**，以“**bianbu-k1-xxx.zip**”结尾的是 **eMMC 镜像**。**烧录时请勿选错。**
 
-== 将映像安装到 SD 卡
-WARNING: 请选择以“结尾的图片”**bianbu-k1-xxx.img.zip**“为了 **边步**。别选错了！
+== 将镜像安装到 SD 卡
+WARNING: Bianbu 系统请选择以“**bianbu-k1-xxx.img.zip**”结尾的镜像，请勿选错。
 
-link:https://balena.io/etcher[巴莱纳蚀刻机] 是 Balena 的开源 GUI 闪存工具，可将操作系统映像闪存到 SD 卡或 USB 开车。
+link:https://balena.io/etcher[balenaEtcher] 是 Balena 开发的开源图形化烧录工具，可将操作系统镜像写入 SD 卡或 USB 存储设备。
 
-- 点击“**从文件闪存**”来选择镜像。 
-- 点击“**选择目标**”来选择 USB 设备。 
-- 点击“**快闪！**“开始燃烧。
+- 单击“**Flash from file**”选择镜像。 
+- 单击“**Select target**”选择目标设备。 
+- 单击“**Flash!**”开始烧录。
 
 image::/picture/etcher.jpg[etcher.jpg]
 
-NOTE: 请记住在启动时连接到 HDMI 屏幕，然后创建您自己的帐户。
+NOTE: 首次启动时请连接 HDMI 显示器，然后创建用户账号。
 
 == 安装镜像到 eMMC 1
-WARNING: 请选择以“结尾的图片”**bianbu-k1-xxx.zip**“为了 **边步**。别选错了！
+WARNING: Bianbu 系统请选择以“**bianbu-k1-xxx.zip**”结尾的镜像，请勿选错。
 
 **安装驱动软件**
 
-. link:/en/BPI-F3/BananaPi_BPI-F3#_tools[下载泰坦闪光器]
-. 双击 link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2Ftitantools_for_windows-1.0.35-beta.zip[**泰坦工具_为了_windows-最新**] 安装。 Linux 授予可执行权限，可以通过打开来运行 link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2Ftitantools_for_linux-1.0.35-beta.zip[**泰坦工具_为了_Linux-最新**] 无需安装。
-. 它默认安装在电脑的C盘，需要一定的空间以备将来使用。 **所以请保证剩余可用空间大于10G (Linux 家庭空间大于10GB)**
+. link:/en/BPI-F3/BananaPi_BPI-F3#_tools[下载 Titan Flasher]
+. 在 Windows 上双击 link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2Ftitantools_for_windows-1.0.35-beta.zip[**titantools_for_windows-latest**] 安装。在 Linux 上，为 link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2Ftitantools_for_linux-1.0.35-beta.zip[**titantools_for_Linux-latest**] 添加可执行权限后即可运行，无须安装。
+. Windows 版本默认安装到计算机 C 盘，后续使用也需要一定空间。**请确保剩余可用空间大于 10 GB（Linux 的 Home 分区可用空间也须大于 10 GB）。**
 . 允许来自未知发布者的此应用对您的设备进行更改。然后选择始终安装该驱动软件。
 
 
@@ -39,57 +39,57 @@ WARNING: 请选择以“结尾的图片”**bianbu-k1-xxx.zip**“为了 **边�
 +
 image::/picture/bpi-f3_install_usb_driver.jpg[bpi-f3_install_usb_driver.jpg]
 
-**可视化软件将img烧录为 eMMC**
+**使用图形化软件将镜像烧录到 eMMC**
 
-. 点击单机刻录 (如果您需要同时刻录多个设备，请单击“多机刻录”)
+. 单击 Single Machine Burn（如需同时烧录多台设备，请单击 Multiple Machine Burn）。
 +
 image::/picture/bpi-f3_tianflasher_1.png[bpi-f3_tianflasher_1.png]
 
-. 要将设备置于闪烁模式：
+. 使设备进入烧录模式：
 - **方法一：** +
-设备未上电。按住 **下载OAAO (FDL)** 按钮，插入 type-c，然后松开按钮。 (如果你担心不够 USB 电源时，可以先插上电源，然后松开按钮，然后再插上电源 USB 电缆)
+设备处于断电状态时，按住 **DOWNLOAD (FDL)** 按钮，插入 Type-C 线，然后松开按钮。（如果担心 USB 供电不足，可先接入电源，再松开按钮并连接 USB 线。）
 - **方法二：** +
-设备已上电。按住 **下载 (FDL)** 按钮，然后按重置按钮，然后插入 USB 电缆。
+设备已经上电时，按住 **DOWNLOAD (FDL)** 按钮，再按 Reset 按钮，然后插入 USB 线。
 
 +
-WARNING: 当连接到 USB HUB，可能出现“Fastboot设备初始化失败”。
+WARNING: 通过 USB Hub 连接时，可能出现“Fastboot 设备初始化失败”。
 +
 image::/bpi-f3/banana_pi_bpi-f3_get_start_1.jpg[banana_pi_bpi-f3_get_start_1.jpg]
 +
-如果软件识别成功，会出现“**视频：PID=**” 将出现显示。如果有多个设备，请选择您要刻录的设备。
+软件成功识别设备后会显示“**VID:PID=**”。如果连接了多台设备，请选择需要烧录的设备。
 
 +
 image::/picture/bpi-f3_tianflasher_2.png[bpi-f3_tianflasher_2.png]
-. 选择 **闪存文件**，软件会解压，请耐心等待。
+. 选择 **flash file**，软件会自动解压，请耐心等待。
 +
 image::/picture/bpi-f3_tianflasher_3.png[bpi-f3_tianflasher_3.png]
 
-. 点击进入 **开始闪烁**. 
+. 单击 **start flashing** 开始烧录。
 +
 image::/picture/bpi-f3_tianflasher_4.png[bpi-f3_tianflasher_4.png]
 
 . 烧录完成，重新上电。
 
-**非可视化软件将镜像刻录到 eMMC**
+**使用命令行工具将镜像烧录到 eMMC**
 
-这是另一种烧录方式，使用titanflasher工具，然后把这个flashserver.exe文件放到 EMMC 您要刻录的镜像文件。
+另一种方法是使用 titanflasher 工具：将 flashserver.exe 放到待烧录 eMMC 镜像所在的目录。
 
 在您的计算机上运行它，如下图所示：
 
-当系统识别到设备时(视频：=PID=XXX)，选择“1”项刷机。
+系统识别到设备（VID:=PID=XXX）后，选择“1”开始刷机。
 
 image::/bpi-f3/m_bpi-f3_tianflasher_choose.png[m_bpi-f3_tianflasher_choose.png]
 
 == 安装镜像到 eMMC 2
-WARNING: 的 **阿姆比安** 镜像目前仅支持SD卡启动。
+WARNING: **Armbian** 镜像目前仅支持从 SD 卡启动。
 
-NOTE: 除了使用titantools之外，还可以使用dd命令将镜像刻录到 emmc.
+NOTE: 除了 titantools，也可使用 dd 命令将镜像烧录到 eMMC。
  
-采取 **bianbu-23.10-nas-k1-v1.0rc1-release-20240429192450.img**.
-解压缩“**bianbu-k1-xxx.img.zip**” 到 USB 驱动器，然后复制“**fsbl.bin**” 和 “**bootinfo_emmc.bin**“在”**bianbu-k1-xxx.zip**” 将其复制到 USB 开车。
+下面以 **bianbu-23.10-nas-k1-v1.0rc1-release-20240429192450.img** 为例。
+将“**bianbu-k1-xxx.img.zip**”解压到 U 盘，再从“**bianbu-k1-xxx.zip**”中复制“**fsbl.bin**”和“**bootinfo_emmc.bin**”到 U 盘。
 
-. 首先将已经烧录镜像的SD卡插入F3中并上电启动。
-. 插入复制的 USB 驶入F3。
+. 先将已烧录镜像的 SD 卡插入 F3，然后上电启动。
+. 将准备好的 U 盘插入 F3。
 
 . 启动后使用“lsblk”命令查看。
 +
@@ -107,27 +107,27 @@ mmcblk0     179:8    0 14.8G  0 disk
 └─mmcblk0p6 179:14   0    8G  0 part /
 mmcblk2     179:8    0 14.6G  0 disk
 ```
-“sda1”指的是 USB 驱动器，“mmcblk0”指的是 SD 卡，“mmcblk2”指的是 EMMC.
-. 安装 USB 先开车去mnt。
+“sda1”表示 U 盘，“mmcblk0”表示 SD 卡，“mmcblk2”表示 eMMC。
+. 先将 U 盘挂载到 mnt。
 +
 ```sh
 sudo mount /dev/sda1 /mnt
 cd /mnt
 ```
-. 然后使用dd命令将镜像刻录到 emmc
+. 然后使用 dd 命令将镜像烧录到 eMMC。
 +
 ```sh
 sudo dd if=bianbu-23.10-nas-k1-v1.0rc1-release-20240429192450.img of=/dev/mmcblk2 bs=10M
 ```
-NOTE: 如果您输入 **LSBLK** 命令，可以看到 **启动**。您可以直接进入步骤9。
+NOTE: 如果执行 **lsblk** 后已经能看到 **BOOT**，可直接跳到步骤 9。
 
-. 接下来，更新boot0分区 EMMC。但有些镜像启动分区默认是隐藏的，所以需要修改cmdline。挂载bootfs：
+. 接下来更新 eMMC 的 boot0 分区。部分镜像默认隐藏启动分区，因此需要修改 cmdline。先挂载 bootfs：
 +
 ```shs
 sudo mount /dev/mmcblk0p5 /boot
 sudo nano /boot/env_k1-x.txt
 ```
-找到 Commonargs 并添加“recovery=1” 最后。
+找到 Commonargs，并在末尾添加“recovery=1”。
 +
 ```sh
 commonargs=setenv bootargs earlycon=${earlycon} earlyprintk console=tty1 console=${console} ${loglevel} clk_ignore_unused rdinit=${init} recovery=1
@@ -137,7 +137,7 @@ commonargs=setenv bootargs earlycon=${earlycon} earlyprintk console=tty1 console
 ```sh
 sudo reboot
 ```
-. 重启完成后，使用lsblk命令可以看到BOOT分区。
+. 重启完成后，执行 lsblk 即可看到 BOOT 分区。
 +
 ```sh
 pi@k1:~$ lsblk
@@ -161,7 +161,7 @@ mmcblk2      179:8    0 14.6G  0 disk
 mmcblk2boot0 179:16   0    4M  1 disk
 mmcblk2boot1 179:24   0    4M  1 disk
 ```
-. 安装一个 USB 开车
+. 挂载 U 盘
 +
 ```sh
 sudo mount /dev/sda1 /mnt
@@ -175,42 +175,42 @@ sudo dd if=bootinfo_emmc.bin of=/dev/mmcblk2boot0
 sudo dd if=FSBL.bin of=/dev/mmcblk2boot0 seek=512 bs=1
 sync
 ```
-. 等待刻录完成后，断开电源并取出SD卡并 USB 开车。再次通电即可从 EMMC.
+. 等待烧录完成，断开电源并取出 SD 卡和 U 盘。再次上电后即可从 eMMC 启动。
  
-== 2G DDR版本无法启动的解决办法
-WARNING: 目前存在问题 linux-1.0.35_测试版。请使用 Windows 首先是该工具的版本。
+== 2 GB DDR 版本无法启动的解决方法
+WARNING: linux-1.0.35_beta 版本目前存在问题，请优先使用 Windows 版工具。
 
-. 打开Titan Tools，点击量产工具。
+. 打开 Titan Tools，单击量产工具。
 +
 image::/bpi-f3/bpi-f3_2g_changes_1.png[bpi-f3_2g_changes_1.png]
-. 选择数字书写工具。如果您的软件没有此功能，请更新它。
+. 选择写号工具。如果软件中没有此功能，请先更新软件。
 +
 image::/bpi-f3/bpi-f3_2g_changes_2.png[bpi-f3_2g_changes_2.png]
-. 选择配置自定义字段并更改 ddr_CS_从固定到扫描的数量。单击“保存”，然后返回。 
+. 选择 Configure custom fields，将 ddr_cs_num 从 fixed 改为 scan，单击 Save 后返回。
 +
 image::/bpi-f3/bpi-f3_2g_changes_3.png[bpi-f3_2g_changes_3.png]
 image::/bpi-f3/bpi-f3_2g_changes_4.png[bpi-f3_2g_changes_4.png]
-(如果您没有看到 ddr_CS_num选项，请先点击恢复默认值)
+（如果未看到 ddr_cs_num 选项，请先单击 Restore Default。）
 +
 image::/bpi-f3/bpi-f3_2g_changes_7.png[bpi-f3_2g_changes_7.png]
-. 选择DDR_CS_编号将 2 更改为 1。
+. 选择 ddr_cs_num，将 2 改为 1。
 +
 image::/bpi-f3/bpi-f3_2g_changes_5.png[bpi-f3_2g_changes_5.png]
-. 按住 FDL 按钮的同时，将 type-c 电缆连接到开发板。识别板子后，点击开始烧写。
+. 按住 FDL 按钮，同时将 Type-C 线连接到开发板。开发板被识别后，单击 Start writing。
 +
 image::/bpi-f3/bpi-f3_2g_changes_6.png[bpi-f3_2g_changes_6.png]
-单击“开始输入号码”后，可能会要求您再次输入。重新输入 1 并按 Enter 键。等待号码写入成功。
+单击“Start writing number”后，软件可能会要求再次输入；重新输入 1 并按 Enter，等待写入成功。
 
 
 
 = 其他开发
 
 == 网络
-有2个千兆 Ethernet 这里的端口 (其中之一也可以使用 POE 模块供电 BPI-F3 当可用时).
+开发板提供 2 个千兆以太网口，其中一个可配合 PoE 模块为 BPI-F3 供电。
 
 image::/bpi-f3/banana_pi_bpi-f3_network1.jpg[banana_pi_bpi-f3_network1.jpg]
 
-将网线连接到F3板上，使用iperf3进行测试。
+将网线连接到 F3，并使用 iperf3 进行测试。
 
 === RJ45_1
 
@@ -220,12 +220,12 @@ image::/bpi-f3/banana_pi_bpi-f3_network2.jpg[banana_pi_bpi-f3_network2.jpg]
 
 image::/bpi-f3/banana_pi_bpi-f3_network3.jpg[banana_pi_bpi-f3_network3.jpg]
 
-两个网络接口的网速几乎都能达到1000 Mbit/s.
+两个网口的速率均可接近 1000 Mbit/s。
 
 == WiFi/BT
 **您有两种设置 WiFi 的方法**
 
-. 使用UI界面设置WiFi
+. 通过图形界面配置 WiFi
 
 . 使用命令设置 WiFi
 +
@@ -236,11 +236,11 @@ sudo nmcli dev wifi
 sudo nmcli dev wifi connect "SSID" password "PASSWORD" ifname wlan0
 ```
 
-**您有两种设置 BT 的方法**
+**可通过两种方式配置蓝牙**
 
-. 使用UI界面设置BT
+. 通过图形界面配置蓝牙
 
-. 使用命令设置BT
+. 使用命令配置蓝牙
 +
 ```sh
 hciconfig
@@ -253,39 +253,39 @@ sudo cat >/dev/rfcomm0
 
 == 存储
 === KEY.M
-该接口允许您连接符合NMVe协议的SSD，也可以使用其他兼容的KEY.M转接板。
+该接口可连接符合 NVMe 协议的 SSD，也可使用其他兼容的 Key M 转接板。
 
-以KEY.M到STAT的转换为例
+下面以 Key M 转 SATA 转接板为例。
 
-. 将设备连接到 BPI-F3 板。
+. 将设备连接到 BPI-F3 开发板。
 +
 image::/bpi-f3/banana_pi_bpi-f3_m2_keym_2.jpg[banana_pi_bpi-f3_m2_keym_2.jpg]
 
 +
 image::/bpi-f3/banana_pi_bpi-f3_m2_keym_1.jpg[banana_pi_bpi-f3_m2_keym_1.jpg]
 
-. 查询对应设备的存储
+. 查询相应存储设备。
 +
 image::/bpi-f3/banana_pi_bpi-f3_m2_keym_3.jpg[banana_pi_bpi-f3_m2_keym_3.jpg]
 
-. 现在已经识别出来，这个装置就可以使用了。
+. 设备被正确识别后即可使用。
 
-=== 移动PCIe
+=== mPCIe
 
-这里我们以EC25-E模块为例。
+下面以 EC25-E 模块为例。
 
-. 将SIM卡和EC25-E模块插入 BPI-F3，然后上电即可启动。
+. 将 SIM 卡和 EC25-E 模块安装到 BPI-F3，然后上电启动。
 +
 image::/bpi-f3/banana_pi_bpi-f3_mpcie_1.jpg[banana_pi_bpi-f3_mpcie_1.jpg]
 
-. 使用指令查询模块查看状态。
+. 使用命令查询模块状态。
 +
 ```sh
 lsusb
 ```
 image::/bpi-f3/banana_pi_bpi-f3_mpcie_2.jpg[banana_pi_bpi-f3_mpcie_2.jpg]
 
-. 使用AT指令查询模块和SIM卡状态
+. 使用 AT 命令查询模块与 SIM 卡状态。
 +
 ```sh
 AT+CGMM   //Module status
@@ -307,17 +307,17 @@ root@k1:~# nmcli connection up wwan
 连接已成功激活（D-Bus 活动路径：/org/freedesktop/NetworkManager/ActiveConnection/3）
 ```
 
-. 可以看到wwan0接口已经分配了IP地址。
+. 可以看到 wwan0 接口已分配 IP 地址。
 +
 image::/bpi-f3/banana_pi_bpi-f3_mpcie_4.jpg[banana_pi_bpi-f3_mpcie_4.jpg]
 
-.  使用ping命令测试外网，可以看到系统现在可以正常访问互联网了。
+. 使用 ping 命令测试外网，可确认系统已能正常访问互联网。
 +
 image::/bpi-f3/banana_pi_bpi-f3_mpcie_5.jpg[banana_pi_bpi-f3_mpcie_5.jpg]
 
 
-== Armbian编译
-执行以下三个步骤即可完成armbian镜像。
+== 编译 Armbian
+执行以下三个步骤即可构建 Armbian 镜像。
 
 ```sh
 git clone git@github.com:BPI-SINOVOIP/armbian-build.git -b v24.04.30 v24.04.30
@@ -325,11 +325,11 @@ cd v24.04.30
 ./compile.sh build BOARD=bananapif3 BRANCH=legacy BUILD_DESKTOP=yes BUILD_MINIMAL=no DESKTOP_APPGROUPS_SELECTED= DESKTOP_ENVIRONMENT=gnome DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base KERNEL_CONFIGURE=no RELEASE=mantic
 ```
 
-== 实时时钟
-NOTE: 系统上电后，RTC会自动同步系统时间。您可以使用命令查询系统时间和RTC时间。这里的系统时间是CST时间，而RTC显示的是UTC时间。 8小时的差异属于正常范围。
+== RTC
+NOTE: 系统上电后，RTC 会自动同步系统时间。可通过命令分别查询系统时间和 RTC 时间。这里系统时间采用 CST，RTC 显示 UTC，两者相差 8 小时属于正常现象。
 
 image::/bpi-f3/banana_pi_bpi-f3_rtc1.jpg[banana_pi_bpi-f3_rtc1.jpg]
-. 将电池连接至F3的RTC接口，然后连接F3的电源 BPI-F3 并打开电源启动设备。连接网络获取实时时间。
+. 将电池连接到 F3 的 RTC 接口，再为 BPI-F3 接通电源并启动设备。连接网络以获取当前时间。
 +
 ```sh
 root@k1:~# date
@@ -339,7 +339,7 @@ root@k1:~# cat /sys/class/rtc/rtc0/{date,time}
 06:25:59
 ```
 
-. 关闭电源并断开网络电缆。稍等一下。再次上电后，确认RTC时间运行正常，但由于网线断开导致系统时间无法同步。
+. 关闭电源并断开网线，等待片刻后再次上电。此时应能确认 RTC 时间继续正常运行；由于网线已断开，系统时间无法通过网络同步。
 +
 ```sh
 root@k1:~# date
