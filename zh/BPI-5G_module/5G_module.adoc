@@ -1,0 +1,205 @@
+= RM500-CNV
+
+
+= RM520N-GL
+
+image::/bpi-r4/bpi-r4_4g5g_1.jpg[bpi-r4_4g5g_1.jpg]
+
+= 使用方法
+
+NOTE: 以保证您的漫游信号能够连接到相应模块的天线。
+
+. 找到对应的SIM卡槽并插入SIM卡。插槽大致有两种类型。
++
+第一种卡槽与R4类似，需要将Cato插入SIM卡槽。
++
+image::/bpi-r4/bpi-r4_4g5g_2.jpg[bpi-r4_4g5g_2.jpg]
++
+另一种与R3mini类似。
++
+image::/picture/bpi-r3_mini_cellular.jpg[bpi-r3_mini_cellular.jpg]
+
+. 系统会自动拨打电话并获取IP地址。
+
+. 如果您的主板没有自动拨号功能，请使用“quectel-CM &”命令进行呼叫。
+
+拨号成功如下：
+
+**RM500U-CN**
+[%collapsible]
+====
+
+```sh
+quectel-CM &
+root@OpenWrt:~# [12-30_09:32:59:019] QConnectManager_Linux_V1.6.8
+[12-30_09:32:59:019] Find /sys/bus/usb/devices/4-1.1 idVendor=0x2c7c idProduct=0x900, bus=0x004, dev=0x003
+[12-30_09:32:59:020] Auto find qmichannel = /dev/ttyUSB2
+[12-30_09:32:59:020] Auto find usbnet_adapter = usb0
+[12-30_09:32:59:020] netcard driver = cdc_ncm, driver version = 6.6.93
+[12-30_09:32:59:020] Modem works in ECM_RNDIS_NCM mode
+[12-30_09:32:59:025] /proc/6297/fd/7 -> /dev/ttyUSB2
+[12-30_09:32:59:025] /proc/6297/exe -> /sbin/quectel-CM
+[12-30_09:33:01:026] atc_fd = 7
+[12-30_09:33:01:026] AT> ATE0Q0V1
+[12-30_09:33:01:036] AT< OK
+[12-30_09:33:02:036] AT> AT+QCFG="usbnet"
+[12-30_09:33:02:040] AT< +QCFG: "usbnet",5
+[12-30_09:33:02:040] AT< OK
+[12-30_09:33:02:040] AT> AT+QNETDEVCTL=?
+[12-30_09:33:02:042] AT< +QNETDEVCTL: (1-8),(0-3),(0,1)
+[12-30_09:33:02:042] AT< OK
+[12-30_09:33:02:042] AT> AT+CGREG=2
+[12-30_09:33:02:054] AT< OK
+[12-30_09:33:02:054] AT> AT+CEREG=2
+[12-30_09:33:02:059] AT< OK
+[12-30_09:33:02:059] AT> AT+C5GREG=2
+[12-30_09:33:02:064] AT< OK
+[12-30_09:33:02:064] AT> AT+QNETDEVSTATUS=?
+[12-30_09:33:02:067] AT< +QNETDEVSTATUS: (1-8)
+[12-30_09:33:02:067] AT< OK
+[12-30_09:33:02:067] AT> AT+QCFG="NAT"
+[12-30_09:33:02:071] AT< +QCFG: "nat",0
+[12-30_09:33:02:071] AT< OK
+[12-30_09:33:02:071] AT> AT+CGMR
+[12-30_09:33:02:074] AT< RM500UCNVAAR03A05M2G_01.001.01.001
+[12-30_09:33:02:074] AT< OK
+[12-30_09:33:02:074] AT> AT+CPIN?
+[12-30_09:33:02:076] AT< +CPIN: READY
+[12-30_09:33:02:076] AT< OK
+[12-30_09:33:02:076] AT> AT+QCCID
+[12-30_09:33:02:079] AT< +QCCID: 89860117801482589811
+[12-30_09:33:02:079] AT< OK
+[12-30_09:33:02:079] requestGetICCID 89860117801482589811
+[12-30_09:33:02:079] AT> AT+CIMI
+[12-30_09:33:02:081] AT< 460011637112108
+[12-30_09:33:02:081] AT< OK
+[12-30_09:33:02:081] requestGetIMSI 460011637112108
+[12-30_09:33:02:081] AT> AT+QICSGP=1
+[12-30_09:33:02:086] AT< +QICSGP: 3,"3gnet","","",0
+[12-30_09:33:02:086] AT< OK
+[12-30_09:33:02:086] requestGetProfile[1] 3gnet///0/IPV4V6
+[12-30_09:33:02:086] AT> AT+COPS=3,0;+COPS?;+COPS=3,1;+COPS?;+COPS=3,2;+COPS?
+[12-30_09:33:02:097] AT< +COPS: 0,0,"",11
+[12-30_09:33:02:105] AT< +COPS: 0,1,"N-V▒T▒",11
+[12-30_09:33:02:112] AT< +COPS: 0,2,"46001",11
+[12-30_09:33:02:113] AT< OK
+[12-30_09:33:02:113] AT> AT+C5GREG?
+[12-30_09:33:02:117] AT< +C5GREG: 2,1,"774B01","770F9D18E",11,9,01.000000
+[12-30_09:33:02:117] AT< OK
+[12-30_09:33:02:117] AT> AT+QNETDEVSTATUS=1
+[12-30_09:33:02:211] AT< +QNETDEVSTATUS: 10.3.1.80,255.255.255.0,10.3.1.1,,120.80.80.80,221.5.88.88,2408:8459:d002:bd17:1885:f46d:9a4a:f9aa,,,,2408:8888:0000:8888:0000:0000:0000:0008,2408:8899:0000:8899:0000:0000:0000:0008
+[12-30_09:33:02:211] AT< OK
+[12-30_09:33:02:211] AT< +QNETDEVSTATUS: 1,1,"IPV4V6",0
+[12-30_09:33:02:211] AT> AT+QNETDEVCTL=1,0,0
+[12-30_09:33:02:475] AT< OK
+[12-30_09:33:02:475] AT> at+cops?
+[12-30_09:33:02:483] AT< +COPS: 0,2,"46001",11
+[12-30_09:33:02:483] AT< OK
+[12-30_09:33:02:483] AT> at+qeng="servingcell"
+[12-30_09:33:02:703] AT< +QENG: "servingcell","SEARCH"
+[12-30_09:33:02:703] AT< OK
+[12-30_09:33:02:703] AT> AT+QNETDEVSTATUS=1
+[12-30_09:33:02:797] AT< +QNETDEVSTATUS: 10.3.1.80,255.255.255.0,10.3.1.1,,120.80.80.80,221.5.88.88,2408:8459:d002:bd17:1885:f46d:9a4a:f9aa,,,,2408:8888:0000:8888:0000:0000:0000:0008,2408:8899:0000:8899:0000:0000:0000:0008
+[12-30_09:33:02:797] AT< OK
+[12-30_09:33:02:797] AT> AT+QNETDEVSTATUS=1
+[12-30_09:33:02:882] AT< +QNETDEVSTATUS: 10.3.1.80,255.255.255.0,10.3.1.1,,120.80.80.80,221.5.88.88,2408:8459:d002:bd17:1885:f46d:9a4a:f9aa,,,,2408:8888:0000:8888:0000:0000:0000:0008,2408:8899:0000:8899:0000:0000:0000:0008
+[12-30_09:33:02:882] AT< OK
+[12-30_09:33:02:882] requestGetIPAddress 10.3.1.80
+[12-30_09:33:02:882] ip link set dev usb0 up
+[12-30_09:33:02:885] busybox udhcpc -f -n -q -t 5 -i usb0
+udhcpc: started, v1.36.1
+udhcpc: broadcasting discover
+udhcpc: broadcasting select for 10.3.1.80, server 10.3.1.1
+udhcpc: lease of 10.3.1.80 obtained from 10.3.1.1, lease time 86400
+[12-30_09:33:03:229] udhcpc: ip addr add 10.3.1.80/255.255.255.0 broadcast + dev usb0
+[12-30_09:33:03:231] udhcpc: setting default routers: 10.3.1.1
+[12-30_09:33:03:234] AT> at+cops?
+[12-30_09:33:03:239] AT< +COPS: 0,2,"46001",11
+[12-30_09:33:03:239] AT< OK
+[12-30_09:33:03:240] AT> at+qeng="servingcell"
+[12-30_09:33:03:450] AT< +QENG: "servingcell","SEARCH"
+[12-30_09:33:03:451] AT< OK
+[12-30_09:33:03:451] AT> AT+QNETDEVSTATUS=1
+[12-30_09:33:03:535] AT< +QNETDEVSTATUS: 10.3.1.80,255.255.255.0,10.3.1.1,,120.80.80.80,221.5.88.88,2408:8459:d002:bd17:1885:f46d:9a4a:f9aa,,,,2408:8888:0000:8888:0000:0000:0000:0008,2408:8899:0000:8899:0000:0000:0000:0008
+[12-30_09:33:03:535] AT< OK
+[12-30_09:33:03:535] AT> AT+QNETDEVSTATUS=1
+[12-30_09:33:03:613] AT< +QNETDEVSTATUS: 10.3.1.80,255.255.255.0,10.3.1.1,,120.80.80.80,221.5.88.88,2408:8459:d002:bd17:1885:f46d:9a4a:f9aa,,,,2408:8888:0000:8888:0000:0000:0000:0008,2408:8899:0000:8899:0000:0000:0000:0008
+[12-30_09:33:03:613] AT< OK
+```
+====
+
+== RM520N-GL使用
+**移远RM520N-GL**
+```sh
+Quectel RM520N-GL
+wwan0     Link encap:Ethernet  HWaddr A6:35:F7:7A:9E:A7  
+         inet6 addr: fe80::a435:f7ff:fe7a:9ea7/64 Scope:Link
+         UP RUNNING NOARP  MTU:1500  Metric:1
+         RX packets:4 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:9 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000 
+         RX bytes:1272 (1.2 KiB)  TX bytes:1932 (1.8 KiB)
+wwan0_1   Link encap:Ethernet  HWaddr A6:35:F7:7A:9E:A7  
+         inet addr:10.46.121.135  Mask:255.255.255.240
+         inet6 addr: fe80::a435:f7ff:fe7a:9ea7/64 Scope:Link
+         UP RUNNING NOARP  MTU:1500  Metric:1
+         RX packets:4 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:9 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000 
+         RX bytes:1292 (1.2 KiB)  TX bytes:1932 (1.8 KiB)
+root@R4CN:/# 
+root@R4CN:/# lsusb
+Bus 002 Device 003: ID 2c7c:0801 Quectel RM520N-GL
+Bus 002 Device 002: ID 2109:0822 VIA Labs, Inc.          USB3.1 Hub             
+Bus 002 Device 001: ID 1d6b:0003 Linux 5.4.246 xhci-hcd xHCI Host Controller
+Bus 001 Device 003: ID 2109:8822 VIA Labs, Inc.          USB Billboard Device   
+Bus 001 Device 002: ID 2109:2822 VIA Labs, Inc.          USB2.0 Hub             
+Bus 001 Device 001: ID 1d6b:0002 Linux 5.4.246 xhci-hcd xHCI Host Controller
+root@R4CN:/# 
+root@R4CN:/# ping www.baidu.com
+PING www.baidu.com (120.232.145.185): 56 data bytes
+64 bytes from 120.232.145.185: seq=0 ttl=52 time=30.712 ms
+64 bytes from 120.232.145.185: seq=1 ttl=52 time=32.774 ms
+64 bytes from 120.232.145.185: seq=2 ttl=52 time=45.222 ms
+64 bytes from 120.232.145.185: seq=3 ttl=52 time=37.850 ms
+64 bytes from 120.232.145.185: seq=4 ttl=52 time=53.459 ms
+^C
+--- www.baidu.com ping statistics ---
+5 packets transmitted, 5 packets received, 0% packet loss
+round-trip min/avg/max = 30.712/40.003/53.459 ms
+root@R4CN:/#
+```
+
+== RM500-CNV使用
+**RM500U-CN**
+```sh
+usb0      Link encap:Ethernet  HWaddr 5E:3B:9C:76:7C:46  
+         inet addr:10.95.9.23  Bcast:10.95.9.255  Mask:255.255.255.0
+         inet6 addr: fe80::5c3b:9cff:fe76:7c46/64 Scope:Link
+         UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+         RX packets:34 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:62 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000 
+         RX bytes:7908 (7.7 KiB)  TX bytes:10100 (9.8 KiB)
+root@R4CN:/# 
+root@R4CN:/# lsusb
+Bus 002 Device 003: ID 2c7c:0900 Quectel RM500U-CN
+Bus 002 Device 002: ID 2109:0822 VIA Labs, Inc.          USB3.1 Hub             
+Bus 002 Device 001: ID 1d6b:0003 Linux 5.4.246 xhci-hcd xHCI Host Controller
+Bus 001 Device 003: ID 2109:8822 VIA Labs, Inc.          USB Billboard Device   
+Bus 001 Device 002: ID 2109:2822 VIA Labs, Inc.          USB2.0 Hub             
+Bus 001 Device 001: ID 1d6b:0002 Linux 5.4.246 xhci-hcd xHCI Host Controller
+root@R4CN:/# 
+root@R4CN:/# ping www.baidu.com
+PING www.baidu.com (2409:8c54:870:34e:0:ff:b024:1916): 56 data bytes
+64 bytes from 2409:8c54:870:34e:0:ff:b024:1916: seq=0 ttl=51 time=55.105 ms
+64 bytes from 2409:8c54:870:34e:0:ff:b024:1916: seq=1 ttl=51 time=38.725 ms
+64 bytes from 2409:8c54:870:34e:0:ff:b024:1916: seq=2 ttl=51 time=39.890 ms
+^C
+--- www.baidu.com ping statistics ---
+3 packets transmitted, 3 packets received, 0% packet loss
+round-trip min/avg/max = 38.725/44.573/55.105 ms
+root@R4CN:/#
+```
+
+
