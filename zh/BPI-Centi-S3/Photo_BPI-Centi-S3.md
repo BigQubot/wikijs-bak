@@ -1,8 +1,8 @@
 ---
-title: 香蕉派 BPI-Centi-S3 照片
-description: 香蕉派 BPI-Centi-S3 照片
-published: true
-date: 2026-08-22T11:48:15.426Z
+title: Banana Pi BPI-Centi-S3 产品图片
+description: Banana Pi BPI-Centi-S3 产品图片
+published: false
+date: 2026-08-22T17:13:12.377Z
 tags: 
 editor: markdown
 dateCreated: 2026-08-22T11:48:15.426Z
