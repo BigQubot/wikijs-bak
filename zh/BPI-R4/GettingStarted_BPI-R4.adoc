@@ -1,40 +1,40 @@
 = 简介
 
-香蕉派 BPI-R4 路由器板带有 MediaTek MT7988A (Filogic 880) 四核ARM Corex-A73设计，4GB DDR4 RAM,8GB eMMC,128MB SPI-NAND 板载闪存，还有 2x 10Gbe SFP, 4x Gbe网口,带USB3.2接口,M.2支持 4G/5G/NVME SSD.2x miniPCIe 插槽，带 PCIe3.0 2lane 接口，用于 Wi-Fi 7 NIC (网络接口卡)。它是一款非常高性能的开源路由器开发板。
+Banana Pi BPI-R4 路由器开发板采用 MediaTek MT7988A（Filogic 880）四核 ARM Cortex-A73 处理器，配备 4GB DDR4 内存、8GB eMMC 和板载 128MB SPI-NAND 闪存；同时提供 2 个 10GbE SFP 接口、4 个千兆以太网口和 USB 3.2 接口。M.2 插槽支持 4G/5G 模块和 NVMe SSD，另有 2 个采用 PCIe 3.0 双通道接口的 miniPCIe 插槽，可安装 Wi-Fi 7 网卡（NIC）。这是一款高性能开源路由器开发板。
 
-TIP: 更多信息： link:/en/BPI-R4/BananaPi_BPI-R4[香蕉派 BPI-R4]
+TIP: 更多信息：link:/en/BPI-R4/BananaPi_BPI-R4[Banana Pi BPI-R4]
 
 = 开发
-== 准备
+== 准备工作
 
-* 准备 8G/above TF卡、 USB-串行电缆， Ubuntu 系统
-* 12V/2A 电源适配器 (没有任何外围设备时，功耗为 BPI-R4 主板在最极端的情况下不会超过10W。但您需要根据自己的配件使用情况来确定是否需要更高功率的电源适配器)
-* 使用您的 USB-串行电缆(3.3V TTL,波特率=115200) 连接到调试控制台 BPI-R4 +
-G=GND;  RX=BPI-R4 input;  TX=BPI-R4 output0
-* link:https://docs.banana-pi.org/en/BPI-R4/BananaPi_BPI-R4#_system_image[下载图片] 被烧毁
-* LAN口默认IP地址：192.168.1.1
-* 用户 name/password: pi/bananapi ,root/bananapi. +
-或者用户是root，没有密码。
-* 无线网络： AP_MTK_MT7990_2G/AP_MTK_MT7990_5G/AP_MTK_MT7990_6G
+* 准备一张 8GB 或更大容量的 TF 卡、USB 转串口线和 Ubuntu 系统
+* 12V/2A 电源适配器（不连接任何外设时，即使在极端情况下，BPI-R4 主板功耗也不会超过 10W；是否需要功率更高的适配器，请根据所用配件确定）
+* 使用 USB 转串口线（3.3V TTL，波特率 115200）连接 BPI-R4 的调试串口 +
+G=GND；RX=BPI-R4 输入；TX=BPI-R4 输出
+* link:https://docs.banana-pi.org/en/BPI-R4/BananaPi_BPI-R4#_system_image[下载]待烧录的镜像
+* LAN 口默认 IP 地址：192.168.1.1
+* 用户名/密码：pi/bananapi、root/bananapi。+
+也可以使用无密码的 root 用户。
+* Wi-Fi：AP_MTK_MT7990_2G/AP_MTK_MT7990_5G/AP_MTK_MT7990_6G
 
 image::/picture/r4_debugport.jpg[r4_debugport.jpg]
 
-== BPI-R4 引导程序和设备选择跳线设置：
+== BPI-R4 启动介质选择跳线设置
 image::/picture/r4-bootstrip.png[r4-bootstrip.png]
 
-. 所有跳线都是“1”， BPI-R4 将从 SD 卡启动 
+. 所有跳线均设为“1”时，BPI-R4 从 SD 卡启动
 +
 image::/picture/r4_sdboot.jpg[r4_sdboot.jpg]
 
-. SW3-A 为“0”，SW3-B 为“1”， BPI-R4 将从以下位置启动 SPI NAND
+. SW3-A 设为“0”、SW3-B 设为“1”时，BPI-R4 从 SPI NAND 启动
 +
 image::/picture/r4_nandboot.jpg[r4_nandboot.jpg]
 
-. SW3-A 为“1”，SW3-B 为“0”， BPI-R4 将从以下位置启动 eMMC
+. SW3-A 设为“1”、SW3-B 设为“0”时，BPI-R4 从 eMMC 启动
 +
 image::/picture/r4_emmcboot.jpg[r4_emmcboot.jpg]
 
-. 如果控制台显示“systemhalt!”，则表示启动存储不包含任何操作系统
+. 如果控制台显示“system halt!”，表示所选启动存储设备中没有操作系统
 +
 ```bash
   F0: 102B 0000
@@ -61,82 +61,82 @@ image::/picture/r4_emmcboot.jpg[r4_emmcboot.jpg]
   System halt!
 ```
 
-== 如何将镜像刻录到SD卡
-IMPORTANT: 使用 SD 映像启动后 Ubuntu 和 Debian 6.1 内核，镜像在 NAND 不会启动并且 link:/en/BPI-R4/GettingStarted_BPI-R4#_how_to_burn_image_to_onboard_nand[需要再次燃烧].
+== 如何将镜像烧录到 SD 卡
+IMPORTANT: 使用 Ubuntu 或 Debian 6.1 内核的 SD 卡镜像启动后，NAND 中的镜像将无法启动，link:/en/BPI-R4/GettingStarted_BPI-R4#_how_to_burn_image_to_onboard_nand[需要重新烧录]。
 
-NOTE: **请对SD卡进行低级格式化并清除SD卡中的所有数据。这非常重要。** +
-**否则，在启动过程中会遇到“jffs2”错误。
+NOTE: **请对 SD 卡进行低级格式化并清除其中的全部数据，这一点非常重要。** +
+**否则，启动过程中会遇到“jffs2”错误。
 **
 
-- 请按照下图进行 Windows 电脑。
+- Windows 电脑请按下图操作。
 +
 image::/picture/low_level_format_sd_card.png[low_level_format_sd_card.png]
 
-- Linux PC，您可以使用“**麦克斯夫**”命令进行格式化，或使用“**DD**" 命令写入零。
+- Linux 电脑可使用“**mksf**”命令进行格式化，也可使用“**dd**”命令写入全零数据。
 
-**将镜像刻录到 SD 卡上 windows 电脑**
+**在 Windows 电脑上将镜像烧录到 SD 卡**
 
-link:https://balena.io/etcher[巴莱纳蚀刻机] 是 Balena 的开源 GUI 闪存工具，可将操作系统映像闪存到 SD 卡或 USB 开车。
+link:https://balena.io/etcher[Balena Etcher] 是 Balena 推出的开源图形化烧录工具，可将操作系统镜像写入 SD 卡或 USB 驱动器。
 
-- 点击“**从文件闪存**”来选择镜像。 
-- 点击“**选择目标**”来选择 USB 设备。 
-- 点击“**快闪！**“开始燃烧。
+- 单击“**Flash from file**”选择镜像。
+- 单击“**Select target**”选择 USB 设备。
+- 单击“**Flash!**”开始烧录。
 
 image::/picture/etcher.jpg[etcher.jpg]
 
-**将镜像刻录到 SD 卡上 linux 电脑**
+**在 Linux 电脑上将镜像烧录到 SD 卡**
 
-. 您可以从我们的论坛下载最新图片     
-. 安装 bpi-tools 在你的 Ubuntu。如果您无法访问此网址或有任何其他问题，请访问 bpi-tools 存储库并手动安装此工具。
+. 可从论坛下载最新镜像。
+. 在 Ubuntu 中安装 bpi-tools。如果无法访问该网址或遇到其他问题，请前往 bpi-tools 仓库手动安装。
 +
 ```sh
 apt-get install pv
 curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
 ```
-. 下载镜像后，将TF卡插入电脑Ubuntu。执行
+. 下载镜像后，将 TF 卡插入 Ubuntu 电脑并执行：
 +
 ```sh
 bpi-copy xxx.img /dev/sdx
 ```
-将镜像安装到 TF 卡上
+将镜像安装到 TF 卡。
 
-. 步骤3后，您可以将TF卡插入R4，然后按电源按钮对R4进行设置
+. 完成第 3 步后，将 TF 卡插入 R4，然后按下电源键启动 R4。
  
-**将启动跳线更改为从 SD 启动，启用 SD 卡设备。**
+**将启动跳线切换为从 SD 卡启动，并启用 SD 卡设备。**
 
-== 如何将镜像刻录到板上 Nand
-NOTE: **NAND 有在工厂刻录的镜像。如果要使用，只需切换到相应的启动，然后上电即可启动。**
+== 如何将镜像烧录到板载 NAND
+NOTE: **NAND 出厂时已经烧录镜像。如需使用，只需切换到相应的启动模式，然后上电启动。**
 
-NOTE: 当你想更新的时候 Nand 设备，首先将启动开关更改为从 SD 设备启动，并插入一张带有 SD boot Image 的 SD，然后启动后，您需要 flash 一张 Nand 镜像进入 Nand 设备。最后你将 bootstrap 更改为 boot from Nand 设备。
+NOTE: 更新 NAND 时，先将启动开关切换为从 SD 卡启动，并插入一张带有可启动镜像的 SD 卡。系统启动后，将 NAND 镜像写入 NAND，最后再切换为从 NAND 启动。
 
-在将镜像刻录到之前 Nand，请准备一个 USB 磁盘。让我们采取 OpenWrt 镜像 (mtk-bpi-r4-NAND-20231030.img) 例如，步骤如下：
+烧录 NAND 镜像前请准备一个 USB 驱动器。以下以 OpenWrt 镜像（mtk-bpi-r4-NAND-20231030.img）为例：
 
-. 复制 Nand 启动 OpenWrt 镜像(**mtk-bpi-r4-NAND-20231030.img**) 到 USB 磁盘。 
-. 更改启动开关跳线，板子从SD设备启动，然后给板子上电。
-. 插入 USB 磁盘到板上，并安装 USB 到 /mnt 或其他目录如下： (如果自动安装则可以跳过安装)
+. 将用于 NAND 启动的 OpenWrt 镜像（**mtk-bpi-r4-NAND-20231030.img**）复制到 USB 驱动器。
+. 调整启动跳线，使开发板从 SD 卡启动，然后给开发板上电。
+. 将 USB 驱动器插入开发板，并按如下方式挂载到 /mnt 或其他目录（若系统已自动挂载，可跳过此步）：
 +
 ```SH
 mount -t vfat /dev/sda1 /mnt 
 cd /mnt
 ```
-. 执行以下命令即可全部擦除 Nand 闪存并将镜像复制到 nand 设备：
+. 执行以下命令擦除整个 NAND，并将镜像写入 NAND 设备：
 +
 ```sh
 mtd erase /dev/mtd0
 dd if=mtk-bpi-r4-NAND-20231030.img of=/dev/mtdblock0
 ```
-. 关闭电源 BPI-R4 板子，拔掉U盘驱动，修改bootstrap为启动 Nand 设备。
+. 关闭 BPI-R4，拔出 USB 驱动器，然后切换为从 NAND 启动。
 
-== 如何将镜像刻录到板上 eMMC
-NOTE: 因为SD卡和 EMMC 设备共享一个SOC的控制器，需要切换到 NAND 启动然后刻录 EMMC 镜像进入 EMMC。最后，您将更改启动方式 EMMC.
+== 如何将镜像烧录到板载 eMMC
+NOTE: 由于 SD 卡与 eMMC 共用 SoC 的同一个控制器，需要先切换为从 NAND 启动，再将 eMMC 镜像写入 eMMC，最后切换为从 eMMC 启动。
 
-将镜像刻录到之前 eMMC，请准备一个 USB 磁盘。让我们采取 OpenWrt 镜像 (bl2_emmc-r4.img, mtk-bpi-r4-EMMC-20231030.img) 例如，步骤如下：
+烧录 eMMC 镜像前请准备一个 USB 驱动器。以下以 OpenWrt 镜像（bl2_emmc-r4.img、mtk-bpi-r4-EMMC-20231030.img）为例：
 
-. 复制 EMMC 启动 OpenWrt 镜像(**bl2_emmc-r4.img**,**mtk-bpi-r4-EMMC-20231030.img**) 到 USB 磁盘，如果镜像被压缩，请在复制到之前解压 USB 磁盘。
+. 将用于 eMMC 启动的 OpenWrt 镜像（**bl2_emmc-r4.img**、**mtk-bpi-r4-EMMC-20231030.img**）复制到 USB 驱动器；如果镜像已压缩，请先解压再复制。
 
-. 将开关跳线更改为 Nand 并从主板启动 Nand.
+. 将启动跳线切换为 NAND，并从 NAND 启动开发板。
  
-. 插入 USB 磁盘到板上，并安装 USB 到 /mnt 或其他目录如下： (如果自动安装则可以跳过安装)
+. 将 USB 驱动器插入开发板，并按如下方式挂载到 /mnt 或其他目录（若系统已自动挂载，可跳过此步）：
 +
 ```sh
 mount -t vfat /dev/sda1 /mnt 
@@ -152,12 +152,12 @@ dd if=mtk-bpi-r4-EMMC-20231030.img of=/dev/mmcblk0
  mmc bootpart enable 1 1 /dev/mmcblk0
 ```
  
-. 关闭R4板电源，删除U盘驱动，更改引导程序以从 emmc 设备。
+. 关闭 R4，拔出 USB 驱动器，然后切换为从 eMMC 启动。
  
 == 网络配置
 
-* 网络配置参考： http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:network:start
-* 网络接口：eth2、lan0用于WAN； eth1、lan0、lan1、lan2、lan3 用于 LAN， ra0/ra1 用于2.4G无线，rai0用于5G wifi6无线，rax0用于6G wifi7无线。
+* 网络配置请参考：http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:network:start
+* 网络接口：eth2、lan0 用于 WAN；eth1、lan0、lan1、lan2、lan3 用于 LAN；ra0/ra1 用于 2.4G 无线网络；rai0 用于 5G Wi-Fi 6；rax0 用于 6G Wi-Fi 7。
     
 image::/bpi-r4/network_confige.jpg[network_confige.jpg]    
 
@@ -266,107 +266,107 @@ br-lan          7fff.eea15781ca19       no              apclii0 apclix0 apcli0 r
 root@OpenWrt:/#
 ```
 
-== 升级ATF BL2
-NOTE: 升级BL2时，请确认是否与板卡硬件及版本兼容。
+== 升级 ATF BL2
+NOTE: 升级 BL2 前，请确认其与开发板硬件及版本兼容。
 
-首先，选择引导菜单的 Upgrade ATF BL2。
+首先，在启动菜单中选择 Upgrade ATF BL2。
 
 image::/bpi-r4/bpi-r4_bl2_upgrade1.jpg[bpi-r4_bl2_upgrade1.jpg]
 
-在升级页面选择您使用的升级工具进行升级。
+在升级页面中选择要使用的升级工具。
 
 image::/bpi-r4/bpi-r4_bl2_upgrade2.jpg[bpi-r4_bl2_upgrade2.jpg]
 
 === TFTP
 
-在PC上安装TFTP软件，并将R4 LAN连接到计算机网络端口。然后根据设置更改计算机的配置，写入更新的文件名，无需按Enter键。
+在电脑上安装 TFTP 软件，将 R4 的 LAN 口连接到电脑网口。然后按照页面中的设置修改电脑网络配置，并输入要升级的文件名，但暂时不要按 Enter 键。
 
 image::/bpi-r4/bpi-r4_bl2_upgrade3.jpg[bpi-r4_bl2_upgrade3.jpg]
 image::/bpi-r4/bpi-r4_bl2_upgrade4.jpg[bpi-r4_bl2_upgrade4.jpg]
 
-在PC上打开TFTP软件，设置传输文件路径和PC的IP。
+打开电脑上的 TFTP 软件，设置传输文件路径和电脑 IP 地址。
 
 image::/bpi-r4/bpi-r4_bl2_upgrade5.jpg[bpi-r4_bl2_upgrade5.jpg]
 
-R4板串口调试，确认BL2文件传输成功。
+通过 R4 的调试串口确认 BL2 文件传输情况。
 
 image::/bpi-r4/bpi-r4_bl2_upgrade6.jpg[bpi-r4_bl2_upgrade6.jpg]
 
-BL2文件升级成功后，重启设备。
+BL2 文件升级成功后，重启设备。
 
 === Xmodem/Ymodem
 
-您需要使用可以使用 Xmodem 和 Ymodem 进行传输的串行端口实用程序。 (Xmodem 的操作与 Ymodem 类似；此处仅显示 Xmodem。)
+需要使用支持 Xmodem 和 Ymodem 传输的串口工具。（Xmodem 与 Ymodem 的操作方式相似，此处仅演示 Xmodem。）
 
 image::/bpi-r4/bpi-r4_bl2_upgrade_xmodem1.jpg[bpi-r4_bl2_upgrade_xmodem1.jpg]
 
-选择“发送 Xmodem”，然后选择要传输的文件，然后单击“发送”。
+选择 Send Xmodem，再选择要传输的文件，然后单击 Send。
 
 image::/bpi-r4/bpi-r4_bl2_upgrade_xmodem2.jpg[bpi-r4_bl2_upgrade_xmodem2.jpg]
 
-传输完成后，重新启动设备。
+传输完成后，重启设备。
 
 image::/bpi-r4/bpi-r4_bl2_upgrade_xmodem3.jpg[bpi-r4_bl2_upgrade_xmodem3.jpg]
 
-**原始bl2文件：**
+**原始 BL2 文件：**
 
 image::/bpi-r4/bpi-r4_bl2_original.jpg[bpi-r4_bl2_original.jpg]
 
-**改变后：**
+**更改后：**
 
 image::/bpi-r4/bpi-r4_bl2_change.jpg[bpi-r4_bl2_change.jpg]
 
-== 读写EEPROM
-WARNING: **我们发布的映像文件在每次启动时使用随机 MAC 地址，并且不使用 EEPROM。如果您希望使用 EEPROM，则需要编写脚本来读取数据并更新端口。**
+== 读写 EEPROM
+WARNING: **我们发布的镜像在每次启动时都会使用随机 MAC 地址，不会使用 EEPROM。如需使用 EEPROM，需要自行编写脚本读取其中的数据并更新端口配置。**
 
-1、读取EEPROM
+1、读取 EEPROM
 ```
 hexdump -C /sys/bus/i2c/devices/3-0057/eeprom
 ```
-2、写入内容到EEPROM
+2、向 EEPROM 写入内容
 ```
 printf '\x01\x02\x03\x04\x05\x06' | dd of=/sys/bus/i2c/devices/3-0057/eeprom bs=1 seek=32 conv=notrunc
 ```
-"**\x01\x02\x03\x04\x05\x06**" 是你要写入的内容，可以是MAC地址、序列号或者其他信息。 +
-"**废话=1**" 表示块大小为 1。 +
-"**寻找=32**" 表示偏移量 (要跳过多少个块). +
-**“废话=1 次寻找=32**"表示跳过32个字节，相当于从0x00到0x1F跳过字节，从0x20开始写入内容。 +
-"**转化次数=不截断**“不截断EEPROM，保留原始数据。
+“**\x01\x02\x03\x04\x05\x06**”是要写入的内容，可以是 MAC 地址、序列号或其他信息。+
+“**bs=1**”表示块大小为 1。+
+“**seek=32**”表示偏移量（跳过的块数）。+
+**“bs=1 seek=32”**表示跳过 32 字节，即跳过 0x00 至 0x1F，从 0x20 开始写入。+
+“**conv=notrunc**”表示不截断 EEPROM，保留原有数据。
 
-比如我想向地址中写入两组MAC地址 **0x20** 和 **0x30** 分别：
+例如，要分别向地址 **0x20** 和 **0x30** 写入两组 MAC 地址：
 ```
 printf '\x12\x41\x89\x7F\x64\xD3' | dd of=/sys/bus/i2c/devices/3-0057/eeprom bs=1 seek=32 conv=notrunc
 printf '\x7E\xF5\x56\x36\x4C\xD1' | dd of=/sys/bus/i2c/devices/3-0057/eeprom bs=1 seek=48 conv=notrunc
 
 ```
-WARNING:  **PS：由于V1.2版本后续批次计划向EEPROM写入数据，因此必须避免0x00到0x1F范围内的地址。**
+WARNING: **注意：后续批次的 V1.2 版本计划向 EEPROM 写入数据，因此必须避开 0x00 至 0x1F 的地址范围。**
 
-3、读取EEPROM全部内容。
+3、读取 EEPROM 的全部内容
 ```
 hexdump -C /sys/bus/i2c/devices/3-0057/eeprom
 ```
-读取EEPROM中指定位置的内容。
+读取 EEPROM 指定位置的内容。
 ```
 hexdump -C /sys/bus/i2c/devices/3-0057/eeprom | tail -n +3
 ```
-"**尾部-n +3**"表示只显示从第三行开始的数据，即0x20。
+“**tail -n +3**”表示只显示从第 3 行开始的数据，即从 0x20 开始。
 
 
 
 = 配件
 
 == 10G SFP 模块
-的 SFP 串行解串器速度 BPI-R4 固定为 10Gbps，因此仅 SFP 支持这个就可以用了！
+BPI-R4 的 SFP SerDes 速率固定为 10Gbps，因此只能使用支持该速率的 SFP 模块！
 
-一般是10G的PIN6 SFP+ 模块为GND。插入模块后，SFP_模组_DEF0将被拉低，从而开启 SFP 电源。
+通常，10G SFP+ 模块的 PIN6 为 GND。插入模块后，SFP_MOD_DEF0 会被拉低，从而接通 SFP 电源。
 
-因此，如果模块的这个PIN不是GND，则3.3V_将不提供 SFP 电源！
+因此，如果模块的该引脚不是 GND，就不会提供 3.3V_SFP 电源！
 
 image::/picture/r4_sfp_power.png[r4_sfp_power.png]
 
-=== 10G SFP+ 铜模块
+=== 10G SFP+ 电口模块
 
-该模块长时间使用时温度很高，在不加散热器或散热风扇的情况下可达90℃。注意防止烫伤！
+该模块长时间使用时温度很高；若没有散热片或散热风扇，温度可达到 90℃。请注意防止烫伤！
 
 image::/bpi-r4/sfp_10g_t.png[sfp_10g_t.png, width=1000px]image::/bpi-r4/sfp_10g_t_copper_module.jpg[sfp_10g_t_copper_module.jpg]image::/picture/sfp-10g-t-aqr.png[sfp-10g-t-aqr.png]
 
@@ -462,7 +462,7 @@ root@R4CN:/#
 
 ```
 
-WARNING: 注意：模块插入后请勿拔出，否则会造成 BPI-R4 其他模块不存在此现象。
+WARNING: 该模块插入后请勿拔出，否则会导致 BPI-R4 重启；其他模块没有此现象。
 
 ```bash
 root@R4CN:/# [  201.763041] mapfilter:drop IP addr timeout! stop dropping IP addr.
@@ -530,7 +530,7 @@ root@R4CN:/# [  201.763041] mapfilter:drop IP addr timeout! stop dropping IP add
 
 ```
 
-=== 10G SFP+ 光纤模块
+=== 10G SFP+ 光口模块
 
 image::/bpi-r4/r4_sfp_10g_optical_module.jpg[r4_sfp_10g_optical_module.jpg]
 ```bash
@@ -592,22 +592,22 @@ root@R4CN:/#
 
 == 4G/5G 模块
 
-IMPORTANT:  未安装SIM卡时请勿将卡托插入卡槽，否则容易损坏卡槽。
+IMPORTANT: 未安装 SIM 卡时，请勿将卡托插入卡槽，否则容易损坏卡槽。
 
 image::/bpi-r4/nosimcard.png[nosimcard.png,with=800]
 
 
-=== M.2 4G/5G 模块(USB 接口)
-BPI-R4 支持M.2 USB 接口4G LTE/5G 模块： **移远EM05, RM500U-CN,RM500Q-GL& RM520N-GL ** 
+=== M.2 4G/5G 模块（USB 接口）
+BPI-R4 支持以下采用 M.2 USB 接口的 4G LTE/5G 模块：**Quectel EM05、RM500U-CN、RM500Q-GL 和 RM520N-GL**。
 
-如果您想在以下设备上使用 M.2 蜂窝模块 BPI-R4:
+如需在 BPI-R4 上使用 M.2 蜂窝网络模块：
 
-. 安装 4G/5G 蜂窝模块插入 CN16 插槽(M.2 键盘)
-. 将 NANOSIM 卡插入 SIMSlot(卡1) 带卡托盘(注意方向)
-. 在模块上安装天线
-. 开机后会自动拨号
+. 将 4G/5G 蜂窝网络模块安装到 CN16 插槽（M.2 Key B）。
+. 使用卡托将 Nano SIM 卡插入 SIM 卡槽（SIM1），注意插入方向。
+. 将天线安装到模块上。
+. 上电后，系统会自动拨号。
 
-NOTE: 的可用性 4G/5G 取决于本地载波频段。
+NOTE: 能否使用 4G/5G 取决于当地运营商采用的频段。
 
 
 image::/bpi-r4/bpi-r4_4g5g_1.jpg[bpi-r4_4g5g_1.jpg]
@@ -616,7 +616,7 @@ image::/bpi-r4/bpi-r4_4g5g_2.jpg[bpi-r4_4g5g_2.jpg]
 
 image::/bpi-r4/bpi-r4_4g5g_3.jpg[bpi-r4_4g5g_3.jpg]
 
-**移远RM520N-GL**
+**Quectel RM520N-GL**
 ```sh
 Quectel RM520N-GL
 wwan0     Link encap:Ethernet  HWaddr A6:35:F7:7A:9E:A7  
@@ -718,25 +718,25 @@ round-trip min/avg/max = 36.447/41.766/47.085 ms
 root@R4CN:/#
 
 ```
-=== M.2 4G/5G 模块(PCIe 接口)
-理论上也支持 PCIe 蜂窝模块，但尚未测试
+=== M.2 4G/5G 模块（PCIe 接口）
+理论上也支持 PCIe 接口的蜂窝网络模块，但尚未测试。
 
 
-=== 迷你PCIe 4G/5G 模块(USB 接口)
-BPI-R4支持MiniPCIe USB 4G LTE模块接口：**移远EC25**
+=== miniPCIe 4G/5G 模块（USB 接口）
+BPI-R4 支持采用 miniPCIe USB 接口的 4G LTE 模块：**Quectel EC25**。
 
-如果您想在以下设备上使用 MiniPCIe 蜂窝模块 BPI-R4:
+如需在 BPI-R4 上使用 miniPCIe 蜂窝网络模块：
 
-. 将 4G 蜂窝模块安装到 CN12 插槽中
-. 将 NANOSIM 卡插入 SIMSlot(SIM2) 带卡托盘(注意方向)
-. 在模块上安装天线
-. 开机后会自动拨号
+. 将 4G 蜂窝网络模块安装到 CN12 插槽。
+. 使用卡托将 Nano SIM 卡插入 SIM 卡槽（SIM2），注意插入方向。
+. 将天线安装到模块上。
+. 上电后，系统会自动拨号。
 
-**CN14 (SIM3) 也可用**
+**也可以使用 CN14（SIM3）。**
 
-NOTE: 4G 的可用性取决于当地的载波频段。
+NOTE: 能否使用 4G 取决于当地运营商采用的频段。
 
-> __由于兼容性 BPI-R4 与 Qualcomm/Unisoc 模块中，EC25模块无法直接访问DNS服务器并连接互联网。因此需要手动配置修改   **默认脚本**  通过控制台端口文件。__
+> __由于 BPI-R4 对 Qualcomm/Unisoc 模块的兼容性问题，EC25 模块无法直接访问 DNS 服务器并连接互联网。因此，需要通过控制台手动修改 **default.script** 文件。__
 
 ```sh
 vim /usr/share/udhcpc/default.script
@@ -744,11 +744,11 @@ vim /usr/share/udhcpc/default.script
 
 image::/bpi-r4/bpi-r4_ec25e_module_modification_1.png[bpi-r4_ec25e_module_modification_1.png]
 
-添加：echo“名称服务器202.96.128.86”>> /etc/resolv.conf
+添加：echo "nameserver 202.96.128.86" >> /etc/resolv.conf
 ```sh
 echo "nameserver 202.96.128.86" >> /etc/resolv.conf
 ```
-NOTE: 根据您本地的DNS服务器修改IP地址。
+NOTE: 请根据本地 DNS 服务器修改 IP 地址。
 
 image::/bpi-r4/bpi-r4_ec25e_module_modification_2.png[bpi-r4_ec25e_module_modification_2.png]
 
@@ -797,11 +797,11 @@ root@Simon-R4:/#
 == 存储
 === NVMe SSD
 
-请插入一个M.2 KeyM SSD(PCIe 接口) 插入KeyM插槽(CN18).
+请将一块 M.2 Key M SSD（PCIe 接口）插入 Key M 插槽（CN18）。
 
-NOTE: 未进行兼容性测试，不保证所有SSD都可以使用。
+NOTE: 尚未进行全面的兼容性测试，无法保证所有 SSD 均可使用。
 
-NOTE: 已知问题：由于R228和R230的影响，插入某些 SSD，会影响阅读和写作 I2C。这两个电阻器将在后续的生产批次中被移除。
+NOTE: 已知问题：受 R228 和 R230 影响，插入某些 SSD 后会影响 I2C 读写。后续生产批次将移除这两个电阻。
 
 
 image::/bpi-r4/bpi-r4-m2_keym-ssd_connnect.jpg[bpi-r4-m2_keym-ssd_connnect.jpg]
@@ -828,9 +828,9 @@ major minor  #blocks  name
 root@R4CN:/# 
 ```
 
-=== PCIe 至SATA
+=== PCIe 转 SATA
 
-BPI-R4 支持智微JMB585 (PCIe 至 5x SATA 芯片)
+BPI-R4 支持 JMicron JMB585（PCIe 转 5 路 SATA 芯片）。
 
 image::/bpi-r4/bpi-r4-pcie2sata.jpg[bpi-r4-pcie2sata.jpg]
 
@@ -875,9 +875,9 @@ major minor  #blocks  name
 root@R4CN:/#
 ```
 
-===  PCIe 到 USB
+=== PCIe 转 USB
 
-BPI-R4 还支持ASMedia的ASM2142。但该模块需要额外的5V电源。
+BPI-R4 也支持 ASMedia ASM2142，但该模块需要额外的 5V 电源。
 
 image::/bpi-r4/bpi-r4-pcie2usb.jpg[bpi-r4-pcie2usb.jpg]
 ```bash
@@ -937,7 +937,7 @@ major minor  #blocks  name
 root@R4CN:/#
 ```
 
-该模块可用于M.2 KEYB插槽 (但是模块尺寸为2260，没有地方可以修复它)
+该模块可用于 M.2 Key B 插槽，但其尺寸为 2260，板上没有对应的固定位置。
 
 image::/bpi-r4/bpi-r4-keyb2usb.jpg[bpi-r4-keyb2usb.jpg]
 
@@ -948,16 +948,16 @@ root@R4CN:/# lspci
 0004:00:00.0 Unclassified device [0002]: MEDIATEK Corp. Device 7981
 ```
 
-=== USB 连接器(CN11)
-设备 - RTL9210 M.2 NVME 适配器 + 三星 PCIe SSD PM981A
+=== USB 接口（CN11）
+设备：RTL9210 M.2 NVMe 转接器 + Samsung PCIe SSD PM981A
 
-操作系统- ubuntu-24.04-服务器-bpi-r4-5.4-aarch64-sd-emmc
+操作系统：ubuntu-24.04-server-bpi-r4-5.4-aarch64-sd-emmc
 
-PC 上的速度测试：
+在电脑上的速度测试：
 
 image::/bpi-r4/samsung_mzvlb256hahq-00000_256gb.png[samsung_mzvlb256hahq-00000_256gb.png,width=800]
 
-速度测试开启 BPI-R4:
+在 BPI-R4 上的速度测试：
 
 ```bash
 root@BPI-R4:/mnt/sda1# 
@@ -1004,22 +1004,22 @@ image::/bpi-r4/rtl9210-toshiba2.jpg[rtl9210-toshiba2.jpg,width=800]
 
 
 
-== Wi-Fi7网卡
-您可以插入 BPI-R4-NIC 底部分为 CN12 和 CN14 BPI-R4-Main，然后用两颗M2螺丝固定。
+== Wi-Fi 7 网卡
+可以将 BPI-R4-NIC 插入 BPI-R4-Main 底部的 CN12 和 CN14，然后用两颗 M2 螺钉固定。
 
-的 BPI-R4-NIC 模块需要12V供电，所以电源上 BPI-R4-Main 上电前必须先开机 (将SW4拨至“ON”位置，12V LED 通电时会亮起)
+BPI-R4-NIC 模块需要 12V 供电，因此上电前必须打开 BPI-R4-Main 上的相应电源（将 SW4 拨到“ON”位置；上电后 12V LED 会亮起）。
 
-IMPORTANT:  12V电源将提供给 BPI-R4-NIC 通过PIN6/28/48 miniPCI 插槽。 
-插接其他模块时，如果无法确认模块是否能承受12V，请务必关闭SW4。
+IMPORTANT: 12V 电源会通过 miniPCIe 插座的 PIN6/28/48 提供给 BPI-R4-NIC。
+插入其他模块时，如果不能确认该模块能否承受 12V，请务必关闭 SW4。
 
 image::/bpi-r4/bpi-r4-minipcieslot.jpg[bpi-r4-minipcieslot.jpg]
 image::/bpi-r4/bpi-r4-minipcieslot-power.jpg[bpi-r4-minipcieslot-power.jpg]
 
 === BPI-R4-NIC-BE14
 
-BPI-R4-NIC-BE14 ：MT7995AV+MT7976CN+MT7977IAN
+BPI-R4-NIC-BE14 : MT7995AV+MT7976CN+MT7977IAN
 
-link:/en/BPI-R4/BananaPi_BPI-R4-NIC-BE14[香蕉派 BPI-R4-NIC-BE14 规格参数]
+link:/en/BPI-R4/BananaPi_BPI-R4-NIC-BE14[Banana Pi BPI-R4-NIC-BE14 规格]
 
 
 image::/bpi-r4/nic-be14-top-800.png[nic-be14-top-800.png]
@@ -1059,9 +1059,9 @@ rax0      Link encap:Ethernet  HWaddr 00:0C:43:26:60:28
 
 === OpenWrt
 
-OpenWRT MTK MP4.0 WiFi 设置：
+OpenWrt MTK MP4.0 Wi-Fi 设置：
 
-当所有功能正常后，我们可以检测到三个SSID，BE14上的三个蓝色LED灯也会亮起。
+所有功能正常后，可以检测到三个 SSID，BE14 上的三个蓝色 LED 也会亮起。
 
  
 image::/bpi-r4/be14_mp4.0_openwrt_wifi_setting.png[be14_mp4.0_openwrt_wifi_setting.png,width=800]
@@ -1069,56 +1069,56 @@ image::/bpi-r4/be14_mp4.0_openwrt_wifi_setting.png[be14_mp4.0_openwrt_wifi_setti
 
 image::/bpi-r4/be14-wifi-ssid.png[be14-wifi-ssid.png,width=800]
 
-==== 如何开启WiFi热点
+==== 如何开启 Wi-Fi 热点
 
-打开web并在config中配置相应的STA热点。
-然后点击连接进行连接。
+打开 Web 管理页面，在配置中设置相应的 STA 热点。
+然后单击 Connect 进行连接。
 
 image::/bpi-r4/sta_setup_interface_2.jpg[sta_setup_interface_2.jpg]
 
 image::/bpi-r4/sta_setup_interface_1.jpg[sta_setup_interface_1.jpg]
 
-在调试串口看接口是否打开。
+在调试串口中检查接口是否已启用。
 
 ```bash
 ifconfig
 ```
 image::/bpi-r4/sta_interface1.jpg[sta_interface1.jpg]
-尝试 ping。
+尝试执行 ping。
 
 image::/bpi-r4/ping_external_network_figure_1.jpg[ping_external_network_figure_1.jpg]
 
 ```bash
 brctl show br-lan
 ```
-可以看到接口是在br-lan口桥接的，需要改为br-wan口。
+可以看到，该接口当前桥接到 br-lan，需要改为桥接到 br-wan。
 
 image::/bpi-r4/r4_bridging_figure_1.jpg[r4_bridging_figure_1.jpg]
 
 ```bash
 brctl delif br-lan apcli0
 ```
-删除 br-lan 上的网桥。
+从 br-lan 中移除该桥接接口。
 
 image::/bpi-r4/r4_bridging_figure_2.jpg[r4_bridging_figure_2.jpg]
 
 ```bash
 brctl addif br-wan apcli0
 ```
-在 br-wan 上添加桥接。
+将该接口桥接到 br-wan。
 
 image::/bpi-r4/r4_bridging_figure_3.jpg[r4_bridging_figure_3.jpg]
 
-此时Ping公网即可成功。
+此时即可成功 ping 通公网。
 
 image::/bpi-r4/ping_external_network_figure_2.jpg[ping_external_network_figure_2.jpg]
 
 === Ubuntu
 
-NOTE: 目前驱动支持6G AP，但开源nmcli工具包不支持6G AP，等待开源组织更新，6G STA可以支持。
+NOTE: 当前驱动支持 6G AP，但开源 nmcli 工具尚不支持配置 6G AP，需要等待上游更新；6G STA 已可使用。
 
-==== 2.4G接入点
-首先添加接口wlan0。
+==== 2.4G AP
+首先添加 wlan0 接口。
 
 ```bash
 root@BPI-R4:~# sudo iw phy phy0 interface add wlan0 type __ap
@@ -1131,7 +1131,7 @@ wlan0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ```
 
-启用WiFi，并设置WiFi名称、AP模式等。
+启用 Wi-Fi，并设置 Wi-Fi 名称、AP 模式等。
 
 ```bash
 root@BPI-R4:~# sudo nmcli radio wifi on
@@ -1140,25 +1140,25 @@ Connection 'test24G' (02558bf7-6a8f-494d-a680-457985d03021) successfully added.
 root@BPI-R4:~# sudo nmcli connection modify test24G 802-11-wireless.mode ap 802-11-wireless.band bg ipv4.method shared
 ```
 
-设置 WiFi 加密和密码。
+设置 Wi-Fi 加密方式和密码。
 ```bash
 root@BPI-R4:~# sudo nmcli c modify test5G 802-11-wireless-security.key-mgmt wpa-psk
 root@BPI-R4:~# sudo nmcli c modify test5G 802-11-wireless-security.psk 12345678
 ```
 
-打开AP。
+启动 AP。
 ```bash
 root@BPI-R4:~# sudo nmcli connection up test5G
 Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/5)
 ```
-连接到 WiFi 名称 hotspotname24G。
+连接名为 hotspotname24G 的 Wi-Fi。
 
 image::/bpi-r4/bpi-r4_24g-wifi-connect.jpg[bpi-r4_24g-wifi-connect.jpg]
 
-==== 5G接入点
-NOTE: 5G与2.4G类似。
+==== 5G AP
+NOTE: 5G 的设置与 2.4G 类似。
 
-首先添加接口wlan1。
+首先添加 wlan1 接口。
 
 ```bash
 root@BPI-R4:~# sudo iw phy phy1 interface add wlan1 type __ap
@@ -1171,7 +1171,7 @@ wlan1: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ```
 
-启用WiFi，并设置WiFi名称、AP模式等。
+启用 Wi-Fi，并设置 Wi-Fi 名称、AP 模式等。
 
 ```bash
 root@BPI-R4:~# sudo nmcli radio wifi on
@@ -1180,23 +1180,23 @@ Connection 'test5G' (cacedf66-d86c-42cd-845a-b3c2954dc03d) successfully added.
 root@BPI-R4:~# sudo nmcli c modify test5G 802-11-wireless.mode ap 802-11-wireless.band a 802-11-wireless.channel 149 802-11-wireless.powersave 2 ipv4.method shared
 ```
 
-设置 WiFi 加密和密码。
+设置 Wi-Fi 加密方式和密码。
 ```bash
 root@BPI-R4:~# sudo nmcli c modify test5G 802-11-wireless-security.key-mgmt wpa-psk
 root@BPI-R4:~# sudo nmcli c modify test5G 802-11-wireless-security.psk 12345678
 ```
 
-打开AP。
+启动 AP。
 ```bash
 root@BPI-R4:~# sudo nmcli connection up test5G
 Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/5)
 ```
-连接wifi名称hotspotname5G。
+连接名为 hotspotname5G 的 Wi-Fi。
 
-==== 斯塔
-NOTE: 5G和6G与2.4G类似，因此这里仅演示2.4G连接。
+==== STA
+NOTE: 5G 和 6G 的连接方式与 2.4G 类似，因此此处仅演示 2.4G 连接。
 
-首先启用适当的接口配置。
+首先启用相应的接口配置。
 ```bash
 root@BPI-R4:~# iw phy phy0 interface add wlan0 type station
 root@BPI-R4:~# iw phy phy1 interface add wlan1 type station
@@ -1205,9 +1205,9 @@ root@BPI-R4:~# ifconfig wlan0 up
 root@BPI-R4:~# ifconfig wlan1 up
 root@BPI-R4:~# ifconfig wlan2 up
 ```
-检查扫描对应的WiFi。
+扫描并查找对应的 Wi-Fi。
 
-NOTE: SSID 是您的 WiFi 名称
+NOTE: SSID 是 Wi-Fi 的名称。
 ```bash
 root@BPI-R4:~# iw dev wlan0 scan | grep SSID
 
@@ -1218,11 +1218,11 @@ root@BPI-R4:~# iw dev wlan1 scan | grep SSID_5G
   SSID: XXX_5G
 ```
 
-创建 WiFi 配置文件以进行连接
+创建用于连接的 Wi-Fi 配置文件：
 ```bash
 root@BPI-R4:~# sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
 ```
-内容是：
+内容如下：
 
 network={  
 
@@ -1234,13 +1234,13 @@ key_mgmt=WPA2-PSK
 
 }
 
-WiFi 连接配置。
+使用该配置连接 Wi-Fi：
 
 ```bash
 sudo wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf
 ```
 
-建立联系。
+检查连接状态：
 
 ```bash
 root@BPI-R4:~# iw dev wlan0 link
@@ -1260,8 +1260,8 @@ Connected to fc:11:52:44:bb:67 (on wlan0)
 
 === BPI-R4-NIC-BE19
 
-== 散热片
-MTK OpwnWRT MP4.0 风扇带 PWM 控制参考。
+== 散热
+MTK OpenWrt MP4.0 风扇 PWM 控制参考。
 
 
 ```bash
@@ -1311,12 +1311,12 @@ root@R4RN:/#
 
 
 
-= GPIO 定义 
-== 26针 GPIO 定义
+= GPIO 定义
+== 26 Pin GPIO 定义
 [options="header",cols="3,1,1,4",width="70%"]
 |====
-4+| **BPI-R4 26 针接头(CON2) GPIO 的定义 BPI-R4**
-|BPI-R4-CON2	|密码		|密码	|BPI-R4-CON2
+4+| **BPI-R4 26 Pin 排针（CON2）GPIO 定义**
+|BPI-R4-CON2	|PIN		|PIN	|BPI-R4-CON2
 |3.3VD	|1		|2	|5VD
 |GPIO18/I2C_1_SDA	|3	|	4|	5VD
 |GPIO17/I2C_1_SCL	|5		|6	|GND
@@ -1337,158 +1337,158 @@ root@R4RN:/#
 
 [options="header",cols="3,1,1,3",width="70%"]
 |====
-4+| **BPI-R4 M.2 B-KEY(CN16) GPIO 的定义 BPI-R4**
-|BPI-R4 M.2 B-KEY(CN16)	|密码		|密码	|BPI-R4 M.2 B-KEY(CN16)
-|NI	|1	|	2	|电压控制电路_密钥B
-|接地	|3		|4	|电压控制电路_密钥B
-|接地	|5	|	6	|NI(10K 上拉至 3.3V)
-|USB集线器_USB1_压差	|7		|8	|NI(10K 上拉至 3.3V)
-|USB集线器_USB1_DN|	9		|10|	LED
-|接地	|11		|12	|缺口
-|缺口	 |13		|14	|
+4+| **BPI-R4 M.2 B-KEY（CN16）GPIO 定义**
+|BPI-R4 M.2 B-KEY(CN16)	|PIN		|PIN	|BPI-R4 M.2 B-KEY(CN16)
+|NI	|1	|	2	|VCC_KEYB
+|GND	|3		|4	|VCC_KEYB
+|GND	|5	|	6	|NI(10K PullUp to 3.3V)
+|USBHUB_USB1_Dp	|7		|8	|NI(10K PullUp to 3.3V)
+|USBHUB_USB1_Dn|	9		|10|	LED
+|GND	|11		|12	|NOTCH
+|NOTCH	 |13		|14	|
 |	|15		|16	|
 |	|17		|18	|
 ||	19	|	20	|NI
 |NI	|21		|22|	NI
-|NI(10K 上拉至 1.8V)|	23	|	24	|NI
-|NI	|25		|26|	NI(10K 上拉至 3.3V)
-|接地	|27		|28|	NI
-|USB集线器_USB1_接收	|29		|30	|通用SIM卡_RST-1A
-|USB集线器_USB1_RXp	|31		|32	|通用SIM卡_时钟-1A
-|接地	|33	|	34	|通用SIM卡_数据-1A
-|USB集线器_USB1_TXn	|35	|36|	通用SIM卡_电源电压-1A
-|USB集线器_USB1_TXp	|37|		38|	NI
-|接地|	39	|	40|	NI
-|PCIE_1L_0_液氮0_SOC_接收	|41		|42	|NI
-|PCIE_1L_0_液氮0_SOC_RXp|	43	|	44	|NI
-|接地	|45	|	46	|NI
-|PCIE_1L_0_液氮0_SOC_TXn	|47		|48	|NI
-|PCIE_1L_0_液氮0_SOC_TXp	|49		|50	|NGFF_PCIE_珀斯特_V3P3
-|接地	|51	|	52	|NGFF_PCIE_时钟请求_V3P3
-|PCIE_1L_0_SOC_CKn	|53		|54	|NGFF_PCIE_佩威克_V3P3
-|PCIE_1L_0_SOC_肌酸激酶|	55	|	56|NI
-|接地	|57	|	58	|NI
+|NI(10K PullUp to 1.8V)|	23	|	24	|NI
+|NI	|25		|26|	NI(10K PullUp to 3.3V)
+|GND	|27		|28|	NI
+|USBHUB_USB1_RXn	|29		|30	|USIM_RST-1A
+|USBHUB_USB1_RXp	|31		|32	|USIM_CLK-1A
+|GND	|33	|	34	|USIM_DATA-1A
+|USBHUB_USB1_TXn	|35	|36|	USIM_VDD-1A
+|USBHUB_USB1_TXp	|37|		38|	NI
+|GND|	39	|	40|	NI
+|PCIE_1L_0_LN0_SOC_RXn	|41		|42	|NI
+|PCIE_1L_0_LN0_SOC_RXp|	43	|	44	|NI
+|GND	|45	|	46	|NI
+|PCIE_1L_0_LN0_SOC_TXn	|47		|48	|NI
+|PCIE_1L_0_LN0_SOC_TXp	|49		|50	|NGFF_PCIE_PERST_V3P3
+|GND	|51	|	52	|NGFF_PCIE_CLKREQ_V3P3
+|PCIE_1L_0_SOC_CKn	|53		|54	|NGFF_PCIE_PEWAKE_V3P3
+|PCIE_1L_0_SOC_CKp|	55	|	56|NI
+|GND	|57	|	58	|NI
 |NI	|59		|60	|NI
 |NI	|61		|62	|NI
 |NI|	63|		64	|NI
-|NI	|65	|	66|	通用SIM卡_DET-1A
+|NI	|65	|	66|	USIM_DET-1A
 |NI	|67		|68|	32KOUT
-|NI	|69	|	70	|电压控制电路_密钥B
-|接地|	71	|	72|	电压控制电路_密钥B
-|接地	|73	|	74|	电压控制电路_密钥B
+|NI	|69	|	70	|VCC_KEYB
+|GND|	71	|	72|	VCC_KEYB
+|GND	|73	|	74|	VCC_KEYB
 |NI	|75	| |		
 |====
 
-== BPI-R4 M.2 M键(CN18)			
+== BPI-R4 M.2 M-KEY(CN18)			
 
 [options="header",cols="3,1,1,3",width="70%"]
 |====
-4+| **BPI-R4 M.2 M键(CN18) GPIO 的定义 BPI-R4**
-|BPI-R4 M.2 M键(CN18)	|密码		|密码	|BPI-R4 M.2 M键(CN18)
-|接地	|1		|2	|电源电压33_M2
-|接地	|3		|4	|电源电压33_M2
+4+| **BPI-R4 M.2 M-KEY（CN18）GPIO 定义**
+|BPI-R4 M.2 M-KEY(CN18)	|PIN		|PIN	|BPI-R4 M.2 M-KEY(CN18)
+|GND	|1		|2	|VDD33_M2
+|GND	|3		|4	|VDD33_M2
 |NI	|5	|	6	|NI
 |NI	|7		|8	|NI
-|接地	|9		|10	|LED
-|NI	|11		|12	|电源电压33_M2
-|NI	|13		|14	|电源电压33_M2
-|接地	|15		|16	|电源电压33_M2
-|NI	|17		|18	|电源电压33_M2
+|GND	|9		|10	|LED
+|NI	|11		|12	|VDD33_M2
+|NI	|13		|14	|VDD33_M2
+|GND	|15		|16	|VDD33_M2
+|NI	|17		|18	|VDD33_M2
 |NI	|19		|20	|NI
-|接地	|21		|22	|NI
+|GND	|21		|22	|NI
 |NI	|23		|24	|NI
 |NI	|25		|26	|NI
-|接地	|27		|28	|NI
+|GND	|27		|28	|NI
 |NI	|29		|30|	NI
 |NI	|31		|32	|NI
-|接地|	33		|34	|NI
+|GND|	33		|34	|NI
 |NI	|35		|36	|NI
 |NI	|37		|38	|NI
-|接地	|39		|40	|NI
-|PCIE_1L_1_液氮0_SOC_接收	|41		|42|	NI
-|PCIE_1L_1_液氮0_SOC_RXp	|43	|	44|	NI
-|接地	|45		|46|	NI
-|PCIE_1L_1_液氮0_SOC_TXn	|47	|	48	|NI
-|PCIE_1L_1_液氮0_SOC_TXp	|49	|	50|	NGFF_基姆_PCIE_珀斯特_3VP3
-|接地	|51	|	52|	NGFF_基姆_PCIE_时钟请求_V3P3
-|PCIE_1L_1_SOC_CKn	|53	|	54|	NGFF_基姆_PCIE_唤醒_V3P3
-|PCIE_1L_1_SOC_肌酸激酶	|55		|56|	I2C_SDA_基姆
-|接地	|57		|58	|I2C_SCL_基姆
-|诺克TH	|59		|60	|诺克TH
+|GND	|39		|40	|NI
+|PCIE_1L_1_LN0_SOC_RXn	|41		|42|	NI
+|PCIE_1L_1_LN0_SOC_RXp	|43	|	44|	NI
+|GND	|45		|46|	NI
+|PCIE_1L_1_LN0_SOC_TXn	|47	|	48	|NI
+|PCIE_1L_1_LN0_SOC_TXp	|49	|	50|	NGFF_KEYM_PCIE_PERST_3VP3
+|GND	|51	|	52|	NGFF_KEYM_PCIE_CLKREQ_V3P3
+|PCIE_1L_1_SOC_CKn	|53	|	54|	NGFF_KEYM_PCIE_WAKE_V3P3
+|PCIE_1L_1_SOC_CKp	|55		|56|	I2C_SDA_KEYM
+|GND	|57		|58	|I2C_SCL_KEYM
+|NOCTH	|59		|60	|NOCTH
 | |	61	|	62	|
 |	|63	|	64|	
 | |	65		|66	|
 |NI	|67		|68	|32KOUT
-|NI	|69		|70	|电源电压33_M2
-|接地	|71		|72	|电源电压33_M2
-|接地	|73	|	74	|电源电压33_M2
-|接地	|75|	|		
+|NI	|69		|70	|VDD33_M2
+|GND	|71		|72	|VDD33_M2
+|GND	|73	|	74	|VDD33_M2
+|GND	|75|	|		
 |====
 
-== BPI-R4 迷你PCIe(CN12)	
+== BPI-R4 miniPCIe(CN12)	
  
 [options="header",cols="3,1,1,3",width="70%"]
 |====
-4+| **BPI-R4 迷你PCIe(CN12) GPIO 的定义 BPI-R4**		
-|BPI-R4 迷你PCIe(CN12)	|密码		|密码	|BPI-R4 迷你PCIe(CN12)
-|PCIE_2L_0_唤醒_N(1.8V)	|1	|	2	|PCIe_3V3#2
-|NI	|3	|	4	|接地
+4+| **BPI-R4 miniPCIe（CN12）GPIO 定义**		
+|BPI-R4 miniPCIe(CN12)	|PIN		|PIN	|BPI-R4 miniPCIe(CN12)
+|PCIE_2L_0_WAKE_N(1.8V)	|1	|	2	|PCIe_3V3#2
+|NI	|3	|	4	|GND
 |NI	|5	|	6	|PCIe_12V#2
-|PCIE_2L_0_时钟请求_N	|7		|8|	通用SIM卡_电源电压-2
-|接地	|9		|10	|通用SIM卡_数据-2
-|PCIE_2L_0_SOC_CKn	|11		|12	|通用SIM卡_时钟-2
-|PCIE_2L_0_SOC_肌酸激酶	|13		|14	|通用SIM卡_RST-2
-|接地	|15		|16 |	NI
-|PCIE_2L_0_液氮1_SOC_接收	|17		|18	|接地
-|PCIE_2L_0_液氮1_SOC_RXp	|19		|20	|NI
-|接地	|21		|22	|PCIE_2L_0_预设_N(1.8V)
-|PCIE_2L_0_液氮0_SOC_接收	|23	|	24	|PCIe_3V3#2
-|PCIE_2L_0_液氮0_SOC_RXp	|25	|	26	|接地
-|接地	|27		|28	|PCIe_12V#2
-|接地	|29		|30	|I2C_SCL_无线网络
-|PCIE_2L_0_液氮0_SOC_TXn	|31		|32	|I2C_SDA_无线网络
-|PCIE_2L_0_液氮0_SOC_TXp	|33		|34|	接地
-|接地	|35		|36	|USB集线器_USB3_DN
-|接地	|37		|38	|USB集线器_USB3_压差
-|PCIe_3V3#2	|39		|40	|接地
+|PCIE_2L_0_CLKREQ_N	|7		|8|	USIM_VDD-2
+|GND	|9		|10	|USIM_DATA-2
+|PCIE_2L_0_SOC_CKn	|11		|12	|USIM_CLK-2
+|PCIE_2L_0_SOC_CKp	|13		|14	|USIM_RST-2
+|GND	|15		|16 |	NI
+|PCIE_2L_0_LN1_SOC_RXn	|17		|18	|GND
+|PCIE_2L_0_LN1_SOC_RXp	|19		|20	|NI
+|GND	|21		|22	|PCIE_2L_0_PRESET_N(1.8V)
+|PCIE_2L_0_LN0_SOC_RXn	|23	|	24	|PCIe_3V3#2
+|PCIE_2L_0_LN0_SOC_RXp	|25	|	26	|GND
+|GND	|27		|28	|PCIe_12V#2
+|GND	|29		|30	|I2C_SCL_WiFi
+|PCIE_2L_0_LN0_SOC_TXn	|31		|32	|I2C_SDA_WiFi
+|PCIE_2L_0_LN0_SOC_TXp	|33		|34|	GND
+|GND	|35		|36	|USBHUB_USB3_Dn
+|GND	|37		|38	|USBHUB_USB3_Dp
+|PCIe_3V3#2	|39		|40	|GND
 |PCIe_3V3#2	|41		|42	|LTE_LED-2
-|接地	|43		|44	|通用SIM卡_DET-2
-|PCIE_2L_0_液氮1_SOC_TXn	|45		|46	|NI
-|PCIE_2L_0_液氮1_SOC_TXp	|47		|48	|PCIe_12V#2
-|接地	|49		|50	|接地
-|MT7996_电子情报_复位(1.8V)	|51		|52	|PCIe_3V3#2
+|GND	|43		|44	|USIM_DET-2
+|PCIE_2L_0_LN1_SOC_TXn	|45		|46	|NI
+|PCIE_2L_0_LN1_SOC_TXp	|47		|48	|PCIe_12V#2
+|GND	|49		|50	|GND
+|MT7996_EINT_RESETB(1.8V)	|51		|52	|PCIe_3V3#2
 |====
  
-== BPI-R4 迷你PCIe(CN14)		
+== BPI-R4 miniPCIe(CN14)		
 [options="header",cols="3,1,1,3",width="70%"]
 |====
-4+| **BPI-R4 迷你PCIe(CN14) GPIO 的定义 BPI-R4**		
-|BPI-R4 迷你PCIe(CN14)	|密码		|密码	|BPI-R4 迷你PCIe(CN14)
-|PCIE_2L_1_唤醒_N(1.8V)	|1		|2	|PCIe_3V3#1
-|NI	|3	|	4	|接地
+4+| **BPI-R4 miniPCIe（CN14）GPIO 定义**		
+|BPI-R4 miniPCIe(CN14)	|PIN		|PIN	|BPI-R4 miniPCIe(CN14)
+|PCIE_2L_1_WAKE_N(1.8V)	|1		|2	|PCIe_3V3#1
+|NI	|3	|	4	|GND
 |NI	|5	|	6	|PCIe_12V#1
-|PCIE_2L_1_时钟请求_N	|7		|8	|通用SIM卡_电源电压-3
-|接地	|9		|10	|通用SIM卡_数据-3
-|PCIE_2L_1_SOC_CKn	|11		|12	|通用SIM卡_时钟-3
-|PCIE_2L_1_SOC_肌酸激酶	|13		|14	|通用SIM卡_RST-3
-|接地	|15		|16	|NI
-|PCIE_2L_1_液氮1_SOC_接收	|17	|	18	|接地
-|PCIE_2L_1_液氮1_SOC_RXp	|19		|20	|NI
-|接地	|21		|22	|PCIE_2L_1_预设_N(1.8V)
-|PCIE_2L_1_液氮0_SOC_接收	|23		|24	|PCIe_3V3#1
-|PCIE_2L_1_液氮0_SOC_RXp	|25	|26	|接地
-|接地	|27		|28	|PCIe_12V#1
-|接地	|29		|30	|I2C_SCL_无线网络
-|PCIE_2L_1_液氮0_SOC_TXn	|31		|32	|I2C_SDA_无线网络
-|PCIE_2L_1_液氮0_SOC_TXp	|33		|34	|接地
-|接地	|35		|36	|USB集线器_USB2_DN
-|接地	|37		|38|	USB集线器_USB2_压差
-|PCIe_3V3#1	|39		|40	|接地
+|PCIE_2L_1_CLKREQ_N	|7		|8	|USIM_VDD-3
+|GND	|9		|10	|USIM_DATA-3
+|PCIE_2L_1_SOC_CKn	|11		|12	|USIM_CLK-3
+|PCIE_2L_1_SOC_CKp	|13		|14	|USIM_RST-3
+|GND	|15		|16	|NI
+|PCIE_2L_1_LN1_SOC_RXn	|17	|	18	|GND
+|PCIE_2L_1_LN1_SOC_RXp	|19		|20	|NI
+|GND	|21		|22	|PCIE_2L_1_PRESET_N(1.8V)
+|PCIE_2L_1_LN0_SOC_RXn	|23		|24	|PCIe_3V3#1
+|PCIE_2L_1_LN0_SOC_RXp	|25	|26	|GND
+|GND	|27		|28	|PCIe_12V#1
+|GND	|29		|30	|I2C_SCL_WiFi
+|PCIE_2L_1_LN0_SOC_TXn	|31		|32	|I2C_SDA_WiFi
+|PCIE_2L_1_LN0_SOC_TXp	|33		|34	|GND
+|GND	|35		|36	|USBHUB_USB2_Dn
+|GND	|37		|38|	USBHUB_USB2_Dp
+|PCIe_3V3#1	|39		|40	|GND
 |PCIe_3V3#1	|41		|42	|LTE_LED-3
-|接地	|43		|44	|通用SIM卡_DET-3
-|PCIE_2L_1_液氮1_SOC_TXn	|45		|46|	NI
-|PCIE_2L_1_液氮1_SOC_TXp	|47	|	48|	PCIe_12V#1
-|接地	|49		|50|	接地
+|GND	|43		|44	|USIM_DET-3
+|PCIE_2L_1_LN1_SOC_TXn	|45		|46|	NI
+|PCIE_2L_1_LN1_SOC_TXp	|47	|	48|	PCIe_12V#1
+|GND	|49		|50|	GND
 |NI	|51		|52|	PCIe_3V3#1
 |====
  
@@ -1496,29 +1496,29 @@ root@R4RN:/#
 
 [options="header",cols="1,1",width="40%"]
 |====
-2+| **BPI-R4 5V/12V 输出(CN19,XH4A-2.54mm) 的 BPI-R4**
-|BPI-R4 5V/12V 输出|密码	
+2+| **BPI-R4 5V/12V 输出（CN19，XH4A-2.54mm）**
+|BPI-R4 5V/12V OUT	|PIN	
 |+12V	|1	
-|接地	|2	
-|接地	|3	
+|GND	|2	
+|GND	|3	
 |+5V	|4	
 |====		
 		
-== BPI-R4 范品	
+== BPI-R4 风扇引脚	
 [options="header",cols="1,1",width="40%"]
 |====
-2+| **BPI-R4 风扇(CN1,PH3A-2.00mm) 的 BPI-R4**
+2+| **BPI-R4 风扇（CN1，PH3A-2.00mm）**
 |+5V	|1	
-|接地	|2	
-|脉宽调制0	|3	
+|GND	|2	
+|PWM0	|3	
 |====	
 	
-== BPI-R4 调试 UART 密码	
+== BPI-R4 调试 UART 引脚	
 [options="header",cols="1,1",width="40%"]
 |====
-2+| **BPI-R4 调试 UART(CON1，3PIN-2.54mm) 的 BPI-R4**		
-|BPI-R4 调试 UART	|密码	
-|接地	|1	
-|接收数据	|2	
+2+| **BPI-R4 调试 UART（CON1，3PIN-2.54mm）**		
+|BPI-R4 Debug UART	|PIN	
+|GND	|1	
+|RXD	|2	
 |TXD	|3	
 |====
