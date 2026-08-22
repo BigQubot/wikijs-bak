@@ -1,0 +1,129 @@
+= Description
+
+Banana Pi BPI-R4-NIC-BE14是一款尺寸为51x82毫米的WiFi 7模块，采用联发科MT7995AV芯片，支持WiFi 7技术，符合IEEE802.11a/b/g/n/ac/ax/be标准，具备2.4GHz 2x2、5GHz 3x3 3ss和6GHz 3x3 3ss BE13500的WiFi子系统。MT7995AV以高标准提供功能丰富的无线连接，能在长距离下实现可靠、经济高效的吞吐量。
+
+image::/bpi-nic-be14/be14-banner-1.jpg[be14-banner-1.jpg, width=1000px]
+
+联发科 MT7988A (Filogic 880) 路由器方案: link:/zh/BPI-R4/BananaPi_BPI-R4[香蕉派 BPI-R4] 和 link:/zh/BPI-R4/BananaPi_BPI-R4_Pro[香蕉派 BPI-R4 Pro] 路由器开发板
+
+优化后的Wi-Fi基带算法可提供卓越的性能。智能的媒体访问控制（MAC）设计部署了高效的卸载引擎和硬件数据处理加速器，能完全卸载主机处理器的Wi-Fi任务。MT7995AV旨在支持安全、服务质量和国际法规等方面的标准特性，让终端用户在任何时间、任何情况下都能获得最佳性能。
+
+= 产口图片
+
+link:/en/BPI-R4/Photo_BPI-R4-NIC-BE14[BananaPi_BPI-R4-NIC-BE14 产品图片]
+
+= 关键参数
+
+== 开发平台
+
+• 联发科 MT7995AV 芯片方案
+• 适用于Wi-Fi协议和Wi-Fi任务卸载的32位RISC-V微控制器
+• 高性能的嵌入式静态随机存取存储器和只读存储器
+• 具有硬件流控制的通用异步收发传输器（UART）接口
+• 2 PCIe 3.0 接口, 2-lane
+• 尺寸 – 82 x 51 x 4.2mm
+
+== WLAN 口
+• IEEE 802.11 a/b/g/n/ac/ax/be compliant
+• Frequency band 2.4GHz
+- Bandwidth: 20 and 40MHz
+- 2T2R
+• Frequency band 5GHz
+- Bandwidth: 20, 40,80, and 160MHz
+- 3T3R 3ss
+• Frequency band 6GHz
+- Bandwidth: 20, 40,80,160 and 320MHz
+- 3T3R 3ss
+• Tr-Band Triple Concurrent (TBTC)
+• PHY rate :up to 13700 Mbps/9500 Mbps
+• MU-MIMO TX and RX
+• MU-OFDMA TX and RX
+• STBC, LDPC, TX beamformer and RX beamformee
+• Greenfield mode, mixed mode, and legacy mode
+• Security: WFA WPA, WPA2, WPA3 personal, WPS2.0
+• QoS: WFA WMM and WMM-PS
+
+= Block Diagram
+
+image::/bpi-r4/be14-block_diagram.jpg[be14-block_diagram.jpg]
+
+= BPI-R4-NIC-BE14-V00-DXF
+* Google drive: https://drive.google.com/file/d/1-PFyHp236j29pARprckZyUTWPA_tEc0P/view?usp=sharing
+* Baidu cloud: https://pan.baidu.com/s/13B-Q_0HZIF6f0_uEoGhpbw?pwd=8888 (pincode: 8888)
+
+= BPI-R4-NIC-BE14-V21-DXF
+* Google drive: https://drive.google.com/file/d/1Uf-khpptLv-ZfmOVLduWRjQ37BlDCi-1/view?usp=sharing
+* Baidu cloud: https://pan.baidu.com/s/18h2xclBDzLdP6tffKkH5fQ?pwd=8888 (pincode: 8888)
+
+image::/bpi-nic-be14/be14_with_shield.png[be14_with_shield.png]image::/bpi-nic-be14/be14_with_shield-1.png[be14_with_shield-1.png]
+
+= CE Certification
+* Google drive: https://drive.google.com/file/d/1Yj864VWtnLrm2smU4sIlf4jaFWHdiNDn/view?usp=sharing
+* Baidu cloud:  https://pan.baidu.com/s/1qr5WA7m6WXUtrHZFDUbeVA (pin code: 8888)
+
+= How to use 
+
+link:https://docs.banana-pi.org/en/BPI-R4/GettingStarted_BPI-R4#_wi_fi7_nic[Getting_Started_with_BPI-R4#Wi-Fi7 NIC]
+
+
+
+
+= Power Consumption Test  report
+
+IMPORTANT: Since the IC is very hot, it is recommended to use a large heat sink
+
+BPI-R4-NIC-BE14-Power consumption preliminary test-20240618
+
+Baidu cloud: https://pan.baidu.com/s/1U9YkM5FB7tPrP5yVRj8QYQ?pwd=8888 (pincode: 8888)
+
+Google drive: https://drive.google.com/file/d/1J3qqvjpShYPVItufsJqZkonSeR3ZBEcu/view?usp=sharing
+
+
+
+
+= Transmit Power and EVM Test report
+
+
+Baidu cloud: https://pan.baidu.com/s/1_FLeQDurwKjUr9LeSx8n1Q?pwd=8888 (pincode: 8888)
+
+Google drive: https://drive.google.com/file/d/1cq-Cb2bL1Dt0TZEIeo9sIUVlFV4eiFao/view?usp=sharing
+
+
+
+= iperf3 Test  report
+
+This result is for reference only,doesn't mean that every test result is the same.
+
+Test environment - The PC is about 1 meter away from BPI-R4,
+
+PC - 12th Gen Intel Core i5-12500H, QCNCM865(Qualcomm FastConnect 7800), Windows 11，
+
+Router - BPI-R4 with BE14,
+
+image - OpenWRT MTK MP4.0 wifi SDK wifi driver for BE14000 Wifi Card,
+
+image::/bpi-r4/bpi-r4-iperf3-test-block.png[bpi-r4-iperf3-test-block.png,width=800]
+
+2G:
+
+image::/bpi-r4/qualcomm7800----bpi-r4-2g.png[qualcomm7800----bpi-r4-2g.png,width=800]
+
+5G:
+
+image::/bpi-r4/qualcomm7800----bpi-r4-5g.png[qualcomm7800----bpi-r4-5g.png,width=800]
+
+6G:
+
+image::/bpi-r4/qualcomm7800----bpi-r4-6g.png[qualcomm7800----bpi-r4-6g.png,width=800]
+
+
+= Easy to buy
+
+WARNING: BANANAPI Official shop:
+https://www.bpi-shop.com/products/bpi-r4-nic-be14-wifi7-module-with-mediatek-mt7995av-supports-wi-fi7-technology.html
+
+WARNING: SINOVOIP Aliexpress shop: https://www.aliexpress.com/item/3256807036993487.html?
+
+WARNING: Bipai Aliexpress shop: https://www.aliexpress.com/item/3256807036822902.html?spm=a2g0s.12269583.0.0.48df6c94TX2ucP
+
+WARNING: Taobao Shop: https://item.taobao.com/item.htm?spm=a1z09.8149145.0.0.30842c5aZcYzQx&id=808224556483&_u=cak7ln9381e
