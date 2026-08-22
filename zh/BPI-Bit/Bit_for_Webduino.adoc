@@ -1,0 +1,130 @@
+TIP: link:/en/BPI-Bit/BananaPi_BPI-Bit#_bpi_bit_for_webduino[香蕉派 BPI-Bit]
+
+= 关于webduino
+
+link:http://www.webduino.com.cn/site/en/index.html[Webduino] = link:http://webcomponents.org/[Web组件] + link:http://arduino.cc/[Arduino]
+
+image::/picture/bpi-bit_webduino.png[bpi-bit_webduino.png]
+
+link:https://drive.google.com/file/d/1V3k5p9DCj_jcsmSk4ffbPlO3MNpBGvnB/view?usp=sharing[Webduino介绍 (公共)-en.pdf]
+
+link:https://drive.google.com/file/d/1-BH_AYh7fbwwMwVeYzMEeA_GOmTxn_KD/view?usp=sharing[Webduino介绍(公开)-中文.pdf]
+
+== Webduino工作模型
+. 使用 WebComponents 集成 Breakout。
+. 使用WebSocket(菲尔玛塔) 与服务器交互。
+. 服务器使用 TCP/IP(菲尔玛塔) 控制webduino终端。
++
+image::/picture/bpi-bit_webduino_1.png[bpi-bit_webduino_1.png]
+
+== Webduino项目VS Arduino 和 micro:bit 项目
+[options="header",cols="1,1,1,1"]
+|====
+4+|Webduino项目VS Arduino 和 micro:bit 项目
+|项目比较	|Webduino	|Arduino	|微:位
+|开发 |语言	|HTML/JavaScript	|C/C++	Python/JavaScript
+|开发 |环境 WEB浏览器	|Arduino IDE	|JavaScript 积木
+|模拟器	|Webduino模拟器	|第三方支持	|微软MakeCode
+|图形化编程	|Wbduino 块状	|第三方 |刮擦块
+|云服务器	|webduino云	|N/A	|N/A
+|出席模式	|无线网络	|USB	|USB
+|更新程序	|web在线更新	|USB 烧伤	|USB 磁盘
+|====
+
+= Webduino 源代码 github
+更多webduino功能现已开源，代码更新至 github.
+
+https://github.com/webduinoio
+
+= 如何供电 BPI-Bit 董事会
+板子一共有三个电源，可以任选其一
+
+. USB 有线供电，位板设计有Micro USB 接口，在日常生活中线材是比较常见的，使用起来还是比较方便的。
++
+image::/picture/bpi-bit_power_1.jpg[bpi-bit_power_1.jpg]
+
+. 通过2Pin电池插座供电，可通过锂电池、电池组等方式给板子供电，接口有防呆设计，无需担心电源反接问题
++
+image::/picture/bpi-bit_power_2.jpg[bpi-bit_power_2.jpg]
+
+. 通过金手指供电，金手指板子下端包含了电源接口，同时兼有输入输出功能，兼容性非常高。
++
+image::/picture/bpi-bit_power_3.jpg[bpi-bit_power_3.jpg]
+
+= Webduino固件编程
+== 如何烧录webduino固件
+BPI-Bit 已默认烧写Webduino固件。只有当您使用其他固件重新编程Flash时，才需要再次编程Webduino固件。
+
+如何： link:https://wiki.banana-pi.org/Webduino_firmware_programming[Webduino固件编程]
+
+== Webduino OTA云升级
+BPI-Bit 由于webduino支持OTA云升级，可以很方便地使用此功能更新最新版本。
+
+开机位，白灯闪烁时按A键，绿灯亮时松开A键，开始更新。
+
+image::/picture/bpi-bit_webduino_ota.jpg[bpi-bit_webduino_ota.jpg]
+
+= Webduino Bit 初始化
+Webduino Bit的初始化： https://www.webduino.com.cn/site/en/docs/setting.html
+
+如果可以连接 BPI-Bit 到互联网，这样您就可以块状地使用webduino来使用webduino的所有功能。
+
+= 网页：bit离线教育版
+== 软件下载
+下载链接： https://github.com/BPI-STEAM/BPI-BIT-Webduino/releases 
+
+请下载最新版本并一键安装
+
+Web：bit离线教育版支持自动升级，启动时自动更新
+
+image::/picture/bpi-bit_webduino_education.png[bpi-bit_webduino_education.png]
+
+== 在线文档
+在线文档： https://doc.bpi-steam.com/en/latest/bpi-web/tutorials/index.html ，我们会持续更新。
+
+= Webduino 在线 Blockly 和模拟器
+Webduino Blockly 和模拟器
+
+image::/picture/bpi-bit_blockly_en_wiki_.png[bpi-bit_blockly_en_wiki_.png]
+
+Webduino 在线 Blockly (英语): https://bit.webduino.com.cn/blockly/?lang=en
+
+Webduino 在线 Blockly (中国人) https://bit.webduino.io/blockly/?lang=zh-hant
+
+使用 Webduino Blockly 和模拟器快速启动 BPI:bit http://www.webduino.com.cn/site/en/tutorials.html
+
+== 了解 Webduino Blockly Bit
+了解 Webduino Blockly Bit ： https://www.webduino.com.cn/site/en/docs/blockly.html
+
+= Webduino云
+Webduino云平台为您提供完整的物联网服务。您可以通过平台管理更新和操作各种物联网设备。
+
+https://cloud.webduino.io
+
+== Webduino参考教程
+- BPI-bit 通过Webduino Bit左右两侧内置的光敏电阻，可以轻松判断手势来自哪一侧
++
+代码链接： https://bit.ly/2lFNeYL
++
+演示： https://www.facebook.com/oxxo.studio/videos/10216710024566280/?t=9
+
+- 使用Webduino Bit九轴传感器“姿态角” + 全彩点阵，实现简单 ~ ^_^ 有趣的效果
++
+代码链接： https://bit.ly/2MAhHTF
++
+演示： https://www.facebook.com/oxxo.studio/videos/10216709482752735/?t=20
+
+= 在线教程
+Webduino 位详细信息： https://www.webduino.com.cn/site/en/docs/detail.html
+
+Webduino Bit的初始化： https://www.webduino.com.cn/site/en/docs/setting.html
+
+了解 Webduino Blockly Bit ： https://www.webduino.com.cn/site/en/docs/blockly.html
+
+5x5 RGB LED 矩阵： https://www.webduino.com.cn/site/en/docs/rgbmatrix.html
+
+按钮： https://www.webduino.com.cn/site/en/docs/button.html
+
+光检测： https://www.webduino.com.cn/site/en/docs/photocell.html
+
+蜂鸣器： https://www.webduino.com.cn/site/en/docs/buzzer.html
