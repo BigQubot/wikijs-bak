@@ -1,0 +1,49 @@
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_development_tutorialbased_on_microbit[BPI-Bit 的 MicroPython 开发教程]
+
+= 随机数生成器
+== 随机性
+什么是随机性？随机性是指不可预测性。真正的随机现象存在于自然界中，例如雷击。暴风雨来临时可以确定会出现闪电，却无法准确预测它会击中哪里，因此不要站在树下。再比如，老师提问后无人举手，于是随机叫出一个座位号，这个座位号也是随机的。
+
+MicroPython 自带随机数模块，可以方便地在代码中使用随机值。例如，下面的程序会在屏幕上滚动显示一个随机姓名：
+```sh
+from microbit import *
+import random
+names = ["Mary", "Yolanda", "Damien", "Alia", "Kushal", "Mei Xiu","Zoltan" ]
+display.scroll(random.choice(names))
+```
+列表 names 包含 7 个不同的姓名字符串。random.choice() 以列表 names 为参数，并返回一个随机选中的元素。这个元素（随机姓名）随后作为 display.scroll() 的参数，因此 LED 点阵屏会滚动显示随机选中的姓名。
+
+= 随机数
+随机数非常有用，在骰子等游戏中十分常见。MicroPython 提供了多种随机数方法，下面制作一个简单的电子骰子。示例代码：
+```sh
+from microbit import *
+import random
+display.show(str(random.randint(1, 6)))
+```
+开发板每次执行该程序，都会显示 1～6 之间的一个数字。random.randint(1, 6) 返回两个参数之间的随机整数，且包含端点 6。由于 show() 需要接收字符，因此这里使用 str() 将数值转换为字符串，例如 str(6) 会把数字 6 转换为字符串 “6”。
+
+如果需要 0～N 之间的数字，可以使用 random.randrange()。只传入一个参数 N 时，它会返回小于 N 的随机整数。random.random() 则只返回 0.0～1.0 之间的浮点数。那么，该如何生成更大的随机浮点数呢？
+
+== 	示例代码
+```sh
+from microbit import *
+import random
+answer = random.randrange(100) + random.random()
+display.scroll(str(answer))
+```
+
+= 种子随机数
+计算机使用的随机数生成器并非真正随机，而是根据随机种子生成数值。那么种子从哪里来？它通常取自时间或传感器读数，例如芯片内置的计时器和温度传感器。
+
+有时需要让随机行为可以重复，例如让每次运行电子骰子时都得到相同的随机序列。设置种子即可实现这一点：给定相同的种子，随机数生成器会生成相同的一组随机数。设置固定种子后，这个版本的骰子程序每次都会得到相同结果。
+
+== 示例代码
+```sh
+from microbit import *
+import random
+random.seed(1337)
+while True:
+   if button_a.was_pressed():
+       display.show(str(random.randint(1, 6)))
+```
+运行上述程序时，LED 点阵屏始终显示 “5”。这是因为这里设置了固定的种子，所以程序每次都会生成相同的数字。
