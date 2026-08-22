@@ -1,0 +1,25 @@
+## 下载并安装 Mu 编辑器
+
+. 访问 https://codewith.mu/[**Mu 编辑器官网**]，单击 **下载** 按钮进入下载页面。
++
+image::/picture/bpi_picow_s3_download_mu_1.jpg[bpi_picow_s3_download_mu_1.jpg]
+
+. 选择计算机当前使用的操作系统，再单击该操作系统对应的 **下载** 按钮，开始下载安装包。
++
+image::/picture/bpi_picow_s3_download_mu_2.png[bpi_picow_s3_download_mu_1.png]
+
+. 单击该操作系统对应的 **使用说明** 按钮，查看详细安装步骤并按指引完成安装。
++
+image::/picture/bpi_picow_s3_download_mu_3.jpg[bpi_picow_s3_download_mu_3.jpg]
+
+## 建立连接
+
+> BPI-PicoW-S3 已安装 tinyUF2 和 CircuitPython 固件。
+
+. 启动 Mu 编辑器并将模式切换为 CircuitPython。如果已正确连接 CircuitPython 开发板，系统会询问是否直接切换到此模式。
++
+image::/picture/bpi_picow_s3_download_mu_4.png[bpi_picow_s3_download_mu_4.png]
+
+. 单击 **串行** 按钮，然后按任意键进入 CircuitPython REPL。
++
+image::/picture/bpi_picow_s3_download_mu_5.jpg[bpi_picow_s3_download_mu_5.jpg]
