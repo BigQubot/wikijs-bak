@@ -1,88 +1,88 @@
-= 简介
+= 产品简介
 
-香蕉派 M2M 是另一个 ARM SoC 供电开发板以超便携的外形提供出色的计算性能。这是一个 51mm 的正方形， Allwinner A33 四核 A7 SoC 和 512MB DDR3 RAM.
+Banana Pi M2M 是一款采用 ARM SoC 的开发板，在非常小巧的外形中提供了出色的计算性能。板体为 51 mm 见方，搭载 Allwinner A33 四核 Cortex-A7 SoC 和 512 MB DDR3 内存。
 
-TIP: 更多信息： link:/en/BPI-M2_Magic/BananaPi_BPI-M2_Magic[香蕉派 BPI-M2_Magic]
+TIP: 更多信息：link:/en/BPI-M2_Magic/BananaPi_BPI-M2_Magic[Banana Pi BPI-M2_Magic]
 
 == 规格参数
 
-- 四核 ARM Cortex A7 CPU. R16
-- 512MB DDR3内存
-- 无线网络 (AP6212) & 板载蓝牙
+- 四核 ARM Cortex-A7 CPU，R16
+- 512 MB DDR3 SDRAM
+- WiFi（AP6212）及板载蓝牙
 
 = 开发
 == 准备
 
-- 一 BPI-M2 Magic，一张至少8G的SD卡，TTL线，电源适配器。
-- 下载镜像并验证MD5是否正确。
+- 一块 BPI-M2 Magic、一张至少 8 GB 的 SD 卡、一根 TTL 串口线和一个电源适配器。
+- 下载镜像并核对 MD5 校验值。
 
 == Android
 === 准备
 
-. 下载凤凰卡： https://pan.baidu.com/s/1-fjvPqtG_zewVzqnXf1AHw?pwd=eid9
+. 下载 PhoenixCard：https://pan.baidu.com/s/1-fjvPqtG_zewVzqnXf1AHw?pwd=eid9
 
 === 使用 SD 卡安装镜像
 
-. 将您的 TF 卡插入 TF-USB 适配器，然后将适配器插入您的 Windows 电脑 usb 界面。
+. 将 TF 卡插入 TF-USB 读卡器，再将读卡器连接到 Windows 电脑的 USB 接口。
  
-. 准备好镜像，下载镜像刻录工具PhoenixCard.exe。
+. 准备好镜像，并下载镜像烧录工具 PhoenixCard.exe。
  
-. 使用“PhoenixCard.exe”进行刻录 android 镜像到TF卡。
-- 在图像路径选项中选择图像
+. 使用 PhoenixCard.exe 将 Android 镜像烧录到 TF 卡。
+- 在镜像路径选项中选择镜像
 +
 image::/picture/m2m-android-1.jpg[m2m-android-1.jpg]
 
-- 选择设置为卡启动，然后点击刻录镜像
+- 选择“卡启动”，然后单击烧录镜像
 +
 image::/picture/m2m-android-2.jpg[m2m-android-2.jpg]
 
-- 燃烧结束
+- 等待烧录完成
 +
 image::/picture/m2m-android-3.jpg[m2m-android-3.jpg]
 
 == Linux
 === 准备
 
-. 准备 8G/above TF卡、 USB-串行电缆。
-. 连接 USB-串行至 40 针接头 uart2，用于内核控制台调试。
+. 准备一张至少 8 GB 的 TF 卡和一根 USB 转串口线。
+. 将 USB 转串口线连接到 40 针排针的 UART2，用于内核控制台调试。
 +
-NOTE: 注：uart0旁边的三个排针 usb 端口未调试 uart 对于 bpi 发布映像，因为 SDcard 和 uart0 是复用引脚，并且默认 bpi 映像同时支持 SD 和 eMMC。如果你想启动 emmc 仅启用uart0作为调试端口，不支持SD卡，请参阅启用 link:/en/BPI-M2_Magic/GettingStarted_BPI-M2_Magic#_enable_uart0_for_emmc_only_image_debug[uart0 调试 emmc 仅有镜像] 部分。
+NOTE: USB 接口旁的三针 UART0 在 BPI 发布的默认镜像中不能用作调试串口，因为 SD 卡与 UART0 复用相同的引脚，而默认镜像需要同时支持 SD 卡和 eMMC。如果只从 eMMC 启动，并希望启用 UART0 作为调试串口且不需要 SD 卡支持，请参阅 link:/en/BPI-M2_Magic/GettingStarted_BPI-M2_Magic#_enable_uart0_for_emmc_only_image_debug[为仅使用 eMMC 的镜像启用 UART0 调试]。
 +
 image::/picture/m2m_debug_console.jpg[m2m_debug_console.jpg]
 image::/picture/m2m_pin_define.png[m2m_pin_define.png]
 
-. 安装 bpi-tools 在你的 **Linux 电脑**，如果您无法访问该网址或有其他问题，请前往 link:https://github.com/BPI-SINOVOIP/bpi-tools[bpi-tools 回购协议] 并手动下载该工具。
+. 在 **Linux 电脑**上安装 bpi-tools。如果无法访问该网址或遇到其他问题，请前往 link:https://github.com/BPI-SINOVOIP/bpi-tools[bpi-tools 仓库] 手动下载该工具。
 +
 ```sh
  $ apt-get install pv
  $ curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
 ```
-. 下载最新的 linux 镜像，并确认 md5 校验和正确。
-. 默认登录： pi/bananapi 或 root/bananapi.
+. 下载最新的 Linux 镜像，并确认 MD5 校验值正确。
+. 默认登录账号：pi/bananapi 或 root/bananapi。
 
 === 使用 SD 卡安装镜像
 
 **Windows**
 
-使用 Balena Etcher 安装映像。 +
-link:https://balena.io/etcher[巴莱纳蚀刻机] 是 Balena 的开源 GUI 闪存工具，可将操作系统映像闪存到 SD 卡或 USB 开车。
+使用 Balena Etcher 烧录镜像。 +
+link:https://balena.io/etcher[Balena Etcher] 是 Balena 提供的开源图形化烧录工具，可将操作系统镜像写入 SD 卡或 USB 存储设备。
 
-. 点击“**从文件闪存**”来选择镜像。 
-. 点击“**选择目标**”来选择 USB 设备。 
-. 点击“**快闪！**“开始燃烧。
+. 单击“**Flash from file**”选择镜像。 
+. 单击“**Select target**”选择目标设备。 
+. 单击“**Flash!**”开始烧录。
 
 image::/picture/etcher.jpg[etcher.jpg]
 
-**林旭**
+**Linux**
 
-有两种方法供您选择。
+可以选择以下两种方法。
 
-- 安装镜像 bpi-tools 上 Linux，将您的 SD 卡插入 Linux 电脑
+- 使用 Linux 上的 bpi-tools 烧录镜像。先将 SD 卡插入 Linux 电脑
 +
 ```sh
 $ sudo bpi-copy  xxx-bpi-m2m-xxx.img.zip /dev/sdX
 ```
-- 使用 dd 命令安装映像 Linux,卸载SD卡设备 /dev/sdX 如果自动安装分区，实际上 bpi-copy 与此 dd 命令相同。
+- 使用 Linux 的 dd 命令烧录镜像。如果 /dev/sdX 的分区被自动挂载，请先将其卸载。bpi-copy 实际执行的操作与此 dd 命令相同。
 +
 ```sh
 $ sudo apt-get install pv
@@ -91,22 +91,22 @@ $ sudo unzip -p xxx-bpi-m2m-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxf
 
 === 安装镜像 eMMC
 
-. 准备一张SD卡 Linux 镜像闪烁并用此 SD 卡启动主板。
-. 复制 emmc 镜像到udisk，将udisk插入主板并安装。
-. 安装与 bpi-tools 命令
+. 准备一张已烧录 Linux 镜像的 SD 卡，并用该卡启动开发板。
+. 将 eMMC 镜像复制到 U 盘，把 U 盘插入开发板并挂载。
+. 使用 bpi-tools 命令烧录
 +
 ```sh
 $ sudo bpi-copy xxx-bpi-m2m-xxx.img.zip /dev/mmcblk1
 ```
-. 或者用dd命令安装，如果自动挂载则umount mmcblk1p1和mmcblk1p2分区，实际上 bpi-copy 与此 dd 命令相同
+. 也可以使用 dd 命令烧录。如果 mmcblk1p1 和 mmcblk1p2 分区被自动挂载，请先卸载。bpi-copy 实际执行的操作与此 dd 命令相同
 +
 ```sh
    $ sudo apt-get install pv
    $ sudo unzip -p xxxb-bpi-m2m-xxx.img.zip | pv | dd of=/dev/mmcblk1 bs=10M status=noxfer
 ```
-. 刷写完成后，安全关闭电源并弹出 SD 卡。
+. 烧录完成后，安全关机并取出 SD 卡。
 
-NOTE: 注意：如果 emmc 被闪现 android 之前，您必须擦除启动分区 android 在步骤 3 或步骤 4 之前。
+NOTE: 如果 eMMC 以前烧录过 Android 镜像，必须先擦除 Android 的启动分区，再执行步骤 3 或步骤 4。
 
 ```sh
    root@bpi-iot-ros-ai:/# echo 0 > /sys/block/mmcblk1/mmcblk1boot0/force_ro                              
@@ -123,18 +123,18 @@ NOTE: 注意：如果 emmc 被闪现 android 之前，您必须擦除启动分�
 ```
 
 === 构建源代码
-. 获取bsp源代码
+. 获取 BSP 源代码
 +
 ```sh
  $ git clone https://github.com/BPI-SINOVOIP/BPI-M2M-bsp
 ```
-. 构建bsp源代码
+. 构建 BSP 源代码
 +
-请阅读源代码 link:https://github.com/BPI-SINOVOIP/BPI-M2M-bsp/blob/master/README.md[README.md]
+请阅读源码仓库中的 link:https://github.com/BPI-SINOVOIP/BPI-M2M-bsp/blob/master/README.md[README.md]
 
-== 先进开发
-=== 启用 uart0 emmc 仅镜像调试
-. 启用 uart0 节点并禁用 sdc0 节点 sunxi-pack/sun8iw5p1/configs/BPI-M2M-LCD7/sys_config.fex.
+== 进阶开发
+=== 为仅使用 eMMC 的镜像启用 UART0 调试
+. 在 sunxi-pack/sun8iw5p1/configs/BPI-M2M-LCD7/sys_config.fex 中启用 UART0 节点并禁用 SDC0 节点。
 +
 ```sh
     --- a/sunxi-pack/sun8iw5p1/configs/BPI-M2M-LCD7/sys_config.fex
@@ -159,74 +159,74 @@ NOTE: 注意：如果 emmc 被闪现 android 之前，您必须擦除启动分�
     sdc_d1            = port:PF00<2><1><2><default>
 ```
 
-. 构建 bsp 源代码。
-. 复制引导加载程序文件 SD/bpi-m2m/100MB/BPI-M2M-LCD7-8k.img.gz 到优盘。 bpi 还提供 link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FImages%2FBPI-M2M%2FUbuntu16.04%2FBPI-M2M-LCD7-eMMC-only-uart0-debug-8k.img.gz[预构建引导加载程序] 对于这个要求。
-. 从以下位置启动 m2m 板emmc，插入udisk并挂载它。
-. 将引导加载程序刷新到 emmc
+. 构建 BSP 源代码。
+. 将引导加载程序文件 SD/bpi-m2m/100MB/BPI-M2M-LCD7-8k.img.gz 复制到 U 盘。BPI 也为这一用途提供了 link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FImages%2FBPI-M2M%2FUbuntu16.04%2FBPI-M2M-LCD7-eMMC-only-uart0-debug-8k.img.gz[预构建引导加载程序]。
+. 从 eMMC 启动 M2M 开发板，插入 U 盘并将其挂载。
+. 将引导加载程序烧录到 eMMC
 +
 ```sh
    $ sudo bpi-bootsel BPI-M2M-LCD7-8k.img.gz /dev/mmcblk0
 ```
-或
+或者
 +
 ```sh
    $ sudo gunzip -c BPI-M2M-LCD7-8k.img.gz | dd of=/dev/mmcblk0 bs=1024 seek=8
    $ sync
    $ sudo umount /dev/sda1
 ```
-. Mout 启动分区并设置内核调试控制台 uEnv.txt
+. 挂载启动分区，并在 uEnv.txt 中设置内核调试控制台
 +
 ```sh
    $ sudo mount -t vfat /dev/mmcblk0p1 /mnt
 ```
-更改“控制台=ttyS2,115200”到“控制台=ttyS0,115200”中 /mnt/bananapi/bpi-m2m/linux/lcd7/uEnv.txt
+在 /mnt/bananapi/bpi-m2m/linux/lcd7/uEnv.txt 中将 console=ttyS2,115200 改为 console=ttyS0,115200
 +
 ```sh
    $ sudo umount /dev/mmcblk0p1
 ```
-. 安全关闭开发板电源并连接调试 uart 到 uart0 三针接头。
+. 安全关闭开发板电源，并将调试串口连接到 UART0 三针排针。
 
-=== 音频路径
-. 2 针 HP 接头输出音频路径
+=== 音频通路
+. 两针 HP 接口的音频输出通路
 +
 [options="header",cols="1,2,2"]
 |=====
-3+| 2 针 HP 接头输出音频路径
-|号码编号  | 控制键_姓名                   | 值
-| 1          | 耳机音量           | 0-63  
-| 104        | AIF1IN0L 多路复用器               | AIF1_DA0L       
-| 103        | AIF1IN0R 复用器               | AIF1_DA0R       
-| 100        | DACL 混音器 AIF1DA0L 开关 | 1               
-| 96         | DACR 混音器 AIF1DA0R 开关 | 1               
-| 78         | 惠普_R复用器                   | DACR HPR 开关 
-| 77         | 惠普_左多路复用器                   | DACL HPL 开关 
-| 105        | 耳机开关           | 1              
+3+| 两针 HP 接口的音频输出通路
+| 编号  | 控件名称                   | 值
+| 1          | headphone volume           | 0-63  
+| 104        | AIF1IN0L Mux               | AIF1_DA0L       
+| 103        | AIF1IN0R Mux               | AIF1_DA0R       
+| 100        | DACL Mixer AIF1DA0L Switch | 1               
+| 96         | DACR Mixer AIF1DA0R Switch | 1               
+| 78         | HP_R Mux                   | DACR HPR Switch 
+| 77         | HP_L Mux                   | DACL HPL Switch 
+| 105        | Headphone Switch           | 1              
 |=====
 
-. 麦克风1输入音频路径
+. Mic 1 音频输入通路
 +
 [options="header",cols="1,3,1"]
 |=====
-3+|麦克风1输入音频路径
-|号码编号	|控制键_姓名	|值
-|56	|AIF1OUT0L 多路复用器	|AIF1_AD0L
-|55	|AIF1OUT0R 多路复用器	|AIF1_AD0R
-|51	|AIF1 AD0L 混频器 ADCL 开关 |1
-|47	|AIF1 AD0R 混频器 ADCR 开关 |1
-|24	|ADCR 复用器	|ADC
-|25	|ADCL 复用器	|ADC
-|34	|左 ADC 输入混音器 MIC1 升压开关	|1
-|27	|右 ADC 输入混音器 MIC1 升压开关	|1
-|4	|MIC1 升压放大器增益	|0-7
+3+|Mic 1 音频输入通路
+|编号	|控件名称	|值
+|56	|AIF1OUT0L Mux	|AIF1_AD0L
+|55	|AIF1OUT0R Mux	|AIF1_AD0R
+|51	|AIF1 AD0L Mixer ADCL Switch |1
+|47	|AIF1 AD0R Mixer ADCR Switch |1
+|24	|ADCR Mux	|ADC
+|25	|ADCL Mux	|ADC
+|34	|LEFT ADC input Mixer MIC1 boost Switch	|1
+|27	|RIGHT ADC input Mixer MIC1 boost Switch	|1
+|4	|MIC1 boost amplifier gain	|0-7
 |=====
 
-. 阿尔萨配置文件 /var/lib/alsa/alsa.state.bpi-m2m 已启用 2 针 HP 输出和 Mic 1 输入音频路径，并通过以下方式恢复 /var/lib/bananapi/bpi-autorun.d/S10-audio-bpi-m2m.sh 系统启动后。
+. ALSA 配置文件 /var/lib/alsa/alsa.state.bpi-m2m 已启用两针 HP 输出和 Mic 1 输入音频通路。系统启动后，/var/lib/bananapi/bpi-autorun.d/S10-audio-bpi-m2m.sh 会恢复这些设置。
 
 === 蓝牙
-- 使用bluetoothctl工具操作BT
-- 执行“**蓝牙控制**"
-- 如果您不知道如何使用 bluetoothctl，请输入“**帮助**”，你会看到更多命令
-- 执行这些命令：
+- 使用 bluetoothctl 工具管理蓝牙
+- 执行“**bluetoothctl**”
+- 如果不熟悉 bluetoothctl，请输入“**help**”查看更多命令
+- 执行以下命令：
 +
 ```sh
 devices
@@ -241,8 +241,8 @@ connect to *****
 +
 image::/picture/m2m_bt_bluetoothctl.png[m2m_bt_bluetoothctl.png]
 
-=== WiFi客户端
-**您有两种方法来设置 WiFi 客户端**
+=== WiFi 客户端
+**可以使用以下两种方法设置 WiFi 客户端**
 
 . 使用命令设置 WiFi 客户端
 +
@@ -255,23 +255,23 @@ image::/picture/m2m_bt_bluetoothctl.png[m2m_bt_bluetoothctl.png]
  # wpa_supplicant -B -iwlan0 -c/etc/wpa_supplicant/wpa_supplicant.conf
  # dhclient wlan0
 ```
-还有一些其他的命令行方式，请google一下。
+还可以使用其他命令行方式，具体请参阅相关工具的在线文档。
 
-. 使用UI界面设置WiFi Client
+. 使用图形界面设置 WiFi 客户端
 
-=== 相机功能
-我们使用HDF5640摄像机。
+=== 摄像头功能
+本例使用 HDF5640 摄像头。
 
 image::/picture/ov5640_camara.png[ov5640_camara.png]
 
-**古维视**
+**Guvcview**
 
-- 使用您的UI界面来操作相机
-- 应用程序 -> 声音和视频 -> guvcview
+- 通过图形界面操作摄像头
+- Applications -> Sound & Video -> guvcview
 
-**壳牌**
+**Shell**
 
-我们还有内置命令 /usr/local/bin 测试相机
+系统还在 /usr/local/bin 中提供了摄像头测试脚本
 
 - 测试拍照功能
 +
@@ -284,8 +284,8 @@ image::/picture/ov5640_camara.png[ov5640_camara.png]
 ./cameratest.sh
 ```
 
-=== RPi。GPIO
-**安装 RPi。GPIO**
+=== RPi.GPIO
+**安装 RPi.GPIO**
 ```sh
 git clone https://github.com/BPI-SINOVOIP/RPi.GPIO"
 cd RPi.GPIO
@@ -296,27 +296,27 @@ sudo apt-get install python-dev python3-dev
 ```sh
 sudo python setup.py install
 ```
-或
+或者
 ```sh
 sudo python3 setup.py install
 ```
-**使用 RPi。GPIO**
+**使用 RPi.GPIO**
 ```sh
 cd /usr/local/bin
 ./bpi_test_g40.py
 ```
 image::/picture/rpi_gpio.png[rpi_gpio.png]
 
-=== 接线Pi
+=== WiringPi
 - GitHub: https://github.com/BPI-SINOVOIP/BPI-WiringPi2.git
 
-- 我们还有内置的测试命令 
+- 系统还提供了内置测试命令，位于 
 +
 ```sh
 /usr/local/bin
 ```
 
-**如何更新 WiringPi**
+**更新 WiringPi**
 
 - 执行
 +
@@ -341,7 +341,7 @@ image::/picture/update_wringpi.png[update_wringpi.png]
 ```
 image::/picture/wringpi_1602_lcd_m2m.png[wringpi_1602_lcd_m2m.png]
 
-**0.96英寸 OLED 显示**
+**0.96 英寸 OLED 显示屏**
 
 - 执行 
 +
@@ -349,9 +349,9 @@ image::/picture/wringpi_1602_lcd_m2m.png[wringpi_1602_lcd_m2m.png]
 /usr/local/bin/bpi_test_52pi.sh
 ```
 
-**8x8 RGB LED 马蒂克斯**
+**8×8 RGB LED 矩阵**
 
-- 首先你需要一个 GPIO 8x8 扩展板 LED 马蒂克斯
+- 首先需要一块用于 8×8 LED 矩阵的 GPIO 扩展板
 +
 image::/picture/wringpi_led_martix_extend_board.png[wringpi_led_martix_extend_board.png]
 
@@ -361,4 +361,4 @@ image::/picture/wringpi_led_martix_extend_board.png[wringpi_led_martix_extend_bo
 /usr/local/bin/bpi_test_gpio40.sh
 ```
 image::/picture/wringpi_led_martix_m2m.png[wringpi_led_martix_m2m.png]
-
+ 
