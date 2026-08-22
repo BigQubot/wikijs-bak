@@ -1,70 +1,70 @@
-= 如何使用 BPI-4G LTE 模块具有 BPI-R2
+= 如何在 BPI-R2 上使用 BPI-4G LTE 模块
 
 == 开始使用
-论坛 pthread 讨论： http://forum.banana-pi.org/t/how-to-use-bpi-4g-lte-module-with-bpi-r2/5223/4
+论坛讨论帖：http://forum.banana-pi.org/t/how-to-use-bpi-4g-lte-module-with-bpi-r2/5223/4
 
 image::/picture/usb_4g_1.jpg[usb_4g_1.jpg]
 
-. 首先使用R2连接LTE模块 USB 或 14 针接头。然后执行命令“lsusb”查看R2是否驱动了模块。红框是4G模块的id。
+. 首先通过 USB 或 14 针排针将 R2 连接到 LTE 模块，然后执行 “lsusb” 命令，检查 R2 是否已驱动该模块。红框中显示的是 4G 模块 ID。
 +
 image::/picture/usb_4g_2.png[usb_4g_2.png]
 +
-看到这个后，执行命令“ls /dev/ttyUSB*“以确保4G模块已被识别为 USB 开发人员。
+看到该设备后，执行 “ls /dev/ttyUSB*” 命令，确认 4G 模块已被识别为 USB 设备。
 +
 image::/picture/usb_4g_3.png[usb_4g_3.png]
 
-. 执行“./ppp1.sh &"
+. 执行 “./ppp1.sh &”。
 +
 image::/picture/usb_4g_4.png[usb_4g_4.png]
 +
-然后执行命令“ifconfig -a”，你会看到ppp0
+然后执行 “ifconfig -a” 命令，应能看到 ppp0 接口。
 +
 image::/picture/usb_4g_5.jpg[usb_4g_5.jpg]
 
-. 执行命令“wget -O speedtest-cli https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py” 下载速度测试工具。
+. 执行 “wget -O speedtest-cli https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py” 命令，下载网速测试工具。
 +
 image::/picture/usb_4g_6.png[usb_4g_6.png]
 
-. 执行命令“chmod +x speedtest-cli”，然后执行“./speedtest-cli"
+. 执行 “chmod +x speedtest-cli”，然后运行 “./speedtest-cli”。
 +
 image::/picture/usb_4g_7.png[usb_4g_7.png]
 +
 ppp1_success_log.txt ： http://forum.banana-pi.org/uploads/default/original/2X/e/eb7d46a0971c25f6337116d60e76590ce298b676.txt
 
 = FAQ
-. 你可以获得 ppp1.sh 从这里开始： https://pan.baidu.com/s/1yu0nTNQKPNPzprVPjhOPUA
+. 可从此处获取 ppp1.sh：https://pan.baidu.com/s/1yu0nTNQKPNPzprVPjhOPUA
 
-. **Q：如果遇到这个“期望”，我该怎么办？ (好的) ^M报警失败”**
+. **Q：遇到 “expect (OK) ^M alarm Failed” 错误时该怎么办？**
 +
 image::/picture/usb_4g_8.png[usb_4g_8.png]
 +
-**A**：根本原因是Modem.service使用了usbserial模块，所以4G模块无法使用usbserial；我们可以使用命令“systemctldisableModemManager.service”或“systemctlstopModemManager.service”来解决问题
+**A**：根本原因是 ModemManager.service 占用了 usbserial，因此 4G 模块无法使用 usbserial。可以执行 “systemctl disable ModemManager.service” 或 “systemctl stop ModemManager.service” 解决。
 
-. Q：如何测试SIM卡与4G模块的通讯情况？
+. Q：如何测试 SIM 卡与 4G 模块之间的通信？
 +
-A:使用minicom，”minicom -D /dev/ttyUSB2”，然后使用AT命令测试，如“at”，“at+csq”，“在+ccid”，如果得到响应且没有错误，则说明通讯正常。
+A：使用 minicom，执行 “minicom -D /dev/ttyUSB2”，然后用 AT 命令测试，例如 “at”“at+csq”“at+ccid”。如果收到响应且没有报错，说明通信正常。
 
-. **问：如何安装libqmi？**
+. **Q：如何安装 libqmi？**
 +
-答：从这里下载： http://www.linuxfromscratch.org/blfs/view/cvs/general/libqmi.html ;然后进行 make 和 make install。
+A：从此处下载：http://www.linuxfromscratch.org/blfs/view/cvs/general/libqmi.html ；然后执行 make 和 make install。
 +
-如果你遇到这样的情况：
+如果遇到下图所示错误：
 +
 image::/picture/usb_4g_9.png[usb_4g_9.png]
 +
-你需要安装libgudev-1.0-dev，然后再次make并make install。
+需要安装 libgudev-1.0-dev，然后再次执行 make 和 make install。
 
-. *Q：如何使用qmi-wwan？*
+. *Q：如何使用 qmi-wwan？*
 +
-A：使用方法很简单，我把quectel-CM放在root的home路径下，执行“./quectel-CM &”，然后执行“dhclient wwan0”，至此配置完成。
+A：使用方法很简单。将 quectel-CM 放在 root 的主目录中，执行 “./quectel-CM &”，再执行 “dhclient wwan0”，即可完成配置。
 
-. *Q：如何使用GPS？*
+. *Q：如何使用 GPS？*
 +
-A：BPI-4G 模块支持GPS和北斗，执行“minicom -D /dev/ttyUSB2”，然后输入AT指令如下：
+A：BPI-4G 模块支持 GPS 和北斗。执行 “minicom -D /dev/ttyUSB2”，然后输入如下 AT 命令：
 +
 image::/picture/usb_4g_10.png[usb_4g_10.png]
 +
-如果你想使用北斗，只需输入这样的AT命令：
+如需使用北斗，输入如下 AT 命令：
 +
 image::/picture/usb_4g_10.png[usb_4g_10.png]
 
@@ -74,51 +74,51 @@ image::/picture/usb_4g_10.png[usb_4g_10.png]
 +
 补丁： http://forum.banana-pi.org/uploads/default/original/2X/5/5739bb02c8dc5817ed8ba6ec466b4bdb70cf37fa
 
-. 支持领域：
-- EC25-E支持： EMEA/Thailand/India/South 韩国
-- EC25-AU 支持：澳大利亚
-- EC25-V/-A 支持：北美
+. 支持地区：
+- EC25-E：欧洲、中东、非洲、泰国、印度和韩国
+- EC25-AU：澳大利亚
+- EC25-V/-A：北美
 
-. Openwrt 支持：
+. OpenWrt 支持：
 
-A. 从此链接克隆源代码： BPI-R2 OpenWrt(发光二极体) 源代码 : 2018-04-11
+A. 从以下链接克隆源代码：BPI-R2 OpenWrt（LEDE）源代码：2018-04-11
 
 B. 将 qmi-wwan 驱动程序添加到该项目中：
 
-- 执行“./scripts/feeds/ install minicom” 将 minicom 安装到 openwrt 项目
-- 执行“./scripts/feeds/ 安装 python”来安装 python 到 openwrt 项目
-- 执行“make menuconfig”
-- 添加 minicom “实用程序 —> 终端 —> minicom”
-- 添加 python “语言—> Python”
-- 添加驱动程序“网络 —> wwan ...Genetic OpenWrt 3G/4G 原型处理程序”
-- 添加“内核模块—> USB 支持—>
-- kmod-usb-核心
+- 执行 “./scripts/feeds/ install minicom”，将 minicom 安装到 OpenWrt 项目
+- 执行 “./scripts/feeds/ install python”，将 Python 安装到 OpenWrt 项目
+- 执行 “make menuconfig”
+- 添加 minicom：“Utilities —> Terminal —> minicom”
+- 添加 Python：“Languages —> Python”
+- 添加驱动：“Network —> wwan ... Generic OpenWrt 3G/4G proto handler”
+- 添加 “Kernel modules —> USB Support —>
+- kmod-usb-core
 - kmod-usb-net —> kmod-usb-net-qmi-wwan
 - kmod-usb-ohci
-- kmod-usb-串行 —> kmod-usb-串行选项，kmod-usb-串行-wwan
+- kmod-usb-serial —> kmod-usb-serial-option、kmod-usb-serial-wwan
 - kmod-usb-uhci
 - kmod-usb2-*
-- 使用这些源文件替换您的 openwrt 项目源文件(“build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/linux-mediatek_32/linux-4.9.44/drivers/usb(或网)/…”) :
+- 使用这些源文件替换 OpenWrt 项目中的源文件（“build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/linux-mediatek_32/linux-4.9.44/drivers/usb(or net)/…”）：
 +
 image::/picture/usb_4g_12.png[usb_4g_12.png]
 
-C. 图片和资料链接：
+C. 镜像和资料链接：
 +
-百度驱动： https://pan.baidu.com/s/1e6bvsznfFW3PuaONz0OR1Q
+百度网盘：https://pan.baidu.com/s/1e6bvsznfFW3PuaONz0OR1Q
 +
 谷歌云端硬盘：https://drive.google.com/file/d/1Zjj0TiZOFGlmAGmRmErqnwdSosUrLUPZ/view?usp=sharing
 
-D. 交叉编译quectel-CM
-将“quectel-CM”复制到 Linux 主机，修改“quectel-CM”下的“Makefile”，修改工具如下：工具在 openwrt 项目，您可以根据下图找到它们。
+D. 交叉编译 quectel-CM
+将 “quectel-CM” 复制到 Linux 主机，修改 “quectel-CM” 目录下的 “Makefile” 和相关工具配置。工具位于 OpenWrt 项目中，可根据下图找到。
 +
 image::/picture/usb_4g_13.jpg[usb_4g_13.jpg]
 +
-如果 ping 域名失败，添加“nameserver 8.8.8.8” /etc/resolv.conf
+如果无法 ping 通域名，请在 /etc/resolv.conf 中添加 “nameserver 8.8.8.8”。
 +
 image::/picture/usb_4g_14.png[usb_4g_14.png]
 image::/picture/usb_4g_15.png[usb_4g_15.png]
 
-. 如果您使用 mPCIE 接口 4G 模块通过 14 排针连接 R2，请使用这些命令来启用 4G 模块，完成这些步骤后，USB0 端口将被禁用。
+. 如果通过 14 针排针将 mPCIe 接口的 4G 模块连接到 R2，请使用以下命令启用模块。完成这些步骤后，USB0 接口将被禁用。
 +
 ```sh
 cd /sys/class/gpio/
