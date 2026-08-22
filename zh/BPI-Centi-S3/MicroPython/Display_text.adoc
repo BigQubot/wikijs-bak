@@ -1,34 +1,34 @@
-TIP: link:../GettingStarted_BPI-Centi-S3[返回开始使用 BPI-Centi-S3]
+TIP: link:../GettingStarted_BPI-Centi-S3[返回 BPI-Centi-S3 快速入门]
 
 video::MAvLjCMQ93s[youtube]
 
-## 文字法
+## text 方法
 
 `text(font, s, x, y {, fg, bg, alpha})`
 
-使用指定的位图将文本写入显示器 `font` 坐标作为文本的左上角。
+使用指定的位图 `font` 在显示屏上绘制文本，所给坐标为文本的左上角。
 
-可选参数 `fg` 和 `bg` 可以设置文字的前景色和背景色； otherwise the foreground color defaults to `WHITE`, and the background color defaults to `BLACK`. 
+可选参数 `fg` 和 `bg` 分别设置文本的前景色和背景色；未指定时，前景色默认为 `WHITE`，背景色默认为 `BLACK`。
 
 `alpha` 默认为 255。 
 
-请参阅 https://github.com/russhughes/st7789s3_esp_lcd/tree/main/fonts/bitmap[README.md] 在 `fonts/bitmap` directory for example fonts.
+有关示例字体，请参阅 `fonts/bitmap` 目录中的 https://github.com/russhughes/st7789s3_esp_lcd/tree/main/fonts/bitmap[README.md]。
 
 ## 位图字体
 
-的 BPI-Centi-S3  出厂固件包含两个位图字体文件。
+BPI-Centi-S3 出厂固件包含两个位图字体文件。
 
 `vga1_8x16.mpy`
 
 `vga1_bold_16x32.mpy`
 
-他们来自 https://github.com/russhughes/st7789s3_esp_lcd/tree/main/fonts/bitmap.
+它们来自 https://github.com/russhughes/st7789s3_esp_lcd/tree/main/fonts/bitmap。
 
-由此我选择了这两个最常用的，使用  https://pypi.org/project/mpy-cross/[MPY-CROSS 工具] 将它们转变为 `.mpy` format to reduce the volume of files.
+这里选取其中最常用的两个字体，并使用 https://pypi.org/project/mpy-cross/[MPY-CROSS 工具]将其转换为 `.mpy` 格式，以减小文件体积。
 
 ## 下载字体文件
 
-如果误删除字体文件或擦除Flash，则需要重新下载字体文件。您可以从前面的文字链接下载，也可以将下面链接中的字体下载到 `.mpy` format, including the example below.
+如果误删字体文件或擦除了 Flash，需要重新下载字体文件。可以从前面的链接下载，也可以从下方链接下载 `.mpy` 格式的字体和示例。
 
 NOTE: https://github.com/bpi-team/bpi-s3-doc/micropython_example/04_display_text[From here to download fonts and examples]
 
@@ -45,12 +45,12 @@ import vga1_8x16
 import vga1_bold_16x32
 
 """
-These default colors can be used:
+可使用以下默认颜色：
 BLACK           BLUE            CYAN            GREEN
 MAGENTA         RED             YELLOW          WHITE
 TRANSPARENT
 
-Custom RGB colors:
+自定义 RGB 颜色：
 color565(255,255,255)
 """
 fg = st7789.BLACK
@@ -85,13 +85,13 @@ main()
 
 ```
 
-## 使用透明背景和Alpha通道制作阴影字体
+## 使用透明背景和 Alpha 通道制作阴影字体
 
 image::/picture/bpi_centi_s3_display_text_2.jpg[bpi_centi_s3_display_text_2.jpg]
 
-合理使用 `st7789.TRANSPARENT` 作为文本的背景颜色可以使文本的背景不发生变化。
+将 `st7789.TRANSPARENT` 设为文本背景色，可以保持原有背景不变。
 
-通过设置text方法中的alpha参数，可以改变文本的整体透明度，范围为0 ~ 255.
+通过设置 text 方法的 alpha 参数，可以调整文本的整体透明度，取值范围为 0～255。
 
 ```py
 """ BPI-Centi-S3 170x320 ST7789 display """
@@ -102,12 +102,12 @@ import vga1_8x16
 import vga1_bold_16x32
 
 """
-These default colors can be used:
+可使用以下默认颜色：
 BLACK           BLUE            CYAN            GREEN
 MAGENTA         RED             YELLOW          WHITE
 TRANSPARENT
 
-Custom RGB colors:
+自定义 RGB 颜色：
 color565(255,255,255)
 """
 fg = st7789.BLACK
