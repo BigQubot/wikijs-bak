@@ -1,0 +1,69 @@
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_basic_board_development[位用于 MicroPython]
+
+= 简介
+
+Hello World 是最著名的程序之一。对于每个程序员来说，这个程序是几乎所有编程语言中的第一个示例程序。事实上，它所做的只是告诉计算机说 Hello World。传统上，这个程序一直被程序员用来测试新的系统或编程语言。对于程序员来说，在计算机屏幕上看到这两个词通常表明他们的代码已经准备好编译、加载和运行，而这个输出就是为了证明这一点，所以以此为例。
+
+= 使用 MpfShell 编程
+温馨提示：请烧毁 MicroPython 使用前固件。
+
+需要的材料请到这里下载 windows-mpfshell。 exe，由于软件版本可能有更新，需要手动选择。
+
+= 运行程序通过 repl
+
+image::/bpi-bit/program.png[program.png]
+
+(采取 Windows 举个例子) 双击运行 windows-mpfshell.exe。
+
+image::/bpi-bit/index.png[index.png]
+
+[options="header",cols="1,3"]
+|====
+2+|BPI：位
+|依次出现的颜色	|解释一下
+|白色	|显示所有支持的命令操作，顶部命令用于提供有用说明，底部命令用于反向操作。
+|黄色	|以上命令对所有的支持，如果你想了解ls的用法 ` ` 输入 ` help ls `.
+|蓝色	|显示当前插板串口名称，如图 ` com5 `，可以输入 ` open com5 ` 连接的设备
+|====
+
+要尝试连接到设备，请输入 open com5 (或简称 o com5)。如果没有任何反应，请使用 CTRL + C 或右上角的红十字。
+
+image::/bpi-bit/opendev.png[opendev.png]
+
+现在提示：第一次启动面板，如果使用联网功能，如果灯还在滚动的时候连接到面板，联网操作可能会停止，所以当发现联网功能停止时，需要手动执行wifi。开始 () 在 repl，或使用 exec 执行该语句。
+
+之前提示：第一次启动板子时，第一次连接失败，可以根据提示重试，所以请注意红色提示信息。
+
+image::/bpi-bit/connected.png[connected.png]
+
+当显示Connected to esp32时，即可确认单板已连接成功。
+
+此时，输入 repl 再次进入基础编程环境，写下你的第一个程序，例如： print('你好，世界！ ')
+
+Tip: 启动时最新固件 REPL 可能是没有找到AP，想要停止可以输入wifi。关闭 ()，外部操作，这不影响板子只是会影响输出 REPL 位置，设置固件板上电自动连接互联网，网络配置文件在内部wifi_cfg。 py，因为每个人的环境不同，所以默认连接webduino。 IO/webduino，其输出信息仅影响显示，不影响功能。
+
+image::/bpi-bit/print_helloworld.png[print_helloworld.png]
+
+回声你好，世界！如果您已成功运行第一个程序，您可以继续输入代码来测试它。
+更多编程用法将在后续章节中介绍。
+
+= 运行程序通过 main.py
+创建一个新的 main.py 文件并写入以下内容。
+```sh
+print('Hello, World!')
+```
+如果要使用MpfShell执行该文件，请将其放在与MpfShell相同的目录中。
+
+image::/bpi-bit/main.png[main.png]
+
+然后切换到MpfShell的程序区，输入runfile main.py，或射频 main.py，运行文件 rf 的缩写。
+
+image::/bpi-bit/main_result.png[main_result.png]
+
+可以看到有hello world的回显，说明程序运行成功。
+
+有用的提示：最新的 mpfshell 指令有一个 lexecfile，如果您需要与之交互，可以使用它 python 输入，因为runfile只能接收board输出而不能接收输入。
+
+= 使用 PyCharm 进行编程
+
+使用方法请参见 link:/en/BPI-Bit/Bit_for_MicroPython/Pycharm_IDE_programming[4 皮查姆 IDE 编程]
