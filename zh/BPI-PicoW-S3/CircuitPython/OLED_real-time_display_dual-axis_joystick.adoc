@@ -1,28 +1,28 @@
 基于前面的章节：
 
-link:/en/BPI-PicoW-S3/CircuitPython/ADC_input[ADC 输入，使用双轴操纵杆]
+link:/en/BPI-PicoW-S3/CircuitPython/ADC_input[ADC 输入：使用双轴摇杆]
 
-link:/en/BPI-PicoW-S3/CircuitPython/Download_and_install_the_CircuitPython_library[下载并安装 CircuitPython 驱动SSD1306的库 oled 显示模块]
+link:/en/BPI-PicoW-S3/CircuitPython/Download_and_install_the_CircuitPython_library[下载并安装用于驱动 SSD1306 OLED 显示模块的 CircuitPython 库]
 
-可以设计一个程序来使 OLED 实时动画显示双轴摇杆位置。
+下面的程序可让 OLED 以实时动画显示双轴摇杆的位置。
 
 **接线参考**
 [cols="^,^",options="header",]
 |===
-|固态硬盘1306 |BPI-PicoW-S3
-|接地 |接地
-|电压控制电路 |3V3
+|ssd1306 |BPI-PicoW-S3
+|GND |GND
+|VCC |3V3
 |SCL |GP0
 |SDA |GP1
 |===
 
 [cols="^,^",options="header",]
 |===
-|操纵杆 |BPI-PicoW-S3
-|接地 |接地
+|双轴摇杆 |BPI-PicoW-S3
+|GND |GND
 |+5V |3V3
-|虚拟现实 |GP27_A1
-|维瑞 |GP26_A0
+|VRx |GP27_A1
+|VRY |GP26_A0
 |===
 
 
@@ -81,25 +81,25 @@ def get_coordinates(zero = (32767,32767), x_spacing = (2048,2048),y_spacing = (2
         y_axis = - ((-y_value) // y_spacing[0])
     return (x_axis,y_axis)
 
-# i2c init
+# 初始化 I2C
 i2c = busio.I2C(board.GP0, board.GP1)
 display = adafruit_ssd1306.SSD1306_I2C(128, 64, i2c, addr=0x3C)
 
-# Uniformly set the color and background color of displayed characters or graphics.
-# Monochrome OLEDs only need to set one and then negate the other.
+# 统一设置所显示字符或图形的颜色与背景色。
+# 单色 OLED 只需设置其中一种颜色，另一种取反即可。
 display_color = 0
 bg_color = not display_color
 
-# Fill background color.
+# 填充背景色。
 display.fill(bg_color)
 display.show()
 
-# Set 2-axis rocker pin.
+# 设置双轴摇杆引脚。
 x_axis_pin = analogio.AnalogIn(board.A0)
 y_axis_pin = analogio.AnalogIn(board.A1)
 
-# Calibrate the zero point.
-# Take the xy-axis reading when the dual-axis joystick is at rest and set it to zero point.
+# 校准零点。
+# 读取双轴摇杆静止时的 X、Y 轴数值，并将其设为零点。
 display.text('Zero adjustment', 0, 20, display_color, font_name='font5x8.bin', size=1)
 display.text('Do not touch', 0, 28, display_color, font_name='font5x8.bin', size=1)
 display.show()
@@ -111,7 +111,7 @@ display.show()
 print(str_zero)
 time.sleep(2)
 
-# Different hardware measures different extreme values.
+# 不同硬件测得的极值可能不同。
 display.fill(bg_color)
 display.text('Extremum adjustment', 0, 20, display_color, font_name='font5x8.bin', size=1)
 display.text('Rotary rocker', 0, 28, display_color, font_name='font5x8.bin', size=1)
@@ -127,7 +127,7 @@ print((str_x_extremum, str_y_extremum))
 display.show()
 time.sleep(2)
 
-# Setting the scale spacing can eliminate unnecessary jitter.
+# 设置刻度间距可消除不必要的抖动。
 (x_spacing,y_spacing) = get_spacing(level = 32 , zero = zero, x_extremum = x_extremum,y_extremum = y_extremum)
 print((x_spacing, y_spacing))
 
@@ -139,14 +139,14 @@ display.text('y=', 70, 32, display_color, font_name='font5x8.bin', size=2)
 (x_axis_2,y_axis_2) = (0,0)
 display.show()
 while True:
-    # Get the coordinate value in a loop.
+    # 循环获取坐标值。
     (x_axis,y_axis) = get_coordinates(zero = zero, x_spacing = x_spacing, y_spacing = y_spacing)
-    # Only refresh the display when the coordinates change.
+    # 仅在坐标变化时刷新显示。
     if (x_axis,y_axis) == (x_axis_1,y_axis_1):
         pass
     else:
-        # Using background color inversion for identical pixels,
-        # pixels can be refreshed with minimal performance cost.
+        # 对相同像素使用背景色反转，
+        # 以尽可能低的性能开销刷新像素。
         display.fill_rect(x_axis_2-3, y_axis_2-3, 6, 6, bg_color)
         display.text(str(x_axis_1), 90, 16, bg_color, font_name='font5x8.bin', size=2)
         display.text(str(y_axis_1), 90, 32, bg_color, font_name='font5x8.bin', size=2)
