@@ -2,57 +2,57 @@
 
 
 
-TIP: 更多信息： link:/en/BPI-CanMV-K230D/BananaPi_BPI-CanMV-K230D-Zero[香蕉派 BPI-CanMV-K230D-Zero]
+TIP: 更多信息：link:/en/BPI-CanMV-K230D/BananaPi_BPI-CanMV-K230D-Zero[Banana Pi BPI-CanMV-K230D-Zero]
 
 == 规格参数
 
 
 
 = 开发
-== 准备
+== 准备工作
 
-. 两个 USB 转 type-c 电缆、k230D 板、SD 卡
+. 两根 USB Type-C 数据线、一块 K230D 开发板和一张 SD 卡
 
-== 将映像安装到 SD 下 Windows
+== 在 Windows 中将镜像烧录到 SD 卡
 
 
-在 Windows，可以使用Rufus工具烧录TF卡 (Rufus工具下载地址： http://rufus.ie/downloads/).
+在 Windows 中可使用 Rufus 烧录 TF 卡（Rufus 下载地址：http://rufus.ie/downloads/）。
 
-. 将TF卡插入PC，启动Rufus工具，点击工具界面的“选择”按钮，选择要烧录的固件。
+. 将 TF 卡插入计算机，启动 Rufus，单击界面上的“选择”按钮并选择要烧录的固件。
 
-. 单击“开始”按钮开始刻录。刻录过程中会显示进度条，刻录完成后会显示“Ready”提示。
+. 单击“开始”按钮开始烧录。过程中会显示进度条；完成后会显示“Ready”。
 
 image::/bpi-k230d/bpi-canmv-k230d_zero_burn.jpg[bpi-canmv-k230d_zero_burn.jpg]
 
-== 将映像安装到 SD 下 Linux
+== 在 Linux 中将镜像烧录到 SD 卡
 
-在将TF卡插入主机之前，输入：
+将 TF 卡插入主机前，输入：
 
 ```
 ls -l /dev/sd\*
 ```
 查看当前存储设备。
 
-将TF卡插入主机后，再次输入：
+将 TF 卡插入主机后，再次输入：
 ```
 ls -l /dev/sd\*
 ```
-此时查看存储设备，新增的是TF卡设备节点。
+对比存储设备列表，新增的设备节点即为 TF 卡。
 
-假设 /dev/sdc 为TF卡设备节点，执行以下命令烧录TF卡：
+假设 /dev/sdc 是 TF 卡设备节点，执行以下命令进行烧录：
 ```
 sudo dd if=sysimage-sdcard.img of=/dev/sdc bs=1M oflag=sync
 ```
 
-== 使用设备
+== 使用开发板
 
-烧写固件成功后，将开发板连接到电脑，可以看到虚拟的 USB **坎MV** 和一个虚拟串口。
+固件烧录成功后，将开发板连接到计算机，可以看到一个名为 **CanMV** 的虚拟 USB 磁盘和一个虚拟串口。
 
-WARNING: 您需要同时连接两个USB。如果您没有看到相应的虚拟 USB 磁盘和虚拟串口，检查是否连接正确。
+WARNING: 需要同时连接两根 USB 数据线。如果未看到相应的虚拟 USB 磁盘和虚拟串口，请检查连接是否正确。
 
-打开 CanMV IDE (link:https://github.com/kendryte/canmv_ide/releases[GitHub], link:https://developer.canaan-creative.com/resource[开发者社区]), 或 link:https://github.com/openmv/openmv-ide/releases[开放MV IDE]. (请下载最新版本的软件)
+打开 CanMV IDE（link:https://github.com/kendryte/canmv_ide/releases[GitHub]、link:https://developer.canaan-creative.com/resource[开发者社区]）或 link:https://github.com/openmv/openmv-ide/releases[OpenMV IDE]（请下载最新版本）。
 
-将K230D连接至电脑，点击界面左下角的连接按钮，等待连接完成。
+将 K230D 连接到计算机，单击界面左下角的连接按钮，等待连接完成。
 
 image::/bpi-k230d/bpi-canmv-k230d_zero_connection.png[bpi-canmv-k230d_zero_connection.png]
-编写您自己的脚本，或打开现有脚本。单击运行。
+编写新脚本或打开已有脚本，然后单击“运行”。
