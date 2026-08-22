@@ -1,104 +1,104 @@
 TIP: 更多信息： link:https://docs.banana-pi.org/en/BPI-F2P/BananaPi_BPI-F2P[BananaPi BPI-F2P]
 
-= 如何使用 SD 刻录和启动步骤 eMMC
+= SD 卡和 eMMC 镜像烧录与启动步骤
 
 == 安装 Win32DiskImager
-打开win32diskimager-1.0.0-install，选择“我接受协议”，
+打开 win32diskimager-1.0.0-install，选择 “I accept the agreement（我接受协议）”。
 
 image::/picture/bpi-f2p_burn_1.png[bpi-f2p_burn_1.png]
 
-“下一步>”，然后选择“创建桌面快捷方式”
+点击 “Next >（下一步）”，然后选择 “Create a desktop shortcut（创建桌面快捷方式）”。
 
-“下一步>”，然后安装软件。就像下图这样：
+点击 “Next >（下一步）”，然后安装软件，如下图所示：
 
 image::/picture/bpi-f2p_burn_2.png[bpi-f2p_burn_2.png]
 
 安装并设置 SDFormatterv4。
 
-打开SDFormatterv4，双击“Setup”，如下图： 
+打开 SDFormatterv4，双击 “Setup”，如下图所示：
 
 image::/picture/bpi-f2p_burn_3.png[bpi-f2p_burn_3.png]
 
-“下一步”，进入安装目录并选择“默认安装”，
+点击 “Next（下一步）”，进入安装目录并选择默认安装。
 
-“下一步”，再次选择安装
+再次点击 “Next（下一步）”开始安装。
 
-“完成”
+点击 “Finish（完成）”。
 
-== SD格式
+== 格式化 SD 卡
 
 image::/picture/bpi-f2p_burn_4.png[bpi-f2p_burn_4.png]
 
-将SD卡安装到读卡器中，在PC上安装读卡器，然后打开SDFormatterv4，如下图：
+将 SD 卡插入读卡器，再把读卡器连接到电脑，然后打开 SDFormatterv4，如下图所示：
 
 image::/picture/bpi-f2p_burn_5.png[bpi-f2p_burn_5.png]
 
-选择“驱动器” (根据PC显示)
+在 “Drive” 中选择电脑识别到的 SD 卡盘符。
 
-选择“选项设置”，将“调整逻辑大小”设置为“开”，如下图：
+选择 “Option Settings”，将 “Adjust Logical Size” 设置为 “ON”，如下图所示：
 
 image::/picture/bpi-f2p_burn_6.png[bpi-f2p_burn_6.png]
 
-选择“确定”
+选择 “OK（确定）”。
 
-然后格式化
+然后执行格式化。
 
-完成
+等待格式化完成。
 
-== 将镜像刻录到SD卡中
-下载 Ubuntu 图片来自以下网站：
+== 将镜像烧录到 SD 卡
+从以下页面下载 Ubuntu 镜像：
 
 https://docs.banana-pi.org/en/BPI-F2P/BananaPi_BPI-F2P#_linux_2
 
-2021-01-29-ubuntu-mate-20.04.1-desktop-armhf-ext4-v5.4.35-bpi-f2p.img.zip: Ubuntu 桌面系统，支持HDMI接口显示桌面。 2021-01-29-ubuntu-server-20.04.1-armhf-ext4-v5.4.35-bpi-f2p.img.zip: Ubuntu 服务器系统，不包含桌面，仅支持串口控制台。
+2021-01-29-ubuntu-mate-20.04.1-desktop-armhf-ext4-v5.4.35-bpi-f2p.img.zip：Ubuntu 桌面版系统，支持通过 HDMI 接口显示桌面。2021-01-29-ubuntu-server-20.04.1-armhf-ext4-v5.4.35-bpi-f2p.img.zip：Ubuntu 服务器版系统，不包含桌面，仅支持串口控制台。
 
-首先请解压zip文件，得到烧录镜像文件。
+首先解压 ZIP 文件，得到待烧录的镜像文件。
 
-将格式化好的SD卡安装到读卡器中，并将读卡器安装到PC上
+将格式化后的 SD 卡插入读卡器，再将读卡器连接到电脑。
 
-打开Win32DiskImager，选择设备和镜像文件，然后烧入。然后选择“确定” (封面)，如下图所示：
+打开 Win32DiskImager，选择目标设备和镜像文件，然后开始写入。弹出提示后选择 “OK（确定）”，如下图所示：
 
-完成后页面会显示“OK”
+完成后，界面会显示 “OK”。
 
 image::/picture/bpi-f2p_burn_7.png[bpi-f2p_burn_7.png]
 image::/picture/bpi-f2p_burn_8.png[bpi-f2p_burn_8.png]
 
-== 如何从SD卡启动
-烧录完成后，将SD卡安装到F2p Board上即可启动
+== 如何从 SD 卡启动
+烧录完成后，将 SD 卡插入 BPI-F2P 开发板，即可从卡启动。
 
-串行控制台输出： 
+串口控制台输出：
 
 image::/picture/bpi-f2p_burn_9.png[bpi-f2p_burn_9.png]
 
-HDMI接口显示：
+HDMI 接口显示：
 
 image::/picture/bpi-f2p_burn_10.jpg[bpi-f2p_burn_10.jpg]
 
-== 如何启动表格 EMMC
-1.刻录图像
+== 如何从 eMMC 启动
+1. 烧录镜像
 
-首先燃烧 20201-01-29-ubuntu-mate-20.04.1-desktop-armhf-ext4-v5.4.35-bpi-f2p.img 放入SD卡并启动。参考下图：
+先将 2021-01-29-ubuntu-mate-20.04.1-desktop-armhf-ext4-v5.4.35-bpi-f2p.img 烧录到 SD 卡并启动开发板，如下图所示：
 
-控制台串行，用户名：root，密码： bananapi
+串口控制台登录用户名：root，密码：bananapi。
 
 image::/picture/bpi-f2p_burn_11.jpg[bpi-f2p_burn_11.jpg]
 
-2.复制您想要的相同镜像压缩文件 USB 闪存盘卷根目录，并插入 USB B2P 板中的闪存盘 USB 端口。
+2. 将要烧录的镜像压缩文件复制到 U 盘根目录，然后把 U 盘插入 BPI-F2P 开发板的 USB 接口。
 
 **2021-01-29-ubuntu-mate-20.04.1-desktop-armhf-ext4-v5.4.35-bpi-f2p.img.zip**
 
-3.安装 USB 闪存盘到 /mnt
+3. 将 U 盘挂载到 /mnt
 
 输入指令：
 ```sh
 mount -t vfat /dev/sda1 /mnt
 ```
-输入指令至 USB 闪存盘：
+输入以下命令进入 U 盘目录：
 ```sh
 cd /mnt
 ```
 
-4.将镜像刻录到 EMMC
+4. 将镜像烧录到 eMMC
 
 输入以下指令，如下图：
 ```sh
@@ -112,4 +112,4 @@ sync
 ```
 image::/picture/bpi-f2p_burn_12.jpg[bpi-f2p_burn_12.jpg]
 
-5.烧录完成，取出SD卡并 USB 闪存盘，将红色开关 PIN 推至关闭位置，重新开机并从 EMMC
+5. 烧录完成后，取出 SD 卡和 U 盘，将红色拨动开关切换到 OFF 位置，然后重新上电并从 eMMC 启动。
