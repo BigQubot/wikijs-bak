@@ -1,0 +1,106 @@
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_development_of_advanced[BPI:bit 的 MicroPython 开发]
+
+= BPI:bit 连接 Wi-Fi AP
+
+固件上电、LED 面板滚动显示结束后，默认会尝试连接网络。如果此时被工具或人工按 Ctrl+C 中断，网络将不会连接，需要执行以下代码：
+```sh
+import wifi # boot.py 默认启用
+wifi.try_connect()
+```
+如下图所示，boot.py 默认会执行 import wifi，因此也可以直接在 REPL 中调用 wifi.try_connect()。
+
+image::/bpi-bit/try_connect.png[try_connect.png]
+
+在默认联网模式下，如果从未配置过网络，开发板会先尝试自动连接 Wi-Fi 热点：SSID 为 webduino.io，密码为 webduino。
+
+如果附近没有该热点，程序会输出 no AP found，并反复报告连接问题，但这不会影响 REPL 的输入与输出。示例环境中已准备好热点，因此开发板取得了 IP 地址 192.168.10.185，如下图所示。若不希望继续尝试联网，可手动输入 wifi.close() 停止 Wi-Fi 连接。
+
+image::/bpi-bit/got_ip.png[got_ip.png]
+
+== 通过手机配置 Wi-Fi
+如果实际使用的 Wi-Fi 热点并非上述默认热点，可按住 A 键并按下复位键，进入 SmartConfig 配网模式，让开发板连接指定的 Wi-Fi。进入该模式后，上一章介绍的 LED（18）会亮起。
+
+image::/bpi-bit/start_config.jpg[start_config.jpg]
+
+BPI:bit 复位后 LED 会常亮。如有需要，可通过其他串口工具查看此时的输出。请注意，配网模式下无法通过 Mpfshell 打开串口，因为开发板暂时不会响应串口 REPL；完成配网后才能再次使用 Mpfshell。
+
+image::/bpi-bit/smartconfig.png[smartconfig.png]
+
+如果工具运行过程中出现问题，可使用其他串口工具查看输出，例如 link:https://github.com/BPI-STEAM/BPI-BIT-MicroPython/releases[Releases] 中提供的 windows-comdbg.zip。
+
+image::/bpi-bit/view_com.png[view_com.png]
+
+进入配网模式后，需要在 Android 手机上安装 link:https://github.com/BPI-STEAM/BPI-BIT-MicroPython/releases[Releases] 中提供的配网软件。
+
+image::/bpi-bit/view_apk.png[view_apk.png]
+
+以 android-smartconfig.apk 为例：先让手机连接目标 Wi-Fi，再在软件中输入该 Wi-Fi 的密码；软件会把连接信息发送给开发板。
+
+image::/bpi-bit/open_apk.png[open_apk.png]
+
+单击界面中唯一的按钮开始配网。此时 REPL 会输出相应信息，开发板上的 LED 状态也会随之变化。
+
+image::/bpi-bit/smc_apk.png[smc_apk.png]
+
+等待片刻。配网失败时，开发板会在两分钟内自动重启；配网成功时，LED 会微亮，REPL 随后输出开发板连接 Wi-Fi 后取得的 IP 地址，例如下图中的 192.168.10.185。请记住板名 3de1，后续步骤会用到。
+
+image::/bpi-bit/smc_finish.png[smc_finish.png]
+
+手机上也会显示开发板的 IP 地址，此时网络配置已经完成。
+
+image::/bpi-bit/apk_finish.png[apk_finish.png]
+
+TIP: 提示：如果网络出现故障，请按照以下步骤排查问题。
+
+- 确认已进入配网模式（SmartConfig）
+- 确认 Wi-Fi 热点密码正确
+- 确认配网过程中 REPL 输出的信息与图示相似
+- 确认 Wi-Fi 使用 2.4 GHz 频段（重要）
+
+== 手动连接 Wi-Fi
+如果无法通过上述方式联网，可直接手动输入 Wi-Fi 名称和密码。
+
+最新版固件会在调用 wifi.start() 后自动生成 wifi_cfg.py。
+
+也可以准备一个包含以下内容的 wifi_cfg.py：
+```sh
+WIFI_SSID = 'your wifi ap name'
+WIFI_PSWD = 'your wifi passwork '
+HOST_NAME = 'you host name' # 可选
+```
+可以先获取现有的 wifi_cfg.py 作为配置模板，再使用 Mpfshell 的 put 命令把同目录下的新 wifi_cfg.py 上传到开发板，替换当前 Wi-Fi 配置。
+
+也可以直接在 REPL 中输入 wifi.smartconfig() 手动启动配网模式，无需在启动时通过按键触发。
+
+= 通过 Wi-Fi 连接 BPI:bit REPL
+NOTE: 使用前请确认应用程序已获准通过网络防火墙，并且计算机与开发板连接到同一 Wi-Fi 网络。
+
+- 操作前先进入 REPL，并导入 webrepl_setup，启动 WebREPL 配置流程。
+
+- 依次输入 (e, 1234, y)。 
+* 配置网络服务（启用输入 e，停用输入 d）
+* 设置网络连接密码（至少 4 位，需要输入两次；示例使用 1234）
+* 选择是否重启开发板（重启输入 y，否则输入 n）
+
++
+image::/bpi-bit/webrepl.png[webrepl.png]
+
+- 示例开发板的 IP 为 192.168.10.185；如果不知道实际 IP，可以重新上电并查看输出。然后在 Mpfshell 中输入 ws:192.168.10.185,1234，其中 1234 是上一步设置的连接密码。也可以暂不输入密码，稍后按提示输入。请使用英文逗号。
++
+image::/bpi-bit/into_webrepl.png[into_webrepl.png]
+
+- 连接成功后即可无线操作开发板；如有问题，也可以复位开发板后重试。
+- 连接失败的提示有两种：
+. WebREPL 远程 IP 无响应：计算机与开发板可能不在同一网络，或响应被软件/硬件防火墙拦截。
+. WebREPL 密码错误：重新输入密码，并确认连接的是自己的开发板。
+
+- 如果连接失败，请按 Ctrl + D 重置连接，然后退出更换无线连接。
++
+image::/bpi-bit/error_webrepl.png[error_webrepl.png]
+
++
+TIP: 在 PyCharm Mpfshell 插件中使用无线连接时，只需把设备路径设为 ws:192.168.10.185,1234（而不是 COMx）。
++
+image::/bpi-bit/webrepl_pycharm.png[webrepl_pycharm.png]
+
+- 上述操作均在 Mpfshell 中完成；使用 PyCharm 编程时，也可以通过其中的 Mpfshell 工具执行。
