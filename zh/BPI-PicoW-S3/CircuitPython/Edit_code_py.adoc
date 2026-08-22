@@ -1,0 +1,33 @@
+== 编辑 code.py 使RGB LED 眨眼
+
+. 单击加载按钮，选择 code.py 文件上的 CircuitPython 开发板，点击打开开始编辑 code.py .
+
+. 在编辑器中输入以下代码：
++
+```python
+import time
+import board
+import neopixel
+
+pixels = neopixel.NeoPixel(board.NEOPIXEL, 1, brightness=0.1)
+
+while 1:
+    pixels[0] = (255,0,0)
+    pixels.show()
+    time.sleep(0.5)
+    pixels[0] = (0,255,0)
+    pixels.show()
+    time.sleep(0.5)
+    pixels[0] = (0,0,255)
+    pixels.show()
+    time.sleep(0.5)
+    pixels[0] = (255,255,255)
+    pixels.show()
+    time.sleep(0.5)
+```
+
+. 单击 **保存** 按钮，编辑的内容将保存到 CircuitPython 开发板。如果代码正确，则颜色 LED 开发板上会循环闪烁红、绿、蓝、白。将开发板复位或者重新上电，程序将重新开始运行。
+. 使用中断快捷键 REPL 停止程序运行。
+. 也可以直接将代码复制粘贴到 REPL 运行。
+
+> 所有后续示例都可以在 code.py 文件或复制并粘贴到 REPL 运行。然而，在程序代码之后 code.py 文件执行后，开发板会回到未运行时的状态，且状态不会保留，但在执行时会保留状态 REPL.
