@@ -1,46 +1,46 @@
-TIP: link:../GettingStarted_BPI-Centi-S3[返回开始使用 BPI-Centi-S3]
+TIP: link:../GettingStarted_BPI-Centi-S3[返回 BPI-Centi-S3 入门指南]
 
-BPI-Centi-S3 已编程为 MicroPython st7789固件
-并口驱动，通常这一步可以跳过。
+BPI-Centi-S3 出厂已烧录带 ST7789
+并口驱动的 MicroPython 固件，通常可跳过本步骤。
 
-如果您在开发过程中遇到意想不到的恶性BUG导致无法
-开发板无法正常启动，或其他原因导致
-固件被擦除或者损坏，可以找到编译好的固件
-从 github 链接如下并自行烧录。
+如果开发过程中遇到严重错误，导致
+开发板无法正常启动，或因其他原因造成
+固件被擦除或损坏，可从下面的 GitHub 链接获取
+已编译的固件并自行烧录。
 
 NOTE: link:https://github.com/BPI-STEAM/BPI-Centi-S3-Doc/tree/main/micropython_st7789s3_firmware[GitHub: BPI-Centi-S3 micropython 固件]
 
 == 固件信息
 
 . micropython1.19.1_esp32s3_qspram_st7789s3.bin
-* micropython 1.19.1 发布标签
-* esp32s3，四路 SPIRAM，8M 闪存
+* MicroPython 1.19.1 发布版
+* ESP32-S3、Quad SPIRAM、8 MB Flash
 * russhughes/st7789s3_esp_lcd
 . micropython1.20.0dev_esp32s3_qspram_st7789s3.bin
-* micropython 1.20.0 主开发版，截至 2023 年 6 月 6 日(米普，埃斯普诺)
-* esp32s3，四路 SPIRAM，8M 闪存
+* MicroPython 1.20.0 主分支开发版（截至 2023 年 6 月 6 日，支持 mip、espnow）
+* ESP32-S3、Quad SPIRAM、8 MB Flash
 * russhughes/st7789s3_esp_lcd
 
 === 设置固件下载模式
 
 操作方法有两种：
 
-. 通过以下方式连接到计算机 USB，按住BOOT键，然后
-按下RESET按钮然后松开，最后松开BOOT
+. 通过 USB 将开发板连接到计算机，按住 BOOT 按钮，然后
+按下并松开 RESET 按钮，最后松开 BOOT
 按钮。
-. 断开电源时按住BOOT按钮，
-然后通过连接到计算机 USB，最后释放BOOT
+. 在开发板断电状态下按住 BOOT 按钮，
+再通过 USB 将其连接到计算机，最后松开 BOOT
 按钮。
 
-由此可见，芯片选择启动模式时
-通过BOOT键控制的GPIO0复位或重新上电。
+芯片会在复位或重新上电时，
+通过 BOOT 按钮控制的 GPIO0 选择启动模式。
 
-在设备管理器中确认COM接口。序列号为
-固件下载模式和普通模式下的COM接口是
+在设备管理器中确认 COM 端口。
+固件下载模式和正常模式使用的 COM 端口号
 通常不同。
 
-=== 安装esptool工具
-> 需要先安装Python3，参见 link:./environment#_install_the_python_environment[安装 Python 环境].
+=== 安装 esptool 工具
+> 需要先安装 Python 3，参见 link:./environment#_install_the_python_environment[安装 Python 环境]。
 
 在终端中输入以下命令来安装 esptool。
 
@@ -48,10 +48,10 @@ NOTE: link:https://github.com/BPI-STEAM/BPI-Centi-S3-Doc/tree/main/micropython_s
 pip install esptool
 ```
 
-=== esptool命令
+=== esptool 命令
 
 
-IMPORTANT: 对Flash的所有操作都是不可逆的，注意备份
+IMPORTANT: 对 Flash 的所有操作都不可逆，请注意备份
 有价值的数据。
 
 
@@ -61,7 +61,7 @@ IMPORTANT: 对Flash的所有操作都是不可逆的，注意备份
 python -m esptool --chip esp32s3 --port COM1 --baud 460800 erase_flash
 ```
 
-* 写入闪存
+* 写入 Flash
 
 ```
 python -m esptool --chip esp32s3 --port COM1 --baud 460800 --before=usb_reset --after=no_reset write_flash 0x0 micropython1.19.1_esp32s3_qspram_st7789s3.bin
