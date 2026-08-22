@@ -1,0 +1,25 @@
+image::/picture/mircopython.png[mircopython.png]
+
+https://micropython.org/[MicroPython] 是 Python 3 编程语言的一种精简高效实现，包含 Python 标准库的一小部分，并针对微控制器和资源受限环境进行了优化。
+
+https://dpgeorge.net/[Damien P. George] 于 2013 年通过众筹启动该项目并将其开源。
+
+与使用 C 程序开发微控制器相比，最明显的区别是验证代码时无需经过漫长的编译过程。
+
+使用串口通信软件，可通过 REPL（读取—求值—输出循环）输入命令来控制微控制器，其用法与 Python 的 REPL 类似。
+
+也可以借助工具将 Python 脚本文件上传到微控制器中运行。
+
+其 Python 3 实现包含支持多线程的 _thread 库，以及用于编写并发代码的 asyncio 库。
+
+MicroPython 尽可能兼容标准 Python，便于将桌面端代码移植到微控制器或嵌入式系统。
+
+同时，它还提供一些微控制器专用库，用于充分利用芯片的定时器、硬件中断和 Wi-Fi 等功能；实际可用功能取决于具体硬件。
+
+在具备上述功能的同时，它仍足够精简，只需 256 KB 代码空间和 16 KB RAM 即可运行。
+
+如果熟悉 Python，就已经掌握了 MicroPython 的大部分基础。
+
+反过来，对 MicroPython 了解得越深入，也会越熟悉 Python。
+
+TIP: link:../GettingStarted_BPI-Leaf-S3[返回 BPI-Leaf-S3 入门指南]
