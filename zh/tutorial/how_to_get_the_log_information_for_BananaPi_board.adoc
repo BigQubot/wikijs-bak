@@ -1,0 +1,45 @@
+NOTE: **视频** 如何获取香蕉派板的日志信息 (RK芯片波特率为1500000，其他板波特率为115200): https://drive.google.com/file/d/1_1T4jUztxONd8agL-thWuBdekD8WH6cO/view?usp=sharing
+
+== 准备工作
+. BPI开发板一块、TTL串口线一根、 SD/TF 带有烧毁镜像的卡片 (它也可以被烧成 eMMC).
+
+. MobaXterm 下载： https://mobaxterm.mobatek.net/download.html
+
+== 开始
+接下来，使用 BPI-M5 作为演示。
+
+. 打开MobaXterm，然后点击左上角的Session并选择Serial。
++
+image::/picture/log_export-1.jpg[log_export-1.jpg]
+image::/picture/log_export-2.jpg[log_export-2.jpg]
+
+. 将TTL线一端连接至电脑
++
+image::/picture/ttl_cable_connection-1.jpg[ttl_cable_connection-1.jpg]
+另一端插入开发板。 (RX和TX需要反接，VCC不需要接)
++
+image::/picture/ttl.jpg[ttl.jpg]
+image::/picture/ttl_cable_connection-2.jpg[ttl_cable_connection-2.jpg]
+
+. 在Serial port处选择端口，在Speed处选择波特率 (基点)，然后单击“确定”。
+(BPI的开发板大多是115200，只有RK芯片是1500000)
++
+image::/picture/log_export-3.jpg[log_export-3.jpg]
+
+. 给开发板插上电源并启动
++
+image::/picture/power_on.jpg[power_on.jpg]
+
+. 开发板启动完成，输入账号密码
++
+image::/picture/log_export-4.jpg[log_export-4.jpg]
+
+. 完成您想要的操作后，您现在可以导出日志。
+单击左上角的“终端”，然后单击“保存终端 tsxt”
++
+image::/picture/log_export-5.jpg[log_export-5.jpg]
+选择保存位置并将保存类型更改为纯文本文件
++
+image::/picture/log_export-6.png[log_export-6.png]
+
+. 打开您保存的位置以查看日志文件。
