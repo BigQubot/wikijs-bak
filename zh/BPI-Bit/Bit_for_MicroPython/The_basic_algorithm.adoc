@@ -1,0 +1,61 @@
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_development_of_advanced[BPI-Bit 的 MicroPython 教程]
+
+
+= 实现基础算法
+
+上一章介绍了基础硬件控制，本章补充一些基础软件算法。
+
+= 输入年份以确定闰年
+公历闰年的判断规则如下：普通年份能被 4 整除且不能被 100 整除时为闰年（例如 2004 年是闰年，1999 年不是）；世纪年份只有能被 400 整除时才是闰年。
+
+代码如下（可放入 main.py）：
+```sh
+def is_leap_year(year):
+   if (year % 4) == 0 and (year % 100) != 0 or (year % 400) == 0:
+		print("{0} is leap year".format(year))
+	else:
+		print("{0} not is leap year".format(year))
+```
+使用 runfile 运行 main.py，再在 REPL 中输入命令。
+```sh
+is_leap_year(int(input("input a leap year ")))
+```
+
+image::/bpi-bit/mpfshell17.png[mpfshell17.png]
+
+- 2004年是闰年。
+- 1999 年不是闰年。
+- 2000年是闰年。
+- 您还可以继续输入更多内容，让它告诉您哪一年是闰年。
+
+在 REPL 中输入命令后，程序会提示输入数值；按 OK 确认。
+
+
+= 斐波那契数列
+斐波那契数列形如 0、1、1、2、3、5、8、13……第 0 项为 0，第 1 项为 1；从第 2 项开始，每一项都等于前两项之和。
+
+代码如下（可放入 main.py）：
+```sh
+def fab(n):
+	if n == 1: 
+		return 0
+	if n == 2:
+		return 1
+	if n > 2:
+		return fab(n-1) + fab(n-2)
+
+def printfablist(n):
+	for i in range(1, n+1):
+		print(fab(i),end = ' ')
+	print()
+```
+使用 runfile 运行 main.py，再在 REPL 中输入命令。
+```sh
+printfablist(int(input('please input a number:'))
+```
+
+image::/bpi-bit/mpfshell16.png[mpfshell16.png]
+
+您可以尝试自己计算第一项和第二项之间的关系。
+
+在 REPL 中输入命令后，程序会提示输入数值并按 OK 确认。例如输入 5，将输出前 5 项斐波那契数列（0、1、1、2、3）。
