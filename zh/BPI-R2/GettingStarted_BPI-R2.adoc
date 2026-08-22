@@ -1,73 +1,73 @@
 = 简介
 
-香蕉派 R2 是一款基于路由器的开发板，可以在多种开源操作系统上运行，包括 OpenWrt, Android和巴纳尼安。它具有 4 个千兆 LAN 端口、1 个千兆 WAN 和 300Mbs 无线 N 功能。 
+Banana Pi R2 是一款路由器开发板，可运行 OpenWrt、Android 和 Bananian 等多种开源操作系统。它配有 4 个千兆 LAN 端口、1 个千兆 WAN 端口，并支持 300 Mbps 802.11n 无线网络。
 
-TIP: 更多信息： link:/en/BPI-R2/BananaPi_BPI-R2[香蕉派 BPI-R2]
+TIP: 更多信息：link:/en/BPI-R2/BananaPi_BPI-R2[Banana Pi BPI-R2]
 
 == 主要特性
 - MediaTek MT7623N，四核 ARM Cortex-A7
-- 马里450 MP4 GPU
-- 2G DDR3内存
-- 1x 迷你 PCIE 接口
+- Mali-450 MP4 GPU
+- 2 GB DDR3 SDRAM
+- 1 个 Mini PCIe 接口
 - 2 个 SATA 接口
-- 4 个千兆 LAN 1 个千兆 WAN
+- 4 个千兆 LAN 端口、1 个千兆 WAN 端口
 
 = 硬件
-== BPI-R2 SATA接口
-BPI-R2 支持2个SATA接口和板载电源端口。
+== BPI-R2 SATA 接口
+BPI-R2 支持两个 SATA 接口，并配有板载硬盘供电接口。
 
 
 
-您可以使用SATA线连接您的硬盘 BPI-R2.
+可以使用 SATA 线将硬盘连接到 BPI-R2。
 
-测试三星 SSD 磁盘， Read/Write 性能如下：
+使用三星 SSD 测得的读写性能如下：
 
-从磁盘读取： 230MB/s 
+磁盘读取：230 MB/s
 ```sh
 dd if=/dev/sda of=/dev/zero bs=1M count=10240\
 ```
 
-写入磁盘： 192MB/s 
+磁盘写入：192 MB/s
 ```sh
 dd if=/dev/zero of=/dev/sda bs=1M count=1024 oflag=direct\
 ```
 
-WARNING: 注意：如果您使用3.5大硬盘，可能需要外接电源供电。板载电源可能无法支持足够的电流
+WARNING: 如果使用 3.5 英寸硬盘，可能需要外接电源供电，因为板载电源接口可能无法提供足够的电流。
 = 开发
-让我们开始开发BPI-R2，看到奇妙的事情发生。
+下面开始在 BPI-R2 上进行开发。
 
 == 准备开发
-* 准备 16G/above TF卡、 USB-串行接口， Ubuntu 系统
-* 使用您的 USB-串行 (3.3V，波特率：115200)  连接 R2 上的调试控制台
-* LAN口默认IP地址：192.168.1.1
-* 用户 name/password: pi/bananapi ,root/bananapi. +
-或者用户是root，没有密码。
+* 准备一张至少 16 GB 的 TF 卡、一个 USB 转串口适配器和一台 Ubuntu 电脑
+* 使用 USB 转串口适配器（3.3 V，波特率 115200）连接 R2 的调试控制台
+* LAN 口默认 IP 地址：192.168.1.1
+* 用户名/密码：pi/bananapi、root/bananapi。+
+也可以使用无密码的 root 用户登录。
 
 
 
-* BananaPi R2-调试-UART: http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:debug-uart
+* Banana Pi R2 调试串口：http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:debug-uart
 
-== 在 R2 上加载您的第一张图像
-. 您可以从我们的论坛下载最新图片
+== 在 R2 上烧录第一个镜像
+. 可以从官方论坛下载最新镜像
 +
 这是示例镜像链接： http://forum.banana-pi.org/t/bpi-r2-new-image-release-ubuntu-16-04-v1-3-2018-3-30/5293
  
-. 安装 bpi-tools 在你的 Ubuntu。如果您无法访问此网址或有任何其他问题，请访问 bpi-tools 存储库并手动安装此工具。
+. 在 Ubuntu 上安装 bpi-tools。如果无法访问该网址或遇到其他问题，请前往 bpi-tools 仓库手动安装该工具。
 +
 ```sh
 apt-get install pv
 curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
 ```
  
-. 下载镜像后，将TF卡插入电脑Ubuntu
+. 下载镜像后，将 TF 卡插入 Ubuntu 电脑
 +
 ```sh
 bpi-copy xxx.img /dev/sdx
 ```
-. 步骤3后，您可以将TF卡插入R2，然后按住电源按钮约10秒以设置R2
+. 完成步骤 3 后，将 TF 卡插入 R2，再按住电源按钮约 10 秒启动 R2。
 
-== 更新您的 Ubuntu 在 SD 卡上
-. 从以下位置克隆 Bsp 项目 Github,执行
+== 更新 SD 卡上的 Ubuntu
+. 从 GitHub 克隆 BSP 项目，执行
 +
 ```sh
 git clone git@github.com:BPI-SINOVOIP/BPI-R2-bsp.git
@@ -77,83 +77,83 @@ git clone git@github.com:BPI-SINOVOIP/BPI-R2-bsp.git
 ```sh
 ./build.sh
 ```
-构建您自己的 uboot 和内核。
+以构建自己的 U-Boot 和内核。
 +
-R2 构建 sh.png
+R2 build sh.png
  
 . 构建完成后，执行
 +
 ```sh
 cd SD
 ```
-插入你的 Ubuntu PC 中的 TF 卡。 
+将装有 Ubuntu 的 TF 卡插入电脑。
  
 . 执行
 +
 ```sh
 bpi-update -c bpi-r2.conf -d /dev/sdX
 ```
-将编译好的内核更新到你的TF卡上。
+以便将编译好的内核更新到 TF 卡。
 
-== Ubuntu 开 Emmc
-如果你想安装 Ubuntu 上 EMMC，请按照下列步骤操作：
+== 在 eMMC 上安装 Ubuntu
+如果要将 Ubuntu 安装到 eMMC，请按以下步骤操作：
 
-* 将镜像刻录到SD卡，并用SD卡设置R64。
-* 复制名称包含“的镜像**xxx-emmc-xxx**”到U盘。
-* mount U disk to R64, then use bpi-copy to burn image to Emmc. 
+* 将镜像烧录到 SD 卡，并使用该 SD 卡启动 R2。
+* 将文件名中包含 **xxx-emmc-xxx** 的镜像复制到 U 盘。
+* 将 U 盘挂载到 R2，然后使用 bpi-copy 将镜像烧录到 eMMC。
 ```sh
    bpi-copy  <XXX.img.zip> 
 ```
-* XXX.img.zip 是 ubuntu 我们可以从中得到它 http://www.banana-pi.org/r2-download.html 
+* XXX.img.zip 是 Ubuntu 镜像，可从 http://www.banana-pi.org/r2-download.html 获取。
  * 关闭电源
- * 取出 SD 卡并开机
+ * 取出 SD 卡，然后开机
 
-== OpenWrt 在标清& Emmc 步骤
+== 在 SD 卡和 eMMC 上安装 OpenWrt
 --
-. 克隆 OpenWrt 项目来自 Github.
+. 从 GitHub 克隆 OpenWrt 项目。
 +
 ```sh
 git clone https://github.com/garywangcn/bpi-r2_lede.git
 ```
  
-. 你需要安装 gcc、binutils、bzip2、flex、 python、 perl、make、find、grep、diff、unzip、gawk、getopt、subversion、libz-dev 和 libc 标头。
+. 需要预先安装 gcc、binutils、bzip2、flex、python、perl、make、find、grep、diff、unzip、gawk、getopt、subversion、libz-dev 和 libc 头文件。
  
-. 运行“./scripts/feeds update -a" 来获取所有最新的包定义 feeds.conf / feeds.conf.default分别和“./scripts/feeds install -a" 将它们的符号链接安装到 package/feeds/.
+. 运行“./scripts/feeds update -a”，获取 feeds.conf 和 feeds.conf.default 中定义的最新软件包；再运行“./scripts/feeds install -a”，将所有软件包的符号链接安装到 package/feeds/。
  
-. 使用“make menuconfig”来配置您的图像。
- * 选择“目标系统”配置为“MediaTek 雷凌ARM”
- * 选择“Boot Loaders”配置为“u-boot-bpi_r2"
+. 使用“make menuconfig”配置镜像。
+ * 将“Target System”配置为“MediaTek Ralink ARM”
+ * 将“Boot Loaders”配置为“u-boot-bpi_r2”
  
-. 执行“make -j1 V=s”来构建你自己的 OpenWrt 镜像。
+. 执行“make -j1 V=s”构建 OpenWrt 镜像。
  
-. 构建完成后，我们有两种方式安装镜像。
-..插入你的TF卡 Ubuntu 电脑，然后输入“build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/linux-mediatek_32/", 
-     you will find two images:
+. 构建完成后，可以使用以下两种方式安装镜像。
+.. 将 TF 卡插入 Ubuntu 电脑，然后进入“build_dir/target-arm_cortex-a7+neon-vfpv4_musl_eabi/linux-mediatek_32/”目录，
+     其中可以找到两个镜像：
      * mtk-bpi-r2-EMMC.img
      * mtk-bpi-r2-SD.img
-..将镜像写入TF卡，执行“dd if=mtk-bpi-r2-SD.img 的=/dev/sdX"
+.. 将镜像写入 TF 卡，执行“dd if=mtk-bpi-r2-SD.img of=/dev/sdX”
  
-..如果你想安装镜像 EMMC，我们需要另一个运行在SD卡上的系统来编程 EMMC 镜像到 EMMC，请按照以下步骤进行：
-     * 复制 EMMC 来自 SD 卡的映像到正在运行的系统
-     * 节目 EMMC 镜像到用户数据区 EMMC: dd 如果=mtk-bpi-r2-EMMC.img 的=/dev/mmcblk0 (假设 /dev/mmcblk0 是为了 EMMC)
+.. 如需将镜像安装到 eMMC，需要先从 SD 卡启动另一个系统，再由该系统把 eMMC 镜像写入 eMMC。请按以下步骤操作：
+     * 将 eMMC 镜像复制到从 SD 卡启动的系统中
+     * 将 eMMC 镜像写入 eMMC 用户数据区：dd if=mtk-bpi-r2-EMMC.img of=/dev/mmcblk0（假设 /dev/mmcblk0 为 eMMC）
      * 解锁 EMMC boot0 块：echo 0 > /sys/block/mmcblk0boot0/force_ro
-     * 将预加载器编程为 EMMC boot0 块：dd if=mtk-bpi-r2-EMMC.img 的=/dev/mmcblk0boot0 废话=100万个=1
-     * 更改分区配置 EMMC 为48h：重启运行SD的系统，进入U-boot命令行，运行命令 emmc pconf 48 (对于此步骤，我们可以使用 mmc-utils 更改用户空间中的分区配置，请参阅中的更多信息 BPI-R2 OpenWrt(发光二极体) 源代码 : 2018-04-11)
-     * 断电，取出SD卡，然后给R2板上电
+     * 将预加载器写入 eMMC boot0 块：dd if=mtk-bpi-r2-EMMC.img of=/dev/mmcblk0boot0 bs=1M count=1
+     * 将 eMMC 分区配置改为 48h：重启从 SD 卡运行的系统，进入 U-Boot 命令行并执行 emmc pconf 48。（也可以使用 mmc-utils 在用户空间更改分区配置；更多信息请参阅 2018-04-11 版本的 BPI-R2 OpenWrt（LEDE）源代码。）
+     * 关闭电源，取出 SD 卡，然后重新给 R2 开发板上电
  
-. 此步骤用于升级，如果构建后不想安装映像，可以使用运行时升级。
- * 复制“bin/targets/mediatek/32/lede-mediatek-32-bananapi,bpi-r2-sysupgrade.tar” 到正在运行的 R2 板 OpenWrt 系统(无论在哪里(标清或 EMMC) 它从)，然后运行命令“sysupgrade lede-mediatek-32-bananapi,bpi-r2-sysupgrade.tar" 更新内核和 rootfs。
+. 以下步骤用于升级。如果构建完成后不想重新烧录镜像，可以执行在线升级。
+ * 将“bin/targets/mediatek/32/lede-mediatek-32-bananapi,bpi-r2-sysupgrade.tar”复制到正在运行 OpenWrt 的 R2 开发板（无论系统从 SD 卡还是 eMMC 启动），然后执行“sysupgrade lede-mediatek-32-bananapi,bpi-r2-sysupgrade.tar”更新内核和根文件系统。
 --
 
-- 香蕉派 R2 安装 openWRT: https://www.cnblogs.com/topbin/p/8794152.html
-- 香蕉派R2 Openwrt 网口配置分析： https://www.cnblogs.com/topbin/p/9518279.html
-- 香蕉派 R2 开发一个简单的路由器 Openwrt : https://www.cnblogs.com/topbin/p/9519881.html
-- 香蕉派R2 Openwrt 露西： https://www.cnblogs.com/topbin/p/9519875.html
+- Banana Pi R2 安装 OpenWrt：https://www.cnblogs.com/topbin/p/8794152.html
+- Banana Pi R2 OpenWrt 网口配置分析：https://www.cnblogs.com/topbin/p/9518279.html
+- 使用 Banana Pi R2 和 OpenWrt 开发简单路由器：https://www.cnblogs.com/topbin/p/9519881.html
+- Banana Pi R2 OpenWrt LuCI：https://www.cnblogs.com/topbin/p/9519875.html
 
 == 网络配置
 网络配置： http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:network:start
 
-= 高级开发
+= 进阶开发
 == GPIO
 === GPIO 控制
 ```sh
@@ -161,11 +161,11 @@ echo xxx > /sys/class/gpio/export
 echo in/out > /sys/class/gpio/gpioxxx/direction
 echo 0/1 > /sys/class/gpio/gpioxxx/value
 ```
-检查底座 gpio，你可以看到我的是233
+查看 GPIO 基准编号，本例中为 233
 
-R2 gpio 基础.png
+R2 gpio base.png
 
-例如：如果你想改变 gpio 22 作为高级，你需要输入这样的命令：
+例如，如果要将 GPIO 22 配置为高电平输出，需要输入以下命令：
 ```sh
 echo 255（22+233） > /sys/class/gpio/export
 echo out > /sys/class/gpio/gpio255/direction
@@ -180,29 +180,29 @@ echo 1 >/sys/class/pwm/pwmchip0/pwmx/enable
 ```
 更多关于 GPIO : http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:gpio
 
-=== 安装 RPi。GPIO
+=== 安装 RPi.GPIO
 ```sh
 git clone https://github.com/BPI-SINOVOIP/RPi.GPIO
 cd RPi.GPIO
 sudo apt-get update
 sudo apt-get install python-dev python3-dev
 ```
-执行“须藤 python setup.py 安装”或“sudo python3 setup.py install”来安装模块
+执行“sudo python setup.py install”或“sudo python3 setup.py install”安装模块
 
-=== 使用 RPi。GPIO
+=== 使用 RPi.GPIO
 ```sh
 cd /usr/local/bin
 ./g40.py
 ```
-测试 RPi。GPIO
+测试 RPi.GPIO
 
-== 使用R2开发4G模块
+== 在 R2 上使用 4G 模块
 从这里获取更多信息：
 
-link:/en/BPI-4G_module/using_4G_module_with_BananaPi[使用 4G 模块 BananaPi]
+link:/en/BPI-4G_module/using_4G_module_with_BananaPi[在 Banana Pi 上使用 4G 模块]
 
-== R2 上的 WiFi 和 Ap 模式 Ubuntu
-=== 斯塔
+== Ubuntu 上的 R2 WiFi 与 AP 模式
+=== STA 模式
 ```sh
 wmt_loader (ignore errors)
 stp_uart_launcher -p /etc/firmware &
@@ -222,13 +222,13 @@ wpa_supplicant -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf
 dhclient wlan0
 ```
 
-=== AP模式
+=== AP 模式
 ```sh
 wmt_loader (ignore errors)
 stp_uart_launcher -p /etc/firmware &
 echo A >/dev/wmtWifi
 ```
-创造你的 hostapd.conf: "**维姆 /etc/hostapd/hostapd.conf** "
+创建 hostapd.conf：“**vim /etc/hostapd/hostapd.conf**”
 ```sh
 interface=ap0
 bridge=br0
@@ -246,46 +246,46 @@ wpa_passphrase=ledetest
 logger_stdout=-1
 logger_stdout_level=2
 ```
-根据您的网络接口(可以上网搜索) 配置 ap0：
+根据能够连接互联网的网络接口配置 ap0：
 
-我的可以搜索互联网的网络接口是wan，ip是192.168.30.102，所以我配置ap0如下：
+本例中，可访问互联网的接口是 wan，IP 地址为 192.168.30.102，因此按如下方式配置 ap0：
 ```sh
 ifconfig ap0 192.168.30.188 netmask 255.255.255.0
 ```
-运行hostapd：“**hostapd -d /etc/hostapd/hostapd.conf**”
+运行 hostapd：“**hostapd -d /etc/hostapd/hostapd.conf**”
 
-配置 dhcp 文件：“**维姆 /etc/dhcp/dhcpd.conf**”
+配置 DHCP 文件：“**vim /etc/dhcp/dhcpd.conf**”
 ```sh
 subnet 192.168.30.0 netmask 255.255.255.0 {
 range 192.168.30.2 192.168.30.250;
 option domain-name-servers 8.8.8.8;
 option routers 192.168.30.1; }
 ```
-配置ap0的dhcp，那么连接ap0的设备就可以获得IP：“dhcpd ap0 -pf /var/run/dhcpd.pid "
+为 ap0 配置 DHCP，使连接到 ap0 的设备能够获取 IP 地址：“dhcpd ap0 -pf /var/run/dhcpd.pid ”
 
-- 还有一座桥
-- brctl 地址 br0
-- brctl 添加 br0 ap0
+- 再创建一个网桥
+- brctl addbr br0
+- brctl addif br0 ap0
 - brctl addif br wan
 
-配置 br0 ：“ifconfig br0 192.168.30.180 网络掩码 255.255.255.0”
+配置 br0：“ifconfig br0 192.168.30.180 netmask 255.255.255.0”
 
-添加 br0 gw 为：“route add -net default netmask 255.255.255.0 gw 192.168.30.1 dev br0”
+为 br0 添加默认网关：“route add -net default netmask 255.255.255.0 gw 192.168.30.1 dev br0”
 
-=== 应用模式 FAQ
-如果你遇到这样的问题：
+=== AP 模式常见问题
+如果遇到如下问题：
 
 A64 ap 1.png
 
-然后，可以通过以下命令解决：
+可以使用以下命令解决：
 
-nmcli 无线电 wifi 关闭
+nmcli radio wifi off
 
 A64 ap 2.png
 
-rfkill 解锁 1
+rfkill unblock 1
 
-rfkill 解锁 2
+rfkill unblock 2
 
 ifconfig ap0 up
 
@@ -293,10 +293,10 @@ hostapd -d hostapd.conf
 
 A64 ap 3.png
 
-== R2 上的 WiFi 和 Ap 模式 Openwrt
+== OpenWrt 上的 R2 WiFi 与 AP 模式
 
-=== AP模式
-. 制作一个 bash 脚本
+=== AP 模式
+. 创建 Bash 脚本
 +
 ```sh
 vim setup.sh
@@ -312,7 +312,7 @@ echo A > /dev/wmtWifi &
 sleep 5
 hostapd -d hostapd.conf
 ```
-. 创建您的 hostapd.conf
+. 创建 hostapd.conf
 +
 ```sh
 vim hostapd.conf
@@ -335,12 +335,12 @@ wpa_passphrase=ledetest
 logger_stdout=-1
 logger_stdout_level=2
 ```
-. 让它运行
+. 运行脚本
 +
 ```sh
 ./setup.sh
 ```
-. 将其添加到开始进度
+. 将脚本加入启动流程
 +
 ```sh
 vim /etc/rc.local
@@ -351,24 +351,24 @@ vim /etc/rc.local
  sleep 6
  ./setup.sh &
 ```
-. 如果你的Ap不稳定，请限速，这里我限制下载速度为 8Mbit/s, 上传为 4Mbit/s
+. 如果 AP 不稳定，可以限制速率。本例将下载速率限制为 8 Mbit/s、上传速率限制为 4 Mbit/s
 
-- tc qdisc 添加 dev ap0 根句柄 1：htb 默认 11
-- tc 类添加 dev ap0 父级 1:1 classid 1:2 htb 速率 8Mbit ceil 4Mbit prio 2
+- tc qdisc add dev ap0 root handle 1: htb default 11
+- tc class add dev ap0 parent 1:1 classid 1:2 htb rate 8Mbit ceil 4Mbit prio 2
 
-=== 制作你自己的形象
-- 准备一张已经安装好的SD卡 Ubuntu 系统
-- 用R2启动你的SD卡，R2启动完成后，复制你的文件并配置你的 Ubuntu，然后关闭R2电源
-- 插入您的 SD 卡 Linux个人电脑、“光盘 /media”，然后“ln -s <your account> 圆周率”
-- 执行“bpi-migrate -c bpi-r2.conf -c ubuntu-mate-from-sd.conf -d /dev/sdx"
-- 那么你现在就可以得到你自己的图像了
+=== 制作自己的镜像
+- 准备一张已安装 Ubuntu 系统的 SD 卡
+- 使用该 SD 卡启动 R2。R2 启动完成后，复制所需文件并配置 Ubuntu，然后关闭 R2 电源
+- 将 SD 卡插入 Linux 电脑，执行“cd /media”，然后执行“ln -s <your account> pi”
+- 执行“bpi-migrate -c bpi-r2.conf -c ubuntu-mate-from-sd.conf -d /dev/sdx”
+- 完成后即可得到自己的镜像
 
-== FAQ
-香蕉派 BPI-R2 Razberry 板 OpenHab2
+== 常见问题
+Banana Pi BPI-R2 Razberry 扩展板与 OpenHAB 2
 https://community.openhab.org/t/banana-pi-bpi-r2-razberry-board-openhab2-help/37222/8
 
-=== TTL电压
-调试-uart TTL 耐受 3.3V。
+=== TTL 电压
+调试串口的 TTL 电平为 3.3 V。
 
 = 参考链接
 http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:start
