@@ -1,0 +1,28 @@
+. 的亮度 LED 可以通过控制来控制光 PWM 占空比。控制占空比为0%～100%，采用16位精度，十进制为0～65535，十六进制为0～FFFF。在下面的代码中输入 REPL:
++
+```py
+import board
+import pwmio
+ledpin = pwmio.PWMOut(board.LED, frequency=25000, duty_cycle=0)
+ledpin.duty_cycle = 32768  # mid-point 0-65535 = 50 % duty-cycle
+```
+. 只需再次输入最后一行代码即可 REPL 改变 PWM 占空比带来 LED 调至最大亮度：
++
+```py
+ledpin.duty_cycle = 65535
+```
+. 使用 `while` 和 `for` 循环制作呼吸灯：
++
+```py
+import board
+import pwmio
+import time
+
+ledpin = pwmio.PWMOut(board.LED, frequency=25000, duty_cycle=0)
+
+while True:
+    for i in range(0, 65535, 1):
+        ledpin.duty_cycle = i
+    for i in range(65535, 0, -1):
+        ledpin.duty_cycle = i
+```
