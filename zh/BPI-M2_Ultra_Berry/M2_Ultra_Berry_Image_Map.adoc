@@ -1,127 +1,127 @@
 = Android 6.0.1 HDMI 和 LCD7
 
 == 内核 3.10.65
-特色地图
+功能支持表
 [options="header",cols="1,2,2,1,5"]
 |====
-|图片	|特点	|子功能	|状态	|性能
-.18+|Android	.2+|USB	  |高压气体放电管	      |是的	|
-                        |USB Camera	|YES	|
-                 |GMAC	|	          |YES	|
-              .2+|WiFi	|WiFi Client|YES	|
-                        |AP mode	  |YES	|
-              .2+|Bluetooth	|BT	    |YES	|BT sound
-                            |BLE	  |Unknown	|
-              .2+|CAMERA ov5640	|photograph	|YES	|
-                                |recording	|YES	|
-                 |HDMI	|720P   	  |YES	|
-                 |IR function	|Recognise	|YES	|getevent can get data
-                 |EMMC	|Recognise	|YES	|fdisk -h can recognise EMMC, and can burn image on EMMC
-                 |OTG	  |adb	      |YES	|
-                 |1080P	|MPV	      |YES	|
-                 |4K TV	|	          |Unknown|	
-                 |SATA	|	          |YES	|HDD & SSD
-                 |Audio Codec	|	    |YES	|HDMI sound, record
-                 |GPU	|OpenGL	      |YES	|OpenGL ES 2.0, FPS：60.0
+|镜像	|功能	|子功能	|状态	|性能/备注
+.18+|Android	.2+|USB	  |HID	      |支持	|
+                        |USB 摄像头	|支持	|
+                 |GMAC	|	          |支持	|
+              .2+|Wi-Fi	|Wi-Fi 客户端|支持	|
+                        |AP 模式	  |支持	|
+              .2+|蓝牙	|BT	    |支持	|蓝牙音频
+                            |BLE	  |未知	|
+              .2+|CAMERA ov5640	|拍照	|支持	|
+                                |录像	|支持	|
+                 |HDMI	|720P   	  |支持	|
+                 |红外功能	|可识别	|支持	|getevent 可获取数据
+                 |eMMC	|可识别	|支持	|fdisk -h 可识别 eMMC，并可将镜像烧录到 eMMC
+                 |OTG	  |adb	      |支持	|
+                 |1080P	|MPV	      |支持	|
+                 |4K 电视	|	          |未知|	
+                 |SATA	|	          |支持	|HDD 和 SSD
+                 |音频编解码器	|	    |支持	|HDMI 音频、录音
+                 |GPU	|OpenGL	      |支持	|OpenGL ES 2.0，FPS：60.0
 |====
 
 = Ubuntu 16.04
-== 内核3.10
-特色地图
+== 内核 3.10
+功能支持表
 
 [options="header",cols="1,2,2,1,6"，width="70%"]
 |====
-|图片	|特点	|子功能	|状态	|性能
-.26+|Ubuntu	.2+|USB	        |高压气体放电管      	|是的	|
-                            |Storage	  |YES	|
-            .2+|GMAC	      |TCP	      |YES	|iperf3 test: 850M/s
-                            |UDP	      |YES	|iperf3 test: 1M/s
-            .2+|WiFi	      |WiFi Client|YES	|
-                            |AP mode	  |Developing	|hostapd
-            .2+|Bluetooth	  |BT	        |YES	|bluetoothctl
-                            |BLE	      |Developing	|hcitool
-            .3+|CAMERA ov5640	|ffmpeg 	|YES	|./usr/local/bin/cameratest.sh
-                            |cap	      |YES	|./usr/local/bin/test_ov5640_image_mode.sh
-                            |guvcview	  |YES	|preview
-            .3+|WringPI	    |8x8 LEDs	  |YES	|./usr/local/bin/bpi_test_hello
-                            |1602 LCD	  |YES	|./usr/local/bin/bpi_test_lcd1602
-                            |OLED	      |YES	|./usr/local/bin/bpi_test_52pi
-            .3+|HDMI	      |1080P	    |YES	|bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_1080P.img.gz
-                            |720P	      |YES	|bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_720P.img.gz
-                            |480P	      |YES	|bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_480P.img.gz
-              |LCD Display  |LCD 7"	    |YES	|bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_LCD7.img.gz
-              |IR function	|Recognise	|YES	|getevent can get data
-              |EMMC	        |Recognise	|YES	|fdisk -h can recognise EMMC, and can burn image on EMMC
-              |OTG	        |adb	      |No	  |
-              |1080P	      |MPV	      |YES	|
-              |GPU	        |OpenGL     |No	  |
-              |SATA	        |Recognise	|YES	|
-              |Mic	        |Recognise	|YES	|
-              |Audio	      |Recognise	|YES	|
+|镜像	|功能	|子功能	|状态	|性能/备注
+.26+|Ubuntu	.2+|USB	        |HID      	|支持	|
+                            |存储设备	  |支持	|
+            .2+|GMAC	      |TCP	      |支持	|iperf3 测试：850M/s
+                            |UDP	      |支持	|iperf3 测试：1M/s
+            .2+|Wi-Fi	      |Wi-Fi 客户端|支持	|
+                            |AP 模式	  |开发中	|hostapd
+            .2+|蓝牙	  |BT	        |支持	|bluetoothctl
+                            |BLE	      |开发中	|hcitool
+            .3+|CAMERA ov5640	|ffmpeg 	|支持	|./usr/local/bin/cameratest.sh
+                            |拍照	      |支持	|./usr/local/bin/test_ov5640_image_mode.sh
+                            |guvcview	  |支持	|预览
+            .3+|WringPI	    |8x8 LED	  |支持	|./usr/local/bin/bpi_test_hello
+                            |1602 LCD	  |支持	|./usr/local/bin/bpi_test_lcd1602
+                            |OLED	      |支持	|./usr/local/bin/bpi_test_52pi
+            .3+|HDMI	      |1080P	    |支持	|bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_1080P.img.gz
+                            |720P	      |支持	|bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_720P.img.gz
+                            |480P	      |支持	|bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_480P.img.gz
+              |LCD 显示  |LCD 7"	    |支持	|bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_LCD7.img.gz
+              |红外功能	|可识别	|支持	|getevent 可获取数据
+              |eMMC	        |可识别	|支持	|fdisk -h 可识别 eMMC，并可将镜像烧录到 eMMC
+              |OTG	        |adb	      |不支持	  |
+              |1080P	      |MPV	      |支持	|
+              |GPU	        |OpenGL     |不支持	  |
+              |SATA	        |可识别	|支持	|
+              |麦克风	        |可识别	|支持	|
+              |音频	      |可识别	|支持	|
 |====
 
-= 树莓派9.4
-== 内核3.10
-特色地图
+= Raspbian 9.4
+== 内核 3.10
+功能支持表
 
 [options="header",cols="1,2,2,1,6"，width="70%"]
 |====
-|图片	|特点	|子功能	|状态	|性能
-.24+|树莓派.2+|USB	  |高压气体放电管	    |是的	|
-                        |Storage	|YES  |	
-              .2+|GMAC	|TCP	    |YES	|iperf3 test: 850M/s
-                        |UDP	    |YES	|iperf3 test: 1M/s
-              .2+|WiFi	|WiFi Client	|YES	|
-                        |AP mode	|Developing	|hostapd
-              .2+|Bluetooth	|BT	  |YES      	|bluetoothctl
-                            |BLE	|Developing	|hcitool
-              .2+|CAMERA ov5640	|ffmpeg	|YES	|./usr/local/bin/cameratest.sh
-                                |cap	  |YES	|./usr/local/bin/test_ov5640_image_mode.sh
-              .3+|WringPI	|8x8 LEDs	|YES	|./usr/local/bin/bpi_test_hello
-                          |1602 LCD	|YES	|./usr/local/bin/bpi_test_lcd1602
-                          |OLED	    |YES	|./usr/local/bin/bpi_test_52pi
-              .3+|HDMI	  |1080P	  |YES	|bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_1080P.img.gz
-                          |720P	    |YES	|bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_720P.img.gz
-                          |480P   	|YES	|bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_480P.img.gz
-                 |LCD Display	|LCD 7"|YES	|bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_LCD7.img.gz
-                 |IR function	|Recognise	|YES	|getevent can get data
-                 |EMMC	|Recognise	|YES	|fdisk -h can recognise EMMC, and can burn image on EMMC
-                 |OTG  	|adb	      |Developing	|
-                 |1080P	|MPV	      |YES	|
-                 |SATA	|Recognise	|YES	|
-                 |Mic	  |Recognise	|YES	|
-                 |Audio	|Recognise	|YES	|
+|镜像	|功能	|子功能	|状态	|性能/备注
+.24+|Raspbian .2+|USB	  |HID	    |支持	|
+                        |存储设备	|支持  |	
+              .2+|GMAC	|TCP	    |支持	|iperf3 测试：850M/s
+                        |UDP	    |支持	|iperf3 测试：1M/s
+              .2+|Wi-Fi	|Wi-Fi 客户端	|支持	|
+                        |AP 模式	|开发中	|hostapd
+              .2+|蓝牙	|BT	  |支持      	|bluetoothctl
+                            |BLE	|开发中	|hcitool
+              .2+|CAMERA ov5640	|ffmpeg	|支持	|./usr/local/bin/cameratest.sh
+                                |拍照	  |支持	|./usr/local/bin/test_ov5640_image_mode.sh
+              .3+|WringPI	|8x8 LED	|支持	|./usr/local/bin/bpi_test_hello
+                          |1602 LCD	|支持	|./usr/local/bin/bpi_test_lcd1602
+                          |OLED	    |支持	|./usr/local/bin/bpi_test_52pi
+              .3+|HDMI	  |1080P	  |支持	|bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_1080P.img.gz
+                          |720P	    |支持	|bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_720P.img.gz
+                          |480P   	|支持	|bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_480P.img.gz
+                 |LCD 显示	|LCD 7"|支持	|bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_LCD7.img.gz
+                 |红外功能	|可识别	|支持	|getevent 可获取数据
+                 |eMMC	|可识别	|支持	|fdisk -h 可识别 eMMC，并可将镜像烧录到 eMMC
+                 |OTG  	|adb	      |开发中	|
+                 |1080P	|MPV	      |支持	|
+                 |SATA	|可识别	|支持	|
+                 |麦克风	  |可识别	|支持	|
+                 |音频	|可识别	|支持	|
 |====
 
 = Debian 9
-== 内核3.10
-特色地图
+== 内核 3.10
+功能支持表
 
 [options="header",cols="1,2,2,1,6"，width="70%"]
 |====
-|图片	|特点	|子功能	|状态	|性能
-.24+|Debian	.2+|USB          	|高压气体放电管	        |是的	|
-                              |Storage	    |YES	|
-            .2+|GMAC	        |TCP	        |YES	|iperf3 test: 850M/s
-                              |UDP	        |YES	|iperf3 test: 1M/s
-            .2+|WiFi	        |WiFi Client	|YES	|
-                              |AP mode	    |Developing	|hostapd
-            .2+|Bluetooth    	|BT	          |YES	      |bluetoothctl
-                              |BLE	        |Developing	|hcitool
-            .2+|CAMERA ov5640	|ffmpeg	      |YES	|./usr/local/bin/cameratest.sh
-                              |cap	        |YES	|./usr/local/bin/test_ov5640_image_mode.sh
-            .3+|WringPI     	|8x8 LEDs	    |YES	|./usr/local/bin/bpi_test_hello
-                              |1602 LCD	    |YES	|./usr/local/bin/bpi_test_lcd1602
-                              |OLED	        |YES	|./usr/local/bin/bpi_test_52pi
-            .3+|HDMI	        |1080P	      |YES	|bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_1080P.img.gz
-                              |720P	        |YES	|bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_720P.img.gz
-                              |480P	        |YES	|bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_480P.img.gz
-               |LCD Display	  |LCD 7"   	  |YES	|bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_LCD7.img.gz
-               |IR function	  |Recognise	  |YES	|getevent can get data
-               |EMMC	        |Recognise	  |YES	|fdisk -h can recognise EMMC, and can burn image on EMMC
-               |OTG	          |adb	        |Developing	|
-               |1080P	        |MPV	        |YES	|
-               |SATA	        |Recognise	  |YES	|
-               |Mic	          |Recognise	  |YES	|
-               |Audio	        |Recognise	  |YES	|
+|镜像	|功能	|子功能	|状态	|性能/备注
+.24+|Debian	.2+|USB          	|HID	        |支持	| 
+                              |存储设备	    |支持	|
+            .2+|GMAC	        |TCP	        |支持	|iperf3 测试：850M/s
+                              |UDP	        |支持	|iperf3 测试：1M/s
+            .2+|Wi-Fi	        |Wi-Fi 客户端	|支持	|
+                              |AP 模式	    |开发中	|hostapd
+            .2+|蓝牙    	|BT	          |支持	      |bluetoothctl
+                              |BLE	        |开发中	|hcitool
+            .2+|CAMERA ov5640	|ffmpeg	      |支持	|./usr/local/bin/cameratest.sh
+                              |拍照	        |支持	|./usr/local/bin/test_ov5640_image_mode.sh
+            .3+|WringPI     	|8x8 LED	    |支持	|./usr/local/bin/bpi_test_hello
+                              |1602 LCD	    |支持	|./usr/local/bin/bpi_test_lcd1602
+                              |OLED	        |支持	|./usr/local/bin/bpi_test_52pi
+            .3+|HDMI	        |1080P	      |支持	|bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_1080P.img.gz
+                              |720P	        |支持	|bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_720P.img.gz
+                              |480P	        |支持	|bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_480P.img.gz
+               |LCD 显示	  |LCD 7"   	  |支持	|bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_LCD7.img.gz
+               |红外功能	  |可识别	  |支持	|getevent 可获取数据
+               |eMMC	        |可识别	  |支持	|fdisk -h 可识别 eMMC，并可将镜像烧录到 eMMC
+               |OTG	          |adb	        |开发中	|
+               |1080P	        |MPV	        |支持	|
+               |SATA	        |可识别	  |支持	|
+               |麦克风	          |可识别	  |支持	|
+               |音频	        |可识别	  |支持	|
 |====
