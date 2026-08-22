@@ -1,0 +1,56 @@
+TIP: link:../GettingStarted_BPI-Leaf-S3[返回开始使用 BPI-Leaf-S3]
+
+
+== 外部硬件要求
+
+一个电位器。
+
+== ESP32-S3 ADC
+
+ESP32-S3芯片集成了两个 **ADC 模数转换器**，测量范围为0mV-3100mV，分辨率为12bit，即0mV-3100mV分为2^12=4096级，每一级都是一个数字量。
+
+两人 ADC 模数转换器各有10个测量通道，ADC1为GPIO1 ~ 10，ADC2为GPIO11 ~ 20.
+
+== 连接方式
+
+GND接GND，VCC接3V3，S输出端接GPIO11引脚，使用ADC2的通道1进行测量。
+
+GPIO1~20个引脚可用作 ADC 输入引脚。
+
+== 代码
+
+```py
+from machine import Pin,ADC
+import time
+adc11 = ADC(Pin(11),atten=ADC.ATTN_11DB)
+#adc11 = ADC(Pin(11))
+#adc11.atten(ADC.ATTN_11DB)
+while True:
+     read=adc11.read()
+     read_u16 = adc11.read_u16()
+     read_uv = adc11.read_uv()
+     print("read={0},read_u16={1},read_uv={2}".format(read,read_u16,read_uv))
+     time. sleep_ms(100)
+```
+
+[options="header"]
+|===================================================
+| 衰减值 | 可测量输入电压范围
+| ADC.ATTN_0DB      | 0毫伏~950毫伏                 
+| ADC.ATTN_2_5DB    | 0毫伏~ 1250毫伏                
+| ADC.ATTN_6DB      | 0毫伏~ 1750毫伏                
+| ADC.ATTN_11DB     | 0毫伏~ 3100毫伏                
+|===================================================
+
+
+  1. `ADC(*, atten)` 初始化 ADC 的通道 GPIO 引脚，您可以选择使用 `atten` 设置衰减值，控制芯片可测量的输入电压范围。如果不设置，则为默认值 `atten=ADC.ATTN_0DB` 或上次设置的值。
+  2. 您可以通过以下方式修改衰减值 `ADC.atten()` 初始化后 ADC 频道。
+  3. `ADC.read()` 读到 ADC 并返回读取结果。的 ADC ESP32-S3 芯片返回 12 位精度的数据。
+  4. `ADC.read_u16()` 读到 ADC 并返回16位数据。
+  5. `ADC.read_uv()` 返回校准后的输入电压 `uV` 根据特性的微伏 ADC。返回值只有 `mV` 毫伏分辨率 (即，始终为 1000 微伏的倍数).
+
+WiFi功能也使用ADC2，因此尝试从ADC2的测量通道GPIO11读取模拟值 ~ 20 当 WiFi 处于活动状态时将抛出异常。
+
+推荐使用 `ADC.read_uv()` 读取电压值，电压值是根据电源特性校准后返回的十进制常数 ADC 模数转换器，比其他两种读取方法更准确。同时也建议使用时直接划分操作： `ADC.read_uv()//1000` 获取数据 `mV` 毫伏分辨率。
+
+直接打印出来 `ADC.read()` 或 `ADC.read_u16()` 要获取十进制值，您可以使用 `hex()` 将数据类型转换为十六进制的函数，例如 `hex(ADC.read() )`，或使用 `bin()` 函数将数据类型转换为二进制。
