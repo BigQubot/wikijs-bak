@@ -1,20 +1,20 @@
-TIP: link:/en/BPI-Bit/Bit_for_Arduino#_install_platform_io[位用于 Arduino]
+TIP: link:/en/BPI-Bit/Bit_for_Arduino#_install_platform_io[BPI-Bit 的 Arduino 教程]
 
-= 安装VSCode
+= 安装 VS Code
 
-Visual Studio Code 是一个轻量级但功能强大的源代码编辑器，可以在桌面上运行，并且可用于 Windows, macOS 和 Linux。它带有内置支持 JavaScript、打字稿和 Node.js 并拥有丰富的其他语言扩展生态系统 (比如C++, C#, 爪哇, Python, PHP, 围棋) 和运行时间 (例如 .NET 和 Unity).
+Visual Studio Code 是轻量而强大的桌面源代码编辑器，支持 Windows、macOS 和 Linux。它内置 JavaScript、TypeScript 和 Node.js 支持，并提供丰富的扩展，可支持 C++、C#、Java、Python、PHP、Go 等语言以及 .NET、Unity 等运行环境。
 
-下载vscode： https://code.visualstudio.com/
+下载 VS Code：https://code.visualstudio.com/
 
 安装很简单，这里不再赘述
 
-= 在vscode上安装platformIO插件
+= 在 VS Code 中安装 PlatformIO 插件
 
-. 首先打开vscode扩展列表，点击左侧列表第五个图标
+. 打开 VS Code 扩展列表，单击左侧栏中的第五个图标。
 +
 image::/picture/vscode_1.jpeg[vscode_1.jpeg]
 
-. 在搜索栏搜索platformIO后，点击第一个platformIO IDE 在下面的列表中
+. 在搜索框中输入 PlatformIO，然后在结果列表中选择第一个 PlatformIO IDE。
 +
 image::/picture/vscode_2.jpeg[vscode_2.jpeg]
 
@@ -22,7 +22,7 @@ image::/picture/vscode_2.jpeg[vscode_2.jpeg]
 +
 image::/picture/vscode_3.jpeg[vscode_3.jpeg]
 
-. 安装过程会很长，大约40分钟，耐心等待。当提示找不到Python2.7时，我们将忽略它，因为它会在PlatformIO安装过程中自动安装。
+. 安装过程可能需要约 40 分钟，请耐心等待。如果提示找不到 Python 2.7，可暂时忽略；PlatformIO 安装过程中会自动安装。
 +
 image::/picture/vscode_4.png[vscode_4.png]
 
@@ -31,11 +31,11 @@ image::/picture/vscode_4.png[vscode_4.png]
 image::/picture/vscode_5.jpeg[vscode_5.jpeg]
 
 = 创建新项目
-. 点击左下角的小房子，进入platformIO主页，点击New Project
+. 单击左下角的主页图标进入 PlatformIO Home，再单击 New Project。
 +
 image::/picture/vscode_6.jpeg[vscode_6.jpeg]
 
-. 填写项目名称、板、框架。项目名称根据个人兴趣而定，因为我使用的是bpi:bit板，所以这里我选择了bpibit板。选择 bpibit 板将自动选择帧。下面是选择保存地址，一般默认，只要把勾去掉，就可以选择自定义地址
+. 填写项目名称、开发板和框架。项目名可自行设定；本例使用 BPI:bit，因此选择 bpibit 开发板，框架会自动选定。项目保存位置通常保持默认；取消勾选后也可自定义路径。
 +
 image::/picture/vscode_7.png[vscode_7.png]
 
@@ -45,18 +45,18 @@ image::/picture/vscode_8.jpeg[vscode_8.jpeg]
 
 . 左侧的资源管理器显示项目文件夹
 
-- Platformio.ini (用于配置文件)
-- 库 (自动生成的库目录)
-- 斯瑞克 (程序源文件存放目录)
+- platformio.ini（配置文件）
+- lib（自动生成的库目录）
+- src（程序源文件目录）
 
 +
 image::/picture/vscode_9.jpeg[vscode_9.jpeg]
 
-= 闪存重新编程
-进入SRC目录，点击main.cpp进行烧写。用数据线将板子连接到电脑后，点击下方箭头，platformIO会自动识别串口并烧写程序。
+= 编译并上传程序
+进入 src 目录，打开 main.cpp 进行编程。用数据线将开发板连接到计算机后，单击下方箭头，PlatformIO 会自动识别串口并上传程序。
 
 image::/picture/vscode_10.jpeg[vscode_10.jpeg]
 
-使用 Platforum IO 免费开发 BPI:bit。
+使用 PlatformIO 开发 BPI:bit。
 
 image::/picture/vscode_11.jpeg[vscode_11.jpeg]
