@@ -1,0 +1,354 @@
+= 简介
+
+香蕉派 M1+ 配备机载 WiFi g/b/n.由于板载 WIFI 芯片，该板支持所有经典项目，甚至更多。与它的兄弟姐妹一样，它可以运行操作系统，包括 Android, 卢本图, Ubuntu, Debian和树莓派。
+
+香蕉派 M1+ 是我们升级后的M1板。我们觉得板载 WiFi 为主板添加了更多功能，让用户更方便地设置他们的 linx 桌面或路由器项目。 
+
+TIP: 更多信息： link:/en/BPI-M1_Plus/BananaPi_BPI-M1_Plus[香蕉派 BPI-M1_Plus]
+
+== 规格参数
+
+- 双核1.0GHz CPU
+- 1 GB DDR3 内存
+- 带 Open GL ES 的 Mali-400 MP2 2.0/1.1
+- 机载WiFi
+
+= 开发
+== Android
+=== 使用 SD 卡安装镜像
+NOTE: 的 Android 的镜像 BPI-M1 和 BPI-M1 Plus 是通用的。
+
+. 下载 M1 Plus 镜像。
+. 将您的 TF 卡插入 TF-USB 适配器，然后将适配器插入您的 Windows 电脑 usb 界面。
+. 准备好镜像，下载镜像刻录工具PhoenixCard.exe。
+. 使用“PhoenixCard.exe”进行刻录 android 镜像到TF卡。
+- 在图像路径选项中选择图像
++
+image::/picture/m1-android-1.jpg[m1-android-1.jpg]
+image::/picture/m1-android-2.jpg[m1-android-2.jpg]
+
+- 选择设置为卡启动，然后点击刻录镜像
++
+image::/picture/m1-android-3.jpg[m1-android-3.jpg]
+
+- 燃烧结束。
++
+image::/picture/m1-android-4.jpg[m1-android-4.jpg]
+
+
+== Linux
+=== 准备
+
+. 准备 8G/above TF卡、 USB-串行接口，PC windows 系统
+. 使用您的 USB-M1 Plus 上的串行连接调试控制台
+
+=== 使用 SD 卡安装镜像
+**Windows**
+
+使用 Balena Etcher 安装映像。 +
+link:https://balena.io/etcher[巴莱纳蚀刻机] 是 Balena 的开源 GUI 闪存工具，可将操作系统映像闪存到 SD 卡或 USB 开车。
+
+. 点击“**从文件闪存**”来选择镜像。 
+. 点击“**选择目标**”来选择 USB 设备。 
+. 点击“**快闪！**“开始燃烧。
+
+image::/picture/etcher.jpg[etcher.jpg]
+
+
+== 高级开发
+=== SATA
+. 在M1P上安装SATA
+
+- 插入sata接口后，执行
++
+```sh
+fdisk -l
+```
+- 然后 
++
+```sh
+mount /dev/sdx /mnt/xxx
+```
++
+image::/picture/m1p_sata.png[m1p_sata.png]
+
+. 如果您在挂载 SATA 时遇到一些错误，请尝试以下命令：
+
+- 创建新分区
++
+```sh
+fdisk /dev/sdx
+```
+设置分区数量和大小，创建分区后，输入“**瓦克**” 保存并退出。
+- 格式化SATA
++
+```sh
+mkfs.ext2 /dev/sdx
+```
+- 执行
++
+```sh
+mount /dev/sdx /mnt/xxx
+```
+
+. 成功插入SATA后，我们可以输入以下命令来测试SATA接口：
+
+- 测试读取速度
++
+```SH
+time dd if=/dev/xxx of=/dev/null bs=1M count=1000 
+```
+- 测试写入速度
++
+```SH
+time dd if=/dev/zero of=/dev/sdx bs=1M count=1000
+```
++
+
+image::/picture/sata_test.png[sata_test.png]
+
+
+=== 通用汽车MAC
+使用iperf3测试gmac
+
+. 在PC端：
++
+执行
++
+```sh
+iperf3 -s
+```
+. 在 M1P 控制台上：
++
+--
+TCP测试
+```sh
+iperf3 -c serverIP
+```
+UDP测试： 
+```sh
+iperf3 -u -c serverIP
+```
+--
++
+image::/picture/m1p_gmac_test.png[m1p_gmac_test.png]
+
+=== WiFi客户端
+**您有两种方法来设置 WiFi 客户端**
+
+. 使用命令设置 WiFi 客户端
++
+--
+```sh
+ip link set wlan0 up
+iw dev wlan0 scan | grep SSID
+nano /etc/wpasupplicant/wpa_supplicant.conf
+```
+```sh
+ network={    
+ ssid="ssid"    
+ psk="password"    
+ priority=1 
+ }
+```
+```sh
+wpa_supplicant -iwlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf
+dhclient wlan0
+```
+--
+. 使用UI界面设置WiFi Client
+
+=== 清除启动
+```sh
+git clone https://github.com/BPI-SINOVOIP/BPI-files/tree/master/SD/100MB
+bpi-bootsel BPI-cleanboot-8k.img.gz /dev/sdX
+```
+=== 红外功能
+执行 
+```sh
+getevent
+```
+使用您的 IR 设备向 M1 Plus 发送信息
+
+image::/picture/m1p_ir.png[m1p_ir.png]
+
+=== RPi。GPIO
+**安装 RPi。GPIO**
+```sh
+git clone https://github.com/BPI-SINOVOIP/RPi.GPIO
+cd RPi.GPIO
+sudo apt-get update
+sudo apt-get install python-dev python3-dev
+```
+安装模块，执行 
+```sh
+sudo python setup.py install
+```
+或
+```sh
+sudo python3 setup.py install
+```
+
+**使用 RPi。GPIO**
+```sh
+cd /usr/local/bin
+./bpi_test_g40.py
+```
+
+image::/picture/rpi_gpio.png[rpi_gpio.png]
+
+=== 扭皮
+GitHub: https://github.com/BPI-SINOVOIP/BPI-WiringPi2.git
+
+我们还有内置的测试命令 
+```sh
+/usr/local/bin
+```
+**RGB 1602 LCD**
+```sh
+/usr/local/bin/bpi_test_lcd1602.sh
+```
+**8x8 RGB LED 马蒂克斯**
+
+首先你需要一个 GPIO 8x8 扩展板 LED 马蒂克斯 
+
+image::/picture/wringpi_led_martix_extend_board.png[wringpi_led_martix_extend_board.png]
+
+执行 
+```sh
+/usr/local/bin/bpi_test_gpio40.sh
+```
+
+=== 文件系统
+只读系统更改为读写模式：
+```sh
+mount -o remount,rw /
+```
+
+=== 安装QT
+```sh
+sudo apt-get install build-essential
+sudo apt-get install libgl1-mesa-dev
+sudo apt-get install libglu1-mesa-dev
+sudo apt-get install freeglut3-dev
+sudo apt-get install cmake
+sudo apt-get install qt5-default qtcreator
+```
+=== A20 CAN总线
+为了将can4linux移植到 BananaPi，CAN模块描述需要从A20硬件手册中获取。 can4linux是一个基于字符驱动的 Linux 驱动程序已在台式 PC 和嵌入式平台（例如 Freescale FlexCAN）上使用 (i.MX 系列微控制器) 或 Xiliny Zynq。
+
+有关 A20 上的 CAN 的更详细文档位于： https://dl.linux-sunxi.org/A20/CAN%20Bus1.pdf
+
+这是一个使用 CAN BUS 的教程 bananapi 与香蕉 15-01
+
+感谢 selqcir 分享这个例子：
+
+- 下载并安装“bananian-1501.img” 插入 8 GB SD 卡。
+- 使用“bananian-config”扩展根文件系统
+- 安装缺少的包：
++
+```sh
+apt-get install git
+apt-get update
+apt-get upgrade
+reboot
+```
+- 获取最后一个可用的 bananian，并继续安装缺少的软件包：
++
+```sh
+git clone https://github.com/Bananian/linux-bananapi
+apt-get install build-essential u-boot-tools uboot-mkimage 
+apt-get install libusb-1.0-0 libusb-1.0-0-dev git wget fakeroot kernel-package zlib1g-dev libncurses5-dev
+apt-get install subversion
+```
+- 构建内核：
++
+```sh
+cd linux-bananapi
+make menuconfig
+```
+- 菜单出现时退出而不保存
++
+```sh
+zcat /proc/config.gz > /root/linux-bananapi/.config
+make uImage modules
+make INSTALL_MOD_PATH=output modules_install
+```
+- 在此步骤中，应该编译内核并且“Module.symvers”应该可用
+- 然后重命名Bananian提供的模块和固件，并替换为新的。
++
+```sh
+mv /lib/modules /lib/modules.old
+mv /lib/firmware /lib/firmware.old
+mv /root/linux-bananapi/output/lib/modules /lib/modules
+mv /root/linux-bananapi/output/lib/firmware /lib/firmware
+```
+- uImage 也一样：
++
+```sh
+mount /dev/mmcblk0p1 /mnt
+cd /mnt
+mv uImage uImage.old
+mv /root/linux-bananapi/arch/arm/boot/uImage /mnt
+reboot
+```
+- 创建进一步构建的链接：
++
+```sh
+cd /lib/modules/3.4.104/
+ln -s /root/linux-bananapi build
+cd ~
+```
+- 获取 Can4Linux 并构建它：
++
+```sh
+svn checkout https://svn.code.sf.net/p/can4linux/code/trunk can4linux-code
+cd /root/can4linux-code/can4linux/
+make TARGET=BANANAPI
+```
+- 为板的每次启动安装模块：
++
+```sh
+insmod can4linux.ko
+cp can4linux.ko /lib/modules/3.4.104/kernel/net/can/
+depmod -A -v
+modprobe -v can4linux
+echo "" >> /etc/modules ; echo "can4linux" >> /etc/modules
+reboot
+```
+- 构建 CAN 示例
++
+```sh
+apt-get install swig
+apt-get install python-dev
+cd can4linux-code/can4linux-examples/
+```
+- 更新文件中的 CAN 速度和设备”pyCan-example.py"
++
+```sh
+# setting the device number
+device = 0
+defaultBaudrate = '250'
+```
+- 连接 CAN 收发器和 CAN 总线，并检查例如：
++
+```sh
+python pyCan-example.py
+```
+
+仅此而已
+
+使用这种方法，内核版本是“Linux bananapi 3.4.104" 代替 "Linux bananapi 3.4.104+”，因为我无法找到与 Bananian 15-01 相同的来源，但 CAN 总线可以工作！
+
+
+
+
+
+
+
+
+
+
+
+
+
