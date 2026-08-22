@@ -1,0 +1,790 @@
+= 简介
+
+香蕉派 BPI-M7 用户手册帮助用户了解基本使用方法和所需的准备工作 BPI-M7
+
+拿到后可以在板上找到它的型号和硬件版本 BPI-M7.
+
+本文尽可能详细地向您概述产品信息。
+
+TIP: 更多信息： link:/en/BPI-M7/BananaPi_BPI-M7[香蕉派 BPI-M7]
+
+= 准备 
+
+== 工具准备
+
+* BPI-M7 主板
+* 电源： USB Type-C PD
+** 支持 9V/2A, 12V/2A, 15V/2A
+* 系统安装 (选择一个)
+** 微型SD卡 /TF 卡启动
+*** 微型SD卡 card/TF, Class 10 或以上，至少 8GB SDHC 和读卡器
+*** 经ArmSoM团队测试的高速TF卡：
+**** 闪迪 32GB TF (微型SD卡) (开发商推荐)
+**** 闪迪 32GB TF (微型SD卡) 行车记录仪和安全摄像头存储卡 (建议长期运行)
+**** 闪迪 TF 8G Class10 microSD
+**** 闪迪 TF 128G Class10 microSD XC TF 128G 48MB/S：
+** 机上 eMMC 启动
+*** USBType-C 数据线，用于从 Type-C 端口写入镜像 BPI-M7 到 eMMC。您需要连接 BPI-M7 使用 Type-C 电缆连接至 PC。
+
+== 可选配件
+
+* USB 键盘和鼠标
+* HDMI 显示器和 HDMI 电缆
+** BPI-M7 具有全尺寸 HDMI 端口，最高支持 8K@60 显示
+** HDMI EDID 用于确定最佳显示分辨率。 1080p (或 4K/8K) 将在支持它的显示器和电视上选择。如果不支持 1080p，EDID 将查找下一个可用的分辨率。
+* Ethernet 电缆
+** BPI-M7 支持2.5Gb Ethernet
+** 网线用于连接 BPI-M7 到本地网络和互联网
+* 摄像头模组
+** BPI-M7 支持拍照功能
+** 我们推荐使用imx415模块或ov13850，可通过香蕉派淘宝店或速卖通购买 
+* LCD 显示
+** BPI-M7 支持 LCD 显示
+** 我们推荐 Display 10.1 HD，可通过 香蕉派 淘宝店或速卖通购买 
+* 音频线
+** 适用于 0.8mm 垂直插座
+* USB-A 至 USB-C数据线
+
+== 调试接口
+我们没有3针调试接口 BPI-M7，所以如果想用ttl线调试的话只能接40pin。
+
+连接 40 针上的针脚 6、8 和 10。
+
+
+image::/bpi-m7/bpi-m7_debug_interface_diagram.png[bpi-m7_debug_interface_diagram.png]
+
+串口波特率为**1500000**. **不要做出错误的选择。**
+
+= 闪光镜像
+
+TIP: 选择燃烧方法： link:/en/BPI-M5/BananaPi_Flash_image[Rockchip 芯片Flash系统镜像]
+
+= 界面设置
+
+如果您使用的是香蕉派 BPI-M5 Pro 首次使用时，请先熟悉一下外围接口，以便更好地理解以下内容。
+
+== 调试串口
+
+连接 USB TTL串口线如下，波特率=1500000:
+
+image::/bpi-m5pro/armsom-sige7-debug.png[armsom-sige7-debug.png]
+
+[options="header",cols="1,1,1"]
+|====
+|BPI-M5 Pro	|连接	|串口模块
+|接地 (引脚 6)	|<--->	|接地
+|TX (针脚 8)	|<--->|	接收
+|接收 (引脚 10)	|<--->|	TX
+|====
+
+== Ethernet 端口
+
+* 1.首先将网线一端插入 Ethernet ArmSoM-SigeX 的端口，并将另一端连接到路由器。确保网络正常运行。
+* 2.系统启动后会自动分配IP地址 Ethernet 通过 DHCP 端口，无需任何额外配置。
+* 3.检查ArmSoM-SigeX中的IP地址 Linux 系统，使用以下命令：
+
+```sh
+armsom@armsom-sige7:~$ ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+2: enP4p65s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether c6:9c:b0:7e:2b:1f brd ff:ff:ff:ff:ff:ff permaddr aa:a6:84:1b:0d:21
+    inet 192.168.10.54/24 brd 192.168.10.255 scope global dynamic noprefixroute enP4p65s0
+       valid_lft 86221sec preferred_lft 86221sec
+    inet6 fe80::5bb0:d96f:926d:b334/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever
+3: enP2p33s0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN group default qlen 1000
+    link/ether be:ed:22:01:47:d9 brd ff:ff:ff:ff:ff:ff permaddr a2:fb:fa:79:de:fb
+4: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state DORMANT group default qlen 1000
+    link/ether b8:2d:28:5a:52:6a brd ff:ff:ff:ff:ff:ff
+```
+
+可以通过三种方式查看IP地址 Rockchip 启动后的产品：
+
+** 连接 HDMI 显示器，登录系统，使用终端命令 ip a 查看 IP 地址。
+** 使用debug串口终端输入ip a命令查看IP地址。
+** 如果调试串口和HDMI监视器均不可用，您可以检查ArmSoM-SigeX的IP地址 Ethernet 通过路由器的管理接口端口。但是，此方法有时可能无法显示 ArmSoM-SigeX IP 地址。如果看不到它，请尝试以下故障排除步骤：
+*** 检查是否 Linux 系统已正常启动。如果ArmSoM-SigeX上的绿灯常亮，一般说明系统已正确启动；如果只有红灯亮，则系统尚未正常启动。
+*** 确保网络电缆连接牢固，或尝试使用其他电缆。
+尝试使用不同的路由器。路由器的常见问题包括无法分配 IP 地址或正确分配 IP 地址但未在路由器界面中显示它们。
+*** 如果没有可用的替代路由器，请使用 HDMI 监视器或调试串行端口检查 IP 地址。
+
+TIP: 请注意，DHCP 会自动为您分配 IP 地址 Rockchip 产品无需额外配置。
+
+* 4.使用ping工具检查网络连通性。
+
+** 测试网络连接的命令如下所示。您可以使用 Ctrl 停止 ping 命令+C 快捷方式。
+```sh
+armsom@armsom-sige7:~$ ping www.baidu.com
+PING www.a.shifen.com (183.2.172.185): 56 data bytes
+64 bytes from 183.2.172.185: icmp_seq=0 ttl=53 time=8.370 ms
+64 bytes from 183.2.172.185: icmp_seq=1 ttl=53 time=8.917 ms
+64 bytes from 183.2.172.185: icmp_seq=2 ttl=53 time=8.511 ms
+64 bytes from 183.2.172.185: icmp_seq=3 ttl=53 time=8.673 ms
+^C
+--- www.a.shifen.com ping statistics ---
+4 packets transmitted, 4 packets received, 0% packet loss
+round-trip min/avg/max/stddev = 8.370/8.618/8.917/0.203 ms
+```
+
+== 无线网络
+
+香蕉派 设计 Rockchip 系列产品板载WIFI模块，无需外接网络设备。他们使用标准的第四代天线。
+
+=== 通过服务器映像上的命令行连接到 WIFI
+
+1.首先，登录 Linux 系统使用以下方法之一：
+
+* 如果板子连接了网线，则可以通过SSH远程登录。
+* 如果开发板是通过调试串口连接的，则使用串口终端登录开发板 Linux 系统。
+* 如果开发板连接了 HDMI 显示器，您可以登录 Linux 系统通过 HDMI 显示器。
+
+2.使用 nmcli dev wifi 命令扫描可用的 WIFI 热点：
+```sh
+# 1. Enable WIFI
+armsom@armsom-sige:/# nmcli r wifi on
+# 2. Scan for WIFI
+armsom@armsom-sige:/# nmcli dev wifi
+# 3. Connect to a WIFI network
+armsom@armsom-sige:/# nmcli dev wifi connect "wifi_name" password "wifi_password"
+```
+image::/bpi-m5pro/wifi_1.png[wifi_1.png]
+
+3.使用nmcli命令连接扫描到的WIFI：
+
+* 更换无线网络_name 为您要连接的 WIFI 热点的名称。
+* 更换无线网络_密码为WIFI热点密码。
+```sh
+armsom@armsom-sige7:~$ nmcli dev wifi connect "ydtx_5G" password "ydtx123456"
+Device 'wlan0' successfully activated with "wlan0b6d10bba-e1d5-4b6d-a17f-7d5ab44bbb6f".
+```
+4.使用ip addr show wlan0命令查看WIFI IP地址：
+```sh
+armsom@armsom-sige7:~$ ip addr show wlan0
+4: wlan0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether b8:2d:28:5a:52:6a brd ff:ff:ff:ff:ff:ff
+    inet 192.168.10.9/24 brd 192.168.10.255 scope global dynamic noprefixroute wlan0
+       valid_lft 86321sec preferred_lft 86321sec
+    inet6 fe80::850d:3119:e0:afa3/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever
+```
+5.使用ping命令测试WIFI网络连通性。您可以使用 Ctrl 中断 ping 命令+C 快捷键：
+```sh
+armsom@armsom-sige7:~$ ping www.baidu.com
+PING www.a.shifen.com (183.2.172.185): 56 data bytes
+64 bytes from 183.2.172.185: icmp_seq=0 ttl=53 time=8.370 ms
+64 bytes from 183.2.172.185: icmp_seq=1 ttl=53 time=8.917 ms
+64 bytes from 183.2.172.185: icmp_seq=2 ttl=53 time=8.511 ms
+64 bytes from 183.2.172.185: icmp_seq=3 ttl=53 time=8.673 ms
+^C
+--- www.a.shifen.com ping statistics ---
+4 packets transmitted, 4 packets received, 0% packet loss
+round-trip min/avg/max/stddev = 8.370/8.618/8.917/0.203 ms
+```
+=== 通过服务器映像上的 GUI 连接到 WIFI
+
+1.Log 到 Linux 系统使用以下方法之一：
+
+* 如果开发板连接了网线，则可以通过SSH远程登录。
+* 如果开发板是通过调试串口连接的，则使用串口终端登录开发板 Linux 系统 (串口软件使用MobaXterm，minicom无法显示图形界面).
+* 如果开发板连接了HDMI显示器，则登录 Linux 系统通过 HDMI 显示器。
+
+2.在终端输入nmtui命令，打开WIFI连接界面：
+
+image::/bpi-m5pro/wifi_2.png[wifi_2.png]
+
+```sh 
+armsom@armsom-sige7:~$ nmtui
+```
+3.选择“激活连接”并按Enter键：
+
+image::/bpi-m5pro/wifi_3.png[wifi_3.png]
+
+4.选择您要连接的WIFI热点并输入密码。连接成功后，出现星号“*” 将出现在已连接的 WIFI 名称旁边：
+
+image::/bpi-m5pro/wifi_4.png[wifi_4.png]
+
+5.使用ip addr show wlan0命令查看WIFI IP地址：
+```sh 
+armsom@armsom-sige7:~$ ip addr show wlan0
+4: wlan0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether b8:2d:28:5a:52:6a brd ff:ff:ff:ff:ff:ff
+    inet 192.168.10.9/24 brd 192.168.10.255 scope global dynamic noprefixroute wlan0
+       valid_lft 86316sec preferred_lft 86316sec
+    inet6 fe80::a422:3494:3147:92d/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever
+```
+
+6.使用ping命令测试WIFI网络连通性。您可以使用 Ctrl 中断 ping 命令+C 快捷键：
+```sh 
+armsom@armsom-sige7:~$ ping www.baidu.com
+PING www.a.shifen.com (183.2.172.185): 56 data bytes
+64 bytes from 183.2.172.185: icmp_seq=0 ttl=53 time=8.370 ms
+64 bytes from 183.2.172.185: icmp_seq=1 ttl=53 time=8.917 ms
+64 bytes from 183.2.172.185: icmp_seq=2 ttl=53 time=8.511 ms
+64 bytes from 183.2.172.185: icmp_seq=3 ttl=53 time=8.673 ms
+^C
+--- www.a.shifen.com ping statistics ---
+4 packets transmitted, 4 packets received, 0% packet loss
+round-trip min/avg/max/stddev = 8.370/8.618/8.917/0.203 ms
+```
+
+=== 桌面图像测试方法
+
+1.点击桌面上的网络配置图标 (确保测试WIFI时不要连接网线).
+
+2.连接WIFI后，打开浏览器检查是否可以上网：
+
+image::/bpi-m5pro/wifi_5.png[wifi_5.png]
+
+
+== BT
+```sh
+# 1. Activate Bluetooth
+armsom@armsom-sige5:/# service bluetooth start
+# 2. Enter bluetoothctl
+armsom@armsom-sige5:/# bluetoothctl
+# 3. Enter the following command to connect
+armsom@armsom-sige5:/# power on
+armsom@armsom-sige5:/# agent on
+armsom@armsom-sige5:/# default-agent
+armsom@armsom-sige5:/# scan on
+armsom@armsom-sige5:/# pair yourDeviceMAC
+```
+
+== HDMI
+
+的 BPI-M5 Pro 具有HDMI输出端口，支持CEC和HDMI 2.1，最高分辨率可达4Kp120。
+
+[options="header",cols="1,1,1,1"]
+|====
+|型号	|BPI-M7	|BPI-M5 Pro	|BPI-M1 Pro
+|分辨率|	8Kp60	|4Kp120	|4Kp60
+|====
+
+使用 HDMI 电缆将开发板连接到 HDMI 显示器。
+
+启动后 Linux 系统中，如果 HDMI 显示器显示镜像，则 HDMI 接口工作正常。
+
+NOTE: 许多笔记本电脑虽然具有 HDMI 端口，但通常仅具有 HDMI 输出，并且不支持 HDMI 输入。这意味着您无法在笔记本电脑的屏幕上显示其他设备的 HDMI 输出。在将开发板的 HDMI 连接到笔记本电脑的 HDMI 端口之前，请确保您的笔记本电脑支持 HDMI 功能。如果没有显示，首先检查您的系统是否是桌面版本；服务器版本可能只显示一个终端。
+
+* 1.HDMI转VGA显示测试
+** 所需配件：
+** HDMI 转 VGA 转换器
+* 2.一条VGA线和一个带VGA端口的显示器
+
+HDMI转VGA显示测试如下图：
+
+image::/bpi-m5pro/hdmi_.jpg[hdmi_.jpg]
+
+TIP: 当使用 HDMI 到 VGA 转换时，ArmSoM-Sige 产品或 Linux 系统。如果遇到问题，请检查 HDMI 至 VGA 转换器、VGA 电缆和显示器是否存在问题。
+
+== USB
+
+的 BPI-M5 Pro 提供一个 USB2.0和1 USB 3.0端口。
+
+[options="header",cols="1,2,2,1"]
+|====
+|型号	|BPI-M7	|BPI-M5 Pro |BPI-M1 Super
+|USB	|1 个 Type-C 3.0、1 个 USB3.0、1 个 USB2.0	|1 个 Type-C 3.0、1 个 USB3.0、1 个 USB2.0 |	2个USB2.0
+|====
+
+NOTE: USB 接口可以通过使用扩展 USB 枢纽。
+
+=== 测试 USB 鼠标或键盘
+
+* 1.插入一个 USB 键盘插入主板的 USB 端口。
+* 2.将开发板连接到 HDMI 显示器。
+* 3.如果鼠标或键盘操作系统正常， USB 界面工作正常 (鼠标仅适用于桌面版本的系统).
+
+=== 测试 USB 存储设备
+
+* 1.插入一个 USB 闪存驱动器或 USB 将外部硬盘驱动器插入 ArmSoM-Sige 产品的 USB 端口。
+* 2.运行以下命令；如果您看到 sdX 输出，则 USB 驱动器识别成功：
+```sh
+armsom@armsom-sige7:/# cat /proc/partitions | grep "sd*"
+major minor  #blocks  name
+   8        0  122880000 sda
+```
+* 3.使用mount命令挂载 USB 开车去 /mnt 并查看文件 USB 驱动器：
+```sh
+armsom@armsom-sige7:/# sudo mount /dev/sda1 /test/
+```
+
+* 4.挂载后使用df -h命令查看 USB 驱动器的容量使用情况和安装点：
+```sh
+armsom@armsom-sige7:/test# df -h | grep "sd"
+/dev/sda        4.7G  4.7G     0  100% /test
+```
+=== USB 相机
+
+* 1.准备一个 USB 支持UVC协议的相机并将其连接到板上 USB 端口。
+
+* 2.使用v4l2-ctl命令查看 USB 相机的设备节点信息，应该是 /dev/video0:
+
+```sh
+armsom@armsom-sige7:/# v4l2-ctl --list-devices
+Logitech HD Webcam C93 (usb-xhci-hcd.5.auto-1):
+        /dev/video40
+        /dev/video41
+        /dev/media4
+```
+
+* 3.在桌面系统上，您可以使用 Cheese/V4L2 测试台打开 USB 直接相机。
+
+image::/bpi-m5pro/usb-camera.jpg[usb-camera.jpg]
+
+您还可以使用终端命令来预览相机：
+```sh
+armsom@armsom-sige7:/# gst-launch-1.0 v4l2src device=/dev/video0 io-mode=4 ! videoconvert ! video/x-raw,format=NV12,width=1920,height=1080 ! xvimagesink;
+```
+
+要拍摄照片：
+```sh
+armsom@armsom-sige7:/# gst-launch-1.0 v4l2src device=/dev/video0 io-mode=4 ! videoconvert ! video/x-raw,format=NV12,width=1920,height=1080 ! jpegenc ! multifilesink location=/home/armsom/test.jpg;
+```
+
+录制视频：
+
+```sh
+gst-launch-1.0 v4l2src num-buffers=512 device=/dev/video0 io-mode=4 ! videoconvert ! video/x-raw, format=NV12, width=1920, height=1080, framerate=30/1 ! tee name=t ! queue ! mpph264enc ! queue ! h264parse ! mpegtsmux ! filesink location=/home/armsom/test.mp4
+```
+
+image::/bpi-m7/bpi-m7_camera.png[bpi-m7_camera.png]
+
+== 音频
+
+查看系统中的声卡：
+```sh
+armsom@armsom-sige5:/# aplay -l  
+**** List of PLAYBACK Hardware Devices ****  
+card 0: rockchipdp0 [rockchip,dp0], device 0: rockchip,dp0 spdif-hifi-0 [rockchip,dp0 spdif-hifi-0]  
+ Subdevices: 1/1  
+ Subdevice #0: subdevice #0  
+card 1: rockchipes8316 [rockchip-es8316], device 0: fe470000.i2s-ES8316 HiFi es8316.7-0011-0 [fe470000.i2s-ES8316 HiFi es8316.7-0011-0]  
+  Subdevices: 1/1  
+  Subdevice #0: subdevice #0  
+card 2: rockchiphdmi0 [rockchip-hdmi0], device 0: rockchip-hdmi0 i2s-hifi-0 [rockchip-hdmi0 i2s-hifi-0]  
+  Subdevices: 1/1  
+  Subdevice #0: subdevice #0
+```
+
+== 风扇
+
+BPI-M5 Pro 产品配备使用 0.8mm 连接器的 5V 风扇。
+
+风扇当前运行在五种默认状态：
+
+[options="header",cols="2,1,1"]
+|====
+|温度范围| 状态 |PWM 速度  
+|低于50°C |0 |0  
+|50°C - 55°C| 1 |50  
+|55°C - 60°C |2 |100  
+|60°C - 65°C |3 |150  
+|65°C - 70°C |4 |200  
+|70℃以上 |5 |250
+|====
+
+```sh
+armsom@armsom-sige5:/# echo 100 > /sys/devices/platform/pwm-fan/hwmon/hwmon6/pwm1  
+```
+
+== C型
+
+的 BPI-M5 Pro 具有功能齐全的 USB Type-C 3.0 端口，最高支持 8K@30fps DP 显示。
+
+== 40针
+
+的 BPI-M5 Pro/BPI-M7 提供一个40针 GPIO 接头，与市场上大多数传感器兼容。
+
+=== 接线-armbian 说明
+
+从wiring-armbian下载wiringOP代码： https://github.com/ArmSoM/wiring-armbian
+
+* 测试输出 gpio readall命令如下图：
+
+ +------+-----+----------+--------+---+  ArmSoM-Sige7(BPI-M7) +---+--------+----------+-----+------+  
+ | GPIO | wPi |   Name   |  Mode  | V | Physical | V |  Mode  | Name     | wPi | GPIO |  
+ +------+-----+----------+--------+---+----++----+---+--------+----------+-----+------+  
+ |      |     |     3.3V |        |   |  1 || 2  |   |        | 5V       |     |      |  
+ |  139 |   0 |    SDA.7 |     IN | 1 |  3 || 4  |   |        | 5V       |     |      |  
+ |  138 |   1 |    SCL.7 |     IN | 1 |  5 || 6  |   |        | GND      |     |      |  
+ |  115 |   2 |    PWM15 |    OUT | 0 |  7 || 8  | 1 | ALT10  | GPIO0_B5 | 3   | 13   |  
+ |      |     |      GND |        |   |  9 || 10 | 1 | ALT10  | GPIO0_B6 | 4   | 14   |  
+ |  113 |   5 | GPIO3_C1 |     IN | 0 | 11 || 12 | 1 | IN     | GPIO3_B5 | 6   | 109  |  
+ |  111 |   7 | GPIO3_B7 |     IN | 0 | 13 || 14 |   |        | GND      |     |      |  
+ |  112 |   8 | GPIO3_C0 |     IN | 0 | 15 || 16 | 0 | IN     | GPIO3_A4 | 9   | 100  |  
+ |      |     |     3.3V |        |   | 17 || 18 | 1 | IN     | GPIO4_C4 | 10  | 148  |  
+ |   42 |  11 | SPI0_TXD |     IN | 1 | 19 || 20 |   |        | GND      |     |      |  
+ |   41 |  12 | SPI0_RXD |     IN | 1 | 21 || 22 |   |        | SARADC_IN4 |     |      |  
+ |   43 |  14 | SPI0_CLK |     IN | 1 | 23 || 24 | 1 | IN     | SPI0_CS0 | 15  | 44   |  
+ |      |     |      GND |        |   | 25 || 26 | 1 | IN     | SPI0_CS1 | 16  | 45   |  
+ |  150 |  17 | GPIO4_C6 |     IN | 1 | 27 || 28 | 0 | OUT    | GPIO4_C5 | 18  | 149  |  
+ |   63 |  19 | GPIO1_D7 |     IN | 1 | 29 || 30 |   |        | GND      |     |      |  
+ |   47 |  20 | GPIO1_B7 |     IN | 1 | 31 || 32 | 0 | IN     | GPIO3_C2 | 21  | 114  |  
+ |  103 |  22 | GPIO3_A7 |     IN | 1 | 33 || 34 |   |        | GND      |     |      |  
+ |  110 |  23 | GPIO3_B6 |     IN | 0 | 35 || 36 | 0 | IN     | GPIO3_B1 | 24  | 105  |  
+ |    0 |  25 | GPIO0_A0 |     IN | 1 | 37 || 38 | 0 | IN     | GPIO3_B2 | 26  | 106  |  
+ |      |     |      GND |        |   | 39 || 40 | 1 | IN     | GPIO3_B3 | 27  | 107  |  
+ +------+-----+----------+--------+---+----++----+---+--------+----------+-----+------+  
+ | GPIO | wPi |   Name   |  Mode  | V | Physical | V |  Mode  | Name     | wPi | GPIO |  
+ +------+-----+----------+--------+---+  ArmSoM-Sige7(BPI-M7) +---+--------+----------+-----+------+  
+ 
+ 
+ * 设置 GPIO 引脚到输出模式。第三个参数需要引脚对应的wPi编号。
+ 
+```sh
+ root@armsom-sige7:~/wiring-armbian# gpio mode 2 out
+```
+
+* 设置 GPIO 引脚输出低电平。设置完毕后，可以用万用表测量该引脚上的电压；如果读数为0V，则低电平设置成功。
+
+```sh
+root@armsom-sige7:~/wiring-armbian# gpio write 2 0
+```
+
+* 设置 GPIO 引脚输出高电平。设置完毕后，可以用万用表测量该引脚上的电压；如果读取到3.3V，则高电平设置成功。
+
+```sh
+root@armsom-sige7:~/wiring-armbian# gpio write 2 1
+```
+
+* 其他管脚的设置方法类似；只需将 wPi 编号更改为相应的引脚编号即可。
+
+== RGB LED
+
+的 BPI-M5 Pro 有两个用户 LED - 绿色和红色。
+
+* 用户绿色 LED 默认情况下不断指示正在运行的内核。
+* 用户红 LED 默认关闭，可由用户控制。
+
+用户可以通过命令进行控制：
+
+```sh
+armsom@armsom-sige5:/# sudo su  
+armsom@armsom-sige5:/# echo timer > /sys/class/leds/red/trigger  
+armsom@armsom-sige5:/# echo activity > /sys/class/leds/red/trigger
+```
+== 实时时钟
+
+* 的 BPI-M5 Pro 采用 LK8563S RTC 芯片。
+* 首先，使用 2 针 0.8mm 接头插入 RTC 电池，为 RTC IC 供电。
+
+NOTE: 我们应该将RTC电池保留在RTC连接器中，并确认已创建的rtc LK8563S设备。
+```sh
+armsom@armsom-sige5:/# dmesg | grep rtc  
+[ 6.407133] rtc-hym8563 6-0051: rtc information is valid  
+[ 6.412731] rtc-hym8563 6-0051: registered as rtc0  
+[ 6.413779] rtc-hym8563 6-0051: setting system clock to 2022-06-22T01:22:26 UTC (1655860946)  
+```
+
+* 找到rtc0，然后使用以下命令设置系统时间并同步到rtc0：
+```sh
+armsom@armsom-sige5:/# hwclock -r  
+2023-11-03 10:32:40.461910+00:00  
+armsom@armsom-sige5:/# date  
+Fri 3rd Nov 10:33:12 UTC 2023
+armsom@armsom-sige5:/# hwclock -w  
+armsom@armsom-sige5:/# hwclock -r  
+armsom@armsom-sige5:/# poweroff  
+```
+
+* 关闭 RTC 电池 10+ 分钟，重新插入电池并启动Sige5，检查RTC是否与系统时钟同步：
+```sh
+armsom@armsom-sige5:/# hwclock -r  
+2023-11-03 10:35:40.461910+00:00  
+armsom@armsom-sige5:/# date
+Fri 3rd Nov 10:36:01 UTC 2023
+```
+
+== M.2接口
+
+BPI-M5 Pro 提供 M.2 连接器：
+
+产品背面有一个 M.2 M Key 连接器，带有一个 PCIe 2.0接口支持1路。该板包括一个标准 M.2 2280 安装孔，允许部署 M.2 2280 NVMe SSD.
+
+NOTE: 该M.2接口不支持M.2 SATA SSD。
+
+```sh
+armsom@armsom-sige5:/# mkdir temp
+armsom@armsom-sige5:/# mount /dev/nvme0n1 temp
+```
+
+== MIPI-CSI
+
+=== IMX415 
+
+相机使用IMX415模组。连接摄像头模块并上电后可以查看启动日志：
+```sh
+armsom@armsom-sige5:/# dmesg | grep imx415
+[    2.547754] imx415 3-001a: driver version: 00.01.08
+[    2.547767] imx415 3-001a:  Get hdr mode failed! no hdr default
+[    2.547819] imx415 3-001a: Failed to get power-gpios
+[    2.547826] imx415 3-001a: could not get default pinstate
+[    2.547831] imx415 3-001a: could not get sleep pinstate
+[    2.547850] imx415 3-001a: supply dvdd not found, using dummy regulator
+[    2.547918] imx415 3-001a: supply dovdd not found, using dummy regulator
+[    2.547945] imx415 3-001a: supply avdd not found, using dummy regulator
+[    2.613843] imx415 3-001a: Detected imx415 id 0000e0
+[    2.613890] rockchip-csi2-dphy csi2-dphy0: dphy0 matches m00_b_imx415 3-001a:bus type 5
+[   18.386174] imx415 3-001a: set fmt: cur_mode: 3864x2192, hdr: 0
+[   18.389067] imx415 3-001a: set exposure(shr0) 2047 = cur_vts(2250) - val(203)
+```
+
+使用 v4l2-ctl 进行图像捕获：  
+```sh
+/ MIPI-CSI1
+armsom@armsom-sige5:/# v4l2-ctl -d /dev/video31 --set-fmt-video=width=3840,height=2160,pixelformat=NV12 --stream-mmap=3 --stream-skip=60 --stream-to=/tmp/cif73.out --stream-count=3 --stream-poll
+
+// MIPI-CSI2
+armsom@armsom-sige5:/# v4l2-ctl -d /dev/video22 --set-fmt-video=width=3840,height=2160,pixelformat=NV12 --stream-mmap=3 --stream-skip=60 --stream-to=/tmp/cif73.out --stream-count=3 --stream-poll
+```
+
+直接使用 gst-launch-1.0 录制视频：
+```sh
+// MIPI-CSI1
+armsom@armsom-sige5:/# gst-launch-1.0 v4l2src device=/dev/video31 ! video/x-raw,format=NV12,width=3840,height=2160, framerate=30/1 ! xvimagesink
+
+// MIPI-CSI2
+armsom@armsom-sige5:/# gst-launch-1.0 v4l2src device=/dev/video22 ! video/x-raw,format=NV12,width=3840,height=2160, framerate=30/1 ! xvimagesink
+```
+
+=== ov13850 
+该模块与IMX415类似，如下：
+
+摄像头采用ov13850。连接摄像头模块并上电后，可以查看启动日志。
+```sh
+root@armsom-sige7:/# dmesg | grep ov13850
+[    2.302905] ov13850 5-0010: driver version: 00.01.05
+[    2.302944] ov13850 5-0010: Failed to get power-gpios, maybe no use
+[    2.303067] ov13850 5-0010: supply avdd not found, using dummy regulator
+[    2.303153] ov13850 5-0010: supply dovdd not found, using dummy regulator
+[    2.303186] ov13850 5-0010: supply dvdd not found, using dummy regulator
+[    2.303213] ov13850 5-0010: could not get default pinstate
+[    2.303220] ov13850 5-0010: could not get sleep pinstate
+[    2.308532] ov13850 5-0010: Detected OV00d850 sensor, REVISION 0xb2
+[    2.332058] ov13850 5-0010: Consider updating driver ov13850 to match on endpoints
+[    2.332084] rockchip-csi2-dphy csi2-dphy0: dphy0 matches m00_b_ov13850 5-0010:bus type 5
+```
+使用 v4l2-ctl 进行图像捕获：
+```sh
+// MIPI-CSI1
+root@armsom-sige7:/# v4l2-ctl -d /dev/video31 --set-selection=target=crop,top=0,left=0,width=2112,height=1568 --set-fmt-video=width=2112,height=1568,pixelformat=NV12 --stream-mmap=3 --stream-to=/nv12.bin --stream-count=1 --stream-poll
+
+// MIPI-CSI2
+root@armsom-sige7:/# v4l2-ctl -d /dev/video22 --set-selection=target=crop,top=0,left=0,width=2112,height=1568 --set-fmt-video=width=2112,height=1568,pixelformat=NV12 --stream-mmap=3 --stream-to=/nv12.bin --stream-count=1 --stream-poll
+```
+
+使用 gst-launch-1.0 录制视频
+
+```sh
+// MIPI-CSI1
+root@armsom-sige7:/# gst-launch-1.0 v4l2src device=/dev/video31 ! video/x-raw,format=NV12,width=2112,height=1568, framerate=30/1 ! xvimagesink
+
+// MIPI-CSI2
+root@armsom-sige7:/# gst-launch-1.0 v4l2src device=/dev/video22 ! video/x-raw,format=NV12,width=2112,height=1568, framerate=30/1 ! xvimagesink
+root@armsom-sige7:/# gst-launch-1.0 v4l2src device=/dev/video0 ! video/x-raw,format=NV12,width=2112,height=1568, framerate=30/1 ! xvimagesink
+```
+
+image::/bpi-m7/bpi-m7_mipi_csi.jpeg[bpi-m7_mipi_csi.jpeg]
+
+== MIPI DSI
+
+BPI-M7 支持最高分辨率4K@120Hz。
+
+* 1.如下图所示连接电缆。
+
+//image::/bpi-m5pro/mipi_dsi.jpg[mipi_dsi.jpg]
+image::/bpi-m7/banana_pi_bpi-m7_touch_screen_7.jpg[banana_pi_bpi-m7_touch_screen_7.jpg]
+
+* 2.配置10.1英寸MIPI LCD 屏幕
+
+** 默认情况下， Linux 镜像没有 MIPI LCD 屏幕配置已启用。使用 MIPI LCD 屏幕，您需要手动启用它。
+
+** 使用nano打开 /boot/armbianEnv.txt 文件：
+```sh
+sudo nano /boot/armbianEnv.txt
+```
+
+** 在此文件中，找到或添加关键字“overlays=".
+```sh
+// Choose according to your product
+overlays=armsom-sige7-display-10hd // Sige7
+overlays=armsom-sige5-display-10hd // Sige5
+overlays=armsom-sige3-display-10hd // Sige3
+```
+快捷键：Ctrl + S 保存 Ctrl + X 退出
+
+编辑后，重新启动设备以应用叠加设置并支持 Display 10 HD。
+
+= CPU/GPU/NPU/DDR
+
+下面的例子使用 BPI-M7 说明如何设置固定频率和性能模式 CPU, GPU, NPU和DDR。
+
+== 固定频率设置
+
+=== CPU 固定频率
+
+的 BPI-M7 CPU 由 4 个 A55 核心和 4 个 A76 核心组成，分三个独立组进行管理。节点如下：
+
+```sh
+/sys/devices/system/cpu/cpufreq/policy0: (corresponding to 4 A55: CPU0-3)
+affected_cpus     cpuinfo_max_freq  cpuinfo_transition_latency  scaling_available_frequencies  scaling_cur_freq  scaling_governor  scaling_min_freq  stats
+cpuinfo_cur_freq  cpuinfo_min_freq  related_cpus                scaling_available_governors    scaling_driver    scaling_max_freq  scaling_setspeed
+
+/sys/devices/system/cpu/cpufreq/policy4: (corresponding to 2 A76: CPU4-5)
+affected_cpus     cpuinfo_max_freq  cpuinfo_transition_latency  scaling_available_frequencies  scaling_cur_freq  scaling_governor  scaling_min_freq  stats
+cpuinfo_cur_freq  cpuinfo_min_freq  related_cpus                scaling_available_governors    scaling_driver    scaling_max_freq  scaling_setspeed
+
+/sys/devices/system/cpu/cpufreq/policy6: (corresponding to 2 A76: CPU6-7)
+affected_cpus     cpuinfo_max_freq  cpuinfo_transition_latency  scaling_available_frequencies  scaling_cur_freq  scaling_governor  scaling_min_freq  stats
+cpuinfo_cur_freq  cpuinfo_min_freq  related_cpus                scaling_available_governors    scaling_driver    scaling_max_freq  scaling_setspeed
+
+root@armsom-sige7:/ # cat /sys/devices/system/cpu/cpufreq/policy6/scaling_available_frequencies // Get current supported CPU frequencies
+408000 600000 816000 1008000 1200000 1416000 1608000 1800000 2016000 2208000 2400000 
+root@armsom-sige7:/ # cat /sys/devices/system/cpu/cpufreq/policy6/scaling_available_governors // Get CPU operating modes
+conservative ondemand userspace powersave performance schedutil 
+
+```
+默认为自动频率缩放模式：schedutil (要恢复，请设置为该模式).
+
+手动固定频率设置
+
+```sh
+root@armsom-sige7:/ $ su
+root@armsom-sige7:/ # echo userspace > /sys/devices/system/cpu/cpufreq/policy6/scaling_governor // Manual fixed frequency mode: userspace
+root@armsom-sige7:/ # echo 2016000 > /sys/devices/system/cpu/cpufreq/policy6/scaling_setspeed // Set frequency to 2016000
+root@armsom-sige7:/ # cat /sys/devices/system/cpu/cpufreq/policy6/cpuinfo_cur_freq // Verify if set successfully
+2016000
+
+```
+另外两个 CPU 通过操作相应的节点可以类似地设置组。
+
+=== GPU 固定频率
+
+GPU 节点路径
+```sh
+root@armsom-sige7:/ # ls /sys/class/devfreq/fb000000.gpu/    
+available_frequencies  cur_freq  governor  max_freq  name              power      target_freq  trans_stat
+available_governors    device    load      min_freq  polling_interval  subsystem  timer        uevent
+root@armsom-sige7:/ # cat /sys/class/devfreq/fb000000.gpu/available_frequencies  // Get supported GPU frequencies
+1000000000 900000000 800000000 700000000 600000000 500000000 400000000 300000000 200000000
+root@armsom-sige7:/ # cat /sys/class/devfreq/fb000000.gpu/available_governors // Get GPU operating modes
+dmc_ondemand userspace powersave performance simple_ondemand
+```
+
+默认为自动频率缩放模式：simple_点播 (要恢复，请设置为该模式).
+
+手动固定频率设置
+
+```sh
+root@armsom-sige7:/ $ su
+root@armsom-sige7:/ # echo userspace > /sys/class/devfreq/fb000000.gpu/governor // Manual fixed frequency mode: userspace
+root@armsom-sige7:/ # echo 1000000000 > /sys/class/devfreq/fb000000.gpu/userspace/set_freq // Set frequency to 1000000000
+root@armsom-sige7:/ # cat /sys/class/devfreq/fb000000.gpu/cur_freq  // Verify if set successfully
+1000000000
+root@armsom-sige7:/ # cat /sys/class/devfreq/fb000000.gpu/load   // Check GPU load
+28@300000000Hz
+```
+
+=== DDR定频
+
+DDR 节点路径
+```sh
+root@armsom-sige7:/ # ls /sys/class/devfreq/dmc/  
+available_frequencies  cur_freq  downdifferential  load      min_freq  polling_interval  subsystem      target_freq  trans_stat  upthreshold
+available_governors    device    governor          max_freq  name      power             system_status  timer        uevent
+root@armsom-sige7:/ # cat /sys/class/devfreq/dmc/available_frequencies // Get supported DDR frequencies
+528000000 1068000000 1560000000 2112000000
+root@armsom-sige7:/ # cat /sys/class/devfreq/dmc/available_governors // Get DDR operating modes
+dmc_ondemand userspace powersave performance simple_ondemand
+```
+
+默认为自动频率缩放模式：dmc_点播 (要恢复，请设置为该模式).
+
+手动固定频率设置
+
+```sh
+root@armsom-sige7:/ $ su
+root@armsom-sige7:/ # echo userspace > /sys/class/devfreq/dmc/governor // Manual fixed frequency mode: userspace
+root@armsom-sige7:/ # echo 2112000000 > /sys/class/devfreq/dmc/userspace/set_freq  // Set frequency to 2112000000
+root@armsom-sige7:/ # cat /sys/class/devfreq/dmc/cur_freq   // Verify if set successfully
+2112000000
+root@armsom-sige7:/ # cat /sys/class/devfreq/dmc/load  // Check DDR load
+7@528000000Hz
+```
+
+=== NPU 固定频率
+
+NPU 节点路径
+
+```sh
+root@armsom-sige7:/ # ls /sys/class/devfreq/fdab0000.npu/
+available_frequencies  cur_freq  governor  max_freq  name              power      target_freq  trans_stat  userspace
+available_governors    device    load      min_freq  polling_interval  subsystem  timer        uevent
+root@armsom-sige7:/ # cat /sys/class/devfreq/fdab0000.npu/available_frequencies     // Get supported NPU frequencies       
+200000000 300000000 400000000 500000000 600000000 700000000 800000000 900000000 1000000000
+root@armsom-sige7:/ # cat /sys/class/devfreq/fdab0000.npu/available_governors // Get NPU operating modes 
+dmc_ondemand userspace powersave performance simple_ondemand
+```
+
+默认为自动频率缩放模式：simple_点播 (要恢复，请设置为该模式).
+
+手动固定频率设置
+
+```sh
+root@armsom-sige7:/ $ su
+root@armsom-sige7:/ # echo userspace > /sys/class/devfreq/fdab0000.npu/governor // Manual fixed frequency mode: userspace
+root@armsom-sige7:/ # echo 1000000000 > /sys/class/devfreq/fdab0000.npu/userspace/set_freq // Set frequency to 1000000000
+root@armsom-sige7:/ # cat /sys/class/devfreq/fdab0000.npu/cur_freq  // Verify if set successfully
+1000000000
+root@armsom-sige7:/ # cat /sys/kernel/debug/rknpu/load // Check NPU load
+NPU load:  Core0:  0%, Core1:  0%, Core2:  0%,
+```
+
+== 表演模式
+```sh
+root@armsom-sige7:/ $ su
+root@armsom-sige7:/ # echo performance > /sys/devices/system/cpu/cpufreq/policy6/scaling_governor
+root@armsom-sige7:/ # echo performance > /sys/class/devfreq/fb000000.gpu/governor
+root@armsom-sige7:/ # echo performance > /sys/class/devfreq/dmc/governor
+root@armsom-sige7:/ # echo performance > /sys/class/devfreq/fdab0000.npu/governor
+```
+
+= 人工智能开发
+
+== 克洛尔LM 
+
+TIP: 如何使用 RKLLM ： link:/en/BPI-M7/how-touse-llm[香蕉派 BPI-M7 RKLLM开发 ]
+
+== RK神经网络
+
+TIP: link:/en/BPI-CM5_Pro/BananaPi_BPI-CM5_Pro/Rockchip_RKNN_Guide[Rockchip RK神经网络 SDK 快速入门指南]
+
+
+= 注释
+
+NOTE: 静电保护
+
+. 在搬运设备之前，请确保佩戴防静电腕带或采取静电泄放措施，以免损坏开发板。 
+
+. 组装应在静电安全环境中进行，避免在干燥和低湿度条件下操作。
+
+. 不使用时，请将设备存放在防静电袋中，并将其保存在适当温度控制、低湿度的环境中，以防止静电积聚。
+
+. 搬运设备时，应避免摩擦或碰撞，以免产生静电而造成损坏。 
+
+. 握持设备时，尽量避免直接接触主板上的芯片，防止静电损坏。
+
+. 设备运行时请勿插拔电线或其他设备，以免电涌造成损坏。
+
+. 连接或断开连接时 GPIO/MIPI扩展接口时，请务必关闭电源并拔下电源线，以免电流损坏。
+
+NOTE: 热量管理
+
+- 如果没有有效的散热措施，主芯片的表面温度可能会超过60度。处理设备时，请避免直接接触设备 SoC 和周围的功率电感器，以防止烧伤。确保操作期间环境通风良好，以防止局部热量积聚，从而导致过热。此外，请勿将设备放置在阳光直射的地方。建议根据具体使用情况选择官方散热风扇、散热器或第三方散热套件，以确保最佳的散热性能。
