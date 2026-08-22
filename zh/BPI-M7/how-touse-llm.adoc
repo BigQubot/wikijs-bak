@@ -1,0 +1,507 @@
+= 使用环境
+
+Banana Pi RK3588 开发板设计：
+
+Rockchip RK3588 方案 link:/en/BPI-M7/BananaPi_BPI-M7[Banana Pi BPI-M7] AI 单板计算机 +
+Rockchip RK3588 方案 link:/en/BPI-AIM7/BananaPi_BPI-AIM7[Banana Pi BPI-AIM7] 核心板，完全兼容 Jetson Nano/TX2 NX +
+Rockchip RK3588 方案 link:/en/BPI-W3/BananaPi_BPI-W3[Banana Pi BPI-W3] LGA 核心板套件 +
+Rockchip RK3588 方案 link:/BPI-RK3588_CoreBoardAndDevelopmentKit/BananaPi_BPI-RK3588_CoreBoardAndDevelopmentKit[BPI-RK3588 核心板及套件介绍] 核心板 +
+Rockchip RK3576 方案 link:/en/BPI-M5/BananaPi_BPI-M5_Pro[Banana Pi BPI-M5 Pro] AI 单板计算机 +
+Rockchip RK3576 方案 link:/en/BPI-CM5_Pro/BananaPi_BPI-CM5_Pro[Banana Pi BPI-CM5 Pro] AI 计算机模块
+
+
+源代码仓库：https://github.com/ArmSoM/rknn-llm
+
+YouTube 视频演示：https://www.youtube.com/watch?v=y1BLwYxFQ-4
+
+= RKLLM 简介
+
+RKLLM 软件栈可帮助用户将 AI 模型快速部署到 Rockchip 芯片。整体框架如下：
+
+image::/bpi-m7/bpi-m7_rkllm.png[bpi-m7_rkllm.png]
+
+== RKLLM 工具链简介
+
+RKLLM-Toolkit 功能概述：
+
+RKLLM-Toolkit 是用于在计算机上量化和转换大语言模型（LLM）的开发套件。通过该工具提供的 Python 接口，用户可以轻松完成以下任务：
+
+* 模型转换：支持将 Hugging Face 格式的 LLM 转换为 RKLLM 模型。目前支持的模型包括 LLaMA、Qwen/Qwen2、Phi2 等。转换后的 RKLLM 模型可在 Rockchip NPU 平台上加载和使用。
+
+* 量化：支持将浮点模型量化为定点模型。目前支持的量化类型包括 w4a16 和 w8a8。
+
+RKLLM 运行时功能概述：
+
+RKLLM Runtime 主要负责加载由 RKLLM-Toolkit 转换的 RKLLM 模型，并通过 NPU 驱动调用，在 RK3576/RK3588 的 Rockchip NPU 平台上执行 LLM 推理。推理时，用户可以设置 RKLLM 模型的推理参数、定义不同的文本生成方式，并通过预定义的回调函数持续获取推理结果。
+
+== RKLLM 开发流程简介
+
+RKLLM 的完整开发流程主要包括模型转换和开发板部署运行两部分。
+
+
+1.模型转换：
+
+在此阶段，将用户提供的 Hugging Face 格式 LLM 转换为 RKLLM 格式，以便在 Rockchip NPU 平台上高效推理。
+
+该步骤包括：
+
+* 获取原始模型：获取 Hugging Face 格式的 LLM 或自行训练的 LLM；模型的保存结构须与 Hugging Face 平台上的模型结构一致。
+* 模型加载：使用 rkllm.load_huggingface() 函数加载原始模型。
+* 模型量化配置：通过 rkllm.build() 函数构建 RKLLM 模型。构建过程中，用户可选择是否对模型进行量化，以提升模型在硬件上的部署性能，也可选择不同的优化级别和量化类型。
+* 模型导出：使用 rkllm.export_rkllm() 函数将 RKLLM 模型导出为 .rkllm 格式文件，供后续部署使用。
+
+2.开发板部署和运行：此阶段涵盖模型的实际部署与运行，通常包括以下步骤：
+
+* 模型初始化：将 RKLLM 模型加载到 Rockchip NPU 平台，设置相应的模型参数、定义所需的文本生成方式，并预定义用于接收实时推理结果的回调函数，为推理做好准备。
+* 模型推理：将输入数据传给模型并运行推理。用户可通过预定义的回调函数持续获取推理结果。
+* 模型释放：推理完成后释放模型资源，使其他任务可以继续使用 NPU 的计算资源。
+
+这两个阶段构成了 RKLLM 的完整开发流程，可确保大语言模型在 Rockchip NPU 上顺利完成转换、调试和高效部署。
+
+== 适用硬件平台
+
+本文档主要适用于 RK3576、RK3588 硬件平台。
+
+= 开发环境准备
+
+发布的 RKLLM 工具链压缩包包含 RKLLM-Toolkit 的 whl 安装包、RKLLM Runtime 库相关文件以及参考示例代码。目录结构如下：
+
+```sh 
+
+doc
+└──Rockchip_RKLLM_SDK_EN.pdf # RKLLM SDK documentation
+rkllm-runtime
+├──example
+│ └── src
+│ └── main.cpp
+│ └── build-android.sh
+│ └── build-linux.sh
+│ └── CMakeLists.txt
+│ └── Readme.md
+├──runtime
+│ └── Android
+│ └── librkllm_api
+│ └──arm64-v8a
+│ └── librkllmrt.so # RKLLM Runtime library
+│ └──include
+│ └── rkllm.h # Runtime header file
+│ └── Linux
+│ └── librkllm_api
+│ └──aarch64
+│ └── librkllmrt.so
+│ └──include
+│ └── rkllm.h
+rkllm-toolkit
+├──examples
+│ └── huggingface
+│ └── test.py
+├──packages
+│ └── md5sum.txt 
+│ └── rkllm_toolkit-1.0.0-cp38-cp38-linux_x86_64.whl
+rknpu-driver
+└──rknpu_driver_0.9.6_20240322.tar.bz2
+
+```
+
+本章将详细介绍 RKLLM-Toolkit 工具和 RKLLM Runtime 的安装。具体使用方法请参见第 3 章。
+
+== 安装 RKLLM 工具包
+
+本节主要介绍如何通过 pip 安装 RKLLM-Toolkit。用户可按以下流程完成 RKLLM-Toolkit 工具链的安装。
+
+通过 pip 安装
+
+安装 miniforge3 工具
+
+为避免不同 Python 版本的环境需求相互影响，建议使用 miniforge3 管理 Python 环境。先检查是否已安装 miniforge3，并查看 conda 版本；如已安装，可跳过此步骤。
+
+```sh 
+conda -V
+# If conda is not installed, it will prompt "conda: command not found"
+# If conda is installed, it will show the version, for example, conda 23.9.0
+```
+
+下载 miniforge3 安装包
+
+```sh 
+wget -c https://mirrors.bfsu.edu.cn/github-release/condaforge/miniforge/LatestRelease/Miniforge3-Linux-x86_64.sh
+```
+安装 miniforge3
+
+```sh
+chmod 777 Miniforge3-Linux-x86_64.sh
+bash Miniforge3-Linux-x86_64.sh
+```
+
+创建 RKLLM-Toolkit Conda 环境
+
+进入Conda基础环境
+
+```sh
+source ~/miniforge3/bin/activate # miniforge3 is the installation directory
+# (base) xxx@xxx-pc:~$
+```
+创建名为 RKLLM-Toolkit、使用 Python 3.8（推荐版本）的 Conda 环境
+
+```sh
+conda create -n RKLLM-Toolkit python=3.8
+```
+
+进入 RKLLM-Toolkit Conda 环境
+
+```sh
+conda activate RKLLM-Toolkit
+# (RKLLM-Toolkit) xxx@xxx-pc:~$
+```
+
+安装 RKLLM 工具包
+
+在 RKLLM-Toolkit Conda 环境中直接使用 pip 安装工具链的 whl 包。安装程序会自动下载 RKLLM-Toolkit 所需的依赖项。
+
+```sh
+pip3 install rkllm_toolkit-1.0.0-cp38-cp38-linux_x86_64.whl
+```
+
+如果执行以下命令没有错误，则说明安装成功。
+
+```sh
+python
+from rkllm.api import RKLLM
+```
+
+== RKLLM 运行时库的使用
+
+发布的 RKLLM 工具链文件包含 RKLLM Runtime 的全部文件：
+
+* lib/librkllmrt.so：用于在 RK3576/RK3588 开发板上部署和推理 RKLLM 模型的运行时库。
+
+* include/rkllm_api.h：librkllmrt.so 函数库对应的头文件，包含相关结构体及函数定义说明。
+
+通过 RKLLM 工具链为 RK3576/RK3588 开发板构建部署和推理代码时，须链接上述头文件和函数库，以确保正确编译。代码实际在 RK3576/RK3588 开发板上运行时，还须确保已将上述函数库文件成功推送到开发板，并通过以下环境变量声明函数库路径：
+
+```sh
+ulimit -Sn 50000
+export LD_LIBRARY_PATH=./lib
+./llm_demo qwen.rkllm
+```
+
+== RKLLM运行时的编译要求
+
+使用 RKLLM Runtime 时需要注意 gcc 编译器版本。建议使用交叉编译工具 gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu，下载地址如下：
+
+link:https://developer.arm.com/downloads/-/gnu-a/10-2-2020-11[GCC 10.2 交叉编译工具下载地址] 
+
+请注意，交叉编译工具通常向下兼容而不向上兼容，因此请勿使用低于 10.2 的版本。
+
+如果选择 Android 平台，则需要编译 Android 可执行文件。建议使用 Android NDK 交叉编译工具，推荐版本为 r18b。
+
+具体编译方法也可参考 RKLLM-Toolkit 工具链文件中的 example/build_demo.sh。
+
+== 芯片内核更新
+
+当前公开固件中的内核驱动版本不支持 RKLLM 工具，因此需要更新内核。rknpu 驱动包支持 kernel-5.10 和 kernel-6.1 两个主要版本：kernel-5.10 建议使用 5.10.198，代码仓库为 GitHub 上 rockchip-linux/kernel 的 develop-5.10 分支；kernel-6.1 建议使用 6.1.57。具体版本号可在内核根目录的 Makefile 中确认。更新步骤如下：a. 下载压缩包 rknpu_driver_0.9.6_20240322.tar.bz2；b. 解压并覆盖当前内核代码目录中的 rknpu 驱动代码；c. 重新编译内核；d. 将新编译的内核烧录到设备中。
+
+= DeepSeek 支持 
+
+== 方式一：在 RK35XX 上部署 DeepSeek-R1
+
+* 下载 DeepSeek-R1 1.5B Hugging Face 模型
+
+新建一个目录，并从以下地址下载全部文件：https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B/tree/main
+
+* 编写转换脚本，并将其放入 DeepSeek 模型目录。
+
+```sh
+from rkllm.api import RKLLM
+from datasets import load_dataset
+from transformers import AutoTokenizer
+from tqdm import tqdm
+import torch
+from torch import nn
+import os
+# os.environ['CUDA_VISIBLE_DEVICES']='1'
+
+modelpath = '.'
+llm = RKLLM()
+
+# Load model
+# Use 'export CUDA_VISIBLE_DEVICES=2' to specify GPU device
+# options ['cpu', 'cuda']
+ret = llm.load_huggingface(model=modelpath, model_lora = None, device='cpu')
+# ret = llm.load_gguf(model = modelpath)
+if ret!= 0:
+    print('Load model failed!')
+    exit(ret)
+
+# Build model
+dataset = "./data_quant.json"
+# Json file format, please note to add prompt in the input，like this:
+# [{"input":"Human: 你好！\nAssistant: ", "target": "你好！我是人工智能助手KK！"},...]
+
+qparams = None
+# qparams = 'gdq.qparams' # Use extra_qparams
+#ret = llm.build(do_quantization=True, optimization_level=1, quantized_dtype='w8a8',
+#                quantized_algorithm='normal', target_platform='rk3588', num_npu_core=3, extra_qparams=qparams, dataset=dataset)
+
+ret = llm.build(do_quantization=True, optimization_level=1, quantized_dtype='w8a8',
+                quantized_algorithm='normal', target_platform='rk3576', num_npu_core=2, extra_qparams=qparams, dataset=dataset)
+
+if ret!= 0:
+    print('Build model failed!')
+    exit(ret)
+
+# Evaluate Accuracy
+def eval_wikitext(llm):
+    seqlen = 512
+    tokenizer = AutoTokenizer.from_pretrained(
+        modelpath, trust_remote_code=True)
+    # Dataset download link:
+    # https://huggingface.co/datasets/Salesforce/wikitext/tree/main/wikitext - 2 - raw - v1
+    testenc = load_dataset(
+        "parquet", data_files='./wikitext/wikitext - 2 - raw - 1/test - 00000 - of - 00001.parquet', split='train')
+    testenc = tokenizer("\n\n".join(
+        testenc['text']), return_tensors="pt").input_ids
+    nsamples = testenc.numel() // seqlen
+    nlls = []
+    for i in tqdm(range(nsamples), desc="eval_wikitext: "):
+        batch = testenc[:, (i * seqlen): ((i + 1) * seqlen)]
+        inputs = {"input_ids": batch}
+        lm_logits = llm.get_logits(inputs)
+        if lm_logits is None:
+            print("get logits failed!")
+            return
+        shift_logits = lm_logits[:, :-1, :]
+        shift_labels = batch[:, 1:].to(lm_logits.device)
+        loss_fct = nn.CrossEntropyLoss().to(lm_logits.device)
+        loss = loss_fct(
+            shift_logits.view(-1, shift_logits.size(-1)), shift_labels.view(-1))
+        neg_log_likelihood = loss.float() * seqlen
+        nlls.append(neg_log_likelihood)
+    ppl = torch.exp(torch.stack(nlls).sum() / (nsamples * seqlen))
+    print(f'wikitext - 2 - raw - 1 - test ppl: {round(ppl.item(), 2)}')
+
+# eval_wikitext(llm)
+
+
+# Chat with model
+messages = "<|im_start|>system You are a helpful assistant.<|im_end|><|im_start|>user你好！\n<|im_end|><|im_start|>assistant"
+kwargs = {"max_length": 128, "top_k": 1, "top_p": 0.8,
+          "temperature": 0.8, "do_sample": True, "repetition_penalty": 1.1}
+# print(llm.chat_model(messages, kwargs))
+
+
+# Export rkllm model
+ret = llm.export_rkllm("./deepseek - r1.rkllm")
+if ret!= 0:
+    print('Export model failed!')
+    exit(ret)
+
+如需评估精度，请按代码中的说明下载数据集并执行精度评估。如需调整量化策略，请在上方代码中修改相应配置。执行此脚本后，即可得到转换后的 deepseek - r1.rknn 模型。
+
+在开发板上部署并运行（基于 rkllm_api 编写开发板端程序）
+
+#include <cstdio>
+#include <cstdint>
+#include <cstdlib>
+#include <cstring>
+#include <string>
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <csignal>
+
+#include "rkllm.h"
+
+#define MODEL_PATH "/data/deepseek - r1_3588_w8a8.rkllm"
+
+LLMHandle llmHandle = nullptr;
+
+void exit_handler(int signal) {
+    if (llmHandle!= nullptr)
+    {
+        {
+            std::cout << "The program is about to exit" << std::endl;
+            LLMHandle _tmp = llmHandle;
+            llmHandle = nullptr;
+            rkllm_destroy(_tmp);
+        }
+    }
+    exit(signal);
+}
+
+void callback(RKLLMResult *result, void *userdata, LLMCallState state) {
+    if (state == RKLLM_RUN_FINISH) {
+        printf("\n");
+    } else if (state == RKLLM_RUN_ERROR) {
+        printf("\\run error\n");
+    } else if (state == RKLLM_RUN_GET_LAST_HIDDEN_LAYER) {
+        /* ================================================================================================================
+        If the GET_LAST_HIDDEN_LAYER function is used, the callback interface will return the memory pointer: last_hidden_layer, the number of tokens: num_tokens, and the hidden layer size: embd_size.
+        The data in last_hidden_layer can be obtained through these three parameters.
+        Note: It needs to be obtained in the current callback. If not obtained in time, the next callback will release the pointer.
+        ===============================================================================================================*/
+        if (result->last_hidden_layer.embd_size!= 0 && result->last_hidden_layer.num_tokens!= 0) {
+            int data_size = result->last_hidden_layer.embd_size * result->last_hidden_layer.num_tokens * sizeof(float);
+            printf("\ndata_size:%d",data_size);
+            std::ofstream outFile("last_hidden_layer.bin", std::ios::binary);
+            if (outFile.is_open()) {
+                outFile.write(reinterpret_cast<const char*>(result->last_hidden_layer.hidden_states), data_size);
+                outFile.close();
+                std::cout << "Data saved to output.bin successfully!" << std::endl;
+            } else {
+                std::cerr << "Failed to open the file for writing!" << std::endl;
+            }
+        }
+    } else if (state == RKLLM_RUN_NORMAL) {
+        printf("%s", result->text);
+    }
+}
+
+int main() {
+    signal(SIGINT, exit_handler);
+    printf("rkllm init start\n");
+
+    // Set parameters and initialize
+    RKLLMParam param = rkllm_createDefaultParam();
+    param.model_path = MODEL_PATH;
+
+    // Set sampling parameters
+    param.top_k = 1;
+    param.top_p = 0.95;
+    param.temperature = 0.8;
+    param.repeat_penalty = 1.1;
+    param.frequency_penalty = 0.0;
+    param.presence_penalty = 0.0;
+
+    param.max_new_tokens = 128000;
+    param.max_context_len = 128000;
+    param.skip_special_token = true;
+    param.extend_param.base_domain_id = 0;
+
+    int ret = rkllm_init(&llmHandle, ¶m, callback);
+    if (ret == 0){
+        printf("rkllm init success\n");
+    } else {
+        printf("rkllm init failed\n");
+        exit_handler(-1);
+    }
+
+    std::string text;
+    RKLLMInput rkllm_input;
+
+    // Initialize the infer parameter structure
+    RKLLMInferParam rkllm_infer_params;
+    memset(&rkllm_infer_params, 0, sizeof(RKLLMInferParam));  // Initialize all contents to 0
+
+    rkllm_infer_params.mode = RKLLM_INFER_GENERATE;
+
+    while (true)
+    {
+        std::string input_str;
+        printf("\n");
+        printf("user: ");
+        std::getline(std::cin, input_str);
+        if (input_str == "exit")
+        {
+            break;
+        }
+
+        text = input_str;
+        rkllm_input.input_type = RKLLM_INPUT_PROMPT;
+        rkllm_input.prompt_input = (char *)text.c_str();
+        printf("robot: ");
+
+        // If you want to use the normal inference function, configure rkllm_infer_mode to RKLLM_INFER_GENERATE or do not configure parameters
+        rkllm_run(llmHandle, &rkllm_input, &rkllm_infer_params, NULL);
+    }
+    rkllm_destroy(llmHandle);
+
+    return 0;
+}
+
+```
+
+执行以下命令
+
+```sh
+ulimit -Sn 50000
+export LD_LIBRARY_PATH=.
+cd ~
+chmod 777 llm_demo
+./llm_demo deepseek-r1.rkllm 10000 1000
+```
+
+== 方式二：在 RK35XX 上部署 DeepSeek-R1
+
+* 下载 DeepSeek-R1 1.5B Hugging Face 模型
+
+* 新建一个目录，并从以下地址下载全部文件：https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B/tree/main
+
+=== 模型转换
+
+首先，需要使用 data_quantit.json 对 rkllm 模型进行量化。这里使用 fp16 模型的生成结果作为量化校准数据。然后运行以下代码生成 data_quant.json，并导出 rkllm 模型。
+
+```sh
+cd rknn-llm/examples/DeepSeek-R1-Distill-Qwen-1.5B_Demo/export
+python generate_data_quant.py -m /path/to/DeepSeek-R1-Distill-Qwen-1.5B
+python export_rkllm.py
+```
+
+如果使用 RK3576 开发板，需要修改 export_rkllm.py：
+
+```sh
+target_platform = "RK3576"
+num_npu_core = 2
+```
+
+执行后，目录中会生成 .rkllm 模型文件。
+
+=== C++ 示例
+
+deploy 目录中包含开发板端推理示例代码：
+```sh
+cd rknn-llm/examples/DeepSeek-R1-Distill-Qwen-1.5B_Demo/deploy
+# for linux
+./build-linux.sh
+# for android
+./build-android.sh
+# push install dir to device
+adb push install/demo_Linux_aarch64 /data
+# push model file to device
+adb push DeepSeek-R1-Distill-Qwen-1.5B-rk35**.rkllm /data/demo_Linux_aarch64
+```
+
+运行脚本前，需要修改开发板交叉编译器的路径，例如：
+
+```sh
+GCC_COMPILER_PATH=~/customized_project/3576/rk3576_linux_rkr5/linux/prebuilts/gcc/linux-x86/aarch64/gcc-arm-10.3-2021.07-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu
+```
+
+=== 运行示例
+
+在开发板的 /data/demo_Linux_arch64 目录中运行示例：
+
+```sh
+adb shell
+cd /data/demo_Linux_aarch64
+# export lib path
+export LD_LIBRARY_PATH=./lib
+taskset f0 ./llm_demo ./DeepSeek-R1-Distill-Qwen-1.5B_W8A8_RK3576.rkllm  2048 4096
+```
+
+TIP: 1、如果代码从 demo 复制而来，请删除场景提示词；DeepSeek 不需要提示词。 +
+2、请注意终端输入中文时所使用的字符编码。 +
+3、开发板内存须为 8 GB 或以上，运行时约占用 70%。
+
+参考：https://t.rock-chips.com/forum.php?mod=viewthread&tid=4836
+
+
+TIP: 1.如果代码从 demo 复制而来，请删除场景提示词；DeepSeek 不需要提示词。 +
+2.请注意终端输入中文时所使用的字符编码。 +
+3.开发板内存须为 8 GB 或以上，运行时约占用 70%。
+
+= 使用环境
+
+开发板：BPI-M7、BPI-M5 Pro、BPI-AIM7、BPI-AIM6、BPI-CM5 Pro
+
+代码仓库：https://github.com/ArmSoM/rknn-llm
