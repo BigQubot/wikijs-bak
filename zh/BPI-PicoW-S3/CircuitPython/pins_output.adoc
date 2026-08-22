@@ -1,4 +1,4 @@
-. `board.LED`控制单色 LED 在PicoW-S3上，高电平亮，低电平灭，在 REPL:
+. `board.LED` 用于控制 BPI-PicoW-S3 上的单色 LED：高电平点亮，低电平熄灭。在 REPL 中输入以下代码：
 +
 ```py
 import board
@@ -31,8 +31,8 @@ while True:
 
 ```
 
-. 使用键盘中断(控制键+c) 在 REPL 停止程序的运行。
+. 在 REPL 中按下 KeyboardInterrupt（Ctrl+C）可停止程序运行。
 
-. 输入 `import board;help(board)` 在 REPL Mu 编辑器界面列出所有可控引脚。
+. 在 Mu 编辑器的 REPL 界面中输入 `import board;help(board)`，即可列出所有可控制的引脚。
 
-. `board.GP25` 完全一样 `board.LED`.
+. `board.GP25` 与 `board.LED` 完全相同。
