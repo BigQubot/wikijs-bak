@@ -1,0 +1,58 @@
+= 简介
+
+
+
+TIP: 更多信息： link:/en/BPI-CanMV-K230D/BananaPi_BPI-CanMV-K230D-Zero[香蕉派 BPI-CanMV-K230D-Zero]
+
+== 规格参数
+
+
+
+= 开发
+== 准备
+
+. 两个 USB 转 type-c 电缆、k230D 板、SD 卡
+
+== 将映像安装到 SD 下 Windows
+
+
+在 Windows，可以使用Rufus工具烧录TF卡 (Rufus工具下载地址： http://rufus.ie/downloads/).
+
+. 将TF卡插入PC，启动Rufus工具，点击工具界面的“选择”按钮，选择要烧录的固件。
+
+. 单击“开始”按钮开始刻录。刻录过程中会显示进度条，刻录完成后会显示“Ready”提示。
+
+image::/bpi-k230d/bpi-canmv-k230d_zero_burn.jpg[bpi-canmv-k230d_zero_burn.jpg]
+
+== 将映像安装到 SD 下 Linux
+
+在将TF卡插入主机之前，输入：
+
+```
+ls -l /dev/sd\*
+```
+查看当前存储设备。
+
+将TF卡插入主机后，再次输入：
+```
+ls -l /dev/sd\*
+```
+此时查看存储设备，新增的是TF卡设备节点。
+
+假设 /dev/sdc 为TF卡设备节点，执行以下命令烧录TF卡：
+```
+sudo dd if=sysimage-sdcard.img of=/dev/sdc bs=1M oflag=sync
+```
+
+== 使用设备
+
+烧写固件成功后，将开发板连接到电脑，可以看到虚拟的 USB **坎MV** 和一个虚拟串口。
+
+WARNING: 您需要同时连接两个USB。如果您没有看到相应的虚拟 USB 磁盘和虚拟串口，检查是否连接正确。
+
+打开 CanMV IDE (link:https://github.com/kendryte/canmv_ide/releases[GitHub], link:https://developer.canaan-creative.com/resource[开发者社区]), 或 link:https://github.com/openmv/openmv-ide/releases[开放MV IDE]. (请下载最新版本的软件)
+
+将K230D连接至电脑，点击界面左下角的连接按钮，等待连接完成。
+
+image::/bpi-k230d/bpi-canmv-k230d_zero_connection.png[bpi-canmv-k230d_zero_connection.png]
+编写您自己的脚本，或打开现有脚本。单击运行。
