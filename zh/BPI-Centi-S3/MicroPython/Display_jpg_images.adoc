@@ -1,10 +1,10 @@
-TIP: link:../GettingStarted_BPI-Centi-S3[返回开始使用 BPI-Centi-S3]
+TIP: link:../GettingStarted_BPI-Centi-S3[返回 BPI-Centi-S3 入门指南]
 
-sst7789驱动库有显示jpg格式图片的方法，对于我们第一次学习的人来说非常友好。
+ST7789 驱动库提供显示 JPG 图片的方法，对初学者非常友好。
 
 video::jR3LpkfWWy8[youtube]
 
-## jpg 方法
+## jpg 方法说明
 
 `jpg(jpg_filename, x, y)`
 
@@ -12,23 +12,23 @@ video::jR3LpkfWWy8[youtube]
 
 此方法需要额外的 3100 字节内存作为其工作缓冲区。
 
-## 准备合适大小的jpg文件
+## 准备尺寸合适的 JPG 文件
 
-选择任何您喜欢的图片，将其裁剪为长度为320像素、宽度为170像素的图片，或者小于此尺寸的图片。
+选择任意图片，将其裁剪为 320 × 170 像素或更小的尺寸。
 
 各种智能终端设备和各种操作系统中都有大量可选的图片编辑工具，您可以使用自己喜欢的工具进行编辑。
 
-这里有一个随机网页在线图像编辑工具，可以免费使用， https://pixlr.com/x/[像素X].
+可使用免费的在线图片编辑工具 https://pixlr.com/x/[Pixlr X]。
 
-将裁剪好的图片放入我们本地 MicroPython 工作文件夹，将其重命名为 `pic_1.jpg`，并参考上传图片的方法 MicroPython 设备, link:/en/BPI-Centi-S3/MicroPython/VScode_mpbridge[如何使用VScode + mpbridge工具].
+将裁剪后的图片放入本地 MicroPython 工作目录并重命名为 `pic_1.jpg`，再参考 link:/en/BPI-Centi-S3/MicroPython/VScode_mpbridge[如何使用 VS Code 和 mpbridge 工具] 将其上传到 MicroPython 设备。
 
 此处准备了裁剪后的图像。
 
 image::/picture/bpi_centi_s3_pic_1.jpg[bpi_centi_s3_pic_1.jpg]
 
-## jpg 方法用例
+## jpg 方法示例
 
-使用 jpg 方法 main.py 脚本。
+在 main.py 脚本中使用 jpg 方法。
 
 ```py
 """ BPI-Centi-S3 170x320 ST7789 display """
@@ -60,9 +60,9 @@ main()
 
 ```
 
-上传后 `main.py`，重置设备即可在屏幕上看到图片。
+上传 `main.py` 后，复位设备即可在屏幕上看到图片。
 
-我们再准备几个大小合适的jpg文件，然后我们就可以设计一个循环，在屏幕上播放图片了 BPI-Centi-S3 像幻灯片一样循环播放。
+再准备几张尺寸合适的 JPG 图片，即可编写循环，让 BPI-Centi-S3 像幻灯片一样循环播放图片。
 
 image::/picture/bpi_centi_s3_pic_2.jpg[bpi_centi_s3_pic_2.jpg]
 image::/picture/bpi_centi_s3_pic_3.jpg[bpi_centi_s3_pic_3.jpg]
@@ -105,4 +105,3 @@ def main():
 main()
 
 ```
-
