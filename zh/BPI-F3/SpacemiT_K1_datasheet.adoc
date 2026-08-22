@@ -2,167 +2,167 @@
 
 image::/bpi-f3/spacemit_k1.png[spacemit_k1.png]
 
-SpacemiT K1 开源 SBC： link:/en/BPI-F3/BananaPi_BPI-F3[香蕉派 BPI-F3]
+采用 SpacemiT K1 的开源 SBC：link:/en/BPI-F3/BananaPi_BPI-F3[Banana Pi BPI-F3]
 
-== SpacemiT K1介绍
+== SpacemiT K1 简介
 
-SpacemiT® Key StoneTM K1 是一款高性能、超低功耗的 cpu 集成了 Octa RISC-V 内核 SpacemiT®道一™AI算力部署。 K1具有以下特点： 
+SpacemiT® Key StoneTM K1 是一款高性能、超低功耗 CPU，集成八个 RISC-V 核心和 SpacemiT® Daoyi™ AI 算力扩展。K1 具有以下特点： 
 
-* 整合 SpacemiT®自主创新的X60™RISC-V处理器内核，遵循RISC-V 64GCVB架构和RVA22标准。
-* „通过探索RISC-V定制指令实现2.0TOPS AI算力扩展 CPU AI融合算力，支持TensorFlow Lite、TensorFlow、ONNX RunTime等主流AI推理框架。
-* 通过实施不同粒度的电源岛和不同级别的电源状态，实现超低功耗，使K1更具竞争力和领先优势。 
-* 支持全功能接口，丰富更多创新应用和产品。
+* 集成 SpacemiT® 自主创新的 X60™ RISC-V 处理器核心，符合 RISC-V 64GCVB 架构和 RVA22 标准。
+* 通过 RISC-V 自定义指令扩展 2.0 TOPS AI 算力，实现 CPU 与 AI 融合计算，并支持 TensorFlow Lite、TensorFlow、ONNX Runtime 等主流 AI 推理框架。
+* 通过不同粒度的电源岛和多级电源状态实现超低功耗，提升 K1 的能效与竞争力。 
+* 提供功能完整的接口，支持更丰富的创新应用和产品。
 * 兼容主流操作系统，满足各种应用场景的需求。
 * 符合工业级可靠性标准
 
 
 == 功能概述
 
-* RISC-V处理器
-** -RISC-VSpacemiT® X60™ 双集群八核处理器 
-** - 遵循RISC-V 64GCVB架构和RVA22标准
+* RISC-V 处理器
+** -RISC-V SpacemiT® X60™ 双集群八核处理器 
+** -符合 RISC-V 64GCVB 架构和 RVA22 标准
 ** -Cluster0
-*** •四核2.0TOPS AI-Power
-*** •每个核心 32K L1 高速缓存
-*** •512K L2 高速缓存
-*** •512KB 中医
-*** •矢量256位
-** -簇1
+*** •四核，具备 2.0 TOPS AI 算力
+*** •每个核心 32K L1 Cache
+*** •512K L2 Cache
+*** •512KB TCM
+*** •256 位向量
+** -Cluster1
 *** •四核 
-*** •每个核心 32K L1 高速缓存
-*** •512K L2 高速缓存
-*** •矢量256位
-** -DVFS具有0.6V至1.05V的自适应工作电压
+*** •每个核心 32K L1 Cache
+*** •512K L2 Cache
+*** •256 位向量
+** -DVFS 自适应工作电压范围为 0.6 V～1.05 V
 
-* DDR内存
-** -双片选32位 LPDDR4/LPDDR4x SDRAM 运行速度为 2666Mbps，总共高达 16GB RAM
-** - 双片选 32 位 LPDDR3 SDRAM，运行速度为 1866Mbps，总共高达 4GB RAM
+* DDR 内存
+** -双片选 32 位 LPDDR4/LPDDR4x SDRAM，速率 2666 Mbps，总容量最高 16GB
+** -双片选 32 位 LPDDR3 SDRAM，速率 1866 Mbps，总容量最高 4GB
 
-* 中央处理器(实时 CPU)系统
+* RCPU（实时 CPU）系统
 ** -R-I2C (×1) 
 ** -R-I2S (×2)
 ** -R-UART (×2)
 ** -R-CAN_FD (×1)
-** -R-IR_接收 (×1)
+** -R-IR_RX (×1)
 ** -R-PWM (×10)
 ** -R-SPI (×1)
 
 * 外围控制器
 ** -GPIO (×128)
-*** •128针 
-*** •Pull-up/pull-down 可编程
+*** •128 个引脚 
+*** •可编程上拉/下拉
 *** •104x 1.8V IO 
 *** •24x 1.8V/3.3V IO
 ** -UART (×10)
 *** •AP/BT/print
 ** -I2C (×10)
-*** •用于相机、重力传感器/电子罗盘/接近传感器/ Light-Sensor/Gyro 和 Fingerprint/NFC、PMIC、触摸等
-*** •8x I2C(I2C0/1/7 仅适用于相机)+1 个 HDMI I2C+1x 压水堆 I2C
+*** •用于摄像头、重力传感器、电子罗盘、接近传感器、光线传感器、陀螺仪、指纹/NFC、PMIC 和触控等设备
+*** •8 路 I2C（I2C0/1/7 仅用于摄像头）+ 1 路 HDMI I2C + 1 路 PWR I2C
 ** -SPI (×4)
 *** •支持主从模式
-*** •用于IMU、编解码器等。
-*** •平台有4个 SPI (1 个 QSPI，1 个 SPI LCD, 2x SPI) 
+*** •用于 IMU、编解码器等设备
+*** •平台提供 4 路 SPI（1 路 QSPI、1 路 SPI LCD、2 路 SPI） 
 ** -USB (×3)
-*** •USB 2.0OTG
-*** •USB 2.0主机
-*** •USB 3.0 (组合 PCIE A门)
+*** •USB 2.0 OTG
+*** •USB 2.0 Host
+*** •USB 3.0（与 PCIE PortA 复用）
 ** -PCIE (×3)
 *** •PCIE PortA Gen2x1
-*** •PCIE 端口 B Gen2x2
+*** •PCIE PortB Gen2x2
 *** •PCIE PortC Gen2x2
 ** -GMAC (×2)
 *** •10/100/1000 Mbps
 *** •RGMII
-** -SDIO (×1 用于WIFI)
-*** •兼容4位SDIO 3.0 UHS-I协议，最高可达SDR104
-** -SD (TF卡×1)
-*** •兼容4位SD 3.0 UHS-I协议，最高可达SDR104
+** -SDIO（×1，用于 Wi-Fi）
+*** •兼容 4 位 SDIO 3.0 UHS-I 协议，最高支持 SDR104
+** -SD（×1，用于 TF 卡）
+*** •兼容 4 位 SD 3.0 UHS-I 协议，最高支持 SDR104
 ** -eMMC (×1)
-*** •兼容8位eMMC5.1，最高可达HS400 (200兆赫)
-** -MIPI CSI (CSI-2 v1.1) 4车道(×2)
-*** •4车道 + 4 车道模式
-*** •4车道 + 2 车道模式
-*** •4车道 + 2巷 + 2 车道模式 (三重传感器)
+*** •兼容 8 位 eMMC 5.1，最高支持 HS400（200 MHz）
+** -MIPI CSI（CSI-2 v1.1）4 Lane（×2）
+*** •4 Lane + 4 Lane 模式
+*** •4 Lane + 2 Lane 模式
+*** •4 Lane + 2 Lane + 2 Lane 模式（三摄像头）
 **-MIPI DSI (DSI v1.1) (×1)
-*** •4通道DSI
+*** •4 Lane DSI
 ** -PWM (×20)
 ** -CAN-FD (×1)
-** -红外接收 (×1)
+** -IR-RX (×1)
 
 * 安全系统
-** -RISC-V PMP 安全
+** -RISC-V PMP 安全机制
 ** -安全启动
-** -安全 eFuse 4K 位
-** - 加密引擎 (TRNG/AES/SM2/SM3/SM4/RSA/ECC/SHA2/HMAC)
+** -4K 位安全 eFuse
+** -加密引擎（TRNG/AES/SM2/SM3/SM4/RSA/ECC/SHA2/HMAC）
 * 调试系统
-** - 两个 JTAG CPU 和MCU子系统
-** -UART
-** -CPU/IO 看门狗重启后注册快照
+** -CPU 和 MCU 子系统各配备一个 JTAG
+** -UARTs
+** -看门狗重启后保存 CPU/IO 寄存器快照
 * 引导系统
-** -初始 cpu 启动自 SPI-Nand/SPI-NorFlash/eMMC/SD
-** -128KB 引导 ROM 大小
+** -CPU 初始启动介质支持 SPI-NAND/SPI-NOR Flash/eMMC/SD
+** -128KB Boot ROM
 * 辅助系统
-** -每个的看门狗设计 CPU/MCU 子系统
+** -每个 CPU/MCU 子系统均配备看门狗
 
 == 多媒体功能
 
 * GPU
 ** -IMG BXE-2-32
-** -支持OpenGL ES 3.2
-* 视觉处理单元 (视频处理单元)
-** -H.265/H.264/VP8/VP9/MPEG4/MPEG2 解码器4K@60fps
-** -H.265/H.264/VP8/VP9 编码器4K@30fps
-** -支持同时处理编码1080P@60fps和解码1080P@60fps
-** -支持同时处理 H264/H265 编码 1080P@30fps 和 H264/H265 解码4K@30fps
+** -支持 OpenGL ES 3.2
+* VPU（视频处理单元）
+** -H.265/H.264/VP8/VP9/MPEG4/MPEG2 解码，最高 4K@60fps
+** -H.265/H.264/VP8/VP9 编码，最高 4K@30fps
+** -支持同时进行 1080P@60fps 编码和 1080P@60fps 解码
+** -支持同时进行 H.264/H.265 1080P@30fps 编码和 H.264/H.265 4K@30fps 解码
 * 显示 
-** -MIPI DSI 4 通道或 SPI 接口 
-** -最高支持高清 (1920x1080@60fps)
-** -通过rdma通道中的上下层重用，支持最多4个全尺寸层合成器和最大8层合成器
-** -支持cmdlist机制，可以通过HW配置寄存器参数
-** -支持并发写回，有raw和afbc两种格式，也支持 dither/crop/rotation 在写回路径中
-** -支持高级mmu (虚拟地址) 机制，几乎没有页面丢失 90/270 学位
+** -MIPI DSI 4 Lane 或 SPI 接口 
+** -最高支持 HD（1920x1080@60fps）
+** -通过 RDMA 通道的上下层复用，支持最多 4 个全尺寸图层合成器、最多 8 个图层
+** -支持 cmdlist 机制，可由硬件配置寄存器参数
+** -支持并发写回，兼容 raw 和 AFBC 格式；写回路径支持抖动、裁剪和旋转
+** -支持高级 MMU（虚拟地址）机制，在 90°/270° 旋转时几乎不会缺页
 
 * 旋转
-** - 支持色键和纯色
-** -支持面板的高级误差扩散和基于图案的抖动
-** - 两者都支持 afbc/raw 格式化图像源
-** -颜色 saturation/contrast 增强
-** -面板支持视频模式和cmd模式
-** -支持DDR频率动态变化与嵌入式dfc缓冲区 
+** -支持色键和纯色填充
+** -支持面板高级误差扩散和基于图案的抖动
+** -图像源支持 AFBC/raw 两种格式
+** -支持色彩饱和度/对比度增强
+** -面板支持视频模式和 cmd 模式
+** -通过嵌入式 DFC 缓冲区支持 DDR 频率动态变化 
 ** -HDMI 1.4
 * 相机
 ** -双ISP 
-*** •16M (最大。) 30fps 双 ISP
-*** •一个4通道CSI + 1 个 4 通道 CSI 或 4 通道 + 2车道 + 2车道
-*** •RAW传感器，输出YUV数据到DRAM 
-*** •硬件JPEG编码器(硬件，最大支持23M)
+*** •双 ISP，最高 16M@30fps
+*** •1 路 4 Lane CSI + 1 路 4 Lane CSI，或 4 Lane + 2 Lane + 2 Lane
+*** •RAW 传感器，向 DRAM 输出 YUV 数据 
+*** •硬件 JPEG 编码器，最高支持 23M
 *** •支持 YUV/EXIF/JFIF 格式
 *** •AF/AE/AWB
 *** •人脸检测
 *** •数码变焦、全景视图
 *** •PDAF
-*** •画中画 (画中画)
+*** •PIP（画中画）
 *** •支持HDR
 *** •连续视频自动对焦
 *** •HW 3D 降噪
 * 音频
-** -集成高品质音频编解码器和音频前端
+** -集成高品质音频编解码器与音频前端
 *** •ADC：90dB信噪比@20~20kHz
 *** •DAC：95dB SNR@20~20kHz
-*** •G类：95dB SNR@20~20kHz，31mW@32欧姆，THD -90dB
-*** •AB类：95dB SNR@20~20kHz，75mW@32 欧姆，THD-90dB
-*** •线路输出支持外部D类音频放大器 (PMIC 中的 D 类：95dB SNR@20 ~ 20kHz，1W@4.2Vbat 10%THD + N，8欧姆扬声器)
-** -三个MIC输入
-** - 用于消除噪音的立体声输入路径
-** - 立体声耳机输出
-** -音频内容采样率：8kHz 至 48kHz
-** -用于耳机插入和挂机键检测的麦克风偏置 
-** - 用于自适应多速率的四声码器 (抗微生物药物耐药性)
-** - 噪声抑制和回声消除
+*** •Class-G：95dB SNR@20~20kHz，31mW@32 Ω，THD -90dB
+*** •Class-AB：95dB SNR@20~20kHz，75mW@32 Ω，THD -90dB
+*** •Line-out 支持外接 Class-D 音频功放（PMIC 内 Class-D：95dB SNR@20~20kHz，1W@4.2Vbat，10% THD+N，8 Ω 扬声器）
+** -3 路 MIC 输入
+** -用于降噪的立体声输入路径
+** -立体声耳机输出
+** -音频采样率：8kHz～48kHz
+** -用于耳机插入和 Hook 键检测的麦克风偏置 
+** -用于自适应多速率（AMR）的四路声码器
+** -噪声抑制和回声消除
 * 一般
-** -工作温度：-40℃ ~ 85°C
+** -工作温度：-40°C～85°C
 
-==  框图
+== 框图
 
 image::/bpi-f3/block_diagram.png[block_diagram.png]
 
@@ -171,53 +171,50 @@ image::/bpi-f3/block_diagram.png[block_diagram.png]
 == CPU 子系统
 
 === 概述
-的 CPU K1的子系统由以下功能组成： 
+K1 的 CPU 子系统具有以下特性： 
 
-* 两个不对称 CPU 包括的集群：Cluster0 集成 Quad RISC-V SpacemiT® X60™ 内核具有 2.0TOPS AI-Power 扩展，而 Cluster1 包括四路 RISC-V SpacemiT® X60™ 内核，不具备 AI 功能
-* 每个高性能低功耗 SpacemiT® X60™ CPU 内核遵循 RISC-V 64GCVB 架构和 RVA22 标准
-* 支持本地中断控制器CLINT和平台中断控制器PLIC
-* 遵循RISC-V Debug V0.13.2标准
-* CPU 看门狗复位时拍摄的关键信息快照用于调试
-* 电源岛和为每个电源岛设计的两级电源策略 CPU 核心和集群实现超节能 
+* 包含两个非对称 CPU 集群：Cluster0 集成四个带 2.0 TOPS AI 算力扩展的 RISC-V SpacemiT® X60™ 核心；Cluster1 集成四个不带 AI 功能的 RISC-V SpacemiT® X60™ 核心
+* 每个高性能、低功耗 SpacemiT® X60™ CPU 核心均符合 RISC-V 64GCVB 架构和 RVA22 标准
+* 支持核心本地中断控制器 CLINT 和平台级中断控制器 PLIC
+* 符合 RISC-V Debug V0.13.2 标准
+* 看门狗复位时保存 CPU 关键信息快照，供调试使用
+* 针对各 CPU 核心和集群设计电源岛与两级电源策略，实现超低功耗 
 
 === SpacemiT® X60™ RISC-V 内核
 
-X60™ 是一款创新、高效的处理器内核， SpacemiT®道一™人工智能创新部署，遵循RISC-V 64GCVB和RVA22标准。为了满足当前和未来的计算需求，它融合了众多DSA技术和微架构优化，为AI应用、机器学习、SLAM等提供强大的计算能力。 X60™内核具有以下特点： 
+X60™ 是一款创新、高效的处理器核心，集成 SpacemiT® Daoyi™ AI 创新扩展，符合 RISC-V 64GCVB 和 RVA22 标准。为满足当前与未来的计算需求，它采用多种 DSA 技术和微架构优化，为 AI 应用、机器学习、SLAM 等提供强大算力。X60™ 核心具有以下特点： 
 
 image::/bpi-f3/cluster_micro-architecture.png[cluster_micro-architecture.png]
 
 * RISC-V 64GCVB 和 RVA22 标准
-* 每个核心具有 32KB L1-I 缓存和 32KB L1-D 缓存
-* 每个集群有512KB L2 Cache 
-* Cluster0 有 512KB TCM (紧耦合内存) 用于AI扩展
-* L1 Cache支持MESI一致性协议，L2 Cache支持MOESI一致性协议
+* 每个核心具有 32KB L1-I Cache 和 32KB L1-D Cache
+* 每个集群具有 512KB L2 Cache 
+* Cluster0 具有 512KB TCM（紧耦合内存），用于 AI 扩展
+* L1 Cache 支持 MESI 一致性协议，L2 Cache 支持 MOESI 一致性协议
 * 矢量扩展：RVV1.0/VLEN 256/128-bit x2 执行宽度
-* Cluster0中探索和设计的AI定制指令
-* 支持CLINT和PLIC，总共256个中断
-* 支持RISC-V性能PMU
-* 支持SV39虚拟内存
+* Cluster0 中集成自主设计的 AI 自定义指令
+* 支持 CLINT 和 PLIC，共 256 个中断
+* 支持 RISC-V 性能 PMU
+* 支持 SV39 虚拟内存
 * 支持 32 个符合 RISC-V 安全框架的 PMP 条目
-* 支持RISC-V调试框架
+* 支持 RISC-V 调试框架
 
 
 === 中断
-平台中断控制器由PLIC和CLINT组成，由两个集群共享。异常处理 (包括异常和中断) 是处理器的一个重要功能，用于将on-the-fly异常转移到相应的核心进行处理。 这些事件包括硬件错误、指令执行错误、用户程序请求和服务的外部中断等。
+平台中断控制器由 PLIC 和 CLINT 组成，由两个集群共享。异常处理（包括异常和中断）是处理器的重要功能，可把运行时事件转交给相应核心处理。这些事件包括硬件错误、指令执行错误、用户程序请求及服务产生的外部中断等。
 
-X60实现处理器核心本地中断控制器 (克林特)，一个内存地址映射模块，用于处理软件中断和定时器中断。
+X60 实现了处理器核心本地中断控制器（CLINT），它是一个内存地址映射模块，用于处理软件中断和定时器中断。
 
-平台级中断控制器 (普里克) 用于采样、优先仲裁，然后分配外部中断源。 在PLIC模型中，每个核的机器模式和管理模式都是有效的中断目标。 PLIC 支持 256 个外部中断源。每个中断都支持电平和边缘格式。
+平台级中断控制器（PLIC）负责采样外部中断源、进行优先级仲裁并分配中断。在 PLIC 模型中，每个核心的机器模式与监管者模式都可作为中断目标。PLIC 支持 256 个外部中断源，每个中断均支持电平和边沿触发。
 
 === 调试和跟踪
 
-调试接口是软件与处理器交互的通道。 用户可以获取该信息 CPU 寄存器和存储器内容，包括其他片上设备信息，通过调试接口。 另外，还可以通过调试接口进行程序下载等操作。
+调试接口是软件与处理器交互的通道。用户可通过它读取 CPU 寄存器、内存内容及其他片上设备信息，也可执行程序下载等操作。
 
-调试系统由调试软件、调试代理服务、调试器和调试接口组成。 其中，调试软件和调试代理服务程序通过网络互连，调试代理服务程序和调试器通过网络连接。 USB，并且调试器与 CPU 通过JTAG接口。
+调试系统由调试软件、调试代理服务、调试器和调试接口组成。调试软件与调试代理服务通过网络互连，调试代理服务与调试器通过 USB 连接，调试器则通过 JTAG 接口与 CPU 通信。
 
-JTAG 内存评估方法可以是 progbuf 或 sysbus 模式。 progbug 模式是一种普通的 JTAG 方法，通过CPU而sysbus是另一种绕过片上资源访问的方法 CPU 通过小企业管理局 (系统总线访问) 端口。
+JTAG 内存访问可采用 progbuf 或 sysbus 模式。progbuf 是通过 CPU 访问的常规 JTAG 方式；sysbus 则通过 SBA（System Bus Access）端口绕过 CPU，直接访问片上资源。
 
 image::/bpi-f3/debug_platform_micro-architecture.png[debug_platform_micro-architecture.png]
-
-
-
 
 
