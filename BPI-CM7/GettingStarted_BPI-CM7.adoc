@@ -28,7 +28,20 @@ TIP: More Infomation: link:/en/BPI-CM7/BananaPi_BPI-CM7[Banana Pi BPI-CM7 Main P
 
 == Prepare
 
-Tested system:
+Use the following commands to confirm the board model, operating system, CPU, memory, and boot storage.
+
+```bash
+hostnamectl
+tr '\0' '\n' < /proc/device-tree/model
+tr '\0' '\n' < /proc/device-tree/compatible
+uname -a
+lscpu
+free -h
+lsblk -o NAME,MAJ:MIN,RM,SIZE,RO,TYPE,FSTYPE,MOUNTPOINTS
+findmnt -no SOURCE,FSTYPE,SIZE,USED,AVAIL,USE%,TARGET /
+```
+
+Test result:
 
 * Board: Banana Pi BPI-CM7 with BPI-CM7IO
 * OS: Armbian 24.11.1 jammy / Ubuntu 22.04.5 LTS
@@ -48,69 +61,186 @@ Tested system:
 
 == Desktop
 
-The tested image uses `graphical.target`. LightDM was active during the test.
+Use the following commands to check whether the system boots to the graphical target and whether the display manager is running.
 
 ```bash
 systemctl get-default
 systemctl is-active display-manager
+loginctl list-sessions
+```
+
+Test result:
+
+```text
+graphical.target
+active
 ```
 
 == Debug UART
 
-The tested image configures the debug console as `ttyAS0` at 115200 baud.
-
-```bash
-console=ttyAS0,115200
-```
-
 == SSH
 
-The SSH service was active and remote login was tested successfully.
+. Prepare a network cable and a router.
+. Connect the BPI-CM7IO Ethernet port and the PC to the same LAN.
+. Check the board IP address from the router management page, or run the following command from a local terminal on the board.
++
+```bash
+ip -brief address show eth0
+hostname -I
+```
 
+. Check the SSH service status on the board.
++
+```bash
+systemctl is-active ssh
+```
+
+. Open a terminal on the PC and connect to the board. Replace `<board-ip>` with the actual address assigned by the router.
++
 ```bash
 ssh pi@<board-ip>
+```
+
+. After login, use the following commands to confirm the remote user, board name, and kernel.
++
+```bash
+whoami
+hostnamectl --static
+uname -r
+```
+
+Test result:
+
+```text
+SSH service: active
+Remote login: successful
+User: pi
+Hostname: bpi-cm7
+Kernel: 5.4.125-legacy-sunxi64
 ```
 
 == NoMachine Remote Desktop
 
 == armbian-config
 
-`armbian-config` is installed in the tested image.
+Check whether `armbian-config` is installed.
+
+```bash
+command -v armbian-config
+```
+
+Enter the Armbian configuration utility with the following command.
 
 ```bash
 sudo armbian-config
 ```
 
+Test result:
+
+```text
+/usr/bin/armbian-config
+```
+
 == WiFi
 
-The `wlan0` interface was detected, was not blocked by rfkill, and successfully scanned nearby Wi-Fi access points.
+Use the `nmcli` command to list network devices and scan Wi-Fi access points.
 
 ```bash
-nmcli device
-nmcli device wifi list
-rfkill list
+nmcli device # List devices
+nmcli device wifi list # List available Wi-Fi access points
+rfkill list # Check whether Wi-Fi is blocked
+```
+
+Use the following commands to connect, disconnect, or create a Wi-Fi hotspot.
+
+```bash
+nmcli device wifi connect [SSID] password [PASSWORD]
+nmcli connection up [SSID]
+nmcli device disconnect [device name]
+
+nmcli device wifi hotspot con-name [NAME] ifname [device name] ssid [SSID] password [PASSWORD]
+
+nmcli connection show
+nmcli connection down [NAME]
+nmcli connection up [NAME]
+nmcli connection delete [SSID]
+
+nmcli radio wifi off
+nmcli radio wifi on
+```
+
+Test result:
+
+```text
+Interface: wlan0
+rfkill soft blocked: no
+rfkill hard blocked: no
+Wi-Fi scan: successful
 ```
 
 == Set static IP, DNS
 
 == Network time synchronization
 
-The tested image uses Chrony. Network time synchronization was active and the system clock was synchronized.
+Chrony is used in the tested image for network time synchronization.
+
+Use the following commands to check the system clock, synchronization status, Chrony service, and time sources.
 
 ```bash
 timedatectl status
 systemctl status chrony
+chronyc tracking
+chronyc sources -v
+date
 ```
+
+Use the following commands to manage the Chrony service.
+
+```bash
+sudo systemctl start chrony
+sudo systemctl enable chrony
+sudo systemctl restart chrony
+```
+
+Use the following commands to list or change the time zone.
+
+```bash
+timedatectl list-timezones
+sudo timedatectl set-timezone Asia/Shanghai
+```
+
+Test result:
+
+```text
+System clock synchronized: yes
+NTP service: active
+Chrony service: active
+Time zone during test: Etc/UTC
+```
+
+* link:https://chrony-project.org/documentation.html[Chrony reference documentation]
 
 == View hardware temperature
 
-The tested image exposes four thermal zones.
+Use the following commands to identify the four thermal zones.
 
 ```bash
-for zone in /sys/class/thermal/thermal_zone*; do
-  echo "$(cat "$zone/type"): $(awk '{printf "%.1f", $1/1000}' "$zone/temp") °C"
-done
+cat /sys/class/thermal/thermal_zone0/type
+cat /sys/class/thermal/thermal_zone1/type
+cat /sys/class/thermal/thermal_zone2/type
+cat /sys/class/thermal/thermal_zone3/type
 ```
+
+Use the following commands to read the temperatures.
+
+```bash
+cat /sys/class/thermal/thermal_zone0/temp
+cat /sys/class/thermal/thermal_zone1/temp
+cat /sys/class/thermal/thermal_zone2/temp
+cat /sys/class/thermal/thermal_zone3/temp
+```
+
+Divide each returned value by 1000 to obtain the temperature in degrees Celsius.
 
 Test result:
 
@@ -131,15 +261,22 @@ ve_thermal_zone: 50.8 °C
 
 === Terminal command to play audio files
 
-The tested image detected the analog codec and HDMI audio playback devices.
+Use the following command to list the audio playback devices.
 
 ```bash
-aplay -l
+aplay -l # List playback devices
 ```
 
-```text
-card 0: audiocodec
-card 1: ahubhdmi
+Test result:
+
+```
+**** List of PLAYBACK Hardware Devices ****
+card 0: audiocodec [audiocodec], device 0: soc@3000000:codec_plat-5096000.codec 5096000.codec-0 []
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 1: ahubhdmi [ahubhdmi], device 0: ahub_plat-snd-soc-dummy-dai snd-soc-dummy-dai-0 []
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
 ```
 
 ==== Play through the 3.5mm audio jack
@@ -154,39 +291,60 @@ card 1: ahubhdmi
 
 === scp
 
-SCP transfer over the LAN was tested successfully.
+SCP uses the SSH protocol to copy files securely between the PC and BPI-CM7. Make sure the PC and board are connected to the same LAN and that SSH login works first.
+
+The SCP command format is:
+
+```bash
+scp [options] file_source file_target
+```
+
+Use `-r` to copy a directory recursively.
+
+Copy a local file from the PC to BPI-CM7:
 
 ```bash
 scp local-file pi@<board-ip>:/home/pi/
+```
+
+Copy a file from BPI-CM7 to the PC:
+
+```bash
 scp pi@<board-ip>:/home/pi/remote-file ./
+```
+
+Test result:
+
+```text
+Upload to /tmp: successful
+Remote file size and SHA-256 verification: successful
+Temporary test file removal: successful
 ```
 
 === mobaxterm
 
 == nano - text editor
 
-GNU nano is installed in the tested image.
+https://www.nano-editor.org/[GNU nano] is a command-line text editor and is installed in the tested image.
 
-```bash
-nano [file path]
-```
-
+. Open a file with `nano [file path]`.
 . Edit the file.
-. Press `Ctrl+O` to save.
-. Press `Enter` to confirm the file name.
-. Press `Ctrl+X` to exit.
+. Press `Ctrl+O` to write the file.
+. Edit or confirm the file path, then press `Enter`.
+. Press `Ctrl+X` to exit nano.
+
+* https://www.nano-editor.org/dist/latest/cheatsheet.html[nano shortcuts]
+* https://www.nano-editor.org/dist/latest/nano.html[nano documentation]
+
+Test result:
+
+```text
+/usr/bin/nano
+```
 
 == Set boot logo
 
 === on/off boot logo
-
-The tested image has `bootlogo=true` in `/boot/armbianEnv.txt`.
-
-```bash
-sudo nano /boot/armbianEnv.txt
-```
-
-Set `bootlogo=true` to enable the boot logo or `bootlogo=false` to disable it.
 
 === Replace boot logo
 
