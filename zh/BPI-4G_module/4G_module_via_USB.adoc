@@ -1,22 +1,22 @@
 = 简介
 
-BPI-4G 模块扩展板带1个非标微型 USB 端口，可以通过此端口连接香蕉pi板，使用4G功能开发。还支持PIN定义，并连接到 BPI-R2。用户还可以选择板载4G模块，使用市场上通用的4G模块。
+BPI-4G 模块扩展板带有一个非标准 Micro-USB 接口，可通过该接口连接 Banana Pi 开发板进行 4G 功能开发；也可通过引脚连接 BPI-R2。用户还可以选择板载 4G 模块，或使用市面上的通用 4G 模块。
 
 image::/picture/bpi-4g_5.jpg[bpi-4g_5.jpg]
 
-= 使用 4G 模块 BananaPi
+= 在 Banana Pi 上使用 4G 模块
 
-. link:/en/BPI-4G_module/using_4G_module_with_BananaPi[使用 4G 模块 BananaPi]
-. 高品质香蕉派拆箱 Bpi-Ec25 4g全网通无线通讯模块： https://www.youtube.com/watch?v=sXYQbzyFGYI
+. link:/en/BPI-4G_module/using_4G_module_with_BananaPi[在 Banana Pi 上使用 4G 模块]
+. Banana Pi BPI-EC25 4G 全网通无线通信模块开箱：https://www.youtube.com/watch?v=sXYQbzyFGYI
 
 = 硬件
 == 硬件接口
 
-BPI-4G 模块 (机上4G )
+BPI-4G 模块（板载 4G）
 
 image::/picture/bpi-4g_onboard.jpg[bpi-4g_onboard.jpg]
 
-BPI-4G 模块 (使用 USB 4G扩展板 ):
+BPI-4G 模块（使用 USB 4G 扩展板）：
 
 image::/picture/bpi-4g_usb.jpg[bpi-4g_usb.jpg]
 
@@ -25,10 +25,10 @@ BPI-4G 模块背面：
 image::/picture/bpi-4g_back.jpg[bpi-4g_back.jpg]
 
 == 硬件规格
-BPI-4G 模块 (机上4G )
+BPI-4G 模块（板载 4G）
 
-= 如何使用4G
-4G板连接香蕉派SBC与 USB 线，并连接 BPI-R2 具有 PIN 定义
+= 如何使用 4G
+4G 扩展板可通过 USB 线连接 Banana Pi 单板计算机，也可通过定义的引脚连接 BPI-R2。
 
 image::/picture/bpi-4g_use_way.jpg[bpi-4g_use_way.jpg]
 
@@ -37,17 +37,17 @@ image::/picture/bpi-4g_use_way.jpg[bpi-4g_use_way.jpg]
 
 image::/picture/oem_4g.jpg[oem_4g.jpg]
 
-4 4G模块板过孔 USB 界面。
+4. 通过 USB 接口使用 4G 模块扩展板。
 
 image::/picture/4g_module_1.jpg[4g_module_1.jpg]
 
-使用此模块 BPI-R2
+在 BPI-R2 上使用此模块
 
 image::/picture/4g_multi-network_fusion_1.jpg[4g_multi-network_fusion_1.jpg]
 
-= 购买样品
-WARNING: SINOVOIP速卖通店铺： https://www.aliexpress.com/item/2251832672395965.html?gatewayAdapt=4itemAdapt
+= 购买渠道
+WARNING: SINOVOIP AliExpress 店铺：https://www.aliexpress.com/item/2251832672395965.html?gatewayAdapt=4itemAdapt
 
-WARNING: 比派速卖通店铺： https://www.aliexpress.com/item/3256804449862410.html?gatewayAdapt=4itemAdapt
+WARNING: Bipai AliExpress 店铺：https://www.aliexpress.com/item/3256804449862410.html?gatewayAdapt=4itemAdapt
 
-WARNING: 淘宝店： https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-25059194413.11.40471ce0i2kDUj&id=566852588247
+WARNING: 淘宝店：https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-25059194413.11.40471ce0i2kDUj&id=566852588247
