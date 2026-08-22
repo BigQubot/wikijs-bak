@@ -1,8 +1,8 @@
 ---
-title: BPI-M4 Berry 照片
-description: BPI-M4 Berry 照片
-published: true
-date: 2026-08-22T11:47:10.204Z
+title: BPI-M4 Berry 产品图片
+description: BPI-M4 Berry 产品图片
+published: false
+date: 2026-08-22T17:09:16.720Z
 tags: 
 editor: markdown
 dateCreated: 2026-08-22T11:47:10.204Z
