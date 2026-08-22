@@ -1,0 +1,61 @@
+TIP: link:../GettingStarted_BPI-Leaf-S3[返回 BPI-Leaf-S3 入门指南]
+
+== 安装
+
+Thonny IDE 对初学者非常友好。在官网或 GitHub Releases 页面找到与当前操作系统对应的安装包，下载后按提示完成安装。
+
+* https://thonny.org/[Thonny 官网] 
+* https://github.com/thonny/thonny/releases[GitHub Releases]
+
+== 配置
+
+将开发板连接到电脑。
+
+. 运行 Thonny，单击 **运行** > **配置解释器**。
++
+image::/picture/bpi_leaf_s3_thonny_1.jpg[bpi_leaf_s3_thonny_1.jpg]
+
+. 选择 **MicroPython(ESP32)**。
++
+image::/picture/bpi_leaf_s3_thonny_2.jpg[bpi_leaf_s3_thonny_2.jpg]
+
+
+. 选择开发板对应的 **端口**，单击“确定”保存设置。
++
+image::/picture/bpi_leaf_s3_thonny_3.jpg[bpi_leaf_s3_thonny_3.jpg]
+
+. 选择 **查看** > **文件**，打开文件管理栏。
++
+image::/picture/bpi_leaf_s3_thonny_4.jpg[bpi_leaf_s3_thonny_4.jpg]
+
+== 使用 REPL 输出 Hello World
+
+**REPL** 是 **Read-Eval-Print-Loop** 的缩写，即 **读取—求值—输出循环**。
+
+我们可以通过实际操作来理解它的含义。
+
+将已安装 MicroPython 固件的开发板连接到计算机，启动并正确配置 Thonny IDE 后，Shell 窗口会显示以下内容：
+
+```py
+MicroPython v1.20.0-283-g7d66ae603 on 2023-07-14; ESP32S3 module (spiram) with ESP32S3
+
+Type "help()" for more information.
+
+>>> 
+```
+
+注意最后一行的 `>>>` 提示符。可直接在其后输入表达式或代码，再按键盘上的 `enter` 键，下一行会立即显示结果。
+
+```python
+>>> 1+2
+3
+>>> print("Hello World")
+hello world
+>>>
+```
+
+现在可以很直观地理解了。它会读取我们输入的信息，进行计算评估，输出结果，然后等待我们后续的输入，不断循环这个过程。 
+
+输入内容会直接传给芯片解释执行，无需编译。这是 Python 的重要特性，MicroPython 也完整继承了这一点。
+
+> 有关 REPL 的更详细说明，请参考 https://docs.micropython.org/en/latest/reference/repl.html[MicroPython 文档：REPL]
