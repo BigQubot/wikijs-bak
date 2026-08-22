@@ -1,0 +1,87 @@
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_development_tutorialbased_on_microbit[位用于 MicroPython]
+
+= 如何控制板子的输入输出！
+
+计算机中的IO指的是 Input/Output，即Input和Output，简称IO口。
+
+image::/bpi-bit/bitio.png[bitio.png]
+
+- IO口不一样，有的比较大，一般情况下，附近都有标签，方便用户理解。比如这个板子的底部在金手指上的分布顺序是 0/1/2/3V/GND (大多数计算机都是从0开始的).
+- 如果将金手指固定在底座上，也可以使用其他较小的蓝白线引脚，这一点在第一章硬件介绍中已经特别指出。您可以忘记检查 link:https://docs.banana-pi.org/en/BPI-Bit/BananaPi_BPI-Bit#_hardware[BPI：位硬件].
+- 在microbit的这个模块中，板子的接口被定义为pinN对象，其中N代表接口的值，所以no。 0接口也称为pin0对象。如果以后你发现这个不太好用，你可以通过导入机器Pin来重新定义你喜欢的Pin名称。
+
+= 害羞板
+我们想要触摸板子的引脚并使其做出相应的反应，它看起来就像一个害羞的小女孩。
+
+代码如下：
+```sh
+from microbit import *
+while True:
+   if pin1.is_touched():
+       display.show(Image.HAPPY)
+   else:
+       display.show(Image.SAD)
+```
+这时，你需要一只手去触碰标签1的引脚，你可以看到板子从悲伤到快乐，如果你松开它，它就会改变表情，是生气吗？
+
+流程解释如下：
+
+- 在“pin1。是_感动 ()” 反复运行判断引脚是否被碰触。 (原则是 ADC 抽样)
+- 它运行并返回True，即显示笑脸，否则总是显示苦脸，所以不碰它时它会感到悲伤。 (等等！这是什么羞耻啊！！！！ )
+
+运行效果如下：
+
+image::/bpi-bit/touched_io.png[touched_io.png]
+
+需要注意的是，由于我们体内有静电 (手)，它可能会触电并导致其表情有时会抽搐。
+
+= 灯开或关
+当我们刚开始的时候，我们已经学会了如何控制变化 LED 板上的灯，不过都是别人做的。那么今天我们就来尝试一下。其他人是怎么做到的？
+
+为此，我准备了以下常用的Led灯，你会发现它们的长度不同。这是为了区分它们的正负极。正极是长端，负极是短端。
+
+Tip: 区分正负极的目的是希望大家在接线时，元件 (LED) 正极接电源正极 (+)，以及元素 (LED) 负极接电源负极
+
+image::/bpi-bit/leds.jpg[leds.jpg]
+
+我们先来说第一步，就是打开普通灯，也就是直接连接 (LED) 接到电源上，然后直接把大家伙接到板子的3V和GND上，3V是指电源正极 (3V)、GND指的是电源的负极电平，也称为地。
+
+image::/bpi-bit/leds1.png[leds1.png]
+
+这会点亮一盏灯 (注意积极和消极)，但是灯不可控，只会亮，不会灭。
+
+本来想再拿一个灯接上去对比一下，但是发现一个问题是其他灯都太短了，所以改了下面的。我用我们的头灯来控制，可以看到此时灯不会亮。
+
+image::/bpi-bit/led_off.jpg[led_off.jpg]
+
+那么我们通过下面的代码来控制它的开启和关闭，你可以看到图中我使用了pin2引脚来控制。
+```sh
+from microbit import *
+pin2.write_digital(1)
+```
+现在我使用Pycharm + Mpfshell 插件来运行此代码。
+
+image::/bpi-bit/code_(1).png[code_(1).png]
+
+可以看到它亮起来了，那就说明我们可以控制灯光了，这和最初的教程一致吗？
+
+image::/bpi-bit/led_on.jpg[led_on.jpg]
+
+这次我们使用以下代码添加闪烁效果。
+```sh
+from microbit import *
+while True:
+   pin2.write_digital(1)
+   sleep(200)
+   pin2.write_digital(0)
+   sleep(1000)
+```
+
+image::/bpi-bit/blink.png[blink.png]
+
+让我解释一下程序：
+
+- 使用pin2引脚输出1，这将使 LED 成为高水平。简单地认为这个引脚有电压，效果相当于直接连接到电源正极。(原则上应该理解两个引脚之间的电位差)
+- 先点亮，即pin2.write_数字化(1)，然后使用睡眠(200) 让电路板休息 200 毫秒。
+- 然后你把它拿出来，就是pin2.write_数字化(0)，然后再休息 1,000 毫秒或一秒。
+- 重新做一遍。
