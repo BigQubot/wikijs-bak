@@ -1,0 +1,48 @@
+= 硬件规格
+
+Camera V3 模块专为 BPI-M3 设计，提供两种 CMOS 传感器模块：500 万像素的 OV5640 和 800 万像素的 OV8865。开发板可选择连接一个或两个摄像头。
+
+= 硬件
+
+摄像头支持 OV5640 和 OV8865 两种传感器。
+
+== 硬件接口
+
+image::/picture/camera.jpg[camera.jpg]
+
+== 连接排线
+image::/picture/600px-lcd_connect_line.jpg[600px-lcd_connect_line.jpg]
+
+
+= 示意图
+image::/picture/bpi-m3_camera_sch.png[bpi-m3_camera_sch.png]
+
+
+= 如何使用
+使用 40 针 FFC 排线连接摄像头模块和 BPI-M3，如下图所示：
+
+image::/picture/bpi-m3_camera_1.jpg[bpi-m3_camera_1.jpg]
+image::/picture/bpi-m3_camera_2.jpg[bpi-m3_camera_2.jpg]
+image::/picture/bpi-m3_camera_3.png[bpi-m3_camera_3.png]
+
+
+= BPI-M2+ 支持 OV5640 摄像头模块
+NOTE: BPI-M2+ 使用的摄像头连接方式与 BPI-M2、BPI-M1 等开发板不同。BPI-M2+ 支持 OV5640 模块，无需扩展板，可将 OV5640 直接连接到 CSI 接口。
+
+如果已有 BPI-M1/M1+/M2 摄像头模块，可将摄像头从扩展板上拆下，直接用于 BPI-M2+。
+
+image::/picture/camera_1.jpg[camera_1.jpg]
+
+连接方式：
+
+image::/picture/camera_2.jpg[camera_2.jpg]
+
+在 BPI-M2+ 上使用该模块：https://docs.banana-pi.org/en/BPI-M2_Plus/GettingStarted_BPI-M2_Plus#_camara_function
+
+
+= 资源
+TIP: 下载 BPI 摄像头原理图：https://drive.google.com/file/d/1gyiDM7mpnWsADAtnXcwEcd6oXQQg_WuT/view?usp=sharing
+
+TIP: 下载 OV5640 数据手册：https://drive.google.com/file/d/0B4PAo2nW2KfnbE03bldrdXdSQ1E/view?usp=sharing
+
+TIP: 下载 OV8865 数据手册：https://drive.google.com/file/d/0B4PAo2nW2KfnUy1yOTB2YllBSGM/view?usp=sharing
