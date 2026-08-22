@@ -1,0 +1,1813 @@
+= 概述
+
+香蕉派 BPI-R4Pro 路由器板带有 MediaTek MT7988A (Filogic 880)四核ARM Corex-A73设计，4GB/8GB DDR4 RAM,8GB eMMC,128MB SPI-NAND 板载闪存，还有 2x 10Gbe SFP+, 4x Gbe网口,带USB3.2接口,M.2支持 4G/5G/NVME SSD.2x miniPCIe 插槽，带 PCIe3.0 2lane 接口，用于 Wi-Fi 7 NIC (网络接口卡)。它是一款非常高性能的开源路由器开发板。
+
+TIP: 更多信息： link:https://docs.banana-pi.org/en/BPI-R4_Pro/BananaPi_BPI-R4_Pro[香蕉派 BPI-R4 Pro]
+
+TIP: link:/en/BPI-R4_Pro/TEST-R4_Pro[BPI-R4 Pro 硬件测试]
+
+== 框图(8X)
+
+image::/bpi-r4_pro/bpi-r4pro-blockdiagram-8x-b.png[bpi-r4pro-blockdiagram-8x-b.png,width=800]
+
+== 框图(4e)
+image::/bpi-r4_pro/bpi-r4pro-block_diagram_4e.png[bpi-r4pro-block_diagram_4e.png,width=800]
+
+
+= 开发
+== 准备工作
+
+* 8G/above MicroSD卡 +
+* MicroSD 读卡器 +
+* USB 磁盘 +
+* USB C型数据线 +
+* 六类线 Ethernet 电缆 +
+* 12V/5A 电源适配器 +
+(无需任何外设和网线插入，功耗 BPI-R4Pro 主板大约10W，所以 12V/2A 会起作用的。 +
+但您需要根据自己的配件使用情况来确定是否需要更高功率的电源适配器，12V/5A 推荐) +
+* Windows/Ubuntu 系统 +
+* link:https://docs.banana-pi.org/en/BPI-R4_Pro/BananaPi_BPI-R4_Pro#_system_image[BPI-R4Pro 镜像]
+* link:https://docs.banana-pi.org/en/BPI-R4_Pro/BananaPi_BPI-R4_Pro#_source_code[BPI-R4Pro 源代码]
+
+== BPI-R4Pro 引导程序设置
+下表列出了开关的设置 (SW3) 以及它们的功能。 +
+
+image::/bpi-r4_pro/bpi-r4pro-bootstrap3.png[bpi-r4pro-bootstrap3.png,width=300]
+
+. 所有跳线都是“1”， BPI-R4Pro 将从 SD 卡启动 
++
+image::/bpi-r4_pro/bpi-r4pro-boot_for_sd.png[bpi-r4pro-boot_for_sd.png,width=600]
+
+
+. SW3-A 为“0”，SW3-B 为“1”， BPI-R4Pro 将从以下位置启动 SPI NAND
++
+image::/bpi-r4_pro/bpi-r4pro-boot_for_nand.png[bpi-r4pro-boot_for_nand.png,width=600]
+
+
+. SW3-A 为“1”，SW3-B 为“0”， BPI-R4Pro 将从以下位置启动 eMMC
++
+image::/bpi-r4_pro/bpi-r4pro-boot_for_emmc.png[bpi-r4pro-boot_for_emmc.png,width=600]
+
+
+. 如果控制台显示“systemhalt!”，则表示启动存储不包含任何操作系统
++
+```bash
+  System halt!
+```
+
+
+== 闪烁图像
+如果您想将出厂默认系统更改为其他系统， +
+地点 link:https://docs.banana-pi.org/en/BPI-R4_Pro/BananaPi_BPI-R4_Pro#_system_image[下载图片] 文件到一个 windows/ubuntu PC 并按照以下步骤操作。 +
+
+
+=== 如何将镜像闪存到SD卡
+NOTE: **请对SD卡进行低级格式化并清除SD卡中的所有数据。这非常重要。** +
+**否则，在启动过程中会遇到“jffs2”错误。
+**
+
+- 请按照下图进行 Windows 电脑。
++
+image::/picture/low_level_format_sd_card.png[low_level_format_sd_card.png,width=300]
+
+- Linux PC，您可以使用“**麦克斯夫**”命令进行格式化，或使用“**DD**" 命令写入零。 
+
+
+
+**将镜像闪存至 SD 卡 windows 电脑**
+
+link:https://balena.io/etcher[巴莱纳蚀刻机] 是 Balena 的开源 GUI 闪存工具，可将操作系统映像闪存到 SD 卡或 USB 开车。
+
+- 点击“**从文件闪存**”来选择镜像。 
+- 点击“**选择目标**”来选择 USB 设备。 
+- 点击“**快闪！**“开始闪烁。
+
+image::/picture/etcher.jpg[etcher.jpg]
+
+您也可以使用此工具进行刻录。 link:https://win32diskimager.org/[win32diskimager]
+
+- 点击“**图片文件**”来选择图像。 
+- 点击“**设备**”来选择 USB 设备。 
+- 点击“**写下**“开始闪烁。
+
+image::/bpi-r4_pro/bpi-r4pro-burnimage.jpg[bpi-r4pro-burnimage.jpg]
+
+**将镜像闪存至 SD 卡 linux 电脑**
+
+. 您可以从我们的论坛下载最新图片     
+. 安装 bpi-tools 在你的 Ubuntu。如果您无法访问此网址或有任何其他问题，请访问 bpi-tools 存储库并手动安装此工具。
++
+```sh
+apt-get install pv
+curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
+```
+. 下载镜像后，将TF卡插入电脑Ubuntu。执行
++
+```sh
+bpi-copy xxx.img /dev/sdx
+```
+将映像安装到您的 MicroSD 卡上
+
+. 步骤3后，您可以将MicroSD卡插入R4Pro，将Bootstrap更改为从SD启动，并为R4Pro供电。
+
+
+=== 如何将镜像闪烁到 NAND 闪光灯
+
+NOTE: 工厂形象信息：OpenWrt 24.10-快照架构：aarch64_皮质-a53
+
+将镜像闪烁之前 Nand，请准备一个 USB 磁盘。让我们采取 OpenWrt 镜像 (**BPI-R4Pro-8X-BE14-MT76-OpenWRT24.10-DSA-snand-251120.bin**) 例如，步骤如下：
+
+. 格式化 USB 磁盘到 FAT32。
+. 复制 Nand 启动 OpenWrt 镜像(**BPI-R4Pro-8X-BE14-MT76-OpenWRT24.10-DSA-snand-251120.bin**) 到 USB 磁盘。 
+. 将引导程序更改为 sd 或 eMMC 启动，然后给开发板上电。
+. 插入 USB 磁盘到板上，并安装 USB 到 /mnt 或其他目录如下： (如果自动安装则可以跳过安装)
++
+```SH
+mount -t vfat /dev/sda1 /mnt 
+cd /mnt
+```
+. 执行以下命令即可全部擦除 Nand 闪存并将镜像复制到 nand 设备：
++ 
+
+NOTE: 的 BPI-R4Pro's NAND 镜像闪现至 MTD3 (不像 BPI-R4，闪存到 MTD0).
+
++
+```sh
+cat /proc/mtd
+dev:    size   erasesize  name
+mtd0: 00200000 00020000 "bl2"
+mtd1: 00400000 00020000 "Factory"
+mtd2: 0fa00000 00020000 "ubi"
+mtd3: 10000000 00020000 "nand"
+
+mtd erase /dev/mtd3
+
+mtd write BPI-R4Pro-8X-BE14-MT76-OpenWRT24.10-DSA-snand-251120.bin /dev/mtd3
+
+```
+. 关闭电源 BPI-R4Po，删除u盘驱动，将bootstrap改为 nand 再次启动并通电。
+
+
+=== 如何将镜像闪烁到 eMMC
+NOTE: 因为SD卡和 EMMC 设备共享一个SOC的控制器，需要切换到 NAND 启动然后刻录 EMMC 镜像进入 EMMC。最后，您将更改启动方式 EMMC.
+
+
+让我们采取 OpenWrt 镜像 (**bl2_emmc-r4pro.img, mtk-bpi-r4pro-EMMC-20250928.img**) 例如，步骤如下：
+
+. 格式化 USB 磁盘到 FAT32。
+. 复制 EMMC 启动 OpenWrt 镜像(**bl2_emmc-r4pro.img, mtk-bpi-r4pro-EMMC-20250928.img**) 到 USB 磁盘, +
+如果图像被压缩，请在复制到之前解压缩 USB 磁盘。
+
+. 将引导程序更改为 Nand 启动 R4Pro 并为其供电。
+ 
+. 插入 USB 磁盘到板上，并安装 USB 到 /mnt 或其他目录如下： (如果自动安装则可以跳过安装)
++
+```sh
+mount -t vfat /dev/sda1 /mnt 
+cd /mnt
+```
+
+. 执行：
++
+```sh
+echo 0 > /sys/block/mmcblk0boot0/force_ro
+dd if=bl2_emmc-r4pro.img of=/dev/mmcblk0boot0
+dd if=mtk-bpi-r4pro-EMMC-20250928.img of=/dev/mmcblk0
+ mmc bootpart enable 1 1 /dev/mmcblk0
+```
+ 
+. 关闭电源 BPI-R4Pro，删除u盘驱动，将bootstrap改为 emmc 再次启动并通电。
+ 
+ 
+ 
+ 
+== 电源开启
+
+* 使用您的 USB TypeC 电缆 连接到调试控制台(CN41) 上 BPI-R4Pro +
+* 安装终端仿真器或使用您熟悉的串行终端， +
+  change the setting as follows: Baud=115200,Data bits: 8bit,Parity: none,Stop: 1bit, Flow control: none;
+* 上电前设置自举， +
+  （If you are using BPI-R4Pro for the first time, it is recommended to set it to NAND boot) +
+* 当将电源适配器连接到 DC-IN 连接器时(CN44),绿色 LED “PWR”亮起， +
+  And there will be characters similar to the following on the console. +
+  This means you have successfully started BPI-R4Pro. +
+  
+[%collapsible]
+====
+
+```bash
+F0: 102B 0000
+FA: 1042 0000
+FA: 1042 0000 [0200]
+F9: 0000 0000
+V0: 0000 0000 [0001]
+00: 0000 0000
+BP: 0600 0041 [0000]
+G0: 1190 0000
+EC: 0000 0000 [1000]
+MK: 0000 0000 [0000]
+T0: 0000 01A6 [0101]
+Jump to BL
+
+NOTICE:  BL2: v2.10.0   (release):OpenWrt v2024.01.17~bacca82a-3 (mt7988-spim-nand-ubi-comb)
+NOTICE:  BL2: Built : 03:09:13, Jun 17 2025
+NOTICE:  WDT: Cold boot
+NOTICE:  WDT: disabled
+NOTICE:  CPU: MT7988
+NOTICE:  EMI: DDR4 4BG mode
+NOTICE:  EMI: Using DDR unknown settings
+NOTICE:  EMI: Detected DRAM size: 8192 MB
+NOTICE:  EMI: complex R/W mem test passed
+NOTICE:  SPI_NAND parses attributes from parameter page.
+NOTICE:  SPI_NAND Detected ID 0xef
+NOTICE:  Page size 2048, Block size 131072, size 268435456
+NOTICE:  UBI: scanning [0x200000 - 0x10000000] ...
+NOTICE:  UBI: Bad EC magic in block 1904 4e4d4d31
+NOTICE:  UBI: Bad EC magic in block 1905 ffffffff
+NOTICE:  UBI: Bad EC magic in block 1906 ffffffff
+NOTICE:  UBI: Bad EC magic in block 1907 4e4d4d31
+NOTICE:  UBI: Bad VID magic in block 2031 4e4d4d30
+NOTICE:  UBI: scanning is finished
+NOTICE:  UBI: PEB size: 131072 bytes (128 KiB), LEB size: 126976 bytes
+NOTICE:  UBI: VID header offset: 2048 (aligned 2048), data offset: 4096
+NOTICE:  UBI: Volume fip (Id #2) size is 1132873 bytes
+NOTICE:  BL2: Booting BL31
+NOTICE:  BL31: v2.10.0  (release):OpenWrt v2024.01.17~bacca82a-3 (mt7988-spim-nand-ubi-comb)
+NOTICE:  BL31: Built : 03:09:13, Jun 17 2025
+
+
+U-Boot 2024.10-OpenWrt-unknown (Jun 17 2025 - 03:09:13 +0000)
+
+CPU:   MediaTek MT7988
+Model: BananaPi BPI-R4 Pro 8X
+DRAM:  8 GiB
+Core:  65 devices, 23 uclasses, devicetree: embed
+spi-nand: spi_nand spi_nand@0: Winbond SPI NAND was found.
+spi-nand: spi_nand spi_nand@0: 256 MiB, block size: 128 KiB, page size: 2048, OOB size: 128
+MMC:   mmc@11230000: 0
+Loading Environment from UBI... Read 126976 bytes from volume ubootenv to 00000000ff7c1c00
+Read 126976 bytes from volume ubootenv2 to 00000000ff7e0c40
+```
+====
+
+
+= 接口
+
+== R4Pro 4E可切换组合网口
+
+首先需要进入uboot界面，可以在uboot菜单中按Esc键来完成。
+
+=== 切换到10G SFP 广域网端口
+
+您可以通过输入以下命令来切换网络端口
+
+```bash
+MT7988> printenv 
+MT7988> setenv bootconf_extra mt7988a-bananapi-bpi-r4-pro-4e-sfp 
+MT7988> saveenv
+
+Saving Environment to UBI... UBI partition 'ubi' already selected
+Writing to UBI... done
+OK
+
+MT7988> reset
+```
+
+=== 切换至2.5G RJ45 WAN口
+
+您可以通过输入以下命令来切换网络端口
+
+```bash
+MT7988> printenv 
+MT7988> setenv bootconf_extra mt7988a-bananapi-bpi-r4-pro-4e-iphy 
+MT7988> saveenv
+
+Saving Environment to UBI... UBI partition 'ubi' already selected
+Writing to UBI... done
+OK
+
+MT7988> reset
+```
+
+== 10G Ethernet
+
+TIP: 其中一些板将使用 MxL86252S-ABE-R。 MxL86252S-ABE-R和MxL86252C也兼容，软件通用，无需修改即可使用。
+
+MT7988A 有两个用于 10G 的 USXGMII ethernet，其中USXGMII Port1用作WAN口 (10G SFP+ WAN/10G RJ45广域网)，USXGMII Port0连接交换机MxL86252C的USXGMII0，MxL86252C的USXGMII1用作LAN口 (10G SFP+ LAN/10G RJ45局域网)
+
+的 SFP 串行解串器速度 BPI-R4Pro 固定为 10Gbps，因此仅 SFP 支持这个就可以用了！ +
+link:https://docs.banana-pi.org/en/BPI-R4/BananaPi_BPI-R4#_10g_sfp_module[测试10G SFP+ Copper/Fibre 模块] +
+
+=== 10G广域网
+==== 框图
+
+image::/bpi-r4_pro/bpi-r4pro-10g_wan-b.png[bpi-r4pro-10g_wan-b.png,width=800]
+
+
+==== 10G SFP+ 广域网
+当MT7988A的GPIO3输出=高，USXGMII 端口 1 切换到 SFP+ 广域网端口。 +
+此时，10G SFP+ WAN 可用，但 10G RJ45 WAN 将无效。 
+
+现在，您可以插入10G SFP+ Copper/Fibre 获得 10G 网络接口的模块。 +
+或者您也可以插入 10G XGSPON Stick 来访问电信运营商的网络。 +
+ +
+
+
+NOTE: 我们的默认图像配置：  + 
+插入后 SFP 模块，USXGMII会自动切换到10G SFP+，10G RJ45将无法使用；  +
+**因此，如果您想使用10G RJ45，请勿在其上插入任何模块。 SFP+. **
+
+[%collapsible]
+====
+
+```bash
+
+root@R4Pro-01i-NAND:~# 
+[   84.886999] sfp sfp2: SM: enter empty:down:down event insert
+[   84.892666] sfp sfp2: SM: exit probe:down:down
+[   85.185321] mtk_soc_eth 15100000.ethernet: ethernet mux: switch to channel1
+[   85.192285] mtk_soc_eth 15100000.ethernet eth1: configuring for inband/10gbase-r link mode
+[   85.211253] sfp sfp2: SM: enter probe:down:down event dev_up
+[   85.216906] sfp sfp2: SM: exit probe:up:down
+[   85.221181] sfp sfp2: SM: enter probe:up:down event timeout
+[   85.237792] sfp sfp2: module OEM              SFP-10G-T        rev 10   sn 2309250002       dc 230925  
+[   85.247181] sfp sfp2: module OEM              SFP-10G-T        rev 10   has been found in the quirk list
+[   85.256652] sfp sfp2: sfp: support mode 00,00000000,00000800,00007040
+[   85.263083] sfp sfp2: tx disable 1 -> 0
+[   85.266923] sfp sfp2: SM: exit present:up:wait
+[   85.286250] hwmon hwmon1: temp1_input not attached to any thermal zone
+[   85.325328] sfp sfp2: SM: enter present:up:wait event timeout
+[   85.331066] sfp sfp2: probing phy device through the [MDIO_I2C_ROLLBALL] protocol
+[   86.437671] hwmon hwmon2: temp1_input not attached to any thermal zone
+[   87.407412] sfp sfp2: CL45 PHY device [0x31c3:0x1c13] found!
+[   87.413081] sfp sfp2: CL45 PHY device [0x31c3:0x1c13] found!
+[   87.418744] sfp sfp2: CL45 PHY device [0x31c3:0x1c13] found!
+[   87.424392] sfp sfp2: CL45 PHY device [0x31c3:0x1c13] found!
+[   87.430044] sfp sfp2: CL45 PHY device [0x31c3:0x1c13] found!
+[   87.435697] sfp sfp2: CL45 PHY device [0x31c3:0x1c13] found!
+[   87.441344] sfp sfp2: CL45 PHY device [0x0000:0x0000] found!
+[   87.446992] sfp sfp2: CL45 PHY driver [Aquantia AQR113C] found!
+[   87.452899] sfp sfp2: phy: support mode 00,00000000,00018000,000e706c
+[   87.459339] mtk_soc_eth 15100000.ethernet eth1: requesting link mode inband/10gbase-r with support 00,00000000,00018000,000e706c
+[   88.677484] mtk_soc_eth 15100000.ethernet eth1: PHY [i2c:sfp2:11] driver [Aquantia AQR113C] (irq=POLL)
+[   88.767362] sfp sfp2: SM: exit present:up:link_up
+[   88.772542] sfp sfp2: SM: enter present:up:link_up event los_high
+[   88.793265] mtk_soc_eth 15100000.ethernet eth1: resolve link status: system iface=0, line iface=0
+[   88.802137] sfp sfp2: SM: exit present:up:wait_los
+[   93.766046] sfp sfp2: SM: enter present:up:wait_los event los_low
+[   93.772150] sfp sfp2: SM: exit present:up:link_up
+[   93.772161] mtk_soc_eth 15100000.ethernet eth1: resolve link status: system iface=1, line iface=0
+[   94.795333] mtk_soc_eth 15100000.ethernet eth1: resolve link status: system iface=1, line iface=0
+[   95.480326] mtk_soc_eth 15100000.ethernet eth1: Link is Up - 10Gbps/Full - flow control off
+[   95.480351] br-wan: port 1(eth1) entered blocking state
+[   95.493886] br-wan: port 1(eth1) entered forwarding state
+[  100.489488] br-wan: entered allmulticast mode
+[  100.493951] br-lan: entered allmulticast mode
+
+root@R4Pro-01i-NAND:~# 
+root@R4Pro-01i-NAND:~# 
+root@R4Pro-01i-NAND:~# ethtool eth1
+Settings for eth1:
+        Supported ports: [  ]
+        Supported link modes:   100baseT/Full
+                                1000baseT/Full
+                                10000baseT/Full
+                                1000baseKX/Full
+                                10000baseKX4/Full
+                                10000baseKR/Full
+                                2500baseT/Full
+                                5000baseT/Full
+        Supported pause frame use: Symmetric Receive-only
+        Supports auto-negotiation: Yes
+        Supported FEC modes: Not reported
+        Advertised link modes:  100baseT/Full
+                                1000baseT/Full
+                                10000baseT/Full
+                                1000baseKX/Full
+                                10000baseKX4/Full
+                                10000baseKR/Full
+                                2500baseT/Full
+                                5000baseT/Full
+        Advertised pause frame use: Symmetric Receive-only
+        Advertised auto-negotiation: Yes
+        Advertised FEC modes: Not reported
+        Link partner advertised link modes:  10baseT/Half 10baseT/Full
+                                             100baseT/Half 100baseT/Full
+                                             1000baseT/Half 1000baseT/Full
+                                             10000baseT/Full
+                                             2500baseT/Full
+                                             5000baseT/Full
+        Link partner advertised pause frame use: No
+        Link partner advertised auto-negotiation: Yes
+        Link partner advertised FEC modes: Not reported
+        Speed: 10000Mb/s
+        Duplex: Full
+        Auto-negotiation: on
+        Port: Twisted Pair
+        PHYAD: 11
+        Transceiver: external
+        MDI-X: Unknown
+        Current message level: 0x000000ff (255)
+                               drv probe link timer ifdown ifup rx_err tx_err
+        Link detected: yes
+root@R4Pro-01i-NAND:~# 
+root@R4Pro-01i-NAND:~# 
+root@R4Pro-01i-NAND:~# i2cdetect -y 5
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:                         -- -- -- -- -- -- -- -- 
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+50: 50 51 -- -- -- -- 56 -- -- -- -- -- -- -- -- -- 
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+70: UU -- -- -- -- -- -- --                         
+root@R4Pro-01i-NAND:~# 
+
+```
+====
+
+
+==== 10G RJ45 广域网(仅适用于 8X)
+
+另一方面，当MT7988A的GPIO3输出=低，USXGMII Port1 切换到 10G RJ45 WAN 端口。 +
+您需要加载10G PHY AS21010P的驱动程序才能使10G RJ45 LAN工作。 +
+此时，10G RJ45 WAN 已功能正常，但 10G SFP+ WAN 将无效。  +
+
+
+NOTE: AS21010P的功耗很高，必须使用散热效果好的散热器。 +
+
+[%collapsible]
+====
+
+```bash
+root@R4Pro-01i-NAND:~# ethtool eth1
+Settings for eth1:
+        Supported ports: [ TP    MII ]
+        Supported link modes:   100baseT/Full
+                                1000baseT/Half 1000baseT/Full
+                                10000baseT/Full
+                                2500baseT/Full
+                                5000baseT/Full
+        Supported pause frame use: Symmetric Receive-only
+        Supports auto-negotiation: Yes
+        Supported FEC modes: Not reported
+        Advertised link modes:  100baseT/Full
+                                1000baseT/Half 1000baseT/Full
+                                10000baseT/Full
+                                2500baseT/Full
+                                5000baseT/Full
+        Advertised pause frame use: Symmetric Receive-only
+        Advertised auto-negotiation: Yes
+        Advertised FEC modes: Not reported
+        Link partner advertised link modes:  10baseT/Half 10baseT/Full
+                                             100baseT/Half 100baseT/Full
+                                             1000baseT/Half 1000baseT/Full
+        Link partner advertised pause frame use: No
+        Link partner advertised auto-negotiation: Yes
+        Link partner advertised FEC modes: Not reported
+        Speed: 10000Mb/s
+        Duplex: Full
+        Auto-negotiation: on
+        Port: Twisted Pair
+        PHYAD: 1c
+        Transceiver: external
+        MDI-X: Unknown
+        Current message level: 0x000000ff (255)
+                               drv probe link timer ifdown ifup rx_err tx_err
+        Link detected: yes
+root@R4Pro-01i-NAND:~# 
+```
+====
+
+
+=== 10G局域网
+==== 框图
+
+image::/bpi-r4_pro/bpi-r4pro-10g_lan-b.png[bpi-r4pro-10g_lan-b.png,width=800]
+
+==== 10G SFP+ 局域网
+当MT7988A的GPIO54输出=低，MxL86252C 的 USXGMII1 切换至 10G SFP+局域网端口。 +
+此时，10G SFP+ LAN 可以工作，但 10G RJ45 LAN 将不起作用。 
+
+现在，您可以插入10G SFP+ Copper/Fibre 获得 10G 网络接口的模块。 +
+ +
+
+
+
+NOTE: 我们的默认图像配置：  + 
+插入后 SFP 模块，USXGMII会自动切换到10G SFP+，10G RJ45将无法使用；  +
+**因此，如果您想使用10G RJ45，请勿在其上插入任何模块。 SFP+. **
+
+
+==== 10G RJ45 网卡(仅适用于 8X)
+
+另一方面，当MT7988A的GPIO54输出=高，MxL86252C 的 USXGMII1 切换到 10G RJ45 WAN 端口。 +
+您需要加载10G PHY AS21010P的驱动程序才能使10G RJ45 LAN工作。 +
+此时，10G RJ45 LAN 可以使用，但 10G SFP+ 局域网将无效。  +
+ 
+NOTE: AS21010P的功耗很高，必须使用散热效果好的散热器。 +
+ 
+
+
+
+=== 10G iperf3测试
+- PC1 <-(10G局域网)  BPI-R4Pro  (10G广域网)->PC2
+
+[%collapsible]
+====
+
+```bash
+xiao@FN-NUC5:~$ iperf3 -c 10.0.1.12 -t 30 -i 30 
+Connecting to host 10.0.1.12, port 5201
+[  5] local 10.0.11.233 port 50470 connected to 10.0.1.12 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-30.00  sec  32.8 GBytes  9.40 Gbits/sec  1043   2.28 MBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-30.00  sec  32.8 GBytes  9.40 Gbits/sec  1043             sender
+[  5]   0.00-30.00  sec  32.8 GBytes  9.40 Gbits/sec                  receiver
+
+iperf Done.
+xiao@FN-NUC5:~$ iperf3 -c 10.0.1.12 -t 30 -i 30 -R
+Connecting to host 10.0.1.12, port 5201
+Reverse mode, remote host 10.0.1.12 is sending
+[  5] local 10.0.11.233 port 44756 connected to 10.0.1.12 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-30.00  sec  32.8 GBytes  9.40 Gbits/sec                  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-30.00  sec  32.8 GBytes  9.40 Gbits/sec  111             sender
+[  5]   0.00-30.00  sec  32.8 GBytes  9.40 Gbits/sec                  receiver
+
+iperf Done.
+xiao@FN-NUC5:~$ 
+```
+====
+
+
+- PC1 <- ->(10G局域网)  BPI-R4Pro
+
+[%collapsible]
+====
+
+```bash
+xiao@FN-NUC5:~$ iperf3 -c 10.0.11.1 -t 30 -i 30 
+Connecting to host 10.0.11.1, port 5201
+[  5] local 10.0.11.233 port 56126 connected to 10.0.11.1 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-30.00  sec  22.0 GBytes  6.31 Gbits/sec    2   3.14 MBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-30.00  sec  22.0 GBytes  6.31 Gbits/sec    2             sender
+[  5]   0.00-30.00  sec  22.0 GBytes  6.30 Gbits/sec                  receiver
+
+iperf Done.
+xiao@FN-NUC5:~$ 
+xiao@FN-NUC5:~$ iperf3 -c 10.0.11.1 -t 30 -i 30 -P 5
+Connecting to host 10.0.11.1, port 5201
+[  5] local 10.0.11.233 port 46330 connected to 10.0.11.1 port 5201
+[  7] local 10.0.11.233 port 46346 connected to 10.0.11.1 port 5201
+[  9] local 10.0.11.233 port 46360 connected to 10.0.11.1 port 5201
+[ 11] local 10.0.11.233 port 46366 connected to 10.0.11.1 port 5201
+[ 13] local 10.0.11.233 port 46368 connected to 10.0.11.1 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-30.00  sec  6.99 GBytes  2.00 Gbits/sec    0   3.87 MBytes       
+[  7]   0.00-30.00  sec  7.06 GBytes  2.02 Gbits/sec    0   2.41 MBytes       
+[  9]   0.00-30.00  sec  8.00 GBytes  2.29 Gbits/sec    0   3.38 MBytes       
+[ 11]   0.00-30.00  sec  5.29 GBytes  1.51 Gbits/sec    0   2.06 MBytes       
+[ 13]   0.00-30.00  sec  5.60 GBytes  1.60 Gbits/sec    0   2.65 MBytes       
+[SUM]   0.00-30.00  sec  32.9 GBytes  9.43 Gbits/sec    0             
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-30.00  sec  6.99 GBytes  2.00 Gbits/sec    0             sender
+[  5]   0.00-30.00  sec  6.98 GBytes  2.00 Gbits/sec                  receiver
+[  7]   0.00-30.00  sec  7.06 GBytes  2.02 Gbits/sec    0             sender
+[  7]   0.00-30.00  sec  7.05 GBytes  2.02 Gbits/sec                  receiver
+[  9]   0.00-30.00  sec  8.00 GBytes  2.29 Gbits/sec    0             sender
+[  9]   0.00-30.00  sec  7.98 GBytes  2.29 Gbits/sec                  receiver
+[ 11]   0.00-30.00  sec  5.29 GBytes  1.51 Gbits/sec    0             sender
+[ 11]   0.00-30.00  sec  5.28 GBytes  1.51 Gbits/sec                  receiver
+[ 13]   0.00-30.00  sec  5.60 GBytes  1.60 Gbits/sec    0             sender
+[ 13]   0.00-30.00  sec  5.59 GBytes  1.60 Gbits/sec                  receiver
+[SUM]   0.00-30.00  sec  32.9 GBytes  9.43 Gbits/sec    0             sender
+[SUM]   0.00-30.00  sec  32.9 GBytes  9.41 Gbits/sec                  receiver
+
+iperf Done.
+xiao@FN-NUC5:~$ 
+xiao@FN-NUC5:~$ iperf3 -c 10.0.11.1 -t 30 -i 30 -R
+Connecting to host 10.0.11.1, port 5201
+Reverse mode, remote host 10.0.11.1 is sending
+[  5] local 10.0.11.233 port 36980 connected to 10.0.11.1 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-30.00  sec  32.9 GBytes  9.41 Gbits/sec                  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-30.00  sec  32.9 GBytes  9.41 Gbits/sec  125             sender
+[  5]   0.00-30.00  sec  32.9 GBytes  9.41 Gbits/sec                  receiver
+
+iperf Done.
+xiao@FN-NUC5:~$ 
+```
+====
+
+
+
+- BPI-R4Pro (10G广域网)<- ->PC2
+
+[%collapsible]
+====
+
+```bash
+root@R4Pro-01i-NAND:~# iperf3 -c 10.0.1.12 -t 30 -i 30
+Connecting to host 10.0.1.12, port 5201
+[  5] local 10.0.1.16 port 42746 connected to 10.0.1.12 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-30.02  sec  32.9 GBytes  9.41 Gbits/sec   41   3.40 MBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-30.02  sec  32.9 GBytes  9.41 Gbits/sec   41             sender
+[  5]   0.00-30.02  sec  32.9 GBytes  9.41 Gbits/sec                  receiver
+
+iperf Done.
+root@R4Pro-01i-NAND:~# 
+root@R4Pro-01i-NAND:~# iperf3 -c 10.0.1.12 -t 30 -i 30 -R
+Connecting to host 10.0.1.12, port 5201
+Reverse mode, remote host 10.0.1.12 is sending
+[  5] local 10.0.1.16 port 60504 connected to 10.0.1.12 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-30.03  sec  21.5 GBytes  6.16 Gbits/sec                  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-30.03  sec  21.5 GBytes  6.16 Gbits/sec  558             sender
+[  5]   0.00-30.03  sec  21.5 GBytes  6.16 Gbits/sec                  receiver
+
+iperf Done.
+root@R4Pro-01i-NAND:~# 
+root@R4Pro-01i-NAND:~# iperf3 -c 10.0.1.12 -t 30 -i 30 -R -P 5
+Connecting to host 10.0.1.12, port 5201
+Reverse mode, remote host 10.0.1.12 is sending
+[  5] local 10.0.1.16 port 49938 connected to 10.0.1.12 port 5201
+[  7] local 10.0.1.16 port 49950 connected to 10.0.1.12 port 5201
+[  9] local 10.0.1.16 port 49958 connected to 10.0.1.12 port 5201
+[ 11] local 10.0.1.16 port 49974 connected to 10.0.1.12 port 5201
+[ 13] local 10.0.1.16 port 49976 connected to 10.0.1.12 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-30.02  sec  8.66 GBytes  2.48 Gbits/sec                  
+[  7]   0.00-30.02  sec  5.39 GBytes  1.54 Gbits/sec                  
+[  9]   0.00-30.02  sec  5.57 GBytes  1.59 Gbits/sec                  
+[ 11]   0.00-30.03  sec  7.81 GBytes  2.23 Gbits/sec                  
+[ 13]   0.00-30.03  sec  5.41 GBytes  1.55 Gbits/sec                  
+[SUM]   0.00-30.02  sec  32.8 GBytes  9.39 Gbits/sec                  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-30.03  sec  8.66 GBytes  2.48 Gbits/sec  2641             sender
+[  5]   0.00-30.02  sec  8.66 GBytes  2.48 Gbits/sec                  receiver
+[  7]   0.00-30.03  sec  5.39 GBytes  1.54 Gbits/sec  1541             sender
+[  7]   0.00-30.02  sec  5.39 GBytes  1.54 Gbits/sec                  receiver
+[  9]   0.00-30.03  sec  5.57 GBytes  1.59 Gbits/sec  2280             sender
+[  9]   0.00-30.02  sec  5.57 GBytes  1.59 Gbits/sec                  receiver
+[ 11]   0.00-30.03  sec  7.81 GBytes  2.23 Gbits/sec  3222             sender
+[ 11]   0.00-30.02  sec  7.81 GBytes  2.23 Gbits/sec                  receiver
+[ 13]   0.00-30.03  sec  5.41 GBytes  1.55 Gbits/sec  1766             sender
+[ 13]   0.00-30.02  sec  5.41 GBytes  1.55 Gbits/sec                  receiver
+[SUM]   0.00-30.03  sec  32.9 GBytes  9.40 Gbits/sec  11450             sender
+[SUM]   0.00-30.02  sec  32.8 GBytes  9.39 Gbits/sec                  receiver
+
+iperf Done.
+root@R4Pro-01i-NAND:~# 
+```
+====
+
+
+== 2.5G RJ45
+
+TIP: 其中一些板将使用 MxL86252S-ABE-R。 MxL86252S-ABE-R和MxL86252C也兼容，软件通用，无需修改即可使用。
+
+四个2.5G RJ45端口 BPI-R4Pro 通过MxL86252C扩展(端口0~端口3).
+
+NOTE: MxL86252C的功耗也很高，必须使用散热效果好的散热器。 +
+
+image::/bpi-r4_pro/bpi-r4pro-mxl86252c.png[bpi-r4pro-mxl86252c.png,width=500]
+=== 2.5G iperf3测试
+
+- BPI-R4Lite<- (2.5G局域网)  BPI-R4Pro (10G广域网)  ->PC2
+
+[%collapsible]
+====
+
+```bash
+
+root@R4Lite-A:/# iperf3 -c 10.0.1.12 -t 30 -i 30
+Connecting to host 10.0.1.12, port 5201
+[  5] local 10.0.11.126 port 33872 connected to 10.0.1.12 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-30.00  sec  8.22 GBytes  2.35 Gbits/sec   33   1.39 MBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-30.00  sec  8.22 GBytes  2.35 Gbits/sec   33             sender
+[  5]   0.00-30.00  sec  8.21 GBytes  2.35 Gbits/sec                  receiver
+
+iperf Done.
+root@R4Lite-A:/# 
+root@R4Lite-A:/# iperf3 -c 10.0.1.12 -t 30 -i 30 -R
+Connecting to host 10.0.1.12, port 5201
+Reverse mode, remote host 10.0.1.12 is sending
+[  5] local 10.0.11.126 port 42032 connected to 10.0.1.12 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-30.00  sec  8.22 GBytes  2.35 Gbits/sec                  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-30.00  sec  8.22 GBytes  2.35 Gbits/sec  1628             sender
+[  5]   0.00-30.00  sec  8.22 GBytes  2.35 Gbits/sec                  receiver
+
+iperf Done.
+root@R4Lite-A:/# 
+
+```
+====
+
+
+
+- BPI-R4Lite-A<- (2.5G局域网)  BPI-R4Pro (2.5G局域网)  ->BPI-R4Lite-B
+
+[%collapsible]
+====
+
+```bash
+
+root@R4Lite-A:/# iperf3 -c 10.0.11.217 -t 30 -i 30
+Connecting to host 10.0.11.217, port 5201
+[  5] local 10.0.11.126 port 59182 connected to 10.0.11.217 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-30.00  sec  8.22 GBytes  2.35 Gbits/sec    0   2.09 MBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-30.00  sec  8.22 GBytes  2.35 Gbits/sec    0             sender
+[  5]   0.00-30.00  sec  8.22 GBytes  2.35 Gbits/sec                  receiver
+
+iperf Done.
+root@R4Lite-A:/# iperf3 -c 10.0.11.217 -t 30 -i 30 -R
+Connecting to host 10.0.11.217, port 5201
+Reverse mode, remote host 10.0.11.217 is sending
+[  5] local 10.0.11.126 port 59276 connected to 10.0.11.217 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-30.00  sec  8.21 GBytes  2.35 Gbits/sec                  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-30.00  sec  8.21 GBytes  2.35 Gbits/sec    0             sender
+[  5]   0.00-30.00  sec  8.21 GBytes  2.35 Gbits/sec                  receiver
+
+iperf Done.
+root@R4Lite-A:/# 
+
+```
+====
+
+
+- BPI-R4Lite<- ->(2.5G局域网)  BPI-R4Pro
+
+[%collapsible]
+====
+
+```bash
+
+root@R4Lite-A:/# iperf3 -c 10.0.11.1 -t 30 -i 30
+Connecting to host 10.0.11.1, port 5201
+[  5] local 10.0.11.126 port 38422 connected to 10.0.11.1 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-30.00  sec  8.22 GBytes  2.35 Gbits/sec    0    983 KBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-30.00  sec  8.22 GBytes  2.35 Gbits/sec    0             sender
+[  5]   0.00-30.00  sec  8.22 GBytes  2.35 Gbits/sec                  receiver
+
+iperf Done.
+root@R4Lite-A:/# iperf3 -c 10.0.11.1 -t 30 -i 30 -R
+Connecting to host 10.0.11.1, port 5201
+Reverse mode, remote host 10.0.11.1 is sending
+[  5] local 10.0.11.126 port 46554 connected to 10.0.11.1 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-30.00  sec  8.21 GBytes  2.35 Gbits/sec                  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-30.00  sec  8.21 GBytes  2.35 Gbits/sec    0             sender
+[  5]   0.00-30.00  sec  8.21 GBytes  2.35 Gbits/sec                  receiver
+
+iperf Done.
+root@R4Lite-A:/# 
+
+```
+====
+
+== MxL86252C 更新
+
+TIP: Mlx862芯片当前固件版本为V1.0.70.70。
+
+TIP: 其中一些板将使用 MxL86252S-ABE-R。 MxL86252S-ABE-R和MxL86252C也兼容，软件通用，无需修改即可使用。
+
+. 首先，将需要更新的Mlx文件上传到开发板上。可以通过TFTP或 USB 开车。
+
+. 使用命令 ethswbox 检查状态。
++
+```bash
+root@OpenWrt:~# ethswbox
+Ethernet SW Toolbox version 1.1.0.0 ... Updating symbolic links!
+```
+
+. 使用命令 fapi-GSW-FW-Update 加载更新。
++
+```bash
+root@OpenWrt:~# fapi-GSW-FW-Update
+cmd: fapi-GSW-FW-Update 0:
+fapi_GSW_FW_Update done
+```
+
+. 使用MDIO刻录
++
+```bash
+root@OpenWrt:~# ssb_smdio_download “mxl fw name”
+cmd: ssb_smdio_download 1: xxx.bin 
+FW size: 1466388 bytes
+Target is ready for downloading.
+Received START ACK from target, starting...
+image type: f48af48a, size 1: 166000, checksum 1: d19393ae, size 2: 0, checksum 2: 0
+Received ACK of image header from target
+Erase flash
+Program flash
+............................................
+successfully download firmware to target
+FW Upload Failed - Register Read Failed
+```
+
+. 看到上面的日志就说明刷机成功了。接下来，重新启动以应用更改。
+
+
+
+== 1G RJ45
+1G RJ45 的 BPI-R4Pro 连接到MT7988A内部开关的Port0。
+
+image::/bpi-r4_pro/bpi-r4pro-1g_rj45_lan.png[bpi-r4pro-1g_rj45_lan.png,width=800]
+
+
+=== 1G iperf3测试
+- BPI-R4Lite <-(1G局域网)  BPI-R4Pro  (10G广域网)->PC2
+
+[%collapsible]
+====
+
+```bash
+root@R4Lite-D:/# iperf3 -c 10.0.1.12 -t 30 -i 30 
+Connecting to host 10.0.1.12, port 5201
+[  5] local 10.0.11.140 port 42284 connected to 10.0.1.12 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-30.00  sec  3.29 GBytes   941 Mbits/sec    6    557 KBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-30.00  sec  3.29 GBytes   941 Mbits/sec    6             sender
+[  5]   0.00-30.00  sec  3.28 GBytes   940 Mbits/sec                  receiver
+
+iperf Done.
+root@R4Lite-D:/# iperf3 -c 10.0.1.12 -t 30 -i 30 -R
+Connecting to host 10.0.1.12, port 5201
+Reverse mode, remote host 10.0.1.12 is sending
+[  5] local 10.0.11.140 port 56924 connected to 10.0.1.12 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-30.00  sec  3.28 GBytes   939 Mbits/sec                  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-30.00  sec  3.28 GBytes   940 Mbits/sec   37             sender
+[  5]   0.00-30.00  sec  3.28 GBytes   939 Mbits/sec                  receiver
+
+iperf Done.
+root@R4Lite-D:/# 
+```
+====
+
+
+
+
+
+== 1G ETH FPC连接器
+1G ETH FPC连接器 BPI-R4Pro 连接到MT7988A内部开关的Port3。 +
+ +
+
+image::/bpi-r4_pro/bpi-r4pro-1g_sfp_lan.png[bpi-r4pro-1g_sfp_lan.png,width=800]
+
+如果要使用此RJ45，则需要定制RJ45转接板并与1.0MM间距11PIN FPC连接 (柔性印刷电路). +
+RJ45转接板布局需要符合其要求，例如差分 Ethernet 信号应作为 100Ω 差分对布线，并具有适当的间隙等。 +
+ +
+
+image::/bpi-r4_pro/bpi-r4pro-1g_sfp_rj45.png[bpi-r4pro-1g_sfp_rj45.png,width=500]
+
+
+image::/bpi-r4_pro/bpi-r4pro-1g_rj45_fpc_con.png[bpi-r4pro-1g_rj45_fpc_con.png,width=500]
+
+=== 1G iperf3测试
+- BPI-R4Lite <-(1G软板网卡)  BPI-R4Pro  (10G广域网)->PC2
+
+[%collapsible]
+====
+
+```bash
+
+root@R4Lite-C:/# iperf3 -c 10.0.1.12 -t 30 -i 30
+Connecting to host 10.0.1.12, port 5201
+[  5] local 10.0.11.113 port 42596 connected to 10.0.1.12 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-30.00  sec  3.29 GBytes   941 Mbits/sec    9    581 KBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-30.00  sec  3.29 GBytes   941 Mbits/sec    9             sender
+[  5]   0.00-30.00  sec  3.28 GBytes   940 Mbits/sec                  receiver
+
+iperf Done.
+root@R4Lite-C:/# 
+root@R4Lite-C:/# iperf3 -c 10.0.1.12 -t 30 -i 30 -R
+Connecting to host 10.0.1.12, port 5201
+Reverse mode, remote host 10.0.1.12 is sending
+[  5] local 10.0.11.113 port 47484 connected to 10.0.1.12 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-30.00  sec  3.28 GBytes   939 Mbits/sec                  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-30.00  sec  3.28 GBytes   940 Mbits/sec   43             sender
+[  5]   0.00-30.00  sec  3.28 GBytes   939 Mbits/sec                  receiver
+
+iperf Done.
+root@R4Lite-C:/# 
+
+```
+====
+
+
+
+
+== 迷你 PCIe 插槽(对于 WiFi 网卡)
+您可以将 BPI WiFi 网卡插入 CN7 和 CN9 顶部 BPI-R4Pro，然后用两颗M2螺丝固定。 +
+
+image::/bpi-r4_pro/bpi-r4pro-be14.png[bpi-r4pro-be14.png,width=500]
+
+link:https://docs.banana-pi.org/en/BPI-R4/BananaPi_BPI-R4-NIC-BE14[BPI WiFi NIC：BE14 规范]
+
+=== 12V电源 ON/OFF
+BPI WiFi NIC 模块需要 12V 电源，因此电源上 BPI-R4Pro 上电前必须先开机。 +
+(将SW4拨至“ON”位置，12V LED 通电时会亮起)
+
+IMPORTANT:  12V 电源将通过 PIN6/28/48 miniPCI 插槽。 +
+插接其他模块时，如果无法确认模块是否能承受12V，请务必关闭SW4。 +
+
+image::/bpi-r4_pro/bpi-r4pro-12v-switch.png[bpi-r4pro-12v-switch.png,width=300]
+
+=== 3.3V电源调节
+PCA9555扩展的三个GPIO可用于关闭和电压 PCIe 3.3V调节。 +
+通常情况下您不需要调整该电压。
+
+[%collapsible]
+====
+[options="header",cols="3,3,3",width="80%"]
+|====
+3+| **miniPCIe 插槽 3.3V 电源**
+|GPIO |	输出=高	 |输出=低
+|PCA_A_IO1_0/mPCIe_A_PDN			 |PCIeA_3P3V = 开		|PCIeA_3P3V = 关闭
+|PCA_A_IO1_1/mPCIe_B_PDN			 |PCIeB_3P3V = 开		|PCIeB_3P3V = 关闭
+|PCA_A_IO0_7/mPCIe_AB_Vset		 	 |PCIeA_3P3V=PCIeB_3P3V=3.57V	|PCIeA_3P3V=PCIeB_3P3V=3.3V
+|====
+====
+
+
+=== PCIe
+BPI WiFi 网卡 BE14/BE19 需要两个2lane PCIe ，但miniPCIe插槽的标准只定义了1个1lane PCIe. +
+因此，我们使用了两个miniPCIe插槽并修改了引脚 17/19/45/47 每个时隙的第二车道信号 PCIe. +
+除了这四个PIN之外，其他都是标准定义，因此您也可以使用其他模块。
+
+=== USB2.0
+两个miniPCIe插槽各预留一对从USB2.0 HUB扩展出来的USB2.0信号，用于扩展其他模块。 +
+
+
+== M.2 B-KEY 插槽(对于 4G/5G 蜂窝模块)
+的 BPI-R4Pro 有3个M.2 B-KEY插槽，全部用于 4G/5G 蜂窝模块。 +
+每个插槽支持一对 USB2.0 和 USB3.0 信号，均通过扩展 USB 3.0 枢纽。 +
+此外，CN15和CN18插槽各有一个额外的PCIe3.0 1lane信号。 +
+
+image::/bpi-r4_pro/bpi-r4pro-bkey.png[bpi-r4pro-bkey.png,width=500]
+
+=== 电源
+所有模块均采用独立降压DC-DC供电。  +
+GPIO 可用于关闭电源输出并调节输出电压。
+
+==== 电源 ON/OFF
+电源 on/off 控制如下。 +
+[%collapsible]
+====
+[options="header",cols="3,3,3",width="80%"]
+|====
+3+| **M.2 B-KEY 插槽电源**
+|GPIO |	输出=高	 |输出=低
+|PCA_A_IO0_0/BKEY-A-PDN			 |电源电压_密钥_A = 开		|电源电压_密钥_A = 关闭
+|PCA_A_IO0_2/BKEY-B-PDN			 |电源电压_密钥_B = 开		|电源电压_密钥_B = 关闭
+|PCA_A_IO0_4/BKEY-C-PDN		 	 |电源电压_密钥_C = 开 	|电源电压_密钥_C = 关闭
+|====
+====
+
+==== 3.3V电源调节
+大多数5G模块的工作电压为3.3V~4.2V。由于电流较大，使用3.3V会导致模块不稳定， +
+所以建议调整为3.95V。 +
+但在调整之前，请确保您的5G模块可以承受3.95V！
+
+[%collapsible]
+====
+[options="header",cols="3,3,3",width="80%"]
+|====
+3+| **M.2 B-KEY 插槽 3.3V 电源调节**
+|GPIO |	输出=高	 |输出=低
+|PCA_A_IO0_1/BKEY-A-Vset		 |电源电压_密钥_A = 3.95V		|电源电压_密钥_A = 3.3V
+|PCA_A_IO0_3/BKEY-B-Vset			 |电源电压_密钥_B = 3.95V		|电源电压_密钥_B = 3.3V
+|PCA_A_IO0_5/BKEY-C-Vset		 	 |电源电压_密钥_C = 3.95V 	|电源电压_密钥_C = 3.3V
+|====
+====
+
+
+==== 重置
+每个模块都可以通过以下方式复位 GPIO.
+
+[%collapsible]
+====
+[options="header",cols="3,3,3",width="80%"]
+|====
+3+| **M.2 B-KEY 插槽重置**
+|GPIO |	输出=高	 |输出=低
+|PCA_A_IO1_3/BKEY-A-RST		 |模块 = 重置		|模块 = 功能性
+|PCA_A_IO1_4/BKEY-B-RST			 |模块 = 重置		|模块 = 功能性
+|PCA_A_IO1_5/BKEY-C-RST		 	 |模块 = 重置 	|模块 = 功能性
+|====
+====
+
+
+=== SIM卡
+每个M.2 B-KEY插槽支持两组SIM卡信号。 +
+我们将 SIMA 连接到板载 NANO SIM 插槽，将 SIMB 连接到 eSIM。 +
+然而，eSIM 没有板载组件。如果您需要，请联系我们的销售。+
+
+image::/bpi-r4_pro/b-key-sim2.png[b-key-sim2.png,width=500]
+
+==== 板载 NANO SIM 插槽
+SIM1 可以使用板载 NANO SIM 插槽或外部 SIM 插槽 (这需要自行设计的扩展板通过CN45连接) +
+当“PCA_A_IO0_6/SIM_SEL” 输出=低，SIM1 连接到板载 NANO SIM 插槽， +
+当“PCA_A_IO0_6/SIM_SEL” 输出=高，SIM1 路由至 FPC 连接器， +
+
+==== 外部 SIM 插槽连接器
+三个B-KEY和两个miniPCIe插槽的SIM卡信号可以连接到FPC连接器 (CN45). +
+note:：这使您可以轻松设计适合您外壳的 SIM 卡适配器板。
+
+==== 嵌入式SIM卡
+PIN42/44/46/48 M.2 B-KEY Slot 是第二组SIM 卡信号。 +
+注意：这需要您的模块支持它。 +
+ +
+ 
+image::/bpi-r4_pro/bpi-r4pro-sim2.png[bpi-r4pro-sim2.png,width=500]
+
+=== 蜂窝网络 LED
+每个 M.2 B-KEY 插槽的 PIN10 连接到 LED。这个 LED 是模块的网络状态指示灯输出。 +
+具体功能请参考模块的数据表。 +
+ +
+ 
+image::/bpi-r4_pro/bpi-r4pro-sim_led2.png[bpi-r4pro-sim_led2.png,width=500]
+
+==== 机上 LED
+我们在每个 SIM 卡插槽旁边放置 LED，以便更轻松地检查状态。 +
+
+image::/bpi-r4_pro/bpi-r4pro-sim_led.png[bpi-r4pro-sim_led.png,width=500]
+
+
+==== 外部 LED 连接器
+我们还路由 LED 信号至FPC插槽(CN40). +
+如果有必要，您可以设计一个 LED 适配器板以适应您的外壳。
+
+
+
+=== USB3.0
+大多数 4G/5G 模块可以使用 USB2.0/USB3.0 用于沟通。 +
+ +
+
+=== PCIe
+MT7988A只有四个 PCIe，其中两个用于 WiFi 连接，  +
+另外两个PCIe3.0 1L0和PCIe3.0 1L1可以路由到M.2 M-KEY或M.2 B-KEY。 +
+
+image::/bpi-r4_pro/bpi-r4pro-bkey_pcie.png[bpi-r4pro-bkey_pcie.png,width=500]
+
+
+[%collapsible]
+====
+[options="header",cols="3,3,3",width="80%"]
+|====
+3+| **M.2 B-KEY 插槽 PCIe**
+|GPIO |	输出=高	 |输出=低
+|GPIO79/PCIE_1L0_SEL_1p8V		 |PCIE_1L_0 = M.2 M键(CN13)		|PCIE_1L_0 = M.2 B-KEY(CN15)
+|GPIO63/PCIE_1L1_SEL_1p8V		 |PCIE_1L_1 = M.2 M键(CN14)		|PCIE_1L_1 = M.2 B-KEY(CN18)
+|====
+====
+
+
+
+== M.2 M-KEY 插槽(对于 PCIe NVME SSD)
+M.2 M-KEY插槽大小为2280，可连接 PCIe NVME SSD 或 PCIe 到SATA， PCIe 到 Ethernet 和其他模块。 +
+
+然而，由于 PCIe 信号与 M.2 B-KEY 插槽复用，  +
+如果要在M.2 M-KEY插槽中使用，需要将GPIO79或GPIO63输出设置为高电平，  +
+从而可以切换相应的信号。
+
+[%collapsible]
+====
+[options="header",cols="3,3,3",width="80%"]
+|====
+3+| **M.2 M-KEY 插槽 PCIe**
+|GPIO |	输出=高	 |输出=低
+|GPIO79/PCIE_1L0_SEL_1p8V		 |PCIE_1L_0 = M.2 M键(CN13)		|PCIE_1L_0 = M.2 B-KEY(CN15)
+|GPIO63/PCIE_1L1_SEL_1p8V		 |PCIE_1L_1 = M.2 M键(CN14)		|PCIE_1L_1 = M.2 B-KEY(CN18)
+|====
+====
+
+
+
+== USB 连接器
+=== USB3.2连接器
+BPI-R4Pro 有一个 USB3.2 Type-A 连接器，可用于连接 USB 闪存驱动器或其他 USB 设备。 +
+USB3.2连接器的电源输出 (CN11) 是 5V/1300mA，可以通过“PCA_A_IO1_3/VBUS_AB_PDN” 输出低。 +
+
+
+=== USB2.0连接器
+BPI-R4Pro 有一个 USB2.0 Type-A 连接器，可用于连接 USB 闪存驱动器或其他 USB 设备。 +
+USB2.0连接器的电源输出 (CN12) 是 5V/1300mA，可以通过“PCA_A_IO1_3/VBUS_AB_PDN” 输出低。 +
+
+== USB TypC 调试控制台连接器
+的 BPI-R4Pro 机载有 USB-到-UART 芯片(HT42B534-2)，连接到MT7988A的调试 UART. +
+连接时 USB Type-c连接器(CN41) 到 PC，一个 USB就会出现-to-serial设备，可以用来调试。 +
+终端设置：波特率=115200，数据位：8位，奇偶校验：无，停止位：1位，流控制：无， +
+
+image::/bpi-r4_pro/bpi-r4pro-usb_serial.png[bpi-r4pro-usb_serial.png,width=200]
+
+== MicroSD卡
+的 BPI-R4Pro 有一个 Micro SD (安全数字) 卡槽，可用于启动和存储。 +
+
+然而，MT7988A只有一个MSDC控制器，它输出两个pinmux端口用于SD 4.5和 eMMC 5.1, +
+所以你只能在 SD 和 eMMC 功能。
+
+
+== 风扇
+的 BPI-R4Pro有两个风扇连接器，引脚分配与 4 线兼容 PWM- Intel PC 主板上的受控风扇。 +
+
+它采用 12V 电源电压运行，并支持 PWM 速度控制，但缺少用于速度检测的感测引脚。
+
+image::/bpi-r4_pro/bpi-r4pro-fan3.png[bpi-r4pro-fan3.png,width=500]
+
+这两个 FAN 连接器由同一个控制 PWM (GPIO57_脉宽调制D0). +
+
+image::/bpi-r4_pro/bpi-r4pro-fan4.png[bpi-r4pro-fan4.png,width=500]
+
+== 实时时钟
+内置一颗RTC时钟芯片，只需安装一节3V CR1220电池即可工作。
+
+
+== EEPROM
+内置1颗EEPROM芯片 (P24C02A)，可用于存储少量数据。
+
+
+== 按钮
+=== 重置
+TIP: 在 BPI-R4Pro-8X-BE14-MT76-OpenWRT24.10-DSA-251229 如图，短按RST重启系统，长按复位系统。
+
+GPIO13连接有复位按钮，用于恢复出厂默认设置。
+
+=== WPS
+GPIO14连接有复位按钮，用于新设备快速连接路由器。
+
+== LED
+BPI-R4Pro 有 LED 来指示各种操作状态，包括电源、WiFi、 Ethernet, 4G/5G 细胞, SSD等 +
+
+* 1x 动力绿 LED，PCB上丝印“PWR”，上电时亮起，无法通过软件控制。 +
+* 1x 红色状态 LED，PCB上丝印“R”，由控制 GPIO "PCA_A_IO1_7/SYS_LEDR". +
+* 1x 蓝色状态 LED，PCB上丝印“B”，由控制 GPIO "PCA_A_IO1_6/SYS_LEDB". +
+* 3x WiFi 状态蓝色 LED，丝印“W2G”、“W5G”、“W6G”。 +
+	 The specific function depends on the module. Some modules do not have this function (including BPI-BE14 V1.0). +
+* 2x SSD 状态蓝色LED，丝印“SSD1”、“SSD2”，控制方式 SSD. +
+* 3x 5G 蜂窝状态蓝色 LED，丝印“SIM1”、“SIM2”、“SIM3”，由 5G 模块控制。 +
+* 每个 10G/2.5G RJ45有两个LED，每个1G RJ45有一个 LED 以指示网络状态。 +
+
+
+== 直流输入 
+BPI-R4Pro 需要一个单一的 +12V供电，并具有多种电源，包括直流电源适配器， USB PD， POE等 
+ +
+电源电压范围为9~建议使用24V、12V或20V，超过25.3V会自动关机。
+
+=== DCIN(5521)
+您可以使用 12V/5A 电源适配器插入CN44即可为其供电。 +
+但如果同时存在其他电源，则会切换到其他电源。 +
+
+CN44插槽尺寸如下(内在正，外在负):
+
+image::/bpi-r4_pro/bpi-r4pro-dc5521.png[bpi-r4pro-dc5521.png,width=300]
+
+
+=== DCIN(VH396)
+也可以使用VH3.96插头连接CN6供电。 +
+CN46插槽尺寸如下：
+
+image::/bpi-r4_pro/vh396.png[vh396.png,width=500]
+
+=== USB C型PD
+的 USB Type-C PD连接器连接CH224K芯片，用于与设备通信 USB 适配器并允许适配器输出20V电压。 +
+建议使用可输出20V、65W以上的PD电源。 +
+
+=== POE
+您可以使用 BPI-RT5400-12V 模块，但是这个模块最大不超过30W。所以当连接更多外设时，功耗会超过RT5400的最大功率。因此，建议更换其他电源。
+
+image::/bpi-r4_pro/bpi-r4pro-poe.png[bpi-r4pro-poe.png,width=500]
+
+
+
+== 直流输出
+BPI-R4Pro 有两个电源输出插座，但不建议使用它们连接太多设备， 
+因为它消耗太多电力并可能导致 BPI-R4Pro 工作不稳定。 +
+
+的尺寸 CN2/CN3 插槽如下：
+
+image::/bpi-r4_pro/xh254.png[xh254.png,width=500]
+
+=== 直流输出(CN3，XH2.54-2PIN)
+直接连接到 VDD_系统_IN，输出电压等于输入电压。 
+
+=== 直流输出(CN2，XH2.54-4PIN)
+该插槽提供两个电压输出： +12V 和 +5V。的 +5V 由 MT6682A PMIC 生成。该电压为很多其他设备供电，建议不要连接大功率设备，以免影响系统稳定性。 +
+
+12V 由单独的 DC-DC 转换器产生，能够提供大约 3A 的电流。
+
+
+== 26针 GPIO 标头 
+26针 GPIO 接头座包含 17 个 GPIO。所有 GPIO 均为 3.3V。一些GPIO可以设置为JTAG， I2C, UART, SPI 和其他功能。 +
+
+image::/bpi-r4_pro/26pin.png[26pin.png,width=800]
+
+
+= 引脚定义 
+== 风扇 (CN36/CN38)
+
+[%collapsible]
+====
+
+
+[options="header",cols="1,3",width="80%"]
+|====
+2+| **BPI-R4Pro 风扇连接器引脚定义**
+|密码号 |连接目的地		
+|1			 |接地		
+|2		 	 |12V	
+|3 	   	 |数控	
+|4	     |PWM（5V）
+|====
+
+====
+
+== 26 GPIO 标头(CON1)
+
+[%collapsible]
+====
+
+
+[options="header",cols="3,1,1,3",width="80%"]
+|====
+4+| **BPI-R4Pro 26  GPIO 标头(CON1) PIN码定义**
+|连接目的地	|密码号|密码号|连接目的地
+|3.3VD	|1		|2	|5VD
+|GPIO18/I2C_1_SDA	|3	|	4|	5VD
+|GPIO17/I2C_1_SCL	|5		|6	|GND
+|GPIO62/JTAG_JTRST_N/PWM6	|7		|8	|GPIO59/JTAG_JTDO/UART1_TX/UART2_TX
+|GND	|9		|10	|GPIO58/JTAG_JTDI/UART1_RX/UART2_RX
+|GPIO81/UART1_TXD	|11		|12	|GPIO51/PCM_CLK_I2S_BCLK
+|GPIO80/UART1_RXD	|13		|14	|GND
+|GPIO50/PCM_FS_I2S_LRCK	|15		|16	|GPIO61/JTAG_JTCLK/UART1_RTS/UART2_RTS
+|3.3VD	|17		|18	|GPIO60/JTAG_JTMS/UART1_CTS/UART2_CTS
+|GPIO30/SPI1_MOSI	|19		|20	|GND
+|GPIO29/SPI1_MISO|	21	|	22	|GPIO53/PCM_DTX_I2S_DOUT
+|GPIO31/SPI1_CLK	|23	|24	|GPIO28/SPI1_CSB
+|GND	|25		|26	|GPIO52/PCM_DRX_I2S_DIN
+|====
+
+====
+ 
+
+== miniPCIe 插槽1(CN7)
+
+[%collapsible]
+====
+
+
+[options="header",cols="3,1,1,3",width="80%"]
+|====
+4+| **BPI-R4Pro miniPCIe 插槽1(CN7) PIN码定义**		
+|连接目的地	|密码号		|PIN 码|连接目的地
+|PCIE_2L_0_唤醒_N(3.3V)	|1	|	2	|PCIe_3V3#2
+|NI	|3	|	4	|接地
+|NI	|5	|	6	|PCIe_12V#2
+|PCIE_2L_0_时钟请求_N(3.3V)	|7		|8|	移动PCIe_A_通用SIM卡_电源电压
+|接地	|9		|10	|移动PCIe_A_通用SIM卡_数据
+|PCIE_2L_0_SOC_CKn	|11		|12	|移动PCIe_A_通用SIM卡_时钟脉冲
+|PCIE_2L_0_SOC_肌酸激酶	|13		|14	|移动PCIe_A_通用SIM卡_快速恢复时间
+|接地	|15		|16 |	NI
+|PCIE_2L_0_液氮1_SOC_接收	|17		|18	|接地
+|PCIE_2L_0_液氮1_SOC_RXp	|19		|20	|NI
+|接地	|21		|22	|PCIE_2L_0_预设_N(3.3V)
+|PCIE_2L_0_液氮0_SOC_接收	|23	|	24	|PCIe_3V3#2
+|PCIE_2L_0_液氮0_SOC_RXp	|25	|	26	|接地
+|接地	|27		|28	|PCIe_12V#2
+|接地	|29		|30	|I2C_SCL_外部_无线网络
+|PCIE_2L_0_液氮0_SOC_TXn	|31		|32	|I2C_SDA_外部_无线网络
+|PCIE_2L_0_液氮0_SOC_TXp	|33		|34|	接地
+|接地	|35		|36	|USB2HUB-D3M
+|接地	|37		|38	|USB2HUB-D3P
+|PCIe_3V3#2	|39		|40	|接地
+|PCIe_3V3#2	|41		|42	|无线网络-LED-5G
+|接地	|43		|44	|移动PCIe_A_通用SIM卡_乙二胺四乙酸
+|PCIE_2L_0_液氮1_SOC_TXn	|45		|46	|无线网络-LED-2G
+|PCIE_2L_0_液氮1_SOC_TXp	|47		|48	|PCIe_12V#2
+|接地	|49		|50	|接地
+|MT7996_电子情报_复位(1.8V)	|51		|52	|PCIe_3V3#2
+|====
+
+====
+
+
+
+== miniPCIe 插槽2(CN9)
+
+[%collapsible]
+====
+
+
+[options="header",cols="3,1,1,3",width="80%"]
+|====
+4+| **BPI-R4Pro miniPCIe 插槽2(CN9) PIN码定义**	
+|连接目的地	|密码		|密码	|连接目的地
+|PCIE_2L_1_唤醒_N(3.3V)	|1		|2	|PCIe_3V3#1
+|NI	|3	|	4	|接地
+|NI	|5	|	6	|PCIe_12V#1
+|PCIE_2L_1_时钟请求_N(3.3V)	|7		|8	|移动PCIe_B_通用SIM卡_电源电压
+|接地	|9		|10	|移动PCIe_B_通用SIM卡_数据
+|PCIE_2L_1_SOC_CKn	|11		|12	|移动PCIe_B_通用SIM卡_时钟脉冲
+|PCIE_2L_1_SOC_肌酸激酶	|13		|14	|移动PCIe_B_通用SIM卡_快速恢复时间
+|接地	|15		|16	|NI
+|PCIE_2L_1_液氮1_SOC_接收	|17	|	18	|接地
+|PCIE_2L_1_液氮1_SOC_RXp	|19		|20	|NI
+|接地	|21		|22	|PCIE_2L_1_预设_N(3.3V)
+|PCIE_2L_1_液氮0_SOC_接收	|23		|24	|PCIe_3V3#1
+|PCIE_2L_1_液氮0_SOC_RXp	|25	|26	|接地
+|接地	|27		|28	|PCIe_12V#1
+|接地	|29		|30	|I2C_SCL_外部_无线网络
+|PCIE_2L_1_液氮0_SOC_TXn	|31		|32	|I2C_SDA_外部_无线网络
+|PCIE_2L_1_液氮0_SOC_TXp	|33		|34	|接地
+|接地	|35		|36	|USB2HUB-D2M
+|接地	|37		|38 |USB2HUB-D2P
+|PCIe_3V3#1	|39		|40	|接地
+|PCIe_3V3#1	|41		|42	|无线网络-LED-6G
+|接地	|43		|44	|移动PCIe_B_通用SIM卡_乙二胺四乙酸
+|PCIE_2L_1_液氮1_SOC_TXn	|45		|46|	NI
+|PCIE_2L_1_液氮1_SOC_TXp	|47	|	48|	PCIe_12V#1
+|接地	|49		|50|	接地
+|NI	|51		|52|	PCIe_3V3#1
+|====
+
+====
+
+
+== M.2 B-KEY 插槽1(CN15)
+
+[%collapsible]
+====
+
+
+[options="header",cols="3,1,1,3",width="80%"]
+|====
+4+| **BPI-R4Pro M.2 B-KEY 插槽1(CN15) PIN码定义**
+|连接目的地	|密码号		|PIN 码	|连接目的地
+|NI	|1	|	2	|电源电压_密钥_A
+|接地	|3		|4	|电源电压_密钥_A
+|接地	|5	|	6	|NI(10K 上拉至 3.3V)
+|USB集线器_USB1_压差	|7		|8	|NI
+|USB集线器_USB1_DN |9		|10|	BKEY-A-NET-STUn LED
+|接地	|11		|12	|缺口
+|缺口	|13		|14	|缺口
+|缺口	|15		|16	|缺口
+|缺口	|17		|18	|缺口
+|缺口|	19	|	20	|NI
+|NI	|21		|22|	NI
+|NI |23	|	24	|NI
+|NI	|25		|26|	NI
+|接地	|27		|28|	NI
+|USB集线器_USB1_接收	|29		|30	|通用SIM卡_RST-1A
+|USB集线器_USB1_RXp	|31		|32	|通用SIM卡_时钟-1A
+|接地	|33	|	34	|通用SIM卡_数据-1A
+|USB集线器_USB1_TXn	|35	|36|	通用SIM卡_电源电压-1A
+|USB集线器_USB1_TXp	|37|		38|	NI
+|接地|	39	|	40|	NI
+|PCIE_SW_A_C_接收	|41		|42	|通用SIM卡_数据-1B
+|PCIE_SW_A_C_RXp|	43	|	44	|通用SIM卡_时钟-1B
+|接地	|45	|	46	|通用SIM卡_RST-1B
+|PCIE_SW_A_C_TXn	|47		|48	|通用SIM卡_电源电压-1B
+|PCIE_SW_A_C_TXp	|49		|50	|BKEY-A-预设_3P3V
+|接地	|51	|	52	|BKEY-A-CLKREQ_3P3V
+|PCIE_SW_A_C_CKn	|53		|54	|BKEY-A-唤醒_3P3V
+|PCIE_SW_A_C_肌酸激酶|	55	|	56|NI
+|接地	|57	|	58	|NI
+|NI	|59		|60	|NI
+|NI	|61		|62	|NI
+|NI|	63|		64	|NI
+|NI	|65	|	66|	通用SIM卡_DET-1A
+|BKEY-A-RST	|67		|68|	NI
+|NI	|69	|	70	|电源电压_密钥_A
+|接地|	71	|	72|	电源电压_密钥_A
+|接地	|73	|	74|	电源电压_密钥_A
+|NI	|75	| |		
+|====
+
+====
+
+== M.2 B-KEY 插槽2(CN18)
+
+[%collapsible]
+====
+
+
+[options="header",cols="3,1,1,3",width="80%"]
+|====
+4+| **BPI-R4Pro M.2 B-KEY 插槽2(CN18) PIN码定义**
+|连接目的地	|密码号		|PIN 码	|连接目的地
+|NI	|1	|	2	|电源电压_密钥_B
+|接地	|3		|4	|电源电压_密钥_B
+|接地	|5	|	6	|NI(10K 上拉至 3.3V)
+|USB集线器_USB2_压差	|7		|8	|NI
+|USB集线器_USB2_DN |9		|10|	BKEY-B-NET-STUn LED
+|接地	|11		|12	|缺口
+|缺口	|13		|14	|缺口
+|缺口	|15		|16	|缺口
+|缺口	|17		|18	|缺口
+|缺口|	19	|	20	|NI
+|NI	|21		|22|	NI
+|NI |23	|	24	|NI
+|NI	|25		|26|	NI
+|接地	|27		|28|	NI
+|USB集线器_USB2_接收	|29		|30	|通用SIM卡_RST-2A
+|USB集线器_USB2_RXp	|31		|32	|通用SIM卡_时钟-2A
+|接地	|33	|	34	|通用SIM卡_数据-2A
+|USB集线器_USB2_TXn	|35	|36|	通用SIM卡_电源电压-2A
+|USB集线器_USB2_TXp	|37|		38|	NI
+|接地|	39	|	40|	NI
+|PCIE_SW_B_C_接收	|41		|42	|通用SIM卡_数据-2B
+|PCIE_SW_B_C_RXp|	43	|	44	|通用SIM卡_时钟-2B
+|接地	|45	|	46	|通用SIM卡_RST-2B
+|PCIE_SW_B_C_TXn	|47		|48	|通用SIM卡_电源电压-2B
+|PCIE_SW_B_C_TXp	|49		|50	|BKEY-B-预设_3P3V
+|接地	|51	|	52	|BKEY-B-CLKREQ_3P3V
+|PCIE_SW_B_C_CKn	|53		|54	|BKEY-B-唤醒_3P3V
+|PCIE_SW_B_C_肌酸激酶|	55	|	56|NI
+|接地	|57	|	58	|NI
+|NI	|59		|60	|NI
+|NI	|61		|62	|NI
+|NI|	63|		64	|NI
+|NI	|65	|	66|	通用SIM卡_DET-2A
+|BKEY-A_RSTn	|67		|68|	NI
+|NI	|69	|	70	|电源电压_密钥_B
+|接地|	71	|	72|	电源电压_密钥_B
+|接地	|73	|	74|	电源电压_密钥_B
+|NI	|75	| |		
+|====
+
+====
+
+
+
+== M.2 B-KEY 插槽3(CN21)
+
+[%collapsible]
+====
+
+
+[options="header",cols="3,1,1,3",width="80%"]
+|====
+4+| **BPI-R4Pro M.2 B-KEY 插槽3(CN21) PIN码定义**
+|连接目的地	|密码号		|PIN 码	|连接目的地
+|NI	|1	|	2	|电源电压_密钥_C
+|接地	|3		|4	|电源电压_密钥_C
+|接地	|5	|	6	|NI(10K 上拉至 3.3V)
+|USB集线器_USB4_压差	|7		|8	|NI
+|USB集线器_USB4_DN |9		|10|	BKEY-C-NET-STUn LED
+|接地	|11		|12	|缺口
+|缺口	|13		|14	|缺口
+|缺口	|15		|16	|缺口
+|缺口	|17		|18	|缺口
+|缺口|	19	|	20	|NI
+|NI	|21		|22|	NI
+|NI |23	|	24	|NI
+|NI	|25		|26|	NI
+|接地	|27		|28|	NI
+|USB集线器_USB4_接收	|29		|30	|通用SIM卡_RST-3A
+|USB集线器_USB4_RXp	|31		|32	|通用SIM卡_时钟-3A
+|接地	|33	|	34	|通用SIM卡_数据-3A
+|USB集线器_USB4_TXn	|35	|36|	通用SIM卡_电源电压-3A
+|USB集线器_USB4_TXp	|37|		38|	NI
+|接地|	39	|	40|	NI
+|NI	|41		|42	|通用SIM卡_数据-3B
+|NI|	43	|	44	|通用SIM卡_时钟-3B
+|接地	|45	|	46	|通用SIM卡_RST-3B
+|NI	|47		|48	|通用SIM卡_电源电压-3B
+|NI	|49		|50	|BKEY-C_PCIE_珀斯特_3P3V
+|接地	|51	|	52	|BKEY-C_PCIE_时钟请求_3P3V
+|NI	|53		|54	|BKEY-C_PCIE_佩威克_3P3V
+|NI|	55	|	56|NI
+|接地	|57	|	58	|NI
+|NI	|59		|60	|NI
+|NI	|61		|62	|NI
+|NI|	63|		64	|NI
+|NI	|65	|	66|	通用SIM卡_DET-3A
+|BKEY-C_RSTn	|67		|68|	NI
+|NI	|69	|	70	|电源电压_密钥_C
+|接地|	71	|	72|	电源电压_密钥_C
+|接地	|73	|	74|	电源电压_密钥_C
+|NI	|75	| |		
+|====
+
+====
+
+
+
+== M.2 M-KEY 插槽1(CN13)
+
+[%collapsible]
+====
+
+
+[options="header",cols="3,1,1,3",width="80%"]
+|====
+4+| **BPI-R4Pro M.2 M-KEY 插槽1(CN13) PIN码定义**
+|连接目的地	|密码		|密码	|连接目的地
+|接地	|1		|2	|电源电压_麦基_A
+|接地	|3		|4	|电源电压_麦基_A
+|NI	|5	|	6	|NI
+|NI	|7		|8	|NI
+|接地	|9		|10	|MKEY-A-SSD-LEDn
+|NI	|11		|12	|电源电压_麦基_A
+|NI	|13		|14	|电源电压_麦基_A
+|接地	|15		|16	|电源电压_麦基_A
+|NI	|17		|18	|电源电压_麦基_A
+|NI	|19		|20	|NI
+|接地	|21		|22	|NI
+|NI	|23		|24	|NI
+|NI	|25		|26	|NI
+|接地	|27		|28	|NI
+|NI	|29		|30|	NI
+|NI	|31		|32	|NI
+|接地|	33		|34	|NI
+|NI	|35		|36	|NI
+|NI	|37		|38	|NI
+|接地	|39		|40	|NI
+|PCIE_SW_A_B_接收	|41		|42|	NI
+|PCIE_SW_A_B_RXp	|43	|	44|	NI
+|接地	|45		|46|	NI
+|PCIE_SW_A_B_TXn	|47	|	48	|NI
+|PCIE_SW_A_B_TXp	|49	|	50|	MKEY-A-预设_3P3V
+|接地	|51	|	52|	MKEY-A-CLKREQ_3P3V
+|PCIE_SW_A_B_CKn	|53	|	54|	唤醒键_3P3V
+|PCIE_SW_A_B_肌酸激酶	|55		|56|	NI
+|接地	|57		|58	|NI
+|诺克TH	|59		|60	|诺克TH
+|诺克TH |	61	|	62	|诺克TH
+|诺克TH	|63	|	64|	诺克TH
+|诺克TH |	65		|66	|诺克TH
+|NI	|67		|68	|NI
+|NI	|69		|70	|电源电压_麦基_A
+|接地	|71		|72	|电源电压_麦基_A
+|接地	|73	|	74	|电源电压_麦基_A
+|接地	|75|	|		
+|====
+
+====
+
+== M.2 M-KEY 插槽2(CN14)
+
+[%collapsible]
+====
+
+
+[options="header",cols="3,1,1,3",width="80%"]
+|====
+4+| **BPI-R4Pro M.2 M-KEY 插槽2(CN14) PIN码定义**
+|连接目的地	|密码		|密码	|连接目的地
+|接地	|1		|2	|电源电压_麦基_B
+|接地	|3		|4	|电源电压_麦基_B
+|NI	|5	|	6	|NI
+|NI	|7		|8	|NI
+|接地	|9		|10	|MKEY-B-SSD-LEDn
+|NI	|11		|12	|电源电压_麦基_B
+|NI	|13		|14	|电源电压_麦基_B
+|接地	|15		|16	|电源电压_麦基_B
+|NI	|17		|18	|电源电压_麦基_B
+|NI	|19		|20	|NI
+|接地	|21		|22	|NI
+|NI	|23		|24	|NI
+|NI	|25		|26	|NI
+|接地	|27		|28	|NI
+|NI	|29		|30|	NI
+|NI	|31		|32	|NI
+|接地|	33		|34	|NI
+|NI	|35		|36	|NI
+|NI	|37		|38	|NI
+|接地	|39		|40	|NI
+|PCIE_SW_B_B_接收	|41		|42|	NI
+|PCIE_SW_B_B_RXp	|43	|	44|	NI
+|接地	|45		|46|	NI
+|PCIE_SW_B_B_TXn	|47	|	48	|NI
+|PCIE_SW_B_B_TXp	|49	|	50|	MKEY-B-预设_3P3V
+|接地	|51	|	52|	MKEY-B-CLKREQ_3P3V
+|PCIE_SW_B_B_CKn	|53	|	54|	MKEY-B-唤醒_3P3V
+|PCIE_SW_B_B_肌酸激酶	|55		|56|	NI
+|接地	|57		|58	|NI
+|诺克TH	|59		|60	|诺克TH
+|诺克TH |	61	|	62	|诺克TH
+|诺克TH	|63	|	64|	诺克TH
+|诺克TH |	65		|66	|诺克TH
+|NI	|67		|68	|NI
+|NI	|69		|70	|电源电压_麦基_B
+|接地	|71		|72	|电源电压_麦基_B
+|接地	|73	|	74	|电源电压_麦基_B
+|接地	|75|	|		
+|====
+
+====
+
+
+== 1G FPC连接器(CN37)
+
+[%collapsible]
+====
+
+
+[options="header",cols="1,3",width="80%"]
+|====
+2+| **BPI-R4Pro 1G Ethernet 连接器(CN37) PIN码定义**
+|密码号 |连接目的地		
+|1			 |X4N-M8	
+|2		 	 |X4P-M8	
+|3		 	 |X3N-M8	
+|4 	   	 |X3P-M8	
+|5	     |X2N-M8
+|6	     |X2P-M8
+|7	     |X1N-M8
+|8	     |X1P-M8
+|9	     |保护地线
+|10	     |RJ45_LED_D
+|11	     |3.3VD
+|====
+
+====
+
+
+== 外部 LED 连接器(CN40)
+[%collapsible]
+====
+
+
+[options="header",cols="1,3",width="80%"]
+|====
+2+| **BPI-R4Pro 外部 LED 连接器(CN40) PIN码定义**
+|密码号 |连接目的地		
+|1			 |NI(引导程序_SW3_A)	
+|2		 	 |NI(引导程序_SW3_B)
+|3		 	 |NI(系统RSTB_MT7988_1p8V)
+|4 	   	 |NI(GPIO13_重置_1p8V)
+|5	     |NI(GPIO14_WPS_1p8V)
+|6	     |调试_串口_TXD
+|7	     |调试_串口_接收数据
+|8	     |系统_LEDBN-3p3V
+|9	     |系统_LEDRn-3p3V
+|10	     |MKEY-A-SSD-LEDn
+|11	     |MKEY-B-SSD-LEDn
+|12	     |BKEY-A-NET-STUn
+|13	     |BKEY-B-NET-STUn
+|14	     |BKEY-C-NET-STUn
+|15	     |无线网络-LED-2G
+|16	     |无线网络-LED-5G
+|17	     |无线网络-LED-6G
+|18	     |接地
+|19	     |3.3VD
+|20	     |3.3VD
+
+|====
+
+====
+
+
+== 外部 SIM 卡连接器(CN45)
+
+[%collapsible]
+====
+
+
+[options="header",cols="1,3",width="80%"]
+|====
+2+| **BPI-R4Pro 外部 SIM 卡连接器(CN45) PIN码定义**
+|密码号 |连接目的地		
+|1			 |通用SIM卡_VDD-1A-FPC
+|2		 	 |通用SIM卡_RST-1A-FPC
+|3		 	 |通用SIM卡_CLK-1A-FPC
+|4 	   	 |通用SIM卡_DATA-1A-FPC
+|5	     |通用SIM卡_DET-1A-FPC
+|6	     |接地
+|7	     |通用SIM卡_VDD-2A-FPC
+|8	     |通用SIM卡_RST-2A-FPC
+|9	     |通用SIM卡_CLK-2A-FPC
+|10	     |通用SIM卡_DATA-2A-FPC
+|11	     |通用SIM卡_DET-2A-FPC
+|12	     |接地
+|13	     |通用SIM卡_VDD-3A-FPC
+|14	     |通用SIM卡_RST-3A-FPC
+|15	     |通用SIM卡_CLK-3A-FPC
+|16	     |通用SIM卡_DATA-3A-FPC
+|17	     |通用SIM卡_DET-3A-FPC
+|18	     |接地
+|19	     |移动PCIe_B_通用SIM卡_电源电压-FPC
+|20	     |移动PCIe_B_通用SIM卡_RST-FPC
+|21	     |移动PCIe_B_通用SIM卡_CLK-FPC
+|22	     |移动PCIe_B_通用SIM卡_DATA-FPC
+|23	     |移动PCIe_B_通用SIM卡_软板
+|24	     |接地
+|25	     |移动PCIe_A_通用SIM卡_电源电压-FPC
+|26	     |移动PCIe_A_通用SIM卡_RST-FPC
+|27	     |移动PCIe_A_通用SIM卡_CLK-FPC
+|28	     |移动PCIe_A_通用SIM卡_DATA-FPC
+|29	     |移动PCIe_A_通用SIM卡_软板
+|30	     |3.3VD
+|====
+
+====
+
+
+== 直流输入连接器(CN44)
+[%collapsible]
+====
+
+
+[options="header",cols="1,3",width="80%"]
+|====
+2+| **BPI-R4Pro DCIN连接器(CN44) PIN码定义**
+|密码号 |连接目的地		
+|1			 |DCIN_12_24V
+|2		 	 |接地
+|====
+====
+
+
+== 直流输入连接器(CN6)
+[%collapsible]
+====
+
+[options="header",cols="1,3",width="80%"]
+|====
+2+| **BPI-R4Pro DCIN连接器(CN6) PIN码定义**
+|密码号 |连接目的地		
+|1			 |VH396_DCIN
+|2		 	 |接地
+|====
+====
+
+
+== 直流输出连接器(CN3)
+[%collapsible]
+====
+[options="header",cols="1,3",width="80%"]
+|====
+2+| **BPI-R4Pro 直流输出连接器(CN3) PIN码定义**
+|密码号 |连接目的地		
+|1			 |电源电压_系统
+|2		 	 |接地
+|====
+====
+
+
+
+== 直流输出连接器(CN2)
+
+[%collapsible]
+====
+
+
+[options="header",cols="1,3",width="80%"]
+|====
+2+| **BPI-R4Pro 直流输出连接器(CN2) PIN码定义**
+|密码号 |连接目的地		
+|1			 |电源电压_12V
+|2		 	 |接地
+|3		 	 |接地
+|4		 	 |+5VD
+|====
+
+====
+
