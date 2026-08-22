@@ -1,0 +1,91 @@
+= 适用于 BPI-M2 Ultra 的全志 Tina-IoT 操作系统
+
+== 关于 Tina-IoT Linux
+
+BPI-M2 Ultra R40 Tina Linux V1.0 已正式发布，欢迎体验。
+
+Tina Linux 由全志 TinaTEAM 开发，是基于 OpenWrt 构建的嵌入式 Linux 发行版，旨在提供易于学习、开发和量产的 Linux TurnKey 解决方案。
+
+R40 Tina Linux 以 BPI-M2 Ultra 为参考硬件，下载的源代码可直接支持 Banana Pi BPI-M2 Ultra。
+
+R40 Tina Linux V1.0 基于 Linux 3.10 和 Tina Linux V2.1，提供许多有趣且实用的功能：
+
+. 支持 Smartlink（ultrasonic wave、Airkiss、Cooee）
+
+. 支持 DLNA、QPlay 音频传输与控制协议
+
+此外还有许多功能，此处不再逐一列出。系统支持 BPI-M2 Ultra 上的所有硬件模块。
+
+== 如何使用 R40 Tina Linux
+
+使用 Tina 需要一台 64 位 Linux 电脑，建议安装 64 位 Ubuntu 12.04 或 14.04。使用以下命令安装编译环境依赖：
+
+```sh
+sudo apt-get install build-essential subversion git-core libncurses5-dev zlib1g-dev gawk flex quilt libssl-dev xsltproc libxml-parser-perl mercurial bzr ecj cvs unzip
+```
+
+详细要求可参考 link:https://wiki.openwrt.org/doc/howto/buildroot.exigence[OpenWrt Wiki]。
+
+=== 下载源代码
+
+使用 repo 工具下载代码。该工具的下载方法如下：
+
+```sh
+curl https://raw.githubusercontent.com/tinalinux/repo/stable/repo > ~/bin/repo $ chmod +x ~/bin/repo
+```
+
+然后将 repo 加入环境变量，建议把下面这行内容添加到 .bashrc 中：
+
+```sh
+export PATH=~/binPATH
+```
+
+安装 repo 后，使用以下命令下载 Tina 源代码：
+
+```sh
+repo init -u https://github.com/tinalinux/manifest -b r40-v1.y -m r40/v1.y.xml $ repo sync $ repo start r40-v1.y --all
+```
+
+源代码下载完成后，进入 Tina 目录并执行以下编译命令：
+
+```sh
+source build/envsetup.sh $ lunch azalea_m2ultra-tina $ make -j4 $ pack [-d]
+```
+
+每次编译 Tina SDK 前，都需要先执行 source 和 lunch 命令，然后再进行其他操作。
+
+pack 命令提供 “-d” 参数：不添加 -d 时，默认使用 UART0 作为串口输出；添加 -d 后，则使用 TF 卡槽的 IO 引脚组作为 UART0。
+
+=== 烧录镜像
+
+打包后的 Tina 镜像约为 15 MB，支持直接烧录到 BPI-M2 Ultra 的 eMMC 闪存。
+
+烧录方法如下：
+
+在 Linux 系统中可直接使用 LiveSuit 烧录，操作方法如下：
+
+. LiveSuit 位于 Tina SDK 的 tools/aw\_tools 目录中。
+
+. 解压 64 位版 LiveSuit，然后运行 ./LiveSuit.sh。
+
+. LiveSuit 将安装到 ~/Bin 目录。使用 dpkg -i 安装全志驱动，驱动文件也位于 ~/Bin 目录中。
+
+. 运行 LiveSuit，并选择 Tina 镜像。
+
+. 按住 BPI-M2 Ultra 的 U-Boot 按键并插入 USB 线，即可开始烧录镜像。
+
+在 Windows 系统中，请使用 PhoenixSuit 烧录工具。
+
+该工具位于 tools/aw\_tools 目录中。
+
+=== 如何配置 Tina
+
+配置 Tina 固件常用两个命令：“make menuconfig”和“make kernel\_menuconfig”。
+
+这两个命令必须在执行完 “source” 和 “lunch” 命令后再运行。
+
+make menuconfig：配置系统使用的软件。
+
+make kernel\_menuconfig：配置内核选项。
+
+Tina Linux GitHub 源代码：https://github.com/tinalinux/
