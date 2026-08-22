@@ -1,8 +1,8 @@
 ---
-title: 香蕉派 BPI-W3 照片
-description: 香蕉派 BPI-W3 照片
-published: true
-date: 2026-08-22T11:47:47.915Z
+title: Banana Pi BPI-W3 产品图片
+description: Banana Pi BPI-W3 产品图片
+published: false
+date: 2026-08-22T17:11:35.643Z
 tags: 
 editor: markdown
 dateCreated: 2026-08-22T11:47:47.915Z
