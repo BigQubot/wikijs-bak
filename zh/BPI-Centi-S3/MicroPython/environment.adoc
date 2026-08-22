@@ -1,60 +1,60 @@
-TIP: link:../GettingStarted_BPI-Centi-S3[返回开始使用 BPI-Centi-S3]
+TIP: link:../GettingStarted_BPI-Centi-S3[返回 BPI-Centi-S3 快速入门]
 
 == 系统环境要求
 
-支持开发 Windows 10, Windows 11, MacOS, Ubuntu 或其他
-Linux 桌面操作系统。
+支持在 Windows 10、Windows 11、macOS、Ubuntu 或其他
+Linux 桌面操作系统中进行开发。
 
-本文中的所有应用示例均基于 Windows 10
-操作系统，也可用于其他操作系统
-参考。
+本文的所有应用示例均基于 Windows 10
+操作系统，使用其他操作系统时也可以
+参考这些步骤。
 
 == 安装 Python 环境
 
-打开 https://www.python.org/[Python 官方网站].
+打开 https://www.python.org/[Python 官方网站]。
 
-对于 Windows 系统，最方便的下载方式
-安装包就是点击下图所示的图标
-官网首页下载。
+在 Windows 系统中，下载
+安装包最方便的方法，是在官方网站首页单击
+下图所示的图标。
 
 image::/picture/bpi_centi_s3_micropython_operating_env_1.png[bpi_centi_s3_micropython_operating_env_1.png]
 
-可以在以下选项中选择其他操作系统或其他发行版
-下载选项栏。
+其他操作系统或发行版的安装包，可在
+Downloads 选项栏中选择。
 
-建议使用以上版本 python 3.7.
+建议使用 Python 3.7 或更高版本。
 
-一定要勾选添加 Python 开始安装时将 3.x 添加到 PATH 中，
+开始安装时务必勾选 “Add Python 3.x to PATH”，
 这样就可以避免手动将其添加到 PATH 中。
 
 image::/picture/bpi_centi_s3_micropython_operating_env_2.png[bpi_centi_s3_micropython_operating_env_2.png]
 
-按照安装提示一步一步完成
-安装顺利。
+按照安装程序的提示逐步操作，即可顺利完成
+安装。
 
 == 安装 mpremote 工具
 
-的 MicroPython 开源社区发起了开发援助
-工具：mpremote，通过它我们可以与
-开发板，使用 REPL，并管理上的文件系统
-开发板。它还具有 mount 和 mip 函数，这将是
-后续章节详细介绍 (准备).
+MicroPython 开源社区推出了开发辅助
+工具 mpremote。通过它可以与
+开发板建立串口通信、使用 REPL，并管理
+开发板上的文件系统。它还提供 mount 和 mip 功能，
+后续章节将详细介绍（准备中）。
 
-安装后 Python 环境，可以使用pip安装
-在终端中进行 mpremote。
+安装 Python 环境后，可以在终端中使用 pip
+安装 mpremote。
 
-在以下位置打开 PowerShell Windows 系统，打开相应的
-其他操作系统终端输入以下命令即可
-安装 mremote。
+在 Windows 系统中打开 PowerShell；在
+其他操作系统中打开相应终端，然后输入以下命令
+安装 mpremote。
 
 ```
 pip install mpremote
 ```
 
-== 安装mpbridge工具
+== 安装 mpbridge 工具
 
-mpbridge是基于mpremote开发的CLI工具。它主要提供
-自动同步文件功能，提高开发效率
+mpbridge 是基于 mpremote 开发的 CLI 工具，主要提供
+文件自动同步功能，用于提升开发
 效率。
 
 在终端中输入以下命令来安装 mpbridge。
@@ -63,49 +63,49 @@ mpbridge是基于mpremote开发的CLI工具。它主要提供
 pip install mpbridge
 ```
 
-== 安装 Visual Studio 代码
+== 安装 Visual Studio Code
 
-使用 MicroPython 不依赖于特定的开发工具，因为
-只要与开发板进行串口通信即可
-成立后， MicroPython 交互式口译员 (REPL) 可以是
-获得。
+使用 MicroPython 并不依赖特定的开发工具；
+只要能与开发板建立串口通信，
+就可以使用 MicroPython 交互式解释器
+（REPL）。
 
-纯粹来说，我们基本上只需要一个文本编辑器来编辑代码，
-然后上传我们的.py脚本文件或者其他文件到开发中
-通过 mpremote 工具或 mpbridge 工具进行开发板。
+严格来说，只需要一个文本编辑器来编写代码，
+然后使用 mpremote 或 mpbridge 将 .py 脚本及其他文件
+上传到开发板即可。
 
-对于结合了基本代码完成、语法的特定编辑器
-高亮、集成终端、轻量级、多平台
-适配需求，我推荐使用Visual Studio Code (VS代码),
-这可能已经是您最熟悉的工具之一了。
+如果希望编辑器同时具备基本代码补全、语法
+高亮、集成终端、轻量和跨平台
+等特性，建议使用 Visual Studio Code（VS Code），
+它可能也是你最熟悉的工具之一。
 
 https://code.visualstudio.com/[Visual Studio Code 官方网站
 地址]
 
-可能需要参考的VScode文档： 
+可能需要参考的 VS Code 文档：
 
-* https://code.visualstudio.com/docs[Visual Studio 代码官方
+* https://code.visualstudio.com/docs[Visual Studio Code 官方
 文档] 
-* https://code.visualstudio.com/docs/setup/setup-overview[Basic
-安装&#44；设置] 
+* https://code.visualstudio.com/docs/setup/setup-overview[基本
+安装&#44;设置]
 * https://code.visualstudio.com/docs/getstarted/locales[设置显示
 语言] 
 * https://code.visualstudio.com/docs/terminal/basics[使用
-综合终端]
+集成终端]
 
-一切尽在网络人，极简主义者，尝试一下 https://vscode.dev/[VScode 上
-网络]，在本地操作系统上打开终端并使用 mremote 或
-mpbridge 同步文件， MicroPython REPL.
+偏爱极简 Web 工具的用户可以尝试 https://vscode.dev/[Web 版 VS Code]，
+并在本地操作系统中打开终端，使用 mpremote 或
+mpbridge 同步文件及访问 MicroPython REPL。
 
-== 其他推荐编辑
+== 其他推荐编辑器
 
-* https://github.com/thonny/thonny/releases[桑尼]，一个开源的
-图形化的 python 由 Raspberry Pi 基金会赞助的编辑，
-与 Raspberry Pi OS 集成的工厂 (树莓派)，首选
-Raspberry Pi 用户入门。
+* https://github.com/thonny/thonny/releases[Thonny]：一款由 Raspberry Pi 基金会赞助的开源
+Python 图形化编辑器，
+出厂集成于 Raspberry Pi OS（Raspbian），是
+Raspberry Pi 用户入门的首选之一。
 * https://www.jetbrains.com/pycharm/download/#section=windows[PyCharm
-社区版]，免费的社区版就足够了，而且
-还有代码完成 micropython 专门的图书馆，虽然
-不完整，已经很久没有更新了。
-* https://jupyter.org/[朱皮特] 也是web端的编辑器，更多
-专业，更Pythonic，并且支持Web终端。
+社区版]：免费的社区版已足够使用，而且
+还为 MicroPython 专用库提供代码补全，尽管
+补全并不完整，且已经很久没有更新。
+* https://jupyter.org/[Jupyter]：一款更专业、更具 Python 风格的
+Web 编辑器，并支持 Web 终端。
