@@ -1,0 +1,83 @@
+= 简介
+
+== 外壳
+铝制外壳带有 14 个天线孔，可满足多天线安装需求。
+
+包装内包含 1 把螺丝刀、10 颗黑色十字螺丝（其中 4 颗预装在外壳上）、6 颗银色十字螺丝和 4 个脚垫。
+
+  黑色螺丝规格为 M3 × 6，银色螺丝规格为 M2.5 × 6。
+
+
+
+== 散热片
+散热器套件提供两种选择。不安装 Wi-Fi 7 网卡时，两种散热器都可以使用；安装 Wi-Fi 7 网卡后发热量较大，建议选择带风扇的散热器，并配合支持最新风扇管理功能的镜像，避免设备因过热而重启。
+
+. 无风扇散热器
++
+38 × 38 mm 通用散热片，附带固定胶钉
++
+
++
+导热硅胶垫（10 × 5 × 1.6 mm，2 片；21 × 21 × 1 mm，1 片）
++
+
+. 定制带风扇散热器
+
+
+== BPI-R4-NIC-BE14 套件
+套件包含 1 块 BPI-R4-NIC-BE14、3 根 SMA 母头转 IPEX-1 同轴线（L=150 mm）、3 根 SMA 母头转 IPEX-1 同轴线（L=230 mm），以及 3 片导热硅胶垫。（固定时请使用购买 BPI-R4 时提供的 M2 × 5 银色十字螺丝。）
+
+**BPI-R4-NIC-BE14**
+
+image::/bpi-r4/nic-be14-top-800.png[nic-be14-top-800.png]
+
+https://docs.banana-pi.org/en/BPI-R4/BananaPi_BPI-R4-NIC-BE14
+
+
+
+
+
+== 5G 模块
+
+包含 4 根 IPEX-4 转 SMA 同轴线（L=100 mm）和 4 根 5G 天线。（固定时请使用购买 BPI-R4 时提供的 M2 × 5 银色十字螺丝。）
+
+= 配件安装
+. 首先，将 BPI-R4-NIC-BE14（简称 BE14）插入 BPI-R4-MAIN 底部的 miniPCIe 插槽，并使用两颗 M2 × 5 螺丝固定。
+. 然后在 BE14 的 3 颗 IC 上分别贴 2 片 13 × 10 × 2 mm 和 1 片 14 × 14 × 2 mm 导热硅胶垫。
++
+image::/bpi-r4/bpi-r4_accessories_installation_1.jpg[bpi-r4_accessories_installation_1.jpg]
+. 将 6 根同轴线插入对应的 U.FL 插座。（同一侧使用长度相同的线。）
++
+image::/bpi-r4/bpi-r4_accessories_installation_2.jpg[bpi-r4_accessories_installation_2.jpg]
+. 请务必将 SW4 拨到 ON 位置。
++
+image::/bpi-r4/bpi-r4_accessories_installation_3.jpg[bpi-r4_accessories_installation_3.jpg]
+. 将开发板装入底壳，调整天线线缆位置，避免受到挤压，然后使用 4 颗 M2.5 × 6 螺丝固定。
++
+image::/bpi-r4/bpi-r4_accessories_installation_4.jpg[bpi-r4_accessories_installation_4.jpg]
+. 安装散热器；如果散热器带有风扇，请连接风扇电源线。
++
+image::/bpi-r4/bpi-r4_accessories_installation_5.jpg[bpi-r4_accessories_installation_5.jpg]
+image::/bpi-r4/bpi-r4_accessories_installation_6.jpg[bpi-r4_accessories_installation_6.jpg]
+. 将 6 根天线分别连接到 ANT2、ANT3、ANT4、ANT6、ANT7 和 ANT8。
++
+image::/bpi-r4/bpi-r4_accessories_installation_7.jpg[bpi-r4_accessories_installation_7.jpg]
+. 为方便调试，可以自行购买串口延长线，之后调试时便无需拆卸外壳。（延长线需自行购买，不随产品提供。）
++
+image::/bpi-r4/bpi-r4_accessories_installation_8.jpg[bpi-r4_accessories_installation_8.jpg]
+. 将 5G 模块插入 M.2 Key B 接口，并使用 M2 × 5 螺丝固定。
+. 连接 4 根 SMA 母头转 IPEX-4 同轴线（L=100 mm），并将 SMA 接头固定到外壳的 ANT1、ANT5 以及前面板上的两个 SMA 孔中。
++
+image::/bpi-r4/bpi-r4_accessories_installation_9.jpg[bpi-r4_accessories_installation_9.jpg]
+. 沿导轨将上盖插入底壳，并用 8 颗黑色 M3 × 6 平头螺丝固定两侧盖板。（未安装 SIM 卡时不建议插入卡托，否则很可能损坏 SIM 卡座。）
++
+image::/bpi-r4/bpi-r4_accessories_installation_10.jpg[bpi-r4_accessories_installation_10.jpg]
+image::/bpi-r4/bpi-r4_accessories_installation_11.jpg[bpi-r4_accessories_installation_11.jpg]
+
+. 在底部安装 4 个硅胶脚垫。
++
+image::/bpi-r4/bpi-r4_accessories_installation_12.jpg[bpi-r4_accessories_installation_12.jpg]
+. 将 Wi-Fi 和 5G 天线分别安装到对应的 SMA 接头上。
++
+image::/bpi-r4/bpi-r4_accessories_installation_13.jpg[bpi-r4_accessories_installation_13.jpg]
+. 组装完成。接下来可按需插入 SFP 模块、TF 卡、网线和 U 盘等设备，然后接通电源启动。
