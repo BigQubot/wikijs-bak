@@ -1,17 +1,17 @@
-TIP: link:/en/BPI-Bit/Bit_for_Arduino#_lighting_the_rgb_led[位用于 Arduino]
+TIP: link:/en/BPI-Bit/Bit_for_Arduino#_lighting_the_rgb_led[BPI-Bit 的 Arduino 教程]
 
 = 如何点亮 RGB LED
 
 == 安装库
-. 从安装库 github:
+. 从 GitHub 安装库：
 +
-图书馆：link:https://github.com/Makuna/NeoPixelBus[新像素_巴士] 从马库纳出发
+库：link:https://github.com/Makuna/NeoPixelBus[NeoPixelBus]，作者 Makuna
 +
-下载库并将其放入安装目录的libraries文件夹中 Arduino IDE
+下载库，并将其放入 Arduino IDE 安装目录的 libraries 文件夹中。
 +
 image::/picture/lightingled-1.png[lightingled-1.png]
 
-. 通过管理库安装库：
+. 通过“管理库”安装：
 +
 image::/picture/lightingled-4.png[lightingled-4.png]
 image::/picture/lightingled-6.png[lightingled-6.png]
@@ -19,7 +19,7 @@ image::/picture/lightingled-6.png[lightingled-6.png]
 == 程序代码
 - 打开 Arduino IDE
 +
-点击“文件”->“示例”->“NeoPixel Bus”->“简单”打开示例
+依次选择“文件”->“示例”->“NeoPixelBus”->“Simple”打开示例。
 +
 image::/picture/lightingled-7.png[lightingled-7.png]
 
@@ -35,7 +35,7 @@ image::/picture/lightingled-7.png[lightingled-7.png]
  const uint16_t PixelCount = 25; // this example assumes 4 pixels, making it smaller will cause a failure
  const uint8_t PixelPin = 4;  // make sure to set this to the correct pin, ignored for Esp8266
 ```
-- 然后添加以下代码使设置无效()
+- 然后将以下代码添加到 void setup() 中
 +
 ```sh
  #define LED_POWER      2
@@ -46,4 +46,4 @@ image::/picture/lightingled-7.png[lightingled-7.png]
 +
 image::/picture/lightingled-3.png[lightingled-3.png]
 +
-并下载它(设置串口和板卡）
+设置串口和开发板后，将程序上传到开发板。
