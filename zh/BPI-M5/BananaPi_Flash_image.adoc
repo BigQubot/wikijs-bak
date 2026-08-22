@@ -1,0 +1,157 @@
+的 Rockchip 香蕉派系列产品的芯片IC系统镜像包含多种根文件系统。我们可以根据自己的需要选择对应的图片进行下载。
+
+NOTE: 系统映像包括 linux 内核、基础程序等，是运行香蕉派系列产品所必需的，所以在运行产品之前我们需要安装产品的镜像。
+
+= 获取系统镜像
+
+访问Google Drive资源介绍页面获取系统镜像 
+链接： https://drive.google.com/drive/folders/1aCoC6-5zoMaNBGwwgr_pYIs219aFijFM[谷歌云端硬盘链接]
+
+TIP:  1.默认 account/password 官方图片是 armsom/armsom.
+
+TIP: 2. 的 Debian system 是使用以下编译的系统 SDK RK官方提供。更适合有ISP的用户， GPU、编解码器和 NPU 要求。使用RKDevTool烧录到 eMMC，或者使用SDDiskTool刻录到SD卡。
+
+TIP: Ubuntu, 阿姆比亚, Openwrt 是ArmSoM为开源爱好者提供的更多选择。
+
+= 烧伤 Ubuntu, 阿姆比亚, Openwrt 系统
+
+== 将读卡器烧录至 microSD
+
+=== 通过 Etcher 将操作系统映像闪存到 microSD
+
+该方法适合将系统烧录到SD卡上，可用于 Windows, MacOS, 和 Linux x64 操作系统。
+
+准备工作：
+
+ 1. 一张 microSD 卡
+ 2. SD卡读卡器
+ 3. 下载 Ubuntu / 阿姆比安 / Openwrt 对应产品的系统镜像
+ 4. 将SD卡插入SD读卡器，然后将SD卡读卡器插入 USB 计算机端口
+ 
+=== 通过 Etcher 将操作系统映像闪存到 microSD
+
+* 从链接下载 balenaEtcher： https://etcher.balena.io/[巴莱纳官方网站] 并选择指定的主机系统进行下载。程序格式为 Linux 这是应用程序图像。
+* 将需要烧录的MicroSD卡插入MicroSD读卡器
+* 打开etcher窗口，首先从文件中选择Flash，找到您的镜像下载位置，然后双击选择它。
+
+image::/bpi-m5pro/flash_imae_1.png[flash_imae_1.png]
+
+* 然后单击选择目标并选择您要刻录的 MicroSD 卡。
+* 点击Flash，等待刻录成功，需要一些时间。
+* 如果烧录成功，会显示如图所示。
+
+image::/bpi-m5pro/flash_imae_2.png[flash_imae_2.png]
+
+NOTE: 燃烧失败
+ 1. 的 windows 刻录镜像需要“以管理员身份运行”。一些 Linux 用户可能需要通过 chmod 命令修改它以作为可执行文件运行。
+ 2. 如果刷新操作系统映像时出现错误，请重试。
+ 
+=== 通过 Win32DiskImager 将操作系统映像闪存到 microSD
+
+* link:https://win32diskimager.org/[下载] 闪存工具 Win32DiskImager
+* 打开 Win32DiskImager
+* 单击文件夹图标按钮并选择要闪烁的镜像
+* 完成以上操作后，点击写入按钮开始烧写镜像，然后等待镜像写入完成。
+
+== USB 电缆燃烧至 eMMC
+
+=== 工具获取和安装
+
+将镜像刻录到 eMMC 需要使用RKDevTool烧录工具和RK Driver Assistant (司机助理)
+
+点击进入链接： link:https://drive.google.com/drive/folders/1xobYSZsGutYoqUHfN6SUJeQGqvtlfkmF[谷歌驱动器链接]
+
+image::/bpi-m5pro/google-flash-tool.png[google-flash-tool.png]
+
+=== 安装驱动助手
+
+解压DriverAssitant软件压缩包，双击DriverInstall.exe，进入驱动安装界面。
+
+单击驱动程序安装开始安装驱动程序。如果您不确定之前是否安装过旧版本的驱动程序，请先单击“驱动程序卸载”删除旧版本的驱动程序，然后单击“驱动程序安装”。
+
+image::/bpi-m5pro/install-driver-assitant.png[install-driver-assitant.png]
+
+=== 安装 RKDevTool
+Rockchip的专注 USB 燃烧工具， Windows 平台，可以使用 USB 将系统映像下载到产品的界面。
+
+压缩包解压后，无需安装即可使用。双击RKDevTool.exe进入软件界面。
+
+该软件主要有三个部分，分别是下载镜像 (根据地址即可烧录镜像)、升级固件和高级功能。
+
+=== 刻录图像 MASKROM/Loader 模式
+该模式适用于未烧录到系统或烧录后的系统损坏无法运行的产品 (适应所有条件)
+
+我们打开RKDevTool烧录工具并将产品设置为进入烧录模式。
+
+请参考产品相关说明进行操作。不同产品进入Maskrom模式的方法基本相同。
+
+1. 准备用于图像刻录的 Type-C 电缆
+2. 断开可能为产品供电的所有连接，例如电源线、USB电缆等
+3. 使用一根Type-C线，一端连接产品的OTG接口，另一端连接电脑的OTG接口 USB 界面，然后打开软件RKDevTool
+4. 按住 MASKROM/Recovery 按钮，然后使用直流电为产品供电
+5. 等待软件提示找到 MASKROM/LOADER 装置 (如下图所示)，然后松开按钮
+6. 如果不成功，请重复步骤 2-5。
+
+开始烧录系统
+
+image::/bpi-m5pro/rkdevtool-install-emmc.png[rkdevtool-install-emmc.png]
+
+* 1.选择下载图片项目
+* 2.确认板子已进入Maskrom模式
+* 3.单击空白单元格以选择要使用的 MiniLoaderAll 和图像文件。对应的MiniLoaderAll和Image存储在googledrive中。
+* 4.选择目标介质 EMMC 在“存储”选项中，选择“按地址强制写入”，然后单击“执行”。
+* 5.等待写入完成，然后设备会自动重启，如上图右侧 下载图片 OK
+
+= 烧伤 Debian 和 Android 系统
+
+== 将读卡器烧录至 microSD
+
+=== 安装SDDiskTool
+
+将镜像刻录到 eMMC 需要使用烧录工具SDDiskTool_版本号.exe
+
+点击进入链接： link:https://drive.google.com/drive/folders/1xobYSZsGutYoqUHfN6SUJeQGqvtlfkmF[谷歌驱动器链接]
+
+image::/bpi-m5pro/google-sd-disk-tool.png[google-sd-disk-tool.png]
+
+压缩包解压后，无需安装即可使用。双击SD_固件_Tool.exe进入软件界面。
+
+=== 烧录镜像
+
+打开可执行文件SD_固件_烧录SDDiskTool并插入SD卡的Tool.exe。
+
+首先选择正确的要烧录的SD卡，然后选择功能模式为SD Boot，然后选择要烧录的镜像，最后点击 开始创建烧录镜像到SD卡。
+
+image::/bpi-m5pro/debian_burn.png[debian_burn.png]
+
+耐心等待SD卡完全烧录。当镜像尺寸较大时，刻录时间也会相应较长。
+
+TIP: 1.点击创建时，有一定概率会报无法烧录的错误信息。您可以关闭错误窗口并重新开始创建。如果还是不行，请尝试格式化SD卡。
+2.从googledrive下载的固件加载前需要解压，并且 Windows PC端需要以管理员权限运行该工具才可以执行。
+
+== USB 电缆燃烧至 eMMC
+
+我们打开RKDevTool烧录工具并将产品设置为进入烧录模式。
+
+* 1.准备用于烧录镜像的Type-C线
+* 2. 断开所有可能为产品供电的连接，例如电源线、 USB电缆等
+* 3. 使用Type-C数据线一端连接产品的OTG接口，另一端连接电脑的OTG接口 USB 界面，然后打开软件RKDevTool
+* 4. 按住Recovery按钮，然后使用DC为产品供电
+* 5.等待软件提示找到LOADER设备 (如下图所示)，然后松开按钮
+* 6. 如果不成功，请重复步骤 2-5。
+
+image::/bpi-m5pro/rkdevtool-3.19_1.png[rkdevtool-3.19_1.png]
+
+image::/bpi-m5pro/rkdevtool_3.19_2.jpg[rkdevtool_3.19_2.jpg]
+
+右侧显示闪烁进度，完成后提示：
+
+image::/bpi-m5pro/rkdevtool-3.19_3.png[rkdevtool-3.19_3.png]
+
+NOTE: 编程失败分析
+如果烧录过程中出现Download Boot Fail，或者烧录过程中出现错误，如下图所示，一般是由于烧录器接触不良造成的 USB 使用的电缆、线材劣质或计算机驱动能力不足 USB 端口。请更换 USB 电缆或计算机故障排除 USB 端口。
+
+MASKROM 模式编程和加载器模式编程之间有什么区别？
+
+* Maskrom：当Flash固件没有烧录时，芯片会启动进入Maskrom模式，可以烧录初始固件；如果开发调试过程中Loader无法正常启动，也可以进入Maskrom模式烧录固件。
+* Loader：原理是uboot启动时检测到该引脚被按下。在Loader模式下，可以对固件进行编程和升级。您可以使用工具单独刻录分区镜像文件，以方便调试。
