@@ -1,0 +1,53 @@
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_development_tutorialbased_on_microbit[BPI-Bit 的 MicroPython 教程]
+
+= 指南针
+该模块用于访问内置电子罗盘（MPU9250）。使用前应先校准，否则读数可能不准确。
+
+NOTE: 罗盘校准期间程序会暂停。请在空中转动开发板，画圆或“8”字，直至校准完成。
+
+== 指南针功能
+- Compass.calibrate()
++
+调用此函数会开始校准。按照提示转动开发板，在空中画横向“8”字或圆圈（与手机罗盘校准方式类似）。校准约需 1 分钟，期间无法执行其他程序。
+
+通知消息
+
+image::/bpi-bit/prompt.png[prompt.png]
+
+- compass.is_calibrated()
++
+如果罗盘校准成功则返回 True，否则返回 False
+- compass.get_x()
++
+返回 X 轴上磁场强度的读数，该读数是正整数或负整数，具体取决于磁场方向。
+- compass.get_y()
++
+返回 Y 轴上磁场强度的读数，该读数是正整数或负整数，具体取决于磁场方向。
+- compass.get_z()
++
+返回 z 轴磁场强度的读数，该读数是正整数或负整数，具体取决于磁场方向
+- compass.heading()
++
+根据上述读数计算罗盘航向，返回 0～360 的整数；12 点钟方向为 0°，角度顺时针增加。
+- compass.get_field_strength()
++
+返回设备周围磁场的大小，它是一个整数。
+
+== 示例代码
+```sh
+"""
+  compass.py
+   Creates a compass.
+   The user will need to calibrate the compass first. The compass uses the
+   built-in clock images to display the position of the needle.
+"""
+from microbit import *
+# Start calibrating
+compass.calibrate()
+# Try to keep the needle pointed in (roughly) the correct direction
+while True:
+   sleep(100)
+   needle = ((15 - compass.heading()) // 30) % 12
+   display.show(Image.ALL_CLOCKS[needle])
+```
+本示例首先校准电子罗盘（MPU9250）。校准完成后，LED 点阵会显示指南针；无论怎样转动开发板，指示方向都会保持正确。
