@@ -1,25 +1,25 @@
 = 测试环境及软件
 
-MT7615模块有支持 BPI-R2, BPI-R64，并且我们在实验室测试了7615模块的参数性能。以达到最优
+MT7615 模块支持 BPI-R2 和 BPI-R64。我们已在实验室测试 MT7615 的各项参数，以获得最佳性能。
 
-BPI-R64+MT7615 测试wifi功能 openwrt
+使用 OpenWrt 测试 BPI-R64 + MT7615 的 Wi-Fi 功能
 
 == 所需物品清单
 . BPI-R64
 . BPI-MT7615 模块
-. 12V/2A 适配器
+. 12 V/2 A 电源适配器
 . USB 串口线（3.3V）
-. TF卡
-. 5.8GHz wifi天线，1-4根
-. Openwrt 图片： https://docs.banana-pi.org/en/BPI-R64/BananaPi_BPI-R64#_system_image
+. TF 卡
+. 5.8 GHz Wi-Fi 天线，1～4 根
+. OpenWrt 镜像：https://docs.banana-pi.org/en/BPI-R64/BananaPi_BPI-R64#_system_image
 
 == 环境搭建
-使用工具(windows Win32DiskImager）烧录 BPI-R64 openwrt 镜像到TF卡，然后插入TF卡槽；MT7615模块插入 BPI-R64 mPCIe接口CN25，连接 UART 调试好线路和wifi天线，然后通电开机。
+在 Windows 中使用 Win32DiskImager 将 BPI-R64 OpenWrt 镜像烧录到 TF 卡，再将卡插入卡槽。把 MT7615 模块插入 BPI-R64 的 mPCIe 接口 CN25，连接 UART 调试线和 Wi-Fi 天线，然后通电启动。
 
 image::/picture/7615_test_1.jpg[7615_test_1.jpg]
 
 == 配置网络
-启动完成后，在串口输入： ifconfig rai0 up 启动MT7615 然后配置rai0 IP地址，如：ifconfig rai0 192.168.11.11
+启动完成后，在串口中输入 ifconfig rai0 up 启用 MT7615，再配置 rai0 的 IP 地址，例如：ifconfig rai0 192.168.11.11
 
 
 image::/picture/7615_test_2.png[7615_test_2.png]
@@ -27,54 +27,54 @@ image::/picture/7615_test_2.png[7615_test_2.png]
 image::/picture/7615_test_14.png[7615_test_14.png]
 
 
-使用PC连接MTK_AP2 SSID，然后手动配置IP
+使用计算机连接 MTK_AP2 SSID，然后手动配置 IP 地址。
 
 image::/picture/7615_test_3.jpg[7615_test_3.jpg]
 
 
 = 性能测试
-由于wifi只有一根天线，连接速度只有433Mbps。测试时，笔记本与MT7615之间没有墙壁或其他障碍物，MT7615处于干扰较小的通道内。
+由于测试时只连接一根 Wi-Fi 天线，连接速率为 433 Mb/s。测试期间，笔记本与 MT7615 之间没有墙壁或其他障碍物，并为 MT7615 选择了干扰较少的信道。
 
 image::/picture/7615_test_4.png[7615_test_4.png]
 
-== 0.5米距离测试
-距离0.5m测试：MT7615距离笔记本电脑0.5m 5.1.1.信号强度
+== 0.5 米距离测试
+测试距离为 0.5 m：MT7615 与笔记本电脑相距 0.5 m。5.1.1 信号强度
 
 image::/picture/7615_test_5.jpg[7615_test_5.jpg]
 
-Iperf速度测试
+iperf 速率测试
 
 image::/picture/7615_test_6.jpg[7615_test_6.jpg]
 
-== 5档速度距离测试
+== 5 米距离测试
 信号强度
 
 image::/picture/7615_test_7.jpg[7615_test_7.jpg]
 
-Iperf速度测试
+iperf 速率测试
 
 image::/picture/7615_test_8.png[7615_test_8.png]
 
-== 10速距离测试
+== 10 米距离测试
 信号强度
 
 image::/picture/7615_test_9.jpg[7615_test_9.jpg]
 
-Iperf速度测试
+iperf 速率测试
 
 image::/picture/7615_test_10.jpg[7615_test_10.jpg]
 
 = 功耗测试
-直流电源设置为12V输出
+将直流电源输出设为 12 V。
 
-当 BPI-R64 功率，330mA
+BPI-R64 上电时：330 mA
 
 image::/picture/7615_test_11.jpg[7615_test_11.jpg]
 
-打开MT7615和电脑连接wifi时，390mA
+启用 MT7615 并让计算机连接 Wi-Fi 时：390 mA
 
 image::/picture/7615_test_12.jpg[7615_test_12.jpg]
 
-iperf测试速度时，480mA
+运行 iperf 速率测试时：480 mA
 
 image::/picture/7615_test_13.jpg[7615_test_13.jpg]
