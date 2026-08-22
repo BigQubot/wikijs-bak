@@ -1,37 +1,37 @@
-TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_development_of_advanced[位用于 MicroPython]
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_development_of_advanced[BPI:bit 的 MicroPython 开发]
 
 = 了解无线编程
 
-采用有线连接板的方式是上个世纪的特点，所以我们在后来的开发过程中，就是要支持，并且尽可能往无线控制的方向开发，对于各种简单的物联网设备来说是没有专门预留有线接口给你连接到电脑控制的，比如说灯光的智能控制。
+传统开发通常通过线缆连接开发板；后续开发则应尽可能支持无线控制。许多简单的物联网设备并不会预留连接计算机的有线接口，例如智能照明设备。
 
-那么此时无线就投入使用了，可以看到，在板子连接上互联网后，我们就可以不用插入电脑来帮助板子直接上网了 (link:/en/BPI-Bit/Bit_for_MicroPython/WiFI_wireless_connection#_connect_wifi_by_mobile[上一节的手机分销网络模型])，所以这就是无线编程的基础，通过简单的方式让板子进入你的网络，你就可以控制它了。
+这时就需要无线连接。开发板接入网络后，无需再连接计算机也能联网（参见 link:/en/BPI-Bit/Bit_for_MicroPython/WiFI_wireless_connection#_connect_wifi_by_mobile[上一节的手机配网模式]）。无线编程的基础，就是先让开发板以简单方式接入本地网络，再从网络中控制它。
 
 = 远程连接 BPI:bit
-的 MicroPython 接口使用 Python REPL，这意味着它本身就是一个可以重用的操作系统环境。与之前不同 Linux 系统，其特点是简单易用
+MicroPython 使用 Python REPL 作为交互接口，可以反复执行命令。它不同于完整的 Linux 系统，特点是简单易用。
 
-REPL 是有线时常用的交互界面，而无线时， link:http://micropython.org/webrepl/[网络REPL] 介绍一下，顾名思义，就是一朵云 REPL，如下图所示：
+有线连接时通常使用串口 REPL；无线连接时则可以使用 link:http://micropython.org/webrepl/[WebREPL]。顾名思义，它是通过网络访问的 REPL，如下图所示：
 
 image::/bpi-bit/webrepl_ftp.png[webrepl_ftp.png]
 
-可以看到它可以直接操作板子，和过去有线连接一样，响应速度很快，和有线的感觉没有太大区别。
+WebREPL 可以直接操作开发板，响应速度较快，使用体验与有线连接相近。
 
-不过这显然还不够，因为这个编辑器只能用，但是不好用，所以我特地在mpfshell中适配了webrepl。也就是说基于mpfshell的pycharm插件也支持无线编程，所以所有认为有用的功能都用上了，如下图所示。
+不过 WebREPL 自带的编辑器功能较简单，因此 Mpfshell 也适配了 WebREPL。这样，基于 Mpfshell 的 PyCharm 插件同样支持无线编程，并可继续使用原有工具功能，如下图所示。
 
 image::/bpi-bit/pycharm.png[pycharm.png]
 
-程序运行良好且响应速度更快 (毕竟是专门为此目的而设计的)，但需要注意的是，路径并不完全相同。
+运行程序时响应很快，但需要注意，两种工具使用的连接路径格式并不相同：
 
-- webrepl标准路径是ws：//192.168.30.116:8266.
-- mpfshell的路径是ws:192.168.30.116和1234，区别在于后者允许绕过密码，从而消除连接认证。
+- WebREPL 的标准路径为 ws://192.168.30.116:8266。
+- Mpfshell 的路径为 ws:192.168.30.116,1234，其中 1234 为连接密码；该格式可直接携带密码，省去交互式认证步骤。
 
-此时，您就可以像以前使用有线一样使用它了，如果这期间出现任何问题，只需重新启动板子即可，它将自动给网络加电并打开Webrepl支持服务
+此后即可像使用有线连接一样操作开发板。如果期间出现问题，可重启开发板；它会在上电后自动联网并启动 WebREPL 服务。
 
-未来它将由电池供电，无需电脑电源，因此您可以完全无线控制它。请注意，必要时需要将频率降低至80Mhz，否则很快就会断电。
+使用电池供电时，无需计算机供电即可完全无线控制。为降低耗电，必要时可把主频降到 80 MHz，否则电池会很快耗尽。
 
 = 远程管理 BPI:bit
-虽然我们可以使用 REPL 为了以编程方式控制棋盘，我们需要一些额外的网络支持服务来使我们的棋盘更加愉快。我将在这里稍微谈谈它们
+虽然可以通过 REPL 编程控制开发板，但还需要一些网络服务来完善远程使用体验，下面分别介绍。
 
-== FTP标准文件系统操作服务
+== FTP 标准文件系统操作服务
 从以下代码开始：
 ```sh
 import ftptiny
@@ -49,41 +49,41 @@ webdav.start()
 
 image::/bpi-bit/webdav.png[webdav.png]
 
-它与FTP的不同之处在于它使用80端口并且使用HTTP而不是FTP
+WebDAV 与 FTP 的区别在于它使用 80 端口和 HTTP 协议。
 
 image::/bpi-bit/webdav_index.png[webdav_index.png]
 
 == 主机名本地域名服务
-这就需要特定的路由服务支持，比如 openwrt(Linux).
+此功能需要路由器提供相应服务支持，例如 OpenWrt（Linux）。
 
-它允许您使用 hostname.lan 访问板 (或直接主机名) 而不是IP。
+这样可以使用 hostname.lan（或直接使用 hostname）访问开发板，不必输入 IP 地址。
 
-因此，您无需记住 IP 地址，而是定义自己的板名称。
+因此，只需为开发板定义名称，无需记忆 IP 地址。
 
-主机名保存在 wifi_cfg.py 文件如下。
+主机名保存在 wifi_cfg.py 文件中，如下图所示。
 
 image::/bpi-bit/wifi_cfg.png[wifi_cfg.png]
 
-如图bit3D6D所示，接入方法及测试方法如下：
+以图中的 bit3D6D 为例，访问和测试方法如下：
 
 image::/bpi-bit/hostname.png[hostname.png]
 
-以及如何使用它？
+实际使用方法如下：
 
 image::/bpi-bit/hostname_demo.png[hostname_demo.png]
 
-当您去其他地方更改网络后，无需更改IP，只需更改WIFI连接配置即可。
+更换网络环境后，无需修改访问地址中的 IP，只需更新 Wi-Fi 连接配置。
 
-== MDns反向域名解析服务
-如果无法使用主机名来代替IP内存，除了请求云服务商注册DNS域名解析外，还有一个办法，就是反转注册的DNS，DNS是服务器特有的管理服务，客户端是无法再次更改的，所以，我们会使用主动申请的DNS为其特定的域名。
+== mDNS 本地域名解析服务
+如果路由器不支持 hostname.lan，还可以使用 mDNS 在本地网络中注册域名。与需要服务器统一管理的公共 DNS 不同，设备可主动注册自己的本地域名。
 
-换句话说，将IP变成自定义的网络路径，例如hostname.local。
+换句话说，可以把 IP 地址映射为自定义名称，例如 hostname.local。
 
-如下所示，这也需要相对较新的路由器支持。只要不是上世纪的路由器，基本都支持这个服务，但是不否认10年前生产的路由器可能没有这个MDns服务，包括电脑也可能不支持
+如下所示，mDNS 也需要路由器和计算机提供相应支持。较旧的路由器或操作系统可能不支持该服务。
 
-Windows 需要额外安装 Bonjour 打印服务，可以 link:https://support.apple.com/kb/DL999[在这里下载].
+Windows 需要额外安装 Bonjour Print Services，可 link:https://support.apple.com/kb/DL999[在此下载]。
 
-现在我使用以下代码来配置板子进行Mdns注册 (所有操作均基于互联网)
+以下代码用于在开发板上注册 mDNS 服务（所有操作均通过网络完成）：
 
 ```sh
 try:
@@ -98,22 +98,22 @@ try:
 except Exception as e:
    print("mDNS not started")
 ```
-您可以在计算机上使用bpibit.local代替IP地址来访问它，如下图所示。您还可以更改 mdns.start 的名称(“bpi比特”，“MicroPython 与MDNS“) 在你的代码中
+随后可在计算机上使用 bpibit.local 代替 IP 地址访问开发板，如下图所示。也可修改代码中 mdns.start("bpibit", "MicroPython with mDNS") 的名称参数。
 
 image::/bpi-bit/mdns.png[mdns.png]
 
-但其实不仅如此，你还知道它提供什么服务等等，我还用其他软件看了一下，下面是手机上看的结果，你可以看看 MicroPython 对应mdns.addservice参数。
+mDNS 还会公布设备提供的服务。下图是在手机端查看到的结果，可与 MicroPython 代码中的 mdns.addService 参数对照。
 
 image::/bpi-bit/mdns_server.jpg[mdns_server.jpg]
 
-从图中我们可以看到我们注册时提供的信息，比如FTP和HTTP服务
+图中可以看到注册时提供的 FTP 和 HTTP 等服务信息。
 
-== Python即时创建 Web 服务
-Webdav 旨在成为一个静态的、纯 Web 服务器，而不是使用 Python 在后台。
+== 使用 Python 动态创建 Web 服务
+WebDAV 主要提供静态文件服务，并不是由 Python 处理后端逻辑的动态 Web 服务。
 
-因此，我提供了 link:https://microwebsrv.hc2.fr/[微网服务器] 在要构建的固件中 Python 动态网站。
+因此，固件中提供了 link:https://microwebsrv.hc2.fr/[MicroWebSrv]，可用于构建 Python 动态网站。
 
-接下来是一个简单的应用程序示例，该示例将设置类似于 PHP 语言的 Web 服务。
+后续将通过一个简单示例，建立类似 PHP 应用的动态 Web 服务。
 
 = 结束
-到目前为止，只介绍了无线编程的特点，并没有对其使用进行详细说明，将在后续章节中慢慢带出。本节描述文字较多，主要讲解，无线编程的基本概念和有吸引力的补充功能，让人们更容易接受它的美好，同时也不能忘记它的缺点。
+本节只介绍了无线编程的特点，具体用法将在后续章节逐步展开。这里重点说明无线编程的基本概念和配套功能，同时也应了解它的限制。
