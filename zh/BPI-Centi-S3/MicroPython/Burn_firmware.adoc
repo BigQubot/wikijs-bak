@@ -1,0 +1,68 @@
+TIP: link:../GettingStarted_BPI-Centi-S3[返回开始使用 BPI-Centi-S3]
+
+BPI-Centi-S3 已编程为 MicroPython st7789固件
+并口驱动，通常这一步可以跳过。
+
+如果您在开发过程中遇到意想不到的恶性BUG导致无法
+开发板无法正常启动，或其他原因导致
+固件被擦除或者损坏，可以找到编译好的固件
+从 github 链接如下并自行烧录。
+
+NOTE: link:https://github.com/BPI-STEAM/BPI-Centi-S3-Doc/tree/main/micropython_st7789s3_firmware[GitHub: BPI-Centi-S3 micropython 固件]
+
+== 固件信息
+
+. micropython1.19.1_esp32s3_qspram_st7789s3.bin
+* micropython 1.19.1 发布标签
+* esp32s3，四路 SPIRAM，8M 闪存
+* russhughes/st7789s3_esp_lcd
+. micropython1.20.0dev_esp32s3_qspram_st7789s3.bin
+* micropython 1.20.0 主开发版，截至 2023 年 6 月 6 日(米普，埃斯普诺)
+* esp32s3，四路 SPIRAM，8M 闪存
+* russhughes/st7789s3_esp_lcd
+
+=== 设置固件下载模式
+
+操作方法有两种：
+
+. 通过以下方式连接到计算机 USB，按住BOOT键，然后
+按下RESET按钮然后松开，最后松开BOOT
+按钮。
+. 断开电源时按住BOOT按钮，
+然后通过连接到计算机 USB，最后释放BOOT
+按钮。
+
+由此可见，芯片选择启动模式时
+通过BOOT键控制的GPIO0复位或重新上电。
+
+在设备管理器中确认COM接口。序列号为
+固件下载模式和普通模式下的COM接口是
+通常不同。
+
+=== 安装esptool工具
+> 需要先安装Python3，参见 link:./environment#_install_the_python_environment[安装 Python 环境].
+
+在终端中输入以下命令来安装 esptool。
+
+```
+pip install esptool
+```
+
+=== esptool命令
+
+
+IMPORTANT: 对Flash的所有操作都是不可逆的，注意备份
+有价值的数据。
+
+
+* 擦除闪存
+
+```
+python -m esptool --chip esp32s3 --port COM1 --baud 460800 erase_flash
+```
+
+* 写入闪存
+
+```
+python -m esptool --chip esp32s3 --port COM1 --baud 460800 --before=usb_reset --after=no_reset write_flash 0x0 micropython1.19.1_esp32s3_qspram_st7789s3.bin
+```
