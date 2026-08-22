@@ -1,87 +1,87 @@
-TIP: link:/en/BPI-M1/BananaPi_BPI-M1[BananaPi_BPI-M1]
+TIP: link:/en/BPI-M1/BananaPi_BPI-M1[BananaPi BPI-M1]
 
-TIP: link:/en/BPI-M1_Plus/BananaPi_BPI-M1_Plus[BananaPi_BPI-M1_Plus]
+TIP: link:/en/BPI-M1_Plus/BananaPi_BPI-M1_Plus[BananaPi BPI-M1 Plus]
 
 == Android 4.4
-=== 内核3.4.39
-**特色地图**
+=== 内核 3.4.39
+**功能支持表**
 [options="header",cols="1,2,2,1,5"]
 |====
-| 图片	         | 特点	 | 子功能	| 状态	| 性能
-.20+| Android	.2+| USB	     | 高压气体放电管	        | 是的	    |
-                             | Storage	    | YES	    |
-                 | Ethernet	 |	            | YES	    | More --> Ethernet --> Use Ethernet
-              .2+| WiFi	     | WiFi Client  |	No	    | No Wifi module on board
-                             | AP mode	    | No	    | No Wifi module on board
-              .2+| Bluetooth | BT	          | No	    | No BT module on board
-                             | BLE	        | No	    | No BT module on board
-              .2+| CAMERA ov5640|	photograph|	Developing	|
-                                | recording	| Developing	|
-                 | LCD 7'	   | RGB	        | YES	    | Support Touch, S070WV20, HC070TG(Two Interface)
-                 | Audio	   | Recognise	  | YES     |	
-                 | Mic	     | Recognise	  | YES	    |
-                 | Av video	 |              |	Unknown	|
-              .2+| Sata	     | SSD	        | Developing	|
-                             | HDD	        | Developing	|
-                 |IR function|Recognise	    | Developing	| getevent can get data
-                 | EMMC	     | Recognise	  | No	    | No EMMC on board
-                 | OTG	     | adb	        | YES     |	Developer options --> USB debugging & Revoke USB debugging authorisations
-                 | 1080P	   | MPV	        | YES     |	
-                 | GPU	     | OpenGL	      | YES	    | OpenGL ES 2.0, 61fps
+| 镜像	         | 功能	 | 子功能	| 状态	| 性能
+.20+| Android	.2+| USB	     | HID	        | 支持	    |
+                             | 存储	    | 支持	    |
+                 | 以太网	 |	            | 支持	    | 更多 --> 以太网 --> 使用以太网
+              .2+| Wi-Fi	     | Wi-Fi 客户端  |	不支持	    | 开发板未配备 Wi-Fi 模块
+                             | AP 模式	    | 不支持	    | 开发板未配备 Wi-Fi 模块
+              .2+| Bluetooth | BT	          | 不支持	    | 开发板未配备 BT 模块
+                             | BLE	        | 不支持	    | 开发板未配备 BT 模块
+              .2+| CAMERA OV5640|	拍照|	开发中	|
+                                | 录像	| 开发中	|
+                 | 7 英寸 LCD	   | RGB	        | 支持	    | 支持触摸；S070WV20、HC070TG（两种接口）
+                 | 音频	   | 识别	  | 支持     |	
+                 | 麦克风	     | 识别	  | 支持	    |
+                 | AV 视频	 |              |	未知	|
+              .2+| SATA	     | SSD	        | 开发中	|
+                             | HDD	        | 开发中	|
+                 |红外功能|识别	    | 开发中	| getevent 可获取数据
+                 | eMMC	     | 识别	  | 不支持	    | 开发板未配备 eMMC
+                 | OTG	     | adb	        | 支持     |	开发者选项 --> USB 调试和撤销 USB 调试授权
+                 | 1080P	   | MPV	        | 支持     |	
+                 | GPU	     | OpenGL	      | 支持	    | OpenGL ES 2.0，61 fps
 |====
 
-== Ubuntu 16.04 服务器
-=== 内核3.4.112
-**特色地图**
+== Ubuntu 16.04 服务器版
+=== 内核 3.4.112
+**功能支持表**
 [options="header",cols="1,2,2,1,5"]
 |====
-| 图片	|特点	|子功能	|状态	| 性能
-.19+|Ubuntu	.2+|USB	|高压气体放电管	|是的	|
-                  |Storage	|YES|	
-.2+|通用汽车MAC	|传输控制协议	|是的	|iperf3测试： 430M/s
-|UDP协议	|是的	|iperf3测试： 1M/s
-.2+|无线网络|WiFi客户端	|否	|船上没有 Wifi 模块
-|AP模式	|否	|船上没有 Wifi 模块
-.2+|蓝牙	|BT	|否|板载无BT模块
-|低功耗蓝牙	|否	|板载无BT模块
-.2+|相机ov5640	|照片	|发展中|	
-|录音|发展中	|
-.3+|瑞林PI	|8x8 LED	|是的	|/usr/local/bin/bpi_test_hello
-|1602 LCD	|是的	|/usr/local/bin/bpi_test_lcd1602
-|OLED	|Developing	|/usr/local/bin/bpi_test_52pi
-|HDMI	|720P	|是的	|
-|红外功能	|认识	|是的	|getevent可以获取数据
-|EMMC| |否	|否 EMMC 船上
-|OTG	|亚行	|否	|
-.2+|萨塔	|SSD	|是的|	
-|硬盘	|是的	|
+| 镜像	|功能	|子功能	|状态	| 性能
+.19+|Ubuntu	.2+|USB	|HID	|支持	|
+                  |存储	|支持|	
+.2+|GMAC	|TCP	|支持	|iperf3 测试：430 M/s
+|UDP	|支持	|iperf3 测试：1 M/s
+.2+|Wi-Fi|Wi-Fi 客户端	|不支持	|开发板未配备 Wi-Fi 模块
+|AP 模式	|不支持	|开发板未配备 Wi-Fi 模块
+.2+|Bluetooth	|BT	|不支持|	开发板未配备 BT 模块
+|BLE	|不支持	|开发板未配备 BT 模块
+.2+|CAMERA OV5640	|拍照	|开发中|	
+|录像|开发中	|
+.3+|WiringPi	|8×8 LED	|支持	|/usr/local/bin/bpi_test_hello
+|1602 LCD	|支持	|/usr/local/bin/bpi_test_lcd1602
+|OLED	|开发中	|/usr/local/bin/bpi_test_52pi
+|HDMI	|720P	|支持	|
+|红外功能	|识别	|支持	|getevent 可获取数据
+|eMMC| |不支持	|开发板未配备 eMMC
+|OTG	|adb	|不支持	|
+.2+|SATA	|SSD	|支持|	
+|HDD	|支持	|
 |====
 
 == Ubuntu 16.04 桌面版
-=== 内核3.4.112
-**特色地图**
+=== 内核 3.4.112
+**功能支持表**
 [options="header",cols="1,2,2,1,5"]
 |====
-|图片	|特点	|子功能	|状态	|性能
-.20+| Ubuntu	.2+| USB  	| 高压气体放电管	      | 是的   |	
-                          | Storage	  | YES   |	
-              .2+| GMAC	  | TCP	      | YES	  | iperf3 test: 430M/s
-                          | UDP	      | YES	  | iperf3 test: 1M/s
-              .2+| WiFi	  |WiFi Client| No	  | No Wifi module on board
-                          | AP mode	  | No	  | No Wifi module on board
-              .2+|Bluetooth|BT	      | No	  | No BT module on board
-                          | BLE	      | No    | No BT module on board
-              .2+| CAMERA ov5640|photograph	|Developing	|
-                          | recording	|Developing	|
-              .3+| WringPI| 8x8 LEDs	| YES	 | /usr/local/bin/bpi_test_hello
-                          | 1602 LCD	| YES	 | /usr/local/bin/bpi_test_lcd1602
-                          | OLED	    |Developing	| /usr/local/bin/bpi_test_52pi
-                 | HDMI	  | 720P	    | YES   |	
-                 | LCD 7'	| Touch	    | YES	  | HC070TG38035, vim /var/lib/bananapi/bpi-init.d/S10-bpi-hw-touch.sh, m1 ft5xx => gt9xx
-                 |IR function|Recognise|YES	  | getevent can get data
-                 | EMMC	  |	          | No	  | No EMMC on board
-                 | OTG	  | adb	      | No    |	
-              .2+| Sata	  | SSD	      | YES   |	
-                          | HDD	      | YES	  |
+|镜像	|功能	|子功能	|状态	|性能
+.20+| Ubuntu	.2+| USB  	| HID	      | 支持   |	
+                          | 存储	  | 支持   |	
+              .2+| GMAC	  | TCP	      | 支持	  | iperf3 测试：430 M/s
+                          | UDP	      | 支持	  | iperf3 测试：1 M/s
+              .2+| Wi-Fi	  |Wi-Fi 客户端| 不支持	  | 开发板未配备 Wi-Fi 模块
+                          | AP 模式	  | 不支持	  | 开发板未配备 Wi-Fi 模块
+              .2+|Bluetooth|BT	      | 不支持	  | 开发板未配备 BT 模块
+                          | BLE	      | 不支持    | 开发板未配备 BT 模块
+              .2+| CAMERA OV5640|拍照	|开发中	|
+                          | 录像	|开发中	|
+              .3+| WiringPi| 8×8 LED	| 支持	 | /usr/local/bin/bpi_test_hello
+                          | 1602 LCD	| 支持	 | /usr/local/bin/bpi_test_lcd1602
+                          | OLED	    |开发中	| /usr/local/bin/bpi_test_52pi
+                 | HDMI	  | 720P	    | 支持   |	
+                 | 7 英寸 LCD	| 触摸	    | 支持	  | HC070TG38035；vim /var/lib/bananapi/bpi-init.d/S10-bpi-hw-touch.sh；M1 ft5xx => gt9xx
+                 |红外功能|识别|支持	  | getevent 可获取数据
+                 | eMMC	  |	          | 不支持	  | 开发板未配备 eMMC
+                 | OTG	  | adb	      | 不支持    |	
+              .2+| SATA	  | SSD	      | 支持   |	
+                          | HDD	      | 支持	  |
 |====
 
