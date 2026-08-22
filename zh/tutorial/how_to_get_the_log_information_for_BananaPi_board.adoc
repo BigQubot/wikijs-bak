@@ -1,28 +1,28 @@
-NOTE: **视频** 如何获取香蕉派板的日志信息 (RK芯片波特率为1500000，其他板波特率为115200): https://drive.google.com/file/d/1_1T4jUztxONd8agL-thWuBdekD8WH6cO/view?usp=sharing
+NOTE: **视频：如何获取 Banana Pi 开发板的日志**（RK 芯片波特率为 1500000，其他开发板为 115200）：https://drive.google.com/file/d/1_1T4jUztxONd8agL-thWuBdekD8WH6cO/view?usp=sharing
 
 == 准备工作
-. BPI开发板一块、TTL串口线一根、 SD/TF 带有烧毁镜像的卡片 (它也可以被烧成 eMMC).
+. 一块 BPI 开发板、一根 TTL 串口线，以及一张已烧录系统镜像的 SD/TF 卡（也可将镜像烧录到 eMMC）。
 
-. MobaXterm 下载： https://mobaxterm.mobatek.net/download.html
+. 下载 MobaXterm：https://mobaxterm.mobatek.net/download.html
 
 == 开始
 接下来，使用 BPI-M5 作为演示。
 
-. 打开MobaXterm，然后点击左上角的Session并选择Serial。
+. 打开 MobaXterm，单击左上角的 Session，再选择 Serial。
 +
 image::/picture/log_export-1.jpg[log_export-1.jpg]
 image::/picture/log_export-2.jpg[log_export-2.jpg]
 
-. 将TTL线一端连接至电脑
+. 将 TTL 串口线的一端连接到计算机。
 +
 image::/picture/ttl_cable_connection-1.jpg[ttl_cable_connection-1.jpg]
-另一端插入开发板。 (RX和TX需要反接，VCC不需要接)
+另一端连接开发板（RX 与 TX 需要交叉连接，VCC 无需连接）。
 +
 image::/picture/ttl.jpg[ttl.jpg]
 image::/picture/ttl_cable_connection-2.jpg[ttl_cable_connection-2.jpg]
 
-. 在Serial port处选择端口，在Speed处选择波特率 (基点)，然后单击“确定”。
-(BPI的开发板大多是115200，只有RK芯片是1500000)
+. 在 Serial port 中选择端口，在 Speed (bps) 中选择波特率，再单击 OK。
+（大多数 BPI 开发板使用 115200，仅 RK 芯片使用 1500000。）
 +
 image::/picture/log_export-3.jpg[log_export-3.jpg]
 
@@ -34,11 +34,11 @@ image::/picture/power_on.jpg[power_on.jpg]
 +
 image::/picture/log_export-4.jpg[log_export-4.jpg]
 
-. 完成您想要的操作后，您现在可以导出日志。
-单击左上角的“终端”，然后单击“保存终端 tsxt”
+. 完成需要记录的操作后，即可导出日志。
+单击左上角的 Terminal，再单击 Save terminal text。
 +
 image::/picture/log_export-5.jpg[log_export-5.jpg]
-选择保存位置并将保存类型更改为纯文本文件
+选择保存位置，并将文件类型设为 Plain Text File。
 +
 image::/picture/log_export-6.png[log_export-6.png]
 
