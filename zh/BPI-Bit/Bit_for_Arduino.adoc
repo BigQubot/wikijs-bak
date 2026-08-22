@@ -1,0 +1,94 @@
+TIP: link:/en/BPI-Bit/BananaPi_BPI-Bit#_bpi_bit_for_arduino[香蕉派 BPI-Bit]
+
+= 关于BPI：比特
+
+该产品采用esp-wroom-32模块为核心进行设计，支持wi-fi、蓝牙、BLE等无线通信方式。
+
+BPI 位 (也称为 BPI-bit，风格化为 bpi:bit) 是一款基于 ESP32 32 位 Xtensa LX6 双核处理器的嵌入式系统。它支持Webduino， Arduino, MicroPython 以及 Scratch X 编程环境。
+
+image::/picture/a_bpi-bit.jpg[a_bpi-bit.jpg]
+
+= BPI：位用于 Arduino-IDE
+==  安装说明
+您可以获得有关以下方面的更多信息 Arduino-esp32 来自此页面： https://github.com/espressif/arduino-esp32
+
+== 有线连接板
+通过 MicroUSB 线将开发板连接到计算机，与 BPI:bit 相同 microPython.
+
+请参阅此文档：2 有线连接板
+
+安装说明使用 Arduino IDE 开发板管理器
+
+== 使用 Arduino IDE 开发板管理器 (首选)
+- 稳定版发布链接： https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+
+- 开发发布链接： https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_dev_index.json
+
+从 1.6.4 开始， Arduino 允许使用 Boards Manager 安装第三方平台软件包。我们有可用的套餐 Windows、Mac 操作系统和 Linux (32 位、64 位和 ARM).
+
+安装当前上游 Arduino IDE 1.8 或更高级别。当前版本位于 Arduino 网站。开始 Arduino 并打开首选项窗口。在“其他开发板管理器 URL”字段中输入上面的发布链接之一。您可以添加多个 URL，并用逗号分隔。从 Tools > Board 菜单打开 Boards Manager 并安装 esp32 平台(安装后不要忘记从“工具”>“开发板”菜单中选择您的 ESP32 开发板).
+
+= 如何使用 BPI:bit 进行开发
+
+|====
+2+|Arduino IDE编程功能定义
+
+|功能	|IO
+|RGB_LED	|IO4
+|RGB_LED_电源	|IO2
+|蜂鸣器	|IO25
+|波顿_A	|IO35
+|波顿_B	|IO27
+|光_传感器1(左上)	|IO36
+|光_传感器2(右上)	|IO39
+|温度_传感器	|IO34
+|微处理器9250_AD0	|IO0
+|====
+|====
+2+|通讯协议
+
+2+s|SPI
+|味噌	|IO19
+|莫西	|IO23
+|SCK	|IO23
+|SS	|IO5
+2+s|I2C
+|SCL	|IO22
+|SDA	|IO21
+|====
+
+== 如何使用 Arduino IDE
+
+源代码在 github: https://github.com/BPI-STEAM/BPI-BIT-Arduino-IDE
+
+- link:/en/BPI-Bit/How_to_use_with_Arduino_IDE[如何使用 Arduino IDE]
+
+== 点亮 RGB LED
+- link:/en/BPI-Bit/Lighting_the_RGB_LED[点亮 RGB LED]
+
+= 如何与 Platform IO 一起使用
+
+link:/en/BPI-Bit/How_to_use_with_Platform_IO[如何与 Platform IO 一起使用]
+
+== 安装平台IO
+link:/en/BPI-Bit/How_to_install_Platform_IO[如何安装平台IO]
+
+== 源代码位于 github
+源代码在 github : https://github.com/BPI-STEAM/BPI-BIT-PlatformIO
+
+== 文本编辑器
+我们需要提前准备一个文本编辑器 (VSCode 或 Atom)
+
+link:https://code.visualstudio.com/[视觉工作室代码(VS代码)]
+
+link:https://atom.io/[Atom]
+
+== 添加 Espressif 32 开发套件
+link:https://github.com/BPI-STEAM/BPI-BIT-PlatformIO/blob/master/docs/ESP32-PIO-Development-Kit.md[乐鑫 32 为 Atom/VSCode]
+
+= 文件
+BPI-Bit PlatformIO 4.0.0a3 文档： https://docs.platformio.org/en/latest/boards/espressif32/bpi-bit.html#
+
+BPI：位 arduino 基础开发教程(中文版) : http://forum.banana-pi.org/t/bpi-bit-arduino-basic-development-tutorials-chinese-version/7299
+
+BPI：位 + Arduino IDE，由 JavierPiay 分享： http://forum.banana-pi.org/t/bpi-bit-arduino-ide/7244
