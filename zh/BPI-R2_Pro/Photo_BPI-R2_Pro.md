@@ -1,8 +1,8 @@
 ---
-title: 香蕉派 BPI-R2 Pro 照片
-description: 香蕉派 BPI-R2 Pro 照片
-published: true
-date: 2026-08-22T11:47:36.929Z
+title: Banana Pi BPI-R2 Pro 产品图片
+description: Banana Pi BPI-R2 Pro 产品图片
+published: false
+date: 2026-08-22T17:11:15.883Z
 tags: 
 editor: markdown
 dateCreated: 2026-08-22T11:47:36.929Z
