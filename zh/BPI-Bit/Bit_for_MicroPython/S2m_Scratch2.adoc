@@ -1,61 +1,61 @@
-TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_development_tutorialbased_on_microbit[位用于 MicroPython]
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_development_tutorialbased_on_microbit[BPI-Bit 的 MicroPython 开发教程]
 
-= 关于Scratch2
-为了帮助大家更快地理解计算机语言，让孩子们制作自己的作品，麻省理工学院多媒体实验室的专家开发了一种儿童计算机语言——Scratch。在Scratch中，不需要记住复杂的语法和语句。 Scratch类似于搭积木，可以通过拖放的方式来编写程序。因此，Scratch看起来更加直观、直观且易于操作。学生们可以轻松制作自己的作品！
+= 关于 Scratch 2
+为了帮助人们更快地理解计算机语言并让孩子创作自己的作品，麻省理工学院媒体实验室的专家开发了面向儿童的编程语言 Scratch。使用 Scratch 不需要记忆复杂的语法和语句，程序可以像搭积木一样通过拖放来编写，因此更直观、易于操作，学生也能轻松创作自己的作品。
 
 image::/bpi-bit/scratch2_1.png[scratch2_1.png]
 
-= BPI：Scratch2 位
-Scratch2 的工作原理如下 Linux ARM 硬件运行于 Bananapi M64，以及BPI的开发：bit
+= 在 BPI:bit 上使用 Scratch 2
+下面介绍如何在 Banana Pi M64 等 Linux ARM 硬件上运行 Scratch 2，并用于 BPI:bit 开发。
 
 
 = 硬件前提条件
-首先学习如何刻录镜像， link:/en/BPI-Bit/Bit_for_MicroPython/Try_burning_the_board[看看]，然后烧录这个固件： s2mb_firmware.bin.
+首先阅读 link:/en/BPI-Bit/Bit_for_MicroPython/Try_burning_the_board[开发板烧录教程]，然后烧录 s2mb_firmware.bin 固件。
 
-Note: 我们可以将名称更改为 firmware.bin，否则硬件将无法被识别。
+Note: 必须将固件重命名为 firmware.bin，否则硬件无法被识别。
 
-烧录后无需拔掉硬件。硬件现已准备完成。
+烧录完成后无需拔下开发板，此时硬件已准备就绪。
 
-= 安装Scratch2
-== 安装 Scratch2 Windows 系统
-要访问 link:https://scratch.mit.edu/download/scratch2[Scratch 2.0编辑器]，先安装Adobe AIR，然后安装Scratch Offline编辑器。
+= 安装 Scratch 2
+== 在 Windows 系统中安装 Scratch 2
+打开 link:https://scratch.mit.edu/download/scratch2[Scratch 2.0 编辑器]下载页面，先安装 Adobe AIR，再安装 Scratch Offline Editor。
 
 image::/bpi-bit/bit-scratch2_install.png[bit-scratch2_install.png]
 
-然后打开 link:https://raw.githubusercontent.com/junhuanchen/s2m/master/s2m/scratch_files/projects/s2m-bpi-bit.sb2[s2m-bpi-bit.sb2] 使用 Scratch2 文件
+然后使用 Scratch 2 打开 link:https://raw.githubusercontent.com/junhuanchen/s2m/master/s2m/scratch_files/projects/s2m-bpi-bit.sb2[s2m-bpi-bit.sb2] 文件。
 
 image::/bpi-bit/open_project.png[open_project.png]
 
-现在您可以看到更多块：
+现在可以看到更多积木块：
 
 image::/bpi-bit/more_.png[more_.png]
 
-红点表示设备未连接。此时需要下载 link:https://github.com/BPI-STEAM/BPI-BIT-MicroPython/releases/download/Firmware1230/s2m-windows.exe[s2m-windows.exe] 的软件 link:https://github.com/BPI-STEAM/BPI-BIT-MicroPython/releases/tag/s2mb[s2mb 版本] 页。
+红点表示设备尚未连接。此时需要下载 link:https://github.com/BPI-STEAM/BPI-BIT-MicroPython/releases/download/Firmware1230/s2m-windows.exe[s2m-windows.exe] 软件，可从 link:https://github.com/BPI-STEAM/BPI-BIT-MicroPython/releases/tag/s2mb[s2mb 发布页面]获取。
 
-此时确定固件已经烧录提供 link:https://github.com/BPI-STEAM/BPI-BIT-MicroPython/releases/download/Firmware1230/s2mb_firmware.bin[s2mb_固件]。 Bin固件，具体烧录教程： link:/en/BPI-Bit/Bit_for_MicroPython/Try_burning_the_board[首先了解如何刻录镜像]
+请确认已经烧录 link:https://github.com/BPI-STEAM/BPI-BIT-MicroPython/releases/download/Firmware1230/s2mb_firmware.bin[s2mb_firmware.bin] 固件。具体步骤请参阅 link:/en/BPI-Bit/Bit_for_MicroPython/Try_burning_the_board[开发板烧录教程]。
 
-确保它有效：
+确认运行正常：
 
-现在打开s2m-windows.exe，你会看到绿灯已经亮了。开始使用它。
+打开 s2m-windows.exe，看到绿灯亮起后即可开始使用。
 
 image::/bpi-bit/running_scratch.png[running_scratch.png]
 
-如果你没有插入硬件，它会提示你。
+如果未连接开发板，软件会显示提示。
 
 image::/bpi-bit/bit-scratch2_scratch_error.png[bit-scratch2_scratch_error.png]
 
-== 安装 Scratch Linux
-软件准备前提，确认安装了python3和pip3，然后在shell命令框中输入
+== 在 Linux 中安装 Scratch
+先确认已经安装 Python 3 和 pip3，然后在 Shell 中输入：
 ```sh
 pip3 install git+https://github.com/junhuanchen/s2m 
 ```
-确认安装完成。
+确认安装已完成。
 
 image::/bpi-bit/try_use.png[try_use.png]
 
-== 开始使用软件
-安装完成后，在shell中输入s2m，会自动查找串口并开启服务，所以要确保硬件已连接并启动服务
+== 开始使用
+安装完成后，在 Shell 中输入 s2m。程序会自动查找串口并启动服务，因此请确保开发板已经连接。
 
-由于每个人安装的Scratch2可能不一样，所以我建议大家直接把Scratch2项目拿回来直接打开即可。下载的s2m-link:https://raw.githubusercontent.com/junhuanchen/s2m/master/s2m/scratch_files/projects/s2m-bpi-bit.sb2[bpi-bit.sb2] 项目是 link:https://github.com/junhuanchen/s2m/tree/master/s2m/scratch_files/projects[这里] (即在s2m目录下).
+由于不同环境中的 Scratch 2 安装方式可能不同，建议直接下载并打开项目文件。可下载 s2m-link:https://raw.githubusercontent.com/junhuanchen/s2m/master/s2m/scratch_files/projects/s2m-bpi-bit.sb2[bpi-bit.sb2] 项目；项目也位于 link:https://github.com/junhuanchen/s2m/tree/master/s2m/scratch_files/projects[此目录]（即 s2m 目录）中。
 
-然后使用Scratch2加载工程文件，当看到顶栏出现绿色的点时，此时s2m已经可以正常工作了，甚至在硬件上获取数据，你可以在Scratch2中使用bpibit来学习编程，如果你有其他想要的，也可以轻松添加，只需要用zip右边的工程文件打开，编辑工程即可。 json的内容可以添加更多的积木，相应的功能需要相应修改s2m和s2mb源码。
+使用 Scratch 2 加载项目文件。顶部栏出现绿点时，表示 s2m 已正常工作，并可从硬件获取数据。此后即可在 Scratch 2 中使用 BPI:bit 学习编程。如需增加其他功能，可用 ZIP 工具打开项目文件并编辑其中的 project.json，以添加更多积木块；相应功能还需要同步修改 s2m 和 s2mb 源代码。
