@@ -1,12 +1,12 @@
-TIP: link:../GettingStarted_BPI-Centi-S3[返回开始使用 BPI-Centi-S3]
+TIP: link:../GettingStarted_BPI-Centi-S3[返回 BPI-Centi-S3 入门指南]
 
 ## 绘制方法
 
 `draw(vector_font, s, x, y {, fg, scale, alpha})`
 
-使用指定的好时矢量字体将文本绘制到显示屏上，并将坐标作为文本的左下角。文本的前景色可以通过可选参数 fg 设置。否则前景色默认为白色。可以通过指定缩放值来缩放文本的大小。比例值必须大于 0，并且可以是浮点值或整数值。比例值默认为 1.0。 alpha 默认为 255。
+使用指定的 Hershey 矢量字体在显示屏上绘制文字，传入的坐标表示文字左下角的位置。可选参数 fg 用于设置文字前景色，默认值为 WHITE。scale 用于缩放文字大小，必须大于 0，可以是浮点数或整数，默认值为 1.0。alpha 的默认值为 255。
 
-## 画_拉恩法
+## draw_len 方法
 
 `draw_len(vector_font, s {, scale})`
 
@@ -14,22 +14,22 @@ TIP: link:../GettingStarted_BPI-Centi-S3[返回开始使用 BPI-Centi-S3]
 
 ## 下载矢量字体库
 
-中有一个py文件格式的矢量字体库 https://github.com/russhughes/st7789s3_esp_lcd/tree/main/fonts/vector[GitHub:russhughes/st7789s3_esp_lcd/fonts/vector]，README里有所有字体的图片。
+https://github.com/russhughes/st7789s3_esp_lcd/tree/main/fonts/vector[GitHub：russhughes/st7789s3_esp_lcd/fonts/vector] 中提供了 py 格式的矢量字体库，README 中包含所有字体的预览图。
 
-在 https://github.com/BPI-STEAM/BPI-Centi-S3-Doc/tree/main/micropython_example/07_display_multiple_vector_fonts/lib[示例库]，还可以下载转换后的mpy文件格式矢量字库，占用更少的闪存空间。
+也可以从 https://github.com/BPI-STEAM/BPI-Centi-S3-Doc/tree/main/micropython_example/07_display_multiple_vector_fonts/lib[示例 lib 目录] 下载转换后的 mpy 格式矢量字体库，它占用的 Flash 空间更少。
 
 ## 显示多种矢量字体并持续刷新
 
-通过draw可以得到要显示的字符串的宽度_len方法，但是某些提供的矢量字体的高度会超过设定值。如果需要保持文本框完全覆盖，则需要修改相应的代码，增加文本框的高度。
+可通过 draw_len 方法获取待显示字符串的宽度，但部分矢量字体的实际高度会超过设定值。若要让文本框完全覆盖文字，需要修改相应代码以增加文本框高度。
 
-> https://github.com/BPI-STEAM/BPI-Centi-S3-Doc/tree/main/micropython_example/07_display_multiple_vector_fonts[从此下载完整的示例 GitHub 链接]
+> https://github.com/BPI-STEAM/BPI-Centi-S3-Doc/tree/main/micropython_example/07_display_multiple_vector_fonts[从 GitHub 下载完整示例]
 
 image::/picture/bpi_centi_s3_pic_4.jpg[bpi_centi_s3_pic_4.jpg]
 
 image::/picture/bpi_centi_s3_display_multiple_vector_fonts_2.jpg[]
 
 ```py
-""" BPI-Centi-S3 170x320 ST7789 display """
+""" BPI-Centi-S3 170x320 ST7789 显示屏 """
 import st7789
 import tft_config
 import gotheng
@@ -40,12 +40,12 @@ import gc
 from math import ceil
 
 """
-These default colors can be used:
+可使用以下默认颜色：
 BLACK           BLUE            CYAN            GREEN
 MAGENTA         RED             YELLOW          WHITE
 TRANSPARENT
 
-Custom RGB colors:
+自定义 RGB 颜色：
 color565(255,255,255)
 """
 class DrawRect:
@@ -129,12 +129,12 @@ main()
 
 ### 放大或缩小字体大小
 
-您可以通过修改draw方法的scale值来控制字体大小。
+可通过修改 draw 方法的 scale 值控制字体大小。
 
 image::/picture/bpi_centi_s3_display_multiple_vector_fonts_1.jpg[]
 
 ```py
-""" BPI-Centi-S3 170x320 ST7789 display """
+""" BPI-Centi-S3 170x320 ST7789 显示屏 """
 import st7789
 import tft_config
 import gotheng
@@ -145,12 +145,12 @@ import gc
 from math import ceil
 
 """
-These default colors can be used:
+可使用以下默认颜色：
 BLACK           BLUE            CYAN            GREEN
 MAGENTA         RED             YELLOW          WHITE
 TRANSPARENT
 
-Custom RGB colors:
+自定义 RGB 颜色：
 color565(255,255,255)
 """
 class DrawRect:
