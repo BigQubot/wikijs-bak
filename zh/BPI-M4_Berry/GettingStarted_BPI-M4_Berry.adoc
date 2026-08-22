@@ -1,45 +1,45 @@
 = 简介
 
-的 BPI-M4 Berry 开发板是一款功能强大的单板计算机 (小型计算机公司)，利用 Allwinner H618片上系统 (SoC) 为开发人员提供令人印象深刻的性能和丰富的功能。与 Raspberry Pi 4b 类似， BPI-M4 Berry 拥有可比的 CPU强大的性能、LPDDR4 内存支持、集成 WiFi 和蓝牙功能以及熟悉的 40 针接头布局，以及 4 USB 接口和一个 GbE RJ45 端口。
+BPI-M4 Berry 是一款功能强大的单板计算机（SBC），搭载 Allwinner H618 片上系统（SoC），为开发者提供良好的性能和丰富的功能。与 Raspberry Pi 4B 相似，BPI-M4 Berry 具有相近的 CPU 性能，支持 LPDDR4 内存，集成 WiFi 和蓝牙，并提供常见的 40 针排针、四个 USB 接口及一个 GbE RJ45 网口。
 
-以其强大的性能、多功能的功能和卓越的镜像处理能力为特点，成为嵌入式和计算行业专业人士的示范性 SBC 开发平台。配备8GB eMMC 闪存、高性能解码和编码功能以及一系列接口选项，它可满足广泛的应用领域，包括媒体处理、物联网和娱乐。无论是迎合新手还是经验丰富的开发人员， BPI-M4 Berry 开发板为实现创意愿景和项目目标提供了理想的工具集。
+BPI-M4 Berry 凭借稳定的性能、丰富的功能和出色的图像处理能力，可作为嵌入式与计算行业的 SBC 开发平台。它配备 8 GB eMMC 闪存，具备高性能视频编解码能力和多种接口，可用于媒体处理、物联网、娱乐等场景。无论初学者还是有经验的开发者，都可使用它实现自己的创意和项目目标。
 
 TIP: 更多信息： link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry[香蕉派 BPI-M4 Berry 主页]
 
 == 规格参数
 
 * Allwinner H618，四核 ARM Cortex™-A53 处理器
-* ARM 马里 G31 GPU
-* 无线网络和蓝牙
+* Arm Mali-G31 GPU
+* WiFi 和蓝牙
 * 2G LPDDR4 RAM
 * 8G eMMC 闪存
-* 1x USB2.0 Type-C OTG，5V 电源
-* 4 个 USB2.0 A 型
-* 1 个 HDMI 2.0a
-* 1 个 3.5 毫米音频和 TVE 插孔
-* 1 个千兆以太网 Ethernet 端口
+* 1 × USB 2.0 Type-C OTG，支持 5 V 供电
+* 4 × USB 2.0 Type-A
+* 1 × HDMI 2.0a
+* 1 × 3.5 mm 音频/TVE 插孔
+* 1 × GbE 以太网接口
 
-= 安卓
+= Android
 
 == 准备
 . 下载最新的 link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry#_android_2[Android 镜像].
 
-. 下载并安装 link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2Fphoenixsuit_V1.1.0_20150325.rar[Allwinner 图片下载工具]，PhoenixSuit 是针对窗户的。 
+. 下载并安装 link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2Fphoenixsuit_V1.1.0_20150325.rar[Allwinner 镜像下载工具]；PhoenixSuit 适用于 Windows。 
 
-. Type-C数据线，5V供电。
+. Type-C 数据线和 5 V 电源。
 
-== 安装镜像 USB 工具 ==
+== 使用 USB 工具安装镜像 ==
 
-. 打开PhoenixSuit，点击Firmware图标切换到固件下载面板，然后点击Image按钮并选择 Android 镜像文件。
+. 打开 PhoenixSuit，单击 Firmware 图标切换到固件下载面板，然后单击 Image 按钮并选择 Android 镜像文件。
 +
 image::/picture/m4-berry_android_1.jpg[m4-berry_android_1.jpg]
 image::/picture/m4-berry_android_2.jpg[m4-berry_android_2.jpg]
 
-. 使用 type-c 连接到计算机时，按住 M4 Berry 上的“FEL”按钮，弹出警告对话框。按“是”。
+. 按住 M4 Berry 上的“FEL”键，同时使用 Type-C 数据线连接电脑。弹出警告对话框后，单击“Yes”。
 +
 image::/picture/m4-berry_android_3.jpg[m4-berry_android_3.jpg]
 
-. 下载
+. 开始下载
 +
 image::/picture/m4-berry_android_4.jpg[m4-berry_android_4.jpg]
 
@@ -50,34 +50,34 @@ image::/picture/m4-berry_android_5.jpg[m4-berry_android_5.jpg]
 = Linux 开发
 == 准备
 
-. Linux 镜像支持SD卡或 eMMC 启动时，会先从SD卡启动。
+. Linux 镜像支持从 SD 卡或 eMMC 启动；插入 SD 卡时会优先从 SD 卡启动。
 
-. 建议使用A1级卡，至少8GB。
+. 推荐使用容量至少为 8 GB 的 A1 等级存储卡。
 
-. 确保可启动 eMMC 如果您想从 SD 卡启动，请格式化。
+. 如果要从 SD 卡启动，请先格式化带有可启动系统的 eMMC。
 
-. 确保 SD 卡已格式化 Linux 如果您想从以下位置启动，镜像会闪烁 eMMC 并使用Sd卡作为存储。
+. 如果要从 eMMC 启动并将 SD 卡用作存储，请确保 SD 卡已经格式化且未写入 Linux 镜像。
 
-. link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry#_linux[下载最新的 Linux 图片]，并确认md5校验和正确。
+. link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry#_linux[下载最新 Linux 镜像]，并确认 MD5 校验值正确。
 
 . 默认登录： **pi/bananapi** 或 **root/1234**
 
-. 维基指南仅适用于 ubuntu/debian 镜像。
+. 本 Wiki 指南仅适用于 Ubuntu/Debian 镜像。
 
-== 将映像安装到 SD 卡
+== 将镜像写入 SD 卡
 
-我们准备了 2 种方法来帮助您刻录映像，只需选择其中一种即可。
+可使用以下两种方法写入镜像，任选一种即可。
  
-> 安装镜像 **巴莱纳蚀刻机**, 支持 Windows, Linux 和 MacOS.
+> 使用 **Balena Etcher** 安装镜像，支持 Windows、Linux 和 macOS。
 
-link:https://balena.io/etcher[巴莱纳蚀刻机] Balena 的开源 GUI 闪存工具，将操作系统映像闪存到 SD 卡或 USB 开车。
+link:https://balena.io/etcher[Balena Etcher] 是 Balena 提供的开源图形化镜像写入工具，可将操作系统镜像写入 SD 卡或 U 盘。
 
-. 如果您将其安装在 Linux 桌面操作系统，例如 Ubuntu，您可能需要先授予AppImage文件运行权限。如果您使用的是安装它 Windows，跳过此步骤。
+. 在 Ubuntu 等 Linux 桌面系统中，可能需要先授予 AppImage 文件执行权限；使用 Windows 时跳过此步骤。
 .. 右键单击 AppImage 文件，然后单击 `Properties`.
 +
 image::/picture/bpi_m4_berry_ubuntu_balena_etcher_1.jpg[bpi_m4_berry_ubuntu_balena_etcher_1.jpg]
 
-..选择 `Permissions`，然后启用 `Allow executing file as program`，最后关闭这个栏。
+.. 选择 `Permissions`，启用 `Allow executing file as program`，然后关闭窗口。
 +
 image::/picture/bpi_m4_berry_ubuntu_balena_etcher_2.jpg[bpi_m4_berry_ubuntu_balena_etcher_2.jpg]
 
@@ -91,42 +91,42 @@ image::/picture/bpi_m4_berry_ubuntu_balena_etcher_4.jpg[bpi_m4_berry_ubuntu_bale
 +
 image::/picture/bpi_m4_berry_ubuntu_balena_etcher_5.jpg[bpi_m4_berry_ubuntu_balena_etcher_5.jpg]
 
-. 点击 `Flash!` 开始燃烧。
+. 单击 `Flash!` 开始写入。
 +
 image::/picture/bpi_m4_berry_ubuntu_balena_etcher_6.jpg[bpi_m4_berry_ubuntu_balena_etcher_6.jpg]
 +
 image::/picture/bpi_m4_berry_ubuntu_balena_etcher_7.jpg[bpi_m4_berry_ubuntu_balena_etcher_7.jpg]
 
 
-> 安装镜像 **巴莱纳·克利**, 支持 Windows, Linux 和 MacOS.
+> 使用 **Balena CLI** 安装镜像，支持 Windows、Linux 和 macOS。
 
-link:https://github.com/balena-io/balena-cli[巴莱纳 CLI] 是 balenaCloud 或 openBalena 的命令行界面。可以用来闪光 linux 镜像。
+link:https://github.com/balena-io/balena-cli[Balena CLI] 是 balenaCloud/openBalena 的命令行工具，也可用于写入 Linux 镜像。
 
-. 从以下位置下载安装程序或独立包 link:https://github.com/balena-io/balena-cli/releases[Balena CLI 发布].
-. link:https://github.com/balena-io/balena-cli/blob/master/INSTALL.md[安装] 它正确地连接到您的电脑。
-. 使用 link:https://docs.balena.io/reference/balena-cli/#util-available-drives[util 可用驱动器] balena 的命令选项列出可用于写入操作系统映像的可用驱动器。 
+. 从 link:https://github.com/balena-io/balena-cli/releases[Balena CLI Releases] 下载适用的安装程序或独立软件包。
+. 按照 link:https://github.com/balena-io/balena-cli/blob/master/INSTALL.md[安装说明] 将其正确安装到电脑。
+. 使用 Balena 的 link:https://docs.balena.io/reference/balena-cli/#util-available-drives[util available-drives] 命令列出可用于写入操作系统镜像的存储设备。 
 +
 ```
 balena util available-drives
 ```
 
-. 然后您可以使用 link:https://docs.balena.io/reference/balena-cli/#local-flash-image[本地闪存] balena 的命令选项闪烁 linux 镜像到 SD 卡或usb 开车。
+. 然后使用 Balena 的 link:https://docs.balena.io/reference/balena-cli/#local-flash-image[local flash] 命令将 Linux 镜像写入 SD 卡或 U 盘。
 +
-WARNING: 注意，需要将图片文件的路径更改为您需要的正确路径。并将设备修改为你要刻录的设备。
+WARNING: 请将镜像文件路径改为实际路径，并将设备参数改为要写入的目标设备。
 
-- 开 Windows，就做吧。
+- 在 Windows 中直接执行以下命令：
 +
 ```bash
 balena local flash path/to/xxx-bpi-m4-berry-xxx.img.zip --drive \\.\PhysicalDrive2
 ```
 
-- 开 Linux，您可能需要使用 `sudo` 命令获得root权限来执行。
+- 在 Linux 中，可能需要使用 `sudo` 获取 root 权限后执行：
 +
 ```bash
 sudo balena local flash path/to/xxx-bpi-m4-berry-xxx.img.zip --drive /dev/disk2
 ```
 
-- 登录的 Windows 如下：
+- Windows 中的日志如下：
 +
 ```
 PS D:\temp\Bpi-m4berry_0.0.1_beta_ubuntu_jammy_desktop_xfce_linux6.1.31> balena util available-drives
@@ -139,9 +139,9 @@ Validating [========================] 100% eta 0s
 ```
 
 
-== 将映像安装到 eMMC
+== 将镜像安装到 eMMC
 
-. 确保 Linux 镜像已烧录至SD卡并正常启动。
+. 确保 Linux 镜像已烧录到 SD 卡，并且开发板能够正常启动。
 
 . 在终端中输入以下命令。
 +
@@ -149,29 +149,29 @@ Validating [========================] 100% eta 0s
 sudo armbian-config
 ```
 +
-(使用最小版本镜像的朋友请看一下 link:/en/BPI-M4_Berry/GettingStarted_BPI-M4_Berry#_install_bananapi_configuration[首先在这里].)
+(如果使用最小版本镜像，请先参阅 link:/en/BPI-M4_Berry/GettingStarted_BPI-M4_Berry#_install_bananapi_configuration[这里]。)
 
-. 请按照以下说明安装 Linux 上的系统映像 eMMC.
-..选择 `Ststem`.
+. 请按照以下步骤将 Linux 系统镜像安装到 eMMC。
+.. 选择 `Ststem`。
 +
 image::/bpi-m4berry/bpi_m4_berry_mobaxterm_a1.jpg[bpi_m4_berry_mobaxterm_a1.jpg]
 
-..选择 `Install`.
+.. 选择 `Install`。
 +
 image::/bpi-m4berry/bpi_m4_berry_mobaxterm_a2.jpg[bpi_m4_berry_mobaxterm_a2.jpg]
-..选择 `Boot from eMMC`.
+.. 选择 `Boot from eMMC`。
 +
 image::/bpi-m4berry/bpi_m4_berry_mobaxterm_a3.jpg[bpi_m4_berry_mobaxterm_a3.jpg]
-..选择 `Yes`.
+.. 选择 `Yes`。
 +
 image::/bpi-m4berry/bpi_m4_berry_mobaxterm_a4.jpg[bpi_m4_berry_mobaxterm_a4.jpg]
-..选择 `ext4`.
+.. 选择 `ext4`。
 +
 image::/bpi-m4berry/bpi_m4_berry_mobaxterm_a5.jpg[bpi_m4_berry_mobaxterm_a5.jpg]
 .. 等几分钟。此时请勿关闭或重新启动开发板。
 +
 image::/bpi-m4berry/bpi_m4_berry_mobaxterm_a6.jpg[bpi_m4_berry_mobaxterm_a6.jpg]
-..最后一步是关闭主板。此时，断开电源，取出SD卡，重新接通电源，即可从 eMMC.
+.. 最后关闭开发板并断开电源，取出 SD 卡后重新接通电源，开发板即可从 eMMC 启动。
 +
 image::/bpi-m4berry/bpi_m4_berry_mobaxterm_a7.jpg[bpi_m4_berry_mobaxterm_a7.jpg]
 
@@ -182,7 +182,7 @@ image::/bpi-m4berry/bpi_m4_berry_mobaxterm_a7.jpg[bpi_m4_berry_mobaxterm_a7.jpg]
 
 . 确保 Linux 镜像已烧录到 SD 卡中并插入 SD 卡。默认情况下，它将从 SD 卡启动。
 
-. 输入命令 `lsblk` 在终端中列出系统中的块设备信息，如硬盘、分区、磁盘等。
+. 在终端中输入 `lsblk`，列出系统中的硬盘、分区等块设备信息。
 +
 ```
 pi@bpi-m4berry:~$ lsblk
@@ -199,7 +199,7 @@ zram1 252:1 0 50M 0 disk /var/log
 zram2 252:2 0 0B 0 disk
 ```
 
-. mmcblk0 是 SD 卡，mmcblk1 是 eMMC。在终端中输入以下命令来擦除 eMMC。这个过程需要几分钟并且是不可逆的。请注意备份重要数据。
+. mmcblk0 是 SD 卡，mmcblk1 是 eMMC。在终端中输入以下命令擦除 eMMC。此过程需要几分钟且不可逆，请事先备份重要数据。
 +
 ```
 sudo dd if=/dev/zero of=/dev/mmcblk1
@@ -207,13 +207,13 @@ sudo dd if=/dev/zero of=/dev/mmcblk1
 
 == 桌面
 
-. 使用 Ubuntu&Debian 桌面版系统镜像，可以获得图形化操作界面。
-. 您需要准备一台带有HDMI接口的显示器和一根HDMI线。
-. 使用 HDMI 线连接显示器和BPI-M4 Berry，将显示器输入接口切换到对应的HDMI接口，开机，稍等片刻即可看到桌面。
+. 使用 Ubuntu/Debian 桌面版系统镜像即可获得图形界面。
+. 准备一台带 HDMI 接口的显示器和一根 HDMI 线。
+. 用 HDMI 线连接显示器与 BPI-M4 Berry，将显示器切换到对应的 HDMI 输入源。开发板开机后稍等片刻即可看到桌面。
 
 --
 
-* Linux 桌面
+* Linux 桌面环境
 +
 image::/bpi-m4berry/banana_pi_bpi-m4_berry_10.jpg.jpg[banana_pi_bpi-m4_berry_10.jpg.jpg]
 
@@ -221,10 +221,10 @@ image::/bpi-m4berry/banana_pi_bpi-m4_berry_10.jpg.jpg[banana_pi_bpi-m4_berry_10.
 
 == 调试 UART
 
-. 准备一个3.3v USB 到TTL模块。
-. 使用 USB 转TTL模块连接PC USB 端口和调试 UART 板上的端口。
-. 在PC上打开串口终端软件，例如 link:https://mobaxterm.mobatek.net/[莫巴克斯术语] 或 link:https://www.putty.org/[腻子].
-. 以mobaxterm为例，设置好串口号和115200波特率后，即可打开 BPI-M4 Berry UART 终端。
+. 准备一个 3.3 V USB 转 TTL 模块。
+. 使用 USB 转 TTL 模块连接 PC 的 USB 端口与开发板上的调试 UART 端口。
+. 在 PC 上打开串口终端软件，例如 link:https://mobaxterm.mobatek.net/[MobaXterm] 或 link:https://www.putty.org/[PuTTY]。
+. 以 MobaXterm 为例，设置串口号和 115200 波特率后，即可打开 BPI-M4 Berry 的 UART 终端。
 +
 image::/picture/bpi_m4_berry_mobaxterm_1.jpg[bpi_m4_berry_mobaxterm_1.jpg]
 +
@@ -232,8 +232,8 @@ image::/picture/bpi_m4_berry_mobaxterm_2.jpg[bpi_m4_berry_mobaxterm_2.jpg]
 
 == SSH
 . 准备好网线和路由器。
-. 使用网线将路由器的LAN口连接到路由器的LAN口 BPI-M4 Berry，并将 PC 连接到另一个 LAN 端口。
-. 检查 IP 地址 BPI-M4 Berry 在路由器管理界面上，或者在路由器上使用以下命令 BPI-M4 Berry UART 终端检查IP地址。
+. 用网线将路由器的一个 LAN 口连接到 BPI-M4 Berry，并将 PC 连接到另一个 LAN 口。
+. 在路由器管理界面中查看 BPI-M4 Berry 的 IP 地址，或在 BPI-M4 Berry 的 UART 终端中使用以下命令查看 IP 地址。
 +
 ```bash
    ifconfig
@@ -249,59 +249,59 @@ image::/picture/bpi_m4_berry_mobaxterm_2.jpg[bpi_m4_berry_mobaxterm_2.jpg]
          device interrupt 42
 ```
 
-. 在PC上打开SSH终端软件，例如 link:https://mobaxterm.mobatek.net/[莫巴克斯术语] 或 link:https://www.putty.org/[腻子].
-. 以mobaxterm为例，填写获取到的IP地址，如 `192.168.3.10` 上面的 IP 地址栏中是 22，端口号是 22。
+. 在 PC 上打开 SSH 终端软件，例如 link:https://mobaxterm.mobatek.net/[MobaXterm] 或 link:https://www.putty.org/[PuTTY]。
+. 以 MobaXterm 为例，在 IP 地址栏中填写获取到的地址（如上面的 `192.168.3.10`），端口填写 22。
 +
 image::/picture/bpi_m4_berry_mobaxterm_3.jpg[bpi_m4_berry_mobaxterm_3.jpg]
 
-. 打开SSH终端并输入登录名 username/password: `pi/bananapi` 或 `root/1234`(除非你更改了密码
-)。输入密码时不会有提示。请正常输入，完成后按回车键。
+. 打开 SSH 终端并输入用户名和密码：`pi/bananapi` 或 `root/1234`（如果已经修改过密码，请使用新密码
+）。输入密码时终端不会显示任何字符，正常输入并按 Enter 键即可。
 +
 image::/picture/bpi_m4_berry_mobaxterm_4.jpg[bpi_m4_berry_mobaxterm_4.jpg]
 
-== NoMachine远程桌面
-. 确保 BPI-M4 Berry 连接互联网，使用以下命令下载系统中的nomachine DEB安装包。
+== NoMachine 远程桌面
+. 确保 BPI-M4 Berry 已连接互联网，然后使用以下命令在系统中下载 NoMachine DEB 安装包。
 
    wget https://download.nomachine.com/download/8.9/Arm/nomachine_8.13.1_1_arm64.deb
 
-. 或打开 link:https://downloads.nomachine.com/download/?spm=wolai.workspace.0.0.13805ed2aUTx1q&id=114&distro=ARM[NoMachine for ARM - arm64 下载页面] 在PC浏览器中下载DEB安装包，然后复制到 BPI-M4 Berry 通过 SSH 或 USB 磁盘。
+. 也可以在 PC 浏览器中打开 link:https://downloads.nomachine.com/download/?spm=wolai.workspace.0.0.13805ed2aUTx1q&id=114&distro=ARM[NoMachine for ARM - arm64 下载页面]，下载 DEB 安装包后，通过 SSH 或 U 盘将其复制到 BPI-M4 Berry 的用户目录。
 
-. 下载完成后，通过以下命令进行安装。请注意，文件名以实际下载的文件名为准。
+. 下载完成后，使用以下命令安装。文件名请以实际下载的文件为准。
 +
 ```bash
 sudo dpkg -i nomachine_8.13.1_1_arm64.deb
 ```
 
-. PC端还需要下载并安装NoMachine。 link:https://download.nomachine.com[NoMachine下载页面] 选择适合PC操作系统的安装包，下载到本地并完成安装。
+. PC 端也需要安装 NoMachine。请在 link:https://download.nomachine.com[NoMachine 下载页面]选择适合 PC 操作系统的安装包，下载并完成安装。
 
-. 注意保管好电脑和 BPI-M4 Berry 在同一个局域网内。您可以先尝试SSH连接，确保局域网内正常通信。
+. 确保 PC 与 BPI-M4 Berry 位于同一局域网。可以先尝试建立 SSH 连接，确认两者能够正常通信。
 
-. 在PC上打开NoMachine，点击添加按钮，输入IP地址 BPI-M4 Berry 在跳转后的窗口中的Host栏，然后点击Add按钮。
+. 在 PC 上打开 NoMachine，单击添加按钮，在新窗口的 Host 栏中输入 BPI-M4 Berry 的 IP 地址，然后单击 Add。
 +
 image::/picture/bpi_m4_berry_nomachine_1.jpg[bpi_m4_berry_nomachine_1.jpg]
 
-. 点击识别的端口图标，输入 username/password 在弹出的新窗口中，然后单击“确定”按钮。
+. 单击识别出的设备图标，在弹出的新窗口中输入用户名和密码，然后单击 OK。
 +
 image::/picture/bpi_m4_berry_nomachine_2.jpg[bpi_m4_berry_nomachine_2.jpg]
 +
 image::/picture/bpi_m4_berry_nomachine_3.jpg[bpi_m4_berry_nomachine_3.jpg]
 
-. 完成后续设置后就可以看到桌面了。
+. 完成后续设置后即可看到远程桌面。
 +
 image::/bpi-m4berry/banana_pi_bpi-m4_berry_10.jpg.jpg[banana_pi_bpi-m4_berry_10.jpg.jpg]
 
-IMPORTANT: 提示：如果 HDMI 接口没有连接任何设备，NoMachine 远程桌面将显示黑屏。建议保留 HDMI 连接或连接 HDMI 诱饵设备。
+IMPORTANT: 提示：如果 HDMI 接口未连接任何设备，NoMachine 远程桌面可能显示黑屏。建议保持 HDMI 显示器连接，或接入 HDMI 虚拟显示器适配器（dummy plug）。
 
 
-== armbian 配置
-从现在起，您可以直接使用命令进入armbian configure，而无需安装。
+== armbian-config
+无需额外安装，直接运行以下命令即可进入 armbian-config。
 
 ```sh
 sudo armbian-config
 ```
 
 == 无线网络
-使用nmcli命令扫描WiFi热点、连接热点、创建AP热点。
+可以使用 nmcli 命令扫描 Wi-Fi 热点、连接热点以及创建 AP 热点。
 
 ```bash
 nmcli device #List devices
@@ -326,8 +326,8 @@ nmcli radio wifi on # Turn on wifi
 
 
 == 设置静态IP、DNS
-. 要设置静态IP，您需要先保持连接。如果您想设置一个 Ethernet 静态IP，您必须首先维护 Ethernet 连接；如果要设置无线网络静态IP，首先必须保持WIFI连接。
-. 如果上级路由器已将您要设置的IP地址分配给其他设备，请将其更改为空闲IP，或者要求其他设备放弃该IP。
+. 设置静态 IP 前，需要先建立并保持相应的网络连接。设置以太网静态 IP 时先保持以太网连接；设置无线网络静态 IP 时先保持 Wi-Fi 连接。
+. 如果上级路由器已将准备使用的 IP 地址分配给其他设备，请改用空闲 IP，或先让该设备释放此 IP。
 . 使用 nmcli connection show 命令显示所有连接，例如：
 +
 ```bash
@@ -337,7 +337,7 @@ TP-LINK_5G_7747 e4a49726-adf1-44d7-a621-0e3af96cc390 wifi wlx2cc3e6acd5d7
 Wired connection 1 612eda94-55dc-3c85-b05e-f16c41775b4e ethernet --
 ```
 
-. 使用 nmcli 连接显示 [姓名] 命令显示特定连接的所有属性，例如：
+. 使用 nmcli connection show [NAME] 命令显示指定连接的全部属性，例如：
 +
 ```bash
 nmcli connection show TP-LINK_5G_7747 #If you want to see Ethernet, change to Wired connection 1
@@ -391,10 +391,10 @@ date #View time
 sudo hwclock -r #View hardware clock
 ```
 
-* link:https://chrony-project.org/documentation.html[慢性参考文档]
+* link:https://chrony-project.org/documentation.html[Chrony 参考文档]
 
 == 查看硬件温度
-您可以使用以下四个命令来查明相应传感器正在检查哪些硬件。
+可以使用以下四个命令查看各温度传感器对应的硬件。
 
 ```bash
 cat /sys/class/thermal/thermal_zone0/type
@@ -403,7 +403,7 @@ cat /sys/class/thermal/thermal_zone2/type
 cat /sys/class/thermal/thermal_zone3/type
 ```
 
-然后使用以下命令单独检查温度。
+然后使用以下命令分别查看温度。
 
 ```bash
 cat /sys/class/thermal/thermal_zone0/temp
@@ -412,19 +412,19 @@ cat /sys/class/thermal/thermal_zone2/temp
 cat /sys/class/thermal/thermal_zone3/temp
 ```
 
-查询的温度值需要除以1000，单位是摄氏度。
+读取到的温度值需要除以 1000，单位为摄氏度。
 
-例如，划分 cpu 温度乘以 1000 得到 54.17 摄氏度。
+例如，将 CPU 温度读数除以 1000 后得到 54.17 摄氏度。
 
 image::/bpi-m4berry/banana_pi_bpi-m4_berry_temp1.jpg[banana_pi_bpi-m4_berry_temp1.jpg]
 
-== 使用 USB 磁盘
-. 准备一个 USB 将已经正常分区的磁盘插入 USB 的接口 BPI-M4 Berry.
-. 在 Ubuntu 桌面版，您可以看到 USB 磁盘已被识别，可以在文件管理器中打开，也可以通过GParted工具进行分区管理。
+== 使用 U 盘
+. 准备一个已正常分区的 U 盘，并将其插入 BPI-M4 Berry 的 USB 接口。
+. 在 Ubuntu 桌面版中，系统识别 U 盘后可以通过文件管理器打开，也可以使用 GParted 工具管理分区。
 +
 image::/bpi-m4berry/banana_pi_bpi-m4_berry_usb1.jpg.jpg[banana_pi_bpi-m4_berry_usb1.jpg.jpg]
 
-. 在终端中，安装 USB 磁盘到本地目录：
+. 在终端中，将 U 盘挂载到本地目录：
 ```bash
 mkdir mnt #Create a separate directory in the ~/user directory for mounting for easy management
 cat /proc/partitions | grep "sd*" #List partitions starting with sd
@@ -434,11 +434,11 @@ sudo umount -v /dev/sda1 #umount, then you can remove the USB disk
 ```
 
 == 使用音频设备
-准备一个音频文件并将其复制到 BPI-M4 Berry Ubuntu 桌面系统通过 USB 闪存驱动器或 SSH。
+准备一个音频文件，通过 U 盘或 SSH 将其复制到 BPI-M4 Berry 的 Ubuntu 桌面系统中。
 
 === HDMI音频
-. 准备一台具有HDMI音频输入功能的显示器，在显示器设置中打开相关功能，并使用HDMI线连接显示器。
-. 在设置的声音栏中将输出设备设置为 HDMI 音频。
+. 准备一台支持 HDMI 音频输入的显示器，在显示器设置中启用相关功能，并使用 HDMI 线连接显示器。
+. 在系统设置的声音选项中，将输出设备设置为 HDMI Audio。
 +
 //image::/picture/bpi_m4_berry_ubuntu_4.jpg[bpi_m4_berry_ubuntu_4.jpg]
 
@@ -447,15 +447,15 @@ sudo umount -v /dev/sda1 #umount, then you can remove the USB disk
 image::/bpi-m4berry/banana_pi_bpi-m4_berry_aud1.jpg[banana_pi_bpi-m4_berry_aud1.jpg]
 //image::/picture/bpi_m4_berry_ubuntu_5.jpg[bpi_m4_berry_ubuntu_5.jpg]
 
-=== 3.5毫米音频插孔
-. 准备好耳机或其他使用3.5mm插头的音频设备，将插头插入电脑的3.5mm插孔 BPI-M4 Berry.
-. 在设置的声音栏中将输出设备设置为音频编解码器。
+=== 3.5 mm 音频插孔
+. 准备耳机或其他使用 3.5 mm 插头的音频设备，将插头插入 BPI-M4 Berry 的 3.5 mm 插孔。
+. 在系统设置的声音选项中，将输出设备设置为 Audio Codec。
 +
 //image::/picture/bpi_m4_berry_ubuntu_6.jpg[bpi_m4_berry_ubuntu_6.jpg]
 . 播放音频。
 
-=== 播放音频文件的终端命令
-您可以查询您的音频设备 BPI-M4 Berry.
+=== 使用终端命令播放音频文件
+可以查询 BPI-M4 Berry 上的音频设备：
 ```bash
 aplay -l #List devices
 ```
@@ -479,7 +479,7 @@ aplay -D hw:1,0 [path] #Play the audio file of the specified path
 ```
 
 == 使用蓝牙
-. 打开设置中的 Ubuntu 桌面并在蓝牙栏中连接蓝牙设备，例如蓝牙鼠标或键盘。
+. 打开 Ubuntu 桌面的系统设置，在蓝牙选项中连接蓝牙鼠标、键盘等设备。
 +
 image::/bpi-m4berry/banana_pi_bpi-m4_berry_bluetooth.jpg[banana_pi_bpi-m4_berry_bluetooth.jpg]
 
@@ -520,7 +520,7 @@ Pairing successful #pairing successfully
 pi@bpi-m4berry:~$
 ```
 
-* link:https://wiki.archlinux.org/title/bluetooth[archlinux蓝牙参考文档]
+* link:https://wiki.archlinux.org/title/bluetooth[Arch Linux 蓝牙参考文档]
 
 == 使用红外接收器
 . 您需要准备一个NEC格式的红外遥控器。
@@ -555,135 +555,135 @@ Testing events. Please, press CTRL-C to abort.
 
 === SCP
 
-SCP (安全副本) 命令输入Linux系统用于复制文件(s) 以安全的方式在服务器之间进行。 
+scp（secure copy，安全复制）是 Linux 系统中用于在服务器之间安全复制文件的命令。 
 
-SCP 命令或安全复制允许在本地主机和远程主机之间或两个远程主机之间安全地传输文件。 
+scp 可以在本地主机与远程主机之间，或两个远程主机之间安全传输文件。 
 
-它使用与 Secure Shell 中使用的相同的身份验证和安全性 (SSH) 协议。
+它使用与 Secure Shell（SSH）协议相同的身份验证与安全机制。
 
-您可以从以下位置复制文件 Windows 终端到一个 Linux 同一 LAN 上的系统。只需确保 Open SSH 客户端已打开并且可以在“设置”>“应用程序”>“可选功能”中查看。
+可以通过 Windows 终端向同一局域网中的 Linux 系统复制文件。请先在“设置”>“应用”>“可选功能”中确认 OpenSSH 客户端已启用。
 
-如果您想从以下位置复制文件 Windows 系统到 Linux 系统中，您还需要启用 Open SSH 服务器。
+若要从 Windows 系统向 Linux 系统复制文件，还需要在 Linux 系统上启用 OpenSSH 服务器。
 
 image::/picture/bpi_m4_berry_mobaxterm_6.jpg[bpi_m4_berry_mobaxterm_6.jpg]
 
-scp命令格式为：
+scp 命令格式如下：
 
 ```bash
 scp [optionals] file_source file_target
 ```
 
-. `optionals` 是可选参数，如-r，可用于递归复制整个目录。
+. `optionals` 是可选参数，例如 -r 可用于递归复制整个目录。
 
-. 文件_source 要复制的文件或目录。
+. file_source 表示要复制的文件或目录。
 
-. 文件_如果最后输入了特定的文件名，target 将复制过去的路径并重命名它。
+. file_target 表示目标路径；如果末尾指定了文件名，复制时还会对文件重命名。
 
-采取从复制本地文件 Windows 系统到一个 Linux 系统为例。在 Windows 终端，输入：
+以从 Windows 系统向 Linux 系统复制本地文件为例，在 Windows 终端中输入：
 ```cmd
 PS D:\temp\temp_4> scp ".\hello.txt" pi@192.168.3.12:"/home/pi/Downloads/"
 ```
 
-您还可以将文件复制到 Linux 系统到本地计算机 Windows 终端：
+也可以在 Windows 终端中将 Linux 系统上的文件复制到本机：
 
 ```
 PS D:\temp\temp_4> scp pi@192.168.3.12:"/home/pi/Downloads/hello.txt" "D:\temp\temp_4"
 ```
 
-. 其中 pi@192.168.3.12 是中的用户名 Linux 系统和 IP 地址 BPI-M4 Berry 在局域网中。
-. 哪里 `:"/home/pi/Downloads/hello.txt"` 是文件路径 Linux 系统。
-. 哪里 `"D:\temp\temp_4"` 是路径 Windows 系统。
+. 其中 pi@192.168.3.12 分别是 Linux 系统的用户名和 BPI-M4 Berry 在局域网中的 IP 地址。
+. `:"/home/pi/Downloads/hello.txt"` 是 Linux 系统中的文件路径。
+. `"D:\temp\temp_4"` 是 Windows 系统中的路径。
 
-* link:https://www.geeksforgeeks.org/scp-command-in-linux-with-examples/[scp参考文档]
+* link:https://www.geeksforgeeks.org/scp-command-in-linux-with-examples/[scp 参考文档]
 
-=== 莫巴克斯术语
-可以使用 mobaxterm 或其他类似软件通过图形界面管理文件。
+=== MobaXterm
+可以使用 MobaXterm 或其他类似软件，通过图形界面管理文件。
 
-* link:https://mobaxterm.mobatek.net/download.html[mobaxterm 下载]
-* link:https://download.mobatek.net/mobaxterm-on-linux.html[mobaxterm-linux 预览版]
+* link:https://mobaxterm.mobatek.net/download.html[MobaXterm 下载]
+* link:https://download.mobatek.net/mobaxterm-on-linux.html[MobaXterm Linux 预览版]
 
-如下图，在mobaxterm中建立SSH连接后，界面左侧会出现文件管理窗口，支持通过拖放文件的方式进行复制粘贴。
+如下图所示，在 MobaXterm 中建立 SSH 连接后，界面左侧会出现文件管理窗口，可通过拖放方式复制文件。
 
 image::/picture/bpi_m4_berry_mobaxterm_7.jpg[bpi_m4_berry_mobaxterm_7.jpg]
 
-== 纳米 - 文本编辑器 
+== nano 文本编辑器 
 
-https://www.nano-editor.org/[GNU纳米] 是一个用于类 Unix 计算系统或使用命令行界面的操作环境的文本编辑器。
+https://www.nano-editor.org/[GNU nano] 是一款适用于类 Unix 系统或命令行环境的文本编辑器。
 
-它比使用起来更容易 https://www.vim.org/[维姆] 并且适合初学者。
+它比 https://www.vim.org/[vim] 更容易使用，适合初学者。
 
 通常您可以按以下顺序完成编辑、保存并退出编辑器：
 
 . `nano [file path]`
-. 编辑文件
-. 控制键+O 提供写入文件 (“另存为”)
-. 编辑文件路径或名称，然后按 Enter
-. 控制键+X 退出纳米
+. 编辑文件。
+. 按 Ctrl+O 写入文件（“另存为”）。
+. 编辑文件路径或名称，然后按 Enter 键。
+. 按 Ctrl+X 退出 nano。
 
-* https://www.nano-editor.org/dist/latest/cheatsheet.html[nano的快捷键]
-* https://www.nano-editor.org/dist/latest/nano.html[Documentation]
+* https://www.nano-editor.org/dist/latest/cheatsheet.html[nano 快捷键]
+* https://www.nano-editor.org/dist/latest/nano.html[nano 文档]
 
 == 设置开机标志
 
-=== on/off 开机标志
+=== 启用或禁用启动徽标
 
-. `sudo nano "/boot/armbianEnv.txt"`,重写 `bootlogo=true` 作为 `bootlogo=false`.
+. 运行 `sudo nano "/boot/armbianEnv.txt"`，将 `bootlogo=true` 改为 `bootlogo=false`。
 +
 image::/bpi-m4berry/bpi_m4_berry_mobaxterm_n1.jpg[bpi_m4_berry_mobaxterm_n1.jpg]
 
-. 按键盘快捷键 Ctrl+O 写入文件。
+. 按快捷键 Ctrl+O 写入文件。
 +
 image::/bpi-m4berry/bpi_m4_berry_mobaxterm_n2.jpg[bpi_m4_berry_mobaxterm_n2.jpg]
 
-. 无需更改路径，按 Enter 保存。
+. 无需更改路径，按 Enter 键保存。
 +
 image::/bpi-m4berry/bpi_m4_berry_mobaxterm_n3.jpg[bpi_m4_berry_mobaxterm_n3.jpg]
 
-. 按键盘快捷键 Ctrl+X 退出纳米。
+. 按快捷键 Ctrl+X 退出 nano。
 +
 image::/bpi-m4berry/bpi_m4_berry_mobaxterm_n4.jpg[bpi_m4_berry_mobaxterm_n4.jpg]
 
-. `reboot` ，启动标志不会显示。
+. 执行 `reboot`，重新启动后将不再显示启动徽标。
 
 === 更换开机标志
 
-. `sudo nano "/boot/armbianEnv.txt"`,重写 `bootlogo=false` 作为 `bootlogo=true`.
+. 运行 `sudo nano "/boot/armbianEnv.txt"`，将 `bootlogo=false` 改为 `bootlogo=true`。
 
-. 开机Logo文件的存放路径为： `/usr/share/plymouth/themes/armbian/watermark.png`.
+. 启动徽标文件的保存路径为：`/usr/share/plymouth/themes/armbian/watermark.png`。
 
-. 准备一个 `png` 图像，最好是带有透明层的图案，并将其重命名为 `watermark.png`.
+. 准备一张 `png` 图片，最好带有透明背景，并将其重命名为 `watermark.png`。
 +
 
 
-. 将其复制到 `/home/pi/watermark.png` 使用您喜欢的任何方法的路径。
+. 使用任意方式将其复制到 `/home/pi/watermark.png`。
 
-. 使用root权限将其复制到目标路径。
+. 使用 root 权限将其复制到目标路径。
 +
 ```
 sudo cp "/home/pi/watermark.png" "/usr/share/plymouth/themes/armbian/watermark.png"
 ```
 
-. 使用此命令应用更改并等待数十秒以完成构建。
+. 使用以下命令应用更改，等待数十秒完成构建。
 +
 ```
 sudo update-initramfs -u
 ```
 
-. `reboot`，您将看到开机徽标已更改为您替换的镜像。
+. 执行 `reboot`，重新启动后即可看到更换后的启动徽标。
 +
 image::/picture/bpi_m4_berry_ubuntu_8.jpg[bpi_m4_berry_ubuntu_8.jpg]
 
-== 40针接口 GPIO, I2C, UART, SPI, 和 PWM 测试
+== 40 针接口 GPIO、I2C、UART、SPI 和 PWM 测试
 === GPIO
-控制 GPIO 端口点亮 LED 光。
+通过 GPIO 端口控制 LED 灯亮灭。
 
-**设置高低电平 GPIO**
+**设置 GPIO 高低电平**
 
 image::/picture/m4_berry_gpio.jpg[m4_berry_gpio.jpg]
 
-以下是使用7针的演示。
+以下以 7 号引脚为例进行演示。
 
-插入 LED 灯亮，可以看到它没有亮。
+接入 LED 灯，此时可以看到 LED 尚未点亮。
 
 image::/picture/m4_berry_gpio_led_1.jpg[m4_berry_gpio_led_1.jpg]
 
@@ -692,14 +692,14 @@ image::/picture/m4_berry_gpio_led_1.jpg[m4_berry_gpio_led_1.jpg]
 ```sh
 gpio mode 2 out
 ```
-将其设置为输出模式。
+将 GPIO 设置为输出模式。
 
 . 执行
 +
 ```sh
 gpio write 2 1
 ```
-您可以看到 LED 灯已打开。
+可以看到 LED 灯已经点亮。
 +
 image::/picture/m4_berry_gpio_led_2.jpg[m4_berry_gpio_led_2.jpg]
 
@@ -708,51 +708,51 @@ image::/picture/m4_berry_gpio_led_2.jpg[m4_berry_gpio_led_2.jpg]
 ```sh
 gpio write 2 0
 ```
-您可以看到 LED 灯已关闭。
+可以看到 LED 灯已经熄灭。
 +
 image::/picture/m4_berry_gpio_led_1.jpg[m4_berry_gpio_led_1.jpg]
 
 **设置上拉和下拉电阻**
 
-. 首先，需要设置 GPIO 端口到输入模式
+. 首先，将 GPIO 端口设置为输入模式
 +
 ```sh
 gpio mode 2 in
 ```
-. 然后设置 GPIO 端口作为上拉电阻
+. 然后启用 GPIO 端口的上拉电阻
 +
 ```sh
 gpio mode 2 up
 ```
-的 LED 灯又亮了
+可以看到 LED 灯再次点亮。
 +
 image::/picture/m4_berry_gpio_led_2.jpg[m4_berry_gpio_led_2.jpg]
 
-. 最后，设置 GPIO 端口为下拉模式
+. 最后，将 GPIO 端口设置为下拉模式
 +
 ```sh
 gpio mode 2 down
 ```
-的 LED 灯再次熄灭
+可以看到 LED 灯再次熄灭。
 +
 image::/picture/m4_berry_gpio_led_1.jpg[m4_berry_gpio_led_1.jpg]
 
 === I2C
-根据原理图，可用的i2c有i2c3和i2c4
+根据原理图，可用的 I2C 接口为 I2C3 和 I2C4。
 
 image::/picture/m4_berry_gpio_i2c.png[m4_berry_gpio_i2c.png]
 
 
 
 === UART
-通过查看原理图，可以发现可用的 uart 是uart1和uart5。
+根据原理图，可用的 UART 接口为 UART1 和 UART5。
 
 image::/picture/m4_berry_gpio_uart.png[m4_berry_gpio_uart.png]
 
 
 
 === SPI
-通过查看原理图，可以发现可用的 spi 是 spi1。
+根据原理图，可用的 SPI 接口为 SPI1。
 
 image::/picture/m4_berry_sch_gpio_spi.png[m4_berry_sch_gpio_spi.png]
 
@@ -764,28 +764,27 @@ image::/picture/m4_berry_sch_gpio_spi.png[m4_berry_sch_gpio_spi.png]
 
 [options="header"]
 |=====
-2+|Bananapi M4 Berry 测试 HDMI
-|面板	                      |测试视频
-|link:https://www.waveshare.com/4inch-hdmi-lcd-c.htm[威享4寸720x720]	     |https://youtu.be/CRcjx6_29rA
-|link:https://www.waveshare.com/5inch-hdmi-amoled.htm[威享5寸960x544]	    |https://youtu.be/0wZ3lWQQTkQ
-|link:https://www.waveshare.com/5.5inch-1440x2560-lcd.htm[微享 5.5寸 1440x2560]  	|https://youtu.be/z9gTHa3i8Ag
-|link:https://www.waveshare.com/8inch-1536x2048-LCD.htm[威享 8寸 1536x2048]	  |https://youtu.be/Qjwo4vVBQmo
-|link:https://www.waveshare.com/8.8inch-Side-Monitor.htm[微享 8.8寸 480x1920]	   |https://youtu.be/SP9-HGrY6-M
-|link:https://www.waveshare.com/11.9inch-HDMI-LCD.htm[微享 11.9英寸 320x1480]	   |https://youtu.be/WA1yBGcYZds
-|link:https://www.waveshare.com/12.3inch-hdmi-lcd.htm[微享 12.3英寸 1920x720]	   |https://youtu.be/OJfqtHlgDvk
-|link:https://www.waveshare.com/5.5inch-hdmi-amoled.htm[微享 5.5寸 1080x1920]     |
-|link:https://www.waveshare.com/13.3inch-qhd-amoled.htm[微享 13.寸 2560x1440]     |
-|link:https://www.waveshare.com/7inch-hdmi-lcd-h.htm[威享 7寸 1024x600]      |
-|link:https://www.waveshare.com/10.1dp-caplcd.htm[微享 10.1寸 1280x800]      |
-|link:https://www.waveshare.com/10.1inch-hdmi-lcd-g-with-case.htm[微享 10.1英寸 1920x1200]     |
-|link:https://www.waveshare.com/product/raspberry-pi/displays/10.5inch-hdmi-amoled.htm[微享 10.5寸 2560x1600]     |
-|link:https://www.waveshare.com/10.1inch-hdmi-lcd-b-with-case.htm[微享 10.1寸 1280x800 LCD (B) 带盒]     |
-|link:https://www.waveshare.com/3.5inch-hdmi-lcd-e.htm[微享 3.5寸 640x480]     |
-|link:https://www.waveshare.com/5inch-hdmi-lcd-b.htm[威享5寸800x480]     |
-|link:https://www.waveshare.com/7.9inch-hdmi-lcd.htm[微享 7.9英寸 400x1280]     |
-|link:https://www.waveshare.com/5inch-hdmi-amoled.htm[威享5寸960x544]     |
-|link:https://www.waveshare.com/5.5inch-1440x2560-lcd.htm[微享 5.5寸 1440x2560]     |
-|link:https://www.waveshare.com/7inch-hdmi-lcd-c.htm[威享 7寸 1024x600]     |
-|link:https://www.waveshare.com/8inch-1536x2048-lcd.htm[威享 8寸 1536x2048]     |
+2+|Banana Pi M4 Berry HDMI 测试
+|显示屏	                      |测试视频
+|link:https://www.waveshare.com/4inch-hdmi-lcd-c.htm[Waveshare 4 英寸 720x720]	     |https://youtu.be/CRcjx6_29rA
+|link:https://www.waveshare.com/5inch-hdmi-amoled.htm[Waveshare 5 英寸 960x544]	    |https://youtu.be/0wZ3lWQQTkQ
+|link:https://www.waveshare.com/5.5inch-1440x2560-lcd.htm[Waveshare 5.5 英寸 1440x2560]  	|https://youtu.be/z9gTHa3i8Ag
+|link:https://www.waveshare.com/8inch-1536x2048-LCD.htm[Waveshare 8 英寸 1536x2048]	  |https://youtu.be/Qjwo4vVBQmo
+|link:https://www.waveshare.com/8.8inch-Side-Monitor.htm[Waveshare 8.8 英寸 480x1920]	   |https://youtu.be/SP9-HGrY6-M
+|link:https://www.waveshare.com/11.9inch-HDMI-LCD.htm[Waveshare 11.9 英寸 320x1480]	   |https://youtu.be/WA1yBGcYZds
+|link:https://www.waveshare.com/12.3inch-hdmi-lcd.htm[Waveshare 12.3 英寸 1920x720]	   |https://youtu.be/OJfqtHlgDvk
+|link:https://www.waveshare.com/5.5inch-hdmi-amoled.htm[Waveshare 5.5 英寸 1080x1920]     |
+|link:https://www.waveshare.com/13.3inch-qhd-amoled.htm[Waveshare 13.3 英寸 2560x1440]     |
+|link:https://www.waveshare.com/7inch-hdmi-lcd-h.htm[Waveshare 7 英寸 1024x600]      |
+|link:https://www.waveshare.com/10.1dp-caplcd.htm[Waveshare 10.1 英寸 1280x800]      |
+|link:https://www.waveshare.com/10.1inch-hdmi-lcd-g-with-case.htm[Waveshare 10.1 英寸 1920x1200]     |
+|link:https://www.waveshare.com/product/raspberry-pi/displays/10.5inch-hdmi-amoled.htm[Waveshare 10.5 英寸 2560x1600]     |
+|link:https://www.waveshare.com/10.1inch-hdmi-lcd-b-with-case.htm[Waveshare 10.1 英寸 1280x800 LCD（B，带外壳）]     |
+|link:https://www.waveshare.com/3.5inch-hdmi-lcd-e.htm[Waveshare 3.5 英寸 640x480]     |
+|link:https://www.waveshare.com/5inch-hdmi-lcd-b.htm[Waveshare 5 英寸 800x480]     |
+|link:https://www.waveshare.com/7.9inch-hdmi-lcd.htm[Waveshare 7.9 英寸 400x1280]     |
+|link:https://www.waveshare.com/5inch-hdmi-amoled.htm[Waveshare 5 英寸 960x544]     |
+|link:https://www.waveshare.com/5.5inch-1440x2560-lcd.htm[Waveshare 5.5 英寸 1440x2560]     |
+|link:https://www.waveshare.com/7inch-hdmi-lcd-c.htm[Waveshare 7 英寸 1024x600]     |
+|link:https://www.waveshare.com/8inch-1536x2048-lcd.htm[Waveshare 8 英寸 1536x2048]     |
 |=====
-
