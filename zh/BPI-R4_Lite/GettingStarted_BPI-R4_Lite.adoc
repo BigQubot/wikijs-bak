@@ -1,0 +1,876 @@
+= 简介
+
+Banana Pi BPI-R4 Lite 是一款基于 MediaTek MT7987A 四核 Arm Cortex-A53 处理器设计的高性能开源路由器开发板。板载 2 GB DDR4、8 GB eMMC、256 MB SPI NAND、32 MB SPI NOR 和 MicroSD 卡槽；配有一个 2.5G SFP LAN、一个 2.5G RJ45 WAN、四个 1G RJ45 LAN 和一个 USB 3.0 接口。扩展接口包括一个支持 USB 3.0 的 M.2 Key B 插槽（用于 5G 模块）、一个支持 PCIe 3.0 双通道的 miniPCIe 插槽（用于 Wi-Fi 7 网卡；也可选配两个 PCIe 3.0 单通道 miniPCIe 插槽）、一个支持 USB 2.0 的 miniPCIe 插槽，以及一个 USB Type-C 调试控制台。
+
+TIP: link:/en/BPI-R4_Lite/BananaPi_BPI-R4_Lite[BananaPi_BPI-R4_Lite]
+
+TIP: link:/en/BPI-R4_Lite/TEST-R4_Lite[TEST-R4_Lite]
+
+= 开发
+== 准备
+* 准备容量不小于 8 GB 的 TF 卡、USB 转串口线和 Ubuntu 系统。
+* 12 V/2 A 电源适配器（未连接任何外设时，BPI-R4_Lite 主板正常功耗约为 3 W。请根据实际使用的配件判断是否需要更高功率的电源适配器。）
+* 使用 USB Type-C 调试控制台。
+* link:                              [下载待写入的镜像]
+* LAN 口默认 IP 地址：192.168.1.1
+* 用户名/密码：pi/bananapi、root/bananapi。 +
+也可能使用 root 用户且无密码。
+* Wi-Fi：AP_MTK_MT7990_2G/AP_MTK_MT7990_5G/AP_MTK_MT7990_6G
+
+image::/console.png[console.png]
+                           
+== BPI-R4_Lite 启动模式与设备选择跳线设置
+image::/bpi-r4_lite/bootst.png[bootst.png]
+image::/bpi-r4_lite/bootstrap.png[bootstrap.png]
+
+SW3_A 和 SW3_B 控制 MT7987 芯片输出的选择信号：
+
+“00”表示从 SD 卡启动。
+
+“01”表示从 NOR 启动。
+
+“10”表示从 NAND 启动。
+
+“11”表示从 eMMC 启动。
+
+SW3_C 通过 U24 在 NAND 与 NOR 之间选择：
+SW3_C 为 1 时，开关在物理上连接到 NOR。
+SW3_C 为 0 时，开关在物理上连接到 NAND。
+
+SW3_D 用于在 SD 卡与 eMMC 之间选择：
+SW3_D 为 1 时，开关在物理上连接到 eMMC。
+SW3_D 为 0 时，开关在物理上连接到 SD 卡。
+
+
+
+image::/bpi-r4_lite/bootstr3.png[bootstr3.png]
+
+=== A/B/D 跳线均为“0”时，BPI-R4_Lite 从 SD 卡启动
+
+image::/bpi-r4_lite/00x0_sd.png[00x0_sd.png]
+
+
+=== A 跳线为“0”、B/C 跳线为“1”时，BPI-R4_Lite 从 SPI NOR 闪存启动
+
+image::/bpi-r4_lite/011x_nor.png[011x_nor.png]
+
+=== A 跳线为“1”、B/C 跳线为“0”时，BPI-R4_Lite 从 SPI NAND 闪存启动
+
+image::/bpi-r4_lite/100xnand.png[100xnand.png]
+
+=== A/B/D 跳线均为“1”时，BPI-R4_Lite 从 eMMC 启动
+
+image::/bpi-r4_lite/11x1emmc.png[11x1emmc.png]
+
+=== 如果控制台显示“system halt!”，表示启动存储设备中没有操作系统
+
+```bash
+  F0: 102B 0000
+  F9: 1042 0000
+  F9: 1042 0000 [0200]
+  F8: 1041 0000
+  F8: 1041 0000 [0002]
+  F3: 1001 0000 [0200]
+  F3: 102C 0000
+  F5: 480A 0031
+  00: 1005 0000
+  F9: 1042 0000
+  F9: 1042 0000 [0200]
+  F8: 1041 0000
+  F8: 1001 0000 [0200]
+  F3: 1001 0000
+  F3: 1001 0000
+  01: 102A 0001
+  02: 1005 0000
+  BP: 0280 00C0 [0001]
+  EC: 0000 0000 [0000]
+  MK: 0000 0000 [0000]
+  T0: 0000 00F7 [0101]
+  System halt!
+```
+
+== 镜像
+下图为示例：
+
+image::/bpi-r4_lite/image.png[image.png]
+
+请参照上面的启动跳线示意图：
+
+对于 mtk-bpi-r4lite-EMMC-NAND-MP4_2-2PCIe-1L.img：启动程序从 NAND 加载，该镜像写入 eMMC。跳线应设置为 1001；写入 eMMC 时还需要 bl2.emmc.img 文件。
+
+对于 mtk-bpi-r4lite-EMMC-NOR-MP4_2-2PCIe-1L.img：启动程序从 NOR 加载，该镜像写入 eMMC。跳线应设置为 0111；写入 eMMC 时还需要 bl2.emmc.img 文件。
+
+对于 mtk-bpi-r4lite-NAND-MP4_2-2PCIe-1L.img：启动程序从 SD 卡加载，该镜像写入 NAND。跳线应设置为 0000。
+
+对于 mtk-bpi-r4lite-NOR-MP4_2-2PCIe-1L.img：启动程序从 SD 卡加载，该镜像写入 NOR。跳线应设置为 0010。
+
+对于 mtk-bpi-r4lite-SD-NOR-MP4_2-2PCIe-1L.img：此 SD 卡镜像支持 NOR 闪存，但不支持 NAND 闪存。如果从 SD 卡启动后需要向 NOR 写入其他镜像，应使用这个专用镜像。
+
+对于 mtk-bpi-r4lite-SD-NAND-MP4_2-2PCIe-1L.img：此 SD 卡镜像支持 NAND 闪存，但不支持 NOR 闪存。如果从 SD 卡启动后需要向 NAND 写入其他镜像，应使用这个专用镜像。
+
+
+
+=== 将镜像写入 SD 卡
+
+-  Windows PC：将 SD 卡插入读卡器，再将读卡器连接到电脑。格式化 SD 卡时不要选择“快速格式化”。
+
+
+- Linux PC：可以使用“**mksf**”命令格式化，或使用“**dd**”命令写零。
+
+**在 Windows 电脑上将镜像写入 SD 卡**
+
+link:https://balena.io/etcher[Balena Etcher] 是 Balena 提供的开源图形化镜像写入工具，可将操作系统镜像写入 SD 卡或 U 盘。
+
+- 单击“**Flash from file**”选择镜像。 
+- 单击“**Select target**”选择目标设备。 
+- 单击“**Flash!**”开始写入。
+
+image::/bpi-r4_lite/r4_lite_flash1.png[r4_lite_flash1.png]      
+
+**在 Linux 电脑上将镜像写入 SD 卡**
+
+1. 从我们的论坛下载最新镜像。     
+2. 在 Ubuntu 中安装 bpi-tools。如果无法访问该地址或遇到其他问题，请前往 bpi-tools 仓库手动安装。
+
++
+```sh
+apt-get install pv
+curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
+```
+3. 下载镜像后，将 TF 卡插入 Ubuntu 电脑并执行：
+
++
+```sh
+bpi-copy xxx.img /dev/sdx
+```
+该命令会将镜像写入 TF 卡。
+
+4. 完成步骤 3 后，将 TF 卡插入 R4_Lite，然后按电源键启动开发板。
+ 
+**将启动跳线更改为从 SD 启动，启用 SD 卡设备。**
+
+=== 将镜像写入板载 NOR
+NOTE: 更新 NOR 时，先将启动开关切换到从 SD 卡启动，并插入写有 SD 启动镜像的 SD 卡。系统启动后，将 NOR 镜像写入 NOR，最后再把启动模式切换为从 NOR 启动。
+
+写入 NOR 镜像前，请先准备一个 U 盘。以下以 OpenWrt 镜像（mtk-bpi-r4lite-NOR.img）为例：
+
+1. 将 NOR 启动用 OpenWrt 镜像（**mtk-bpi-r4lite-NOR.img**）复制到 U 盘。 
+2. 调整启动跳线，使开发板从 SD 卡启动，然后上电。
+3. 将 U 盘插入开发板，并按如下方式挂载到 /mnt 或其他目录（如果系统已自动挂载，可跳过此步）：
+
++
+```SH
+mount -t vfat /dev/sda1 /mnt 
+cd /mnt/sda1
+```
+4. 执行以下命令擦除整个 NOR 闪存，并将镜像写入 NOR 设备：
+
++
+```sh
+mtd erase /dev/mtd0
+dd if=mtk-bpi-r4lite-NOR.img of=/dev/mtdblock0
+```
+5. 关闭 BPI-R4_Lite 的电源，拔出 U 盘，将启动模式切换为从 NOR 启动。
+
+=== 将镜像写入板载 NAND
+> **NAND 在出厂时已写入镜像。如需使用，只需切换到对应的启动模式，然后上电启动。**
+
+
+
+NOTE: 更新 NAND 时，先将启动开关切换到从 SD 卡启动，并插入写有 SD 启动镜像的 SD 卡。系统启动后，将 NAND 镜像写入 NAND，最后再把启动模式切换为从 NAND 启动。
+
+
+
+写入 NAND 镜像前，请先准备一个 U 盘。以下以 OpenWrt 镜像（mtk-bpi-r4lite-NAND-0611.img）为例：
+
+1. 将 NAND 启动用 OpenWrt 镜像（**mtk-bpi-r4lite-NAND-0611.img**）复制到 U 盘。 
+2. 调整启动跳线，使开发板从 SD 卡启动，然后上电。
+3. 将 U 盘插入开发板，并按如下方式挂载到 /mnt 或其他目录（如果系统已自动挂载，可跳过此步）：
+
++
+```SH
+mount -t vfat /dev/sda1 /mnt 
+cd /mnt/sda1
+```
+4. 执行以下命令擦除整个 NAND 闪存，并将镜像写入 NAND 设备：
+
++
+```sh
+mtd erase /dev/mtd0
+mtd write mtk-bpi-r4lite-NAND-0611.img /dev/mtd0
+```
+5. 关闭 BPI-R4_Lite 的电源，拔出 U 盘，将启动模式切换为从 NAND 启动。
+
+
+=== 将镜像写入板载 eMMC
+NOTE: SD 卡和 eMMC 共用同一个 SoC 控制器，因此必须先从 NAND 启动，再将 eMMC 镜像写入 eMMC；完成后把启动模式切换为从 eMMC 启动。
+
+
+
+写入 eMMC 镜像前，请先准备一个 U 盘。以下以 OpenWrt 镜像（bl2_emmc.img、mtk-bpi-r4lite-EMMC-NAND.img）为例：
+
+1. 将 eMMC 启动用 OpenWrt 镜像（**bl2_emmc.img**、**mtk-bpi-r4lite-EMMC-NAND.img**）复制到 U 盘；如果镜像已压缩，请先解压再复制。
+
+2. 将启动跳线切换到 NAND，使主板从 NAND 启动。
+ 
+3. 将 U 盘插入开发板，并按如下方式挂载到 /mnt 或其他目录（如果系统已自动挂载，可跳过此步）：
+
++
+```sh
+mount -t vfat /dev/sda1 /mnt 
+cd /mnt/sda1
+```
+
+4. 执行：
+
++
+```sh
+echo 0 > /sys/block/mmcblk0boot0/force_ro
+dd if=bl2_emmc.img of=/dev/mmcblk0boot0
+dd if=mtk-bpi-r4lite-EMMC-NAND.img of=/dev/mmcblk0
+mmc bootpart enable 1 1 /dev/mmcblk0
+sync
+sync
+```
+ 
+5. 关闭 R4_Lite 的电源，拔出 U 盘，将启动模式切换为从 eMMC 启动。
+
+== 网络配置
+
+* 网络配置参考： http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:network:start
+* 网络接口：WAN口用于WAN；SFP LAN、lan0、lan1、lan2、lan3 表示 LAN， ra0/ra1 用于2.4G无线，rai0用于5G wifi6无线，rax0用于6G wifi7无线。
+
+image::/bpi-r4_lite/r4-lite_rj45.png[r4-lite_rj45.png]
+    
+
+```bash
+root@OpenWrt:~# ifconfig
+br-lan    Link encap:Ethernet  HWaddr BA:F0:A3:27:B2:53  
+          inet addr:10.0.6.1  Bcast:10.0.6.255  Mask:255.255.255.0
+          inet6 addr: fd7f:7a27:1d87::1/60 Scope:Global
+          inet6 addr: fe80::b8f0:a3ff:fe27:b253/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:99527801 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:37709738 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:149207799463 (138.9 GiB)  TX bytes:2498673864 (2.3 GiB)
+
+br-wan    Link encap:Ethernet  HWaddr AA:0E:53:9B:EB:46  
+          inet addr:10.168.1.125  Bcast:10.168.1.255  Mask:255.255.255.0
+          inet6 addr: fe80::a80e:53ff:fe9b:eb46/64 Scope:Link
+          inet6 addr: fd3f:1b63:79e:0:a80e:53ff:fe9b:eb46/64 Scope:Global
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:34911 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:26689 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:16527400 (15.7 MiB)  TX bytes:10371963 (9.8 MiB)
+
+eth0      Link encap:Ethernet  HWaddr BA:F0:A3:27:B2:53  
+          inet6 addr: fe80::b8f0:a3ff:fe27:b253/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1504  Metric:1
+          RX packets:1866 errors:0 dropped:1 overruns:0 frame:0
+          TX packets:6100 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:483284 (471.9 KiB)  TX bytes:4001138 (3.8 MiB)
+          Interrupt:73 
+
+eth1      Link encap:Ethernet  HWaddr AA:0E:53:9B:EB:46  
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:3251292 errors:0 dropped:0 overruns:0 frame:1
+          TX packets:19493357 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:219561937 (209.3 MiB)  TX bytes:29475758425 (27.4 GiB)
+          Interrupt:73 
+
+lan0      Link encap:Ethernet  HWaddr BA:F0:A3:27:B2:53  
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:1615 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:1583 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:417484 (407.6 KiB)  TX bytes:710675 (694.0 KiB)
+
+lan1      Link encap:Ethernet  HWaddr BA:F0:A3:27:B2:53  
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+lan2      Link encap:Ethernet  HWaddr BA:F0:A3:27:B2:53  
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+lan3      Link encap:Ethernet  HWaddr BA:F0:A3:27:B2:53  
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+lan5      Link encap:Ethernet  HWaddr BA:F0:A3:27:B2:53  
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:2336 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:273011 (266.6 KiB)
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:331 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:331 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:89520 (87.4 KiB)  TX bytes:89520 (87.4 KiB)
+
+ra0       Link encap:Ethernet  HWaddr 00:0C:43:26:60:88  
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:19506966 errors:570 dropped:570 overruns:0 frame:0
+          TX packets:3871107 errors:57295 dropped:57295 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:29798518080 (27.7 GiB)  TX bytes:253500928 (241.7 MiB)
+
+ra1       Link encap:Ethernet  HWaddr 02:0C:43:36:60:88  
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+rai0      Link encap:Ethernet  HWaddr 00:0C:43:26:60:C0  
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:99966624 errors:1084 dropped:1084 overruns:0 frame:0
+          TX packets:47357921 errors:278811 dropped:278811 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:152961245728 (142.4 GiB)  TX bytes:3031675968 (2.8 GiB)
+
+rax0      Link encap:Ethernet  HWaddr 00:0C:43:26:60:78  
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+root@OpenWrt:~# brctl show br-wan
+bridge name     bridge id               STP enabled     interfaces
+br-wan          7fff.aa0e539beb46       no              eth1
+root@OpenWrt:~# brctl show br-lan
+bridge name     bridge id               STP enabled     interfaces
+br-lan          7fff.baf0a327b253       no              apclii0
+                                                        apclix0
+                                                        apcli0
+                                                        ra1
+                                                        rai0
+                                                        rax0
+                                                        lan2
+                                                        lan0
+                                                        lan5
+                                                        ra0
+                                                        lan3
+                                                        lan1
+root@OpenWrt:~# 
+```
+
+=== 2.5G SFP LAN
+
+TIP: 支持 R3 的 SFP-2.5G-T 电口模块。
+
+= 配件
+== 4G/5G 模块
+
+
+=== M.2 4G/5G 模块（USB 接口）
+BPI-R4_Lite 支持采用 M.2 USB 接口的 4G LTE/5G 模块：**Quectel EM05、RM500U-CN、RM500Q-GL 和 RM520N-GL**。 
+
+如需在 BPI-R4_Lite 上使用 M.2 蜂窝通信模块，请执行以下步骤：
+
+1. 将 4G/5G 蜂窝通信模块安装到 CN9 插槽（M.2 Key B）。
+2. 将 Nano SIM 卡插入 SIM 卡槽（SIM1），注意安装方向。
+3. 在模块上安装天线。
+4. 开机后系统会自动拨号。
+
+NOTE:  4G/5G 功能是否可用取决于当地运营商使用的频段。
+
+
+image::/bpi-r4_lite/key_b.jpg[key_b.jpg]
+image::/bpi-r4_lite/sim1.jpg[sim1.jpg]image::/bpi-r4_lite/r4_lite-sim.png[r4_lite-sim.png]
+image::/bpi-r4_lite/cn9.png[cn9.png]
+
+**Quectel RM520N-GL**
+
+image::/读id-sim1.png[读id-sim1.png]
+```sh
+Quectel RM520N-GL
+wwan0     Link encap:Ethernet  HWaddr 1A:F1:B9:87:ED:15  
+          inet6 addr: fe80::18f1:b9ff:fe87:ed15/64 Scope:Link
+          UP RUNNING NOARP  MTU:1500  Metric:1
+          RX packets:16 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:25 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:5476 (5.3 KiB)  TX bytes:3668 (3.5 KiB)
+
+wwan0_1   Link encap:Ethernet  HWaddr 1A:F1:B9:87:ED:15  
+          inet addr:10.6.0.91  Mask:255.255.255.248
+          inet6 addr: fe80::18f1:b9ff:fe87:ed15/64 Scope:Link
+          UP RUNNING NOARP  MTU:1500  Metric:1
+          RX packets:21 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:29 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:5570 (5.4 KiB)  TX bytes:3668 (3.5 KiB)
+
+root@OpenWrt:/# 
+root@OpenWrt:/# lsusb
+Bus 001 Device 002: ID 2109:2817 VIA Labs, Inc.          USB2.0 Hub             
+Bus 001 Device 001: ID 1d6b:0002 Linux 5.4.281 xhci-hcd xHCI Host Controller
+Bus 002 Device 003: ID 2c7c:0801 Quectel RM520N-GL
+Bus 002 Device 002: ID 2109:0817 VIA Labs, Inc.          USB3.0 Hub             
+Bus 002 Device 001: ID 1d6b:0003 Linux 5.4.281 xhci-hcd xHCI Host Controller
+root@OpenWrt:/# 
+root@OpenWrt:/# ping www.baidu.com
+PING www.baidu.com (183.2.172.177): 56 data bytes
+64 bytes from 183.2.172.177: seq=0 ttl=53 time=19.850 ms
+64 bytes from 183.2.172.177: seq=1 ttl=53 time=104.403 ms
+64 bytes from 183.2.172.177: seq=2 ttl=53 time=63.774 ms
+64 bytes from 183.2.172.177: seq=3 ttl=53 time=105.180 ms
+64 bytes from 183.2.172.177: seq=4 ttl=53 time=65.546 ms
+64 bytes from 183.2.172.177: seq=5 ttl=53 time=105.946 ms
+^C
+--- www.baidu.com ping statistics ---
+6 packets transmitted, 6 packets received, 0% packet loss
+round-trip min/avg/max = 19.850/77.449/105.946 ms
+root@OpenWrt:/# 
+```
+
+
+=== miniPCIe 4G/5G 模块（USB 接口）
+BPI-R4_Lite 支持采用 miniPCIe USB 接口的 4G LTE 模块：**Quectel EC25**。
+
+如需在 BPI-R4_Lite 上使用 miniPCIe 蜂窝通信模块，请执行以下步骤：
+
+1. 将 4G 蜂窝通信模块安装到 CN11 插槽。
+2. 使用卡托将 Nano SIM 卡插入 SIM 卡槽（SIM2），注意安装方向。
+3. 在模块上安装天线。
+4. 开机后系统会自动拨号。
+
+**也可以使用 CN13（SIM3）**
+
+NOTE:  4G 功能是否可用取决于当地运营商使用的频段。
+
+> __由于 BPI-R4_Lite 与 Qualcomm/Unisoc 模块之间的兼容性问题，EC25 模块无法直接访问 DNS 服务器并连接互联网。因此，需要通过控制台手动修改 **default.script** 文件。__
+
+```sh
+vim /usr/share/udhcpc/default.script
+```
+
+ 
+image::/bpi-r4/bpi-r4_ec25e_module_modification_1.png[bpi-r4_ec25e_module_modification_1.png]
+
+
+
+
+添加以下内容：echo "nameserver 202.96.128.86" >> /etc/resolv.conf
+```sh
+echo "nameserver 202.96.128.86" >> /etc/resolv.conf
+```
+按 **i** 键进入编辑模式。修改完成后按 **Esc** 键退出编辑模式，然后按 **Shift + **:，输入 **wq!**，最后按 **Enter** 保存并退出。
+
+NOTE: 请根据本地 DNS 服务器修改 IP 地址。
+
+image::/bpi-r4/bpi-r4_ec25e_module_modification_2.png[bpi-r4_ec25e_module_modification_2.png]
+
+image::/bpi-r4_lite/4g.jpg[4g.jpg]
+
+**EC25-E**
+```sh
+wwan0     Link encap:Ethernet  HWaddr 12:19:B1:54:2E:04  
+          inet addr:10.41.254.97  Mask:255.255.255.252
+          inet6 addr: fe80::1019:b1ff:fe54:2e04/64 Scope:Link
+          UP RUNNING NOARP  MTU:1500  Metric:1
+          RX packets:12 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:24 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:1623 (1.5 KiB)  TX bytes:2222 (2.1 KiB)
+
+root@Simon-R4:/# 
+root@Simon-R4:/# lsusb
+Bus 001 Device 004: ID 2c7c:0125 Android Android
+Bus 002 Device 002: ID 2109:0822 VIA Labs, Inc.          USB3.1 Hub             
+Bus 002 Device 001: ID 1d6b:0003 Linux 5.4.260 xhci-hcd xHCI Host Controller
+Bus 001 Device 003: ID 2109:8822 VIA Labs, Inc.          USB Billboard Device   
+Bus 001 Device 002: ID 2109:2822 VIA Labs, Inc.          USB2.0 Hub             
+Bus 001 Device 001: ID 1d6b:0002 Linux 5.4.260 xhci-hcd xHCI Host Controller
+root@Simon-R4:/# 
+root@Simon-R4:/# ping www.baidu.com
+PING www.baidu.com (183.2.172.42): 56 data bytes
+64 bytes from 183.2.172.42: seq=0 ttl=52 time=24.309 ms
+64 bytes from 183.2.172.42: seq=1 ttl=52 time=55.576 ms
+64 bytes from 183.2.172.42: seq=2 ttl=52 time=55.507 ms
+64 bytes from 183.2.172.42: seq=3 ttl=52 time=39.399 ms
+64 bytes from 183.2.172.42: seq=4 ttl=52 time=31.386 ms
+^C
+--- www.baidu.com ping statistics ---
+5 packets transmitted, 5 packets received, 0% packet loss
+round-trip min/avg/max = 24.309/41.235/55.576 ms
+root@Simon-R4:/# 
+
+```
+
+== 存储
+
+=== PCIe 转 SATA
+使用 PCIe 转 SATA 或 PCIe 转 USB 时，必须写入 2PCIe-1Lane 固件镜像，因为 mPCIe A/B 通道有两种配置：一个双通道接口（mPCIe A），或两个独立的单通道接口（mPCIe A + mPCIe B）。
+
+镜像：
+link:/en/BPI-R4_Lite/GettingStarted_BPI-R4_Lite[GettingStarted_BPI-R4_Lite#OpenWrt]
+
+BPI-R4_Lite 支持 PCIe 转 SATA。
+
+image::/bpi-r4_lite/sata.jpg[sata.jpg]
+```bash
+root@OpenWrt:/# lspci
+00:00.0 PCI bridge: MEDIATEK Corp. Device 7987 (rev 01)
+01:00.0 SATA controller: ASMedia Technology Inc. ASM1062 Serial ATA Controller (rev 02)
+root@OpenWrt:/# 
+root@OpenWrt:/# 
+root@OpenWrt:/# cat /proc/partitions
+major minor  #blocks  name
+  31        0     262144 mtdblock0
+  31        1       1024 mtdblock1
+  31        2        512 mtdblock2
+  31        3       4096 mtdblock3
+  31        4       2048 mtdblock4
+  31        5     115200 mtdblock5
+ 253        0      60140 ubiblock0_1
+root@OpenWrt:/# 
+```
+
+=== PCIe 转 USB
+BPI-R4_Lite 也支持 PCIe 转 USB。
+
+image::/bpi-r4_lite/pcie_to_usb.jpg[pcie_to_usb.jpg]
+
+```bash
+root@OpenWrt:/# lspci
+00:00.0 PCI bridge: MEDIATEK Corp. Device 7987 (rev 01)
+01:00.0 USB controller: Renesas Technology Corp. uPD720201 USB 3.0 Host Controller (rev 03)
+root@OpenWrt:/# lsusb
+Bus 001 Device 002: ID 0bda:c820 Realtek 802.11ac NIC
+Bus 003 Device 002: ID 2109:2817 VIA Labs, Inc.          USB2.0 Hub             
+Bus 002 Device 001: ID 1d6b:0003 Linux 5.4.281 xhci-hcd xHCI Host Controller
+Bus 004 Device 002: ID 2109:0817 VIA Labs, Inc.          USB3.0 Hub             
+Bus 004 Device 001: ID 1d6b:0003 Linux 5.4.281 xhci-hcd xHCI Host Controller
+Bus 001 Device 001: ID 1d6b:0002 Linux 5.4.281 xhci-hcd xHCI Host Controller
+Bus 003 Device 001: ID 1d6b:0002 Linux 5.4.281 xhci-hcd xHCI Host Controller
+root@R4CN:/# 
+```
+
+== Wi-Fi 7 网卡
+将 BPI-R4-NIC 插入 BPI-R4_Lite-Main 底部的 CN11 和 CN13，然后使用两颗 M2 螺钉固定。
+
+使用 BPI-R4-NIC 模块时必须写入双通道固件镜像，因为 mPCIe A/B 通道有两种配置：一个双通道接口（mPCIe A），或两个独立的单通道接口（mPCIe A + mPCIe B）。BPI-R4-NIC 模块需要 12 V 供电，因此 BPI-R4_Lite-Main 上电前必须先开启该电源：将 SW4 拨到“ON”位置，上电后 12V LED 会点亮。
+
+镜像：
+link:/en/BPI-R4_Lite/GettingStarted_BPI-R4_Lite[GettingStarted_BPI-R4_Lite#OpenWrt]
+
+
+IMPORTANT:  12 V 电源通过 miniPCI 插槽的 6/28/48 号引脚提供给 BPI-R4-NIC。 
+插入其他模块时，如果无法确认模块能否承受 12 V 电压，请务必关闭 SW4。
+
+image::/bpi-r4_lite/mpcie_chose.png[mpcie_chose.png]
+
+image::/bpi-r4_lite/mpcie_chose1.png[mpcie_chose1.png]
+
+image::/bpi-r4_lite/11.png[11.png]
+
+image::/bpi-r4_lite/13.png[13.png]
+
+image::/bpi-r4_lite/minipeie.png[minipeie.png]
+
+
+=== BPI-R4-NIC-BE14
+
+BPI-R4-NIC-BE14 ：MT7995AV+MT7976CN+MT7977IAN
+
+link:/en/BPI-R4/BananaPi_BPI-R4-NIC-BE14[BananaPi_BPI-R4-NIC-BE14]
+
+image::/bpi-r4/nic-be14-top-800.png[nic-be14-top-800.png]
+
+```bash
+root@R4RN:/# lspci
+0000:00:00.0 PCI bridge: MEDIATEK Corp. Device 7988 (rev 01)
+0000:01:00.0 Network controller: MEDIATEK Corp. Device 7990
+0001:00:00.0 PCI bridge: MEDIATEK Corp. Device 7988 (rev 01)
+0001:01:00.0 Network controller: MEDIATEK Corp. Device 7991
+0004:00:00.0 Unclassified device [0002]: MEDIATEK Corp. Device 7981
+
+root@R4RN:/# ifconfig 
+ra0       Link encap:Ethernet  HWaddr 00:0C:43:26:60:A8  
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:10 errors:10 dropped:0 overruns:0 frame:0
+          TX packets:46 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:320 (320.0 B)  TX bytes:1184 (1.1 KiB)
+
+rai0      Link encap:Ethernet  HWaddr 00:0C:43:26:60:B8  
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:1290969 errors:51890 dropped:0 overruns:0 frame:0
+          TX packets:17549107 errors:254037 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:363742528 (346.8 MiB)  TX bytes:25491834560 (23.7 GiB)
+
+rax0      Link encap:Ethernet  HWaddr 00:0C:43:26:60:28  
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:563140 errors:187 dropped:0 overruns:0 frame:0
+          TX packets:1683329 errors:11607 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:785902144 (749.4 MiB)  TX bytes:2175529280 (2.0 GiB)
+          
+```
+
+
+=== OpenWrt
+OpenWrt MTK MP4.0 Wi-Fi 设置：
+
+image::/bpi-r4_lite/open_wrt.png[open_wrt.png]
+
+所有功能正常后，可以检测到三个 SSID，BE14 上的三个蓝色 LED 也会点亮。
+
+可以单击 Config 修改 SSID 和密码。然后在电脑屏幕右下角的系统托盘（WLAN 图标）中找到相应名称的 Wi-Fi，输入密码即可连接网络。
+
+
+== 散热片
+以下是 MTK OpenWrt 的 PWM 风扇控制参考脚本。
+
+查看风扇脚本设置：
+
+```bash
+root@OpenWrt:/# cat /sbin/fan-speed 
+#!/bin/sh /etc/rc.common
+
+if [ ! -f /sys/class/pwm/pwmchip0/export ]; then
+        exit 0
+fi
+
+### enable fan ###
+echo 0 > /sys/class/pwm/pwmchip0/export
+echo 10000 > /sys/class/pwm/pwmchip0/pwm0/period
+echo 7000 >  /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+echo normal > /sys/class/pwm/pwmchip0/pwm0/polarity
+echo 1 > /sys/class/pwm/pwmchip0/pwm0/enable
+
+while :
+do
+        sleep 20
+        result=`cat /sys/class/thermal/thermal_zone0/temp`
+
+        temperature=$((result))
+        #echo $temperature
+        if [ ${temperature} -ge 53000 ]; then
+                echo 5000 >  /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+        fi
+
+        if [ ${temperature} -ge 62000 ]; then
+                echo 1000 >  /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+        fi
+
+        if [ ${temperature} -le 4800 ]; then
+                echo 7000 >  /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+        fi
+
+        if [ ${temperature} -le 4000 ]; then
+                echo 10000 >  /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+        fi
+done
+```
+
+=== 如何调节风扇速度
+
+禁用后台运行的脚本（该脚本会在开机时自动启动，请先停止 fan-speed 进程）：
+
+
+```bash
+root@OpenWrt:/# ps w | grep fan
+ 7167 root      1324 S    /bin/sh /etc/rc.common /sbin/fan-speed
+ 7435 root      1244 R    grep fan
+root@OpenWrt:/# kill -9 7167
+root@OpenWrt:/# ps w | grep fan
+ 7503 root      1244 S    grep fan
+```
+
+手动设置 PWM2 输出；duty_cycle 控制风扇转速，数值越大，转速越高。
+
+```bash
+root@OpenWrt:/# echo 2 > /sys/class/pwm/pwmchip0/export
+root@OpenWrt:/# echo 10000 > /sys/class/pwm/pwmchip0/pwm2/period
+root@OpenWrt:/# echo 5000 >  /sys/class/pwm/pwmchip0/pwm2/duty_cycle 
+root@OpenWrt:/# echo normal > /sys/class/pwm/pwmchip0/pwm2/polarity
+root@OpenWrt:/# echo 1 > /sys/class/pwm/pwmchip0/pwm2/enable
+root@OpenWrt:/# 
+```
+
+
+image::/bpi-r4_lite/fan.jpg[fan.jpg]
+
+手动设置 PWM2 输出；duty_cycle 控制风扇转速，数值越大，转速越高。
+
+== 2×8 针 MikroBUS
+NOTE: 上电时不要拉低 UART1_TXD。
+
+image::/bpi-r4_lite/e221cba2fba0133f8f27bb4b8eecd2c7.png[e221cba2fba0133f8f27bb4b8eecd2c7.png]
+
+
+
+= GPIO 定义 
+== 2x8 PIN MikroBUS（CN1）
+[options="header",cols="3,1,1,4",width="70%"]
+|====
+4+| **BPI-R4_Lite 2×8 针 MikroBUS 接口（CN1）GPIO 定义**
+|BPI-R4_Lite-CON2	|引脚		|引脚	|BPI-R4_Lite-CON2
+|GND	|1		|2	|5V
+|SDA	|3	|	4|	SCL
+|UART-TX	|5		|6	|UART-RX
+|INT|7		|8	|PWM
+|AN|9		|10	|RST
+|SPI-CS	|11		|12	|SPI-CLK
+|SPI-MISO	|13		|14	|SPI-MOSI
+|3.3V	|15		|16	|GND
+|====
+
+== BPI-R4_Lite M.2 B-KEY(CN9)			
+
+[options="header",cols="3,1,1,3",width="70%"]
+|====
+4+| **BPI-R4_Lite M.2 B-Key（CN19）GPIO 定义**
+|BPI-R4_Lite M.2 B-KEY(CN16)	|引脚		|引脚	|BPI-R4_Lite M.2 B-KEY(CN9)
+|NI	|1	|	2	|VCC_KEYB
+|GND	|3		|4	|VCC_KEYB
+|GND	|5	|	6	|NGFF_KEYB_Card_PWRON(10K PullUp to 3.3V)
+|KEYB_USB_Dp	|7		|8	|NGFF_KEYB_WWAN_DISABLE1n
+|KEYB_USB_Dn|	9		|10|NGFF_KEYB_NET_STUN
+|GND	|11		|12	|NOTCH
+|NOTCH	 |13		|14	|
+|	|15		|16	|
+|	|17		|18	|
+||	19	|	20	|NI
+|NI	|21		|22|	NI
+|KEYB-WAKEn|	23	|	24	|NI
+|NI	|25		|26|	NGFF_KEYB_GNSS_DISABLE2n
+|GND	|27		|28|	NI
+|KEYB-HSln	|29		|30	|USIM_RST-1A
+|KEYB-HSLP	|31		|32	|USIM_CLK-1A
+|GND	|33	|	34	|USIM_DATA-1A
+|KEYB-HSOn	|35	|36|	USIM_VDD-1A
+|KEYB-HSOp	|37|		38|	NI
+|GND|	39	|	40|	NI
+|NI	|41		|42	|USIM_DATA-1B
+|NI|	43	|	44	|USIM_CLK-1B
+|GND	|45	|	46	|USIM_RST-1B
+|NI	|47		|48	|USIM_VDD-1B
+|NI	|49		|50	|NI
+|GND	|51	|	52	|NI
+|NI	|53		|54	|NI
+|NI|	55	|	56|NI
+|GND	|57	|	58	|NI
+|NI	|59		|60	|NI
+|NI	|61		|62	|NI
+|NI|	63|		64	|NI
+|NI	|65	|	66|	USIM_DET-1A
+|NGFF_KEYB_RSTn_1P8V|67		|68|	NI
+|NI	|69	|	70	|VCC_KEYB
+|GND|	71	|	72|	VCC_KEYB
+|GND	|73	|	74|	VCC_KEYB
+|NI	|75	| 76|	GND
+|GND	|77	| 78|	GND
+|GND	|79	| |
+|====
+
+== BPI-R4_Lite miniPCIe（CN11）	
+ 
+[options="header",cols="3,1,1,3",width="70%"]
+|====
+4+| **BPI-R4_Lite miniPCIe（CN11）GPIO 定义**		
+|BPI-R4_Lite miniPCIe(CN11)	|引脚		|引脚	|BPI-R4_Lite miniPCIe(CN11)
+|PCIE_B_WAKEn_3P3V	|1	|	2	|PCIe_3V3#B
+|NI	|3	|	4	|GND
+|NI	|5	|	6	|PCIe_12V#B
+|PCIE_B_CLKREQn_3P3V	|7		|8|	USIM_VDD-3
+|GND	|9		|10	|USIM_DATA-3
+|mPCIe_B_CKn	|11		|12	|USIM_CLK-3
+|mPCIe_B_CKp	|13		|14	|USIM_RST-3
+|GND	|15		|16 |	NI
+|NI	|17		|18	|GND
+|NI	|19		|20	|W_DISABLE_3
+|GND	|21		|22	|PCIE_B_PERSTn_3P3V
+|mPCIe_B_RXn		|23	|	24	|PCIe_3V3#B
+|mPCIe_B_RXP		|25	|	26	|GND
+|GND	|27		|28	|PCIe_12V#B
+|GND	|29		|30	|mPCIe_B_SCL
+|mPCIe_B_TXn	|31		|32	|mPCIe_B_SDA
+|mPCIe_B_TXp	|33		|34|	GND
+|GND	|35		|36	|LTE-USBDM_3
+|GND	|37		|38	|LTE-USBDP_3
+|PCIe_3V3#B	|39		|40	|GND
+|PCIe_3V3#B	|41		|42	|SIM3-WIFI-LED-6G
+|GND	|43		|44	|USIM_DET-3
+|NI	|45		|46	|mPCIe_B_LED_WPAN-3
+|NI	|47		|48	|PCIe_12V#B
+|NI	|49		|50	|GND
+|NI	|51		|52	|PCIe_3V3#B
+| GND	|55		|56	|GND
+|====
+
+== BPI-R4_Lite miniPCIe（CN13）	
+ 
+[options="header",cols="3,1,1,3",width="70%"]
+|====
+4+| **BPI-R4_Lite miniPCIe（CN13）GPIO 定义**		
+|BPI-R4_Lite miniPCIe(CN13)	|引脚		|引脚	|BPI-R4_Lite miniPCIe(CN13)
+|PCIE_A_WAKEn_3P3V	|1	|	2	|PCIe_3V3#A
+|NI	|3	|	4	|GND
+|NI	|5	|	6	|PCIe_12V#A
+|PCIE_A_CLKREQn_3P3V	|7		|8|	USIM_VDD-2
+|GND	|9		|10	|USIM_DATA-2
+|mPCIe_A_CKn	|11		|12	|USIM_CLK-2
+|mPCIe_A_CKp	|13		|14	|USIM_RST-2
+|GND	|15		|16 |	NI
+| mPCIe_AB_RXn	|17		|18	|GND
+| mPCIe_AB_RXn	|19		|20	|W_DISABLE_2
+|GND	|21		|22	|PCIE_A_PERSTn_3P3V
+|mPCIe_A_RXn		|23	|	24	|PCIe_3V3#A
+|mPCIe_A_RXP		|25	|	26	|GND
+|GND	|27		|28	|PCIe_12V#A
+|GND	|29		|30	|mPCIe_A_SCL
+|mPCIe_A_TXn	|31		|32	|mPCIe_A_SDA
+|mPCIe_A_TXp	|33		|34|	GND
+|GND	|35		|36	|LTE-USBDM_2
+|GND	|37		|38	|LTE-USBDP_2
+|PCIe_3V3#A	|39		|40	|GND
+|PCIe_3V3#A	|41		|42	|SIM2-WIFI-LED-5G
+|GND	|43		|44	|USIM_DET-2
+| mPCIe_AB_TXn	|45		|46	|SIM2-WIFI-LED-2G
+|mPCIe_AB_RXn	|47		|48	|PCIe_12V#A
+|	|49		|50	|GND
+|GND	|51		|52	|PCIe_3V3#A
+| GND	|55		|56	|GND
+| 	|57		|58	|GND
+|====
+== BPI-R4_Lite 风扇引脚（CN38）
+[options="header",cols="1,1",width="40%"]
+|====
+2+| **BPI-R4_Lite 风扇接口（CN1，PH3A-2.54 mm）**
+|+5V	|1	
+|GND	|2	
+|PWM2	|3	
+|====	
+== BPI-R4_Lite 风扇引脚（CN36）
+[options="header",cols="1,1",width="40%"]
+|====
+2+| **BPI-R4_Lite 风扇接口（CN1，PH3A-2.00 mm）**
+|GND	|1	
+|+12V	|2	
+|NC	|3
+|PWM2	|4
+|====	
