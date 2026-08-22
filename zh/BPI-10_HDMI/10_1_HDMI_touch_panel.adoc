@@ -1,74 +1,74 @@
-= BPI 10.1 HDMI 触摸屏
+= BPI 10.1 英寸 HDMI 触摸屏
 
-该模块主板带有HDMI接口，支持 BPI-M1,BPI-M1+,BPI-M2,BPI-M3,BPI-M64，BPI-M2U，BPI-M2B,BPI-R1.
+该模块带有 HDMI 接口，支持 BPI-M1、BPI-M1+、BPI-M2、BPI-M3、BPI-M64、BPI-M2U、BPI-M2B 和 BPI-R1。
 
 
 image::/picture/bpi_10.1_hdmi_screen_1.jpg[bpi_10.1_hdmi_screen_1.jpg]
 
 = 硬件
 == 硬件规格
-LCD 香蕉派 板的模块通过转换板连接到 LCD 连接器专门设计用于连接 LCD.
+该 LCD 模块通过转接板连接 Banana Pi 开发板的 LCD 接口。
 
-香蕉派 LCD 连接器： LCD 连接器是一个独立的 Type-A HDMI 连接器，可以连接 HDMI-TX。
+Banana Pi LCD 接口采用标准 Type-A HDMI 连接器，可连接 HDMI-TX。
 
 支持两个触摸屏
 
-=== 1024*600触摸屏
+=== 1024×600 触摸屏
 [option="header",cols="2,2",width="70%"]
 |====
-2+|10.1 HDMI面板硬件规格
-|薄膜晶体管 LCD 模块	|HC101TK20050
-|TP模块	|GT9271
-|面板尺寸 	|10.1英寸
+2+|10.1 英寸 HDMI 面板硬件规格
+|TFT LCD 模块	|HC101TK20050
+|TP 模块	|GT9271
+|面板尺寸 	|10.1 英寸
 |分辨率	|1024 (RGB) x 600
 |显示接口	|HDMI
 |TP接口	|USB-HID
 |颜色深度	|16.7M
-|观看方向	|6点钟
-|活动区域(毫米)	|222.72(H)x125.28(V)
-|外形尺寸(毫米)	|235(W)×143(H)×5.0( D)
-|显示格式	|RGB垂直条纹
+|可视方向	|6 点钟方向
+|有效区域（mm）	|222.72(H)x125.28(V)
+|外形尺寸（mm）	|235(W)×143(H)×5.0( D)
+|显示格式	|RGB 垂直条纹
 |显示模式	|常白
 |工作温度	|-20~70℃
 |重量 (g)	|待定
 |====
 
-=== 1280*800触摸屏
+=== 1280×800 触摸屏
 
 [option="header",cols="2,2",width="70%"]
 |====
-2+|10.1 HDMI面板硬件规格
-|薄膜晶体管 LCD 模块	|HC101I35025NB
-|TP模块	|ILI2511
-|面板尺寸 	|10.1英寸
+2+|10.1 英寸 HDMI 面板硬件规格
+|TFT LCD 模块	|HC101I35025NB
+|TP 模块	|ILI2511
+|面板尺寸 	|10.1 英寸
 |分辨率	|1280 (RGB) x 800
 |显示接口	|HDMI
 |TP接口	|USB-HID
 |颜色深度	|16.7M
-|观看方向	|6点钟
-|活动区域(毫米)	|216.96(W) × 135.60(H)
-|外形尺寸(毫米)	|229.46(W) ×149.1(H) ×2.50(D)
-|显示格式	|RGB垂直条纹
+|可视方向	|6 点钟方向
+|有效区域（mm）	|216.96(W) × 135.60(H)
+|外形尺寸（mm）	|229.46(W) ×149.1(H) ×2.50(D)
+|显示格式	|RGB 垂直条纹
 |显示模式 |常白
 |工作温度	|-20~70℃
 |重量 (g)	|待定
 |====
 
 == 硬件接口
-返回：
+背面：
 
 image::/picture/bpi_10.1_hdmi_screen_2.jpg[bpi_10.1_hdmi_screen_2.jpg]
 
-BPI 10.1触摸屏支持HDMI接口
+BPI 10.1 英寸触摸屏支持 HDMI 接口。
 
 image::/picture/bpi_10.1_hdmi_screen_13.jpg[bpi_10.1_hdmi_screen_13.jpg]
 
-== 电缆线
+== 连接线
 image::/picture/hdmi.jpg[hdmi.jpg]
 
 = 如何使用
-我们已经完成了所有香蕉派板的驱动，它支持 Android,Linux 和 windows.
+已提供适用于 Banana Pi 开发板的驱动，支持 Android、Linux 和 Windows。
 
 image::/picture/bpi_10.1_hdmi_screen_4.jpg[bpi_10.1_hdmi_screen_4.jpg]
 
-香蕉派 BPI-10 1 个 HDMI 触摸屏演示 Linux: https://www.youtube.com/watch?v=R4OKR4vj1Ow&feature=youtu.be
+Banana Pi BPI 10.1 英寸 HDMI 触摸屏 Linux 演示：https://www.youtube.com/watch?v=R4OKR4vj1Ow&feature=youtu.be
