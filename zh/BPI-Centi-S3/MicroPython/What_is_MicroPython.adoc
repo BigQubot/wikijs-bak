@@ -1,0 +1,25 @@
+image::/picture/mircopython.png[mircopython.png]
+
+https://micropython.org/[MicroPython] 是精益且高效的实施 Python 3 种编程语言，其中包括一小部分 Python 标准库，并针对在微控制器和受限环境中运行进行了优化。
+
+2013 年众筹并开源 https://dpgeorge.net/[达米安·P·乔治].
+
+它与使用C程序开发单片机最明显的区别在于，验证代码时无需进行冗长的编译。
+
+使用串口通讯软件，通过串口输入命令 REPL(读取-求值-打印-循环) 控制微控制器，就像 Python's REPL.
+
+也可以使用一些工具上传 python 在微控制器内运行的脚本文件。
+
+它的Python3实现包括 _支持多线程的线程库和用于编写并发代码的 asyncio 库。
+
+MicroPython 旨在与正常兼容 Python 尽可能让您轻松地将代码从桌面传输到微控制器或嵌入式系统。
+
+同时它还有一些微控制器专用的库，以便充分利用微控制器芯片内部的硬件功能，如定时器、硬件中断、WiFi等，具体取决于具体的硬件。
+
+虽然具有上述功能，但它足够紧凑，可以在仅 256k 的代码空间和 16k 的内存中运行。 RAM.
+
+如果你知道 Python 你已经知道了 MicroPython.
+
+另一方面，你了解得越多 MicroPython 你越擅长 Python.
+
+TIP: link:../GettingStarted_BPI-Centi-S3[返回开始使用 BPI-Centi-S3]
