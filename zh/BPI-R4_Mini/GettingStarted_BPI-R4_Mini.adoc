@@ -1,50 +1,50 @@
 = 概述
 
-香蕉派 BPI-R4 Mini Wifi7智能路由器板设计与 MediaTek MT7987A 四核 Arm Cortex-A53，支持 2GB DDR4 和 8G eMMC 船上闪光。 2 x 2.5G RJ45，板载 Wifi7，迷你尺寸。 
+Banana Pi BPI-R4 Mini 是一款基于 MediaTek MT7987A 四核 Arm Cortex-A53 处理器设计的 Wi-Fi 7 智能路由器开发板，支持 2 GB DDR4 内存和板载 8 GB eMMC 闪存，配有两个 2.5G RJ45 网口和板载 Wi-Fi 7，尺寸小巧。 
 
 = 开发
 == 准备工作
-* USB 磁盘 +
-* USB C型数据线 +
-* CAT6A/Cat5e Ethernet 电缆 +
-* 12V/5A 电源适配器（无任何外设和网线插入时，功耗 BPI-R4MINI 主板大约10W，所以 12V/2A 会起作用的。
-但您需要根据自己的配件使用情况来确定是否需要更高功率的电源适配器，12V/5A 推荐） +
-* Windows/unbuntu 系统 +
+* U 盘 +
+* USB Type-C 数据线 +
+* CAT6A/Cat5e 以太网线 +
+* 12 V/5 A 电源适配器（未连接任何外设和网线时，BPI-R4Mini 主板功耗约为 10 W，因此 12 V/2 A 电源也可工作。
+请根据实际使用的配件判断是否需要更高功率的电源适配器，建议使用 12 V/5 A） +
+* Windows/Ubuntu 系统 +
 * link:https://docs.banana-pi.org/en/BPI-R4_Mini/BananaPi_BPI-R4_Mini#_system_image[BPI-R4Mini 镜像] +
 * link:https://docs.banana-pi.org/en/BPI-R4_Mini/BananaPi_BPI-R4_Mini#_source_code[BPI-R4Mini 源代码] +
 
-== 引导程序设置
+== 启动模式设置
 image::/bpi-r4_mini_en/bootstrap-setup.png[bootstrap-setup.png]
-1.	所有跳线都是“1”， BPI-R4Mini 将从以下位置启动 emmc 卡
+1.	所有跳线均设为“1”时，BPI-R4Mini 从 eMMC 启动。
 
 image::/bpi-r4_mini_en/emmc_boot-withstrap.png[emmc_boot-withstrap.png]
-2.	SW3-B 为“0”，SW3-A 为“1”， BPI-R4Mini 将从以下位置启动 SPI NAND
+2.	SW3-B 设为“0”、SW3-A 设为“1”时，BPI-R4Mini 从 SPI NAND 启动。
 
 image::/bpi-r4_mini_en/nand-boot-with-strap.png[nand-boot-with-strap.png]
-3.	SW3-B 为“1”，SW3-A 为“0”， BPI-R4Mini 将从以下位置启动 SPI 或非
+3.	SW3-B 设为“1”、SW3-A 设为“0”时，BPI-R4Mini 从 SPI NOR 启动。
 
 image::/bpi-r4_mini_en/nor-boot-with-strap.png[nor-boot-with-strap.png]
-4.	如果控制台显示“systemhalt!”，则表示启动存储不包含任何操作系统
+4.	如果控制台显示“system halt!”，表示启动存储设备中没有操作系统。
 
-== 闪烁图像
-=== 如何将镜像闪烁到 NAND 闪光灯
-TIP: 工厂形象信息：OpenWrt 24.10-快照架构：aarch64_皮质-a53
+== 写入镜像
+=== 将镜像写入 NAND 闪存
+TIP: 工厂镜像信息：OpenWrt 24.10-SNAPSHOT；架构：aarch64_cortex-a53
 
 
-将镜像闪烁之前 Nand，请准备一个 USB 磁盘。让我们采取 OpenWrt 镜像 (mtk-bpi-r4mini-NAND-20260721.img) 例如，步骤如下：
+将镜像写入 NAND 前，请先准备一个 U 盘。以下以 OpenWrt 镜像（mtk-bpi-r4mini-NAND-20260721.img）为例：
 
-1.	格式化 USB 磁盘到 FAT32。
+1.	将 U 盘格式化为 FAT32。
 
-2.	复制 Nand 启动 OpenWrt 镜像(mtk-bpi-r4mini-NAND-20260721.img) 到 USB 磁盘。
-3.	将引导程序更改为 eMMC 启动，然后给开发板上电。
-4.	插入 USB 磁盘到板上，并安装 USB 到 /mnt 或其他目录如下： (如果自动安装则可以跳过安装)
+2.	将 NAND 启动用 OpenWrt 镜像（mtk-bpi-r4mini-NAND-20260721.img）复制到 U 盘。
+3.	将启动模式切换为 eMMC 启动，然后给开发板上电。
+4.	将 U 盘插入开发板，并按如下方式挂载到 /mnt 或其他目录（如果系统已自动挂载，可跳过此步）：
 +
 ```SH
 mount -t vfat /dev/sda1 /mnt 
 cd /mnt
 ```
-5.	执行以下命令即可全部擦除 Nand 闪存并将镜像复制到 nand 设备：
-注意：R4mini 的 NAND 镜像闪存至 MTD0
+5.	执行以下命令擦除整个 NAND 闪存，并将镜像写入 NAND 设备：
+注意：R4Mini 的 NAND 镜像写入 MTD0。
 
 +
 ```sh
@@ -82,24 +82,24 @@ mtd erase /dev/mtd0
 mtd write mtk-bpi-r4mini-NAND-20260721 /dev/mtd0
 
 ```
-6.	关闭电源 BPI-R4Mini, 删除 usb 磁盘，将引导程序更改为 nand 再次启动并通电。
+6.	关闭 BPI-R4Mini 的电源，拔出 U 盘，将启动模式切换为 NAND 启动，然后重新上电。
 
-=== 如何将镜像闪烁到 eMMC 闪光灯
-NOTE:  需要切换到 NAND 启动然后刻录 EMMC 镜像进入 EMMC。最后，您将更改引导程序以从 EMMC.
+=== 将镜像写入 eMMC
+NOTE:  必须先切换到 NAND 启动，再将 eMMC 镜像写入 eMMC；写入完成后，将启动模式切换为从 eMMC 启动。
 
-让我们采取 OpenWrt 镜像 (bl2_emmc-r4mini.img,mtk-bpi-r4mini-EMMC-20260721) 例如，步骤如下：
+以下以 OpenWrt 镜像（bl2_emmc-r4mini.img、mtk-bpi-r4mini-EMMC-20260721）为例：
 
-1.	格式化 USB 磁盘到 FAT32。
-2.	复制 EMMC 启动 OpenWrt 镜像(bl2_emmc-r4mini.img,mtk-bpi-r4mini-EMMC-20260721) 到 USB 磁盘,
-如果图像被压缩，请在复制到之前解压缩 USB 磁盘。
-3.	将引导程序更改为 Nand 启动并给 R4Mini 通电。
-4.	插入 USB 磁盘到板上，并安装 USB 到 /mnt 或其他目录如下： (如果自动安装则可以跳过安装)
+1.	将 U 盘格式化为 FAT32。
+2.	将 eMMC 启动用 OpenWrt 镜像（bl2_emmc-r4mini.img、mtk-bpi-r4mini-EMMC-20260721）复制到 U 盘。
+如果镜像已压缩，请先解压，再复制到 U 盘。
+3.	将启动模式切换为 NAND 启动，然后给 R4Mini 上电。
+4.	将 U 盘插入开发板，并按如下方式挂载到 /mnt 或其他目录（如果系统已自动挂载，可跳过此步）：
 +
 ```sh
 mount -t vfat /dev/sda1 /mnt 
 cd /mnt
 ```
-5.	执行命令
+5.	执行以下命令：
 
 +
 ```sh
@@ -125,14 +125,14 @@ sync
 sync
 
 ```
-6.	关闭电源 BPI-R4Mini，删除u盘驱动，将bootstrap改为 emmc 再次启动并通电。
+6.	关闭 BPI-R4Mini 的电源，拔出 U 盘，将启动模式切换为 eMMC 启动，然后重新上电。
 
 
-=== 如何从 NOR 闪存恢复系统
-方法：恢复 emmc 首先系统，然后看“如何将镜像刷新到 NAND 闪光”
+=== 从 NOR 闪存恢复系统
+方法：先恢复 eMMC 系统，然后参阅“将镜像写入 NAND 闪存”。
 
 1.	确保 NOR 闪存已准备就绪。
-2.	将 NOR 闪存安装到板上(CN15).
+2.	将 NOR 闪存模块安装到开发板的 CN15 接口。
 
 
 NOR 闪存：
@@ -147,15 +147,15 @@ image::/bpi-r4_mini_en/nor-before-installtion.png[nor-before-installtion.png]
 image::/bpi-r4_mini_en/nor-after-installtion.png[nor-after-installtion.png,width=55%]
 
 3.	将引导程序切换到 NOR 并启动。
-4.	格式化 USB 磁盘到 FAT32。
-5.	复制 EMMC 启动 OpenWrt 镜像(bl2_emmc-r4mini.img,mtk-bpi-r4mini-EMMC-20260721) 到 USB 磁盘,
-6.	插入 USB 磁盘到板上，并安装 USB 到 /mnt 或其他目录如下： (如果自动安装则可以跳过安装)
+4.	将 U 盘格式化为 FAT32。
+5.	将 eMMC 启动用 OpenWrt 镜像（bl2_emmc-r4mini.img、mtk-bpi-r4mini-EMMC-20260721）复制到 U 盘。
+6.	将 U 盘插入开发板，并按如下方式挂载到 /mnt 或其他目录（如果系统已自动挂载，可跳过此步）：
 +
 ```sh
 mount -t vfat /dev/sda1 /mnt 
 cd /mnt
 ```
-7.	执行命令
+7.	执行以下命令：
 
 +
 ```sh
@@ -176,15 +176,15 @@ sync
 sync
 ```
 
-8.	关闭电源 BPI-R4Mini，删除u盘驱动，将bootstrap改为 emmc 再次启动并通电。
+8.	关闭 BPI-R4Mini 的电源，拔出 U 盘，将启动模式切换为 eMMC 启动，然后重新上电。
 
-== 电源开启
-• 使用您的 USB TypeC 电缆 连接到调试控制台(CN3) 上 BPI-R4Mini
-• 安装终端仿真器或使用您熟悉的串行终端，
-• 更改设置如下： 波特率=115200，数据位：8位，奇偶校验：无，停止位：1位，流控制：无；
-• 上电前设置自举，
-（如果您正在使用 BPI-R4Mini 首次使用，建议设置为 NAND 启动)
-• 当将电源适配器连接至DC-IN 连接器时(CN6),绿色 LED “PWR”亮起，控制台上会出现类似如下的字符。这说明你已经成功启动了 BPI-R4Mini.
+== 开机
+• 使用 USB Type-C 数据线连接 BPI-R4Mini 上的调试控制台接口（CN3）。
+• 安装终端模拟器，或使用熟悉的串口终端软件。
+• 串口参数设置如下：波特率 115200、数据位 8 位、无校验、停止位 1 位、无流控。
+• 接通电源前先设置启动模式。
+（首次使用 BPI-R4Mini 时，建议设置为 NAND 启动。）
+• 将电源适配器连接到 DC-IN 接口（CN6）后，绿色“PWR”LED 点亮，控制台中会显示类似以下内容，表示 BPI-R4Mini 已成功启动。
 
 [%collapsible]
 ====
@@ -232,7 +232,7 @@ Loading Environment from MTD... SF: Detected w25q256 with page size 256 Bytes, e
 == 网络配置
 
 • 网络配置请参阅： http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:network:start
-• 网络接口：eth1,br-wan 用于WAN； eth1，br-lan用于LAN，ra0用于2.4G无线，rai0用于5G无线。
+• 网络接口：eth1、br-wan 用于 WAN；eth1、br-lan 用于 LAN；ra0 用于 2.4G 无线网络；rai0 用于 5G 无线网络。
 
 
 
@@ -310,10 +310,10 @@ root@OpenWrt:/#
 ```
 
 
-== 读写EEPROM
-WARNING:  注意：我们发布的映像文件在每次启动时使用随机 MAC 地址，并且不使用 EEPROM。如果您希望使用 EEPROM，则需要编写脚本来读取数据并更新端口。
+== 读写 EEPROM
+WARNING:  注意：我们发布的镜像文件每次启动时都会使用随机 MAC 地址，并不使用 EEPROM。如需使用 EEPROM，必须自行编写脚本读取数据并更新端口。
 
-=== 读取EEPROM +
+=== 读取 EEPROM +
 
 ```sh
 
@@ -321,32 +321,32 @@ hexdump -C /sys/bus/i2c/devices/0-0057/eeprom
 ```
 
 
-=== 将内容写入EEPROM
+=== 向 EEPROM 写入内容
 
 ```sh
 printf '\x01\x02\x03\x04\x05\x06' | dd of=/sys/bus/i2c/devices/0-0057/eeprom bs=1 seek=32 conv=notrunc
 ```
 
-"**\x01\x02\x03\x04\x05\x06**" 是你要写入的内容，可以是MAC地址、序列号或者其他信息。 +
-"**废话=1**" 表示块大小为 1。 +
-"**寻找=32**" 表示偏移量 (要跳过多少个块). +
-**“废话=1 次寻找=32**"表示跳过32个字节，相当于从0x00到0x1F跳过字节，从0x20开始写入内容。 +
-"**转化次数=不截断**“不截断EEPROM，保留原始数据。
+"**\x01\x02\x03\x04\x05\x06**" 是准备写入的内容，可以是 MAC 地址、序列号或其他信息。 +
+"**bs=1**" 表示块大小为 1。 +
+"**seek=32**" 表示偏移量（即跳过的块数）。 +
+**"bs=1 seek=32**" 表示跳过 32 字节，即跳过 0x00 至 0x1F，从 0x20 开始写入内容。 +
+"**conv=notrunc**" 表示不截断 EEPROM，保留原有数据。
 
-比如我想向地址中写入两组MAC地址 **0x20** 和 **0x30** 分别：
+例如，要分别向地址 **0x20** 和 **0x30** 写入两组 MAC 地址：
 
 ```
 printf '\x12\x41\x89\x7F\x64\xD3' | dd of=/sys/bus/i2c/devices/0-0057/eeprom bs=1 seek=32 conv=notrunc
 printf '\x7E\xF5\x56\x36\x4C\xD1'  | dd of=/sys/bus/i2c/devices/0-0057/eeprom bs=1 seek=48 conv=notrunc
 ```
 
-WARNING:  **PS：由于V1.2版本后续批次计划向EEPROM写入数据，因此必须避免0x00到0x1F范围内的地址。**
+WARNING:  **注意：由于 V1.2 版本的后续批次计划向 EEPROM 写入数据，因此必须避开 0x00 至 0x1F 的地址范围。**
 
 = 接口
 
-== 2.5G RJ45 局域网和广域网
+== 2.5G RJ45 LAN 和 WAN
 
-BPI-R4Mini (2.5G广域网)→ BPI-R4Min (2.5G局域网)
+BPI-R4Mini（2.5G WAN）→ BPI-R4Mini（2.5G LAN）
 
 [%collapsible]
 ====
@@ -416,51 +416,51 @@ iperf Done.
 ```
 ====
 
-== M.2键(B+M) 插槽(为了 4G/5G 模块或 NVMe SSD)
+== M.2 Key（B+M）插槽（用于 4G/5G 模块或 NVMe SSD）
 
 === 4G/5G 模块
-的 BPI-R4Pro 拥有1个M.2 B-KEY插槽，全部用于 4G/5G蜂窝模块。
+BPI-R4Pro 设有一个 M.2 B-Key 插槽，可用于安装 4G/5G 蜂窝通信模块。
 
-它支持一对 USB2.0 和 USB3.0 信号，均通过扩展 USB 3.0 枢纽。
+该插槽支持一组 USB 2.0 和 USB 3.0 信号，两者均通过 USB 3.0 Hub 扩展。
 
-此外，CN8h 还具有额外的 PCIe3.0 1lane 信号。
+此外，CN8h 还提供一路 PCIe 3.0 单通道信号。
 
 image::/bpi-r4_mini_en/m.2_key_b_slot.png[m.2_key_b_slot.png]
 
 === NVMe SSD
 
-M.2按键插槽只能安装一种类型的M.2按键模块。
+M.2 Key 插槽一次只能安装一种 M.2 模块。
 
-所以 4G/5G 模块和 NvMe SSD 只能安装一个。
+因此，4G/5G 模块与 NVMe SSD 只能二选一安装。
 
 
-== NANO SimSlot
-SIM1可以使用板载NANO SIM插槽
+== Nano SIM 卡槽
+SIM1 可以使用板载 Nano SIM 卡槽。
 
-== FPC连接器
+== FPC 连接器
 这是一个 16 针连接器。
 
-通常用于连接 spi lcd 或 i2c 电容式触摸屏。
+通常用于连接 SPI LCD 或 I2C 电容触摸屏。
 
 image::/bpi-r4_mini_en/fpc.png[fpc.png]
 
 
 == 调试 UART 
-的 BPI-R4Mini 机载有 USB-到-UART 芯片(HT42B534-2)，连接到MT7988A的调试 UART.
+BPI-R4Mini 板载 USB 转 UART 芯片（HT42B534-2），连接到 MT7988A 的调试 UART。
 
-连接时 USB Type-c连接器(CN41) 到 PC，一个 USB就会出现-to-serial设备，可以用来调试。
+将 USB Type-C 接口（CN41）连接到 PC 后，系统中会出现一个 USB 串口设备，可用于调试。
 
-终端设置：波特率=115200，数据位：8位，奇偶校验：无，停止位：1位，流控制：无。
+终端参数：波特率 115200、数据位 8 位、无校验、停止位 1 位、无流控。
 
-== 嵌入式SIM卡
-PIN42/44/46/48 M.2 B-KEY Slot 是第二组SIM 卡信号。
+== eSIM
+M.2 B-Key 插槽的 42/44/46/48 号引脚为第二组 SIM 卡信号。
 
-注意：这需要您的模块支持，并且需要额外安装 eSIM 模块。
+NOTE: 此功能需要所用模块提供支持，并且需要额外安装 eSIM 模块。
 
 image::/bpi-r4_mini_en/esim.png[esim.png]
 
 == EEPROM
-内置1颗EEPROM芯片 (P24C02A)，可用于存储少量数据。
+板载一颗 EEPROM 芯片（P24C02A），可用于存储少量数据。
 
 == 按钮
 === 重置
@@ -472,59 +472,59 @@ GPIO1 连接有复位按钮，用于恢复出厂默认设置。
 GPIO0连接有复位按钮，用于新设备快速连接路由器。
 
 == LED
-BPI-R4Mini有 LED 来指示各种操作状态，包括电源、WiFi、 Ethernet, 4G/5G 蜂窝等
+BPI-R4Mini 配有多组 LED，用于指示电源、Wi-Fi、以太网、4G/5G 蜂窝网络等工作状态。
 
-* 1x 动力绿 LED，PCB上丝印“PWR”，上电时亮起，无法通过软件控制。
-* 1x 蓝色状态 LED，PCB上丝印“B”，由控制 GPIO "PCA_A_IO1_6/SYS_LEDB".
-* 2x WiFi 状态蓝色 LED，丝印“W2G”、“W5G”。
-* 1x 5G 蜂窝状态蓝色 LED，丝印 
-* 每个 2.5G RJ45 有 2 个 LED，每个 1G RJ45 有 1 个 LED LED 以指示网络状态。
+* 1 个绿色电源 LED，PCB 丝印为“PWR”；上电后点亮，不能由软件控制。
+* 1 个蓝色状态 LED，PCB 丝印为“B”，由 GPIO“PCA_A_IO1_6/SYS_LEDB”控制。
+* 2 个蓝色 Wi-Fi 状态 LED，PCB 丝印分别为“W2G”和“W5G”。
+* 1 个蓝色 5G 蜂窝网络状态 LED，PCB 丝印标识。 
+* 每个 2.5G RJ45 接口有两个 LED，每个 1G RJ45 接口有一个 LED，用于指示网络状态。
 
 == DCIN
-BPI-R4Pro 需要一个单一的 +12V供电，并具有多种电源，包括直流电源适配器， USB PD， POE等
+BPI-R4Pro 使用单路 +12 V 供电，并支持直流电源适配器、USB PD、PoE 等多种供电方式。
 
-电源电压范围为9~建议使用24V、12V或20V，超过25.3V会自动关机。
+供电电压范围为 9～24 V，建议使用 12 V 或 20 V；电压超过 25.3 V 时会自动关机。
 
 === DCIN(5521)
-您可以使用 12V/5A 电源适配器插入CN44即可为其供电。
-但如果同时存在其他电源，则会切换到其他电源。
+可以将 12 V/5 A 电源适配器接入 CN44 为开发板供电。
+如果同时接入其他电源，系统会切换到其他供电输入。
 
-CN44插槽尺寸如下(内在正，外在负):
+CN44 接口尺寸如下（内正外负）：
 
 image::/bpi-r4_pro/bpi-r4pro-dc5521.png[bpi-r4pro-dc5521.png,width=300]
-== USB C型PD
-的 USB Type-C PD连接器连接有CH224Q芯片，用于与设备通信 USB 适配器并允许适配器输出20V电压。 +
-建议使用可输出20V、65W以上的PD电源。 
+== USB Type-C PD
+USB Type-C PD 接口连接到 CH224Q 芯片，用于与 USB 电源适配器通信，使适配器输出 20 V 电压。 +
+建议使用支持 20 V 输出且功率不低于 65 W 的 PD 电源。 
 
-== USB 2.0连接器
-BPI-R4Mini 有一个 USB2.0 Type-A 连接器，可用于连接 USB 闪存驱动器或其他 USB 设备。 +
-USB2.0连接器的电源输出 (CN12) 是 5V/1300mA，可以通过“PCA_A_IO1_3/VBUS_AB_PDN” 输出低。 +
+== USB 2.0 接口
+BPI-R4Mini 配有一个 USB 2.0 Type-A 接口，可连接 U 盘或其他 USB 设备。 +
+USB 2.0 接口（CN12）的电源输出为 5 V/1300 mA；将“PCA_A_IO1_3/VBUS_AB_PDN”输出低电平可关闭供电。 +
 
-== WIFI天线
-有 3 个 ANT 用于 WIFI。
+== Wi-Fi 天线
+Wi-Fi 配有 3 根天线。
 
-== 4G/5G 蚂蚁
-4G 有 3 个 ANT。 +
-5G 有 4 个 ANT。
+== 4G/5G 天线
+4G 配有 3 根天线。 +
+5G 配有 4 根天线。
 
 = 配件
 == 4G/5G 模块
-=== M.2 4G/5G 模块(USB 接口)
-BPI-R4Mini 支持M.2 USB 接口4G LTE/5G 模块：移远EM05、RM500U-CN。
+=== M.2 4G/5G 模块（USB 接口）
+BPI-R4Mini 支持采用 M.2 USB 接口的 4G LTE/5G 模块：Quectel EM05、RM500U-CN。
 
-如果您想在以下设备上使用 M.2 蜂窝模块 BPI-R4Mini:
+如需在 BPI-R4Mini 上使用 M.2 蜂窝通信模块，请执行以下步骤：
 
-. 安装 4G/5G 蜂窝模块插入 CN16 插槽(M.2 键盘)
-. 将 NANOSIM 卡插入 SIMSlot 
-. 在模块上安装天线
-. 开机后会自动拨号
+. 将 4G/5G 蜂窝通信模块安装到 CN16 插槽（M.2 Key B）。
+. 将 Nano SIM 卡插入 SIM 卡槽。 
+. 在模块上安装天线。
+. 开机后会自动拨号。
 
-NOTE: 的可用性 4G/5G 取决于本地载波频段
+NOTE: 4G/5G 功能是否可用取决于当地运营商使用的频段。
 
 image::/bpi-r4_mini_en/rm500u-cnv.png[rm500u-cnv.png]
 image::/bpi-r4_mini_en/em05-ce.png[em05-ce.png]
 image::/bpi-r4_mini_en/simslot.png[simslot.png]
-**移远RM500U-CNV**
+**Quectel RM500U-CNV**
 ```sh
 Quectel RM520N-GL
 root@OpenWrt:/# ifconfig usb0 
@@ -589,15 +589,15 @@ PING www.baidu.com (111.45.11.5): 56 data bytes
 round-trip min/avg/max = 36.076/47.010/80.437 ms
 root@OpenWrt:/# 
 ```
-=== M.2 4G/5G 模块(PCIe 接口)
-理论上也支持 PCIe 蜂窝模块，但尚未测试
+=== M.2 4G/5G 模块（PCIe 接口）
+理论上也支持 PCIe 蜂窝通信模块，但尚未经过测试。
 
 == 存储
 === NVMe SSD
 
-请插入一个M.2  NVMe SSD(PCI接口) 插入 KeyB 插槽(CN8).
+将一个 M.2 NVMe SSD（PCI 接口）插入 Key B 插槽（CN8）。
 
-NOTE: 未进行兼容性测试，不保证所有SSD都可以使用。
+NOTE: 尚未进行兼容性测试，无法保证所有 SSD 均可使用。
 
 image::/bpi-r4_mini_en/nvme_ssd.png[nvme_ssd.png]
 
@@ -647,16 +647,16 @@ tmpfs                   512.0K         0    512.0K   0% /dev
 root@OpenWrt:/mnt/nvme#
 ```
 
-== SPI 也非闪存
-   SPI NOR FLASH is used to rescue system.
+== SPI NOR 闪存
+   SPI NOR 闪存用于恢复系统。
 
-请参考： https://docs.banana-pi.org/en/BPI-R4_Mini/GettingStarted_BPI-R4_Mini#_flashing_image[闪烁图像]
+请参阅： https://docs.banana-pi.org/en/BPI-R4_Mini/GettingStarted_BPI-R4_Mini#_flashing_image[写入镜像]
    
 image::/bpi-r4_mini_en/nor-flash.png[nor-flash.png]
 
 == 散热片
 
-MTK OpwnWRT MP4.0 风扇带 PWM 控制参考。
+以下是 MTK OpenWrt MP4.0 的 PWM 风扇控制参考脚本。
 ```bash
 root@OpenWrt:~# cat /sbin/fan-speed 
 #!/bin/sh /etc/rc.common
@@ -700,22 +700,22 @@ root@OpenWrt:~#
 ```
 
 = 引脚定义
-== 风扇(CN4)
+== 风扇（CN4）
 [%collapsible]
 ====
 
 
 [options="header",cols="1,3",width="80%"]
 |====
-2+| **BPI-R4Mini 风扇连接器引脚定义**
-|密码号 |连接目的地		
+2+| **BPI-R4Mini 风扇接口引脚定义**
+|引脚编号 |连接信号		
 |1			 |5V		
-|2		 	 |接地	
+|2		 	 |GND	
 |3 	   	 |PWM	
 |====
 
 ====
-== M.2 键 B 插槽(CN8)
+== M.2 Key B 插槽（CN8）
 
 [%collapsible]
 ====
@@ -723,50 +723,50 @@ root@OpenWrt:~#
 
 [options="header",cols="3,1,1,3",width="80%"]
 |====
-4+| **BPI-R4Mini M.2 B-KEY 插槽1(CN8) PIN码定义**
-|连接目的地	|密码号		|PIN 码	|连接目的地
-|NI	|1	|	2	|电源电压_密钥_A
-|接地	|3		|4	|电源电压_密钥_A
-|接地	|5	|	6	|NI(10K 上拉至 3.3V)
-|USB集线器_USB1_压差	|7		|8	|NI
-|USB集线器_USB1_DN |9		|10|	BKEY-A-NET-STUn LED
-|接地	|11		|12	|缺口
-|缺口	|13		|14	|缺口
-|缺口	|15		|16	|缺口
-|缺口	|17		|18	|缺口
-|缺口|	19	|	20	|NI
+4+| **BPI-R4Mini M.2 B-Key 插槽 1（CN8）引脚定义**
+|连接信号	|引脚编号		|引脚编号	|连接信号
+|NI	|1	|	2	|VDD_BKEY_A
+|GND	|3		|4	|VDD_BKEY_A
+|GND	|5	|	6	|NI(10K PullUp to 3.3V)
+|USBHUB_USB1_Dp	|7		|8	|NI
+|USBHUB_USB1_Dn |9		|10|	BKEY-A-NET-STUn LED
+|GND	|11		|12	|NOTCH
+|NOTCH	|13		|14	|NOTCH
+|NOTCH	|15		|16	|NOTCH
+|NOTCH	|17		|18	|NOTCH
+|NOTCH|	19	|	20	|NI
 |NI	|21		|22|	NI
 |NI |23	|	24	|NI
 |NI	|25		|26|	NI
-|接地	|27		|28|	NI
-|USB集线器_USB1_接收	|29		|30	|通用SIM卡_RST-1A
-|USB集线器_USB1_RXp	|31		|32	|通用SIM卡_时钟-1A
-|接地	|33	|	34	|通用SIM卡_数据-1A
-|USB集线器_USB1_TXn	|35	|36|	通用SIM卡_电源电压-1A
-|USB集线器_USB1_TXp	|37|		38|	NI
-|接地|	39	|	40|	NI
-|PCIE_SW_A_C_接收	|41		|42	|通用SIM卡_数据-1B
-|PCIE_SW_A_C_RXp|	43	|	44	|通用SIM卡_时钟-1B
-|接地	|45	|	46	|通用SIM卡_RST-1B
-|PCIE_SW_A_C_TXn	|47		|48	|通用SIM卡_电源电压-1B
-|PCIE_SW_A_C_TXp	|49		|50	|BKEY-A-预设_3P3V
-|接地	|51	|	52	|BKEY-A-CLKREQ_3P3V
-|PCIE_SW_A_C_CKn	|53		|54	|BKEY-A-唤醒_3P3V
-|PCIE_SW_A_C_肌酸激酶|	55	|	56|NI
-|接地	|57	|	58	|NI
+|GND	|27		|28|	NI
+|USBHUB_USB1_RXn	|29		|30	|USIM_RST-1A
+|USBHUB_USB1_RXp	|31		|32	|USIM_CLK-1A
+|GND	|33	|	34	|USIM_DATA-1A
+|USBHUB_USB1_TXn	|35	|36|	USIM_VDD-1A
+|USBHUB_USB1_TXp	|37|		38|	NI
+|GND|	39	|	40|	NI
+|PCIE_SW_A_C_RXn	|41		|42	|USIM_DATA-1B
+|PCIE_SW_A_C_RXp|	43	|	44	|USIM_CLK-1B
+|GND	|45	|	46	|USIM_RST-1B
+|PCIE_SW_A_C_TXn	|47		|48	|USIM_VDD-1B
+|PCIE_SW_A_C_TXp	|49		|50	|BKEY-A-PRESET_3P3V
+|GND	|51	|	52	|BKEY-A-CLKREQ_3P3V
+|PCIE_SW_A_C_CKn	|53		|54	|BKEY-A-WAKE_3P3V
+|PCIE_SW_A_C_CKp|	55	|	56|NI
+|GND	|57	|	58	|NI
 |NI	|59		|60	|NI
 |NI	|61		|62	|NI
 |NI|	63|		64	|NI
-|NI	|65	|	66|	通用SIM卡_DET-1A
+|NI	|65	|	66|	USIM_DET-1A
 |BKEY-A-RST	|67		|68|	NI
-|NI	|69	|	70	|电源电压_密钥_A
-|接地|	71	|	72|	电源电压_密钥_A
-|接地	|73	|	74|	电源电压_密钥_A
+|NI	|69	|	70	|VDD_BKEY_A
+|GND|	71	|	72|	VDD_BKEY_A
+|GND	|73	|	74|	VDD_BKEY_A
 |NI	|75	| |		
 |====
 
 ====
-== FPC连接器(CN13)
+== FPC 连接器（CN13）
 
 [%collapsible]
 ====
@@ -774,21 +774,21 @@ root@OpenWrt:~#
 
 [options="header",cols="3,1,1,3",width="80%"]
 |====
-4+| **BPI-R4Mini FPC连接器(CN13) PIN码定义**
-|连接目的地	|密码号		|PIN 码	|连接目的地
-|SPI_莫西	|1	|	2	|SPI_味噌
-|SPI_时钟脉冲	|3		|4	|SPI_计算机科学
+4+| **BPI-R4Mini FPC 连接器（CN13）引脚定义**
+|连接信号	|引脚编号		|引脚编号	|连接信号
+|SPI_MOSI	|1	|	2	|SPI_MISO
+|SPI_CLK	|3		|4	|SPI_CS
 |SPI_IO1	|5	|	6	|SPI_IO2
-|接地	|7		|8	|CTP_SCL
+|GND	|7		|8	|CTP_SCL
 |CTP_SDA |9		|10|	CTP_INT
-|CTP_快速恢复时间	|11		|12	|接地
+|CTP_RST	|11		|12	|GND
 |D1M	|13		|14	|D1P
 |5V0	|15		|16	|3V3
 |====
 
 ====
 
-== 直流输入连接器(CN7)
+== DC-IN 连接器（CN7）
 
 [%collapsible]
 ====
@@ -796,14 +796,14 @@ root@OpenWrt:~#
 
 [options="header",cols="1,3",width="80%"]
 |====
-2+| **BPI-R4mINI DCIN连接器(CN7) PIN码定义**
-|密码号 |连接目的地		
+2+| **BPI-R4Mini DC-IN 连接器（CN7）引脚定义**
+|引脚编号 |连接信号		
 |1			 |DCIN_12_24V
-|2		 	 |接地
+|2		 	 |GND
 |====
 ====
 
-== SPI 或非(CN15)
+== SPI NOR（CN15）
 
 [%collapsible]
 ====
@@ -811,18 +811,16 @@ root@OpenWrt:~#
 
 [options="header",cols="3,1,1,3",width="80%"]
 |====
-4+| **BPI-R4Mini SPI 或非(CN15) PIN码定义**
-|连接目的地	|密码号		|PIN 码	|连接目的地
-|SPI_莫西	|1	|	2	|启动_选择2
-|SPI_味噌	|3		|4	|缺口
-|SPI_时钟脉冲	|5	|	6	|缺口
-|SPI_计算机科学	|7		|8	|缺口
-|SPI_湿性粉剂 |9		|10|	缺口
-|SPI_保持	|11		|12	|缺口
-|VCC33|13		|14	|东风大学
-|接地	|15		|16	|东风大学
+4+| **BPI-R4Mini SPI NOR（CN15）引脚定义**
+|连接信号	|引脚编号		|引脚编号	|连接信号
+|SPI_MOSI	|1	|	2	|BOOT_SEL2
+|SPI_MISO	|3		|4	|NOTCH
+|SPI_CLK	|5	|	6	|NOTCH
+|SPI_CS	|7		|8	|NOTCH
+|SPI_WP |9		|10|	NOTCH
+|SPI_HOLD	|11		|12	|NOTCH
+|VCC33	|13		|14	|DNU
+|GND	|15		|16	|DNU
 |NOR/NAND_CS_SEL	|17		|18	|DNU
-|启动_选择1	|19		|20	|东风大学
+|BOOT_SEL1	|19		|20	|DNU
 |====
-
-
