@@ -1,34 +1,34 @@
 = 简介
 
-的 BPI-P2pro 是由 Rockchip RK3308B-S，配备64位四核ARM Cortex-A35处理器， USB, Ethernet、蓝牙、无线连接和语音检测引擎。具有丰富的音频接口 (比如 MIC/PDM/SPDIF/I2S),RK3308是物联网和语音应用的理想产品。的 BPI-p2pro 使用512MB DDR3 RAM 和用途 eMMC 或SD卡作为操作系统的存储。
+BPI-P2 Pro 采用 Rockchip RK3308B-S，配备 64 位四核 ARM Cortex-A35 处理器，并提供 USB、以太网、Bluetooth、无线连接和语音检测引擎。RK3308 拥有丰富的音频接口（如 MIC/PDM/SPDIF/I2S），非常适合物联网和语音应用。BPI-P2 Pro 配备 512 MB DDR3 内存，并使用 eMMC 或 SD 卡存储操作系统。
 
-TIP: link:/en/BPI-P2_Pro/BananaPi_BPI-P2_Pro[香蕉派 BPI-P2 Pro]
+TIP: link:/en/BPI-P2_Pro/BananaPi_BPI-P2_Pro[Banana Pi BPI-P2 Pro]
 
 = 开发
 == 准备
-- 5V/3A type-c电源
-- 最低 8GB SD/TF 卡
+- 5 V/3 A USB Type-C 电源
+- 容量至少为 8 GB 的 SD/TF 卡
 - 波特率：1500000
 - 调试接口：
 +
 image::/picture/bpi-p2_pro_debug.jpg[bpi-p2_pro_debug.jpg]
 
-= 选择刻录方法
+= 选择烧录方法
 
-TIP: 选择燃烧方法： link:/en/BPI-M5/BananaPi_Flash_image[Rockchip 芯片Flash系统镜像]
+TIP: 烧录方法：link:/en/BPI-M5/BananaPi_Flash_image[为 Rockchip 芯片烧录系统镜像]
 
-== 100M Ethernet
+== 100M 以太网
 
-如果您使用有线 Ethernet 访问时，请将网线插入ArmSoM-P2pro上的RJ45端口，网口灯闪烁，表示硬件连接正常。
+使用有线以太网时，请将网线插入 ArmSoM-P2 Pro 的 RJ45 接口；网口指示灯闪烁表示硬件连接正常。
 
-手动配置 Ethernet
+手动配置以太网
 
-切换到root用户
+切换到 root 用户：
 ```sh 
 sudo su
 ```
 
-检查是否 Ethernet 使用 ifconfig 命令可以正常工作，并且会显示网卡 eth0 和EthernetIP 地址。另外，使用ping工具判断网络是否连通。
+使用 ifconfig 命令检查以太网是否正常工作。命令应显示 eth0 网卡及其 IP 地址；还可以使用 ping 判断网络是否连通。
 ```sh 
 ifconfig
 ping www.baidu.com  
@@ -40,45 +40,45 @@ $ sudo dhclient eth0
 ```
 == 调试串口
 
-调试串口位置为12针排座的第9针和第11针
+调试串口位于 12 针排座的 9 号和 11 号引脚。
 
 [options="header",cols="1,1,1"]
 |=====
 |P2pro	|连接方式	|串口模块
-|接地 (针脚 8)|	<--->	|接地
-|TX (引脚 9)	|<--->	|接收
-|接收 (引脚 11)	|<--->	|TX
+|GND（引脚 8）|	<--->	|GND
+|TX（引脚 9）	|<--->	|RX
+|RX（引脚 11）	|<--->	|TX
 |=====
 
 image::/bpi-p2pro/p2_pro-debug.png[p2_pro-debug.png]
 
-== 无线网络
+== Wi-Fi
 
-如果您无法检查“**无线局域网0**“与”**如果配置**”，这可能没有加载驱动程序。
+如果使用 “**ifconfig**” 无法看到 “**wlan0**”，可能是驱动尚未加载。
 
 . 首先，执行 
 +
 ```sh
 find / -name bcmdhd.ko
 ```
-查询驱动程序的路径。
+查询驱动程序路径。
 
-. 然后安装。
+. 然后加载驱动：
 +
 ```sh
 insmod /system/lib/modules/bcmdhd.ko
 ```
 +
 image::/bpi-p2pro/bpi-p2_pro_loading_wifi_driver.png[bpi-p2_pro_loading_wifi_driver.png]
-. 执行后，“**如果配置**“可以看到”**无线局域网0**".
+. 执行后，使用 “**ifconfig**” 应能看到 “**wlan0**”。
 
-== BT
+== Bluetooth
 ```sh
-# 1. Activate Bluetooth
+# 1. 启动 Bluetooth
 root@linaro-alip:/# service bluetooth start
-# 2. Enter bluetoothctl
+# 2. 进入 bluetoothctl
 root@linaro-alip:/# bluetoothctl
-# 3. Enter the following command to connect
+# 3. 输入以下命令进行连接
 root@linaro-alip:/# power on
 root@linaro-alip:/# agent on
 root@linaro-alip:/# default-agent
@@ -119,24 +119,24 @@ card 7: Loopback [Loopback], device 1: Loopback PCM [Loopback PCM]
 
 ```
 
-播放音乐
+播放音频：
 
 ```sh
 root@linaro-alip:/# aplay -D plughw:0,0  ./usr/share/sounds/alsa/Rear_Right.wav
 ```
 
 == USB 接口
-BPI-P2 pro 提供了一个 USB 2.0端口。
+BPI-P2 Pro 提供 1 个 USB 2.0 接口。
 
 == 麦克风接口
 
-查看所有内置编解码器增益
+查看内置编解码器的全部增益项：
 
 ```sh
 amixer contents
 ```
 
-耳机输出声音太小
+如果耳机输出音量过低：
 
 查看编解码器当前左右声道输出增益：
 
@@ -151,7 +151,7 @@ amixer cset name='DAC HPOUT Left Volume' 18
 amixer cset name='DAC HPOUT Right Volume' 18
 ```
 
-调节音量 (百分比):
+调节音量（百分比）：
 
 ```sh
 amixer cset name='Master Playback Volume' 40
@@ -159,13 +159,13 @@ amixer cset name='Master Playback Volume' 40
 
 录音
 
-内置编解码器的麦克风增益调整
+调整内置编解码器的麦克风增益：
 
-第 0 组： mic1/mic2;第 1 组： mic3/mic4;第 2 组： mic5/mic6;第 3 组： mic7/mic8
+第 0 组：mic1/mic2；第 1 组：mic3/mic4；第 2 组：mic5/mic6；第 3 组：mic7/mic8
 
-前缀“ADC MIC”表示调节前级MIC PGA的线性增益
+前缀 “ADC MIC” 表示调节前级 MIC PGA 的线性增益。
 
-前缀“ADC ALC”表示调整后级ALC的线性增益
+前缀 “ADC ALC” 表示调节后级 ALC 的线性增益。
 
 ```sh
 amixer cset name='ADC MIC Group 0 Right Gain'  3
@@ -190,7 +190,6 @@ amixer cset name='ADC ALC Group 3 Right Volume'  31
 
 export ALSA_LIB_ADD_GAIN=3
 
-// When the sampling rate is greater than 16000hz, the recording command should add the parameters --period-size=1024 --buffer-size=4096
+// 采样率高于 16000 Hz 时，录音命令应添加参数 --period-size=1024 --buffer-size=4096
 arecord -D hw:0,0 -c 8 -r 44100 -f S16_LE --period-size=1024 --buffer-size=4096 test.wav
 ```
-
