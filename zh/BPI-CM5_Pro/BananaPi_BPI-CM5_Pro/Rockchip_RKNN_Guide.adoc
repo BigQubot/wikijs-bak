@@ -1,72 +1,72 @@
-= RK神经网络 SDK 快速入门指南
+= RKNN SDK 快速入门指南
 
 * 开发板：ArmSoM-W3、ArmSoM-Sige7、ArmSoM-Sige5、ArmSoM-AIM7
 
-* 操作系统： Debian11/12
+* 操作系统：Debian 11/12
 
-* 目的：本文介绍如何使用RK的 NPU SDK.
+* 目的：介绍如何使用 Rockchip NPU SDK。
 
-作为高性能8nm AIOT平台 Rockchip, 的 RK3576/RK3588 NPU 拥有强大的能力，其设计能够实现高达6TOPS的高效神经网络推理计算。这使得 RK3576/RK3588 擅长图像识别、语音识别、自然语言处理等人工智能领域。
+RK3576/RK3588 是 Rockchip 推出的高性能 8 nm AIoT 平台，其 NPU 可提供最高 6 TOPS 的高效神经网络推理算力，适用于图像识别、语音识别、自然语言处理等多种人工智能场景。
 
-此外， NPU 的 RK3576/RK3588 支持各种学习框架，包括TensorFlow、PyTorch、Caffe、MXNet等人工智能开发中流行的学习框架。这为开发者提供了丰富的工具和库，使他们能够轻松地进行模型训练和推理，有效解决各种大数据计算场景。
+此外，RK3576/RK3588 NPU 支持 TensorFlow、PyTorch、Caffe、MXNet 等常用深度学习框架，为开发者提供丰富的工具和库，便于进行模型训练与推理，并处理各种大规模数据计算场景。
 
-= 典型应用 RK3576/RK3588 NPU
+= RK3576/RK3588 NPU 的典型应用
 
-计算机视觉： NPU 可用于图像识别、物体检测、人脸识别等任务。它在安全监控、自动驾驶、医学图像分析等领域有着广泛的应用。
+计算机视觉：NPU 可用于图像识别、目标检测和人脸识别等任务，广泛应用于安防监控、自动驾驶和医学影像分析等领域。
 
-自然语言处理 (自然语言处理): 的NPU加速文本分类、情感分析、机器翻译等任务，使处理大规模文本数据更加高效。
+自然语言处理（NLP）：NPU 可加速文本分类、情感分析和机器翻译等任务，提高大规模文本数据的处理效率。
 
-语音识别和处理：在语音识别、语音合成和相关任务中， NPU 提高处理速度和准确性，应用于智能语音助手、语音交互系统等。
+语音识别与处理：在语音识别、语音合成等任务中，NPU 可提升处理速度和准确率，适用于智能语音助手、语音交互系统等场景。
 
-智能家居和物联网： NPU低功耗特性使其适合智能家居设备、智能监控摄像头、可穿戴设备等物联网应用，实现设备智能化和自动化。
+智能家居与物联网：NPU 的低功耗特性适合智能家居设备、智能监控摄像头和可穿戴设备等物联网应用，可实现设备智能化与自动化。
 
-医疗保健：在医学图像分析、疾病诊断、基因组学等领域， NPU 加速大规模数据的处理和分析，协助医疗专业人员更准确的疾病诊断和治疗方案制定。
+医疗健康：在医学影像分析、疾病诊断和基因组学等领域，NPU 可加速大规模数据的处理与分析，协助医疗人员更准确地诊断疾病和制定治疗方案。
 
-智能交通：在智能交通系统中， NPU 可用于车辆识别、交通流量监控、智能交通信号控制等任务，提高交通系统的效率和安全性。
+智能交通：在智能交通系统中，NPU 可用于车辆识别、交通流量监测和交通信号智能控制等任务，提高交通系统的效率与安全性。
 
 
 = Rockchip NPU SDK
 
-Rockchip's NPU SDK 包括两部分：PC端工具rknn-toolkit2，用于PC端的模型转换、推理和性能评估。具体来说，它将Caffe、TensorFlow、TensorFlow Lite、ONNX、DarkNet、PyTorch等主流模型转换为RKNN模型。这些RKNN模型可以用于PC端的推理模拟，计算时间和内存开销。在板卡端，有rknn运行环境，其中包括一套C API 库，用于与通信的驱动程序模块 NPU、可执行程序等
+Rockchip NPU SDK 包含两部分：PC 端工具 rknn-toolkit2 用于模型转换、推理和性能评估，可将 Caffe、TensorFlow、TensorFlow Lite、ONNX、DarkNet、PyTorch 等主流框架的模型转换为 RKNN 模型，并在 PC 端模拟推理、计算耗时和内存开销；开发板端的 rknn 运行环境则包含一组 C API 库、与 NPU 通信的驱动模块以及可执行程序等。
 
-RKNN软件堆栈帮助用户快速部署AI模型 Rockchip 筹码。整体框架如下：
+RKNN 软件栈可帮助用户将 AI 模型快速部署到 Rockchip 芯片。整体框架如下：
 
 image::/bpi-m5pro/bpi-m7_rkllm.png[bpi-m7_rkllm.png]
 
-要使用RKNPU，用户需要首先在计算机上运行RKNN-Toolkit2工具，将训练好的模型转换为RKNN格式的模型，然后使用RKNN C API 或 Python API 用于开发板上的推理。
+要使用 RKNPU，首先需要在计算机上运行 RKNN-Toolkit2，将训练好的模型转换为 RKNN 格式，然后在开发板上通过 RKNN C API 或 Python API 执行推理。
 
-* RKNN-Toolkit2是一款用于在PC和PC上进行模型转换、推理和性能评估的软件开发套件 Rockchip NPU 平台。
+* RKNN-Toolkit2 是用于在 PC 和 Rockchip NPU 平台上进行模型转换、推理与性能评估的软件开发套件。
 
-* RKNN-Toolkit-Lite2 提供了 Python 编程接口 Rockchip NPU 平台，帮助用户部署RKNN模型，加速AI应用落地。
+* RKNN-Toolkit-Lite2 为 Rockchip NPU 平台提供 Python 编程接口，帮助用户部署 RKNN 模型，加快 AI 应用落地。
 
-* RKNN 运行时提供 C/C++ 编程接口 Rockchip NPU 平台，帮助用户部署RKNN模型，加速AI应用落地。
+* RKNN Runtime 为 Rockchip NPU 平台提供 C/C++ 编程接口，帮助用户部署 RKNN 模型，加快 AI 应用落地。
 
-* RKNPU 内核驱动程序负责与 NPU 硬件。它是开源的，可以在 Rockchip 内核代码。
+* RKNPU 内核驱动负责与 NPU 硬件交互；该驱动已开源，可在 Rockchip 内核代码中找到。
 
 
-TIP: RKNPU2 SDK v2.0.0-测试版 (为了 RK3576/RK3562/RK3566/RK3568/RK3588/RV1103/RV1106) https://github.com/airockchip/rknn-toolkit2 +
-模型动物园： https://github.com/airockchip/rknn_model_zoo +
-文档： https://github.com/airockchip/rknn-toolkit2/tree/master/doc +
+TIP: RKNPU2 SDK v2.0.0-beta（适用于 RK3576/RK3562/RK3566/RK3568/RK3588/RV1103/RV1106）：https://github.com/airockchip/rknn-toolkit2 +
+模型库：https://github.com/airockchip/rknn_model_zoo +
+文档：https://github.com/airockchip/rknn-toolkit2/tree/master/doc +
 
-= 分享用例 RK3576/RK3588 NPU
+= RK3576/RK3588 NPU 用例
 
-导出rknn模型的步骤
+导出 RKNN 模型的步骤
 
 请参考 https://github.com/airockchip/rknn_model_zoo/tree/main/models/CV/object_detection/yolo
 
 == 注意事项
 
-* 1.使用rknn-toolkit2版本大于或等于1.4.0。
-* 2.切换到自己训练的模型时，注意对齐anchor等后处理参数，否则可能会导致后处理解析错误。
-* 3.官方网站及Rockchip预训练模型可检测 80 类物体。如果使用自己训练的模型，则需要更改OBJ_等级_NUM 和 NMS_THRESH 后处理参数 include/postprocess.h.
-* 4.演示需要支持 librga.so。编译和使用请参考 https://github.com/airockchip/librga.
-* 5.由于硬件限制，本demo中yolov5模型的后处理部分移至 CPU 默认情况下。本演示中提供的模型使用 ReLU 作为激活函数。与Silu激活函数相比，精度略有下降，但性能显着提高。
+* 1.使用 1.4.0 或更高版本的 rknn-toolkit2。
+* 2.切换为自行训练的模型时，请注意对齐 anchors 等后处理参数，否则可能导致后处理解析错误。
+* 3.官网提供的 Rockchip 预训练模型可检测 80 类目标。使用自行训练的模型时，需要修改 include/postprocess.h 中的 OBJ_CLASS_NUM 和 NMS_THRESH 后处理参数。
+* 4.此示例依赖 librga.so。编译和使用方法请参阅 https://github.com/airockchip/librga。
+* 5.受硬件限制，此示例默认将 YOLOv5 模型的后处理放到 CPU 上执行。示例所提供的模型使用 ReLU 激活函数；与 SiLU 相比，其精度略有降低，但性能有明显提升。
 
 == Android 演示
 
 1.编译：
 
-一、导入ANDROID_NDK_PATH，例如导出ANDROID_NDK_路径=~/opts/ndk/android-ndk-r18b，然后执行以下命令：
+首先设置 ANDROID_NDK_PATH，例如执行 export ANDROID_NDK_PATH=~/opts/ndk/android-ndk-r18b，然后运行以下命令：
 
 ```sh
 ./build-android.sh -t <target> -a <arch> [-b <build_type>]
@@ -77,14 +77,14 @@ Example:
 
 2.推送可执行文件到开发板
 
-连接 USB 将开发板的端口连接到PC上，并将整个demo目录复制到 /data:
+通过 USB 将开发板连接到 PC，并将整个 demo 目录复制到 /data：
 ```sh
 adb root
 adb remount
 adb push install/rknn_yolov5_demo /data/
 ```
 
-3.跑步
+3.运行
 ```sh
 adb shell
 cd /data/rknn_yolov5_demo/
@@ -92,7 +92,7 @@ export LD_LIBRARY_PATH=./lib
 ./rknn_yolov5_demo model/<TARGET_PLATFORM>/yolov5s-640-640.rknn model/bus.jpg
 ```
 
-Note: 尝试搜索位置 librga.so 并将其添加到LD_图书馆_路径如果 librga.so 在 lib 文件夹中找不到。使用以下命令添加到LD_图书馆_路径。 +
+注意：如果在 lib 目录中找不到 librga.so，请查找该库的位置并将其加入 LD_LIBRARY_PATH。可使用以下命令进行设置。 +
 
 ```sh
 export LD_LIBRARY_PATH=./lib:<LOCATION_LIBRGA.SO>
@@ -100,20 +100,20 @@ export LD_LIBRARY_PATH=./lib:<LOCATION_LIBRGA.SO>
 
 == 视频流演示运行命令
 
-* h264 视频
+* H.264 视频
 ```sh
 ./rknn_yolov5_video_demo model/<TARGET_PLATFORM>/yolov5s-640-640.rknn xxx.h264 264
 ```
-Note: 需要 H264 视频流。可以使用以下命令进行转换：
+注意：此示例需要 H.264 视频流，可使用以下命令转换：
 ```sh
 ffmpeg -i xxx.mp4 -vcodec h264 xxx.h264
 ```
 
-* H265 视频
+* H.265 视频
 ```sh
 ./rknn_yolov5_video_demo model/<TARGET_PLATFORM>/yolov5s-640-640.rknn xxx.hevc 265
 ```
-Note: 需要 H265 视频流。可以使用以下命令进行转换：
+注意：此示例需要 H.265 视频流，可使用以下命令转换：
 ```sh
 ffmpeg -i xxx.mp4 -vcodec hevc xxx.hevc
 ```
@@ -125,7 +125,7 @@ ffmpeg -i xxx.mp4 -vcodec hevc xxx.hevc
 
 image::/bpi-m5pro/rknn_2.jpg[rknn_2.jpg]
 
-NOTE: 1.根据系统的rga驱动选择正确的librga库。具体依赖请参考： https://github.com/airockchip/librga +
-2.rk3562目前仅支持h264视频流 +
-3.rtsp视频流演示仅支持 Linux 系统，尚不支持 Android +
-4.输入的h264视频流名称不能为“out.h264”，否则会被覆盖
+NOTE: 1.请根据系统使用的 rga 驱动选择正确的 librga 库，具体依赖请参阅：https://github.com/airockchip/librga +
+2.RK3562 目前仅支持 H.264 视频流。 +
+3.RTSP 视频流示例仅支持 Linux，暂不支持 Android。 +
+4.输入的 H.264 视频流不能命名为“out.h264”，否则文件会被覆盖。
