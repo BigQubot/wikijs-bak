@@ -1,0 +1,394 @@
+== 基本用法
+=== 登录
+
+用户名为 **pi**
+
+密码是 **bananapi**
+
+=== 扩大分区空间
+
+. 使用 `dd` 命令将 img 文件写入 eMMC 后，会留下约 15 GB 未分配空间，因此需要手动扩展分区。
+
+. 执行命令 `lsblk` 查看分区结构：
++
+```
+pi@pi-desktop:~$ lsblk
+NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+loop0          7:0    0 102.3M  1 loop /snap/lxd/37562
+loop1          7:1    0  69.2M  1 loop /snap/core22/1624
+loop2          7:2    0  61.9M  1 loop /snap/core24/1350
+loop3          7:3    0  94.4M  1 loop /snap/lxd/30134
+loop4          7:4    0  33.7M  1 loop /snap/snapd/21761
+mmcblk0      179:0    0  58.2G  0 disk
+└─mmcblk0p1  179:1    0  14.8G  0 part /
+mmcblk0boot0 179:32   0     4M  1 disk
+mmcblk0boot1 179:64   0     4M  1 disk
+```
+可以看到 eMMC 设备是 `mmcblk0`。执行以下命令：
++
+
+```
+sudo growpart /dev/mmcblk0 1
+```
++
+成功后，您将看到类似以下内容：
++
+```
+CHANGED: partition=1 start=32768 old: size=31083487 end=31116254 new: size=241663967 end=241696734
+```
+这样就成功修改了分区表。
+
+. 执行命令 
++
+```
+sudo resize2fs /dev/mmcblk0p1
+```
+以便将分区扩展到最大容量。
+
+. 检查
++
+```
+lsblk
+NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+loop0          7:0    0 41.6M  1 loop /snap/snapd/25939
+loop1          7:1    0 69.2M  1 loop /snap/core22/1624
+loop2          7:2    0 94.4M  1 loop /snap/lxd/30134
+loop3          7:3    0 33.7M  1 loop /snap/snapd/21761
+mmcblk0      179:0    0 58.2G  0 disk
+└─mmcblk0p1  179:1    0 58.2G  0 part /
+mmcblk0boot0 179:32   0    4M  1 disk
+mmcblk0boot1 179:64   0    4M  1 disk
+```
+
+== 开发环境设置
+
+=== 开发环境基础配置
+
+1、**首先，安装一款顺手的编辑器。**
+
+打开终端并更新系统软件列表，然后更新 Vim。
+```
+sudo apt update
+sudo apt install vim
+```
+
+2、**更改软件源**
+
+如果默认 Ubuntu 软件源无法访问或速度较慢，请切换到其他镜像源。（修改前最好使用 **cp** 命令备份原始软件源配置，以便在修改出错时恢复。）
+```
+cd /etc/apt
+sudo vim sources.list
+```
+image::/bpi-om7/vi_sources.jpg[vi_sources.jpg]
+
+按“**I**”键进入编辑状态，然后替换要更改的源。
+(以下用例使用中国清华大学源。)
+```
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted
+universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main
+restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main
+restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main
+restricted universe multiverse
+```
+替换完成后，按“**ESC**”键，再输入“**:wq**”保存并退出。
+
+image::/bpi-om7/vi_sources-2.jpg[vi_sources-2.jpg]
+
+3、**安装必要的工具：从 Git 到 Docker**
+
+安装 Git
+```
+sudo apt update # I just changed the repository, remember to update again
+sudo apt install git x11-xserver-utils udev
+```
+
+安装 Docker（使用清华镜像源加速）
+```
+# Add the Docker key
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+# Configure the Tsinghua Docker image
+echo "deb [arch=$(dpkg --print-architecture) signed-￾by=/usr/share/keyrings/docker-archive-keyring.gpg] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu plucky stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+# Install Docker core components
+sudo apt update
+sudo apt install docker-ce docker-ce-cli containerd.io
+```
+
+4、创建工作区
+
+开发过程中会产生许多文件，因此创建专用目录进行管理：
+```
+mkdir -p ~/ros2_ws/src # Create a nested folder
+cd ~/ros2_ws/src # Enter the working directory
+```
+然后下载核心资源：
+```
+# Rockchip NPU Toolkit
+git clone https://github.com/rockchip-linux/rknn-toolkit2.git
+# Pretrained Model Library
+git clone https://github.com/airockchip/rknn_model_zoo.git
+# Gemini2 Camera SDK
+git clone https://github.com/orbbec/pyorbbecsdk.git
+# ROS2 Docker Image Configuration
+git clone https://github.com/bladewin-smith/ros_docker_image.git
+```
+
+5、解决编译卡死问题
+
+编译大型文件时系统可能卡死，原因是为 USB 设备分配的内存不足。
+
+永久解决方案：
+```
+cd /etc/default
+sudo vim grub
+```
+image::/bpi-om7/vi_grub.jpg[vi_grub.jpg]
+
+找到 **GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"**，将其替换为 **GRUB_CMDLINE_LINUX_DEFAULT="quiet splash usbcore.usbfs_memory_mb=128"**
+
+image::/bpi-om7/vi_grub-2.jpg[vi_grub-2.jpg]
+
+保存退出，然后更新配置：
+```
+sudo update-grub
+```
+重启开发板，并用以下命令验证设置是否生效：（如果显示 128，说明配置正确。）
+```
+cat /sys/module/usbcore/parameters/usbfs_memory_mb
+```
+
+=== Docker 容器与 SDK 部署
+
+使用 Docker 隔离开发环境，以避免依赖冲突，并同时部署摄像头 SDK 和 NPU 工具链。
+
+1、构建专用 Docker 镜像
+
+首先允许当前用户访问显示服务（否则后续无法打开 Qt 窗口）：
+```
+xhost +local: # Execute on the host machine to allow the local container to access the display.
+```
+然后导入镜像并添加标签：
+```
+cd ~/ros2_ws/src/ros_docker_image/image
+docker load -i ros_humble.tar # Import the base image
+docker tag ros:humble my_gemini2_camera # Give the image a memorable name, such as "My Gemini2 
+```
+接着构建摄像头环境。进入 Dockerfile 所在目录并构建自定义镜像（此步骤可能需要 10～20 分钟，请确保网络连接稳定）：
+```
+cd ~/ros2_ws/src/ros_docker_image # Switch to the directory containing the Dockerfile.
+docker build -t my_gemini2_camera . # Note the trailing "."
+```
+
+image::/bpi-om7/om7-docker.jpg[om7-docker.jpg]
+
+2、启动容器
+
+使用现有脚本启动容器（参数非常重要，请勿输错）：
+```
+./run_ros2_docker.sh devcamnpu # devcamnpu is a default parameter corresponding to the camera + NPU configuration.
+```
+image::/bpi-om7/run-docker.jpg[run-docker.jpg]
+
+Docker 使用提示：
+
+退出容器：输入 exit。查看所有容器（包括已停止的容器）：**docker ps -a**
+
+重新进入已停止的容器：**docker start -ai container ID**（重新进入前，记得在主机上执行 **xhost +local:**）
+
+打开新终端并进入正在运行的容器：**docker exec -it container ID /bin/bash**
+
+3、部署 pyorbbecsdk：让开发板识别摄像头
+
+首先，在主机终端中执行以下命令：
+```
+cd ~/ros2_ws/src/pyorbbecsdk
+export PYTHONPATH=$PYTHONPATH:$(pwd)/install/lib/
+sudo bash ./scripts/install_udev_rules.sh
+sudo udevadm control --reload-rules && sudo udevadm trigger
+```
+然后进入容器，部署 Gemini2 摄像头 SDK：
+```
+cd src/pyorbbecsdk # Enter the SDK directory
+python3 -m venv ./venv # Create a virtual environment to isolate Python dependencies
+source venv/bin/activate # Activate the virtual environment (required, otherwise dependencies won't be found)
+pip3 install -r requirements.txt # Install dependency packages
+```
+编译并安装 SDK：
+```
+mkdir build # Create a build directory
+cd build
+cmake -Dpybind11_DIR=`pybind11-config --cmakedir` .. # Configure compilation parameters
+make -j4 # Compile with 4 threads for speed
+make install # Install to the system
+```
+关键操作：每次重新进入容器时执行这两条命令，否则摄像头程序会报错：
+```
+cd src/pyorbbecsdk # Change to the SDK directory
+export PYTHONPATH=$PYTHONPATH:$(pwd)/install/lib/ # Tell the system where the SDK is installed
+```
+
+4、配置 RKNPU：启用 NPU
+
+RK3588 的 NPU 是重要的计算核心，需要手动部署工具链。
+
+首先激活虚拟环境（如果已经激活，可跳过此步）：
+```
+source src/pyorbbecsdk/venv/bin/activate
+```
+安装 RKNN Toolkit（请确保软件包与 RK3588 的 arm64 架构及 Python 版本匹配）：
+```
+cd rknn-toolkit2/rknn-toolkit2
+pip install -r packages/arm64/arm64_requirements_cp310.txt && pip install packages/arm64/rknn_toolkit2-2.3.2-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+```
+
+image::/bpi-om7/install_rknn.jpg[install_rknn.jpg]
+
+验证安装是否成功：进入 `Python*` 交互模式并输入 `from rknn.api import RKNN`。如果没有报错，说明安装成功。
+
+image::/bpi-om7/verify_rknn.jpg[verify_rknn.jpg]
+
+部署 NPU 运行时所需的库：
+
+```
+cd rknn-toolkit2/rknpu2 # Enter the NPU runtime directory
+sudo cp runtime/Linux/rknn_server/aarch64/usr/bin/* /usr/bin/
+sudo cp runtime/Linux/librknn_api/aarch64/librknnrt.so /usr/lib
+sudo chmod +x /usr/bin/rknn_server /usr/bin/start_rknn.sh
+/usr/bin/restart_rknn.sh
+restart_rknn.sh # Restart the NPU service
+```
+
+image::/bpi-om7/deploy_npu.jpg[deploy_npu.jpg]
+
+编译官方示例（用于验证 NPU 功能）：
+```
+cd src/rknn_model_zoo
+./build-linux.sh -t rk3588 -a aarch64 # Compile examples for RK3588
+```
+注意：运行示例时可能提示找不到库文件，可按以下方法解决：
+```
+cd /usr
+sudo mkdir lib64 # Create the lib64 directory
+sudo ln -s /usr/lib/librknnrt.so /usr/lib64/librknnrt.so # Create a symbolic link
+```
+
+image::/bpi-om7/verify_npu.jpg[verify_npu.jpg]
+
+=== 从摄像头视频流到模型推理
+环境配置完成后，可以开始实际操作。下面给出三个由基础到进阶的实用示例。
+
+1、实时目标检测：使用 Gemini2 摄像头和 YOLOv5 识别物体
+
+此示例会显示摄像头的实时画面，并在画面中框出检测到的物体，例如人、汽车和手机等。
+
+步骤：
+替换示例目录：将 `src/ros_docker_image/object_detection` 复制到 `src/pyorbbecsdk/examples/`（覆盖原目录）。
+
+激活环境并配置路径：
+```
+source src/pyorbbecsdk/venv/bin/activate
+cd src/pyorbbecsdk
+export PYTHONPATH=$PYTHONPATH:$(pwd)/install/lib/
+```
+运行程序：
+```
+cd examples/object_detection
+python object_detection_sw_align.py
+```
+
+如需使用自行训练的 YOLO 模型，只需修改 object_detection_sw_align.py 中的两个参数：
+
+
+image::/bpi-om7/switching_yolo_models.jpg[switching_yolo_models.jpg]
+
+**coco.names**：替换为类别名称文件
+
+**models/yolov5s.onnx**：替换为你的模型文件路径
+
+2、多路数据采集：同时采集彩色、深度和红外图像
+
+Gemini2 摄像头支持多种图像输出类型。本示例会同时显示三种图像：
+```
+source src/pyorbbecsdk/venv/bin/activate
+cd src/pyorbbecsdk
+export PYTHONPATH=$PYTHONPATH:$(pwd)/install/lib/
+cd src/pyorbbecsdk/examples
+python multi_streams.py
+```
+程序运行后会弹出三个窗口，分别显示彩色图像（RGB）、深度图像（黑白画面，像素越亮表示距离越近）和红外图像（可用于夜间识别）。这些数据适用于 3D 重建、手势识别等应用。
+
+3、模型转换：将 ONNX 模型转换为 NPU 可用的 RKNN 格式
+
+自行训练的模型需要转换为 RKNN 格式才能在 NPU 上运行。下面以 YOLO 模型为例：
+
+```
+source src/pyorbbecsdk/venv/bin/activate
+cd src/pyorbbecsdk
+export PYTHONPATH=$PYTHONPATH:$(pwd)/install/lib/
+cd src/rknn_model_zoo
+export PYTHONPATH=/home/myuser/ros2_ws/rknn_model_zoo:$PYTHONPATH # Configure Model Library Path
+cd examples/yolov5/python # Conversion Command: Input ONNX model path, target device (rk3588), quantization method (i8), output path
+python convert.py
+/home/myuser/ros2_ws/src/pyorbbecsdk/examples/object_detection/models/numbe r_detect.onnx rk3588 i8 ../model/number.rknn
+```
+转换成功后，即可使用 NPU 加速推理，速度可达到 CPU 推理的 5～10 倍。
+
+image::/bpi-om7/onnx_model_converted_to_rknn.jpg[onnx_model_converted_to_rknn.jpg]
+
+
+=== 可能出现的问题
+
+1、**Qt 界面无法打开，报错“could not connect to display”**
+
+原因：Docker 容器无权访问主机的显示服务。
+
+解决方案：
+
+• 在主机终端中执行 `xhost +local:`。
+
+• 进入 Docker 后再次执行 `xhost +local:`。
+
+2、**未找到摄像头设备，报错“No device found”**
+
+原因：USB 设备权限或驱动存在问题。
+
+解决方案：
+
+• 简单方法：重启开发板。
+
+• 更稳妥的方法：退出 Docker → 启动 OrbbecViewer（详情请联系 Orbbec 客服）→ 关闭 Viewer → 重新进入 Docker → 执行 `export PYTHONPATH=$PYTHONPATH:$(pwd)/install/lib/`，然后运行程序。
+
+3、**未找到 rknn 模块，报错“ModuleNotFoundError: No module named 'rknn'”**
+
+原因：RKNN Toolkit 安装不正确，或路径配置错误。
+
+解决方案：
+```
+cd src/rknn-toolkit2
+
+# Reinstall, using Tsinghua University mirror for acceleration
+
+pip3 install rknn-toolkit2/packages/arm64/rknn_toolkit2-2.3.2-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl --timeout 120 --retries 10 -i https://pypi.tuna.tsinghua.edu.cn/simple
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
