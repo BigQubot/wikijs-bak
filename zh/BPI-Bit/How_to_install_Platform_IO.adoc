@@ -1,0 +1,62 @@
+TIP: link:/en/BPI-Bit/Bit_for_Arduino#_install_platform_io[位用于 Arduino]
+
+= 安装VSCode
+
+Visual Studio Code 是一个轻量级但功能强大的源代码编辑器，可以在桌面上运行，并且可用于 Windows, macOS 和 Linux。它带有内置支持 JavaScript、打字稿和 Node.js 并拥有丰富的其他语言扩展生态系统 (比如C++, C#, 爪哇, Python, PHP, 围棋) 和运行时间 (例如 .NET 和 Unity).
+
+下载vscode： https://code.visualstudio.com/
+
+安装很简单，这里不再赘述
+
+= 在vscode上安装platformIO插件
+
+. 首先打开vscode扩展列表，点击左侧列表第五个图标
++
+image::/picture/vscode_1.jpeg[vscode_1.jpeg]
+
+. 在搜索栏搜索platformIO后，点击第一个platformIO IDE 在下面的列表中
++
+image::/picture/vscode_2.jpeg[vscode_2.jpeg]
+
+. 在插件界面点击安装
++
+image::/picture/vscode_3.jpeg[vscode_3.jpeg]
+
+. 安装过程会很长，大约40分钟，耐心等待。当提示找不到Python2.7时，我们将忽略它，因为它会在PlatformIO安装过程中自动安装。
++
+image::/picture/vscode_4.png[vscode_4.png]
+
+. 安装成功后，左侧列表中会出现一个图标，左下角会出现一个小日志
++
+image::/picture/vscode_5.jpeg[vscode_5.jpeg]
+
+= 创建新项目
+. 点击左下角的小房子，进入platformIO主页，点击New Project
++
+image::/picture/vscode_6.jpeg[vscode_6.jpeg]
+
+. 填写项目名称、板、框架。项目名称根据个人兴趣而定，因为我使用的是bpi:bit板，所以这里我选择了bpibit板。选择 bpibit 板将自动选择帧。下面是选择保存地址，一般默认，只要把勾去掉，就可以选择自定义地址
++
+image::/picture/vscode_7.png[vscode_7.png]
+
+. 单击“完成”即可成功设置项目
++
+image::/picture/vscode_8.jpeg[vscode_8.jpeg]
+
+. 左侧的资源管理器显示项目文件夹
+
+- Platformio.ini (用于配置文件)
+- 库 (自动生成的库目录)
+- 斯瑞克 (程序源文件存放目录)
+
++
+image::/picture/vscode_9.jpeg[vscode_9.jpeg]
+
+= 闪存重新编程
+进入SRC目录，点击main.cpp进行烧写。用数据线将板子连接到电脑后，点击下方箭头，platformIO会自动识别串口并烧写程序。
+
+image::/picture/vscode_10.jpeg[vscode_10.jpeg]
+
+使用 Platforum IO 免费开发 BPI:bit。
+
+image::/picture/vscode_11.jpeg[vscode_11.jpeg]
