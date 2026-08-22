@@ -1,0 +1,196 @@
+= 简介
+
+的 BPI-P2pro 是由 Rockchip RK3308B-S，配备64位四核ARM Cortex-A35处理器， USB, Ethernet、蓝牙、无线连接和语音检测引擎。具有丰富的音频接口 (比如 MIC/PDM/SPDIF/I2S),RK3308是物联网和语音应用的理想产品。的 BPI-p2pro 使用512MB DDR3 RAM 和用途 eMMC 或SD卡作为操作系统的存储。
+
+TIP: link:/en/BPI-P2_Pro/BananaPi_BPI-P2_Pro[香蕉派 BPI-P2 Pro]
+
+= 开发
+== 准备
+- 5V/3A type-c电源
+- 最低 8GB SD/TF 卡
+- 波特率：1500000
+- 调试接口：
++
+image::/picture/bpi-p2_pro_debug.jpg[bpi-p2_pro_debug.jpg]
+
+= 选择刻录方法
+
+TIP: 选择燃烧方法： link:/en/BPI-M5/BananaPi_Flash_image[Rockchip 芯片Flash系统镜像]
+
+== 100M Ethernet
+
+如果您使用有线 Ethernet 访问时，请将网线插入ArmSoM-P2pro上的RJ45端口，网口灯闪烁，表示硬件连接正常。
+
+手动配置 Ethernet
+
+切换到root用户
+```sh 
+sudo su
+```
+
+检查是否 Ethernet 使用 ifconfig 命令可以正常工作，并且会显示网卡 eth0 和EthernetIP 地址。另外，使用ping工具判断网络是否连通。
+```sh 
+ifconfig
+ping www.baidu.com  
+```
+如果无法 ping 通，请尝试
+
+```sh 
+$ sudo dhclient eth0
+```
+== 调试串口
+
+调试串口位置为12针排座的第9针和第11针
+
+[options="header",cols="1,1,1"]
+|=====
+|P2pro	|连接方式	|串口模块
+|接地 (针脚 8)|	<--->	|接地
+|TX (引脚 9)	|<--->	|接收
+|接收 (引脚 11)	|<--->	|TX
+|=====
+
+image::/bpi-p2pro/p2_pro-debug.png[p2_pro-debug.png]
+
+== 无线网络
+
+如果您无法检查“**无线局域网0**“与”**如果配置**”，这可能没有加载驱动程序。
+
+. 首先，执行 
++
+```sh
+find / -name bcmdhd.ko
+```
+查询驱动程序的路径。
+
+. 然后安装。
++
+```sh
+insmod /system/lib/modules/bcmdhd.ko
+```
++
+image::/bpi-p2pro/bpi-p2_pro_loading_wifi_driver.png[bpi-p2_pro_loading_wifi_driver.png]
+. 执行后，“**如果配置**“可以看到”**无线局域网0**".
+
+== BT
+```sh
+# 1. Activate Bluetooth
+root@linaro-alip:/# service bluetooth start
+# 2. Enter bluetoothctl
+root@linaro-alip:/# bluetoothctl
+# 3. Enter the following command to connect
+root@linaro-alip:/# power on
+root@linaro-alip:/# agent on
+root@linaro-alip:/# default-agent
+root@linaro-alip:/# scan on
+root@linaro-alip:/# pair yourDeviceMAC
+```
+
+== 音频
+
+查看系统中的声卡：
+
+```sh
+root@linaro-alip:~# aplay -l
+**** List of PLAYBACK Hardware Devices ****
+card 0: rockchiprk3308a [rockchip,rk3308-acodec], device 0: dailink-multicodecs ff560000.acodec-0 [dailink-multicodecs ff560000.acodec-0]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 7: Loopback [Loopback], device 0: Loopback PCM [Loopback PCM]
+  Subdevices: 8/8
+  Subdevice #0: subdevice #0
+  Subdevice #1: subdevice #1
+  Subdevice #2: subdevice #2
+  Subdevice #3: subdevice #3
+  Subdevice #4: subdevice #4
+  Subdevice #5: subdevice #5
+  Subdevice #6: subdevice #6
+  Subdevice #7: subdevice #7
+card 7: Loopback [Loopback], device 1: Loopback PCM [Loopback PCM]
+  Subdevices: 8/8
+  Subdevice #0: subdevice #0
+  Subdevice #1: subdevice #1
+  Subdevice #2: subdevice #2
+  Subdevice #3: subdevice #3
+  Subdevice #4: subdevice #4
+  Subdevice #5: subdevice #5
+  Subdevice #6: subdevice #6
+  Subdevice #7: subdevice #7
+
+```
+
+播放音乐
+
+```sh
+root@linaro-alip:/# aplay -D plughw:0,0  ./usr/share/sounds/alsa/Rear_Right.wav
+```
+
+== USB 接口
+BPI-P2 pro 提供了一个 USB 2.0端口。
+
+== 麦克风接口
+
+查看所有内置编解码器增益
+
+```sh
+amixer contents
+```
+
+耳机输出声音太小
+
+查看编解码器当前左右声道输出增益：
+
+```sh
+amixer cget name='DAC HPOUT Left Volume'
+amixer cget name='DAC HPOUT Right Volume'
+```
+根据需要调整基本增益：
+
+```sh
+amixer cset name='DAC HPOUT Left Volume' 18
+amixer cset name='DAC HPOUT Right Volume' 18
+```
+
+调节音量 (百分比):
+
+```sh
+amixer cset name='Master Playback Volume' 40
+```
+
+录音
+
+内置编解码器的麦克风增益调整
+
+第 0 组： mic1/mic2;第 1 组： mic3/mic4;第 2 组： mic5/mic6;第 3 组： mic7/mic8
+
+前缀“ADC MIC”表示调节前级MIC PGA的线性增益
+
+前缀“ADC ALC”表示调整后级ALC的线性增益
+
+```sh
+amixer cset name='ADC MIC Group 0 Right Gain'  3
+amixer cset name='ADC MIC Group 0 Left Gain'  3
+amixer cset name='ADC ALC Group 0 Left Volume'  31
+amixer cset name='ADC ALC Group 0 Right Volume'  31
+
+amixer cset name='ADC MIC Group 1 Right Gain'  3
+amixer cset name='ADC MIC Group 1 Left Gain'  3
+amixer cset name='ADC ALC Group 1 Left Volume'  31
+amixer cset name='ADC ALC Group 1 Right Volume'  31
+
+amixer cset name='ADC MIC Group 2 Right Gain'  3
+amixer cset name='ADC MIC Group 2 Left Gain'  3
+amixer cset name='ADC ALC Group 2 Left Volume'  31
+amixer cset name='ADC ALC Group 2 Right Volume'  31
+
+amixer cset name='ADC MIC Group 3 Right Gain'  3
+amixer cset name='ADC MIC Group 3 Left Gain'  3
+amixer cset name='ADC ALC Group 3 Left Volume'  31
+amixer cset name='ADC ALC Group 3 Right Volume'  31
+
+export ALSA_LIB_ADD_GAIN=3
+
+// When the sampling rate is greater than 16000hz, the recording command should add the parameters --period-size=1024 --buffer-size=4096
+arecord -D hw:0,0 -c 8 -r 44100 -f S16_LE --period-size=1024 --buffer-size=4096 test.wav
+```
+
