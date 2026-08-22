@@ -1,0 +1,107 @@
+TIP: link:../GettingStarted_BPI-Centi-S3[返回开始使用 BPI-Centi-S3]
+
+有一个1.9英寸的TFT LCD 正面的彩色屏幕 BPI-Centi-S3 分辨率为170*320、驱动芯片为ST7789V3，通过8位并行接口与ESP32S3芯片连接。
+
+ST7789 C 模块驱动程序已集成在工厂固件中，来自：
+
+https://github.com/russhughes/st7789s3_esp_lcd[russhughes/st7789s3_esp_lcd], 麻省理工学院许可证
+
+感谢russhughes开源，可以查看编译方法等 API 他的接口 GitHub 自述文件。
+
+== 初始化，点亮屏幕
+
+video::YANtoaNBQw4[youtube]
+
+创建一个 main.py 在本地文件夹中，将以下代码复制到其中，然后保存文件。
+
+> 使用 `ctrl + S` 在当前窗口中保存文件的快捷方式。
+
+```py
+""" BPI-Centi-S3 170x320 ST7789 display """
+
+import st7789
+from machine import freq
+
+
+def config(rotation=0, options=0):
+
+     return st7789.ST7789(
+         170,
+         320,
+         15, 14, 13, 12, 11, 10, 9, 8,
+         wr=6,
+         rd=7,
+         reset=3,
+         dc=5,
+         cs=4,
+         backlight=2,
+         power=2,
+         rotation=rotation,
+         options=options)
+
+
+freq(240_000_000) # Set esp32s3 cpu frequency to 240MHz
+tft = config(rotation=1, options=0)
+tft.init() # Initialize
+tft.fill(st7789.RED)
+tft. show(True)
+tft.deinit() # Deinitialize the display or it will cause a crash on the next run
+
+```
+
+使用mpbridge将文件同步到开发板。
+
+当同步完成后， BPI-Centi-S3 屏幕将全屏呈红色。
+
+== 单独的配置文件
+
+我们可以将初始化和配置 ST7789 的代码放在 python 脚本文件，然后在其他地方导入并使用它，包括在 REPL，这可以增强代码的可重用性。
+
+创建单独的配置文件 tft_config.py ，将以下代码复制到其中，然后保存文件。
+
+```py
+""" BPI-Centi-S3 170x320 ST7789 display """
+
+import st7789
+from machine import freq
+
+
+def config(rotation=0, options=0):
+
+     return st7789.ST7789(
+         170,
+         320,
+         15, 14, 13, 12, 11, 10, 9, 8,
+         wr=6,
+         rd=7,
+         reset=3,
+         dc=5,
+         cs=4,
+         backlight=2,
+         power=2,
+         rotation=rotation,
+         options=options)
+
+freq(240_000_000) # Set esp32s3 cpu frequency to 240MHz
+
+```
+
+修改 main.py 到以下代码：
+
+```py
+""" BPI-Centi-S3 170x320 ST7789 display """
+
+import st7789
+import tft_config
+
+tft = tft_config.config(rotation=1, options=0)
+tft.init()
+tft.fill(st7789.RED)
+tft. show(True)
+tft.deinit() # Deinitialize the display or it will cause a crash on the next run
+
+```
+
+使用mpbridge将文件同步到开发板。
+
+稍后我们可以像这样简单地导入和初始化屏幕。
