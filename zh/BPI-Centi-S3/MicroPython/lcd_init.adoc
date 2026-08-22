@@ -1,20 +1,20 @@
-TIP: link:../GettingStarted_BPI-Centi-S3[返回开始使用 BPI-Centi-S3]
+TIP: link:../GettingStarted_BPI-Centi-S3[返回 BPI-Centi-S3 入门指南]
 
-有一个1.9英寸的TFT LCD 正面的彩色屏幕 BPI-Centi-S3 分辨率为170*320、驱动芯片为ST7789V3，通过8位并行接口与ESP32S3芯片连接。
+BPI-Centi-S3 正面配有 1.9 英寸 TFT LCD 彩屏，分辨率为 170×320，驱动芯片为 ST7789V3，通过 8 位并行接口连接 ESP32-S3。
 
 ST7789 C 模块驱动程序已集成在工厂固件中，来自：
 
-https://github.com/russhughes/st7789s3_esp_lcd[russhughes/st7789s3_esp_lcd], 麻省理工学院许可证
+https://github.com/russhughes/st7789s3_esp_lcd[russhughes/st7789s3_esp_lcd]，采用 MIT 许可证。
 
-感谢russhughes开源，可以查看编译方法等 API 他的接口 GitHub 自述文件。
+感谢 russhughes 开源该项目。编译方法和全部 API 说明请参阅其 GitHub README。
 
 == 初始化，点亮屏幕
 
 video::YANtoaNBQw4[youtube]
 
-创建一个 main.py 在本地文件夹中，将以下代码复制到其中，然后保存文件。
+在本地文件夹中新建 main.py，将以下代码复制到文件中并保存。
 
-> 使用 `ctrl + S` 在当前窗口中保存文件的快捷方式。
+> 在当前窗口中按 `ctrl + S` 快捷键保存文件。
 
 ```py
 """ BPI-Centi-S3 170x320 ST7789 display """
@@ -49,15 +49,15 @@ tft.deinit() # Deinitialize the display or it will cause a crash on the next run
 
 ```
 
-使用mpbridge将文件同步到开发板。
+使用 mpbridge 将文件同步到开发板。
 
 当同步完成后， BPI-Centi-S3 屏幕将全屏呈红色。
 
 == 单独的配置文件
 
-我们可以将初始化和配置 ST7789 的代码放在 python 脚本文件，然后在其他地方导入并使用它，包括在 REPL，这可以增强代码的可重用性。
+可将 ST7789 的初始化和配置代码放入单独的 Python 脚本文件，再从其他代码或 REPL 中导入使用，从而提高代码复用性。
 
-创建单独的配置文件 tft_config.py ，将以下代码复制到其中，然后保存文件。
+新建独立配置文件 tft_config.py，将以下代码复制到文件中并保存。
 
 ```py
 """ BPI-Centi-S3 170x320 ST7789 display """
@@ -86,7 +86,7 @@ freq(240_000_000) # Set esp32s3 cpu frequency to 240MHz
 
 ```
 
-修改 main.py 到以下代码：
+将 main.py 修改为以下代码：
 
 ```py
 """ BPI-Centi-S3 170x320 ST7789 display """
@@ -102,6 +102,6 @@ tft.deinit() # Deinitialize the display or it will cause a crash on the next run
 
 ```
 
-使用mpbridge将文件同步到开发板。
+使用 mpbridge 将文件同步到开发板。
 
 稍后我们可以像这样简单地导入和初始化屏幕。
