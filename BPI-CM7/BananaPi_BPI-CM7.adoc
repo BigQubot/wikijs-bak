@@ -1,36 +1,30 @@
 = BPI-CM7 Introduction
 
-Banana Pi BPI-CM7 is an Allwinner H618 compute module. It integrates the processor, LPDDR4 memory, eMMC storage, power management, and a K019 Wi-Fi/Bluetooth module. External interfaces are routed through two 100-pin high-density board-to-board connectors and are intended to be used with a carrier board such as link:/en/BPI-CM7IO/BananaPi_BPI-CM7IO[Banana Pi BPI-CM7IO].
+Banana Pi BPI-CM7 is an Allwinner H618 compute module with LPDDR4 memory, eMMC storage, K019 Wi-Fi 5 and Bluetooth 5.0, and two 100-pin board-to-board connectors.
 
-BPI-CM7 uses the same H618 platform as link:/en/BPI-M4_Zero/BananaPi_BPI-M4_Zero[Banana Pi BPI-M4 Zero], but it is a compute module rather than a complete single-board computer. BPI-CM7 has no user-facing HDMI, USB, Ethernet, or microSD connectors on the module itself.
-
-[WARNING]
-====
-The two 100-pin connectors use a CM4-style mechanical arrangement, but BPI-CM7 is *not a pin-for-pin electrical replacement* for Raspberry Pi CM4 or BPI-CM4. Several CM4 connector positions are unused or reassigned, and BPI-CM7 provides Fast Ethernet rather than Gigabit Ethernet. Design a carrier from the BPI-CM7 schematic and pin assignment, not from connector shape alone.
-====
+TIP: Allwinner H618 design : link:/en/BPI-M4_Zero/BananaPi_BPI-M4_Zero[Banana Pi BPI-M4 Zero] single board computer +
+Allwinner H618 design : link:/en/BPI-CM7/BananaPi_BPI-CM7[Banana Pi BPI-CM7] computer module
 
 == Key Features
 
 * Allwinner H618 quad-core 64-bit Arm Cortex-A53 processor, up to 1.5 GHz
 * Arm Mali-G31 GPU
-* Onboard LPDDR4 memory; capacity depends on the ordered SKU
-* Onboard eMMC; capacity depends on the ordered SKU
-* K019 Wi-Fi 5 and Bluetooth 5.0 module with U.FL/IPEX antenna connector
-* Two 100-pin high-density board-to-board connectors, 200 contacts in total
-* One HDMI output link
-* One USB 2.0 OTG link and three USB 2.0 host links
-* Integrated 10/100M Ethernet PHY signals
-* microSD interface signals
-* UART, TWI/I2C, SPI, PWM, I2S/PCM, DMIC, SPDIF, IR, and GPIO signals
-* Stereo line output and composite video output signals
-* 5 V module input
-* Onboard identification EEPROM at TWI/I2C address `0x57` and status LEDs
+* Onboard LPDDR4 memory
+* Onboard eMMC storage
+* K019 Wi-Fi 5 and Bluetooth 5.0 module
+* HDMI output
+* 10/100M Ethernet
+* 1 x USB 2.0 OTG and 3 x USB 2.0 host
+* microSD interface
+* 2 x 100-pin board-to-board connectors
+* GPIO, UART, TWI/I2C, SPI, PWM, I2S/PCM, DMIC, SPDIF, and IR
+* 5 V power input
 
-== Hardware
+= Hardware
 
-=== Hardware Specification
+== Hardware Interface
 
-[cols="1,3", options="header"]
+[options="header",cols="1,3"]
 |===
 | Item | Specification
 
@@ -44,189 +38,107 @@ The two 100-pin connectors use a CM4-style mechanical arrangement, but BPI-CM7 i
 | Arm Mali-G31
 
 | Memory
-| Onboard LPDDR4; fitted capacity is SKU-dependent
+| Onboard LPDDR4; capacity depends on the product model
 
 | Storage
-| Onboard eMMC; fitted capacity is SKU-dependent. A carrier can also provide a microSD socket from the module's SD interface.
+| Onboard eMMC; capacity depends on the product model
 
 | Wireless
-| K019-CW43-Dw module, Wi-Fi 5 (2.4/5 GHz) and Bluetooth 5.0, with U.FL/IPEX antenna connector
+| K019 Wi-Fi 5 and Bluetooth 5.0 module with U.FL/IPEX antenna connector
 
 | Display
-| One HDMI output link. The BPI-CM7IO carrier converts it to a full-size HDMI Type-A connector.
+| HDMI output
 
 | Network
-| Integrated H618 10/100M Ethernet PHY interface. Only two Ethernet pairs are used; Gigabit Ethernet is not supported by this design.
+| 10/100M Ethernet
 
 | USB
-| One USB 2.0 OTG controller and three USB 2.0 host controllers are routed to the module connectors.
+| 1 x USB 2.0 OTG and 3 x USB 2.0 host
 
-| Audio / analog video
-| Stereo line output and composite video output signals
+| Expansion
+| 2 x 100-pin board-to-board connectors
 
-| Low-speed interfaces
-| GPIO, UART, TWI/I2C, SPI, PWM, I2S/PCM, DMIC, SPDIF, IR, reset, and FEL/MaskROM recovery signals
-
-| Module connectors
-| 2 x Hirose DF40C-series 100-pin board-to-board connectors
-
-| Input power
-| Regulated 5 V through the board-to-board connector
-
-| Module EEPROM
-| 24C02-compatible identification EEPROM, TWI/I2C address `0x57`
-
-| Hardware revision used for this page
-| BPI-CM7 Core V00 schematic, dated May 19, 2026
+| Power
+| 5 V input
 |===
 
-=== Module Connector Signal Overview
+== BPI-CM7 Module PIN Out define
 
-The connector names follow the CM4 mechanical numbering scheme. The following table summarizes the functions that are actually connected on BPI-CM7 V00; it is not a substitute for the schematic when designing a carrier.
-
-[cols="1,2,4", options="header"]
+[options="header",cols="1,2,4"]
 |===
-| Connector pins | Signal group | BPI-CM7 implementation
+| Connector pins | Signal group | Function
 
 | 3, 5, 10, 12
 | Ethernet
-| H618 EPHY receive and transmit differential pairs for 10/100M Ethernet. The additional CM4 Gigabit Ethernet pair positions are not connected.
+| 10/100M Ethernet differential pairs
 
 | 15-21
-| Status / debug
-| Ethernet activity/status, 3.3 V debug UART receive/transmit, and activity indications. Some CM4-defined signals in this range are not connected.
+| Status / Debug
+| Ethernet status, debug UART RX/TX, and activity signals
 
 | 24-58
-| GPIO / low-speed I/O
-| Signals used by the BPI-CM7IO 40-pin header, including TWI/I2C, UART, SPI, PWM, I2S/DMIC, SPDIF, IR, and GPIO functions.
+| GPIO
+| TWI/I2C, UART, SPI, PWM, I2S/DMIC, SPDIF, IR, and GPIO
 
 | 57, 61, 62, 63, 67, 69, 76, 77
 | microSD
-| SD clock, command, data 0-3, card detect, and power control signals for a carrier-mounted microSD socket.
+| SD clock, command, data 0-3, card detect, and power control
 
 | 78, 80, 82
-| I/O voltage / carrier EEPROM
-| GPIO reference voltage plus carrier-board TWI/I2C clock and data. The BPI-CM7IO carrier EEPROM uses this bus.
+| I2C / GPIO voltage
+| GPIO reference voltage and carrier-board I2C clock/data
 
-| 79, 81, 83, 85, 87, 89; 84, 86; 88, 90
-| Power
-| Multiple 5 V inputs; module-provided 3.3 V outputs; and module-provided 1.8 V outputs, respectively. Check the schematic power budget before powering external hardware from these outputs.
+| 79, 81, 83, 85, 87, 89
+| 5 V
+| Module power input
+
+| 84, 86
+| 3.3 V
+| Module power output
+
+| 88, 90
+| 1.8 V
+| Module power output
 
 | 91-101
 | Control
-| Wi-Fi/Bluetooth disable, FEL/MaskROM boot, LED/control, and global enable functions.
+| Wi-Fi/Bluetooth control, FEL, LED, reset, and enable signals
 
 | 103, 105
 | USB OTG
-| USB 2.0 OTG D-/D+.
+| USB 2.0 OTG D-/D+
 
 | 104, 106; 116, 118; 122, 124
-| USB host
-| H618 USB host ports 3, 2, and 1, respectively. All three links use USB 2.0 signaling. CM4 PCIe-named connector positions do not imply that BPI-CM7 provides a PCIe data link.
+| USB Host
+| USB 2.0 host ports
 
 | 111, 115, 117
 | Analog A/V
-| Composite video, left line output, and right line output.
+| Composite video, line-out left, and line-out right
 
 | 151, 153, 170, 172, 176, 178, 182, 184, 188, 190, 199, 200
 | HDMI
-| HDMI0 CEC, hot-plug detect, TMDS lanes/clock, and DDC clock/data.
-
-| Camera / DSI positions
-| Reserved / not connected
-| The CM4-style CAM and DSI connector positions are not implemented as camera or display interfaces on BPI-CM7 V00.
+| HDMI CEC, HPD, TMDS, and DDC signals
 |===
 
-[NOTE]
-====
-Many H618 pins are multiplexed. A signal appearing in the connector table does not enable every alternate function at the same time; the selected function must also be configured in the device tree and pin controller.
-====
+== BPI-CM7 IO board
 
-=== BPI-CM7 and BPI-CM7IO Roles
+link:/en/BPI-CM7IO/BananaPi_BPI-CM7IO[Banana Pi BPI-CM7IO board]
 
-[cols="1,2,2", options="header"]
-|===
-| Function | BPI-CM7 compute module | BPI-CM7IO carrier board
+= Development
 
-| Processing / memory
-| H618, LPDDR4, eMMC, PMIC
-| Uses the processing and memory on the installed CM7 module
+== Source Code
 
-| Wireless
-| K019 Wi-Fi/Bluetooth module and antenna connector
-| No second wireless chipset
+=== Android 12
 
-| Ethernet
-| Exposes the H618 10/100M EPHY pairs
-| Adds magnetics and an RJ45 connector
+NOTE: https://github.com/BPI-SINOVOIP/BPI-H618-Android12
 
-| HDMI
-| Exposes raw HDMI0 signals
-| Adds ESD protection and a full-size HDMI Type-A connector
+=== Linux
 
-| USB
-| Exposes one OTG and three host links
-| Adds USB-C OTG/power, two USB 2.0 Type-A ports, and one USB link to the cellular-module socket
-
-| Removable storage
-| Exposes SD interface signals
-| Adds a microSD card socket
-
-| Expansion
-| Two 100-pin module connectors
-| Adds a 40-pin header, USB-based mini-PCIe-style cellular socket, and micro-SIM socket
-|===
-
-=== BPI-CM7 vs BPI-M4 Zero
-
-[cols="1,2,2", options="header"]
-|===
-| Item | BPI-CM7 | BPI-M4 Zero
-
-| Platform
-| H618, Mali-G31, LPDDR4, eMMC, and onboard K019 wireless module
-| Uses the same H618/Mali-G31 platform and can be fitted with K019 wireless, but is a complete Zero-size SBC
-
-| User-facing connectors
-| None on the compute module; interfaces leave through two 100-pin connectors
-| mini-HDMI, two USB-C connectors, microSD, 40-pin header, and 24-pin FPC on the board
-
-| Ethernet
-| 10/100M EPHY signals on the module connector; BPI-CM7IO adds RJ45
-| 10/100M EPHY signals on the 24-pin FPC connector
-
-| GPIO / expansion
-| Carrier-selectable interfaces through the 200-contact module connection
-| Fixed onboard 40-pin header plus 24-pin FPC
-
-| Power
-| Regulated 5 V supplied by a carrier
-| Regulated 5 V supplied directly through USB-C
-|===
-
-== Development
-
-=== Software Compatibility
-
-BPI-CM7 uses the Allwinner H618 software platform. A CM7-specific device tree and image configuration are required because the carrier wiring differs from BPI-M4 Zero. Do not assume that an image for another H618 board will boot with every CM7IO interface enabled.
-
-=== H618 Reference Source Code
-
-* Android 12 reference source: https://github.com/BPI-SINOVOIP/BPI-H618-Android12
-* Banana Pi Armbian build tree: https://github.com/BPI-SINOVOIP/armbian-build/tree/bpi-v24.11.01
-* Upstream Armbian build framework: https://github.com/armbian/build
-
-[NOTE]
-====
-The repositories above are H618 platform references. CM7 support should be confirmed in the selected branch before building or flashing an image.
-====
+NOTE: https://github.com/BPI-SINOVOIP/armbian-build/tree/bpi-v24.11.01
 
 == Resources
 
-* link:/en/BPI-CM7IO/BananaPi_BPI-CM7IO[Banana Pi BPI-CM7IO carrier board]
-* link:/en/BPI-M4_Zero/BananaPi_BPI-M4_Zero[Banana Pi BPI-M4 Zero H618 reference board]
+NOTE: link:/en/BPI-CM7IO/BananaPi_BPI-CM7IO[Banana Pi BPI-CM7IO board]
 
-[IMPORTANT]
-====
-This page is based on the BPI-CM7 Core V00 schematic dated May 19, 2026. Verify connector assignments and power limits against the production schematic before manufacturing a custom carrier.
-====
+NOTE: link:/en/BPI-M4_Zero/BananaPi_BPI-M4_Zero[Banana Pi BPI-M4 Zero]
