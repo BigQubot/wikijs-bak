@@ -1,20 +1,20 @@
 = BPI-AI2H 简介
 
-香蕉派 BPI-AI2H 模块系统 (索姆) 和 BPI-AI2H 载板是开源硬件解决方案，旨在利用 RZ/V2H 视觉AI MPU。采用灵活的、社区驱动的生态系统设计， BPI-AI2H 平台使开发人员能够加速创新并简化应用程序开发。动力由 RZ/V2H MPU，通过DRP-AI3加速器提供业界领先的AI加速 (8 TOPS/dense, 80 TOPS/sparse) 以及采用 4 个 Arm® Cortex®-A55 处理器的高性能计算，使其成为创建尖端视觉 AI 解决方案的理想选择。
+Banana Pi BPI-AI2H 系统模块（SoM）和 BPI-AI2H 载板是发挥 RZ/V2H 视觉 AI MPU 先进能力的开源硬件方案。BPI-AI2H 平台采用灵活、社区驱动的生态体系，可帮助开发者加速创新并简化应用开发。RZ/V2H MPU 通过 DRP-AI3 加速器提供业界领先的 AI 加速性能（稠密计算 8 TOPS、稀疏计算 80 TOPS），并集成 4 个 Arm® Cortex®-A55 处理器实现高性能计算，适合构建先进的视觉 AI 解决方案。
 
 = 主要特性
 
-* 小外形：紧凑型 SO-DIMM 260PIN 设计 (SOM模块尺寸：45x69.6mm) 
-* 开源开发套件，包括 SOM、 BPI-AI2H 载板和丰富的工具生态系统以及来自 香蕉派 开发者社区的支持 
-* OEM&ODM 可定制的硬件和软件
+* 小型化：紧凑的 260 针 SO-DIMM 设计（SoM 尺寸：45 × 69.6 mm）
+* 开源开发套件，包括 SoM、BPI-AI2H 载板、丰富的工具生态和 Banana Pi 开发者社区支持
+* 支持 OEM/ODM 硬件和软件定制
 * Yocto 等开源软件支持
-* 内存和存储：8GB LPDDR4x、32GB eMMC, 64MB QSPI 闪存
-* 宽工作温度范围：-40℃至85℃
+* 内存和存储：8 GB LPDDR4X、32 GB eMMC、64 MB QSPI Flash
+* 宽温工作范围：-40 ℃～85 ℃
 
 
 = 快速入门
 
-TIP: link:/en/BPI-AI2H/GettingStarted_BPI-AI2H[快速入门 BPI-AI2H]
+TIP: link:/en/BPI-AI2H/GettingStarted_BPI-AI2H[BPI-AI2H 入门指南]
 
 = 资源
 
@@ -36,11 +36,11 @@ image::/bpi-ai2n/bpi-ai2n-carrier_interface1.jpg[bpi-ai2n-carrier_interface1.jpg
 
 [options="header",cols="1,5"]
 |====
-2+| 硬件规格 BPI-AI2H
+2+| BPI-AI2H 硬件规格
 |SoC |RZ/V2H
 |系统内存 | 8GB LPDDR4X
 .3+|存储
-|64MB SPI NAND 闪光
+|64 MB SPI NAND Flash
 |32GB eMMC
 |SD卡插槽
 .3+|按钮
@@ -49,21 +49,21 @@ image::/bpi-ai2n/bpi-ai2n-carrier_interface1.jpg[bpi-ai2n-carrier_interface1.jpg
 |恢复按钮
 |网络 |2 个千兆以太网 RJ45 端口
 .3+|USB 
-|2x USB 3.0 A型接口
-|背面 1 个 USB2.0 Type-A
-|背面 1 个 USB3.0 Type-A
-|数字SI|1 个 MIPI DSI
+|2 个 USB 3.0 Type-A 接口
+|背面 1 个 USB 2.0 Type-A 接口
+|背面 1 个 USB 3.0 Type-A 接口
+|DSI|1 个 MIPI DSI
 |CSI|4x MIPI CSI
-|风扇| PH-3PIN连接器(5V 风扇 PWM)
-|调试 | USB TypeC控制台
-|M.2键 | M.2 KEYM 对于 SSD (2280)
-|实时时钟 | 支持板载RTC(CR1220)
-|无线网络 | 板载WiFi模块
-|GPIO | 40针 GPIO
+|风扇|PH-3PIN 连接器（5 V PWM 风扇）
+|调试 |USB Type-C 控制台
+|M.2 Key |M.2 Key M SSD（2280）
+|RTC |支持板载 RTC（CR1220）
+|Wi-Fi |板载 Wi-Fi 模块
+|GPIO |40 针 GPIO
 .2+|电源 
-|12V USB-PD 开启 USB-C端口
-|直流12V输入
-|尺寸 | 79 x 100 毫米兼容 BPI-AI2N 
+|USB-C 接口支持 12 V USB-PD
+|DC 12 V 输入
+|尺寸 |79 × 100 mm，与 BPI-AI2N 兼容
 |====
 
 = 开发
@@ -77,6 +77,6 @@ https://www.renesas.com/en/products/rz-v2h
 
 = 软件
 
-== Linux 图片
+== Linux 镜像
 
-= 购买样品
+= 购买渠道
