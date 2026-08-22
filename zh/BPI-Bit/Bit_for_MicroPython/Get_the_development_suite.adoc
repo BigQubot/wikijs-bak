@@ -1,0 +1,47 @@
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_basic_board_development[位用于 MicroPython]
+
+= 了解项目
+
+Github 是一个公共且免费的版本管理存储库，其中大部分是开源项目。你可以在这里得到很多你需要的资料或者代码等等，而我们的开源代码等东西都存放在 git 仓库中 Github.
+
+image::/bpi-bit/base.png[base.png]
+
+圆圈按钮选项为用户提供以下功能 (尽管文档内容可能随时代更新，但图像中显示的一般内容不会改变).
+
+. Code：是项目存储的开源代码，在本例中是可直接用于开发板的示例代码。
++
+image::/bpi-bit/code.png[code.png]
+ 
+. 问题：如果有任何疑问，无论是错误报告还是需要帮助等，都可以在这里发布。
++
+image::/bpi-bit/issues.png[issues.png]
+  
+. 项目：指目前正在开发的项目。您可以在这里看到整个项目的开发。
++
+image::/bpi-bit/project.png[project.png]
+  
+. Wiki：查看项目的文档，github 是中文版，这是英文版
++
+image::/bpi-bit/wiki.png[wiki.png]
+   
+. 提交：描述特定项目当前的更改或提交。
++
+image::/bpi-bit/commits.png[commits.png]
+  
+. release：是存放用户可以直接使用的工具套件、源代码等的地方。
++
+image::/bpi-bit/release.png[release.png]
+
+= 下载项目
+
+可以看到下面的Clone或者Download按钮，将当前项目的示例代码捆绑起来，直接进行下载 (没有开发套件).
+
+image::/bpi-bit/into.png[into.png]
+
+获取开发套件： https://github.com/BPI-STEAM/BPI-BIT-MicroPython/releases
+
+image::/bpi-bit/list.png[list.png]
+
+点击蓝色字体即可下载文件。在本项目中，开发包工具是按需下载的，因此当您需要工具时，文档会在开头提到所需的材料。
+
+您可以返回开头重新学习或继续下一章 link:/en/BPI-Bit/Bit_for_MicroPython/Wired_connection_board[2 有线连接板]
