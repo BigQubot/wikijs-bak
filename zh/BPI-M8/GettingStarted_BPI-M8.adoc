@@ -1,0 +1,355 @@
+= 简介
+
+的 BPI-M8 基于高性能八核AI平台芯片A733构建，该芯片结合了双核Arm® Cortex®-A76和六核Arm Cortex-A55。它支持 Imagination PowerVR BXM-4-64 MC1 GPU, 3TOPS NPU、LPDDR4、LPDDR4x、LPDDR5 DRAM 和 UFS/eMMC 记忆。
+
+的 BPI-M8 拥有丰富的外围设备，包括 USB、DP、UFS、HDMI、MIPI CSI、MIPI DSI、FAN、RTC 和 1 个千兆位 Ethernet 端口 (支持 PoE)。它还支持 SD 卡启动，并具有板载 KEIIOT K038 WiFi/Bluetooth 芯片。配备4GB LPDDR5 RAM, 32GB eMMC 存储和两个 12x12mm 单天线模块。
+内容
+
+TIP: 更多信息： link:/en/BPI-M8/BananaPi_BPI-M8[香蕉派 BPI-M8]
+
+= 开发
+
+== 安卓
+
+== Linux
+
+=== 将映像安装到 SD 卡
+**Windows 电脑**
+
+使用 Balena Etcher 安装映像。 +
+link:https://balena.io/etcher[巴莱纳蚀刻机] 是 Balena 的开源 GUI 闪存工具，可将操作系统映像闪存到 SD 卡或 USB 开车。
+
+. 点击“**从文件闪存**”来选择镜像。 
+. 点击“**选择目标**”来选择 USB 设备。 
+. 点击“**快闪！**“开始燃烧。
+
+image::/picture/etcher.jpg[etcher.jpg]
+
+**Linux 电脑**
+
+**有两种方法供您选择。**
+
+. 使用 dd 命令安装镜像 Linux,卸载SD卡设备 /dev/sdX 如果自动安装则分区。其实 bpi-copy 与此 dd 命令相同。
++
+```sh
+ $ sudo apt-get install pv unzip
+ $ sudo unzip -p xxx-bpi-m2-ultra-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxfer
+```
+. 安装镜像 bpi-tools 上 Linux，插入SD卡 Linux 电脑并运行
++
+```sh
+ $ sudo apt-get install pv unzip
+ $ sudo bpi-copy xxx-bpi-m2-ultra-xxx.img.zip /dev/sdX
+```
+
+=== 安装镜像到 EMMC
+
+. 将SD卡插入M8并启动。
+
+. 将要刻录的图像存储到 USB 内存并连接 USB 设备到 M8。
+
+. 使用lsblk命令查询 USB 设备。
++
+```sh
+root@bananapim8:~# lsblk
+NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+sda           8:0    1    0B  0 disk
+sdb           8:16   1    0B  0 disk
+mmcblk1     179:0    0 29.1G  0 disk
+mmcblk0     179:8    0  7.4G  0 disk
+├─mmcblk0p1 179:9    0  256M  0 part /boot
+└─mmcblk0p2 179:10   0    7G  0 part /var/log.hdd
+                                     /
+zram0       254:0    0  1.9G  0 disk [SWAP]
+zram1       254:1    0   50M  0 disk /var/log
+zram2       254:2    0    0B  0 disk
+```
+
+. 使用mount命令挂载 USB 驱动器并导航到存储图像的目录。
++
+```sh
+root@bananapim8:/mnt/M8# lsblk
+NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+sda           8:0    1    0B  0 disk
+sdb           8:16   1    0B  0 disk
+sdc           8:32   1 59.5G  0 disk
+└─sdc1        8:33   1 59.5G  0 part /mnt
+sdd           8:48   1    0B  0 disk
+mmcblk1     179:0    0 29.1G  0 disk
+mmcblk0     179:8    0  7.4G  0 disk
+├─mmcblk0p1 179:9    0  256M  0 part /boot
+└─mmcblk0p2 179:10   0    7G  0 part /var/log.hdd
+                                     /
+zram0       254:0    0  1.9G  0 disk [SWAP]
+zram1       254:1    0   50M  0 disk /var/log
+zram2       254:2    0    0B  0 disk
+root@bananapim8:/mnt/M8# ls
+Bananapi-Armbian_26.05.0-trunk_Bananapim8_bookworm_legacy_5.15.147_xfce_desktop.img
+```
+
+. 使用dd命令刻录镜像。
++
+```sh
+root@bananapim8:/mnt/M8# ls
+Bananapi-Armbian_26.05.0-trunk_Bananapim8_bookworm_legacy_5.15.147_xfce_desktop.img
+root@bananapim8:/mnt/M8# dd if=Bananapi-Armbian_26.05.0-trunk_Bananapim8_bookworm_legacy_5.15.147_xfce_desktop.img of=/dev/mmcblk1
+输入了 10723328+0 块记录
+输出了 10723328+0 块记录
+5490343936 字节 (5.5 GB, 5.1 GiB) 已复制，240.847 s，22.8 MB/s
+```
+
+. 拔掉SD卡，重新给M8上电即可开机使用 eMMC.
+
+= 其他开发
+
+== USB
+
+连接 USB 将您想要使用的设备连接到 M8。
+
+```sh
+root@bananapim8:~# lsblk
+NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+sda           8:0    1    0B  0 disk
+sdb           8:16   1    0B  0 disk
+sdc           8:32   1 59.5G  0 disk
+└─sdc1        8:33   1 59.5G  0 part
+sdd           8:48   1    0B  0 disk
+mmcblk1     179:0    0 29.1G  0 disk
+mmcblk0     179:8    0  7.4G  0 disk
+├─mmcblk0p1 179:9    0  256M  0 part /boot
+└─mmcblk0p2 179:10   0    7G  0 part /var/log.hdd
+                                     /
+zram0       254:0    0  1.9G  0 disk [SWAP]
+zram1       254:1    0   50M  0 disk /var/log
+zram2       254:2    0    0B  0 disk
+root@bananapim8:~# lsusb
+Bus 004 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
+Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 001 Device 003: ID 0bda:0301 Realtek Semiconductor Corp. multicard reader
+Bus 001 Device 002: ID 1a86:8091 QinHeng Electronics USB HUB
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+```
+
+== 网络
+
+将网线连接到网络端口。
+
+```sh
+root@bananapim8:~# ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host noprefixroute
+       valid_lft forever preferred_lft forever
+2: ip_vti0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN group default qlen 1000
+    link/ipip 0.0.0.0 brd 0.0.0.0
+3: ip6_vti0@NONE: <NOARP> mtu 1364 qdisc noop state DOWN group default qlen 1000
+    link/tunnel6 :: brd :: permaddr 96a4:9905:4718::
+4: sit0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN group default qlen 1000
+    link/sit 0.0.0.0 brd 0.0.0.0
+5: ip6tnl0@NONE: <NOARP> mtu 1452 qdisc noop state DOWN group default qlen 1000
+    link/tunnel6 :: brd :: permaddr c660:9fcf:33dc::
+6: end0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether d0:96:16:de:fa:97 brd ff:ff:ff:ff:ff:ff
+    inet 10.168.1.199/24 brd 10.168.1.255 scope global dynamic noprefixroute end0
+       valid_lft 43022sec preferred_lft 43022sec
+    inet6 fd0b:9aaf:b1a:0:5525:fc96:c1bb:9b64/64 scope global noprefixroute
+       valid_lft forever preferred_lft forever
+    inet6 fe80::289c:25a6:4957:e0d9/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever
+root@bananapim8:~# ping baidu.com
+PING baidu.com (124.237.177.164) 56(84) bytes of data.
+64 bytes from 124.237.177.164 (124.237.177.164): icmp_seq=1 ttl=52 time=35.0 ms
+64 bytes from 124.237.177.164 (124.237.177.164): icmp_seq=2 ttl=52 time=34.6 ms
+64 bytes from 124.237.177.164 (124.237.177.164): icmp_seq=3 ttl=52 time=34.6 ms
+^C64 bytes from 124.237.177.164: icmp_seq=4 ttl=52 time=34.4 ms
+
+--- baidu.com ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 15651ms
+rtt min/avg/max/mdev = 34.434/34.657/34.988/0.203 ms
+```
+
+使用iperf3工具测试网口速度，一般在1Gbps左右。
+
+```sh
+[ ID] Interval           Transfer     Bitrate
+[  5]   0.00-1.00   sec   111 MBytes   928 Mbits/sec
+[  5]   1.00-2.00   sec   110 MBytes   921 Mbits/sec
+[  5]   2.00-3.00   sec   111 MBytes   933 Mbits/sec
+[  5]   3.00-4.00   sec   112 MBytes   938 Mbits/sec
+[  5]   4.00-5.00   sec   112 MBytes   938 Mbits/sec
+[  5]   5.00-6.00   sec   112 MBytes   938 Mbits/sec
+[  5]   6.00-7.00   sec   112 MBytes   938 Mbits/sec
+[  5]   7.00-8.00   sec   112 MBytes   938 Mbits/sec
+[  5]   8.00-9.00   sec   112 MBytes   936 Mbits/sec
+[  5]   9.00-10.00  sec   112 MBytes   938 Mbits/sec
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate
+[  5]   0.00-10.00  sec  1.09 GBytes   934 Mbits/sec                  sender
+[  5]   0.00-10.00  sec  1.09 GBytes   934 Mbits/sec                  receiver
+
+iperf Done.
+```
+
+== 无线网络
+
+使用 nmcli 命令连接 WiFi。
+
+```sh
+sudo nmcli dev wifi connect "<SSID>" password "<password>" //connect WiFi
+sudo nmcli connection down "SSID" //disconnect WiFi
+```
+然后就可以使用WiFi了。
+```sh
+root@bananapim8:~# ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host noprefixroute
+       valid_lft forever preferred_lft forever
+2: ip_vti0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN group default qlen 1000
+    link/ipip 0.0.0.0 brd 0.0.0.0
+3: ip6_vti0@NONE: <NOARP> mtu 1364 qdisc noop state DOWN group default qlen 1000
+    link/tunnel6 :: brd :: permaddr b621:40ef:3118::
+4: sit0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN group default qlen 1000
+    link/sit 0.0.0.0 brd 0.0.0.0
+5: ip6tnl0@NONE: <NOARP> mtu 1452 qdisc noop state DOWN group default qlen 1000
+    link/tunnel6 :: brd :: permaddr 2af0:cf62:c68a::
+6: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN group default qlen 1000
+    link/ether 88:49:2d:60:20:3e brd ff:ff:ff:ff:ff:ff
+7: p2p0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether 8a:49:2d:60:20:3e brd ff:ff:ff:ff:ff:ff
+    inet 10.168.1.160/24 brd 10.168.1.255 scope global dynamic noprefixroute p2p0
+       valid_lft 43193sec preferred_lft 43193sec
+    inet6 fe80::e2d8:3f6a:f09d:f52b/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever
+8: wlan1: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN group default qlen 1000
+    link/ether 82:49:2d:60:20:3e brd ff:ff:ff:ff:ff:ff
+9: end0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN group default qlen 1000
+    link/ether b4:7a:5c:89:ac:59 brd ff:ff:ff:ff:ff:ff
+root@bananapim8:~# ping baidu.com
+PING baidu.com (124.237.177.164) 56(84) bytes of data.
+64 bytes from 124.237.177.164 (124.237.177.164): icmp_seq=1 ttl=52 time=146 ms
+64 bytes from 124.237.177.164 (124.237.177.164): icmp_seq=2 ttl=52 time=98.4 ms
+64 bytes from 124.237.177.164 (124.237.177.164): icmp_seq=3 ttl=52 time=97.8 ms
+^C64 bytes from 124.237.177.164: icmp_seq=4 ttl=52 time=99.5 ms
+```
+
+== HDMI输出
+
+通过 HDMI 线连接到显示器。
+
+image::/bpi-m8/bananapi-pi_m8_hdmi_1.jpg[bananapi-pi_m8_hdmi_1.jpg]
+
+== 按钮
+
+=== 压水堆
+
+短按 PWR 按钮即可关闭电源。 
+
+关闭时会出现如下日志：
+```sh
+root@bananapim8:~#
+[ 2010.090118][    T1] npu[1][1] unregister cooling
+[ 2010.095369][    T1] npu[1][1] remove opp freq: 492000000
+[ 2010.101349][    T1] npu[1][1] remove opp freq: 852000000
+[ 2010.107323][    T1] npu[1][1] remove opp freq: 1008000000
+[ 2010.113401][    T1] sunxi:vin:[WARN]: video0 device have been closed!
+[ 2010.193946][    T1] reboot: Power down
+```
+
+长按 PWR 按钮开机。
+
+== 音频
+
+使用aplay命令可以发现M8的声卡有两个输出：
+
+. 惠普耳机输出
+. HDMI输出
+
+```sh
+root@bananapim8:~# aplay -l
+**** List of PLAYBACK Hardware Devices ****
+card 0: sndi2s0 [sndi2s0], device 0: sunxi-snd-plat-i2s-ac101-codec sunxi-ac101.15-001a-0 []
+  Subdevices: 0/1
+  Subdevice #0: subdevice #0
+card 1: allwinnerhdmi [allwinner-hdmi], device 0: sunxi-snd-plat-i2s-sunxi-snd-codec-hdmi soc@3000000:hdmi_codec- []
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+```
+
+== 实时时钟
+
+以 2mm 间距连接电池为 RTC 供电。
+
+查看系统RTC配置
+
+```sh
+root@bananapim8:~# dmesg | grep -Ei "rtc|sunxi-rtc"
+[    0.054099] sunxi:ccu-ng:[INFO]: sunxi rtc-ccu version: 0.5.5
+[    0.065807] sunxi:ccu-ng:[INFO]: rtc_ccu: sunxi ccu init OK
+[    0.201736] axp8191-rtcldo: supplied by regulator-dummy
+[    2.838689] sunxi-rtc 7090000.rtc: errata__fix_alarm_day_reg_default_value(): ALARM0_DAY_REG=0, set it to 1
+[    2.850795] sunxi-rtc 7090000.rtc: registered as rtc0
+[    2.857255] sunxi-rtc 7090000.rtc: sunxi rtc probed
+[    5.509982] [drm] sunxi_de_bind crtc init for de 0 ok
+[    5.517001] [drm] sunxi_de_bind crtc init for de 1 ok
+[   21.530070] [drm] [SUNXI-CRTC]sunxi_crtc_atomic_enable
+```
+
+设置RTC时间
+
+```sh
+root@bananapim8:~# date -s "2026-08-20 16:30:00" //Set system time
+2026年 08月 20日 星期四 16:30:00 CST  
+root@bananapim8:~# hwclock -w -f /dev/rtc0 //RTC writing time
+root@bananapim8:~# hwclock -r -f /dev/rtc0 //RTC reading time
+2026-08-20 16:30:28.460504+08:00
+root@bananapim8:~# date  //Query system time
+2026年 08月 20日 星期四 16:30:42 CST
+root@bananapim8:~# hwclock -r -f /dev/rtc0
+2026-08-20 16:30:52.447590+08:00
+```
+
+关闭电源以验证 RTC 是否工作
+
+```sh
+root@bananapim8:~# date -s "2026-08-20 16:30:00" //Set system time
+2026年 08月 20日 星期四 16:30:00 CST  
+root@bananapim8:~# hwclock -w -f /dev/rtc0 //RTC writing time
+root@bananapim8:~# hwclock -r -f /dev/rtc0 //RTC reading time
+2026-08-20 16:30:28.460504+08:00
+root@bananapim8:~# date  //Query system time
+2026年 08月 20日 星期四 16:30:42 CST
+root@bananapim8:~# hwclock -r -f /dev/rtc0
+2026-08-20 16:30:52.447590+08:00
+```
+
+断电几分钟后，RTC 时钟仍然有效，但系统时钟已停止几分钟。
+
+```sh
+root@bananapim8:~# date
+2026年 08月 20日 星期四 16:41:54 CST
+root@bananapim8:~# hwclock -r -f /dev/rtc0
+2026-08-20 16:43:04.558201+08:00
+```
+
+== 风扇
+
+查询系统风扇控制 PWM 装置
+
+```sh
+root@bananapim8:~# cat /sys/class/hwmon/hwmon0/name
+pwmfan
+root@bananapim8:~# ls /sys/class/hwmon/
+hwmon0
+```     
+使用命令控制风扇开关
+
+```sh
+root@bananapim8:~# echo 1 > /sys/class/hwmon/hwmon0/pwm1
+root@bananapim8:~# echo 0 > /sys/class/hwmon/hwmon0/pwm1
+```     
