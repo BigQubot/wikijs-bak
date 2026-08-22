@@ -1,43 +1,43 @@
 = 简介
 
-香蕉派 R64 是一款基于路由器的开发板，可以在多种开源操作系统上运行，包括 OpenWrt,Linux。拥有4个千兆LAN口、1个千兆WAN口、AC wifi AP功能。采用64位芯片设计。
+Banana Pi R64 是一款采用 64 位芯片的路由器开发板，可运行 OpenWrt、Linux 等多种开源操作系统。它配有 4 个千兆 LAN 端口、1 个千兆 WAN 端口，并支持 802.11ac WiFi AP 功能。
 
-TIP: 更多信息： link:/en/BPI-R64/BananaPi_BPI-R64[香蕉派 BPI-R64]
+TIP: 更多信息：link:/en/BPI-R64/BananaPi_BPI-R64[Banana Pi BPI-R64]
 
 == 规格参数
 
-- MediaTek MT7622,1.35GHZ 64位双核ARM Cortex-A53
-- 1G DDR3内存
-- 迷你型 PCIE 接口支持4G模块
-- 内置 4x4n 802.11n/Bluetooth 5.0片上系统
-- MTK7615 4x4ac 板载 wifi
-- 支持1个SATA接口
-- MicroSD插槽支持最大256GB扩展
-- 8G eMMC 闪光 (选项 16/32/64G)
-- 5端口 10/100/1000 MB Ethernet 端口
-- 1 个端口 USB 3.0
-- 慢 I/O:ADC, 音频放大器, GPIO, I2C, I2S, IR, PMIC I/F, PWM, 实时时钟, SPI, UART
-- POE 功能支持
+- MediaTek MT7622，1.35 GHz 64 位双核 ARM Cortex-A53
+- 1 GB DDR3 SDRAM
+- Mini PCIe 接口，支持 4G 模块
+- 内置 4×4 802.11n / Bluetooth 5.0 SoC
+- 板载 MTK7615 4×4 802.11ac WiFi
+- 1 个 SATA 接口
+- MicroSD 卡槽，最高支持 256 GB
+- 8 GB eMMC 闪存（可选 16/32/64 GB）
+- 5 个 10/100/1000 Mb 以太网端口
+- 1 个 USB 3.0 接口
+- 低速 I/O：ADC、音频放大器、GPIO、I2C、I2S、红外、PMIC I/F、PWM、RTC、SPI、UART
+- 支持 PoE 功能
 
 = 开发
 == 准备
 
-* 准备 8G/above TF卡、 USB-串行接口
-* 使用您的 USB-串行(**3.3V，波特率：115200**) 在 R64 上连接调试控制台
-* LAN口默认IP地址： **192.168.1.1**
-* 用户 name/password: **pi/bananapi** ,**root/bananapi**. +
-或者用户是root **没有密码**.
-* 无线网络： **奥珀沃特**
+* 准备一张至少 8 GB 的 TF 卡和一个 USB 转串口适配器
+* 使用 USB 转串口适配器（**3.3 V，波特率 115200**）连接 R64 的调试控制台
+* LAN 口默认 IP 地址：**192.168.1.1**
+* 用户名/密码：**pi/bananapi**、**root/bananapi**。+
+也可以使用**无密码**的 root 用户登录。
+* WiFi：**OpenWrt**
 
 == Linux
-=== 将映像安装到 SD 卡
+=== 将镜像烧录到 SD 卡
 **Windows 电脑**
 
-link:https://balena.io/etcher[巴莱纳蚀刻机] 是 Balena 的开源 GUI 闪存工具，可将操作系统映像闪存到 SD 卡或 USB 开车。
+link:https://balena.io/etcher[Balena Etcher] 是 Balena 提供的开源图形化烧录工具，可将操作系统镜像写入 SD 卡或 USB 存储设备。
 
-- 点击“**从文件闪存**”来选择镜像。 
-- 点击“**选择目标**”来选择 USB 设备。 
-- 点击“**快闪！**“开始燃烧。
+- 单击“**Flash from file**”选择镜像。 
+- 单击“**Select target**”选择目标设备。 
+- 单击“**Flash!**”开始烧录。
 
 image::/picture/etcher.jpg[etcher.jpg]
 
@@ -45,42 +45,42 @@ image::/picture/etcher.jpg[etcher.jpg]
 
 - bpi-copy
 
-. 安装 bpi-tools。如果您无法访问此网址或有任何其他问题，请访问 bpi-tools 存储库并手动安装此工具。
+. 安装 bpi-tools。如果无法访问该网址或遇到其他问题，请前往 bpi-tools 仓库手动安装该工具。
 +
 ```sh
 apt-get install pv
 curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
 ``` 
-. 下载镜像后，将TF卡插入电脑Ubuntu.执行
+. 下载镜像后，将 TF 卡插入 Ubuntu 电脑并执行
 +
 ```sh
 bpi-copy xxx.img /dev/sdx
 ```
-将镜像安装到您的 TF 卡上
+以便将镜像烧录到 TF 卡。
 
 - dd
 +
-挂载SD卡设备 /dev/sdX 如果自动安装则分区。其实 bpi-copy 与此 dd 命令相同。
+如果 SD 卡设备 /dev/sdX 的分区被自动挂载，请先将其卸载。bpi-copy 实际执行的操作与此 dd 命令相同。
 +
 ```sh
  $ sudo apt-get install pv unzip
  $ sudo unzip -p xxx-bpi-m5-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxfer
 ```
 
-=== 安装镜像到 eMMC
-将镜像刻录到之前 eMMC，请准备一张包含闪存启动映像的 SD 卡和 USB 磁盘。让我们采取 OpenWrt 镜像 (mtk-bpi-r64-preloader-emmc.bin,2020-04-09-OpenWRT-mtk-bpi-r64-EMMC.img) 例如。
+=== 将镜像烧录到 eMMC
+向 eMMC 烧录镜像前，请准备一张已烧录可启动镜像的 SD 卡和一个 U 盘。下面以 OpenWrt 镜像（mtk-bpi-r64-preloader-emmc.bin、2020-04-09-OpenWRT-mtk-bpi-r64-EMMC.img）为例。
 
-NOTE: 注意：您可以从以下位置下载“.bin”文件 github: https://github.com/BPI-SINOVOIP/BPI-R64-openwrt/tree/master/staging_dir/target-aarch64_cortex-a53_musl/image
+NOTE: 可以从 GitHub 下载“.bin”文件：https://github.com/BPI-SINOVOIP/BPI-R64-openwrt/tree/master/staging_dir/target-aarch64_cortex-a53_musl/image
 
-. 插入闪存的SD卡并通电以启动开发板。(SD 卡上的镜像可以 OpenWrt 或其他 linux 操作系统类似 ubuntu...)
-. 复制 eMMC 可启动的 OpenWrt 镜像(mtk-bpi-r64-preloader-emmc.bin,2020-04-09-OpenWRT-mtk-bpi-r64-EMMC.img) 到 USB 磁盘，如果镜像被压缩，请在复制到之前解压 USB 磁盘。
-. 插入 USB 磁盘到板上，并安装 USB 到 /mnt 或其他目录如下： (如果自动安装则可以跳过安装)
+. 插入已烧录镜像的 SD 卡，上电启动开发板。（SD 卡中可以是 OpenWrt，也可以是 Ubuntu 等其他 Linux 系统。）
+. 将可从 eMMC 启动的 OpenWrt 镜像（mtk-bpi-r64-preloader-emmc.bin、2020-04-09-OpenWRT-mtk-bpi-r64-EMMC.img）复制到 U 盘。如果镜像已压缩，请先解压再复制。
+. 将 U 盘插入开发板，并按如下方式将其挂载到 /mnt 或其他目录：（如果已自动挂载，可跳过此步）
 +
 ```sh
 mount -t vfat /dev/sda1 /mnt 
 cd /mnt
 ```
-. 执行以下命令以启用并将镜像复制到 eMMC:
+. 执行以下命令，启用 eMMC 并将镜像写入 eMMC：
 +
 ```sh
 echo 0 > /sys/block/mmcblk0boot0/force_ro
@@ -88,14 +88,14 @@ dd if=2020-04-09-OpenWRT-mtk-bpi-r64-EMMC.img of=/dev/mmcblk0
 dd if=mtk-bpi-r64-preloader-emmc.bin of=/dev/mmcblk0boot0
 mmc bootpart enable 1 1 /dev/mmcblk0
 ```
-. 关机，取出SD卡 USB 磁盘，然后重新启动板 eMMC.
+. 关机并取出 SD 卡和 U 盘，然后重新开机，从 eMMC 启动开发板。
 
 === 网络配置
 网络配置： http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:network:start
 
-== 高级开发
+== 进阶开发
 === GPIO
-**40针定义**
+**40 针引脚定义**
 
 image::/picture/r64_gpio_40.jpg[r64_gpio_40.jpg]
 ==== GPIO 控制
@@ -104,11 +104,11 @@ echo xxx > /sys/class/gpio/export
 echo in/out > /sys/class/gpio/gpioxxx/direction
 echo 0/1 > /sys/class/gpio/gpioxxx/value
 ```
-检查底座 gpio，你可以看到我的是409
+查看 GPIO 基准编号，本例中为 409
 
 image::/picture/r64_gpio_base.jpg[r64_gpio_base.jpg]
 
-例如：如果你想改变 gpio 22 作为高级，您需要输入如下命令：
+例如，如果要将 GPIO 22 配置为高电平输出，需要输入以下命令：
 ```sh
 echo 431（22+409） > /sys/class/gpio/export
 echo out > /sys/class/gpio/gpio431/direction
@@ -125,7 +125,7 @@ echo 1 >/sys/class/pwm/pwmchip0/pwmx/enable
 
 SPI 面板模块：
 
-2.4" 触摸屏 TFT LCD 与 SPI 界面，240x320 (ILI9341 + ADS7843/XPT2046/HR2046)
+2.4 英寸 TFT LCD 触摸屏，采用 SPI 接口，分辨率 240×320（ILI9341 + ADS7843/XPT2046/HR2046）
 
 SPI 面板 <–> BPIR64
 ```sh
@@ -140,7 +140,7 @@ CS <–> SPI-CE1
 GND <–> GND-9
 VCC <–> 3.3V-1
 ```
-DTS修改：
+DTS 修改：
 ```sh
 / {
        backlight: backlight {
@@ -214,11 +214,11 @@ DTS修改：
 应用：
 [options="header" cols="2,3,4" width="70%"]
 |=====
-|套餐	|+ 描述	|来源
-|FBV	|帧缓冲图像查看器	|https://github.com/godspeed1989/fbv
-|输入事件守护进程	|带有 touchTEST 事件的输入事件守护进程	|https://github.com/SAM33/input-event-daemon
+|软件包	|+ 说明	|源码
+|fbv	|帧缓冲图像查看器	|https://github.com/godspeed1989/fbv
+|input-event-daemon	|支持 touchTEST 事件的 input-event-daemon	|https://github.com/SAM33/input-event-daemon
 |=====
-通过触摸区域显示图像的 input-event-daemon 配置： (我不知道为什么坐标这么奇怪，但是我实际触摸打印出来的结果是这样的)
+以下 input-event-daemon 配置会根据触摸区域显示图像。（坐标看起来比较特殊，但这是实际触摸测试输出的结果。）
 ```sh
 [Global]
 listen = /dev/input/event0
@@ -227,39 +227,39 @@ listen = /dev/input/event1
 340,400,3440,1860 = cat /dev/zero > /dev/fb0; fbv -f /root/bpi_608x429.jpg -s 1
 340,2260,3440,1860 = cat /dev/zero > /dev/fb0; fbv -f /root/openwrt_449x449.png -s 1
 ```
-香蕉派 BPI-R64 SPI 触摸屏测试： https://www.youtube.com/watch?v=ikag-D_TI0g&feature=youtu.be
+Banana Pi BPI-R64 SPI 触摸屏测试：https://www.youtube.com/watch?v=ikag-D_TI0g&feature=youtu.be
 
-=== 萨塔
-- 如果要在R64上使用Sata接口，需要将GPIO90给低电平
+=== SATA
+- 如需使用 R64 的 SATA 接口，需要将 GPIO90 置为低电平
 +
 ```sh
 echo 499 > /sys/class/gpio/export
 echo out > /sys/class/gpio/gpio499/direction
 echo 0 > /sys/class/gpio/gpio499/value
 ```
-- 测试东芝硬盘， Read/Write 性能如下：
+- 使用东芝机械硬盘测得的读写性能如下：
 
-* 从磁盘读取： 50MB/s 命令： 
+* 磁盘读取：50 MB/s，命令：
 +
 ```sh
 dd if=/dev/sda of=/dev/null bs=1M count=1024
 ```
 
-* 写入磁盘： 38MB/s 命令： 
+* 磁盘写入：38 MB/s，命令：
 +
 ```sh
 dd if=/dev/zero of=/dev/sda bs=1M count=1024
 ```
 image::/picture/r64_hdd_sata_test.jpg[r64_hdd_sata_test.jpg]
 
-- 测试三星 SSD 磁盘， Read/Write 性能如下：
+- 使用三星 SSD 测得的读写性能如下：
 +
-从磁盘读取： 360MB/s 命令： 
+磁盘读取：360 MB/s，命令：
 +
 ```sh
 dd if=/dev/sda of=/dev/null bs=1M count=1024
 ```
-写入磁盘： 200MB/s 命令： 
+磁盘写入：200 MB/s，命令：
 +
 ```sh
 dd if=/dev/zero of=/dev/sda bs=1M count=1024
@@ -268,34 +268,34 @@ dd if=/dev/zero of=/dev/sda bs=1M count=1024
 image::/picture/r64_ssd_sata_test.jpg[r64_ssd_sata_test.jpg]
 
 === PCIe
-- 如果你想使用 PCIe R64上的接口，需要给GPIO90高电平
+- 如需使用 R64 的 PCIe 接口，需要将 GPIO90 置为高电平
 +
 ```sh
 echo 499 > /sys/class/gpio/export
 echo out > /sys/class/gpio/gpio499/direction
 echo 1 > /sys/class/gpio/gpio499/value
 ```
-- PCIe 支持EC-25 4G模块。
+- PCIe 支持 EC-25 4G 模块。
 +
 image::/picture/r64_pcie_test_1.jpg[r64_pcie_test_1.jpg]
 image::/picture/r64_pcie_test_2.jpg[r64_pcie_test_2.jpg]
 
-=== 通用汽车MAC
-使用iperf3测试gmac
+=== GMAC
+使用 iperf3 测试 GMAC
 
-. 在PC终端上执行
+. 在电脑终端中执行
 +
 ```sh
 iperf3 -s
 ```
 . 在 R64 控制台上：
 +
-TCP测试：
+TCP 测试：
 +
 ```sh
 iperf3 -c serverIP
 ```
-UDP测试： 
+UDP 测试：
 +
 ```sh
 iperf3 -u -c serverIP
@@ -303,12 +303,12 @@ iperf3 -u -c serverIP
 image::/picture/r64_gmac_test.jpg[r64_gmac_test.jpg]
 
 === R64 上的 BT 和 BLE
-**R64 BT 建筑**
+**R64 蓝牙架构**
 
 image::/picture/r64_bt_arch.jpg[r64_bt_arch.jpg]
 
 - R64 上的 BLE
-- 输入命令“btmw-test”，您将输入“btmw_测试_cli”命令行
+- 输入命令“btmw-test”，进入“btmw_test_cli”命令行
 +
 image::/picture/r64_bt_cli.jpg[r64_bt_cli.jpg]
 
@@ -321,16 +321,16 @@ MW_GATTC scan /* start ble scan*/
 MW_GATTC stop_scan /* stop ble scan*/
 ```
 
-=== R64局域网功能
-- LAN eth接口是eth2
+=== R64 LAN 功能
+- LAN 以太网接口为 eth2
 ```sh
 ifconfig eth2 up
 ```
-- 配置ip，“ifconfig eth2 192.168.1.1”。
+- 配置 IP 地址：“ifconfig eth2 192.168.1.1”。
 +
 image::/picture/r64_lan_test_1.jpg[r64_lan_test_1.jpg]
 
-- 配置您的 dhcp 服务器
+- 配置 DHCP 服务器
 +
 ```sh
 vim /etc/dhcp/dhcpd.conf
@@ -339,63 +339,59 @@ vim /etc/dhcp/dhcpd.conf
 +
 image::/picture/r64_lan_test_2.jpg[r64_lan_test_2.jpg]
  
-- 启动 dhcp 服务器“dhcpd eth2”。
+- 启动 DHCP 服务器：“dhcpd eth2”。
 +
 image::/picture/r64_lan_test_3.jpg[r64_lan_test_3.jpg]
 
-- 然后配置 iptables 并设置包转发。
-* 添加“net.ipv4.ip_前进=1" 到 "/etc/sysctl.conf"
-* "/sbin/sysctl -p" 进行向前工作
-* “iptables -t nat -A POSTROUTING -s 192.168.1.1/24 -o eth3 -j 伪装”
+- 然后配置 iptables 并启用数据包转发。
+* 将“net.ipv4.ip_forward=1”添加到“/etc/sysctl.conf”
+* 执行“/sbin/sysctl -p”使转发配置生效
+* “iptables -t nat -A POSTROUTING -s 192.168.1.1/24 -o eth3 -j MASQUERADE”
 
-=== R64 上的 Ap 模式
-- 查找“mt_wifi.ko”并安装它。
+=== R64 的 AP 模式
+- 找到“mt_wifi.ko”并使用 insmod 加载。
 +
 ```sh
 insmod ./lib/modules/4.4.92-BPI-R64-Kernel/extra/mt_wifi.ko
 ```
-- 然后你会看到ra0和rai0。
+- 随后可以看到 ra0 和 rai0 接口。
 +
 image::/picture/r64_wifi_test_1.jpg[r64_wifi_test_1.jpg]
 
-- ra0是MT7622 2.4G wifi
-- rai0是MT7615 5G wifi
+- ra0 是 MT7622 的 2.4 GHz WiFi 接口
+- rai0 是 MT7615 的 5 GHz WiFi 接口
 
-==== 2.4G无线网络
+==== 2.4 GHz WiFi
 - 使用“ifconfig ra0 up”启用它。
-- 配置ip，“ifconfig ra0 192.168.1.1”。
-- 配置你的 dhcp 服务器，“vim /etc/dhcp/dhcpd.conf”，添加这些配置。
+- 配置 IP 地址：“ifconfig ra0 192.168.1.1”。
+- 配置 DHCP 服务器：执行“vim /etc/dhcp/dhcpd.conf”，并添加以下内容。
 +
 image::/picture/r64_lan_test_2.jpg[r64_lan_test_2.jpg]
 
-- 启动 dhcp 服务器“dhcpd ra0”。
-然后配置 iptables 并设置包转发。
+- 启动 DHCP 服务器：“dhcpd ra0”。
+然后配置 iptables 并启用数据包转发。
 
-* 添加“net.ipv4.ip_前进=1" 到 "/etc/sysctl.conf"
-* "/sbin/sysctl -p" 进行向前工作
-* “iptables -t nat -A POSTROUTING -s 192.168.1.1/24 -o eth3 -j 伪装”
+* 将“net.ipv4.ip_forward=1”添加到“/etc/sysctl.conf”
+* 执行“/sbin/sysctl -p”使转发配置生效
+* “iptables -t nat -A POSTROUTING -s 192.168.1.1/24 -o eth3 -j MASQUERADE”
 
-==== 5G无线网络
+==== 5 GHz WiFi
 - 使用“ifconfig rai0 up”启用它。
-- 配置ip，“ifconfig rai0 192.168.1.1”。
-- 配置你的 dhcp 服务器，“vim /etc/dhcp/dhcpd.conf”，添加这些配置。
+- 配置 IP 地址：“ifconfig rai0 192.168.1.1”。
+- 配置 DHCP 服务器：执行“vim /etc/dhcp/dhcpd.conf”，并添加以下内容。
 +
 image::/picture/r64_lan_test_2.jpg[r64_lan_test_2.jpg]
-- 启动 dhcp 服务器“dhcpd rai0”。然后配置 iptables 并设置包转发。
-* 添加“net.ipv4.ip_前进=1" 到 "/etc/sysctl.conf"
-* "/sbin/sysctl -p" 进行向前工作
-* “iptables -t nat -A POSTROUTING -s 192.168.1.1/24 -o eth3 -j 伪装”
+- 启动 DHCP 服务器：“dhcpd rai0”。然后配置 iptables 并启用数据包转发。
+* 将“net.ipv4.ip_forward=1”添加到“/etc/sysctl.conf”
+* 执行“/sbin/sysctl -p”使转发配置生效
+* “iptables -t nat -A POSTROUTING -s 192.168.1.1/24 -o eth3 -j MASQUERADE”
 
-= FAQ
-MT7622开发板参考手册(BPi)
+= 常见问题
+MT7622 开发板（BPI）参考手册
 
-谷歌云端硬盘： https://drive.google.com/open?id=1UhaIM9ork1O9cNO-t6ENMVVamB75AThV
+Google Drive：https://drive.google.com/open?id=1UhaIM9ork1O9cNO-t6ENMVVamB75AThV
 
-百度驱动： https://pan.baidu.com/s/1KduFT2MUvMs2FhOF4A8kQQ
+Baidu 网盘：https://pan.baidu.com/s/1KduFT2MUvMs2FhOF4A8kQQ
 
 = 参考链接
 http://forum.banana-pi.org/
-
-
-
-
