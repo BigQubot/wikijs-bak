@@ -1,145 +1,145 @@
 = 简介
 
-香蕉派 BPI-M2 Ultra 是一款四核迷你单板计算机，内置 Allwinner R40 SoC。它具有 2GB RAM 和8GB eMMC。它还具有板载 WiFi 和 BT。在端口方面， BPI-M2 Ultra 有 2 USB A 2.0端口，1个 USB OTG端口、1个HDMI端口、1个音频插孔、1个DC电源端口、1个SATA端口。
+Banana Pi BPI-M2 Ultra 是一款采用 Allwinner R40 SoC 的四核迷你单板计算机，配备 2 GB 内存和 8 GB eMMC，并集成 WiFi 与蓝牙。接口包括两个 USB 2.0 Type-A、一个 USB OTG、一个 HDMI、一个音频插孔、一个直流电源接口和一个 SATA 接口。
 
-TIP: 更多信息： link:/en/BPI-M2_Ultra/BananaPi_BPI-M2_Ultra[香蕉派 BPI-M2_Ultra]
+TIP: 更多信息：link:/en/BPI-M2_Ultra/BananaPi_BPI-M2_Ultra[Banana Pi BPI-M2_Ultra]
 
-香蕉派 BPI-M2 Berry 是一款四核迷你单板计算机，内置 Allwinner V40 SoC。它具有 1GB RAM 。它还具有板载 WiFi 和 BT。在端口方面， BPI-M2 Berry 有 4 个 USB A 2.0端口，1个 USB OTG端口、1个HDMI端口、1个音频插孔、1个DC电源端口、1个SATA端口。
+Banana Pi BPI-M2 Berry 是一款采用 Allwinner V40 SoC 的四核迷你单板计算机，配备 1 GB 内存，并集成 WiFi 与蓝牙。接口包括四个 USB 2.0 Type-A、一个 USB OTG、一个 HDMI、一个音频插孔、一个直流电源接口和一个 SATA 接口。
 
-TIP: 更多信息： link:/en/BPI-M2_Berry/BananaPi_BPI-M2_Berry[香蕉派 BPI-M2_Berry]
+TIP: 更多信息：link:/en/BPI-M2_Berry/BananaPi_BPI-M2_Berry[Banana Pi BPI-M2_Berry]
 
 == 规格参数
 === BPI-M2 Ultra
-- 四核 ARM Cortex A7 CPU R40
-- 2GB DDR3 内存
-- 8GB eMMC 存储
-- 无线网络 (AP6212) & 板载蓝牙
-- SATA接口
+- 四核 ARM Cortex-A7 CPU（R40）
+- 2 GB DDR3 SDRAM
+- 8 GB eMMC 存储
+- WiFi（AP6212）及板载蓝牙
+- SATA 接口
 
 === BPI-M2 Berry
-- 四核 ARM Cortex A7 CPU V40.
-- 1GB DDR3 内存。
-- 无线网络 (AP6212) & 板载蓝牙。
-- SATA接口
+- 四核 ARM Cortex-A7 CPU（V40）
+- 1 GB DDR3 SDRAM
+- WiFi（AP6212）及板载蓝牙
+- SATA 接口
 
 = 开发
 == Android
 === 准备
-下载凤凰卡： https://pan.baidu.com/s/1-fjvPqtG_zewVzqnXf1AHw?pwd=eid9
+下载 PhoenixCard：https://pan.baidu.com/s/1-fjvPqtG_zewVzqnXf1AHw?pwd=eid9
 
-=== 将映像安装到 SD 卡
+=== 将镜像烧录到 SD 卡
  
-. 将您的 TF 卡插入 TF-USB 适配器，然后将适配器插入您的 Windows 电脑 usb 界面。
-. 准备好镜像，下载镜像刻录工具PhoenixCard.exe。
-. 使用“PhoenixCard.exe”进行刻录 android 镜像到TF卡。
-- 在图像路径选项中选择图像
+. 将 TF 卡插入 TF-USB 读卡器，再将读卡器连接到 Windows 电脑的 USB 接口。
+. 准备好镜像，并下载镜像烧录工具 PhoenixCard.exe。
+. 使用 PhoenixCard.exe 将 Android 镜像烧录到 TF 卡。
+- 在镜像路径选项中选择镜像
 +
 image::/picture/m2u-android-sd-1.jpg[m2u-android-sd-1.jpg]
 image::/picture/m2u-android-sd-2.jpg[m2u-android-sd-2.jpg]
 
-- 选择设置为卡启动，然后点击刻录镜像
+- 选择“卡启动”，然后单击烧录镜像
 +
 image::/picture/m2u-android-sd-3.jpg[m2u-android-sd-3.jpg]
 
-- 燃烧结束，
+- 等待烧录完成
 +
 image::/picture/m2u-android-sd-4.jpg[m2u-android-sd-4.jpg]
 
-=== 安装镜像到 eMMC
+=== 将镜像烧录到 eMMC
 
-. 将您的 TF 卡插入 TF-USB 适配器，然后将适配器插入您的 Windows 电脑 usb 界面。
-. 准备好镜像，下载镜像刻录工具PhoenixCard.exe。
-. 使用“PhoenixCard.exe”进行刻录 android 镜像到TF卡。
-- 在图像路径选项中选择图像
+. 将 TF 卡插入 TF-USB 读卡器，再将读卡器连接到 Windows 电脑的 USB 接口。
+. 准备好镜像，并下载镜像烧录工具 PhoenixCard.exe。
+. 使用 PhoenixCard.exe 将 Android 镜像烧录到 TF 卡。
+- 在镜像路径选项中选择镜像
 +
 image::/picture/m2u-android-sd-1.jpg[m2u-android-sd-1.jpg]
 image::/picture/m2u-android-sd-2.jpg[m2u-android-sd-2.jpg]
 
-- 选择量产卡，然后点击烧录镜像
+- 选择“量产卡”，然后单击烧录镜像
 +
 image::/picture/m2u-android-emmc-1.jpg[m2u-android-emmc-1.jpg]
 
-- 燃烧结束。
+- 等待烧录完成。
 +
 image::/picture/m2u-android-emmc-2.jpg[m2u-android-emmc-2.jpg]
 
-. 镜像烧录完成后，将SD卡插入板子，上电启动。启动后，镜像会自动烧录到板子上 EMMC.
+. 镜像烧录到 SD 卡后，将该卡插入开发板并上电启动。系统启动后，镜像会自动写入开发板的 eMMC。
 +
 image::/picture/m2u-android-emmc-3.jpg[m2u-android-emmc-3.jpg]
 +
-也可以通过灯光来判断。当红灯由常亮变为闪烁时，表示燃烧完成。
+也可以通过指示灯判断进度：红灯由常亮变为闪烁时，表示烧录完成。
 +
 image::/picture/m2u-android-emmc-4.jpg[m2u-android-emmc-4.jpg]
 
-.  烧录完成后，将切断电源，并取出SD卡。再次通电即可从 EMMC.
+. 烧录完成后切断电源并取出 SD 卡。再次上电时，开发板将从 eMMC 启动。
 
 == Linux
 === 准备
 
-. Linux 镜像支持SD卡或 EMMC 启动
-. 建议使用A1级卡，至少8GB。
-. M2 Ultra 和 M2 Berry 兼容 Linux 镜像。
-. 安装 bpi-tools 在你的 Linux 电脑(如果使用其他工具刷入镜像，请忽略此步骤)。如果您无法访问此 URL 或出现任何其他安装问题，请转至 link:https://github.com/bpi-sinovoip/bpi-tools[bpi-tools] 源存储库，手动下载并安装此工具。
+. Linux 镜像支持从 SD 卡或 eMMC 启动。
+. 建议使用 A1 等级、容量至少为 8 GB 的存储卡。
+. M2 Ultra 和 M2 Berry 使用相同的 Linux 镜像。
+. 在 Linux 电脑上安装 bpi-tools（如果使用其他工具烧录镜像，可跳过此步）。如果无法访问该网址或遇到其他安装问题，请前往 link:https://github.com/bpi-sinovoip/bpi-tools[bpi-tools] 源码仓库手动下载并安装。
 +
 ```sh
  $ apt-get install pv
  $ curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
 ```
-. 下载最新的 Linux 镜像，并确认md5校验和正确。
-. 默认登录： pi/bananapi 或 root/bananapi
+. 下载最新的 Linux 镜像，并确认 MD5 校验值正确。
+. 默认登录账号：pi/bananapi 或 root/bananapi
 
-=== 将映像安装到 SD 卡
+=== 将镜像烧录到 SD 卡
 **Windows 电脑**
 
-使用 Balena Etcher 安装映像。 +
-link:https://balena.io/etcher[巴莱纳蚀刻机] 是 Balena 的开源 GUI 闪存工具，可将操作系统映像闪存到 SD 卡或 USB 开车。
+使用 Balena Etcher 烧录镜像。+
+link:https://balena.io/etcher[Balena Etcher] 是 Balena 提供的开源图形化烧录工具，可将操作系统镜像写入 SD 卡或 USB 存储设备。
 
-. 点击“**从文件闪存**”来选择镜像。 
-. 点击“**选择目标**”来选择 USB 设备。 
-. 点击“**快闪！**“开始燃烧。
+. 单击“**Flash from file**”选择镜像。 
+. 单击“**Select target**”选择目标设备。 
+. 单击“**Flash!**”开始烧录。
 
 image::/picture/etcher.jpg[etcher.jpg]
 
 **Linux 电脑**
 
-**有两种方法供您选择。**
+**可以选择以下两种方法。**
 
-. 使用 dd 命令安装镜像 Linux,卸载SD卡设备 /dev/sdX 如果自动安装则分区。其实 bpi-copy 与此 dd 命令相同。
+. 使用 Linux 的 dd 命令烧录镜像。如果 /dev/sdX 的分区被自动挂载，请先卸载。bpi-copy 实际执行的操作与此 dd 命令相同。
 +
 ```sh
  $ sudo apt-get install pv unzip
  $ sudo unzip -p xxx-bpi-m2-ultra-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxfer
 ```
-. 安装镜像 bpi-tools 上 Linux，插入SD卡 Linux 电脑并运行
+. 使用 Linux 上的 bpi-tools 烧录镜像。将 SD 卡插入 Linux 电脑并执行
 +
 ```sh
  $ sudo apt-get install pv unzip
  $ sudo bpi-copy xxx-bpi-m2-ultra-xxx.img.zip /dev/sdX
 ```
 
-=== 安装镜像到 eMMC
+=== 将镜像烧录到 eMMC
 
-. 准备一张SD卡 Linux 镜像闪存和启动板与此 SD 卡。
-. 解压镜像并将其复制到 USB 驱动器，将U盘插入板上并安装。（如果自动安装，请忽略此步骤）
+. 准备一张已烧录 Linux 镜像的 SD 卡，并用该卡启动开发板。
+. 解压镜像并复制到 U 盘，将 U 盘插入开发板并挂载。（如果已自动挂载，可跳过此步）
 +
 ```sh
 mount /dev/sdx /mnt
 ```
-. 有两种安装方式linux镜像到板上。
-- 使用dd命令安装。
+. 可通过以下两种方式将 Linux 镜像安装到开发板。
+- 使用 dd 命令烧录。
 +
 ```sh
 sudo dd if=/mnt/xxx.bpi-m2-ultra-xxx.img of=/dev/mmcblk0 bs=10M status=noxfer
 ```
-- 安装 linux 乌磁盘中的镜像 bpi-tools 命令
+- 使用 bpi-tools 命令烧录 U 盘中的 Linux 镜像
 +
 ```sh
  $ sudo bpi-copy xxx-bpi-m2-ultra-xxx.img.zip /dev/mmcblk0
 ```
-. 下载完成后，安全关闭电源并弹出 SD 卡。
+. 烧录完成后，安全关机并取出 SD 卡。
 
-== 高级开发
-=== 如何构建uboot和内核
+== 进阶开发
+=== 构建 U-Boot 和内核
 **安装工具**
 ```sh
 apt-get udpate
@@ -155,11 +155,11 @@ git clone: https://github.com/BPI-SINOVOIP/BPI-M2U-bsp.git
 ```
 
 === SATA
-. 在 M2U 上安装 SATA
+. 在 M2U 上挂载 SATA 硬盘
 +
 image::/picture/m2u_sata.png[m2u_sata.png]
 +
-插入sata接口后，执行
+连接 SATA 硬盘后，执行
 +
 ```sh
 fdisk -l
@@ -179,18 +179,18 @@ mount /dev/sdx /mnt/xxx
 ```sh
 fdisk /dev/sdx
 ```
-设置分区数量和大小，创建分区后，输入“**瓦克**” 保存并退出。
-- 格式化SATA
+设置分区数量和大小。创建分区后，输入“**wq**”保存并退出。
+- 格式化 SATA 分区
 +
 ```sh
 mkfs.ext2 /dev/sdx
 ```
-- 坐骑
+- 挂载
 +
 ```sh
 mount /dev/sdx /mnt/xxx
 ```
-. 成功插入SATA后，我们可以输入以下命令来测试SATA接口：
+. 成功连接 SATA 硬盘后，可以输入以下命令测试 SATA 接口：
 - 测试读取速度
 +
 ```sh
@@ -217,25 +217,25 @@ image::/picture/sata_test.png[sata_test.png]
 ```sh
 ps -ax | grep adbd
 ```
-查看 adbd 是否已设置
+检查 adbd 是否已启动
 +
 image::/picture/m2p_adbd.png[m2p_adbd.png]
 
-. PC端：
+. 在电脑终端中：
 +
-- 如果adbd设置成功，插入OTG-USB M2U 和 PC 接口(与 Ubuntu 系统)
+- 如果 adbd 已成功启动，请用 OTG-USB 线连接 M2U 和运行 Ubuntu 的电脑。
 - 执行 
 +
 ```sh
 adb devices
 ```
-查看PC是否已识别M2U OTG
-- 如果是的话，我们可以执行
+检查电脑是否已识别 M2U 的 OTG 设备
+- 如果已经识别，可以执行
 +
 ```sh
 adb shell
 ```
-现在通过 adb 连接 M2U
+此时即可通过 adb 连接 M2U
 +
 image::/picture/m2p_adbd_shell.png[m2p_adbd_shell.png]
 
@@ -246,7 +246,7 @@ image::/picture/m2p_adbd_shell.png[m2p_adbd_shell.png]
 ```sh
 bpi-bootsel
 ```
-您将看到启动文件列表。
+此时会显示启动文件列表。
 - 查找“**BPI_M2U_LCD7.img.gz**"
 - 然后执行 
 +
@@ -254,10 +254,10 @@ bpi-bootsel
 bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_LCD7.img.gz
 ```
 
-=== 通用汽车MAC
-使用iperf3测试gmac
+=== GMAC
+使用 iperf3 测试 GMAC
 
-. 在PC端：
+. 在电脑终端中：
 
 - 执行 
 +
@@ -267,12 +267,12 @@ iperf3 -s
 +
 . 在 M2U 控制台上：
 
-- TCP测试： 
+- TCP 测试：
 +
 ```sh
 iperf3 -c serverIP
 ```
-- UDP测试： 
+- UDP 测试：
 +
 ```sh
 iperf3 -u -c serverIP
@@ -281,24 +281,24 @@ iperf3 -u -c serverIP
 image::/picture/m2u_gmac_test.png[m2u_gmac_test.png]
 
 === 蓝牙
-- 使用bluetoothctl工具操作BT
+- 使用 bluetoothctl 工具管理蓝牙
 - 执行
 +
 ```sh
 bluetoothctl
 ```
-- 如果您不知道如何使用 bluetoothctl，请输入 
+- 如果不熟悉 bluetoothctl，请输入
 +
 ```sh
 help
 ```
-你会看到更多命令
-- 执行这些命令：
+即可查看更多命令
+- 执行以下命令：
 +
 image::/picture/m2u_bluetooth.png[m2u_bluetooth.png]
 
-=== WiFi客户端
-您有两种方法来设置 WiFi 客户端
+=== WiFi 客户端
+可以使用以下两种方法设置 WiFi 客户端
 
 . 使用命令设置 WiFi 客户端
 +
@@ -320,40 +320,40 @@ network={
 wpa_supplicant -iwlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf
 dhclient wlan0
 ```
-. 使用UI界面设置WiFi Client
+. 使用图形界面设置 WiFi 客户端
 
-=== 清除启动
+=== 清除启动区
 ```sh
 git clone https://github.com/BPI-SINOVOIP/BPI-files/tree/master/SD/100MB
 bpi-bootsel BPI-cleanboot-8k.img.gz /dev/sdX
 ```
 
-=== 相机功能
-我们使用HDF5640摄像机。
+=== 摄像头功能
+本例使用 HDF5640 摄像头。
 
 image::/picture/ov5640_camara.png[ov5640_camara.png]
 
-**古维视**
+**Guvcview**
 
-使用您的UI界面来操作相机
-应用程序 -> 声音和视频 -> guvcview
+通过图形界面操作摄像头
+Applications -> Sound & Video -> guvcview
 
-**壳牌**
+**Shell**
 
-我们还有内置命令，
+系统还提供了内置命令，
 ```sh
 /usr/local/bin**
 ```
-测试相机，
+用于测试摄像头，
 
 ```sh
 ./test_ov5640_image_mode.sh
 ```
-测试拍照功能，
+用于测试拍照功能，
 ```sh
 ./cameratest.sh
 ```
-测试视频录制功能。
+用于测试视频录制功能。
 
 === 红外功能
 - 执行 
@@ -363,14 +363,14 @@ getevent
 ```
 - 使用您的 IR 设备向 M2U 发送信息
 
-=== RPi。GPIO
-==== 安装 RPi。GPIO
+=== RPi.GPIO
+==== 安装 RPi.GPIO
 - 执行 
 +
 ```sh
 git clone https://github.com/BPI-SINOVOIP/RPi.GPIO
 ```
-- 克隆存储库后
+- 克隆仓库后
 +
 ```sh
 cd RPi.GPIO
@@ -390,14 +390,14 @@ sudo apt-get install python-dev python3-dev
 ```sh
 sudo python setup.py install
 ```
-或
+或者
 +
 ```sh
 sudo python3 setup.py install
 ```
 安装模块
 
-==== 使用 RPi。GPIO
+==== 使用 RPi.GPIO
 ```sh
 cd /usr/local/bin
 ```
@@ -405,15 +405,15 @@ cd /usr/local/bin
 ```sh
 ./bpi_test_g40.py
 ```
-测试 RPi。GPIO
+测试 RPi.GPIO
 
 image::/picture/rpi_gpio.png[rpi_gpio.png]
 
-=== 扭皮
+=== WiringPi
 
 GitHub: https://github.com/BPI-SINOVOIP/BPI-WiringPi2.git
 
-我们还有内置的测试命令 
+系统还提供了内置测试命令，位于
 ```sh
 /usr/local/bin
 ```
@@ -425,16 +425,16 @@ GitHub: https://github.com/BPI-SINOVOIP/BPI-WiringPi2.git
 /usr/local/bin/bpi_test_lcd1602.sh
 ```
 
-**0.96英寸 OLED 显示**
+**0.96 英寸 OLED 显示屏**
 
 - 执行 
 ```sh
 /usr/local/bin/bpi_test_52pi.sh
 ```
 
-**8x8 RGB LED 马蒂克斯**
+**8×8 RGB LED 矩阵**
 
-- 首先你需要一个 GPIO 8x8 扩展板 LED 马蒂克斯
+- 首先需要一块用于 8×8 LED 矩阵的 GPIO 扩展板
 +
 image::/picture/wringpi_led_martix_extend_board.png[wringpi_led_martix_extend_board.png]
 
@@ -444,27 +444,22 @@ image::/picture/wringpi_led_martix_extend_board.png[wringpi_led_martix_extend_bo
 ```
 
 === 文件系统
-只读系统更改为读写模式：
+将只读文件系统切换为读写模式：
 ```sh
 mount -o remount,rw /
 ```
 
-=== 安装Qt5.7和Qtcreator
-. 准备一张32Gb的TF卡
-. 使用 GParted 将根点“/”的大小调整为 32Gb
+=== 安装 Qt 5.7 和 Qt Creator
+. 准备一张 32 GB 的 TF 卡
+. 使用 GParted 将根分区“/”扩展到 32 GB
 +
 ```sh
 apt-get install libxcb*
-download qt5.7
+下载 Qt 5.7
 make & make install
 apt-get install qtcreator
-Config qtcreator
+配置 Qt Creator
 ```
-
-
-
-
-
 
 
 
