@@ -1,0 +1,152 @@
+= 简介
+
+TIP: 更多信息：link:/en/BPI-WiFi5/BananaPi_BPI-WiFi5_Router[Banana Pi BPI-WiFi5 路由器]
+
+= 升级固件
+
+== 通过网页升级
+
+=== 准备
+
+- 以太网线  
+- BPI-WiFi5  
+- 12 V 电源  
+
+=== 升级步骤
+
+. 下载要升级的 link:/en/BPI-WiFi5/BananaPi_BPI-WiFi5_Router#_system_image[镜像]。  
+. 为 BPI-WiFi5 接通电源，并使用以太网线将其连接到计算机。  
+. 在浏览器中打开 Web 管理界面，然后输入密码：  
+   - **默认 IP**：*192.168.4.1*  
+   - **密码**：*admin*  
++
+image::/bpi-wifi5/login.png[login.png]
+. 选择 “More（更多）”。
++
+image::/bpi-wifi5/update_via_web_1.png[update_via_web_1.png]
+. 选择 “System（系统）”，然后选择 “Backup/Upgrade（备份/升级）”。
++
+image::/bpi-wifi5/update_via_web_2.png[update_via_web_2.png]
+. 选择 “Flash image...（刷写镜像）”。
++
+image::/bpi-wifi5/update_via_web_3.png[update_via_web_3.png]
+. 选择要升级的镜像，然后单击 “OK（确定）”上传。
++
+image::/bpi-wifi5/update_via_web_4.png[update_via_web_4.png]
+. 取消选中 “Keep settings and retain the current configuration（保留设置和当前配置）”，然后选择 “Continue（继续）”。
++
+image::/bpi-wifi5/update_via_web_5.png[update_via_web_5.png]
+. 等待几分钟，升级完成后会自动重启，网页会自动刷新。
++
+image::/bpi-wifi5/update_via_web_6.png[update_via_web_6.png]
+---
+
+== 通过串口升级
+
+=== 准备
+
+- 以太网线  
+- BPI-WiFi5  
+- 12 V 电源  
+- USB 转 TTL 串口线  
+
+=== 升级步骤
+
+. 下载要升级的 link:/en/BPI-WiFi5/BananaPi_BPI-WiFi5_Router#_system_image[镜像]。  
+. 使用以太网线将 BPI-WiFi5 连接到计算机。
+. 将计算机的 IP 地址设为 192.168.4.100，如下图所示。
++
+image::/bpi-wifi5/set_ip.png[set_ip.png]
+. 使用 USB 转 TTL 串口线连接计算机，并打开串口终端工具。
+. 为 BPI-WiFi5 接通电源。
+. 启动过程中按任意键进入 U-Boot 终端。
+. 输入 httpd 192.168.4.1 并按 Enter 键。
++
+image::/bpi-wifi5/enable_httpd.png[enable_httpd.png]
++
+. 打开浏览器并访问 192.168.4.1。
++
+image::/bpi-wifi5/firmware_update_1.png[firmware_update_1.png]
++
+. 单击 “Browse（浏览）”选择镜像文件，然后单击 “Update firmware（更新固件）”上传。
++
+image::/bpi-wifi5/firmware_update_2.png[firmware_update_2.png]
+. 等待更新完成，预计需要 2 分钟左右。
++
+image::/bpi-wifi5/firmware_update_3.png[firmware_update_3.png]
+
+= 编译镜像 
+
+== 准备
+
+- 以太网线
+- BPI-WiFi5
+- 12 V 电源
+- Ubuntu 18.04
+
+安装所需的依赖项：
+
+```bash
+sudo apt install make gcc g++ device-tree-compiler bc libncurses-dev perl-modules-5.26 patch gawk unzip python git
+```
+
+获取源代码
+
+```bash
+git clone https://github.com/BPI-SINOVOIP/BPI-WiFi5-Siflower
+```
+
+== 编译 U-Boot
+```shell
+cd ./BPI-WiFi5-Siflower/uboot
+./make.sh sfa28_ac28
+```
+
+== 编译内核和 OpenWrt
+```shell
+cd ./BPI-WiFi5-Siflower/openwrt-18.06
+# 如需编译 LuCI 界面
+./make.sh a28_bpi
+# 如需编译 LuCI2 界面
+./make.sh a28_bpi_luci2
+```
+编译完成后，当前目录中会生成一个 bin 文件，即编译得到的固件。
+
+image::/bpi-wifi5/compile_finish.png[compile_finish.png]image::/bpi-wifi5/enable_httpd.png[enable_httpd.png]
+
+= 更改网页 Logo
+== 准备
+- 以太网线
+- BPI-WiFi5
+- 12 V 电源
+
+需要准备 BPI-WiFi5 源代码，以及一张尺寸与原 Logo 相同的新图片。
+
+== 更改 Logo
+. 首先获取源代码并编译 U-Boot。
+. 将 Logo 图片添加到源代码项目的 /openwrt-18.06/feeds/xluci2/luci2-bpi/htdocs/luci2/res 目录中。
++
+image::/bpi-wifi5/change_logo_6.png[change_logo_6.png]
+
+. 修改源代码项目中的以下文件（/home/qubot/bpi/siflower/wifi5-test/openwrt-18.06/feeds/xluci2/luci2-bpi/htdocs/luci2/css/siflower_icon.css）：
++
+```bash
+/*siflower logo*/
+.siflower_logo {
+	background-image: url('../res/bananapilogo1.png');
+	background-size: 100%;
+}
+```
+将原路径 “../res/bananapilogo.png” 替换为新 Logo 的路径 “../res/bananapilogo1.png”（即 ../res/“Logo 名称”.png）。
+
+. 编译内核和 OpenWrt，然后升级固件。
+
+原 Logo：
+
+image::/bpi-wifi5/change_logo_2.png[change_logo_2.png]
+image::/bpi-wifi5/change_logo_3.png[change_logo_3.png]
+
+更换 Logo 后：
+
+image::/bpi-wifi5/change_logo_4.png[change_logo_4.png]
+image::/bpi-wifi5/change_logo_5.png[change_logo_5.png]
