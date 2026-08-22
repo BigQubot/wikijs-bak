@@ -1,25 +1,25 @@
 image::/picture/bpi_picow_s3_dual-axis_joystick.jpg[bpi_picow_s3_dual-axis_joystick.jpg]
 
-这是一个常见的双轴XY摇杆模块，其核心部件是两个电位器。通过读取各自的电压值 ADC analog/digital 芯片的转换器，然后将读数转换为其在 XY 坐标轴上的位置。
+这是一个常见的双轴 XY 摇杆模块，核心部件是两个电位器。芯片通过 ADC 模数转换器读取各电位器的电压值，再把读数转换为摇杆在 XY 坐标轴上的位置。
 
 **接线参考**
 
 [cols=",",options="header",]
 |===
-|操纵杆 |BPI-PicoW-S3
-|接地 |接地
+|双轴摇杆 |BPI-PicoW-S3
+|GND |GND
 |+5V |3V3
-|虚拟现实 |GP27_A1
+|VRx |GP27_A1
 |VRy |GP26_A0
 |===
 
 
-. 的 ADC 准确度提供于 CircuitPython 为16bit，即最大值的十六进制表达为FFFF，十进制表达为65535，对应的电压范围为0mv ~ 3300毫伏。 
-实际的 ADC EPS32S3芯片使用的电压范围 BPI-PicoW-S3 是 0 毫伏 ~ 3100mv，所以实际应用中只能测量3100mv。
+. CircuitPython 提供的 ADC 精度为 16 位，最大值的十六进制表示为 FFFF，十进制表示为 65535，对应的电压范围为 0 mV～3300 mV。 
+BPI-PicoW-S3 所用 ESP32-S3 芯片的实际 ADC 电压范围为 0 mV～3100 mV，因此在实际应用中最高只能测量 3100 mV。
 
 . 基础 ADC 读数，读取两个电位器的值，并将其转换为电压值。
 +
-> 注意代码中xy轴颠倒了，双轴摇杆模块逆时针旋转90°后即可使用。该方法可以使 ADC 摇杆沿 y 轴向上移动时读数增加，反之亦然，符合普通直角坐标系规律。
+> 请注意，代码中的 X、Y 轴方向经过对调，使用时需要把双轴摇杆模块逆时针旋转 90°。这样，当摇杆沿 Y 轴向上移动时 ADC 读数会增大，向下移动时则减小，符合常用直角坐标系的方向。
 +
 ```python
 import board,analogio,time
@@ -37,11 +37,11 @@ while True:
     time.sleep(0.1)
 ```
 
-. 在 Mu 编辑器中，单击 `Plotter` 图标显示绘图仪，可以显示通过 REPL 作为与时间相关的实时线图。
+. 在 Mu 编辑器中单击 `Plotter` 图标打开绘图器，它会把 REPL 输出值实时绘制成随时间变化的折线图。
 +
 image::/picture/bpi_picow_s3_circuitpython_plotter.png[bpi_picow_s3_circuitpython_plotter.png]
    
-. 下面的程序可以实现校准坐标零点的功能。在运行的前五秒内，请停止摇杆并等待获取零点值。
+. 以下程序用于校准坐标零点。程序运行后的前五秒内请勿触碰摇杆，等待程序取得零点值。
 +
 ```python
 import board,analogio,time
