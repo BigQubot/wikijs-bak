@@ -1,0 +1,62 @@
+= 硬件
+
+BPI-MT7615 是一款基于 MTK MT7615 芯片设计的 802.11ac Wi-Fi 4×4 双频模块。
+
+image::/picture/mtk_mt7615_7.jpg[mtk_mt7615_7.jpg]
+
+== 关于 MTK MT7615 芯片
+MT7615 是一款高度集成的 Wi-Fi 单芯片，支持 1733 Mbps PHY 速率，完全符合 IEEE 802.11ac 和 IEEE 802.11a/b/n 标准，可提供功能丰富的无线连接，以及远距离、可靠且高性价比的数据吞吐能力。
+
+优化的射频架构和基带算法兼顾出色性能与低功耗。智能 MAC 设计采用高效卸载引擎和硬件数据处理加速器，可将 Wi-Fi 任务从主机处理器完全卸载。MT7615 支持安全、服务质量和国际法规等领域的标准功能，让终端用户在各种场景下都能获得优秀性能。
+
+MT7615 支持 5 GHz 和 2.4 GHz 频段同时工作（DBDC，双频双并发）。因此，一个链路可使用 2.4 GHz 频段，另一个链路同时使用干扰较少的 5 GHz 频段，满足多样化应用需求。
+
+802.11ac 标准引入了多用户 MIMO（MU-MIMO）。MT7615 支持多种 MU-MIMO 配置，AP 可利用天线阵列，在同一频谱上同时向多个客户端发送不同的数据帧。
+
+== 特性
+- 支持 4×4 4SS 802.11ac Wave 2 MU-MIMO 和 160 MHz 信道
+- MU-MIMO 配置：
+* 4 个用户：4×1SS
+* 3 个用户：2×1SS + 1×2SS 或 3×1SS
+* 2 个用户：2×2SS、1×1SS + 1×2SS 或 2×1SS
+- 支持 5、10、20、40、80、80+80 和 160 MHz 信道
+- 内置 ARM Cortex-R4 处理器，可从主机 CPU 完全卸载任务
+- 内置 32 位 RISC 微处理器
+- iNIC Gen2 具有完全 Wi-Fi 卸载功能
+- 采用 40 nm 低功耗工艺的高度集成射频
+- 4T4R，PHY 速率最高可达 1733 Mbps
+- 可配置 4x4/3x3 或 2x2n+2x2ac DBDC
+- 噪声抑制：
+* 支持后台扫描功能，可快速切换信道
+* 支持分析非 Wi-Fi 信号的频谱
+- 智能省电
+- 基于硬件的 Airtime Fairness（QoS）
+- 集成高效率的 2.4 GHz/5 GHz 内置 PA
+- 智能校准（iCal）可缩短生产时间
+- 支持外接 PA/LNA/TRSW 设计
+- 通过 GPIO 支持 WoWLAN（客户端模式），并支持 Host Sleep（AP 模式）
+- 紧凑的 12 mm × 12 mm DRQFN118 封装，配备 PCIe Gen2 接口
+
+== 硬件接口
+
+image::/picture/mtk_mt7615_interface.jpg[mtk_mt7615_interface.jpg]
+
+== 支持的操作系统
+- Linux
+- OpenWRT
+- Android
+
+= BPI-R64 + MT7615 功能测试
+
+link:/en/BPI-MT7615/BPI-R64_and_MT7615_function_test[BPI-R64 + MT7615 功能测试]
+
+link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/files/?p=%2FDocuments%2FBPI-7615%20wifi%20module%2FMTK7615_RF_Test%20Report_20200516.pdf[BPI-7615 Wi-Fi 模块实验室测试报告]
+
+= 软件
+- 驱动程序已进入 Linux 主线内核（不只在 linux-next 中）：https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/net/wireless/mediatek/mt76
+- 论坛讨论： http://forum.banana-pi.org/t/bpi-mt7615-802-11-ac-wifi-4x4-dual-band-pcie-module-mass-production-version/10037
+- 802.11ax 4x4 (mt7915) 与 R2 ： http://forum.banana-pi.org/t/802-11ax-4x4-mt7915-with-r2/12082
+
+= 样品购买
+- AliExpress 店铺：https://www.aliexpress.com/item/4000260974924.html?spm=2114.12010612.8148356.1.4f31785eThQhPe
+- 淘宝： https://item.taobao.com/item.htm?spm=a1z10.5-c.w4002-5702696656.12.6dc114d6AF6T4X&id=605860629225
