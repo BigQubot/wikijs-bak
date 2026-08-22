@@ -1,0 +1,461 @@
+= 简介
+
+香蕉派 BPI-R3 Mini 路由器板带有 MediaTek MT7986A(Filogic 830) 四核ARM A53芯片设计，2G DDR RAM ,8G eMMC 板载flash，是一款非常高性能的开源路由器开发板，支持Wi-Fi6 2.4G/5G 搭配 MT7976C，支持 2x 2.5GbE ethernet 端口。
+
+TIP: 更多信息： link:/en/BPI-R3_Mini/BananaPi_BPI-R3_Mini[香蕉派 BPI-R3_Mini]
+
+=== MediaTek MT7986(Filogic 830)
+MT7986(Filogic 830) 集成了四个高达 2GHz 的 Arm Cortex-A53 内核，具有高达 18,000 DMIP 的处理能力和 6Gbps 的双 4x4 Wi-Fi6 连接。有两个2.5g Ethernet 接口和串行外设接口 (SPI). Filogic 830 的内置硬件加速引擎可实现快速可靠的 Wi-Fi 卸载和无线网络连接。此外，该芯片还支持 Mediatek FastPath™技术，适用于游戏， AR/VR 和其他低延迟应用程序。
+
+Wi-fi 6 相比其前身具有许多优势，包括更低的延迟、更大的带宽容量和更快的传输速率。支持6GHz频段的无线网络设备主要利用160MHz宽信道和6GHz不拥塞带宽提供多千兆传输和低延迟Wi-Fi连接，为流媒体、游戏、 AR/VR 和其他应用程序。
+
+== 规格参数
+
+- MediaTek MT7986A(Filogic 830) 四核 ARM Cortex A53
+- 无线网络6 2.4G/5G（MT7976C）
+- 2G内存 RAM
+- 8G eMMC 闪光
+- 128MB Nand 闪光
+- 2 个 2.5GbE Ethernet 端口
+- 1x M.2 钥匙 B USB 接口
+- 1x M.2 钥匙 M PCIe 接口
+- 1个USB2.0接口
+
+= 开发
+== 准备
+
+. 准备 USB-串行接口
+. 使用您的 USB-串行连接调试控制台打开 BPI-R3 MINI 
+
+- **调试 Uart 3.3v TTL，波特率：115200。**
+- LAN口默认IP地址： **192.168.1.1**
+- 用户 name/password: **pi/bananapi ,root/bananapi**. +
+ Or the user is **root without a password**.
+- 无线网络： **奥珀沃特**
+
++
+image::/picture/bpi-r3-mini-back.png[bpi-r3-mini-back.png]
+
+. R3mini启动开关跳线设置
++  
+WARNING: 注意： EMMC 启动或 Nand 引导支持。
+
+== 警告
+WARNING: 注：因为 BPI-R3 MINI 不支持从SD启动，所以工厂会刷入一张默认镜像 Nand 和 EMMC 设备。 
+ Anytime please confirm that one EMMC or Nand device include one bootable image, it's very important!!
+ 
+ - 如果你想更新 EMMC 设备，请从以下位置启动 Nand
+ 
+image::/picture/r3mini_nandboot2.png[r3mini_nandboot2.png]
+ 
+ - 否则你更新 Nand 设备启动时 EMMC.
+ 
+image::/picture/r3mini_emmcboot.png[r3mini_emmcboot.png] 
+ 
+== Linux
+=== 安装镜像到板载 eMMC
+
+WARNING: 注意：当你想更新时 EMMC 设备，首先将启动开关更改为启动 Nand 设备，那么启动后，您需要闪存一个 emmc 镜像进入 EMMC 设备。最后你将 bootstrap 更改为 boot from EMMC.
+
+将镜像刻录到之前 eMMC，请准备一个 USB 磁盘。让我们采取 OpenWrt 镜像 (mtk-bpi-r3mini-EMMC-20230719.img, bl2_emmc-r3mini.img) 例如，步骤如下：
+
+. 复制 EMMC 启动 OpenWrt 镜像(mtk-bpi-r3mini-EMMC-20230719.img, bl2_emmc.img) 到 USB 磁盘。
+. 更改启动开关跳线，板子从启动开关 Nand 设备，然后给开发板上电。
+. 插入 USB 磁盘到板上，并安装 USB 到 /mnt 或其他目录如下： (如果自动安装则可以跳过安装)
++
+```sh
+mount -t vfat /dev/sda1 /mnt 
+```
+将目录更改为安装点，这里是： 
++
+```sh
+cd /mnt
+```
+
+. 执行以下命令以启用并将镜像复制到 EMMC 设备：
++
+```sh
+echo 0 > /sys/block/mmcblk0boot0/force_ro
+dd if=bl2_emmc-r3mini.img of=/dev/mmcblk0boot0
+dd if=mtk-bpi-r3mini-EMMC-20230719.img of=/dev/mmcblk0
+mmc bootpart enable 1 1 /dev/mmcblk0
+```
+ . 关闭R3MINI板的电源，拔掉电源线 USB 驱动器，并将启动程序更改为从 emmc 设备。
++
+WARNING: 注意：启用 EMMC 设备，引导带来自 EMMC.
+
+=== 安装镜像到板载 Nand
+
+WARNING: 注意：当你想更新时 Nand 设备，首先将启动开关更改为启动 EMMC 设备，那么启动后，您需要闪存一个 nand 镜像进入 nand 设备。最后你将 bootstrap 更改为 boot from Nand 设备。
+
+在将镜像刻录到之前 Nand，请准备一个 USB 磁盘。让我们采取 OpenWrt 镜像 (mtk-bpi-r3mini-NAND-20230719-single-image.bin) 例如，步骤如下：
+
+. 复制 Nand 启动 OpenWrt 镜像(mtk-bpi-r3mini-NAND-20230719-single-image.bin) 到 USB 磁盘。
+ . 更改启动开关跳线，板子从启动开关 EMMC 设备，然后给开发板上电。
+ . 插入 USB 磁盘到板上，并安装 USB 到 /mnt 或其他目录如下： (如果自动安装则可以跳过安装)
++
+```sh
+mount -t vfat /dev/sda1 /mnt
+```
+将目录更改为安装点，这里是：
++
+```sh
+cd /mnt
+```
+. 执行以下命令即可全部擦除 Nand 闪存并将镜像复制到 nand 设备：
++
+```sh
+mtd erase /dev/mtd0
+dd if=mtk-bpi-r3mini-NAND-20230719-single-image.bin of=/dev/mtdblock0
+```
+. 关闭电源 BPI-R3 MINI 主板，删除U盘驱动，更改引导程序以启动 Nand 设备。
++
+WARNING: 注意：启用 Nand 设备，引导带来自 Nand.
+
+=== jffs2错误解决办法
+
+烧完后 emmc，切换到emmc开机，但串口一直输出jffs2错误。您可以使用下面的方法来解决。
+
+. 首先，切换回 NAND 启动。执行以下命令将零写入 emmc.
++
+```sh
+dd if=/dev/zero of=/dev/mmcblk0
+```
+. 然后重新烧录 emmc 根据 link:/en/BPI-R3_Mini/GettingStarted_BPI-R3_Mini#_install_image_to_onboard_emmc[文件].
+
+
+
+== 网络配置
+网络配置参考： http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:network:start
+
+网络接口：eth1用于WAN； eth0、rax0、ra0用于LAN，ra0用于2.4G无线，rax0用于5G无线。
+
+image::/picture/bpi-r3_mini_interface.jpg[bpi-r3_mini_interface.jpg]
+
+```sh
+root@OpenWrt:/# ifconfig
+br-lan Link encap:Ethernet HWaddr EE:A1:57:81:CA:19
+         inet addr:192.168.1.1  Bcast:192.168.1.255  Mask:255.255.255.0
+         inet6 addr: fe80::eca1:57ff:fe81:ca19/64 Scope:Link
+         inet6 addr: fd63:8bea:d5ce::1/60 Scope:Global
+         UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+         RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:15 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:0 (0.0 B)  TX bytes:2418 (2.3 KiB)
+         
+br-wan Link encap:Ethernet HWaddr EE:A1:57:81:CA:19
+         inet6 addr: fe80::eca1:57ff:fe81:ca19/64 Scope:Link
+         UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+         RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:34 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:0 (0.0 B)  TX bytes:8538 (8.3 KiB)
+         
+eth0 Link encap:Ethernet HWaddr EE:A1:57:81:CA:19
+         inet6 addr: fe80::eca1:57ff:fe81:ca19/64 Scope:Link
+         UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+         RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:32 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:0 (0.0 B)  TX bytes:4408 (4.3 KiB)
+         Interrupt:124
+         
+eth1 Link encap:Ethernet HWaddr 4A:BB:84:B4:5D:3F
+         UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+         RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:34 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:0 (0.0 B)  TX bytes:8674 (8.4 KiB)
+         Interrupt:124
+         
+lo Link encap:Local Loopback
+         inet addr:127.0.0.1  Mask:255.0.0.0
+         inet6 addr: ::1/128 Scope:Host
+         UP LOOPBACK RUNNING  MTU:65536  Metric:1
+         RX packets:56 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:56 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:4368 (4.2 KiB)  TX bytes:4368 (4.2 KiB)
+         
+ra0 Link encap:Ethernet HWaddr 00:0C:43:26:60:38
+         UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+         RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+         Interrupt:6
+         
+rax0 Link encap:Ethernet HWaddr 02:0C:43:36:60:38
+         UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+         RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+         TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+         collisions:0 txqueuelen:1000
+         RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+```
+
+```sh
+root@OpenWrt:/# brctl show br-wan
+bridge name bridge id STP enabled interfaces br-wan 7fff.eea15781ca19 no eth1
+root@OpenWrt:/# brctl show br-lan
+bridge name bridge id STP enabled interfaces br-lan 7fff.eea15781ca19 no eth0, rax0, ra0, apclix0, apcli0
+```
+
+=== iperf3测试
+
+image::/picture/r3mini-case-wanlana.png[r3mini-case-wanlana.png]
+
+**2.5G Ethernet:**
+|=====
+|R3迷你A(广域网)---|            |
+|               |2.5G女巫 |---Ethernet
+|R3迷你B(广域网)---|            |
+3+|R3miniA <--------iperf3------> R3miniB
+|=====
+
+image::/picture/r3mini-iperf3-wan.png[r3mini-iperf3-wan.png]
+
+[option="header",cols="2,1,1"]
+|=====
+|                    R3迷你A(广域网)---|            |
+|                                   |2.5G女巫 |---Ethernet      
+|R3迷你C(广域网)---(局域网)R3迷你B(广域网)---|            |
+3+|R3miniC <--------iperf3------> R3miniA     
+|=====
+image::/picture/r3mini-iperf3-switch.png[r3mini-iperf3-switch.png]
+
+**5G无线网络：**
+
+iPhone 5Gwifi <--------iperf3------> (无线网络) BPI-R3mini
+
+WARNING: 注意：iPhone与R3mini之间的距离约为一米。
+
+image::/picture/r3mini-wifitesta.png[r3mini-wifitesta.png]
+
+=== 无线网络设置
+
+. 您可以在系统的配置中更改其配置 /etc/config/wireless 目录。
++
+```sh
+
+config wifi-device 'radio0'
+        option type 'mac80211'
+        option path 'platform/18000000.wbsys'
+        option channel '1'
+        option band '2g'
+        option htmode 'HE20'
+        option cell_density '0'
+
+config wifi-iface 'default_radio0'
+        option device 'radio0'
+        option network 'lan'
+        option mode 'ap'
+        option encryption 'none'
+        option ssid 'OpenWrt-2.4G'
+
+config wifi-device 'radio1'
+        option type 'mac80211'
+        option path 'platform/18000000.wbsys+1'
+        option channel '36'
+        option band '5g'
+        option htmode 'HE80'
+        option cell_density '0'
+
+config wifi-iface 'default_radio1'
+        option device 'radio1'
+        option network 'lan'
+        option mode 'ap'
+        option encryption 'none'
+        option ssid 'OpenWrt-5G'
+```
+
+. 您可以通过网络进行设置。两个官方网站的WiFi设置界面有所不同。
+
+NOTE: 如果 部分中列出了 MTK，则 WiFi 设置界面将是 MTK 内的界面。
+
+.. 第一种方法涉及使用网络设置中的无线接口。您将看到相应的 2.4G 和 5G WiFi 连接，右侧有一个用于配置的“编辑”按钮。
++
+image::/bpi-r3mini/bpi-r3_mini_wifi_setting1.jpg[bpi-r3_mini_wifi_setting1.jpg]
++
+设定模式
++
+image::/bpi-r3mini/bpi-r3_mini_wifi_setting2.jpg[bpi-r3_mini_wifi_setting2.jpg]
++
+设置加密 (设置密码)
++
+image::/bpi-r3mini/bpi-r3_mini_wifi_setting3.jpg[bpi-r3_mini_wifi_setting3.jpg]
+
+.. 第二种方法涉及在 MTK 设置中配置 WiFi。
++
+image::/bpi-r3mini/bpi-r3_mini_wifi_setting4.jpg[bpi-r3_mini_wifi_setting4.jpg]
++
+右侧有一个配置按钮。
++
+image::/bpi-r3mini/bpi-r3_mini_wifi_setting5.jpg[bpi-r3_mini_wifi_setting5.jpg]
+
+
+== 高级开发
+=== GPIO 控制
+```sh
+echo xxx > /sys/class/gpio/export
+echo in/out > /sys/class/gpio/gpioxxx/direction
+echo 0/1 > /sys/class/gpio/gpioxxx/value
+```
+检查底座 gpio，你可以看到我的是411
+
+
+
+例如：如果你想改变 gpio 22 作为高级，你需要输入这样的命令：
+```sh
+echo 433（22+411） > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio433/direction
+echo 1 > /sys/class/gpio/gpio433/value
+```
+
+=== 风扇
+
+image::/picture/r3mini-fan-con.png[r3mini-fan-con.png]
+
+CN16是1.25间距3PIN插座，用于连接风扇，支持 PWM 控制。
+
+=== PWM 风扇控制
+```sh
+echo 0 > /sys/class/pwm/pwmchip0/export
+echo 10000 > /sys/class/pwm/pwmchip0/pwm0/period
+echo 5000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+echo normal > /sys/class/pwm/pwmchip0/pwm0/polarity
+echo 1 > /sys/class/pwm/pwmchip0/pwm0/enable
+```
+
+=== M.2 KEY B 插槽
+目前，M.2 KEY B 插槽仅支持 USB 4G/5G 模块，例如：移远RM500U-CN或RM520N-GL
+
+image::/picture/r3mini-rm500u-1000.png[r3mini-rm500u-1000.png]
+
+当你安装一个时 4G/5G 模块，你可以检查一下。
+
+=== 4G/5G 模块
+BPI-R3mini 支持 **M.2 键盘 USB 接口** 蜂窝网络模块：4G LTE EM05、5G Quectel RM500U-CN/RG200U-CN 和 RM520N-GL/RM500Q-GL 系列。
+
+发布的图像(2023年9月12日或之后) 默认驱动为 RM500U-CN 和 RM520N-GL，安装这两个模块之一即可直接使用。
+
+如果使用EM05或其他，您很可能需要修改驱动程序。
+
+. 安装 4G/5G 蜂窝模块插入 CN4 插槽(M.2 键盘)
+. 插入 NANOSIM 卡
+. 在模块上安装天线
+. 开机后会自动拨号
+
+WARNING: 注：可用性 4G/5G 取决于本地载波频段。
+
+image::/picture/bpi-r3_mini_cellular.jpg[bpi-r3_mini_cellular.jpg]
+
+**RM520N-GL**
+```sh
+wwan0     Link encap:Ethernet  HWaddr C2:CA:76:42:83:EC
+          NOARP  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+wwan0_1   Link encap:Ethernet  HWaddr C2:CA:76:42:83:EC
+          NOARP  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+          
+root@OpenWrt:/#
+root@OpenWrt:/# lsusb
+Bus 001 Device 001: ID 1d6b:0002 Linux 5.4.188 xhci-hcd xHCI Host Controller
+Bus 002 Device 002: ID 2c7c:0801 Quectel RM520N-GL
+Bus 002 Device 001: ID 1d6b:0003 Linux 5.4.188 xhci-hcd xHCI Host Controller
+root@OpenWrt:/#
+root@OpenWrt:/# ping ping baidu .com
+PING baidu.com (110.242.68.66) 56 data bvtes
+64 bytes from 110.242.68.66: seq=0 ttl=50 time=38.540 ms
+64 bytes from 110.242.68.66: seq=1 ttl=50 time=38.276 ms
+64 bytes from 110.242.68.66: seq=2 ttl=50 time=38.355 ms
+64 bytes from 110.242.68.66: seq=3 ttl=50 time=38.788 ms
+^C
+--- baidu.com ping statistics ---
+4 packets transmitted, 4 received，0% packet loss
+round-trip min/avg/max = 38.276/38.490/38.788 ms
+root@OpenWrt:/#
+```
+
+**RM500U-CN**
+
+```sh
+usb0      Link encap:Ethernet  HWaddr 46:F7:1B:36:AE:26
+          inet addr:10.101.26.65  Bcast:10.101.26.255  Mask:255.255.255.0
+          inet6 addr: 2409:895a:30a9:55e2:44f7:1bff:fe36:ae26/64 Scope:Global
+          inet6 addr: fe80::5c3b:9cff:fe76:7c46/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:191 errors:0 dropped:2 overruns:0 frame:0
+          TX packets:243 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:71800 (70.1 KiB)  TX bytes:35923 (35.0 KiB)
+root@R3mini-Router:/# 
+root@R3mini-Router:/# lsusb
+Bus 001 Device 001: ID 1d6b:0002 Linux 5.4.171 xhci-hcd xHCI Host Controller
+Bus 002 Device 002: ID 2c7c:0900 RM500U-CN
+Bus 002 Device 001: ID 1d6b:0003 Linux 5.4.171 xhci-hcd xHCI Host Controller
+root@R3mini-Router:/#
+```
+
+=== Wi-Fi Ap 模式开启 BPI-R3mini
+* ra0是MT7986a 2.4G wifi
+* rax0是MT7986a 5G wifi
+
+=== 串口线
+因为UART0_调试口的TXD也是wifi band引脚，上电时需要拉低该引脚，
+
+有些串口线有强上拉，如PL2303，如果在上电前插入，会导致wifi芯片无法识别，导致wifi功能失效。
+
+其他型号包括cp2102、ch340、FDTI均可，串口线电源必须是3.3v TTL标准。
+
+您可以在此处购买串行电缆： https://www.aliexpress.us/item/3256805457599756.html
+
+image::/picture/r3mini-usbc2uart.png[r3mini-usbc2uart.png]
+
+如果您的计算机有 USB TypeC 连接器和支架 PD12V/1.5A (20W) 或以上，也可以直接使用电脑供电 BPI-R3mini.
+
+而且，由于 BPI-R3mini 有内置的 USB 对于串口芯片CH340E，不需要使用额外的串口线。
+
+WARNING: 注意：如果您的计算机不支持 USB PD，那么R3mini很可能会不断重启。
+
+因为R3mini的功耗比较大 (所有外设均已插入，运行时功耗接近20W)
+
+== 源码镜像烧录
+
+源码地址： https://github.com/BPI-SINOVOIP/BPI-R3MINI-OPENWRT-V21.02.3
+
+NAND-生成的镜像名称： openwrt-mediatek-mt7986-BPI-R3MINI-NAND-squashfs-sysupgrade.bin
+
+NAND 图片生成路径：BPI-R3MINI-OPENWRT-V21.02.3/bin/targets/mediatek/mt7986
+
+EMMC-生成的图片名称： mtk-bpi-r3mini-EMMC.img
+
+EMMC 图片生成路径：BPI-R3MINI-OPENWRT-V21.02.3/build_dir/target-aarch64_cortex-a53_musl/linux-mediatek_mt7986
+
+NAND 烧伤：
+
+您可以通过在 uboot 菜单中选择“升级单个映像”来使用 Xmodem 刷新程序。
+
+image::/bpi-r3mini/r3mini-source_code-nandimage.jpg[r3mini-source_code-nandimage.jpg]
+
+TIP: 您可以参考 EMMC 编程方法：
+https://docs.banana-pi.org/en/BPI-R3_Mini/GettingStarted_BPI-R3_Mini#_install_image_to_onboard_emmc
+
+= FAQ
+MT7986a开发板参考手册(BPi)
+
+谷歌云端硬盘： https://drive.google.com/file/d/1biSJmxnIpNzQroYDg9mtPtSTAv4i0DFf/view?usp=sharing
+
+=== TTL电压
+调试 uart 为3.3V TTL电源域。
+
+= 参考链接
+http://forum.banana-pi.org/
