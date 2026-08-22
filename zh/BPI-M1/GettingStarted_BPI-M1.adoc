@@ -1,0 +1,148 @@
+= 简介
+
+香蕉派 M1 是我们实现创建开源开发板社区目标的第一个产品。借助 香蕉派，我们希望您能够探索和体验 DIY 项目和便携式计算的世界。我们欢迎社区中所有公司、DIY 者和技术爱好者！只要我们齐心协力，我们就可以做出改变，我们可以发现我们的激情，激励他人，并建立一个实际的项目。
+
+TIP: 更多信息： link:/en/BPI-M1/BananaPi_BPI-M1[香蕉派 BPI-M1]
+
+== 主要特性
+
+- Allwinner A20双核1.0GHz CPU
+- 带 Open GL ES 的 Mali-400 MP2 2.0/1.1.
+- 1 GB DDR3 内存。
+- 1 个 SATA 接口。
+- 1 个千兆网卡
+- 1x USB otg 和 2x USB 2.0
+- 1 个麦克风
+- AV 视频输出
+- HDMI输出
+- 红外
+- CSI相机接口
+- DSI显示接口
+- 26针 GPIO
+
+= 开发
+== 阿姆比安
+=== 基本要求
+
+x86_具有至少 2GB 内存的 64 或 aarch64 机器 ~35GB 磁盘空间用于虚拟机、容器或裸机安装 Ubuntu Jammy 22.04.x amd64 或 aarch64 用于本机构建或任何 Docker 支持 amd64 / aarch64 Linux 用于集装箱
+
+```bash
+apt-get -y install git
+ git clone https://github.com/armbian/build
+ cd build
+ ./compile.sh
+```
+
+=== 最新图片
+
+link:https://www.armbian.com/bananapi/[https://www.armbian.com/bananapi/]
+
+== Android
+=== 准备
+下载凤凰卡： link:https://pan.baidu.com/s/1-fjvPqtG_zewVzqnXf1AHw?pwd=eid9[下载链接]
+
+=== 在 M1 上加载您的第一张图像
+
+. 下载 M1 映像。
+. 将您的 TF 卡插入 TF-USB 适配器，然后将适配器插入您的 Windows 电脑 usb 界面。
+. 准备好镜像，下载镜像刻录工具PhoenixCard.exe。
+. 使用“PhoenixCard.exe”进行刻录 android 镜像到TF卡。
+- 在图像路径选项中选择图像
++
+image::/picture/m1-android-1.jpg[m1-android-1.jpg]
+image::/picture/m1-android-2.jpg[m1-android-2.jpg]
+
+- 选择设置为卡启动，然后点击刻录镜像
++
+image::/picture/m1-android-3.jpg[m1-android-3.jpg]
+
+- 燃烧结束。
++
+image::/picture/m1-android-4.jpg[m1-android-4.jpg]
+
+
+=== 如何生成M1 Bsp代码
+
+```sh
+Prepare a PC which runs ubuntu
+Install Docker-ce on your PC，https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce
+After install Docker, execute "docker pull sinovoip/bpi-build-android:a20_01", to pull image
+Then you pulled image, execute "docker run --privileged -d -p 2223:22 -v /media:/media sinovoip/bpi-build-android:a20_01" 
+"ssh -p 2223 root@127.0.0.1 #default passwd is root"
+Execute "git clone https://github.com/BPI-SINOVOIP/BPI-M1-bsp.git" on your ubuntu terminal
+Execute "./build.sh" to build M1 bsp code
+After built, open a new terminal, execute "docker cp xxxxx(your container id):xxxxx(your project path) xxxxx(your pc path)"
+```
+
+image::/picture/docker_operate.png[docker_operate.png]
+
+== Linux
+=== 加载 linux M1 上的镜像
+
+. 从论坛下载最新的镜像。
+. 将 TF 卡插入读卡器并将其插入 PC USB 界面。
+. 下载刷机工具“BalenaEtcher”并启动。
+. 单击“Flash from file”以选择您的镜像文件。(.img 或 .zip)
+. 点击“选择目标”即可选择您的目标 USB 设备。
+. 开始闪烁并等待片刻。
+
+image::/picture/etcher.jpg[etcher.jpg]
+
+
+== 基础开发
+=== 准备开发
+
+* 准备 8G/above TF卡、 USB-串行接口，PC Ubuntu 系统
+* 使用您的 USB-M1 上的串行连接调试控制台
+
+image::/picture/debug_console_wire.png[debug_console_wire.png]
+
+image::/picture/m1_uart_pins.png[m1_uart_pins.png]
+
+image::/picture/m1_console_interface.png[m1_console_interface.png]
+
+=== 在 M1 上加载您的第一张图像
+
+. 您可以从我们的论坛下载最新图片 
+. 安装 bpi-tools 在您的系统上。如果您无法访问此网址或有任何其他问题，请访问 bpi-tools 存储库并手动安装此工具。
++
+```sh
+apt-get install pv
+curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
+```
+. 下载镜像后，将TF卡插入电脑Ubuntu
++
+```sh
+Execute "bpi-copy xxx.img /dev/sdx" to install image on your TF card.
+```
+. 步骤3后，您可以将TF卡插入M1，然后按电源按钮设置M1
+
+=== 更新您的图像
+
+. 更新您的 BPI 工具
++
+```sh
+bpi-tools
+```
+. 下载新的驱动程序以更新您的映像
++
+```sh
+bpi-update -c bpi-m1.conf
+```
+. 检查下载文件类型是否为压缩数据
++
+```sh
+file *.tgz
+```
+. 执行
++
+```SH
+bpi-bootsel
+```
+您将看到引导加载程序路径，“/usr/lib/u-boot/bananapi/u-boot-2018.01/u-boot-2018.01-bpi-m1-8k.img.gz”
+. 更新您的引导加载程序
++
+```sh
+bpi-bootsel /usr/lib/u-boot/bananapi/u-boot-2018.01/u-boot-2018.01-bpi-m1-8k.img.gz
+```
+. 重新启动
