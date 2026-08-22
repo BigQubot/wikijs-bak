@@ -4,29 +4,29 @@
 
 = 使用方法
 
-NOTE: 以保证您的漫游信号能够连接到相应模块的天线。
+NOTE: 为确保蜂窝网络信号正常，请连接与所用模块对应的天线。
 
-. 找到对应的SIM卡槽并插入SIM卡。插槽大致有两种类型。
+. 找到对应的 SIM 卡槽并插入 SIM 卡。卡槽大致分为两种。
 +
-第一种卡槽与R4类似，需要将Cato插入SIM卡槽。
+第一种与 BPI-R4 类似，需要先将 SIM 卡装入卡托，再把卡托插入卡槽。
 +
 image::/bpi-r4/bpi-r4_4g5g_2.jpg[bpi-r4_4g5g_2.jpg]
 +
-另一种与R3mini类似。
+另一种与 BPI-R3 Mini 类似。
 +
 image::/picture/bpi-r3_mini_cellular.jpg[bpi-r3_mini_cellular.jpg]
 
-. 系统会自动拨打电话并获取IP地址。
+. 系统会自动拨号并获取 IP 地址。
 
-. 如果您的主板没有自动拨号功能，请使用“quectel-CM &”命令进行呼叫。
+. 如果开发板不支持自动拨号，请运行“quectel-CM &”命令手动拨号。
 
-拨号成功如下：
+拨号成功后的输出如下：
 
 **EM05-CN**
 
 
 
-== EM05-CN使用方法
+== 使用 EM05-CN
 
 **EM05-CN**
 ```sh
