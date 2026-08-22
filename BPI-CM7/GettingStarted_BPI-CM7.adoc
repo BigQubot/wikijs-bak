@@ -1,0 +1,205 @@
+= Introduction
+
+Banana Pi BPI-CM7 is an Allwinner H618 compute module designed for use with the BPI-CM7IO carrier board.
+
+TIP: More Infomation: link:/en/BPI-CM7/BananaPi_BPI-CM7[Banana Pi BPI-CM7 Main Page]
+
+== Specifications
+
+* Allwinner H618, Quad-core ARM Cortex™-A53 processor, up to 1.5 GHz
+* ARM Mali G31 GPU
+* Onboard LPDDR4 memory
+* Onboard eMMC storage
+* K019-CW43-Dw Wi-Fi 5 and Bluetooth 5.0 module
+* 1x USB 2.0 OTG
+* 3x USB 2.0 Host
+* 1x HDMI output
+* 1x 10/100M Ethernet
+* 1x microSD interface
+* 2x 100-pin board-to-board connectors
+
+= Andriod
+
+== Prepare
+
+== Install Image with USB tool ==
+
+= Linux development
+
+== Prepare
+
+Tested system:
+
+* Board: Banana Pi BPI-CM7 with BPI-CM7IO
+* OS: Armbian 24.11.1 jammy / Ubuntu 22.04.5 LTS
+* Kernel: Linux 5.4.125-legacy-sunxi64
+* Architecture: arm64
+* CPU: 4 x Cortex-A53, up to 1512 MHz
+* Memory: 1.9 GiB available to Linux
+* Boot device: microSD, `/dev/mmcblk1p1`
+* eMMC: `/dev/mmcblk0`, 29.3 GiB
+* Login user used for the test: `pi`
+
+== Install Image to SDcard
+
+== Install the image to eMMC
+
+== Erase eMMC
+
+== Desktop
+
+The tested image uses `graphical.target`. LightDM was active during the test.
+
+```bash
+systemctl get-default
+systemctl is-active display-manager
+```
+
+== Debug UART
+
+The tested image configures the debug console as `ttyAS0` at 115200 baud.
+
+```bash
+console=ttyAS0,115200
+```
+
+== SSH
+
+The SSH service was active and remote login was tested successfully.
+
+```bash
+ssh pi@<board-ip>
+```
+
+== NoMachine Remote Desktop
+
+== armbian-config
+
+`armbian-config` is installed in the tested image.
+
+```bash
+sudo armbian-config
+```
+
+== WiFi
+
+The `wlan0` interface was detected, was not blocked by rfkill, and successfully scanned nearby Wi-Fi access points.
+
+```bash
+nmcli device
+nmcli device wifi list
+rfkill list
+```
+
+== Set static IP, DNS
+
+== Network time synchronization
+
+The tested image uses Chrony. Network time synchronization was active and the system clock was synchronized.
+
+```bash
+timedatectl status
+systemctl status chrony
+```
+
+== View hardware temperature
+
+The tested image exposes four thermal zones.
+
+```bash
+for zone in /sys/class/thermal/thermal_zone*; do
+  echo "$(cat "$zone/type"): $(awk '{printf "%.1f", $1/1000}' "$zone/temp") °C"
+done
+```
+
+Test result:
+
+```text
+cpu_thermal_zone: 50.2 °C
+ddr_thermal_zone: 51.4 °C
+gpu_thermal_zone: 53.4 °C
+ve_thermal_zone: 50.8 °C
+```
+
+== Use USB disk
+
+== Use Audio Devices
+
+=== HDMI audio
+
+=== 3.5mm audio jack
+
+=== Terminal command to play audio files
+
+The tested image detected the analog codec and HDMI audio playback devices.
+
+```bash
+aplay -l
+```
+
+```text
+card 0: audiocodec
+card 1: ahubhdmi
+```
+
+==== Play through the 3.5mm audio jack
+
+==== Audio playback via HDMI
+
+== Use Bluetooth
+
+== Use IR Receiver
+
+== Transfer files
+
+=== scp
+
+SCP transfer over the LAN was tested successfully.
+
+```bash
+scp local-file pi@<board-ip>:/home/pi/
+scp pi@<board-ip>:/home/pi/remote-file ./
+```
+
+=== mobaxterm
+
+== nano - text editor
+
+GNU nano is installed in the tested image.
+
+```bash
+nano [file path]
+```
+
+. Edit the file.
+. Press `Ctrl+O` to save.
+. Press `Enter` to confirm the file name.
+. Press `Ctrl+X` to exit.
+
+== Set boot logo
+
+=== on/off boot logo
+
+The tested image has `bootlogo=true` in `/boot/armbianEnv.txt`.
+
+```bash
+sudo nano /boot/armbianEnv.txt
+```
+
+Set `bootlogo=true` to enable the boot logo or `bootlogo=false` to disable it.
+
+=== Replace boot logo
+
+== 40 pin interface GPIO, I2C, UART, SPI, and PWM testing
+
+=== GPIO
+
+=== I2C
+
+=== UART
+
+=== SPI
+
+=== PWM
+
+== HDMI
