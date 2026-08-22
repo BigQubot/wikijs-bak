@@ -1,0 +1,48 @@
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_development_tutorialbased_on_microbit[位用于 MicroPython]
+
+= MPU9250 9轴传感器
+BPI:Bit 使用一个 9 轴传感器 MPU9250，放置在 BPI:bit 板上。和MPU9250使用 I2C 0x69地址。
+
+9 轴是 3 个独立的三轴传感器的组合。欲了解该芯片的更多详细信息，请点击这里 link:https://github.com/yelvlab/BPI-BIT/blob/master/doc/MPU-9250A-01-v1.1.pdf[MPU 9250 数据表] 查看数据表。
+
+BPI-BIT MPU9250 库以及如何： https://github.com/BPI-STEAM/MPU9250
+
+= 板位姿态检测
+该模块可以获取板子当前的九轴姿态值，分别是加速度、重力、磁感应强度 (X, Y, Z).
+
+最基本的功能就是获取它们当前的X、Y、Z值来判断此时板子的运动状态。例如，加速度的z值有少量增加，表明板子在z轴方向移动 (有加速)，所以我们可以判断棋盘是在z轴上方的方向移动。
+
+== 基于使用
+简单的介绍之后，我们就可以设计一个简单的判断了，比如获取板子的平衡情况，以加速度计加速度模块为例，获取它的X轴的值，就可以得到一个基本值，如果该值大于20则说明它在右边，如果小于20，则说明它在左边，如果介于两者之间，则说明它是平衡的，于是就有了下面的代码，L表示左边，而R表示板子右边，试试吧！
+```sh
+from microbit import *
+while True:
+   reading = accelerometer.get_x()
+   if reading > 20:
+       display.show("R")
+   elif reading < -20:
+       display.show("L")
+   else:
+       display.show("-")
+```
+
+== 先进的使用
+手势检测，如上下、左右、前后、摇晃落地等，下面的代码是，当棋盘朝上时，显示笑脸，而朝下时，显示愤怒表情。
+```sh
+from microbit import *
+while True:
+   gesture = accelerometer.current_gesture()
+   if gesture == "face up":
+       display.show(Image.HAPPY)
+   else:
+       display.show(Image.ANGRY)
+```
+
+== 有趣的游戏
+基于前面应用的基础，我们可以制作一个好玩的游戏，代码在最下面的链接中，最下面也有相应的实测动画，可能需要加载一段时间，有些庞大。
+
+link:https://github.com/BPI-STEAM/BPI-BIT-MicroPython/blob/master/11.app/balance_ball.py[平衡球代码] (对于 BPI：位硬件版本 1.4)
+
+
+
+有了这个MPU-9250 9轴传感器，我们还可以做很多基本的姿态检测功能，是一个非常扩展的功能模块
