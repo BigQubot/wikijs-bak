@@ -1,0 +1,470 @@
+= 简介
+
+香蕉派 BPI-M2 Ultra 是一款四核迷你单板计算机，内置 Allwinner R40 SoC。它具有 2GB RAM 和8GB eMMC。它还具有板载 WiFi 和 BT。在端口方面， BPI-M2 Ultra 有 2 USB A 2.0端口，1个 USB OTG端口、1个HDMI端口、1个音频插孔、1个DC电源端口、1个SATA端口。
+
+TIP: 更多信息： link:/en/BPI-M2_Ultra/BananaPi_BPI-M2_Ultra[香蕉派 BPI-M2_Ultra]
+
+香蕉派 BPI-M2 Berry 是一款四核迷你单板计算机，内置 Allwinner V40 SoC。它具有 1GB RAM 。它还具有板载 WiFi 和 BT。在端口方面， BPI-M2 Berry 有 4 个 USB A 2.0端口，1个 USB OTG端口、1个HDMI端口、1个音频插孔、1个DC电源端口、1个SATA端口。
+
+TIP: 更多信息： link:/en/BPI-M2_Berry/BananaPi_BPI-M2_Berry[香蕉派 BPI-M2_Berry]
+
+== 规格参数
+=== BPI-M2 Ultra
+- 四核 ARM Cortex A7 CPU R40
+- 2GB DDR3 内存
+- 8GB eMMC 存储
+- 无线网络 (AP6212) & 板载蓝牙
+- SATA接口
+
+=== BPI-M2 Berry
+- 四核 ARM Cortex A7 CPU V40.
+- 1GB DDR3 内存。
+- 无线网络 (AP6212) & 板载蓝牙。
+- SATA接口
+
+= 开发
+== Android
+=== 准备
+下载凤凰卡： https://pan.baidu.com/s/1-fjvPqtG_zewVzqnXf1AHw?pwd=eid9
+
+=== 将映像安装到 SD 卡
+ 
+. 将您的 TF 卡插入 TF-USB 适配器，然后将适配器插入您的 Windows 电脑 usb 界面。
+. 准备好镜像，下载镜像刻录工具PhoenixCard.exe。
+. 使用“PhoenixCard.exe”进行刻录 android 镜像到TF卡。
+- 在图像路径选项中选择图像
++
+image::/picture/m2u-android-sd-1.jpg[m2u-android-sd-1.jpg]
+image::/picture/m2u-android-sd-2.jpg[m2u-android-sd-2.jpg]
+
+- 选择设置为卡启动，然后点击刻录镜像
++
+image::/picture/m2u-android-sd-3.jpg[m2u-android-sd-3.jpg]
+
+- 燃烧结束，
++
+image::/picture/m2u-android-sd-4.jpg[m2u-android-sd-4.jpg]
+
+=== 安装镜像到 eMMC
+
+. 将您的 TF 卡插入 TF-USB 适配器，然后将适配器插入您的 Windows 电脑 usb 界面。
+. 准备好镜像，下载镜像刻录工具PhoenixCard.exe。
+. 使用“PhoenixCard.exe”进行刻录 android 镜像到TF卡。
+- 在图像路径选项中选择图像
++
+image::/picture/m2u-android-sd-1.jpg[m2u-android-sd-1.jpg]
+image::/picture/m2u-android-sd-2.jpg[m2u-android-sd-2.jpg]
+
+- 选择量产卡，然后点击烧录镜像
++
+image::/picture/m2u-android-emmc-1.jpg[m2u-android-emmc-1.jpg]
+
+- 燃烧结束。
++
+image::/picture/m2u-android-emmc-2.jpg[m2u-android-emmc-2.jpg]
+
+. 镜像烧录完成后，将SD卡插入板子，上电启动。启动后，镜像会自动烧录到板子上 EMMC.
++
+image::/picture/m2u-android-emmc-3.jpg[m2u-android-emmc-3.jpg]
++
+也可以通过灯光来判断。当红灯由常亮变为闪烁时，表示燃烧完成。
++
+image::/picture/m2u-android-emmc-4.jpg[m2u-android-emmc-4.jpg]
+
+.  烧录完成后，将切断电源，并取出SD卡。再次通电即可从 EMMC.
+
+== Linux
+=== 准备
+
+. Linux 镜像支持SD卡或 EMMC 启动
+. 建议使用A1级卡，至少8GB。
+. M2 Ultra 和 M2 Berry 兼容 Linux 镜像。
+. 安装 bpi-tools 在你的 Linux 电脑(如果使用其他工具刷入镜像，请忽略此步骤)。如果您无法访问此 URL 或出现任何其他安装问题，请转至 link:https://github.com/bpi-sinovoip/bpi-tools[bpi-tools] 源存储库，手动下载并安装此工具。
++
+```sh
+ $ apt-get install pv
+ $ curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
+```
+. 下载最新的 Linux 镜像，并确认md5校验和正确。
+. 默认登录： pi/bananapi 或 root/bananapi
+
+=== 将映像安装到 SD 卡
+**Windows 电脑**
+
+使用 Balena Etcher 安装映像。 +
+link:https://balena.io/etcher[巴莱纳蚀刻机] 是 Balena 的开源 GUI 闪存工具，可将操作系统映像闪存到 SD 卡或 USB 开车。
+
+. 点击“**从文件闪存**”来选择镜像。 
+. 点击“**选择目标**”来选择 USB 设备。 
+. 点击“**快闪！**“开始燃烧。
+
+image::/picture/etcher.jpg[etcher.jpg]
+
+**Linux 电脑**
+
+**有两种方法供您选择。**
+
+. 使用 dd 命令安装镜像 Linux,卸载SD卡设备 /dev/sdX 如果自动安装则分区。其实 bpi-copy 与此 dd 命令相同。
++
+```sh
+ $ sudo apt-get install pv unzip
+ $ sudo unzip -p xxx-bpi-m2-ultra-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxfer
+```
+. 安装镜像 bpi-tools 上 Linux，插入SD卡 Linux 电脑并运行
++
+```sh
+ $ sudo apt-get install pv unzip
+ $ sudo bpi-copy xxx-bpi-m2-ultra-xxx.img.zip /dev/sdX
+```
+
+=== 安装镜像到 eMMC
+
+. 准备一张SD卡 Linux 镜像闪存和启动板与此 SD 卡。
+. 解压镜像并将其复制到 USB 驱动器，将U盘插入板上并安装。（如果自动安装，请忽略此步骤）
++
+```sh
+mount /dev/sdx /mnt
+```
+. 有两种安装方式linux镜像到板上。
+- 使用dd命令安装。
++
+```sh
+sudo dd if=/mnt/xxx.bpi-m2-ultra-xxx.img of=/dev/mmcblk0 bs=10M status=noxfer
+```
+- 安装 linux 乌磁盘中的镜像 bpi-tools 命令
++
+```sh
+ $ sudo bpi-copy xxx-bpi-m2-ultra-xxx.img.zip /dev/mmcblk0
+```
+. 下载完成后，安全关闭电源并弹出 SD 卡。
+
+== 高级开发
+=== 如何构建uboot和内核
+**安装工具**
+```sh
+apt-get udpate
+apt-get install gcc-arm-linux-gnueabihf u-boot-tools
+apt-get install pv
+curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
+```
+
+**克隆代码**
+```sh
+git clone: https://github.com/BPI-SINOVOIP/BPI-M2U-bsp.git
+./build.sh
+```
+
+=== SATA
+. 在 M2U 上安装 SATA
++
+image::/picture/m2u_sata.png[m2u_sata.png]
++
+插入sata接口后，执行
++
+```sh
+fdisk -l
+```
++
+image::/picture/m2u_sata_fdisk_l.png[m2u_sata_fdisk_l.png]
++
+然后
++
+```sh
+mount /dev/sdx /mnt/xxx
+```
+. 如果您在挂载 SATA 时遇到一些错误，请尝试以下命令：
++
+- 创建新分区
++
+```sh
+fdisk /dev/sdx
+```
+设置分区数量和大小，创建分区后，输入“**瓦克**” 保存并退出。
+- 格式化SATA
++
+```sh
+mkfs.ext2 /dev/sdx
+```
+- 坐骑
++
+```sh
+mount /dev/sdx /mnt/xxx
+```
+. 成功插入SATA后，我们可以输入以下命令来测试SATA接口：
+- 测试读取速度
++
+```sh
+time dd if=/dev/xxx of=/dev/null bs=1M count=1000
+```
+- 测试写入速度
++
+```sh
+time dd if=/dev/zero of=/dev/sdx bs=1M count=1000
+```
++
+image::/picture/sata_test.png[sata_test.png]
+
+=== OTG
+. 在 M2U 控制台上：
++
+执行 
++
+```sh
+/usr/local/bin/adbd.sh
+```
+然后执行
++
+```sh
+ps -ax | grep adbd
+```
+查看 adbd 是否已设置
++
+image::/picture/m2p_adbd.png[m2p_adbd.png]
+
+. PC端：
++
+- 如果adbd设置成功，插入OTG-USB M2U 和 PC 接口(与 Ubuntu 系统)
+- 执行 
++
+```sh
+adb devices
+```
+查看PC是否已识别M2U OTG
+- 如果是的话，我们可以执行
++
+```sh
+adb shell
+```
+现在通过 adb 连接 M2U
++
+image::/picture/m2p_adbd_shell.png[m2p_adbd_shell.png]
+
+=== LCD 5" & LCD 7"
+
+- 执行 
++
+```sh
+bpi-bootsel
+```
+您将看到启动文件列表。
+- 查找“**BPI_M2U_LCD7.img.gz**"
+- 然后执行 
++
+```sh
+bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m2u/BPI_M2U_LCD7.img.gz
+```
+
+=== 通用汽车MAC
+使用iperf3测试gmac
+
+. 在PC端：
+
+- 执行 
++
+```sh
+iperf3 -s
+```
++
+. 在 M2U 控制台上：
+
+- TCP测试： 
++
+```sh
+iperf3 -c serverIP
+```
+- UDP测试： 
++
+```sh
+iperf3 -u -c serverIP
+```
++
+image::/picture/m2u_gmac_test.png[m2u_gmac_test.png]
+
+=== 蓝牙
+- 使用bluetoothctl工具操作BT
+- 执行
++
+```sh
+bluetoothctl
+```
+- 如果您不知道如何使用 bluetoothctl，请输入 
++
+```sh
+help
+```
+你会看到更多命令
+- 执行这些命令：
++
+image::/picture/m2u_bluetooth.png[m2u_bluetooth.png]
+
+=== WiFi客户端
+您有两种方法来设置 WiFi 客户端
+
+. 使用命令设置 WiFi 客户端
++
+```sh
+ip link set wlan0 up
+iw dev wlan0 scan | grep SSID
+nano /etc/wpasupplicant/wpa_supplicant.conf
+```
++
+```sh
+network={    
+ ssid="ssid"    
+ psk="password"    
+ priority=1 
+ }
+```
++
+```sh
+wpa_supplicant -iwlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf
+dhclient wlan0
+```
+. 使用UI界面设置WiFi Client
+
+=== 清除启动
+```sh
+git clone https://github.com/BPI-SINOVOIP/BPI-files/tree/master/SD/100MB
+bpi-bootsel BPI-cleanboot-8k.img.gz /dev/sdX
+```
+
+=== 相机功能
+我们使用HDF5640摄像机。
+
+image::/picture/ov5640_camara.png[ov5640_camara.png]
+
+**古维视**
+
+使用您的UI界面来操作相机
+应用程序 -> 声音和视频 -> guvcview
+
+**壳牌**
+
+我们还有内置命令，
+```sh
+/usr/local/bin**
+```
+测试相机，
+
+```sh
+./test_ov5640_image_mode.sh
+```
+测试拍照功能，
+```sh
+./cameratest.sh
+```
+测试视频录制功能。
+
+=== 红外功能
+- 执行 
++
+```sh
+getevent
+```
+- 使用您的 IR 设备向 M2U 发送信息
+
+=== RPi。GPIO
+==== 安装 RPi。GPIO
+- 执行 
++
+```sh
+git clone https://github.com/BPI-SINOVOIP/RPi.GPIO
+```
+- 克隆存储库后
++
+```sh
+cd RPi.GPIO
+```
+- 执行 
++
+```sh
+sudo apt-get update
+```
+- 执行 
++
+```sh
+sudo apt-get install python-dev python3-dev
+```
+- 执行 
++
+```sh
+sudo python setup.py install
+```
+或
++
+```sh
+sudo python3 setup.py install
+```
+安装模块
+
+==== 使用 RPi。GPIO
+```sh
+cd /usr/local/bin
+```
+执行 
+```sh
+./bpi_test_g40.py
+```
+测试 RPi。GPIO
+
+image::/picture/rpi_gpio.png[rpi_gpio.png]
+
+=== 扭皮
+
+GitHub: https://github.com/BPI-SINOVOIP/BPI-WiringPi2.git
+
+我们还有内置的测试命令 
+```sh
+/usr/local/bin
+```
+
+**RGB 1602 LCD**
+
+- 执行 
+```sh
+/usr/local/bin/bpi_test_lcd1602.sh
+```
+
+**0.96英寸 OLED 显示**
+
+- 执行 
+```sh
+/usr/local/bin/bpi_test_52pi.sh
+```
+
+**8x8 RGB LED 马蒂克斯**
+
+- 首先你需要一个 GPIO 8x8 扩展板 LED 马蒂克斯
++
+image::/picture/wringpi_led_martix_extend_board.png[wringpi_led_martix_extend_board.png]
+
+- 执行 
+```sh
+/usr/local/bin/bpi_test_gpio40.sh
+```
+
+=== 文件系统
+只读系统更改为读写模式：
+```sh
+mount -o remount,rw /
+```
+
+=== 安装Qt5.7和Qtcreator
+. 准备一张32Gb的TF卡
+. 使用 GParted 将根点“/”的大小调整为 32Gb
++
+```sh
+apt-get install libxcb*
+download qt5.7
+make & make install
+apt-get install qtcreator
+Config qtcreator
+```
+
+
+
+
+
+
+
+
