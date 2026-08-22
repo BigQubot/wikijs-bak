@@ -1,0 +1,143 @@
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_board_development_tools[BPI:bit 的 MicroPython 开发]
+
+
+= 安装 Python 3.7
+
+- 获取 link:https://www.python.org/downloads/[Python]。本文编写时的最新版本为 3.7（2018/11/08）。
+- Windows 用户可 link:https://www.python.org/ftp/python/3.7.0/python-3.7.0.exe[单击此处下载]。
+- 安装界面如下：
+
+image::/bpi-bit/python02.png[python02.png]
+
+- 安装完成后，系统中即可使用 Python。
+
+= 安装 PyCharm Community Edition
+- 获取 link:https://www.jetbrains.com/pycharm/[PyCharm]。
+- Windows 用户可 link:https://download.jetbrains.com/python/pycharm-community-2018.2.3.exe[单击此处下载 2018.2.3 版]（社区版免费）。
+- **提示：2018.3.3 版改动较大，本文编写时暂不建议使用，等待插件适配修复。（2019/01/13）**
+- 重要说明 1：在 Windows 中，程序和项目应放在系统盘下，并保持路径配置一致。
+- 重要说明 2：在 Linux 中通过串口连接时，请确认普通用户具有串口权限。若不确定，可执行 ` usermod - a - G dialout Username && sudo reboot `；请把 Username 替换为实际用户名。
+- 安装完成后打开 PyCharm，按默认设置进入如下界面。
+
+image::/bpi-bit/python03.png[python03.png]
+
+= 创建一个新项目
+单击“Create New Project”，打开如下界面。
+
+image::/bpi-bit/python05.png[python05.png]
+
+如果尚未安装 Python，会看到如下界面。
+
+image::/bpi-bit/python06.png[python06.png]
+
+最后可以看到项目已创建完成。
+
+image::/bpi-bit/python07.png[python07.png]
+
+更多使用方法请参考 link:http://www.jetbrains.com/help/pycharm/meet-pycharm.html[PyCharm 官方文档]。
+
+= 安装 MicroPython 插件
+- 注意：现在建议使用 intellij-mpfshell-1.1.1.1.zip 插件版本而不是旧版本
+- 可从 link:https://github.com/BPI-STEAM/BPI-BIT-MicroPython/releases[Releases] 下载 link:https://github.com/BPI-STEAM/BPI-BIT-MicroPython/releases/download/Tools/intellij-micropython-1.1.0.zip[intellij-micropython-1.1.0.zip]。插件资料参见 link:http://plugins.jetbrains.com/plugin/9777-micropython[官方介绍] 和 link:https://github.com/vlasovskikh/intellij-micropython[官方 Git 仓库]。
+- 下载 ` intellij micropython - 1.1.0 ` 插件后，在 PyCharm Community Edition 中依次进入 File -> Settings -> Plugins -> Install Plugin from Disk。
+
+image::/bpi-bit/python08.png[python08.png]
+image::/bpi-bit/py08.png[py08.png]
+
+- **提示：这里提供的是修改版插件，尚未发布到官方插件商店，但名称与原插件相同。如果 IDE 提示升级或修复，执行后可能会被替换回官方原版，建议忽略该提示。后续修改插件名称并重新发布后，才能直接从商店下载安装。**
+
+image::/bpi-bit/py09.png[py09.png]
+
+- 最新修订版 link:https://github.com/BPI-STEAM/BPI-BIT-MicroPython/releases/download/intellij-mpfshell-1.1.1/intellij-mpfshell-1.1.1.zip[intellij-mpfshell-1.1.1.1.zip] 已发布。与上述版本相比，它减少了不必要的信息输出，连接更稳定，也支持 ESP8266，并计划后续发布到插件商店。
+
+= 运行一个文件
+安装插件后，在项目中启用它。
+
+image::/bpi-bit/py10.png[py10.png]
+
+在 Settings 中搜索 MicroPython，即可打开上述页面。
+
+image::/bpi-bit/py11.png[py11.png]
+
+单击图中的“Settings”，再启用“Enable MicroPython support”。
+
+image::/bpi-bit/py12.png[py12.png]
+
+选择 ESP8266（ESP32）作为设备类型，再单击“Detect”检测所连接开发板的路径（或名称）。由于关键依赖尚未安装，首次检测必然失败。
+
+image::/bpi-bit/py13.png[py13.png]
+
+自动识别串口失败时，需要手动填写串口名称（包括路径）或其他连接参数，例如 ws:192.168.1.1,1234；其格式与 Mpfshell 的 open 命令相同。
+
+image::/bpi-bit/py14.png[py14.png]
+
+设置好开发板连接参数后，可在 untitled 项目中右键新建 Python 文件。第一次使用时请先创建一个文件，以触发依赖安装；完成后再使用自动识别串口及 Tools 菜单中的其他工具。
+
+image::/bpi-bit/py15.png[py15.png]
+
+在右侧代码编辑区输入 print("Hello, World!")。
+
+image::/bpi-bit/py16.png[py16.png]
+
+首次使用时会提示安装依赖，单击消息中的“Install requirements”，程序会在后台自动下载并安装。
+
+image::/bpi-bit/py17.png[py17.png]
+
+等待片刻。
+
+image::/bpi-bit/py18.png[py18.png]
+
+依赖安装完成后会显示提示。
+
+image::/bpi-bit/py19.png[py19.png]
+
+现在可以运行 main.py。在编辑区任意位置单击右键，选择“Run 'Flash main.py'”，PyCharm 会自动生成运行配置，并在开发板上执行该文件。
+
+image::/bpi-bit/py20.png[py20.png]
+
+您可以看到下面的结果
+
+image::/bpi-bit/py21.png[py21.png]
+
+= 直接使用 Mpfshell
+REPL 和 Mpfshell 快捷入口位于 Tools -> MicroPython。
+
+image::/bpi-bit/py22.png[py22.png]
+
+= 功能规格
+== 了解 intellij-micropython 插件
+此插件版本不同于官方版本，它以 Mpfshell 为底层实现，因此其功能与原有 Mpfshell 基本对应。
+
+历史说明：该插件后续可能独立维护或合并回官方版本，因此本文编写时请勿使用插件商店中的版本。
+注意：intellij-mpfshell 已同步更新，本版本仍会继续维护。
+
+== 手动配置要运行的文件
+**提示：底层工具现已支持自动重连，发生问题时会尝试自动修复并重新执行，因此大多数情况下代码都能正常运行。**
+
+**以下信息可能已过时，仅供参考。**
+
+旧版说明：操作失败后只能重试，这种情况偶尔会发生，尤其是在运行 main.py 时。
+
+准备一个项目并添加一个文件，如图所示。
+
+image::/bpi-bit/py23.png[py23.png]
+
+先按图示配置当前文件。
+
+image::/bpi-bit/py24.png[py24.png]
+
+只需设置 Name 和 Path。
+
+image::/bpi-bit/py25.png[py25.png]
+
+选择已配置的设备，再单击绿色三角形运行；红色方块用于停止运行。如果失败，重新执行即可。
+
+image::/bpi-bit/py26.png[py26.png]
+
+运行结果如下：
+
+image::/bpi-bit/py27.png[py27.png]
+
+常见故障如下。由于使用相同的底层实现，其表现与 Mpfshell 一致。
+
+image::/bpi-bit/py28.png[py28.png]
