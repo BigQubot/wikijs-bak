@@ -7,23 +7,23 @@ image::/bpi-r4/bpi-r4_4g5g_1.jpg[bpi-r4_4g5g_1.jpg]
 
 = 使用方法
 
-NOTE: 以保证您的漫游信号能够连接到相应模块的天线。
+NOTE: 请将各天线连接到模块对应的接口，以保证移动网络信号正常。
 
-. 找到对应的SIM卡槽并插入SIM卡。插槽大致有两种类型。
+. 找到相应的 SIM 卡槽并插入 SIM 卡。卡槽大致分为两种类型。
 +
-第一种卡槽与R4类似，需要将Cato插入SIM卡槽。
+第一种与 R4 类似：先将 SIM 卡装入卡托，再把卡托插入 SIM 卡槽。
 +
 image::/bpi-r4/bpi-r4_4g5g_2.jpg[bpi-r4_4g5g_2.jpg]
 +
-另一种与R3mini类似。
+另一种与 R3 Mini 类似。
 +
 image::/picture/bpi-r3_mini_cellular.jpg[bpi-r3_mini_cellular.jpg]
 
-. 系统会自动拨打电话并获取IP地址。
+. 系统会自动拨号并获取 IP 地址。
 
-. 如果您的主板没有自动拨号功能，请使用“quectel-CM &”命令进行呼叫。
+. 如果开发板不支持自动拨号，请执行“quectel-CM &”命令手动拨号。
 
-拨号成功如下：
+拨号成功后的输出如下：
 
 **RM500U-CN**
 [%collapsible]
@@ -128,8 +128,8 @@ udhcpc: lease of 10.3.1.80 obtained from 10.3.1.1, lease time 86400
 ```
 ====
 
-== RM520N-GL使用
-**移远RM520N-GL**
+== 使用 RM520N-GL
+**Quectel RM520N-GL**
 ```sh
 Quectel RM520N-GL
 wwan0     Link encap:Ethernet  HWaddr A6:35:F7:7A:9E:A7  
@@ -170,7 +170,7 @@ round-trip min/avg/max = 30.712/40.003/53.459 ms
 root@R4CN:/#
 ```
 
-== RM500-CNV使用
+== 使用 RM500-CNV
 **RM500U-CN**
 ```sh
 usb0      Link encap:Ethernet  HWaddr 5E:3B:9C:76:7C:46  
@@ -201,5 +201,4 @@ PING www.baidu.com (2409:8c54:870:34e:0:ff:b024:1916): 56 data bytes
 round-trip min/avg/max = 38.725/44.573/55.105 ms
 root@R4CN:/#
 ```
-
 
