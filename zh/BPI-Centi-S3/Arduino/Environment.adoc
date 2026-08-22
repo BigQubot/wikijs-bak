@@ -1,10 +1,10 @@
-TIP: link:../GettingStarted_BPI-Centi-S3[返回开始使用 BPI-Centi-S3]
+TIP: link:../GettingStarted_BPI-Centi-S3[返回 BPI-Centi-S3 入门指南]
 
 > 参考
 https://docs.espressif.com/projects/arduino-esp32/en/latest/installing.html[arduino-esp32
 DOC 入门 » 安装]
 
-这是安装方法 Arduino-ESP32直接来自 Arduino IDE.
+以下说明介绍如何直接通过 Arduino IDE 安装 Arduino-ESP32。
 
 * 稳定版链接：
 +
@@ -17,56 +17,56 @@ https://espressif.github.io/arduino-esp32/package_esp32_index.json
 https://espressif.github.io/arduino-esp32/package_esp32_dev_index.json
 ```
 ____
-从 Arduino IDE 版本1.6.4， Arduino 允许安装
-使用 Boards Manager 的第三方平台包。我们有套餐
-可用于 Windows, macOS, 和 Linux.
+从 Arduino IDE 1.6.4 开始，可以通过
+开发板管理器安装第三方平台软件包。相关软件包
+支持 Windows、macOS 和 Linux。
 ____
 
-要使用 Boards Managaer 开始安装过程，请按照以下步骤操作
-步骤：
+要通过开发板管理器开始安装，请按以下
+步骤操作：
 
-* 安装当前上游 Arduino IDE 1.8 或更高级别。
+* 安装 Arduino IDE 1.8 或更高版本。
 当前版本位于
 https://www.arduino.cc/en/software[arduino.cc 网站].
-* 开始Arduino并打开“文件”>“首选项”窗口。
+* 启动 Arduino IDE，打开“文件”>“首选项”。
 
 image::/picture/bpi_centi_s3_arduino_install_guide_preferences.png[../assets/images/arduino_install_guide_preferences]
 
-* 输入上面的发布链接之一 *额外开发板管理器
-网址* 场。您可以添加多个 URL，并用逗号分隔。
+* 在 *附加开发板管理器网址* 字段中输入上面的一个发布链接。
+可添加多个 URL，并使用逗号分隔。
 
 image::/picture/bpi_centi_s3_arduino_install_guide_boards_manager_url.png[../assets/images/arduino_install_guide_boards_manager_url]
 
-从“工具”>“板”菜单打开板管理器并安装
-esp32平台。
+从“工具”>“开发板”菜单打开开发板管理器并安装
+esp32 平台。
 
 image::/picture/bpi_centi_s3_arduino_install_guide_boards_manager_esp32.png[../assets/images/arduino_install_guide_boards_manager_esp32]
 
-* 重新启动 Arduino IDE.
-* 选择 `ESP32S3 Dev Module` 从“工具”>“板”菜单中选择板后
-安装。
+* 重新启动 Arduino IDE。
+* 安装完成后，从“工具”>“开发板”菜单中选择
+`ESP32S3 Dev Module`。
 * 在“工具”菜单中选择正确的设置，如下所示。
 
 [cols="<,<",options="header",]
 |===
-|设置 |价值
-|USB CDC 启动时 |启用
-|CPU 频率 |240兆赫 (无线网络)
-|核心调试级别 |无
-|USB 启动时 DFU |启用 (需要 USB-OTG模式)
-|在上传草图之前擦除所有闪存 |残疾人
-|活动继续 |核心1
-|闪光模式 |奇奥80MHz
-|闪存大小 |8MB (64MB)
-|JTAG适配器 |综合 USB JTAG
-|Arduino 继续运行 |核心1
-|USB 启动时固件 MSC |残疾人
-|分区方案 |8M带spiff (3MB APP/1.5MB SPIFFS)
+|设置 |值
+|启动时启用 USB CDC |Enabled
+|CPU 频率 |240 MHz (WiFi)
+|核心调试级别 |None
+|启动时启用 USB DFU |Enabled (Requires USB-OTG Mode)
+|上传程序前擦除全部闪存 |Disabled
+|事件运行于 |Core 1
+|闪存模式 |QIO 80MHz
+|闪存大小 |8MB (64Mb)
+|JTAG 适配器 |Integrated USB JTAG
+|Arduino 运行于 |Core 1
+|启动时启用 USB Firmware MSC |Disabled
+|分区方案 |8M with spiffs (3MB APP/1.5MB SPIFFS)
 |PSRAM |QSPI PSRAM
-|上传模式 |UARTO / 硬件 CDC
+|上传模式 |UART0 / Hardware CDC
 |上传速度 |921600
-|USB 模式 |硬件 CDC 和 JTAG
+|USB 模式 |Hardware CDC and JTAG
 |===
 
-* 或选择 `BPI-Leaf-S3` 工具 > 板菜单中的板，默认值
-可以直接使用设置。
+* 也可从“工具”>“开发板”菜单中选择 `BPI-Leaf-S3`，其默认
+设置可直接使用。
