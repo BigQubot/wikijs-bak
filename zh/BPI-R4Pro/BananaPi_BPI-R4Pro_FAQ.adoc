@@ -1,23 +1,23 @@
 = FAQ
 
-TIP: 更多信息： link:https://docs.banana-pi.org/en/BPI-R4_Pro/BananaPi_BPI-R4_Pro[香蕉派 BPI-R4 Pro]
+TIP: 更多信息： link:https://docs.banana-pi.org/en/BPI-R4_Pro/BananaPi_BPI-R4_Pro[Banana Pi BPI-R4 Pro]
 
 *目录*
 
-. link:/en/BPI-R4_Pro/TEST-R4_Pro#_problem_of_sd_card_startup_failure[SD卡启动失败的问题]
+. link:/en/BPI-R4_Pro/TEST-R4_Pro#_problem_of_sd_card_startup_failure[SD 卡启动失败问题]
 
 
-== SD卡启动失败的问题
+== SD 卡启动失败问题
 
 image::/bpi-r4_pro/bpi-r4_pro_faq/bpi_r4pro_faq_sdfail1.jpg[bpi_r4pro_faq_sdfail1.jpg]
 
-. 请按照下图进行 Windows 电脑。
+. 在 Windows PC 上按下图所示操作。
 +
 image::/picture/low_level_format_sd_card.png[low_level_format_sd_card.png,width=300]
 
-. 使用另一张高速SD卡进行刻录。
+. 换用另一张高速 SD 卡写入镜像。
 
-TIP: 我们使用 64G 高速 SanDisk 卡成功启动了映像。
+TIP: 我们已使用 64 GB 高速 SanDisk SD 卡成功启动该镜像。
 
 image::/bpi-r4_pro/bpi-r4_pro_faq/bpi_r4pro_faq_sdfail2.jpg[bpi_r4pro_faq_sdfail2.jpg]
 
