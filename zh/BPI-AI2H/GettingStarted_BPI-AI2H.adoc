@@ -1,0 +1,1497 @@
+= 简介
+
+香蕉派 BPI-AI2H 模块系统 (索姆) 和 BPI-AI2H 载板是开源硬件解决方案，旨在利用 RZ/V2H 视觉AI MPU。支持8GB内存、32GB emmc, 双千兆 ethernet 端口，2 个 USB3 接口。
+
+== 规格参数
+
+- SoC – 瑞萨 RZ/V2H 四核 64 位 Arm Cortex-A55 处理器 @ 高达 1.8 GHz，配备 Mali-G31 GPU
+- 系统内存 – 8GB LPDDR4
+- 存储空间 – 32GB eMMC 闪存、MicroSD 插槽
+- 视频输出 – MIPI DSI 至 hdmi 连接器，高达 1080p
+- 连接性 – 双千兆位 Ethernet
+- USB – 3x USB 3.0端口，1x USB 2.0端口，1x USB-C端口
+- 扩展 – 28x 40 针接头 GPIO, UART, I2C, SPI, PWM，和功率信号 (+5V, +3.3V，接地).
+- 调试—— USB Type-C 调试头
+- 电源 – 12V @3A 直流适配器
+
+= 阿姆比安 Linux
+== 准备
+
+- Linux 镜像支持SD卡或 EMMC 启动。
+- 建议使用A1级卡，至少16GB。
+- 下载最新的 Linux 镜像，并确认校验和正确。
+- 默认登录： pi/bananapi 或 root/bananapi
+
+== 将映像安装到 SD 卡
+
+- 使用 Balena Etcher 安装映像 Windows, Linux 和 MacOS.
++
+link:https://balena.io/etcher[巴莱纳蚀刻机] 是 Balena 的开源 GUI 闪存工具，可将操作系统映像闪存到 SD 卡或 USB 开车。
+
+1. 点击“**从文件闪存**”来选择镜像。 
+2. 点击“**选择目标**”来选择 USB 设备。 
+3. 点击“**快闪！**“开始燃烧。
++
+image::/picture/etcher.jpg[etcher.jpg]
+
+- 使用 Balena Cli 安装镜像 Windows, Linux 和 MacOS.
++
+link:https://github.com/balena-io/balena-cli[巴莱纳 CLI] 是 balenaCloud 或 openBalena 的命令行界面。可以用来闪光 linux 镜像。从以下位置下载安装程序或独立包 link:https://github.com/balena-io/balena-cli/releases[巴莱纳-io] 和 link:https://github.com/balena-io/balena-cli/blob/master/INSTALL.md[安装 ]正确连接到您的 PC，然后您就可以使用“link:https://docs.balena.io/reference/balena-cli/#local-flash-image[本地闪存]" balena 的命令选项闪现 linux 镜像到 SD 卡或usb 开车。
++
+```sh
+$ sudo balena local flash xxx-bpi-ai2h-xxx.img.xz
+$ sudo balena local flash xxx-bpi-ai2h-xxx.img.xz --drive /dev/sdX
+$ sudo balena local flash xxx-bpi-ai2h-xxx.img.xz --drive /dev/sdX --yes
+```
+
+- 使用 Armbian Imager 安装映像 Windows, Linux 和 MacOS.
++
+link:https://imager.armbian.com[Armbian 成像仪] 是一个用于安装 Armbian OS 的开源映像工具。
++
+对于非官方板镜像，请选择使用自定义镜像->浏览并选择本地镜像文件->选择目标存储->擦除&闪存。
++
+image::/picture/armbian-imager-tool.png[armbian-imager-tool.png]
+
+- 使用 dd 命令安装镜像 Linux
++
+umount SDcard device /dev/sdX partition if mounted automatically. 
++
+```sh
+$ sudo apt-get install xz-utils pv
+$ sudo sh -c 'xzcat xxx-bpi-ai2h-xxx.img.xz | pv | dd of=/dev/sdX bs=1M status=progress && sync'
+```
+
+== 安装镜像到 eMMC
+
+1. 准备一张SD卡 Linux 镜像闪存和启动板与此 SD 卡。
+2. 将目标镜像复制到udisk，将udisk插入主板并安装。
+3. 将映像安装到 emmc.
+- 使用dd命令写入，umount mmcblk0p1和mmcblk0p2分区（如果自动安装）。 
++
+```sh
+$ sudo apt-get install xz-utils pv
+$ sudo sh -c 'xzcat xxx-bpi-ai2h-xxx.img.xz | pv | dd of=/dev/sdX bs=1M status=progress && sync'
+```
+
+- 另一种方法是将实时运行的 Armbian 系统从 SD 卡转移到内部存储设备，例如 eMMC。它准备目标存储、复制活动系统、调整引导加载程序设置，并确保系统可以独立引导而无需重新安装。
++
+```sh
+$ sudo armbian-config --cmd STO001
+```
++
+image::/picture/ai2n-armbian-install-emmc.png[ai2n-armbian-install-emmc.png]
+
+== 构建 Armbian 源代码
+
+```sh
+$ git clone -b bpi-v26.2.1 https://github.com/BPI-SINOVOIP/armbian-build.git
+$ cd armbian-build
+$ ./compile.sh BOARD=bpi-ai2h BRANCH=legacy
+```
+
+更多关于armbian构建的信息，请参考 link:https://docs.armbian.com/Developer-Guide_Build-Preparation/[Armbian 构建框架快速入门指南]
+
+== 首次启动
+将 SD 卡插入插槽并给开发板上电。如果您通过 HDMI 连接显示器或连接到串行控制台，则首次启动时将自动登录。
+
+登录后，系统会提示您更改默认密码。然后，系统会要求您创建一个具有 sudo 权限的普通用户帐户。请注意，此时键盘使用的是 QWERTY 布局。如果您没有有线网络连接并且检测到无线适配器，系统将提示您连接。
+
+```sh
+Welcome to Bananapi-Armbian! 
+
+Documentation: https://wiki.banana-pi.org/ | Community support: https://forum.banana-pi.org/
+
+IP address:  Network connection timeout!
+
+Create root password: ********
+Repeat root password: ********
+
+Warning: Weak password, it is based on a dictionary word!
+
+Choose default system command shell:
+
+1) bash
+2) zsh
+1
+
+Shell: BASH
+
+Creating a new user account. Press <Ctrl-C> to abort
+
+Please provide a username (eg. your first name): pi
+Create user (pi) password: ********
+Repeat user (pi) password: ********
+
+Warning: Weak password, it is based on a dictionary word!
+
+Please provide your real name: Pi
+
+Dear Pi, your account pi has been created and is sudo enabled.
+Please use this account for your daily work from now on.
+
+Internet connection was not detected.
+
+Connect via wireless? [Y/n] y
+
+Detected wireless networks:
+
+1        NETWORK
+2        MY-WIFI
+
+Enter a number of SSID: 2
+
+Enter a password for MY-WIFI: password
+
+Probing internet connection (9)
+
+Detected timezone: Asia/Shanghai
+
+Set user language based on your location? [Y/n] Y
+
+At your location, more locales are possible:
+
+1) bo_CN                    4) ug_CN@latin
+2) ug_CN                    5) zh_CN.UTF-8
+3) ug_CN@latin              6) Skip generating locales
+Please enter your choice:5
+
+Generating locales: zh_CN.UTF-8
+
+ | _ ) __ _ _ _  __ _ _ _  __ _ _ __(_)___ /_\  _ _ _ __ | |__(_)__ _ _ _  
+ | _ \/ _` | ' \/ _` | ' \/ _` | '_ \ |___/ _ \| '_| '  \| '_ \ / _` | ' \ 
+ |___/\__,_|_||_\__,_|_||_\__,_| .__/_|  /_/ \_\_| |_|_|_|_.__/_\__,_|_||_|
+                               |_|                                         
+ v25.5.1 for Banana Pi AI2H running Armbian Linux 6.1.141-legacy-renesas
+
+ Packages:     Ubuntu stable (jammy), possible distro upgrade (noble)
+ Support:      DIY (custom image)
+ IPv4:         (LAN) 10.0.1.5 (WAN) 36.44.140.189 
+
+ Performance:  
+
+ Load:         35%              Up time:       17 min
+ Memory usage: 3% of 7.01G  
+ CPU temp:     35�°C             Usage of /:   16% of 15G    
+ RX today:     265 KiB        
+ Commands: 
+
+ Configuration : armbian-config
+ Monitoring    : htop
+
+root@bpi-ai2h:/#
+```
+
+这些设置可以预先加载，请参阅 link:https://docs.armbian.com/User-Guide_Autoconfig[Armbian 自动配置]
+
+== Armbian 配置
+
+link:https://docs.armbian.com/User-Guide_Armbian-Config/[Armbian 配置] 是一个用于配置主板、调整服务和安装应用程序的实用程序。默认情况下它带有 Armbian 图像。
+
+要启动 Armbian 配置实用程序，请使用以下命令：
+
+```sh
+$ sudo armbian-config
+```
+image::/picture/ai2n-armbian-configg.png[ai2n-armbian-config.png]
+
+== 调试串口
+
+该板有两个调试串行接口：
+
+- Type-C接口。可以使用常规连接到 PC USB Type-C 电缆不带 Linux 或 Windows 安装特定的驱动程序，波特率为115200。
+
+- 三排针接口。标准3.3V TTL电平 UART 端口，需要一个 USB 转 TTL 串行电缆 (如CP2102、PL2303、CH340等) 连接PC，波特率115200。
++
+image::/picture/ai2n-debug-uart.png[ai2n-debug-uart.png]
+
+== 网络
+
+Armbian 用途 link:https://netplan.io/[Netplan.io] 描述网络配置。 Netplan 是一个可以轻松配置的实用程序 Linux 网络，使用声明性方法。如果您想手动配置网络，只需编辑和创建 Netplan yaml 文件即可 (请参阅 yaml 配置参考 link:https://netplan.readthedocs.io/en/stable/netplan-yaml/[网络计划文档]).
+
+- 网络管理器 Applet GUI
++
+对于桌面镜像，您可以右键单击系统托盘中的 NetworkManager 小程序图标，然后选择“编辑连接”项来配置网络。
++
+image::/picture/ai2n-eth.png[ai2n-eth.png]
++
+连接到无线网络，您可以左键单击系统托盘中的 NetworkManager 小程序图标，然后选择可用网络项目，以显示可用无线网络的列表。 
++
+image::/picture/ai2n-wifi-list.png[ai2n-wifi-list.png]
++
+单击您要连接的网络。如果网络是安全的，则会出现一个对话框提示您输入网络密钥：
++
+image::/picture/ai2n-wifi-passwd.png[ai2n-wifi-passwd.png]
+
+
+- 网络计划
++
+桌面和 CLI 映像附带一个默认的 Netplan YAML 文件，位于 etc/netplan/00-default-use-network-manager.yaml. 这些图像默认使用 NetworkManager 后端。全部 Ethernet 接口已配置为 DHCP，并将自动从路由器获取 IP 地址。
++
+```sh
+# Added by Armbian
+#
+# Reference: https://netplan.readthedocs.io/en/stable/netplan-yaml/
+#
+# Let NetworkManager manage all devices on this system.
+# Any device will come up with DHCP, once carrier is detected.
+# This is basically Netplan passing control over to NetworkManager at boot time.
+
+network:
+  version: 2
+  renderer: NetworkManager
+```
+如果在首次启动期间成功建立 Wi-Fi 连接，将在以下位置创建 Wi-Fi Netplan YAML 文件 /etc/netplan/30-wifis-dhcp.yaml. 如果首次启动时没有连接Wi-Fi，也可以在启动后手动创建该文件。
++
+```sh
+# Created by Armbian firstlogin script
+network:
+  wifis:
+    wlan0:
+      dhcp4: yes
+      dhcp6: yes
+      access-points:
+        "NETWORK":
+         password: "password"
+```
++
+更多Netplan配置信息，请参考 link:https://netplan.readthedocs.io/en/latest/using-static-ip-addresses[网络计划文档]
+
++
+YAML 文件更改后，您应该应用配置
++
+```sh
+$ sudo chmod 600 /etc/netplan/xxx.yaml
+$ sudo netplan apply
+```
+
+- 命令行配置无线连接
++
+. 检查您的 Wi-Fi 无线电是否已启用：
++
+```sh
+$ nmcli radio wifi
+```
+如果此命令返回文本“已启用”，则您已准备好配置连接。如果此命令返回“已禁用”，请尝试使用以下命令启用 Wi-Fi：
++
+```sh
+$ nmcli radio wifi on
+```
+. 扫描无线网络
++
+```sh
+$ nmcli dev wifi list
+IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURIT>
+        F8:8C:21:8E:D7:A3  DK    Infra  1     540 Mbit/s  64      ***   WPA1 WP>
+        FA:8C:21:AE:D7:A3  --    Infra  1     540 Mbit/s  64      ***   WPA1 WP>
+        FA:8C:21:AE:D7:A5  --    Infra  149   540 Mbit/s  42      **    WPA1 WP>
+        F8:8C:21:8E:D7:A5  DK5   Infra  149   540 Mbit/s  40      **    WPA1 WP>
+```
+在“SSID”列中查找您要连接的网络的名称。使用 SSID 和密码连接到网络。
+
+. 连接到网络
++
+运行以下命令来配置网络连接，替换<example_ssid>包含您尝试配置的网络名称的占位符。然后在出现提示时输入您的网络密码，输入密码后，开发板应自动连接到网络。
++
+```sh
+$ sudo nmcli --ask dev wifi connect <example_ssid>
+Password: **************
+Device 'wlan0' successfully activated with '639d32e7-6516-44a5-a538-f80ad7ebe177'.
+```
+
+. 检查您是否已连接到网络
++
+```sh
+$ nmcli dev wifi list
+```
+您应该看到类似于以下内容的输出：
++
+```sh
+$ nmcli dev wifi list
+IN-USE  BSSID              SSID  MODE   CHAN  RATE        SIGNAL  BARS  SECURIT>
+        FA:8C:21:AE:D7:A3  --    Infra  1     540 Mbit/s  67      ***   WPA1 WP>
+        F8:8C:21:8E:D7:A3  DK    Infra  1     540 Mbit/s  64      ***   WPA1 WP>
+*       F8:8C:21:8E:D7:A5  DK5   Infra  149   540 Mbit/s  39      **    WPA1 WP>
+        FA:8C:21:AE:D7:A5  --    Infra  149   540 Mbit/s  39      **    WPA1 WP>
+```
+
+- 或者，您也可以使用 **armbian 配置** 在所有 Armbian 映像上配置网络配置。
++
+```sh
+$ sudo armbian-config --cmd BNS001
+```
+image::/picture/ai2n-network.png[ai2n-network.png]
+
+== 显示
+
+的 RZ/V2H 芯片具有用于显示输出的单个 MIPI DSI 接口。我们开发了DSI转HDMI转接板和7英寸HC070触摸屏板。 
+
+- HDMI
++
+使用FPC排线将HDMI桥接板连接到载板的MIPI DSI接口，支持分辨率高达1080p@60Hz。
++
+image::/picture/ai2n-hdmi.png[ai2n-hdmi.png]
+
+- Lcd 面板
++
+连接 Bananapi 7" HC070 触摸面板通过 FPC 电缆连接到载板的 MIPI DSI 接口。启用 panel-hc070iy30025 设备树覆盖。
++
+```sh
+overlays=panel-hc070iy30025
+```
++
+image::/picture/ai2n-lcd7-hc070.png[ai2n-lcd7-hc070.png]
+
+== RGB LED
+该板有两个 RGB LED 供用户控制
+
+- 黄色 LED 载板上，默认状态为heatbeat触发
++
+```sh
+$ sudo sh -c 'echo timer > /sys/class/leds/carrier-led/trigger'
+```
+- 蓝色 LED 在核心板上，默认状态为默认触发
++
+```sh
+$ sudo sh -c 'echo none > /sys/class/leds/core-led/trigger'
+```
+
+== 风扇
+
+控制风扇的 on/off 通过 hwmon sysfs 接口获取状态。
+
+- 启用风扇
+
+```sh
+$ sudo sh -c 'echo 1 > /sys/class/hwmon/hwmon3/fan1_target'
+```
+
+- 禁用风扇
+
+```sh
+$ sudo sh -c 'echo 0 > /sys/class/hwmon/hwmon3/fan1_target'
+```
+
+== ADC
+有3个12位单元 adc 在 RZV2H 中，每台最多 8 个通道。董事会 adc CN3 排针连接到 adc1。
+
+阅读 adc 来自 iio sysfs 的数据
+
+```sh
+$ cat /sys/bus/iio/devices/iio:device1/in_voltage0_raw
+```
+
+== M.2 NVME
+董事会有一个 PCIe ×2 m.2 M 键连接器 (Pcie 3.0)和标准 M.2 2280 安装孔，可部署 M.2 2280 NVMe SSD.
+
+```sh
+$ lspci
+00:00.0 PCI bridge: Renesas Technology Corp. Device 1135
+01:00.0 Non-Volatile memory controller: Kingston Technology Company, Inc. KC3000/FURY Renegade NVMe SSD [E18] (rev 01)
+```
+
+您可以验证您的性能 SSD 上 link:https://github.com/TheRemote/PiBenchmarks[Pi 基准] 使用以下命令：
+
+```sh
+$ wget https://raw.githubusercontent.com/TheRemote/PiBenchmarks/master/Storage.sh
+$ chmod +x Storage.sh
+$ sudo ./Storage.sh /path/to/storage
+```
+SD 的测试结果， emmc 和 nvme ssd (金士顿 SKC3000S512G)
+
+[cols="1,2,2,2,2"]
+|=====
+| 类别    | 测试             | SD卡测试结果    | Emmc 测试结果  | Nvme SSD 测试结果      
+| 高清参数      | 磁盘读取        | 12.20 MB/s            | 47.37 MB/s        | 806.92 MB/s               
+| 高清参数      | 缓存磁盘读取 | 12.49 MB/s            | 41.18 MB/s        | 793.54 MB/s               
+| DD          | 磁盘写入       | 14.4 MB/s             | 66.6 MB/s         | 168 MB/s                  
+| 菲奥         | 4k随机读取   | 2328 IOPS (9313 KB/s) |6623 IOPS (26494 KB/s) | 40715 IOPS (219037 KB/s) 
+| 菲奥         | 4k随机写入  | 944 IOPS (3777 KB/s)  | 6450 IOPS (25801 KB/s) | 27713 IOPS (103173 KB/s)  
+| IO区      | 4k 阅读          | 11684 KB/s            | 20569 KB/s        | 109433 KB/s               
+| IO区      | 4k写入         | 4969 KB/s             | 19340 KB/s        | 66082 KB/s                
+| IO区      | 4k随机读取   | 8902 KB/s             | 20556 KB/s        | 42249 KB/s                
+| IO区      | 4k随机写入  | 5135 KB/s             | 23332 KB/s        | 117361 KB/s                
+|             |                  | 分数：1371           | 分数：5146       | 分数：21261 
+|=====
+
+== 无线网络
+板载wifi模块是realtek rtl8821cu，IEEE 802.11b/g/n/ac(1T1R) USB2.0 WLAN 和 BT 模块
+
+```sh
+$ ifconfig  wlan0
+wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.0.1.12  netmask 255.255.255.0  broadcast 10.0.1.255
+        inet6 fe80::44a5:d624:e8e0:2bea  prefixlen 64  scopeid 0x20<link>
+        ether 14:5d:34:49:97:8e  txqueuelen 1000  (Ethernet)
+        RX packets 4343  bytes 838419 (818.7 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 507  bytes 41012 (40.0 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+```
+
+详细的Wi-Fi配置请参考网络部分。
+
+== 蓝牙
+板载蓝牙模块为realtek rtl8821cu，IEEE 802.11b/g/n/ac(1T1R) USB2.0 WLAN 和 BT 模块。 BT控制器支持BT 4.2系统并兼容蓝牙2.1+EDR。 
+
+```sh
+$ hcitool dev
+Devices:
+	 hci0	14:5D:34:49:97:8F
+```
+
+蓝牙适配器可以通过 blueman-manager 或 bluetoothctl CLI 工具进行管理。
+
+- 通过 Blueman 在桌面图像上使用蓝牙
++
+右键单击系统托盘中的蓝牙图标，然后在蓝牙设备窗口中选择设备项。
++
+image::/picture/ai2n-bt-blueman.png[ai2n-bt-blueman.png]
+
+- 通过 bluetoothctl 命令使用蓝牙
++
+安装 Bluez
++
+```sh
+$ sudo apt install bluez
+```
+启动蓝牙控制
++
+```sh
+$ bluetoothctl 
+[bluetooth]# list
+Controller 14:5D:34:49:97:8F bpi-ai2h [default]
+[bluetooth]# power on
+Changing power on succeeded
+[bluetooth]# agent on
+Agent is already registered
+[bluetooth]# default-agent
+Default agent request successful
+[bluetooth]# discoverable on
+Changing discoverable on succeeded
+[CHG] Controller 14:5D:34:49:97:8F Discoverable: yes
+[bluetooth]# pairable on
+Changing pairable on succeeded
+[bluetooth]# scan on
+Discovery started
+[CHG] Controller 14:5D:34:49:97:8F Discovering: yes
+[NEW] Device 77:2B:0B:D7:28:A5 77-2B-0B-D7-28-A5
+[NEW] Device 42:66:40:6D:8B:6F 42-66-40-6D-8B-6F
+[NEW] Device 24:0A:C4:DF:4B:C2 Keep_Bike_40114293
+[NEW] Device 34:86:5D:73:5F:46 NARWAL#5F46
+[CHG] Device 24:0A:C4:DF:4B:C2 ServiceData Key: 00001818-0000-1000-8000-00805f9b34fb    
+[bluetooth]# pair TargetDeviceMac
+```
+
+== 相机
+
+== Type-C OTG
+的 USB Type-c口仅支持设备模式。
+
+== DTB 叠加
+DTB覆盖用于40pin gpios多功能配置 
+
+```sh
+pi@bpi-ai2h:/boot/dtb/renesas/overlay$ ls bpi-ai2h*
+bpi-ai2h-i2c0-mux.dtbo               bpi-ai2h-spi0.dtbo
+bpi-ai2h-i2c1.dtbo                   bpi-ai2h-spi2.dtbo
+bpi-ai2h-i2c1-flash.dtbo             bpi-ai2h-spi2-flash.dtbo
+bpi-ai2h-i2c1-rtc.dtbo               bpi-ai2h-spi2-waveshare-st7789v.dtbo
+bpi-ai2h-i2c2.dtbo                   bpi-ai2h-spi2-waveshare-tft24.dtbo
+bpi-ai2h-i2s3-nxez-pcm512x.dtbo      bpi-ai2h-spi2-waveshare-tft35c.dtbo
+bpi-ai2h-i2s3-waveshare-wm8960.dtbo  bpi-ai2h-uart0.dtbo
+bpi-ai2h-pwm.dtbo                    bpi-ai2h-uart2.dtbo
+bpi-ai2h-pwmfan.dtbo
+```
+使用 GUI 工具 armbian-config 配置覆盖。
+
+```sh
+$ sudo armbian-config --cmd DTO001
+```
+image::/picture/ai2n-overlay.png[ai2n-overlay.png]
+
+或者，添加您想要激活的叠加层的名称 **覆盖层=** 线路输入 **/boot/armbianEnv.txt**，用空格分隔。例如，启用 i2c2、spi2 和 uart0 覆盖
+
+```sh
+overlays=i2c1 spi2 uart0
+```
+
+重新启动板以应用覆盖配置
+
+== 通用接口
+传统上 GPIO 引脚暴露于 Linux 下的内核 /sys/class/gpio 命名空间。然而，该接口自 4.8 版本起已被弃用。替代品是一个 C 绑定，称为 link:https://libgpiod.readthedocs.io/en/latest/index.html[libgpiod]，以及一组称为 gpiod 的用户登陆工具。
+
+- 安装GPIOD
++
+```sh
+$ sudo apt install gpiod
+```
+
+- 列表 GPIO 筹码
++
+打印他们的标签和数量 GPIO 线。芯片可以通过编号、名称或路径来识别。例如‘0’、‘gpiochip0’和‘/dev/gpiochip0’都指的是同一个芯片。
++
+```sh
+$ sudo gpiodetect
+gpiochip0 [10410000.pinctrl] (96 lines)
+```
+
+- 列表 GPIO 线
++
+打印有关的信息 GPIO 线。行按名称指定，如果提供了芯片选项，也可以选择按偏移量指定。每行对应一个 GPIO 引脚，以及 GPIO 每个引脚的编号是行号加416。
+
++
+```sh
+$ sudo gpioinfo
+gpiochip0 - 96 lines:
+        line   0:        "P00" "carrier-led" output active-high [used]
+        line   1:        "P01"   "core-led"  output  active-high [used]
+        line   2:        "P02"       unused   input  active-high 
+        line   3:        "P03"  "interrupt"   input  active-high [used]
+        ...
+        line  93:        "PB5"       unused   input  active-high 
+        line  94:        "PB6"       unused   input  active-high 
+        line  95:        "PB7"       unused   input  active-high
+```
+
+- 获取 gpio名称中的行号，例如 40pin header phy pin.31 名称为 P9_5.
++
+```sh
+$ sudo gpiofind P9_5
+77
+```
+
+- 读取40pin header phy pin.31的值
++
+```sh
+$ sudo gpioget gpiochip0 77
+1
+```
+
+- 将 40pin header phy pin.31 的值设置为低
++
+```sh
+$ sudo gpioset gpiochip0 77=0
+```
+
+- 监视器 GPIO 电平变化事件，您需要为上升沿事件指定 -r 或为下降沿事件指定 -f，但不能同时指定两者。
++
+```sh
+$ sudo gpiomon -r gpiochip0 77
+event:  RISING EDGE offset: 77 timestamp: [   22813.801682561]
+```
+
+== Python3-gpiod
+
+link:https://pypi.org/project/gpiod/0.6.0/[python3-gpiod] 是 Python libgpiod 库的绑定，允许用户控制 GPIO 线路使用 Python,
+
+- 安装 python3-libgpiod
++
+```sh
+$ sudo apt install python3-libgpiod
+```
+
+- 以下示例代码读取连接到 40pin 物理 pin.31 的引脚的状态。
++
+```sh
+import gpiod
+ 
+# 40pin, phy pin.31
+LINE_OFFSET = 77
+
+chip = gpiod.Chip("0", gpiod.Chip.OPEN_BY_NUMBER)
+line = chip.get_line(LINE_OFFSET)
+
+line.request(consumer='gpio', type=gpiod.LINE_REQ_DIR_IN)
+
+value = line.get_value()
+print(f"GPIO value is {value}")
+```
+
+- 以下示例代码控制 LED 连接到40pin物理引脚。31。
++
+```sh
+import time
+import gpiod
+
+# 40pin, phy pin.31
+LINE_OFFSET = 77
+
+chip = gpiod.Chip("0", gpiod.Chip.OPEN_BY_NUMBER)
+line = chip.get_line(LINE_OFFSET)
+
+line.request(consumer="gpio", type=gpiod.LINE_REQ_DIR_OUT, default_vals=[0])
+
+try:
+    while True:
+        line.set_value(1)
+        time.sleep(0.5)
+        line.set_value(0)
+        time.sleep(0.5)
+finally:
+    line.set_value(1)
+    line.release()
+```
+
+- 以下示例代码读取连接到 40pin 物理 pin.3 的按钮的状态，并点亮 LED 连接到物理 40pin pin.31 按下按钮时：
++
+```sh
+import gpiod
+
+# 40pin, phy pin.31
+LED_LINE_OFFSET = 77
+
+# 40pin, phy pin.3
+BUTTON_LINE_OFFSET = 26
+
+chip_led = gpiod.Chip("0", gpiod.Chip.OPEN_BY_NUMBER)
+chip_button = gpiod.Chip("0", gpiod.Chip.OPEN_BY_NUMBER)
+
+line_led = chip_led.get_line(LED_LINE_OFFSET)
+line_led.request(consumer="LED", type=gpiod.LINE_REQ_DIR_OUT, default_vals=[0])
+
+line_button = chip_button.get_line(BUTTON_LINE_OFFSET)
+line_button.request(consumer="BUTTON", type=gpiod.LINE_REQ_DIR_IN)
+
+try:
+    while True:
+        line_led.set_value(line_button.get_value())
+finally:
+    line_led.set_value(1)
+    line_led.release()
+    line_button.release()
+```
+
+== Python3-外围
+
+link:https://python-periphery.readthedocs.io/en/latest/[python-外围] 是一个纯粹的 Python 图书馆 GPIO, LED, PWM, SPI, I2C、MMIO 和串行外设 I/O 用户空间的接口访问 Linux.
+
+在使用 40pin 接头总线控制之前必须启用 dtb 覆盖，
+
+- 安装 python3-periphery
++
+```sh
+$ sudo apt install python3-periphery
+```
+
+- 以下示例代码读取连接到 40pin 物理 pin.31 的引脚的状态。
++
+```sh
+from periphery import GPIO
+
+# 40pin, phy pin.31
+CHIP = "/dev/gpiochip0"
+LINE_OFFSET = 77
+
+gpio = GPIO(CHIP, LINE_OFFSET, "out")
+gpio.write(True)
+
+print("GPIO state:", gpio.read())
+
+gpio.close()
+```
+
+- 以下示例代码控制 LED 连接到40pin物理引脚。31。
++
+```sh
+import time
+from periphery import GPIO
+
+# 40pin, phy pin.31
+CHIP = "/dev/gpiochip0"
+LINE_OFFSET = 77
+
+gpio = GPIO(CHIP, LINE_OFFSET, "out")
+gpio.write(False)
+
+try:
+    while True:
+        gpio.write(True)
+        time.sleep(0.5)
+        gpio.write(False)
+        time.sleep(0.5)
+finally:
+    gpio.write(False)
+    gpio.close()
+```
+
+- 以下示例代码读取连接到 40pin 物理 pin.3 的按钮的状态，并点亮 LED 连接到40pin物理引脚。31按下按钮时：
++
+```sh
+from periphery import GPIO
+		
+# 40pin, phy pin.31
+LED_CHIP = "/dev/gpiochip0"
+LED_LINE_OFFSET = 77
+	
+# 40pin, phy pin.3
+BUTTON_CHIP = "/dev/gpiochip0"
+BUTTON_LINE_OFFSET = 26
+	
+led = GPIO(LED_CHIP, LED_LINE_OFFSET, "out")
+button = GPIO(BUTTON_CHIP, BUTTON_LINE_OFFSET, "in")
+	
+try:
+    while True:
+        print(button.read())
+        led.write(button.read())
+finally:
+    led.write(True)
+    led.close()
+    button.close()
+```
+
+- 以下示例代码从地址为 0x50 的设备读取寄存器 0x00 的值，该设备连接到 40 引脚物理 pin.3 和 pin.5 上的 I2C1。您需要首先启用 i2c1 DTB 覆盖。
++
+```sh
+from periphery import I2C
+
+I2C_DEV = "/dev/i2c-1"
+SLAVE_ADDR = 0x50
+
+i2c = I2C(I2C_DEV)
+
+msg = [I2C.Message([0x10]), I2C.Message([0x00], read=True)]
+i2c.transfer(SLAVE_ADDR, msg)
+
+print("I2C data read: 0x{:02x}".format(msg[1].data[0]))
+
+i2c.close()
+```
+
+- 以下示例代码执行 SPI 环回测试。请直接连接40针物理引脚19 (SPI2_莫西) 至物理引脚 21 (SPI2_味噌)。在测试之前，您需要加载 spidev 驱动模块并启用 spi2 DTB 覆盖。
++
+```sh
+from periphery import SPI
+
+SPI_DEV = "/dev/spidev2.0"
+
+data_out = [0xAA, 0xBB, 0xCC, 0xDD]
+
+try:
+    spi = SPI(SPI_DEV, 0, 1000000)
+    data_in = spi.transfer(data_out)
+
+    print("Send Data: [0x{:02x}, 0x{:02x}, 0x{:02x}, 0x{:02x}]".format(*data_out))
+    print("Receive Data: [0x{:02x}, 0x{:02x}, 0x{:02x}, 0x{:02x}]".format(*data_in))
+finally:
+    spi.close()
+```
+
+- 以下示例代码通过以下方式发送数据 UART 到连接到 40 针物理引脚 8 的设备 (串口2_TXD) 和引脚 10 (串口2_接收数据)。测试前需要启用 uart2 DTB 覆盖。
++
+```sh
+from periphery import Serial
+
+UART_DEV = "/dev/ttySC2"
+BAUDRATE = 115200
+
+serial = Serial(UART_DEV, BAUDRATE)
+serial.write(b"Hello, World!\n")
+
+serial.close()
+```
+
+== 阿达弗鲁特-布林卡
+
+link:https://github.com/adafruit/Adafruit_Blinka[阿达弗鲁特·布林卡] 是一个兼容层，它带来了 CircuitPython 硬件 API 上 Linux 使用Python3的操作系统，可以轻松使用传感器、显示器等 I2C/SPI/UART 设备。更多信息请参考 link:https://learn.adafruit.com/[阿达水果维基] 和 link:https://github.com/adafruit[阿达水果 github]
+
+它已经支持 RZ/V2H 芯片和 BPI-AI2H 板。使用 40pin 接头总线控制之前必须启用 Dtb 覆盖
+
+. 安装包
++
+```sh
+$ sudo apt install git gpiod python3-dev python3-libgpiod python3-periphery python3-pip python3-venv libjpeg-dev zlib1g-dev libfreetype-dev libfreetype6 fonts-dejavu
+```
+
+. 创建项目并安装虚拟 python 里面的环境。
++
+```sh
+$ sudo su
+# mkdir project
+# cd project
+# python3 -m venv myenv
+# source myenv/bin/activate
+(myenv) root@bpi-ai2h:~/project#
+```
+
+. 安装gpiod python 结合库
++
+```sh
+(myenv) root@bpi-ai2h:~/project# pip3 install gpiod
+```
+
+. 虚拟环境安装 Adafruit Blinka
+- 从 PyPI 安装。
++
+```sh
+(myenv) root@bpi-ai2h:~/project# pip3 install Adafruit-Blinka
+```
+- 从 git 源安装
++
+```sh
+(myenv) root@bpi-ai2h:~/project# pip3 install git+https://github.com/adafruit/Adafruit_Blinka
+```
+
+. 布林卡测试
+- 例子 test_blinka.py 测试 Adafruit-Blinka 软件包是否安装正确。在运行测试之前，请加载 spidev 驱动模块，启用 i2c1 和 spi2 DTB 覆盖。
++
+```sh
+import board
+import digitalio
+import busio
+
+print("Hello, blinka!")
+
+# pin.31, Try to create a Digital input
+pin = digitalio.DigitalInOut(board.D31)
+print("Digital IO ok!")
+
+# Try to create an I2C device
+i2c = busio.I2C(board.SCL, board.SDA)
+print("I2C ok!")
+
+# Try to create an SPI device
+spi = busio.SPI(board.SCLK, board.MOSI, board.MISO)
+print("SPI ok!")
+
+print("done!")
+```
+本例执行结果如下：
++
+```sh
+(myenv) root@bpi-ai2h:~/project# python3 test_blinka.py
+Hello, blinka!
+Digital IO ok!
+I2C ok!
+SPI ok!
+done!
+```
+
+- 以下示例代码控制 LED 连接到40pin物理引脚。31。
++
+```sh
+import time
+import board
+import digitalio
+
+print("hello blinky!")
+
+# pin.31
+led = digitalio.DigitalInOut(board.D31)
+led.direction = digitalio.Direction.OUTPUT
+
+while True:
+    led.value = True
+    time.sleep(0.5)
+    led.value = False
+    time.sleep(0.5)
+```
+
+- 以下示例代码读取连接到 40pin 物理 pin.3 的按钮的状态，并点亮 LED 连接到40pin物理引脚。31按下按钮时：
++
+```sh
+import time
+import board
+import digitalio
+
+print("press the button!")
+
+# pin.31
+led = digitalio.DigitalInOut(board.D31)
+led.direction = digitalio.Direction.OUTPUT
+
+# pin.3
+button = digitalio.DigitalInOut(board.D3)
+button.direction = digitalio.Direction.INPUT
+button.pull = digitalio.Pull.UP
+
+while True:
+    led.value = not button.value
+```
+
+- I2C RGB lcd MCP23017 测试 I2C 液晶1602模块
++
+从 git repo 安装库，这两个 repo 是从 link:https://github.com/adafruit/Adafruit_CircuitPython_CharLCD[阿达弗鲁特_电路Python_字符液晶显示器] 和 link:https://github.com/adafruit/Adafruit_CircuitPython_MCP230xx[阿达弗鲁特_电路Python_MCP230xx]，修改以匹配硬件 link:https://docs.banana-pi.org/en/BPI-LCD_1602/BananaPi_BPI-LCD_1602[MCP23017 I2C 液晶1602模块]。这两个存储库中的示例也应该进行修改以匹配硬件设计
++
+```sh
+(myenv) root@bpi-ai2h:~/project# pip3 install git+https://github.com/Dangku/Adafruit_CircuitPython_CharLCD
+(myenv) root@bpi-ai2h:~/project# pip3 install git+https://github.com/Dangku/Adafruit_CircuitPython_MCP230xx
+```
+运行测试示例
++
+```sh
+(myenv) root@bpi-ai2h:~/project# wget https://raw.githubusercontent.com/Dangku/Adafruit_CircuitPython_CharLCD/main/examples/charlcd_i2c_rgb_simpletest.py
+(myenv) root@bpi-ai2h:~/project# python3 charlcd_i2c_rgb_simpletest.py
+```
+image::/picture/ai2n-blinka-lcd1602.png[ai2n-blinka-lcd1602.png]
+
+- SPI oled SSD1306测试 SPI Oled 模块
++
+从 git repo 安装库，这个 repo 来自 link:https://github.com/adafruit/Adafruit_CircuitPython_SSD1306[阿达弗鲁特_电路Python_SSD1306]、库和示例经过修改以匹配硬件 link:https://docs.banana-pi.org/en/BPI-OLED/BananaPi_BPI-OLED[SSD1306 SPI Oled 模块].
++
+```sh
+(myenv) root@bpi-ai2h:~/project# pip3 install git+https://github.com/Dangku/Adafruit_CircuitPython_SSD1306
+```
+对于一些导入 PIL 的示例安装 Pillow，pip3 install Pillow 命令会导致 ImportError: Cannot import name ‘_'imagingft' 来自'PIL'，因此使用以下命令。
++
+```sh
+(myenv) root@bpi-ai2h:~/project# pip3 install Pillow --no-binary :all:
+```
+运行测试示例
++
+```sh
+(myenv) root@bpi-ai2h:~/project# wget https://raw.githubusercontent.com/Dangku/Adafruit_CircuitPython_SSD1306/main/examples/ssd1306_stats.py
+(myenv) root@bpi-ai2h:~/project# python3 ssd1306_stats.py
+```
+image::/picture/ai2n-blinka-ssd1306-spi.png[ai2n-blinka-ssd1306-spi.png]
+
+- I2C oled 测试 link:https://makershop.ie/SSD1306-0.96-OLED-Display[SSD1306 I2C Oled 模块]
++
+lib 和示例源文件相同 spi ssd1306，但示例必须修改才能启用 i2c 接口和禁用 spi 接口
++
+```sh
+# Create the I2C interface.
+i2c = board.I2C()
+
+# Create the SSD1306 OLED class.
+# The first two parameters are the pixel width and pixel height.  Change these
+# to the right size for your display!
+disp = adafruit_ssd1306.SSD1306_I2C(WIDTH, HEIGHT, i2c)
+
+# Use for SPI
+#spi = board.SPI()
+# disp_cs = digitalio.DigitalInOut(board.CS)
+#disp_cs = None
+#disp_dc = digitalio.DigitalInOut(board.D18)
+#disp_reset = digitalio.DigitalInOut(board.D22)
+#disp = adafruit_ssd1306.SSD1306_SPI(WIDTH, HEIGHT, spi, disp_dc, disp_reset, dii
+sp_cs)
+```
+运行测试示例
++
+```sh
+(myenv) root@bpi-ai2h:~/project# python3 ssd1306_stats.py
+```
+image::/picture/ai2n-blinka-ssd1306-i2c.png[ai2n-blinka-ssd1306-i2c.png]
+
+== 接线Pi
+构建并安装wiringPi，用于 debian，您必须在构建之前安装 sudo
+
+```sh
+ $ sudo apt-get update
+ $ sudo apt-get install build-essential git
+ $ git clone https://github.com/Dangku/WiringPi
+ $ cd WiringPi
+ $ chmod a+x build
+ $ sudo ./build
+```
+
+运行 gpio readall 显示所有 40 针状态。
+```sh
+ $ sudo gpio readall
+ +-----+-----+---------+------+---+-- AI2H --+---+------+---------+-----+-----+
+ | I/O | wPi |   Name  | Mode | V | Physical | V | Mode |  Name   | wPi | I/O |
+ +-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+
+ |     |     |    3.3V |      |   |  1 || 2  |   |      | 5V      |     |     |
+ | 442 |   8 |   SDA.1 | HI-Z | 0 |  3 || 4  |   |      | 5V      |     |     |
+ | 443 |   9 |   SCL.1 | HI-Z | 0 |  5 || 6  |   |      | 0V      |     |     |
+ | 484 |   7 |  IO.484 | HI-Z | 0 |  7 || 8  | 0 | HI-Z | TxD2    | 15  | 460 |
+ |     |     |      0V |      |   |  9 || 10 | 0 | HI-Z | RxD2    | 16  | 461 |
+ | 488 |   0 |  IO.488 | HI-Z | 0 | 11 || 12 | 0 | HI-Z | IO.426  | 1   | 426 |
+ | 489 |   2 |  IO.489 | HI-Z | 0 | 13 || 14 |   |      | 0V      |     |     |
+ | 490 |   3 |  IO.490 | HI-Z | 0 | 15 || 16 | 0 | HI-Z | IO.463  | 4   | 463 |
+ |     |     |    3.3V |      |   | 17 || 18 | 0 | HI-Z | IO.462  | 5   | 462 |
+ | 508 |  12 |    MOSI | HI-Z | 0 | 19 || 20 |   |      | 0V      |     |     |
+ | 507 |  13 |    MISO | HI-Z | 0 | 21 || 22 | 0 | HI-Z | IO.459  | 6   | 459 |
+ | 509 |  14 |    SLCK | HI-Z | 0 | 23 || 24 | 0 | HI-Z | SS      | 10  | 503 |
+ |     |     |      0V |      |   | 25 || 26 | 0 | HI-Z | IO.502  | 11  | 502 |
+ | 432 |  30 |   SDA.2 | HI-Z | 0 | 27 || 28 | 0 | HI-Z | SCL.2   | 31  | 433 |
+ | 491 |  21 |  IO.491 | HI-Z | 0 | 29 || 30 |   |      | 0V      |     |     |
+ | 493 |  22 |  IO.493 | HI-Z | 0 | 31 || 32 | 0 | HI-Z | IO.456  | 26  | 456 |
+ | 458 |  23 |  IO.458 | HI-Z | 0 | 33 || 34 |   |      | 0V      |     |     |
+ | 427 |  24 |  IO.427 | HI-Z | 0 | 35 || 36 | 0 | HI-Z | IO.457  | 27  | 457 |
+ | 495 |  25 |  IO.495 | HI-Z | 0 | 37 || 38 | 0 | HI-Z | IO.429  | 28  | 429 |
+ |     |     |      0V |      |   | 39 || 40 | 0 | HI-Z | IO.420  | 29  | 420 |
+ +-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+
+ | I/O | wPi |   Name  | Mode | V | Physical | V | Mode |  Name   | wPi | I/O |
+ +-----+-----+---------+------+---+-- AI2H --+---+------+---------+-----+-----+
+```
+
+设置40pin phy pin.31 high/low，wPi 编号为 22。
+```sh
+ $ sudo gpio mode 22 out
+ $ sudo gpio write 22 1
+ $ sudo gpio write 22 0
+```
+
+BPI GPIO 扩展板和示例 link:https://github.com/Dangku/WiringPi/tree/master/examples[WiringPi/examples]
+
+- Blinkall：闪烁连接到所有 LED 灯 gpio 引脚，无扩展板。
+- lcd-阿达水果： link:https://docs.banana-pi.org/en/BPI-LCD_1602/BananaPi_BPI-LCD_1602[BPI LCD 1602显示模块]
+- oled: link:https://docs.banana-pi.org/en/BPI-OLED/BananaPi_BPI-OLED[BPI OLED 显示模块]
+- ssd1306/oled: link:https://makershop.ie/SSD1306-0.96-OLED-Display[0.96" I2C SSD1306 OLED]
+- 矩阵化： link:https://docs.banana-pi.org/en/BPI-RGB_LED/BananaPi_BPI_RGB_LED[BPI RGB LED 矩阵扩展模块]
+- 浆果剪辑： link:https://docs.banana-pi.org/en/BPI-BerrClip/BananaPi_BPI-BerryClip[BPI BerryClip 模块]
+
+Note: 此WiringPi仅支持设置40pin gpio 输出、输入，对于 io 功能如下 i2c, spi, pwm...，您必须启用 dtb 覆盖
+
+== RPi。GPIO
+
+构建并安装。
+```sh
+ $ sudo apt-get update
+ $ sudo apt-get install build-essential python3 python3-pip python3-dev python3-setuptools git
+ $ git clone https://github.com/Dangku/RPi.GPIO.git
+ $ cd RPi.GPIO
+ $ sudo python3 setup.py clean --all
+ $ sudo python3 setup.py install
+```
+创建并安装wheel包
+```sh
+ $ sudo python3 setup.py bdist_wheel
+ $ sudo pip3 install dist/RPi.GPIO-XXX.whl
+```
+直接从git源码安装，无需开发
+```sh
+ $ sudo pip3 install git+https://github.com/Dangku/RPi.GPIO.git
+```
+如果该软件包已安装，则应在安装新软件包之前将其卸载，或者使用 --force-reinstall 选项安装新软件包。
+
+- 以下示例代码控制 LED 连接到40pin物理引脚。31。
++
+```sh
+import RPi.GPIO as GPIO  
+import time  
+import sys
+
+# phy pin.31, bcm pin.6
+bcmledpin = 6
+phyledpin = 31    
+
+def setup_bcm():
+  GPIO.setmode(GPIO.BCM)
+  GPIO.setup(bcmledpin, GPIO.OUT)
+  
+def setup_board():
+  GPIO.setmode(GPIO.BOARD)
+  GPIO.setup(phyledpin, GPIO.OUT)
+
+def blink_bcm():  
+  while True:  
+    GPIO.output(bcmledpin, GPIO.HIGH)
+    print("********set bcm pin ", bcmledpin, " High********")
+    time.sleep(1)  
+    GPIO.output(bcmledpin, GPIO.LOW)
+    print("********set bcm pin ", bcmledpin, " Low********")
+    time.sleep(1)
+
+def blink_board():
+  while True:
+    GPIO.output(phyledpin, GPIO.HIGH)
+    print("********set phy pin ", phyledpin, " High********")
+    time.sleep(1)  
+    GPIO.output(phyledpin, GPIO.LOW)
+    print("********set phy pin ", phyledpin, " Low********")
+    time.sleep(1)
+
+def shutdown():
+    GPIO.cleanup()
+  
+if __name__ == '__main__':     # Program start  
+  print('To read output correctly, jumper pin 13 (bcm27) to pin 31 (bcm6)')
+  print('Press Ctrl-C to exit') 
+  setup_bcm()
+  #setup_board()
+  print("Hardware information: ", GPIO.RPI_INFO)
+  try:  
+    blink_bcm()
+    #blink_board()
+  except KeyboardInterrupt:
+    shutdown()
+```
+
+== 接线Pi-Python
+
+构建并安装。
+```sh
+ $ sudo apt-get update
+ $ sudo apt-get install build-essential python3 python3-dev python3-setuptools swig git
+ $ git clone --recursive  https://github.com/Dangku/WiringPi-Python.git
+ $ cd WiringPi-Python
+ $ sudo python3 setup.py install
+```
+
+- 以下示例代码控制 LED 连接到40pin物理引脚。31。
++
+```sh
+#!/usr/bin/env python
+
+import wiringpi as wpi
+import time
+
+# phy pin.31, wPi pin.22
+PIN = 22
+
+wpi.wiringPiSetup()
+wpi.pinMode(PIN, 1)
+
+while True:
+    wpi.digitalWrite(PIN, 1)
+    time.sleep(1)
+    wpi.digitalWrite(PIN, 0)
+    time.sleep(1)
+```
+
+== 安装 Docker发动机
+
+link:https://docs.docker.com/engine/install/[安装 Docker发动机] 用一个简单的命令
+
+```sh
+ $ curl -sSL get.docker.com | sudo sh
+```
+
+另一种方式安装 docker 使用 armbian-config 的引擎
+
+```sh
+ $ armbian-config --cmd CON002
+```
+
+验证 Docker 通过运行 hello-world 映像正确安装引擎。
+
+```sh
+ $ sudo docker run hello-world
+ Unable to find image 'hello-world:latest' locally
+ latest: Pulling from library/hello-world
+ c9c5fd25a1bd: Pull complete 
+ Digest: sha256:0b6a027b5cf322f09f6706c754e086a232ec1ddba835c8a15c6cb74ef0d43c29
+ Status: Downloaded newer image for hello-world:latest
+ 
+ Hello from Docker!
+ This message shows that your installation appears to be working correctly.
+ 
+ To generate this message, Docker took the following steps:
+  1. The Docker client contacted the Docker daemon.
+  2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+     (arm64v8)
+  3. The Docker daemon created a new container from that image which runs the
+     executable that produces the output you are currently reading.
+  4. The Docker daemon streamed that output to the Docker client, which sent it
+     to your terminal.
+ 
+ To try something more ambitious, you can run an Ubuntu container with:
+  $ docker run -it ubuntu bash
+ 
+ Share images, automate workflows, and more with a free Docker ID:
+  https://hub.docker.com/
+ 
+ For more examples and ideas, visit:
+  https://docs.docker.com/get-started/
+```
+
+== 远程访问
+
+有时您需要访问开发板而不将其连接到显示器、键盘和鼠标，以远程控制您的 bananapi 从本地网络上的另一台设备登录，请使用以下服务之一：
+
+- SSH
+- 虚拟网络控制
+
+在启用远程访问之前，请找到您的开发板的IP地址
+
+- 桌面
++
+右键单击系统托盘中的 nm 小程序图标，然后单击“连接信息”项，弹出窗口显示所有网络信息。
+
++
+image::/picture/ai2n-find-ip.png[ai2n-find-ip.png]
+
+- 命令行
++
+运行以下命令将您的 IP 地址输出到命令行：
+
+```sh
+ $ hostname -I
+ 10.0.1.6
+```
+
+=== SSH
+在计算机上打开终端窗口并输入以下命令，替换 <ip address> IP 地址为的占位符 bananapi 您尝试连接的主板以及 <username> 使用您的用户名：
+
+```sh
+ $ ssh <username>@<ip address>
+```
+
+=== 虚拟网络控制
+
+. 安装x11vnc
++
+```sh
+ $ sudo apt install x11vnc
+```
+
+. 创建密码文件
++
+```sh
+ $ x11vnc -storepasswd
+ Enter VNC password: 
+ Verify password:    
+ Write password to /home/pi/.vnc/passwd?  [y]/n y
+ Password written to: /home/pi/.vnc/passwd
+```
+
+. 创建服务文件 /lib/systemd/system/x11-vnc.service
++
+```sh
+[Unit]
+Description="x11vnc"
+Requires=display-manager.service
+After=lightdm.service
+
+[Service]
+ExecStart=/usr/bin/x11vnc -auth guess -loop -forever -safer -shared -ultrafilexfer -bg -o /var/log/x11vnc.log
+ExecStop=/usr/bin/killall x11vnc
+
+[Install]
+WantedBy=multi-user.target
+```
+
+. 启用服务
++
+```sh
+sudo systemctl daemon-reload
+sudo systemctl enable x11-vnc
+sudo systemctl start x11-vnc
+```
+
+. 连接到VNC服务器
++
+安装tigervnc并在客户端设备上启动它
++
+```sh
+ $ sudo apt install tigervnc-viewer
+ $ vncviewer 10.0.1.6
+```
++
+image::/picture/ai2n-vncview.png[ai2n-vncview.png]
+
+== 系统本地化
+使用armbian-config工具更改全球时区、语言、键盘布局和主机名
+
+```sh
+ $ sudo armbian-config
+```
+image::/picture/ai2n-localisation.png[ai2n-localisation.png]
+
+= 约克托人工智能 SDK
+== 准备
+- Yocto镜像支持SD卡或 EMMC 启动。
+- 建议使用A1级卡，至少16GB。
+- 确保可启动 EMMC 如果您想从 SD 卡 Yocto 启动，请格式化
+- 下载最新的 Yocto Image，并确认校验和正确。
+- root 登录无需密码。
+
+== 将 Yocto 映像安装到 SD 卡
+
+- 使用 Balena Etcher 安装映像 Windows, Linux 和 MacOS.
++
+link:https://balena.io/etcher[巴莱纳蚀刻机] 是 Balena 的开源 GUI 闪存工具，可将操作系统映像闪存到 SD 卡或 USB 开车。
+
+1. 点击“**从文件闪存**”来选择镜像。 
+2. 点击“**选择目标**”来选择 USB 设备。 
+3. 点击“**快闪！**“开始燃烧。
++
+image::/picture/etcher.jpg[etcher.jpg]
+
+- 使用 Balena Cli 安装镜像 Windows, Linux 和 MacOS.
++
+link:https://github.com/balena-io/balena-cli[巴莱纳 CLI] 是 balenaCloud 或 openBalena 的命令行界面。可以用来闪光 linux 镜像。从以下位置下载安装程序或独立包 link:https://github.com/balena-io/balena-cli/releases[巴莱纳-io] 和 link:https://github.com/balena-io/balena-cli/blob/master/INSTALL.md[安装 ]正确连接到您的 PC，然后您就可以使用“link:https://docs.balena.io/reference/balena-cli/#local-flash-image[本地闪存]" balena 的命令选项闪现 linux 镜像到 SD 卡或usb 开车。
++
+```sh
+  $ sudo balena local flash core-image-weston-bananapi-ai2h-xxx.rootfs.wic.gz
+  $ sudo balena local flash core-image-weston-bananapi-ai2h-xxx.rootfs.wic.gz --drive /dev/sdX
+  $ sudo balena local flash core-image-weston-bananapi-ai2h-xxx.rootfs.wic.gz --drive /dev/sdX --yes
+```
+
+- 使用 Armbian Imager 安装映像 Windows, Linux 和 MacOS.
++
+link:https://imager.armbian.com[Armbian 成像仪] 是一个用于安装 Armbian OS 的开源映像工具。
++
+对于非官方板镜像，请选择使用自定义镜像->浏览并选择本地镜像文件->选择目标存储->擦除&闪存。
++
+image::/picture/armbian-imager-tool.png[armbian-imager-tool.png]
+
+- 使用 dd 命令安装镜像 Linux
++
+umount SDcard device /dev/sdX partition if mounted automatically. 
++
+```sh
+ $ sudo apt-get install gunzip pv
+ $ sudo sh -c 'gunzip -c core-image-weston-bananapi-ai2h-xxx.rootfs.wic.gz | pv | dd of=/dev/sdX bs=1M status=progress && sync'
+```
+
+== 安装 Yocto 镜像到 eMMC
+
+1. 准备一张SD卡 Linux 镜像闪存和启动板与此 SD 卡。
+2. 复制 Linux 镜像到udisk，将udisk插入主板并安装。
+3. 使用 dd 命令安装，如果自动安装，则 umount mmcblk0p1 和 mmcblk0p2 分区。 
++
+```sh
+ $ sudo apt-get install gunzip pv
+ $ sudo sh -c 'gunzip -c core-image-weston-bananapi-ai2h-xxx.rootfs.wic.gz | pv | dd of=/dev/sdX bs=1M status=progress && sync'
+```
+
+== 构建 Yocoto AI SDK 源代码
+
+link:https://github.com/BPI-SINOVOIP/meta-bananapi/blob/bpi-ai2n/README.md[搭建指南]
+
+== 约克托人工智能 SDK 及人工智能应用
+
+link:https://renesas-rz.github.io/rzv_ai_sdk/6.00/ai-sdk.html[瑞萨维基]
+
+= 其他开发
+
+== 闪光灯 Spi 引导装载程序
+
+的 SPI bootloader由三部分组成：Flash Writer文件、ATF固件和U-Boot。共有三个文件： Flash_作家*.mot, bl2_BP_spi.srec(bl2_bp_spi.bin)和 fip.srec(fip.bin)，可以在 /boot 的目录 Linux 镜像。
+
+- 通过串行端口进行闪存引导加载程序 Windows 电脑
+
+1. 复制闪存_作家*.mot, bl2_BP_spi.srec 和 fip.srec 到您的 Windows 电脑。
+2. 连接 Windows PC 到板通过 usb 开往 usb 类型 uart 端口波纹管核心板。
+3. 将 Bootsel Switch 更改为 SCIF 下载模式。
++
+image::/picture/ai2n-boot-scidownload.png[ai2n-boot-scidownload.png]
+
+4. 开 Windows PC，打开终端模拟器。在这里，我们使用 link:https://github.com/TeraTermProject/teraterm/releases/tag/v4.108[太拉术语 4.108] 举个例子。
++
+Note: 如果使用 Tera Term 5.x 版本，请在发送文件窗口中选择“以与 Tera Term 4 相同的方式发送”。
++
+image::/picture/ai2n-spiflash-teraterm5.png[ai2n-spiflash-teraterm5.png]
+5. 选择“文件”>“新建连接”，然后选择“串行”端口，如下所示。
++
+image::/picture/ai2n-spiflash-serial1.png[ai2n-spiflash-serial1.png]
+6. 从“设置”>“终端”打开配置窗口并按如下方式更改设置。
++
+image::/picture/ai2n-spiflash-serial2.png[ai2n-spiflash-serial2.png]
+7. 从“设置”>“串行端口”打开配置窗口，并按如下方式更改设置。
++
+image::/picture/ai2n-spiflash-serial3.png[ai2n-spiflash-serial3.png]
+8. 连接电源线给开发板上电，终端上会显示以下信息。
++
+```sh
+SCI Download mode (Normal SCI boot)
+-- Load Program to SRAM ---------------
+```
+9. 打开“文件”>“发送文件...”并发送 Flash Writer 文件 (*.mot) 作为文本。如果显示以下信息，则文件传输成功。
++
+```sh
+Flash writer for RZ/V2x Series Vx.xx xxx.xx,20xx
+ Product Code : RZ/V2x
+>
+```
+10. 在终端上输入“XLS2”以获取以下消息。
++
+```sh
+> XLS2
+===== Qspi writing of RZ/V2x Board Command =============
+Load Program to Spiflash
+Writes to any of SPI address.
+Program size & Qspi Save Address
+===== Please Input Program Top Address ============
+  Please Input : H'
+```
+11. 输入“8101e00”。日志继续。
++
+```sh
+  Please Input : H'8101e00
+===== Please Input Qspi Save Address ===
+  Please Input : H'
+```
+12. 输入“00000”。日志继续。
++
+```sh
+  Please Input : H'00000
+please send ! ('.' & CR stop load)
+```
+13. 在“请发送！”之后消息，打开“文件”>“发送文件...”并发送 bl2_BP_SPI-RZV2*.srec 文件作为来自终端软件的文本。
+14. 如果出现如下提示清除数据的消息，请输入“y”。
++
+```sh
+SPI Data Clear(H'FF) Check : H'00000000-0000FFFF,Clear OK?(y/n)
+```
+15. 将显示以下日志。结束地址根据AI版本而定 SDK.
++
+```sh
+Write to SPI Flash memory.
+======= Qspi Save Information =================
+SpiFlashMemory Stat Address : H'00000000
+SpiFlashMemory End Address  : H'00036D17
+===========================================================
+```
+16. 在终端上输入“XLS2”以获取以下消息。
++
+```sh
+> XLS2
+===== Qspi writing of RZ/V2x Board Command =============
+Load Program to Spiflash
+Writes to any of SPI address.
+Program size & Qspi Save Address
+===== Please Input Program Top Address ============
+  Please Input : H'
+```
+17. 输入“00000”。日志继续。
++
+```sh
+  Please Input : H'00000
+===== Please Input Qspi Save Address ===
+  Please Input : H'
+```
+18. 输入“60000”。日志继续。
++
+```sh
+  Please Input : H'60000
+please send ! ('.' & CR stop load)
+```
+19. 在“请发送！”之后消息，打开“文件”>“发送文件...”并发送 fip-rzv2*.srec 文件作为来自终端软件的文本。
+20. 如果出现如下提示清除数据的消息，请输入“y”。
++
+```sh
+SPI Data Clear(H'FF) Check : H'00000000-0000FFFF,Clear OK?(y/n)
+```
+21. 将显示以下日志。结束地址根据AI版本而定 SDK.
++
+```sh
+Write to SPI Flash memory.
+======= Qspi Save Information =================
+SpiFlashMemory Stat Address : H'00060000
+SpiFlashMemory End Address  : H'0011C2EE
+===========================================================
+```
+22. 关闭单板电源，将 Bootsel Switch 更改为默认的 Boot Mode 来启动单板。
++
+image::/picture/ai2n-boot-spiboot.png[ai2n-boot-spiboot.png]
+
+- 通过串行端口进行闪存引导加载程序 Linux 电脑
+
+- AI2H 板上的闪存引导加载程序
+
+== 擦除 emmc
+用sd卡启动板子，擦除 emmc 使用 dd 命令如下。
+```sh
+$ sudo dd if=/dev/zero of=/dev/mmcblk0 bs=1M status=noxfer
+$ sync
+```
+
+== 第三部分载板
+- link:https://www.waveshare.com/jetson-nano-dev-kit-a.htm?sku=21650[Waveshare JETSON-IO-BASE-A载板]
++
+编辑 /boot/armbianEnv.txt 在 armbian 镜像中或 /boot/env.txt 在 yocto 镜像中如下。
++
+```sh
+overlay_prefix=bpi-ai2h-waveshare-jetson-io
+fdtfile=renesas/bananapi-ai2h-waveshare-jetson-io-a.dtb
+```
+Note: 
+1. AI2H 硬件不支持 HDMI 和 DP。 
+2. JETSON-IO-BASE-A 使用 5V DC，而不是 12V。
+
+== 启动自 NVME SSD
