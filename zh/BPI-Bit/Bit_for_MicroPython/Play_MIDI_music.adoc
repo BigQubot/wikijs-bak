@@ -1,0 +1,158 @@
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_development_tutorialbased_on_microbit[BPI:bit 的 MicroPython 开发]
+
+= 音乐
+固件提供 MIDI 播放模块，可通过指定的 PWM 引脚驱动蜂鸣器播放音乐。
+
+BPI:bit 已连接板载蜂鸣器，其引脚号为 25，可以直接开始播放音乐。
+
+补充说明：不要使用只能发出单一音调的有源蜂鸣器。
+
+代码如下（接口说明请参考 micro:bit 文档）：
+```sh
+import music
+music.play(music.NYAN)
+```
+下面列出了内置乐曲：
+```sh
+music.DADADADUM
+music.ENTERTAINER
+music.PRELUDE
+music.ODE
+music.NYAN
+music.RINGTONE
+music.FUNK
+music.BLUES
+music.BIRTHDAY
+music.WEDDING
+music.FUNERAL
+music.PUNCHLINE
+music.PYTHON
+music.BADDY
+music.CHASE
+music.BA_DING
+music.WAWAWAWAA
+music.JUMP_UP
+music.JUMP_DOWN
+music.POWER_UP
+music.POWER_DOWN
+```
+可以选择其中几首试听。
+
+= 创作一首属于你自己的歌曲
+在 Python 中编写 [" c4:4 ", "D4", "C", "e8 "] 这样的列表，就可以定义一段乐曲。
+
+下面解释这种写法。
+
+列表中的每个元素都表示一个音符，格式如下：
+```sh
+NOTE[octave][:duration]
+```
+首先需要了解一些基本乐理。
+
+NOTE 表示音名。常用的 C、D、E、F、G、A、B 分别对应唱名 do、re、mi、fa、sol、la、si。
+
+octave 表示音符所在的八度。简单来说，唱出 1、2、3、4、5、6、7、1（C、D、E、F、G、A、B、C）时，第一个 1 比最后一个 1 低一个八度，最后一个 1 比第一个高一个八度。
+
+duration 表示音符持续的拍数。
+
+例如：
+
+“C4:4”表示第 4 八度的 C（do），末尾的 :4 表示持续 4 拍。默认每拍 125 ms，因此总播放时长为 0.5 s。
+
+如果 NOTE 写为 R，则蜂鸣器会在指定时长内保持静音，即表示休止符。
+
+下面通过示例进一步说明。
+
+== 补充知识
+music 模块的默认设置为 ticks=4、BPM=120。ticks 是未明确指定时长时采用的默认拍数，例如在 ticks=4 时，'C4' 等同于 'C4:4'。BPM 表示每分钟拍数，用于描述乐曲速度。
+
+每个 tick 的基准时长可按 60,000/BPM/ticks 计算。使用默认值时，结果为 60,000/120/4 = 125 毫秒。
+
+== 案例1：基础测试
+运行以下代码并观察效果：
+```sh
+import music
+music.play([ "C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5"])
+music.play([ "D1", "D2", "D3", "D4", "D5", "D6", "D7", "D8"])
+```
+
+== 案例 2：两只老虎
+下面的代码可让开发板播放经典儿歌《两只老虎》。
+```sh
+import music
+tune = ["C4:4", "D4:4", "E4:4", "C4:4", "C4:4", "D4:4", "E4:4", "C4:4",
+       "E4:4", "F4:4", "G4:8", "E4:4", "F4:4", "G4:8"]
+music.play(tune)
+```
+音符列表还可以简写。'C4:4' 中设置的八度和时长会沿用到后续音符，直到出现新的设置，因此可写成：
+```sh
+import music
+tune = ["C4:4", "D", "E", "C", "C", "D", "E", "C", "E", "F", "G:8",
+       "E:4", "F", "G:8"]
+music.play(tune)
+```
+运行后应得到相同效果。
+
+== 音效
+music 模块也能生成非乐曲类音效，例如下面的警笛声：
+```sh
+import music
+while True:
+   for freq in range(880, 1760, 16):
+       music.pitch(freq, 6)
+   for freq in range(1760, 880, -16):
+       music.pitch(freq, 6)
+```
+music.pitch 方法需要传入频率值。例如，440 Hz 对应音乐会标准音高中的 A4。
+
+此例使用 range 函数生成一系列频率值，其参数分别指定起始值、结束值和步长。第一个 range 让频率从 880 Hz 以 16 Hz 为步长上升到 1760 Hz，第二个则从 1760 Hz 下降到 880 Hz，从而形成上下扫频的警笛效果。
+
+最外层的 while True 会让警笛声持续循环。
+
+本章内容到此结束，可以继续尝试创作自己的音效。
+
+= 连接外部音响
+如果板载蜂鸣器音量较小，可按下图把开发板连接到外部音响系统播放声音。
+
+image::/bpi-bit/music.jpg[music.jpg]
+
+P0 连接音频线的左声道或右声道，GND 连接音频线的 GND。
+
+image::/bpi-bit/bit5.png[bit5.png]
+
+= 获取乐谱
+刚接触这种音乐格式时，手工录入乐谱可能比较困难。可以使用社区制作的转换工具，自动生成开发板可播放的音乐数据。
+
+该工具由 link:https://github.com/fizban99[fizban99] 制作：https://github.com/fizban99/microbit_rttl
+
+转换通过 Excel 文件完成。先下载该 Excel 文件。
+
+取得转换工具后，还需要下载 RTTTL 音乐源文件：
+
+- link:http://www.picaxe.com/downloads/rtttl.zip[混合 RTTTL 铃声 ZIP 文件（450 首）]
+- link:http://www.picaxe.com/downloads/rtttl2.zip[混合 RTTTL 铃声 ZIP 文件 2（375 首）]
+- link:http://www.picaxe.com/downloads/rtttl3.zip[混合 RTTTL 铃声 ZIP 文件 3（10000 首）]
+- link:http://www.picaxe.com/downloads/rtttl_tv.zip[电视主题 RTTTL 铃声 ZIP 文件（50 首）]
+- link:http://www.picaxe.com/downloads/rtttl_xmas.zip[圣诞主题 RTTTL 铃声 ZIP 文件（70 首）]
+
+解压下载的音乐源文件，再打开之前下载的 Excel 文件，会看到如下界面：
+
+image::/bpi-bit/bit_music_1.png[bit_music_1.png]
+
+单击“Open RTTTL tune file”，在弹出的文件管理器中找到刚才解压的文件，选择要转换的音乐文件并单击“Open”。
+
+image::/bpi-bit/bit_music_2.png[bit_music_2.png]
+
+完成上述步骤后即完成转换，可单击“Play”试听音乐。注意：此处“Copy code”复制出的内容无法直接使用，可能显示为乱码。
+
+image::/bpi-bit/bit_music_3.png[bit_music_3.png]
+
+复制整理后的代码，即可让开发板播放音乐：
+```sh
+import music
+music.set_tempo(ticks=16, bpm=45)
+tune = ['D#6', 'D#', 'D#:2', 'F', 'G', 'G#', 'G#', 'G', 'F', 'F:6',
+       'D:2', 'D', 'D', 'D', 'D#','F', 'G', 'G', 'F', 'D#', 'D#:6',
+       'D#:2', 'D#', 'D#', 'D#', 'F', 'G', 'G#', 'G#', 'G', 'F', 'F:4']
+music.play(tune)
+```
