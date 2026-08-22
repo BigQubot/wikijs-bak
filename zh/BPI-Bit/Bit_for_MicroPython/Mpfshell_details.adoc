@@ -1,16 +1,16 @@
-TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_board_development_tools[位用于 MicroPython]
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_board_development_tools[BPI-Bit 的 MicroPython 教程]
 
 
-= mpfshell 用户手册
+= mpfshell 使用说明
 
-在python3.5以上版本，可以使用命令
+在 Python 3.5 或更高版本中，可使用以下命令进行安装：
 ```sh
 pip install mpfshell-lite 
 ```
-安装，然后输入
+安装完成后，输入以下命令：
 ```sh
 mpfshell-lite
 ```
-打开并运行。
+即可启动 mpfshell。
 
 image::/bpi-bit/mpfshell_install.png[mpfshell_install.png]
