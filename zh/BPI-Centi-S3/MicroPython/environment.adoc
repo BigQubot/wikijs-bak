@@ -1,0 +1,111 @@
+TIP: link:../GettingStarted_BPI-Centi-S3[返回开始使用 BPI-Centi-S3]
+
+== 系统环境要求
+
+支持开发 Windows 10, Windows 11, MacOS, Ubuntu 或其他
+Linux 桌面操作系统。
+
+本文中的所有应用示例均基于 Windows 10
+操作系统，也可用于其他操作系统
+参考。
+
+== 安装 Python 环境
+
+打开 https://www.python.org/[Python 官方网站].
+
+对于 Windows 系统，最方便的下载方式
+安装包就是点击下图所示的图标
+官网首页下载。
+
+image::/picture/bpi_centi_s3_micropython_operating_env_1.png[bpi_centi_s3_micropython_operating_env_1.png]
+
+可以在以下选项中选择其他操作系统或其他发行版
+下载选项栏。
+
+建议使用以上版本 python 3.7.
+
+一定要勾选添加 Python 开始安装时将 3.x 添加到 PATH 中，
+这样就可以避免手动将其添加到 PATH 中。
+
+image::/picture/bpi_centi_s3_micropython_operating_env_2.png[bpi_centi_s3_micropython_operating_env_2.png]
+
+按照安装提示一步一步完成
+安装顺利。
+
+== 安装 mpremote 工具
+
+的 MicroPython 开源社区发起了开发援助
+工具：mpremote，通过它我们可以与
+开发板，使用 REPL，并管理上的文件系统
+开发板。它还具有 mount 和 mip 函数，这将是
+后续章节详细介绍 (准备).
+
+安装后 Python 环境，可以使用pip安装
+在终端中进行 mpremote。
+
+在以下位置打开 PowerShell Windows 系统，打开相应的
+其他操作系统终端输入以下命令即可
+安装 mremote。
+
+```
+pip install mpremote
+```
+
+== 安装mpbridge工具
+
+mpbridge是基于mpremote开发的CLI工具。它主要提供
+自动同步文件功能，提高开发效率
+效率。
+
+在终端中输入以下命令来安装 mpbridge。
+
+```
+pip install mpbridge
+```
+
+== 安装 Visual Studio 代码
+
+使用 MicroPython 不依赖于特定的开发工具，因为
+只要与开发板进行串口通信即可
+成立后， MicroPython 交互式口译员 (REPL) 可以是
+获得。
+
+纯粹来说，我们基本上只需要一个文本编辑器来编辑代码，
+然后上传我们的.py脚本文件或者其他文件到开发中
+通过 mpremote 工具或 mpbridge 工具进行开发板。
+
+对于结合了基本代码完成、语法的特定编辑器
+高亮、集成终端、轻量级、多平台
+适配需求，我推荐使用Visual Studio Code (VS代码),
+这可能已经是您最熟悉的工具之一了。
+
+https://code.visualstudio.com/[Visual Studio Code 官方网站
+地址]
+
+可能需要参考的VScode文档： 
+
+* https://code.visualstudio.com/docs[Visual Studio 代码官方
+文档] 
+* https://code.visualstudio.com/docs/setup/setup-overview[Basic
+安装&#44；设置] 
+* https://code.visualstudio.com/docs/getstarted/locales[设置显示
+语言] 
+* https://code.visualstudio.com/docs/terminal/basics[使用
+综合终端]
+
+一切尽在网络人，极简主义者，尝试一下 https://vscode.dev/[VScode 上
+网络]，在本地操作系统上打开终端并使用 mremote 或
+mpbridge 同步文件， MicroPython REPL.
+
+== 其他推荐编辑
+
+* https://github.com/thonny/thonny/releases[桑尼]，一个开源的
+图形化的 python 由 Raspberry Pi 基金会赞助的编辑，
+与 Raspberry Pi OS 集成的工厂 (树莓派)，首选
+Raspberry Pi 用户入门。
+* https://www.jetbrains.com/pycharm/download/#section=windows[PyCharm
+社区版]，免费的社区版就足够了，而且
+还有代码完成 micropython 专门的图书馆，虽然
+不完整，已经很久没有更新了。
+* https://jupyter.org/[朱皮特] 也是web端的编辑器，更多
+专业，更Pythonic，并且支持Web终端。
