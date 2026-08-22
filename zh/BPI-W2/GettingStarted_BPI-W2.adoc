@@ -1,7 +1,7 @@
 = 简介
 
 
-TIP: 更多信息： link:/en/BPI-W2/BananaPi_BPI-W2[香蕉派 BPI-W2]
+TIP: 更多信息：link:/en/BPI-W2/BananaPi_BPI-W2[Banana Pi BPI-W2]
 
 == 规格参数
 
@@ -9,10 +9,10 @@ TIP: 更多信息： link:/en/BPI-W2/BananaPi_BPI-W2[香蕉派 BPI-W2]
 = 开发
 == 准备
 
-. 准备 8G/above TF卡、 USB-串行接口，PC Ubuntu 系统
-. 使用您的 USB-W2 上的串行连接调试控制台
+. 准备一张 8 GB 或更大容量的 TF 卡、一根 USB 转串口线，以及一台运行 Ubuntu 的 PC。
+. 使用 USB 转串口线连接 W2 的调试串口。
 
-WARNING: Rx和Tx需要反接，所以TTL线按黑、绿、白顺序连接。
+WARNING: RX 与 TX 需要交叉连接，因此 TTL 线按黑、绿、白的顺序连接。
 
 image::/picture/ttl.jpeg[ttl.jpeg]
 image::/picture/w2-ttl.jpg[w2-ttl.jpg]
@@ -20,37 +20,37 @@ image::/picture/w2-ttl.jpg[w2-ttl.jpg]
 == Android
 === 准备
 
-. link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/files/?p=%2FTools%2Fimage_download_tools%2Fw2_android_usb_download_tool.zip[BPI-W2 USB 闪存工具] 是一个 usb 下载刷机工具 android 镜像到板 emmc，并且只支持 Windows 平台。
-. 确保 SW4 切换至“0” emmc 启动。
+. link:https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/files/?p=%2FTools%2Fimage_download_tools%2Fw2_android_usb_download_tool.zip[BPI-W2 USB 烧录工具] 用于通过 USB 将 Android 镜像烧录到开发板的 eMMC，仅支持 Windows。
+. 将 SW4 置于“0”，选择从 eMMC 启动。
 
 image::/picture/w2-sw4-0.jpg[w2-sw4-0.jpg]
 
-=== 安装镜像 USB
+=== 通过 USB 安装镜像
 
-WARNING:  doc文件夹中有文档说明。
+WARNING: doc 文件夹中包含操作说明文档。
 
-启动rtumdfsample.exe后，您可以看到如上图所示的窗口。请：
+启动 rtumdfsample.exe 后会看到上图所示窗口，请按以下步骤操作：
 
-.	选择闪光灯类型。 (EMMC)
+.	选择 Flash 类型（EMMC）。
 .	选择 DDR 类型。
-.	打开文件，选择安装映像文件
-.	按住 usb SW4 旁边的按钮并将板连接到 PC USB 同时拔掉电缆，如果如下图1连接，松开 usb 按钮并单击绿色机器人图标，该工具将开始老化。
+.	打开文件，选择要安装的镜像文件。
+.	按住 SW4 旁边的 USB 按钮，同时用 USB 线将开发板连接到 PC。连接状态如图 1 所示后，松开 USB 按钮并单击绿色机器人图标，工具将开始烧录。
 +
 image::/picture/w2-usb-flash-tool.png[w2-usb-flash-tool.png]
 
-.	刻录机有指示状态的图标
+.	烧录工具通过图标指示当前状态：
 +
 image::/picture/w2-usb-flash-tool-1.jpg[w2-usb-flash-tool-1.jpg]
-- 烧录器已识别目标板，并读取烧录。
-- 电路板已完成烧录过程。
+- 烧录工具已识别目标开发板，并已准备好烧录。
+- 开发板已完成烧录。
 +
 image::/picture/w2-usb-flash-tool-2.jpg[w2-usb-flash-tool-2.jpg]
-- 刻录过程中会显示图标 
+- 烧录过程中显示的图标
 +
 image::/picture/w2-usb-flash-tool-3.jpg[w2-usb-flash-tool-3.jpg]
--	烧伤 install.img 目标但失败，调试日志将保存到日志\错误_日志
+-	将 install.img 烧录到目标设备失败，调试日志会保存到 log\error_log。
 
-.	如果您已经加载 install.img 在步骤3中，您可以单击“重新加载img”以使用当前烧机过程中的先前设置。 (绿框)
+.	如果已在步骤 3 加载 install.img，可单击“reload img”在本次烧录中沿用之前的设置（绿色框）。
 
 === 如何支持您的红外遥控器
 
@@ -63,46 +63,46 @@ https://download.banana-pi.dev/d/3ebbfa04265d4dddb81b/files/?p=%2FImages%2FBPI-W
 == Linux
 === 准备
 
-. Linux 镜像支持SD卡或 EMMC 启动
-. 建议使用A1级卡，至少8GB。
-. M2 Ultra 和 M2 Berry 兼容 Linux 镜像。
-. 安装 bpi-tools 在你的 Linux 电脑(如果使用其他工具刷入镜像，请忽略此步骤)。如果您无法访问此 URL 或出现任何其他安装问题，请转至 link:https://github.com/bpi-sinovoip/bpi-tools[bpi-tools] 源存储库，手动下载并安装此工具。
+. Linux 镜像支持从 SD 卡或 eMMC 启动。
+. 建议使用 A1 等级、容量至少 8 GB 的存储卡。
+. M2 Ultra 与 M2 Berry 使用相同的 Linux 镜像。
+. 在 Linux PC 上安装 bpi-tools（如果使用其他工具烧录镜像，可跳过此步）。如果无法访问安装地址或遇到其他安装问题，请前往 link:https://github.com/bpi-sinovoip/bpi-tools[bpi-tools] 源代码仓库，手动下载并安装。
 +
 ```sh
  $ apt-get install pv
  $ curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
 ```
-. 下载最新的 Linux 镜像，并确认md5校验和正确。
-. 默认登录： pi/bananapi 或 root/bananapi
+. 下载最新的 Linux 镜像，并确认 MD5 校验和正确。
+. 默认登录账号/密码：pi/bananapi 或 root/bananapi
 . 确保 SW4 切换到“1”以进行 SD 启动。
 
 image::/picture/w2-sw4-1.jpg[w2-sw4-1.jpg]
 
 === 使用 SD 卡安装镜像
 
-**Windows 电脑**
+**Windows PC**
 
-使用 Balena Etcher 安装映像。 +
-link:https://balena.io/etcher[巴莱纳蚀刻机] 是 Balena 的开源 GUI 闪存工具，可将操作系统映像闪存到 SD 卡或 USB 开车。
+使用 balenaEtcher 安装镜像。 +
+link:https://balena.io/etcher[balenaEtcher] 是 Balena 开发的开源图形化烧录工具，可将操作系统镜像写入 SD 卡或 USB 存储设备。
 
-. 点击“**从文件闪存**”来选择镜像。 
-. 点击“**选择目标**”来选择 USB 设备。 
-. 点击“**快闪！**“开始燃烧。
+. 单击“**Flash from file**”选择镜像。 
+. 单击“**Select target**”选择目标设备。 
+. 单击“**Flash!**”开始烧录。
 
 image::/picture/etcher.jpg[etcher.jpg]
 
-**Linux 电脑**
+**Linux PC**
 
 **有两种方法供您选择。**
 
 
-. 使用 dd 命令安装镜像 Linux,卸载SD卡设备 /dev/sdX 如果自动安装则分区。其实 bpi-copy 与此 dd 命令相同。
+. 在 Linux 上使用 dd 命令写入镜像。如果系统自动挂载了 SD 卡设备 /dev/sdX 的分区，请先卸载。bpi-copy 实际执行的操作与此 dd 命令相同。
 +
 ```sh
 sudo apt-get install pv unzip
 sudo unzip -p xxx-bpi-w2-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxfer
 ```
-. 安装镜像 bpi-tools 上 Linux，插入SD卡 Linux 电脑并运行
+. 在 Linux 上使用 bpi-tools 安装镜像：将 SD 卡插入 Linux PC，然后执行以下命令。
 +
 ```sh
 sudo apt-get install pv unzip
@@ -111,31 +111,31 @@ sudo bpi-copy xxx-bpi-w2-xxx.img.zip /dev/sdX
 
 === 安装镜像到 eMMC
 
-. 准备一张SD卡 Linux 镜像闪存和启动板与此 SD 卡。
-. 解压镜像并将其复制到 USB 驱动器，将U盘插入板上并安装。（如果自动安装，请忽略此步骤）
+. 准备一张已烧录 Linux 镜像的 SD 卡，并使用该卡启动开发板。
+. 解压镜像并复制到 USB 存储设备，将 U 盘插入开发板后挂载。（如果系统已自动挂载，可跳过此步。）
 +
 ```sh
 mount /dev/sdx /mnt
 ```
-. 有两种安装方式linux镜像到板上。
-- 使用dd命令安装。
+. 可通过两种方式将 Linux 镜像安装到开发板。
+- 使用 dd 命令安装。
 +
 ```sh
 sudo dd if=/mnt/xxx.bpi-w2-xxx.img of=/dev/mmcblk0 bs=10M status=noxfer
 ```
-- 安装 linux 乌磁盘中的镜像 bpi-tools 命令
+- 使用 bpi-tools 命令安装 U 盘中的 Linux 镜像。
 +
 ```sh
 sudo bpi-copy xxx-bpi-w2-xxx.img.zip /dev/mmcblk0
 ```
-. 下载完成后，安全关闭电源并弹出 SD 卡。
+. 写入完成后安全关机，然后取出 SD 卡。
 
 == 高级开发
 === SATA
 
-. 在 W2 上挂载 dev
+. 在 W2 上挂载设备
 
-- 插入sata接口后，执行 
+- 接入 SATA 设备后，执行以下命令：
 +
 ```sh
 fdisk -l
@@ -151,21 +151,21 @@ image::/picture/w2_sata.jpg[w2_sata.jpg]
 ```SH
 fdisk /dev/sdx
 ```
-设置分区数量和大小，创建分区后，输入“**瓦克**” 保存并退出。
+设置分区数量和大小。创建分区后，输入“**wq**”保存并退出。
 
-- 格式化SATA
+- 格式化 SATA 设备
 +
 ```SH
 mkfs.ext2 /dev/sdx
 ```
-- 萨多山
+- 挂载 SATA 设备
 +
 ```sh
 mount /dev/sdx /mnt/xxx
 ```
 
 ==== SSD
-. 成功插入SATA后，我们可以输入以下命令来测试SATA接口：
+. 成功接入 SATA 设备后，可使用以下命令测试 SATA 接口：
 +
 --
 测试读取速度
@@ -180,8 +180,8 @@ time dd if=/dev/zero of=/dev/sdx bs=1M count=1000
 +
 image::/picture/w2_ssd_test.jpg[w2_ssd_test.jpg]
 
-==== 硬盘
-. 成功插入SATA后，我们可以输入以下命令来测试SATA接口：
+==== HDD
+. 成功接入 SATA 设备后，可使用以下命令测试 SATA 接口：
 +
 --
 测试读取速度
@@ -197,13 +197,13 @@ time dd if=/dev/zero of=/dev/sdx bs=1M count=1000
 image::/picture/w2_hdd_test.jpg[w2_hdd_test.jpg]
 
 === 网络
-=== 通用汽车MAC
+=== GMAC
 
-. iperf3 -c [服务器]
+. iperf3 -c [server]
 +
 image::/picture/w2_iperf3_c.jpg[w2_iperf3_c.jpg]
 
-. iperf3-u-c [服务器]
+. iperf3 -u -c [server]
 +
 image::/picture/w2_iperf3_u_c.jpg[w2_iperf3_u_c.jpg]
 
@@ -211,12 +211,12 @@ image::/picture/w2_iperf3_u_c.jpg[w2_iperf3_u_c.jpg]
 +
 image::/picture/w2_iperf3_s.jpg[w2_iperf3_s.jpg]
 
-==== 无线网络和蓝牙
-1.如果您想使用WiFi或BT，您可以使用RTL8822BE模块。
+==== WiFi 与蓝牙
+1.如需使用 WiFi 或蓝牙，可安装 RTL8822BE 模块。
 
 image::/picture/rtl8822be.jpg[rtl8822be.jpg]
 
-==== 斯塔
+==== STA 模式
 . 使用命令设置 WiFi 客户端
 +
 --
@@ -238,12 +238,12 @@ dhclient wlan0
 ```
 --
 
-. 使用UI界面设置WiFi Client
+. 通过图形界面配置 WiFi 客户端
 +
 image::/picture/rtl8822be_sta.jpg[rtl8822be_sta.jpg]
 
 === GPU
-. 开始OpenGL测试
+. 启动 OpenGL 测试
 +
 ```sh
 glmark2-es
@@ -251,8 +251,6 @@ glmark2-es
 . glmark2 得分：30
 +
 image::/picture/m3_gpu_test.png[m3_gpu_test.png]
-
-
 
 
 
