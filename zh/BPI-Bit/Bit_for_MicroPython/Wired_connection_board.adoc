@@ -1,0 +1,43 @@
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_basic_board_development[BPI-Bit 的 MicroPython 教程]
+
+
+= 通过有线方式连接开发板
+
+. 连接 BPI:bit
++
+使用 Micro-USB 数据线将开发板连接到 Windows 10 计算机。
++
+image::/bpi-bit/bit_connect.jpg[bit_connect.jpg]
+
+. 检查驱动程序
++
+打开 <设备管理器>，确认串口驱动是否已安装。可通过以下任一方式打开：
++
+- 右键单击“此电脑”->“属性”->“设备管理器”
+- 在开始菜单中输入“设备管理器”
+- 在控制面板中搜索“设备管理器”
+
++
+image::/bpi-bit/error.png[error.png]
+如果设备显示为 **USB2.0-Serial**，表示 **驱动程序尚未安装**。如果此前已安装驱动，可跳到步骤 5。
+
+. 安装驱动程序
++
+从这里下载 link:http://www.wch.cn/downloads/file/5.html[CH341 串口驱动程序]，并按以下步骤安装。
+解压下载的 CH341SER.ZIP，进入 CH341SER 文件夹并运行 SETUP.EXE，如下图所示。
++
+image::/bpi-bit/install.png[install.png]
++
+单击 INSTALL 安装驱动，等待片刻即可完成。
+
+. 确认串口
++
+检查单板是否连接成功
++
+image::/bpi-bit/success.png[success.png]
++
+原来的 USB2.0-Serial 会消失，并显示 USB-SERIAL CH340（COM3）。这表示驱动已成功安装，同时可确认开发板的串口号为 COM3。随后可使用任意串口工具，通过该端口查看开发板输出的信息。
+
+. 其他操作系统
++
+开发板连接成功后，继续阅读下一节 link:/en/BPI-Bit/Bit_for_MicroPython/Try_burning_the_board[3 尝试烧录开发板]。Linux 和 macOS 下的操作基本相同，请根据所用系统查找对应驱动。
