@@ -64,61 +64,117 @@ Allwinner H618 design : link:/en/BPI-CM7/BananaPi_BPI-CM7[Banana Pi BPI-CM7] com
 
 == BPI-CM7 Module PIN Out define
 
-[options="header",cols="1,2,4"]
+🟥 Power · ⬛ Ground · 🟧 Ethernet · 🟦 USB · 🟪 HDMI / Analog A/V · 🟨 microSD · 🟩 GPIO / Control · ⬜ NC
+
+[options="header",cols="1,3,1,3"]
 |===
-| Connector pins | Signal group | Function
+4+| **Connector 1**
+| Pin | Signal | Pin | Signal
 
-| 3, 5, 10, 12
-| Ethernet
-| 10/100M Ethernet differential pairs
+| 1 | ⬛ GND | 2 | ⬛ GND
+| 3 | ⬜ NC | 4 | 🟧 EPHY_RXP
+| 5 | ⬜ NC | 6 | 🟧 EPHY_RXN
+| 7 | ⬛ GND | 8 | ⬛ GND
+| 9 | ⬜ NC | 10 | 🟧 EPHY_TXN
+| 11 | ⬜ NC | 12 | 🟧 EPHY_TXP
+| 13 | ⬛ GND | 14 | ⬛ GND
+| 15 | 🟧 ETH_ACT_3V3 | 16 | 🟩 DEBUG_UART_RX
+| 17 | ⬜ NC | 18 | 🟩 DEBUG_UART_TX
+| 19 | ⬜ NC | 20 | ⬜ NC
+| 21 | ⬜ NC | 22 | ⬛ GND
+| 23 | ⬛ GND | 24 | 🟩 PI0 / DMIC_CLK / I2S0_MCLK
+| 25 | 🟩 PI3 / DMIC_D2 / I2S0_DOUT | 26 | 🟩 PI2 / DMIC_D1 / I2S0_LRCLK
+| 27 | 🟩 PI4 / DMIC_D3 / I2S0_DIN | 28 | 🟩 PH10 / IR_RX
+| 29 | 🟩 PC7 / GPIO (3.3 V) | 30 | 🟩 PI9 / UART3_TX / RGMII_TXD1
+| 31 | 🟩 PH4 / SPDIF_OUT | 32 | ⬛ GND
+| 33 | ⬛ GND | 34 | 🟩 PI10 / UART3_RX / RGMII_TXD0
+| 35 | 🟩 PI7 / TWI1_SCL / RGMII_TXD3 | 36 | 🟩 PI8 / TWI1_SDA / RGMII_TXD2
+| 37 | 🟩 PH9 / SPI1_CS1 | 38 | 🟩 PH6 / SPI1_CLK
+| 39 | 🟩 PH5 / SPI1_CS0 | 40 | 🟩 PH8 / SPI1_MISO
+| 41 | 🟩 PC2 / GPIO (3.3 V) | 42 | ⬛ GND
+| 43 | ⬛ GND | 44 | 🟩 PH7 / SPI1_MOSI
+| 45 | 🟩 PI16 / UART4_CTS / GMAC_RSTn | 46 | 🟩 PI11 / UART3_RTS / PWM1 / RGMII_TXCLK
+| 47 | 🟩 PI15 / UART4_RTS / RGMII_MDIO | 48 | 🟩 PH3 / UART5_RX / TWI2_SDA / SPDIF_IN / PWM1
+| 49 | 🟩 PI1 / DMIC_D0 / I2S0_BCLK | 50 | 🟩 PH2 / UART5_TX / TWI2_SCL / SPDIF_CLK / PWM2
+| 51 | 🟩 PI14 / UART4_RX / RGMII_MDC | 52 | ⬛ GND
+| 53 | ⬛ GND | 54 | 🟩 PI12 / UART3_CTS / PWM2
+| 55 | 🟩 PI13 / UART4_TX / RGMII_CLK125M | 56 | 🟩 PI5 / TWI0_SCL / RGMII_RXCTL
+| 57 | 🟨 SD_CLK | 58 | 🟩 PI6 / TWI0_SDA / GMAC_INT
+| 59 | ⬛ GND | 60 | ⬛ GND
+| 61 | 🟨 SD_DAT3 | 62 | 🟨 SD_CMD
+| 63 | 🟨 SD_DAT0 | 64 | ⬜ NC
+| 65 | ⬛ GND | 66 | ⬛ GND
+| 67 | 🟨 SD_DAT1 | 68 | ⬜ NC
+| 69 | 🟨 SD_DAT2 | 70 | ⬜ NC
+| 71 | ⬛ GND | 72 | ⬜ NC
+| 73 | 🟨 SD_VDD_OVERRIDE (R86 NC) | 74 | ⬛ GND
+| 75 | 🟨 SD_PWR_ON | 76 | 🟨 SD_DET
+| 77 | 🟥 5V_INPUT | 78 | 🟥 GPIO_VREF (3.3 V)
+| 79 | 🟥 5V_INPUT | 80 | 🟩 IO_EEPROM_SCL
+| 81 | 🟥 5V_INPUT | 82 | 🟩 IO_EEPROM_SDA
+| 83 | 🟥 5V_INPUT | 84 | 🟥 3.3V_OUTPUT
+| 85 | 🟥 5V_INPUT | 86 | 🟥 3.3V_OUTPUT
+| 87 | 🟥 5V_INPUT | 88 | 🟥 1.8V_OUTPUT
+| 89 | 🟩 WL_DISn (R147 NC) | 90 | 🟥 1.8V_OUTPUT
+| 91 | 🟩 BT_DISn (R148 NC) | 92 | 🟩 SYS_RESET
+| 93 | 🟩 FEL / MASKROM | 94 | 🟩 ADC_IOID (R146 NC)
+| 95 | 🟩 LED_nPWR | 96 | ⬜ NC
+| 97 | ⬜ NC | 98 | ⬛ GND
+| 99 | 🟩 GLOBAL_EN (R145 NC) | 100 | ⬜ NC
 
-| 15-21
-| Status / Debug
-| Ethernet status, debug UART RX/TX, and activity signals
+4+| **Connector 2**
+| Pin | Signal | Pin | Signal
 
-| 24-58
-| GPIO
-| TWI/I2C, UART, SPI, PWM, I2S/DMIC, SPDIF, IR, and GPIO
-
-| 57, 61, 62, 63, 67, 69, 76, 77
-| microSD
-| SD clock, command, data 0-3, card detect, and power control
-
-| 78, 80, 82
-| I2C / GPIO voltage
-| GPIO reference voltage and carrier-board I2C clock/data
-
-| 79, 81, 83, 85, 87, 89
-| 5 V
-| Module power input
-
-| 84, 86
-| 3.3 V
-| Module power output
-
-| 88, 90
-| 1.8 V
-| Module power output
-
-| 91-101
-| Control
-| Wi-Fi/Bluetooth control, FEL, LED, reset, and enable signals
-
-| 103, 105
-| USB OTG
-| USB 2.0 OTG D-/D+
-
-| 104, 106; 116, 118; 122, 124
-| USB Host
-| USB 2.0 host ports
-
-| 111, 115, 117
-| Analog A/V
-| Composite video, line-out left, and line-out right
-
-| 151, 153, 170, 172, 176, 178, 182, 184, 188, 190, 199, 200
-| HDMI
-| HDMI CEC, HPD, TMDS, and DDC signals
+| 101 | 🟦 USB_OTG_ID | 102 | ⬜ NC
+| 103 | 🟦 USB_OTG_DM | 104 | 🟦 USB_HOST3_DP (USB 2.0)
+| 105 | 🟦 USB_OTG_DP | 106 | 🟦 USB_HOST3_DM (USB 2.0)
+| 107 | ⬛ GND | 108 | ⬛ GND
+| 109 | ⬜ NC | 110 | ⬜ NC
+| 111 | 🟪 TV_OUT | 112 | ⬜ NC
+| 113 | ⬛ GND | 114 | ⬛ GND
+| 115 | 🟪 LINE_OUTL | 116 | 🟦 USB_HOST2_DP (USB 2.0)
+| 117 | 🟪 LINE_OUTR | 118 | 🟦 USB_HOST2_DM (USB 2.0)
+| 119 | ⬛ GND | 120 | ⬛ GND
+| 121 | ⬜ NC | 122 | 🟦 USB_HOST1_DP (USB 2.0)
+| 123 | ⬜ NC | 124 | 🟦 USB_HOST1_DM (USB 2.0)
+| 125 | ⬛ GND | 126 | ⬛ GND
+| 127 | ⬜ NC | 128 | ⬜ NC
+| 129 | ⬜ NC | 130 | ⬜ NC
+| 131 | ⬛ GND | 132 | ⬛ GND
+| 133 | ⬜ NC | 134 | ⬜ NC
+| 135 | ⬜ NC | 136 | ⬜ NC
+| 137 | ⬛ GND | 138 | ⬛ GND
+| 139 | ⬜ NC | 140 | ⬜ NC
+| 141 | ⬜ NC | 142 | ⬜ NC
+| 143 | ⬜ NC | 144 | ⬛ GND
+| 145 | ⬜ NC | 146 | ⬜ NC
+| 147 | ⬜ NC | 148 | ⬜ NC
+| 149 | ⬜ NC | 150 | ⬛ GND
+| 151 | 🟪 HDMI0_CEC | 152 | ⬜ NC
+| 153 | 🟪 HDMI0_HPD | 154 | ⬜ NC
+| 155 | ⬛ GND | 156 | ⬛ GND
+| 157 | ⬜ NC | 158 | ⬜ NC
+| 159 | ⬜ NC | 160 | ⬜ NC
+| 161 | ⬛ GND | 162 | ⬛ GND
+| 163 | ⬜ NC | 164 | ⬜ NC
+| 165 | ⬜ NC | 166 | ⬜ NC
+| 167 | ⬛ GND | 168 | ⬛ GND
+| 169 | ⬜ NC | 170 | 🟪 HDMI0_TX2_P
+| 171 | ⬜ NC | 172 | 🟪 HDMI0_TX2_N
+| 173 | ⬛ GND | 174 | ⬛ GND
+| 175 | ⬜ NC | 176 | 🟪 HDMI0_TX1_P
+| 177 | ⬜ NC | 178 | 🟪 HDMI0_TX1_N
+| 179 | ⬛ GND | 180 | ⬛ GND
+| 181 | ⬜ NC | 182 | 🟪 HDMI0_TX0_P
+| 183 | ⬜ NC | 184 | 🟪 HDMI0_TX0_N
+| 185 | ⬛ GND | 186 | ⬛ GND
+| 187 | ⬜ NC | 188 | 🟪 HDMI0_CLK_P
+| 189 | ⬜ NC | 190 | 🟪 HDMI0_CLK_N
+| 191 | ⬛ GND | 192 | ⬛ GND
+| 193 | ⬜ NC | 194 | ⬜ NC
+| 195 | ⬜ NC | 196 | ⬜ NC
+| 197 | ⬛ GND | 198 | ⬛ GND
+| 199 | 🟪 HDMI0_SDA | 200 | 🟪 HDMI0_SCL
 |===
 
 == BPI-CM7 IO board
