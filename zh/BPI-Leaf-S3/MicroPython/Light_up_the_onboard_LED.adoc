@@ -1,0 +1,26 @@
+TIP: link:../GettingStarted_BPI-Leaf-S3[返回 BPI-Leaf-S3 入门指南]
+
+完成 link:/en/BPI-Leaf-S3/MicroPython/environment[Thonny 的安装和配置] 后，即可开始编程。
+
+新建 main.py 脚本文件，并在其中输入以下代码：
+
+```py
+from machine import Pin
+from neopixel import NeoPixel
+import time
+pin_48 = Pin(48)
+np = NeoPixel(pin_48, 1, bpp=3, timing=1)
+while True:
+     np[0] = (25,25,25)
+     np. write()
+     time. sleep_ms(250)
+     np[0] = (0,0,0)
+     np. write()
+     time. sleep_ms(250)
+```
+
+将文件保存到 MicroPython 设备，单击“运行”按钮，即可让板载彩色 LED 闪烁。
+
+修改 `np[0] = (25,25,25)` 右侧元组中的数据即可改变颜色，三个数值分别对应 R、G、B 的亮度。可设置范围为 0～255，建议使用 0～25。亮度过高时，请勿长时间直视 LED！
+
+TIP: https://docs.micropython.org/en/latest/library/neopixel.html[neopixel — WS2812 / NeoPixel LED 的控制 — MicroPython 文档]
