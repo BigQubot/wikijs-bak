@@ -1,0 +1,69 @@
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_development_tutorialbased_on_microbit[BPI-Bit 的 MicroPython 开发教程]
+
+= 关于 CodeLab
+Codelab.club 是一个非营利组织，官方网站：https://www.codelab.club/
+
+image::/bpi-bit/scratch_3.png[scratch_3.png]
+
+我们致力于传递编程的乐趣，帮助人们成为数字时代的创造者。
+
+Codelab.club 是一个编程俱乐部。编程是一种创造的工具。我们将帮助您熟悉这个工具，但我们更感兴趣的是鼓励您探索和尝试。我们希望和你一起做有趣的项目，找到你的激情，找到志同道合的伙伴，一起玩耍，一起创造。
+
+Codelab.club 是一个非营利组织，而不是一家公司。 Codelab.club 是免费的，但免费不是我们诉求的核心，就像免费不是开源运动的核心一样 (自由是)。开放、中立、共享、协作是我们的核心诉求。我们希望更多的志愿者、学习者和创作者能够加入我们
+
+BPI:bit 团队与 CodeLab 紧密合作，共同推动 STEAM 教育。
+
+= 如何在 BPI:bit 上使用 CodeLab Scratch 3
+访问在线 link:https://scratch3.codelab.club/[CodeLab Scratch 3] 网站。更多信息请参阅 link:https://www.codelab.club/[CodeLab] 和 link:https://blog.just4fun.site/tag/scratch.html[Scratch 开源文档]。
+
+首先选择适合自己操作系统的版本并获取 link:https://adapter.codelab.club/user_guide/install/[Adapter]；无需安装，直接打开即可。
+
+然后参考 link:https://adapter.codelab.club/user_guide/usage/#3-microbit[usb_microbit 用户手册]，按类似方式选择 mpfshell 选项。
+
+image::/bpi-bit/scratch_3_1.png[scratch_3_1.png]
+
+= 开始使用 CodeLab Scratch 3 控制 BPI:bit
+. 确保 Adapter 软件和 Scratch 3 网站均已打开。
+
+. 在 Scratch 3 中单击左下角的扩展按钮。
++
+image::/bpi-bit/scratch_2_external.png[scratch_2_external.png]
+
+. 滚动到底部，找到 BPI:bit 插件，选中它，然后单击“确定”返回主界面。
++
+image::/bpi-bit/scratch_3_3.png[scratch_3_3.png]
+
+. 检查 isconnected 指示灯以确认连接状态。
++
+image::/bpi-bit/scratch_3_4.png[scratch_3_4.png]
+
+. 此时连接开发板并单击连接按钮。（如不确定连接是否正常，可使用常规 mpfshell 检查。）连接成功后会显示 “true”。
++
+image::/bpi-bit/scratch_3_5.png[scratch_3_5.png]
+
+. 现在可以使用 CodeLab Scratch 3 的功能。
++
+image::/bpi-bit/scratch_3_6.png[scratch_3_6.png]
+
+. 此后可以自由使用自己的积木块。如果现有积木块无法满足需求，也可以直接使用 mpfshell 控制硬件。若希望把若干调试接口组合为单独的积木块，可以提交给我们合并；不过 Scratch 3 尚不支持动态加载积木块，因此目前无法完全开放该功能。
++
+image::/bpi-bit/scratch_3_7.png[scratch_3_7.png]
+
+= 如何通过 mpfshell 使用 Scratch 3
+要了解 mpfshell 的用法，只需查看几个示例，就能理解积木块与命令之间的来源和对应关系。
+
+image::/bpi-bit/scratch_3_8.png[scratch_3_8.png]
+
+如果已经会使用 mpfshell，这里的用法与之相同。所谓控制硬件，实际上相当于每次调用 mpfshell exec。
+
+需要特别注意，eim/mpfshell/exec/bpibit 是一个典型的主题，表示访问接口的一个实例。连接多个硬件时，每个实例会使用不同接口；例如，mpfshell 插件的默认主题是 eim/mpfshell/exec/default，而 BPI:bit 扩展使用 eim/mpfshell/exec/bpibit。借助主题可以区分并控制多个实例，在多设备场景中非常必要。
+
+= 结语
+
+本次提供了可重新编辑的界面；如需了解其实现方式，可以查看以下两个项目。
+
+link:https://github.com/junhuanchen/scratch3-eim-mpfshell[scratch3-eim-mpfshell]
+
+link:https://github.com/junhuanchen/webduino-module-eim[webduino-module-eim]
+
+Scratch 3 插件最终计划与 Webduino Blockly 同步。在我们的 Blockly 平台上，可以自行定义积木块而无需搭建服务器，因此能够专注于开发积木块，不必每次修改后都合并到服务器。这样，积木块和扩展插件可以完全自主开发，同时还能使用大多数积木块的前端平台，获得更大的自由度。
