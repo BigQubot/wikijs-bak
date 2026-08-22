@@ -1,6 +1,6 @@
-= 使用 Python 在 香蕉派 M2P 上安装 OpenCV 3.4x(H3)
+= 使用 Python 在 Banana Pi M2P（H3）上安装 OpenCV 3.4.x
 
-在 香蕉派 M2P 上安装 OpenCV 3.4x(H3) 我们用香蕉派 BPI-M2+ 到这个测试。我将向您展示如何在 BPI M2P 上安装 OpenCV(H3) 在这个线程中。
+本文以 Banana Pi BPI-M2+ 为测试平台，介绍如何在采用 H3 芯片的 BPI-M2P 上安装 OpenCV 3.4.x。
 
 image::/picture/opencv1.jpg[opencv1.jpg]
 
@@ -34,7 +34,7 @@ cmake -D CMAKE_BUILD_TYPE=Release  -D CMAKE_INSTALL_PREFIX=/usr/local -D PYTHON_
 +
 image::/picture/opencv_2.png[opencv_2.png]
 
-. 使用 python 测试相机
+. 使用 Python 测试摄像头
 +
 ```sh
 python readvideo.py
@@ -63,9 +63,9 @@ cv2.destroyAllWindows()
 
 image::/picture/opencv3.png[opencv3.png]
 
-替换“/usr/bin/python“通过”/usr/bin/python2.7" 或者使用 "ln -s /usr/bin/python2.7 /usr/bin/python"
+将“/usr/bin/python”替换为“/usr/bin/python2.7”，或执行“ln -s /usr/bin/python2.7 /usr/bin/python”。
 
-论坛线程： http://forum.banana-pi.org/t/using-python-to-install-opencv-3-4x-on-banana-pi-m2p-h3/6657
+论坛主题：http://forum.banana-pi.org/t/using-python-to-install-opencv-3-4x-on-banana-pi-m2p-h3/6657
 
-= 文件
-香蕉派 BPI-M2 Zero 使用 OpenCV ：https://bluexmas.tistory.com/category/OS/Banana%20Pi%20%EF%BC%8FBPI-Bit?page=2
+= 相关文档
+Banana Pi BPI-M2 Zero 使用 OpenCV：https://bluexmas.tistory.com/category/OS/Banana%20Pi%20%EF%BC%8FBPI-Bit?page=2
