@@ -1,0 +1,100 @@
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_basic_board_development[BPI:bit 的 MicroPython 开发]
+
+= 为什么烧板子
+
+“烧录”原指把程序下载到硬件中，现在已成为常用说法。使用烧录工具，可以把需要运行的程序写入开发板。
+
+= 准备相关工具
+以 Windows 10 为例，请从 link:https://github.com/BPI-STEAM/BPI-BIT-MicroPython/releases[BPI:bit Releases] 选择一个镜像版本，并下载 AutoErase.exe、AutoFlash.exe 和 firmware.bin，将它们放在同一目录中。
+
+在其他系统中，需要使用 Python 脚本 AutoErase.py 和 AutoFlash.py 进行烧录。
+
+image::/bpi-bit/all_tools.png[all_tools.png]
+
+确认驱动程序已成功安装、开发板已连接到计算机后，再继续以下步骤。
+
+image::/bpi-bit/win_check_ch340.png[win_check_ch340.png]
+
+= 一键烧录固件
+== 擦除开发板固件
+遇到以下情况时，建议先擦除一次开发板：
+
+- 首次使用固件
+- 之前已经存在其他固件
+- 单板运行异常
+- 遇到无法定位的问题时
+
+在 Windows 中，双击运行 AutoErase.exe。它会识别最近插入计算机的开发板所对应的串口，并自动擦除开发板。因此，请确保这块开发板是最近接入的串口设备。
+
+image::/bpi-bit/erase_succeed.png[erase_succeed.png]
+
+上图表示擦除成功。如果失败，请重试；仍然失败时，请检查设备和串口配置。
+
+== 更新开发板固件
+遇到以下情况时，建议更新一次开发板固件：
+
+- 擦除开发板后
+- 固件需要升级
+
+在 Windows 中，双击运行 AutoFlash.exe。它会识别最近插入的开发板所对应的串口，并自动把同一目录中的固件文件写入开发板。
+
+image::/bpi-bit/flash_succeed.png[flash_succeed.png]
+
+上图表示烧录成功。如果失败，请重试；仍然失败时，请检查设备和串口配置。
+
+烧录完成后，可以进入下一章 link:/en/BPI-Bit/Bit_for_MicroPython/Hello_World[4 Hello, World!]；若仍有疑问或想了解更多内容，请继续阅读。
+
+= 烧录工具详解
+== 使用 Windows 系统
+运行 ` AutoFlash. Exe ` 程序后，它会自动查找最近接入的串口，并把同一目录中的 ` fimware. Bin ` 文件一键烧录到芯片。
+
+image::/bpi-bit/auto_flash_running.png[auto_flash_running.png]
+
+
+使用 ` AutoErase. Exe ` 可以擦除固件。如果开发板中存在其他固件或遇到无法解决的问题，可先用修复（擦除）工具重置开发板，再重新烧录固件。请注意，此操作会删除开发板上的所有文件。
+
+image::/bpi-bit/auto_erase_running.png[auto_erase_running.png]
+
+上述程序由相关 Python 脚本通过 ` Pyinstller X86 ` 模块打包而成。
+
+以上两个工具支持命令行用法 ` AutoErase. Exe - port COM4 - baud 115200 - port `，具体参数说明见下文。
+
+== 使用 Linux 系统
+```sh
+Shell 
+sudo esptool.py --chip esp32 --port COM3 --baud 1152000 write_flash -z --flash_mode dio --flash_freq 40m 0x1000 firmware.bin
+```
+
+- 使用前需要安装 Python 和 esptool 依赖，例如 `PIP install esptool`。
+- esptool.py 是用于 ESP 系列芯片的烧录脚本。
+- `--chip esp32` 指定芯片型号为 ESP32。
+- `--port COM3` 指定串口名称；Windows 中为 COM3，Linux 中通常为 /dev/ttyUSB0。
+- `--baud 921600`，如果出现刻录错误，可以降低到460800，这样会减慢刻录速度。
+- `firmware.bin` 指定待烧录文件的位置；未提供路径时，默认使用当前目录中的文件。
+- 其他保持不变
+
+== 在 Python 解释器环境中执行烧录
+link:https://github.com/junhuanchen/AutoTools/blob/master/AutoFlash.py[AutoFlash.py] 的行为与 Linux Shell 命令一致，可在 Python 源码中查看实现。
+
+link:https://github.com/junhuanchen/AutoTools/blob/master/AutoErase.py[AutoErase.py] 用于擦除当前硬件中的固件。遇到无法解决的问题时，可以尝试先执行擦除。
+
+= 烧录完成后
+烧录成功时会显示如下图所示的结果；失败时，程序可能直接退出或显示红色警告信息。
+
+image::/bpi-bit/flash_finish.jpg[flash_finish.jpg]
+
+= 出错
+如果您不知道如何解决问题，请直接将问题提交给我们解决。
+
+如果没有人提供解决方案，您可以使用修复程序 (擦除) 工具并自行重新烧录固件。
+
+修复（擦除）工具执行成功后的结果如下图所示。
+
+image::/bpi-bit/repair_finish.jpg[repair_finish.jpg]
+
+= 故障排除
+== 写入固件失败，写入程序闪退，或者结果出现红色警告
+最常见的原因是串口驱动异常，修复驱动后可再次尝试。计算机同时连接多个串口设备时，也可能识别错误；请确保开发板是最近插入的设备，以便工具自动识别并烧录。如果仍然失败，请更换 USB 数据线；再次失败时，请联系售后检修或更换开发板。
+
+== 烧录成功但开发板不工作
+如果面板指示灯不亮，先检查数据线是否质量不佳或供电不足，并尝试更换线材。另一种可能是旧固件导致分区数据损坏，常见于此前烧录过其他固件的开发板，此时可先执行擦除。若排除以上两种情况，请确认计算机中的驱动状态正常且没有感叹号，或换一台计算机重试。
