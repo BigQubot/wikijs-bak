@@ -1,32 +1,32 @@
 = 简介
 
-== 第一步：下载并编译BSP代码
+== 第一步：下载并编译 BSP 代码
 这里我使用 BPI-M4 举个例子：
 
-. 下载bsp代码，执行
+. 下载 BSP 代码并执行：
 +
 ```sh
 git clone https://github.com/BPI-SINOVOIP/BPI-M4-bsp.git
 ```
 
-. 构建bsp，执行
+. 构建 BSP，执行：
 +
 ```sh
 ./build.sh
 ```
-然后选择“**1**".
+然后选择“**1**”。
 
 +
 image::/picture/build_image_1.png[build_image_1.png]
 
-. 构建bsp代码后，将在“中生成引导文件和内核文件**SD/bpi-m4**".
+. BSP 代码构建完成后，会在“**SD/bpi-m4**”中生成引导文件和内核文件。
 +
 image::/picture/build_image_2.png[build_image_2.png]
 
-== 第二步：将镜像安装到SD卡上
-. 您可以通过以下方式安装映像：安装 Linux & Android 香蕉派 SBC 上的镜像
+== 第二步：将镜像烧录到 SD 卡
+. 可参考“在 Banana Pi 单板计算机上安装 Linux 和 Android 镜像”的说明烧录镜像。
 
-. 这里我在 a 下安装了一个镜像 ubuntu 操作系统
+. 本例在 Ubuntu 系统中烧录镜像。
 +
 ```sh
 bpi-copy 2019-07-23-ubuntu-18.04-mate-desktop-preview-bpi-w2-m4-sd-emmc.img.zip /dev/sde
@@ -34,12 +34,12 @@ bpi-copy 2019-07-23-ubuntu-18.04-mate-desktop-preview-bpi-w2-m4-sd-emmc.img.zip 
 +
 image::/picture/build_image_3.png[build_image_3.png]
 
-== 第三步：制作图像
-. 我们的bsp无法直接构建镜像，因此我们需要从已安装镜像的sd卡中制作镜像。
+== 第三步：制作镜像
+. BSP 无法直接生成完整镜像，因此需要从已烧录系统的 SD 卡制作镜像。
 
-. 将我们刚刚安装镜像的SD卡插入 ubuntu PC，那么PC就会识别“**BPI-BOOT**” 和 “**BPI-ROOT**".
+. 将刚刚烧录镜像的 SD 卡插入 Ubuntu 计算机，系统会识别“**BPI-BOOT**”和“**BPI-ROOT**”两个分区。
 
-. 现在我们在制作图像之前做一些准备工作：
+. 制作镜像前先完成以下准备：
 +
 ```sh
 cd /media
@@ -48,7 +48,7 @@ mkdir <directory>
 cp <BPI-M4-Project>/SD/bpi-m4/*.tgz <BPI-M4-Project>/SD/bpi-m4/100MB/* image
 ```
 
-. 如您所见，我链接了一个名为“**圆周率**“下”**/media**”，创建一个文件夹并将所有 bsp 文件复制到其中。
+. 如上所示，系统在“**/media**”下挂载了名为“**pi**”的用户目录；随后创建文件夹，并将所有 BSP 文件复制到其中。
 
 . 现在我们可以使用命令
 +
@@ -58,13 +58,13 @@ bpi-migrate -c bpi-w2-m4.conf -c ubuntu-18.04-mate-from-sd.conf
 +
 image::/picture/build_image_4.png[build_image_4.png]
 
-. 此命令将从 sd 卡复制操作系统，并替换您刚刚在新映像中构建的新内核和 uboot。
+. 此命令会从 SD 卡复制操作系统，并在新镜像中替换为刚刚构建的内核和 U-Boot。
 
 == 注意事项
-WARNING: 如何找到主板.conf文件？
+WARNING: 如何查找开发板的 .conf 文件？
 
 您可以在这里看到这些文件： https://github.com/BPI-SINOVOIP/BPI-files/tree/69594603ab8ceb102d77818982897c00c86d6d15/others/for-bpi-tools/conf/board
 
-WARNING: 如何找到 os.conf 文件？
+WARNING: 如何查找操作系统的 .conf 文件？
 
 您可以在这里看到这些文件： https://github.com/BPI-SINOVOIP/BPI-files/tree/c2f1fcaf34cf8e5b58b1e0093c7597b0d31ca0f6/others/for-bpi-tools/conf/os
