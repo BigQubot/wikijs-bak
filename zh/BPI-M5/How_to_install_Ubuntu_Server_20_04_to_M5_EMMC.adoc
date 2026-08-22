@@ -1,0 +1,64 @@
+TIP: link:/en/BPI-M5/BananaPi_BPI-M5[BananaPi_BPI-M5]
+
+使用 Windows 计算机为 Banana Pi 配置 Ubuntu Server 20.04
+
+- 下载最新版本的 Balena Etcher
+- 从以下位置下载镜像文件：[Banana Pi 开源项目 (banana-pi.dev)](https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FImages%2FBPI-M5%2Fubuntu%2F2021-06-21-ubuntu-20.04-server-bpi-m5-m2pro-aarch64-sd-emmc.img.zip)
++
+```sh
+2021-06-21-ubuntu-20.04-server-bpi-m5-m2pro-aarch64-sd-emmc.img.zip
+```
+- 将镜像文件解压到 Windows 计算机上的文件夹中。
+- 使用 Balena Etcher 将解压后的镜像文件（*.img）烧录到 SD 卡。
+- 将同一镜像的压缩文件（*.zip）复制到 U 盘（如果文件无法复制，可尝试将 U 盘格式化为 NTFS 文件系统）。
+- 使用 SD 卡启动 Bpi M5
+- Ubuntu 登录用户名为“pi”，密码为“bananapi”。
+- **如果只需要从 SD 卡启动 Ubuntu，可在此停止。**
+- 如果需要配置 M5 从 eMMC 启动，请继续以下步骤。
+- 继续操作后，在重新格式化 eMMC 之前将无法从 SD 卡启动。**
+- Ubuntu 登录用户名为“pi”，密码为“bananapi”。
+- 在终端提示符 $ 下，运行以下两个命令：
++
+```sh
+sudo apt-get install pv
+curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
+```
+- 将 U 盘插入 BPI-M5，并在终端中使用以下命令挂载：
++
+```sh
+sudo fdisk -l
+```
+用于查看操作系统分配给 U 盘的设备名。+
+我的是 /dev/sda1
++
+```sh
+sudo mkdir /media/usb
+```
+创建用于挂载 U 盘的目录（挂载点）；该目录可能已经存在。
++
+```sh
+cd /media/usb
+sudo mount /dev/sda1 /media/usb
+```
+将 U 盘挂载到 /media/usb 目录。
++
+```sh
+ls
+```
+列出 U 盘中的内容。+
+此时应能看到 Ubuntu 镜像的 .zip 压缩文件。
++
+```sh   
+sudo bpi-copy 2021-06-21-ubuntu-20.04-server-bpi-m5-m2pro-aarch64-sd-emmc.img.zip /dev/mmcblk0
+```
+将镜像文件复制、解压并安装到 eMMC。+
+如果此处提示“**unzip**”不是有效命令，+
+请运行“**sudo apt-get install unzip**”，+
+然后重新运行上面列出的“**sudo bpi-copy**”命令。
+
+- BPI-M5 的启动顺序为：Boot ROM 先从 eMMC 启动，再尝试 SD 卡。因此，在 eMMC 安装系统后若想恢复从 SD 卡启动，必须先擦除 eMMC。
++
+如需擦除 eMMC 并恢复从 SD 卡启动：
+
+ * 使用 USB 调试控制台线将 M5 连接到计算机。
+ * 使用 Amlogic USB 刻录工具格式化 EMMC
