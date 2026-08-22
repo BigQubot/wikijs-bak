@@ -1,0 +1,109 @@
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_development_tutorialbased_on_microbit[位用于 MicroPython]
+
+
+= 面板滚动文本
+这和原来的hello词有质的变化！
+
+== 准备好所需的工具
+
+- BPI：位最新固件。宾
+
+- Windows- Mpfshell。执行程序
+您可以从以下位置下载： https://github.com/BPI-STEAM/BPI-BIT-MicroPython/releases
+
+== 易于使用 MicroPython
+```sh
+from microbit import *
+display.scroll("Hello, World!")
+```
+
+image::/bpi-bit/scroll-hello.gif[scroll-hello.gif]
+
+* 每行也有特殊的语义。
+** *微比特导入形式*
++
+如果你以前接触过c，你可以通过库来理解。所有模块都是现有的代码库。这些库是从 microbit 导入的。第二排
+
+** *显示滚动(“你好，世界！”)*
++
+这也有道理，说明 microPython 使用display命令滚动字符串的“helloworld”字符数。该显示器是microbit中的一个模块，代表设备的物理显示器，显示器用引号括起来。
+现在将代码直接复制到编辑器并将其刻录到您的设备。可以修改角色信息吗？尝试一下！
+
+* 测试效果：
++
+image::/bpi-bit/scroll.png[scroll.png]
+
+= 字符颜色
+与 microbit 相比，bpibit 的 led 面板采用可编程RGB灯 (WS2812B). link:https://github.com/BPI-STEAM/BPI-BIT/blob/master/doc/WS2812B.pdf[单击此处了解有关 WS2812B 的更多详细信息]
+
+RGB灯可编程显示255种 *255 *255种颜色，也就是1600万种颜色。难以置信，让我们开始我们的色彩表演吧。
+
+更改字体颜色很容易。我们在固件中预设了 8 种颜色
+```sh
+black = [0, 0, 0]
+Red = [2, 0, 0]
+Orange = [2, 1, 0]
+Yellow = [2, 2, 0]
+Green = [0, 2, 0]
+Blue = [0, 0, 2]
+Indigo = [0, 2, 2]
+Purple = [2, 0, 2]
+```
+他们是黑色的 (熄灯)、红、橙、黄、绿、蓝、靛、紫。使用这些基本颜色，您可以修改字体颜色。
+
+== 示例代码
+```sh
+from display import*
+display=Display()
+display.scroll("Hello, World!",Yellow)
+```
+
+image::/bpi-bit/yellow.png[yellow.png]
+
+板子默认颜色是红色，只要字符串 (也就是说，“你好，世界！ ) 修改显示字符的颜色。从上图中可以看到，我们的角色颜色已经变成了黄色。
+
+说到这里，有些人可能会有疑问吧？那么如何让每个角色呈现不同的颜色呢？我们看下面的操作
+```sh
+from display import*
+display=Display()
+color=[Red,Orange,Yellow,Green,Blue,Indigo,Purple]
+display.scroll("ROYGBIP",color)
+```
+
+image::/bpi-bit/color.png[color.png]
+
+我们将创建一个新的颜色列表，它将按顺序存储每个字符所需的颜色，然后我们将在滚动函数之后添加颜色，以便每个字符将具有不同的颜色。
+
+== 定制颜色
+- 到这里聪明的同学要再问一个问题，不是说有一千六百万种以上的颜色，到底有几种，嗯，不急，让我慢慢道来。
+- 说了这么多 RGB，什么是 RGB？ RGB 颜色通常称为原色，R 代表红色，G 代表绿色，B 代表蓝色。自然界中任何肉眼可见的颜色都可以由这三种颜色混合叠加而成。在计算机中，RGB“多少”指的是亮度，以整数表示。一般来说，RGB有256级亮度，用从0、1、2……直到255的数字来表示。注意，虽然数字最大为255，但0也是数字之一，所以有256级。根据计算，256级RGB颜色可以组合成大约1678万种颜色，即256种颜色。 * 256 * 256=16777216。通常也称为 1600 万色或 1000 万色。也称为 24 位颜色 (2的24次方)。在领域 led，采用三合一点阵全彩技术，即一个发光单元由RGB三色芯片组成，形成全彩像素。随着这项技术的不断成熟， led 显示技术将为人们带来更加真实的色彩体验。
+- 那么无论如何，我们如何控制我们的板显示我们想要的颜色，以及如何将颜色存储在列表中
++
+```sh
+Red = [2, 0, 0]
+```
+那么为什么是红色 (2, 0, 0)，这三个数字分别对应的列表其实就是我们R (红色), G (绿色) B的亮度 (蓝色)，前面提到每种颜色都有256级亮度，显而易见 [2, 0, 0] 表示红色亮度为2，绿色亮度为0，蓝色亮度为0。由此，我们可以推导出其他颜色列表的含义。
+- 这里我们也可以用同样的方式定义我们的颜色。我们定义一个mycolor=[1, 2, 3] 看看它是什么样子
++
+```sh
+from display import*
+display=Display()
+mycolor=[3,3,3]
+display.scroll("hello",mycolor)
+```
++
+image::/bpi-bit/mycolor.png[mycolor.png]
+
+是不是很有趣？现在你就会有很多有趣的想法，所以尝试一下吧
+
+以下是一些注意事项：
+
+. 每种颜色的亮度为0-255。有 256 个值可供选择，因此最小值为[0, 0, 0]最大值是 [255,255,255].
+. 亮度一般不要调太大，亮度太亮容易晃眼
+
+= 故障排除
+如果出现问题怎么办：
+
+. 首先尝试寻求帮助 MicroPython，当您遇到错误时，它会向您显示有关哪一行代码错误的有用信息。
+. 注意： python 区分大小写，所以Microbit、Microbit、Microbit是不同的。如果 micropython 文件名不正确，您可能输入了无效的名称。另外，如果 Micropython 包含语法错误。即使你的代码不被理解 micropython，您可能会缺少一些符号，例如“”或“”； “是的，你需要自己找到并修复它，所以修复错误的最好方法就是理解代码！
+. 接下来，如果您的 microbit 停止响应，或者您无法刻录新代码，或者无法输入命令 repl，别问为什么。您可以尝试拔掉电源插头 usb 电缆，有时会带来令人惊讶的结果！
