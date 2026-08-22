@@ -1,7 +1,7 @@
-== 世界你好！
+== Hello World!
 
-. 确保Mu编辑器中开发板连接正确，参考 [配置环境 (穆编辑)](config_mu-editor.md).
-. 通常会出现以下信息 CircuitPython REPL 窗口。外观 `>>>` 符号意味着我们可以开始输入命令与之交互。
+. 确认开发板已在 Mu 编辑器中正确连接，参见 [配置使用环境（Mu 编辑器）](config_mu-editor.md)。
+. CircuitPython REPL 窗口通常会显示以下内容。出现 `>>>` 提示符后，即可输入命令与开发板交互。
 +
 ```
 ]0;🐍Wi-Fi: off | Done | 8.0.0-beta.0-49-g14fc4a079\Auto-reload is on. Simply save files over USB to run them or enter REPL to disable.
@@ -12,8 +12,8 @@ Adafruit CircuitPython 8.0.0-beta.0-49-g14fc4a079 on 2022-09-20; BPI-PicoW-S3 wi
 >>>
 ```
 
-. 开始在右侧输入命令 `>>>` 符号，例如： `print("Hello World!")`.
-> 请注意，使用英文输入法时，无法识别中文字符。 REPL.
+. 在 `>>>` 提示符右侧输入命令，例如：`print("Hello World!")`。
+> 请使用英文输入法；REPL 无法识别中文字符。
 +
 ```py
 >>> print("Hello World!")
@@ -26,13 +26,13 @@ Hello World!
 . 复制 `ctrl + shift + c`.
 . 粘贴 `ctrl + shift + v`.
     Use the left mouse button to drag and select the command to be copied in the REPL, press the copy shortcut key on the keyboard, and then press the paste shortcut key to copy and paste the command.
-. 软复位 `ctrl + d`.
+. 软复位 `ctrl + d`。
 . 中断 `ctrl + c`，中断当前正在执行的程序，但不会重新启动和复位。
 
 == 查看内置模块
 
-. 进入 `help("modules")` 在 REPL 将列出当前的所有模块 CircuitPython 开发板。
-. 导入模块后，您可以使用 `help()` function 查看模块内可用的函数名称或变量名称。例如，如果您查看 `board` 模块中，可以看到开发板所有可用的引脚和外设功能。
+. 在 REPL 中输入 `help("modules")`，即可列出当前 CircuitPython 开发板的所有模块。
+. 导入模块后，可使用 `help()` 函数查看模块中可用的函数名和变量名。例如查看 `board` 模块时，可以看到开发板所有可用引脚和外设功能。
 +
 ```py
 >>> import board
