@@ -1,91 +1,91 @@
-= BPI-M7 显示10高清
+= BPI-M7 Display 10 HD 显示屏
 
 image::/bpi-m7/banana_pi_bpi-m7_touch_screen_5.jpg[banana_pi_bpi-m7_touch_screen_5.jpg]
 
-TIP: 更多信息： link:/en/BPI-M7/BananaPi_BPI-M7[香蕉派 BPI-M7]
+TIP: 更多信息：link:/en/BPI-M7/BananaPi_BPI-M7[Banana Pi BPI-M7]
 
-显示器型号 香蕉派 Display 10 HD1 是一款 ALL O‘clock TFT LCD (薄膜晶体管液晶显示器) 模块。该模型由 TFT 组成 LCD 面板、驱动电路和背光，还具有 10.1 英寸对角线测量的 FHD 有效显示区域(1200 水平 x 1920 垂直像素) 条纹排列的分辨率。通过8位R.G.B信号输入显示16.7M颜色。
+Banana Pi Display 10 HD1 是一款全视角 TFT LCD（薄膜晶体管液晶显示器）模块，由 TFT LCD 面板、驱动电路和背光组成。其有效显示区域对角线尺寸为 10.1 英寸，采用条纹式像素排列，FHD 分辨率为水平 1200 × 垂直 1920 像素。通过 8 位 R.G.B 信号输入可显示 1670 万种颜色。
 
 image::/bpi-m7/banana_pi_bpi-m7_touch_screen_4.jpg[banana_pi_bpi-m7_touch_screen_4.jpg]
 
-== 一般信息
+== 基本规格
 
-* 外形尺寸：143×228.70×2.25 (典型值。) 毫米
-* 显示面积：135.36(H)×216.58(V) 毫米
+* 外形尺寸：143 × 228.70 × 2.25 mm（典型值）
+* 显示区域：135.36（H）× 216.58（V）mm
 * 像素数：1200RGB(H)×1920(V) 像素
-* 像素间距：0.1128 (H)×0.1128(V) 毫米
-* 像素排列：RGB竖条纹
+* 像素间距：0.1128（H）× 0.1128（V）mm
+* 像素排列：RGB 垂直条纹
 * 显示模式：IPS
 * 表面处理：AG
 * 背光：白色 LED
-* 系统接口：4通道MIPI
-* NTSC: 72（类型） %
-* 观看方向：全部观看
-* 功耗：待定 mW
+* 系统接口：4 通道 MIPI
+* NTSC：72%（典型值）
+* 可视方向：全视角
+* 功耗：待定（TBD）mW
 
 == 引脚定义
 
 [options="header",cols="1,2,2"]
 |====
-|密码	|符号	|描述
-|1	|数控	|开放
-|2-3	|VDDIN 电源 3.3V	|
-|4	|接地	|地面
-|5	|重置	|全局复位信号，=电源输入电压
-|6	|数控	|开放
-|7	|接地	|地面
-|8	|米皮_TDN0	|MIPI 数据输入。
-|9	|米皮_TDP0	|MIPI 数据输入。
-|10	|接地	|地面
-|11	|米皮_TDN1	|MIPI 数据输入。
-|12	|米皮_TDP1	|MIPI 数据输入。
-|13	|接地	|地面
-|14	|米皮_TCN	|MIPI 时钟输入。
-|15	|米皮_传输控制协议	|MIPI 时钟输入。
-|16	|接地	|地面
-|17	|米皮_TDN2	|MIPI 数据输入。
-|18	|米皮_TDP2	|MIPI 数据输入。
-|19	|接地	|地面
-|20	|米皮_TDN3	|MIPI 数据输入。
-|21	|米皮_TDP3	|MIPI 数据输入。
-|22	|接地 |地面
-|23-24	|数控	|开放
-|25	|接地	|地面
-|26	|数控	|开放
-|27	|加拿大农业委员会	|PWM 控制信号 LED 司机
-|28-29	|数控	|开放
-|30	|接地	|地面
+|引脚编号	|符号	|说明
+|1	|NC	|悬空
+|2-3	|VDDIN 3.3 V 电源	|
+|4	|GND	|接地
+|5	|RESET	|全局复位信号，=VDDIN
+|6	|NC	|悬空
+|7	|GND	|接地
+|8	|MIPI_TDN0	|MIPI 数据输入
+|9	|MIPI_TDP0	|MIPI 数据输入
+|10	|GND	|接地
+|11	|MIPI_TDN1	|MIPI 数据输入
+|12	|MIPI_TDP1	|MIPI 数据输入
+|13	|GND	|接地
+|14	|MIPI_TCN	|MIPI 时钟输入
+|15	|MIPI_TCP	|MIPI 时钟输入
+|16	|GND	|接地
+|17	|MIPI_TDN2	|MIPI 数据输入
+|18	|MIPI_TDP2	|MIPI 数据输入
+|19	|GND	|接地
+|20	|MIPI_TDN3	|MIPI 数据输入
+|21	|MIPI_TDP3	|MIPI 数据输入
+|22	|GND |接地
+|23-24	|NC	|悬空
+|25	|GND	|接地
+|26	|NC	|悬空
+|27	|CABC	|LED 驱动器的 PWM 控制信号
+|28-29	|NC	|悬空
+|30	|GND	|接地
 |31-32	|LEDK	|LED 阴极
-|33-38	|数控	|开放
-|39-40	|利达	|LED 阳极
+|33-38	|NC	|悬空
+|39-40	|LEDA	|LED 阳极
 |====
 
-= 启用显示叠加
+= 启用显示设备树 Overlay
 
-== Ubuntu22.04镜像启用显示覆盖
-使用nano打开 /boot/firmware/ubuntuEnv.txt 文件：
+== 在 Ubuntu 22.04 镜像中启用显示 Overlay
+使用 nano 打开 /boot/firmware/ubuntuEnv.txt 文件：
 
 ```sh
 sudo nano /boot/firmware/ubuntuEnv.txt
 ```
-找到“叠加层”=文件中的“关键字，并添加以下内容：
+在文件中找到 “overlays=” 关键字，并添加以下内容：
 
 ```sh
 overlays=armsom-sige7-display-10hd
 ```
 快捷键：Ctrl + S 保存，Ctrl + X 退出
 
-编辑后，重新启动设备以更改 Overlays 设置以支持 Display 10 HD。
+编辑完成后重启设备，使 Overlay 设置生效并支持 Display 10 HD。
 
-== 用于启用显示覆盖的 Armbian 图像
+== 在 Armbian 镜像中启用显示 Overlay
 
-使用nano打开 /boot/armbianEnv.txt 文件：
+使用 nano 打开 /boot/armbianEnv.txt 文件：
 
 ```sh
 sudo nano /boot/armbianEnv.txt
 ```
 
-查找或添加“叠加层=文件中的“关键字。
+在文件中查找或添加 “overlays=” 关键字。
 
 ```sh
 overlays=armsom-sige7-display-10hd
@@ -93,7 +93,7 @@ overlays=armsom-sige7-display-10hd
 
 快捷键：Ctrl + S 保存，Ctrl + X 退出
 
-编辑后，重新启动设备以更改 Overlays 设置以支持 Display 10 HD。
+编辑完成后重启设备，使 Overlay 设置生效并支持 Display 10 HD。
 
 = 硬件连接 
 
@@ -101,17 +101,17 @@ overlays=armsom-sige7-display-10hd
 
 image::/bpi-m7/banana_pi_bpi-m7_touch_screen_7.jpg[banana_pi_bpi-m7_touch_screen_7.jpg]
 
-= 轻松购买样品
+= 样品购买
 
-WARNING: SINOVOIP速卖通店铺： 
+WARNING: SINOVOIP AliExpress 店铺：
 https://www.aliexpress.com/item/3256806704464561.html?spm=5261.promotion_single_products.table.1.59f615d18cx22j&gatewayAdapt=4itemAdapt
 
 
-WARNING: 比派速卖通店铺：
+WARNING: Bipai AliExpress 店铺：
 https://www.aliexpress.com/item/3256806704337207.html?spm=5261.promotion_single_products.table.1.616b15d1JV37ws&gatewayAdapt=4itemAdapt
 
 
-WARNING: 淘宝店：
+WARNING: 淘宝店铺：
 https://item.taobao.com/item.htm?ft=t&id=787591056231&spm=a21dvs.23580594.0.0.621e3d0dQim1c0
 
-WARNING: OEM&ODM，请联系： judyhuang@banana-pi.com
+WARNING: OEM/ODM 合作请联系：judyhuang@banana-pi.com
