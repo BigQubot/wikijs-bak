@@ -1,3 +1,232 @@
-== header
+= BPI-CM7IO Introduction
 
-content
+Banana Pi BPI-CM7IO is the carrier board for link:/en/BPI-CM7/BananaPi_BPI-CM7[Banana Pi BPI-CM7]. It converts the CM7 module's board-to-board signals into standard development interfaces, including HDMI, USB, Fast Ethernet, microSD, a 40-pin GPIO header, and a USB-based cellular-module socket.
+
+[WARNING]
+====
+BPI-CM7IO is designed around the BPI-CM7 V00 signal assignment. Its CM4-style module connectors do *not* make it a universal Raspberry Pi CM4 or BPI-CM4 carrier. Confirm electrical compatibility before installing any other compute module.
+====
+
+== Key Features
+
+* Two 100-pin high-density connectors for BPI-CM7
+* USB-C connector for regulated 5 V input and USB 2.0 OTG data
+* 2 x USB 2.0 Type-A host ports
+* Full-size HDMI Type-A output
+* 10/100M Ethernet RJ45 port
+* microSD card socket
+* 40-pin GPIO header
+* mini-PCIe-style socket for USB-based 4G/LTE modems
+* micro-SIM socket connected to the cellular-module socket
+* 3-pin 3.3 V TTL debug UART header
+* Reset and FEL/MaskROM recovery buttons
+* 4-pin composite-video/stereo-line-output header
+* Blue and green status/user LEDs
+* Carrier identification EEPROM at TWI/I2C address `0x56`
+
+== Hardware
+
+=== Interface Specification
+
+[cols="1,3", options="header"]
+|===
+| Interface | BPI-CM7IO V00 implementation
+
+| Compute module
+| 2 x Hirose DF40C-series 100-pin board-to-board connectors for BPI-CM7
+
+| Power input
+| Regulated 5 V through USB-C. The USB-C CC pins use sink pull-down resistors and there is no USB-PD voltage-negotiation controller in the schematic.
+
+| USB OTG
+| 1 x USB 2.0 OTG through the USB-C connector
+
+| USB host
+| 2 x USB 2.0 Type-A ports. A third USB 2.0 host link is routed to the cellular-module socket.
+
+| Display
+| 1 x full-size HDMI Type-A output from CM7 HDMI0
+
+| Ethernet
+| 1 x RJ45, 10/100M Fast Ethernet. The carrier magnetics use two Ethernet pairs, not four-pair Gigabit Ethernet.
+
+| Removable storage
+| 1 x microSD card socket
+
+| GPIO
+| 1 x 40-pin header with 3.3 V GPIO, UART, TWI/I2C, SPI, PWM, I2S/DMIC, SPDIF, IR, 5 V, 3.3 V, and ground
+
+| Cellular expansion
+| 1 x 52-pin mini-PCIe-style socket and 1 x micro-SIM socket. The data connection is USB 2.0; PCIe clock and data lanes are not connected.
+
+| Debug
+| 1 x 3-pin 3.3 V TTL debug UART header
+
+| Buttons
+| Reset and FEL/MaskROM recovery
+
+| Analog A/V
+| 1 x 4-pin header: composite video, ground, line-out left, and line-out right
+
+| Indicators
+| 1 x blue LED and 1 x green LED
+
+| Carrier EEPROM
+| 24C02-compatible EEPROM, TWI/I2C address `0x56`
+
+| Hardware revision used for this page
+| BPI-CM7 Carrier V00 schematic, dated July 16, 2026
+|===
+
+=== Power and USB-C Notes
+
+Use a stable regulated 5 V supply with enough current for the CM7 module and all attached USB or cellular devices. The USB-C connector carries both the 5 V input and the CM7 USB0 OTG data pair.
+
+[CAUTION]
+====
+The carrier schematic does not contain a USB-PD controller. Do not apply 9 V, 12 V, or another negotiated USB-PD voltage to the 5 V input rail.
+====
+
+=== Cellular-Module Socket
+
+The 52-pin connector has the mechanical form commonly called mini-PCIe, but BPI-CM7IO routes USB 2.0 D+/D-, SIM signals, control signals, and power to it. PCIe transmit, receive, and reference-clock lanes are not present.
+
+[IMPORTANT]
+====
+Use a USB-interface 4G/LTE modem. A PCIe-only mini-PCIe card will not work in this socket.
+====
+
+=== 40-pin Header
+
+The table below lists the net names and principal alternate functions shown in the BPI-CM7 Core and BPI-CM7 Carrier V00 schematics.
+
+[cols="1,2,3,1,2,3", options="header"]
+|===
+| Pin | Signal | Main / alternate functions | Pin | Signal | Main / alternate functions
+
+| 1 | 3.3 V | Power | 2 | 5 V | Power
+| 3 | PI6 | TWI0_SDA / GMAC_INT | 4 | 5 V | Power
+| 5 | PI5 | TWI0_SCL / RGMII_RXCTL | 6 | GND | Ground
+| 7 | PI12 | PWM2 / UART3_CTS / RGMII_TXCTL | 8 | PI13 | UART4_TX / RGMII_CLK125M
+| 9 | GND | Ground | 10 | PI14 | UART4_RX / RGMII_MDC
+| 11 | PH2 | TWI2_SCL / UART5_TX / PWM2 | 12 | PI1 | I2S0_BCLK / DMIC_D0 / RGMII_RXD2
+| 13 | PH3 | TWI2_SDA / UART5_RX / PWM1 | 14 | GND | Ground
+| 15 | PI11 | UART3_RTS / PWM1 / RGMII_TXCLK | 16 | PI15 | UART4_RTS / RGMII_MDIO
+| 17 | 3.3 V | Power | 18 | PI16 | UART4_CTS / GMAC reset
+| 19 | PH7 | SPI1_MOSI / TWI4_SDA | 20 | GND | Ground
+| 21 | PH8 | SPI1_MISO | 22 | PC2 | 3.3 V level-shifted GPIO
+| 23 | PH6 | SPI1_CLK / TWI4_SCL | 24 | PH5 | SPI1_CS0
+| 25 | GND | Ground | 26 | PH9 | SPI1_CS1
+| 27 | PI8 | TWI1_SDA / RGMII_TXD2 | 28 | PI7 | TWI1_SCL / RGMII_TXD3
+| 29 | PI10 | UART3_RX / RGMII_TXD0 | 30 | GND | Ground
+| 31 | PI9 | UART3_TX / RGMII_TXD1 | 32 | PH4 | SPDIF_OUT
+| 33 | PH10 | IR_RX | 34 | GND | Ground
+| 35 | PI2 | I2S0_LRCLK / DMIC_D1 / RGMII_RXD1 | 36 | PC7 | 3.3 V level-shifted GPIO
+| 37 | PI0 | I2S0_MCLK / DMIC_CLK / RGMII_RXD3 | 38 | PI4 | I2S0_DIN / DMIC_D3 / RGMII_RXCLK
+| 39 | GND | Ground | 40 | PI3 | I2S0_DOUT / DMIC_D2 / RGMII_RXD0
+|===
+
+[CAUTION]
+====
+The GPIO header uses 3.3 V logic and is not 5 V tolerant. Pins 22 and 36 are level-shifted GPIO signals, not 3.3 V power pins. Alternate functions require matching pinctrl/device-tree configuration and cannot all be enabled simultaneously.
+====
+
+=== Debug UART
+
+[cols="1,2", options="header"]
+|===
+| Pin | Signal
+
+| 1 | GND
+| 2 | RX
+| 3 | TX
+|===
+
+Use a 3.3 V TTL USB-to-UART adapter. Do not connect an RS-232-level adapter.
+
+=== Analog A/V Header
+
+[cols="1,2", options="header"]
+|===
+| Pin | Signal
+
+| 1 | Composite video output (`TV_OUT`)
+| 2 | GND
+| 3 | Stereo line output left
+| 4 | Stereo line output right
+|===
+
+== Board Differences
+
+=== BPI-CM7 vs BPI-CM7IO
+
+[cols="1,2,2", options="header"]
+|===
+| Function | BPI-CM7 | BPI-CM7IO
+
+| Role
+| Compute module containing the processor, memory, storage, PMIC, and wireless module
+| Carrier that turns module signals into connectors
+
+| User-facing ports
+| None
+| HDMI, USB-C, USB Type-A, RJ45, microSD, GPIO, UART, audio/CVBS, cellular socket, and SIM
+
+| Ethernet
+| Exposes H618 Fast Ethernet PHY pairs
+| Adds magnetics and 10/100M RJ45
+
+| Storage
+| Onboard eMMC
+| Adds removable microSD
+
+| Power
+| Receives 5 V through module connectors
+| Receives 5 V through USB-C and supplies the module
+|===
+
+=== BPI-CM7IO vs BPI-CM4IO
+
+[cols="1,2,2", options="header"]
+|===
+| Item | BPI-CM7IO | BPI-CM4IO reference board
+
+| Intended module
+| BPI-CM7 (Allwinner H618)
+| BPI-CM4 / Raspberry Pi CM4-style module
+
+| Ethernet
+| 10/100M Fast Ethernet
+| Gigabit Ethernet is listed for BPI-CM4IO
+
+| GPIO header
+| 40 pins
+| 26 pins
+
+| MIPI camera/display connectors
+| Not implemented on BPI-CM7IO V00
+| MIPI CSI and DSI are listed for BPI-CM4IO
+
+| Cellular expansion
+| mini-PCIe-style socket using USB 2.0 data, plus micro-SIM
+| mini-PCIe and SIM interfaces are listed for BPI-CM4IO
+
+| Electrical interchangeability
+| Do not assume CM4 compatibility
+| Designed for its own documented CM4-family signal assignment
+|===
+
+== Development
+
+Operating-system images must include the BPI-CM7 device tree so that the CM7IO USB, Ethernet, HDMI, microSD, LEDs, and 40-pin pinmux are configured correctly.
+
+== Resources
+
+* link:/en/BPI-CM7/BananaPi_BPI-CM7[Banana Pi BPI-CM7 compute module]
+* link:/en/BPI-M4_Zero/BananaPi_BPI-M4_Zero[Banana Pi BPI-M4 Zero H618 reference board]
+* link:/en/BPI-CM4IO/BananaPi_BPI-CM4IO[Banana Pi BPI-CM4IO structure reference]
+
+[IMPORTANT]
+====
+This page is based on the BPI-CM7 Carrier V00 schematic dated July 16, 2026. Confirm the production PCB revision, connector orientation, and power budget before connecting external hardware or manufacturing an accessory.
+====
