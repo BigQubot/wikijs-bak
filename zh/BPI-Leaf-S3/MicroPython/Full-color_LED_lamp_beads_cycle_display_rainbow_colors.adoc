@@ -1,4 +1,4 @@
-TIP: link:../GettingStarted_BPI-Leaf-S3[返回开始使用 BPI-Leaf-S3]
+TIP: link:../GettingStarted_BPI-Leaf-S3[返回 BPI-Leaf-S3 入门指南]
 
 
 在上一节的基础上，我们可以更进一步，写一个循环来自动改变灯珠的颜色。
@@ -34,10 +34,10 @@ while True:
      rainbow(num=1,level=25,delay=10)
 
 ```
-本例程可适用于任意长度的ws2812灯带。
+本例程适用于任意长度的 WS2812 灯带。
 
-修改第一个参数 `NeoPixel(Pin(48, Pin.OUT), 1,bpp=3, timing=1)` 对任何 GPIO 灯带串联引脚。
+将 `NeoPixel(Pin(48, Pin.OUT), 1,bpp=3, timing=1)` 的第一个参数改为需要串接灯带的任意 GPIO 引脚。
 
-修改num参数 `rainbow(num=1,level=25,delay=100)` 为灯带上对应灯珠的数量。
+将 `rainbow(num=1,level=25,delay=100)` 中的 num 参数改为灯带上对应的 LED 数量。
 
-当然，我们也可以根据自己的想法，使用for循环或者while循环来做出我们想要的颜色变化图案。
+也可以根据需要使用 for 或 while 循环，实现自定义的颜色变化效果。
