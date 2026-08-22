@@ -1,18 +1,18 @@
-TIP: link:/en/BPI-Bit/Bit_for_Arduino#_how_to_use_with_arduino_ide[位用于 Arduino]
+TIP: link:/en/BPI-Bit/Bit_for_Arduino#_how_to_use_with_arduino_ide[BPI-Bit 的 Arduino 教程]
 
 
-= 阿迪诺 IDE
+= Arduino IDE
 
-== 如何设置和启动
-=== 需要做好准备
+== 配置和开始使用
+=== 准备工作
 
-- BPI-UNO32 1 或 BPI：位 1
-- 跳线帽 4
-- 微型USB 1
+- 1 块 BPI-UNO32 或 1 块 BPI:bit
+- 4 个跳线帽
+- 1 根 Micro-USB 数据线
 
 === 快速入门
 
-. 将四个跳帽分别连接到板子顶部，连接RGB LED 到蜂鸣器。然后使用microUSB线将开发板连接到电脑。
+. 将四个跳线帽分别安装到开发板顶部，使 RGB LED 和蜂鸣器接入电路。然后用 Micro-USB 数据线将开发板连接到计算机。
 
 - 端口：
 +
@@ -23,21 +23,21 @@ image::/picture/uno32_start_0.png[uno32_start_0.png]
 image::/picture/uno32_start_1.png[uno32_start_1.png]
 +
 --
-打开 Arduino IDE 并安装ESP32扩展包
+打开 Arduino IDE 并安装 ESP32 开发板支持包
 
 Arduino IDE 软件：(*link:https://www.arduino.cc/en/Main/Software[Arduino IDE])
 
-ESP32扩展包：(*link:https://github.com/espressif/arduino-esp32/blob/master/README.md[安装指南]) ->安装说明
+ESP32 开发板支持包：(*link:https://github.com/espressif/arduino-esp32/blob/master/README.md[安装指南]) -> 安装说明
 --
 
-- 打开 Arduino IDE 和设置板：
+- 打开 Arduino IDE 并配置开发板：
 +
 image::/picture/arduinoide-1.png[arduinoide-1.png]
 
 +
-如果您安装了 ESP32 软件包，您可以在 Tools->Boards 中查看 ESP32 board <ESP32 Arduino>
+安装 ESP32 软件包后，可以在“工具 > 开发板”的 <ESP32 Arduino> 分类中看到 ESP32 开发板。
 
-- Arduino IDE 编译并下载：
+- 使用 Arduino IDE 编译并上传：
 +
 image::/picture/arduinoide-2.png[arduinoide-2.png]
 
@@ -45,8 +45,8 @@ image::/picture/arduinoide-2.png[arduinoide-2.png]
 +
 image::/picture/arduinoide-3.png[arduinoide-3.png]
 
-. 您可以单击串行监视器 Arduino IDE。它将打开一个新窗口，在该窗口中，您可以设置串口：
+. 单击 Arduino IDE 中的“串口监视器”，在打开的新窗口中配置串口参数：
 
-- 串口配置：
+- 串口参数：
 +
 image::/picture/arduinoide-4.png[arduinoide-4.png]
