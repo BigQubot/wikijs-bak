@@ -1,0 +1,194 @@
+= 基础测试
+
+TIP: 更多信息： link:https://docs.banana-pi.org/en/BPI-R4_Pro/BananaPi_BPI-R4_Pro[香蕉派 BPI-R4 Pro]
+
+== BPI-R4Pro 功率测试
+NOTE: 由于使用过程中会有1W的波动，以下为近似瞬时功率。
+
+=== 空载功率
+
+[options="header",cols="1,1,1,1"]
+|====
+4+| **BPI-R4Pro 电量使用测试	**	
+|外围设备状态|设备未使用状态电压（V）	|电流(A)	|功耗(W)
+
+|只有董事会	|20.26|	0.45	|9.18
+|BE14 无线网络	|20.20 |	0.78	|15.90 
+|M.2KEY B 上的 1 个 EM05	|20.26|	0.46|	9.33
+|M.2KEY B 上有两个 EM05	|20.25|	0.49	|9.97
+|M.2KEY B 上的三个 EM05|	20.25|	0.52|	10.57
+|两个 SFP 网络端口	|20.23|	0.61	|12.53
+|BE14 无线网络+两个 SFP 网络端口	|20.18	|0.94	|19.07
+|一 NVME SSD	|20.26	|0.47	|9.64
+|两个 NVME SSD	|20.25	|0.54	|10.95
+
+|====
+
+=== 负载功率
+
+[options="header",cols="1,1,1,1"]
+|====
+4+| **BPI-R4Pro 电量使用测试	**		
+|设备使用状况	|电压（V）	|电流(A)	|功耗(W)
+|只有董事会
+(压力-ng--cpu 4)|20.23|	0.54	|11.03
+|BE14 无线网络	|20.21 	|0.81	|16.39 		
+|两个 SFP 网络端口	|20.21	|0.63	|13.19
+|BE14 无线网络+两个 SFP 网络端口	|20.19|	0.93	|19.52 
+|一 NVME SSD	|20.25	|0.55	|11.31
+|两个 NVME SSD|	20.20| 	0.73	|14.93
+|两个风扇
+ (One 4010 FAN+One 5020 FAN)|	20.23|	0.52|	10.65
+|两个风扇
+ (Two 4010 FAN)	|20.24	|0.48	|9.74
+|BE14 无线网络+两个 SFP 网络端口+两个风扇(4010风扇1个+5020风扇1个)|	20.16|	1.01	|20.50 
+|BE14 无线网络+两个 SFP 网络端口+两个风扇(2个4010风扇)
+|	20.18|0.97	|19.70 
+|====
+
+== BPI-R4Pro 散热测试
+
+WARNING: 所提供的实验数据仅供参考，实际应用应根据具体情况确定。
+
+NOTE: “Idle Load”表示网络流量低；该功能只是启动但未运行。
+“满载”模拟真实世界的使用情况，在每个通道上以 iperf 速率传输数据。
+
+使用温度探头测试这些点。
+
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_heartsink_test1.jpg[banana_pi_bpi-r4_pro_heartsink_test1.jpg]
+
+=== 温度数据
+
+[options="header",cols="1,1,1,1,1"]
+|====
+5+| **BPI-R4Pro 温度测试	**		
+|设备使用状况	|CPU 散热器温度(℃)	|BE14散热器温度(℃)	|SFP WAN模块温度(℃) | SFP LAN模块温度(℃)
+|不带BE14风扇
+(配1个4010风扇+5020风扇1个) + 空载|35.44|	32.2	|32.24 | 31.23
+|不带BE14风扇
+(配1个4010风扇+5020风扇1个) + 满载	|40.83 	|33.64	|43.59 | 40.7		
+|不带BE14风扇
+(带两个 4010 风扇) + 空载	|41.45	|32.97	|38.21 | 37.42
+|不带BE14风扇
+(带两个 4010 风扇) + 满载	|49.58|	34.09	|57.1 |55.42 
+|带BE14风扇
+(配1个4010风扇+5020风扇1个) + 空载	|34.63	|28.91	|32.01 |30.67
+|带BE14风扇
+(配1个4010风扇+5020风扇1个) + 满载|	38.06| 	28.95	|42.23 |38.39
+|带BE14风扇
+(带两个 4010 风扇) + 空载|	37.59|	29.67|	36.36 | 35.83
+|带BE14风扇
+(带两个 4010 风扇) + 满载	|45.24	|31.09	|54.7 |52.97
+
+|====
+
+
+
+= 安装细节
+NOTE: R4Pro外壳左侧必须安装固定到位的4010风扇。
+
+. 确保您拥有安装 R4Pro 所需的所有配件和螺钉。您可以通过相应的销售平台进行咨询。 (4PIN风扇线标记 1/2 需要您自己购买。 R4Pro散热垫已经安装在板上。)
++
+这里有四种安装方法：
+
+* 4010风扇 + BE14无风扇散热器(做11+13、不做10+14) + 
+
+* 4010风扇 + BE14风扇散热器(做11+14、不做10+13) +  
+
+* 5020风扇 + BE14无风扇散热器(做 10 次+13、不做11+14) + 
+
+* 5020风扇 + BE14风扇散热器 (做 10 次+14、不做11+13)+ 
+
+. 首先取出R4Pro的一块板子 (其中一些板从包装盒中取出时已经安装了散热器)
++
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install1.jpg[banana_pi_bpi-r4_pro_install1.jpg]
+
+. 根据尺寸贴上散热垫。
++
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install2.jpg[banana_pi_bpi-r4_pro_install2.jpg]
+
+. 安装散热器
++
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install3.jpg[banana_pi_bpi-r4_pro_install3.jpg]
+
+. 取出 R4Pro 保护壳。
++
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install4.jpg[banana_pi_bpi-r4_pro_install4.jpg]
+
+. 在R4Pro下方安装四个脚垫。
++
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install5.jpg[banana_pi_bpi-r4_pro_install5.jpg]
+
+. 准备安装外壳内部。
++
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install6.jpg[banana_pi_bpi-r4_pro_install6.jpg]
+
+. 首先，将风扇安装在左侧。
++
+WARNING: make sure the airflow is directed towards the left, because if you have the 5020 fan, the cooling duct is on the left side.
++
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install7.jpg[banana_pi_bpi-r4_pro_install7.jpg]
+
+. 用4颗固定螺丝固定R4Pro。
++
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install8.jpg[banana_pi_bpi-r4_pro_install8.jpg]
+
+. 使用 3 颗长螺钉安装 5020 风扇。
++
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install9.jpg[banana_pi_bpi-r4_pro_install9.jpg]
+
+. 安装 4010 风扇。
++
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install10.jpg[banana_pi_bpi-r4_pro_install10.jpg]
+
+. 将四个铜柱安装到BE14散热器的相应孔中。使用 M2 螺钉固定 BE14 并安装导热垫。
++
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install11.jpg[banana_pi_bpi-r4_pro_install11.jpg]
+
+. 安装BE14无风扇散热器。
++
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install12.jpg[banana_pi_bpi-r4_pro_install12.jpg]
+
+. 安装带有风扇散热器的BE14。
++
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install13.jpg[banana_pi_bpi-r4_pro_install13.jpg]
+
+
+. 安装相应的天线。
++
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install14.jpg[banana_pi_bpi-r4_pro_install14.jpg]
+
+. 安装天线固定槽。
++
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install15.jpg[banana_pi_bpi-r4_pro_install15.jpg]
+
+. 固定天线。
++
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install16.jpg[banana_pi_bpi-r4_pro_install16.jpg]
+
+. 安装外壳。(正面有两个螺丝)
++
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install17.jpg[banana_pi_bpi-r4_pro_install17.jpg]
+
+. 安装天线胶棒，外壳安装完成。
++
+image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install18.jpg[banana_pi_bpi-r4_pro_install18.jpg]
+
+link:/en/BPI-R4_Pro/Photo_BPI-R4_Pro#_r4pro_case[你可以在这里看到整体图片]
+
+== 4010风扇 + BE14无风扇散热器
+
+image::/bpi-r4_pro/bpi-r4pro_4010fanassembly_without_be14fan.jpg[bpi-r4pro_4010fanassembly_without_be14fan.jpg]
+
+== 4010风扇 + BE14风扇散热器
+
+image::/bpi-r4_pro/bpi-r4pro_4010fanassembly_with_be14fan.jpg[bpi-r4pro_4010fanassembly_with_be14fan.jpg]
+
+
+== 5020风扇 + BE14无风扇散热器
+
+image::/bpi-r4_pro/bpi-r4pro_5020fanassembly_without_be14fan.jpg[bpi-r4pro_5020fanassembly_without_be14fan.jpg]
+
+== 5020风扇 + BE14风扇散热器
+
+image::/bpi-r4_pro/bpi-r4pro_5020fanassembly_with_be14fan.jpg[bpi-r4pro_5020fanassembly_with_be14fan.jpg]
