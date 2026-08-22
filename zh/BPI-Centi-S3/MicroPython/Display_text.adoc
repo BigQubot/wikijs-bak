@@ -1,0 +1,142 @@
+TIP: link:../GettingStarted_BPI-Centi-S3[返回开始使用 BPI-Centi-S3]
+
+video::MAvLjCMQ93s[youtube]
+
+## 文字法
+
+`text(font, s, x, y {, fg, bg, alpha})`
+
+使用指定的位图将文本写入显示器 `font` 坐标作为文本的左上角。
+
+可选参数 `fg` 和 `bg` 可以设置文字的前景色和背景色； otherwise the foreground color defaults to `WHITE`, and the background color defaults to `BLACK`. 
+
+`alpha` 默认为 255。 
+
+请参阅 https://github.com/russhughes/st7789s3_esp_lcd/tree/main/fonts/bitmap[README.md] 在 `fonts/bitmap` directory for example fonts.
+
+## 位图字体
+
+的 BPI-Centi-S3  出厂固件包含两个位图字体文件。
+
+`vga1_8x16.mpy`
+
+`vga1_bold_16x32.mpy`
+
+他们来自 https://github.com/russhughes/st7789s3_esp_lcd/tree/main/fonts/bitmap.
+
+由此我选择了这两个最常用的，使用  https://pypi.org/project/mpy-cross/[MPY-CROSS 工具] 将它们转变为 `.mpy` format to reduce the volume of files.
+
+## 下载字体文件
+
+如果误删除字体文件或擦除Flash，则需要重新下载字体文件。您可以从前面的文字链接下载，也可以将下面链接中的字体下载到 `.mpy` format, including the example below.
+
+NOTE: https://github.com/bpi-team/bpi-s3-doc/micropython_example/04_display_text[From here to download fonts and examples]
+
+## 显示文字
+
+image::/picture/bpi_centi_s3_display_text_1.jpg[bpi_centi_s3_display_text_1.jpg]
+
+```py
+""" BPI-Centi-S3 170x320 ST7789 display """
+
+import st7789
+import tft_config
+import vga1_8x16
+import vga1_bold_16x32
+
+"""
+These default colors can be used:
+BLACK           BLUE            CYAN            GREEN
+MAGENTA         RED             YELLOW          WHITE
+TRANSPARENT
+
+Custom RGB colors:
+color565(255,255,255)
+"""
+fg = st7789.BLACK
+bg = st7789.WHITE
+text_x = 10
+text_y = 10
+
+def main():
+    try:
+        tft = tft_config.config(rotation=1)
+        tft.init()
+        tft.fill(st7789.WHITE)
+        tft.text(vga1_8x16, "Hello World!", text_x, text_y, fg, bg, 255)
+        tft.text(vga1_bold_16x32, "MicroPython!", text_x, text_y+16, fg, bg, 255)
+        tft.text(vga1_8x16, "vga1_8x16", text_x, text_y+16+32, fg, bg, 255)
+        tft.text(vga1_bold_16x32, "vga1_bold_16x32",
+                 text_x, text_y+16+32+16, fg, bg, 255)
+        tft.show()
+
+    except BaseException as err:
+        err_type = err.__class__.__name__
+        print('Err type:', err_type)
+        from sys import print_exception
+        print_exception(err)
+
+    finally:
+        tft.deinit()
+        print("tft deinit")
+
+
+main()
+
+```
+
+## 使用透明背景和Alpha通道制作阴影字体
+
+image::/picture/bpi_centi_s3_display_text_2.jpg[bpi_centi_s3_display_text_2.jpg]
+
+合理使用 `st7789.TRANSPARENT` 作为文本的背景颜色可以使文本的背景不发生变化。
+
+通过设置text方法中的alpha参数，可以改变文本的整体透明度，范围为0 ~ 255.
+
+```py
+""" BPI-Centi-S3 170x320 ST7789 display """
+
+import st7789
+import tft_config
+import vga1_8x16
+import vga1_bold_16x32
+
+"""
+These default colors can be used:
+BLACK           BLUE            CYAN            GREEN
+MAGENTA         RED             YELLOW          WHITE
+TRANSPARENT
+
+Custom RGB colors:
+color565(255,255,255)
+"""
+fg = st7789.BLACK
+bg = st7789.TRANSPARENT
+text_x = 10
+text_y = 50
+
+def main():
+    try:
+        tft = tft_config.config(rotation=1)
+        tft.init()
+        tft.fill(st7789.WHITE)
+        tft.text(vga1_8x16, "Hello World!", text_x-1, text_y-1, fg, bg, 205)
+        tft.text(vga1_bold_16x32, "MicroPython!", text_x-2, text_y+16-2, fg, bg, 205)
+        tft.text(vga1_8x16, "Hello World!", text_x, text_y, fg, bg, 255)
+        tft.text(vga1_bold_16x32, "MicroPython!", text_x, text_y+16, fg, bg, 255)
+        tft.show()
+
+    except BaseException as err:
+        err_type = err.__class__.__name__
+        print('Err type:', err_type)
+        from sys import print_exception
+        print_exception(err)
+
+    finally:
+        tft.deinit()
+        print("tft deinit")
+
+
+main()
+
+```
