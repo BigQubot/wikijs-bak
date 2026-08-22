@@ -1,110 +1,110 @@
 = 简介
 
-BPI-SM10(K3-CoM260) 支持多种操作系统和开发包，包括原生的Bianbu系统， Ubuntu 操作系统， Linux 以及OpenHarmony等，拥有AI全栈开发套件，可以满足AI多样化的开发需求。
+BPI-SM10（K3-CoM260）支持原生 Bianbu、Ubuntu、Linux 和 OpenHarmony 等多种操作系统及开发套件。配合 AI 全栈开发套件，可以满足多样化的 AI 开发需求。
 
-BPI-SM10(K3-CoM260) 提供丰富的接口，涵盖MIPI-DSI、MIPI-CSI、DP 1.2、SDIO 3.0、eSPI、 SPI, I2S, I2C, CAN-FD, PWM, UART, USB 2.0, USB 3.0, PCIe K3-CoM260凭借其高性能和丰富的接口资源，是RISC-V端侧应用解决方案和产品开发的更好选择。
+BPI-SM10（K3-CoM260）提供丰富的接口，包括 MIPI-DSI、MIPI-CSI、DP 1.2、SDIO 3.0、eSPI、SPI、I2S、I2C、CAN-FD、PWM、UART、USB 2.0、USB 3.0、PCIe 3.0 和 GMAC 等。凭借高性能与丰富的接口资源，K3-CoM260 是 RISC-V 端侧应用方案和产品开发的理想选择。
 
-TIP: 更多信息： link:/en/BPI-SM10/BananaPi_BPI-SM10[香蕉派 BPI-SM10 主页]
+TIP: 更多信息：link:/en/BPI-SM10/BananaPi_BPI-SM10[Banana Pi BPI-SM10 主页]
 
 == 规格参数
 
-- 高级 CPU 性能
+- 卓越的 CPU 性能
 
-八个高性能计算核心 (X100) 结合八个AI核心 (A100) 提供超过 130 KDMIPS CPU 计算能力。 X100单核SPECint2006性能>9.0/GHz，最大时钟速度为 2.4 GHz。
+八个高性能计算核心（X100）与八个 AI 核心（A100）共同提供超过 130 KDMIPS 的 CPU 算力。X100 单核 SPECint2006 性能超过 9.0/GHz，最高主频为 2.4 GHz。
 
-- 同质AI算力
+- 同构 AI 算力
 
-提供60TOPS的AI算力，利用超宽并行计算AI核心，提供强大的通用AI算力，实现与各主流AI生态的快速融合。拥有7B本地大模型算力>10 Tokens/s.
+提供 60 TOPS AI 算力。超宽并行计算 AI 核心可提供强大的通用 AI 计算能力，并快速接入主流 AI 生态；本地运行 7B 大模型时，生成速度可超过 10 Tokens/s。
 
-- 最新RISC-V架构，超强并行计算能力
+- 最新 RISC-V 架构与强大并行计算能力
 
-A100支持高达1024位RVV 1.0并行计算以及最新的RVA23 Profile和Vector Crypto标准。
+A100 支持最高 1024 位 RVV 1.0 并行计算，以及最新的 RVA23 Profile 和 Vector Crypto 标准。
 
 - 丰富 I/O 扩展接口
 
-集成多个高速扩展接口，灵活满足各种电脑扩展需求：8路 PCIe, 3 USB 3.0端口、1个GMAC端口等
+集成多种高速扩展接口，可灵活满足各类计算机扩展需求，包括 8 通道 PCIe、3 个 USB 3.0 接口和 1 个 GMAC 接口等。
 
 - 完整的硬件虚拟化
 
-具有完整的硬件虚拟化技术，支持RV Hypervisor 1.0扩展、RV AIA扩展、RV IOMMU扩展，为应用程序提供完整的硬件虚拟化 CPU、内存、中断和 I/O.
+具备完整的硬件虚拟化技术，支持 RV Hypervisor 1.0、RV AIA 和 RV IOMMU 扩展，为 CPU、内存、中断和 I/O 提供完整的硬件虚拟化能力。
 
 - 先进的安全防御技术
 
-支持 M/S/U 处理器权限；支持硬件抵抗Spectre和Meltdown攻击；支持国密标准2、3、4级硬件安全技术。
+支持 M/S/U 处理器特权级；支持通过硬件抵御 Spectre 和 Meltdown 攻击；支持国密 SM2、SM3、SM4 算法的硬件安全技术。
 
 - 工业级合规性
 
-CPU 核心、多级缓存和SRAM支持ECC设计，即使在-40℃至85℃的环境温度下也能提供稳定可靠的持续计算能力输出，满足工业应用的恶劣环境要求。
+CPU 核心、多级缓存和 SRAM 均支持 ECC 设计，在 -40 ℃～85 ℃ 环境温度下仍可持续提供稳定、可靠的算力，满足工业应用对严苛环境的要求。
 
 = 开发
 
 == 准备
 
-. 准备一根TTL线，一根 12V/5A 或 19V/2.37A 直流电源， USB 数据线和至少8G的TF卡。
+. 准备一根 TTL 串口线、一个 12 V/5 A 或 19 V/2.37 A 直流电源、一根 USB 数据线，以及一张至少 8 GB 的 TF 卡。
 
-. 将相应的映像下载到您的PC并准备刻录。
+. 将对应镜像下载到电脑，准备烧录。
 
-. 安装并下载刻录软件。
+. 下载并安装烧录软件。
 
-https://cloud.spacemit.com/prod-api/release/download/tools?token=titantools_for_windows_X86_X64[泰坦工具适用于 WINDOWS]
+https://cloud.spacemit.com/prod-api/release/download/tools?token=titantools_for_windows_X86_X64[TitanTools for Windows]
 
-https://cloud.spacemit.com/prod-api/release/download/tools?token=titantools_for_linux_64BIT_APPIMAGE[泰坦工具适用于 Linux]
+https://cloud.spacemit.com/prod-api/release/download/tools?token=titantools_for_linux_64BIT_APPIMAGE[TitanTools for Linux]
 
 == 串口调试
 
-请将主机连接至主机上12针接口的TX、RX、GND引脚 BPI-SM10(K3-CoM260) 载板正确通过 USB- 至 TTL 适配器。
+请使用 USB 转 TTL 适配器，将主机正确连接到 BPI-SM10（K3-CoM260）载板 12 针接口的 TX、RX 和 GND 引脚。
 
 image::/bpi-sm10/gettingstart/bananapi-pi_sm10_debug1.jpg[bananapi-pi_sm10_debug1.jpg]
 
-. 打开上位机串口调试软件，选择串口，波特率设置为115200。
+. 打开主机上的串口调试软件，选择对应串口，并将波特率设为 115200。
 
-. 连接串行电缆并使用直流电源为板供电。
+. 连接串口线，并使用直流电源为开发板供电。
 
-. 此时主机的串口软件应该可以正常工作。
+. 此时应能在主机的串口软件中看到开发板输出。
 
-== 进入闪烁模式
+== 进入烧录模式
 
-进入闪烁模式前，请准备两个按钮，一个短接FC_REC和GND，另一个短接SYS_RST 和 GND。
+进入烧录模式前，请准备两个按键：一个用于短接 FC_REC 与 GND，另一个用于短接 SYS_RST 与 GND。
 
 === 断电状态
 
-. 按住 FC_录音按钮。
+. 按住 FC_REC 按键。
 
 . 连接电源适配器给设备供电。
 
-. 释放FC_录音按钮。
+. 松开 FC_REC 按键。
 
-. 使用Type-C数据线将开发板的Type-C接口与上位机连接。
+. 使用 Type-C 数据线连接开发板的 Type-C 接口与上位机。
 
-. 使用Titan刷机工具或者执行fastboot命令来刷固件。
+. 使用 Titan 烧录工具或执行 fastboot 命令烧录固件。
 
 === 开机状态
 
-. 按住 FC_录音按钮。
+. 按住 FC_REC 按键。
 
 . 短按 RST 按钮。
 
-. 释放FC_录音按钮。
+. 松开 FC_REC 按键。
 
-. 使用Type-C数据线将开发板的Type-C口与上位机连接。
+. 使用 Type-C 数据线连接开发板的 Type-C 接口与上位机。
 
-. 使用Titan刷机工具或者执行fastboot命令来刷固件。
+. 使用 Titan 烧录工具或执行 fastboot 命令烧录固件。
 
-== 开始燃烧
+== 开始烧录
 
-=== 刻录到机上
+=== 烧录到板载存储
 
-. 安装并打开 Titan 刻录软件。
+. 安装并打开 Titan 烧录工具。
 
 . 点击首页“研发工具”，跳转至“研发工具”界面。
 +
 image::/bpi-sm10/gettingstart/bananapi-pi_sm10_burn1.jpg[bananapi-pi_sm10_burn1.jpg]
 
-. 研发工具页面有独立烧录选项和卡启动选项；在这里，我们选择独立刻录选项。
+. R&D Tools 页面提供 Standalone Flashing 和 Card Boot 选项；本例选择 Standalone Flashing。
 +
 image::/bpi-sm10/gettingstart/bananapi-pi_sm10_burn2.jpg[bananapi-pi_sm10_burn2.jpg]
 
-. 关注 https://docs.banana-pi.org/en/BPI-SM10/GettingStarted_BPI-SM10#_entering_flashing_mode[步骤] 进入刻录模式，单击“扫描设备”，然后选择目标设备。
+. 按照 https://docs.banana-pi.org/en/BPI-SM10/GettingStarted_BPI-SM10#_entering_flashing_mode[上述步骤]进入烧录模式，单击“Scan Device”，然后选择目标设备。
 +
 image::/bpi-sm10/gettingstart/bananapi-pi_sm10_burn3.jpg[bananapi-pi_sm10_burn3.jpg]
 
@@ -112,29 +112,29 @@ image::/bpi-sm10/gettingstart/bananapi-pi_sm10_burn3.jpg[bananapi-pi_sm10_burn3.
 +
 image::/bpi-sm10/gettingstart/bananapi-pi_sm10_burn4.jpg[bananapi-pi_sm10_burn4.jpg]
 
-. 选择要刻录的文件
+. 选择要烧录的文件。
 +
 image::/bpi-sm10/gettingstart/bananapi-pi_sm10_burn5.jpg[bananapi-pi_sm10_burn5.jpg]
 
-. 等待解压
+. 等待文件解压完成。
 +
 image::/bpi-sm10/gettingstart/bananapi-pi_sm10_burn6.jpg[bananapi-pi_sm10_burn6.jpg]
 
-. 解压后，点击“开始刷机”。
+. 解压完成后，单击“Start Flashing”。
 +
 image::/bpi-sm10/gettingstart/bananapi-pi_sm10_burn7.jpg[bananapi-pi_sm10_burn7.jpg]
 
-. 出现“刷机成功！”的提示信息。表明燃烧过程已完成。
+. 出现“Successful flashing!”提示时，表示烧录完成。
 +
 image::/bpi-sm10/gettingstart/bananapi-pi_sm10_burn8.jpg[bananapi-pi_sm10_burn8.jpg]
 
-=== 刻录到 SD 卡
+=== 烧录到 SD 卡
 
-. 同样，打开天软件，点击“Card Boot”，打开SD卡烧录界面。
+. 同样，打开 Titan 工具，单击“Card Boot”进入 SD 卡烧录界面。
 +
 image::/bpi-sm10/gettingstart/bananapi-pi_sm10_sdburn1.jpg[bananapi-pi_sm10_sdburn1.jpg]
 
-. 选择您的 SD 卡存储和要刻录的镜像
+. 选择目标 SD 卡和要烧录的镜像。
 +
 image::/bpi-sm10/gettingstart/bananapi-pi_sm10_sdburn2.jpg[bananapi-pi_sm10_sdburn2.jpg]
 
@@ -142,18 +142,18 @@ image::/bpi-sm10/gettingstart/bananapi-pi_sm10_sdburn2.jpg[bananapi-pi_sm10_sdbu
 +
 image::/bpi-sm10/gettingstart/bananapi-pi_sm10_sdburn3.jpg[bananapi-pi_sm10_sdburn3.jpg]
 
-. 解压后，燃烧过程将开始。
+. 解压完成后会自动开始烧录。
 +
 image::/bpi-sm10/gettingstart/bananapi-pi_sm10_sdburn4.jpg[bananapi-pi_sm10_sdburn4.jpg]
 
 
-. 当达到100%时，燃烧过程完成。
+. 进度达到 100% 时，烧录完成。
 +
 image::/bpi-sm10/gettingstart/bananapi-pi_sm10_sdburn5.jpg[bananapi-pi_sm10_sdburn5.jpg]
 
-== RJ45接口
+== RJ45 接口
 
-将网线连接到RJ45端口，系统将自动获取IP地址并能够访问外部网络。
+将网线连接到 RJ45 接口后，系统会自动获取 IP 地址并访问外部网络。
 
 image::/bpi-sm10/gettingstart/bananapi-pi_sm10_rj45_interface1.jpg[bananapi-pi_sm10_rj45_interface1.jpg]
 
@@ -207,14 +207,14 @@ PING baidu.com (110.242.74.102) 56(84) bytes of data.
 rtt min/avg/max/mdev = 44.582/48.871/66.243/6.053 ms
 
 ```
-== 无线网络
-的 BPI-SM10(K3 CoM260) 开发套件支持访问 M.2 2230 E-Key 模块，从而实现无线网络和蓝牙功能。
+== WiFi
+BPI-SM10（K3 CoM260）开发套件支持 M.2 2230 E-Key 模块，可实现无线网络和蓝牙功能。
 
-. 将模块连接至M.2 KEY E接口。
+. 将模块连接到 M.2 Key E 接口。
 +
 image::/bpi-sm10/gettingstart/bananapi-pi_sm10_wifibt1.jpg[bananapi-pi_sm10_wifibt1.jpg]
 
-. 启动系统，使用lspci查询模块。
+. 启动系统，使用 lspci 查询模块。
 +
 ```
 root@k3:~# lspci
@@ -224,7 +224,7 @@ root@k3:~# lspci
 0004:01:00.0 Network controller: Realtek Semiconductor Co., Ltd. RTL8852BE PCIe 802.11ax Wireless Network Controller
 ```
 
-. 使用 nmcli 命令检查周围的 WiFi 网络。
+. 使用 nmcli 命令扫描附近的 WiFi 网络。
 + 
 ```
 root@k3:~# nmcli device wifi list
@@ -251,14 +251,14 @@ IN-USE  BSSID              SSID                             MODE   CHAN  RATE   
 
 ```
 
-. 连接至 WiFi
+. 连接 WiFi。
 +
 ```
 root@k3:~# nmcli device wifi connect "BPI-FAE" password "xxxx"
 设备 "wlP4p1s0" 成功以 "7227dc15-6a29-4582-98fe-43d1c2b50016" 激活。
 ```
 
-. 连接成功，获取IP地址。
+. 连接成功后获取 IP 地址。
 +
 ```
 root@k3:~# nmcli
@@ -277,8 +277,8 @@ wlP4p1s0：已连接 到 BPI-FAE
 
 ```
 
-== BT
-的 BPI-SM10(K3 CoM260) 开发套件支持访问 M.2 2230 E-Key 模块，从而实现无线网络和蓝牙功能。
+== 蓝牙
+BPI-SM10（K3 CoM260）开发套件支持 M.2 2230 E-Key 模块，可实现无线网络和蓝牙功能。
 ```
 root@k3:~# bluetoothctl
 [NEW] Media /org/bluez/hci0
@@ -288,19 +288,19 @@ Agent registered
 [CHG] Controller 0C:CD:D0:8D:4E:31 Pairable: yes
 hci0 new_settings: powered bondable ssp br/edr le secure-conn wide-band-speech cis-central cis-peripheral
 [bluetoothctl]>
-[bluetoothctl]>power on //Turn on Bluetooth
-[bluetoothctl]> scan on  //Scan for surrounding Bluetooth
-[bluetoothctl]> agent on //Enable Proxy
+[bluetoothctl]>power on //开启蓝牙
+[bluetoothctl]> scan on  //扫描附近的蓝牙设备
+[bluetoothctl]> agent on //启用配对代理
 Agent is already registered 
 
-[bluetoothctl]> discoverable on  //Set Bluetooth to visible
+[bluetoothctl]> discoverable on  //设置为可被发现
 hci0 new_settings: powered connectable bondable ssp br/edr le secure-conn wide-band-speech cis-central cis-peripheral
 [CHG] Controller 0C:CD:D0:8D:4E:31 Connectable: yes
 hci0 new_settings: powered connectable discoverable bondable ssp br/edr le secure-conn wide-band-speech cis-central cis-peripheral
 Changing discoverable on succeeded
 [CHG] Controller 0C:CD:D0:8D:4E:31 Discoverable: yes
 
-// Connect to K3 via Bluetooth on the device
+// 在外部设备上通过蓝牙连接 K3
 
 hci0 28:64:B0:83:6F:73 type BR/EDR connected eir_len 13
 [NEW] Device 28:64:B0:83:6F:73 392933
@@ -393,13 +393,13 @@ hci0 new_settings: powered connectable bondable ssp br/edr le secure-conn wide-b
 [CHG] Controller 0C:CD:D0:8D:4E:31 Discoverable: no
 ```
 
-蓝牙连接成功
+蓝牙连接成功。
 
 image::/bpi-sm10/gettingstart/bananapi-pi_sm10_wifibt2.jpg[bananapi-pi_sm10_wifibt2.jpg,width=50%]
 
-== M.2 钥匙
+== M.2 Key M
 
-的 BPI-SM10(K3 CoM260) 开发套件提供2个M.2 M-Key接口，支持 NVMe 2280 SSD (更长 SSD 图中) 和 2230 (更短 SSD 图中) 分别的外形尺寸，方便 SSD 和其他 M.2 M-Key 设备的连接。
+BPI-SM10（K3 CoM260）开发套件提供两个 M.2 Key M 接口，分别支持 2280（图中较长的 SSD）和 2230（图中较短的 SSD）规格的 NVMe SSD，便于连接 SSD 及其他 M.2 Key M 设备。
 
 image::/bpi-sm10/gettingstart/bananapi-pi_sm10_m2keym1.jpg[bananapi-pi_sm10_m2keym1.jpg]
 ```
@@ -427,7 +427,7 @@ nvme0n1   259:0    0 119.2G  0 disk
 
 == USB
 
-连接即可找到对应的设备 USB 闪存驱动器到 USB 端口，例如下面的 sdb 设备，ID 为 05e3:0747。
+将 U 盘连接到 USB 接口后即可找到对应设备。例如下方的 sdb 设备，其 ID 为 05e3:0747。
 
 ```
 root@k3:~# lsblk
@@ -458,107 +458,102 @@ Bus 003 Device 003: ID 05e3:0747 Genesys Logic, Inc. USB Storage
 
 = GPIO 定义
 
-== 12按钮引脚定义
+== 12 针按键接口定义
 [options="header",cols="1,1,1,1",width="70%"]
 |====
-4+| **BPI-SM10 12按钮引脚定义**
-|密码	|密码		|密码	|销
-|电脑_LED-	|1		|2	|电脑_LED+
-|串口0_接收数据	|3	|	4|串口0_TXD
-|BMCU_ACOK	|5		|6	|自动_开_DIS
-|接地	|7		|8	|电源管理IC_快速恢复时间_输出
-|接地	|9		|10	|力_恢复
-|串口1_实时传输系统_LS	|11		|12	| SLEEP/WAKE
+4+| **BPI-SM10 12 针按键接口定义**
+|引脚	|引脚编号		|引脚编号	|引脚
+|PC_LED-	|1		|2	|PC_LED+
+|UART0_RXD	|3	|	4|UART0_TXD
+|BMCU_ACOK	|5		|6	|AUTO_ON_DIS
+|GND	|7		|8	|PMIC_RST_OUTn
+|GND	|9		|10	|FORCE_RECOVERY
+|UART1_RTS_LS	|11		|12	| SLEEP/WAKE
 |====
 
 
 == 40 针 GPIO 定义
 [options="header",cols="1,1,1,1",width="70%"]
 |====
-4+| **BPI-SM10 40针 GPIO 定义**
-|销	|密码	|密码|销
-|电源电压_3V3_系统	|1		|2	|电源电压_5V_通用输入输出接口
-|I2C3_SDA	|3	|	4|电源电压_5V_通用输入输出接口
-|I2C3_SCL	|5		|6	|接地
-|GPIO09	|7		|8	|串口1_TXD_LS
-|接地	|9		|10	|串口1_接收数据_LS
-|串口1_实时传输系统_LS	|11		|12	|I2S0_时钟时钟_LS
-|R-SPI0_SCK_LS	|13		|14	|接地
+4+| **BPI-SM10 40 针 GPIO 定义**
+|引脚	|引脚编号	|引脚编号|引脚
+|VDD_3V3_SYS	|1		|2	|VDD_5V_GPIO
+|I2C3_SDA	|3	|	4|VDD_5V_GPIO
+|I2C3_SCL	|5		|6	|GND
+|GPIO09	|7		|8	|UART1_TXD_LS
+|GND	|9		|10	|UART1_RXD_LS
+|UART1_RTS_LS	|11		|12	|I2S0_SCLK_LS
+|R-SPI0_SCK_LS	|13		|14	|GND
 | GPIO12_LS	|15		|16	|R-SPI0_CS1_LS
-|电源电压_3V3_系统	|17		|18	|R-SPI0_计算机科学_LS
-|SPI0_莫西_LS	|19		|20	|接地
-|SPI0_味噌_LS|	21	|	22	|R-SPI0_味噌_LS
+|VDD_3V3_SYS	|17		|18	|R-SPI0_CS_LS
+|SPI0_MOSI_LS	|19		|20	|GND
+|SPI0_MISO_LS|	21	|	22	|R-SPI0_MISO_LS
 |SPI0_SCK_LS	|23	|24	|SPI0_CS0_LS
-|接地	|25		|26	|SPI0_CS1_LS
+|GND	|25		|26	|SPI0_CS1_LS
 |I2C0_SDA	|27	|28	|I2C0_SCL
-|GPIO01_LS	|29		|30	|接地
+|GPIO01_LS	|29		|30	|GND
 |GPIO11_LS|	31	|	32	|GPIO07_LS
-|GPIO13_LS	|33	|34	|接地
-|I2S0_LRCK_LS	|35		|36	|串口1_CTS_LS
-|R-SPI0_莫西_LS	|37	|38	|I2S0_斯丁_LS
-|接地	|39		|40	|I2S0_输出信号_LS
+|GPIO13_LS	|33	|34	|GND
+|I2S0_LRCK_LS	|35		|36	|UART1_CTS_LS
+|R-SPI0_MOSI_LS	|37	|38	|I2S0_SDIN_LS
+|GND	|39		|40	|I2S0_SDOUT_LS
 |====
 
 == MIPI CSI CAM0 定义
 [options="header",cols="1,1,1,1",width="70%"]
 |====
 4+| **BPI-SM10 MIPI CSI CAM0 定义**
-|销	|密码	|密码|销
-|电源电压_3V3_系统	|1		|2	|I2C4_SDA
-|I2C4_SCL	|3	|	4|接地
-|时钟脉冲_CAMCK	|5		|6	|计算机辅助制造_密码网络
-|接地	|7		|8	|米皮_CSI0_DP1
-|米皮_CSI0_DN1	|9		|10	|接地
-|米皮_CSI0_DP0	|11		|12	|米皮_CSI0_DN0
-|接地	|13		|14	|米皮_CSI1_时钟脉冲
-|米皮_CSI1_时钟信号	|15		|16	|接地
-|米皮_CSI1_DP1	|17		|18	|米皮_CSI1_DN1
-|接地	|19		|20	|米皮_CSI1_DP0
-|米皮_CSI1_DN0|	21	|	22	|接地
+|引脚	|引脚编号	|引脚编号|引脚
+|VDD_3V3_SYS	|1		|2	|I2C4_SDA
+|I2C4_SCL	|3	|	4|GND
+|CLK_CAMCK	|5		|6	|CAM_PWDN
+|GND	|7		|8	|MIPI_CSI0_DP1
+|MIPI_CSI0_DN1	|9		|10	|GND
+|MIPI_CSI0_DP0	|11		|12	|MIPI_CSI0_DN0
+|GND	|13		|14	|MIPI_CSI1_CLKP
+|MIPI_CSI1_CLKN	|15		|16	|GND
+|MIPI_CSI1_DP1	|17		|18	|MIPI_CSI1_DN1
+|GND	|19		|20	|MIPI_CSI1_DP0
+|MIPI_CSI1_DN0|	21	|	22	|GND
 |====
 
 == MIPI CSI CAM1 定义
 [options="header",cols="1,1,1,1",width="70%"]
 |====
 4+| **BPI-SM10 MIPI CSI CAM1 定义**
-|销	|密码	|密码|销
-|电源电压_3V3_系统	|1		|2	|I2C4_SDA
-|I2C4_SCL	|3	|	4|接地
-|时钟脉冲_CAMCK	|5		|6	|计算机辅助制造_密码网络
-|接地	|7		|8	|米皮_CSI3_DP1
-|米皮_CSI3_DN1	|9		|10	|接地
-|米皮_CSI3_DP0	|11		|12	|米皮_CSI3_DN0
-|接地	|13		|14	|米皮_CSI2_时钟脉冲
-|米皮_CSI2_时钟信号	|15		|16	|接地
-|米皮_CSI2_DP1	|17		|18	|米皮_CSI2_DN1
-|接地	|19		|20	|米皮_CSI2_DP0
-|米皮_CSI2_DN0|	21	|	22	|接地
+|引脚	|引脚编号	|引脚编号|引脚
+|VDD_3V3_SYS	|1		|2	|I2C4_SDA
+|I2C4_SCL	|3	|	4|GND
+|CLK_CAMCK	|5		|6	|CAM_PWDN
+|GND	|7		|8	|MIPI_CSI3_DP1
+|MIPI_CSI3_DN1	|9		|10	|GND
+|MIPI_CSI3_DP0	|11		|12	|MIPI_CSI3_DN0
+|GND	|13		|14	|MIPI_CSI2_CLKP
+|MIPI_CSI2_CLKN	|15		|16	|GND
+|MIPI_CSI2_DP1	|17		|18	|MIPI_CSI2_DN1
+|GND	|19		|20	|MIPI_CSI2_DP0
+|MIPI_CSI2_DN0|	21	|	22	|GND
 |====
 
 == MIPI DSI 定义
 [options="header",cols="1,1,1,1",width="70%"]
 |====
 4+| **BPI-SM10 MIPI DSI 定义**
-|销	|密码	|密码|销
-|接地	|1		|2	|接地
-|米皮_数字SI1_车道1_DN	|3	|	4|米皮_数字SI1_车道1_DN
-|米皮_数字SI1_车道1_DP	|5		|6	|米皮_数字SI1_车道1_DP
-|接地	|7		|8	|接地
-|米皮_数字SI1_时钟脉冲_N	|9		|10	|米皮_数字SI1_时钟脉冲_N
-|米皮_数字SI1_时钟脉冲_P	|11		|12	|米皮_数字SI1_时钟脉冲_P
-|接地	|13		|14	|接地
-|米皮_数字SI1_车道0_DN	|15		|16	|米皮_数字SI1_车道0_DN
-|米皮_数字SI1_车道0_DP	|17		|18	|米皮_数字SI1_车道0_DP
-|接地	|19		|20	|接地
+|引脚	|引脚编号	|引脚编号|引脚
+|GND	|1		|2	|GND
+|MIPI_DSI1_LANE1_DN	|3	|	4|MIPI_DSI1_LANE1_DN
+|MIPI_DSI1_LANE1_DP	|5		|6	|MIPI_DSI1_LANE1_DP
+|GND	|7		|8	|GND
+|MIPI_DSI1_CLK_N	|9		|10	|MIPI_DSI1_CLK_N
+|MIPI_DSI1_CLK_P	|11		|12	|MIPI_DSI1_CLK_P
+|GND	|13		|14	|GND
+|MIPI_DSI1_LANE0_DN	|15		|16	|MIPI_DSI1_LANE0_DN
+|MIPI_DSI1_LANE0_DP	|17		|18	|MIPI_DSI1_LANE0_DP
+|GND	|19		|20	|GND
 |I2C3_SCL|	21	|	22	|I2C3_SCL
 |I2C3_SDA	|23	|24	|I2C3_SDA
-|接地	|25		|26	|接地
-|液晶显示屏_VCC33|27	|28	|液晶显示屏_VCC33
-|液晶显示屏_VCC33|29		|30	|液晶显示屏_VCC33
+|GND	|25		|26	|GND
+|LCD_VCC33|27	|28	|LCD_VCC33
+|LCD_VCC33|29		|30	|LCD_VCC33
 |====
-
-
-
-
-
 
