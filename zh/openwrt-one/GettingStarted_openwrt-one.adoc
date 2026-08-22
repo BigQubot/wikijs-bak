@@ -1,51 +1,51 @@
 = 简介
 
-的“OpenWrt One/AP-24.XY” 路由器板基于 MediaTek MT7981B (Filogic 820) SoC 和 MediaTek MT7976C双频WiFi 6芯片组，首款正式开发板 OpenWRT 开源社区
+“OpenWrt One/AP-24.XY”路由器开发板基于 MediaTek MT7981B（Filogic 820）SoC 和 MediaTek MT7976C 双频 Wi-Fi 6 芯片组，是 OpenWrt 开源社区推出的首款官方开发板。
 
-OpenWrt 一种是基于 MediaTek Filogic 820 SoC 具有 WiFi 6、双频、3×3/2×2、1 个 2.5Gbit 广域网、1 个 1Gbit 局域网、1GB DDR4 RAM, 256 MiB NAND, 16 MiB NOR, M.2 SSD 和 USB 2.0.
+OpenWrt One 基于 MediaTek Filogic 820 SoC，支持双频 Wi-Fi 6（3×3/2×2），提供 1 个 2.5 Gbit WAN 口和 1 个 1 Gbit LAN 口，配备 1GB DDR4 RAM、256 MiB NAND、16 MiB NOR、M.2 SSD 接口和 USB 2.0 接口。
 
-OpenWrt 一用 Mediatek的MT7981B SoC 具有 1.3 GHz 双臂 Cortex-a53 内核、1 GB DDR4 RAM 和 256 MiB SPI NAND 存储。它还集成了16 MiB的额外受保护存储作为系统备份，双存储硬件以确保板载系统坚不可摧，最后还集成了M.2。 2230/2242 NVMe PCIe 2 个 X1 端口可用于添加外部存储。并配有用于内部时钟的电池座， OpenWrt 其中一个提供了 USB 2.0 Type-A 和 mikroBUS 扩展端口，为多种技术可能性提供更多接口
+OpenWrt One 采用 MediaTek MT7981B SoC，集成主频 1.3 GHz 的双核 Arm Cortex-A53、1GB DDR4 RAM 和 256 MiB SPI NAND 存储。另有 16 MiB 受保护存储用于系统备份，双存储设计可避免板载系统因刷写失败而无法恢复。M.2 2230/2242 NVMe PCIe 2.0 x1 插槽可扩展外部存储；开发板还提供实时时钟电池座、USB 2.0 Type-A 接口和 mikroBUS 扩展接口。
 
-OpenWrt 一个是第一个电路板设计OpenWrt开源社区。与 香蕉派 合作设计，该社区还将处理路由器板的制造和分销。的 OpenWrt One/AP-24.XY 路由器应该为项目提供收入来源，例如，用于支付托管和 OpenWrt 会议，香蕉派 通过其分销网络销售该开发板，每售出一台设备，就会向软件自由保护协会捐款 (南达科他州) 专项资金用于 OpenWrt.
+OpenWrt One 是 OpenWrt 开源社区设计的首款开发板，由 Banana Pi 参与协作并负责生产和销售。OpenWrt One/AP-24.XY 的销售可为项目提供收入，用于承担托管服务和 OpenWrt 大会等费用。Banana Pi 通过其分销网络销售开发板，并从每台设备的销售收入中向 Software Freedom Conservancy（SFC）捐款，款项专用于 OpenWrt 项目。
 
-TIP: 更多信息： link:/en/OpenWRT-One/BananaPi_OpenWRT-One[香蕉派 OpenWrt 一]
+TIP: 更多信息：link:/en/OpenWRT-One/BananaPi_OpenWRT-One[Banana Pi OpenWrt One]
 
 = 开发
 
 == 准备工作
-* 三个天线 +
-* USB 闪存驱动器或其他 USB 存储设备 +
-* PD15V电源适配器 +
-* USB C 型转 A 型电缆 +
-* Ethernet 电缆 +
-* link:https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=mediatek%2Ffilogic&id=openwrt_one[OpenWrt 一张图片]
+* 三根天线 +
+* USB 闪存盘或其他 USB 存储设备 +
+* PD 15 V 电源适配器 +
+* USB Type-C 转 Type-A 线缆 +
+* 以太网线 +
+* link:https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=mediatek%2Ffilogic&id=openwrt_one[OpenWrt One 镜像]
 
-== 引导程序设置
+== 启动介质设置
 
-NOTE: 请选择 NAND 供经常使用。 NOR适用于“恢复”。
+NOTE: 日常使用请选择 NAND；NOR 用于系统恢复。
 
-该开关使系统能够从以下任一位置启动 NAND 或或非。
+该开关用于选择从 NAND 或 NOR 启动系统。
 
-拨码开关向上的位置指示 NAND，而向下的位置表示NOR。
+拨码开关置于上方表示 NAND，置于下方表示 NOR。
 
 image::/openwrt-one/gettingstart/banana_pi_openwrt_one_gettingstart_bootstrap.jpg[banana_pi_openwrt_one_gettingstart_bootstrap.jpg]
 
 == 调试控制台
 
-. 使用Type A转换为Type C进行调试
+. 使用 Type-A 转 Type-C 线缆进行调试。
 
-. 使用您的 USB-串行电缆(3.3V TTL,波特率=115200) 连接到调试控制台 BPI-OpenWrt 一
+. 使用 USB 串口线（3.3 V TTL，波特率 115200）连接 BPI-OpenWrt One 的调试控制台。
 G=GND; RX=BPI-OpenWrt One input; TX=BPI-OpenWrt One output
 
 image::/openwrt-one/gettingstart/banana_pi_openwrt_one_gettingstart_debug1.jpg[banana_pi_openwrt_one_gettingstart_debug1.jpg]
 
-== 闪烁图像
-NOTE: 工厂形象版：openwrt-24.10.0-rc2
+== 烧录镜像
+NOTE: 出厂镜像版本：openwrt-24.10.0-rc2
 
 
-TIP: link:https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=mediatek%2Ffilogic&id=openwrt_one[您也可以点击此处选择 OpenWrt 您需要的版本]
+TIP: link:https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=mediatek%2Ffilogic&id=openwrt_one[也可以单击此处选择所需的 OpenWrt 版本]
 
-. 准备FAT32格式 USB 包含以下文件的驱动器：
+. 准备一个 FAT32 格式的 USB 存储设备，并放入以下文件：
 +
 link:https://downloads.openwrt.org/snapshots//targets/mediatek/filogic/openwrt-mediatek-filogic-openwrt_one-snand-preloader.bin[openwrt-mediatek-filogic-openwrt_one-snand-preloader.bin]
 +
@@ -53,25 +53,25 @@ link:https://downloads.openwrt.org/snapshots//targets/mediatek/filogic/openwrt-m
 
 . 请关闭设备电源。
 
-. 插入 USB 包含 TypeA 两个文件的驱动器。
+. 把包含上述两个文件的 USB 存储设备插入 Type-A 接口。
 
-. 将引导程序设置为 NOR。
+. 将启动介质开关设为 NOR。
 
-. 按住前面的 USER 按钮(Type A接口侧面的按键).
+. 按住正面的 USER 按键（位于 Type-A 接口一侧）。
 
 . 连接电源并启动设备。
 
 . 等待 LED 变绿。
 
-. 只需松开 USER 按钮即可成功完成刻录过程。
+. LED 变绿后松开 USER 按键，烧录过程即完成。
 
-WARNING: 如果这不起作用，请尝试其他格式化存储选项。将文件重命名为：
+WARNING: 如果上述操作无效，请尝试更换已格式化的 USB 存储设备，并把文件重命名为：
 
 openwrt-mediatek-filogic-openwrt_one-snand-preloader.bin
 
-openwrt-mediatek-filogic-openwrt_单一工厂.ubi
+openwrt-mediatek-filogic-openwrt_one-factory.ubi
 
-NOTE: 如果系统启动成功，就会有这个日志。
+NOTE: 系统成功启动后会显示以下日志。
 
 ```SH
 starting USB...
@@ -101,12 +101,12 @@ TIP: link:https://www.youtube.com/shorts/BLCLpHFkNl8[视频效果参考]
 
 == KEY-M
 
-. 准备一个 NVME SSD
-. 连接 SSD 到板上的KEY-M接口。
+. 准备一块 NVMe SSD。
+. 将 SSD 连接到开发板的 KEY-M 接口。
 +
 image::/openwrt-one/gettingstart/banana_pi_openwrt_one_gettingstart_key_m1.jpg[banana_pi_openwrt_one_gettingstart_key_m1.jpg]
 
-. 开始OpenWrt 一、通过使用命令查询，可以看到对应的存储。
+. 启动 OpenWrt One 并执行以下查询命令，即可看到相应的存储设备。
 +
 ```bash
 root@OpenWrt:~#
@@ -127,14 +127,14 @@ root@OpenWrt:~# lspci
 root@OpenWrt:~#
 ```
 
-== 1G局域网
+== 1G LAN
 
-连接拓扑：PC1 --- Cat7 电缆 --- OpenWrt 局域网
+连接拓扑：PC1 --- Cat7 网线 --- OpenWrt LAN
 
 image::/openwrt-one/banana_pi_openwrt_one_gettingstart_lan1.jpg[banana_pi_openwrt_one_gettingstart_lan1.jpg]
 
-== 2.5G广域网
+== 2.5G WAN
 
-连接PC网络和 OpenWrt WAN口网络连接到同一台交换机进行网络IP分配。
+把 PC 网口和 OpenWrt WAN 口连接到同一台交换机，以便为其分配网络 IP 地址。
 
 image::/openwrt-one/banana_pi_openwrt_one_gettingstart_wan1.jpg[banana_pi_openwrt_one_gettingstart_wan1.jpg]
