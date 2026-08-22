@@ -1,22 +1,22 @@
-TIP: link:../GettingStarted_BPI-Centi-S3[返回开始使用 BPI-Centi-S3]
+TIP: link:../GettingStarted_BPI-Centi-S3[返回 BPI-Centi-S3 入门指南]
 
 == REPL 快捷键
 
 . 复制 `ctrl + shift + c`.
-. 粘贴 `ctrl + shift + v`。使用鼠标左键拖动并选择
-要复制的命令 REPL，按复制快捷键
-键盘，然后按粘贴快捷键即可复制粘贴
+. 粘贴 `ctrl + shift + v`。用鼠标左键拖动并选中
+REPL 中要复制的命令，然后按键盘上的复制快捷键；
+再按粘贴快捷键，即可粘贴该
 命令。
-. 软复位 `ctrl + d`.
-. 中断 `ctrl + c`，中断当前正在执行的程序，但是
-不会重新启动和重置。
+. 软复位 `ctrl + d`。
+. 中断 `ctrl + c`，可中止当前运行的程序，但
+不会重启或复位开发板。
 
 == 查看内置模块
 
-. 进入 `help("modules")` 在 REPL 将列出中的所有模块
-当前 CircuitPython 开发板。
-. 导入模块后，您可以使用 `help()` 查看功能
-模块内可用的函数名称或变量名称。
+. 在 REPL 中输入 `help("modules")`，即可列出
+当前开发板中的所有模块。
+. 导入模块后，可使用 `help()` 函数查看
+模块中可用的函数名和变量名。
 
 ```py
 import machine
