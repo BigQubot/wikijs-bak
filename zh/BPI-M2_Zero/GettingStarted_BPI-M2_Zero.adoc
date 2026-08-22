@@ -1,0 +1,341 @@
+= 简介
+
+香蕉派 M2 Zero 是一款超紧凑型单板计算机，尺寸仅为 60 毫米*30毫米。它采用四核 Cortex A7 allwinner H2+ 处理器，512MB RAM 记忆。它非常适合一些空间有限的应用的轻量级系统。与 香蕉派 的其他成员一样，它支持 linux 和 android 操作系统。
+
+TIP: 更多信息： link:/en/BPI-M2_Zero/BananaPi_BPI-M2_Zero[香蕉派 BPI-M2_Zero]
+
+== 规格参数
+
+- 四核 ARM Cortex A7 CPU H2+
+- 512MB内存。
+- 无线网络 (AP6212) & 板载蓝牙。
+- 迷你 HDMI。
+
+= 开发
+== Android
+=== 准备
+
+下载凤凰卡： https://pan.baidu.com/s/1-fjvPqtG_zewVzqnXf1AHw?pwd=eid9
+
+=== 将映像安装到 SD 卡
+ 
+. 将您的 TF 卡插入 TF-USB 适配器，然后将适配器插入您的 Windows 电脑 usb 界面。
+. 准备好镜像，下载镜像刻录工具PhoenixCard.exe。
+. 使用“PhoenixCard.exe”进行刻录 android 镜像到TF卡。
+- 在图像路径选项中选择图像
++
+image::/picture/m2z-android-sd-1.jpg[m2z-android-sd-1.jpg]
+image::/picture/m2z-android-sd-2.jpg[m2z-android-sd-2.jpg]
+
+- 选择设置为卡启动，然后点击刻录镜像
++
+image::/picture/m2z-android-sd-3.jpg[m2z-android-sd-3.jpg]
+
+- 燃烧结束，
++
+image::/picture/m2z-android-sd-4.jpg[m2z-android-sd-4.jpg]
+
+== Linux
+=== 准备
+
+. 建议使用A1级卡，至少8GB。
+. 安装 bpi-tools 在你的 Linux 电脑(如果使用其他工具刷入镜像，请忽略此步骤)。如果您无法访问此 URL 或出现任何其他安装问题，请转至 link:https://github.com/bpi-sinovoip/bpi-tools[bpi-tools] 源存储库，手动下载并安装此工具。
++
+```sh
+ $ apt-get install pv
+ $ curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
+```
+. 下载最新的 Linux 镜像，并确认md5校验和正确。
+. 默认登录： pi/bananapi 或 root/bananapi
+
+=== 将映像安装到 SD 卡
+**Windows 电脑**
+
+使用 Balena Etcher 安装映像。 +
+link:https://balena.io/etcher[巴莱纳蚀刻机] 是 Balena 的开源 GUI 闪存工具，可将操作系统映像闪存到 SD 卡或 USB 开车。
+
+. 点击“**从文件闪存**”来选择镜像。 
+. 点击“**选择目标**”来选择 USB 设备。 
+. 点击“**快闪！**“开始燃烧。
+
+image::/picture/etcher.jpg[etcher.jpg]
+
+**Linux 电脑**
+
+**有两种方法供您选择。**
+
+. 使用 dd 命令安装镜像 Linux,卸载SD卡设备 /dev/sdX 如果自动安装则分区。其实 bpi-copy 与此 dd 命令相同。
++
+```sh
+ $ sudo apt-get install pv unzip
+ $ sudo unzip -p xxx-bpi-m2_zero-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxfer
+```
+. 安装镜像 bpi-tools 上 Linux，插入SD卡 Linux 电脑并运行
++
+```sh
+ $ sudo apt-get install pv unzip
+ $ sudo bpi-copy xxx-bpi-m2_zero-xxx.img.zip /dev/sdX
+```
+
+=== 更新您的图像
+. 获取 m2 零 bsp 源代码
++
+```sh
+$ git clone https://github.com/BPI-SINOVOIP/BPI-M2P-bsp-4.4
+```
+. 根据以下内容构建源代码 README.md，并将软件包更新到带有 bpi 映像的 sdcard。
+
+== 高级开发
+=== 如何创建图像
+- 准备一张已安装好系统的SD卡(Ubuntu/Raspbian/..)
+- 从SD卡启动，启动完成后，复制文件并配置系统，然后关闭M2 Zero电源。 [如果您不想配置系统，可以跳过此步骤]
+- 将 SD 卡插入 PC(正在运行 Linux)
++
+```sh
+cd /media
+```
+然后 
++
+```sh
+ln -s <your account> pi
+```
+- 执行
++
+```sh
+bpi-migrate -c bpi-m2z.conf -c ubuntu-mate-from-sd.conf -d /dev/sdx
+```
+- 那么你现在就可以得到你自己的图像了
+
+=== OTG
+. 在 M2 零控制台上：
++
+执行
++
+```sh
+./adbd.sh
+```
+然后执行
++
+```sh
+ps -ax | grep adbd
+```
+查看 adbd 是否已设置
+
+. PC端：
++
+如果adbd设置成功，插入OTG-USB 与 M2 Zero 和 PC 的接口(与 Ubuntu 系统)
+执行
++
+```sh
+adb devices
+```
+查看PC是否已识别M2 ZeroP OTG
+如果是的话，我们可以执行
++
+```sh
+adb shell
+```
+现在通过 adb 连接 M2 Zero
+
+=== USB Ethernet
+准备一个 USB 至 OTG 线， usb ethernet 适配器
+
+image::/picture/m2zero_usb_network_wire.png[m2zero_usb_network_wire.png]
+
+使用iperf3测试网络
+
+image::/picture/m2zero_network.png[m2zero_network.png]
+
+=== 蓝牙
+使用bluetoothctl工具操作BT
+执行
+```sh
+bluetoothctl
+```
+如果您不知道如何使用 bluetoothctl，请输入“**帮助**”，你会看到更多命令
+
+执行这些命令：
+
+image::/picture/m2zero_bluetooth.png[m2zero_bluetooth.png]
+
+=== WiFi客户端
+您有两种方法来设置 WiFi 客户端
+
+. 使用命令设置 WiFi 客户端
++
+--
+```sh
+ip link set wlan0 up
+iw dev wlan0 scan | grep SSID
+vim /etc/wpa_supplicant/wpa_supplicant.conf
+```
+```sh
+network={    
+ssid="ssid"    
+psk="password"    
+priority=1 
+}
+```
+```sh
+wpa_supplicant -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf
+dhclient wlan0
+```
+--
+
+. 使用UI界面设置WiFi Client
+
+=== 清除启动
+```sh
+git clone https://github.com/BPI-SINOVOIP/BPI-files/tree/master/SD/100MB
+bpi-bootsel BPI-cleanboot-8k.img.gz /dev/sdX
+```
+
+=== 相机功能
+我们使用HDF5640摄像机。
+
+image::/picture/ov5640_camara.png[ov5640_camara.png]
+
+**古维视**
+
+使用您的UI界面来操作相机
+
+应用程序 -> 声音和视频 -> guvcview
+
+**壳牌**
+
+我们还有内置命令 /usr/local/bin 测试相机
+
+测试拍照功能
+```sh
+./test_ov5640_image_mode.sh
+```
+
+测试视频录制功能
+```sh
+./cameratest.sh
+```
+
+=== 显示
+**如何更改显示分辨率**
+
+例如：我们将M2Z HDMI显示改为1080P。
+
+. 执行
++
+```sh
+mount /dev/mmcblk0p1 /mnt
+cd /mnt/bananapi/bpi-m2z/linux
+```
+找到“**系统_配置文件**"
+
+. 执行
++
+```sh
+vim sys_config.fex
+```
+改变
++
+```sh
+screen0_output_mode = 5
+```
+到 
++
+```sh
+screen0_output_mode = 10
+```
++
+image::/picture/display_output.png[display_output.png]
+
+. 保存更改后，使用
++
+```sh
+fex2bin
+```
+传输系统命令_config.fex 到 bin 文件“**fex2bin系统_配置文件 script.bin**”，重新启动。
++
+参数含义：
++
+image::/picture/display_mode.png[display_mode.png]
+
+=== BPI-Tools
+**安装 Bpi-tools**
+
+```sh
+curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash -
+```
+**更新 Bpi-tools**
+
+```sh
+bpi-tools
+```
+
+image::/picture/bpi-tools.png[bpi-tools.png]
+
+=== RPi。GPIO
+**安装 RPi。GPIO**
+
+```sh
+git clone https://github.com/BPI-SINOVOIP/RPi.GPIO
+cd RPi.GPIO
+sudo apt-get update
+sudo apt-get install python-dev python3-dev
+```
+执行
+```sh
+sudo python setup.py install
+```
+或
+```sh
+sudo python3 setup.py install
+```
+
+**使用 RPi。GPIO**
+```sh
+cd /usr/local/bin
+./bpi_test_g40.py
+```
+
+image::/picture/rpi_gpio.png[rpi_gpio.png]
+
+=== 接线Pi
+
+GitHub: https://github.com/BPI-SINOVOIP/BPI-WiringPi2.git
+
+我们还有内置的测试命令
+```sh
+/usr/local/bin
+```
+
+**如何更新 WiringPi**
+
+```sh
+bpi-update -c pkglist.conf
+```
+
+image::/picture/update_pkglist.png[update_pkglist.png]
+
+```sh
+bpi-update -c bpi-pkg-bpi-wiringpi.conf
+```
+
+image::/picture/update_wringpi.png[update_wringpi.png]
+
+**RGB 1602 LCD**
+```sh
+/usr/local/bin/bpi_test_lcd1602.sh
+```
+**0.96英寸 OLED 显示**
+```sh
+/usr/local/bin/bpi_test_52pi.sh
+```
+**8x8 RGB LED 马蒂克斯**
+
+首先你需要一个 GPIO 8x8 扩展板 LED 马蒂克斯
+
+image::/picture/wringpi_led_martix_extend_board.png[wringpi_led_martix_extend_board.png]
+
+```sh
+/usr/local/bin/bpi_test_gpio40.sh
+```
+
+
