@@ -1,0 +1,31 @@
+TIP: link:../GettingStarted_BPI-Leaf-S3[返回 BPI-Leaf-S3 入门指南]
+
+== 设置固件下载模式
+
+操作方法有两种：
+
+1. 通过 USB 将开发板连接到计算机，按住 BOOT 按钮，再按下并松开 RESET 按钮，最后松开 BOOT 按钮。
+
+2. 在开发板断电状态下按住 BOOT 按钮，再通过 USB 将其连接到计算机，最后松开 BOOT 按钮。
+
+芯片会在复位或重新上电时，通过 BOOT 按钮控制的 GPIO0 选择启动模式。
+
+在设备管理器中确认 COM 端口。固件下载模式和正常模式使用的 COM 端口号通常不同。
+
+== 在 Thonny 中烧录固件
+
+. link:/en/BPI-Leaf-S3/MicroPython/environment[安装并配置 Thonny]。
+
+. 运行 Thonny，单击 **运行** > **配置解释器**。
++
+image::/picture/bpi_leaf_s3_thonny_1.jpg[bpi_leaf_s3_thonny_1.jpg]
+
+. 单击 **安装或更新 MicroPython**。
++
+image::/picture/bpi_leaf_s3_thonny_5.jpg[bpi_leaf_s3_thonny_5.jpg]
+
+. 选择已设为固件下载模式的串口。
++
+image::/picture/bpi_leaf_s3_thonny_6.jpg[bpi_leaf_s3_thonny_6.jpg]
+
+. 单击 **安装**。
