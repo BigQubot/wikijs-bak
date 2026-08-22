@@ -1,8 +1,8 @@
 ---
-title: 香蕉派 BPI-M2 Ultra 照片
-description: 香蕉派 BPI-M2 Ultra 照片
-published: true
-date: 2026-08-22T11:48:13.832Z
+title: Banana Pi BPI-M2 Ultra 产品图片
+description: Banana Pi BPI-M2 Ultra 产品图片
+published: false
+date: 2026-08-22T17:13:01.804Z
 tags: 
 editor: markdown
 dateCreated: 2026-08-22T11:48:13.832Z
