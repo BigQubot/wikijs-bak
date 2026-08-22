@@ -1,0 +1,187 @@
+= 简介
+
+香蕉派 BPI-M6 是新一代单板计算机设计，采用Synaptics VS680四核Cortex-A73 (2.1GHz) 和一个 Cortex-M3 处理器，Imagination GE9920 GPU.和 NPU 最多 6 .75 上衣。板载 4GB LPDDR4 内存和 16GB EMMC 存储，并支持4 USB 3.0接口，一个千兆网口。板载 1 个 HDMI-rx 端口和 1 个 HDMI-TX 端口。
+
+TIP: 更多信息： link:/en/BPI-M6/BananaPi_BPI-M6[香蕉派 BPI-M6]
+
+== 规格参数
+
+- Synaptics VideoSmart VS680 四核 Cortex-A73 (2.1GHz) 和一个 Cortex-M3 处理器
+- 想象GE9920 GPU
+- NPU 对于 AI 高达 6 .75Tops
+- 系统内存 – 4GB LPDDR4
+- 存储空间 – 16GB eMMC 闪光
+- 视频输出 – 1 个 HDMI 输入和 1 个 HDMI 输出
+- 连接性 – 千兆位 Ethernet
+- USB – 4x USB 通过 VL817 集线器控制器的 3.0 端口，1x USB-C端口 (仅用于电源)
+- 扩展 – 40 针
+- 调试 – 3 针调试接头
+- 其他 – 重置、电源和 U-boot 按钮；功率和活动 LED’s
+- 电源 – 5V @3A 通过 USB Type-C接口
+- M.2 键 E(PCIe + MIPI CSI)
+
+
+= 开发
+== 准备
+
+. 准备一个 USB 串行电缆和 5V/3A 适配器 type-c 电源。串口线用于console调试，type-c线用于 Android 图片下载。
+. 准备一张至少8GB的SD卡 Linux 开发, Android 只支持 eMMC 启动。
+
+== Android
+=== 准备
+
+. 下载并安装 SenarySocSystemTool android 图片下载通过 USB M6上的type-c，仅支持 windows.
+. 下载最新的 android 镜像，并确认 md5 校验和正确。
+
+下载 SenarySocSystemTool：link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FSenarySocSystemToolSetupV1.3.2.1.rar[下载链接]
+
+=== 安装镜像 Usb 烧录工具
+
+. 打开SenarySocSystemTool.exe，单击“浏览”，选择镜像所在的eMMCImg文件夹。
++
+image::/picture/m6_android_install_1.png[m6_android_install_1.png]
+
+. 按 USB Type-C 旁边的按钮并使用 Type-C 电缆连接到计算机。
++
+image::/picture/m6_android_install_2.png[m6_android_install_2.png]
+
+. 点击开始刻录，然后等待刻录完成。
++
+image::/picture/m6_android_install_3.png[m6_android_install_3.png]
+. 烧录成功后，按RST键，拔掉电源线 usb 并连接电源适配器即可启动。
++
+image::/picture/m6_android_install_4.png[m6_android_install_4.png]
+. 如果你想删除 eMMC，可以重复上面的步骤，但是需要点击擦除 eMMC 而不是开始燃烧。
+
+
+== Linux
+=== 将映像安装到 SD 卡
+
+
+使用 Balena Etcher 安装映像。 +
+link:https://balena.io/etcher[巴莱纳蚀刻机] 是 Balena 的开源 GUI 闪存工具，可将操作系统映像闪存到 SD 卡或 USB 开车。
+
+点击“**从文件闪存**”来选择镜像。 
+
+点击“**选择目标**”来选择 USB 设备。 
+
+点击“**快闪！**“开始燃烧。
+
+image::/picture/etcher.jpg[etcher.jpg]
+
+镜像烧录完成后，将SD卡插入 BPI-M6。按住 SPI 插入电源时按 键。
+
+=== 安装镜像到 eMMC
+NOTE: 在将镜像刻录到之前 emmc，建议先擦除emc。你可以 link:https://docs.banana-pi.org/en/BPI-M6/GettingStarted_BPI-M6#_install_image_with_usb_burning_tool[参考这里].
+
+. 首先准备一张可启动的SD卡和一个 link:https://docs.banana-pi.org/en/BPI-M6/BananaPi_BPI-M6#_spi[新的 SPI 文件].
+. 打开 SenarySocSystemTool 并切换到 Spi 闪光。
+
+. 将路径更改为所在路径 spi 您下载的文件位于。
+
+. 按 USB type-c旁边的按钮，使用type-c线连接到电脑。单击开始刻录。
+
+. 将镜像复制到 USB 驱动器插入M6，然后插入SD卡，上电。
+
+. 安装 USB 开车。
++
+```sh
+mount /dev/sda1 /mnt
+cd /mnt
+```
+
+. 然后使用dd命令将镜像刻录到 emmc
++
+```sh
+dd if=Armbian-bpi-senarytech-trunk_Bananapim6-xxx.img of=/dev/mmcblk0
+```
+
+. 等待刻录完成。关闭电源，取出SD卡 (如果插入SD卡，则先启动SD卡)，然后按住 SPI 关键。然后 eMMC 可以启动。
+
+== HDMI
+VS680 HDMI TX功能特性：
+
+- 支持hdmi v2.1
+- 最高支持2160p@60 YUV444
+- 支持高达 1080p@60 和 12b 深色
+- 最高支持 HDCP 2.2
+- 支持HBR输出
+- 支持 HDR10 和 HLG
+
+=== HDMI TX 软件配置
+VS680目前使用两种显示框架，FB和DRM
+
+FB方案源代码文件： +
+**syna-release/linux_5_4/drivers/video/syna/source/**
+
+DBM方案的源代码文件： +
+**syna-release/linux_5_4/drivers/soc/berlin/modules/drm/**
+
+在配置文件中启用 HDMI TX 功能。配置文件位于 SDK's **syna-release/configs/product/vs680_a0_android_baseline_evk/vs680_a0_android_baseline_evk_defconfig**，配置如下：
+
+image::/picture/bpi-m6_hdmi_tx_software_configuration.png[bpi-m6_hdmi_tx_software_configuration.png]
+
+=== 启用HDCP
+```sh
+test_disp enable/disable hdcp
+test_disp setVersion 1 //set hdcp 1.4
+test_disp setVersion 2 //set hdcp 2.2
+```
+
+=== 分辨率配置
+支持标准：CEA-861-E视频格式
+
+支持的分辨率： +
+**3840x2160p60Hz/30Hz//24Hz** +
+**1920x1200@60Hz** +
+**1920x1080p@60** +
+**1280x700p@60**
+	
+在命令行上配置分辨率和格式：
+
+测试_显示设置格式[显示ID] [分辨率 ID] [位深度] [色彩调校] [纵横比][tgID][乌特_模式]
+
+示例：
+```sh
+test_disp setformat 0 64 2 0
+```
+
+
+== GPIO
+
+=== PWM
+
+的 BPI-M6 有三个 PWM 引脚，对应的 GPIO 为 GPIO53、GPIO36、GPIO37。
+
+image::/bpi-m6/bpi-m6_pwm1.jpg[bpi-m6_pwm1.jpg]
+
+您可以使用以下命令来启用它。
+
+```sh
+echo 1 |sudo tee /sys/class/pwm/pwmchip0/export
+```
+
+然后你可以使用这个命令来检查是否 pwm 已启用。
+
+```sh
+ls /sys/class/pwm/pwmchip0
+```
+
+例如：
+
+image::/bpi-m6/bpi-m6_pwm2.jpg[bpi-m6_pwm2.jpg]
+
+
+== Ethernet
+
+
+== 无线网络和蓝牙
+有两种使用 WiFi 和 BT 的方式。
+
+. 购买 BPI-M6 CSI · WiFi 配件。将其插入M.2 Key E接口，然后将网卡插入配件上。
+
+. WiFi&BT配件使用 USB 界面。
+
+== 相机
+
+您可以购买 BPI-M6 CSI·WiFi配件。上面有两个CSI接口。
