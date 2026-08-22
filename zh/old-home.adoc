@@ -1,49 +1,49 @@
-= 香蕉派 维基旧主页
+= Banana Pi Wiki 旧版首页
 
-== 关于 香蕉派 开源项目
+== 关于 Banana Pi 开源项目
 image::/website.jpg[website.jpg]
 
-link:http://www.banana-pi.org/[香蕉派] 是一个开源硬件项目，由 link:https://wiki.banana-pi.org/About_BPI[广东必派科技有限公司]。专注于ARM及MCU系列开源硬件开发板，提供开放的软硬件平台，打造基础技术开发平台。全系列开源硬件产品，完整集成的语音、数据、视频系统平台。开发者可以在开源硬件基础平台上灵活构建各种应用平台。可应用于物联网、AI人工智能、工业互联网控制、STEAM教育等方面。 link:https://wiki.banana-pi.org/Banana_Pi_open_source_community_ecology_and_Internet_of_things_overall_technical_solutions[香蕉派开源社区生态及物联网整体技术解决方案].
+link:http://www.banana-pi.org/[Banana Pi] 是由 link:https://wiki.banana-pi.org/About_BPI[广东比派科技有限公司] 主导的开源硬件项目。项目专注于 ARM 与 MCU 系列开源硬件开发板，提供开放的软硬件平台，并打造基础技术开发平台。全系列开源硬件产品可完整集成语音、数据和视频系统平台，开发者能够在此基础上灵活构建各种应用，适用于物联网、人工智能、工业互联网控制、STEAM 教育等领域。另请参阅 link:https://wiki.banana-pi.org/Banana_Pi_open_source_community_ecology_and_Internet_of_things_overall_technical_solutions[Banana Pi 开源社区生态与物联网整体技术解决方案]。
 
-欢迎自由讨论 link:http://forum.banana-pi.org/[香蕉派论坛], 由于 Google 安全更新，如果您要使用的图像无法从新链接下载，某些旧链接将无法使用 link:https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[文件] 和 link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[图片]
+欢迎前往 link:http://forum.banana-pi.org/[Banana Pi 论坛] 自由交流。由于 Google 安全更新，部分旧链接已失效；所需资料和镜像可从新的 link:https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[文档] 与 link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[镜像] 链接下载。
 
-轻松购买样品 link:https://pt.aliexpress.com/store/302756[inoVoip 速卖通网上商店] 和 link:https://www.aliexpress.com/store/1101951077[BPI 速卖通网上商店]
+可从 link:https://pt.aliexpress.com/store/302756[SinoVoip 速卖通商店] 和 link:https://www.aliexpress.com/store/1101951077[BPI 速卖通商店] 便捷购买样品。
 
-link:https://wiki.banana-pi.org/BPI_4.0_Server[BPI 4.0服务器] 已服务超过200家 link:https://wiki.banana-pi.org/Successful_case[成功案例] 遍布全球，为客户提供研发、生产、供应链管理、产品认证一站式服务。
+link:https://wiki.banana-pi.org/BPI_4.0_Server[BPI 4.0 服务] 已为全球 200 多个 link:https://wiki.banana-pi.org/Successful_case[成功案例] 提供支持，为客户提供研发、生产、供应链管理和产品认证的一站式服务。
 
 == 快速入门
 [options="header",cols="3,3,3"]
 |=====
 | 单板计算机 | 计算模块 | 智能路由器
-| link:/en/BPI-M1/GettingStarted_BPI-M1[入门指南_BPI-M1] | link:/en/BPI-CM4/GettingStarted_BPI-CM4[开始使用 BPI-CM4] | link:/en/BPI-R1/GettingStarted_BPI-R1[开始使用 BPI-R1]
+| link:/en/BPI-M1/GettingStarted_BPI-M1[BPI-M1 入门指南] | link:/en/BPI-CM4/GettingStarted_BPI-CM4[BPI-CM4 入门指南] | link:/en/BPI-R1/GettingStarted_BPI-R1[BPI-R1 入门指南]
 
-| link:/en/BPI-M1_Plus/GettingStarted_BPI-M1_Plus[开始使用 BPI-M1 Plus] | link:/en/BPI-CM5/GettingStarted_BPI-CM5[开始使用 BPI-CM5] | link:/en/BPI-R2/GettingStarted_BPI-R2[开始使用 BPI-R2]
+| link:/en/BPI-M1_Plus/GettingStarted_BPI-M1_Plus[BPI-M1 Plus 入门指南] | link:/en/BPI-CM5/GettingStarted_BPI-CM5[BPI-CM5 入门指南] | link:/en/BPI-R2/GettingStarted_BPI-R2[BPI-R2 入门指南]
 
-| link:/en/BPI-M2_Ultra_Berry/GettingStarted_BPI-M2_Ultra_Berry[开始使用 BPI-M2 Ultra/Berry] | link:/en/BPI-CM2/GettingStarted_BPI-CM2[开始使用 BPI-CM2] | link:/en/BPI-R2_Pro/GettingStarted_BPI-R2_Pro[开始使用 BPI-R2_Pro]
+| link:/en/BPI-M2_Ultra_Berry/GettingStarted_BPI-M2_Ultra_Berry[BPI-M2 Ultra/Berry 入门指南] | link:/en/BPI-CM2/GettingStarted_BPI-CM2[BPI-CM2 入门指南] | link:/en/BPI-R2_Pro/GettingStarted_BPI-R2_Pro[BPI-R2 Pro 入门指南]
 
-| link:/en/BPI-M2_Magic/GettingStarted_BPI-M2_Magic[开始使用 BPI-M2 魔法] | | link:/en/BPI-R64/GettingStarted_BPI-R64[开始使用 BPI-R64]
+| link:/en/BPI-M2_Magic/GettingStarted_BPI-M2_Magic[BPI-M2 Magic 入门指南] | | link:/en/BPI-R64/GettingStarted_BPI-R64[BPI-R64 入门指南]
 
-| link:/en/BPI-M2_Plus/GettingStarted_BPI-M2_Plus[开始使用 BPI-M2 Plus] | | link:/en/BPI-W2/GettingStarted_BPI-W2[开始使用 BPI-W2]
+| link:/en/BPI-M2_Plus/GettingStarted_BPI-M2_Plus[BPI-M2 Plus 入门指南] | | link:/en/BPI-W2/GettingStarted_BPI-W2[BPI-W2 入门指南]
 
-| link:/en/BPI-M2_Zero/GettingStarted_BPI-M2_Zero[开始使用 BPI-M2 Zero] | | link:/en/BPI-W3/GettingStarted_BPI-W3[开始使用 BPI-W3]
+| link:/en/BPI-M2_Zero/GettingStarted_BPI-M2_Zero[BPI-M2 Zero 入门指南] | | link:/en/BPI-W3/GettingStarted_BPI-W3[BPI-W3 入门指南]
 
-| link:/en/BPI-P2_Zero/GettingStarted_BPI-P2_Zero[开始使用 BPI-P2 Zero] | | link:/en/BPI-R3/GettingStarted_BPI-R3[开始使用 BPI-R3]
+| link:/en/BPI-P2_Zero/GettingStarted_BPI-P2_Zero[BPI-P2 Zero 入门指南] | | link:/en/BPI-R3/GettingStarted_BPI-R3[BPI-R3 入门指南]
 
-| link:/en/BPI-M64/GettingStarted_BPI-M64[开始使用 BPI-M64] | | link:/en/BPI-R3_Mini/GettingStarted_BPI-R3_Mini[开始使用 BPI-R3 Mini]
+| link:/en/BPI-M64/GettingStarted_BPI-M64[BPI-M64 入门指南] | | link:/en/BPI-R3_Mini/GettingStarted_BPI-R3_Mini[BPI-R3 Mini 入门指南]
 
-| link:/en/BPI-M3/GettingStarted_BPI-M3[开始使用 BPI-M3] | | link:/en/BPI-R4/GettingStarted_BPI-R4[开始使用 BPI-R4]
+| link:/en/BPI-M3/GettingStarted_BPI-M3[BPI-M3 入门指南] | | link:/en/BPI-R4/GettingStarted_BPI-R4[BPI-R4 入门指南]
 
-| link:/en/BPI-M4/GettingStarted_BPI-M4[开始使用 BPI-M4] | | link:/en/BPI-BPI-WiFi6_Router/GettingStarted_BPI-WiFi6_Router[开始使用 BPI-WiFi6 路由器]
+| link:/en/BPI-M4/GettingStarted_BPI-M4[BPI-M4 入门指南] | | link:/en/BPI-BPI-WiFi6_Router/GettingStarted_BPI-WiFi6_Router[BPI-WiFi6 Router 入门指南]
 
-| link:/en/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro[开始使用 BPI-M5/M2 专业版] | |
+| link:/en/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro[BPI-M5/M2 Pro 入门指南] | |
 
-| link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super[开始使用 BPI-M2S(超级)] | |
+| link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super[BPI-M2S（Super）入门指南] | |
 
-| link:/en/BPI-M6/GettingStarted_BPI-M6[开始使用 BPI-M6] | |
+| link:/en/BPI-M6/GettingStarted_BPI-M6[BPI-M6 入门指南] | |
 
-| link:/en/BPI-M4_Berry/GettingStarted_BPI-M4_Berry[开始使用 BPI-M4 Berry] | |
+| link:/en/BPI-M4_Berry/GettingStarted_BPI-M4_Berry[BPI-M4 Berry 入门指南] | |
 
-| link:/en/BPI-M4_Zero/GettingStarted_BPI-M4_Zero[开始使用 BPI-M4 Zero] | |
+| link:/en/BPI-M4_Zero/GettingStarted_BPI-M4_Zero[BPI-M4 Zero 入门指南] | |
 
 |=====
 
@@ -52,131 +52,131 @@ link:https://wiki.banana-pi.org/BPI_4.0_Server[BPI 4.0服务器] 已服务超过
 
 TIP: link:https://wiki.banana-pi.org/Armbian[Armbian]
 
-TIP: link:https://wiki.banana-pi.org/Tina_Linux[蒂娜 Linux]
+TIP: link:https://wiki.banana-pi.org/Tina_Linux[Tina Linux]
 
-TIP: link:https://wiki.banana-pi.org/Mainline_Linux_uboot_2019.07[主线 Linux uboot 2019.07]
+TIP: link:https://wiki.banana-pi.org/Mainline_Linux_uboot_2019.07[主线 Linux U-Boot 2019.07]
 
 === 开发工具
 
-TIP: link:https://wiki.banana-pi.org/Using_4G_module_with_BananaPi[使用 4G 模块 BananaPi]
+TIP: link:https://wiki.banana-pi.org/Using_4G_module_with_BananaPi[在 Banana Pi 上使用 4G 模块]
 
-TIP: link:https://wiki.banana-pi.org/WiFi/AP/BT/BLE_on_BananaPi[WiFi/AP/BT/BLE 上 BananaPi]
+TIP: link:https://wiki.banana-pi.org/WiFi/AP/BT/BLE_on_BananaPi[Banana Pi 上的 WiFi/AP/BT/BLE]
 
-TIP: link:https://wiki.banana-pi.org/OpenCV_3.4x_on_BananaPi[OpenCV 3.4x 开启BananaPi]
+TIP: link:https://wiki.banana-pi.org/OpenCV_3.4x_on_BananaPi[在 Banana Pi 上使用 OpenCV 3.4.x]
 
 TIP: link:https://wiki.banana-pi.org/How_to_bulid_a_image_with_BSP[如何使用 BSP 构建镜像]
 
-TIP: link:https://wiki.banana-pi.org/How_to_use_DHT_Sensor_via_banana_pi[如何通过香蕉派使用DHT传感器]
+TIP: link:https://wiki.banana-pi.org/How_to_use_DHT_Sensor_via_banana_pi[如何通过 Banana Pi 使用 DHT 传感器]
 
-=== 从源头构建
+=== 从源代码构建
 
-香蕉派 SBC 和 Router 源代码 github : https://github.com/bpi-sinovoip
+Banana Pi 单板计算机和路由器源代码：https://github.com/bpi-sinovoip
 
-STEAM教育产品源码 github : https://github.com/BPI-STEAM
+STEAM 教育产品源代码：https://github.com/BPI-STEAM
 
 == 产品展示
-=== 香蕉派 单板计算机： link:{https://wiki.banana-pi.org/Banana_Pi_Series_Comparison}[香蕉派系列比较]
+=== Banana Pi 单板计算机：link:{https://wiki.banana-pi.org/Banana_Pi_Series_Comparison}[Banana Pi 系列对比]
 
 |=====
-2+| 香蕉派 单板计算机(小型计算机公司)
-| link:/en/BPI-M1/BananaPi_BPI-M1[香蕉派 BPI-M1] [Allwinner A20] | link:/en/BPI-F2/BananaPi_BPI-F2[香蕉派 BPI-F2] [飞思卡尔 IMX6 工业级]
+2+| Banana Pi 单板计算机（SBC）
+| link:/en/BPI-M1/BananaPi_BPI-M1[Banana Pi BPI-M1] [Allwinner A20] | link:/en/BPI-F2/BananaPi_BPI-F2[Banana Pi BPI-F2] [Freescale IMX6 工业级]
 
-| link:/en/BPI-M1_Plus/BananaPi_BPI-M1_Plus[香蕉派 BPI-M1_Plus] [Allwinner A20] | link:/en/BPI-F2S/BananaPi_BPI-F2S[香蕉派 BPI-F2S] [SunPlus SP7021 工业级]
+| link:/en/BPI-M1_Plus/BananaPi_BPI-M1_Plus[Banana Pi BPI-M1_Plus] [Allwinner A20] | link:/en/BPI-F2S/BananaPi_BPI-F2S[Banana Pi BPI-F2S] [SunPlus SP7021 工业级]
 
-| link:/en/BPI-M2_Zero/BananaPi_BPI-M2_Zero[香蕉派 BPI-M2_Zero] [Allwinner H2+/H3] | link:/en/BPI-F2P/BananaPi_BPI-F2P[香蕉派 BPI-F2P] [SunPlus SP7021工控网关板]
+| link:/en/BPI-M2_Zero/BananaPi_BPI-M2_Zero[Banana Pi BPI-M2_Zero] [Allwinner H2+/H3] | link:/en/BPI-F2P/BananaPi_BPI-F2P[Banana Pi BPI-F2P] [SunPlus SP7021 工业控制网关板]
 
-| link:/en/BPI-P2_Zero/BananaPi_BPI-P2_Zero[香蕉派 BPI-P2 Zero] [Allwinner H2+/H3] | link:/en/BPI-M4/BananaPi_BPI-M4[香蕉派 BPI-M4] [瑞昱 RTD1395]
+| link:/en/BPI-P2_Zero/BananaPi_BPI-P2_Zero[Banana Pi BPI-P2 Zero] [Allwinner H2+/H3] | link:/en/BPI-M4/BananaPi_BPI-M4[Banana Pi BPI-M4] [Realtek RTD1395]
 
-| link:/en/BPI-M2_Plus/BananaPi_BPI-M2_Plus[香蕉派 BPI-M2 Plus] [Allwinner H2+/H3] | link:/en/BPI-M5/BananaPi_BPI-M5[香蕉派 BPI-M5] [Amlogic S905X3] 
+| link:/en/BPI-M2_Plus/BananaPi_BPI-M2_Plus[Banana Pi BPI-M2 Plus] [Allwinner H2+/H3] | link:/en/BPI-M5/BananaPi_BPI-M5[Banana Pi BPI-M5] [Amlogic S905X3] 
 
-| link:/en/BPI-M2_Magic/BananaPi_BPI-M2_Magic[香蕉派 BPI-M2 魔法] [Allwinner A33/R16] | link:/en/BPI-M2_Pro/BananaPi_BPI-M2_Pro[香蕉派 BPI-M2 Pro] [Amlogic S905X3]
+| link:/en/BPI-M2_Magic/BananaPi_BPI-M2_Magic[Banana Pi BPI-M2 Magic] [Allwinner A33/R16] | link:/en/BPI-M2_Pro/BananaPi_BPI-M2_Pro[Banana Pi BPI-M2 Pro] [Amlogic S905X3]
 
-| link:/en/BPI-M2_Berry/BananaPi_BPI-M2_Berry[香蕉派 BPI-M2 Berry] [Allwinner R40/V40/A40i] | link:/en/BPI-M2_Super/BananaPi_BPI-M2_Super[香蕉派 BPI-M2 Super] [Amlogic A311D&S922X]
+| link:/en/BPI-M2_Berry/BananaPi_BPI-M2_Berry[Banana Pi BPI-M2 Berry] [Allwinner R40/V40/A40i] | link:/en/BPI-M2_Super/BananaPi_BPI-M2_Super[Banana Pi BPI-M2 Super] [Amlogic A311D&S922X]
 
-| link:/en/BPI-M2_Ultra/BananaPi_BPI-M2_Ultra[香蕉派 BPI-M2 Ultra] [Allwinner R40/V40/A40i] | link:/en/BPI-M6/BananaPi_BPI-M6[香蕉派 BPI-M6] [新思VS680]
+| link:/en/BPI-M2_Ultra/BananaPi_BPI-M2_Ultra[Banana Pi BPI-M2 Ultra] [Allwinner R40/V40/A40i] | link:/en/BPI-M6/BananaPi_BPI-M6[Banana Pi BPI-M6] [Synaptics VS680]
 
-| link:/en/BPI-M64/BananaPi_BPI-M64[香蕉派 BPI-M64] [Allwinner A64] | link:/en/BPI-P2_Pro/BananaPi_BPI-P2_Pro[香蕉派 BPI-P2 Pro] [Rockchip RK3308]
+| link:/en/BPI-M64/BananaPi_BPI-M64[Banana Pi BPI-M64] [Allwinner A64] | link:/en/BPI-P2_Pro/BananaPi_BPI-P2_Pro[Banana Pi BPI-P2 Pro] [Rockchip RK3308]
 
-| link:/en/BPI-M3/BananaPi_BPI-M3[香蕉派 BPI-M3] [Allwinner A83T] |
-link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry[香蕉派 BPI-M4 Berry] [Allwinner H618]
+| link:/en/BPI-M3/BananaPi_BPI-M3[Banana Pi BPI-M3] [Allwinner A83T] |
+link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry[Banana Pi BPI-M4 Berry] [Allwinner H618]
 
-| link:/en/BPI-M4_Zero/BananaPi_BPI-M4_Zero[香蕉派 BPI-M4 Zero] [Allwinner H618] |
+| link:/en/BPI-M4_Zero/BananaPi_BPI-M4_Zero[Banana Pi BPI-M4 Zero] [Allwinner H618] |
 
-
-|=====
-
-=== 香蕉派 智能路由器： link:{https://wiki.banana-pi.org/Banana_Pi_router_Comparison}[香蕉派 路由器比较]
 
 |=====
-2+| 香蕉派 智能路由器
-| link:/en/BPI-R1/BananaPi_BPI-R1[香蕉派 BPI-R1] [Allwinner A20] | link:/en/BPI-R2_Pro/BananaPi_BPI-R2_Pro[香蕉派 BPI-R2 Pro] [Rockchip RK3568]
 
-| link:/en/BPI-R2/BananaPi_BPI-R2[香蕉派 BPI-R2] [联发科MT7623N] | link:/en/BPI-R3/BananaPi_BPI-R3[香蕉派 BPI-R3] [联发科MT7986(Filogic 830)]
-
-| link:/en/BPI-R64/BananaPi_BPI-R64[香蕉派 BPI-R64] [联发科MT7622] | link:/en/BPI-R3_Mini/BananaPi_BPI-R3_Mini[香蕉派 BPI-R3 Mini] [联发科MT7986(Filogic 830)]
-
-| link:/en/BPI-W2/BananaPi_BPI-W2[香蕉派 BPI-W2] [瑞昱1296] | link:/en/BPI-R4/BananaPi_BPI-R4[香蕉派 BPI-R4] [联发科MT7988(Filogic 880)]
-
-| link:/en/BPI-W3/BananaPi_BPI-W3[香蕉派 BPI-W3] [Rockchip RK3588] | link:/en/BPI-WiFi6_Router/BananaPi_BPI-WiFi6_Router[香蕉派 BPI-WiFi6 路由器] [三极管 TR6560 + TR5220无线网络 SOC]
-|=====
-
-=== 香蕉派 计算模块和开发套件
+=== Banana Pi 智能路由器：link:{https://wiki.banana-pi.org/Banana_Pi_router_Comparison}[Banana Pi 路由器对比]
 
 |=====
-2+| 香蕉派 计算模块和开发套件
-| link:/en/BPI-CM2/BananaPi_BPI-CM2[香蕉派 BPI-CM2] [Rockchip RK3568] | link:/en/BPI-RK3588_CoreBoardAndDevelopmentKit/BananaPi_BPI-RK3588_CoreBoardAndDevelopmentKit[香蕉派 BPI-RK3588 Core 开发板和开发套件] [Rockchip RK3588]
+2+| Banana Pi 智能路由器
+| link:/en/BPI-R1/BananaPi_BPI-R1[Banana Pi BPI-R1] [Allwinner A20] | link:/en/BPI-R2_Pro/BananaPi_BPI-R2_Pro[Banana Pi BPI-R2 Pro] [Rockchip RK3568]
 
-| link:/en/BPI-CM4/BananaPi_BPI-CM4[香蕉派 BPI-CM4] [Amlogic A311D] | link:/en/BPI-W3_CoreBoardAndDevelopmentKit/BananaPi_BPI-W3_CoreBoardAndDevelopmentKit[香蕉派 BPI-W3 Core 开发板和开发套件] [Rockchip RK3588]
+| link:/en/BPI-R2/BananaPi_BPI-R2[Banana Pi BPI-R2] [MTK MT7623N] | link:/en/BPI-R3/BananaPi_BPI-R3[Banana Pi BPI-R3] [MTK MT7986（Filogic 830）]
 
-| link:/en/BPI-CM5/BananaPi_BPI-CM5[香蕉派 BPI-CM5] [Amlogic A311D2] | link:/en/BPI-S64_Core/BananaPi_BPI-S64_Core[香蕉派 BPI-S64 Core] [炬力S700]
+| link:/en/BPI-R64/BananaPi_BPI-R64[Banana Pi BPI-R64] [MTK MT7622] | link:/en/BPI-R3_Mini/BananaPi_BPI-R3_Mini[Banana Pi BPI-R3 Mini] [MTK MT7986（Filogic 830）]
+
+| link:/en/BPI-W2/BananaPi_BPI-W2[Banana Pi BPI-W2] [Realtek 1296] | link:/en/BPI-R4/BananaPi_BPI-R4[Banana Pi BPI-R4] [MTK MT7988（Filogic 880）]
+
+| link:/en/BPI-W3/BananaPi_BPI-W3[Banana Pi BPI-W3] [Rockchip RK3588] | link:/en/BPI-WiFi6_Router/BananaPi_BPI-WiFi6_Router[Banana Pi BPI-WiFi6 Router] [Triductor TR6560 + TR5220 WiFi SoC]
 |=====
 
-=== 香蕉派 计算模块基板
+=== Banana Pi 计算模块和开发套件
 
 |=====
-| link:/en/BPI-CM4IO/BananaPi_BPI-CM4IO[香蕉派 BPI-CM4IO] | 
+2+| Banana Pi 计算模块和开发套件
+| link:/en/BPI-CM2/BananaPi_BPI-CM2[Banana Pi BPI-CM2] [Rockchip RK3568] | link:/en/BPI-RK3588_CoreBoardAndDevelopmentKit/BananaPi_BPI-RK3588_CoreBoardAndDevelopmentKit[Banana Pi BPI-RK3588 核心板和开发套件] [Rockchip RK3588]
+
+| link:/en/BPI-CM4/BananaPi_BPI-CM4[Banana Pi BPI-CM4] [Amlogic A311D] | link:/en/BPI-W3_CoreBoardAndDevelopmentKit/BananaPi_BPI-W3_CoreBoardAndDevelopmentKit[Banana Pi BPI-W3 核心板和开发套件] [Rockchip RK3588]
+
+| link:/en/BPI-CM5/BananaPi_BPI-CM5[Banana Pi BPI-CM5] [Amlogic A311D2] | link:/en/BPI-S64_Core/BananaPi_BPI-S64_Core[Banana Pi BPI-S64 Core] [Actions S700]
 |=====
 
-=== 香蕉派AI设计
+=== Banana Pi 计算模块底板
+
+|=====
+| link:/en/BPI-CM4IO/BananaPi_BPI-CM4IO[Banana Pi BPI-CM4IO] | 
+|=====
+
+=== Banana Pi AI 方案
 
 |=====
 |   | 
 |=====
 
-=== 香蕉派 Webduino & Arduino & MicroPython 产品展示
+=== Banana Pi Webduino、Arduino 与 MicroPython 产品
 
 |=====
-2+| **香蕉派 Webduino & Arduino & MicroPython 产品展示**
+2+| **Banana Pi Webduino、Arduino 与 MicroPython 产品**
 
-| link:/en/BPI-Centi-S3/BananaPi_BPI-Centi-S3[香蕉派 BPI-Centi-S3] [ESP32-S3] | link:/en/BPI-PicoW-S3/BananaPi_BPI-PicoW-S3[香蕉派 BPI-PicoW-S3] [ESP32-S3]
+| link:/en/BPI-Centi-S3/BananaPi_BPI-Centi-S3[Banana Pi BPI-Centi-S3] [ESP32-S3] | link:/en/BPI-PicoW-S3/BananaPi_BPI-PicoW-S3[Banana Pi BPI-PicoW-S3] [ESP32-S3]
 
-|  link:/en/BPI-Leaf-S3/BananaPi_BPI-Leaf-S3[香蕉派 BPI-Leaf-S3] [ESP32-S3] |
-link:/en/BPI-Pico-2040/BananaPi_BPI-Pico-2040[香蕉派 BPI-Pico-2040] [RP2040]
+|  link:/en/BPI-Leaf-S3/BananaPi_BPI-Leaf-S3[Banana Pi BPI-Leaf-S3] [ESP32-S3] |
+link:/en/BPI-Pico-2040/BananaPi_BPI-Pico-2040[Banana Pi BPI-Pico-2040] [RP2040]
 
-| link:/en/BPI-AI/BananaPi_BPI-AI[香蕉派 BPI-AI][肯德瑞特K210] |
+| link:/en/BPI-AI/BananaPi_BPI-AI[Banana Pi BPI-AI][Kendryte K210] |
 
-
-|=====
-
-=== 香蕉派 Webduino & Arduino & Micro:bit 板 配件
 
 |=====
-|   |
-|=====
 
-=== 香蕉派工控网关设计
+=== Banana Pi Webduino、Arduino 与 Micro:bit 开发板配件
 
 |=====
 |   |
 |=====
 
-=== 香蕉派物联网
+=== Banana Pi 工业控制网关方案
 
 |=====
 |   |
 |=====
 
-=== 香蕉派配件
+=== Banana Pi 物联网产品
+
+|=====
+|   |
+|=====
+
+=== Banana Pi 配件
 
 |=====
 |   |
