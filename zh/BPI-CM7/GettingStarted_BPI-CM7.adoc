@@ -1,0 +1,363 @@
+= 简介
+
+香蕉派 BPI-CM7 是一个 Allwinner H618 计算模块设计用于与 BPI-CM7IO 载板。
+
+TIP: 更多信息： link:/en/BPI-CM7/BananaPi_BPI-CM7[香蕉派 BPI-CM7 主页]
+
+== 规格参数
+
+* Allwinner H618，四核 ARM Cortex™-A53 处理器，高达 1.5 GHz
+* ARM 马里 G31 GPU
+* 板载 LPDDR4 内存
+* 机上 eMMC 存储
+* K019-CW43-Dw Wi-Fi 5和蓝牙5.0模块
+* 1x USB 2.0OTG
+* 3x USB 2.0主机
+* 1 个 HDMI 输出
+* 1x 10/100M Ethernet
+* 1 个 microSD 接口
+* 2x 100 针板对板连接器
+
+= 安卓
+
+== 准备
+
+== 安装镜像 USB 工具 ==
+
+= Linux 开发
+
+== 准备
+
+使用以下命令确认板子型号、操作系统、 CPU、内存和启动存储。
+
+```bash
+hostnamectl
+tr '\0' '\n' < /proc/device-tree/model
+tr '\0' '\n' < /proc/device-tree/compatible
+uname -a
+lscpu
+free -h
+lsblk -o NAME,MAJ:MIN,RM,SIZE,RO,TYPE,FSTYPE,MOUNTPOINTS
+findmnt -no SOURCE,FSTYPE,SIZE,USED,AVAIL,USE%,TARGET /
+```
+
+测试结果：
+
+* 主板：香蕉派 BPI-CM7 与 BPI-CM7IO
+* 操作系统：Armbian 24.11.1 jammy / Ubuntu 22.04.5 长期支持
+* 内核： Linux 5.4.125-legacy-sunxi64
+* 架构：arm64
+* CPU：4 个 Cortex-A53，高达 1512 MHz
+* 内存：1.9 GiB 可用 Linux
+* 启动设备：microSD， `/dev/mmcblk1p1`
+* eMMC: `/dev/mmcblk0`, 29.3 GiB
+* 用于测试的登录用户： `pi`
+
+== 将映像安装到 SD 卡
+
+== 将映像安装到 eMMC
+
+== 擦除 eMMC
+
+== 桌面
+
+使用以下命令检查系统是否引导到图形目标以及显示管理器是否正在运行。
+
+```bash
+systemctl get-default
+systemctl is-active display-manager
+loginctl list-sessions
+```
+
+测试结果：
+
+```text
+graphical.target
+active
+```
+
+== 调试 UART
+
+== SSH
+
+. 准备好网线和路由器。
+. 连接 BPI-CM7IO Ethernet 端口和PC连接到同一局域网。
+. 从路由器管理页面查看单板IP地址，或者在单板上本地终端运行以下命令。
++
+```bash
+ip -brief address show eth0
+hostname -I
+```
+
+. 检查单板上的SSH服务状态。
++
+```bash
+systemctl is-active ssh
+```
+
+. 在 PC 上打开终端并连接到开发板。更换 `<board-ip>` 与路由器分配的实际地址。
++
+```bash
+ssh pi@<board-ip>
+```
+
+. 登录后，使用以下命令确认远程用户、板卡名称和内核。
++
+```bash
+whoami
+hostnamectl --static
+uname -r
+```
+
+测试结果：
+
+```text
+SSH service: active
+Remote login: successful
+User: pi
+Hostname: bpi-cm7
+Kernel: 5.4.125-legacy-sunxi64
+```
+
+== NoMachine远程桌面
+
+== armbian 配置
+
+检查是否 `armbian-config` 已安装。
+
+```bash
+command -v armbian-config
+```
+
+使用以下命令进入 Armbian 配置实用程序。
+
+```bash
+sudo armbian-config
+```
+
+测试结果：
+
+```text
+/usr/bin/armbian-config
+```
+
+== 无线网络
+
+使用 `nmcli` 用于列出网络设备并扫描 Wi-Fi 接入点的命令。
+
+```bash
+nmcli device # List devices
+nmcli device wifi list # List available Wi-Fi access points
+rfkill list # Check whether Wi-Fi is blocked
+```
+
+使用以下命令连接、断开连接或创建 Wi-Fi 热点。
+
+```bash
+nmcli device wifi connect [SSID] password [PASSWORD]
+nmcli connection up [SSID]
+nmcli device disconnect [device name]
+
+nmcli device wifi hotspot con-name [NAME] ifname [device name] ssid [SSID] password [PASSWORD]
+
+nmcli connection show
+nmcli connection down [NAME]
+nmcli connection up [NAME]
+nmcli connection delete [SSID]
+
+nmcli radio wifi off
+nmcli radio wifi on
+```
+
+测试结果：
+
+```text
+Interface: wlan0
+rfkill soft blocked: no
+rfkill hard blocked: no
+Wi-Fi scan: successful
+```
+
+== 设置静态IP、DNS
+
+== 网络时间同步
+
+测试镜像中使用Chrony进行网络时间同步。
+
+使用以下命令检查系统时钟、同步状态、Chrony 服务和时间源。
+
+```bash
+timedatectl status
+systemctl status chrony
+chronyc tracking
+chronyc sources -v
+date
+```
+
+使用以下命令来管理 Chrony 服务。
+
+```bash
+sudo systemctl start chrony
+sudo systemctl enable chrony
+sudo systemctl restart chrony
+```
+
+使用以下命令列出或更改时区。
+
+```bash
+timedatectl list-timezones
+sudo timedatectl set-timezone Asia/Shanghai
+```
+
+测试结果：
+
+```text
+System clock synchronized: yes
+NTP service: active
+Chrony service: active
+Time zone during test: Etc/UTC
+```
+
+* link:https://chrony-project.org/documentation.html[慢性参考文档]
+
+== 查看硬件温度
+
+使用以下命令来识别四个热区域。
+
+```bash
+cat /sys/class/thermal/thermal_zone0/type
+cat /sys/class/thermal/thermal_zone1/type
+cat /sys/class/thermal/thermal_zone2/type
+cat /sys/class/thermal/thermal_zone3/type
+```
+
+使用以下命令读取温度。
+
+```bash
+cat /sys/class/thermal/thermal_zone0/temp
+cat /sys/class/thermal/thermal_zone1/temp
+cat /sys/class/thermal/thermal_zone2/temp
+cat /sys/class/thermal/thermal_zone3/temp
+```
+
+将每个返回值除以 1000 以获得以摄氏度为单位的温度。
+
+测试结果：
+
+```text
+cpu_thermal_zone: 50.2 °C
+ddr_thermal_zone: 51.4 °C
+gpu_thermal_zone: 53.4 °C
+ve_thermal_zone: 50.8 °C
+```
+
+== 使用 USB 磁盘
+
+== 使用音频设备
+
+=== HDMI音频
+
+=== 3.5毫米音频插孔
+
+=== 播放音频文件的终端命令
+
+使用以下命令列出音频播放设备。
+
+```bash
+aplay -l # List playback devices
+```
+
+测试结果：
+
+```
+**** List of PLAYBACK Hardware Devices ****
+card 0: audiocodec [audiocodec], device 0: soc@3000000:codec_plat-5096000.codec 5096000.codec-0 []
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 1: ahubhdmi [ahubhdmi], device 0: ahub_plat-snd-soc-dummy-dai snd-soc-dummy-dai-0 []
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+```
+
+==== 通过 3.5 毫米音频插孔播放
+
+==== 通过 HDMI 播放音频
+
+== 使用蓝牙
+
+== 使用红外接收器
+
+== 传输文件
+
+=== SCP
+
+SCP使用SSH协议在PC和PC之间安全地复制文件 BPI-CM7。首先确保PC和开发板连接到同一局域网并且SSH登录有效。
+
+SCP命令格式为：
+
+```bash
+scp [options] file_source file_target
+```
+
+使用 `-r` 递归复制目录。
+
+将本地文件从PC复制到 BPI-CM7:
+
+```bash
+scp local-file pi@<board-ip>:/home/pi/
+```
+
+复制文件从 BPI-CM7 至电脑：
+
+```bash
+scp pi@<board-ip>:/home/pi/remote-file ./
+```
+
+测试结果：
+
+```text
+Upload to /tmp: successful
+Remote file size and SHA-256 verification: successful
+Temporary test file removal: successful
+```
+
+=== 莫巴克斯术语
+
+== 纳米 - 文本编辑器
+
+https://www.nano-editor.org/[GNU纳米] 是一个命令行文本编辑器，安装在测试的映像中。
+
+. 打开文件 `nano [file path]`.
+. 编辑文件。
+. 新闻 `Ctrl+O` 写入文件。
+. 编辑或确认文件路径，然后按 `Enter`.
+. 新闻 `Ctrl+X` 退出纳米。
+
+* https://www.nano-editor.org/dist/latest/cheatsheet.html[纳米捷径]
+* https://www.nano-editor.org/dist/latest/nano.html[纳米文档]
+
+测试结果：
+
+```text
+/usr/bin/nano
+```
+
+== 设置开机标志
+
+=== on/off 开机标志
+
+=== 更换开机标志
+
+== 40针接口 GPIO, I2C, UART, SPI, 和 PWM 测试
+
+=== GPIO
+
+=== I2C
+
+=== UART
+
+=== SPI
+
+=== PWM
+
+== HDMI
