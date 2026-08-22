@@ -1,0 +1,121 @@
+= 前言
+
+服用 BPI-M5 例如。请准备一份 Linux 电脑。
+
+= 安装 Docker
+有一个一键安装脚本用于安装 Docker，安装命令如下：
+```sh
+curl -fsSL https://test.docker.com -o test-docker.sh
+sudo sh test-docker.sh
+```
+安装后需要将当前用户添加到 Docker 用户组。
+
+```sh
+sudo groupadd docker
+sudo usermod -aG docker $USER
+```
+
+= 配置 Docker
+首先，获取图像。
+
+```sh
+docker pull sinovoip/bpi-build-linux-4.4:ubuntu16.04
+```
+创建文件并运行图像。
+
+```sh
+mkdir /home/bpi/image
+docker run -d -p 2222:22 -v /home/bpi/image:/root sinovoip/bpi-build-linux-4.4:ubuntu16.04
+```
+
+的“/home/bpi/image:/root“上面映射的是物理机的”/home/bpi/image“到”/root"目录，端口2222
+
+运行后，您可以使用“DockerContainer ls”查看已经启动的docker。
+
+然后连接到 Docker 通过 SSH 使用密码 root。
+
+在中创建一个文件夹 Docker，在物理机上也可以看到。
+
+= 编译镜像
+. 首先拉取源码
+
++
+```sh
+git clone https://github.com/BPI-SINOVOIP/BPI-M5-bsp
+```
+
+. 转到文件夹并拉出 submiodule
+
++
+```sh
+cd BPI-M5-bsp
+git submodule update --init --recursive
+```
+
+. 开始编译
+
++
+```sh
+./build.sh bpi-m5 1
+ 
+...
+```
+
+. 然后等待编译完成
+
+= 烧录镜像
+
+
+= 安装 bpi-tool
+
+. 使用以下命令安装 bpi 工具
++
+```sh
+curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash -
+```
++
+注意，如果没有反应，也可以使用下面的
++
+```sh
+git clone https://github.com/BPI-SINOVOIP/bpi-tools
+cd bpi-tools
+sudo cp ./bpi* /bin/
+```
+
+. 输入lsblk命令查看SD卡路径。 (我的路 is/dev/sdd)
+
+. 进入物理机的代码目录
++
+```sh
+cd ~/bpi/image/BPI-M5-bsp
+```
+
++
+```
+sudo ./build.sh bpi-m5 6
+This tool support following building mode(s):
+--------------------------------------------------------------------------------
+        1. Build all, uboot and kernel and pack to download images.
+        2. Build uboot only.
+        3. Build kernel only.
+        4. kernel configure.
+        5. Pack the builds to target download image, this step must execute after u-boot,
+           kernel and rootfs build out
+        6. Update local build to SD with BPI Image flashed
+        7. Clean all build.
+--------------------------------------------------------------------------------
+ Now building...
+ 
+scripts/mk_install_sd.sh
+--------------------------------------------------------------------------------
+  1. M5/M2Pro
+--------------------------------------------------------------------------------
+Please choose a target to install(1): 1
+ 
+Please type the SD device(/dev/sdX): /dev/sdd
+ 
+ type will be intalled to /dev/sdd, [Y/n] y
+ 
+Yes
+...
+```
