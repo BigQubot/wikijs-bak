@@ -1,6 +1,6 @@
 = 简介
 
-香蕉派 BPI-W3 单板计算机的设计和开发 bananapi 专业和企业用户团队，由 Rockchip RK3588 SoC 四核 ARM Cortex-A76 和四核 Cortex-A55 由一个八核组成 CPU 处理器的动态频率可扩展至 2.4GHz。嵌入式高性能3D和2D图像加速模块、AI加速器 NPU 内置6TOPS算力。
+Banana Pi BPI-W3 是 Banana Pi 团队面向专业和企业用户设计开发的单板计算机。它搭载 Rockchip RK3588 SoC，由四核 Arm Cortex-A76 和四核 Cortex-A55 组成八核 CPU，支持动态调频，最高主频为 2.4 GHz；同时集成高性能 3D/2D 图形加速模块和算力为 6 TOPS 的 NPU。
 
 TIP: 更多信息： link:/en/BPI-W3/BananaPi_BPI-W3[香蕉派 BPI-W3]
 
@@ -8,52 +8,52 @@ TIP: 更多信息： link:/en/BPI-W3/BananaPi_BPI-W3[香蕉派 BPI-W3]
 
 == 工具准备
 * BPI-W3 主板
-* 电源 (三选一)
-** USB Type-C PD 2.0支持 9V/2A, 12V/2A, 15V/2A 和 20V/2A
-** 直流 12V 适配器，2.5 毫米
+* 电源（三选一）
+** 支持 USB Type-C PD 2.0，电压/电流规格为 9 V/2 A、12 V/2 A、15 V/2 A 或 20 V/2 A
+** 12 V 直流适配器，插头内径 2.5 mm
 ** PoE 12V
-* 系统安装 (选择两个之一)
-** 微型SD卡 /TF 卡启动
-*** 微型SD卡 card/TF 卡，Class 10 或以上，至少 8GB SDHC，以及读卡器
+* 系统安装介质（二选一）
+** MicroSD/TF 卡启动
+*** 一张 Class 10 或更高等级、容量至少为 8 GB 的 MicroSD/TF（SDHC）卡，以及一个读卡器
 *** 以下是一些经过 ArmSoM 团队测试和验证的高速 TF 卡：
-**** 闪迪 32GB TF (微型SD卡) (开发商推荐)
-**** 闪迪 32GB TF (微型SD卡) 行车记录仪&安防监控专用存储卡 (建议长期运行)
+**** SanDisk 32 GB TF（MicroSD）卡（推荐开发使用）
+**** SanDisk 32 GB TF（MicroSD）行车记录仪/安防监控专用存储卡（推荐长期运行使用）
 **** 闪迪 TF 8G Class10 microSD
 **** 闪迪 TF 128G Class10 microSD XC TF 128G 48MB/S
-** 机上 eMMC 启动
-*** USB A to C数据线，用于将镜像写入ArmSoM-W3 eMMC 或使用 fastboot/adb 通过 C 型端口执行命令。你需要一个 USB 连接 ArmSoM-W3 和 PC 的 A 转 C 型数据线。
+** 板载 eMMC 启动
+*** 一根 USB-A 转 USB-C 数据线，用于通过 Type-C 接口将镜像写入 ArmSoM-W3 的 eMMC，或执行 fastboot/adb 命令；使用时连接 ArmSoM-W3 与电脑。
 
 == 可选配件
 * USB 键盘和鼠标
-* HDMI 显示器和 HDMI 电缆
-** 的 BPI-W3 配备全尺寸HDMI接口，最大支持8K@60显示。
-** HDMI EDID 用于确定最佳显示分辨率。在支持 1080p 的显示器和电视上将选择此分辨率 (或 4K/8K)。如果不是 1080p，EDID 将查找下一个可用的分辨率。
-* Ethernet 电缆
-** 的 BPI-W3 支持 ethernet 互联网接入，最高可达2.5G。
-** 网线用于连接 BPI-W3 到本地网络和互联网。
+* HDMI 显示器和 HDMI 线缆
+** BPI-W3 配备全尺寸 HDMI 接口，最高支持 8K@60 显示输出。
+** 系统通过 HDMI EDID 确定最佳显示分辨率。支持 1080p（或 4K/8K）的显示器和电视会选择相应分辨率；如果不支持 1080p，则选择下一个可用分辨率。
+* 以太网线
+** BPI-W3 支持最高 2.5GbE 的有线网络连接。
+** 网线用于将 BPI-W3 连接到本地网络和互联网。
 * 摄像头模组
-** 的 BPI-W3 支持相机功能。
-** 建议使用imx415模块，可通过Baanana Pi官方商店购买。
-* LCD 显示
-** 的 BPI-W3 支持 LCD 显示功能。
+** BPI-W3 支持摄像头功能。
+** 推荐使用 IMX415 模块，可通过 Banana Pi 官方商店购买。
+* LCD 显示屏
+** BPI-W3 支持 LCD 显示功能。
 ** 建议使用 Display 10.1 HD，可通过官方商店购买。
 * 音频线
-** 标准 3.5 毫米插孔可用于通过扬声器或耳机播放音频。
+** 可通过标准 3.5 mm 插孔连接扬声器或耳机播放音频。
 * WiFi/Bluetooth 卡
 ** 支持市场上常见的无线模块，请查看支持列表的无线部分。
-** 推荐使用RTL8852be、AP6256
-* USB-A 至 USB-C数据线
+** 推荐使用 RTL8852BE 或 AP6256
+* USB-A 转 USB-C 数据线
 
 = Android
 
-== 安装镜像 Usb 下载工具
+== 使用 USB 下载工具安装镜像
 
-. 下载并安装 link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FDriverAssitant_v5.11.zip[Rockchip USB 司机]
+. 下载并安装 link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FDriverAssitant_v5.11.zip[Rockchip USB 驱动程序]
 +
 image::/picture/driver_install_2.png[driver_install_2.png]
 
 . 下载 link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FUpdate-EMMC-Tools.zip[Rockchip USB 下载工具] +
-该工具默认语言为中文。解压后可以将其更改为英文。打开 **RKDevTool_Release_v2.84/config.ini** 使用文本编辑器 (像记事本)。起始线是：
+该工具默认使用中文。解压后，如需切换为英文，请用记事本等文本编辑器打开 **RKDevTool_Release_v2.84/config.ini**，文件开头内容如下：
 +
 image::/picture/r2-pro_usb-tool-1.jpg[r2-pro_usb-tool-1.jpg]
 +
@@ -68,7 +68,7 @@ LangPath=Language\
 +
 image::/picture/w3_android_1.png[w3_android_1.png]
  
-. 按住 MASKROM 键的同时，使用 type-c 电缆将 w3 连接到 PC。(如果已经有镜像 emmc，按住 MASKROM 键的同时按 REST 键。)
+. 按住 MASKROM 键，同时使用 Type-C 数据线将 W3 连接到电脑。（如果 eMMC 中已有镜像，请在按住 MASKROM 键的同时按一下 RESET 键。）
  
 +
 image::/picture/r2-pro_usb-tool-4.jpg[r2-pro_usb-tool-4.jpg]
@@ -78,35 +78,35 @@ image::/picture/w3_android_2.png[w3_android_2.png]
 +
 image::/picture/w3_android_3.png[w3_android_3.png]
  
-. 如果升级失败，可以尝试清除 Emmc 首先按 EraseFlash 按钮，然后再次升级映像。
+. 如果升级失败，可先单击“EraseFlash”擦除 eMMC，然后重新升级镜像。
  
  
 = Linux
-== 将映像安装到 SD 卡 1
-NOTE: 使用此方法 **Ubuntu** 和 **阿姆比安** 镜像。
+== 将镜像写入 SD 卡：方法一
+NOTE: 此方法适用于 **Ubuntu** 和 **Armbian** 镜像。
  
-使用 Balena Etcher 安装映像。 +
-link:https://balena.io/etcher[巴莱纳蚀刻机] 是 Balena 的开源 GUI 闪存工具，可将操作系统映像闪存到 SD 卡或 USB 开车。
+使用 Balena Etcher 写入镜像。 +
+link:https://balena.io/etcher[Balena Etcher] 是 Balena 提供的开源图形化镜像写入工具，可将操作系统镜像写入 SD 卡或 U 盘。
  
-. 点击“**从文件闪存**”来选择镜像。 
-. 点击“**选择目标**”来选择 USB 设备。 
-. 点击“**快闪！**“开始燃烧。
+. 单击“**Flash from file**”选择镜像。 
+. 单击“**Select target**”选择目标存储设备。 
+. 单击“**Flash!**”开始写入。
  
 image::/picture/etcher.jpg[etcher.jpg]
  
-== 将映像安装到 SD 卡 2
+== 将镜像写入 SD 卡：方法二
 NOTE: **Debian** 镜像使用此方法。
  
-. 下载 link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FUpdate-SD-Tools.zip[Rockchip SD盘工具].
-. 将读卡器插入 Windows PC，至少 8GB SD 卡大小。
-. 运行标清_固件_工具，选中“SD卡启动”框并选择正确的可移动磁盘设备，选择固件映像，然后单击“创建”按钮来制作并等待完成。
+. 下载 link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FUpdate-SD-Tools.zip[Rockchip SD Disk Tool]。
+. 将容量至少为 8 GB 的 SD 卡通过读卡器连接到 Windows 电脑。
+. 运行 SD_Firmware_Tool，勾选“SD 卡启动”，选择正确的可移动磁盘和固件镜像，然后单击“创建”并等待写入完成。
 +
 image::/picture/w3_debian.jpg[w3_debian.jpg]
  
 == 安装镜像到 eMMC 1
 NOTE: **Ubuntu**
  
-. 将镜像复制到 USB 开车。用SD卡启动w3并插入 USB 同时开车。
+. 将镜像复制到 U 盘。用 SD 卡启动 W3，同时插入 U 盘。
  
 . 执行
 +
@@ -116,9 +116,9 @@ cd /mnt
 sudo dd if=w3-ubuntu-xxxx.img of=/dev/mmcblk0 bs=10M
 ```
  
-NOTE: **阿姆比安**
+NOTE: **Armbian**
  
-. 将刻录镜像的SD卡插入w3，然后通电启动。
+. 将已写入镜像的 SD 卡插入 W3，然后通电启动。
  
 . 执行
 +
@@ -134,17 +134,17 @@ image::/picture/w3_armbian_5.png[w3_armbian_5.png]
 image::/picture/w3_armbian_6.png[w3_armbian_6.png]
 image::/picture/w3_armbian_7.png[w3_armbian_7.png]
  
-. 最后一步是关闭计算机。此时，断开电源，取出SD卡，重新上电即可从 eMMC.
+. 最后关闭系统并断开电源，取出 SD 卡，再次上电即可从 eMMC 启动。
  
 == 安装镜像到 eMMC 2
 NOTE: **Debian** 镜像使用此方法。
  
-. 下载并安装 link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FDriverAssitant_v5.11.zip[Rockchip USB 司机]
+. 下载并安装 link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FDriverAssitant_v5.11.zip[Rockchip USB 驱动程序]
 +
 image::/picture/driver_install_2.png[driver_install_2.png]
 
 . 下载 link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2FUpdate-EMMC-Tools.zip[Rockchip USB 下载工具] +
-该工具默认语言为中文。解压后可以将其更改为英文。打开 **RKDevTool_Release_v2.84/config.ini** 使用文本编辑器 (像记事本)。起始线是：
+该工具默认使用中文。解压后，如需切换为英文，请用记事本等文本编辑器打开 **RKDevTool_Release_v2.84/config.ini**，文件开头内容如下：
 +
 image::/picture/r2-pro_usb-tool-1.jpg[r2-pro_usb-tool-1.jpg]
 +
@@ -159,7 +159,7 @@ LangPath=Language\
 +
 image::/picture/w3_debian_1.png[w3_debian_1.png]
  
-. 按住 MASKROM 键的同时，使用 type-c 电缆将 w3 连接到 PC。(如果已经有镜像 emmc，按住 MASKROM 键的同时按 REST 键。)
+. 按住 MASKROM 键，同时使用 Type-C 数据线将 W3 连接到电脑。（如果 eMMC 中已有镜像，请在按住 MASKROM 键的同时按一下 RESET 键。）
  
 +
 image::/picture/r2-pro_usb-tool-4.jpg[r2-pro_usb-tool-4.jpg]
@@ -169,20 +169,20 @@ image::/picture/w3_debian_2.png[w3_debian_2.png]
 +
 image::/picture/w3_debian_3.png[w3_debian_3.png]
  
-. 如果升级失败，可以尝试清除 Emmc 首先按 EraseFlash 按钮，然后再次升级映像。
+. 如果升级失败，可先单击“EraseFlash”擦除 eMMC，然后重新升级镜像。
 
 
-== 2.5G Ethernet
+== 2.5G 以太网
 
-如果您使用有线 ethernet 上网时，请将网线插入ArmSoM-W3上的RJ45端口，系统桌面上会弹出有线连接提示。
+使用有线网络时，请将网线插入 ArmSoM-W3 的 RJ45 接口，系统桌面会弹出有线连接提示。
 
-如何手动配置 ethernet?
+手动配置以太网的方法如下。
 
-* 切换到root用户
+* 切换到 root 用户
 ```sh
 sudo su
 ```
-使用命令-ifconfig检查是否 ethernet 工作正常，然后显示 eth0 或 enP4p65s0 网卡并且 ethernet IP 地址。还可以使用 ping 工具来测试网络连接。
+使用 ifconfig 命令检查以太网是否正常工作。输出中应显示 eth0 或 enP4p65s0 网卡及其 IP 地址；还可使用 ping 测试网络连通性。
 ```sh
 ifconfig
 ping www.baidu.com
@@ -220,20 +220,20 @@ card 4: rockchiphdmi1 [rockchip-hdmi1], device 0: rockchip-hdmi1 i2s-hifi-0 [roc
 
 == USB 接口
 
-的 BPI-W3 提供两个 USB 2.0和两个 USB 3.0端口。
+BPI-W3 提供两个 USB 2.0 接口和两个 USB 3.0 接口。
 
-== C型
+== USB Type-C
 
-的 BPI-W3 具有功能齐全的 USB Type-C 3.0 端口，最高支持 8K@30fps DP 显示。
+BPI-W3 配备全功能 USB Type-C 3.0 接口，支持最高 8K@30fps 的 DP 显示输出。
 
 == HDMI
 
-的 BPI-W3 具有两个HDMI输出端口，均支持CEC和HDMI 2.1，最高分辨率分别为8Kp60和4Kp60。
+BPI-W3 配备两个 HDMI 输出接口，均支持 CEC 和 HDMI 2.1，最高分辨率分别为 8Kp60 和 4Kp60。
 
-NOTE: 使用前请确认HDMI线的接口规格。
+NOTE: 使用前请确认 HDMI 线缆的接口规格。
 
 == HDMI 输入
-的 BPI-W3 使用原生rk3588 hdmi rx接口。接口中的hdmi可以使用v4l2命令进行测试。
+BPI-W3 使用 RK3588 原生 HDMI RX 接口，可通过 v4l2 命令测试 HDMI 输入。
 
 查看所有视频节点
 
@@ -243,7 +243,7 @@ ls /dev/video*
 
 === 查找 rk hdmirx 设备
 
-执行命令 v4l2-ctl -d 指定视频节点。执行命令-D查看节点信息。检查 rk_使用驱动程序名称的 hdmirx 设备。
+使用 v4l2-ctl 的 -d 参数指定视频节点，再用 -D 参数查看节点信息；根据驱动名称查找 rk_hdmirx 设备。
 
 ```sh
 armsom@armsom-w3:/# v4l2-ctl -d /dev/video0 -D
@@ -297,10 +297,10 @@ v4l2-ctl --verbose -d /dev/video17 \
 ```
 
 == RGB LED
-的 BPI-W3 有权力 LED 和用户 LED.
+BPI-W3 配有电源 LED 和用户 LED。
 
-* 电源指示灯 LED： 电源 LED 是绿色的。在 ArmSoM-W3 上，通电后它默认常亮。
-* 用户指示器 LED：用户 LED 是蓝色的。默认情况下，其闪烁状态显示正在运行的内核。
+* 电源指示 LED：绿色，ArmSoM-W3 通电后默认常亮。
+* 用户指示 LED：蓝色，默认通过闪烁表示内核正在运行。
 
 用户可以通过命令进行控制：
 
@@ -311,10 +311,10 @@ root@armsom-w3:/# echo activity > /sys/clas
 ```
 == 实时时钟
 
-* 的 BPI-W3 配备RTC IC hym8563。
+* BPI-W3 配备 hym8563 RTC 芯片。
 * 首先，插入 RTC 电池为 RTC IC 供电。
 
-NOTE: 我们应该将 RTC 电池保留在 RTC 连接器中并确认 rtc hym8563 设备已创建
+NOTE: RTC 电池应保持连接，并确认系统已经创建 hym8563 RTC 设备。
 
 ```sh
 armsom@armsom-w3:/#  dmesg | grep rtc
@@ -323,7 +323,7 @@ armsom@armsom-w3:/#  dmesg | grep rtc
 [    6.413779] rtc-hym8563 6-0051: setting system clock to 2022-06-22T01:22:26 UTC (1655860946)
 ```
 
-找到rtc0，然后使用以下命令设置系统时间并同步到rtc0。
+找到 rtc0 后，使用以下命令设置系统时间并同步到 rtc0。
 
 ```sh
 armsom@armsom-w3:/# hwclock -r
@@ -335,7 +335,7 @@ armsom@armsom-w3:/# hwclock -r
 armsom@armsom-w3:/# poweroff
 ```
 
-取出 RTC 电池，10 分钟或更长时间后插入电池并启动 ArmSoM-W3，检查 RTC 是否与系统时钟同步
+取出 RTC 电池，等待至少 10 分钟后重新装入并启动 ArmSoM-W3，检查 RTC 时间是否与系统时钟同步。
 
 ```sh
 armsom@armsom-w3:/# hwclock -r
@@ -346,7 +346,7 @@ armsom@armsom-w3:/# date
 
 == 风扇
 
-的 BPI-W3 配备5V风扇，使用1.25mm连接器
+BPI-W3 支持 5 V 风扇，使用 1.25 mm 连接器。
 ```sh
 armsom@armsom-w3:/# echo 0 > /sys/devices/platform/fd8b0010.pwm/pwm/pwmchip*/export
 armsom@armsom-w3:/# echo 10000 > /sys/devices/platform/fd8b0010.pwm/pwm/pwmchip*/pwm0/period
@@ -356,16 +356,16 @@ armsom@armsom-w3:/# echo 1 > /sys/devices/platform/fd8b0010.pwm/pwm/pwmchip*/pwm
 armsom@armsom-w3:/# echo 0 > /sys/devices/platform/fd8b0010.pwm/pwm/pwmchip*/pwm0/enable
 ```
 
-== M.2接口
+== M.2 接口
 
-的 BPI-W3 提供两个 M.2 连接器：
+BPI-W3 提供两个 M.2 连接器：
 
-板正面有一个M.2 E Key连接器，带有2230安装孔，提供 PCIe 2.1单声道， USB、SATA、SDIO、PCM 和 UART 信号，支持标准工业M.2 WiFi 6模块。
+开发板正面有一个带 2230 安装孔的 M.2 E-Key 连接器，提供单通道 PCIe 2.1、USB、SATA、SDIO、PCM 和 UART 信号，支持标准工业 M.2 WiFi 6 模块。
 
-香蕉派推荐使用RTL8852BE、AP6256。安装在 BPI-W3 M.2 E插槽，设置wifi后即可上网。
+Banana Pi 推荐使用 RTL8852BE 或 AP6256。将模块安装到 BPI-W3 的 M.2 E-Key 插槽并完成 WiFi 配置后即可联网。
 
 ```sh
-# Load driver  
+# 加载驱动程序  
 armsom@armsom-w3:/# insmod system/lib/modules/rtkm.ko
 armsom@armsom-w3:/# insmod system/lib/modules/rtkm.ko
 armsom@armsom-w3:/# insmod /usr/lib/modules/rtk_btusb.ko
@@ -377,34 +377,34 @@ rtkm                   16384  1 8852be
 rtk_btusb              57344  0
 ```
 
-== 无线网络
+== WiFi
 ```sh
-# 1. Switch to super user mode
+# 1. 切换到超级用户模式
 armsom@armsom-w3:/# sudo su
-# 2. Open the WIFI
+# 2. 开启 WiFi
 root@armsom-w3:/# nmcli r wifi on
-# 3. Scan WIFI
+# 3. 扫描 WiFi 网络
 root@armsom-w3:/# nmcli dev wifi
-# 4. Connect to WIFI network
+# 4. 连接 WiFi 网络
 root@armsom-w3:/# nmcli dev wifi connect "wifi_name" password "wifi_password"
 ```
 
-== BT
+== 蓝牙
 ```sh
-# 1. Activate bluetooth  
+# 1. 启动蓝牙服务  
 armsom@armsom-w3:/# service bluetooth start
-# 2. Enter to bluetoothctl
+# 2. 进入 bluetoothctl
 armsom@armsom-w3:/# bluetoothctl
-# 3. Input the below commands to connect
+# 3. 输入以下命令进行连接
 armsom@armsom-w3:/# power on
 armsom@armsom-w3:/# agent on
 armsom@armsom-w3:/# default-agent
 armsom@armsom-w3:/# scan on
 armsom@armsom-w3:/# pair yourDeviceMAC
 ```
-背面有一个 M.2 M Key 连接器 BPI-W3 具有四通道 PCIe 3.0界面。板上有标准M.2 2280安装孔，可部署M.2 2280 NVMe 固态硬盘。 
+BPI-W3 背面有一个四通道 PCIe 3.0 的 M.2 M-Key 连接器，并设有标准 2280 安装孔，可安装 M.2 2280 NVMe SSD。 
 
-NOTE: 该M.2接口不支持M.2 SATA SSD。
+NOTE: 此 M.2 接口不支持 M.2 SATA SSD。
 
 ```sh
 armsom@armsom-w3:/# mkdir temp  
@@ -421,55 +421,55 @@ Playing WAVE 't.wav' : Signed 16 bit Little Endian, Rate 16000 Hz, Stereo
 
 == 相机
 
-OV13850模块具有以下特点：
+OV13850 模块具有以下特点：
 
-像素尺寸：1.12mm x 1.12mm
+像素尺寸：1.12 μm × 1.12 μm
 13 兆像素，每秒 30 帧
-支持的图像尺寸：13.2MP (4224 x 3136), 10MP (4224 x 2376), 2K (2112 x 1568),EIS1080P (2112 x 1188), EIS 720P (1408 x 792)等
-两线串行总线控制 (SCCB)
+支持的图像尺寸：13.2 MP（4224 × 3136）、10 MP（4224 × 2376）、2K（2112 × 1568）、EIS 1080P（2112 × 1188）、EIS 720P（1408 × 792）等
+两线串行总线控制（SCCB）
 多达 4 通道 MIPI 串行输出
-工作温度范围：0℃ ~ 60℃，存储温度范围：-30℃ ~ 80 ℃
+工作温度范围：0～60 ℃；存储温度范围：-30～80 ℃
 
 image::/camera-module-ov13850.png[camera-module-ov13850.png]
 
 === OV13850 摄像头引脚定义
 
-.OV13850 摄像头的 PIN
+.OV13850 摄像头引脚
 [%collapsible]
 ====
 [cols="3*", options="header"]
 |===================================================================
-3+| OV13850相机的PIN码
-| 密码 | 符号       | 描述                               
-| 1      | 接地          | 地面                                    
-| 2      | CSI_接收_D3N   | 通道3差分负信号    
-| 3      | CSI_接收_D3P   | 通道3差分正信号    
-| 4      | 接地          | 地面                                    
-| 5      | CSI_接收_D2N   | 通道2差分负信号    
-| 6      | CSI_接收_D2P   | 通道2差分正信号    
-| 7      | 接地          | 地面                                    
-| 8      | 数控           | 数控                                        
-| 9      | 数控           | 数控                                        
-| 10     | 接地          | 地面                                    
-| 11     | CSI_接收_D1N   | 通道1差分负信号    
-| 12     | CSI_接收_D1P   | 通道1差分正信号    
-| 13     | 接地          | 地面                                    
-| 14     | CSI_接收_D0N   | 通道0差分负信号    
-| 15     | CSI_接收_D0P   | 通道0差分正信号    
-| 16     | 接地          | 地面                                    
-| 17     | CSI_接收_时钟0N | 输出时钟差分负信号 
-| 18     | CSI_接收_时钟1P|输出时钟差分正信号 
-| 19     | 米皮_垂直同步   | 帧同步信号              
-| 20     | 米皮_时钟输出  | 时钟信号                              
-| 21     | 数控           | 数控                                        
-| 22     | 数控           | 数控                                        
-| 23     | 米皮_CSI_PDN | 控制信号                            
+3+| OV13850 摄像头引脚
+| 引脚编号 | 信号       | 说明                               
+| 1      | GND          | 接地                                    
+| 2      | CSI_RX_D3N   | 通道 3 差分负信号    
+| 3      | CSI_RX_D3P   | 通道 3 差分正信号    
+| 4      | GND          | 接地                                    
+| 5      | CSI_RX_D2N   | 通道 2 差分负信号    
+| 6      | CSI_RX_D2P   | 通道 2 差分正信号    
+| 7      | GND          | 接地                                    
+| 8      | NC           | 未连接                                        
+| 9      | NC           | 未连接                                        
+| 10     | GND          | 接地                                    
+| 11     | CSI_RX_D1N   | 通道 1 差分负信号    
+| 12     | CSI_RX_D1P   | 通道 1 差分正信号    
+| 13     | GND          | 接地                                    
+| 14     | CSI_RX_D0N   | 通道 0 差分负信号    
+| 15     | CSI_RX_D0P   | 通道 0 差分正信号    
+| 16     | GND          | 接地                                    
+| 17     | CSI_RX_CLK0N | 输出时钟差分负信号 
+| 18     | CSI_RX_CLK1P | 输出时钟差分正信号 
+| 19     | MIPI_VSYNC   | 帧同步信号              
+| 20     | MIPI_CLKOUT  | 时钟信号                              
+| 21     | NC           | 未连接                                        
+| 22     | NC           | 未连接                                        
+| 23     | MIPI_CSI_PDN | 控制信号                            
 | 24     | I2C_SCL      | I2C 时钟信号                          
 | 25     | I2C_SDA      | I2C 数据信号                           
-| 26     | 数控           | 数控                                        
-| 27     | 重置        | 全局复位信号                       
-| 28-29  | 电压控制电路_3V3      | 电压控制电路                                     
-| 30-31  | 电压控制电路_5V0      | 电压控制电路                                     
+| 26     | NC           | 未连接                                        
+| 27     | RESET        | 全局复位信号                       
+| 28-29  | VCC_3V3      | VCCIO                                     
+| 30-31  | VCC_5V0      | VCCIO                                     
 |===================================================================
 ====
 
@@ -477,7 +477,7 @@ image::/camera-module-ov13850.png[camera-module-ov13850.png]
 
 === IMX415
 
-相机采用IMX415模组。连接摄像头模块并上电后，您可以查看启动日志。
+摄像头采用 IMX415 模块。连接摄像头模块并上电后，可查看启动日志。
 ```sh
 armsom@armsom-w3:/# dmesg | grep imx415
 [    2.547754] imx415 3-001a: driver version: 00.01.08
@@ -493,12 +493,12 @@ armsom@armsom-w3:/# dmesg | grep imx415
 [   18.386174] imx415 3-001a: set fmt: cur_mode: 3864x2192, hdr: 0
 [   18.389067] imx415 3-001a: set exposure(shr0) 2047 = cur_vts(2250) - val(203)
 ```
-使用v4l2-ctl进行图像捕获
+使用 v4l2-ctl 捕获图像：
 ```sh
 armsom@armsom-w3:/# v4l2-ctl -d /dev/video11 --set-fmt-video=width=3840,height=2160,pixelformat=NV12 --stream-mmap=3 --stream-skip=60 --stream-to=/tmp/cif73.out --stream-count=3 --stream-poll
 ```
 
-使用gst-launch-1.0直接视频录制
+使用 gst-launch-1.0 直接显示视频：
 ```sh
 armsom@armsom-w3:/# gst-launch-1.0 v4l2src device=/dev/video11 ! video/x-raw,format=NV12,width=3840,height=2160, framerate=30/1 ! xvimagesink
 
@@ -506,7 +506,7 @@ armsom@armsom-w3:/# gst-launch-1.0 v4l2src device=/dev/video11 ! video/x-raw,for
 
 === OV13850
 
-摄像头采用OV13850模块。连接摄像头模块并上电后，您可以查看启动日志。
+摄像头采用 OV13850 模块。连接摄像头模块并上电后，可查看启动日志。
 ```sh
 root@armsom-w3:/# dmesg | grep ov13850
 [    3.555686] ov13850 3-0010: driver version: 00.01.05
@@ -525,21 +525,21 @@ root@armsom-w3:/# dmesg | grep ov13850
 [    3.561005] ov13850 3-0010: Detected OV00d850 sensor, REVISION 0xb2
 [    3.561027] rockchip-csi2-dphy csi2-dphy0: dphy0 matches m00_b_ov13850 3-0010:bus type 5
 ```
-使用v4l2-ctl进行图像捕获
+使用 v4l2-ctl 捕获图像：
 ```sh
 armsom@armsom-w3:/# v4l2-ctl -d /dev/video11 --set-selection=target=crop,top=0,left=0,width=2112,height=1568 --set-fmt-video=width=2112,height=1568,pixelformat=NV12 --stream-mmap=3 --stream-to=/nv12.bin --stream-count=1 --stream-poll 
 ```
 
-使用gst-launch-1.0直接视频录制
+使用 gst-launch-1.0 直接显示视频：
 ```sh
 armsom@armsom-w3:/# gst-launch-1.0 v4l2src device=/dev/video11 ! video/x-raw,format=NV12,width=2112,height=1568, framerate=30/1 ! xvimagesink
 ```
 
 image::/bpi-m7/bpi-m7_mipi_csi.jpeg[bpi-m7_mipi_csi.jpeg]
 
-== USB3.0摄像头
+== USB 3.0 摄像头
 
-连接usb3.0摄像头后，打开Qt V4L2 test Utility应用程序进行测试
+连接 USB 3.0 摄像头后，打开 Qt V4L2 Test Utility 应用进行测试。
 
 image::/bpi-w3/armsom-w3-usb-camera-qtv4l2-e1.png[armsom-w3-usb-camera-qtv4l2-e1.png]
 
@@ -547,55 +547,55 @@ image::/bpi-w3/armsom-w3-usb-camera-qtv4l2-e1.png[armsom-w3-usb-camera-qtv4l2-e1
 
 image::/bpi-w3/armsom-w3-usb-camera-qtv4l2-select-video.png[armsom-w3-usb-camera-qtv4l2-select-video.png]
 
-单击相机按钮，您将看到相机屏幕
+单击摄像头按钮，即可看到实时画面。
 
 image::/bpi-w3/armsom-w3-usb-camera-qtv4l2-play.png[armsom-w3-usb-camera-qtv4l2-play.png]
 
 == MIPI DSI
 
-的 BPI-W3 最高分辨率可达4K@60Hz
+BPI-W3 的 MIPI DSI 最高支持 4K@60Hz 分辨率。
 
 == NPU
 
-**演示视频**: https://www.youtube.com/watch?v=y7mYxn3rq0U
+**演示视频**：https://www.youtube.com/watch?v=y7mYxn3rq0U
 
 **准备工具**
 
-. 使用Ubuntu18.04/Ubuntu20.04操作系统 (操作系统).
+. 使用 Ubuntu 18.04 或 Ubuntu 20.04 操作系统。
 
-. W3-PRO 板
+. 一块 W3-PRO 开发板
 
-**准备程序**
+**准备步骤**
 
-- 首先确保你有 docker 安装在你的 Ubuntu 系统,如果没有请参考网上安装教程
+- 首先确认 Ubuntu 系统已经安装 Docker；如未安装，请参考 Docker 官方安装文档。
 
-- 我们提供源代码和 docker 安装环境图：docker 图像
+- 获取源代码和已经配置好环境的 Docker 镜像。
 
-- 在PC服务器上创建rknpu文件夹，将固件复制到该文件夹中
+- 在电脑上创建 rknpu 文件夹，并将固件复制到该文件夹。
 +
 ```sh
 rknpu/rknn-toolkit2-1.4.0/docker$ ls
 md5sum.txt  rknn-toolkit2-1.4.0-cp36-docker.tar.gz  rknn-toolkit2-1.4.0-cp38-docker.tar.gz
 ```
-- 运行以下命令来运行docker图像。之后 Docker 运行镜像，显示镜像的bash环境
+- 运行以下命令启动 Docker 镜像；启动后会进入镜像的 Bash 环境。
 +
 ```sh
 docker run -t -i --privileged -v /dev/bus/usb:/dev/bus/usb rknn-toolkit2:1.4.0-cp38 /bin/bash
 ```
-- 将示例代码映射到 Docker 环境通过附加“-v <host src folder>:<image dst folder>“参数，例如：
+- 通过添加“-v <host src folder>:<image dst folder>”参数，将示例代码目录映射到 Docker 环境，例如：
 +
 ```sh
 docker run -t -i --privileged -v /dev/bus/usb:/dev/bus/usb -v /your/rknn-toolkit2-1.x.x/examples:/examples rknn-toolkit2:1.x.x /bin/bash
 ```
-- 映射后代码同步
+- 映射后，主机与容器中的代码会保持同步。
 
-- rknn服务需要运行在开发板上
+- RKNN 服务需要在开发板上运行。
 
-- BOARD ARCH对应64位上的aarch64目录 Linux 系统以及 32 位系统上的 armhf 目录
+- BOARD ARCH 在 64 位 Linux 系统中对应 aarch64 目录，在 32 位系统中对应 armhf 目录。
 
-. adb 将所有文件推入 Linux/rknn 服务器/${董事会_ 拱门}/usr/bin/ 到 /usr/bin
-. 亚行推送 Linux/librknn api/${板拱}/librknrnt.所以 /usr/1ib
-. 访问板子串口终端，执行以下命令
+. 使用 adb 将 Linux/rknn server/${B0ARD_ ARCH}/usr/bin/ 中的所有文件推送到 /usr/bin
+. 使用 adb 将 Linux/librknn api/${BOARD ARCH}/librknrnt.so 推送到 /usr/1ib
+. 进入开发板串口终端，执行以下命令
 +
 ```sh
 chmod +x /usr/bin/rknn server
@@ -606,9 +606,9 @@ restart_ rknn. sh
 
 **运行程序**
 
-- 执行adb devices中的 docker 先上图，记住adb ID号
+- 先在 Docker 镜像中执行 adb devices，并记下 adb 设备 ID。
 
-- 前往 /examples/onnx/yolov5 并改变 test.py
+- 进入 /examples/onnx/yolov5 并修改 test.py：
 +
 ```sh
 ret = rknn.init_runtime(target='rk3588', device_id=DEVICE_ID, perf_debug=True,eval_mem=True)
@@ -616,12 +616,12 @@ outputs = rknn.inference(inputs=[img])
 ret = rknn.eval_perf(inputs=[img], is_print=True)
 cv2.imwrite("result.jpg", img_1)
 ```
-- 以上四个功能均未添加
+- 原文件默认没有上述四行调用，请将其添加到 test.py。
 
-- 运行python3 test.py
+- 运行 python3 test.py。
 
 == LED
-- 开 BPI-W3 三色 LED 配置为 LED 类设备。当蓝色 LED 未激活 绿色 LED 将显示表明板已通电。您可以控制蓝色的行为模式 LED 通过写信给 /sys/class/leds/blue:status/trigger. 默认情况下，只有 root 用户可以写入设备。默认模式为蓝色 LED 是心跳。
+- BPI-W3 的三色 LED 被配置为 LED 类设备。蓝色 LED 未激活时，绿色 LED 会亮起，表示开发板已通电。向 /sys/class/leds/blue:status/trigger 写入相应值可控制蓝色 LED 的工作模式；默认只有 root 用户拥有写入权限，默认模式为 heartbeat。
 +
 ```sh
 linaro@linaro-alip:/home/linaro# sudo su // linaro password
@@ -629,25 +629,25 @@ root@linaro-alip:/home/linaro# echo timer > /sys/class/leds/blue:status/trigger
 root@linaro-alip:/home/linaro# echo activity > /sys/class/leds/blue:status/trigger
 ```
 
-- 您可以在触发器属性上使用 cat 来列出所有可用的 LED 模式。括号中的值是当前活动模式。
+- 使用 cat 读取 trigger 属性可列出所有可用的 LED 模式，方括号中的值表示当前模式。
 +
 ```sh
 root@linaro-alip:/home/linaro# cat /sys/class/leds/blue:status/trigger
 none rfkill-any rfkill-none kbd-scrolllock kbd-numlock kbd-capslock kbd-kanalock kbd-shiftlock kbd-altgrlock kbd-ctrllock kbd-altlock kbd-shiftllock kbd-shiftrlock kbd-ctrlllock kbd-ctrlrlock tcpm-source-psy-4-0022-online mmc2 mmc1 timer oneshot disk-activity disk-read disk-write ide-disk mtd nand-disk heartbeat backlight gpio cpu cpu0 cpu1 cpu2 cpu3 cpu4 cpu5 cpu6 cpu7 mmc0 [activity] default-on transient flash torch panic netdev rfkill0
 ```
-- 在无模式下，写入 /sys/class/leds/blue:status/brightness 可以手动控制蓝色的状态 LED.
+- 在 none 模式下，向 /sys/class/leds/blue:status/brightness 写入数值可手动控制蓝色 LED。
 +
 ```sh
 root@linaro-alip:/home/linaro# echo none > /sys/class/leds/blue:status/trigger
 root@linaro-alip:/home/linaro# echo 1 > /sys/class/leds/blue:status/brightness
 root@linaro-alip:/home/linaro# echo 0 > /sys/class/leds/blue:status/brightness
 ```
-- 红灯相同，类设备 /sys/class/leds/red:status/trigger
+- 红色 LED 的控制方式相同，其类设备路径为 /sys/class/leds/red:status/trigger。
 
 == 实时时钟设备
-BPI-W3 配备1个RTC IC hym8563
+BPI-W3 配备一颗 hym8563 RTC 芯片。
 
-. 首先，插入RTC电池，给RTC IC供电。请注意，我们应将 RTC 电池保留在 RTC 连接器中。
+. 首先插入 RTC 电池为 RTC 芯片供电，并保持电池与 RTC 接口连接。
 
 . 其次，检查驱动是否加载成功。
 +
@@ -657,7 +657,7 @@ root@linaro-alip:~# dmesg | grep rtc
 [    3.154624] rtc-hym8563 6-0051: registered as rtc0
 [    3.155646] rtc-hym8563 6-0051: setting system clock to 2021-01-01T12:00:05 UTC (1609502405)
 ```
-. 最后检查是否可以查看和设置时间。
+. 最后检查能否查看和设置时间。
 +
 ```sh
 root@linaro-alip:~# hwclock -r
@@ -668,43 +668,43 @@ root@linaro-alip:~# hwclock -w
 ```
 
 = 其他
-== NPU 用途
+== NPU 使用方法
 
-Youtube 视频： https://youtu.be/y7mYxn3rq0U
+YouTube 视频：https://youtu.be/y7mYxn3rq0U
 
 === 准备工具
-. 使用Ubuntu18.04/Ubuntu20.04操作系统 (操作系统).
+. 使用 Ubuntu 18.04 或 Ubuntu 20.04 操作系统。
 
-. W3-PRO 板
+. 一块 W3-PRO 开发板
 
-=== 准备程序
-首先确保你有 docker 安装在你的 Ubuntu 系统,如果没有请参考网上安装教程
+=== 准备步骤
+首先确认 Ubuntu 系统已经安装 Docker；如未安装，请参考 Docker 官方安装文档。
 
-我们提供源代码和 docker 安装环境图：link:https://pan.baidu.com/s/1qm7qPQ-6Cau7kVhf-T-hzg?pwd=1234[docker 图像]
+获取源代码和已经配置好环境的 link:https://pan.baidu.com/s/1qm7qPQ-6Cau7kVhf-T-hzg?pwd=1234[Docker 镜像]。
 
-在PC服务器上创建rknpu文件夹，将固件复制到该文件夹中
+在电脑上创建 rknpu 文件夹，并将固件复制到该文件夹。
 ```sh
 rknpu/rknn-toolkit2-1.4.0/docker$ ls
 md5sum.txt  rknn-toolkit2-1.4.0-cp36-docker.tar.gz  rknn-toolkit2-1.4.0-cp38-docker.tar.gz
 ```
-运行以下命令来运行docker图像。之后 Docker 运行镜像，显示镜像的bash环境
+运行以下命令启动 Docker 镜像；启动后会进入镜像的 Bash 环境。
 ```sh
 docker run -t -i --privileged -v /dev/bus/usb:/dev/bus/usb rknn-toolkit2:1.4.0-cp38 /bin/bash
 ```
-将示例代码映射到 Docker 环境通过附加“-v <host src folder>:<image dst folder>“参数，例如：
+通过添加“-v <host src folder>:<image dst folder>”参数，将示例代码目录映射到 Docker 环境，例如：
 ```sh
 docker run -t -i --privileged -v /dev/bus/usb:/dev/bus/usb -v /your/rknn-toolkit2-1.x.x/examples:/examples rknn-toolkit2:1.x.x /bin/bash
 ```
-映射后代码同步
+映射后，主机与容器中的代码会保持同步。
 
-rknn服务需要运行在开发板上
+RKNN 服务需要在开发板上运行。
 
-BOARD ARCH对应64位上的aarch64目录 Linux 系统以及 32 位系统上的 armhf 目录
+BOARD ARCH 在 64 位 Linux 系统中对应 aarch64 目录，在 32 位系统中对应 armhf 目录。
 ```sh
  adb push all files in Linux/rknn server/${B0ARD_ ARCH}/usr/bin/ to /usr/bin
 adb push Linux/librknn api/${BOARD ARCH}/ librknrnt. so to /usr/1ib
 ```
-访问板子串口终端，执行以下命令
+进入开发板串口终端，执行以下命令：
 ```sh
  chmod +x /usr/bin/rknn server
  chmod +X /usr/bin/start_ rknn.sh
@@ -713,15 +713,15 @@ adb push Linux/librknn api/${BOARD ARCH}/ librknrnt. so to /usr/1ib
 ```
 
 === 运行程序
-执行adb devices中的 docker 先上图，记住adb ID号
+先在 Docker 镜像中执行 adb devices，并记下 adb 设备 ID。
 
-前往 /examples/onnx/yolov5 并改变 test.py
+进入 /examples/onnx/yolov5 并修改 test.py：
 ```sh
 ret = rknn.init_runtime(target='rk3588', device_id=DEVICE_ID, perf_debug=True,eval_mem=True)
 outputs = rknn.inference(inputs=[img])
 ret = rknn.eval_perf(inputs=[img], is_print=True)
 cv2.imwrite("result.jpg", img_1)
 ```
-以上四个功能均未添加
+原文件默认没有上述四行调用，请将其添加到 test.py。
 
-运行python3 test.py
+运行 python3 test.py。
