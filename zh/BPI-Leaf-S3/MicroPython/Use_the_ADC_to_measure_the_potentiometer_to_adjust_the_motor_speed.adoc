@@ -1,46 +1,46 @@
-TIP: link:../GettingStarted_BPI-Leaf-S3[返回开始使用 BPI-Leaf-S3]
+TIP: link:../GettingStarted_BPI-Leaf-S3[返回 BPI-Leaf-S3 入门指南]
 
 == 外部硬件要求
 
 * 电位器×1
-* TB6612FNG 电机驱动模块 x 1
-* 5V直流电机×1
-* 一些连接线
+* TB6612FNG 电机驱动模块 × 1
+* 5 V 直流电机 × 1
+* 若干连接线
 
 == 连接方式
 
 [options="header"]
 |============================
 | 电位器 | BPI-Leaf-S3
-| 接地           | 接地        
-| 电压控制电路           | 3V3        
+| GND           | GND        
+| VCC           | 3V3        
 | S             | 14         
 |============================
 
 [options="header"]
 |========================
-| TB6612FNG| BPI-Leaf-S3
-| 脉宽调变      | 11         
+| TB6612FNG | BPI-Leaf-S3
+| PWMA      | 11         
 | AIN2      | 13         
 | AIN1      | 12         
-| 待机      | 10         
-| 虚拟机        | 5V         
-| 电压控制电路       | 3.3V       
-| 接地       | 接地        
+| STBY      | 10         
+| VM        | 5V         
+| VCC       | 3.3V       
+| GND       | GND        
 |========================
 
 [options="header"]
 |=========================
-| TB6612FNG| 电机       
-| AO1       | 电机N极
-| AO2       | 电机S极
+| TB6612FNG | 电机       
+| AO1       | 电机 N 极
+| AO2       | 电机 S 极
 |=========================
 
 == 运行结果
 
-开发板会输出读取到的电压值 ADC 在 REPL 间隔100ms，单位mv，以及相应的受控 PWM 占空比。
+开发板每隔 100 ms 在 REPL 中输出 ADC 读取的电压值（单位 mV），以及对应的 PWM 占空比。
 
-用手调节电位器来改变其输出电压。电压越高，电压越高 PWM 占空比由开发板输出，电机转速越快。
+转动电位器可改变其输出电压。电压越高，开发板输出的 PWM 占空比越大，电机转速也越快。
 
 https://www.youtube.com/watch?v=2_UeeeOBJwo[YouTube 视频]
 
