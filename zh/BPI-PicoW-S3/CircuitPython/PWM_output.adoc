@@ -1,4 +1,4 @@
-. 的亮度 LED 可以通过控制来控制光 PWM 占空比。控制占空比为0%～100%，采用16位精度，十进制为0～65535，十六进制为0～FFFF。在下面的代码中输入 REPL:
+. 可通过调整 PWM 占空比控制 LED 亮度。占空比范围为 0%～100%，采用 16 位精度，对应十进制数值 0～65535、十六进制数值 0～FFFF。在 REPL 中输入以下代码：
 +
 ```py
 import board
@@ -6,7 +6,7 @@ import pwmio
 ledpin = pwmio.PWMOut(board.LED, frequency=25000, duty_cycle=0)
 ledpin.duty_cycle = 32768  # mid-point 0-65535 = 50 % duty-cycle
 ```
-. 只需再次输入最后一行代码即可 REPL 改变 PWM 占空比带来 LED 调至最大亮度：
+. 在 REPL 中再次输入最后一行代码，将 PWM 占空比设为最大值，使 LED 达到最高亮度：
 +
 ```py
 ledpin.duty_cycle = 65535
