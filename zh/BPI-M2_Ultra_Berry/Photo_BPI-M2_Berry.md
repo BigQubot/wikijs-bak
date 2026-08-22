@@ -1,8 +1,8 @@
 ---
-title: 香蕉派 BPI-M2 Berry 照片
-description: 香蕉派 BPI-M2 Berry 照片
-published: true
-date: 2026-08-22T11:47:49.328Z
+title: Banana Pi BPI-M2 Berry 产品图片
+description: Banana Pi BPI-M2 Berry 产品图片
+published: false
+date: 2026-08-22T17:12:23.057Z
 tags: 
 editor: markdown
 dateCreated: 2026-08-22T11:47:49.328Z
