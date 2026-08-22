@@ -1,0 +1,28 @@
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_development_tutorialbased_on_microbit[BPI-Bit 的 MicroPython 教程]
+
+= 热敏电阻
+该模块用于测量环境温度。由于开发板工作时自身会发热，建议在开发板尚未升温时采集；否则读数会受板载热源影响，最终更接近板温而非环境温度。
+
+因此，开发板开始发热前的初始读数可视为环境温度，随后读数会逐渐接近板温。
+
+= 示例代码
+```SH
+from microbit import *
+while True:
+   sleep(100)
+   temp = temperature() # get temperature ℃
+   print(temp)
+   display.show(str(temp))
+```
+= 测试效果
+== LED 点阵显示内容
+
+image::/bpi-bit/tem.png[tem.png]
+
+== 打印数据
+
+image::/bpi-bit/tem2.png[tem2.png]
+
+== 测得的温度
+
+image::/bpi-bit/tem1.jpg[tem1.jpg]
