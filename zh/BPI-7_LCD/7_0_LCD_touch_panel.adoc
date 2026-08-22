@@ -1,0 +1,38 @@
+= 银行业指数7.0 LCD 触摸屏
+
+该模块板载RGB和MIPI接口，支持 BPI-M1,BPI-M1+,BPI-M2,BPI-M3,BPI-M64，BPI-M2U，BPI-M2B,BPI-R1.
+
+
+image::/picture/touch_panle_1.jpg[touch_panle_1.jpg]
+
+= 硬件
+== 硬件接口
+返回：
+
+image::/picture/touch_pannle_3.jpg[touch_pannle_3.jpg]
+
+BPI触摸屏支持RGB接口和MIPI接口
+
+image::/picture/touch.png[touch.png]
+
+电缆线
+
+image::/picture/600px-lcd_connect_line.jpg[600px-lcd_connect_line.jpg]
+
+Note:
+
+. 如果你使用它 BPI-M1,BPI-M1+,BPI-M2，BPI-R1 请选择RGB接口 
+. 如果你使用它 BPI-M3，请选择MIPI接口。 
+. RGB 或 MIPI 接口的电缆线相同。
+
+= 如何使用
+== Android
+image::/picture/touch_panel_for_android.jpg[touch_panel_for_android.jpg]
+
+== Linux
+image::/picture/touch_panel_for_linux.jpg[touch_panel_for_linux.jpg]
+
+YouTube 上的视频演示： https://www.youtube.com/watch?v=tSqELzDR410&feature=youtu.be
+
+= 如何购买
+轻松购买样品： https://pt.aliexpress.com/item/32617771640.html?spm=a2g03.12010612.8148356.1.4ac979b9lPFssw
