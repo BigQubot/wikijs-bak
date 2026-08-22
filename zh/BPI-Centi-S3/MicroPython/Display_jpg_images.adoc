@@ -1,0 +1,108 @@
+TIP: link:../GettingStarted_BPI-Centi-S3[返回开始使用 BPI-Centi-S3]
+
+sst7789驱动库有显示jpg格式图片的方法，对于我们第一次学习的人来说非常友好。
+
+video::jR3LpkfWWy8[youtube]
+
+## jpg 方法
+
+`jpg(jpg_filename, x, y)`
+
+在给定的 x 和 y 坐标（图像的左上角）处绘制 JPG 文件。
+
+此方法需要额外的 3100 字节内存作为其工作缓冲区。
+
+## 准备合适大小的jpg文件
+
+选择任何您喜欢的图片，将其裁剪为长度为320像素、宽度为170像素的图片，或者小于此尺寸的图片。
+
+各种智能终端设备和各种操作系统中都有大量可选的图片编辑工具，您可以使用自己喜欢的工具进行编辑。
+
+这里有一个随机网页在线图像编辑工具，可以免费使用， https://pixlr.com/x/[像素X].
+
+将裁剪好的图片放入我们本地 MicroPython 工作文件夹，将其重命名为 `pic_1.jpg`，并参考上传图片的方法 MicroPython 设备, link:/en/BPI-Centi-S3/MicroPython/VScode_mpbridge[如何使用VScode + mpbridge工具].
+
+此处准备了裁剪后的图像。
+
+image::/picture/bpi_centi_s3_pic_1.jpg[bpi_centi_s3_pic_1.jpg]
+
+## jpg 方法用例
+
+使用 jpg 方法 main.py 脚本。
+
+```py
+""" BPI-Centi-S3 170x320 ST7789 display """
+
+import st7789
+import tft_config
+import gc
+
+def main():
+     try:
+         tft = tft_config.config(rotation=1)
+         tft.init()
+         tft.jpg("pic_1.jpg", 0, 0)
+         tft. show()
+         gc. collect()
+
+     except BaseException as err:
+         err_type = err.__class__.__name__
+         print('Err type:', err_type)
+         from sys import print_exception
+         print_exception(err)
+
+     finally:
+         tft.deinit()
+         print("tft deinit")
+
+
+main()
+
+```
+
+上传后 `main.py`，重置设备即可在屏幕上看到图片。
+
+我们再准备几个大小合适的jpg文件，然后我们就可以设计一个循环，在屏幕上播放图片了 BPI-Centi-S3 像幻灯片一样循环播放。
+
+image::/picture/bpi_centi_s3_pic_2.jpg[bpi_centi_s3_pic_2.jpg]
+image::/picture/bpi_centi_s3_pic_3.jpg[bpi_centi_s3_pic_3.jpg]
+image::/picture/bpi_centi_s3_pic_4.jpg[bpi_centi_s3_pic_4.jpg]
+image::/picture/bpi_centi_s3_pic_5.jpg[bpi_centi_s3_pic_5.jpg]
+
+```py
+""" BPI-Centi-S3 170x320 ST7789 display """
+
+import st7789
+import tft_config
+import gc
+import time
+
+pic_list = ["pic_1.jpg", "pic_2.jpg", "pic_3.jpg", "pic_4.jpg", "pic_5.jpg"]
+
+
+def main():
+    try:
+        tft = tft_config.config(rotation=1)
+        tft.init()
+        while True:
+            for pic in pic_list:
+                tft.jpg(pic, 0, 0)
+                tft.show()
+                gc.collect()
+                time.sleep(1)
+
+    except BaseException as err:
+        err_type = err.__class__.__name__
+        print('Err type:', err_type)
+        from sys import print_exception
+        print_exception(err)
+
+    finally:
+        tft.deinit()
+        print("tft deinit")
+
+
+main()
+
+```
+
