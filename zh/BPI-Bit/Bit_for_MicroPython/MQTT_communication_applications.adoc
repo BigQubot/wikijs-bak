@@ -1,0 +1,90 @@
+TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_development_of_advanced[BPI:bit 的 MicroPython 开发]
+
+= 关于 MQTT
+MQTT 是当今物联网的重要组成部分。MQTT 服务器负责转发数据，客户端通过发布与订阅接口交换消息；身份认证、权限控制等复杂的安全功能则由服务端统一处理。
+
+可以把 MQTT 的传输模式理解为公共聊天室：若想与他人通信，可以创建一个主题并向其发布消息，也可以订阅他人的主题。服务器不关心消息的具体内容，只负责建立主题并在客户端之间转发消息。
+
+== 例如
+小明想给小红发送消息时，可以创建一个主题（topic）并向其发布（publish）消息；小红订阅（subscribe）该主题后就能收到消息。早期 MQTT 服务器中的主题通常是公开的，任何人都能订阅；现在可以通过服务器配置权限，例如只允许小红订阅小明的主题。
+
+image::/bpi-bit/mqttprocess.png[mqttprocess.png]
+
+在这种架构下，我们只需编写客户端代码，无需再编写负责接收和转发消息的服务器程序；通信双方约定好数据接口即可。由于数据转发对客户端近乎透明，实际部署时应通过身份认证和访问权限加强通信安全。
+
+= 准备 MQTT 服务器
+可以使用公共 MQTT 服务器。如果没有可用的公共服务器，可进入 link:http://www.tongxinmao.com/txm/webmqtt.php[通信猫共享 MQTT 服务器在线客户端]。请注意，WS 与 TCP 服务使用的端口不同，连接时需要选择相应的服务器端口。
+
+也可以直接在该网页中测试 MQTT 服务：订阅自己的主题，并向该主题发送消息。
+
+image::/bpi-bit/mqttonline_demo.png[mqttonline_demo.png]
+
+如果不想使用互联网上的 MQTT 服务器，可以下载 link:https://github.com/BPI-STEAM/BPI-BIT-MicroPython/releases/tag/windows-mosquitto[本地 Mosquitto Windows 服务器环境包]。解压后运行 Mosquitto；其配置文件为 mosquitto.conf。
+
+image::/bpi-bit/mqttconfig.png[mqttconfig.png]
+
+服务正常启动后不会输出数据；配置有误时则会报错并退出。如需确认服务是否正常工作，可以按下面的教程进行测试。
+
+= 在 BPI:bit 上使用 MQTT
+按照前一篇教程 link:/en/BPI-Bit/Bit_for_MicroPython/WiFI_wireless_connection[2 WiFi 无线连接] 让开发板进入无线模式。确认网络配置正确并已连接网络后，即可启动 MQTT 服务。
+
+准备并运行以下 Python 代码：link:https://github.com/BPI-STEAM/BPI-BIT-MicroPython/blob/master/12.network/server_mqtt.py[server_mqtt.py]
+
+
+```sh
+import wifi
+wifi.start()
+server_ip = "mq.tongxinmao.com" # 在线公共的 MQTT 服务器
+client_id = "umqtt_client" # 客户端 ID ，随意定义，用来标识自己发出的数据。
+
+import time 
+
+from umqtt.robust import MQTTClient
+
+try:
+    # see https://github.com/micropython/micropython-lib/blob/master/umqtt.simple/umqtt/simple.py
+    c = MQTTClient(client_id, server_ip, 18830) # 配置连接，这个是连通信猫的服务器配置，端口是 18830，一般默认的是 1883 
+
+    c.DEBUG = True # 输出 Debug 信息 
+
+    def sub_cb(topic, msg):
+        print((topic, msg))
+        c.publish(topic, msg) # 无论收到什么订阅的信息都以同样的主题和数据传回。  
+
+    c.set_callback(sub_cb) # 把向远端订阅（subscribe）的数据接收回调处理。
+
+    if not c.connect(clean_session=False):
+        c.subscribe(b"foo_topic") # 订阅一个 foo_topic 的主题（topic） 
+
+    c.publish(b"foo_topic", b"hello") # 向  foo_topic 的主题（topic）发送 hello 字符串。 
+
+    while 1:
+        # 让芯片运行慢一点，便于观察现象。
+        time.sleep(1)
+
+        # 等待处理 MQTT 的数据
+        if c.check_msg() is not None:
+            c.wait_msg()
+
+        # 没数据可以处理的时候可以做点别的事情
+        else:
+            print('other operator')
+finally:
+    c.disconnect() # 调试程序并重启服务前要断开连接，否则可能需要重启开发板才能继续。
+```
+
+此 MQTT 示例的运行过程如下：
+
+开发板向 foo_topic 主题发布一条 hello 消息；网页端订阅该主题后，应能显示这条消息。
+
+开发板也订阅了 foo_topic 主题，因此会收到自己刚才发布的 hello 消息。回调函数随后把收到的消息原样发布回去，于是开发板会在 foo_topic 主题中循环接收并发送该消息。
+
+如果从网页向 foo_topic 主题发送数据，开发板会接收并显示这些数据，例如图中的 11、22、3311。新发送的数据也会进入上一步所述的循环。
+
+请自行尝试。
+
+image::/bpi-bit/mqttonline_test.png[mqttonline_test.png]
+
+网页端会显示开发板发送的数据。
+
+image::/bpi-bit/mqttrunning_.png[mqttrunning_.png]
