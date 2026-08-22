@@ -1,0 +1,24 @@
+TIP: link:../GettingStarted_BPI-Leaf-S3[返回开始使用 BPI-Leaf-S3]
+
+== REPL 快捷键
+
+. 复制 `ctrl + shift + c`.
+. 粘贴 `ctrl + shift + v`。使用鼠标左键拖动并选择
+要复制的命令 REPL，按复制快捷键
+键盘，然后按粘贴快捷键即可复制粘贴
+命令。
+. 软复位 `ctrl + d`.
+. 中断 `ctrl + c`，中断当前正在执行的程序，但是
+不会重新启动和重置。
+
+== 查看内置模块
+
+. 进入 `help("modules")` 在 REPL 将列出中的所有模块
+当前 CircuitPython 开发板。
+. 导入模块后，您可以使用 `help()` 查看功能
+模块内可用的函数名称或变量名称。
+
+```py
+import machine
+help(machine)
+```
