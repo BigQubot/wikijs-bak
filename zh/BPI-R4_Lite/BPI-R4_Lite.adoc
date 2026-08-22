@@ -1,34 +1,34 @@
 = 简介
 
-香蕉派 BPI-R4 Lite 路由器板带有 MediaTek MT7987A 四核 Arm Cortex-A53 设计,2GB DDR4,8GB eMMC 闪存，256MB SPI-NAND 闪存，32MB SPI-板载NOR Flash和Micro SD卡插槽，还有1x 2.5G SFP, 1x 2.5G RJ45 WAN,4x 1G RJ45 LAN,带 USB3.0 端口,1x M.2 KEY-B 插槽，带 USB3.0 用于 5G 模块。1x miniPCIe 插槽，带 PCIe3.0 2lane 接口，用于 Wi-Fi 7 NIC (选项：2x miniPCIe 插槽，带 PCIe3.0 1lane),1x miniPCIe 插槽，带 USB2.0 接口It 和 1x USB TypeC 调试控制台。它是一款非常高性能的开源路由器开发板。
+Banana Pi BPI-R4 Lite 路由器开发板采用 MediaTek MT7987A 四核 Arm Cortex-A53 处理器，板载 2 GB DDR4、8 GB eMMC、256 MB SPI-NAND、32 MB SPI-NOR 和 MicroSD 卡槽。网络接口包括 1 个 2.5G SFP、1 个 2.5G RJ45 WAN 和 4 个千兆 RJ45 LAN；另有 USB 3.0 接口、1 个通过 USB 3.0 连接 5G 模块的 M.2 Key B 插槽、1 个供 Wi-Fi 7 网卡使用的 PCIe 3.0 双通道 Mini PCIe 插槽（可选两个 PCIe 3.0 单通道 Mini PCIe 插槽）、1 个 USB 2.0 Mini PCIe 插槽，以及 1 个 USB Type-C 调试控制台。它是一款高性能开源路由器开发板。
 
-TIP: link:/en/BPI-R4_Lite/BananaPi_BPI-R4_Lite[BananaPi_BPI-R4_Lite]
+TIP: 更多信息：link:/en/BPI-R4_Lite/BananaPi_BPI-R4_Lite[Banana Pi BPI-R4_Lite]
 
 
 = 开发
 == 准备
-* 准备 8G/above TF卡、 USB-串行电缆， Ubuntu 系统
-* 12V/2A 电源适配器 (没有任何外围设备时，功耗为 BPI-R4_Lite 主板在最极端的情况下不会超过10W。但您需要根据自己的配件使用情况来确定是否需要更高功率的电源适配器)
-* 使用您的 USB TypeC调试控制台
-* 链接：                              [下载图片] 被烧毁
-* LAN口默认IP地址：192.168.1.1
-* 用户 name/password: pi/bananapi ,root/bananapi. +
-或者用户是root，没有密码。
-* 无线网络： AP_MTK_MT7990_2G/AP_MTK_MT7990_5G/AP_MTK_MT7990_6G
+* 准备一张至少 8 GB 的 TF 卡、一根 USB 转串口线和一台 Ubuntu 电脑
+* 12 V/2 A 电源适配器（未连接外设时，即使在极端情况下，BPI-R4_Lite 主板功耗也不会超过 10 W；请根据实际使用的配件判断是否需要功率更高的适配器）
+* 使用 USB Type-C 调试控制台
+* link:                              [下载待烧录的镜像]
+* LAN 口默认 IP 地址：192.168.1.1
+* 用户名/密码：pi/bananapi、root/bananapi。+
+也可以使用无密码的 root 用户登录。
+* WiFi：AP_MTK_MT7990_2G/AP_MTK_MT7990_5G/AP_MTK_MT7990_6G
 ![r4-lite_bootstrap.jpg](/bpi-r4_lite/r4-lite_bootstrap.jpg)
                            
-== BPI-R4_Lite 引导程序和设备选择跳线设置：
+== BPI-R4_Lite 启动方式与设备选择跳线设置
 ![r4_lite_bootstrap.png](/bpi-r4_lite/r4_lite_bootstrap.png)
 
 1. A/B/D 跳线为“0”， BPI-R4_Lite 将从 SD 卡启动
 ![sd.png](/bpi-r4_lite/sd.png)
-2. 跳线为“0”并且 B/C 跳线为“1”， BPI-R4_Lite 将从以下位置启动 SPI 或非闪存
+2. A 跳线为“0”、B/C 跳线为“1”时，BPI-R4_Lite 从 SPI-NOR 闪存启动
 ![nor.png](/bpi-r4_lite/nor.png)
-3. 跳线是“1”并且 B/C 跳线为“0”， BPI-R4_Lite 将从以下位置启动 SPI NAND 闪光灯
+3. A 跳线为“1”、B/C 跳线为“0”时，BPI-R4_Lite 从 SPI-NAND 闪存启动
 ![nand.png](/bpi-r4_lite/nand.png)
-4. A/B/D 跳线为“1”，BPI-R4_Lite 将从以下位置启动 EMMC
+4. A/B/D 跳线均为“1”时，BPI-R4_Lite 从 eMMC 启动
 ![emmc.png](/bpi-r4_lite/emmc.png)
-5. 如果控制台显示“systemhalt!”，则表示启动存储不包含任何操作系统
+5. 如果控制台显示“system halt!”，表示所选启动存储设备中没有操作系统
 +
 ```bash
   F0: 102B 0000
@@ -55,105 +55,105 @@ TIP: link:/en/BPI-R4_Lite/BananaPi_BPI-R4_Lite[BananaPi_BPI-R4_Lite]
   System halt!
 ```
 
-== 如何将镜像刻录到SD卡。
+== 将镜像烧录到 SD 卡
 
-- 请按照下图进行 Windows 电脑。
+- Windows 电脑请按照下图操作。
 ![low_level_format_sd_card.png](/bpi-r4_lite/low_level_format_sd_card.png)
 
-- Linux PC，您可以使用“**麦克斯夫**”命令进行格式化，或使用“**DD**" 命令写入零。
-**将镜像刻录到 SD 卡上 windows 电脑**
-[Balena Etcher](https://balena.io/etcher) is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
-- 点击“**从文件闪存**”来选择镜像。 
-- 点击“**选择目标**”来选择 USB 设备。 
-- 点击“**快闪！**“开始燃烧。
-![r4_lite_flash1.png](/bpi-r4_lite/r4_lite_flash1.png)                  图像
+- 在 Linux 电脑上，可以使用“**mksf**”命令格式化，或使用“**dd**”命令写入零数据。
+**在 Windows 电脑上将镜像烧录到 SD 卡**
+[Balena Etcher](https://balena.io/etcher) 是 Balena 提供的开源图形化烧录工具，可将操作系统镜像写入 SD 卡或 USB 存储设备。
+- 单击“**Flash from file**”选择镜像。 
+- 单击“**Select target**”选择目标设备。 
+- 单击“**Flash!**”开始烧录。
+![r4_lite_flash1.png](/bpi-r4_lite/r4_lite_flash1.png)                  图片
                   
- **Burn image to SD card on linux computer**
-1. 您可以从我们的论坛下载最新图片     
-2. 安装 bpi-tools 在你的 Ubuntu。如果您无法访问此网址或有任何其他问题，请访问 bpi-tools 存储库并手动安装此工具。
+ **在 Linux 电脑上将镜像烧录到 SD 卡**
+1. 可以从官方论坛下载最新镜像
+2. 在 Ubuntu 上安装 bpi-tools。如果无法访问该网址或遇到其他问题，请前往 bpi-tools 仓库手动安装该工具。
 +
 ```sh
 apt-get install pv
 curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
 ```
- After you download the image, insert your TF card into your Ubuntu. Execute
+ 下载镜像后，将 TF 卡插入 Ubuntu 电脑并执行
 
 +
 ```sh
 bpi-copy xxx.img /dev/sdx
 ```
-将镜像安装到 TF 卡上
+以便将镜像烧录到 TF 卡。
 
-. 完成步骤3后，即可将TF卡插入R4_Lite，然后按电源按钮设置 R4_精简版
+. 完成步骤 3 后，将 TF 卡插入 R4_Lite，再按下电源按钮启动 R4_Lite。
  
 **将启动跳线更改为从 SD 启动，启用 SD 卡设备。**
 
-== 如何将镜像烧录到板载NOR
-> 当您想要更新Nor设备时，首先将启动开关更改为从SD设备启动，然后插入一张带有SD启动映像的SD，然后启动后，您需要将一张Nor映像闪存到Nor设备中。最后，将引导程序更改为从 Nor 设备引导。
+== 将镜像烧录到板载 NOR
+> 更新 NOR 时，首先将启动开关切换为从 SD 卡启动，并插入一张带有可启动镜像的 SD 卡。系统启动后，将 NOR 镜像烧录到 NOR，最后再把启动方式切换为从 NOR 启动。
 {.is-info}
 
-在将镜像刻录到之前 Nand，请准备一个 USB 磁盘。让我们采取 OpenWrt 镜像 (mtk-bpi-r4lite-NOR.img ) 例如，步骤如下：
+向 NOR 烧录镜像前，请准备一个 U 盘。下面以 OpenWrt 镜像（mtk-bpi-r4lite-NOR.img）为例：
 
-1. 复制 Nand 启动 OpenWrt 镜像(**mtk-bpi-r4lite-NOR.img**) 到 USB 磁盘。 
-2. 更改启动开关跳线，板子从SD设备启动，然后给板子上电。
-3. 插入 USB 磁盘到板上，并安装 USB 到 /mnt 或其他目录如下： (如果自动安装则可以跳过安装)
+1. 将 NOR 启动用 OpenWrt 镜像（**mtk-bpi-r4lite-NOR.img**）复制到 U 盘。
+2. 调整启动开关跳线，使开发板从 SD 卡启动，然后上电。
+3. 将 U 盘插入开发板，并按如下方式将其挂载到 /mnt 或其他目录：（如果已自动挂载，可跳过此步）
 
 +
 ```SH
 mount -t vfat /dev/sda1 /mnt 
 cd /mnt
 ```
-4. 执行以下命令擦除整个 Nor 闪存并将映像复制到 Nor 设备：
+4. 执行以下命令，擦除整个 NOR 闪存并将镜像写入 NOR：
 
 +
 ```sh
 mtd erase /dev/mtd0
 dd if=mtk-bpi-r4lite-NOR.img of=/dev/mtdblock0
 ```
-5. 关闭电源 BPI-R4_Lite 板子，拔掉U盘驱动，修改bootstrap为启动 Nand 设备。
+5. 关闭 BPI-R4_Lite 开发板电源，拔出 U 盘，并将启动方式切换为从 NOR 启动。
 
-== 如何将镜像刻录到板上 Nand
-> **NAND 有在工厂刻录的镜像。如果要使用，只需切换到相应的启动，然后上电即可启动。**
+== 将镜像烧录到板载 NAND
+> **NAND 中已在出厂时烧录镜像。如需使用，只需切换到相应的启动方式，然后上电。**
 {.is-info}
 
 
->  当你想更新的时候 Nand 设备，首先将启动开关更改为从 SD 设备启动，并插入一张带有 SD boot Image 的 SD，然后启动后，您需要 flash 一张 Nand 镜像进入 Nand 设备。最后你将 bootstrap 更改为 boot from Nand 设备。
+> 更新 NAND 时，首先将启动开关切换为从 SD 卡启动，并插入一张带有可启动镜像的 SD 卡。系统启动后，将 NAND 镜像烧录到 NAND，最后再把启动方式切换为从 NAND 启动。
 {.is-info}
 
 
-在将镜像刻录到之前 Nand，请准备一个 USB 磁盘。让我们采取 OpenWrt 镜像 (mtk-bpi-r4lite-NAND-2PCIe-1L.img) 例如，步骤如下：
+向 NAND 烧录镜像前，请准备一个 U 盘。下面以 OpenWrt 镜像（mtk-bpi-r4lite-NAND-2PCIe-1L.img）为例：
 
-1. 复制 Nand 启动 OpenWrt 镜像(**mtk-bpi-r4lite-NAND-2PCIe-1L.img**) 到 USB 磁盘。 
-2. 更改启动开关跳线，板子从SD设备启动，然后给板子上电。
-3. 插入 USB 磁盘到板上，并安装 USB 到 /mnt 或其他目录如下： (如果自动安装则可以跳过安装)
+1. 将 NAND 启动用 OpenWrt 镜像（**mtk-bpi-r4lite-NAND-2PCIe-1L.img**）复制到 U 盘。
+2. 调整启动开关跳线，使开发板从 SD 卡启动，然后上电。
+3. 将 U 盘插入开发板，并按如下方式将其挂载到 /mnt 或其他目录：（如果已自动挂载，可跳过此步）
 
 +
 ```SH
 mount -t vfat /dev/sda1 /mnt 
 cd /mnt/sda1
 ```
-4. 执行以下命令即可全部擦除 Nand 闪存并将镜像复制到 nand 设备：
+4. 执行以下命令，擦除整个 NAND 闪存并将镜像写入 NAND：
 
 +
 ```sh
 mtd erase /dev/mtd0
 mtd write mtk-bpi-r4lite-NAND-2PCIe-1L.img /dev/mtd0
 ```
-5. 关闭电源 BPI-R4_Lite 板子，拔掉U盘驱动，修改bootstrap为启动 Nand 设备。
+5. 关闭 BPI-R4_Lite 开发板电源，拔出 U 盘，并将启动方式切换为从 NAND 启动。
 
 
-== 如何将镜像刻录到板上 eMMC
-> 因为SD卡和 EMMC 设备共享一个SOC的控制器，需要切换到 NAND 启动然后刻录 EMMC 镜像进入 EMMC。最后，您将更改启动方式 EMMC.
+== 将镜像烧录到板载 eMMC
+> SD 卡和 eMMC 共用同一个 SoC 控制器，因此需要先切换为从 NAND 启动，再将 eMMC 镜像烧录到 eMMC，最后把启动方式切换为从 eMMC 启动。
 {.is-info}
 
 
-将镜像刻录到之前 eMMC，请准备一个 USB 磁盘。让我们采取 OpenWrt 镜像 (bl2_emmc.img, mtk-bpi-r4lite-EMMC-NAND.img) 例如，步骤如下：
+向 eMMC 烧录镜像前，请准备一个 U 盘。下面以 OpenWrt 镜像（bl2_emmc.img、mtk-bpi-r4lite-EMMC-NAND.img）为例：
 
-1. 复制 EMMC 启动 OpenWrt 镜像(**bl2_emmc-r4.img**,**mtk-bpi-r4-EMMC-20231030.img**) 到 USB 磁盘，如果镜像被压缩，请在复制到之前解压 USB 磁盘。
+1. 将 eMMC 启动用 OpenWrt 镜像（**bl2_emmc-r4.img**、**mtk-bpi-r4-EMMC-20231030.img**）复制到 U 盘。如果镜像已压缩，请先解压再复制。
 
-2. 将开关跳线更改为 Nand 并从主板启动 Nand.
+2. 将启动开关跳线切换到 NAND，使开发板从 NAND 启动。
  
-3. 插入 USB 磁盘到板上，并安装 USB 到 /mnt 或其他目录如下： (如果自动安装则可以跳过安装)
+3. 将 U 盘插入开发板，并按如下方式将其挂载到 /mnt 或其他目录：（如果已自动挂载，可跳过此步）
 
 +
 ```sh
@@ -173,12 +173,12 @@ sync
 sync
 ```
  
-5. 关闭R4电源_Lite板，删除u盘驱动，更改bootstrap从 emmc 设备。
+5. 关闭 R4_Lite 开发板电源，拔出 U 盘，并将启动方式切换为从 eMMC 启动。
 
 == 网络配置
 
 * 网络配置参考： http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:network:start
-* 网络接口：eth1、lan5用于WAN； lan0、lan1、lan2、lan3 用于 LAN， ra0/ra1 用于2.4G无线，rai0用于5G wifi6无线，rax0用于6G wifi7无线。
+* 网络接口：eth1、lan5 用作 WAN；lan0、lan1、lan2、lan3 用作 LAN；ra0/ra1 用于 2.4 GHz 无线网络，rai0 用于 5 GHz WiFi 6，rax0 用于 6 GHz WiFi 7。
     
 ![r4-lite_wan.png](/bpi-r4_lite/r4-lite_wan.png)
 
@@ -317,23 +317,23 @@ root@OpenWrt:~#
 == 4G/5G 模块
 
 
-=== M.2 4G/5G 模块(USB 接口)
-BPI-R4_Lite 支持M.2 USB 接口4G LTE/5G 模块： **移远EM05, RM500U-CN,RM500Q-GL& RM520N-GL ** 
+=== M.2 4G/5G 模块（USB 接口）
+BPI-R4_Lite 支持采用 M.2 USB 接口的 4G LTE/5G 模块：**Quectel EM05、RM500U-CN、RM500Q-GL 和 RM520N-GL**
 
-如果您想在以下设备上使用 M.2 蜂窝模块 BPI-R4:
+如需在 BPI-R4_Lite 上使用 M.2 蜂窝模块：
 
-1. 安装 4G/5G 蜂窝模块插入 CN9 插槽(M.2 键盘)
-2. 将 NANOSIM 卡插入 SIMSlot(卡1) (注意方向)
+1. 将 4G/5G 蜂窝模块安装到 CN9 插槽（M.2 Key B）
+2. 将 Nano-SIM 卡插入 SIM 卡槽（SIM1），注意插卡方向
 3. 在模块上安装天线
 4. 开机后会自动拨号
 
->  的可用性 4G/5G 取决于本地载波频段。
+> 4G/5G 是否可用取决于当地运营商使用的频段。
 {.is-info}
 
 ![rm520ngl.png](/bpi-r4_lite/rm520ngl.png)
 ![r4_lite-sim.png](/bpi-r4_lite/r4_lite-sim.png)
 ![r4_lite_sim1.png](/bpi-r4_lite/r4_lite_sim1.png)
-**移远RM520N-GL**
+**Quectel RM520N-GL**
 ![读id-sim1.png](/读id-sim1.png)
 ```sh
 Quectel RM520N-GL
@@ -378,30 +378,30 @@ root@OpenWrt:/#
 ```
 
 
-=== 迷你PCIe 4G/5G 模块(USB 接口)
-BPI-R4_Lite支持MiniPCIe USB 4G LTE模块接口：**移远EC25**
+=== Mini PCIe 4G/5G 模块（USB 接口）
+BPI-R4_Lite 支持采用 Mini PCIe USB 接口的 4G LTE 模块：**Quectel EC25**
 
-如果您想在以下设备上使用 MiniPCIe 蜂窝模块 BPI-R4_Lite:
+如需在 BPI-R4_Lite 上使用 Mini PCIe 蜂窝模块：
 
 1. 将 4G 蜂窝模块安装到 CN11 插槽中
-2. 将 NANOSIM 卡插入 SIMSlot(SIM2) 带卡托盘(注意方向)
+2. 使用卡托将 Nano-SIM 卡插入 SIM 卡槽（SIM2），注意插卡方向
 3. 在模块上安装天线
 4. 开机后会自动拨号
 
 **CN13 (SIM3) 也可用**
 
->  4G 的可用性取决于当地的载波频段。
+> 4G 是否可用取决于当地运营商使用的频段。
 {.is-info}
 
 
->  __由于兼容性 BPI-R4 与 Qualcomm/Unisoc 模块中，EC25模块无法直接访问DNS服务器并连接互联网。因此需要手动配置修改   **默认脚本**  通过控制台端口文件。__
+> __由于 BPI-R4 与 Qualcomm/Unisoc 模块之间存在兼容性问题，EC25 模块无法直接访问 DNS 服务器并连接互联网。因此需要通过控制台手动修改 **default.script** 文件。__
 
 ```sh
 vim /usr/share/udhcpc/default.script
 ```
 ![bpi-r4_ec25e_module_modification_1.png](/bpi-r4/bpi-r4_ec25e_module_modification_1.png)
 
-添加：echo“名称服务器202.96.128.86”>> /etc/resolv.conf
+添加：echo "nameserver 202.96.128.86" >> /etc/resolv.conf
 ```sh
 echo "nameserver 202.96.128.86" >> /etc/resolv.conf
 ```
@@ -415,13 +415,13 @@ echo "nameserver 202.96.128.86" >> /etc/resolv.conf
 ===  PCIe 到 USB
 BPI-R4_Lite 还支持 PCIe 到 USB
 
-== Wi-Fi7网卡
-您可以插入 BPI-R4-NIC 底部分为 CN12 和 CN14 BPI-R4-Main，然后用两颗M2螺丝固定。
+== Wi-Fi 7 网卡
+将 BPI-R4-NIC 插入 BPI-R4-Main 底部的 CN12 和 CN14，然后用两颗 M2 螺丝固定。
 
-的 BPI-R4-NIC 模块需要12V供电，所以电源上 BPI-R4-Main 上电前必须先开机 (将SW4拨至“ON”位置，12V LED 通电时会亮起)
+BPI-R4-NIC 模块需要 12 V 供电，因此给 BPI-R4-Main 上电前必须先启用该电源（将 SW4 拨到“ON”位置，上电后 12 V LED 会亮起）。
 
-IMPORTANT:  12V电源将提供给 BPI-R4-NIC 通过PIN6/28/48 miniPCI 插槽。 
-插接其他模块时，如果无法确认模块是否能承受12V，请务必关闭SW4。
+IMPORTANT: 12 V 电源会通过 Mini PCIe 插槽的 PIN6/28/48 提供给 BPI-R4-NIC。
+插接其他模块时，如果无法确认模块能否承受 12 V，请务必关闭 SW4。
 
 === BPI-R4-NIC-BE14
 
@@ -430,34 +430,30 @@ BPI-R4-NIC-BE14 ：MT7995AV+MT7976CN+MT7977IAN
 === OpenWrt
 OpenWRT MTK MP4.0 WiFi 设置：
 
-当所有功能正常后，我们可以检测到三个SSID，BE14上的三个蓝色LED灯也会亮起。
+所有功能正常后，可以检测到三个 SSID，BE14 上的三个蓝色 LED 也会亮起。
      
-==== 如何开启WiFi热点
+==== 启用 WiFi 热点
 
-打开web并在config中配置相应的STA热点。
-然后点击连接进行连接。
+打开 Web 管理界面，在 config 中配置相应的 STA 热点。
+然后单击 Connect 建立连接。
 
 == 散热片
-MTK OpwnWRT 风扇带 PWM 控制参考。
+MTK OpenWrt 风扇 PWM 控制参考。
 
 
 = GPIO 定义 
-== 26针 GPIO 定义
+== 26 针 GPIO 定义
 == GPIO 引脚定义
-.BPI-F4 GPIO 引脚定义
+.BPI-R4 Lite GPIO 引脚定义
 [%collapsible]
 ====
 [options="header",cols="7,2,4,4,4",width="70%"]
 |=====
-5+| ** GPIO 香蕉派 BPI-F4 **
-| PCB接线端子 | GPIO  | 功能1        | 功能2         | 功能3             
-.4+| CN8 4+|接地|
-不适用                   |SARAD3 |                   |                    |
-不适用                   |SARADC0|                   |                    |                    
+5+| **Banana Pi BPI-R4 Lite GPIO**
+| PCB 接线端子 | GPIO  | 功能 1        | 功能 2         | 功能 3
+.4+| CN8           4+|GND|
+NA                   |SARAD3 |                   |                    |
+NA                   |SARADC0|                   |                    |
              
 |=====
 ====
-
-
-
-
