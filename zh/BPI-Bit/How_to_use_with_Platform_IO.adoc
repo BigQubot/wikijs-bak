@@ -1,17 +1,17 @@
-TIP: link:/en/BPI-Bit/Bit_for_Arduino#_how_to_use_with_platform_io[位用于 Arduino]
+TIP: link:/en/BPI-Bit/Bit_for_Arduino#_how_to_use_with_platform_io[BPI-Bit 的 Arduino 教程]
 
-= 阿迪诺 IDE
+= PlatformIO
 
-== 如何设置和启动
+== 配置和开始使用
 需要准备：
 
-- BPI-UNO32 1 或 BPI：位 1
-- 跳线帽 4
-- 微型USB 1
+- 1 块 BPI-UNO32 或 1 块 BPI:bit
+- 4 个跳线帽
+- 1 根 Micro-USB 数据线
 
 快速入门：
 
-. 将四个跳帽分别连接到板子顶部，连接RGB LED 到蜂鸣器。然后使用microUSB线将开发板连接到电脑。
+. 将四个跳线帽分别安装到开发板顶部，使 RGB LED 和蜂鸣器接入电路。然后用 Micro-USB 数据线将开发板连接到计算机。
 
 - 端口：
 +
@@ -21,23 +21,23 @@ image::/picture/uno32_start_0.png[uno32_start_0.png]
 +
 image::/picture/uno32_start_1.png[uno32_start_1.png]
 +
-打开 VS 代码 \(你也可以选择其他编译器\) 并打开 BPI-UNO32 以PlatformIO首页的Code工程为例，打开一个测试代码工程文件夹PlatformIO\_VSCode。
+打开 VS Code（也可以选择其他编辑器），在 PlatformIO Home 页面打开 BPI-UNO32 代码项目。以测试项目为例，打开 PlatformIO\_VSCode 工程文件夹。
 
 - 项目：
 +
 image::/picture/uno32_start_2.png[uno32_start_2.png]
 +
-打开VS Code终端控制台，输入 ，编译程序，输入 ，编译并烧录程序。 (如果之前没有编译过，第一次编译可能会比较慢，需要连接，因为他需要获取对应的平台信息).
+打开 VS Code 终端，输入相应命令编译程序，再输入上传命令完成编译和烧录。首次编译可能较慢，并且需要联网获取对应的平台信息。
 
-- 平台运行：
+- PlatformIO run：
 +
 image::/picture/uno32_start_3.png[uno32_start_3.png]
 
-- Platformio run --目标上传：
+- PlatformIO run --target upload：
 +
 image::/picture/uno32_start_4.png[uno32_start_4.png]
 
-. 然后打开串口助手工具，选择 BPI-UNO32 在串口号对应的电脑上，串口设置选择为： 波特率：115200 数据位：8 奇偶校验：无 停止位：
+. 打开串口助手工具，选择计算机上 BPI-UNO32 对应的串口号。串口参数设置为：波特率 115200、数据位 8、无奇偶校验；停止位：
 
 - 串口配置：
 +
@@ -45,7 +45,7 @@ image::/picture/uno32_start_5.png[uno32_start_5.png]
 
 . 测试内容：
 
-- RGB LED 褪色。
-- AD采集与测试6 ADC\_频道1。
-- WiFi 扫描测试。
-- 蜂鸣器梯度控制测试。
+- RGB LED 渐变测试。
+- 6 路 ADC\_channel1 的 AD 采集测试。
+- Wi-Fi 扫描测试。
+- 蜂鸣器渐变控制测试。
