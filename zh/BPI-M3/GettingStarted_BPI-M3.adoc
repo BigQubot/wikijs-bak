@@ -1,91 +1,91 @@
 = 简介
 
-香蕉派 M3 是一款超级强大的单板计算机，配备八核处理器和 2GB 内存 RAM。除了精英处理单元外，它还具有千兆位 Ethernet, 2 USB、SATA、WiFi、蓝牙和 HDMI 连接。它可以在多种操作系统上运行，包括 Android, 卢本图, Ubuntu, Debian和树莓派。 
+Banana Pi M3 是一款高性能单板计算机，配备八核处理器和 2 GB 内存，并提供千兆以太网、两个 USB、SATA、WiFi、蓝牙和 HDMI 接口。它可运行 Android、Lubuntu、Ubuntu、Debian 和 Raspbian 等多种操作系统。
 
-TIP: 更多信息： link:/en/BPI-M3/BananaPi_BPI-M3[香蕉派 BPI-M3]
+TIP: 更多信息：link:/en/BPI-M3/BananaPi_BPI-M3[Banana Pi BPI-M3]
 
 == 规格参数
 
-- 八核1.8GHz 强劲CPU
+- 八核 1.8 GHz 高性能 CPU
 - 2 GB LPDDR3 内存
-- 8GB eMMC 存储
-- 机载 WiFi 和蓝牙
+- 8 GB eMMC 存储
+- 板载 WiFi 和蓝牙
 
 = 开发
 == Android
 === 准备
 
-. 下载凤凰卡： https://pan.baidu.com/s/1-fjvPqtG_zewVzqnXf1AHw?pwd=eid9
+. 下载 PhoenixCard：https://pan.baidu.com/s/1-fjvPqtG_zewVzqnXf1AHw?pwd=eid9
 
-=== 将映像安装到 SD 卡
+=== 将镜像烧录到 SD 卡
 
-. 将您的 TF 卡插入 TF-USB 适配器，然后将适配器插入您的 Windows 电脑 usb 界面。
-. 准备好镜像，下载镜像刻录工具PhoenixCard.exe。
-. 使用“PhoenixCard.exe”进行刻录 android 镜像到TF卡。
-- 在图像路径选项中选择图像
+. 将 TF 卡插入 TF-USB 读卡器，再将读卡器连接到 Windows 电脑的 USB 接口。
+. 准备好镜像，并下载镜像烧录工具 PhoenixCard.exe。
+. 使用 PhoenixCard.exe 将 Android 镜像烧录到 TF 卡。
+- 在镜像路径选项中选择镜像
 +
 image::/picture/m3-android-1.jpg[m3-android-1.jpg]
 
-- 选择设置为卡启动，然后点击刻录镜像
+- 选择“卡启动”，然后单击烧录镜像
 +
 image::/picture/m3-android-2.jpg[m3-android-2.jpg]
 
-- 燃烧结束，
+- 等待烧录完成
 +
 image::/picture/m3-android-3.jpg[m3-android-3.jpg]
 
-=== 安装镜像到 eMMC
+=== 将镜像烧录到 eMMC
 
-. 将您的 TF 卡插入 TF-USB 适配器，然后将适配器插入您的 Windows 电脑 usb 界面。
-. 准备好镜像，下载镜像刻录工具PhoenixCard.exe。
-. 使用“PhoenixCard.exe”进行刻录 android 镜像到TF卡。
-- 在图像路径选项中选择图像
+. 将 TF 卡插入 TF-USB 读卡器，再将读卡器连接到 Windows 电脑的 USB 接口。
+. 准备好镜像，并下载镜像烧录工具 PhoenixCard.exe。
+. 使用 PhoenixCard.exe 将 Android 镜像烧录到 TF 卡。
+- 在镜像路径选项中选择镜像
 +
 image::/picture/m3-android-1.jpg[m3-android-1.jpg]
 
-- 选择量产卡，然后点击烧录镜像
+- 选择“量产卡”，然后单击烧录镜像
 +
 image::/picture/m3-android-emmc-1.jpg[m3-android-emmc-1.jpg]
 
-- 燃烧结束。
+- 等待烧录完成。
 +
 image::/picture/m3-android-emmc-2.jpg[m3-android-emmc-2.jpg]
 
-. 镜像烧录完成后，将SD卡插入板子，上电启动。启动后，镜像会自动烧录到板子上 EMMC.
+. 镜像烧录到 SD 卡后，将该卡插入开发板并上电启动。系统启动后，镜像会自动写入开发板的 eMMC。
 +
 image::/picture/m3-android-emmc-3.jpg[m3-android-emmc-3.jpg]
-也可以通过光来判断。当灯由常亮变为熄灭时，表明燃烧已完成。
-.  烧录完成后，将切断电源，并取出SD卡。再次通电即可从 EMMC.
+也可以通过指示灯判断进度：指示灯由常亮变为熄灭时，表示烧录完成。
+. 烧录完成后切断电源并取出 SD 卡。再次上电时，开发板将从 eMMC 启动。
 
-=== 如何生成M3 Bsp代码
-. 准备一台可以运行的PC ubuntu
-. 安装 Docker-ce 在你的电脑上，https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce (安装 Docker 环境)
-. 安装后 Docker, 拉 docker 图像，执行
+=== 构建 M3 BSP 源代码
+. 准备一台运行 Ubuntu 的电脑。
+. 在电脑上安装 Docker CE：https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce （配置 Docker 环境）
+. 安装 Docker 后，执行以下命令拉取 Docker 镜像
 +
 ```sh
 docker pull sinovoip/bpi-build:ubuntu12.04
 ```
-. 然后你拉取镜像，创建一个端口来登录 docker 图像，执行
+. 镜像拉取完成后，创建并进入 Docker 容器，执行
 +
 ```sh
 docker run --privileged -d -p 2222:22 -v /media:/media sinovoip/bpi-build:ubuntu12.04
 ```
-. 登录 docker 图像
+. 登录 Docker 容器
 +
 ```sh
-ssh -p 2222 root@127.0.0.1 #default passwd is root
+ssh -p 2222 root@127.0.0.1 # 默认密码为 root
 ```
-. Git克隆M3 bsp代码，执行 
+. 克隆 M3 BSP 源代码，执行
 +
 ```sh
 git clone https://github.com/BPI-SINOVOIP/BPI-M3-bsp.git
 ```
-. 构建M3 bsp代码，执行
+. 构建 M3 BSP 源代码，执行
 +
 ```sh
 ./build.sh
 ```
-. 构建完成后，打开一个新终端，可以将编译文件复制出来 docker 通过执行图像
+. 构建完成后，打开新终端，执行以下命令将编译结果从 Docker 容器中复制出来
 +
 ```sh
 docker cp <your container id>:<your project path> <your pc path>
@@ -95,34 +95,34 @@ image::/picture/docker_operate.png[docker_operate.png]
 == Linux
 === 准备
 
-. 准备 8G/above TF卡、 USB-串行接口
-. 使用您的 USB-M2P 上的串行连接调试控制台
-. 登录 user/password: pi/bananapi 或 root/bananapi.
+. 准备一张至少 8 GB 的 TF 卡和一个 USB 转串口适配器。
+. 使用 USB 转串口适配器连接 M3 的调试控制台。
+. 登录用户名/密码：pi/bananapi 或 root/bananapi。
 
-=== 将映像安装到 SD 卡
+=== 将镜像烧录到 SD 卡
 
 **Windows 电脑**
 
-使用 Balena Etcher 安装映像。 +
-link:https://balena.io/etcher[巴莱纳蚀刻机] 是 Balena 的开源 GUI 闪存工具，可将操作系统映像闪存到 SD 卡或 USB 开车。
+使用 Balena Etcher 烧录镜像。+
+link:https://balena.io/etcher[Balena Etcher] 是 Balena 提供的开源图形化烧录工具，可将操作系统镜像写入 SD 卡或 USB 存储设备。
 
-. 点击“**从文件闪存**”来选择镜像。 
-. 点击“**选择目标**”来选择 USB 设备。 
-. 点击“**快闪！**“开始燃烧。
+. 单击“**Flash from file**”选择镜像。 
+. 单击“**Select target**”选择目标设备。 
+. 单击“**Flash!**”开始烧录。
 
 image::/picture/etcher.jpg[etcher.jpg]
 
 **Linux 电脑**
 
-**有两种方法供您选择。**
+**可以选择以下两种方法。**
 
-. 使用 dd 命令安装镜像 Linux,卸载SD卡设备 /dev/sdX 如果自动安装则分区。其实 bpi-copy 与此 dd 命令相同。
+. 使用 Linux 的 dd 命令烧录镜像。如果 /dev/sdX 的分区被自动挂载，请先卸载。bpi-copy 实际执行的操作与此 dd 命令相同。
 +
 ```sh
  $ sudo apt-get install pv unzip
  $ sudo unzip -p xxx-bpi-m3-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxfer
 ```
-. 安装镜像 bpi-tools 上 Linux，插入SD卡 Linux 电脑并运行
+. 使用 Linux 上的 bpi-tools 烧录镜像。将 SD 卡插入 Linux 电脑并执行
 +
 ```sh
  $ sudo apt-get install pv unzip
@@ -130,32 +130,32 @@ image::/picture/etcher.jpg[etcher.jpg]
 ```
 
  
-=== 安装镜像到 eMMC
+=== 将镜像烧录到 eMMC
 
-. 复制“xxx-sd-emmc-xxx.img.zip / xxx-sd-emmc-xxx.img“给你的 USB 磁盘
-. 插入你的 USB M3 中的磁盘
-. 执行(如果是自动挂载的则跳过此步骤)
+. 将“xxx-sd-emmc-xxx.img.zip / xxx-sd-emmc-xxx.img”复制到 U 盘。
+. 将 U 盘插入 M3。
+. 执行以下命令（如果已自动挂载，可跳过此步）
 +
 ```sh
 mont /dev/sda1 /mnt
 ```
-. 有两种方法可以将镜像刻录到 eMMC.
-- 使用 bpi-copy 用于燃烧。
+. 可以使用以下两种方法将镜像烧录到 eMMC。
+- 使用 bpi-copy 烧录。
 +
 ```sh
 bpi-copy xxx-sd-emmc-xxx.img.zip / xxx-sd-emmc-xxx.img
 ```
-- 使用dd命令进行刻录。
+- 使用 dd 命令烧录。
 +
 ```sh
 sudo dd if=/mnt/sda1/xxx-sd-emmc-xxx.img of=/dev/mmcblk0
 ```
 
-. 然后关闭M3电源，取出TF卡，用以下命令打开M3 EMMC
+. 关闭 M3 电源，取出 TF 卡，再次上电后从 eMMC 启动。
 
 
-=== 更新您的图像
-例如，更新您的映像以支持新的 emmc5.1
+=== 更新镜像
+例如，将现有镜像更新为支持新版 eMMC 5.1。
 
 ```sh
 bpi-tools
@@ -166,15 +166,15 @@ bpi-bootsel /usr/lib/u-boot/bananapi/bpi-m3/BPI_M3_720P.img.gz
 reboot
 ```
 
-=== 制作你自己的形象
+=== 制作自己的镜像
 
-- 制作一张树莓派镜像
+- 制作一个 Raspbian 镜像
 
-- 准备一张已安装Raspbian系统的SD卡
+- 准备一张已安装 Raspbian 系统的 SD 卡
 
-- 用M3启动你的SD卡，M3启动完成后，复制你的文件并配置你的Raspbian，然后关闭M3
+- 使用该 SD 卡启动 M3。M3 启动完成后，复制所需文件并配置 Raspbian，然后关闭 M3。
 
-- 插入您的 SD 卡 Linux 电脑
+- 将 SD 卡插入 Linux 电脑
 +
 ```sh
 cd /media
@@ -187,33 +187,33 @@ ln -s <your account> pi
 bpi-migrate -c bpi-m3.conf -c raspbian-jessie-from-sd.conf -d /dev/sdx
 ```
 
-- 那么你现在就可以得到你自己的图像了
+- 完成后即可得到自己的镜像
 
-== 高级开发
+== 进阶开发
 === 安装 Docker
-你可以尝试安装armbian docker，这是图像： https://dl.armbian.com/bananapim3/Debian_stretch_dev.7z (在此感谢armbian社区)
+可以尝试使用 Armbian 安装 Docker，镜像地址为 https://dl.armbian.com/bananapim3/Debian_stretch_dev.7z （感谢 Armbian 社区）。
 
-将此镜像下载到您的 ubuntu 电脑 (我正在使用 ubuntu 电脑)，然后解压
+将该镜像下载到 Ubuntu 电脑，然后解压。
 ```sh
 7z x Debian_stretch_xxx.img
 bpi-copy Debian_stretch_xxx.img /dev/sd< drive letter >
 ``` 
 用户名：root，密码：1234
 
-以下是安装步骤 docker:
+Docker 安装步骤如下：
 ```sh
 vim /etc/apt/sources.list
-add this source：“deb http://http.debian.net/debian jessie-backports main”
+添加软件源：“deb http://http.debian.net/debian jessie-backports main”
 apt-get update
 apt-get install docker.io
 ```
-进行测试，如果 docker 已安装在您的映像中。
+执行测试，确认镜像中是否已安装 Docker。
 ```sh
 sudo docker run --rm hello-world
 ```
 
 === SATA
-. 在M3上安装SATA
+. 在 M3 上挂载 SATA 硬盘
 +
 ```sh
 fdisk -l
@@ -233,7 +233,7 @@ fdisk /dev/sdx
 mkfs.ext2 /dev/sdx
 mount /dev/sdx /mnt/xxx
 ```
-. 成功插入SATA后，我们可以输入以下命令来测试SATA接口：
+. 成功连接 SATA 硬盘后，可以输入以下命令测试 SATA 接口：
 
 - 测试读取速度
 +
@@ -257,25 +257,25 @@ image::/picture/sata_test.png[sata_test.png]
 ./adbd.sh
 ps -ax | grep adbd
 ```
-查看 adbd 是否已设置
+检查 adbd 是否已启动
 +
 image::/picture/m2p_adbd.png[m2p_adbd.png]
 
-. PC端：
+. 在电脑终端中：
 
-- 如果adbd设置成功，插入OTG-USB M3 和 PC 接口(与 Ubuntu 系统)
+- 如果 adbd 已成功启动，请用 OTG-USB 线连接 M3 和运行 Ubuntu 的电脑。
 - 执行
 +
 ```sh
 adb devices
 ```
-查看PC是否已识别M3 OTG
-- 如果是的话，我们可以执行
+检查电脑是否已识别 M3 的 OTG 设备
+- 如果已经识别，可以执行
 +
 ```sh
 adb shell
 ```
-现在通过 adb 连接 M3
+此时即可通过 adb 连接 M3
 +
 image::/picture/m2p_adbd_shell.png[m2p_adbd_shell.png]
 
@@ -285,7 +285,7 @@ image::/picture/m2p_adbd_shell.png[m2p_adbd_shell.png]
 ```sh
 bpi-bootsel
 ```
-您将看到启动文件列表。查找“**BPI_M3_LCD7.img.gz**"
+此时会显示启动文件列表。找到“**BPI_M3_LCD7.img.gz**”
 
 - 然后执行
 +
@@ -295,10 +295,10 @@ bpi-bootsel /usr/lib/u-boot/bananapi/bpi-M3/BPI_M3_LCD7.img.gz
 +
 image::/picture/m3_bootsel_lcd7.png[m3_bootsel_lcd7.png]
 
-=== 通用汽车MAC
-使用iperf3测试gmac
+=== GMAC
+使用 iperf3 测试 GMAC
 
-. 在PC端：
+. 在电脑终端中：
 +
 ```sh
 iperf3 -s
@@ -306,12 +306,12 @@ iperf3 -s
 
 . 在 M3 控制台上：
 
-- TCP测试
+- TCP 测试
 +
 ```sh
 iperf3 -c serverIP
 ```
-- UDP测试
+- UDP 测试
 +
 ```sh
 iperf3 -u -c serverIP
@@ -320,20 +320,20 @@ iperf3 -u -c serverIP
 image::/picture/m3_gmac_test.png[m3_gmac_test.png]
 
 === 蓝牙
-使用bluetoothctl工具操作BT
+使用 bluetoothctl 工具管理蓝牙
 
 - 执行
 +
 ```sh
 bluetoothctl
 ```
-如果您不知道如何使用bluetoothctl，请输入“help”，您将看到更多命令
-- 执行这些命令：
+如果不熟悉 bluetoothctl，请输入“help”查看更多命令。
+- 执行以下命令：
 +
 image::/picture/m3_bluetooth.png[m3_bluetooth.png]
 
-=== WiFi客户端
-您有两种方法来设置 WiFi 客户端
+=== WiFi 客户端
+可以使用以下两种方法设置 WiFi 客户端
 
 . 使用命令设置 WiFi 客户端
 +
@@ -356,31 +356,31 @@ wpa_supplicant -iwlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf
 dhclient wlan0
 ```
 
-. 使用UI界面设置WiFi Client
+. 使用图形界面设置 WiFi 客户端
 
-=== 清除启动
+=== 清除启动区
 ```sh
 git clone https://github.com/BPI-SINOVOIP/BPI-files/tree/master/SD/100MB
 bpi-bootsel BPI-cleanboot-8k.img.gz /dev/sdX
 ```
-=== 相机功能
-我们使用HDF5640camara和HDF8865。
+=== 摄像头功能
+本例使用 HDF5640 摄像头和 HDF8865。
 
 image::/picture/ov5640_camara.png[ov5640_camara.png]
 
 image::/picture/ov8865_camara.png[ov8865_camara.png]
 
-**古维视**
+**Guvcview**
 
-使用您的UI界面来操作相机
+通过图形界面操作摄像头
 
-应用程序 -> 声音和视频 -> guvcview
+Applications -> Sound & Video -> guvcview
 
-**壳牌**
+**Shell**
 
 OV5640
 
-我们还有内置命令“/usr/local/bin“测试相机
+系统还在“/usr/local/bin”中提供了摄像头测试脚本
 
 - 测试拍照功能
 +
@@ -417,8 +417,8 @@ bpi-tools
 
 image::/picture/bpi-tools.png[bpi-tools.png]
 
-=== RPi。GPIO
-**安装 RPi。GPIO**
+=== RPi.GPIO
+**安装 RPi.GPIO**
 
 ```sh
 git clone https://github.com/BPI-SINOVOIP/RPi.GPIO"
@@ -430,23 +430,23 @@ sudo apt-get install python-dev python3-dev
 ```sh
 sudo python setup.py install
 ```
-或
+或者
 ```sh
 sudo python3 setup.py install
 ```
 安装模块
 
-**使用 RPi。GPIO**
+**使用 RPi.GPIO**
 ```sh
 cd /usr/local/bin
 ./bpi_test_g40.py
 ```
 image::/picture/rpi_gpio.png[rpi_gpio.png]
 
-=== 接线Pi
+=== WiringPi
 GitHub: https://github.com/BPI-SINOVOIP/BPI-WiringPi2.git
 
-我们还有内置的测试命令“/usr/local/bin"
+系统还在“/usr/local/bin”中提供了内置测试命令
 
 **如何更新 WiringPi**
 
@@ -471,16 +471,16 @@ image::/picture/update_wringpi.png[update_wringpi.png]
 /usr/local/bin/bpi_test_lcd1602.sh
 ```
 
-**0.96英寸 OLED 显示**
+**0.96 英寸 OLED 显示屏**
 
 执行 
 ```sh
 /usr/local/bin/bpi_test_52pi.sh
 ```
 
-**8x8 RGB LED 马蒂克斯**
+**8×8 RGB LED 矩阵**
 
-首先你需要一个 GPIO 8x8 扩展板 LED 马蒂克斯
+首先需要一块用于 8×8 LED 矩阵的 GPIO 扩展板
 
 image::/picture/wringpi_led_martix_extend_board.png[wringpi_led_martix_extend_board.png]
 
@@ -502,12 +502,7 @@ glmark2-es
 image::/picture/m3_gpu_test.png[m3_gpu_test.png]
 
 === 文件系统
-只读系统更改为读写模式
+将只读文件系统切换为读写模式
 ```sh
 mount -o remount,rw /
 ```
-
-
-
-
-
