@@ -1,8 +1,8 @@
 ---
-title: 香蕉派 BPI-M1 照片
-description: 香蕉派 BPI-M1 照片
-published: true
-date: 2026-08-22T11:47:58.429Z
+title: Banana Pi BPI-M1 产品图片
+description: Banana Pi BPI-M1 产品图片
+published: false
+date: 2026-08-22T17:12:38.459Z
 tags: 
 editor: markdown
 dateCreated: 2026-08-22T11:47:58.429Z
