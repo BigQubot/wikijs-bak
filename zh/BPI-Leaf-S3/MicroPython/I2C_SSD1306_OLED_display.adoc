@@ -1,21 +1,21 @@
-SSD1306 OLED screen模块是一个非常常见的screen模块，可以使用 I2C 通信协议。最大可输出128张图像*64位，无灰度，单个像素只有开和关两种状态。控制逻辑比较简单，非常适合入门。学习单片机行车屏显示项目。
+SSD1306 OLED 是一种常见的屏幕模块，可使用 I²C 通信协议。它最高支持 128 × 64 像素的单色图像，不支持灰度，每个像素只有亮和灭两种状态。其控制逻辑较为简单，非常适合作为学习单片机驱动屏幕显示的入门项目。
 
 == 外部硬件要求
 
-SSD1306 OLED 带I²C接口的屏模块，最好是128*64 像素。
+一个带 I²C 接口的 SSD1306 OLED 屏幕模块，建议选择 128 × 64 像素型号。
 
 == 驱动库下载
 
-TIP: https://github.com/micropython/micropython-lib/blob/master/micropython/drivers/display/ssd1306/ssd1306.py[micropython/ssd1306.py 司机]
+TIP: https://github.com/micropython/micropython-lib/blob/master/micropython/drivers/display/ssd1306/ssd1306.py[MicroPython ssd1306.py 驱动程序]
 
-下载后 ssd1306.py 本地，上传到 MicroPython 设备。
+将 ssd1306.py 下载到本地，然后上传至 MicroPython 设备。
 
 == 接线参考
 [options="header"]
 |=====================
-| SSD1306 OLED | 董事会
-| 接地          | 接地  
-| 电压控制电路          | 3V3  
+| SSD1306 OLED | 开发板
+| GND          | GND  
+| VCC          | 3V3  
 | SCL          | 16   
 | SDA          | 15   
 |=====================
@@ -39,7 +39,7 @@ for i in i2c_list:
      print("NO.{0},address:{1}".format(j,hex(i)))
 ```
 
-通常SSD1306的地址是0x3c。
+SSD1306 的地址通常为 0x3c。
 
 == 显示字符
 
@@ -58,7 +58,7 @@ oled = SSD1306_I2C(128, 64, i2c, addr=0x3c)
 
 
 def display():
-     # The framebuf library only supports ASCII printing characters encoded as 32~126
+     # framebuf 库仅支持编码为 32～126 的 ASCII 可打印字符
      oled.text(" !\"#$%&'()*+,-./", 0, 0)
      oled.text("0123456789:;<=>?", 0, 8)
      oled.text("@ABCDEFGHIJKLMNO", 0, 16)
@@ -69,7 +69,7 @@ def display():
 
 
 def testAscii():
-     # The return value of chr() is the ASCII character corresponding to the current integer
+     # chr() 的返回值是与当前整数对应的 ASCII 字符
      Ascii = ''
      for i in range(32, 127):
          Ascii = Ascii + chr(i)
@@ -79,7 +79,7 @@ def testAscii():
 
 
 def display_Ascii():
-     # The framebuf library only supports ASCII printing characters encoded as 32~126
+     # framebuf 库仅支持编码为 32～126 的 ASCII 可打印字符
      oled.text(testAscii()[0:16], 0, 0)
      oled.text(testAscii()[16:32], 0, 8)
      oled.text(testAscii()[32:48], 0, 16)
@@ -94,16 +94,16 @@ if __name__ == "__main__":
      # print(testAscii())
      # display_Ascii()
 
-# ASCII printing characters (character encoding: 32-127)
-# 32~126 (95 in total) are characters: 32 is a space, among which 48~57 are ten Arabic numerals from 0 to 9,
-# 65～90 are 26 uppercase English letters,
-# 97~122 are 26 lowercase English letters,
-# The rest are some punctuation marks, operation symbols, etc.
-# The 127th character represents the delete command on the keyboard.
-# ASCII extension code (character encoding: 128-255)
-# The last 128 are called extended ASCII codes.
-# Many x86-based systems support the use of extended (or "high") ASCII.
-# The extended ASCII code allows the 8th bit of each character
-# to be used to determine additional 128 special symbol characters, foreign language letters and graphic symbols.
+# ASCII 可打印字符（字符编码：32～127）
+# 32～126 共 95 个字符：32 是空格，其中 48～57 是数字 0～9，
+# 65～90 是 26 个大写英文字母，
+# 97～122 是 26 个小写英文字母，
+# 其余是标点符号、运算符号等。
+# 第 127 个字符表示键盘上的 Delete 命令。
+# ASCII 扩展码（字符编码：128～255）
+# 后 128 个字符称为扩展 ASCII 码。
+# 许多基于 x86 的系统支持扩展（或“高位”）ASCII。
+# 扩展 ASCII 码允许使用每个字符的第 8 位，
+# 从而表示另外 128 个特殊符号、外文字母和图形符号。
 
 ```
