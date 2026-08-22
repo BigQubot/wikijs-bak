@@ -1,4 +1,4 @@
-TIP: link:../GettingStarted_BPI-Leaf-S3[返回开始使用 BPI-Leaf-S3]
+TIP: link:../GettingStarted_BPI-Leaf-S3[返回 BPI-Leaf-S3 入门指南]
 
 https://www.youtube.com/watch?v=I4F8jw2MK1k[YouTube 视频]
 
@@ -6,17 +6,17 @@ https://www.youtube.com/watch?v=I4F8jw2MK1k[YouTube 视频]
 
 [options="header"]
 |======================
-| 电位器 | 董事会
-| 接地           | 接地  
-| 电压控制电路           | 3V3  
+| 电位器 | 开发板
+| GND           | GND  
+| VCC           | 3V3  
 | S             | GPIO1
 |======================
 
 [options="header"]
 |=====================
-| SSD1306 OLED | 董事会
-| 接地          | 接地  
-| 电压控制电路          | 3V3  
+| SSD1306 OLED | 开发板
+| GND          | GND  
+| VCC          | 3V3  
 | SCL          | 16   
 | SDA          | 15   
 |=====================
