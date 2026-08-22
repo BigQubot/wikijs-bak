@@ -1,0 +1,82 @@
+WARNING:  所有 Flash 操作均不可逆，请务必提前备份代码等重要文件。
+
+== 下载 tinyUF2 固件
+. 打开 https://circuitpython.org/board/bpi_picow_s3/[BPI-PicoW-S3 CircuitPython 下载]页面。
+. 在页面底部找到 `Install, Repair, or Update UF2 Bootloader` 栏目，然后单击其下方的 `DOWNLOAD BOOTLOADER ZIP` 按钮下载压缩包。
+. 将压缩包解压到本地，其中的 `combined.bin` 文件就是所需固件。
+
+== 将开发板置于引导加载程序模式
+
+image::/picture/bpi_picow_s3_circuitpython_download_2.jpg[bpi_picow_s3_circuitpython_download_2.jpg]
+
+. 通过 USB 将开发板连接到计算机。
+. 使用金属针、镊子等导体短接 BOOT0 触点，使 ESP32-S3 芯片进入 Bootloader 模式。
+3. 按 `Reset` 按钮一次。
+4. 释放 BOOT0 触点。
+
+== 在浏览器中烧录固件
+> 支持 Chrome 和 Edge 浏览器，Chromium 内核版本须高于 89。
+
+. 打开 https://nabucasa.github.io/esp-web-flasher/[ESP Web Flasher] 页面。
+. 单击 `Connect` 按钮，弹出选项栏，选择开发板所在串口。
++
+image::/picture/bpi_picow_s3_tinyuf2_download_1.png[bpi_picow_s3_tinyuf2_download_1.png]
+image::/picture/bpi_picow_s3_tinyuf2_download_2.png[bpi_picow_s3_tinyuf2_download_2.png]
+
+. 正常连接后，单击 `Erase` 按钮擦除开发板的 Flash 内容。此过程不可逆。
++
+image::/picture/bpi_picow_s3_tinyuf2_download_3.jpg[bpi_picow_s3_tinyuf2_download_3.jpg]
+
+. 单击 `Choose a file...` 按钮，在弹出的文件选择窗口中进入 `combined.bin` 所在目录，选中该文件并单击“确定”。
+. 单击 `Program` 按钮开始烧录固件，等待约五分钟完成。
+. 完成后手动按一次 `Reset` 按钮。彩色 LED 持续亮绿灯表示烧录成功；如果未出现该结果，可重新执行前五步，或尝试下一种烧录方法。
+
+== 使用 esptool 在本地烧录固件
+
+. 打开 https://www.python.org/[Python 官方网站]。
++
+在 Windows 系统中，最方便的方式是在官网首页单击下图所示的图标下载安装包。
++ 
+image::/picture/bpi_picow_s3_micropython_operating_env_1.jpg[bpi_picow_s3_micropython_operating_env_1.jpg]
++
+其他操作系统或发行版可在 Downloads 选项栏中选择。
++
+建议使用 Python 3.7 或更高版本。
+
+. 开始安装时务必勾选 “Add Python 3.x to PATH”，以免之后手动配置 PATH。
++ 
+image::/picture/bpi_picow_s3_micropython_operating_env_2.jpg[bpi_picow_s3_micropython_operating_env_2.jpg]
++
+按照安装提示一步一步即可顺利完成安装。
+
+. 下面以 Windows PowerShell 为例，使用以下命令安装 esptool：
++
+```shell
+pip install esptool
+```
+
+     以后如有需要，可使用以下命令升级 esptool：
++
+```shell
+pip install -U esptool
+```
+
+. 在 PowerShell 中使用命令或其他方式进入固件所在目录。
+
+. 在 Windows 文件夹窗口中按住 Shift 键并右击，即可在当前文件夹打开 PowerShell 窗口。
+
+. 此时需要让开发板进入 Bootloader 模式，具体操作参见上文。
+
+. 使用以下命令擦除 Flash。请将 COM 端口改为开发板实际使用的端口，此处以 COM22 为例。
++
+```shell
+python -m esptool --chip esp32s3 --port COM22 --baud 460800 erase_flash
+```
+
+. 使用以下命令烧录 `combined.bin` 固件。请将 COM 端口改为开发板实际使用的端口，此处以 COM22 为例。
++
+```shell
+python -m esptool --chip esp32s3 --port COM22 --baud 460800 write_flash -z 0x0 combined.bin
+```
+
+. 完成后手动按一次 `Reset` 按钮。彩色 LED 持续亮绿灯表示烧录成功；如果未出现该结果，可重新执行前两个命令步骤。
