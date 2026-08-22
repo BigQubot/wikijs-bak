@@ -1,20 +1,20 @@
 == 外部硬件要求
 
-USB 到 UART 模块 (CH340、CP2102等).
+USB 转 UART 模块（CH340、CP2102 等）。
 
 == 软件要求
 
-串口调试软件如 https://putty.org/[腻子]，以及所需的驱动程序 USB 到 UART 模块。
+串口调试软件（例如 https://putty.org/[PuTTY]），以及 USB 转 UART 模块所需的驱动程序。
 
 == 接线参考
 
-连接 BPI-Leaf-S3 开发板通过 USB，连接 RX USB 到 UART 模块转GPIO17 (TX 的 BPI-Leaf-S3)，将TX连接到GPIO18 (接收的 BPI-Leaf-S3)，并将 GND 连接到 GND (共同点) ), 的 USB 的接口 USB 到 UART 模块与电脑连接，可以是与模块连接的同一台电脑 BPI-Leaf-S3，或两台不同的计算机。
+通过 USB 将 BPI-Leaf-S3 连接到计算机；将 USB 转 UART 模块的 RX 接到 GPIO17（BPI-Leaf-S3 的 TX），TX 接到 GPIO18（BPI-Leaf-S3 的 RX），GND 接到 GND（共地）。再将 USB 转 UART 模块的 USB 接口连接到计算机；可以使用连接 BPI-Leaf-S3 的同一台计算机，也可以使用另一台计算机。
 
 == 运行结果
 
-在 MicroPython REPL 计算机所在的 BPI-Leaf-S3 位于，从接收到的数据 USB 到 UART 模块每秒都会输出一次。
+在连接 BPI-Leaf-S3 的计算机上，MicroPython REPL 每秒输出一次从 USB 转 UART 模块接收到的数据。
 
-在电脑的串口调试软件窗口中USB 到 UARTmodule所在，可以看到一行字符 `Hello World!` 发送者 BPI-Leaf-S3 每秒输出一次。
+在连接 USB 转 UART 模块的计算机上，串口调试软件窗口会每秒显示一次 BPI-Leaf-S3 发出的 `Hello World!`。
 
 == 代码
 ```
