@@ -1,0 +1,197 @@
+= 简介
+
+BPI-RT2 路由器采用Realtek RTL8198D设计。是一款适用于小微企业、家庭等网络环境的高性能无线路由器。
+
+BPI-RT2 路由器双频无线路由器，2.4G 2T2R、5G 2T2R同时共存。采用四根全向高增益天线，信号穿透力强，覆盖范围更广，使得本来就很强的信号变得更加强大，数据传输也更加流畅。 MU-MIMO多设备收发技术低时延，多设备同时稳定连接，保证多设备良好的体验。
+
+TIP: link:/en/BPI-RT2/BananaPi_BPI-RT2[BananaPi_BPI-RT2]
+
+= 开发
+== 准备
+* 12V/2A 电源适配器
+* 串口线
+
+== 读写EEPROM
+```
+hexdump -C /sys/bus/i2c/devices/1-0057/eeprom | head -n 2
+```
+
+2、写入内容到EEPROM
+```
+echo "HelloPuya" > /sys/bus/i2c/devices/1-0057/eeprom
+```
+
+image::/bpi-rt2/bpi-eeprom.png[bpi-eeprom.png]
+
+== USB
+的 BPI-RT2 配备有 USB 3.0界面。您可以同时检测到 USB 3.0 和 USB 连接2.0设备时。
+
+image::/bpi-rt2/bpi-rt2-usb3.0&2.0.png[bpi-rt2-usb3.0&2.0.png]
+
+
+
+= 图片
+== 网页升级
+ . 首先，下载需要升级的镜像
+. 打开电源 BPI-RT2 并使用网线将其连接至计算机。
+. 输入网页 (默认IP为192.168.1.1，用户为root，无密码。)
++
+image::/bpi-rt2/bpi-rt2-web.png[bpi-rt2-web.png]
+
+. 选择“系统”，然后选择“系统”->“固件”。
+. 然后，单击 Flash 镜像。
+. 选择需要升级的镜像，然后点击“上传”。
++
+image::/bpi-rt2/bpi-rt2-web2.png[bpi-rt2-web2.png]
+
+. 取消选中“保留设置并保留当前配置”。选择“继续”。
++
+image::/bpi-rt2/bpi-rt2-web3.png[bpi-rt2-web3.png]
+
+. 等待几分钟，升级完成后会自动重启，网页会自动刷新。
+
+
+
+== TFTP
+
+
+1. 连接串口工具。上电后，连续按住ESC键进入启动模式。
+
+image::/bpi-rt2/rt2-uboot.png[rt2-uboot.png]
+
+2. 下载TFTPD64工具
+
+image::/bpi-rt2/rt2-tftp.png[rt2-tftp.png]
+
+3. 使用连接器将计算机连接到开发板 Ethernet 电缆，然后在引导模式下检查板的 IP 地址。
+执行 `printenv`.
+
+image::/bpi-rt2/rt2-printip.png[rt2-printip.png]
+
+然后修改电脑的IP地址 (计算机IP的最后一个主机号必须是66) 修改为同一子网内修改如下：
+
+image::/bpi-rt2/rt2-ip.png[rt2-ip.png]
+
+4. 启动TFTPD64并将要传输的文件放入 E:\tftp-root.
+如果该文件夹不存在，请在E盘上创建一个名为tftp-root的新文件夹。
+在服务器接口下，选择 192.168.1.66。
+主机：输入192.168.1.6 (开发板的IP地址).
+本地文件：单击相邻的...或浏览按钮。
+在弹出窗口中，导航至并输入 E:\tftp-root 文件夹。
+选择要传输的文件并单击“打开”。
+保留其余设置不变。
+
+image::/bpi-rt2/rt2-tftp2.png[rt2-tftp2.png]
+
+5. 在串口执行以下命令：tftpboot 0x82000000 ubi_装置_img.ubi
+(文件名98D_乌比_device.ubi 必须与本地文件中选定的文件完全匹配)
+当观察到串口中出现“Loading...”或“TFTP from server...”提示时，立即用鼠标单击Tftpd64中的Put按钮。
+
+image::/bpi-rt2/rt2-tftp4.png[rt2-tftp4.png]
+image::/bpi-rt2/rt2-tftp5.png[rt2-tftp5.png]
+
+板串行输入：运行 updev
+
+6. 再次上传img.tar。该过程与上面类似。 
+
+image::/bpi-rt2/rt2-tftp3.png[rt2-tftp3.png]
+板串行输入：run upt
+最后，只需重新启动即可。
+
+image::/bpi-rt2/rt2-reboot.png[rt2-reboot.png]
+
+= 双备份
+== 双备份分区结构
+
+image::/bpi-rt2/bpt-rt2-dualbackup4.png[bpt-rt2-dualbackup4.png]
+
+== 变量含义
+`sw_tryactive=0`：尝试启动系统 0 (乌比_k0 + 乌比_r0)
+
+`sw_tryactive=1`：尝试启动系统1 (乌比_k1 + 乌比_r1)
+
+`sw_tryactive=2`：本次启动使用默认系统 (决定于 `sw_commit`)
+
+`sw_commit=0`：默认系统为系统0
+
+`sw_commit=1`：默认系统为系统1
+
+== 启动程序
+UBoot 读取 `sw_tryactive`:
+
+如果 `sw_tryactive`=0或1：尝试加载相应的系统
+
+如果启动成功，UBoot会自动设置 `sw_tryactive` 2、下次启动默认系统
+
+如果启动失败 (例如内核崩溃、挂载失败)，执行4.2故障切换
+
+如果 `sw_tryactive`=2：直接读取 `sw_commit` 并进行手动切换
+
+== 双备份手动切换
+在U-Boot模式下执行
+```bash
+setenv sw_tryactive 0
+saveenv
+Boot
+```
+image::/bpi-rt2/bpt-rt2-dualbackup1.png[bpt-rt2-dualbackup1.png]
+
+可以看到切换到系统0 (根=31:7)
+
+image::/bpi-rt2/bpt-rt2-dualbackup2.png[bpt-rt2-dualbackup2.png]
+
+在U-Boot模式下执行：
+
+```bash
+setenv sw_tryactive 1
+saveenv
+Boot
+```
+您将观察到系统切换到系统 1 (根=31:9)
+
+image::/bpi-rt2/bpt-rt2-dualbackup3.png[bpt-rt2-dualbackup3.png]
+
+查看当前设置
+```bash
+printenv sw_tryactive
+printenv sw_commit
+```
+
+= 打开WRT
+== 无线网络
+您可以在网络的无线部分检查 WiFi 启动状态。其中， BPI-RT2-2.4G 和 BPI-RT2-5G 的 WiFi 是 BPI-RT2。您也可以在“编辑”部分进行配置。
+
+image::/bpi-rt2/bpi-rt2-ssid.png[bpi-rt2-ssid.png] 
+
+您可以更改路由器的 ESSID
+
+image::/bpi-rt2/bpi-rt2-ssid3.png[bpi-rt2-ssid3.png]
+
+修改后你会看到
+
+image::/bpi-rt2/bpi-rt2-ssid2.png[bpi-rt2-ssid2.png]
+
+
+
+= GPIO 定义 
+== 5针 GPIO 定义
+[options="header",cols="3,1,1,4",width="70%"]
+|====
+4+| **BPI-RT2 5 针接头 GPIO 的定义 BPI-RT2**
+|BPI-RT2-CON6	|密码		|密码	|BPI-RT2-CON5
+|GPIO28	|1		|2	| GPIO36
+|电源电压33	|3	|	4|	接地
+|GPIO25	|5	|	|
+|====
+
+== 9 针 GPIO 定义
+[options="header",cols="3,1,1,4",width="70%"]
+|====
+4+| **BPI-RT2 5 针接头 GPIO 的定义 BPI-RT2**
+|BPI-RT2-CON6	|密码		|密码	|BPI-R4-CON6
+|	I2C0_SCL|1		|2	|GPIO30
+| I2C0_SDA	|3	|	4|	GPIO5
+|接地	|5	| 6	|	GPIO3
+|电源电压33	|7	|	8|	GPIO2
+|	|9	| 10	|GPIO37	
+|====
