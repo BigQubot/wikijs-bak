@@ -1,8 +1,8 @@
 ---
-title: 香蕉派 BPI-R4 照片
-description: 香蕉派 BPI-R4 照片
-published: true
-date: 2026-08-22T11:47:36.095Z
+title: Banana Pi BPI-R4 产品图片
+description: Banana Pi BPI-R4 产品图片
+published: false
+date: 2026-08-22T17:10:27.167Z
 tags: 
 editor: markdown
 dateCreated: 2026-08-22T11:47:36.095Z
