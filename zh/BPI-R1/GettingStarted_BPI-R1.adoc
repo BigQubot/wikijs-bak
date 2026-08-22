@@ -1,0 +1,36 @@
+= 简介
+香蕉派 R1 是一款基于 香蕉派 的路由器，运行在相同的路由器上 SoC 作为 M1 经典 Pi。
+
+R1 是一款开放硬件路由器，可以在多种开源操作系统上运行，包括 OpenWrt, Android和巴纳尼安。 R1 具有纤薄的路由器外形，配有 2.5 英寸 HDD 托架。它还具有 4 个千兆 LAN 端口、1 个千兆 WAN 和 300Mbs 无线 N 功能。
+
+TIP: 更多信息： link:/en/BPI-R1/BananaPi_BPI-R1[香蕉派 BPI-R1]
+
+== 主要特性
+- 双核1.0GHz CPU
+- 1 GB DDR3 内存
+- 带 Open GL ES 的 Mali-400 MP2 2.0/1.1
+- 4 个千兆 LAN 1 个千兆 WAN
+
+= 开发
+== 基础开发
+=== 准备开发
+. 准备 16G/above TF卡、 USB-串行接口， Ubuntu 系统
+. 使用您的 USB-R1 上的串行连接调试控制台
+
+image::/picture/r1_debug_console.png[r1_debug_console.png]
+image::/picture/r1_dc_in.png[r1_dc_in.png]
+
+=== 在 R1 上加载您的第一张图像
+. 您可以从我们的论坛下载最新图片
+. 安装 bpi-tools 在你的 Ubuntu。如果您无法访问此网址或有任何其他问题，请访问 bpi-tools 存储库并手动安装此工具。
++
+```sh
+apt-get install pv
+curl -sL https://github.com/BPI-SINOVOIP/bpi-tools/raw/master/bpi-tools | sudo -E bash
+``` 
+. 下载镜像后，将TF卡插入电脑Ubuntu,执行
++
+```sh
+bpi-copy xxx.img /dev/sdx
+```
+. 步骤3后，您可以将TF卡插入R1，然后按电源按钮设置R1
