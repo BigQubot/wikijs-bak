@@ -1,8 +1,8 @@
 ---
 title: Banana Pi BPI-R4 产品图片
 description: Banana Pi BPI-R4 产品图片
-published: false
-date: 2026-08-22T17:10:27.167Z
+published: true
+date: 2026-08-23T14:35:59.712Z
 tags: 
 editor: markdown
 dateCreated: 2026-08-22T11:47:36.095Z
