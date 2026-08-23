@@ -2,7 +2,7 @@
 
 本使用手册适用于香蕉派 BPI-M7(Sige7)	, BPI-M5 Pro(Sige5)	,BPI-M4 Super(Sige3),BPI-M1 Super(Sige1)
 
-TIP: More Infomation: link:/en/BPI-M5/BananaPi_BPI-M5_Pro[Banana Pi BPI-M5 Pro] AI SBC design 
+TIP: More Infomation: link:/zh/BPI-M5/BananaPi_BPI-M5_Pro[Banana Pi BPI-M5 Pro] AI SBC design 
 
 
 香蕉派基于瑞芯微芯片系列单板计算机产品系列用户手册
@@ -87,7 +87,7 @@ RockChip产品用户手册帮助用户了解Panana Pi产品的基本用法，以
 
 = 烧录方式选择
 
-TIP: Choosing the Burning Method : link:/en/BPI-M5/BananaPi_Flash_image[Rockchip chip Flash System Image]
+TIP: Choosing the Burning Method : link:/zh/BPI-M5/BananaPi_Flash_image[Rockchip chip Flash System Image]
 
 = 接口使用
 
@@ -781,8 +781,8 @@ root@armsom-sige7:/ # echo performance > /sys/class/devfreq/fdab0000.npu/governo
 
 == RKLLM 
 
-TIP: How to use RKLLM : link:/en/BPI-M7/how-touse-llm[Banana Pi BPI-M7 RKLLM Development ]
+TIP: How to use RKLLM : link:/zh/BPI-M7/how-touse-llm[Banana Pi BPI-M7 RKLLM Development ]
 
 == RKNN
 
-TIP: link:/en/BPI-CM5_Pro/BananaPi_BPI-CM5_Pro/Rockchip_RKNN_Guide[Rockchip RKNN SDK Quick Start Guide]
+TIP: link:/zh/BPI-CM5_Pro/BananaPi_BPI-CM5_Pro/Rockchip_RKNN_Guide[Rockchip RKNN SDK Quick Start Guide]
