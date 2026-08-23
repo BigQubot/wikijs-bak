@@ -1,4 +1,4 @@
-TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_development_tutorialbased_on_microbit[BPI-Bit 的 MicroPython 开发教程]
+TIP: link:/zh/BPI-Bit/Bit_for_MicroPython#_开发教程基于_microbit[BPI-Bit 的 MicroPython 开发教程]
 
 = 如何控制开发板的输入与输出
 
@@ -7,7 +7,7 @@ TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_development_tutorialbased_on_microbit
 image::/bpi-bit/bitio.png[bitio.png]
 
 - 各 IO 接口大小不一，附近通常都有标识便于识别。例如，开发板底部金手指上的接口依次标为 0/1/2/3V/GND（大多数计算机编号从 0 开始）。
-- 将金手指插入扩展底座后，还可以使用其他较小的蓝白引脚。第一章硬件介绍中对此有专门说明，忘记时可查阅 link:https://docs.banana-pi.org/en/BPI-Bit/BananaPi_BPI-Bit#_hardware[BPI:bit 硬件]。
+- 将金手指插入扩展底座后，还可以使用其他较小的蓝白引脚。第一章硬件介绍中对此有专门说明，忘记时可查阅 link:https://docs.banana-pi.org/zh/BPI-Bit/BananaPi_BPI-Bit#_硬件[BPI:bit 硬件]。
 - 在 microbit 模块中，开发板接口定义为 pinN 对象，其中 N 表示接口编号，因此 0 号接口也称为 pin0 对象。如果这种命名方式不便使用，也可以从 machine 导入 Pin，自行定义喜欢的引脚名称。
 
 = 害羞板
