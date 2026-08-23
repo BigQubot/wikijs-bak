@@ -1,4 +1,4 @@
-TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_development_of_advanced[BPI:bit 的 MicroPython 开发]
+TIP: link:/zh/BPI-Bit/Bit_for_MicroPython#_进阶开发[BPI:bit 的 MicroPython 开发]
 
 = 关于 MQTT
 MQTT 是当今物联网的重要组成部分。MQTT 服务器负责转发数据，客户端通过发布与订阅接口交换消息；身份认证、权限控制等复杂的安全功能则由服务端统一处理。
@@ -26,7 +26,7 @@ image::/bpi-bit/mqttconfig.png[mqttconfig.png]
 服务正常启动后不会输出数据；配置有误时则会报错并退出。如需确认服务是否正常工作，可以按下面的教程进行测试。
 
 = 在 BPI:bit 上使用 MQTT
-按照前一篇教程 link:/en/BPI-Bit/Bit_for_MicroPython/WiFI_wireless_connection[2 WiFi 无线连接] 让开发板进入无线模式。确认网络配置正确并已连接网络后，即可启动 MQTT 服务。
+按照前一篇教程 link:/zh/BPI-Bit/Bit_for_MicroPython/WiFI_wireless_connection[2 WiFi 无线连接] 让开发板进入无线模式。确认网络配置正确并已连接网络后，即可启动 MQTT 服务。
 
 准备并运行以下 Python 代码：link:https://github.com/BPI-STEAM/BPI-BIT-MicroPython/blob/master/12.network/server_mqtt.py[server_mqtt.py]
 
