@@ -2,9 +2,9 @@
 
 Banana Pi BPI-R4 Pro 路由器开发板采用 MediaTek MT7988A（Filogic 880）四核 ARM Cortex-A73 处理器，配备 4GB/8GB DDR4 内存、8GB eMMC 和板载 128MB SPI-NAND 闪存；同时提供 2 个 10GbE SFP+ 接口、4 个千兆以太网口和 USB 3.2 接口。M.2 插槽支持 4G/5G 模块和 NVMe SSD，另有 2 个采用 PCIe 3.0 双通道接口的 miniPCIe 插槽，可安装 Wi-Fi 7 网卡（NIC）。这是一款高性能开源路由器开发板。
 
-TIP: 更多信息：link:https://docs.banana-pi.org/en/BPI-R4_Pro/BananaPi_BPI-R4_Pro[Banana Pi BPI-R4 Pro]
+TIP: 更多信息：link:https://docs.banana-pi.org/zh/BPI-R4_Pro/BananaPi_BPI-R4_Pro[Banana Pi BPI-R4 Pro]
 
-TIP: link:/en/BPI-R4_Pro/TEST-R4_Pro[BPI-R4 Pro 硬件测试]
+TIP: link:/zh/BPI-R4_Pro/TEST-R4_Pro[BPI-R4 Pro 硬件测试]
 
 == 框图（8X）
 
@@ -17,20 +17,20 @@ image::/bpi-r4_pro/bpi-r4pro-block_diagram_4e.png[bpi-r4pro-block_diagram_4e.png
 = 开发
 == 准备工作
 
-* 8GB 或更大容量的 MicroSD 卡 +
-* MicroSD 读卡器 +
-* USB 驱动器 +
-* USB Type-C 数据线 +
-* CAT6A 以太网线 +
-* 12V/5A 电源适配器 +
-（不连接任何外设和网线时，BPI-R4 Pro 主板功耗约为 10W，因此 12V/2A 即可工作。+
-但是否需要功率更高的适配器应根据所用配件确定，建议使用 12V/5A。）+
-* Windows/Ubuntu 系统 +
-* link:https://docs.banana-pi.org/en/BPI-R4_Pro/BananaPi_BPI-R4_Pro#_system_image[BPI-R4 Pro 镜像]
-* link:https://docs.banana-pi.org/en/BPI-R4_Pro/BananaPi_BPI-R4_Pro#_source_code[BPI-R4 Pro 源代码]
+* 8GB 或更大容量的 MicroSD 卡
+* MicroSD 读卡器
+* USB 驱动器
+* USB Type-C 数据线
+* CAT6A 以太网线
+* 12V/5A 电源适配器
+（不连接任何外设和网线时，BPI-R4 Pro 主板功耗约为 10W，因此 12V/2A 即可工作。
+但是否需要功率更高的适配器应根据所用配件确定，建议使用 12V/5A。）
+* Windows/Ubuntu 系统
+* link:https://docs.banana-pi.org/zh/BPI-R4_Pro/BananaPi_BPI-R4_Pro[BPI-R4 Pro 镜像]
+* link:https://docs.banana-pi.org/zh/BPI-R4_Pro/BananaPi_BPI-R4_Pro[BPI-R4 Pro 源代码]
 
 == BPI-R4 Pro 启动设置
-下表列出了开关（SW3）的设置及其功能。+
+下表列出了开关（SW3）的设置及其功能。
 
 image::/bpi-r4_pro/bpi-r4pro-bootstrap3.png[bpi-r4pro-bootstrap3.png,width=300]
 
@@ -57,12 +57,12 @@ image::/bpi-r4_pro/bpi-r4pro-boot_for_emmc.png[bpi-r4pro-boot_for_emmc.png,width
 
 
 == 烧录镜像
-如需将出厂默认系统更换为其他系统，+
-请在 Windows/Ubuntu 电脑上link:https://docs.banana-pi.org/en/BPI-R4_Pro/BananaPi_BPI-R4_Pro#_system_image[下载镜像]，然后按以下步骤操作。+
+如需将出厂默认系统更换为其他系统，
+请在 Windows/Ubuntu 电脑上link:https://docs.banana-pi.org/zh/BPI-R4_Pro/BananaPi_BPI-R4_Pro[下载镜像]，然后按以下步骤操作。
 
 
 === 如何将镜像烧录到 SD 卡
-NOTE: **请对 SD 卡进行低级格式化并清除其中的全部数据，这一点非常重要。** +
+NOTE: **请对 SD 卡进行低级格式化并清除其中的全部数据，这一点非常重要。**
 **否则，启动过程中会遇到“jffs2”错误。
 **
 
@@ -155,7 +155,7 @@ NOTE: 由于 SD 卡与 eMMC 共用 SoC 的同一个控制器，需要先切换�
 以下以 OpenWrt 镜像（**bl2_emmc-r4pro.img, mtk-bpi-r4pro-EMMC-20250928.img**）为例：
 
 . 将 USB 驱动器格式化为 FAT32。
-. 将用于 eMMC 启动的 OpenWrt 镜像（**bl2_emmc-r4pro.img, mtk-bpi-r4pro-EMMC-20250928.img**）复制到 USB 驱动器，+
+. 将用于 eMMC 启动的 OpenWrt 镜像（**bl2_emmc-r4pro.img, mtk-bpi-r4pro-EMMC-20250928.img**）复制到 USB 驱动器，
 如果镜像已压缩，请先解压再复制。
 
 . 切换为从 NAND 启动，然后给 R4 Pro 上电。
@@ -183,14 +183,14 @@ dd if=mtk-bpi-r4pro-EMMC-20250928.img of=/dev/mmcblk0
  
 == 上电启动
 
-* 使用 USB Type-C 数据线连接 BPI-R4 Pro 上的调试控制台（CN41）。+
-* 安装终端模拟器，或使用熟悉的串口终端，+
+* 使用 USB Type-C 数据线连接 BPI-R4 Pro 上的调试控制台（CN41）。
+* 安装终端模拟器，或使用熟悉的串口终端，
   设置为：波特率 115200、数据位 8 位、无校验、停止位 1 位、无流控。
-* 供电前先设置启动方式，+
-  （首次使用 BPI-R4 Pro 时，建议设置为从 NAND 启动。）+
-* 将电源适配器连接到 DC-IN 接口（CN44）后，绿色“PWR”LED 会亮起，+
-  控制台中会显示类似下面的字符。+
-  这表示 BPI-R4 Pro 已成功启动。+
+* 供电前先设置启动方式，
+  （首次使用 BPI-R4 Pro 时，建议设置为从 NAND 启动。）
+* 将电源适配器连接到 DC-IN 接口（CN44）后，绿色“PWR”LED 会亮起，
+  控制台中会显示类似下面的字符。
+  这表示 BPI-R4 Pro 已成功启动。
   
 [%collapsible]
 ====
@@ -295,8 +295,8 @@ TIP: 部分开发板会使用 MxL86252S-ABE-R。MxL86252S-ABE-R 与 MxL86252C �
 
 MT7988A 提供两个用于 10G 以太网的 USXGMII。其中，USXGMII Port1 用作 WAN 口（10G SFP+ WAN/10G RJ45 WAN）；USXGMII Port0 连接到 MxL86252C 交换芯片的 USXGMII0，而 MxL86252C 的 USXGMII1 用作 LAN 口（10G SFP+ LAN/10G RJ45 LAN）。
 
-BPI-R4 Pro 的 SFP SerDes 速率固定为 10Gbps，因此只能使用支持该速率的 SFP 模块！+
-link:https://docs.banana-pi.org/en/BPI-R4/BananaPi_BPI-R4#_10g_sfp_module[已测试的 10G SFP+ 电口/光口模块] +
+BPI-R4 Pro 的 SFP SerDes 速率固定为 10Gbps，因此只能使用支持该速率的 SFP 模块！
+link:https://docs.banana-pi.org/zh/BPI-R4/BananaPi_BPI-R4#_10g_sfp_module[已测试的 10G SFP+ 电口/光口模块]
 
 === 10G WAN
 ==== 框图
@@ -305,16 +305,16 @@ image::/bpi-r4_pro/bpi-r4pro-10g_wan-b.png[bpi-r4pro-10g_wan-b.png,width=800]
 
 
 ==== 10G SFP+ WAN
-当 MT7988A 的 GPIO3 输出高电平时，USXGMII Port1 切换到 SFP+ WAN 口。+
+当 MT7988A 的 GPIO3 输出高电平时，USXGMII Port1 切换到 SFP+ WAN 口。
 此时 10G SFP+ WAN 可用，而 10G RJ45 WAN 不可用。
 
-此时可插入 10G SFP+ 电口或光口模块，以获得 10G 网络接口。+
-也可以插入 10G XGSPON Stick，接入电信运营商网络。+
+此时可插入 10G SFP+ 电口或光口模块，以获得 10G 网络接口。
+也可以插入 10G XGSPON Stick，接入电信运营商网络。
  +
 
 
-NOTE: 默认镜像的配置如下：+
-插入 SFP 模块后，USXGMII 会自动切换到 10G SFP+，此时 10G RJ45 无法使用；+
+NOTE: 默认镜像的配置如下：
+插入 SFP 模块后，USXGMII 会自动切换到 10G SFP+，此时 10G RJ45 无法使用；
 **因此，如果要使用 10G RJ45，请勿在 SFP+ 接口中插入任何模块。**
 
 [%collapsible]
@@ -430,12 +430,12 @@ root@R4Pro-01i-NAND:~#
 
 ==== 10G RJ45 WAN（仅 8X 提供）
 
-当 MT7988A 的 GPIO3 输出低电平时，USXGMII Port1 切换到 10G RJ45 WAN 口。+
-需要加载 10G PHY AS21010P 的驱动程序，才能使 10G RJ45 接口工作。+
-此时 10G RJ45 WAN 可用，而 10G SFP+ WAN 不可用。+
+当 MT7988A 的 GPIO3 输出低电平时，USXGMII Port1 切换到 10G RJ45 WAN 口。
+需要加载 10G PHY AS21010P 的驱动程序，才能使 10G RJ45 接口工作。
+此时 10G RJ45 WAN 可用，而 10G SFP+ WAN 不可用。
 
 
-NOTE: AS21010P 功耗很高，必须使用散热效果良好的散热片。+
+NOTE: AS21010P 功耗很高，必须使用散热效果良好的散热片。
 
 [%collapsible]
 ====
@@ -487,26 +487,26 @@ root@R4Pro-01i-NAND:~#
 image::/bpi-r4_pro/bpi-r4pro-10g_lan-b.png[bpi-r4pro-10g_lan-b.png,width=800]
 
 ==== 10G SFP+ LAN
-当 MT7988A 的 GPIO54 输出低电平时，MxL86252C 的 USXGMII1 切换到 10G SFP+ LAN 口。+
+当 MT7988A 的 GPIO54 输出低电平时，MxL86252C 的 USXGMII1 切换到 10G SFP+ LAN 口。
 此时 10G SFP+ LAN 可用，而 10G RJ45 LAN 不可用。
 
-此时可插入 10G SFP+ 电口或光口模块，以获得 10G 网络接口。+
+此时可插入 10G SFP+ 电口或光口模块，以获得 10G 网络接口。
  +
 
 
 
-NOTE: 默认镜像的配置如下：+
-插入 SFP 模块后，USXGMII 会自动切换到 10G SFP+，此时 10G RJ45 无法使用；+
+NOTE: 默认镜像的配置如下：
+插入 SFP 模块后，USXGMII 会自动切换到 10G SFP+，此时 10G RJ45 无法使用；
 **因此，如果要使用 10G RJ45，请勿在 SFP+ 接口中插入任何模块。**
 
 
 ==== 10G RJ45 LAN（仅 8X 提供）
 
-当 MT7988A 的 GPIO54 输出高电平时，MxL86252C 的 USXGMII1 切换到 10G RJ45 LAN 口。+
-需要加载 10G PHY AS21010P 的驱动程序，才能使 10G RJ45 LAN 工作。+
-此时 10G RJ45 LAN 可用，而 10G SFP+ LAN 不可用。+
+当 MT7988A 的 GPIO54 输出高电平时，MxL86252C 的 USXGMII1 切换到 10G RJ45 LAN 口。
+需要加载 10G PHY AS21010P 的驱动程序，才能使 10G RJ45 LAN 工作。
+此时 10G RJ45 LAN 可用，而 10G SFP+ LAN 不可用。
  
-NOTE: AS21010P 功耗很高，必须使用散热效果良好的散热片。+
+NOTE: AS21010P 功耗很高，必须使用散热效果良好的散热片。
  
 
 
@@ -686,7 +686,7 @@ TIP: 部分开发板会使用 MxL86252S-ABE-R。MxL86252S-ABE-R 与 MxL86252C �
 
 BPI-R4 Pro 的四个 2.5G RJ45 端口由 MxL86252C（Port0～Port3）扩展。
 
-NOTE: MxL86252C 的功耗也很高，必须使用散热效果良好的散热片。+
+NOTE: MxL86252C 的功耗也很高，必须使用散热效果良好的散热片。
 
 image::/bpi-r4_pro/bpi-r4pro-mxl86252c.png[bpi-r4pro-mxl86252c.png,width=500]
 === 2.5G iperf3 测试
@@ -889,13 +889,13 @@ root@R4Lite-D:/#
 
 
 == 1G 以太网 FPC 接口
-BPI-R4 Pro 的 1G 以太网 FPC 接口连接到 MT7988A 内部交换机的 Port3。+
+BPI-R4 Pro 的 1G 以太网 FPC 接口连接到 MT7988A 内部交换机的 Port3。
  +
 
 image::/bpi-r4_pro/bpi-r4pro-1g_sfp_lan.png[bpi-r4pro-1g_sfp_lan.png,width=800]
 
-如需使用该 RJ45 接口，需要定制 RJ45 转接板，并使用间距 1.0mm 的 11 Pin FPC（柔性印刷电路）连接。+
-RJ45 转接板的 PCB 布局必须符合相关要求，例如以太网差分信号应按 100Ω 差分对布线，并保持适当间距等。+
+如需使用该 RJ45 接口，需要定制 RJ45 转接板，并使用间距 1.0mm 的 11 Pin FPC（柔性印刷电路）连接。
+RJ45 转接板的 PCB 布局必须符合相关要求，例如以太网差分信号应按 100Ω 差分对布线，并保持适当间距等。
  +
 
 image::/bpi-r4_pro/bpi-r4pro-1g_sfp_rj45.png[bpi-r4pro-1g_sfp_rj45.png,width=500]
@@ -944,23 +944,23 @@ root@R4Lite-C:/#
 
 
 == miniPCIe 插槽（用于 Wi-Fi 网卡）
-可以将 BPI Wi-Fi 网卡插入 BPI-R4 Pro 顶部的 CN7 和 CN9，然后用两颗 M2 螺钉固定。+
+可以将 BPI Wi-Fi 网卡插入 BPI-R4 Pro 顶部的 CN7 和 CN9，然后用两颗 M2 螺钉固定。
 
 image::/bpi-r4_pro/bpi-r4pro-be14.png[bpi-r4pro-be14.png,width=500]
 
-link:https://docs.banana-pi.org/en/BPI-R4/BananaPi_BPI-R4-NIC-BE14[BPI Wi-Fi 网卡：BE14 规格]
+link:https://docs.banana-pi.org/zh/BPI-R4/BananaPi_BPI-R4-NIC-BE14[BPI Wi-Fi 网卡：BE14 规格]
 
 === 12V 电源开关
-BPI Wi-Fi 网卡模块需要 12V 供电，因此上电前必须打开 BPI-R4 Pro 上的相应电源。+
+BPI Wi-Fi 网卡模块需要 12V 供电，因此上电前必须打开 BPI-R4 Pro 上的相应电源。
 （将 SW4 拨到“ON”位置；上电后 12V LED 会亮起。）
 
-IMPORTANT: 12V 电源会通过 miniPCIe 插座的 PIN6/28/48 提供给 BPI Wi-Fi 网卡。+
-插入其他模块时，如果不能确认该模块能否承受 12V，请务必关闭 SW4。+
+IMPORTANT: 12V 电源会通过 miniPCIe 插座的 PIN6/28/48 提供给 BPI Wi-Fi 网卡。
+插入其他模块时，如果不能确认该模块能否承受 12V，请务必关闭 SW4。
 
 image::/bpi-r4_pro/bpi-r4pro-12v-switch.png[bpi-r4pro-12v-switch.png,width=300]
 
 === 3.3V 电源调节
-可通过 PCA9555 扩展出的三个 GPIO 关闭 PCIe 3.3V 电源或调节其电压。+
+可通过 PCA9555 扩展出的三个 GPIO 关闭 PCIe 3.3V 电源或调节其电压。
 通常无需调节该电压。
 
 [%collapsible]
@@ -977,27 +977,27 @@ image::/bpi-r4_pro/bpi-r4pro-12v-switch.png[bpi-r4pro-12v-switch.png,width=300]
 
 
 === PCIe
-BPI Wi-Fi 网卡 BE14/BE19 需要两组双通道 PCIe，而标准 miniPCIe 插槽只定义了一组单通道 PCIe。+
-因此，本设计使用两个 miniPCIe 插槽，并将每个插槽的 17/19/45/47 引脚改为 PCIe 第二通道信号。+
+BPI Wi-Fi 网卡 BE14/BE19 需要两组双通道 PCIe，而标准 miniPCIe 插槽只定义了一组单通道 PCIe。
+因此，本设计使用两个 miniPCIe 插槽，并将每个插槽的 17/19/45/47 引脚改为 PCIe 第二通道信号。
 除这四个引脚外，其余均为标准定义，因此也可以使用其他模块。
 
 === USB 2.0
-两个 miniPCIe 插座各预留一对由 USB 2.0 HUB 扩展出的 USB 2.0 信号，供其他模块扩展使用。+
+两个 miniPCIe 插座各预留一对由 USB 2.0 HUB 扩展出的 USB 2.0 信号，供其他模块扩展使用。
 
 
 == M.2 B-KEY 插槽（用于 4G/5G 蜂窝网络模块）
-BPI-R4 Pro 配有三个 M.2 B-KEY 插槽，均用于安装 4G/5G 蜂窝网络模块。+
-每个插槽都支持一组 USB 2.0 和 USB 3.0 信号，两者均由 USB 3.0 HUB 扩展。+
-此外，CN15 和 CN18 插槽还各有一组 PCIe 3.0 单通道信号。+
+BPI-R4 Pro 配有三个 M.2 B-KEY 插槽，均用于安装 4G/5G 蜂窝网络模块。
+每个插槽都支持一组 USB 2.0 和 USB 3.0 信号，两者均由 USB 3.0 HUB 扩展。
+此外，CN15 和 CN18 插槽还各有一组 PCIe 3.0 单通道信号。
 
 image::/bpi-r4_pro/bpi-r4pro-bkey.png[bpi-r4pro-bkey.png,width=500]
 
 === 电源
-所有模块均由独立的降压 DC-DC 供电。+
+所有模块均由独立的降压 DC-DC 供电。
 可通过 GPIO 关闭电源输出并调节输出电压。
 
 ==== 电源开关
-电源开关控制如下。+
+电源开关控制如下。
 [%collapsible]
 ====
 [options="header",cols="3,3,3",width="80%"]
@@ -1011,8 +1011,8 @@ image::/bpi-r4_pro/bpi-r4pro-bkey.png[bpi-r4pro-bkey.png,width=500]
 ====
 
 ==== 3.3V 电源调节
-大多数 5G 模块的工作电压为 3.3V～4.2V。由于电流较大，使用 3.3V 可能导致模块工作不稳定，+
-因此建议调节到 3.95V。+
+大多数 5G 模块的工作电压为 3.3V～4.2V。由于电流较大，使用 3.3V 可能导致模块工作不稳定，
+因此建议调节到 3.95V。
 但调节前请务必确认所用 5G 模块能够承受 3.95V！
 
 [%collapsible]
@@ -1045,54 +1045,54 @@ image::/bpi-r4_pro/bpi-r4pro-bkey.png[bpi-r4pro-bkey.png,width=500]
 
 
 === SIM 卡
-每个 M.2 B-KEY 插槽都支持两组 SIM 卡信号。+
-SIMA 连接到板载 Nano SIM 卡槽，SIMB 连接到 eSIM。+
-但 eSIM 相关元件默认未安装；如有需要，请联系销售人员。+
+每个 M.2 B-KEY 插槽都支持两组 SIM 卡信号。
+SIMA 连接到板载 Nano SIM 卡槽，SIMB 连接到 eSIM。
+但 eSIM 相关元件默认未安装；如有需要，请联系销售人员。
 
 image::/bpi-r4_pro/b-key-sim2.png[b-key-sim2.png,width=500]
 
 ==== 板载 Nano SIM 卡槽
-SIM1 可以使用板载 Nano SIM 卡槽或外接 SIM 卡槽（外接方式需要自行设计扩展板，并通过 CN45 连接）。+
-当“PCA_A_IO0_6/SIM_SEL”输出低电平时，SIM1 连接到板载 Nano SIM 卡槽；+
-当“PCA_A_IO0_6/SIM_SEL”输出高电平时，SIM1 连接到 FPC 接口。+
+SIM1 可以使用板载 Nano SIM 卡槽或外接 SIM 卡槽（外接方式需要自行设计扩展板，并通过 CN45 连接）。
+当“PCA_A_IO0_6/SIM_SEL”输出低电平时，SIM1 连接到板载 Nano SIM 卡槽；
+当“PCA_A_IO0_6/SIM_SEL”输出高电平时，SIM1 连接到 FPC 接口。
 
 ==== 外接 SIM 卡槽接口
-三个 B-KEY 插槽和两个 miniPCIe 插座的 SIM 卡信号都可连接到 FPC 接口（CN45）。+
+三个 B-KEY 插槽和两个 miniPCIe 插座的 SIM 卡信号都可连接到 FPC 接口（CN45）。
 note:: 这样可以方便地设计适配机箱的 SIM 卡转接板。
 
 ==== eSIM
-M.2 B-KEY 插槽的 PIN42/44/46/48 是第二组 SIM 卡信号。+
-NOTE : 此功能需要模块本身支持。+
+M.2 B-KEY 插槽的 PIN42/44/46/48 是第二组 SIM 卡信号。
+NOTE : 此功能需要模块本身支持。
  +
  
 image::/bpi-r4_pro/bpi-r4pro-sim2.png[bpi-r4pro-sim2.png,width=500]
 
 === 蜂窝网络 LED
-每个 M.2 B-KEY 插槽的 PIN10 都连接到一颗 LED，该信号是模块的网络状态指示输出。+
-具体功能请参考所用模块的数据手册。+
+每个 M.2 B-KEY 插槽的 PIN10 都连接到一颗 LED，该信号是模块的网络状态指示输出。
+具体功能请参考所用模块的数据手册。
  +
  
 image::/bpi-r4_pro/bpi-r4pro-sim_led2.png[bpi-r4pro-sim_led2.png,width=500]
 
 ==== 板载 LED
-每个 SIM 卡槽旁都设有 LED，便于查看状态。+
+每个 SIM 卡槽旁都设有 LED，便于查看状态。
 
 image::/bpi-r4_pro/bpi-r4pro-sim_led.png[bpi-r4pro-sim_led.png,width=500]
 
 
 ==== 外接 LED 接口
-LED 信号也引出到 FPC 插槽（CN40）。+
+LED 信号也引出到 FPC 插槽（CN40）。
 如有需要，可设计适配机箱的 LED 转接板。
 
 
 
 === USB 3.0
-大多数 4G/5G 模块都可通过 USB 2.0/USB 3.0 通信。+
+大多数 4G/5G 模块都可通过 USB 2.0/USB 3.0 通信。
  +
 
 === PCIe
-MT7988A 只有四组 PCIe，其中两组用于 Wi-Fi 连接，+
-另外两组 PCIe 3.0 1L0 和 PCIe 3.0 1L1 可切换到 M.2 M-KEY 或 M.2 B-KEY。+
+MT7988A 只有四组 PCIe，其中两组用于 Wi-Fi 连接，
+另外两组 PCIe 3.0 1L0 和 PCIe 3.0 1L1 可切换到 M.2 M-KEY 或 M.2 B-KEY。
 
 image::/bpi-r4_pro/bpi-r4pro-bkey_pcie.png[bpi-r4pro-bkey_pcie.png,width=500]
 
@@ -1111,10 +1111,10 @@ image::/bpi-r4_pro/bpi-r4pro-bkey_pcie.png[bpi-r4pro-bkey_pcie.png,width=500]
 
 
 == M.2 M-KEY 插槽（用于 PCIe NVMe SSD）
-M.2 M-KEY 插槽的尺寸为 2280，可连接 PCIe NVMe SSD、PCIe 转 SATA、PCIe 转以太网等模块。+
+M.2 M-KEY 插槽的尺寸为 2280，可连接 PCIe NVMe SSD、PCIe 转 SATA、PCIe 转以太网等模块。
 
-但由于 PCIe 信号与 M.2 B-KEY 插槽复用，+
-如需在 M.2 M-KEY 插槽中使用，需要将 GPIO79 或 GPIO63 设置为高电平，+
+但由于 PCIe 信号与 M.2 B-KEY 插槽复用，
+如需在 M.2 M-KEY 插槽中使用，需要将 GPIO79 或 GPIO63 设置为高电平，
 以切换相应信号。
 
 [%collapsible]
@@ -1132,36 +1132,36 @@ M.2 M-KEY 插槽的尺寸为 2280，可连接 PCIe NVMe SSD、PCIe 转 SATA、PC
 
 == USB 接口
 === USB 3.2 接口
-BPI-R4 Pro 配有一个 USB 3.2 Type-A 接口，可连接 USB 闪存盘或其他 USB 设备。+
-USB 3.2 接口（CN11）的电源输出为 5V/1300mA；将“PCA_A_IO1_3/VBUS_AB_PDN”输出设为低电平即可关闭该电源。+
+BPI-R4 Pro 配有一个 USB 3.2 Type-A 接口，可连接 USB 闪存盘或其他 USB 设备。
+USB 3.2 接口（CN11）的电源输出为 5V/1300mA；将“PCA_A_IO1_3/VBUS_AB_PDN”输出设为低电平即可关闭该电源。
 
 
 === USB 2.0 接口
-BPI-R4 Pro 配有一个 USB 2.0 Type-A 接口，可连接 USB 闪存盘或其他 USB 设备。+
-USB 2.0 接口（CN12）的电源输出为 5V/1300mA；将“PCA_A_IO1_3/VBUS_AB_PDN”输出设为低电平即可关闭该电源。+
+BPI-R4 Pro 配有一个 USB 2.0 Type-A 接口，可连接 USB 闪存盘或其他 USB 设备。
+USB 2.0 接口（CN12）的电源输出为 5V/1300mA；将“PCA_A_IO1_3/VBUS_AB_PDN”输出设为低电平即可关闭该电源。
 
 == USB Type-C 调试控制台接口
-BPI-R4 Pro 板载 USB 转 UART 芯片（HT42B534-2），连接到 MT7988A 的调试 UART。+
-将 USB Type-C 接口（CN41）连接到电脑后，会出现一个 USB 转串口设备，可用于调试。+
-终端设置：波特率 115200、数据位 8 位、无校验、停止位 1 位、无流控。+
+BPI-R4 Pro 板载 USB 转 UART 芯片（HT42B534-2），连接到 MT7988A 的调试 UART。
+将 USB Type-C 接口（CN41）连接到电脑后，会出现一个 USB 转串口设备，可用于调试。
+终端设置：波特率 115200、数据位 8 位、无校验、停止位 1 位、无流控。
 
 image::/bpi-r4_pro/bpi-r4pro-usb_serial.png[bpi-r4pro-usb_serial.png,width=200]
 
 == MicroSD 卡
-BPI-R4 Pro 配有一个 MicroSD（Secure Digital）卡槽，可用于启动和存储。+
+BPI-R4 Pro 配有一个 MicroSD（Secure Digital）卡槽，可用于启动和存储。
 
-但 MT7988A 只有一个 MSDC 控制器，通过两个引脚复用端口分别支持 SD 4.5 和 eMMC 5.1，+
+但 MT7988A 只有一个 MSDC 控制器，通过两个引脚复用端口分别支持 SD 4.5 和 eMMC 5.1，
 因此 SD 与 eMMC 功能只能二选一。
 
 
 == 风扇
-BPI-R4 Pro 配有两个风扇接口，引脚定义兼容 Intel PC 主板使用的四线 PWM 调速风扇。+
+BPI-R4 Pro 配有两个风扇接口，引脚定义兼容 Intel PC 主板使用的四线 PWM 调速风扇。
 
 风扇采用 12V 供电并支持 PWM 调速，但没有用于转速检测的 Sense 引脚。
 
 image::/bpi-r4_pro/bpi-r4pro-fan3.png[bpi-r4pro-fan3.png,width=500]
 
-两个风扇接口由同一个 PWM（GPIO57_PWMD0）控制。+
+两个风扇接口由同一个 PWM（GPIO57_PWMD0）控制。
 
 image::/bpi-r4_pro/bpi-r4pro-fan4.png[bpi-r4pro-fan4.png,width=500]
 
@@ -1183,16 +1183,16 @@ TIP: 在 BPI-R4Pro-8X-BE14-MT76-OpenWRT24.10-DSA-251229 镜像中，短按 RST �
 WPS 按键连接到 GPIO14，用于让新设备快速连接路由器。
 
 == LED
-BPI-R4 Pro 配有多颗 LED，用于指示电源、Wi-Fi、以太网、4G/5G 蜂窝网络和 SSD 等工作状态。+
+BPI-R4 Pro 配有多颗 LED，用于指示电源、Wi-Fi、以太网、4G/5G 蜂窝网络和 SSD 等工作状态。
 
-* 1 颗绿色电源 LED，PCB 丝印为“PWR”；上电时亮起，无法由软件控制。+
-* 1 颗红色状态 LED，PCB 丝印为“R”；由 GPIO“PCA_A_IO1_7/SYS_LEDR”控制。+
-* 1 颗蓝色状态 LED，PCB 丝印为“B”；由 GPIO“PCA_A_IO1_6/SYS_LEDB”控制。+
-* 3 颗蓝色 Wi-Fi 状态 LED，丝印为“W2G”“W5G”“W6G”。+
-	 具体功能取决于模块；部分模块不支持此功能（包括 BPI-BE14 V1.0）。+
-* 2 颗蓝色 SSD 状态 LED，丝印为“SSD1”“SSD2”，由 SSD 控制。+
-* 3 颗蓝色 5G 蜂窝网络状态 LED，丝印为“SIM1”“SIM2”“SIM3”，由 5G 模块控制。+
-* 每个 10G/2.5G RJ45 配有两颗 LED，每个 1G RJ45 配有一颗 LED，用于指示网络状态。+
+* 1 颗绿色电源 LED，PCB 丝印为“PWR”；上电时亮起，无法由软件控制。
+* 1 颗红色状态 LED，PCB 丝印为“R”；由 GPIO“PCA_A_IO1_7/SYS_LEDR”控制。
+* 1 颗蓝色状态 LED，PCB 丝印为“B”；由 GPIO“PCA_A_IO1_6/SYS_LEDB”控制。
+* 3 颗蓝色 Wi-Fi 状态 LED，丝印为“W2G”“W5G”“W6G”。
+	 具体功能取决于模块；部分模块不支持此功能（包括 BPI-BE14 V1.0）。
+* 2 颗蓝色 SSD 状态 LED，丝印为“SSD1”“SSD2”，由 SSD 控制。
+* 3 颗蓝色 5G 蜂窝网络状态 LED，丝印为“SIM1”“SIM2”“SIM3”，由 5G 模块控制。
+* 每个 10G/2.5G RJ45 配有两颗 LED，每个 1G RJ45 配有一颗 LED，用于指示网络状态。
 
 
 == DC-IN
@@ -1201,8 +1201,8 @@ BPI-R4 Pro 需要一路 +12V 电源，并支持多种供电方式，包括 DC �
 供电电压范围为 9～24V，建议使用 12V 或 20V；电压超过 25.3V 时会自动关断。
 
 === DC-IN（5521）
-可以使用 12V/5A 电源适配器，将其插入 CN44 供电。+
-但如果同时存在其他电源，系统会切换到其他供电方式。+
+可以使用 12V/5A 电源适配器，将其插入 CN44 供电。
+但如果同时存在其他电源，系统会切换到其他供电方式。
 
 CN44 接口尺寸如下（内正外负）：
 
@@ -1210,14 +1210,14 @@ image::/bpi-r4_pro/bpi-r4pro-dc5521.png[bpi-r4pro-dc5521.png,width=300]
 
 
 === DC-IN（VH396）
-也可以使用 VH3.96 插头连接 CN6 供电。+
+也可以使用 VH3.96 插头连接 CN6 供电。
 CN46 接口尺寸如下：
 
 image::/bpi-r4_pro/vh396.png[vh396.png,width=500]
 
 === USB Type-C PD
-USB Type-C PD 接口连接到 CH224K 芯片，该芯片用于与 USB 适配器通信，使适配器输出 20V 电压。+
-建议使用支持 20V、65W 或更高功率输出的 PD 电源。+
+USB Type-C PD 接口连接到 CH224K 芯片，该芯片用于与 USB 适配器通信，使适配器输出 20V 电压。
+建议使用支持 20V、65W 或更高功率输出的 PD 电源。
 
 === PoE
 可以使用 BPI-RT5400-12V 模块，但该模块最大功率不超过 30W。连接较多外设时，功耗可能超过 RT5400 的最大输出，因此建议改用其他电源。
@@ -1228,7 +1228,7 @@ image::/bpi-r4_pro/bpi-r4pro-poe.png[bpi-r4pro-poe.png,width=500]
 
 == DC-OUT
 BPI-R4 Pro 配有两个电源输出插座，但不建议用它们连接过多设备，
-因为功耗过高可能导致 BPI-R4 Pro 工作不稳定。+
+因为功耗过高可能导致 BPI-R4 Pro 工作不稳定。
 
 CN2/CN3 接口尺寸如下：
 
@@ -1238,13 +1238,13 @@ image::/bpi-r4_pro/xh254.png[xh254.png,width=500]
 该接口直接连接到 VDD_SYS_IN，输出电压等于输入电压。
 
 === DC-OUT（CN2，XH2.54-4PIN）
-该接口提供 +12V 和 +5V 两路输出。+5V 由 MT6682A PMIC 生成，并为许多其他器件供电，因此不建议连接大功率设备，以免影响系统稳定性。+
+该接口提供 +12V 和 +5V 两路输出。+5V 由 MT6682A PMIC 生成，并为许多其他器件供电，因此不建议连接大功率设备，以免影响系统稳定性。
 
 12V 由独立的 DC-DC 转换器生成，可提供约 3A 电流。
 
 
 == 26 Pin GPIO 排针
-26 Pin GPIO 排针包含 17 个 GPIO，全部为 3.3V 电平。部分 GPIO 可配置为 JTAG、I2C、UART、SPI 等功能。+
+26 Pin GPIO 排针包含 17 个 GPIO，全部为 3.3V 电平。部分 GPIO 可配置为 JTAG、I2C、UART、SPI 等功能。
 
 image::/bpi-r4_pro/26pin.png[26pin.png,width=800]
 
