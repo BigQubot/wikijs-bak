@@ -1,17 +1,17 @@
 = FAQ
 
-TIP: 更多信息：link:/en/BPI-R4/BananaPi_BPI-R4[Banana Pi BPI-R4]
+TIP: 更多信息：link:/zh/BPI-R4/BananaPi_BPI-R4[Banana Pi BPI-R4]
 
 *目录*
 
-. link:/en/BPI-R4/BananaPi_BPI-R4_FAQ#_r4_debugging_methods[R4 调试方法]
-. link:/en/BPI-R4/BananaPi_BPI-R4_FAQ#_no_serial_port_output[无串口输出]
-. link:/en/BPI-R4/BananaPi_BPI-R4_FAQ#_determine_the_size_of_the_ddr_memory[确定 DDR 内存容量]
+. link:/zh/BPI-R4/BananaPi_BPI-R4_FAQ#_r4_调试方法[R4 调试方法]
+. link:/zh/BPI-R4/BananaPi_BPI-R4_FAQ#_无串口输出[无串口输出]
+. link:/zh/BPI-R4/BananaPi_BPI-R4_FAQ#_确定_ddr_内存容量[确定 DDR 内存容量]
 
-. link:/en/BPI-R4/BananaPi_BPI-R4_FAQ#_the_system_cannot_start_or_fails_to_start[系统无法启动或启动失败]
-. link:/en/BPI-R4/BananaPi_BPI-R4_FAQ#_be14_cannot_be_started[BE14 无法启动]
-. link:/en/BPI-R4/BananaPi_BPI-R4_FAQ#_restore_factory_settings_on_openwrt[在 OpenWrt 上恢复出厂设置]
-. link:/en/BPI-R4/BananaPi_BPI-R4_FAQ#_openwrt_mainline_image_txpower_low[OpenWrt 主线镜像发射功率低]
+. link:/zh/BPI-R4/BananaPi_BPI-R4_FAQ#_系统无法启动或启动失败[系统无法启动或启动失败]
+. link:/zh/BPI-R4/BananaPi_BPI-R4_FAQ#_be14_无法启动[BE14 无法启动]
+. link:/zh/BPI-R4/BananaPi_BPI-R4_FAQ#_在_openwrt_上恢复出厂设置[在 OpenWrt 上恢复出厂设置]
+. link:/zh/BPI-R4/BananaPi_BPI-R4_FAQ#_openwrt_主线镜像发射功率低[OpenWrt 主线镜像发射功率低]
 
 
 == R4 调试方法
@@ -49,7 +49,7 @@ image::/picture/log_export-3.jpg[log_export-3.jpg]
 
 
 
-也可连接 R4 路由器的 WiFi（WiFi 使用方法请参阅 link:/en/BPI-R4/BananaPi_BPI-R4_FAQ[此页面]）。
+也可连接 R4 路由器的 WiFi（WiFi 使用方法请参阅 link:/zh/BPI-R4/BananaPi_BPI-R4_FAQ[此页面]）。
 
 
 获取 IP 地址后，在 PC 上使用 SSH 工具连接该 IP 进行调试。
@@ -68,7 +68,7 @@ image::/picture/log_export-1.jpg[log_export-1.jpg]
 
 == 无串口输出
 
-如果串口没有输出，请先按 link:/en/BPI-R4/BananaPi_BPI-R4_FAQ#_ssh_debugging[R4 调试方法—SSH] 中的说明通过 SSH 检查系统是否正常启动。（如果无法获取 IP 地址或 SSH 连接失败，请参阅 link:/en/BPI-R4/BananaPi_BPI-R4_FAQ#_the_system_cannot_start_or_fails_to_start[系统无法启动或启动失败]。）
+如果串口没有输出，请先按 link:/zh/BPI-R4/BananaPi_BPI-R4_FAQ#_ssh_调试[R4 调试方法—SSH] 中的说明通过 SSH 检查系统是否正常启动。（如果无法获取 IP 地址或 SSH 连接失败，请参阅 link:/zh/BPI-R4/BananaPi_BPI-R4_FAQ#_系统无法启动或启动失败[系统无法启动或启动失败]。）
 
 . 检查计算机是否识别到可用的串口线。
 +
@@ -86,7 +86,7 @@ image::/picture/log_export-1.jpg[log_export-1.jpg]
 
 == 确定 DDR 内存容量
 
-NOTE: 验证前请确认使用了正确的系统镜像。可从官网的 link:/en/BPI-R4/BananaPi_BPI-R4#_openwrt[镜像链接] 下载正确镜像进行验证。
+NOTE: 验证前请确认使用了正确的系统镜像。可从官网的 link:/zh/BPI-R4/BananaPi_BPI-R4#_openwrt[镜像链接] 下载正确镜像进行验证。
 
 . 根据 DDR 型号判断
 +
@@ -135,7 +135,7 @@ image::/picture/r4_emmcboot.jpg[r4_emmcboot.jpg]
 
 . 重新插拔 SD 卡，检查是否接触不良。
 
-. 如果系统因镜像异常而无法启动，请格式化 SD 卡并重新烧录镜像。（请使用 link:/en/BPI-R4/BananaPi_BPI-R4#_openwrt_mtk_mp4_1_wifi_sdk_wifi_driver_for_be14000_wifi_card[MP4.1] 镜像；烧录方法参阅 link:/en/BPI-R4/GettingStarted_BPI-R4#_how_to_burn_image_to_sd_card[入门指南]。）
+. 如果系统因镜像异常而无法启动，请格式化 SD 卡并重新烧录镜像。（请使用 link:/zh/BPI-R4/BananaPi_BPI-R4[MP4.1] 镜像；烧录方法参阅 link:/zh/BPI-R4/GettingStarted_BPI-R4#_如何将镜像烧录到_sd_卡[入门指南]。）
 . 更换 SD 卡，重新烧录镜像后再次验证。
 
 . 确认问题后，请联系我们并提供以下信息：
@@ -160,7 +160,7 @@ image::/bpi-r4/r4-faq/r4-faq-jffs2.jpg[r4-faq-jffs2.jpg]
 
 . 开发板上电后，检查右上角的 PWR 指示灯是否点亮。
 
-. 如果启动失败，请先从 SD 卡启动，再将镜像重新烧录到 NAND。（请使用 link:/en/BPI-R4/BananaPi_BPI-R4#_openwrt_mtk_mp4_1_wifi_sdk_wifi_driver_for_be14000_wifi_card[MP4.1] 镜像；烧录方法参阅 link:/en/BPI-R4/GettingStarted_BPI-R4#_how_to_burn_image_to_onboard_nand[入门指南]。）
+. 如果启动失败，请先从 SD 卡启动，再将镜像重新烧录到 NAND。（请使用 link:/zh/BPI-R4/BananaPi_BPI-R4[MP4.1] 镜像；烧录方法参阅 link:/zh/BPI-R4/GettingStarted_BPI-R4#_如何将镜像烧录到板载_nand[入门指南]。）
 
 . 确认问题后，请联系我们并提供以下信息：
 
@@ -173,14 +173,14 @@ image::/bpi-r4/r4-faq/r4-faq-jffs2.jpg[r4-faq-jffs2.jpg]
 ==== 使用 Ubuntu 或 Debian 6.1 内核的 SD 卡
 从使用 Ubuntu 或 Debian 6.1 内核的 SD 卡镜像启动后，NAND 中的镜像将无法继续启动。如需从 NAND 启动，必须重新将镜像烧录到 NAND。
 
-烧录方法请参阅 link:/en/BPI-R4/GettingStarted_BPI-R4#_how_to_burn_image_to_onboard_nand[BPI-R4 入门指南]。
+烧录方法请参阅 link:/zh/BPI-R4/GettingStarted_BPI-R4#_如何将镜像烧录到板载_nand[BPI-R4 入门指南]。
 
 === eMMC
 如果您已确认 DIP 开关位置正确，请继续执行以下步骤。
 
 . 开发板上电后，检查右上角的 PWR 指示灯是否点亮。
 
-. 如果启动失败，请先从 NAND 启动，再将镜像重新烧录到 eMMC。（请使用 link:/en/BPI-R4/BananaPi_BPI-R4#_openwrt_mtk_mp4_1_wifi_sdk_wifi_driver_for_be14000_wifi_card[MP4.1] 镜像；烧录方法参阅 link:/en/BPI-R4/GettingStarted_BPI-R4#_how_to_burn_image_to_onboard_EMMC[入门指南]。）
+. 如果启动失败，请先从 NAND 启动，再将镜像重新烧录到 eMMC。（请使用 link:/zh/BPI-R4/BananaPi_BPI-R4[MP4.1] 镜像；烧录方法参阅 link:/zh/BPI-R4/GettingStarted_BPI-R4[入门指南]。）
 
 . 确认问题后，请联系我们并提供以下信息：
 
@@ -201,7 +201,7 @@ image::/bpi-r4/r4-faq/r4-faq-be14notstart2.jpg[r4-faq-be14notstart2.jpg]
 
 . 如果 WiFi 指示灯未点亮，请关闭设备电源，重新插拔 BE14，然后再次启动。
 
-. 如果完成前三步后 BE14 仍无法启动，可尝试重新烧录 link:/en/BPI-R4/BananaPi_BPI-R4#_system_image[系统镜像]。
+. 如果完成前三步后 BE14 仍无法启动，可尝试重新烧录 link:/zh/BPI-R4/BananaPi_BPI-R4[系统镜像]。
 
 . 如果您检查了上述步骤并确认问题出在主板硬件上，请联系我们并提供以下信息：
 说明问题现象及其出现过程。
