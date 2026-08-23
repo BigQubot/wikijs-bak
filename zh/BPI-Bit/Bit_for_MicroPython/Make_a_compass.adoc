@@ -1,4 +1,4 @@
-TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_development_tutorialbased_on_microbit[BPI-Bit 的 MicroPython 教程]
+TIP: link:/zh/BPI-Bit/Bit_for_MicroPython#_开发教程基于_microbit[BPI-Bit 的 MicroPython 教程]
 
 = 指南针
 该模块用于访问内置电子罗盘（MPU9250）。使用前应先校准，否则读数可能不准确。
