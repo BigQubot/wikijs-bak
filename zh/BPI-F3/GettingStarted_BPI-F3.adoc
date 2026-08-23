@@ -2,12 +2,12 @@
 
 Banana Pi BPI-F3 采用 K1 处理器核心、SPM8821 PMIC 与外置 DC-DC 电源方案，并配备 LPDDR4X 内存和 eMMC 存储。开发板集成 PCIe 2.0 ×2 M.2 Key M、PCIe 2.0 ×1 Mini PCIe、4 个 USB 3.0 Type-A、WiFi/蓝牙、TF 卡、HDMI TX、MIPI DSI、MIPI CSI、Type-C 和 2 个 RJ45 等接口，构成稳定且易于扩展的解决方案。
 
-TIP: 更多信息：link:/en/BPI-F3/BananaPi_BPI-F3[Banana Pi BPI-F3 主页]
+TIP: 更多信息：link:/zh/BPI-F3/BananaPi_BPI-F3[Banana Pi BPI-F3 主页]
 
 = 开发
 == 准备
 . 准备一根 TTL 串口线、一个 12 V PD 电源、一根 USB 数据线，以及一张至少 8 GB 的 TF 卡。
-. 请 link:/en/BPI-F3/BananaPi_BPI-F3#_system_image[下载] 待烧录的 SD 卡镜像和 eMMC 镜像。
+. 请 link:/zh/BPI-F3/BananaPi_BPI-F3[下载] 待烧录的 SD 卡镜像和 eMMC 镜像。
 . 请注意：以“**bianbu-k1-xxx.img.zip**”结尾的是 **SD 卡镜像**，以“**bianbu-k1-xxx.zip**”结尾的是 **eMMC 镜像**。**烧录时请勿选错。**
 
 == 将镜像安装到 SD 卡
@@ -28,7 +28,7 @@ WARNING: Bianbu 系统请选择以“**bianbu-k1-xxx.zip**”结尾的镜像，�
 
 **安装驱动软件**
 
-. link:/en/BPI-F3/BananaPi_BPI-F3#_tools[下载 Titan Flasher]
+. link:/zh/BPI-F3/BananaPi_BPI-F3[下载 Titan Flasher]
 . 在 Windows 上双击 link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2Ftitantools_for_windows-1.0.35-beta.zip[**titantools_for_windows-latest**] 安装。在 Linux 上，为 link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2Ftitantools_for_linux-1.0.35-beta.zip[**titantools_for_Linux-latest**] 添加可执行权限后即可运行，无须安装。
 . Windows 版本默认安装到计算机 C 盘，后续使用也需要一定空间。**请确保剩余可用空间大于 10 GB（Linux 的 Home 分区可用空间也须大于 10 GB）。**
 . 允许来自未知发布者的此应用对您的设备进行更改。然后选择始终安装该驱动软件。
