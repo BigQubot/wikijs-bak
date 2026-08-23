@@ -1,8 +1,8 @@
 ---
 title: Banana Pi BPI-M5 产品图片
 description: Banana Pi BPI-M5 产品图片
-published: false
-date: 2026-08-22T17:10:08.037Z
+published: true
+date: 2026-08-23T14:30:16.679Z
 tags: 
 editor: markdown
 dateCreated: 2026-08-22T11:47:25.980Z
