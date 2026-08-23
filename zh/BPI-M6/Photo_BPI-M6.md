@@ -1,8 +1,8 @@
 ---
 title: Banana Pi BPI-M6 产品图片
 description: Banana Pi BPI-M6 产品图片
-published: false
-date: 2026-08-22T17:09:32.867Z
+published: true
+date: 2026-08-23T14:30:39.922Z
 tags: 
 editor: markdown
 dateCreated: 2026-08-22T11:47:23.721Z
