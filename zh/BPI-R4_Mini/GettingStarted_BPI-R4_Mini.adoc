@@ -10,8 +10,8 @@ Banana Pi BPI-R4 Mini 是一款基于 MediaTek MT7987A 四核 Arm Cortex-A53 处
 * 12 V/5 A 电源适配器（未连接任何外设和网线时，BPI-R4Mini 主板功耗约为 10 W，因此 12 V/2 A 电源也可工作。
 请根据实际使用的配件判断是否需要更高功率的电源适配器，建议使用 12 V/5 A） +
 * Windows/Ubuntu 系统 +
-* link:https://docs.banana-pi.org/en/BPI-R4_Mini/BananaPi_BPI-R4_Mini#_system_image[BPI-R4Mini 镜像] +
-* link:https://docs.banana-pi.org/en/BPI-R4_Mini/BananaPi_BPI-R4_Mini#_source_code[BPI-R4Mini 源代码] +
+* link:https://docs.banana-pi.org/zh/BPI-R4_Mini/BananaPi_BPI-R4_Mini[BPI-R4Mini 镜像] +
+* link:https://docs.banana-pi.org/zh/BPI-R4_Mini/BananaPi_BPI-R4_Mini[BPI-R4Mini 源代码] +
 
 == 启动模式设置
 image::/bpi-r4_mini_en/bootstrap-setup.png[bootstrap-setup.png]
@@ -650,7 +650,7 @@ root@OpenWrt:/mnt/nvme#
 == SPI NOR 闪存
    SPI NOR 闪存用于恢复系统。
 
-请参阅： https://docs.banana-pi.org/en/BPI-R4_Mini/GettingStarted_BPI-R4_Mini#_flashing_image[写入镜像]
+请参阅： https://docs.banana-pi.org/zh/BPI-R4_Mini/GettingStarted_BPI-R4_Mini#_写入镜像[写入镜像]
    
 image::/bpi-r4_mini_en/nor-flash.png[nor-flash.png]
 
