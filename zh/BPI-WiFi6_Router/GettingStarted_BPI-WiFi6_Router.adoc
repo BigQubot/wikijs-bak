@@ -1,14 +1,14 @@
 
 = 简介
 
-TIP: 更多信息：link:/en/BPI-WiFi6_Router/BananaPi_BPI-WiFi6_Router[Banana Pi Wi-Fi 6 路由器]
+TIP: 更多信息：link:/zh/BPI-WiFi6_Router/BananaPi_BPI-WiFi6_Router[Banana Pi Wi-Fi 6 路由器]
 
 = 准备工作
 
 - 以太网线、BPI-WiFi6 路由器、12 V 电源
 
 == 网页升级
-. 首先，下载要升级的 link:/en/BPI-WiFi6_Router/BananaPi_BPI-WiFi6_Router#_system_image[系统镜像]。
+. 首先，下载要升级的 link:/zh/BPI-WiFi6_Router/BananaPi_BPI-WiFi6_Router#_系统镜像[系统镜像]。
 . 接通 BPI-WiFi6 的电源，再用网线将其连接到计算机。
 . 打开管理页面（默认 IP 地址为 192.168.1.1，用户名为 root，密码为空）。
 +
