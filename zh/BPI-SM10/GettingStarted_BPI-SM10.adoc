@@ -4,7 +4,7 @@ BPI-SM10（K3-CoM260）支持原生 Bianbu、Ubuntu、Linux 和 OpenHarmony 等�
 
 BPI-SM10（K3-CoM260）提供丰富的接口，包括 MIPI-DSI、MIPI-CSI、DP 1.2、SDIO 3.0、eSPI、SPI、I2S、I2C、CAN-FD、PWM、UART、USB 2.0、USB 3.0、PCIe 3.0 和 GMAC 等。凭借高性能与丰富的接口资源，K3-CoM260 是 RISC-V 端侧应用方案和产品开发的理想选择。
 
-TIP: 更多信息：link:/en/BPI-SM10/BananaPi_BPI-SM10[Banana Pi BPI-SM10 主页]
+TIP: 更多信息：link:/zh/BPI-SM10/BananaPi_BPI-SM10[Banana Pi BPI-SM10 主页]
 
 == 规格参数
 
@@ -104,7 +104,7 @@ image::/bpi-sm10/gettingstart/bananapi-pi_sm10_burn1.jpg[bananapi-pi_sm10_burn1.
 +
 image::/bpi-sm10/gettingstart/bananapi-pi_sm10_burn2.jpg[bananapi-pi_sm10_burn2.jpg]
 
-. 按照 https://docs.banana-pi.org/en/BPI-SM10/GettingStarted_BPI-SM10#_entering_flashing_mode[上述步骤]进入烧录模式，单击“Scan Device”，然后选择目标设备。
+. 按照 https://docs.banana-pi.org/zh/BPI-SM10/GettingStarted_BPI-SM10#_进入烧录模式[上述步骤]进入烧录模式，单击“Scan Device”，然后选择目标设备。
 +
 image::/bpi-sm10/gettingstart/bananapi-pi_sm10_burn3.jpg[bananapi-pi_sm10_burn3.jpg]
 
