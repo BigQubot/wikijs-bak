@@ -1,4 +1,4 @@
-TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_basic_board_development[BPI:bit 的 MicroPython 开发]
+TIP: link:/zh/BPI-Bit/Bit_for_MicroPython#_开发板基础操作[BPI:bit 的 MicroPython 开发]
 
 = 为什么烧板子
 
@@ -42,7 +42,7 @@ image::/bpi-bit/flash_succeed.png[flash_succeed.png]
 
 上图表示烧录成功。如果失败，请重试；仍然失败时，请检查设备和串口配置。
 
-烧录完成后，可以进入下一章 link:/en/BPI-Bit/Bit_for_MicroPython/Hello_World[4 Hello, World!]；若仍有疑问或想了解更多内容，请继续阅读。
+烧录完成后，可以进入下一章 link:/zh/BPI-Bit/Bit_for_MicroPython/Hello_World[4 Hello, World!]；若仍有疑问或想了解更多内容，请继续阅读。
 
 = 烧录工具详解
 == 使用 Windows 系统
