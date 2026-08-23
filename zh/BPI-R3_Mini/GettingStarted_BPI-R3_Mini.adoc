@@ -2,7 +2,7 @@
 
 Banana Pi BPI-R3 Mini 路由器开发板采用 MediaTek MT7986A（Filogic 830）四核 ARM Cortex-A53 芯片，板载 2 GB DDR 内存和 8 GB eMMC。它是一款高性能开源路由器开发板，采用 MT7976C 支持 2.4 GHz/5 GHz Wi-Fi 6，并提供两个 2.5GbE 以太网端口。
 
-TIP: 更多信息：link:/en/BPI-R3_Mini/BananaPi_BPI-R3_Mini[Banana Pi BPI-R3_Mini]
+TIP: 更多信息：link:/zh/BPI-R3_Mini/BananaPi_BPI-R3_Mini[Banana Pi BPI-R3_Mini]
 
 === MediaTek MT7986(Filogic 830)
 MT7986（Filogic 830）集成四个最高 2 GHz 的 Arm Cortex-A53 内核，处理能力最高可达 18,000 DMIPS，并支持总速率达 6 Gbps 的双频 4×4 Wi-Fi 6 连接。它提供两个 2.5G 以太网接口和串行外设接口（SPI）。Filogic 830 内置的硬件加速引擎可实现快速、可靠的 Wi-Fi 卸载和无线网络连接。此外，该芯片还支持 MediaTek FastPath™ 技术，适用于游戏、AR/VR 等低延迟应用。
@@ -121,7 +121,7 @@ WARNING: 启用 NAND 设备，并将启动方式设为从 NAND 启动。
 ```sh
 dd if=/dev/zero of=/dev/mmcblk0
 ```
-. 然后按照 link:/en/BPI-R3_Mini/GettingStarted_BPI-R3_Mini#_install_image_to_onboard_emmc[文档]重新烧录 eMMC。
+. 然后按照 link:/zh/BPI-R3_Mini/GettingStarted_BPI-R3_Mini#_将镜像烧录到板载_emmc[文档]重新烧录 eMMC。
 
 
 
@@ -447,7 +447,7 @@ NAND 烧录：
 image::/bpi-r3mini/r3mini-source_code-nandimage.jpg[r3mini-source_code-nandimage.jpg]
 
 TIP: 可以参考 eMMC 烧录方法：
-https://docs.banana-pi.org/en/BPI-R3_Mini/GettingStarted_BPI-R3_Mini#_install_image_to_onboard_emmc
+https://docs.banana-pi.org/zh/BPI-R3_Mini/GettingStarted_BPI-R3_Mini#_将镜像烧录到板载_emmc
 
 = 常见问题
 MT7986A 开发板（BPI）参考手册
