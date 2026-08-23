@@ -1,4 +1,4 @@
-TIP: 更多信息： link:https://docs.banana-pi.org/en/BPI-F2P/BananaPi_BPI-F2P[BananaPi BPI-F2P]
+TIP: 更多信息： link:https://docs.banana-pi.org/zh/BPI-F2P/BananaPi_BPI-F2P[BananaPi BPI-F2P]
 
 = SD 卡和 eMMC 镜像烧录与启动步骤
 
@@ -48,7 +48,7 @@ image::/picture/bpi-f2p_burn_6.png[bpi-f2p_burn_6.png]
 == 将镜像烧录到 SD 卡
 从以下页面下载 Ubuntu 镜像：
 
-https://docs.banana-pi.org/en/BPI-F2P/BananaPi_BPI-F2P#_linux_2
+https://docs.banana-pi.org/zh/BPI-F2P/BananaPi_BPI-F2P#_linux_2
 
 2021-01-29-ubuntu-mate-20.04.1-desktop-armhf-ext4-v5.4.35-bpi-f2p.img.zip：Ubuntu 桌面版系统，支持通过 HDMI 接口显示桌面。2021-01-29-ubuntu-server-20.04.1-armhf-ext4-v5.4.35-bpi-f2p.img.zip：Ubuntu 服务器版系统，不包含桌面，仅支持串口控制台。
 
