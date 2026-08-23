@@ -1,8 +1,8 @@
 ---
 title: BPI-M7 产品图片
 description: BPI-M7 产品图片
-published: false
-date: 2026-08-22T17:09:08.779Z
+published: true
+date: 2026-08-23T14:31:14.019Z
 tags: 
 editor: markdown
 dateCreated: 2026-08-22T11:47:10.157Z
