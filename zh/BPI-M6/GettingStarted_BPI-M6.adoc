@@ -2,7 +2,7 @@
 
 Banana Pi BPI-M6 是新一代单板计算机，采用 Synaptics VS680 四核 Cortex-A73（2.1 GHz）和一个 Cortex-M3 处理器，配备 Imagination GE9920 GPU 及最高 6.75 TOPS 的 NPU。板载 4GB LPDDR4 内存和 16GB eMMC 存储，提供 4 个 USB 3.0 接口、1 个千兆以太网口、1 个 HDMI-RX 端口和 1 个 HDMI-TX 端口。
 
-TIP: 更多信息：link:/en/BPI-M6/BananaPi_BPI-M6[Banana Pi BPI-M6]
+TIP: 更多信息：link:/zh/BPI-M6/BananaPi_BPI-M6[Banana Pi BPI-M6]
 
 == 规格参数
 
@@ -72,9 +72,9 @@ image::/picture/etcher.jpg[etcher.jpg]
 镜像烧录完成后，将 SD 卡插入 BPI-M6；接通电源时按住 SPI 键。
 
 === 将镜像安装到 eMMC
-NOTE: 将镜像烧录到 eMMC 前，建议先擦除 eMMC。操作方法可 link:https://docs.banana-pi.org/en/BPI-M6/GettingStarted_BPI-M6#_install_image_with_usb_burning_tool[参考这里]。
+NOTE: 将镜像烧录到 eMMC 前，建议先擦除 eMMC。操作方法可 link:https://docs.banana-pi.org/zh/BPI-M6/GettingStarted_BPI-M6#_使用_usb_烧录工具安装镜像[参考这里]。
 
-. 首先准备一张可启动的 SD 卡和一个 link:https://docs.banana-pi.org/en/BPI-M6/BananaPi_BPI-M6#_spi[新的 SPI 文件]。
+. 首先准备一张可启动的 SD 卡和一个 link:https://docs.banana-pi.org/zh/BPI-M6/BananaPi_BPI-M6[新的 SPI 文件]。
 . 打开 SenarySocSystemTool，并切换到“Spi Flash”。
 
 . 把路径改为已下载 SPI 文件所在的位置。
