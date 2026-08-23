@@ -4,7 +4,7 @@ BPI-M4 Berry 是一款功能强大的单板计算机（SBC），搭载 Allwinner
 
 BPI-M4 Berry 凭借稳定的性能、丰富的功能和出色的图像处理能力，可作为嵌入式与计算行业的 SBC 开发平台。它配备 8 GB eMMC 闪存，具备高性能视频编解码能力和多种接口，可用于媒体处理、物联网、娱乐等场景。无论初学者还是有经验的开发者，都可使用它实现自己的创意和项目目标。
 
-TIP: 更多信息： link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry[香蕉派 BPI-M4 Berry 主页]
+TIP: 更多信息： link:/zh/BPI-M4_Berry/BananaPi_BPI-M4_Berry[香蕉派 BPI-M4 Berry 主页]
 
 == 规格参数
 
@@ -22,7 +22,7 @@ TIP: 更多信息： link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry[香蕉派 BPI-M
 = Android
 
 == 准备
-. 下载最新的 link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry#_android_2[Android 镜像].
+. 下载最新的 link:/zh/BPI-M4_Berry/BananaPi_BPI-M4_Berry#_android_2[Android 镜像].
 
 . 下载并安装 link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2Fphoenixsuit_V1.1.0_20150325.rar[Allwinner 镜像下载工具]；PhoenixSuit 适用于 Windows。 
 
@@ -58,7 +58,7 @@ image::/picture/m4-berry_android_5.jpg[m4-berry_android_5.jpg]
 
 . 如果要从 eMMC 启动并将 SD 卡用作存储，请确保 SD 卡已经格式化且未写入 Linux 镜像。
 
-. link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry#_linux[下载最新 Linux 镜像]，并确认 MD5 校验值正确。
+. link:/zh/BPI-M4_Berry/BananaPi_BPI-M4_Berry#_linux[下载最新 Linux 镜像]，并确认 MD5 校验值正确。
 
 . 默认登录： **pi/bananapi** 或 **root/1234**
 
@@ -149,7 +149,7 @@ Validating [========================] 100% eta 0s
 sudo armbian-config
 ```
 +
-(如果使用最小版本镜像，请先参阅 link:/en/BPI-M4_Berry/GettingStarted_BPI-M4_Berry#_install_bananapi_configuration[这里]。)
+(如果使用最小版本镜像，请先参阅 link:/zh/BPI-M4_Berry/GettingStarted_BPI-M4_Berry[这里]。)
 
 . 请按照以下步骤将 Linux 系统镜像安装到 eMMC。
 .. 选择 `Ststem`。
