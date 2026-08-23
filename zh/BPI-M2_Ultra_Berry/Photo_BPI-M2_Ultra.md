@@ -1,8 +1,8 @@
 ---
 title: Banana Pi BPI-M2 Ultra 产品图片
 description: Banana Pi BPI-M2 Ultra 产品图片
-published: false
-date: 2026-08-22T17:13:01.804Z
+published: true
+date: 2026-08-23T14:28:38.954Z
 tags: 
 editor: markdown
 dateCreated: 2026-08-22T11:48:13.832Z
