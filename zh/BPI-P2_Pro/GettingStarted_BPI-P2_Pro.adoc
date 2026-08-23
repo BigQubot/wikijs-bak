@@ -2,7 +2,7 @@
 
 BPI-P2 Pro 采用 Rockchip RK3308B-S，配备 64 位四核 ARM Cortex-A35 处理器，并提供 USB、以太网、Bluetooth、无线连接和语音检测引擎。RK3308 拥有丰富的音频接口（如 MIC/PDM/SPDIF/I2S），非常适合物联网和语音应用。BPI-P2 Pro 配备 512 MB DDR3 内存，并使用 eMMC 或 SD 卡存储操作系统。
 
-TIP: link:/en/BPI-P2_Pro/BananaPi_BPI-P2_Pro[Banana Pi BPI-P2 Pro]
+TIP: link:/zh/BPI-P2_Pro/BananaPi_BPI-P2_Pro[Banana Pi BPI-P2 Pro]
 
 = 开发
 == 准备
@@ -15,7 +15,7 @@ image::/picture/bpi-p2_pro_debug.jpg[bpi-p2_pro_debug.jpg]
 
 = 选择烧录方法
 
-TIP: 烧录方法：link:/en/BPI-M5/BananaPi_Flash_image[为 Rockchip 芯片烧录系统镜像]
+TIP: 烧录方法：link:/zh/BPI-M5/BananaPi_Flash_image[为 Rockchip 芯片烧录系统镜像]
 
 == 100M 以太网
 
