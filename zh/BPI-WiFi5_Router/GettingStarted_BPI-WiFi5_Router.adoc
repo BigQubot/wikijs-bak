@@ -1,6 +1,6 @@
 = 简介
 
-TIP: 更多信息：link:/en/BPI-WiFi5/BananaPi_BPI-WiFi5_Router[Banana Pi BPI-WiFi5 路由器]
+TIP: 更多信息：link:/zh/BPI-WiFi5/BananaPi_BPI-WiFi5_Router[Banana Pi BPI-WiFi5 路由器]
 
 = 升级固件
 
@@ -14,7 +14,7 @@ TIP: 更多信息：link:/en/BPI-WiFi5/BananaPi_BPI-WiFi5_Router[Banana Pi BPI-W
 
 === 升级步骤
 
-. 下载要升级的 link:/en/BPI-WiFi5/BananaPi_BPI-WiFi5_Router#_system_image[镜像]。  
+. 下载要升级的 link:/zh/BPI-WiFi5/BananaPi_BPI-WiFi5_Router[镜像]。  
 . 为 BPI-WiFi5 接通电源，并使用以太网线将其连接到计算机。  
 . 在浏览器中打开 Web 管理界面，然后输入密码：  
    - **默认 IP**：*192.168.4.1*  
@@ -52,7 +52,7 @@ image::/bpi-wifi5/update_via_web_6.png[update_via_web_6.png]
 
 === 升级步骤
 
-. 下载要升级的 link:/en/BPI-WiFi5/BananaPi_BPI-WiFi5_Router#_system_image[镜像]。  
+. 下载要升级的 link:/zh/BPI-WiFi5/BananaPi_BPI-WiFi5_Router[镜像]。  
 . 使用以太网线将 BPI-WiFi5 连接到计算机。
 . 将计算机的 IP 地址设为 192.168.4.100，如下图所示。
 +
