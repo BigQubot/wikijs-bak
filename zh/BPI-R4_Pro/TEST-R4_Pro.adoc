@@ -1,6 +1,6 @@
 = 基础测试
 
-TIP: 更多信息：link:https://docs.banana-pi.org/en/BPI-R4_Pro/BananaPi_BPI-R4_Pro[Banana Pi BPI-R4 Pro]
+TIP: 更多信息：link:https://docs.banana-pi.org/zh/BPI-R4_Pro/BananaPi_BPI-R4_Pro[Banana Pi BPI-R4 Pro]
 
 == BPI-R4 Pro 功耗测试
 NOTE: 使用过程中功率会有约 1 W 的波动，以下数据为近似瞬时功率。
@@ -91,13 +91,13 @@ NOTE: R4 Pro 机箱左侧必须安装并固定一个 4010 风扇。
 +
 这里有四种安装方法：
 
-* 4010 风扇 + BE14 无风扇散热器（执行步骤 11 和 13，不执行步骤 10 和 14）+ 
+* 4010 风扇 + BE14 无风扇散热器（执行步骤 11 和 13，不执行步骤 10 和 14）
 
-* 4010 风扇 + BE14 风扇散热器（执行步骤 11 和 14，不执行步骤 10 和 13）+  
+* 4010 风扇 + BE14 风扇散热器（执行步骤 11 和 14，不执行步骤 10 和 13）
 
-* 5020 风扇 + BE14 无风扇散热器（执行步骤 10 和 13，不执行步骤 11 和 14）+ 
+* 5020 风扇 + BE14 无风扇散热器（执行步骤 10 和 13，不执行步骤 11 和 14）
 
-* 5020 风扇 + BE14 风扇散热器（执行步骤 10 和 14，不执行步骤 11 和 13）+ 
+* 5020 风扇 + BE14 风扇散热器（执行步骤 10 和 14，不执行步骤 11 和 13）
 
 . 首先从包装盒中取出 R4 Pro 开发板（部分开发板出厂时已安装散热器）。
 +
@@ -174,7 +174,7 @@ image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install17.jpg[banana_pi_
 +
 image::/bpi-r4_pro/bpi-r4_pro_test/banana_pi_bpi-r4_pro_install18.jpg[banana_pi_bpi-r4_pro_install18.jpg]
 
-link:/en/BPI-R4_Pro/Photo_BPI-R4_Pro#_r4pro_case[查看整体效果图]
+link:/zh/BPI-R4_Pro/Photo_BPI-R4_Pro#_bpi_r4_pro_外壳[查看整体效果图]
 
 == 4010 风扇 + BE14 无风扇散热器
 
