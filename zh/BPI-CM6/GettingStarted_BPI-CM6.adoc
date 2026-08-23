@@ -1,99 +1,99 @@
 = 简介
 
-BananaPi BPI-CM6 采用K1核心，采用多通道电源管理芯片。       存储采用LPDDR4X， eMMC。       外围设备有2lane M.2 KEY M、1个USB2.0、1个USB3.0、WIFI/BT、TF卡、HDMI TX、MIPI DSI、MIPI CSI、TYPE-C、2xGBE等集成，集成稳定且可扩展的解决方案。
+BananaPi BPI-CM6 采用 K1 核心和多路电源管理芯片，配备 LPDDR4X 内存与 eMMC 存储。板载 2 通道 M.2 Key M、1 个 USB 2.0、1 个 USB 3.0、Wi-Fi/蓝牙、TF 卡、HDMI TX、MIPI DSI、MIPI CSI、USB Type-C、2 个千兆以太网等接口，为用户提供稳定且易于扩展的一体化解决方案。
 
 = 开发
-== 准备
-. 准备一条TTL线，一个12V PD电源， USB 数据线和至少8G的TF卡。
-. 请 link:/en/BPI-F3/BananaPi_BPI-F3#_system_image[下载] 标准差和 EMMC 要刻录的镜像。
-. 请注意，镜像结尾为“**bianbu-k1-xxx.img.zip**“ 是 **SD卡镜像**，而镜像以“**bianbu-k1-xxx.zip**“ 是 **EMMC 镜像**. **刻录时请不要选择错误。**
+== 准备工作
+. 准备一根 TTL 串口线、一个 12V PD 电源、一根 USB 数据线，以及一张容量不小于 8GB 的 TF 卡。
+. 请先 link:/zh/BPI-F3/BananaPi_BPI-F3[下载]需要烧录的 SD 卡镜像和 eMMC 镜像。
+. 请注意，以“**bianbu-k1-xxx.img.zip**”结尾的是 **SD 卡镜像**，以“**bianbu-k1-xxx.zip**”结尾的是 **eMMC 镜像**。**烧录时请勿选错。**
 
-== 将映像安装到 SD 卡
-WARNING: 请选择以“结尾的图片”**bianbu-k1-xxx.img.zip**“为了 **边步**。别选错了！
+== 将镜像烧录到 SD 卡
+WARNING: 使用 **Bianbu** 系统时，请选择以“**bianbu-k1-xxx.img.zip**”结尾的镜像，切勿选错。
 
-link:https://balena.io/etcher[巴莱纳蚀刻机] 是 Balena 的开源 GUI 闪存工具，可将操作系统映像闪存到 SD 卡或 USB 开车。
+link:https://balena.io/etcher[Balena Etcher] 是 Balena 提供的开源图形化镜像烧录工具，可将操作系统镜像烧录到 SD 卡或 U 盘。
 
-- 点击“**从文件闪存**”来选择镜像。 
-- 点击“**选择目标**”来选择 USB 设备。 
-- 点击“**快闪！**“开始燃烧。
+- 点击“**Flash from file**”选择镜像文件。
+- 点击“**Select target**”选择目标设备。
+- 点击“**Flash!**”开始烧录。
 
 image::/picture/etcher.jpg[etcher.jpg]
 
-NOTE: 请记住在启动时连接到 HDMI 屏幕，然后创建您自己的帐户。
+NOTE: 首次启动时请连接 HDMI 显示器，然后按照界面提示创建用户账户。
 
-== 安装镜像到 eMMC 1
-WARNING: 请选择以“结尾的图片”**bianbu-k1-xxx.zip**“为了 **边步**。别选错了！
+== 将镜像烧录到 eMMC：方法一
+WARNING: 使用 **Bianbu** 系统时，请选择以“**bianbu-k1-xxx.zip**”结尾的镜像，切勿选错。
 
-**安装驱动软件**
+**安装驱动程序和烧录软件**
 
-. link:/en/BPI-F3/BananaPi_BPI-F3#_tools[下载泰坦闪光器]
-. 双击 link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2Ftitantools_for_windows-1.0.35-beta.zip[**泰坦工具_为了_windows-最新**] 安装。 Linux 授予可执行权限，可以通过打开来运行 link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2Ftitantools_for_linux-1.0.35-beta.zip[**泰坦工具_为了_Linux-最新**] 无需安装。
-. 它默认安装在电脑的C盘，需要一定的空间以备将来使用。 **所以请保证剩余可用空间大于10G (Linux 家庭空间大于10GB)**
-. 允许来自未知发布者的此应用对您的设备进行更改。然后选择始终安装该驱动软件。
+. link:/zh/BPI-F3/BananaPi_BPI-F3[下载 Titan Flasher]
+. Windows 用户双击 link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2Ftitantools_for_windows-1.0.35-beta.zip[**titantools_for_windows-latest**] 安装；Linux 用户下载 link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2Ftitantools_for_linux-1.0.35-beta.zip[**titantools_for_Linux-latest**]，赋予可执行权限后即可直接运行，无需安装。
+. Windows 版本默认安装在电脑的 C 盘，后续使用还会占用一定空间。**请确保 C 盘剩余空间大于 10GB；Linux 用户请确保主目录可用空间大于 10GB。**
+. 当系统询问是否允许未知发布者的应用更改设备时，请选择允许；安装驱动程序时请选择始终安装。
 
 
 
-. 如果驱动安装成功，会提示 USB 驱动安装成功。
+. 驱动安装成功后，系统会提示 USB 驱动程序已成功安装。
 +
 image::/picture/bpi-f3_install_usb_driver.jpg[bpi-f3_install_usb_driver.jpg]
 
-**可视化软件将镜像刻录到 EMMC**
+**使用图形界面将镜像烧录到 eMMC**
 
-. 点击单机刻录 (如果您需要同时刻录多个设备，请单击“多机刻录”)
+. 点击“Single Machine Burn”（单机烧录）。如需同时烧录多台设备，请点击“Multiple Machine Burn”（多机烧录）。
 +
 image::/picture/bpi-f3_tianflasher_1.png[bpi-f3_tianflasher_1.png]
 
-. 要将设备置于闪烁模式：
+. 让设备进入烧录模式：
 - **方法一：** +
-设备未上电。按住 **下载OAAO (自由电子实验室)** 按钮，插入 type-c，然后松开按钮。 (如果你担心不够 USB 电源时，可以先插上电源，然后松开按钮，然后再插上电源 USB 电缆)
+保持设备断电，按住 **DOWNLOAD (FEL)** 按键，插入 USB Type-C 数据线，然后松开按键。如果担心 USB 供电不足，可以先接通电源，再松开按键，最后插入 USB 数据线。
 - **方法二：** +
-设备已上电。按住 **下载 (自由电子实验室)** 按钮，然后按重置按钮，然后插入 USB 电缆。
+设备通电后，按住 **DOWNLOAD (FEL)** 按键，再按一下 Reset 按键，然后插入 USB 数据线。
 
 +
-WARNING: 当连接到 USB HUB，可能出现“Fastboot设备初始化失败”。
+WARNING: 通过 USB HUB 连接时，可能会出现“Fastboot device initialization failure”（Fastboot 设备初始化失败）的提示。
 
 image::/bpi-cm6/banana_pi_bpi-cm6_get_start_1-1.jpg[banana_pi_bpi-cm6_get_start_1-1.jpg]
 
 image::/bpi-cm6/banana_pi_bpi-cm6_get_start_1-2.jpg[banana_pi_bpi-cm6_get_start_1-2.jpg]
 
-如果软件识别成功，会出现“**视频：PID=**” 将出现显示。如果有多个设备，请选择您要刻录的设备。
+软件成功识别设备后，会显示“**VID:PID=**”。如果连接了多台设备，请选择需要烧录的设备。
 
 image::/bpi-cm6/bpi-cm6_tianflasher_2.jpg[bpi-cm6_tianflasher_2.jpg]
 
-. 选择 **闪存文件**，软件会解压，请耐心等待。
+. 选择 **烧录文件**。软件会先解压文件，请耐心等待。
 +
 
 image::/bpi-cm6/bpi-cm6_tianflasher_3.jpg[bpi-cm6_tianflasher_3.jpg]
 
-. 点击进入 **开始闪烁**. 
+. 点击 **开始烧录**。
 +
 image::/picture/bpi-f3_tianflasher_4.png[bpi-f3_tianflasher_4.png]
 
-. 烧录完成，重新上电。
+. 烧录完成后，重新给设备上电。
 
-**非可视化软件将镜像刻录到 EMMC**
+**使用命令行工具将镜像烧录到 eMMC**
 
-这是另一种烧录方式，使用titanflasher工具，然后把这个flashserver.exe文件放到 EMMC 您要刻录的镜像文件。
+这是另一种烧录方式。使用 Titan Flasher 工具时，请将 `flashserver.exe` 放到准备烧录的 eMMC 镜像文件所在目录。
 
-在您的计算机上运行它，如下图所示：
+按照下图所示，在电脑上运行该程序：
 
-当系统识别到设备时(视频：=PID=XXX)，选择“1”项刷机。
+系统识别到设备（VID:PID=XXX）后，选择第“1”项开始烧录。
 
 image::/bpi-cm6/bpi-cm6_tianflasher_choose.jpg[bpi-cm6_tianflasher_choose.jpg]
 
 
-== 安装镜像到 eMMC 2
-WARNING: 的 **阿姆比安** 镜像目前仅支持SD卡启动。
+== 将镜像烧录到 eMMC：方法二
+WARNING: **Armbian** 镜像目前仅支持从 SD 卡启动。
 
-NOTE: 除了使用titantools之外，还可以使用dd命令将镜像刻录到 emmc.
- 
-采取 **bianbu-24.04-desktop-k1-v2.1-release-20250124144655.img**.
-解压缩“**bianbu-k1-xxx.img.zip**” 到 USB 驱动器，然后复制“**fsbl.bin**” 和 “**bootinfo_emmc.bin**“在”**bianbu-k1-xxx.zip**” 将其复制到 USB 开车。
+NOTE: 除了使用 Titan Flasher，还可以使用 `dd` 命令将镜像烧录到 eMMC。
 
-. 首先将已经烧录镜像的SD卡插入F3中并上电启动。
-. 插入复制的 USB 驶入F3。
+下面以 **bianbu-24.04-desktop-k1-v2.1-release-20250124144655.img** 为例。
+将“**bianbu-k1-xxx.img.zip**”解压到 U 盘，然后从“**bianbu-k1-xxx.zip**”中取出“**fsbl.bin**”和“**bootinfo_emmc.bin**”，复制到同一个 U 盘。
 
-. 启动后使用“lsblk”命令查看。
+. 首先，将已经烧录好系统镜像的 SD 卡插入 BPI-CM6，然后上电启动。
+. 将上述 U 盘插入 BPI-CM6。
+
+. 系统启动后，使用 `lsblk` 命令查看存储设备。
 +
 ```sh
 pi@k1:~$ lsblk
@@ -109,37 +109,37 @@ mmcblk0     179:8    0 14.8G  0 disk
 └─mmcblk0p6 179:14   0    8G  0 part /
 mmcblk2     179:8    0 14.6G  0 disk
 ```
-“sda1”指的是 USB 驱动器，“mmcblk0”指的是 SD 卡，“mmcblk2”指的是 EMMC.
-. 安装 USB 先开车去mnt。
+其中，`sda1` 是 U 盘分区，`mmcblk0` 是 SD 卡，`mmcblk2` 是 eMMC。
+. 先将 U 盘挂载到 `/mnt`。
 +
 ```sh
 sudo mount /dev/sda1 /mnt
 cd /mnt
 ```
-. 然后使用dd命令将镜像刻录到 emmc
+. 使用 `dd` 命令将镜像写入 eMMC。
 +
 ```sh
 sudo dd if=bianbu-24.04-desktop-k1-v2.1-release-20250124144655.img of=/dev/mmcblk2 bs=10M
 ```
-NOTE: 如果您输入 **LSBLK** 命令，可以看到 **启动**。您可以直接进入步骤9。
+NOTE: 如果执行 **lsblk** 命令后已经能够看到 **BOOT** 分区，可以直接跳到第 9 步。
 
-. 接下来，更新boot0分区 EMMC。但有些镜像启动分区默认是隐藏的，所以需要修改cmdline。挂载bootfs：
+. 接下来更新 eMMC 的 `boot0` 分区。部分镜像默认隐藏启动分区，因此需要修改内核命令行。先挂载 `bootfs`：
 +
-```shs
+```sh
 sudo mount /dev/mmcblk0p5 /boot
 sudo nano /boot/env_k1-x.txt
 ```
-找到 Commonargs 并添加“recovery=1” 最后。
+找到 `Commonargs`，在末尾添加 `recovery=1`。
 +
 ```sh
 commonargs=setenv bootargs earlycon=${earlycon} earlyprintk console=tty1 console=${console} ${loglevel} clk_ignore_unused rdinit=${init} recovery=1
 ```
-保存并重新启动。
+保存文件并重启系统。
 +
 ```sh
 sudo reboot
 ```
-. 重启完成后，使用lsblk命令可以看到BOOT分区。
+. 重启完成后，再次执行 `lsblk`，此时应能看到 BOOT 分区。
 +
 ```sh
 pi@k1:~$ lsblk
@@ -163,7 +163,7 @@ mmcblk2      179:8    0 14.6G  0 disk
 mmcblk2boot0 179:16   0    4M  1 disk
 mmcblk2boot1 179:24   0    4M  1 disk
 ```
-. 安装一个 USB 开车
+. 再次将 U 盘挂载到 `/mnt`。
 +
 ```sh
 sudo mount /dev/sda1 /mnt
@@ -177,17 +177,17 @@ sudo dd if=bootinfo_emmc.bin of=/dev/mmcblk2boot0
 sudo dd if=FSBL.bin of=/dev/mmcblk2boot0 seek=512 bs=1
 sync
 ```
-. 等待刻录完成后，断开电源并取出SD卡并 USB 开车。再次通电即可从 EMMC.
+. 等待烧录完成，然后断开电源并取出 SD 卡和 U 盘。重新上电后，设备将从 eMMC 启动。
 
 
-= 其他开发
-== WiFi/BT
+= 其他开发说明
+== Wi-Fi/蓝牙
 
-**您有两种设置 WiFi 的方法**
+**可通过以下两种方式配置 Wi-Fi**
 
-. 使用UI界面设置WiFi
+. 使用图形界面配置 Wi-Fi。
 
-. 使用命令设置 WiFi
+. 使用命令配置 Wi-Fi。
 +
 ```sh
 sudo nmcli dev
@@ -196,11 +196,11 @@ sudo nmcli dev wifi
 sudo nmcli dev wifi connect "SSID" password "PASSWORD" ifname wlan0
 ```
 
-**您有两种设置 BT 的方法**
+**可通过以下两种方式配置蓝牙**
 
-. 使用UI界面设置BT
+. 使用图形界面配置蓝牙。
 
-. 使用命令设置BT
+. 使用命令配置蓝牙。
 +
 ```sh
 hciconfig
@@ -219,8 +219,8 @@ connect <MAC address>  //Connecting a Bluetooth device
 exit  
 ```
 
-== 实时时钟
-使用带有 1mm PIN 的纽扣电池插入 RTC 电池插槽为 RTC 供电。
+== RTC 实时时钟
+使用带 1 mm 插头的纽扣电池，接入 RTC 电池接口，为 RTC 供电。
 
 ```sh
 root@bananapicm6io:~# date -s 2028-08-08
@@ -239,19 +239,19 @@ root@bananapicm6io:~# hwclock
 root@bananapicm6io:~# date
 2021年 01月 01日 星期五 00:01:04 CST
 ```
-RTC时钟已设置成功。
+RTC 时钟设置成功。
 
 == NVMe SSD
 
-NOTE: 板上有两个M.2KEY M接口，您可以选择其中之一使用。
+NOTE: 开发板上有两个 M.2 Key M 接口，可以任选其中一个使用。
 
-请插入一个M.2 KeyM SSD 插入任意一个 KeyM 插槽。
+将一块 M.2 Key M SSD 插入任意一个 Key M 插槽。
 
 image::/bpi-cm6/bpi-cm6_nvmessd_1.jpg[bpi-cm6_nvmessd_1.jpg]
 
-然后使用命令查询：
+然后执行以下命令查询设备：
 
-设备的内存大小和 nvme 可以通过lspci和lsblk查询。
+使用 `lspci` 和 `lsblk` 可以查看 NVMe 设备信息与容量。
 
 ```sh
 pi@bananapicm6io:~$ lspci
