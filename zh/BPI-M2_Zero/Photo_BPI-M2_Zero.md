@@ -1,8 +1,8 @@
 ---
 title: Banana Pi BPI-M2 Zero 产品图片
 description: Banana Pi BPI-M2 Zero 产品图片
-published: false
-date: 2026-08-22T17:12:30.770Z
+published: true
+date: 2026-08-23T14:28:54.992Z
 tags: 
 editor: markdown
 dateCreated: 2026-08-22T11:47:49.373Z
