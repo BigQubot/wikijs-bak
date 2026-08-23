@@ -4,8 +4,8 @@ Banana Pi BPI-M5 是新一代单板计算机，采用 Amlogic S905X3 四核 Cort
 
 Banana Pi BPI-M2 Pro 与 BPI-M5 使用相同的 SoC，但电路板布局不同。它配备 2 GB LPDDR4 内存、16 GB eMMC、2 个 USB 3.0 端口、1 个千兆网口、板载 RTL8821CU USB Wi-Fi/蓝牙模块、红外接收器、1 个 HDMI 输出接口、1 个 Micro-USB 端口，并使用直流电源供电。
 
-TIP: 更多信息：link:/en/BPI-M5/BananaPi_BPI-M5[Banana Pi BPI-M5] +
-更多信息：link:/en/BPI-M2_Pro/BananaPi_BPI-M2_Pro[Banana Pi BPI-M2 Pro]
+TIP: 更多信息：link:/zh/BPI-M5/BananaPi_BPI-M5[Banana Pi BPI-M5] +
+更多信息：link:/zh/BPI-M2_Pro/BananaPi_BPI-M2_Pro[Banana Pi BPI-M2 Pro]
 
 == 规格参数
 
@@ -410,14 +410,14 @@ image::/picture/m5_wiringpi.png[m5_wiringpi.png]
 . BPI GPIO 扩展板示例位于 link:https://github.com/BPI-SINOVOIP/amlogic-wiringPi/tree/master/examples[amlogic-wiringPi/examples]
 +
 blinkall：不使用扩展板，依次闪烁排针上的所有 GPIO。 +
-lcd-bpi：link:/en/BPI-LCD_1602/BananaPi_BPI-LCD_1602[BPI LCD 1602 显示模块]示例。 +
-52pi-bpi：link:/en/BPI-OLED/BananaPi_BPI-OLED[BPI OLED 显示模块]示例。 +
-matrixled-bpi：link:/en/BPI-RGB_LED/BananaPi_BPI_RGB_LED[BPI RGB LED 矩阵扩展模块]示例。 +
-berryclip-bpi：link:/en/BPI-BerrClip/BananaPi_BPI-BerryClip[BPI BerryClip 模块]示例。
+lcd-bpi：link:/zh/BPI-LCD_1602/BananaPi_BPI-LCD_1602[BPI LCD 1602 显示模块]示例。 +
+52pi-bpi：link:/zh/BPI-OLED/BananaPi_BPI-OLED[BPI OLED 显示模块]示例。 +
+matrixled-bpi：link:/zh/BPI-RGB_LED/BananaPi_BPI_RGB_LED[BPI RGB LED 矩阵扩展模块]示例。 +
+berryclip-bpi：link:/zh/BPI-BerrClip/BananaPi_BPI-BerryClip[BPI BerryClip 模块]示例。
 
 === RPi.GPIO
 
-构建并安装 RPi.GPIO。在 Debian 上构建之前，必须先 link:/en/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro#_enable_sudo_for_debian[安装 sudo]。
+构建并安装 RPi.GPIO。在 Debian 上构建之前，必须先 link:/zh/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro#_在_debian_中启用_sudo[安装 sudo]。
 ```sh
  $ sudo apt-get update
  $ sudo apt-get install build-essential python3 python3-pip python3-dev python3-setuptools git
@@ -439,7 +439,7 @@ berryclip-bpi：link:/en/BPI-BerrClip/BananaPi_BPI-BerryClip[BPI BerryClip 模�
 
 === WiringPi2-Python
 
-构建并安装 WiringPi2-Python。在 Debian 上构建之前，必须先 link:/en/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro#_enable_sudo_for_debian[安装 sudo]。
+构建并安装 WiringPi2-Python。在 Debian 上构建之前，必须先 link:/zh/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro#_在_debian_中启用_sudo[安装 sudo]。
 ```sh
  $ sudo apt-get update
  $ sudo apt-get install build-essential python3 python3-dev python3-setuptools swig git
@@ -562,8 +562,8 @@ setenv hdmimode "2560x1600p60hz"
 
 S905X3 的 SoC ROM 不支持从 USB 启动。因此，要从 U 盘运行 Linux，必须先在 SD 卡或 eMMC 中写入引导加载程序，再从 U 盘加载 boot 和根文件系统。启动完成后，系统将从 U 盘运行。
 
-. 最简单的方法是将 link:/en/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro#_install_image_to_sdcard[BPI-M5/BPI-M2 Pro Linux 镜像写入 SD 卡或 eMMC] 用于引导，同时将该镜像写入 U 盘，用于加载 boot 和根文件系统。
-. 使用 link:/en/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro#_boot_sequence[SD 卡或 eMMC] 启动 BPI-M5/BPI-M2 Pro，将 /boot/boot.ini 复制为 /boot/boot.ini.org，使引导加载程序无法在该介质加载 boot.ini，继而尝试从 U 盘启动分区加载。
+. 最简单的方法是将 link:/zh/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro#_将镜像写入_sd_卡[BPI-M5/BPI-M2 Pro Linux 镜像写入 SD 卡或 eMMC] 用于引导，同时将该镜像写入 U 盘，用于加载 boot 和根文件系统。
+. 使用 link:/zh/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro#_启动顺序[SD 卡或 eMMC] 启动 BPI-M5/BPI-M2 Pro，将 /boot/boot.ini 复制为 /boot/boot.ini.org，使引导加载程序无法在该介质加载 boot.ini，继而尝试从 U 盘启动分区加载。
 . 重启系统，启动脚本和根文件系统将从 U 盘加载。
 +
 image::/picture/m5_boot_from_usb.png[m5_boot_from_usb.png]
@@ -841,7 +841,7 @@ image::/picture/m5_android_format.png[m5_android_format.png]
 **如何启用 Android Wi-Fi/蓝牙**
 +
 USB 类型：将 USB 无线网卡插入 USB Host 端口并重启系统。启动后，可在“设置”应用中启用或禁用 Wi-Fi 和蓝牙。 +
-SDIO/UART 类型：将硬件模块正确连接到 40 Pin 排针，并 link:/en/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro#_android_dtb_overlay[配置 Android DTB Overlay] 以启用该模块。
+SDIO/UART 类型：将硬件模块正确连接到 40 Pin 排针，并 link:/zh/BPI-M5_M2_Pro/GettingStarted_BPI-M5_M2_Pro#_android_dtb_overlay[配置 Android DTB Overlay] 以启用该模块。
 +
 WARNING: Android 不支持以太网和 Wi-Fi 同时连接。以太网优先级高于 Wi-Fi：以太网已连接时 Wi-Fi 无法连接网络；插入网线后，现有 Wi-Fi 连接也会断开。
 
