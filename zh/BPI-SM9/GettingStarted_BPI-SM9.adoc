@@ -90,7 +90,7 @@ NOTE: 此跳线用于选择不同模块所需的电平，本例使用 1.8 V。
 = 配件
 
 == 使用 SD 卡烧录镜像
-NOTE: 请确认开发板上的 TF 卡检测跳线位置正确。参见：link:https://docs.banana-pi.org/en/BPI-SM9/GettingStarted_BPI-SM9#_tf_card_detection_and_gpio_selection[TF 卡检测与 GPIO 选择]
+NOTE: 请确认开发板上的 TF 卡检测跳线位置正确。参见：link:https://docs.banana-pi.org/zh/BPI-SM9/GettingStarted_BPI-SM9#_tf_卡检测与_gpio_选择[TF 卡检测与 GPIO 选择]
 
 . 首先下载对应的 SD 卡烧录包，然后将包内文件复制到 SD 卡。
 
