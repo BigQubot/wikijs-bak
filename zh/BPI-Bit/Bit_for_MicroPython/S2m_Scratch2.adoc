@@ -1,4 +1,4 @@
-TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_development_tutorialbased_on_microbit[BPI-Bit 的 MicroPython 开发教程]
+TIP: link:/zh/BPI-Bit/Bit_for_MicroPython#_开发教程基于_microbit[BPI-Bit 的 MicroPython 开发教程]
 
 = 关于 Scratch 2
 为了帮助人们更快地理解计算机语言并让孩子创作自己的作品，麻省理工学院媒体实验室的专家开发了面向儿童的编程语言 Scratch。使用 Scratch 不需要记忆复杂的语法和语句，程序可以像搭积木一样通过拖放来编写，因此更直观、易于操作，学生也能轻松创作自己的作品。
@@ -10,7 +10,7 @@ image::/bpi-bit/scratch2_1.png[scratch2_1.png]
 
 
 = 硬件前提条件
-首先阅读 link:/en/BPI-Bit/Bit_for_MicroPython/Try_burning_the_board[开发板烧录教程]，然后烧录 s2mb_firmware.bin 固件。
+首先阅读 link:/zh/BPI-Bit/Bit_for_MicroPython/Try_burning_the_board[开发板烧录教程]，然后烧录 s2mb_firmware.bin 固件。
 
 Note: 必须将固件重命名为 firmware.bin，否则硬件无法被识别。
 
@@ -32,7 +32,7 @@ image::/bpi-bit/more_.png[more_.png]
 
 红点表示设备尚未连接。此时需要下载 link:https://github.com/BPI-STEAM/BPI-BIT-MicroPython/releases/download/Firmware1230/s2m-windows.exe[s2m-windows.exe] 软件，可从 link:https://github.com/BPI-STEAM/BPI-BIT-MicroPython/releases/tag/s2mb[s2mb 发布页面]获取。
 
-请确认已经烧录 link:https://github.com/BPI-STEAM/BPI-BIT-MicroPython/releases/download/Firmware1230/s2mb_firmware.bin[s2mb_firmware.bin] 固件。具体步骤请参阅 link:/en/BPI-Bit/Bit_for_MicroPython/Try_burning_the_board[开发板烧录教程]。
+请确认已经烧录 link:https://github.com/BPI-STEAM/BPI-BIT-MicroPython/releases/download/Firmware1230/s2mb_firmware.bin[s2mb_firmware.bin] 固件。具体步骤请参阅 link:/zh/BPI-Bit/Bit_for_MicroPython/Try_burning_the_board[开发板烧录教程]。
 
 确认运行正常：
 
