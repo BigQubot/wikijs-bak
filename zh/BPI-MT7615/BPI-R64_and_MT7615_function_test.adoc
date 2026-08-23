@@ -11,7 +11,7 @@ MT7615 模块支持 BPI-R2 和 BPI-R64。我们已在实验室测试 MT7615 的�
 . USB 串口线（3.3V）
 . TF 卡
 . 5.8 GHz Wi-Fi 天线，1～4 根
-. OpenWrt 镜像：https://docs.banana-pi.org/en/BPI-R64/BananaPi_BPI-R64#_system_image
+. OpenWrt 镜像：https://docs.banana-pi.org/zh/BPI-R64/BananaPi_BPI-R64#_系统镜像
 
 == 环境搭建
 在 Windows 中使用 Win32DiskImager 将 BPI-R64 OpenWrt 镜像烧录到 TF 卡，再将卡插入卡槽。把 MT7615 模块插入 BPI-R64 的 mPCIe 接口 CN25，连接 UART 调试线和 Wi-Fi 天线，然后通电启动。
