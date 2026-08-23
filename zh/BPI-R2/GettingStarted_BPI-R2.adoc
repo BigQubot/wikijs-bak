@@ -2,7 +2,7 @@
 
 Banana Pi R2 是一款路由器开发板，可运行 OpenWrt、Android 和 Bananian 等多种开源操作系统。它配有 4 个千兆 LAN 端口、1 个千兆 WAN 端口，并支持 300 Mbps 802.11n 无线网络。
 
-TIP: 更多信息：link:/en/BPI-R2/BananaPi_BPI-R2[Banana Pi BPI-R2]
+TIP: 更多信息：link:/zh/BPI-R2/BananaPi_BPI-R2[Banana Pi BPI-R2]
 
 == 主要特性
 - MediaTek MT7623N，四核 ARM Cortex-A7
@@ -199,7 +199,7 @@ cd /usr/local/bin
 == 在 R2 上使用 4G 模块
 从这里获取更多信息：
 
-link:/en/BPI-4G_module/using_4G_module_with_BananaPi[在 Banana Pi 上使用 4G 模块]
+link:/zh/BPI-4G_module/using_4G_module_with_BananaPi[在 Banana Pi 上使用 4G 模块]
 
 == Ubuntu 上的 R2 WiFi 与 AP 模式
 === STA 模式
