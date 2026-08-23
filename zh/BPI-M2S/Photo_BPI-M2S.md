@@ -1,8 +1,8 @@
 ---
 title: Banana Pi BPI-M2S 产品图片
 description: Banana Pi BPI-M2S 产品图片
-published: false
-date: 2026-08-22T17:09:48.615Z
+published: true
+date: 2026-08-23T14:28:58.087Z
 tags: 
 editor: markdown
 dateCreated: 2026-08-22T11:57:30.235Z
