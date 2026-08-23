@@ -2,9 +2,9 @@
 
 Banana Pi BPI-R4 Lite 是一款基于 MediaTek MT7987A 四核 Arm Cortex-A53 处理器设计的高性能开源路由器开发板。板载 2 GB DDR4、8 GB eMMC、256 MB SPI NAND、32 MB SPI NOR 和 MicroSD 卡槽；配有一个 2.5G SFP LAN、一个 2.5G RJ45 WAN、四个 1G RJ45 LAN 和一个 USB 3.0 接口。扩展接口包括一个支持 USB 3.0 的 M.2 Key B 插槽（用于 5G 模块）、一个支持 PCIe 3.0 双通道的 miniPCIe 插槽（用于 Wi-Fi 7 网卡；也可选配两个 PCIe 3.0 单通道 miniPCIe 插槽）、一个支持 USB 2.0 的 miniPCIe 插槽，以及一个 USB Type-C 调试控制台。
 
-TIP: link:/en/BPI-R4_Lite/BananaPi_BPI-R4_Lite[BananaPi_BPI-R4_Lite]
+TIP: link:/zh/BPI-R4_Lite/BananaPi_BPI-R4_Lite[BananaPi_BPI-R4_Lite]
 
-TIP: link:/en/BPI-R4_Lite/TEST-R4_Lite[TEST-R4_Lite]
+TIP: link:/zh/BPI-R4_Lite/TEST-R4_Lite[TEST-R4_Lite]
 
 = 开发
 == 准备
@@ -524,7 +524,7 @@ root@Simon-R4:/#
 使用 PCIe 转 SATA 或 PCIe 转 USB 时，必须写入 2PCIe-1Lane 固件镜像，因为 mPCIe A/B 通道有两种配置：一个双通道接口（mPCIe A），或两个独立的单通道接口（mPCIe A + mPCIe B）。
 
 镜像：
-link:/en/BPI-R4_Lite/GettingStarted_BPI-R4_Lite[GettingStarted_BPI-R4_Lite#OpenWrt]
+link:/zh/BPI-R4_Lite/GettingStarted_BPI-R4_Lite[GettingStarted_BPI-R4_Lite#OpenWrt]
 
 BPI-R4_Lite 支持 PCIe 转 SATA。
 
@@ -573,7 +573,7 @@ root@R4CN:/#
 使用 BPI-R4-NIC 模块时必须写入双通道固件镜像，因为 mPCIe A/B 通道有两种配置：一个双通道接口（mPCIe A），或两个独立的单通道接口（mPCIe A + mPCIe B）。BPI-R4-NIC 模块需要 12 V 供电，因此 BPI-R4_Lite-Main 上电前必须先开启该电源：将 SW4 拨到“ON”位置，上电后 12V LED 会点亮。
 
 镜像：
-link:/en/BPI-R4_Lite/GettingStarted_BPI-R4_Lite[GettingStarted_BPI-R4_Lite#OpenWrt]
+link:/zh/BPI-R4_Lite/GettingStarted_BPI-R4_Lite[GettingStarted_BPI-R4_Lite#OpenWrt]
 
 
 IMPORTANT:  12 V 电源通过 miniPCI 插槽的 6/28/48 号引脚提供给 BPI-R4-NIC。 
@@ -594,7 +594,7 @@ image::/bpi-r4_lite/minipeie.png[minipeie.png]
 
 BPI-R4-NIC-BE14 ：MT7995AV+MT7976CN+MT7977IAN
 
-link:/en/BPI-R4/BananaPi_BPI-R4-NIC-BE14[BananaPi_BPI-R4-NIC-BE14]
+link:/zh/BPI-R4/BananaPi_BPI-R4-NIC-BE14[BananaPi_BPI-R4-NIC-BE14]
 
 image::/bpi-r4/nic-be14-top-800.png[nic-be14-top-800.png]
 
