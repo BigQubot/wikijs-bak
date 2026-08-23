@@ -2,13 +2,13 @@
 
 Banana Pi BPI-CM4 采用 Amlogic A311D 设计，配备四核 ARM Cortex-A73 与双核 ARM Cortex-A53 CPU、ARM G52 MP4（6EE）GPU，以及算力为 5.0 TOPS 的 AI NPU。它支持摄像头和 MIPI-CSI 接口、HDMI 输出及两个千兆网口，并配有 4 GB RAM 和 16 GB eMMC 闪存。
 
-TIP: 更多信息： link:/en/BPI-CM4/BananaPi_BPI-CM4[Banana Pi BPI-CM4]
+TIP: 更多信息： link:/zh/BPI-CM4/BananaPi_BPI-CM4[Banana Pi BPI-CM4]
 
 = 开发准备
 
 . 准备一根 USB 转串口线和一个 5 V/3 A Type-C 电源适配器。串口线用于控制台调试，Type-C 数据线用于下载 Android 镜像和 ADB 调试。
 . Linux 开发需要一张至少 8 GB 的 SD 卡；Android 仅支持从 eMMC 启动。
-. SoC ROM 首先尝试从 eMMC 启动。因此，只要 eMMC 中存在可启动镜像，开发板就无法从 SD 卡启动。更多信息请参阅开发板的 link:/en/BPI-CM4/GettingStarted_BPI-CM4#_boot_sequence[启动顺序]。
+. SoC ROM 首先尝试从 eMMC 启动。因此，只要 eMMC 中存在可启动镜像，开发板就无法从 SD 卡启动。更多信息请参阅开发板的 link:/zh/BPI-CM4/GettingStarted_BPI-CM4#_启动顺序[启动顺序]。
 
 = Android
 == 准备
@@ -177,7 +177,7 @@ image::/picture/m2s_panel_switch.png[m2s_panel_switch.png]
 +
 image::/picture/m2s-rotation.png[m2s-rotation.png]
 
-. 使用 SurfaceFlinger 旋转，需要 link:/en/BPI-CM4/GettingStarted_BPI-CM4#_build_android_source_code[修改 Android 源代码并重新构建]
+. 使用 SurfaceFlinger 旋转，需要 link:/zh/BPI-CM4/GettingStarted_BPI-CM4#_构建_android_源代码[修改 Android 源代码并重新构建]
 +
 修改默认的 SurfaceFlinger 旋转属性：
 +
@@ -373,7 +373,7 @@ link:https://github.com/balena-io/balena-cli[Balena CLI] 是 balenaCloud/openBal
 == 启用相机
 Linux 发布镜像默认未启用摄像头，可按以下步骤启用。
 
-. 修改 /boot/env.txt 中的 link:/en/BPI-CM4/GettingStarted_BPI-CM4#_dtb_overlay[DTB Overlay] 配置，启用摄像头 DTBO。
+. 修改 /boot/env.txt 中的 link:/zh/BPI-CM4/GettingStarted_BPI-CM4#_dtb_overlay[DTB Overlay] 配置，启用摄像头 DTBO。
 +
 ```sh
  overlays="os08a10"
@@ -471,7 +471,7 @@ WARNING: Linux 不支持双屏同时显示，因此使用 MIPI 面板时请断�
 
 WARNING: 此 WiringPi 仅支持将 26 Pin GPIO 配置为输出、输入、PWM 或软件 PWM。若要使用 I2C、SPI 等复用功能，必须在 boot.ini 中启用相应的 DTB Overlay。
 
-. 构建并安装 WiringPi。在 Debian 上构建之前，必须先 link:/en/BPI-CM4/GettingStarted_BPI-CM4#_enable_sudo_for_debian[安装 sudo]。
+. 构建并安装 WiringPi。在 Debian 上构建之前，必须先 link:/zh/BPI-CM4/GettingStarted_BPI-CM4#_在_debian_中启用_sudo[安装 sudo]。
 +
 ```sh
  $ sudo apt-get update
@@ -486,13 +486,13 @@ WARNING: 此 WiringPi 仅支持将 26 Pin GPIO 配置为输出、输入、PWM �
 image::/picture/cm4_wiringpi.png[cm4_wiringpi.png]
 . BPI GPIO 扩展板示例位于 link:https://github.com/Dangku/amlogic-wiringPi/tree/master/examples[amlogic-wiringPi/examples]： +
 blinkall：不使用扩展板，依次闪烁排针上的所有 GPIO。 +
-lcd-bpi：link:https://docs.banana-pi.org/en/BPI-LCD_1602/BananaPi_BPI-LCD_1602[BPI LCD 1602 显示模块]示例。 +
-52pi-bpi：link:https://docs.banana-pi.org/en/BPI-OLED/BananaPi_BPI-OLED[BPI OLED 显示模块]示例。 +
-matrixled-bpi：link:https://docs.banana-pi.org/en/BPI-RGB_LED/BananaPi_BPI_RGB_LED[BPI RGB LED 矩阵扩展模块]示例。 +
-berryclip-bpi：link:https://docs.banana-pi.org/en/BPI-BerrClip/BananaPi_BPI-BerryClip[BPI BerryClip 模块]示例。
+lcd-bpi：link:https://docs.banana-pi.org/zh/BPI-LCD_1602/BananaPi_BPI-LCD_1602[BPI LCD 1602 显示模块]示例。 +
+52pi-bpi：link:https://docs.banana-pi.org/zh/BPI-OLED/BananaPi_BPI-OLED[BPI OLED 显示模块]示例。 +
+matrixled-bpi：link:https://docs.banana-pi.org/zh/BPI-RGB_LED/BananaPi_BPI_RGB_LED[BPI RGB LED 矩阵扩展模块]示例。 +
+berryclip-bpi：link:https://docs.banana-pi.org/zh/BPI-BerrClip/BananaPi_BPI-BerryClip[BPI BerryClip 模块]示例。
 
 == RPi.GPIO
-构建并安装 RPi.GPIO。在 Debian 上构建之前，必须先 link:/en/BPI-CM4/GettingStarted_BPI-CM4#_enable_sudo_for_debian[安装 sudo]。
+构建并安装 RPi.GPIO。在 Debian 上构建之前，必须先 link:/zh/BPI-CM4/GettingStarted_BPI-CM4#_在_debian_中启用_sudo[安装 sudo]。
 ```sh
  $ sudo apt-get update
  $ sudo apt-get install build-essential python python-dev python-setuptools git
@@ -503,7 +503,7 @@ berryclip-bpi：link:https://docs.banana-pi.org/en/BPI-BerrClip/BananaPi_BPI-Ber
 ```
 
 == WiringPi2-Python
-构建并安装 WiringPi2-Python。在 Debian 上构建之前，必须先 link:/en/BPI-CM4/GettingStarted_BPI-CM4#_enable_sudo_for_debian[安装 sudo]。
+构建并安装 WiringPi2-Python。在 Debian 上构建之前，必须先 link:/zh/BPI-CM4/GettingStarted_BPI-CM4#_在_debian_中启用_sudo[安装 sudo]。
 ```sh
  $ sudo apt-get update
  $ sudo apt-get install build-essential python python-dev python-setuptools swig git
@@ -597,8 +597,8 @@ image::/picture/ec20_server_pppd_apn.png[ec20_server_pppd_apn.png]
 == 从 SSD 启动 Linux
 A311D SoC ROM 和 link:https://github.com/BPI-SINOVOIP/BPI-M2S-bsp[BPI-M2S-bsp] 的 U-Boot 均不支持从 NVMe 启动。因此，要从 SSD 运行 Linux，必须先在 SD 卡或 eMMC 中写入引导加载程序和启动分区，再从 SSD 加载根文件系统。启动完成后，系统将从 SSD 运行。由于 Banana Pi CM4IO 板载的是 Mini PCIe 插槽，因此还需要一块 Mini PCIe 转 NVMe 适配板。
 
-. 最简单的方法是将 link:/en/BPI-CM4/GettingStarted_BPI-CM4#_install_image_to_sdcard[CM4 Linux 镜像写入 SD 卡或 eMMC]，用于引导系统；同时将该镜像写入 NVMe SSD，用于加载根文件系统。
-. 使用 link:/en/BPI-CM4/GettingStarted_BPI-CM4#_boot_sequence[SD 卡或 eMMC] 启动 CM4，然后修改 /boot/boot.ini，让内核从 NVMe 分区加载根文件系统。
+. 最简单的方法是将 link:/zh/BPI-CM4/GettingStarted_BPI-CM4#_将镜像写入_sd_卡[CM4 Linux 镜像写入 SD 卡或 eMMC]，用于引导系统；同时将该镜像写入 NVMe SSD，用于加载根文件系统。
+. 使用 link:/zh/BPI-CM4/GettingStarted_BPI-CM4#_启动顺序[SD 卡或 eMMC] 启动 CM4，然后修改 /boot/boot.ini，让内核从 NVMe 分区加载根文件系统。
 +
 ```sh
  diff a/boot/boot.ini b/boot/boot.ini
@@ -951,7 +951,7 @@ M5 android format.png
    resetting ...
    SM1:BL:511f6b:81ca2f;FEAT:A0F83180:20282000;POC:F;RCY:0;EMMC:0;READ:0;CHK:1F;READ:0;CHK:1F;READ:0;CHK;
 ```
-以上两种方法实际只擦除 eMMC 中 Android 的引导加载程序部分。从 SD 卡启动 Linux 后，建议再 link:/en/BPI-CM4/GettingStarted_BPI-CM4#_erase_emmc_android_by_dd_command[使用 dd 命令格式化整个 eMMC]。
+以上两种方法实际只擦除 eMMC 中 Android 的引导加载程序部分。从 SD 卡启动 Linux 后，建议再 link:/zh/BPI-CM4/GettingStarted_BPI-CM4#_使用_dd_命令擦除_emmc_中的_android_数据[使用 dd 命令格式化整个 eMMC]。
 - 最简单的方法是在上电前插入已写入 Linux 镜像的 SD 卡。Android 引导加载程序会检查 SD 卡 VFAT 分区中是否存在 boot.ini；若存在，便会从 SD 卡启动 Linux。启动后，可使用 dd 命令格式化整个 eMMC，再将 Linux 镜像写入 eMMC。
 +
 ```sh
