@@ -1,4 +1,4 @@
-TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_development_tutorialbased_on_microbit[BPI-Bit 的 MicroPython 教程]
+TIP: link:/zh/BPI-Bit/Bit_for_MicroPython#_开发教程基于_microbit[BPI-Bit 的 MicroPython 教程]
 
 = 热敏电阻
 该模块用于测量环境温度。由于开发板工作时自身会发热，建议在开发板尚未升温时采集；否则读数会受板载热源影响，最终更接近板温而非环境温度。
