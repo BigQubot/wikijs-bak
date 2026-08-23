@@ -2,7 +2,7 @@
 
 Banana Pi BPI-R4 路由器开发板采用 MediaTek MT7988A（Filogic 880）四核 ARM Cortex-A73 处理器，配备 4GB DDR4 内存、8GB eMMC 和板载 128MB SPI-NAND 闪存；同时提供 2 个 10GbE SFP 接口、4 个千兆以太网口和 USB 3.2 接口。M.2 插槽支持 4G/5G 模块和 NVMe SSD，另有 2 个采用 PCIe 3.0 双通道接口的 miniPCIe 插槽，可安装 Wi-Fi 7 网卡（NIC）。这是一款高性能开源路由器开发板。
 
-TIP: 更多信息：link:/en/BPI-R4/BananaPi_BPI-R4[Banana Pi BPI-R4]
+TIP: 更多信息：link:/zh/BPI-R4/BananaPi_BPI-R4[Banana Pi BPI-R4]
 
 = 开发
 == 准备工作
@@ -11,7 +11,7 @@ TIP: 更多信息：link:/en/BPI-R4/BananaPi_BPI-R4[Banana Pi BPI-R4]
 * 12V/2A 电源适配器（不连接任何外设时，即使在极端情况下，BPI-R4 主板功耗也不会超过 10W；是否需要功率更高的适配器，请根据所用配件确定）
 * 使用 USB 转串口线（3.3V TTL，波特率 115200）连接 BPI-R4 的调试串口 +
 G=GND；RX=BPI-R4 输入；TX=BPI-R4 输出
-* link:https://docs.banana-pi.org/en/BPI-R4/BananaPi_BPI-R4#_system_image[下载]待烧录的镜像
+* link:https://docs.banana-pi.org/zh/BPI-R4/BananaPi_BPI-R4[下载]待烧录的镜像
 * LAN 口默认 IP 地址：192.168.1.1
 * 用户名/密码：pi/bananapi、root/bananapi。+
 也可以使用无密码的 root 用户。
@@ -62,7 +62,7 @@ image::/picture/r4_emmcboot.jpg[r4_emmcboot.jpg]
 ```
 
 == 如何将镜像烧录到 SD 卡
-IMPORTANT: 使用 Ubuntu 或 Debian 6.1 内核的 SD 卡镜像启动后，NAND 中的镜像将无法启动，link:/en/BPI-R4/GettingStarted_BPI-R4#_how_to_burn_image_to_onboard_nand[需要重新烧录]。
+IMPORTANT: 使用 Ubuntu 或 Debian 6.1 内核的 SD 卡镜像启动后，NAND 中的镜像将无法启动，link:/zh/BPI-R4/GettingStarted_BPI-R4#_如何将镜像烧录到板载_nand[需要重新烧录]。
 
 NOTE: **请对 SD 卡进行低级格式化并清除其中的全部数据，这一点非常重要。** +
 **否则，启动过程中会遇到“jffs2”错误。
@@ -1019,7 +1019,7 @@ image::/bpi-r4/bpi-r4-minipcieslot-power.jpg[bpi-r4-minipcieslot-power.jpg]
 
 BPI-R4-NIC-BE14 : MT7995AV+MT7976CN+MT7977IAN
 
-link:/en/BPI-R4/BananaPi_BPI-R4-NIC-BE14[Banana Pi BPI-R4-NIC-BE14 规格]
+link:/zh/BPI-R4/BananaPi_BPI-R4-NIC-BE14[Banana Pi BPI-R4-NIC-BE14 规格]
 
 
 image::/bpi-r4/nic-be14-top-800.png[nic-be14-top-800.png]
