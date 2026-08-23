@@ -1,8 +1,8 @@
 ---
 title: BPI-M2 Pro 产品图片
 description: BPI-M2 Pro 产品图片
-published: false
-date: 2026-08-22T17:09:00.769Z
+published: true
+date: 2026-08-23T14:30:28.234Z
 tags: 
 editor: markdown
 dateCreated: 2026-08-22T11:46:55.716Z
