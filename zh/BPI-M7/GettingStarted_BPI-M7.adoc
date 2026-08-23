@@ -6,7 +6,7 @@ BPI-M7 的型号和硬件版本印在开发板上，收到产品后即可查看�
 
 本文尽可能详细地向您概述产品信息。
 
-TIP: 更多信息： link:/en/BPI-M7/BananaPi_BPI-M7[香蕉派 BPI-M7]
+TIP: 更多信息： link:/zh/BPI-M7/BananaPi_BPI-M7[香蕉派 BPI-M7]
 
 = 准备 
 
@@ -57,7 +57,7 @@ image::/bpi-m7/bpi-m7_debug_interface_diagram.png[bpi-m7_debug_interface_diagram
 
 = 烧录镜像
 
-TIP: 烧录方法参见：link:/en/BPI-M5/BananaPi_Flash_image[Rockchip 芯片系统镜像烧录]
+TIP: 烧录方法参见：link:/zh/BPI-M5/BananaPi_Flash_image[Rockchip 芯片系统镜像烧录]
 
 = 接口设置
 
@@ -760,11 +760,11 @@ root@armsom-sige7:/ # echo performance > /sys/class/devfreq/fdab0000.npu/governo
 
 == RKLLM 
 
-TIP: 如何使用 RKLLM ： link:/en/BPI-M7/how-touse-llm[香蕉派 BPI-M7 RKLLM开发 ]
+TIP: 如何使用 RKLLM ： link:/zh/BPI-M7/how-touse-llm[香蕉派 BPI-M7 RKLLM开发 ]
 
 == RKNN
 
-TIP: link:/en/BPI-CM5_Pro/BananaPi_BPI-CM5_Pro/Rockchip_RKNN_Guide[Rockchip RKNN SDK 快速入门指南]
+TIP: link:/zh/BPI-CM5_Pro/BananaPi_BPI-CM5_Pro/Rockchip_RKNN_Guide[Rockchip RKNN SDK 快速入门指南]
 
 
 = 注意事项
