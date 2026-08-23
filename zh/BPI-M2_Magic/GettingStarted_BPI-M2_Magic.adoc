@@ -2,7 +2,7 @@
 
 Banana Pi M2M 是一款采用 ARM SoC 的开发板，在非常小巧的外形中提供了出色的计算性能。板体为 51 mm 见方，搭载 Allwinner A33 四核 Cortex-A7 SoC 和 512 MB DDR3 内存。
 
-TIP: 更多信息：link:/en/BPI-M2_Magic/BananaPi_BPI-M2_Magic[Banana Pi BPI-M2_Magic]
+TIP: 更多信息：link:/zh/BPI-M2_Magic/BananaPi_BPI-M2_Magic[Banana Pi BPI-M2_Magic]
 
 == 规格参数
 
@@ -46,7 +46,7 @@ image::/picture/m2m-android-3.jpg[m2m-android-3.jpg]
 . 准备一张至少 8 GB 的 TF 卡和一根 USB 转串口线。
 . 将 USB 转串口线连接到 40 针排针的 UART2，用于内核控制台调试。
 +
-NOTE: USB 接口旁的三针 UART0 在 BPI 发布的默认镜像中不能用作调试串口，因为 SD 卡与 UART0 复用相同的引脚，而默认镜像需要同时支持 SD 卡和 eMMC。如果只从 eMMC 启动，并希望启用 UART0 作为调试串口且不需要 SD 卡支持，请参阅 link:/en/BPI-M2_Magic/GettingStarted_BPI-M2_Magic#_enable_uart0_for_emmc_only_image_debug[为仅使用 eMMC 的镜像启用 UART0 调试]。
+NOTE: USB 接口旁的三针 UART0 在 BPI 发布的默认镜像中不能用作调试串口，因为 SD 卡与 UART0 复用相同的引脚，而默认镜像需要同时支持 SD 卡和 eMMC。如果只从 eMMC 启动，并希望启用 UART0 作为调试串口且不需要 SD 卡支持，请参阅 link:/zh/BPI-M2_Magic/GettingStarted_BPI-M2_Magic#_为仅使用_emmc_的镜像启用_uart0_调试[为仅使用 eMMC 的镜像启用 UART0 调试]。
 +
 image::/picture/m2m_debug_console.jpg[m2m_debug_console.jpg]
 image::/picture/m2m_pin_define.png[m2m_pin_define.png]
