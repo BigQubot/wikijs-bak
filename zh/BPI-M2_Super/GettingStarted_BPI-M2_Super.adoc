@@ -1,6 +1,6 @@
 = 简介
 
-TIP: 更多信息： link:/en/BPI-M2_Super/BananaPi_BPI-M2_Super[Banana Pi BPI-M2 Super]
+TIP: 更多信息： link:/zh/BPI-M2_Super/BananaPi_BPI-M2_Super[Banana Pi BPI-M2 Super]
 
 == 规格参数
 
@@ -178,7 +178,7 @@ image::/picture/m2s_panel_switch.png[m2s_panel_switch.png]
 +
 image::/picture/m2s-rotation.png[m2s-rotation.png]
 
-. 使用 SurfaceFlinger 旋转，需要 link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_build_android_source_code[修改 Android 源代码]并重新构建
+. 使用 SurfaceFlinger 旋转，需要 link:/zh/BPI-M2_Super/GettingStarted_BPI-M2_Super#_构建_android_源代码[修改 Android 源代码]并重新构建
 +
 修改默认的 SurfaceFlinger 旋转属性：
 +
@@ -376,7 +376,7 @@ link:https://github.com/balena-io/balena-cli[Balena CLI] 是 balenaCloud/openBal
 === 启用摄像头
 Linux 发布镜像默认禁用摄像头，可按以下步骤启用。
 
-. 更新 /boot/env.txt 中的 link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_dtb_overlay[DTB Overlay] 环境变量，启用摄像头 DTBO。
+. 更新 /boot/env.txt 中的 link:/zh/BPI-M2_Super/GettingStarted_BPI-M2_Super#_dtb_overlay[DTB Overlay] 环境变量，启用摄像头 DTBO。
 +
 ```sh
  overlays="os08a10"
@@ -474,7 +474,7 @@ WARNING: 注意：Linux 不支持双屏显示，因此使用 MIPI 显示屏时�
 
 WARNING: 注意：此 WiringPi 仅支持配置 40 针 GPIO 的输出、输入、PWM 或软件 PWM。对于 I2C、SPI 等 I/O 功能，必须在 boot.ini 中启用 DTB Overlay。
 
-. 构建并安装 WiringPi。在 Debian 中，构建前必须 link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_enable_sudo_for_debian[安装 sudo]。
+. 构建并安装 WiringPi。在 Debian 中，构建前必须 link:/zh/BPI-M2_Super/GettingStarted_BPI-M2_Super#_在_debian_中启用_sudo[安装 sudo]。
 +
 ```sh
  $ sudo apt-get update
@@ -496,7 +496,7 @@ matrix-bpi：link:https://docs.banana-pi.org/en/BPI_RGB_LED_Matrix_Expansion_Mod
 berryclip-bpi：link:https://docs.banana-pi.org/en/BPI_BerryClip_Module[BPI BerryClip 模块]示例。
 
 === RPi.GPIO
-构建并安装 RPi.GPIO。在 Debian 中，构建前必须 link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_enable_sudo_for_debian[安装 sudo]。
+构建并安装 RPi.GPIO。在 Debian 中，构建前必须 link:/zh/BPI-M2_Super/GettingStarted_BPI-M2_Super#_在_debian_中启用_sudo[安装 sudo]。
 ```sh
  $ sudo apt-get update
  $ sudo apt-get install build-essential python3 python3-pip python3-dev python3-setuptools git
@@ -517,7 +517,7 @@ berryclip-bpi：link:https://docs.banana-pi.org/en/BPI_BerryClip_Module[BPI Berr
 如果已经安装该软件包，应先卸载旧版本再安装新版本，或使用 --force-reinstall 选项强制重新安装。
 
 === WiringPi2-Python
-构建并安装 WiringPi2-Python。在 Debian 中，构建前必须 link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_enable_sudo_for_debian[安装 sudo]。
+构建并安装 WiringPi2-Python。在 Debian 中，构建前必须 link:/zh/BPI-M2_Super/GettingStarted_BPI-M2_Super#_在_debian_中启用_sudo[安装 sudo]。
 ```sh
  $ sudo apt-get update
  $ sudo apt-get install build-essential python3 python3-dev python3-setuptools swig git
@@ -597,7 +597,7 @@ check installed luma pip libs
    luma.oled          3.11.0
 ```
 . 示例测试 +
-运行测试示例前，先启用 I2C 或 SPI link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_dtb_overlay[Overlay]。
+运行测试示例前，先启用 I2C 或 SPI link:/zh/BPI-M2_Super/GettingStarted_BPI-M2_Super#_dtb_overlay[Overlay]。
 +
 ```sh
  $ cd examples
@@ -758,9 +758,9 @@ image::/picture/m5_android_format.png[m5_android_format.png]
    resetting ...
    SM1:BL:511f6b:81ca2f;FEAT:A0F83180:20282000;POC:F;RCY:0;EMMC:0;READ:0;CHK:1F;READ:0;CHK:1F;READ:0;CHK;
 ```
-以上两种方法实际擦除的是 eMMC 中 Android 引导加载程序所在的分区。从 SD 卡启动 Linux 后，建议 link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_erase_emmc_android_by_dd_command[使用 dd 命令格式化整个 eMMC]。
+以上两种方法实际擦除的是 eMMC 中 Android 引导加载程序所在的分区。从 SD 卡启动 Linux 后，建议 link:/zh/BPI-M2_Super/GettingStarted_BPI-M2_Super#_使用_dd_命令擦除_emmc_中的_android[使用 dd 命令格式化整个 eMMC]。
 
-- 最简单的方法是在开机前插入已写入 Linux 镜像的 SD 卡。Android 引导加载程序会检查 SD 卡 VFAT 分区中是否存在 boot.ini，从而启动 SD 卡中的 Linux。启动后，可以 link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_erase_emmc_android_by_dd_command[使用 dd 命令格式化整个 eMMC]，再将 Linux 镜像写入 eMMC。
+- 最简单的方法是在开机前插入已写入 Linux 镜像的 SD 卡。Android 引导加载程序会检查 SD 卡 VFAT 分区中是否存在 boot.ini，从而启动 SD 卡中的 Linux。启动后，可以 link:/zh/BPI-M2_Super/GettingStarted_BPI-M2_Super#_使用_dd_命令擦除_emmc_中的_android[使用 dd 命令格式化整个 eMMC]，再将 Linux 镜像写入 eMMC。
 +
 ```sh
    ...
@@ -813,7 +813,7 @@ image::/picture/m5_android_format.png[m5_android_format.png]
 ```
 **如何启用 Android Wi-Fi/蓝牙** +
 USB 类型：将 USB 网卡插入 USB Host 接口并重新启动系统。启动后，可以在 Settings 应用中启用或禁用 Wi-Fi 和蓝牙。 +
-SDIO/UART 类型：将硬件模块正确连接到 40 针排针，并 link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_android_dtb_overlay[配置 Android DTB Overlay]以启用模块。
+SDIO/UART 类型：将硬件模块正确连接到 40 针排针，并 link:/zh/BPI-M2_Super/GettingStarted_BPI-M2_Super#_android_dtb_overlay[配置 Android DTB Overlay]以启用模块。
 +
 WARNING: 注意：Android 不支持以太网与 Wi-Fi 同时联网。以太网优先级高于 Wi-Fi：以太网已连接时 Wi-Fi 无法联网，插入网线后 Wi-Fi 连接也会断开。
 
@@ -839,7 +839,7 @@ USB 类型：将 USB 网卡插入 USB Host 接口，驱动程序会自动加载�
 SDIO/UART 类型：
 
 - 将硬件模块正确连接到 40 针排针。
-- 配置 link:/en/BPI-M2_Super/GettingStarted_BPI-M2_Super#_dtb_overlay[DTB Overlay]。
+- 配置 link:/zh/BPI-M2_Super/GettingStarted_BPI-M2_Super#_dtb_overlay[DTB Overlay]。
 +
 ```sh
    overlays="wifi_bt_rtl8822cs"
