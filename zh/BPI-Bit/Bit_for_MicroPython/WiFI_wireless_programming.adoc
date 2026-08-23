@@ -1,10 +1,10 @@
-TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_development_of_advanced[BPI:bit 的 MicroPython 开发]
+TIP: link:/zh/BPI-Bit/Bit_for_MicroPython#_进阶开发[BPI:bit 的 MicroPython 开发]
 
 = 了解无线编程
 
 传统开发通常通过线缆连接开发板；后续开发则应尽可能支持无线控制。许多简单的物联网设备并不会预留连接计算机的有线接口，例如智能照明设备。
 
-这时就需要无线连接。开发板接入网络后，无需再连接计算机也能联网（参见 link:/en/BPI-Bit/Bit_for_MicroPython/WiFI_wireless_connection#_connect_wifi_by_mobile[上一节的手机配网模式]）。无线编程的基础，就是先让开发板以简单方式接入本地网络，再从网络中控制它。
+这时就需要无线连接。开发板接入网络后，无需再连接计算机也能联网（参见 link:/zh/BPI-Bit/Bit_for_MicroPython/WiFI_wireless_connection#_通过手机配置_wi_fi[上一节的手机配网模式]）。无线编程的基础，就是先让开发板以简单方式接入本地网络，再从网络中控制它。
 
 = 远程连接 BPI:bit
 MicroPython 使用 Python REPL 作为交互接口，可以反复执行命令。它不同于完整的 Linux 系统，特点是简单易用。
