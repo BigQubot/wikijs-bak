@@ -14,7 +14,7 @@ SpacemiT K1是一款八核64位RISC-V AI CPU。基于RISC-V开放指令集架构
 SpacemiT K1主要用于单板计算机、网络存储、云计算机、智能机器人、工业控制、边缘计算机等。
 
 TIP: link:/zh/BPI-F3/SpacemiT_K1[进迭时空（SpacemiT）K1 8 核 RISC-V 芯片介绍] +
-link:/en/BPI-F3/SpacemiT_K1_datasheet[进迭时空（SpacemiT）K1 8 核 RISC-V 芯片规格] +
+link:/zh/BPI-F3/SpacemiT_K1_datasheet[进迭时空（SpacemiT）K1 8 核 RISC-V 芯片规格] +
 link:https://developer.spacemit.com/[进迭时空（SpacemiT）官方开发者中心]
 
 
@@ -45,6 +45,8 @@ link:https://developer.spacemit.com/[进迭时空（SpacemiT）官方开发者�
 - 人工智能开发
 
 == 快速上手开发
+
+TIP: link:/zh/BPI-CM6/GettingStarted_BPI-CM6[Getting Started BPI-CM6]
 
 = 硬件
 
@@ -119,7 +121,7 @@ TIP: https://github.com/space-mit/riscv-ime-extension-spec
 
 TIP: link:https://developer.spacemit.com/#/documentation?token=DBd4wvqoqi2fiqkiERTcbEDknBh[SpacemiT K1 chip datasheet]
 
-TIP: Banana Pi BPI-CM6 deepseek demo https://docs.banana-pi.org/en/BPI-CM6/BananaPi_BPI-CM6 
+TIP: Banana Pi BPI-CM6 deepseek demo https://docs.banana-pi.org/zh/BPI-CM6/BananaPi_BPI-CM6 
 
 = 系统镜像
 
@@ -147,4 +149,3 @@ https://www.aliexpress.us/item/3256810242160192.html?gatewayAdapt=glo2usa4itemAd
 
 * Bipai 速卖通店铺:
 https://www.aliexpress.com/item/1005010428804446.html?gatewayAdapt=4itemAdapt
-
