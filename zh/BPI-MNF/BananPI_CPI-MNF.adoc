@@ -1,6 +1,6 @@
 = 介绍
 
-这是一款基于 link:/en/BPI-R64/BananaPi_BPI-R64[香蕉派 BPI—R64]设计的 link:/en/BPI_4.0_Server[BPI 4.0服务器]，采用MTK7622四核64位A53芯片设计，主频高达1.35g。板载1—2g DDR内存和8g eMMC存储。可支持OpenWRT、Linux操作系统、深度定制的小草科技综合通信软件平台。提供完整的融合通信、多链路通信解决方案。并支持物联网扩展。免费接入物联网应用。
+这是一款基于 link:/zh/BPI-R64/BananaPi_BPI-R64[香蕉派 BPI—R64]设计的 link:/en/BPI_4.0_Server[BPI 4.0服务器]，采用MTK7622四核64位A53芯片设计，主频高达1.35g。板载1—2g DDR内存和8g eMMC存储。可支持OpenWRT、Linux操作系统、深度定制的小草科技综合通信软件平台。提供完整的融合通信、多链路通信解决方案。并支持物联网扩展。免费接入物联网应用。
 
 - 模块1：基于BPI-R2，具有4 x 4G LTE接口，可支持最大5口4G LTE模块，支持OpenWRT和OpenMPTcpRouter协议。有一个PCIe 2.4G/5.8G wifi AC，可支持MT 7615 wifi模块。我们还设计了一个5G接口，便于在板载上添加5G模块以支持5G。并具有5个千兆WAN/LAN端口，支持路由器功能
 - 模块2：基于BPI-R64，支持5个4G LTE和1个M.2 5G interface.support OpenWRT和OpenMPTcpRouter协议。有一个PCIe 2.4G/5.8G wifi AC，可支持MT 7615 wifi模块。我们还设计了一个5G接口，便于在板载上添加5G模块以支持5G。并具有5个千兆WAN/LAN端口，支持路由器功能
