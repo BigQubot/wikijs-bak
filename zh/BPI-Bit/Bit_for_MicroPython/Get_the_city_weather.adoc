@@ -1,4 +1,4 @@
-TIP: link:/en/BPI-Bit/Bit_for_MicroPython#_development_of_advanced[BPI-Bit 的 MicroPython 教程]
+TIP: link:/zh/BPI-Bit/Bit_for_MicroPython#_进阶开发[BPI-Bit 的 MicroPython 教程]
 
 = 开发准备
 - 首先确认当前固件的依赖包完整。
@@ -10,7 +10,7 @@ help(“modules”)
 
 image::/bpi-bit/weathercheck.png[weathercheck.png]
 
-确保您已连接到互联网。如果没有，请参阅 link:/en/BPI-Bit/Bit_for_MicroPython/WiFI_wireless_connection[2 WiFi 无线连接]
+确保您已连接到互联网。如果没有，请参阅 link:/zh/BPI-Bit/Bit_for_MicroPython/WiFI_wireless_connection[2 WiFi 无线连接]
 
 = 准备天气 API
 
