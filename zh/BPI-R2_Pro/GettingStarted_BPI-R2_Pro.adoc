@@ -2,7 +2,7 @@
 
 Banana Pi BPI-R2 Pro 是 Banana Pi 于 2021 年推出的新一代智能路由器开发板，搭载 Rockchip RK3568 处理器、2 GB LPDDR4 内存和 16 GB eMMC 存储。开发板提供 2 个 USB 3.0 接口、5 个千兆网口、M.2 Key E 和 Mini PCIe 接口、2 个 MIPI DSI 接口（其中一个可通过软件切换为 LVDS）、1 个 CSI 摄像头接口和 1 个 HDMI 输出。
 
-TIP: 更多信息：link:/en/BPI-R2_Pro/BananaPi_BPI-R2_Pro[Banana Pi BPI-R2_Pro]
+TIP: 更多信息：link:/zh/BPI-R2_Pro/BananaPi_BPI-R2_Pro[Banana Pi BPI-R2_Pro]
 
 = Android 开发
 == 准备
@@ -109,7 +109,7 @@ image::/picture/sd_upgrade.png[sd_upgrade.png]
 image::/picture/sd_upgrade_finish.png[sd_upgrade_finish.png]
 
 === 从 SD 卡启动 Android
-制作 Android 启动 SD 卡的步骤与制作 link:/en/BPI-R2_Pro/GettingStarted_BPI-R2_Pro#_install_image_with_sd_card[固件升级 SD 卡] 基本相同，唯一的区别是选择“**SD Boot**”而不是“**Upgrade Firmware**”。制作过程约需 8 分钟；完成后安全移除 SD 卡，将其插入 R2 Pro 开发板并上电。
+制作 Android 启动 SD 卡的步骤与制作 link:/zh/BPI-R2_Pro/GettingStarted_BPI-R2_Pro#_使用_sd_卡安装镜像[固件升级 SD 卡] 基本相同，唯一的区别是选择“**SD Boot**”而不是“**Upgrade Firmware**”。制作过程约需 8 分钟；完成后安全移除 SD 卡，将其插入 R2 Pro 开发板并上电。
 
 请确保 eMMC 为空；如果此前烧录过内容，必须先将其擦除。建议从 eMMC 启动 Android，因为速度更快且更稳定。
 
@@ -150,7 +150,7 @@ R2 Pro 硬件仅提供一组触摸屏 I/O，CN7、CN8 和 CN9 均连接到该组
 . 准备两个 BMP 文件：logo.bmp 用作 U-Boot Logo，logo_kernel.bmp 用作内核 Logo。
 . 可通过以下两种方式替换 Logo。
 a. 使用 adb 工具创建并替换 Logo +
-link:/en/BPI-R2_Pro/GettingStarted_BPI-R2_Pro#_usb_otg_mode_switch[切换 OTG 端口]以启用 adb，然后将 Logo 文件推送到 /sdcard/ 目录。
+link:/zh/BPI-R2_Pro/GettingStarted_BPI-R2_Pro#_切换_usb_otg_模式[切换 OTG 端口]以启用 adb，然后将 Logo 文件推送到 /sdcard/ 目录。
 +
 ```sh
  $ adb push logo_kernel.bmp /sdcard/
@@ -209,8 +209,8 @@ CN13 M.2 Key E 插槽用于连接 WLAN/蓝牙适配器；默认镜像已测试�
 
 另一种方法是在构建 Android 源代码时集成包含 Google Play 的 OpenGApps。
 
-. 下载 link:/en/BPI-R2_Pro/GettingStarted_BPI-R2_Pro#_build_android_source_code[Android 源代码]
-https://docs.banana-pi.org/en/BPI-R2_Pro/GettingStarted_BPI-R2_Pro#_build_android_source_code
+. 下载 link:/zh/BPI-R2_Pro/GettingStarted_BPI-R2_Pro#_构建_android_源代码[Android 源代码]
+https://docs.banana-pi.org/zh/BPI-R2_Pro/GettingStarted_BPI-R2_Pro#_构建_android_源代码
 . 应用此补丁以启用构建 OpenGApps
 +
 ```sh
@@ -231,7 +231,7 @@ https://docs.banana-pi.org/en/BPI-R2_Pro/GettingStarted_BPI-R2_Pro#_build_androi
 . 创建 /vendor/opengapps 文件夹
 . 将 link:https://github.com/opengapps/aosp_build[OpenGApps aosp_build] 项目下载到 /vendor/opengapps/build
 . 创建 /vendor/opengapps/sources 文件夹，下载 link:https://gitlab.opengapps.org/opengapps[OpenGApps 项目] 到 /vendor/opengapps/sources/
-. 构建源代码并 link:/en/BPI-R2_Pro/GettingStarted_BPI-R2_Pro#_install_image_with_usb_download_tool[烧录输出镜像]。
+. 构建源代码并 link:/zh/BPI-R2_Pro/GettingStarted_BPI-R2_Pro#_使用_usb_下载工具安装镜像[烧录输出镜像]。
 . 安装 link:https://m.apkpure.com/device-id/com.evozi.deviceid[Device ID 应用]，并注册设备以通过 Google Play 认证。更多信息请参阅上方视频。
 
 = Linux 开发
