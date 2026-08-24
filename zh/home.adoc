@@ -1,120 +1,190 @@
-= 香蕉派(Banana Pi)开源硬件社区开发者文档中心
+= 香蕉派（Banana Pi）开源硬件社区开发者文档中心
 
 image::/wiki_home.jpg[wiki_home.jpg]
 
-link:http://www.banana-pi.org/[Banana Pi] 开源硬件项目是由link:https://wiki.banana-pi.org/[广东比派科技] 主导的一个开源硬件社区，并得到了鸿海集团（富士康）的战略支持。 专注在ARM，RISC-V,MCU系列开源硬件开发板，提供全开放的软件与硬件平台,打造基础技术开发平台。重点打造香蕉派(Banana Pi) 开源社区生态与物联网整体技术解决方案.
+link:http://www.banana-pi.org/[Banana Pi] 是由 link:https://wiki.banana-pi.org/About_BPI[广东比派科技有限公司] 主导的开源硬件项目，专注于 ARM、RISC-V 与 MCU 系列开源硬件开发板，为开发者提供开放的软件与硬件平台，并打造基础技术开发平台。香蕉派产品完整整合语音、数据和视频系统平台，开发者可以在此基础上灵活构建物联网、人工智能、工业互联网控制和 STEAM 教育等应用。
 
-全系列开源硬件产品，完整整合了语音，数据，视频系统平台,传感器。开发者可以灵活的在开源硬件基础平台上搭建各种应用平台。可以应用在物联网，无线网络，网络通信，AI 人工智能 ，工业控制，自动化，STEAM教育等各方面。
-
-BPI 4.0 定制服务已经全球有100多个BPI 4.0 成功案例，为客户提供研发，生产，供应链管理，产品认证一站式服务。
+欢迎前往 link:http://forum.banana-pi.org/[Banana Pi 论坛]交流。由于 Google 安全策略更新，如果旧链接中的镜像无法下载，请改用新的 link:https://drive.google.com/drive/folders/0B4PAo2nW2Kfndjh6SW9MS2xKSWs?resourcekey=0-qXGFXKmd7AVy0S81OXM1RA&usp=sharing[文档] 与 link:https://drive.google.com/drive/folders/0B_YnvHgh2rwjVjNyS2pheEtWQlk?resourcekey=0-U4TI84zIBdId7bHHjf2qKA[镜像] 链接。
 
 = 香蕉派产品
-
 == 单板计算机系列
+
+[options="header",cols="1,1"]
 |=====
-2+| 开源硬件单板计算机系列(SBC)
+2+| 香蕉派单板计算机（SBC）
 
-|link:/zh/BPI-M1/BananaPi_BPI-M1[香蕉派 BPI-M1] [全志科技 A20] | link:/zh/BPI-F2/BananaPi_BPI-F2[香蕉派 BPI-F2] [飞思卡尔 IMX6 工业级]
+2+| **全志科技（Allwinner）**
 
-| link:/zh/BPI-M1_Plus/BananaPi_BPI-M1_Plus[香蕉派 BPI-M1_Plus] [全志科技 A20] | link:/zh/BPI-F2S/BananaPi_BPI-F2S[香蕉派 BPI-F2S] [凌阳 SP7021 工业级]
+| link:/zh/BPI-M8/BananaPi_BPI-M8[香蕉派 BPI-M8] [Allwinner A733]
+|link:/zh/BPI-F5/BananaPI_BPI-F5[香蕉派 BPI-F5][Allwinner T527]
 
-| link:/zh/BPI-M2_Zero/BananaPi_BPI-M2_Zero[香蕉派 BPI-M2_Zero] [全志科技 H3] | link:/zh/BPI-F2P/BananaPi_BPI-F2P[香蕉派 BPI-F2P] [凌阳 SP7021 工业控制网关板]
+| link:/zh/BPI-M4_Berry/BananaPi_BPI-M4_Berry[香蕉派 BPI-M4 Berry] [Allwinner H618]
+| link:/zh/BPI-M4_Zero/BananaPi_BPI-M4_Zero[香蕉派 BPI-M4 Zero] [Allwinner H618] 
 
-| link:/zh/BPI-P2_Zero/BananaPi_BPI-P2_Zero[香蕉派 BPI-P2 Zero] [全志科技 H3] | link:/zh/BPI-M4/BananaPi_BPI-M4[香蕉派 BPI-M4] [瑞昱 RTD1395]
+| link:/zh/BPI-M3/BananaPi_BPI-M3[香蕉派 BPI-M3] [Allwinner A83T] 
+| link:/zh/BPI-M64/BananaPi_BPI-M64[香蕉派 BPI-M64] [Allwinner A64] 
 
-| link:/zh/BPI-M2_Plus/BananaPi_BPI-M2_Plus[香蕉派 BPI-M2 Plus] [全志科技 H3] | link:/zh/BPI-M5/BananaPi_BPI-M5[香蕉派 BPI-M5] [晶晨半导体 S905X3] 
+| link:/zh/BPI-M2_Ultra/BananaPi_BPI-M2_Ultra[香蕉派 BPI-M2 Ultra] [Allwinner R40/V40/A40i]
+| link:/zh/BPI-M2_Berry/BananaPi_BPI-M2_Berry[香蕉派 BPI-M2 Berry] [Allwinner R40/V40/A40i] 
 
-| link:/zh/BPI-M2_Magic/BananaPi_BPI-M2_Magic[香蕉派 BPI-M2 Magic] [全志科技 A33/R16] | link:/zh/BPI-M2_Pro/BananaPi_BPI-M2_Pro[香蕉派 BPI-M2 Pro] [晶晨半导体 S905X3]
+| link:/zh/BPI-M2_Zero/BananaPi_BPI-M2_Zero[香蕉派 BPI-M2_Zero] [Allwinner H3] 
+| link:/zh/BPI-M2_Plus/BananaPi_BPI-M2_Plus[香蕉派 BPI-M2 Plus] [Allwinner H3] 
 
-| link:/zh/BPI-M2_Berry/BananaPi_BPI-M2_Berry[香蕉派 BPI-M2 Berry] [全志科技 R40/V40/A40i] | link:/zh/BPI-M2_Super/BananaPi_BPI-M2_Super[香蕉派 BPI-M2S] [晶晨半导体 A311D&S922X]
+| link:/zh/BPI-P2_Zero/BananaPi_BPI-P2_Zero[香蕉派 BPI-P2 Zero] [Allwinner H3] 
+| link:/zh/BPI-M2_Magic/BananaPi_BPI-M2_Magic[香蕉派 BPI-M2 Magic] [Allwinner A33/R16]
 
-| link:/zh/BPI-M2_Ultra/BananaPi_BPI-M2_Ultra[香蕉派 BPI-M2 Ultra] [全志科技 R40/V40/A40i] | link:/zh/BPI-M6/BananaPi_BPI-M6[香蕉派 BPI-M6] [深蕾半导体 VS680]
+| link:/zh/BPI-M1_Plus/BananaPi_BPI-M1_Plus[香蕉派 BPI-M1_Plus] [Allwinner A20]
+| link:/zh/BPI-M1/BananaPi_BPI-M1[香蕉派 BPI-M1] [Allwinner A20]
 
-| link:/zh/BPI-M64/BananaPi_BPI-M64[香蕉派 BPI-M64] [全志科技 A64] | link:/zh/BPI-P2_Pro/BananaPi_BPI-P2_Pro[香蕉派 BPI-P2 Pro] [瑞芯微 RK3308]
+2+| **晶晨半导体（Amlogic）**
 
-| link:/zh/BPI-M3/BananaPi_BPI-M3[香蕉派 BPI-M3] [全志科技 A83T] |
-link:/zh/BPI-F3/BananaPi_BPI-F3[香蕉派 BPI-F3] [进迭时空 K1 RISC-V]
+| link:/zh/BPI-M2_Super/BananaPi_BPI-M2_Super[香蕉派 BPI-M2S] [Amlogic A311D&S922X]
+| link:/zh/BPI-M2_Pro/BananaPi_BPI-M2_Pro[香蕉派 BPI-M2 Pro] [Amlogic S905X3]
 
-| link:/zh/BPI-M4_Zero/BananaPi_BPI-M4_Zero[香蕉派 BPI-M4 Zero] [全志科技 H618] 
-| link:https://docs.banana-pi.org/zh/BPI-F4/BananaPi_BPI-F4[香蕉派 BPI-F4] [凌阳SP7350] 
+| link:/zh/BPI-M5/BananaPi_BPI-M5[香蕉派 BPI-M5] [Amlogic S905X3] 
+|
 
-| link:/zh/BPI-M5/BananaPi_BPI-M5_Pro[香蕉派 BPI-M5 Pro] [瑞芯微 RK3576]  
+2+| **瑞芯微（Rockchip）**
 
-| link:/zh/BPI-M4_Berry/BananaPi_BPI-M4_Berry[香蕉派 BPI-M4 Berry] [全志科技 H618]
-| link:/zh/BPI-M7/BananaPi_BPI-M7[香蕉派 BPI-M7] [瑞芯微 RK3588]  
-| link:/zh/BPI-M7S/BananaPi_BPI-M7S[香蕉派 BPI-M7S] [瑞芯微 RK3588s]  
-| link:/zh/BPI-M1S/BananaPi_BPI-M1S[香蕉派 BPI-M1 Super] [瑞芯微 RK3528]|   
-link:/zh/BPI-CanMV-K230D/BananaPi_BPI-CanMV-K230D-Zero[香蕉派 BPI-CanMV-K230D Zero][嘉楠科技 K230D]
+| link:/zh/BPI-Forge1/BananaPi_BPI-Forge1[香蕉派 BPI-Forge1] [Rockchip RK3506J]
+| link:/zh/BPI-M4S/BananaPi_BPI-M4S[香蕉派 BPI-M4 Super] [Rockchip RK3568]
 
-| link:/zh/BPI-2K0300/BananaPI_BPI-2K0300[香蕉派 BPI-2K0300][龙芯中科 2K0300]   
-|link:/zh/BPI-F5/BananaPI_BPI-F5[香蕉派 BPI-F5][全志科技 T527]
+| link:/zh/BPI-M7/BananaPi_BPI-M7[香蕉派 BPI-M7] [Rockchip RK3588]  
+| link:/zh/BPI-M7S/BananaPi_BPI-M7S[香蕉派 BPI-M7S] [Rockchip RK3588s]  
 
-| link:/zh/BPI-Forge1/BananaPi_BPI-Forge1[香蕉派 BPI-Forge1] [瑞芯微 RK3506J]
+| link:/zh/BPI-M5/BananaPi_BPI-M5_Pro[香蕉派 BPI-M5 Pro] [Rockchip RK3576]  
+| link:/zh/BPI-M1S/BananaPi_BPI-M1S[香蕉派 BPI-M1 Super] [Rockchip RK3528]
+
+| link:/zh/BPI-P2_Pro/BananaPi_BPI-P2_Pro[香蕉派 BPI-P2 Pro] [Rockchip RK3308]
+|
+
+2+| **进迭时空（SpacemiT）**
+
+| link:/zh/BPI-F3/BananaPi_BPI-F3[香蕉派 BPI-F3] [SpacemiT K1 RISC-V]
+|
+
+2+| **其他**
+
+| link:/zh/BPI-F4/BananaPi_BPI-F4[香蕉派 BPI-F4] [Sunplus SP7350]
+| link:/zh/BPI-CanMV-K230D/BananaPi_BPI-CanMV-K230D-Zero[香蕉派 BPI-CanMV-K230D Zero][Canaan K230D]
+
+| link:/zh/BPI-F2P/BananaPi_BPI-F2P[香蕉派 BPI-F2P] [SunPlus SP7021 industrial control gateway board]
+| link:/zh/BPI-F2S/BananaPi_BPI-F2S[香蕉派 BPI-F2S] [SunPlus SP7021 industrial-grade]
+
+| link:/zh/BPI-F2/BananaPi_BPI-F2[香蕉派 BPI-F2] [Freescale IMX6 industrial-grade] 
+| link:/zh/BPI-M6/BananaPi_BPI-M6[香蕉派 BPI-M6] [Synaptics VS680/SL1680]
+
+|link:/zh/BPI-M4/BananaPi_BPI-M4[香蕉派 BPI-M4] [Realtek RTD1395]
 |
 
 |=====
-== 开源路由器系列 
+
+== 智能路由器开发板
 |=====
-2+| 香蕉派开源路由系列产品
+2+| 香蕉派智能路由器
 
-| link:/zh/BPI-R1/BananaPi_BPI-R1[香蕉派 BPI-R1] [全志科技 A20] | link:/zh/BPI-R2_Pro/BananaPi_BPI-R2_Pro[香蕉派 BPI-R2 Pro] [瑞芯微 RK3568]
+2+| **联发科（MediaTek）**
 
-| link:/zh/BPI-R2/BananaPi_BPI-R2[香蕉派 BPI-R2] [联发科 MT7623N] | link:/zh/BPI-R3/BananaPi_BPI-R3[香蕉派 BPI-R3] [联发科 MT7986(Filogic 830)]
+| link:/zh/BPI-R2_Mini/BananaPi_BPI-R2_Mini[香蕉派 BPI-R2 Mini ] [MTK MT7981B] 
+| link:/zh/BPI-R4_Mini/BananaPi_BPI-R4_Mini[香蕉派 BPI-R4 Mini ] [MTK MT7987,Wifi7 Onboard]
 
-| link:/zh/BPI-R64/BananaPi_BPI-R64[香蕉派 BPI-R64] [联发科 MT7622] | link:/zh/BPI-R3_Mini/BananaPi_BPI-R3_Mini[香蕉派 BPI-R3 Mini] [联发科 MT7986(Filogic 830)]
+| link:/zh/BPI-R4_Pro/BananaPi_BPI-R4_Pro[香蕉派 BPI-R4 Pro] [MTK MT7988A(Filogic 880)]
+| link:/zh/BPI-R4_Lite/BananaPi_BPI-R4_Lite[香蕉派 BPI-R4 Lite ] [MTK MT7987]
 
-| link:/zh/BPI-W2/BananaPi_BPI-W2[香蕉派 BPI-W2] [瑞昱 RTD1296] | link:/zh/BPI-R4/BananaPi_BPI-R4[香蕉派 BPI-R4] [联发科 MT7988(Filogic 880)]
+| link:/zh/OpenWRT-One/BananaPi_OpenWRT-One[OpenWrt One 路由器] [MTK MT7981B] 
+| link:/zh/BPI-R4/BananaPi_BPI-R4[香蕉派 BPI-R4] [MTK MT7988A(Filogic 880)]
 
-| link:/zh/BPI-W3/BananaPi_BPI-W3[香蕉派 BPI-W3] [瑞芯微 RK3588] 
-| link:/zh/BPI-WiFi6_Router/BananaPi_BPI-WiFi6_Router[香蕉派 BPI-WiFi6 路由器] [创耀科技 TR6560 + TR5220]
+| link:/zh/BPI-R64/BananaPi_BPI-R64[香蕉派 BPI-R64] [MTK MT7622] 
+| link:/zh/BPI-R3_Mini/BananaPi_BPI-R3_Mini[香蕉派 BPI-R3 Mini] [MTK MT7986(Filogic 830)]
 
-| link:/zh/OpenWRT-One/BananaPi_OpenWRT-One[OpenWrt One 路由器] [联发科 MT7981] 
-| link:/zh/BPI-WiFi6_Mini/BananaPi_BPI-WiFi6_Mini[香蕉派 BPI-WiFi6 迷你路由器] [创耀科技 TR6560 + TR5220]
-|  link:/zh/BPI-RV2/BananaPi_BPI-RV2[香蕉派 BPI-RV2 路由器] [矽昌 SF21H8898 RISC-V] 
-| link:/zh/BPI-WiFi5/BananaPi_BPI-WiFi5_Router[香蕉派 BPI-WiFi5 路由器] [矽昌 SF19A2890S + AN8855R]
+| link:/zh/BPI-R2/BananaPi_BPI-R2[香蕉派 BPI-R2] [MTK MT7623N] 
+| link:/zh/BPI-R3/BananaPi_BPI-R3[香蕉派 BPI-R3] [MTK MT7986(Filogic 830)]
 
-| link:/zh/BPI-R4_Pro/BananaPi_BPI-R4_Pro[香蕉派 BPI-R4 Pro] [联发科 MT7988A(Filogic 880)]
-| link:/zh/BPI-R4_Lite/BananaPi_BPI-R4_Lite[香蕉派 BPI-R4 Lite ] [联发科 MT7987] 
-|link:/zh/BPI-R4_Mini/BananaPi_BPI-R4_Mini[香蕉派 BPI-R4 Mini ] [MTK MT7987,Wifi7 Onboard] 
+2+| **瑞芯微（Rockchip）**
+| link:/zh/BPI-W3/BananaPi_BPI-W3[香蕉派 BPI-W3] [Rockchip RK3588] 
+| link:/zh/BPI-R2_Pro/BananaPi_BPI-R2_Pro[香蕉派 BPI-R2 Pro] [Rockchip RK3568]
+
+2+| **创耀科技（Triductor）**
+| link:/zh/BPI-WiFi6_Router/BananaPi_BPI-WiFi6_Router[香蕉派 BPI-WiFi6 路由器] [Triductor TR6560 + TR5220 wifi SOC]
+| link:/zh/BPI-WiFi6_Mini/BananaPi_BPI-WiFi6_Mini[香蕉派 BPI-WiFi6 迷你路由器] [Triductor TR6560 + TR5220 wifi SOC]
+
+2+| **矽昌通信（Siflower）**
+| link:/zh/BPI-RV2/BananaPi_BPI-RV2[香蕉派 BPI-RV2 路由器] [Siflower SF21H8898 RISC-V] 
+| link:/zh/BPI-WiFi5/BananaPi_BPI-WiFi5_Router[香蕉派 BPI-WiFi5 路由器] [Siflower SF19A2890S + AN8855R]
+
+2+| **其他**
 | link:/zh/BPI-RT2/BananaPi_BPI-RT2[香蕉派 BPI-RT2(AX3000)] [Realtek RTL8198]
-|link:/zh/BPI-R2_Mini/BananaPi_BPI-R2_Mini[香蕉派 BPI-R2 Mini ] [MTK MT7981B] 
+| link:/zh/BPI-W2/BananaPi_BPI-W2[香蕉派 BPI-W2] [Realtek 1296] 
+
+| link:/zh/BPI-R1/BananaPi_BPI-R1[香蕉派 BPI-R1] [Allwinner A20] 
+| 
+
 |=====
 
-=== Banana Pi 路由器官方操作系统
-
+=== 香蕉派 BpiRouterOS 路由器操作系统
+|=====
 link:/zh/BpiRouterOS/BananaPi_BpiRouterOS[香蕉派路由器官方操作系统]
-
-== 计算机模组与核心板系列
-
-|=====
-2+| 香蕉派计算机模组与核心板系列
-
-| link:/zh/BPI-CM2/BananaPi_BPI-CM2[香蕉派 BPI-CM2] [瑞芯微 RK3568] | link:/zh/BPI-RK3588_CoreBoardAndDevelopmentKit/BananaPi_BPI-RK3588_CoreBoardAndDevelopmentKit[香蕉派 BPI-RK3588  核心板及套件] [瑞芯微 RK3588]
-
-| link:/zh/BPI-CM4/BananaPi_BPI-CM4[香蕉派 BPI-CM4] [晶晨半导体 A311D] | 
-link:/zh/BPI-LM7/LM7[香蕉派 BPI-LM7 核心板] [瑞芯微 RK3588]
-
-| link:/zh/BPI-CM5/BananaPi_BPI-CM5[香蕉派 BPI-CM5] [晶晨半导体 A311D2] | 
-link:/zh/BPI-S64_Core/BananaPi_BPI-S64_Core[香蕉派 BPI-S64 Core] [北方矩力 S700]
-
-| link:/zh/BPI-AIM7/BananaPi_BPI-AIM7[香蕉派 BPI-AIM7] [瑞芯微 RK3588] | 
-link:/zh/BPI-SM9_Core/BananaPi_BPI-SM9[香蕉派 BPI-SM9][算能科技 BM1688]
-
-|link:/zh/BPI-AI2N/BananaPi_BPI-AI2N[香蕉派 BPI-AI2N] [瑞萨电子 RZ/V2N AI]|
-link:/zh/BPI-CM5_Pro/BananaPi_BPI-CM5_Pro[香蕉派 BPI-CM5 Pro] [瑞芯微 RK3576]
-
-| link:/zh/BPI-CM6/BananaPi_BPI-CM6[香蕉派 BPI-CM6] [进迭时空 K1 RISC-V] 
-|link:/zh/BPI-SM10/BananaPi_BPI-SM10[香蕉派 BPI-SM10] [进迭时空 K3-CoM260 RISC-V]
-
-|link:/zh/BPI-AI2H/BananaPi_BPI-AI2H[香蕉派 Pi BPI-AI2H] [瑞萨电子 RZ/V2H]
-
-| link:/zh/Pico-ITX/SpacemiT_Pico-ITX[香蕉派 K3 Pico-ITX] [进迭时空 K3 Pico-ITX]|
 |=====
 
-=== 计算机模组及核心板底板
+== 计算机模组与开发套件
 
 |=====
-| link:/zh/BPI-CM4IO/BananaPi_BPI-CM4IO[香蕉派 BPI-CM4IO] | 
+2+| 香蕉派计算机模组与开发套件
+
+2+| **瑞芯微（Rockchip）**
+|link:/zh/BPI-AIM7/BananaPi_BPI-AIM7[香蕉派 BPI-AIM7] [Rockchip RK3588] 
+|link:/zh/BPI-CM5_Pro/BananaPi_BPI-CM5_Pro[香蕉派 BPI-CM5 Pro] [Rockchip RK3576] 
+
+|link:/zh/BPI-LM7/LM7[香蕉派 BPI-LM7 核心板] [Rockchip RK3588]
+|link:/zh/BPI-RK3588_CoreBoardAndDevelopmentKit/BananaPi_BPI-RK3588_CoreBoardAndDevelopmentKit[香蕉派 BPI-RK3588  核心板及套件] [Rockchip RK3588]
+| link:/zh/BPI-CM2/BananaPi_BPI-CM2[香蕉派 BPI-CM2] [Rockchip RK3568] 
+|
+
+2+| **晶晨半导体（Amlogic）**
+
+|link:/zh/BPI-CM4/BananaPi_BPI-CM4[香蕉派 BPI-CM4] [Amlogic A311D] 
+|link:/zh/BPI-CM5/BananaPi_BPI-CM5[香蕉派 BPI-CM5] [Amlogic A311D2] 
+
+2+| **进迭时空（SpacemiT）**
+|link:/zh/Pico-ITX/SpacemiT_Pico-ITX[香蕉派 K3 Pico-ITX] [SpacemiT K3 Pico-ITX]
+|link:/zh/BPI-SM10/BananaPi_BPI-SM10[香蕉派 BPI-SM10] [SpacemiT K3-CoM260 RISC-V]
+
+|link:/zh/BPI-CM6/BananaPi_BPI-CM6[香蕉派 BPI-CM6] [SpacemiT K1 RISC-V] 
+|
+
+2+| **瑞萨电子（Renesas）**
+|link:/zh/BPI-AI2H/BananaPi_BPI-AI2H[香蕉派 Pi BPI-AI2H] [Renesas RZ/V2H]
+|link:/zh/BPI-AI2N/BananaPi_BPI-AI2N[香蕉派 BPI-AI2N] [Renesas RZ/V2N]
+
+2+| **其他**
+|link:/zh/BPI-SM9_Core/BananaPi_BPI-SM9[香蕉派 BPI-SM9][SOPHGO BM1688]
+|link:/zh/BPI-Secure-Pi/BananaPi_Secure-Pi[香蕉派 BPI-Secure-Pi][MegaHunt SP2302]
+
+|link:/zh/BPI-S64_Core/BananaPi_BPI-S64_Core[香蕉派 BPI-S64 Core] [Actions S700]
+|
+
+|=====
+
+=== 计算机模组与核心板底板
+
+|=====
+| +++
+<div style="text-align: center;">
+    <img src="/bpi-cm4/banana_pi_bpi-cm4_+_io_1.jpg" width="150">
+    <br>
+    <a href="/zh/BPI-CM4IO/BananaPi_BPI-CM4IO">香蕉派 BPI-CM4IO</a>
+</div>
++++ | 
++++
+<div style="text-align: center;">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a href="/zh/BPI-AI2N-Carrier/BananaPi_BPI-AI2N-Carrier">香蕉派 BPI-AI2N 载板</a>
+</div>
++++
 |=====
 
 === 人工智能（AI）设计
@@ -123,24 +193,26 @@ link:/zh/BPI-CM5_Pro/BananaPi_BPI-CM5_Pro[香蕉派 BPI-CM5 Pro] [瑞芯微 RK35
 |   | 
 |=====
 
-== 物联网（IoT）和 创客(DIY)开发板
+== 物联网（IoT）和创客（DIY）开发板
 
 |=====
-2+| **香蕉派 Webduino & Arduino & MicroPython Products**
+2+| **香蕉派 Webduino、Arduino 与 MicroPython 产品**
 
-| link:/zh/BPI-Centi-S3/BananaPi_BPI-Centi-S3[香蕉派 BPI-Centi-S3] [乐鑫信息科技 ESP32-S3] | link:/zh/BPI-PicoW-S3/BananaPi_BPI-PicoW-S3[香蕉派 BPI-PicoW-S3] [乐鑫信息科技 ESP32-S3]
+| link:/zh/BPI-Centi-S3/BananaPi_BPI-Centi-S3[香蕉派 BPI-Centi-S3] [ESP32-S3] | link:/zh/BPI-PicoW-S3/BananaPi_BPI-PicoW-S3[香蕉派 BPI-PicoW-S3] [ESP32-S3]
 
-|  link:/zh/BPI-Leaf-S3/BananaPi_BPI-Leaf-S3[香蕉派 BPI-Leaf-S3] [乐鑫信息科技 ESP32-S3] |
+|  link:/zh/BPI-Leaf-S3/BananaPi_BPI-Leaf-S3[香蕉派 BPI-Leaf-S3] [ESP32-S3] |
 link:/zh/BPI-Pico-2040/BananaPi_BPI-Pico-2040[香蕉派 BPI-Pico-RP2040] [RP2040]
 
-| link:/zh/BPI-AI/BananaPi_BPI-AI[香蕉派 BPI-AI][嘉楠科技 K210] |
-link:/zh/BPI-Bit/BananaPi_BPI-Bit[香蕉派 BPI-Bit][乐鑫信息科技 ESP32 STEAM education] 
-| link:/zh/BPI-Bit-S2/BananaPi_BPI-Bit-S2[香蕉派 BPI-Bit-S2][乐鑫信息科技 ESP32-S2 STEAM education] |
+| link:/zh/BPI-AI/BananaPi_BPI-AI[香蕉派 BPI-AI][Kendryte K210] |
+link:/zh/BPI-Bit/BananaPi_BPI-Bit[香蕉派 BPI-Bit][ESP32 STEAM education] 
+| link:/zh/BPI-Bit-S2/BananaPi_BPI-Bit-S2[香蕉派 BPI-Bit-S2][ESP32-S2 STEAM education] |
+
 |=====
 
-== 物联网（IoT）和 创客(DIY)开发板相关配件
+== 物联网（IoT）和创客（DIY）开发板配件
+
 |=====
-2+| Webduino & Arduino & Micro:bit 开发板配件
+2+| Webduino、Arduino 与 Micro:bit 开发板配件
 
 | link:/zh/BPI-bit_acrylic_shell/BananaPi_BPI-bit_acrylic_shell[BPI-bit 亚克力外壳]| link:/zh/BPI-gpio_expansion_board/BananaPi_BPI-gpio_expansion_board[BPI gpio 扩展板][BPI:bit/micro:bit] 
 |=====
@@ -150,51 +222,84 @@ link:/zh/BPI-Bit/BananaPi_BPI-Bit[香蕉派 BPI-Bit][乐鑫信息科技 ESP32 ST
 |=====
 2+| 工业自动化与工业控制网关设计
 
-| link:/zh/BPI-6202/BananaPi_BPI-6202[香蕉派 BPI-6202/6204 嵌入式工业控制网关] [全志科技 A40i-H] 
+| link:/zh/BPI-6202/BananaPi_BPI-6202[香蕉派 BPI-6202/6204 嵌入式工业控制网关] [Allwinner A40i-H] 
 
-| link:/zh/BPI-KVM/BananaPi_BPI-KVM[香蕉派 BPI-KVM KVM over IP 网关设计] [瑞芯微 RK3568] | link:/zh/BPI-MNF/BananPI_CPI-MNF/[香蕉派 BPI-MNF 5G + 4G LTE + Wi-Fi AC+ 千兆多路聚合路由器] [联发科 MT7622E] 
-| link:/zh/BPI-FSM1819D/BananaPi_BPI-FSM1819D[香蕉派 BPI-FSM1819D 伺服电机控制器] 
 
-|link:/zh/BPI-OM7/BananaPi_BPI-OM7[香蕉派 BPI-OM7 3D Camera] [RK3588 + Gemini2]
 
-| link:/zh/BPI-5202/BananaPi_BPI-5202[香蕉派 BPI-5202 嵌入式工业控制网关] [龙芯 2K1000LA]
+| link:/zh/BPI-KVM/BananaPi_BPI-KVM[香蕉派 BPI-KVM KVM over IP 网关设计] [Rockchip RK3568] 
 
-| link:/zh/BPI-3A5000/BananaPi_BPI-3A5000[香蕉派 BPI-3A5000 信创迷你计算机] [龙芯 3A5000] 
+| link:/zh/BPI-MNF/BananPI_CPI-MNF/[香蕉派 BPI-MNF 5G + 4G LTE + Wi-Fi AC+ 千兆多路聚合路由器] [MediaTek MT7622E] 
 
-| link:/zh/BPI-2K3000/BananaPi_BPI-2K3000[香蕉派 BPI-2K3000 工业计算机] [龙芯 2K3000] 
+| link:/zh/BPI-FSM1819D/BananaPi_BPI-FSM1819D[香蕉派 BPI-FSM1819D 伺服电机控制器] [Fortior]
 
-| link:/zh/BPI-3A6000/BananaPi_BPI-3A6000[香蕉派 BPI-3A6000 信创迷你计算机] [龙芯 3A6000] 
-| link:/zh/BPI-VP10/BananaPi_BPI-VP10[香蕉派 BPI-VP10 伺服电机控制器] [峰岹 FU7512L] |
+| link:/zh/BPI-OM7/BananaPi_BPI-OM7[香蕉派 BPI-OM7 3D Camera] [RK3588 + Gemini2]
+
+|  link:/zh/BPI-5202/BananaPi_BPI-5202[香蕉派 BPI-5202 嵌入式工业控制网关] [Loongson 2K1000LA]
+
+| link:/zh/BPI-3A5000/BananaPi_BPI-3A5000[香蕉派 BPI-3A5000 信创迷你计算机] [Loongson 3A5000] 
+
+| link:/zh/BPI-2K3000/BananaPi_BPI-2K3000[香蕉派 BPI-2K3000 工业计算机] [Loongson 2K3000] 
+
+| link:/zh/BPI-3A6000/BananaPi_BPI-3A6000[香蕉派 BPI-3A6000 信创迷你计算机] [Loongson 3A6000] 
+
+| link:/zh/BPI-VP10/BananaPi_BPI-VP10[香蕉派 BPI-VP10 伺服电机控制器] [Fortior FU7512L]
+
+|
 
 |=====
 
 
 == 香蕉派官方配件
 |=====
-2+| 开源硬件开发板官方配件
+2+|香蕉派官方配件
 
 | link:/zh/BPI-R4/BananaPi_BPI-R4-NIC-BE14[BPI-R4-NIC-BE14 Wi-Fi7 模块]
+| link:/zh/BPI-5400/BananaPi_BPI-5400[BPI-5400 IEEE 802.3at 30W PoE PD 模块]
 | link:/zh/BPI-9600/BananaPi_BPI-9600[香蕉派 BPI-9600 IEEE 802.3af PoE 模块]
 | link:/zh/BPI-9460/BananaPi_BPI-9460[香蕉派 BPI-9460 IEEE 802.3af 隔离型PoE模块]
 | link:/zh/BPI-7604/BananaPi_BPI-7604[香蕉派 BPI-7604 IEEE 802.3af PoE 分路器模块]
 | link:/zh/BPI-7402/BananaPi_BPI-7402[香蕉派 BPI-7402 IEEE 802.3at PoE 模块]
 | link:/zh/BPI-6175/BananaPi_BPI-6175[香蕉派 BPI-6175 单通道PoE++ BT PSE模块]
+| link:/zh/BPI-4G_module/4G_module_via_USB[通过 USB 使用 4G 模块]
+| link:/zh/BPI-MT7615/BananaPi_MT7615[BPI-MT7615 802.11ac 双频 4×4 Wi-Fi 模块]
+| link:/zh/BPI-7_LCD/7_0_LCD_touch_panel[7.0 英寸 LCD 触摸屏]
+| link:/zh/BPI-10_MIPI/10_1_MIPI_touch_panel[10.1 英寸 MIPI 触摸屏]
+| link:/zh/BPI-10_HDMI/10_1_HDMI_touch_panel[10.1 英寸 HDMI 触摸屏]
+| link:/zh/BPI-Camera/BananaPi_BPI-Camera[BPI 摄像头]
 | link:/zh/BPI-Zigbee-BT/BananaPi_BPI-Zigbee-BT[香蕉派 BPI Zigbee BT5.0 物联网模块]
 | link:/zh/BPI-LCD_1602/BananaPi_BPI-LCD_1602[香蕉派 BPI LCD 1602 显示模块]
 | link:/zh/BPI-OLED/BananaPi_BPI-OLED[香蕉派 BPI OLED 显示模块]
 | link:/zh/BPI-RGB_LED/BananaPi_BPI_RGB_LED[香蕉派 BPI RGB LED 矩阵扩展模块]
 | link:/zh/BPI-BerrClip/BananaPi_BPI-BerryClip[香蕉派 BPI BerryClip 模块]
-|=====
-
-== 香蕉派开源社区 BPI 4.0 OEM & ODM 一站式定制服务
 
 |=====
-|   |
+
+|=====
+2+|香蕉派装配配件
+
+| link:/zh/BPI-BE14heatsink/BE14heatsink[BE14 散热器]
+|
+|=====
+
+|=====
+2+|其他配件
+
+| link:/zh/BPI-5G_module/5G_module[5G 模块]
+| link:/zh/BPI-SSD/NVMe_SSD[NVMe SSD]
+| link:/zh/BPI-4G_module/4G_module[4G 模块]
+|
+|=====
+
+== BPI 4.0 OEM 与 ODM 一站式定制服务
+
+|=====
+| link:/zh/customized_service/About_BPI[关于香蕉派]  | link:/zh/customized_service/BPI_4_0_Server[BPI 4.0 服务] |
+link:/zh/customized_service/Successful_case[成功案例]
 |=====
 
 
-= 软件 & 开发工具
-== 嵌入式开发系统
+= 软件与开发工具
+== 嵌入式操作系统
 
 TIP: link:/zh/operating_system/Armbian[Armbian]
 
@@ -203,39 +308,43 @@ TIP: link:/zh/operating_system/Tina_Linux[Tina Linux]
 TIP: link:/zh/operating_system/Mainline_Linux_uboot[Mainline Linux uboot 2019.07]
 
 == 教程
+TIP: link:/zh/BPI-M7/how-touse-llm[瑞芯微 RKLLM 快速入门指南]
 
-TIP: link:/zh/tutorial/how_to_build_a_image_with_bsp[How_to_build_a_image_with_BSP]
+TIP: link:/zh/BPI-CM5_Pro/BananaPi_BPI-CM5_Pro/Rockchip_RKNN_Guide[瑞芯微 RKNN SDK 快速入门指南]
 
-TIP: link:/zh/tutorial/Docker_Environment_Configuration[Docker Environment Configuration]
+TIP: link:/zh/tutorial/how_to_build_a_image_with_bsp[使用 BSP 构建镜像]
 
-TIP: link:/zh/tutorial/How_to_use_DHT_Sensor_via_BananaPi[How to use DHT Sensor via Banana Pi]
+TIP: link:/zh/tutorial/Docker_Environment_Configuration[Docker 环境配置]
 
-TIP: link:/zh/tutorial/how_to_get_the_log_information_for_BananaPi_board[How to get the log information for Banana Pi board]
+TIP: link:/zh/tutorial/How_to_use_DHT_Sensor_via_BananaPi[在香蕉派上使用 DHT 传感器]
 
-TIP: link:/zh/BPI-4G_module/using_4G_module_with_BananaPi[Using 4G module with BananaPi]
+TIP: link:/zh/tutorial/how_to_get_the_log_information_for_BananaPi_board[获取香蕉派开发板日志信息]
 
-TIP: link:/zh/tutorial/WiFi_AP_BT_BLE_on_BananaPi[WiFi/AP/BT/BLE on BananaPi]
+TIP: link:/zh/BPI-4G_module/using_4G_module_with_BananaPi[在香蕉派上使用 4G 模块]
 
-TIP: link:/zh/tutorial/OpenCV_3_4x_on_BananaPi[OpenCV 3.4x on BananaPi]
+TIP: link:/zh/tutorial/WiFi_AP_BT_BLE_on_BananaPi[香蕉派 Wi-Fi、AP、BT 与 BLE 使用指南]
+
+TIP: link:/zh/tutorial/OpenCV_3_4x_on_BananaPi[在香蕉派上使用 OpenCV 3.4.x]
 
 
-== 开源社区软件源代码
 
-香蕉派开源社区官方github源代码 : https://github.com/bpi-sinovoip
+== 从源码构建
 
-物联网（IoT）和 创客(DIY)开发板官方 github源代码 : https://github.com/BPI-STEAM
+香蕉派单板计算机与路由器源码：https://github.com/bpi-sinovoip
+
+STEAM 教育产品源码：https://github.com/BPI-STEAM
 
 = 样品购买
 
-link: https://www.bpi-shop.com/products/xiang-jiao-paibanana-pi-bpi-r4gao-xing-neng-kai-yuan-lu-you-qi-kai-fa-ban-zhi-chi2gesfp-wifi7.html[官方独立商城] &
-link:https://www.aliexpress.com/store/1100417230[香蕉派速卖通官方店铺]   &   link:https://www.aliexpress.com/store/1101951077[BPI Aliexpress online shop]   & link:https://shop108780008.taobao.com/?spm=a1z10.1.0.0.EZ5mQu[香蕉派淘宝官方店铺]  & link:https://www.joom.com/en/search/q.banana%20pi[香蕉派官方Joom店铺]
+link:https://www.bpi-shop.com/[官方在线商店] &
+link:https://www.aliexpress.com/store/1100417230[香蕉派速卖通官方店铺] & link:https://www.aliexpress.com/store/1101951077[BPI 速卖通店铺] & link:https://shop108780008.taobao.com/?spm=a1z10.1.0.0.EZ5mQu[香蕉派淘宝官方店铺]
 
 = 联系我们
 
-Judy Huang : judyhuang@banana-pi.com    Klaus Chen : klauschen@banana-pi.com
+Judy Huang：judyhuang@banana-pi.com    Klaus Chen：klauschen@banana-pi.com
 
-Hailey Chen : haileychen@banana-pi.com   Cherry Li  : cherryli@banana-pi.com
+Hailey Chen：haileychen@banana-pi.com    Mia Li：mia@banana-pi.com
 
-Mia Li : mia@banana-pi.com         Allen Deng : allen@banana-pi.com
+Allen Deng：allen@banana-pi.com    Double：double@banana-pi.com
 
-Double: double@banana-pi.com       Yana Duan ： yana@banana-pi.com
+Yana Duan：yana@banana-pi.com
