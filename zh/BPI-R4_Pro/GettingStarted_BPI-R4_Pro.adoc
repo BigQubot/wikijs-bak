@@ -19,7 +19,7 @@ image::/bpi-r4_pro/bpi-r4pro-block_diagram_4e.png[bpi-r4pro-block_diagram_4e.png
 
 * 8GB 或更大容量的 MicroSD 卡
 * MicroSD 读卡器
-* USB 驱动器
+* U盘
 * USB Type-C 数据线
 * CAT6A 以太网线
 * 12V/5A 电源适配器
@@ -76,7 +76,7 @@ image::/picture/low_level_format_sd_card.png[low_level_format_sd_card.png,width=
 
 **在 Windows 电脑上将镜像烧录到 SD 卡**
 
-link:https://balena.io/etcher[Balena Etcher] 是 Balena 推出的开源图形化烧录工具，可将操作系统镜像写入 SD 卡或 USB 驱动器。
+link:https://balena.io/etcher[Balena Etcher] 是 Balena 推出的开源图形化烧录工具，可将操作系统镜像写入 SD 卡或 U盘。
 
 - 单击“**Flash from file**”选择镜像。
 - 单击“**Select target**”选择 USB 设备。
@@ -115,12 +115,12 @@ bpi-copy xxx.img /dev/sdx
 
 NOTE: 出厂镜像信息：OpenWrt 24.10-SNAPSHOT；架构：aarch64_cortex-a53。
 
-烧录 NAND 镜像前请准备一个 USB 驱动器。以下以 OpenWrt 镜像（**BPI-R4Pro-8X-BE14-MT76-OpenWRT24.10-DSA-snand-251120.bin**）为例：
+烧录 NAND 镜像前请准备一个 U盘。以下以 OpenWrt 镜像（**BPI-R4Pro-8X-BE14-MT76-OpenWRT24.10-DSA-snand-251120.bin**）为例：
 
-. 将 USB 驱动器格式化为 FAT32。
-. 将用于 NAND 启动的 OpenWrt 镜像（**BPI-R4Pro-8X-BE14-MT76-OpenWRT24.10-DSA-snand-251120.bin**）复制到 USB 驱动器。
+. 将 U盘格式化为 FAT32。
+. 将用于 NAND 启动的 OpenWrt 镜像（**BPI-R4Pro-8X-BE14-MT76-OpenWRT24.10-DSA-snand-251120.bin**）复制到 U盘。
 . 切换为从 SD 卡或 eMMC 启动，然后给开发板上电。
-. 将 USB 驱动器插入开发板，并按如下方式挂载到 /mnt 或其他目录（若系统已自动挂载，可跳过此步）：
+. 将 U盘插入开发板，并按如下方式挂载到 /mnt 或其他目录（若系统已自动挂载，可跳过此步）：
 +
 ```SH
 mount -t vfat /dev/sda1 /mnt 
@@ -145,7 +145,7 @@ mtd erase /dev/mtd3
 mtd write BPI-R4Pro-8X-BE14-MT76-OpenWRT24.10-DSA-snand-251120.bin /dev/mtd3
 
 ```
-. 关闭 BPI-R4 Pro，拔出 USB 驱动器，切换为从 NAND 启动，然后重新上电。
+. 关闭 BPI-R4 Pro，拔出 U盘，切换为从 NAND 启动，然后重新上电。
 
 
 === 如何将镜像烧录到 eMMC
@@ -154,13 +154,13 @@ NOTE: 由于 SD 卡与 eMMC 共用 SoC 的同一个控制器，需要先切换�
 
 以下以 OpenWrt 镜像（**bl2_emmc-r4pro.img, mtk-bpi-r4pro-EMMC-20250928.img**）为例：
 
-. 将 USB 驱动器格式化为 FAT32。
-. 将用于 eMMC 启动的 OpenWrt 镜像（**bl2_emmc-r4pro.img, mtk-bpi-r4pro-EMMC-20250928.img**）复制到 USB 驱动器，
+. 将 U盘格式化为 FAT32。
+. 将用于 eMMC 启动的 OpenWrt 镜像（**bl2_emmc-r4pro.img, mtk-bpi-r4pro-EMMC-20250928.img**）复制到 U盘，
 如果镜像已压缩，请先解压再复制。
 
 . 切换为从 NAND 启动，然后给 R4 Pro 上电。
  
-. 将 USB 驱动器插入开发板，并按如下方式挂载到 /mnt 或其他目录（若系统已自动挂载，可跳过此步）：
+. 将 U盘插入开发板，并按如下方式挂载到 /mnt 或其他目录（若系统已自动挂载，可跳过此步）：
 +
 ```sh
 mount -t vfat /dev/sda1 /mnt 
@@ -176,7 +176,7 @@ dd if=mtk-bpi-r4pro-EMMC-20250928.img of=/dev/mmcblk0
  mmc bootpart enable 1 1 /dev/mmcblk0
 ```
  
-. 关闭 BPI-R4 Pro，拔出 USB 驱动器，切换为从 eMMC 启动，然后重新上电。
+. 关闭 BPI-R4 Pro，拔出 U盘，切换为从 eMMC 启动，然后重新上电。
  
  
  
@@ -806,7 +806,7 @@ TIP: MxL862 芯片当前的固件版本为 V1.0.70.70。
 
 TIP: 部分开发板会使用 MxL86252S-ABE-R。MxL86252S-ABE-R 与 MxL86252C 兼容，软件通用，无需修改即可使用。
 
-. 首先，将需要更新的 MxL 文件上传到开发板。可以通过 TFTP 或 USB 驱动器复制。
+. 首先，将需要更新的 MxL 文件上传到开发板。可以通过 TFTP 或 U盘复制。
 
 . 使用 ethswbox 命令检查状态。
 +
