@@ -111,9 +111,9 @@ TIP: link:/en/BPI-CM7/GettingStarted_BPI-CM7[Getting Started BPI-CM7]
 | 67 | 🟨 SD_DAT1 | 68 | ⬜ NC
 | 69 | 🟨 SD_DAT2 | 70 | ⬜ NC
 | 71 | ⬛ GND | 72 | ⬜ NC
-| 73 | 🟨 SD_VDD_OVERRIDE (R86 NC) | 74 | ⬛ GND
-| 75 | 🟨 SD_PWR_ON | 76 | 🟨 SD_DET
-| 77 | 🟥 5V_INPUT | 78 | 🟥 GPIO_VREF (3.3 V)
+| 73 | 🟨 NC(SD_VDD_OVERRIDE) | 74 | ⬛ GND
+| 75 | 🟨 NC | 76 | 🟨 SD_DET
+| 77 | 🟥 5V_INPUT | 78 | 🟨 NC/(GPIO_VREF (3.3 V))
 | 79 | 🟥 5V_INPUT | 80 | 🟩 IO_EEPROM_SCL
 | 81 | 🟥 5V_INPUT | 82 | 🟩 IO_EEPROM_SDA
 | 83 | 🟥 5V_INPUT | 84 | 🟥 3.3V_OUTPUT
@@ -121,7 +121,7 @@ TIP: link:/en/BPI-CM7/GettingStarted_BPI-CM7[Getting Started BPI-CM7]
 | 87 | 🟥 5V_INPUT | 88 | 🟥 1.8V_OUTPUT
 | 89 | 🟩 WL_DISn (R147 NC) | 90 | 🟥 1.8V_OUTPUT
 | 91 | 🟩 BT_DISn (R148 NC) | 92 | 🟩 SYS_RESET
-| 93 | 🟩 FEL / MASKROM | 94 | 🟩 ADC_IOID (R146 NC)
+| 93 | 🟩 FEL / MASKROM | 94 | 🟩 NC(ADC_IOID)
 | 95 | 🟩 LED_nPWR | 96 | ⬜ NC
 | 97 | ⬜ NC | 98 | ⬛ GND
 | 99 | 🟩 GLOBAL_EN (R145 NC) | 100 | ⬜ NC
@@ -129,7 +129,7 @@ TIP: link:/en/BPI-CM7/GettingStarted_BPI-CM7[Getting Started BPI-CM7]
 4+| **Connector 2**
 | Pin | Signal | Pin | Signal
 
-| 101 | 🟦 USB_OTG_ID | 102 | ⬜ NC
+| 101 | 🟦 NC(USB_OTG_ID) | 102 | ⬜ NC
 | 103 | 🟦 USB_OTG_DM | 104 | 🟦 USB_HOST3_DP (USB 2.0)
 | 105 | 🟦 USB_OTG_DP | 106 | 🟦 USB_HOST3_DM (USB 2.0)
 | 107 | ⬛ GND | 108 | ⬛ GND
