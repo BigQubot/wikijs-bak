@@ -6,6 +6,7 @@ TIP: More Infomation: link:/en/BPI-M4_Zero/BananaPi_BPI-M4_Zero[Banana Pi BPI-M4
 = Android
 
 == Prepare
+
 . Download latest link:/en/BPI-M4_Zero/BananaPi_BPI-M4_Zero#_android_2[Android image].
 
 . Download and Install link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2Fphoenixsuit_V1.1.0_20150325.rar[Allwinner Image Download Tools], PhoenixSuit is for window. 
@@ -13,7 +14,7 @@ TIP: More Infomation: link:/en/BPI-M4_Zero/BananaPi_BPI-M4_Zero[Banana Pi BPI-M4
 . Type-C cable, 5V power supply.
 
 == Install Image with USB tool
-
+////
 . Open PhoenixSuit, click the Firmware icon to switching to firmware download panel, then click Image button and choose the Android Image file.
 +
 image::/picture/m4-zero_android_1.jpg[m4-zero_android_1.jpg]
@@ -30,6 +31,7 @@ image::/picture/m4-zero_android_4.jpg[m4-zero_android_4.jpg]
 . Download finish
 +
 image::/picture/m4-zero_android_5.jpg[m4-zero_android_5.jpg]
+////
 
 = Linux
 == Prepare
