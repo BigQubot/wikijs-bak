@@ -867,7 +867,7 @@ USB type: Plug-in the usb dongle to usb host port and driver will be loaded auto
 SDIO/UART type:
 
 - Connect the hardware module to 40pin header correctly.
-- Configure the dtb overlay
+- Configure the dtb overlay(path:/boot/boot.ini)
 +
 ```sh
   # Overlays to load
