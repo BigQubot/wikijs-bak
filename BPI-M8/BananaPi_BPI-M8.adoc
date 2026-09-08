@@ -33,7 +33,7 @@ image::/bpi-m8/m8_inteface_260828_v01.jpg[m8_inteface_260828_v01.jpg, width=1000
 [options="header",cols="1,3"]
 |=====
 2+| **HardWare Specification of Banana Pi M8**
-| CPU             | Dual-Core Arm Cortex-A76 + Hexa-Core Arm Cortex-A55, up to 2.0GHz
+| CPU             | Allwinner A733 Dual-Core Arm Cortex-A76 + Hexa-Core Arm Cortex-A55, up to 2.0GHz
 | GPU             | Imagination PowerVR BXM-4-64 MC1
 | Memory          | 4GB of LPDDR5 RAM
 | Storage         | MicroSD slot,32GB of eMMC storage(Supports UFS modules)
