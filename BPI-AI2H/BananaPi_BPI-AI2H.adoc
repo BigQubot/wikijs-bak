@@ -8,7 +8,7 @@ Banana Pi BPI-AI2H System-on-Module (SoM) and BPI-AI2H carrier board are open-so
 * Open-source development kit, including SOM, BPI-AI2H Carrier board and a rich ecosystem of tools and support from the Banana Pi developer community 
 * Customizable hardware & software by OEM&ODM
 * Yocto and other open-source software support
-* Memory & storage: 8GB LPDDR4x, 32GB eMMC, 64MB QSPI Flash
+* Memory & storage: 16GB LPDDR4x, 32GB eMMC, 64MB QSPI Flash
 * Wide operating temperature range from -40℃ to 85℃
 
 
@@ -38,7 +38,7 @@ image::/bpi-ai2n/bpi-ai2n-carrier_interface1.jpg[bpi-ai2n-carrier_interface1.jpg
 |====
 2+| HardWare Specification of BPI-AI2H
 |SoC |RZ/V2H
-|System Memory | 8GB LPDDR4X
+|System Memory | 16GB LPDDR4X
 .3+|Storage
 |64 MB SPI NAND flash
 |32GB eMMC
