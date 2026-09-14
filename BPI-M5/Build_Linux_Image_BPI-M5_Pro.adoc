@@ -170,6 +170,16 @@ WARNING: Always select the board configuration before starting a build. Building
 
 = Build the Images
 
+== One-command Build
+
+Build the complete image with:
+
+```sh
+./build.sh
+```
+
+This command builds the required components and packages the final image. For the first build or when troubleshooting, use the individual commands in the following sections to identify each component's input, output, and build errors.
+
 == View Build Commands
 
 ```sh
@@ -245,16 +255,6 @@ sha256sum rockdev/update.img
 |`parameter.txt` |Flash partition layout
 |`update.img` |Complete upgrade image
 |====
-
-== One-command Build
-
-After the individual build steps work correctly, the complete image can be built with:
-
-```sh
-./build.sh
-```
-
-For the first build, use the individual commands so that failures can be isolated quickly.
 
 = Build Logs
 
