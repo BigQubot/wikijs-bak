@@ -1,0 +1,579 @@
+= Build Linux Images for Banana Pi BPI-M5 Pro
+
+= Introduction
+
+This guide describes how to download, build, customize, and debug the Linux SDK for Banana Pi BPI-M5 Pro.
+
+After completing this guide, you will be able to:
+
+* Download the complete Linux SDK with `repo`.
+* Understand the main SDK directories.
+* Build U-Boot, Linux kernel, Debian root filesystem, and `update.img` separately.
+* Modify the kernel configuration, device tree, and drivers.
+* Find build logs and debug boot problems through the serial port.
+
+TIP: For board interfaces, power supply, and basic system usage, see link:/en/BPI-M5/GettingStarted_BPI-M5_Pro[Getting Started with BPI-M5 Pro].
+
+= Prepare
+
+== Build Host
+
+Use an x86-64 computer with the following configuration:
+
+* Ubuntu 22.04 LTS x86-64
+* 16 GB RAM or more
+* 120 GB or more free disk space
+* Stable Internet connection
+* A user account with `sudo` permission
+
+Check the host before downloading the SDK:
+
+```sh
+cat /etc/os-release
+uname -m
+nproc
+free -h
+df -h .
+```
+
+`uname -m` should report `x86_64`.
+
+== Install Build Packages
+
+```sh
+sudo apt update
+sudo apt install -y \
+  git git-lfs openssh-client make gcc g++ gcc-multilib g++-multilib \
+  libssl-dev liblz4-tool expect expect-dev patchelf chrpath gawk texinfo \
+  diffstat binfmt-support qemu-user-static live-build bison flex fakeroot \
+  cmake unzip device-tree-compiler ncurses-dev libgucharmap-2-90-dev \
+  bzip2 expat gpgv2 cpp-aarch64-linux-gnu libgmp-dev libmpc-dev bc \
+  python-is-python3 python3-pip python3-pyelftools u-boot-tools curl dpkg-dev
+```
+
+Enable Git LFS:
+
+```sh
+git lfs install
+git lfs version
+```
+
+== Install repo
+
+```sh
+mkdir -p "$HOME/bin"
+curl https://storage.googleapis.com/git-repo-downloads/repo -o "$HOME/bin/repo"
+chmod a+x "$HOME/bin/repo"
+echo 'export PATH="$HOME/bin:$PATH"' >> "$HOME/.bashrc"
+export PATH="$HOME/bin:$PATH"
+repo version
+```
+
+= Download the Linux SDK
+
+== Create the SDK Directory
+
+This guide uses `bpi-m5pro` as the SDK directory name:
+
+```sh
+mkdir -p "$HOME/bpi-m5pro"
+cd "$HOME/bpi-m5pro"
+```
+
+== Initialize and Synchronize the Source Code
+
+```sh
+repo init \
+  -u https://github.com/ArmSoM/manifests.git \
+  -b linux \
+  -m armsom_linux_generic.xml
+
+repo sync -c -j4
+```
+
+The first synchronization can take a long time. If the network is unstable, reduce the number of parallel jobs and retry:
+
+```sh
+.repo/repo/repo sync -c -j2
+```
+
+Check the source tree after synchronization:
+
+```sh
+test -x build.sh && echo "SDK download completed"
+.repo/repo/repo status
+du -sh .
+```
+
+= SDK Directory Structure
+
+[options="header",cols="2,4"]
+|====
+|Directory |Description
+|`device/rockchip/` |Board configuration, partition layout, build hooks, and packaging configuration
+|`u-boot/` |U-Boot source code
+|`kernel-6.1/` |Linux 6.1 kernel, device tree, and drivers
+|`rkbin/` |Rockchip DDR, BL31, and loader binaries
+|`prebuilts/` |Cross-compilation toolchains
+|`debian11/`, `debian12/` |Debian root filesystem build files
+|`ubuntu22.04/`, `ubuntu24.04/` |Ubuntu root filesystem build files
+|`tools/` |Image packaging and flashing tools
+|`output/` |Selected configuration, build logs, and intermediate output
+|`rockdev/` |Images prepared for flashing
+|`build.sh` |Main SDK build command
+|====
+
+The Linux boot flow is:
+
+```text
+BootROM -> Loader -> U-Boot -> Linux Kernel and DTB -> Root filesystem
+```
+
+When a build or boot problem occurs, first identify which stage failed.
+
+= Select the BPI-M5 Pro Configuration
+
+List the available BPI-M5 Pro configurations:
+
+```sh
+cd "$HOME/bpi-m5pro"
+ls device/rockchip/.chips/rk3576/*sige5*_defconfig
+```
+
+[options="header",cols="2,2,5"]
+|====
+|System |Type |Configuration
+|Debian 12 |Server |`armsom_sige5_rk3576_debian_server_defconfig`
+|Debian 12 |XFCE |`armsom_sige5_rk3576_debian_xfce_defconfig`
+|Debian 12 |GNOME |`armsom_sige5_rk3576_debian_gnome_defconfig`
+|Ubuntu 22.04 |Server |`armsom_sige5_rk3576_ubuntu_server_defconfig`
+|Ubuntu 22.04 |GNOME |`armsom_sige5_rk3576_ubuntu_gnome_defconfig`
+|====
+
+Debian Server is recommended for the first build because it has fewer desktop packages.
+
+Select RK3576 and the Debian Server configuration:
+
+```sh
+./build.sh rk3576:armsom_sige5_rk3576_debian_server_defconfig
+```
+
+Check the active configuration:
+
+```sh
+readlink -f output/defconfig
+grep -E 'RK_ROOTFS_SYSTEM|RK_ROOTFS_TARGET|RK_KERNEL_PREFERRED|RK_KERNEL_DTS_NAME' \
+  output/.config
+```
+
+WARNING: Always select the board configuration before starting a build. Building with a configuration left by another board can generate an unusable image.
+
+= Build the Images
+
+== View Build Commands
+
+```sh
+./build.sh help
+./build.sh kernel:dry-run
+```
+
+The dry run displays the kernel build command and cross-compiler without compiling the kernel.
+
+== Build U-Boot
+
+```sh
+./build.sh uboot
+```
+
+Check the output:
+
+```sh
+ls -lh u-boot/uboot.img
+ls -lh output/firmware/MiniLoaderAll.bin output/firmware/uboot.img
+```
+
+== Build the Linux Kernel
+
+```sh
+./build.sh kernel
+```
+
+The kernel build generates the kernel image, modules, DTBs, boot image, and Debian packages.
+
+```sh
+ls -lh kernel-6.1/extboot.img output/firmware/boot.img
+find . -maxdepth 1 -name 'linux-*.deb' -printf '%f\n' | sort
+```
+
+== Build the Debian Root Filesystem
+
+```sh
+./build.sh debian
+```
+
+This step downloads Debian packages and can take much longer than the U-Boot and kernel builds.
+
+Check the result:
+
+```sh
+find output -path '*debian*' -name 'rootfs*' -type f -ls
+```
+
+== Package the Firmware
+
+After U-Boot, kernel, and root filesystem are ready, package the partition images:
+
+```sh
+./build.sh firmware
+```
+
+Build the complete upgrade image:
+
+```sh
+./build.sh updateimg
+ls -lh rockdev/
+sha256sum rockdev/update.img
+```
+
+[options="header",cols="2,4"]
+|====
+|File |Description
+|`MiniLoaderAll.bin` |Loader image
+|`uboot.img` |U-Boot partition image
+|`boot.img` |Linux kernel, DTB, and boot files
+|`rootfs.img` |Debian or Ubuntu root filesystem
+|`parameter.txt` |Flash partition layout
+|`update.img` |Complete upgrade image
+|====
+
+== One-command Build
+
+After the individual build steps work correctly, the complete image can be built with:
+
+```sh
+./build.sh
+```
+
+For the first build, use the individual commands so that failures can be isolated quickly.
+
+= Build Logs
+
+Each build creates a session directory under `output/sessions/`.
+
+```sh
+ls -lt output/sessions/ | head
+readlink -f output/sessions/latest
+find output/sessions/latest -maxdepth 1 -name '*.log' -type f -print
+```
+
+Search the latest logs for errors:
+
+```sh
+grep -RniE 'error:|fatal:|failed|no such file|no rule to make' \
+  output/sessions/latest | tail -n 50
+```
+
+Use the following order when troubleshooting a failed build:
+
+. Find the first specific error in the log.
+. Identify whether it belongs to U-Boot, kernel, root filesystem, or packaging.
+. Read approximately 30 lines before and after the first error.
+. Fix and rebuild only the failed component.
+. Record the command, error, cause, and solution.
+
+Do not run `cleanall` for every error. Incremental builds preserve useful intermediate output and are much faster.
+
+= Kernel Development
+
+== Modify the Kernel Configuration
+
+```sh
+./build.sh kernel-config
+```
+
+In `menuconfig`:
+
+* Press `/` to search for a configuration symbol.
+* Press Space to switch between built-in, module, and disabled.
+* `[*]` means built into the kernel.
+* `[M]` means built as a module.
+
+After saving the configuration, inspect and rebuild it:
+
+```sh
+git -C kernel-6.1 status --short
+git -C kernel-6.1 diff -- arch/arm64/configs/armsom_linux_rk3576_defconfig
+./build.sh kernel
+./build.sh firmware
+```
+
+Only rebuild `update.img` when a complete upgrade image is required.
+
+== Modify the Device Tree
+
+Find the BPI-M5 Pro device tree:
+
+```sh
+find kernel-6.1/arch/arm64/boot/dts/rockchip \
+  \( -iname '*sige5*.dts' -o -iname '*sige5*.dtsi' \) -print
+```
+
+The active DTB is selected by `RK_KERNEL_DTS_NAME` in `output/.config`.
+
+After changing a DTS or DTSI file:
+
+```sh
+git -C kernel-6.1 diff -- arch/arm64/boot/dts/rockchip/
+./build.sh kernel
+./build.sh firmware
+```
+
+Verify the device tree on the board:
+
+```sh
+cat /proc/device-tree/model; echo
+dmesg | grep -iE 'gpio|pinctrl|i2c|spi|uart|mmc|pcie'
+```
+
+If a driver does not probe, check `status`, `compatible`, clocks, resets, GPIOs, regulators, and the DTB that was actually loaded.
+
+== Modify a Kernel Driver
+
+Add concise logs around probe and resource initialization:
+
+```c
+dev_info(dev, "probe started\n");
+dev_err(dev, "failed to enable clock: %d\n", ret);
+```
+
+Rebuild the kernel after changing a driver:
+
+```sh
+./build.sh kernel
+./build.sh firmware
+```
+
+On the board, use:
+
+```sh
+uname -a
+dmesg -w
+journalctl -k -b
+lsmod
+modinfo <module-name>
+systemctl --failed
+```
+
+= U-Boot and Serial Debugging
+
+After modifying files in `u-boot/`, rebuild U-Boot:
+
+```sh
+./build.sh uboot
+```
+
+Useful U-Boot debugging methods include:
+
+* Add `printf()` near the failing initialization path.
+* Enable the required `CONFIG_DEBUG_*` option.
+* Interrupt automatic boot and run `printenv`, `help`, and `mmc list`.
+* Check `bootcmd`, `bootargs`, load addresses, and the selected boot device.
+
+Connect a 3.3 V USB-to-TTL serial adapter:
+
+[options="header",cols="1,1,1"]
+|====
+|BPI-M5 Pro |Connect |Serial Adapter
+|GND |<---> |GND
+|TX |---> |RX
+|RX |<--- |TX
+|====
+
+Use a baud rate of `1500000`. Capture the complete log starting before power-on.
+
+If there is no serial output, check the power supply, cable wiring, baud rate, boot media, and loader before debugging Linux drivers.
+
+= Root Filesystem Development
+
+The root filesystem contains packages, services, users, system configuration, and applications. Root filesystem changes do not require rebuilding U-Boot or the kernel.
+
+Search the root filesystem build files before editing them:
+
+```sh
+rg -n '<package-or-file-name>' \
+  debian11 debian12 ubuntu22.04 ubuntu24.04
+```
+
+Rebuild and package Debian changes:
+
+```sh
+./build.sh debian
+./build.sh firmware
+./build.sh updateimg
+```
+
+Verify services on the board:
+
+```sh
+systemctl --failed
+systemctl status <service-name>
+journalctl -u <service-name> -b
+ip address
+mount
+df -h
+```
+
+= Flash and Verify the Image
+
+WARNING: Flashing overwrites data on the target storage device. Back up important files before continuing.
+
+TIP: See link:/en/BPI-M5/BananaPi_Flash_image[Flash Images on Banana Pi Rockchip Boards] for the complete flashing procedure.
+
+Check that the board is in Loader or Maskrom mode:
+
+```sh
+sudo tools/linux/Linux_Upgrade_Tool/Linux_Upgrade_Tool/upgrade_tool ld
+```
+
+Flash the complete image:
+
+```sh
+sudo ./rkflash.sh update
+```
+
+During development, an unchanged partition table allows an individual partition to be updated:
+
+```sh
+sudo ./rkflash.sh uboot
+sudo ./rkflash.sh boot
+sudo ./rkflash.sh rootfs
+```
+
+After booting the new image, perform a minimum verification:
+
+```sh
+uname -a
+cat /proc/device-tree/model; echo
+cat /etc/os-release
+ip address
+df -h
+dmesg -T | grep -iE 'error|fail|timeout'
+systemctl --failed
+```
+
+= Save and Reproduce Changes
+
+The SDK contains multiple Git repositories. Check all changes before synchronization:
+
+```sh
+.repo/repo/repo status
+.repo/repo/repo diff
+git -C kernel-6.1 status --short
+git -C kernel-6.1 diff
+```
+
+Generate a revision-locked manifest for a reproducible build:
+
+```sh
+.repo/repo/repo manifest -r -o bpi-m5pro-build-manifest.xml
+```
+
+For each released image, record:
+
+* Manifest revision
+* BPI-M5 Pro configuration
+* Modified repositories and files
+* Complete build commands
+* SHA-256 checksum of `update.img`
+* Serial boot log
+* Board verification result
+
+= Troubleshooting
+
+== Board Configuration Is Not Found
+
+If the following error appears:
+
+```text
+No available defconfigs for: armsom_sige5_rk3576_debian_server_defconfig
+```
+
+Select RK3576 together with the configuration:
+
+```sh
+./build.sh rk3576:armsom_sige5_rk3576_debian_server_defconfig
+```
+
+== Kernel Reports `No rule to make target 'goodix_ts.o'`
+
+Check the kernel configuration, source files, and Makefile:
+
+```sh
+grep CONFIG_TOUCHSCREEN_GOODIX kernel-6.1/.config
+ls kernel-6.1/drivers/input/touchscreen/goodix*
+grep -n goodix_ts kernel-6.1/drivers/input/touchscreen/Makefile
+```
+
+If the source files exist and the composition rule is commented out, change:
+
+```make
+# goodix_ts-y := goodix.o goodix_fwupload.o
+```
+
+to:
+
+```make
+goodix_ts-y := goodix.o goodix_fwupload.o
+```
+
+Then run the incremental build again:
+
+```sh
+./build.sh kernel
+```
+
+== Debian Package Download Fails
+
+```sh
+date
+getent hosts deb.debian.org
+env | grep -i proxy
+```
+
+After fixing the network or mirror, retry only the root filesystem:
+
+```sh
+./build.sh debian
+```
+
+== A Change Does Not Appear on the Board
+
+Check in this order:
+
+. Confirm that `git diff` contains the expected change.
+. Confirm that the corresponding component finished building.
+. Check the modification time and checksum in `rockdev/`.
+. Confirm that the correct partition was flashed.
+. Confirm the running kernel, DTB, or application version on the board.
+
+= Quick Command List
+
+```sh
+cd "$HOME/bpi-m5pro"
+
+.repo/repo/repo sync -c -j4
+./build.sh rk3576:armsom_sige5_rk3576_debian_server_defconfig
+
+./build.sh uboot
+./build.sh kernel
+./build.sh debian
+./build.sh firmware
+./build.sh updateimg
+
+./build.sh kernel-config
+
+.repo/repo/repo status
+.repo/repo/repo diff
+ls -lh rockdev/
+sha256sum rockdev/update.img
+```
