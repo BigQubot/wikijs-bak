@@ -162,9 +162,34 @@ Check the active configuration:
 
 ```sh
 readlink -f output/defconfig
-grep -E 'RK_ROOTFS_SYSTEM|RK_ROOTFS_TARGET|RK_KERNEL_PREFERRED|RK_KERNEL_DTS_NAME' \
+grep -E 'RK_ROOTFS_SYSTEM|RK_ROOTFS_TARGET|RK_KERNEL_PREFERRED|RK_KERNEL_CFG|RK_KERNEL_DTS_NAME' \
   output/.config
 ```
+
+Expected result for Debian 12 Server:
+
+```text
+/home/<user>/bpi-m5pro/device/rockchip/.chips/rk3576/armsom_sige5_rk3576_debian_server_defconfig
+RK_ROOTFS_SYSTEM="debian"
+RK_ROOTFS_TARGET_SERVER=y
+RK_KERNEL_PREFERRED="6.1"
+RK_KERNEL_CFG="armsom_linux_rk3576_defconfig"
+RK_KERNEL_DTS_NAME="rk3576-armsom-sige5"
+```
+
+image::/bpi-m5pro/bpi-m5pro-sdk-defconfig.png[BPI-M5 Pro SDK defconfig and active kernel configuration]
+
+The selected build uses these three source files:
+
+[options="header",cols="3,6"]
+|====
+|Purpose |File to modify
+|Debian image type, kernel selection, partition and packaging options |`device/rockchip/.chips/rk3576/armsom_sige5_rk3576_debian_server_defconfig`
+|Linux kernel options |`kernel-6.1/arch/arm64/configs/armsom_linux_rk3576_defconfig`
+|BPI-M5 Pro board hardware description |`kernel-6.1/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts`
+|====
+
+`output/.config` and `output/defconfig` are generated selections. Make persistent changes in the source files listed above, then select the board configuration again if necessary.
 
 WARNING: Always select the board configuration before starting a build. Building with a configuration left by another board can generate an unusable image.
 
@@ -287,8 +312,37 @@ Do not run `cleanall` for every error. Incremental builds preserve useful interm
 
 == Modify the Kernel Configuration
 
+For BPI-M5 Pro with Linux 6.1, the kernel defconfig is:
+
+```text
+kernel-6.1/arch/arm64/configs/armsom_linux_rk3576_defconfig
+```
+
+Confirm it from the active SDK configuration:
+
+```sh
+grep '^RK_KERNEL_CFG=' output/.config
+test -f kernel-6.1/arch/arm64/configs/armsom_linux_rk3576_defconfig \
+  && echo "Kernel defconfig found"
+```
+
+Expected result:
+
+```text
+RK_KERNEL_CFG="armsom_linux_rk3576_defconfig"
+Kernel defconfig found
+```
+
+Use the SDK command to change kernel options:
+
 ```sh
 ./build.sh kernel-config
+```
+
+After you save and exit `menuconfig`, the SDK runs `savedefconfig` and writes the result back to:
+
+```text
+kernel-6.1/arch/arm64/configs/armsom_linux_rk3576_defconfig
 ```
 
 In `menuconfig`:
@@ -311,16 +365,82 @@ Only rebuild `update.img` when a complete upgrade image is required.
 
 == Modify the Device Tree
 
-Find the BPI-M5 Pro device tree:
+First read the selected DTB name:
 
 ```sh
-find kernel-6.1/arch/arm64/boot/dts/rockchip \
-  \( -iname '*sige5*.dts' -o -iname '*sige5*.dtsi' \) -print
+grep '^RK_KERNEL_DTS_NAME=' output/.config
 ```
 
-The active DTB is selected by `RK_KERNEL_DTS_NAME` in `output/.config`.
+Expected result:
 
-After changing a DTS or DTSI file:
+```text
+RK_KERNEL_DTS_NAME="rk3576-armsom-sige5"
+```
+
+The value maps directly to this source file:
+
+```text
+kernel-6.1/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
+```
+
+Confirm the file and its DTB build entry:
+
+```sh
+DTS=kernel-6.1/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
+realpath "$DTS"
+sed -n '7,17p' "$DTS"
+rg -n 'rk3576-armsom-sige5' \
+  kernel-6.1/arch/arm64/boot/dts/rockchip/Makefile
+```
+
+Expected key output:
+
+```text
+#include "rk3576.dtsi"
+#include "rk3576-rk806.dtsi"
+#include "rk3576-linux.dtsi"
+7:dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-armsom-sige5.dtb
+```
+
+image::/bpi-m5pro/bpi-m5pro-kernel-dts.png[BPI-M5 Pro active DTS, include files, and DTB build entry]
+
+For BPI-M5 Pro board-level hardware changes, edit `rk3576-armsom-sige5.dts`. Common examples include:
+
+* GPIO LEDs under the `leds` node.
+* Ethernet under `&gmac0` and `&gmac1`.
+* RTC and Type-C controllers under `&i2c0` and `&i2c2`.
+* Audio codec under `&i2c3`.
+* NVMe under `&pcie0`.
+* Pin multiplexing under `&pinctrl`.
+
+Locate these nodes before editing:
+
+```sh
+rg -n '^\s*(leds:|&gmac0|&gmac1|&i2c0|&i2c2|&i2c3|&pcie0|&pinctrl)' "$DTS"
+```
+
+Output from the current SDK tree:
+
+```text
+72:    leds: leds {
+319:&gmac0 {
+343:&gmac1 {
+386:&i2c0 {
+425:&i2c2 {
+501:&i2c3 {
+557:&pcie0 {
+563:&pinctrl {
+```
+
+The included files provide shared definitions:
+
+* `rk3576.dtsi`: RK3576 SoC devices, addresses, interrupts, and clocks.
+* `rk3576-rk806.dtsi`: RK806 PMIC and regulator definitions.
+* `rk3576-linux.dtsi`: shared Linux settings for RK3576.
+
+Normally, add or override board peripherals in `rk3576-armsom-sige5.dts`. Modify an included DTSI only when the change genuinely applies to its shared scope.
+
+After changing the board DTS:
 
 ```sh
 git -C kernel-6.1 diff -- arch/arm64/boot/dts/rockchip/
