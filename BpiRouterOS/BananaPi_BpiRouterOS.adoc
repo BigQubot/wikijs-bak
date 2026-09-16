@@ -1,395 +1,137 @@
-= Introduction
- 
-** **Modern web management · A/B dual-slot brick-proof updates · One firmware for 6 BPI router boards****
+# BpiRouter v1.5.0-rc1: features and use
+
+This guide describes v1.5.0-rc1, a release candidate for users to try before the
+final release. Keep a backup and a way to reinstall before using it on a network
+you depend on. Available ports, Wi-Fi bands and mobile connections depend on
+your board and installed hardware.
+
+## Choose your hardware
+
+Images are provided for BPI-R4, BPI-R3, BPI-R4-Lite, BPI-R3-Mini, OpenWrt One,
+BPI-R4-Pro 8X and BPI-R4-Pro 4E. Always use the exact model's download.
+R4-Pro 4E is experimental; do not use an 8X image on it. On 4E, the WAN copper
+and SFP connections are alternatives selected at startup, not two simultaneous
+WAN ports. Copper is the default. They do not switch automatically when a cable
+is inserted. Firmware rollback is not available on 4E in this release.
+
+## Get started
+
+After installation, connect a computer to a LAN port and open
+`https://192.168.100.1`. Complete the setup wizard and choose your administrator
+and Wi-Fi passwords. The interface offers English and Chinese, light and dark
+themes, and layouts for computers and phones.
+
+Find the product version in **Home → System** or at the top of **System**.
+For this release it is `BpiRouter v1.5.0-rc1`. The separately listed OpenWrt
+version is not the BpiRouter product version. If the version is unknown, do not
+assume which release is installed.
+
+
+## Features by page
 
 [options="header",cols="2,4"]
 |====
-| **Item** | **Detial**
-| **Name** | BpiRouter OS
-| **Type** | Unified firmware + web management for Banana Pi router boards
-
-| **Underlying system** | OpenWrt v25.12.5（Linux Kernel 6.12）
-
-| **Support boards** | BPI-R4 / R4-Lite / R4 Pro / R3 / R3 Mini / OpenWrt One
-
-| **language** | English / Chinese 
-
-| **Default IP** | `https://192.168.100.1`
-
-| **Status** | Real-machine validated on all 6 boards. 
+| Page | What you can do 
+| Home | See Internet status, traffic, connected devices, Wi-Fi and router resource use. 
+| Network | Configure Internet connections, LAN addressing, Wi-Fi, mobile modules, USB sharing, Multi-WAN and WAN bandwidth shaping. 
+| Devices | Identify connected devices, give them names, and allow or block their access. 
+| Segments | Set up separate Guest and IoT Wi-Fi networks, their access rules and shared bandwidth limits. 
+| Advanced | Configure DNS filtering, access schedules, port forwarding, firewall rules, VPN and dynamic DNS; use network diagnostics. 
+| System | Change the router name, time and password; back up or restore settings, manage firmware, reboot or reset the router. 
+| Users | Manage administrator, operator and read-only accounts. Administrator access is required. 
 |====
 
----
-=  1. What is BpiRouterOS
 
-**BpiRouter OS** is a unified firmware for the Banana Pi router family — on top of OpenWrt, it adds a **modern graphical web management interface** plus a **brick-proof firmware update and recovery system**.
-
-It solves two pain points：
-
-- **Bare OpenWrt / LuCI isn't friendly to ordinary users** → we provide a consumer-grade graphical interface, a guided first-boot wizard, and common functions one click away.
-- **Flashing router firmware risks bricking the device, with painful recovery** → we provide **A/B dual firmware slots + automatic rollback on failed OTA + a 4-layer recovery ladder**, so even a bad flash can be recovered.
-
-**One firmware, 6 boards**: the same web UI and feature set run on all 6 BPI router boards; board differences live only in the hardware layer and are adapted automatically.
-
-
----
-
-=  2. Why BpiRouter OS
-
-[options="header",cols="2,5"]
-|====
-| Highlight  | Explanation 
-| 🖥️ **Modern web UI** | Vue 3 graphical interface, responsive (desktop/tablet/phone), dark mode, English + Chinese, common features ready out of the box
-
-| 🛡️ **A/B brick-proof updates** | Two firmware slots; OTA writes the standby slot and trial-boots it, auto-rolling back to the last good version on failure
-
-| 🪜 **4-layer recovery ladder** | From config rollback to whole-device re-flash — bad configs and bad firmware can both be recovered to factory state
-
-| 🔐 **Enterprise-grade security** | Multi-user roles, login brute-force protection, action audit log, HTTPS throughout
-
-| 🔌 **Full feature set** | Network / wireless / VPN (WireGuard + OpenVPN) / firewall / port forwarding / DDNS / diagnostics
-
-| 🧩 **6 boards unified** | One firmware covers 6 BPI router boards with an identical experience
-|====
-
-==  2.1 What it adds over bare OpenWrt / LuCI
-
-BpiRouter OS keeps all of OpenWrt's power and ecosystem, and adds consumer-grade usability and reliability on top:
-
-[options="header",cols="2,4,5"]
-|====
-| Aspect | Bare OpenWrt + LuCI | BpiRouter OS 
-| Onboarding | Requires OpenWrt knowledge | Wizard on first boot; common tasks one screen away 
-| Interface | Powerful but engineering-oriented | Modern GUI: responsive + dark mode + bilingual 
-| Firmware update | Single partition; a bad flash needs rescue | **A/B slots + automatic rollback**; a bad flash won't brick 
-| Recovery from mistakes | Mostly serial console / re-flash | **4-layer recovery ladder**, recover by holding a button 
-| Multi-user | Single administrator | **3-tier roles + action audit** 
-| LuCI | — | **Entry kept**; switch to it anytime for advanced tasks 
-|====
-
-> In short: **OpenWrt's foundation + a premium-router experience + brick-proof reliability.**
-
----
-=  3. Support boards
-
-[options="header",cols="3,4,7"]
-|====
-| Board | chip | main hardware capabilities 
-| **BPI-R4** | MediaTek MT7988A | 2×10G SFP + 4× Gigabit Port，Wi-Fi 7
-
-| **BPI-R4 Lite** | MediaTek MT7987A | Wi-Fi 7 (BE14 tri-band; needs 12V power)
-
-|**BPI-R4 Pro (8X)** | MediaTek MT7988A | 8GB RAM, 4×2.5G + 10G WAN, system status LEDs 
-
-|**BPI-R4 Pro (4E)** | MediaTek MT7988A | 4GB RAM, 4×2.5G + 10G WAN, system status LEDs 
-
-| **BPI-R3** | MediaTek MT7986A | Wi-Fi 6, multi-media (SD/NAND/eMMC)
-
-| **BPI-R3 Mini** | MediaTek MT7986A | Wi-Fi 6, 2.5G PHY, compact, no SD slot 
-
-| **OpenWrt One** | MediaTek MT7981B | Wi-Fi 6, NAND only 
-|====
-
-> All 6 boards have passed real-machine acceptance for "firmware A/B + OTA rollback + 4-layer recovery".
-
----
-=  4. Features overview
-
-==  4.1 Out of the box
-- **First-boot wizard**: a brand-new device boots straight into a wizard — set up internet (DHCP / static / PPPoE), WiFi, and the admin password in 3 steps.
-
-- **Dashboard**: one-screen overview of CPU/temperature/memory/storage, internet status, client count, and a **live up/down traffic chart**, auto-refreshing.
-
-image::/bpi_os_en/4.1_dashboard.png[4.1_dashboard.png]
-
-==  4.2 Network & Wireless
-
-- **WAN**: DHCP / static IP / PPPoE, dual-stack IPv4 + IPv6.
-
-image::/bpi_os_en/4.2.1_network.png[4.2.1_network.png]
-- **LAN**: LAN IP, DHCP allocation (pool / lease time).
-
-- **Wireless**: multi-band (2.4G / 5G / 6G), channel/width/power/country, SSID & encryption (6GHz enforces WPA3/OWE).
-- **Connected devices**: live view of attached devices' IP / MAC / hostname / online status.
-
-image::/bpi_os_en/4.2.2_device.png[4.2.2_device.png]
-==  4.3 Secure connectivity
-- **VPN**: built-in **WireGuard** and **OpenVPN** — both protocols can run at the same time, as a client (connect to a remote VPN) or a server. The server supports a custom listen port and address range, **one-click client config + QR code** (scan to connect from a phone app), plus a client list and revocation.
-
-image::/bpi_os_en/4.3_vpn.png[4.3_vpn.png]
-- **Port forwarding**: map external ports to internal devices.
-
-image::/bpi_os_en/4.3_port.png[4.3_port.png]
-- **DMZ**: forward all inbound WAN traffic to a single internal host.
-
-image::/bpi_os_en/4.3_dmz.png[4.3_dmz.png]
-- **Firewall rules**: custom accept / reject / drop rules.
-
-image::/bpi_os_en/4.3.2_firewall.png[4.3.2_firewall.png]
-- **DDNS**: bind a dynamic public IP to a fixed domain (DuckDNS / No-IP / Dynu / Cloudflare / FreeDNS).
-
-image::/bpi_os_en/4.3_ddns.png[4.3_ddns.png]
-==  4.4 System management
-
-image::/bpi_os_en/4.4.1_normal_password.png[4.4.1_normal_password.png]
-image::/bpi_os_en/4.4.2_firmware_backup_security.png[4.4.2_firmware_backup_security.png]
-- **Hostname / timezone / system clock**: pick the timezone from a searchable dropdown; time syncs via NTP automatically, with manual / browser-time fallback (for RTC-less or offline cases).
-- **Change password, reboot.**
-- **Confirm-on-critical-change**: changes that could cut the management link (network / WiFi / firewall) can require a timed confirmation — if a change locks you out, it auto-rolls back (see §5.2 L1). On by default.
-- **Firmware upgrade** (A/B dual slot, see §5), **config backup & restore**, **factory reset**.
-- **Diagnostics**: Ping / Traceroute / DNS lookup, results shown right in the UI.
-- **System log.**
-
-==  4.5 Multi-user & audit
-- **Three roles**: Admin (everything) / Operator (day-to-day config) / Viewer (read-only). Least-privilege — a viewer can neither see nor change configuration.
-
-image::/bpi_os_en/4.5.1_user.png[4.5.1_user.png]
-- **Audit log** (admin only): records security-relevant actions — logins, permission denials, config changes, firmware upgrades, user management — for later review (no passwords/keys are ever recorded).
-
-image::/bpi_os_en/4.5.2_audit.png[4.5.2_audit.png]
----
-=  5. Reliability: updates and recovery that never brick
-
-This is BpiRouter OS's core differentiator. Router firmware's worst fear is "a bad flash bricks the device remotely and it has to be sent back" — we eliminate that risk with **dual slots + a 4-layer fallback**.
-
-==  5.1 Firmware A/B dual-slot updates
-
-The device has **two firmware slots**. During an online update:
-
-The device has **two firmware slots**. During an online update:
-
-1. The new firmware is written to the **standby slot**, leaving the running slot untouched.
-2. The device reboots into the new firmware and shows an **"upgrade pending confirmation" banner** (with a countdown).
-3. Confirm everything works → click "Confirm upgrade" to commit.
-4. **If you don't confirm** (e.g. the new firmware has no network and nobody is around) → at the end of the countdown it **automatically rolls back** to the pre-upgrade firmware and config.
-
-The firmware is validated before flashing; incompatible images are rejected. An optional "**keep settings**" carries your configuration across the upgrade.
-
-==  5.2 The 4-layer recovery ladder
-
-**From soft to hard, provide support at each level:**
-
-Four - layer recovery ladder
-
-[options="header",cols="5,7,9"]
-|====
-| Level | Trigger mode | Effect
-| **L1 Config rollback** | Automatic | A change that drops your connection → auto-reverted if not confirmed in time
-
-| **L2 Firmware auto-rollback** | Automatic | A bad firmware that fails to boot → the bootloader auto-switches back to the last good slot
-
-|**L3 Factory reset** | **Hold the recovery button ~5s** while running | Clears the current config to factory (without re-flashing firmware) 
-| **L4 Whole-device rescue** | **Power off → hold the recovery button → power on**, keep holding | Re-flashes the whole device from a built-in golden image back to factory
-|====
-
-> **Result**: even if both config and firmware are corrupted, L4 brings the device back to factory state — **a bad flash can still be recovered; it won't brick permanently.**
-
-
-> 💡 **The recovery button differs by board**: BPI-R4 uses the **WPS button**; R4-Lite / R4 Pro / R3 / R3 Mini use the **physical reset button**. See each board's notes.
-
----
-=  6. Security features
-
-- **HTTPS throughout**: self-signed certificate, confirm once on first access.
-- **Modern auth**: JWT session (1-hour expiry), secure password verification.
-- **Login brute-force protection**: repeated failures from one source are progressively delayed (up to 60s), effectively blocking brute force.
-- **Role-based access (RBAC)**: per-method least privilege + default-deny; over-privileged calls are blocked by the backend (even if the UI is bypassed).
-- **Action audit**: security-relevant actions are logged, with no sensitive parameters recorded.
-
----
-
-=  7. Interface & experience
-
-- **Bilingual**: instant switch between English and Chinese.
-
-image::/bpi_os_en/7.1_login.png[7.1_login.png]
-- **Dark mode**: light / dark.
-
-image::/bpi_os_en/7.2_dark.png[7.2_dark.png]
-- **Responsive**: adapts to desktop, tablet, and phone; the sidebar collapses on phones.
-- **Smooth feedback**: whole-device operations (upgrade / rollback / reboot / factory reset) show a full-screen progress indicator with offline→online probing, so there's no blank-screen gap.
-- **Advanced fallback**: the native LuCI entry is kept; switch to it anytime for advanced/diagnostic tasks not covered here.
-
----
-=  8. Quick start
-
-> Detailed steps are on the sub-pages:：**link:/en/BpiRouterOS/BananaPi_BpiRouterOS_Flashing[Flashing Guide]**、**link:/en/BpiRouterOS/BananaPi_BpiRouterOS_Setup[First-time Setup]**、**link:/en/BpiRouterOS/BananaPi_BpiRouterOS_Recovery[Recovery and Rescue]**.
-
-==  8.1  Flash to the device 
-
-1. Get the image for your board from the **Downloads** section (§11).
-2. Flash per board type:
-   - **Boards with an SD slot** (R4 / R4-Lite / R4 Pro / R3): write the installer image to an SD card, then provision NAND and eMMC by boot-strap steps.
-   - **No-SD / NAND-only boards** (R3 Mini / OpenWrt One): provision via serial + USB stick (a flashkit tool and step-by-step guide ship with the firmware).
-3. Boot-strap, LED states, and full steps are in the [**link:/en/BpiRouterOS/BananaPi_BpiRouterOS_Flashing[Flashing guide]**]
-
-
-== 8.2 First-time setup
-
-1. Open `https://192.168.100.1` in a browser (accept the certificate prompt once on first access).
-2. The **setup wizard** starts automatically: internet → WiFi name/password → admin password.
-3. When done, you land on the dashboard and can start using it.
-
----
-
-=  9. Known limitations
-
-We disclose the current version's known limitations honestly:
-
-- **BPI-R4 Pro: the 10G combo-LAN port is not usable yet** — that multi-rate combo port **currently works as WAN only (validated), not as LAN**. The 4×2.5G ports and the panel port are unaffected; LAN support will come in a later release.
-- **BPI-R4 Pro: a 2.5G port used "standalone" (not in the LAN bridge) doesn't forward** — by default all 2.5G ports are in the LAN bridge and work normally; using a port as a standalone segment/WAN is not supported in this version.
-
-> Everything else has passed real-machine acceptance on all 6 boards.
-
----
-=  10. Technical specifications 
-
-
-[options="header",cols="1,3"]
-|====
-| Item | Detail
-| Base system | OpenWrt v25.12.2 / Linux 6.12
-
-| Architecture | aarch64 (ARM 64-bit)
-
-| Backend | Go monolith (JSON-RPC 2.0)
-
-| Frontend | Vue 3 + Naive UI
-| Web server | Nginx (TLS termination + reverse proxy), coexists with LuCI
-
-| VPN | WireGuard, OpenVPN (with PKI / certificate revocation)
-
-| Update mechanism | Firmware A/B dual slot + online OTA + 4-layer recovery 
-|====
-
-> BpiRouter OS is built on OpenWrt, fully reusing OpenWrt's drivers and software ecosystem, and adds a unified web management interface and a brick-proof firmware update/recovery system on top.
-
----
-=  11. Downloads & resources 
-
-- **Fireware downloads**：
-
-== BPI-R4
-
-NOTE: : openwrt-mediatek-filogic-bananapi_bpi-r4-sdcard.img
-
-NOTE: openwrt-mediatek-filogic-bananapi_bpi-r4-squashfs-sysupgrade.itb
-
-Baidu :  https://pan.baidu.com/s/13eOX6TRFw59Icv05yXdPGQ?pwd=8888 pincode: 8888 
-
-Google: https://drive.google.com/drive/folders/1_H2FaK_btdSv0Ofc9F7hLDwgyUr0x6sH?usp=sharing
-
-== BPI-R4 PRO-8X:
-NOTE: openwrt-mediatek-filogic-bananapi_bpi-r4-pro-8x-sdcard.img
-
-NOTE: openwrt-mediatek-filogic-bananapi_bpi-r4-pro-8x-squashfs-sysupgrade.itb
-
-Baidu:  https://pan.baidu.com/s/1b2MzreydWzXxTv3J7N94Og?pwd=8888 pincode: 8888 
-
-Google: https://drive.google.com/drive/folders/1KybHmzsDeFiFhd1YIlZ0YUiLN0042Dly?usp=sharing
-
-== BPI-R4 LITE
-NOTE: openwrt-mediatek-filogic-bananapi_bpi-r4-lite-sdcard.img
-
-NOTE: openwrt-mediatek-filogic-bananapi_bpi-r4-lite-squashfs-sysupgrade.itb
-
-Baidu: https://pan.baidu.com/s/1Qsa5wkJ7jRQ97un00kQPeg?pwd=8888 pincode: 8888 
-
-Google:  https://drive.google.com/drive/folders/1MSU0x5Ihz2Ctj0AJ_X0rBUyfcn9nGGaV?usp=sharing
-
-== BPI-R3
-
-NOTE: openwrt-mediatek-filogic-bananapi_bpi-r3-sdcard.img
-
-NOTE: openwrt-mediatek-filogic-bananapi_bpi-r3-squashfs-sysupgrade.itb
-
-Baidu: https://pan.baidu.com/s/1WbHnRUj-fqBdy2IACjSlUQ?pwd=8888 pincode: 8888 
-
-Google: https://drive.google.com/drive/folders/1ZtnUVS4r1MY3I31d8sokPRk7bD1J9hXT?usp=sharing
-
-== BPI-R3 MINI
-
-NOTE: install packages 
-
-NOTE: openwrt-mediatek-filogic-bananapi_bpi-r3-mini-squashfs-sysupgrade.itb
-
-Baidu:  https://pan.baidu.com/s/1DCPW7a9wvLikzV89SNieOg?pwd=8888 pincode: 8888 
-
-Google:  https://drive.google.com/drive/folders/1p2RY4uUv6LxVg1aGo83EcRe2-VjvxgzB?usp=sharing
-
-== OpenWrt One
-
-NOTE: install packages
-
-NOTE: openwrt-mediatek-filogic-openwrt_one-squashfs-sysupgrade.itb
-
-Baidu:  https://pan.baidu.com/s/1SpSH4KRZ0tIUgWEzxw1SGA?pwd=8888 pincode: 8888 
-
-Google: https://drive.google.com/drive/folders/1Ogu34Du_uxqHexs9y-bNgkGmyiZi7WSs?usp=sharing
-
-- **[Flashing Guide]** — flash a board to the factory system (SD card / serial)
-- **[First-time Setup]** — the first-boot configuration wizard
-- **[Recovery & Rescue]** — the 4-layer recovery ladder and per-board recovery buttons
-- **FAQ**: see §13
-
----
-= 12.Reference
-
-* BpiRouterOS WEB UI demo on youtube: https://www.youtube.com/watch?v=Oi27cqIHO20
-* Discuss on forum : https://forum.banana-pi.org/c/banana-router/bpirouteros/143
-
----
-
-= 13. Source code on github
-
-BpiRouterOS source code: https://github.com/BPI-SINOVOIP/bpirouteros/releases
-
-= 14. FAQ
-
-**Q1：Will upgrading firmware brick the device?**
-
-A: No. New firmware is written to the standby slot and trial-run; it only commits once confirmed, and rolls back automatically on failure. If both config and firmware get corrupted, the "hold the recovery button at power-on" whole-device rescue is the final fallback.
-
-
-**Q2： What if I forget the admin password / mess up the config?**
-
-A: Hold the recovery button for ~5s while running to reset to factory config (without re-flashing firmware), then run the setup wizard again.
-
-**Q3：Does it conflict with LuCI?**
-
-A: No. The LuCI entry is kept and you can switch to it anytime for advanced scenarios; the two coexist.
-
-
-**Q4：Does it support IPv6?**
-
-A: Yes, both WAN and LAN are dual-stack IPv4 + IPv6.
-
-
-**Q5：Does one firmware really run on all 6 boards?**
-
-A: The web UI and features are identical; the firmware adapts to hardware differences automatically. Just download the image for your board.
-
-
-**Q6：Is the UI in English or Chinese?**
-
-A: Both — switch instantly inside the UI.
-
-**Q7：Can WireGuard and OpenVPN run at the same time?**
-
-A: Yes. The two protocols don't conflict and can both be enabled; the server supports a custom port and address range, and generates client config + QR codes in one click.
-
-
-**Q8：How to back up and migrate configurations?**
-
-A: Download a config backup from the System page; upload it on a new device or after recovery to restore all settings. "Keep settings" on upgrade also carries them over.
-
-
-**Q9：Will an upgrade lose my config?**
-
-A: "Keep settings" is on by default — hostname / WiFi / users / VPN all carry over; you can also choose not to keep them and start from factory config.
-
----
-= 14. other - sub pages
+### Internet and Wi-Fi
+
+In **Network**, choose the Internet connection and supply the details required
+by your provider. Wired connections include automatic addressing, a fixed
+address and PPPoE. IPv6 requires support from the provider and connected devices.
+You can also use a compatible mobile module or a phone with USB tethering enabled.
+
+Edit a Wi-Fi network to change its name, password and radio settings. Only the
+bands fitted to your board are available. Channel and 6 GHz availability depend
+on your country setting and client support. Changing Wi-Fi settings can disconnect
+wireless clients; use a wired connection when making these changes.
+
+For mobile Internet, this release supports compatible Quectel QMI and NCM
+modules, not MBIM. Network availability and 4G/5G operation depend on the module,
+SIM, antenna, provider and coverage. SIM hot-swapping is not supported. Power off
+the router before changing an internal module's SIM. Unplug an external USB
+dongle before changing its SIM, then reconnect it. Do not repeatedly remove just
+the SIM while the module is powered.
+
+### Multiple Internet connections
+
+Use **Network → Multi-WAN** to select participating connections and choose
+failover or load balancing. Failover uses an alternative connection when the
+preferred one fails. Load balancing shares connections across multiple lines;
+it does not promise the sum of their speeds for a single download.
+
+### Bandwidth controls
+
+- **Network → WAN bandwidth shaping:** optionally enable SQM for each WAN and
+  enter its download and upload rates. Use the offered presets or your measured
+  line rates; a setting slightly below the available rate helps reduce delays
+  when the connection is busy. It is off by default. In failover mode, shaping
+  follows the active WAN. It cannot be used with load balancing.
+- **Segments → Guest / IoT:** set separate upload and download limits for each
+  network. Each limit is shared by all devices in that segment, not assigned to
+  every device individually. A value of zero means no limit in that direction.
+  These limits can be used with Multi-WAN load balancing.
+- Per-device and per-protocol bandwidth limits are not available in this release.
+
+### Guest, IoT and device access
+
+In **Segments**, enable Guest or IoT, choose a Wi-Fi radio, and set the network
+name and password. These networks share the board's existing Wi-Fi radios; they
+do not need an extra Wi-Fi adapter. Review Internet access, local-network access
+and device-isolation settings before saving. Each enabled segment needs at least
+one Wi-Fi network.
+
+In **Devices**, use Allow or Block to change a device's access. A device name or
+address is a management aid, not proof of who is using it. Access schedules and
+DNS filtering are available in **Advanced**; DNS filtering cannot block every
+application or every way of reaching a website.
+
+### VPN, dynamic DNS and advanced connections
+
+In **Advanced**, administrators can import a WireGuard or OpenVPN client
+configuration to connect to a VPN, configure a VPN server and create client
+configurations. Remote access requires a reachable Internet address and suitable
+provider/network settings; a VPN server cannot bypass a provider's restrictions
+on incoming connections.
+
+Dynamic DNS associates a domain with your changing Internet address. Choose
+DuckDNS, No-IP, Dynu, Cloudflare or FreeDNS and fill in the credentials requested
+for that provider. Requesting an update does not guarantee provider acceptance;
+check the domain before relying on it for remote access. Dynamic DNS does not
+make an otherwise unreachable connection reachable.
+
+Only expose services you intend to make public when configuring port forwarding
+or firewall rules. Keep an alternative way to access the router while changing
+network access settings. If a confirmation countdown appears, confirm only after
+checking that the connection still works.
+
+
+## Settings, firmware and help
+
+Download a settings backup from **System** before significant changes. Backups
+may contain passwords and keys: store them privately and do not send them with
+a support request. Firmware updates, settings restore and factory reset are
+administrator operations. A factory reset removes your settings.
+
+For v1.5, install from the matching installation media rather than upgrading
+an older or another vendor's firmware in place. Follow the
+[installation guide](INSTALLATION.md); an upgrade image is not initial
+installation media.
+
+For product support, contact [link:https://www.banana-pi.org/contact-us/[Banana Pi]]
+or use its [link:https://forum.banana-pi.org/[official forum]]. Provide your exact
+board model, product version, the action you took and the message shown.
+Never send passwords, tokens, private keys or SIM identifiers.
+
+==  sub pages
 
 **link:/en/BpiRouterOS/BananaPi_BpiRouterOS_Flashing[[Flashing Guide]]**、**link:/en/BpiRouterOS/BananaPi_BpiRouterOS_Setup[[First-time  Setup]]**、**link:/en/BpiRouterOS/BananaPi_BpiRouterOS_Recovery[[Recovery and Rescue]]**
 
