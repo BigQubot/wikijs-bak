@@ -1,352 +1,117 @@
-= 简介
- 
-**现代 Web 管理 · A/B 双槽防变砖 · 一套固件覆盖 6 款 BPI 路由板**
+# BpiRouter v1.5.0-rc1：功能与使用说明
 
-[options="header",cols="2,4"]
+ 本文适用于 v1.5.0-rc1。这是供用户在正式版之前试用的发布候选版本。
+用于重要网络之前，请备份设置并准备好重新安装的方法。
+可用网口、Wi-Fi 频段和移动网络取决于板型及实际安装的硬件。
+
+## 选择板型
+
+提供 BPI-R4、BPI-R3、BPI-R4-Lite、BPI-R3-Mini、OpenWrt One、
+BPI-R4-Pro 8X 和 BPI-R4-Pro 4E 的镜像。必须选择与实物型号完全一致的下载。
+R4-Pro 4E 为实验性支持，不能使用 8X 镜像。4E 的 WAN 电口和 SFP 口
+在启动时二选一，不能同时作为两个 WAN 使用；默认使用电口，插入网线或
+光模块不会自动切换。本版本的 4E 不提供固件回退功能。
+
+## 开始使用
+
+安装完成后，将电脑连接到 LAN 口，打开 `https://192.168.100.1`，
+按初始设置向导设置管理员密码和 Wi-Fi 密码。界面提供中文和英文、
+浅色和深色主题，支持电脑和手机访问。
+
+在“首页 → 系统信息”或“系统”页面顶部查看产品版本。
+本版应显示 `BpiRouter v1.5.0-rc1`。单独列出的 OpenWrt 版本不是
+BpiRouter 产品版本。如果显示“未知”，不要据此推测安装了哪个版本
+
+## 各页面提供的功能
+
+[options="header",cols="2,8"]
 |====
-| **项目** | **内容**
-| **名称** | BpiRouter OS
-| **类型** | Banana Pi 路由器板的统一固件 + Web 管理系统
+| 页面 | 可以做什么 
+| 首页 | 查看互联网连接、流量、已连接设备、Wi-Fi 和路由器资源使用情况。 
+| 网络 | 设置上网连接、局域网地址、Wi-Fi、移动网络模组、USB 共享、多 WAN 和 WAN 带宽整形。 
+| 设备 | 查看已连接设备、设置设备名称、允许或禁止设备访问。 
+| 分段 | 设置独立的 Guest 访客和 IoT 物联网 Wi-Fi、访问规则及共享带宽上限。 
+| 高级 | 设置 DNS 过滤、访问时段、端口转发、防火墙、VPN、动态域名，并使用网络诊断。 
+| 系统 | 设置路由器名称、时间和密码；备份或恢复设置、管理固件、重启及恢复出厂设置。 
+| 用户 | 管理管理员、操作员和只读账户，需要管理员权限。 
 
-| **底层系统** | OpenWrt v25.12.5（Linux 内核 6.12）
-
-| **支持设备** | BPI-R4 / R4-Lite / R4 Pro / R3 / R3 Mini / OpenWrt One
-
-| **界面语言** | 中文 / 英文 
-
-| **默认地址** | `https://192.168.100.1`
-
-| **状态** | 6 款板已完成真机验收 
-|====
-
-=  1. 这是什么
-
-**BpiRouter OS** 是为 Banana Pi 路由器系列打造的一套统一固件——在 OpenWrt 之上，提供一个**现代化的图形 Web 管理界面**，以及一套**防变砖的固件升级与恢复机制**。
-
-它要解决两个痛点：
-
-- **裸 OpenWrt / LuCI 对普通用户不友好** → 我们提供对标消费级精品路由的图形界面，开箱即用的配置向导，常用功能一屏可达。
-- **路由器刷固件容易刷坏、变砖难救** → 我们提供**固件 A/B 双槽 + 在线升级失败自动回退 + 四层恢复阶梯**，刷坏也救得回。
-
-**一套固件，6 款板通用**：同一个 Web 界面与功能运行在全部 6 款 BPI 路由板上，板间差异只在硬件层，由固件按板自动适配。
-
----
-
-=  2. 为什么选 BpiRouter OS
-
-[options="header",cols="2,7"]
-|====
-| **亮点** | **说明** 
-| 🖥️ **现代 Web 管理界面** | Vue 3 图形界面，响应式（电脑/平板/手机），深色模式，中英双语，常用功能开箱即用
-
-| 🛡️ **A/B 双槽防变砖** | 双固件槽，在线升级写入备用槽并试运行，失败自动回退到上一个好版本，刷坏不变砖 
-
-| 🪜 **四层恢复阶梯** | 从配置回滚到整机救砖，逐级兜底——坏配置、坏固件都能救回出厂状态 
-
-| 🔐 **企业级安全** | 多用户角色权限、登录防爆破、操作审计日志、全程 HTTPS 
-
-| 🔌 **功能齐全** | 网络/无线/VPN（WireGuard + OpenVPN）/防火墙/端口转发/DDNS/诊断，一应俱全
-
-| 🧩 **6 板统一** | 一套固件覆盖 6 款 BPI 路由板，体验完全一致
 |====
 
-=  3. 支持的设备
+### 上网和 Wi-Fi
 
-[options="header",cols="2,3,5"]
-|====
-| **设备** | **芯片** | **主要硬件能力** 
-| **BPI-R4** | MediaTek MT7988A | 2×10G SFP + 4×千兆，Wi-Fi 7
+在“网络”中选择上网连接，填写运营商要求的信息。有线上网支持自动获取
+地址、固定地址和 PPPoE。IPv6 需要运营商和连接设备支持。
+也可以使用兼容的移动网络模组，或已开启 USB 网络共享的手机。
 
-| **BPI-R4 Lite** | MediaTek MT7987A | Wi-Fi 7（出厂 BE14 三频，需 12V 供电） 
+编辑 Wi-Fi 可修改名称、密码和无线设置。只有板子实际配备的频段可用。
+信道及 6 GHz 可用性受所在国家设置和终端支持情况影响。
+修改 Wi-Fi 设置可能导致无线设备断开，建议通过网线操作。
 
-| **BPI-R4 Pro (8X)** | MediaTek MT7988A | 8GB 内存，4×2.5G + 10G WAN，系统状态灯 
+移动网络在本版支持兼容的移远 QMI 和 NCM 模组，不支持 MBIM。
+能否联网以及使用 4G 还是 5G，取决于模组、SIM 卡、天线、运营商及覆盖情况。
+不支持 SIM 卡热拔插：更换内置模组的 SIM 卡前，先关闭路由器电源；
+更换外置 USB Dongle 的 SIM 卡前，先拔出 Dongle，换好后重新接入。
+不要在模组通电时反复只拔插 SIM 卡。
 
-| **BPI-R4 Pro (4E)** | MediaTek MT7988A | 4GB 内存，4×2.5G + 10G WAN，系统状态灯 
+### 多条上网线路
 
-| **BPI-R3** | MediaTek MT7986A | Wi-Fi 6，多介质（SD/NAND/eMMC）
+在“网络 → 多 WAN”中选择参与的连接，并选择故障切换或负载均衡。
+故障切换会在首选连接失效时改用备用连接；负载均衡将不同连接分配到
+多条线路，不保证单次下载速度等于所有线路速度之和。
 
-| **BPI-R3 Mini** | MediaTek MT7986A | Wi-Fi 6，2.5G PHY，紧凑无 SD 卡槽 
+### 带宽控制
 
-| **OpenWrt One** | MediaTek MT7981B | Wi-Fi 6，纯 NAND 
-|====
+- “网络 → WAN SQM”：按需为每条 WAN 开启带宽整形，并填写下载和上传
+  速率。可以选择常用值，也可以填写实际测得的线路速率；略低于可用速率
+  的设置有助于减小网络繁忙时的延迟。默认关闭。在故障切换模式下，
+  整形跟随当前使用的 WAN；不能与负载均衡同时启用。
+- “分段 → Guest / IoT”：分别设置两个网络的上传和下载上限。
+  上限由该分段所有设备共同分享，不是每台设备各有一份。
+  某个方向填零表示该方向不限速。这些限制可以与多 WAN 负载均衡一起使用。
+- 本版不提供按单台设备或按协议限速。
 
-> 全部 6 款均已完成「固件 A/B + 在线升级回退 + 四层恢复」的真机验收。
+### 访客、物联网和设备访问
 
----
+在“分段”中启用 Guest 或 IoT，选择 Wi-Fi 设备，填写网络名称和密码。
+它们共享板上已有的 Wi-Fi 设备，无需额外购买无线网卡。
+保存前检查互联网访问、局域网访问和设备隔离设置。
+每个启用的分段至少需要一个 Wi-Fi 网络。
 
-=  4. 功能总览
+在“设备”中通过“允许”或“禁止”控制设备访问。
+设备名称和地址只是管理线索，不能据此确认使用者身份。
+访问时段和 DNS 过滤位于“高级”；DNS 过滤不能阻止所有应用或所有网站访问方式。
 
-==  4.1 开箱即用
-- **首次配置向导**：全新设备开机自动进入向导，3 步设好上网方式（DHCP / 静态 / 宽带拨号）、WiFi、管理密码。
-- **仪表盘**：一屏总览 CPU/温度/内存/存储、联网状态、客户端数、**实时上下行流量曲线**，自动刷新。
+### VPN、动态域名和高级连接
 
-image::/bpi_os_ch/4.1dashboard.png[4.1dashboard.png]
-==  4.2 网络与无线
-- **上网（WAN）**：DHCP / 静态 IP / PPPoE 宽带拨号，IPv4 + IPv6 双栈。
+管理员可以在“高级”中导入 WireGuard 或 OpenVPN 客户端配置以连接 VPN，
+也可以设置 VPN 服务端并生成客户端配置。
+从外部访问需要可达的互联网地址及适当的运营商和网络设置，
+开启 VPN 服务端不能绕过运营商对外部接入的限制。
 
+动态域名将域名关联到变化的互联网地址。选择 DuckDNS、No-IP、Dynu、
+Cloudflare 或 FreeDNS，并填写相应服务商要求的凭据。
+发起更新不表示服务商一定已接受；用于远程访问前，请确认域名已正确更新。
+动态域名不能使原本无法从外部访问的连接变得可达。
 
-image::/bpi_os_ch/4.2.1-network.png[4.2.1-network.png]
-- **局域网（LAN）**：LAN IP、DHCP 地址分配（地址池/租期）。
+设置端口转发或防火墙规则时，只开放确实需要对外提供的服务。
+修改网络访问设置时，保留另一种访问路由器的方法。
+如果出现确认倒计时，检查连接仍正常后再确认。
 
-- **无线**：多频段管理（2.4G / 5G / 6G），信道/带宽/功率/国家码，SSID 与加密（6GHz 强制 WPA3/OWE）。
-- **已连接设备**：实时查看接入设备的 IP / MAC / 主机名 / 在线状态。
+## 设置、固件与帮助
 
-image::/bpi_os_ch/4.2.2-device.png[4.2.2-device.png]
-==  4.3 安全上网
+重要修改前，在“系统”下载设置备份。备份可能含密码和密钥，
+应妥善保管，不要随求助信息发送。固件更新、恢复设置和恢复出厂设置
+需要管理员权限。恢复出厂设置会清除个人设置。
 
-- **VPN**：内置 **WireGuard** 与 **OpenVPN**——两种协议**可同时启用**，既能做客户端（连到远程 VPN），也能做服务端（让本机成为 VPN 服务器）。服务端可自定义监听端口与地址段，**一键生成客户端配置 + 二维码**（手机 App 扫码即连），并支持客户端列表查看与吊销。
-
-image::/bpi_os_ch/4.3_vpn.png[4.3_vpn.png]
-- **端口转发**：把外网端口映射到内网设备。
-
-image::/bpi_os_ch/4.3_port.png[4.3_port.png]
-- **DMZ**：把所有外网入站流量转给指定内网主机。
-
-image::/bpi_os_ch/4.3_dmz.png[4.3_dmz.png]
-- **防火墙规则**：自定义放行 / 拒绝 / 丢弃规则。
-
-image::/bpi_os_ch/4.3.2-firewall.png[4.3.2-firewall.png]
-- **DDNS**：动态公网 IP 绑定固定域名（支持 DuckDNS / No-IP / Dynu / Cloudflare / FreeDNS）。
-
-image::/bpi_os_ch/4.3_ddns.png[4.3_ddns.png]
-==  4.4 系统管理
-image::/bpi_os_ch/4.4.1_normal_and_passwd.png[4.4.1_normal_and_passwd.png]
-image::/bpi_os_ch/4.4.2_firmware_backup_security.png[4.4.2_firmware_backup_security.png]image::/bpi_os_ch/4.4.3_diagnosis_syslog.png[4.4.3_diagnosis_syslog.png]
-- **主机名 / 时区 / 系统时间**：时区从下拉列表选择（可搜索），时间自动 NTP 对时，也支持手动设置 / 用浏览器时间同步（无 RTC、离线场景兜底校时）。
-- **改密、重启**。
-- **关键改动二次确认**：网络 / WiFi / 防火墙等可能切断管理连接的改动，可开启「保存后限时确认」——改错导致掉线时会自动回滚，默认开启。
-- **固件升级**（A/B 双槽 A/B 双槽，见 §5）、**配置备份与恢复**、**恢复出厂**。
-- **诊断工具**：Ping / Traceroute / DNS 查询，结果直接在界面查看。
-- **系统日志**。
-
-==  4.5 多用户与审计
-
-- **三种角色**：管理员（全部）/ 操作员（日常配置）/ 观察员（只读）。权限最小化，观察员看不到也改不了配置。
-
-image::/bpi_os_ch/4.5.1_user.png[4.5.1_user.png]
-- **审计日志**（仅管理员）：记录登录、权限拒绝、配置变更、固件升级、用户管理等安全相关操作，可事后追溯（不记录任何密码/密钥）。
-
-image::/bpi_os_ch/4.5.2_audit.png[4.5.2_audit.png]
----
-=  5. 可靠性：永不变砖的升级与恢复
-
-这是 BpiRouter OS 最核心的差异化能力。路由器固件最怕「升级刷坏、远程变砖、要寄回返修」——我们用**双槽 + 四层兜底**根除这个风险。
-
-==  5.1 固件 A/B 双槽升级
-设备有**两个固件槽**。在线升级时：
-
-1. 新固件写入**备用槽**，不动当前正在运行的槽；
-
-2. 自动重启进入新固件，界面弹出**「升级待确认」横幅**（带倒计时）；
-
-3. 确认一切正常 → 点「**确认升级**」转正；
-
-4. **若不确认（比如新固件网络不通、人不在场）→ 倒计时到点自动回退**到升级前的固件和配置。
-
-升级前会自动校验固件，不兼容的镜像直接拒绝；可选「保留配置」让设置随升级延续。
+安装 v1.5 时，使用对应的安装介质重新安装，不要从旧版或其他厂商固件
+直接保留设置升级。请遵循[烧录手册](INSTALLATION.zh-CN.md)；
+升级镜像不能代替首次安装介质。
 
 
-==  5.2 四层恢复阶梯
-**从软到硬，逐级兜底：**
 
-[%autowidth,options="header",cols="2,3,3"]
-|====
-| **层级** | **触发方式** | **效果** 
-| **L1 配置回滚** | 自动 | 改了导致掉线的配置 → 限时未确认自动撤销 
-
-| **L2 固件自动回退** | 自动 | 坏固件启动失败 → 引导自动切回上一个好固件槽 
-
-| **L3 恢复出厂** | 运行中**长按恢复键约 5 秒** | 清除当前配置回出厂（不重刷固件） 
-
-| **L4 整机救砖** | **断电 → 按住恢复键 → 上电**并持续按住 | 从内置黄金镜像把整机刷回出厂
-|====
-
-> **结果**：即使配置和固件都损坏，L4 也能把设备救回出厂状态——**刷坏也救得回，不会永久变砖**。
->
-> 💡 **恢复键因板而异**：BPI-R4 使用 **WPS 键**；R4-Lite / R4 Pro / R3 / R3 Mini 使用**物理 reset 键**。详见各板说明。
+产品使用问题请联系 [link:https://www.banana-pi.org/contact-us/[比派公司]]，
+或前往[link:https://forum.banana-pi.org/[比派官方论坛]]，说明准确板型、产品版本、
+操作步骤和界面提示。不要发送密码、令牌、私钥或 SIM 卡标识。
 
 ---
-
-=  6. 安全特性
-
-- **全程 HTTPS**：自签名证书，首次访问确认一次即可。
-- **现代认证**：JWT 登录态（1 小时过期），密码安全校验。
-- **登录防爆破**：同一来源连续失败后逐次延时（最长 60 秒），有效阻止暴力破解。
-- **角色权限（RBAC）**：方法级最小权限 + 默认拒绝，越权操作后端兜底拦截（即便绕过界面也无效）。
-- **操作审计**：安全相关动作全程留痕，且不记录任何敏感参数。
-
----
-
-=  7. 界面与使用体验
-
-- **多语言**：中文 / 英文即时切换。
-
-image::/bpi_os_ch/7.1_login.png[7.1_login.png]
-- **深色模式**：浅色 / 深色，护眼。
-
-image::/bpi_os_ch/7.2_dark.png[7.2_dark.png]
-- **响应式**：电脑、平板、手机自适应，手机端侧边栏自动折叠。
-- **顺滑反馈**：升级 / 回退 / 重启 / 恢复出厂等整机操作，有全屏进度提示与「掉线→上线」探测，过程不留白屏。
-- **高级后路**：保留原生 LuCI 入口，本界面未覆盖的高级/诊断场景可一键转 LuCI。
-
----
-=  8. 快速开始
-
-> 详细步骤见对应子页：**link:/zh/BpiRouterOS/BananaPi_BpiRouterOS_Flashing[烧录指南]**、**link:/zh/BpiRouterOS/BananaPi_BpiRouterOS_Setup[首次配置]**、**link:/zh/BpiRouterOS/BananaPi_BpiRouterOS_Recovery[恢复与救砖]**。
-
-==  8.1 烧录到设备
-1. 从 **下载页**（见 §11）获取对应板型的固件镜像。
-2. 按板型烧录：
-   - **有 SD 卡槽的板**（R4 / R4-Lite / R4 Pro / R3）：把安装镜像写入 SD 卡，按拨码引导依次写入 NAND、再装入 eMMC。
-   - **无 SD 卡槽 / 纯 NAND 板**（R3 Mini / OpenWrt One）：经串口 + U 盘灌入（随固件提供 flashkit 工具与逐步说明）。
-3. 详细的拨码、灯态、逐步流程见 [烧录指南]。
-
-### 8.2 首次配置
-1. 浏览器打开 `https://192.168.100.1`（首次会有一次证书安全提示，确认继续）。
-2. 自动进入**配置向导**，依次设置：上网方式 → WiFi 名称/密码 → 管理员密码。
-3. 完成后自动进入仪表盘，开始使用。
-
----
-=  9. 已知限制
-
-我们坚持如实告知当前版本的已知限制：
-
-- **BPI-R4 Pro：10G combo-LAN 口暂不可用** — 该多速率组合口**目前只能作 WAN（已验证可用），暂不能作 LAN**。不影响 4×2.5G 网口与面板口正常使用，后续版本将放开。
-- **BPI-R4 Pro：2.5G 口「独立使用」（不加入网桥）转发不通** — 默认部署下 2.5G 口都在 LAN 网桥内、工作正常；若要把某口单独当独立网段/WAN，当前版本不支持。
-
-> 其余功能在 6 款板上均已通过真机验收。
-
----
-
-=  10. 技术规格
-
-[%stretch,options="header",cols="9,14"]
-|====
-| **项目** | **内容** 
-| 底层系统 | OpenWrt v25.12.2 / Linux 6.12 
-| 架构 | aarch64（ARM 64 位） 
-| 后端 | Go 单体服务（JSON-RPC 2.0） 
-| 前端 | Vue 3 + Naive UI 
-| Web服务 | Nginx（TLS 终端 + 反向代理）+ LuCI 共存 
-| VPN | WireGuard、OpenVPN（含 PKI / 证书吊销） 
-| 升级机制 | 固件 A/B 双槽 + 在线 OTA + 四层恢复 
-|====
-> BpiRouter OS 构建于 OpenWrt 之上，完整复用 OpenWrt 的驱动与软件生态；在其之上提供统一的 Web 管理界面与防变砖的固件升级/恢复体系。
-
----
-=  11. 下载与资源
-
-
-- **固件下载**：
-
-== BPI-R4
-
-NOTE: : openwrt-mediatek-filogic-bananapi_bpi-r4-sdcard.img
-
-NOTE: openwrt-mediatek-filogic-bananapi_bpi-r4-squashfs-sysupgrade.itb
-
-Baidu :  https://pan.baidu.com/s/13eOX6TRFw59Icv05yXdPGQ?pwd=8888 提取码: 8888 
-
-Google: https://drive.google.com/drive/folders/1_H2FaK_btdSv0Ofc9F7hLDwgyUr0x6sH?usp=sharing
-
-== BPI-R4 PRO-8X:
-NOTE: openwrt-mediatek-filogic-bananapi_bpi-r4-pro-8x-sdcard.img
-
-NOTE: openwrt-mediatek-filogic-bananapi_bpi-r4-pro-8x-squashfs-sysupgrade.itb
-
-Baidu:  https://pan.baidu.com/s/1b2MzreydWzXxTv3J7N94Og?pwd=8888 提取码: 8888 
-Google: https://drive.google.com/drive/folders/1KybHmzsDeFiFhd1YIlZ0YUiLN0042Dly?usp=sharing
-
-== BPI-R4 LITE
-NOTE: openwrt-mediatek-filogic-bananapi_bpi-r4-lite-sdcard.img
-
-NOTE: openwrt-mediatek-filogic-bananapi_bpi-r4-lite-squashfs-sysupgrade.itb
-
-Baidu: https://pan.baidu.com/s/1Qsa5wkJ7jRQ97un00kQPeg?pwd=8888 提取码: 8888 
-
-Google:  https://drive.google.com/drive/folders/1MSU0x5Ihz2Ctj0AJ_X0rBUyfcn9nGGaV?usp=sharing
-
-== BPI-R3
-NOTE: openwrt-mediatek-filogic-bananapi_bpi-r3-sdcard.img
-
-NOTE: openwrt-mediatek-filogic-bananapi_bpi-r3-squashfs-sysupgrade.itb
-
-Baidu: https://pan.baidu.com/s/1WbHnRUj-fqBdy2IACjSlUQ?pwd=8888 提取码: 8888 
-
-Google: https://drive.google.com/drive/folders/1ZtnUVS4r1MY3I31d8sokPRk7bD1J9hXT?usp=sharing
-
-== BPI-R3 MINI
-
-NOTE: install packages 
-
-NOTE: openwrt-mediatek-filogic-bananapi_bpi-r3-mini-squashfs-sysupgrade.itb
-
-Baidu:  https://pan.baidu.com/s/1DCPW7a9wvLikzV89SNieOg?pwd=8888 提取码: 8888 
-
-Google:  https://drive.google.com/drive/folders/1p2RY4uUv6LxVg1aGo83EcRe2-VjvxgzB?usp=sharing
-
-== OpenWrt One
-
-NOTE: install packages
-
-NOTE: openwrt-mediatek-filogic-openwrt_one-squashfs-sysupgrade.itb
-
-Baidu:  https://pan.baidu.com/s/1SpSH4KRZ0tIUgWEzxw1SGA?pwd=8888 提取码: 8888 
-
-Google: https://drive.google.com/drive/folders/1Ogu34Du_uxqHexs9y-bNgkGmyiZi7WSs?usp=sharing
-
-- **[烧录指南](烧录指南)** — 把板烧成出厂系统（SD 卡 / 串口两种方式）
-- **[首次配置](首次配置)** — 第一次开机的配置向导
-- **[恢复与救砖](恢复与救砖)** — 四层恢复阶梯与各板恢复键
-- **常见问题**：见 §12
-
----
-=  12. 常见问题（FAQ）
-
-**Q1：升级固件会不会把设备刷坏？**
-
-A：不会变砖。新固件写入备用槽并试运行，确认无误才转正；失败会自动回退到上一个好版本。万一配置和固件都坏了，还有「长按恢复键开机」的整机救砖兜底。
-
-
-**Q2：忘记管理密码 / 配置乱了怎么办？**
-
-A：运行中长按恢复键约 5 秒即可恢复出厂配置（不重刷固件），重新走配置向导即可。
-
-
-**Q3：和原来的 LuCI 冲突吗？**
-
-A：不冲突。界面保留 LuCI 入口，本界面未覆盖的高级场景可随时转 LuCI，两者共存。
-
-
-**Q4：支持 IPv6 吗？**
-
-A：支持，WAN/LAN 均为 IPv4 + IPv6 双栈。
-
-
-**Q5：一套固件真的 6 款板都能用？**
-
-A：Web 界面与功能完全一致；固件会按板型自动适配硬件差异。按你的板型下载对应镜像即可。
-
-
-**Q6：界面是中文还是英文？**
-
-A：中英双语，界面内一键切换。
-
-**Q7：WireGuard 和 OpenVPN 能同时用吗？**
-
-A：能。两种协议互不冲突，可同时启用；服务端可自定义端口与地址段，并一键给客户端生成配置与二维码。
-
-
-**Q8：怎么备份和迁移配置？**
-
-A：系统页可一键下载配置备份；在新设备或恢复后上传该备份即可还原全部设置。固件升级时勾选「保留配置」也会自动延续设置。
-
-
-**Q9：升级会丢配置吗？**
-
-A：默认「**保留配置**」，升级后主机名 / WiFi / 用户 / VPN 等设置仍在；也可选择不保留、回到出厂配置。
-
----
-= 13. 其他子页
-
 **link:/zh/BpiRouterOS/BananaPi_BpiRouterOS_Flashing[烧录指南]**、**link:/zh/BpiRouterOS/BananaPi_BpiRouterOS_Setup[首次配置]**、**link:/zh/BpiRouterOS/BananaPi_BpiRouterOS_Recovery[恢复与救砖]**
