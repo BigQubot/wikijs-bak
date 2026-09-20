@@ -1,4 +1,4 @@
-# BpiRouter OS v1.5— 烧录指南
+# BpiRouter OS — 烧录指南
 
 > 请使用与准备安装的版本配套的文件和功能说明。 本手册用于首次安装和完整重装。安装会清除目标存储中的设置和数据。 安装 v1.5 时，不要从旧版或其他厂商固件直接升级，请按本手册重新安装。
 
@@ -9,7 +9,7 @@
 ## 1. 准备并选择正确下载
 
 
-[ link:https://github.com/BPI-SINOVOIP/bpirouteros/releases[Banana Pi 路由器官方操作系统 v1.5 下载地址] ]
+[ link:https://github.com/BPI-SINOVOIP/bpirouteros/releases[BpiRouterOS v1.5.0-rc1 下载地址] ]
 
 需要电脑、有线 LAN 连接、适合板子的稳定电源，以及下表对应的安装介质。
 使用串口终端查看安装进度。需要保留的文件和设置，请提前另存。
