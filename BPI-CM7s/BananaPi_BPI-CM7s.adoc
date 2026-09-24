@@ -1,6 +1,23 @@
 = Overview
 
+CM7s Core Board: compact in size, powerful in performance, built specifically for deep embedded scenarios. The board comes with the Rockchip RK3588S 8-core 64-bit flagship processor (4×Cortex-A76 @ 2.4GHz + 4×Cortex-A55 @ 1.8GHz), built on an advanced 8nm process, offering great computing power and excellent energy efficiency. It features an ARM Mali-G610 high-performance GPU, fully compatible with OpenGL ES 3.2, OpenCL 2.2, and Vulkan 1.2 graphics APIs. It also has a powerful 6 TOPS NPU, supporting INT4/INT8/INT16 mixed-precision computing, easily handling edge AI inference.
+
+The module offers a variety of bus and expansion interfaces, supports eMMC flash memory of different capacities, and can be widely used in industrial IoT, edge computing, and smart devices.
+
 == Key Specifications
+
+* SOC：Rockchip RK3588S (8nm LP process)
+* CPU：8-core 64-bit（4×Cortex-A76@2.4GHz + 4×Cortex-A55@1.8GHz）
+* GPU：ARM Mali-G610 3D GPU，supports OpenGL ES3.2 / OpenCL 2.2 / Vulkan 1.2
+* NPU：6 TOPS computing power, supports mixed INT4/INT8/INT16 operations
+* RAM：2/4/8/16/32GB LPDDR4/4X
+* eMMC：32/64/128/256GB eMMC
+* interface：On-board 3×100-pin connector (DF40C-100DP-04V), supports multiplexed buses and control pins like Type-C/DP1.4, HDMI 2.1/eDP1.3, MIPI DPHY/CSI, USB 3.0/2.0, SATA III/PCIe 2.0, SDIO 3.0/RGMII, SDMMC, and I2C/I2S/UART/SPI/CAN/PWM/GPIO.
+* Power supply：Input DC 5V (MAX 2500mA); Output DC 3.3V/1.8V (MAX 600mA)
+* Size：55 x 40 x 1.6 mm
+* Input：DC 5V MAX 2500mA
+* Output：DC 3.3V MAX 600mA 和 DC 1.8V MAX 600mA
+* PCB size：55 x 40 x 1.6 mm (L x W x H)
 
 == Getting started
 
@@ -12,14 +29,385 @@ image::/cm7s/banana_pi_bpi-cm7s_interface.jpg[banana_pi_bpi-cm7s_interface.jpg]
 
 == Hardware Spec
 
+== Hardware Spec
+
+[options="header",cols="1,5"]
+|====
+2+| HardWare Specification of Banana Pi BPI-CM7s
+|Item |	Function
+|CPU	| RK3588S SoC Quad-core ARM Cortex-A76 & Quad-coreCortex-A55
+|GPU	| ARM Mali-G610 MP4 GPU
+ARM Mali-G610 MP4 quad-core GPU, supports OpenGL ES 1.1/2.0/3.2, OpenCL 2.2, Vulkan 1.1/1.2, with a computing power of 450 GFLOPS
+.3+|NPU |	6 TOPS@INT8
+|Supports INT4，INT8，INT16，FP16 Mixed operations
+|Supports deep learning frameworks:TensorFlow、PyTorch、Caffe,etc.
+.2+|VPU/Codec	
+| Hardware decoding:Supports 8K@60fps (H.265/VP9/AVS2)、8K@30fps (H.264)、4K@60fps (AV1)。
+|Hard coding:8K@30fps (H.265/H.264)，Supports simultaneous editing and decoding
+|ISP	|Integrated 48MP ISP, supports HDR and 3DNR
+|RAM	|4GB/8GB/16GB 32GB LPDDR4/LPDDR4x/LPDDR5，default is LPDDR5 8GB
+.3+|Flash	|32GB/64GB/128GB eMMC，default is eMMC 64GB
+|Supports MicroSD card expansion
+|M.2 M-KEY Socket：PCIe2.1 NVMe SSD
+.2+|Display	
+|1x HDMI OUT 2.1, supports 8K@60Hz or 4K@120Hz 2x MIPI DSI with a maximum resolution of 4K@60Hz
+|1x DP1.4, supports up to 8K@30Hz
+.2+|Camera	
+|	2x 4-lane MIPI CSI, up to 2.5Gbps per lane
+|Supports up to three MIPI camera inputs
+.2+|Network	
+|1x GMAC, providing RGMII/RMII interface output
+|onboard IEEE 802.11a/b/g/n/ac/ax WIFI6 and BT5.3 syn43752
+|PCIe	| 2x PCIe 2.0 1-lans
+.4+|USB	
+|3x USB 3.0
+|2x USB 2.0 Host
+|1x USB 2.0 OTG
+|1× Type-C (USB 3.1)
+.3+|Audio	
+|SPDIF_Tx x2
+|I2S x4
+|PDM x2
+.3+|Others	
+｜UART DEBUG x1
+｜FAN x1
+｜RTC x1
+|====
+
+
 == BPI-CM7s core board pin definitions
 
+.BPI-CM7s core board pin definitions
+[%collapsible]
+====
+[options="header",cols="3,1,1,3"]
+|===
+4+| **Banana pi BPI-CM7s PIN Out define**
+|**Function**  |**PIN** |**PIN** |**Function**
+
+4+|**CN1 100PIN**
+|GND |1 |2 |GND 
+
+|NC |3 |4 |NC
+
+|NC |5 |6 |NC
+
+|GND |7 |8 |GND
+
+|NC |9 |10 |NC
+
+|NC |11 |12 |NC
+
+|GND |13 |14 |GND
+
+|NC |15 |16|NC
+
+|NC |17 |18 |NC
+
+|NC |19 |20 |NC
+
+|GPIO4_A4 |21 |22 |GND
+
+|GND |23 |24 |GPIO1_C0
+
+|GPIO1_B0 |25 |26 |GPIO1_C1
+
+|GPIO1_B1 |27 |28 |GPIO1_A2
+
+|GPIO1_B2 |29 |30 |GPIO1_A3
+
+|GPIO1_B3 |31 |32 |GND
+
+|GND |33 |34 |GPIO1_A4
+
+|GPIO1_D6 |35 |36 |GPIO1_D7
+
+|GPIO1_B4 |37 |38 |GPIO1_A5
+
+|GPIO1_B5 |39 |40 |GPIO1_A6
+
+|GPIO1_B6 |41 |42 |GND
+
+|GND |43 |44 |GPIO1_A7
+
+|GPIO1_B7 |45 |46 |GPIO1_C4
+
+|GPIO0_C2 |47 |48 |GPIO1_C6
+
+|GPIO1_D5 |49 |50 |GPIO1_D0
+
+|UART2_RX_M0 |51 |52 |GND
+
+|GND |53 |54 |GPIO1_D1
+
+|UART2_TX_M0 |55 |56 |GPIO1_D2
+
+|SDMMC_CLK |57 |58 |GPIO1_D3
+
+|GND |59 |60 |GND
+
+|SDMMC_D3 |61 |62 |SDMMC_CMD
+
+|SDMMC_D0 |63 |64 |NC
+
+|GND |65 |66 |GND
+
+|SDMMC_D1 |67 |68 |SARADC_IN1
+
+|SDMMC_D2 |69 |70 |NC
+
+|GND |71 |72 |NC
+
+|NC |73 |74 |GND
+
+|SDMMC_PWREN |75 |76 |GPIO0_A4
+
+|VBUS(4.75V-5.25V) |77 |78 |GPIO_VREF(3.3V GPIO or 1.8V)
+
+|VBUS(4.75V-5.25V) |79 |80 |I2C6_SCL_M3
+
+|VBUS(4.75V-5.25V) |81 |82 |I2C6_SDA_M3
+
+|VBUS(4.75V-5.25V) |83 |84 |VCC_3V3_S3
+
+|VBUS(4.75V-5.25V) |85 |86 |VCC_3V3_S3
+
+|VBUS(4.75V-5.25V) |87 |88 |VCC_1V8_S3
+
+|NC |89 |90 |VCC_1V8_S3
+
+|NC |91 |92 |PMIC_RESET_L
+
+|SARADC_IN0 |93 |94 |SARADC_IN3
+
+|GPIO4_B6 |95 |96 |SARADC_IN2
+
+|GPIO4_A7 |97 |98 |GND
+
+|PWRON_L |99 |100 |GPIO4_A5
+
+4+|**CN2 100PIN**
+
+|TYPEC0_USB20_OTG_ID |1 |2 |GPIO1_A0
+
+|TYPEC0_USB20_OTG_DM |3 |4 |GPIO1_A1
+
+|TYPEC0_USB20_OTG_DP |5 |6 |GPIO4_A6
+
+|GND |7 |8 |GND
+
+|GPIO4_A2 |9 |10 |PCIE20_2_REFCLKP
+
+|NC |11 |12 |PCIE20_2_REFCLKN
+
+|GND |13 |14 |GND 
+
+|MIPI_CSI0_D0N |15 |16 |PCIE20_2_RXP/ SATA30_2_RXP
+
+|MIPI_CSI0_D0P |17 |18 |PCIE20_2_RXN/ SATA30_2_RXN
+
+|GND |19 |20 |GND 
+
+|MIPI_CSI0_D1N |21 |22 |PCIE20_2_TXP/ SATA30_2_TXP
+
+|MIPI_CSI0_D1P |23 |24 |PCIE20_2_TXN/ SATA30_2_TXN
+
+|GND |25 |26 |GND
+
+|MIPI_CSI0_CLK0N |27 |28 |MIPI_DPHY0_RX_D0N
+
+|MIPI_CSI0_CLK0P |29 |30 |MIPI_DPHY0_RX_D0P
+
+|GND |31 |32 |GND
+
+|MIPI_CSI0_D2N |33 |34 |MIPI_DPHY0_RX_D1N
+
+|MIPI_CSI0_D2P |35 |36 |MIPI_DPHY0_RX_D1P
+
+|GND |37 |38 |GND 
+
+|MIPI_CSI0_D3N |39 |40 |MIPI_DPHY0_RX_CLKN
+
+|MIPI_CSI0_D3P |41 |42 |MIPI_DPHY0_RX_CLKP
+
+|NC  |43 |44 |GND 
+
+|MIPI_CSI0_CLK1N |45 |46 |NC
+
+|MIPI_CSI0_CLK1P |47 |48 |NC
+
+|GPIO4_B5 |49 |50 |GND 
+
+|HDMI_TX0_CEC_M0 |51 |52 |NC
+
+|HDMI_TX0_SBDN |53 |54 |NC
+
+|GND  |55 |56 |GND 
+
+|MIPI_DPHY0_TX_D0N |57 |58 |HDMI_TX0_SBDP
+
+|MIPI_DPHY0_TX_D0P |59 |60 |NC
+
+|GND |61 |62 |GND 
+
+|MIPI_DPHY0_TX_D1N |63 |64 |NC
+
+|MIPI_DPHY0_TX_D1P |65 |66 |NC
+
+|GND |67 |68 |GND
+
+|MIPI_DPHY0_TX_CLKN |69 |70 |HDMI_TX0_D2P
+
+|MIPI_DPHY0_TX_CLKP |71 |72 |HDMI_TX0_D2N
+
+|GND |73 |74  |GND
+
+|MIPI_DPHY1_TX_D0N |75 |76 |HDMI_TX0_D1P
+
+|MIPI_DPHY1_TX_D0P |77 |78 |HDMI_TX0_D1N
+
+|GND |79 |80 |GND
+
+|MIPI_DPHY1_TX_D1N |81 |82 |HDMI_TX0_D0P
+
+|MIPI_DPHY1_TX_D1P |83 |84 |HDMI_TX0_D0N
+
+|GND |85 |86 |GND 
+
+|MIPI_DPHY1_TX_CLKN |87 |88 |HDMI_TX0_D3P
+
+|MIPI_DPHY1_TX_CLKP |89 |90 |HDMI_TX0_D3N
+
+|GND |91 |92 |GND
+
+|MIPI_DPHY1_TX_D2N |93 |94 |MIPI_DPHY1_TX_D3N
+
+|MIPI_DPHY1_TX_D2P |95 |96 |MIPI_DPHY1_TX_D3P
+
+|GND  |97 |98 |GND 
+
+|HDMI_TX0_SDA_M0 |99 |100 |HDMI_TX0_SCL_M0
+
+4+|**CN3 100PIN**
+
+|USB20_HOST1_DP |1 |2 |TYPEC0_SSTX2P
+
+|USB20_HOST1_DM |3 |4 |TYPEC0_SSTX2N
+
+|GND |5 |6 |GND
+
+|TYPEC0_SBU1 |7 |8 |TYPEC0_SSRX2P
+
+|TYPEC0_SBU2 |9 |10 |TYPEC0_SSRX2N
+
+|GND |11 |12 |GND
+
+|USB20_HOST0_DP |13 |14 |TYPEC0_SSTX1N 
+
+|USB20_HOST0_DM |15 |16 |TYPEC0_SSTX1P
+
+|GND |17 |18 |GND
+
+|TYPEC0_SSRX1N |19 |20 |GPIO3_C6
+
+|TYPEC0_SSRX1P |21 |22 |GPIO3_C7
+
+|GND |23 |24 |GPIO3_D1
+
+|MIPI_DPHY1_RX_CLKP |25 |26 |GPIO3_D5
+
+|MIPI_DPHY1_RX_CLKN |27 |28 |GPIO3_D2
+
+|GND |29 |30 |GPIO3_D4
+
+|MIPI_DPHY1_RX_D1P |31 |32 |GND
+
+|MIPI_DPHY1_RX_D1N |33 |34 |GPIO3_B7
+
+|GND |35 |36 |GPIO3_C5
+
+|MIPI_DPHY1_RX_D0P |37 |38 |GPIO3_C4
+
+|MIPI_DPHY1_RX_D0N |39 |40 |GPIO3_D3
+
+|GND |41 |42 |GPIO3_A1
+
+|GPIO3_D0  |43 |44 |GND 
+
+|GND |45 |46 |GPIO3_B3
+
+|GPIO3_A0 |47 |48 |GPIO3_B2
+
+|GPIO3_B4 |49 |50 |GPIO3_C1 
+
+|GPIO3_B5 |51 |52 |GPIO3_A6
+
+|GPIO3_C3 |53 |54 |GND
+
+|GND  |55 |56 |GPIO3_B0
+
+|GPIO3_B6 |57 |58 |GPIO3_A5
+
+|GPIO3_B1 |59 |60 |GPIO3_A7
+
+|GPIO3_A2 |61 |62 |GPIO3_A4 
+
+|GPIO3_A3 |63 |64 |GND
+
+|GND |65 |66 |GPIO0_B0
+
+|GPIO0_A0 |67 |68 |I2S0_MCLK
+
+|I2S0_LRCK |69 |70 |I2S0_SDO0
+
+|I2S0_SCLK |71 |72 |GPIO3_C0
+
+|I2S0_SDI0 |73 |74  |GND
+
+|GND |75 |76 |PCIE20_0_REFCLKP
+
+|GPIO0_D5 |77 |78 |PCIE20_0_REFCLKN
+
+|GPIO0_C7 |79 |80 |GND
+
+|GPIO0_D4 |81 |82 |PCIE20_0_TXP
+
+|GPIO0_C4 |83 |84 |PCIE20_0_TXN
+
+|GPIO0_D3 |85 |86 |GND 
+
+|GND |87 |88 |PCIE20_0_RXN
+
+|GPIO0_D0 |89 |90 |PCIE20_0_RXP
+
+|GPIO3_C2 |91 |92 |GND
+
+|GPIO4_A3 |93 |94 |GPIO0_C5
+
+|GPIO4_B3 |95 |96 |GPIO0_B2
+
+|GPIO4_B2  |97 |98 |GPIO0_C6
+
+|GND |99 |100 |GND
+
+|===
+====
 
 = Development
 
 == Source code
 
 == Resources
+
+NOTE: BPI-CM7s Schematic diagram and tag diagram
+
+Baidu cloud： https://pan.baidu.com/s/1e7xsL6j02QiXEcFLkwm-Ug?pwd=8888 code: 8888
+
+Goolge： https://drive.google.com/drive/folders/1t0pAkywm5XZUbM7a312hLT7qeeaYeJKS?usp=sharing
+
+NOTE: BPI-CM7s DXF file
+
+
 
 == Hardware Resources
 
