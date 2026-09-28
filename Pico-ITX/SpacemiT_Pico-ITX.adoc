@@ -40,7 +40,7 @@ TIP: link:/en/Pico-ITX/GettingStarted_K3Pico-ITX[Getting Started K3 Pico-ITX]
 
 = Hardware 
 
-=== board interface
+== board interface
 
 === board Specification
 
@@ -76,6 +76,10 @@ NOTE: The M.2 B-Key PCIe ×2 lanes are shared with the M-Key slot; when both are
 |Optional real-time board, touchscreen, terminal blocks
 
 |=====
+
+=== Block Diagram
+
+image::/k3pico-itx/spacemit_k3_blockdiagram.jpg[spacemit_k3_blockdiagram.jpg]
 
 = Accessories
 
