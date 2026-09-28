@@ -8,6 +8,31 @@ With rich I/O expandability and an industrial-grade architecture, the K3 Pico-IT
 
 TIP: More Infomation: link:/en/Pico-ITX/SpacemiT_Pico-ITX[K3 Pico-ITX]
 
+= Prepare
+
+== Method 1: Flashing via Type-C Data Cable
+
+=== Device Powered Off
+
+. Press and hold the FDL flashing button.
+. Connect a full-featured Type-C cable or plug in the power supply cable to power on the device.
+. Release the FDL flashing button.
+. Use the flashing Type-C data cable to connect the DRD Type-C port to the host computer.
+. Use the official SpacemiT flashing tool Titan or the fastboot command to perform the flashing process.
+
+image::/k3pico-itx/spacemit_k3_flash1.jpg[spacemit_k3_flash1.jpg]
+
+[options="header",cols="1,3",width="70%"]
+|=====
+| No. | 	Description
+| 2 | FDL flashing button
+| 17 | Full-featured Type-C port
+| 18 | DRD Type-C port (no power input)
+
+|=====
+
+
+
 = Quick Start
 
 Welcome to the SpacemiT K3 Pico-ITX single-board computer user guide.
@@ -26,13 +51,9 @@ Before getting started, connect the following required peripherals. Once power i
 
 * A Type-C power adapter or ATX 2-Pin DC power supply (a 20 V / 5 A power adapter is recommended)
 +
-Note:
-+
-** The Type-C power adapter must provide a rated output of at least 20V @ 3.25A;
-
-** The ATX 2-pin DC power supply must provide a rated output of at least 12V @ 5A.
-
-** When using a power adapter for charging, use a compatible adapter that has obtained CCC certification and complies with applicable standards.
+NOTE:  The Type-C power adapter must provide a rated output of at least 20V @ 3.25A; +
+       The ATX 2-pin DC power supply must provide a rated output of at least 12V @ 5A. +
+			 When using a power adapter for charging, use a compatible adapter that has obtained CCC certification and complies with applicable standards.
 
 * A monitor
 
@@ -62,7 +83,7 @@ Method 2 (Chassis Kit)
 
 image::/k3pico-itx/spacemit_k3_getpower4.jpg[spacemit_k3_getpower4.jpg]
 
-Note: To ensure stable operation, make sure the board is placed in a well-ventilated environment before powering it on, and use the bundled heatsink.
+NOTE: To ensure stable operation, make sure the board is placed in a well-ventilated environment before powering it on, and use the bundled heatsink.
 
 == U-Boot Version
 
@@ -110,16 +131,243 @@ image::/k3pico-itx/spacemit_k3_grubboot1.jpg[spacemit_k3_grubboot1.jpg]
 
 == Overview
 
+image::/k3pico-itx/spacemit_k3_hardwareoverview1.jpg[spacemit_k3_hardwareoverview1.jpg]
 
+NOTE: The board appearance may vary slightly depending on the hardware revision.
 
+[options="header",cols="1,3",width="70%"]
+|=====
+| No. | 	Description
+| 1 | 	Power button PWR | 2| FDL flashing button | 3 | Reset button RST
+| 4 | eDP interface |5  |Wi-Fi and BT module	|6	|M.2 Key B slot
+|7	|M.2 Key M slot	|8 |26 Pin FPC connector	|9	|	36 Pin FPC connector
+|10 |10G optical Ethernet port	|11 |Coin-cell battery header	|12	|Front-panel headphone connector	
+|13 |Front-panel switch header	|14	|EC expansion header |15 | ATX power connector
+| 16 | UART pin header | 17 | Full-featured Type-C port | 18 | DRD Type-C port (no power input)
+| 19 | Dual USB 2.0 Type-A ports | 20 | 1G Ethernet RJ45 port
 
+|=====
 
+==  Indicators and Buttons
 
+[options="header",cols="1,3",width="70%"]
+|=====
+|Indicator| 	Status Description
+| Status indicator STAT | 	Solid green: the board is powered on and running; +
+														Blinking green: the board indicates that a forced power-off is imminent; +
+														Off: the board is powered off
+|=====
 
+[options="header",cols="1,3",width="70%"]
+|=====
+| Button | 	Description
+| Power button PWR | - Short press in Shutdown state: power on +
+										 - Short press in Standby state: wake the system +
+                     - Press and hold for 3 s in Normal state: the LED changes from solid on to blinking, indicating imminent power-off; continue holding the button while blinking to force power off +
+                     - Short press in Normal state: sends a button event, with behavior defined by the OS
+|Firmware flashing button FDL | Hold while inserting power or resetting power to enter flashing mode
+|Reset button RST | Short press: power reset, forces a reboot
+|=====
 
+== Interface Description
+=== Power Input
+* USB Type-C supports USB PD 3.0 power delivery, up to 20 V / 5 A
+* ATX power input supports up to 12 V / 7 A. When an ATX power supply is connected, the system will prioritize ATX power.
 
+NOTE: ATX and Type-C PD power do not support 1+1 hot redundancy. +
+* When the system is powered by ATX, it will continue to use ATX power even if a PD-capable Type-C cable is connected. +
+* To switch to Type-C PD power, shut down the system, disconnect the ATX power supply, and then power on. +
+* If the ATX power supply is removed while the system is running with Type-C PD power, the system will restart and automatically switch to Type-C PD power. + 
+* If an ATX power supply is connected while the system is running on Type-C PD power, the system will restart and switch to ATX power.
 
+* In flashing mode, the full-featured Type-C port supports both power input and USB Device functionality. When connected to a host PC via USB Type-C, the board is recognized by the host and can be used for flashing and firmware updates.
 
+image::/k3pico-itx/spacemit_k3_powerinput1.jpg[spacemit_k3_powerinput1.jpg]
+
+[options="header",cols="1,3",width="70%"]
+|=====
+| No. | 	Description
+| 15 | 	ATX power connector
+| 17 | Full-featured Type-C port
+
+|=====
+
+=== Flashing Interface
+
+In flashing mode, this interface can only operate as a USB Device for data transfer and cannot supply power to the board. After connecting to a host PC through USB Type-C, the board can be detected by the host PC and used for flashing and firmware updates.
+
+NOTE: The flashing Type-C port cannot supply power to the board. During flashing, power must be provided through another power input. The USB cable must support data transfer; charge-only USB cables cannot be used for flashing.
+
+image::/k3pico-itx/spacemit_k3_flashinterface1.jpg[spacemit_k3_flashinterface1.jpg]
+
+[options="header",cols="1,3",width="70%"]
+|=====
+| No. | 	Description
+| 18 | 	Flashing port (no power input)
+
+|=====
+
+=== Full-Featured Type-C Interface
+
+* Type: Type-C connector
+* Supports PD 3.0 power negotiation and connections to DP displays and USB 3.0 peripherals
+* Supports DP displays at up to 4K @ 60 Hz, with hot-plug support
+* When only a DP display is connected, the DP display is used as the primary display
+
+image::/k3pico-itx/spacemit_k3_fullfeaturedtypecinterface1.jpg[spacemit_k3_fullfeaturedtypecinterface1.jpg]
+
+[options="header",cols="1,3",width="70%"]
+|=====
+| No. | 	Description
+| 17 |  Full-featured Type-C port
+
+|=====
+
+=== High-Speed Expansion Interfaces: M.2 M-Key and M.2 B-Key
+
+* Type: M.2 connector with 4.2 mm stack height
+* M.2 M-Key
+ ** Supports 2280 NVMe SSDs
+ ** PCIe 3.0 x2/x4 bandwidth
+* M.2 B-Key
+ ** Supports 2242 PCIe SSDs
+ ** PCIe 3.0 x2 bandwidth
+ ** Supports USB 2.0 4G modem modules
+ 
+NOTE: 1.When a PCIe SSD is installed in the M.2 B-Key slot, the M.2 M-Key slot operates at PCIe 3.0 x2. When no SSD is installed in the M.2 B-Key slot, the M.2 M-Key slot operates at PCIe 3.0 x4. +
+2.When used for storage expansion, the M.2 B-Key slot supports PCIe SSD only. SATA SSD is not supported. +
+3.Hot-plugging is not supported. Power off the board before installation or removal.
+
+image::/k3pico-itx/spacemit_k3_m2keyhighspeedinterface1.jpg[spacemit_k3_m2keyhighspeedinterface1.jpg]
+
+[options="header",cols="1,3",width="70%"]
+|=====
+| No. | 	Description
+| 6 | M.2 Key B slot
+| 7 | M.2 Key M slot
+|=====
+
+===  eDP Display Interface
+
+* Type: eDP connector
+* Supports external eDP displays at up to 2.5K @ 90 Hz. Hot-plugging is not supported
+* When only an eDP display is connected, the eDP display is used as the primary display
+* When both a DP display and an eDP display are connected, eDP is the default primary display and DP is used as an extended display. You can change the primary display to DP in the operating system
+
+image::/k3pico-itx/spacemit_k3_edpdisplayinterface1.jpg[spacemit_k3_edpdisplayinterface1.jpg]
+
+[options="header",cols="1,3",width="70%"]
+|=====
+| No. | 	Description
+| 4 | eDP interface
+|=====
+
+=== Audio Interface
+
+Type: 1.25 mm latch wire-to-board connector
+
+image::/k3pico-itx/spacemit_k3_audiointerface1.jpg[spacemit_k3_audiointerface1.jpg]
+
+[options="header",cols="1,3",width="70%"]
+|=====
+| No. | 	Description
+| 12 | Front-panel headphone connector
+|=====
+
+An onboard audio output header is provided and can be connected to a front-panel 3.5 mm headphone jack using an adapter cable
+
+image::/k3pico-itx/spacemit_k3_headphonejack1.jpg[spacemit_k3_headphonejack1.jpg]
+
+=== 1G Ethernet Interface
+
+* Type: RJ45 with green and yellow status LEDs
+
+* Supports 100 M / 1000 M adaptive switching
+
+The green LED on the Ethernet port is the LINK SPEED indicator and shows link state and link speed:
+
+. Solid green: link established at the highest supported speed
+. Off: link established but not at the highest supported speed
+. Off: no link established
+
+The yellow LED on the Ethernet port is the ACTIVE indicator and shows link activity:
+
+. Off: no data transmission
+. Blinking yellow: data is being transmitted; faster blinking indicates higher activity
+. Off: no link established
+
+image::/k3pico-itx/spacemit_k3_1gethernetinterface1.jpg[spacemit_k3_1gethernetinterface1.jpg]
+
+[options="header",cols="1,3",width="70%"]
+|=====
+| No. | 	Description
+| 20 | 1G Ethernet RJ45 port
+|=====
+
+=== 10G Optical Ethernet Interface
+
+* Type: SFP+ optical port
+* Supports multimode optical modules, DAC cables, and optical-to-electrical transceiver modules, with 10G/1G auto-negotiation
+
+image::/k3pico-itx/spacemit_k3_10gethernetinterface1.jpg[spacemit_k3_10gethernetinterface1.jpg]
+
+image::/k3pico-itx/spacemit_k3_10gled1.jpg[spacemit_k3_10gled1.jpg]
+
+LINK SPEED indicates link state and link speed:
+
+. Green: link established at the highest supported speed
+. Yellow on the 10G port: link established but not at the highest supported speed
+. Off: no link established
+
+ACTIVE indicates link activity:
+
+. Off: no data transmission
+. Blinking: data is being transmitted; faster blinking indicates higher activity
+. Off: no link established
+
+=== USB 2.0 Interface
+
+* Type: USB Type-A
+* Plug and play; supports USB 2.0 host mode
+* Supports multiple USB devices such as keyboards and mice at the same time
+
+image::/k3pico-itx/spacemit_k3_usb2interface1.jpg[spacemit_k3_usb2interface1.jpg]
+
+[options="header",cols="1,3",width="70%"]
+|=====
+| No. | 	Description
+| 19 | Dual USB 2.0 Type-A ports
+|=====
+
+=== FPC Expansion Interface
+
+* Type: 0.5 mm pitch, 26 Pin + 36 Pin FPC wire-to-board connector
+* Available signals:
+  ** CAN ×5
+	** UART ×2
+	** GMAC ×1
+	** PWM ×2
+	** I2C ×1
+	** SPI ×1
+* Can be connected directly to an expansion board
+
+image::/k3pico-itx/spacemit_k3_10fpcinterface1.jpg[spacemit_k3_10fpcinterface1.jpg]
+
+[options="header",cols="1,3",width="70%"]
+|=====
+| No. | 	Description
+| 8 | 26 Pin FPC connector
+| 9 | 36 Pin FPC connector
+|=====
+
+=== Wi-Fi Antenna Interface
+
+* Type: onboard PCIe Wi-Fi 6 + BT 5.2 module, compliant with IEEE 802.11a/b/g/n/ac/ax, dual antennas, dual band (2.4 GHz / 5.8 GHz)
+* A Wi-Fi antenna is included with the base package and can be installed at the recommended position shown below
++
+image::/k3pico-itx/spacemit_k3_wifiantennainterface1.jpg[spacemit_k3_wifiantennainterface1.jpg]
+
+* The Chassis Kit configuration comes with the Wi-Fi antenna pre-connected and ready to use
 
 
 
