@@ -53,7 +53,6 @@ image::/bpi-sm10/spacemit_k3_ai_chip.jpg[spacemit_k3_ai_chip.jpg]
 
 TIP: link:/en/BPI-SM10/GettingStarted_BPI-SM10[Getting Started BPI-SM10]
 
-
 = Hardware 
 
 == BPI-SM10 core board
@@ -122,6 +121,10 @@ image::/bpi-sm10/k3_com260_kit_(2).jpg[k3_com260_kit_(2).jpg]
 |DC Power |19V-2.37A;12V-5V (5525)
 |Mechanical|103mm x 90.5mm x35mm (Height includes feet, carrier board, module and thermal solution)
 |=====
+
+== Block Diagram
+
+image::/bpi-sm10/spacemit_k3_blockdiagram.jpg[spacemit_k3_blockdiagram.jpg]
 
 == BPI-SM10 Photo
 
