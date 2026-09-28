@@ -8,4 +8,119 @@ With rich I/O expandability and an industrial-grade architecture, the K3 Pico-IT
 
 TIP: More Infomation: link:/en/Pico-ITX/SpacemiT_Pico-ITX[K3 Pico-ITX]
 
-== Specifications
+= Quick Start
+
+Welcome to the SpacemiT K3 Pico-ITX single-board computer user guide.
+
+The K3 Pico-ITX is available in two package options:
+
+* Single Board Kit
+
+image::/k3pico-itx/spacemit_k3_product1.jpg[spacemit_k3_product1.jpg]
+
+* Chassis Kit
+
+image::/k3pico-itx/spacemit_k3_product2.jpg[spacemit_k3_product2.jpg]
+
+Before getting started, connect the following required peripherals. Once power is connected, you can power on the board and begin using it:
+
+* A Type-C power adapter or ATX 2-Pin DC power supply (a 20 V / 5 A power adapter is recommended)
++
+Note:
++
+** The Type-C power adapter must provide a rated output of at least 20V @ 3.25A;
+
+** The ATX 2-pin DC power supply must provide a rated output of at least 12V @ 5A.
+
+** When using a power adapter for charging, use a compatible adapter that has obtained CCC certification and complies with applicable standards.
+
+* A monitor
+
+* A keyboard
+
+* A mouse
+
+You can power the K3 Pico-ITX and connect a display in either of the following ways:
+
+Method 1: Use a monitor that supports 65 W or higher USB Type-C power delivery, and connect the monitor to the board with a full-featured Type-C cable.
+
+* Method 1 (Single Board Kit)
+
+image::/k3pico-itx/spacemit_k3_getpower1.jpg[spacemit_k3_getpower1.jpg]
+
+* Method 1 (Chassis Kit)
+
+image::/k3pico-itx/spacemit_k3_getpower2.jpg[spacemit_k3_getpower2.jpg]
+
+Method 2: Use a multifunction dock that supports HDMI output, USB, and PD charging. Connect the dock to the board’s full-featured Type-C port to carry both power and display signals.
+
+* Method 2 (Single Board Kit)
+
+image::/k3pico-itx/spacemit_k3_getpower3.jpg[spacemit_k3_getpower3.jpg]
+
+Method 2 (Chassis Kit)
+
+image::/k3pico-itx/spacemit_k3_getpower4.jpg[spacemit_k3_getpower4.jpg]
+
+Note: To ensure stable operation, make sure the board is placed in a well-ventilated environment before powering it on, and use the bundled heatsink.
+
+== U-Boot Version
+
+The K3 Pico-ITX comes preinstalled with the Bianbu LXQt desktop edition. After powering on with the setup above, you can boot directly into Bianbu OS for initial configuration.
+
+== UEFI Preview Version
+
+The K3 Pico-ITX supports UEFI boot and configuration, with NVMe SSD, USB, and UFS available as boot devices.
+
+A link:https://docs.banana-pi.org/en/Pico-ITX/SpacemiT_Pico-ITX#_bianbu[UEFI preview image] is currently available for the Pico-ITX.
+
+For operating system installation steps, refer to Part 3 OS Installation.
+
+=== UEFI Setup
+
+Within 3 seconds after powering on the K3 Pico-ITX, press F2 to enter the UEFI setup screen.
+
+image::/k3pico-itx/spacemit_k3_uefisetup1.jpg[spacemit_k3_uefisetup1.jpg]
+
+=== Boot Manager
+
+In the Boot Manager menu, use the <↑> and <↓> keys to select a boot device such as an NVMe SSD, USB storage device, or UFS. You can also enter the UEFI Shell command-line interface.
+
+image::/k3pico-itx/spacemit_k3_boot1.jpg[spacemit_k3_boot1.jpg]
+
+=== Boot Maintenance Manager
+
+In the Boot Maintenance Manager menu, go to Boot Options and select Change Boot Order to configure boot priority. Use <+> and <-> to adjust the boot order. Press <Enter>, then select Commit Changes and Exit to apply the changes and exit. After returning to the main menu, press <F10> to save the settings.
+
+image::/k3pico-itx/spacemit_k3_boot2.jpg[spacemit_k3_boot2.jpg]
+
+=== UEFI Interactive Shell
+
+UEFI Interactive Shell V2.2 is supported. The first time you enter the UEFI Interactive Shell, the screen displays all currently detected storage devices. Press any key other than <Esc>, or wait 5 seconds, to enter the command-line interface. Enter help to view supported commands and related help information.
+
+image::/k3pico-itx/spacemit_k3_uefishell1.jpg[spacemit_k3_uefishell1.jpg]
+
+=== GRUB Boot
+
+GRUB boot is supported, allowing multiple operating systems to be installed and selected at startup.
+
+image::/k3pico-itx/spacemit_k3_grubboot1.jpg[spacemit_k3_grubboot1.jpg]
+
+=  Hardware Description
+
+== Overview
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
