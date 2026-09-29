@@ -396,6 +396,101 @@ image::/k3pico-itx/spacemit_k3_wifiantennainterface1.jpg[spacemit_k3_wifiantenna
 
 * The Chassis Kit configuration comes with the Wi-Fi antenna pre-connected and ready to use
 
+= GPIO Define
+
+== FPC Expansion Interface
+
+The K3 Pico-ITX provides link:https://docs.banana-pi.org/en/Pico-ITX/GettingStarted_K3Pico-ITX#_fpc_expansion_interface[26Pin + 36 Pin FPC expansion interfaces].
+
+NOTE: The 26pin FPC has CAN (from RT24) + I2C (from RT24) + UART + PWM + 3.3 V (main power)
+
+.26 Pin Connector Pinout
+[%collapsible]
+====
+[options="header",cols="1,1,1",width="80%"]
+|====
+3+| **K3 Pico-ITX 26PIN FPC expansion interfaces**
+|Pin |Signal | Description		
+|1			 |3.3V | IO power supply	
+|2		 	 |3.3V | IO power supply
+|3 	   	 |R_I2C1_SCL	| I2C clock
+|4	     |R_I2C1_SDA  | I2C data
+|5			 | GND			| Ground
+|6  		|R_UART0_TX    | UART TX
+|7			| R_UART0_RX	 | UART RX
+|8 			|GND 					|Ground
+|9			|UART5_TX			|UART TX
+|10			|UART5_RX			|UART RX
+|11			|RX_PWM1			|PWM
+|12			|RX_PWM2			|PWM
+|13			|UART10_TX		|UART TX	
+|14			|UART10_RX		|UART RX
+|15			|UART10_CTS		|UART CTS
+|16			|UART10_RTS		|UART RTS
+|17			|GND			|Ground
+|18			|R_CAN4_TX			|CAN TX
+|19			|R_CAN4_RX			|CAN RX
+|20			|GND			|Ground
+|21			|R_CAN3_TX		|CAN TX
+|22			|R_CAN3_RX		|CAN RX
+|23			|GND			|Ground
+|24			|R_CAN2_TX		|CAN TX
+|25			|R_CAN2_RX		|CAN RX
+|26			|GND		|Ground
+
+|====
+====
+
+NOTE: The 36pin FPC has GMAC-MII (from RT24) + CAN + SPI + 1.8 V (main power)
+
+.36 Pin Connector Pinout
+[%collapsible]
+====
+[options="header",cols="1,1,1",width="80%"]
+|====
+3+| **K3 Pico-ITX 36PIN FPC expansion interfaces**
+|Pin |Signal | Description		
+|1			 |1.8V | IO power supply	
+|2		 	 |1.8V | IO power supply
+|3 	   	 |CAN1_RX	| CAN RX
+|4	     |CAN1_TX  | CAN TX
+|5			 | GND			| Ground
+|6  		|R_TX_CLK    | MAC transmit clock
+|7			| GND	 | Ground
+|8 			|R_TX_D0			|MAC transmit data 0
+|9			|R_TX_D1			|MAC transmit data 1
+|10			|R_TX_D2			|MAC transmit data 2
+|11			|R_TX_D3			|MAC transmit data 3
+|12			|GND			|Ground
+|13			|R_RX_CLK		|	MAC receive clock	
+|14			|GND		|Ground
+|15			|R_RX_D0		|MAC receive data 0
+|16			|R_RX_D1		|MAC receive data 1
+|17			|R_RX_D2			|MAC receive data 2
+|18			|R_RX_D3			|MAC receive data 3
+|19			|GND			|Ground
+|20			|R_TX_EN			|Transmit enable
+|21			|R_CLK_25M		|25 MHz reference clock
+|22			|R_RX_DV		|Receive data valid
+|23			|R_PWDN/INTn			|Ethernet PHY interrupt
+|24			|R_RESETn		|Ethernet PHY reset input
+|25			|R_MDIO_MDC			|MDIO clock
+|26			|R_MDIO_MDIO		|MDIO data
+|27			|R_CRS			|Carrier sense
+|28			|R_COL		|Collision detect
+|29			|GND			|Ground
+|30			|SPI0_MOSI		|SPI TX
+|31		  |SPI0_MISO		|	SPI RX
+|32			|SPI0_SCLK			|SPI clock
+|33			|SPI0_CS		|SPI chip select
+|34			|GND			|Ground
+|35			|R_CAN0_TX	|CAN TX
+|36			|R_CAN0_RX		|CAN RX
+
+|====
+====
+
+
 
 
 
