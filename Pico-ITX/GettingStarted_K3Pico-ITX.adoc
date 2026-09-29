@@ -31,6 +31,33 @@ image::/k3pico-itx/spacemit_k3_flash1.jpg[spacemit_k3_flash1.jpg]
 
 |=====
 
+=== Device Powered by a Full-Featured Type-C Cable or ATX Power Supply (Powered On)
+
+. Press and hold the FDL flashing button.
+. Briefly press the RST reset button.
+. Release the FDL flashing button.
+. Use the flashing Type-C data cable to connect the DRD Type-C port to the host computer.
+. Use the official SpacemiT flashing tool Titan or the fastboot command to perform the flashing process.
+
+image::/k3pico-itx/spacemit_k3_flash2.jpg[spacemit_k3_flash2.jpg]
+
+[options="header",cols="1,3",width="70%"]
+|=====
+| No. | 	Description
+| 2 | FDL flashing button
+| 3 | Reset button RST
+| 15 | ATX power connector
+| 17 | Full-featured Type-C port
+| 18 | DRD Type-C port (no power input)
+|=====
+
+== Serial Debugging
+
+Use a USB-to-TTL adapter to connect the host PC to the K3 Pico-ITX board header through TX, RX, and GND, as shown below.
+
+Here, Tx and Rx represent the transmit and receive signals of the K3 board, respectively.
+
+image::/k3pico-itx/spacemit_k3_debug.jpg[spacemit_k3_debug.jpg]
 
 
 = Quick Start
