@@ -490,7 +490,97 @@ NOTE: The 36pin FPC has GMAC-MII (from RT24) + CAN + SPI + 1.8 V (main power)
 |====
 ====
 
+== EC Expansion Interface
 
+.EC Expansion Interface
+[%collapsible]
+====
+[options="header",cols="1,1,1",width="80%"]
+|====
+3+| **K3 Pico-ITX EC Expansion Interface**
+|Pin |Signal | Description		
+|1			 |EC_I2C0_CLK_3V3 | EC I2C bus clock
+|2		 	 |EC_I2C0_DAT_3V3 | EC I2C bus data
+|3 	   	 |GND	| Ground
+|4	     |EC_GPB2/TXD1/CTX0  | Serial TX or GPIO B2
+|5			 | EC_GPC0/RXD1/CRX0			| Serial RX or GPIO C0
 
+|====
+====
 
+image::/k3pico-itx/spacemit_k3_ecinterface1.jpg[spacemit_k3_ecinterface1.jpg]
+
+== Audio Expansion Interface
+
+.Audio Expansion Interface
+[%collapsible]
+====
+[options="header",cols="1,1,1",width="80%"]
+|====
+3+| **K3 Pico-ITX Audio Expansion Interface**
+|Pin |Signal | Description		
+|1			 |MICN_GMS1 | Microphone negative
+|2		 	 |MICP_GMS0 | Microphone positive
+|3 	   	 |ROUT	| Right-channel output
+|4	     |JACK_DET  | Headphone jack detection
+|5			 | LOUT			| Left-channel output
+|6			| AUDIO_AGND | Audio analog ground
+
+|====
+====
+
+image::/k3pico-itx/spacemit_k3_audiointerface1.jpg[spacemit_k3_audiointerface1.jpg]
+
+== eDP Display Interface
+
+.eDP Display Interface
+[%collapsible]
+====
+[options="header",cols="1,1,1",width="80%"]
+|====
+3+| **K3 Pico-ITX eDP Display Interface**
+|Pin |Signal | Description		
+|1			 |NC | 	No signal
+|2		 	 |GND | Ground
+|3 	   	 |EDP0_TX3_N	| EDP0 transmit data 3 negative
+|4	     |EDP0_TX3_P  | EDP0 transmit data 3 positive
+|5			 | GND		| Ground
+|6			| EDP0_TX2_N | EDP0 transmit data 2 negative
+|7		|EDP0_TX2_P  |EDP0 transmit data 2 positive
+|8		|GND		|	Ground
+|9		|EDP0_TX1_N		|EDP0 transmit data 1 negative
+|10		|EDP0_TX1_P		|EDP0 transmit data 1 positive
+|11		|GND		|Ground
+|12		|EDP0_TX0_N	|EDP0 transmit data 0 negative
+|13		|EDP0_TX0_P		|EDP0 transmit data 0 positive
+|14		|GND		|Ground
+|15		|EDP0_AUX_N	|EDP0 auxiliary channel negative
+|16		|EDP0_AUX_P		|EDP0 auxiliary channel positive
+|17		|GND		| Ground
+|18		|eDP_VCC3V3		|eDP 3.3 V power supply
+|19		|eDP_VCC3V3		|eDP 3.3 V power supply
+|20		|eDP_VCC3V3		|eDP 3.3 V power supply
+|21		|eDP_VCC3V3		|eDP 3.3 V power supply
+|22		|NC		|No signal
+|23		|GND	|Ground
+|24		|GND	|Ground
+|25		|GND	|Ground
+|26		|GND	|Ground
+|27		|HPD_3V3	|eDP hot-plug detect signal
+|28		|GND	|Ground
+|29		|GND	|Ground
+|30		|GND	|Ground
+|31		|GND	|Ground
+|32		|SOC_eDP0_BL-EN_3V3		|eDP backlight enable signal
+|33		|SOC_eDP0_BL-PWM_3V3	|eDP backlight brightness PWM control signal
+|34		|NC		|No signal
+|35		|NC		|No signal
+|36		|P12V0_eDP-BL	|eDP backlight 12 V power supply
+|37		|P12V0_eDP-BL	|eDP backlight 12 V power supply
+|38		|P12V0_eDP-BL	|eDP backlight 12 V power supply
+|39		|P12V0_eDP-BL	|eDP backlight 12 V power supply
+|40		|NC		|No signal
+|====
+====
+image::/k3pico-itx/spacemit_k3_edpdisplayinterface1.jpg[spacemit_k3_edpdisplayinterface1.jpg]
 
