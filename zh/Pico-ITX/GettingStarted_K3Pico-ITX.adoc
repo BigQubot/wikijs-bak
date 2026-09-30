@@ -8,4 +8,561 @@ K3 Pico-ITX 采用 2.5 英寸 Pico-ITX Plus 规格，针对空间受限的部署
 
 TIP: 更多信息：link:/zh/Pico-ITX/SpacemiT_Pico-ITX[K3 Pico-ITX]
 
-== 规格参数
+= 准备
+== 方法1：通过Type-C数据线闪烁
+=== 设备断电
+
+. 按住FDL烧录按钮。
+. 连接功能齐全的Type-C电缆或插入电源线以打开设备电源。
+. 松开FDL烧录按钮。
+. 使用闪烁的Type-C数据线将DRD Type-C端口连接到主机。
+. 使用官方SpacemiT闪存工具Titan或fastboot命令执行闪存过程。
+
+image::/k3pico-itx/spacemit_k3_flash1.jpg[spacemit_k3_flash1.jpg]
+
+[options="header",cols="1,3",width="70%"]
+|=====
+| 编号 | 	描述
+| 2 | FDL烧录按钮
+| 17 | 全功能Type-C端口
+| 18 | DRD Type-C端口（无电源输入）
+
+|=====
+
+=== 设备由全功能Type-C电缆或ATX电源供电（已通电）
+. 按住FDL闪烁按钮。
+. 短按RST重置按钮。
+. 松开FDL闪烁按钮。
+. 使用闪烁的Type-C数据线将DRD Type-C端口连接到主机。
+. 使用官方SpacemiT闪存工具Titan或fastboot命令执行闪存过程。
+
+image::/k3pico-itx/spacemit_k3_flash2.jpg[spacemit_k3_flash2.jpg]
+
+[options="header",cols="1,3",width="70%"]
+|=====
+| 编号 | 	描述
+| 2 | FDL烧录按钮
+| 3 | 重置按钮RST
+| 15 | ATX电源连接器
+| 17 | 全功能Type-C端口
+| 18 | DRD Type-C端口（无电源输入）
+|=====
+
+== 串行调试
+使用USB到TTL适配器通过TX、RX和GND将主机PC连接到K3 Pico ITX板头，如下所示。
+这里，Tx和Rx分别表示K3板的发射和接收信号。
+
+image::/k3pico-itx/spacemit_k3_debug.jpg[spacemit_k3_debug.jpg]
+
+
+= 快速启动
+欢迎阅读SpacemiT K3 Pico ITX单板计算机用户指南。
+K3 Pico ITX有两种封装选项：
+
+* 单板套件
+
+image::/k3pico-itx/spacemit_k3_product1.jpg[spacemit_k3_product1.jpg]
+
+* 经典套件
+
+image::/k3pico-itx/spacemit_k3_product2.jpg[spacemit_k3_product2.jpg]
+
+开始之前，请连接以下所需的外围设备。连接电源后，您可以打开电路板并开始使用它：
+
+* Type-C电源适配器或ATX 2针直流电源（建议使用20V/5A电源适配器）
++
+NOTE: Type-C电源适配器必须提供至少20V@3.25A的额定输出； +
+ATX 2针直流电源必须提供至少12V@5A的额定输出。 +
+使用电源适配器充电时，请使用已获得CCC认证并符合适用标准的兼容适配器。
+
+* 屏幕
+
+* 键盘
+
+* 鼠标
+
+您可以通过以下任一方式为K3 Pico ITX供电并连接显示器：
+
+方法1：使用支持65W或更高USB Type-C供电的显示器，并使用功能齐全的Type-C电缆将显示器连接到板上。
+
+* 方法1（单板套件）
++
+image::/k3pico-itx/spacemit_k3_getpower1.jpg[spacemit_k3_getpower1.jpg]
+
+* 方法1（经典套件）
++
+image::/k3pico-itx/spacemit_k3_getpower2.jpg[spacemit_k3_getpower2.jpg]
+
+方法2：使用支持HDMI输出、USB和PD充电的多功能底座。将扩展坞连接到电路板的全功能Type-C端口，以传输电源和显示信号。
+
+* 方法2（单板套件）
++
+image::/k3pico-itx/spacemit_k3_getpower3.jpg[spacemit_k3_getpower3.jpg]
+
+* 方法2（经典套件）
++
+image::/k3pico-itx/spacemit_k3_getpower4.jpg[spacemit_k3_getpower4.jpg]
+
+NOTE: 为确保稳定运行，请确保在通电之前将电路板放置在通风良好的环境中，并使用捆绑的散热器。
+
+== Uboot版本
+
+K3 Pico ITX预装了Bianbu LXQt桌面版。使用上述设置打开电源后，您可以直接引导到Bianbu操作系统进行初始配置。
+
+== UEFI预览版本
+
+K3 Pico ITX支持UEFI引导和配置，NVMe SSD、USB和UFS可用作引导设备。
+
+link:https://docs.banana-pi.org/en/Pico-ITX/SpacemiT_Pico-ITX#_bianbu[UEFI预览图像]当前可用于Pico ITX。
+
+有关操作系统安装步骤，请参阅准备页面。
+
+=== UEFI设置
+在K3 Pico ITX通电后3秒内，按F2进入UEFI设置屏幕。
+
+image::/k3pico-itx/spacemit_k3_uefisetup1.jpg[spacemit_k3_uefisetup1.jpg]
+
+=== 启动维护管理器
+在Boot Maintenance Manager菜单中，转到Boot Options并选择Change Boot Order以配置引导优先级。使用<+>和<->调整启动顺序。按<Enter>，然后选择提交更改并退出以应用更改并退出。返回主菜单后，按<F10>保存设置。
+
+image::/k3pico-itx/spacemit_k3_boot2.jpg[spacemit_k3_boot2.jpg]
+
+=== UEFI交互式Shell
+支持UEFI交互式Shell V2.2。首次进入UEFI Interactive Shell时，屏幕将显示当前检测到的所有存储设备。按<Esc>以外的任何键，或等待5秒，进入命令行界面。输入help查看支持的命令和相关帮助信息。
+
+image::/k3pico-itx/spacemit_k3_uefishell1.jpg[spacemit_k3_uefishell1.jpg]
+
+=== GRUB启动
+支持GRUB引导，允许在启动时安装和选择多个操作系统。
+
+image::/k3pico-itx/spacemit_k3_grubboot1.jpg[spacemit_k3_grubboot1.jpg]
+
+= 硬件说明
+
+== 概述
+
+image::/k3pico-itx/spacemit_k3_hardwareoverview1.jpg[spacemit_k3_hardwareoverview1.jpg]
+
+NOTE: 电路板外观可能因硬件版本而异。
+
+[options="header",cols="1,3",width="70%"]
+|=====
+|编号|描述
+|1|电源按钮PWR|2|FDL闪烁按钮|3|重置按钮RST
+|4|eDP接口|5|Wi-Fi和BT模块|6|M.2键B插槽
+|7|M.2键M槽|8|26针FPC连接器|9|36针FPC连接器
+|10|10G光以太网端口|11|纽扣电池头|12|前面板耳机连接器
+|13|前面板开关头|14|EC扩展头|15|ATX电源连接器
+|16|UART引脚头|17|全功能Type-C端口|18|DRD Type-C端口（无电源输入）
+|19 |双USB 2.0 Type-A端口|20 | 1G以太网RJ45端口
+|=====
+
+== 指示器和按钮
+
+[options="header",cols="1,3",width="70%"]
+|=====
+|指标|状态描述
+|状态指示灯STAT |绿色常亮：板已通电并正在运行； +
+绿灯闪烁：指示板表示即将强制断电； +
+关闭：电路板已断电
+|=====
+
+[options="header",cols="1,3",width="70%"]
+|=====
+|按钮|说明
+|电源按钮PWR|-在关机状态下短按：开机+
+-待机状态下短按：唤醒系统+
+-在正常状态下按住3秒：LED从常亮变为闪烁，表示即将断电；继续按住按钮，同时闪烁以强制关闭电源+
+-正常状态下的短按：发送按钮事件，行为由操作系统定义
+|固件闪烁按钮FDL |插入电源或重置电源以进入闪烁模式时按住
+|重置按钮RST |短按：电源重置，强制重新启动
+|=====
+
+== 接口说明
+=== 电源输入
+* USB Type-C支持USB PD 3.0供电，最高可达20 V/5 A
+* ATX电源输入支持高达12 V/7 A。当连接ATX电源时，系统将优先考虑ATX电源。
+
+NOTE: ATX和Type-C PD电源不支持1+1热冗余。 +
+* 当系统由ATX供电时，即使连接了支持PD的Type-C电缆，它也将继续使用ATX电源。 +
+* 要切换到Type-C PD电源，请关闭系统，断开ATX电源，然后打开电源 +
+* 如果在系统使用Type-C PD电源运行时卸下ATX电源，系统将重新启动并自动切换到Type-C PD供电。 + 
+* 如果在系统使用Type-C PD电源运行时连接了ATX电源，系统将重新启动并切换到ATX电源。 +
+* 在闪烁模式下，功能齐全的Type-C端口支持电源输入和USB设备功能。当通过USB Type-C连接到主机PC时，该板被主机识别，可用于闪存和固件更新。
+
+image::/k3pico-itx/spacemit_k3_powerinput1.jpg[spacemit_k3_powerinput1.jpg]
+
+[options="header",cols="1,3",width="70%"]
+|=====
+|编号|描述
+|15|ATX电源连接器
+|17 |全功能Type-C端口
+|=====
+
+=== 烧录接口
+在烧录模式下，此接口只能作为USB设备进行数据传输，不能为电路板供电。通过USB Type-C连接到主机PC后，主板可以被主机PC检测到，并用于闪存和固件更新。
+
+NOTE: 烧录的Type-C端口无法为电路板供电。烧录期间，必须通过另一个电源输入提供电源。USB电缆必须支持数据传输；仅充电的USB电缆不能用于烧录。
+
+image::/k3pico-itx/spacemit_k3_flashinterface1.jpg[spacemit_k3_flashinterface1.jpg]
+
+[options="header",cols="1,3",width="70%"]
+|=====
+|编号|描述
+|18|闪烁端口（无电源输入）
+|=====
+
+=== 全功能Type-C接口
+
+* 类型：Type-C连接器
+* 支持PD 3.0电源协商以及与DP显示器和USB 3.0外围设备的连接
+* 支持高达4K@60 Hz的DP显示器，支持热插拔
+* 当仅连接DP显示器时，DP显示器用作主显示器
+
+image::/k3pico-itx/spacemit_k3_fullfeaturedtypecinterface1.jpg[spacemit_k3_fullfeaturedtypecinterface1.jpg]
+
+[options="header",cols="1,3",width="70%"]
+|=====
+|编号|描述
+|17 |全功能Type-C端口
+|=====
+
+=== 高速扩展接口：M.2 M-Key和M.2 B-Key
+
+* 类型：M.2连接器，堆叠高度为4.2毫米
+* M.2 M-Key
+** 支持2280个NVMe SSD
+** PCIe 3.0 x2/x4带宽
+* M.2 B-Key
+** 支持2242个PCIe SSD
+** PCIe 3.0 x2带宽
+** 支持USB 2.0 4G调制解调器模块
+ 
+NOTE: 1.当PCIe SSD安装在M.2 B-Key插槽中时，M.2 M-Key插槽以PCIe 3.0 x2运行。当M.2 B-Key插槽中没有安装SSD时，M.2 M-Key插槽以PCIe 3.0 x4运行。 +
+2.用于存储扩展时，M.2 B-Key插槽仅支持PCIe SSD。不支持SATA SSD。 +
+3.不支持热插拔。安装或拆卸前关闭电路板电源。
+
+image::/k3pico-itx/spacemit_k3_m2keyhighspeedinterface1.jpg[spacemit_k3_m2keyhighspeedinterface1.jpg]
+
+[options="header",cols="1,3",width="70%"]
+|=====
+|编号|描述
+|6|M.2KEYB槽
+|7|M.2KEYM槽
+|=====
+
+=== eDP显示界面
+
+* 类型：eDP连接器
+* 支持高达2.5K@90 Hz的外部eDP显示器。不支持热插拔
+* 当仅连接eDP显示器时，eDP显示器用作主显示器
+* 当DP显示器和eDP显示器都连接时，eDP是默认的主显示器，DP用作扩展显示器。您可以在操作系统中将主显示器更改为DP
+
+image::/k3pico-itx/spacemit_k3_edpdisplayinterface1.jpg[spacemit_k3_edpdisplayinterface1.jpg]
+
+[options="header",cols="1,3",width="70%"]
+|=====
+| 编号 | 	描述
+| 4 | eDP 接口
+|=====
+
+=== 音频接口
+
+类型：1.25毫米闩锁线到板连接器
+
+image::/k3pico-itx/spacemit_k3_audiointerface1.jpg[spacemit_k3_audiointerface1.jpg]
+
+[options="header",cols="1,3",width="70%"]
+|=====
+| 编号 | 	描述
+| 12 | 前面板耳机接口
+|=====
+
+提供板载音频输出头，可以使用适配器电缆连接到前面板3.5毫米耳机插孔
+
+image::/k3pico-itx/spacemit_k3_headphonejack1.jpg[spacemit_k3_headphonejack1.jpg]
+
+=== 有线以太网接口 1G ETH
+* 类型：RJ45，带黄绿指示灯；
+* 支持 100 M/1000 M 速率，自适应切换；
+
+网口绿色 LED 为 LINK SPEED 指示灯，用于指示链路状态和链路速率：
+
+. LINK SPEED 绿色常亮，链路建立且为最高速率状态；
+. LINK SPEED 熄灭，链路建立但处于非最高速率状态；
+. 链路未建立时，LINK SPEED 不点亮，保持熄灭状态；
+
+网口黄色 LED 为 ACTIVE 指示灯，用于指示链路活跃状态：
+
+. ACT 灯熄灭，链路无数据传输；
+. ACT 灯黄色闪烁，链路有数据传输，处于活跃状态，越活跃闪烁频次越快；
+. 链路未建立时，ACT 不点亮，保持熄灭状态；
+
+image::/k3pico-itx/spacemit_k3_1gethernetinterface1.jpg[spacemit_k3_1gethernetinterface1.jpg]
+
+[options="header",cols="1,3",width="70%"]
+|=====
+| 编号 | 	描述
+| 20 | 1G Ethernet 网口
+|=====
+
+=== 10G光以太网接口
+
+* 类型：SFP+光口
+* 支持多模光模块、DAC电缆和光电收发器模块，具有10G/1G自动协商功能
+
+image::/k3pico-itx/spacemit_k3_10gethernetinterface1.jpg[spacemit_k3_10gethernetinterface1.jpg]
+
+image::/k3pico-itx/spacemit_k3_10gled1.jpg[spacemit_k3_10gled1.jpg]
+
+LINK SPEED 用于指示链路状态和链路速率：
+
+. LINK SPEED 绿灯，链路建立且为最高速率状态；
+. 万兆网口 LINK SPEED 黄灯，链路建立但处于非最高速率状态；
+. 链路未建立时，LINK SPEED 不点亮，保持熄灭状态；
+
+ACTIVE表示链接活动：
+
+. ACT 灯熄灭，链路无数据传输；
+. ACT 灯闪烁，链路有数据传输，处于活跃状态，越活跃闪烁频次越快；
+. 链路未建立时，ACT 不点亮，保持熄灭状态；
+
+=== 通用串行总线接口 USB 2.0
+
+* 类型：USB Type-A
+* 即插即用；支持USB 2.0主机模式
+* 同时支持多个USB设备，如键盘和鼠标
+
+image::/k3pico-itx/spacemit_k3_usb2interface1.jpg[spacemit_k3_usb2interface1.jpg]
+
+[options="header",cols="1,3",width="70%"]
+|=====
+| 编号 | 	描述
+| 19 | Dual USB 2.0 Type-A 接口
+|=====
+
+=== FPC Expansion Interface
+
+* 类型：0.5 mm 间距、26 Pin + 36 Pin FPC 线对板接口
+* 包含资源：
+** CAN ×5
+** UART ×2
+** GMAC ×1
+** PWM ×2
+** I2C ×1
+** SPI ×1
+* 可直接连接扩展板使用
+
+image::/k3pico-itx/spacemit_k3_10fpcinterface1.jpg[spacemit_k3_10fpcinterface1.jpg]
+
+[options="header",cols="1,3",width="70%"]
+|=====
+| No. | 	接口说明
+| 8 | 26 Pin FPC 连接器
+| 9 | 36 Pin FPC 连接器
+|=====
+
+=== Wi-Fi 天线接口
+
+* 类型：板载 PCIe Wi-Fi 6 + BT 5.2 模组，符合 IEEE 802.11a/b/g/n/ac/ax 标准，双天线双频段（2.4 GHz/5.8 GHz）。
+* 基础套餐随包装附赠 Wi-Fi 天线，可按下图推荐位置粘贴安装。
++
+image::/k3pico-itx/spacemit_k3_wifiantennainterface1.jpg[spacemit_k3_wifiantennainterface1.jpg]
+
+* 机箱套装已完成 Wi-Fi 天线连接与适配，可直接使用 Wi-Fi 功能。
+
+= 引脚定义
+
+== FPC 拓展引脚
+
+K3 Pico-ITX 配备 link:https://docs.banana-pi.org/en/Pico-ITX/GettingStarted_K3Pico-ITX#_fpc_expansion_interface[26 Pin + 36 Pin FPC 扩展接口]。
+
+NOTE: 26 Pin 连接器接口线序：CAN（from RT24）+ I2C（from RT24）+ UART + PWM + 3.3 V（主电源）
+
+.26 Pin 连接器接口
+[%collapsible]
+====
+[options="header",cols="1,1,1",width="80%"]
+|====
+3+| **K3 Pico-ITX 26 Pin 连接器接口**
+|引脚编号 |信号 | 说明		
+|1			 |3.3V | IO 电压电源	
+|2		 	 |3.3V | IO 电压电源
+|3 	   	 |R_I2C1_SCL	| I2C 时钟
+|4	     |R_I2C1_SDA  | I2C 数据
+|5			 | GND			| 地
+|6  		|R_UART0_TX    | UART TX
+|7			| R_UART0_RX	 | UART RX
+|8 			|GND 					|地
+|9			|UART5_TX			|UART TX
+|10			|UART5_RX			|UART RX
+|11			|RX_PWM1			|PWM
+|12			|RX_PWM2			|PWM
+|13			|UART10_TX		|UART TX	
+|14			|UART10_RX		|UART RX
+|15			|UART10_CTS		|UART CTS
+|16			|UART10_RTS		|UART RTS
+|17			|GND			|地
+|18			|R_CAN4_TX			|CAN TX
+|19			|R_CAN4_RX			|CAN RX
+|20			|GND			|地
+|21			|R_CAN3_TX		|CAN TX
+|22			|R_CAN3_RX		|CAN RX
+|23			|GND			|地
+|24			|R_CAN2_TX		|CAN TX
+|25			|R_CAN2_RX		|CAN RX
+|26			|GND		|地
+
+|====
+====
+
+NOTE: 36 Pin 连接器接口线序：GMAC-MII（from RT24）+ CAN + SPI + 1.8 V（主电源）
+
+.36 Pin 连接器接口
+[%collapsible]
+====
+[options="header",cols="1,1,1",width="80%"]
+|====
+3+| **K3 Pico-ITX 36 Pin 连接器接口**
+|引脚编号 |信号 | 说明
+|1			 |1.8V | IO 电压电源	
+|2		 	 |1.8V | IO 电压电源
+|3 	   	 |CAN1_RX	| CAN RX
+|4	     |CAN1_TX  | CAN TX
+|5			 | GND			| 地
+|6  		|R_TX_CLK    | MAC 发送时钟
+|7			| GND	 | 地
+|8 			|R_TX_D0			|MAC 发送数据0
+|9			|R_TX_D1			|MAC 发送数据1
+|10			|R_TX_D2			|MAC 发送数据2
+|11			|R_TX_D3			|MAC 发送数据3
+|12			|GND			|地
+|13			|R_RX_CLK		|	MAC 接收时钟	
+|14			|GND		|地
+|15			|R_RX_D0		|MAC 接收数据0
+|16			|R_RX_D1		|MAC 接收数据1
+|17			|R_RX_D2			|MAC 接收数据 2
+|18			|R_RX_D3			|MAC 接收数据 3
+|19			|GND			|地
+|20			|R_TX_EN			|	发送使能
+|21			|R_CLK_25M		|25M参考时钟
+|22			|R_RX_DV		|接收数据有效
+|23			|R_PWDN/INTn			|以太网 PHY 中断
+|24			|R_RESETn		|以太网 PHY 的复位输入
+|25			|R_MDIO_MDC			|MDIO 时钟
+|26			|R_MDIO_MDIO		|MDIO 数据
+|27			|R_CRS			|载波侦听
+|28			|R_COL		|碰撞检测
+|29			|GND			|地
+|30			|SPI0_MOSI		|SPI TX
+|31		  |SPI0_MISO		|	SPI RX
+|32			|SPI0_SCLK			|SPI 时钟
+|33			|SPI0_CS		|SPI 片选
+|34			|GND			|地
+|35			|R_CAN0_TX	|CAN TX
+|36			|R_CAN0_RX		|CAN RX
+
+|====
+====
+
+== EC 扩展接口
+
+.EC 扩展接口
+[%collapsible]
+====
+[options="header",cols="1,1,1",width="80%"]
+|====
+3+| **K3 Pico-ITX EC 扩展接口**
+|引脚编号 |信号 | 说明	
+|1			 |EC_I2C0_CLK_3V3 | EC I2C 总线时钟
+|2		 	 |EC_I2C0_DAT_3V3 | EC I2C 总线数据
+|3 	   	 |GND	| 地
+|4	     |EC_GPB2/TXD1/CTX0  | 串行发送或输入输出 B2
+|5			 | EC_GPC0/RXD1/CRX0			| 串行接收或输入输出 C0
+|====
+====
+
+image::/k3pico-itx/spacemit_k3_ecinterface1.jpg[spacemit_k3_ecinterface1.jpg]
+
+== 音频扩展接口
+
+.音频扩展接口
+[%collapsible]
+====
+[options="header",cols="1,1,1",width="80%"]
+|====
+3+| **K3 Pico-ITX 音频扩展接口**
+|引脚编号 |信号 | 说明	
+|1			 |MICN_GMS1 | 麦克风N
+|2		 	 |MICP_GMS0 | 麦克风P
+|3 	   	 |ROUT	| 右声道输出
+|4	     |JACK_DET  | 耳机插座插入检测
+|5			 | LOUT			| 左声道输出
+|6			| AUDIO_AGND | 音频模拟地
+|====
+====
+
+image::/k3pico-itx/spacemit_k3_audiointerface1.jpg[spacemit_k3_audiointerface1.jpg]
+
+== 显示接口eDP
+
+.显示接口eDP
+[%collapsible]
+====
+[options="header",cols="1,1,1",width="80%"]
+|====
+3+| **K3 Pico-ITX 显示接口eDP**
+|引脚编号 |信号 | 说明	
+|1			 |NC | 	无信号
+|2		 	 |GND | 地
+|3 	   	 |EDP0_TX3_N	| EDP0 发送数据3 负极
+|4	     |EDP0_TX3_P  | EDP0 发送数据3 正极
+|5			 | GND		| 	地
+|6			| EDP0_TX2_N | EDP0 发送数据2 负极
+|7		|EDP0_TX2_P  |EDP0 发送数据2 正极
+|8		|GND		|		地
+|9		|EDP0_TX1_N		|EDP0 发送数据1 负极
+|10		|EDP0_TX1_P		|EDP0 发送数据1 正极
+|11		|GND		|地
+|12		|EDP0_TX0_N	|EDP0 发送数据0 负极
+|13		|EDP0_TX0_P		|EDP0 发送数据0 正极
+|14		|GND		|地
+|15		|EDP0_AUX_N	|EDP0 辅助通道 负极
+|16		|EDP0_AUX_P		|	EDP0 辅助通道 正极
+|17		|GND		| 	地
+|18		|eDP_VCC3V3		|eDP 3.3V 电源
+|19		|eDP_VCC3V3		|eDP 3.3V 电源
+|20		|eDP_VCC3V3		|eDP 3.3V 电源
+|21		|eDP_VCC3V3		|eDP 3.3V 电源
+|22		|NC		|无信号
+|23		|GND	|地
+|24		|GND	|地
+|25		|GND	|地
+|26		|GND	|地
+|27		|HPD_3V3	|	eDP 热插拔检测信号
+|28		|GND	|地
+|29		|GND	|地
+|30		|GND	|地
+|31		|GND	|地
+|32		|SOC_eDP0_BL-EN_3V3		|eDP 背光使能信号
+|33		|SOC_eDP0_BL-PWM_3V3	|eDP 背光亮度 PWM 调节信号
+|34		|NC		|无信号
+|35		|NC		|无信号
+|36		|P12V0_eDP-BL	|eDP 背光 12V 电源
+|37		|P12V0_eDP-BL	|eDP 背光 12V 电源
+|38		|P12V0_eDP-BL	|eDP 背光 12V 电源
+|39		|P12V0_eDP-BL	|eDP 背光 12V 电源
+|40		|NC		|无信号
+|====
+====
+image::/k3pico-itx/spacemit_k3_edpdisplayinterface1.jpg[spacemit_k3_edpdisplayinterface1.jpg]
+
+
+
+
+
+
+
+
+
+
