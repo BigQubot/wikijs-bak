@@ -753,13 +753,15 @@ image::/bpi-aim7/banana_pi_bpi-aim7_for_edge_6.jpg[banana_pi_bpi-aim7_for_edge_6
 
 === Linux BSP Source Code
 
-TIP: BPI-AIM7 BSP code : https://github.com/ArmSoM/armsom-build
+TIP: BPI-AIM7 BSP code : https://github.com/ArmSoM/manifests
 
-TIP: BPI-AIM7 kernel code: https://github.com/ArmSoM/linux-rockchip
+TIP: BPI-AIM7 kernel code: https://github.com/ArmSoM/rockchip-kernel
 
 TIP: BPI-AIM7 uboot code ： https://github.com/ArmSoM/u-boot
 
-TIP: RKNN-LLM Code repository: https://github.com/ArmSoM/rknn-llm
+TIP: RKNN-LLM Code repository: https://docs.armsom.org/advanced-manual/rknn-llm
+
+TIP: Armbian Linux build framework： https://github.com/armbian/build
 
 
 == Resources
