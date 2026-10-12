@@ -1,6 +1,8 @@
 = 概述
 
-ArmSoM-CM7s 核心板：尺寸小巧，性能强悍，专为深度嵌入式场景打造。 板载瑞芯微 RK3588S 8核 64位旗舰处理器（4×Cortex-A76 @ 2.4GHz + 4×Cortex-A55 @ 1.8GHz），采用 8nm 先进工艺，兼具出色算力与优秀功耗比。集成 ARM Mali-G610 高性能 GPU，全面兼容 OpenGL ES 3.2、OpenCL 2.2 及 Vulkan 1.2 图形 API；内置 6 TOPS 强劲 NPU，支持 INT4/INT8/INT16 混合精度运算，轻松胜任端侧 AI 推理。
+image::/cm7s/banana_pi_bpi-cm7s.jpg[banana_pi_bpi-cm7s.jpg]
+
+Banana Pi BPI-CM7s 核心板：尺寸小巧，性能强悍，专为深度嵌入式场景打造。 板载瑞芯微 RK3588S 8核 64位旗舰处理器（4×Cortex-A76 @ 2.4GHz + 4×Cortex-A55 @ 1.8GHz），采用 8nm 先进工艺，兼具出色算力与优秀功耗比。集成 ARM Mali-G610 高性能 GPU，全面兼容 OpenGL ES 3.2、OpenCL 2.2 及 Vulkan 1.2 图形 API；内置 6 TOPS 强劲 NPU，支持 INT4/INT8/INT16 混合精度运算，轻松胜任端侧 AI 推理。
 
 模块提供丰富的总线与扩展接口，支持多种容量 eMMC 闪存，可广泛赋能工业物联网、边缘计算及智能终端领域。
 
