@@ -35,15 +35,18 @@ image::/bpi-m8/m8_inteface_260828_v01.jpg[m8_inteface_260828_v01.jpg, width=1000
 2+| **Banana Pi M8 硬件规格**
 | CPU             | 全志科技A733 双核 Arm Cortex-A76 + 六核 Arm Cortex-A55，最高 2.0 GHz
 | GPU             | Imagination PowerVR BXM-4-64 MC1
+|PMIC             | AXP318
 | 内存            | 4GB LPDDR5 RAM
 | 存储            | MicroSD 卡槽; 支持 8GB/16GB/32GB/64GB/128GB eMMC 存储(默认64GB eMMC); 支持 UFS 模块
-| 网络            | 10/100/1000M 以太网 + K038 Wi-Fi6/蓝牙5.0 芯片
-| 视频输出        | HDMI 端口输出
+| 网络            | 10/100/1000M 以太网 +  Wi-Fi6/蓝牙5.0 芯片
+.2+| 视频输出      | HDMI 端口输出  | 1个4通道MIPI DSI显示接口
+| 摄像头 | 2 个 1x 4-lane MIPI CSI 摄像头接口
 | 音频输出        | 3.5mm 耳机插孔输出和 HDMI 音频输出
 | PCIe            | FPC PCIe 插座（与 DP 插座复用） 
 | USB 端口        | 3 个 USB 2.0 端口 + 1个 USB 3.0 端口
-| GPIO            | 40 针 GPIO
+| GPIO            | 支持 GPIO、UART、I²C、SPI 和 PWM 等多种功能的 40 引脚扩展接口
 | 开关            | PWR 按钮和 ADC 按钮
+| RTC             | 2-pin 1mm间隔 电池
 | LED             | 电源状态和活动状态
 | 电源            | 通过 USB Type-C 输入 5 V/4 A，或使用 PoE 供电
 | 尺寸和重量      | 85x56 mm, 60g
