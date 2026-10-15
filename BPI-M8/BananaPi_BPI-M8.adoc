@@ -46,7 +46,7 @@ image::/bpi-m8/m8_inteface_260828_v01.jpg[m8_inteface_260828_v01.jpg, width=1000
 | USB ports       | 3x USB 2.0 port + 1 USB 3.0 port
 | GPIO            | 40-pin expansion interface supporting multiple functions including GPIO, UART, I²C, SPI, and PWM
 | Switches        | PWR button and ADC button
-| RTC             | 2-pin battery
+| RTC             | 2-pin battery with 1mm pitch
 | LED             | Power Status and Activity status
 | Power Source    | 5 volt @4A via Micro USB (TYPE C) or PoE support
 | Size & Weight   | 85x56 mm
