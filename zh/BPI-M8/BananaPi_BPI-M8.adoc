@@ -6,6 +6,17 @@ BPI-M8 基于高性能八核 AI 平台芯片 A733，集成双核 Arm® Cortex®-
 
 BPI-M8 提供丰富的外设接口，包括 USB、DP、UFS、HDMI、MIPI CSI、MIPI DSI、FAN、RTC 和 1 个支持 PoE 的千兆以太网口。它支持从 SD 卡启动，并板载 KEIIOT K038 Wi-Fi/蓝牙芯片；同时配备 4GB LPDDR5 RAM、32GB eMMC 存储和两个 12x12mm 单天线模块。
 
+TIP: 基于全志A733设计 : link:/zh/BPI-M8/BananaPi_BPI-M8[香蕉派 BPI-M8] 尺寸类似 Raspberry Pi 5 + 
+基于全志H618设计 : link:/zh/BPI-M4_Berry/BananaPi_BPI-M4_Berry[香蕉派 BPI-M4 Berry] 尺寸类似 Raspberry Pi 4B +
+基于全志H618设计 : link:/zh/BPI-M4_Zero/BananaPi_BPI-M4_Zero[香蕉派 BPI-M4 Zero] 尺寸类似 Raspberry Pi Zere W +
+基于全志A40i设计 link:/zh/BPI-M2_Berry/BananaPi_BPI-M2_Berry[香蕉派 BPI-M2 Berry] SBC 设计 +
+基于全志A40i设计 link:/zh/BPI-M2_Ultra/BananaPi_BPI-M2_Ultra[香蕉派 BPI-M2 Ultra] SBC 设计 +
+基于全志A40i设计 link:/zh/BPI-6202/BananaPi_BPI-6202[香蕉派 BPI-6202] 工业控制网关 +
+基于全志H3设计: link:/zh/BPI-M2_Plus/BananaPi_BPI-M2_Plus[香蕉派 BPI-M2+] eMMC板载 SBC  +
+基于全志H3设计: link:/zh/BPI-M2_Zero/BananaPi_BPI-M2_Zero[香蕉派 BPI-M2 Zero] 尺寸类似 Raspberry Pi Zero W +
+基于全志H3设计: link:/zh/BPI-P2_Zero/BananaPi_BPI-P2_Zero[香蕉派 BPI-P2 Zero]  IoT 设计
+
+
 == 主要特性
 
 * 双核 Arm Cortex-A76 + 六核 Arm Cortex-A55，最高 2.0 GHz
