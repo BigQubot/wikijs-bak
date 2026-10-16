@@ -1,5 +1,7 @@
 = BPI-M8 简介
 
+image::/bpi-m8/banana_pi_bpi-m8_banner.jpg[banana_pi_bpi-m8_banner.jpg]
+
 BPI-M8 基于高性能八核 AI 平台芯片 A733，集成双核 Arm® Cortex®-A76 与六核 Arm Cortex-A55。它支持 Imagination PowerVR BXM-4-64 MC1 GPU、3 TOPS NPU，以及 LPDDR4、LPDDR4x、LPDDR5 DRAM 和 UFS/eMMC 存储。
 
 BPI-M8 提供丰富的外设接口，包括 USB、DP、UFS、HDMI、MIPI CSI、MIPI DSI、FAN、RTC 和 1 个支持 PoE 的千兆以太网口。它支持从 SD 卡启动，并板载 KEIIOT K038 Wi-Fi/蓝牙芯片；同时配备 4GB LPDDR5 RAM、32GB eMMC 存储和两个 12x12mm 单天线模块。
