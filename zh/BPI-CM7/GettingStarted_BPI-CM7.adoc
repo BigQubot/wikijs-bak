@@ -86,9 +86,9 @@ image::/bpi_cm7/bananapi_bpicm7_img10.jpg[bananapi_bpicm7_img10.jpg]
 以管理员身份打开 PowerShell，用下面命令列出可用于写入操作系统镜像的存储设备。
 
 +
-``
+```bash
 balena util available-drives
-``
+```
 +
 image::/bpi_cm7/bananapi_bpicm7_img11.jpg[bananapi_bpicm7_img11.jpg]
 
