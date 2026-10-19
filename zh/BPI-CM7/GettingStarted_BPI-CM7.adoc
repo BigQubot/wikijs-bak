@@ -97,7 +97,8 @@ DEVICE             SIZE    DESCRIPTION
 #写入镜像（如果没有反应，按一次 Ctrl+C 就可以出现进度条）
 PS C:\WINDOWS\system32> balena local flash C:\BPI\Bananapi-Armbian_24.11.1_Bpi-cm7_jammy_legacy_5.4.125_xfce_desktop.img.zip --drive \\.\PhysicalDrive2 --yes
 #日志
-Flashing [===                     ] 13% eta 9m32s
+Flashing [========================] 100% eta 0s
+Validating [========================] 100% eta 0s
 ```
 . 在 Linux 中可能需要使用 sudo 获取 root 权限后执行。
 
@@ -120,6 +121,8 @@ sudo armbian-config #BPI-CM7 上电登录进系统后，在终端输入这条命
 选择 System。
 
 +
+image::/bpi_cm7/bananapi_bpicm7_img12.jpg[bananapi_bpicm7_img12.jpg]
+
 
 选择 Install。
 选择 Boot from eMMC - system on eMMC。
