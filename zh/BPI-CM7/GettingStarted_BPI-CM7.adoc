@@ -99,8 +99,8 @@ PS C:\WINDOWS\system32> balena local flash C:\BPI\Bananapi-Armbian_24.11.1_Bpi-c
 #日志
 Flashing [===                     ] 13% eta 9m32s
 ```
-
 . 在 Linux 中可能需要使用 sudo 获取 root 权限后执行。
+
 +
 ```bash
 #写入镜像
@@ -110,12 +110,12 @@ sudo balena local flash path/to/xxx-bpi-m4-berry-xxx.img.zip --drive /dev/disk2
 == 将镜像安装到 eMMC
 . 确保 Linux 镜像已烧录到 SD 卡，并且开发板能够正常启动。
 . 在终端中输入以下命令。
-
++
 ```bash
 sudo armbian-config #BPI-CM7 上电登录进系统后，在终端输入这条命令，打开图形化配置菜单
 ```
-
 . 按照以下步骤将 Linux 系统镜像安装到 eMMC。
+
 
 
 
