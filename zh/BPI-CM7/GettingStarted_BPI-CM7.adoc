@@ -21,8 +21,8 @@ TIP: 更多信息：link:/zh/BPI-CM7/BananaPi_BPI-CM7[Banana Pi BPI-CM7 主页]
 = Android
 
 == 准备
-. 下载最新的 Android 镜像： https://pan.baidu.com/s/1OUJEnathYgcPsmsX5CSj9w?pwd=8888
-. 下载并安装 Allwinner 镜像下载工具： https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2Fphoenixsuit_V1.1.0_20150325.rar ；PhoenixSuit PhoenixSuit 适用于 Windows。 
+. 下载最新的 Android 镜像：
+. 下载并安装 Allwinner 镜像下载工具： link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2Fphoenixsuit_V1.1.0_20150325.rar[phoenixsuit_V1.1.0_20150325.rar] ；PhoenixSuit PhoenixSuit 适用于 Windows。 
 . Type-C 数据线和 5 V 电源。
 
 == 使用 USB 工具安装镜像 ==
@@ -83,7 +83,8 @@ Balena CLI 是 balenaCloud/openBalena 的命令行工具，也可用于写入 Li
 . 下载适用的安装程序或独立软件包（以 Windows 为例）: https://github.com/balena-io/balena-cli/releases 。
 +
 image::/bpi_cm7/bananapi_bpicm7_img10.jpg[bananapi_bpicm7_img10.jpg]
-运行 Balena CLI。
+以管理员身份打开 PowerShell，用下面命令列出可用于写入操作系统镜像的存储设备。
+
 
 使用以下命令确认开发板型号、操作系统、CPU、内存和启动存储设备。
 ```bash
