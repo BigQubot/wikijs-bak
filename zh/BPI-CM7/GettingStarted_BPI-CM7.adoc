@@ -67,14 +67,14 @@ WARNING: 选中目标 SD 卡设备，**注意仔细核对设备，防止选错�
 +
 image::/bpi_cm7/bananapi_bpicm7_img3.jpg[bananapi_bpicm7_img3.jpg]
 image::/bpi_cm7/bananapi_bpicm7_img4.jpg[bananapi_bpicm7_img4.jpg]
-开始烧录。
+开始烧录，等待写入 + 校验完成。
 
 +
 image::/bpi_cm7/bananapi_bpicm7_img5.jpg[bananapi_bpicm7_img5.jpg]
 image::/bpi_cm7/bananapi_bpicm7_img6.jpg[bananapi_bpicm7_img6.jpg]
 image::/bpi_cm7/bananapi_bpicm7_img7.jpg[bananapi_bpicm7_img7.jpg]
 
-> 使用 Balena CLI 安装镜像，支持 Windows、Linux 和 macOS。
+> 方式 2：Balena CLI 命令行（Windows/Linux/macOS）
 
 Balena CLI 是 balenaCloud/openBalena 的命令行工具，也可用于写入 Linux 镜像。
 
