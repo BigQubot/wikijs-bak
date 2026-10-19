@@ -97,9 +97,12 @@ PS C:\WINDOWS\system32> balena local flash C:\BPI\Bananapi-Armbian_24.11.1_Bpi-c
 #日志
 Flashing [===                     ] 13% eta 9m32s
 ```
-+
-image::/bpi_cm7/bananapi_bpicm7_img11.jpg[bananapi_bpicm7_img11.jpg]
 
+. 在 Linux 中可能需要使用 sudo 获取 root 权限后执行。
++
+```bash
+
+```
 
 使用以下命令确认开发板型号、操作系统、CPU、内存和启动存储设备。
 ```bash
