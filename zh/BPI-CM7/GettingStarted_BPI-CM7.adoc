@@ -1,29 +1,28 @@
 = 简介
 
-Banana Pi BPI-CM7 是一款基于 Allwinner H618 的计算模块，配合 BPI-CM7IO 载板使用。
+Banana Pi BPI-CM7 是一款基于 Allwinner H618 的计算模块，搭配 BPI-CM7IO 载板使用。
 
 TIP: 更多信息：link:/zh/BPI-CM7/BananaPi_BPI-CM7[Banana Pi BPI-CM7 主页]
 
 == 规格参数
 
-* Allwinner H618，四核 ARM Cortex™-A53 处理器，高达 1.5 GHz
-* ARM Mali G31 GPU
-* 板载 LPDDR4 内存
-* 板载 eMMC 存储
-* K019-CW43-Dw Wi-Fi 5 和蓝牙 5.0 模块
-* 1 个 USB 2.0 OTG
+* 主控：Allwinner H618，四核 Cortex‑A53，主频最高 1.5GHz
+* GPU: ARM Mali G31
+* 内存：板载 LPDDR4
+* 存储：板载 eMMC
+* 无线：K019-CW43-Dw Wi-Fi 5 和蓝牙 5.0
+* USB：1 路 USB2.0 OTG，3 路 USB2.0 Host
 * 3 个 USB 2.0 Host
-* 1 个 HDMI 输出
-* 1x 10/100M Ethernet
-* 1 个 microSD 接口
-* 2 个 100-pin 板对板连接器
+* 显示：HDMI 输出、CVBS 复合视频输出
+* 网口：1 路 10/100M 以太网
+* 扩展：microSD 卡槽、2 组 100pin 板对板连接器
 
 = Android
 
 == 准备
-. 下载最新的 Android 镜像：
-. 下载并安装 Allwinner 镜像下载工具： link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2Fphoenixsuit_V1.1.0_20150325.rar[phoenixsuit] ，适用于 Windows。
-. Type-C 数据线和 5 V 电源。
+. 下载最新 Android 镜像：
+. 获取全志刷机工具 PhoenixSuit： link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2Fphoenixsuit_V1.1.0_20150325.rar[phoenixsuit] （Windows 平台）。
+. Type‑C 数据线（支持数据传输）、5V 电源
 
 == 使用 USB 工具安装镜像 ==
 . 打开 PhoenixSuit，单击 一键刷机 图标切换到固件下载面板。
