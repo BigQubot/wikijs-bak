@@ -106,6 +106,8 @@ Flashing [===                     ] 13% eta 9m32s
 sudo balena local flash path/to/xxx-bpi-m4-berry-xxx.img.zip --drive /dev/disk2
 ```
 
+== 将镜像安装到 eMMC
+
 使用以下命令确认开发板型号、操作系统、CPU、内存和启动存储设备。
 ```bash
 hostnamectl
