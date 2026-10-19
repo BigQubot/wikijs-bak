@@ -107,6 +107,14 @@ sudo balena local flash path/to/xxx-bpi-m4-berry-xxx.img.zip --drive /dev/disk2
 ```
 
 == 将镜像安装到 eMMC
+. 确保 Linux 镜像已烧录到 SD 卡，并且开发板能够正常启动。
+. 在终端中输入以下命令
+```bash
+sudo armbian-config
+```
+
+
+
 
 使用以下命令确认开发板型号、操作系统、CPU、内存和启动存储设备。
 ```bash
