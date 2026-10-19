@@ -87,7 +87,8 @@ image::/bpi_cm7/bananapi_bpicm7_img10.jpg[bananapi_bpicm7_img10.jpg]
 
 +
 ```bash
-balena util available-drives #列出可用于写入操作系统镜像的存储设备
+#列出可用于写入操作系统镜像的存储设备
+balena util available-drives
 #日志
 PS C:\WINDOWS\system32> balena util available-drives
 DEVICE             SIZE    DESCRIPTION
