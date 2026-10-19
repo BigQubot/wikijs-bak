@@ -80,7 +80,7 @@ image::/bpi_cm7/bananapi_bpicm7_img7.jpg[bananapi_bpicm7_img7.jpg]
 
 Balena CLI 是 balenaCloud/openBalena 的命令行工具，也可用于写入 Linux 镜像。
 
-. 下载适用的安装程序或独立软件包（以 Windows 为例）: https://github.com/balena-io/balena-cli/releases 。
+. 下载适用的安装程序或独立软件包（以 Windows 为例）: link:https://github.com/balena-io/balena-cli/releases[balena-cli-v25.2.6-windows-x64-installer.exe] 。
 +
 image::/bpi_cm7/bananapi_bpicm7_img10.jpg[bananapi_bpicm7_img10.jpg]
 以管理员身份打开 PowerShell，用下面命令列出可用于写入操作系统镜像的存储设备。
