@@ -94,7 +94,7 @@ PS C:\WINDOWS\system32> balena util available-drives
 DEVICE             SIZE    DESCRIPTION
 \\.\PhysicalDrive2 15.9 GB Generic STORAGE DEVICE USB Device
 
-#写入镜像
+#写入镜像（如果没有反应，按一次 Ctrl+C 就可以出现进度条）
 PS C:\WINDOWS\system32> balena local flash C:\BPI\Bananapi-Armbian_24.11.1_Bpi-cm7_jammy_legacy_5.4.125_xfce_desktop.img.zip --drive \\.\PhysicalDrive2 --yes
 #日志
 Flashing [===                     ] 13% eta 9m32s
