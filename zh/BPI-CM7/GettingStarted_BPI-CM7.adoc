@@ -153,9 +153,9 @@ findmnt -no SOURCE,FSTYPE,SIZE,USED,AVAIL,USE%,TARGET /
 * eMMC: `/dev/mmcblk0`, 29.3 GiB
 * 用于测试的登录用户： `pi`
 
-== 将镜像安装到 SD 卡
 
-== 将镜像安装到 eMMC
+
+
 
 == 擦除 eMMC
 
