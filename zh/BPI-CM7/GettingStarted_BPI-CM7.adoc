@@ -83,11 +83,19 @@ Balena CLI 是 balenaCloud/openBalena 的命令行工具，也可用于写入 Li
 . 下载适用的安装程序或独立软件包（以 Windows 为例）: link:https://github.com/balena-io/balena-cli/releases[balena-cli-v25.2.6-windows-x64-installer.exe] 。
 +
 image::/bpi_cm7/bananapi_bpicm7_img10.jpg[bananapi_bpicm7_img10.jpg]
-以管理员身份打开 PowerShell，用下面命令列出可用于写入操作系统镜像的存储设备。
+在 Windows 下以管理员身份打开 PowerShell。
 
 +
 ```bash
-balena util available-drives # 列出可用于写入操作系统镜像的存储设备
+balena util available-drives #列出可用于写入操作系统镜像的存储设备
+#日志
+PS C:\WINDOWS\system32> balena util available-drives
+DEVICE             SIZE    DESCRIPTION
+\\.\PhysicalDrive2 15.9 GB Generic STORAGE DEVICE USB Device
+
+PS C:\WINDOWS\system32> balena local flash C:\BPI\Bananapi-Armbian_24.11.1_Bpi-cm7_jammy_legacy_5.4.125_xfce_desktop.img.zip --drive \\.\PhysicalDrive2 --yes
+#日志
+Flashing [===                     ] 13% eta 9m32s
 ```
 +
 image::/bpi_cm7/bananapi_bpicm7_img11.jpg[bananapi_bpicm7_img11.jpg]
