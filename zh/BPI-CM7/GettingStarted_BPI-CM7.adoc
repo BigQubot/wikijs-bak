@@ -58,12 +58,15 @@ Balena Etcher 是 Balena 提供的开源图形化镜像写入工具，可将操�
 +
 image::/bpi_cm7/bananapi_bpicm7_img1.jpg[bananapi_bpicm7_img1.jpg]
 image::/bpi_cm7/bananapi_bpicm7_img2.jpg[bananapi_bpicm7_img2.jpg]
-选择 USB 设备。
+WARNING: 选择 USB 设备（注意：这里一定不能选错）。
 
 +
 image::/bpi_cm7/bananapi_bpicm7_img3.jpg[bananapi_bpicm7_img3.jpg]
-. 
-. 
+image::/bpi_cm7/bananapi_bpicm7_img4.jpg[bananapi_bpicm7_img4.jpg]
+开始烧录。
+
++
+image::/bpi_cm7/bananapi_bpicm7_img5.png[bananapi_bpicm7_img5.png]
 
 
 
