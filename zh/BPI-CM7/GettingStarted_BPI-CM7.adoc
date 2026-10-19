@@ -53,8 +53,8 @@ TIP: 更多信息：link:/zh/BPI-CM7/BananaPi_BPI-CM7[Banana Pi BPI-CM7 主页]
 
 Balena Etcher 是 Balena 提供的开源图形化镜像写入工具，可将操作系统镜像写入 SD 卡或 U 盘。下面有 Linux 或者 Windows 系统下写入镜像方式，选择其一即可。
 
-. 
-. 
+. 在 Ubuntu 等 Linux 桌面系统中，可能需要先授予 AppImage 文件执行权限。
+. 运行 Balena Etcher，单击 Flash from file 选择镜像。
 . 
 . 
 . 
