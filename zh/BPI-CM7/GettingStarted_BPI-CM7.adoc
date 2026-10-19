@@ -49,11 +49,15 @@ TIP: 更多信息：link:/zh/BPI-CM7/BananaPi_BPI-CM7[Banana Pi BPI-CM7 主页]
 . 本 Wiki 指南仅适用于 Ubuntu/Debian 镜像。
 
 == 将镜像写入 SD 卡
+可使用以下两种方法写入镜像，任选一种即可。
+
 > 使用 **Balena Etcher** 安装镜像，支持 Windows、Linux 和 macOS。
 
-Balena Etcher 是 Balena 提供的开源图形化镜像写入工具，可将操作系统镜像写入 SD 卡或 U 盘。下面有 Linux 或者 Windows 系统下写入镜像方式，选择其一即可。
+Balena Etcher 是 Balena 提供的开源图形化镜像写入工具，可将操作系统镜像写入 SD 卡或 U 盘。
 
 . 在 Ubuntu 等 Linux 桌面系统中，可能需要先授予 AppImage 文件执行权限。
++
+
 . 运行 Balena Etcher，单击 从文件烧录 选择镜像。
 +
 image::/bpi_cm7/bananapi_bpicm7_img1.jpg[bananapi_bpicm7_img1.jpg]
