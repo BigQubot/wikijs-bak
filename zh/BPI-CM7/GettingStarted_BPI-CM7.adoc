@@ -101,7 +101,7 @@ Flashing [===                     ] 13% eta 9m32s
 . 在 Linux 中可能需要使用 sudo 获取 root 权限后执行。
 +
 ```bash
-
+sudo balena local flash path/to/xxx-bpi-m4-berry-xxx.img.zip --drive /dev/disk2
 ```
 
 使用以下命令确认开发板型号、操作系统、CPU、内存和启动存储设备。
