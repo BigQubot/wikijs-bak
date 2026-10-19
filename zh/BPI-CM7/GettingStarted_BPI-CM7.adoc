@@ -44,10 +44,13 @@ TIP: 更多信息：link:/zh/BPI-CM7/BananaPi_BPI-CM7[Banana Pi BPI-CM7 主页]
 . 如果要从 SD 卡启动，请先格式化带有可启动系统的 eMMC。
 . 如果要从 eMMC 启动并将 SD 卡用作存储，请确保 SD 卡已经格式化且未写入 Linux 镜像。
 . 下载最新镜像：，并确认 MD5 校验值正确。
+. 安装镜像下载工具 balenaEtcher： https://etcher.balena.io/ 。
 . 默认登录： pi/bananapi 或 root/1234。
 . 本 Wiki 指南仅适用于 Ubuntu/Debian 镜像。
 
 使用以下命令确认开发板型号、操作系统、CPU、内存和启动存储设备。
+
+== 将镜像写入 SD 卡
 
 ```bash
 hostnamectl
