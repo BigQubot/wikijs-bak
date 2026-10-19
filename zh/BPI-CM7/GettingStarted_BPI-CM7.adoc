@@ -43,12 +43,10 @@ TIP: 更多信息：link:/zh/BPI-CM7/BananaPi_BPI-CM7[Banana Pi BPI-CM7 主页]
 . 推荐使用容量至少为 8 GB 的 A1 等级存储卡。
 . 如果要从 SD 卡启动，请先格式化带有可启动系统的 eMMC。
 . 如果要从 eMMC 启动并将 SD 卡用作存储，请确保 SD 卡已经格式化且未写入 Linux 镜像。
-. 下载 Linux 最新镜像： https://pan.baidu.com/s/ pwd=i7wu。并确认 MD5 校验值正确。
+. 下载 Linux 最新镜像：  https://pan.baidu.com/s/1u9LFRcJN0m428XSXyWc47Q?pwd=i7wu 。并确认 MD5 校验值正确。
 . 安装镜像下载工具 balenaEtcher： https://etcher.balena.io/ 。
 . 默认登录： pi/bananapi 或 root/1234。
 . 本 Wiki 指南仅适用于 Ubuntu/Debian 镜像。
-
-使用以下命令确认开发板型号、操作系统、CPU、内存和启动存储设备。
 
 == 将镜像写入 SD 卡
 . 
@@ -59,7 +57,7 @@ TIP: 更多信息：link:/zh/BPI-CM7/BananaPi_BPI-CM7[Banana Pi BPI-CM7 主页]
 . 
 . 
 
-
+使用以下命令确认开发板型号、操作系统、CPU、内存和启动存储设备。
 ```bash
 hostnamectl
 tr '\0' '\n' < /proc/device-tree/model
