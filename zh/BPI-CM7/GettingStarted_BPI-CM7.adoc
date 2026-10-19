@@ -78,6 +78,9 @@ image::/bpi_cm7/bananapi_bpicm7_img7.jpg[bananapi_bpicm7_img7.jpg]
 
 > 使用 Balena CLI 安装镜像，支持 Windows、Linux 和 macOS。
 
+Balena CLI是balenaCloud/openBalena的命令行工具，也可用于写入Linux 镜像。
+
+. 下载适用的安装程序或独立软件包（以 Windows 为例）: https://github.com/balena-io/balena-cli/releases 。
 
 
 
