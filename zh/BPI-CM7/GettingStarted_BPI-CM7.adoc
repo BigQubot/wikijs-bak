@@ -162,6 +162,7 @@ image::/bpi_cm7/bananapi_bpicm7_img22.jpg[bananapi_bpicm7_img22.jpg]
 == 擦除 eMMC
 . 确保 Linux 镜像已烧录到 SD 卡中并插入 SD 卡。默认情况下，它将从 SD 卡启动。
 . 在终端中输入 lsblk，列出系统中的硬盘、分区等块设备信息。
++
 ```bach
 wangshui@bpi-cm7:~$ lsblk
 NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
