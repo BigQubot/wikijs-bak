@@ -87,7 +87,7 @@ image::/bpi_cm7/bananapi_bpicm7_img10.jpg[bananapi_bpicm7_img10.jpg]
 
 +
 ```bash
-balena util available-drives #列出可用于写入操作系统镜像的存储设备
+balena util available-drives # 列出可用于写入操作系统镜像的存储设备
 ```
 +
 image::/bpi_cm7/bananapi_bpicm7_img11.jpg[bananapi_bpicm7_img11.jpg]
