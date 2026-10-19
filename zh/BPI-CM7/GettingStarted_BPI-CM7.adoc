@@ -116,6 +116,15 @@ sudo armbian-config #BPI-CM7 上电登录进系统后，在终端输入这条命
 ```
 . 按照以下步骤将 Linux 系统镜像安装到 eMMC。
 
++
+选择 System。
+选择 Install。
+选择 Boot from eMMC - system on eMMC。
+选择 Yes。
+选择 1 ext4。
+等几分钟，此时请勿关闭或重新启动开发板。
+选择 Power off，关闭开发板并断开电源，取出 SD 卡后重新接通电源，开发板即可从 eMMC 启动。
+
 
 
 
