@@ -180,7 +180,7 @@ zram1        254:1    0    50M  0 disk /var/log
 
 +
 ```bach
-sudo dd if=/dev/zero of=/dev/mmcblk1 #源源不断的 0 字节覆盖整块 SD 卡，所有分区、文件全部抹除
+sudo dd if=/dev/zero of=/dev/mmcblk0 #源源不断的 0 字节覆盖整块 SD 卡，所有分区、文件全部抹除
 ```
 
 使用以下命令确认开发板型号、操作系统、CPU、内存和启动存储设备。
