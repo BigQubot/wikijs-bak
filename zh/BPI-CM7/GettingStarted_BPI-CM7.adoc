@@ -150,18 +150,15 @@ image::/bpi_cm7/bananapi_bpicm7_img19.jpg[bananapi_bpicm7_img19.jpg]
 
 +
 image::/bpi_cm7/bananapi_bpicm7_img20.jpg[bananapi_bpicm7_img20.jpg]
-等待十几分钟。
+等待十几分钟，此时请勿关闭或重新启动开发板。
 
 +
 image::/bpi_cm7/bananapi_bpicm7_img21.jpg[bananapi_bpicm7_img21.jpg]
-安装成功。
+安装成功，选择 OK，关闭开发板并断开电源，取出 SD 卡后重新接通电源，开发板即可从 eMMC 启动。
 
 +
 image::/bpi_cm7/bananapi_bpicm7_img22.jpg[bananapi_bpicm7_img22.jpg]
 
-
-等几分钟，此时请勿关闭或重新启动开发板。
-选择 Power off，关闭开发板并断开电源，取出 SD 卡后重新接通电源，开发板即可从 eMMC 启动。
 
 
 
