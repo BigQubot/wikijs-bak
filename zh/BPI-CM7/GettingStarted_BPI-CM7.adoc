@@ -329,7 +329,7 @@ image::/bpi_cm7/bananapi_bpicm7_nomachine4.jpg[bananapi_bpicm7_nomachine4.jpg]
 ```bash
 sudo armbian-config  #进入 Armbian 自带的系统配置工具
 ```
-
+image::/bpi_cm7/bananapi_bpicm7_armbian_config.jpg[bananapi_bpicm7_armbian_config.jpg]
 
 使用以下命令确认开发板型号、操作系统、CPU、内存和启动存储设备。
 ```bash
