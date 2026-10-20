@@ -224,7 +224,7 @@ image::/bpi_cm7/bananapi_bpicm7_uart5.jpg[bananapi_bpicm7_uart5.jpg]
 . 用网线将路由器的一个 LAN 口连接到 BPI-CM7，并将 PC 连接到另一个 LAN 口，保持在同一局域网下。
 +
 ```bash
-# 在 BPI-CM7 上打开终端
+# ************************************在 BPI-CM7 上打开终端************************************
 
 ip a # 查看 ip 地址
 # 日志
@@ -248,7 +248,7 @@ active # ssh 服务正在运行，可以 SSH 连接开发板
 
 #-----------------------------------------------------------------------------------------------
 
-# 在 PC 上打开终端
+# ************************************在 PC 上打开终端************************************
 
 # 使用 wangshui 用户，通过 ssh 连接 IP 为 10.0.35.168 的开发板
 PS C:\WINDOWS\system32> ssh wangshui@10.0.35.168
@@ -512,46 +512,7 @@ SESSION  UID USER     SEAT  TTY
 4 sessions listed.
 ```
 
-== SSH
 
-. 准备好网线和路由器。
-. 将 BPI-CM7IO 的以太网口和 PC 接入同一局域网。
-. 从路由器管理页面查看开发板的 IP 地址，或在开发板本地终端中执行以下命令。
-+
-```bash
-ip -brief address show eth0
-hostname -I
-```
-
-. 检查开发板上的 SSH 服务状态。
-+
-```bash
-systemctl is-active ssh
-```
-
-. 在 PC 上打开终端并连接开发板，将 `<board-ip>` 替换为路由器实际分配的地址。
-+
-```bash
-ssh pi@<board-ip>
-```
-
-. 登录后，使用以下命令确认远程用户名、开发板名称和内核版本。
-+
-```bash
-whoami
-hostnamectl --static
-uname -r
-```
-
-测试结果：
-
-```text
-SSH service: active
-Remote login: successful
-User: pi
-Hostname: bpi-cm7
-Kernel: 5.4.125-legacy-sunxi64
-```
 
 == NoMachine 远程桌面
 
