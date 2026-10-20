@@ -222,7 +222,6 @@ image::/bpi_cm7/bananapi_bpicm7_uart5.jpg[bananapi_bpicm7_uart5.jpg]
 == SSH
 . 准备网线和路由器。
 . 用网线将路由器的一个 LAN 口连接到 BPI-CM7，并将 PC 连接到另一个 LAN 口，保持在同一局域网下。
-. 在路由器管理界面中查看 BPI-CM7 的 IP 地址，或在 BPI-CM7 的 UART 终端中使用以下命令查看 IP 地址。
 +
 ```bash
 ip a # 查看 ip 地址
@@ -239,7 +238,62 @@ ip a # 查看 ip 地址
        valid_lft forever preferred_lft 604637sec
     inet6 fe80::7255:dcd2:80c7:b33c/64 scope link noprefixroute
        valid_lft forever preferred_lft forever
+       
+# 查看 ssh 服务当前运行状态
+systemctl is-active ssh
+# 日志
+active # ssh 服务正在运行，可以 SSH 连接开发板
+
+# 在 PC 上打开终端并连接开发板
+PS C:\WINDOWS\system32> ssh wangshui@10.0.35.168
+wangshui@10.0.35.168's password:
+# 日志
+  ___                                _      _             _    _
+ | _ ) __ _ _ _  __ _ _ _  __ _ _ __(_)___ /_\  _ _ _ __ | |__(_)__ _ _ _
+ | _ \/ _` | ' \/ _` | ' \/ _` | '_ \ |___/ _ \| '_| '  \| '_ \ / _` | ' \
+ |___/\__,_|_||_\__,_|_||_\__,_| .__/_|  /_/ \_\_| |_|_|_|_.__/_\__,_|_||_|
+                               |_|
+ v24.11.1 for BPI CM7 running Armbian Linux 5.4.125-legacy-sunxi64
+
+ Packages:     Ubuntu stable (jammy), possible distro upgrade (noble)
+ Updates:      Kernel upgrade enabled and 18 packages available for upgrade
+ Support:      DIY (custom image)
+ IP addresses: (LAN) IPv4: 10.0.35.168 IPv6: fd05:af69:dc21::80d (WAN) 65.49.150.87
+
+ Performance:
+
+ Load:         12%              Up time:       2:01     Local users:   3
+ Memory usage: 42% of 1.92G
+ CPU temp:     55°C            Usage of /:    49% of 15G
+ RX today:     102 MiB
+ Commands:
+
+ Configuration : armbian-config
+ Upgrade       : armbian-upgrade
+ Monitoring    : htop
+
+Last login: Tue Oct 20 08:43:04 2026 from 10.0.35.4
+bpi-cm7:~:%
+
+# 确认远程用户名
+bpi-cm7:~:% whoami
+# 日志
+wangshui
+
+# 查看系统静态主机名（永久主机名）
+bpi-cm7:~:% hostnamectl --static
+# 日志
+bpi-cm7
+
+# 查看内核版本号
+bpi-cm7:~:% uname -r
+# 日志
+5.4.125-legacy-sunxi64
 ```
+
+
+
+
 
 == 传输文件
 **SCP（secure copy，安全复制）**是 Linux 系统中用于在服务器之间安全复制文件的命令。
