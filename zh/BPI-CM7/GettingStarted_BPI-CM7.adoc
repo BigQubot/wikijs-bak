@@ -388,10 +388,16 @@ image::/bpi_cm7/bananapi_bpicm7_nomachine3.jpg[bananapi_bpicm7_nomachine3.jpg]
 image::/bpi_cm7/bananapi_bpicm7_nomachine4.jpg[bananapi_bpicm7_nomachine4.jpg]
 
 == armbian-config
-无需额外安装，直接运行以下命令即可进入 armbian-config。
+Armbian 自带的系统配置工具。
 
 ```bash
-sudo armbian-config  #进入 Armbian 自带的系统配置工具
+# 检查 armbian-config 命令是否存在、输出它的完整路径
+command -v armbian-config
+# 日志
+/usr/bin/armbian-config
+
+# 启动Armbian配置工具
+sudo armbian-config
 ```
 image::/bpi_cm7/bananapi_bpicm7_armbian_config.jpg[bananapi_bpicm7_armbian_config.jpg]
 
