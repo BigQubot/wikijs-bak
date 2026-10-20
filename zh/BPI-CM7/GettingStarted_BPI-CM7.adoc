@@ -516,33 +516,14 @@ SESSION  UID USER     SEAT  TTY
 4 sessions listed.
 ```
 
+== 无线网络
+
+=== WiFi 连接
 
 
-== NoMachine 远程桌面
 
-== armbian-config
 
-检查 `armbian-config` 是否已安装。
 
-```bash
-command -v armbian-config
-```
-
-使用以下命令启动 Armbian 配置工具。
-
-```bash
-sudo armbian-config
-```
-
-测试结果：
-
-```text
-/usr/bin/armbian-config
-```
-
-== WiFi
-
-使用 `nmcli` 命令列出网络设备并扫描 Wi-Fi 接入点。
 
 ```bash
 nmcli device # List devices
