@@ -243,7 +243,19 @@ ip a #查看 ip 地址
 
 . 在 Windows 安装 **OpenSSH**。
 . 安装成功后，以管理员身份运行 **PowerShell**。
-
+. 输入被控设备的 **用户名** 和 **IP**。
++
+```bash
+PS C:\BPI> scp C:\BPI\1.wav wangshui@10.0.35.168:~/Music
+#日志
+The authenticity of host '10.0.35.168 (10.0.35.168)' can't be established.
+ED25519 key fingerprint is SHA256:HGwdAdNVf6rXcEP3eZleVo/SoCj8HsezHXHMDIKfTfw.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
+Warning: Permanently added '10.0.35.168' (ED25519) to the list of known hosts.
+wangshui@10.0.35.168's password:
+1.wav                                                                                 100%   37MB  11.3MB/s   00:03
+```
 
 == NoMachine 远程桌面
 . 确保 BPI-M4 Berry 已连接互联网，然后使用以下命令在系统中下载 NoMachine DEB 安装包。
