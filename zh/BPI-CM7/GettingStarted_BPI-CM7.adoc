@@ -301,9 +301,10 @@ NX> 700 Installation completed at: Tue, 20 Oct 2026 07:03:48.
 NX> 700 NoMachine was configured to run the following services:
 NX> 700 NX service on port: 4000
 ```
-. 也可以直接在 PC 下载，再通过 SSH 或 U 盘将其复制到 BPI-CM7： link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fcommon_tools%2Fnomachine_8.2.3_3_arm64.deb&dl=1[nomachine_8.2.3_3_arm64]
 
+. 也可以直接在 PC 下载，再通过 SSH 或 U 盘将其复制到 BPI-CM7： link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fcommon_tools%2Fnomachine_8.2.3_3_arm64.deb&dl=1[nomachine_8.2.3_3_arm64]
 . 确保 PC 与 BPI-CM7 位于同一局域网。
+. 在 PC 上打开 NoMachine
 
 
 
