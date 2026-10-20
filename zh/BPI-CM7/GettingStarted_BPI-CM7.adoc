@@ -519,6 +519,7 @@ SESSION  UID USER     SEAT  TTY
 == 无线网络
 
 === WiFi 连接
+
 ```bash
 # 查看网口硬件状态
 nmcli device
