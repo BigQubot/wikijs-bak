@@ -246,6 +246,7 @@ ip a #查看 ip 地址
 . 输入被控设备的 **用户名** 和 **IP**。
 +
 ```bash
+#发送1.wav文件
 PS C:\BPI> scp C:\BPI\1.wav wangshui@10.0.35.168:~/Music
 #日志
 The authenticity of host '10.0.35.168 (10.0.35.168)' can't be established.
