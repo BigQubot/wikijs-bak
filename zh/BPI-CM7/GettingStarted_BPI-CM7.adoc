@@ -224,6 +224,8 @@ image::/bpi_cm7/bananapi_bpicm7_uart5.jpg[bananapi_bpicm7_uart5.jpg]
 . 用网线将路由器的一个 LAN 口连接到 BPI-CM7，并将 PC 连接到另一个 LAN 口，保持在同一局域网下。
 +
 ```bash
+# 在 BPI-CM7 上打开终端
+
 ip a # 查看 ip 地址
 # 日志
 12: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
@@ -244,7 +246,11 @@ systemctl is-active ssh
 # 日志
 active # ssh 服务正在运行，可以 SSH 连接开发板
 
-# 在 PC 上打开终端并连接开发板
+#-----------------------------------------------------------------------------------------------
+
+# 在 PC 上打开终端
+
+# 使用 wangshui 用户，通过 ssh 连接 IP 为 10.0.35.168 的开发板
 PS C:\WINDOWS\system32> ssh wangshui@10.0.35.168
 wangshui@10.0.35.168's password:
 # 日志
@@ -290,6 +296,10 @@ bpi-cm7:~:% uname -r
 # 日志
 5.4.125-legacy-sunxi64
 ```
+
+. 也可以用 **MobaXterm** 连接。
++
+
 
 
 
