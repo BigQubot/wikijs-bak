@@ -593,6 +593,15 @@ Chain POSTROUTING (policy ACCEPT 0 packets, 0 bytes)
 
 # 连接热点 Annick，把手机的 ipv4 地址配置为固定 IP：10.42.0.100（网段：10.42.0.x），还要配置 DNS:223.5.5.5
 
+# 确认是否连接上热点
+ip neigh show dev wlan0
+# 日志
+10.42.0.100 lladdr a2:93:80:fe:59:9c REACHABLE
+
+# 断开创建的 AP 热点
+# 停止热点
+
+
 
 ```bash
 nmcli device # List devices
