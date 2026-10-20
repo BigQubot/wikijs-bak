@@ -207,7 +207,9 @@ image::/bpi_cm7/bananapi_bpicm7_desktop_hdmi.jpg[bananapi_bpicm7_desktop_hdmi.jp
 +
 image::/bpi_cm7/bananapi_bpicm7_uart1.jpg[bananapi_bpicm7_uart1.jpg]
 
-. 选择 **Serial（串口）** 会话类型，选择设备对应的 **COM 端口**，波特率设置为 **115200**。
++
+选择 **Serial（串口）** 会话类型，选择设备对应的 **COM 端口**，波特率设置为 **115200**。
+
 +
 image::/bpi_cm7/bananapi_bpicm7_uart2.jpg[bananapi_bpicm7_uart2.jpg]
 点击 **OK** 后会弹出串口终端会话窗口，如果没有反应，可以把它关掉，重新打开，再按板子的 **复位键 RST**。
