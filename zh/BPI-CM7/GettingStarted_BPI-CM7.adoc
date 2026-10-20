@@ -59,7 +59,7 @@ Balena Etcher 是 Balena 提供的开源图形化镜像写入工具，可将操�
 image::/bpi_cm7/bananapi_bpicm7_img_write_sd1.jpg[bananapi_bpicm7_img_write_sd1.jpg]
 image::/bpi_cm7/bananapi_bpicm7_img_write_sd2.jpg[bananapi_bpicm7_img_write_sd2.jpg]
 
-. 运行 Balena Etcher，选择「从文件烧录」，导入镜像文件。
+. 运行 Balena Etcher，选择 **从文件烧录**，导入镜像文件。
 +
 image::/bpi_cm7/bananapi_bpicm7_img_write_sd3.jpg[bananapi_bpicm7_img_write_sd3.jpg]
 image::/bpi_cm7/bananapi_bpicm7_img_write_sd4.jpg[bananapi_bpicm7_img_write_sd4.jpg]
@@ -75,7 +75,7 @@ image::/bpi_cm7/bananapi_bpicm7_img_write_sd7.jpg[bananapi_bpicm7_img_write_sd7.
 image::/bpi_cm7/bananapi_bpicm7_img_write_sd8.jpg[bananapi_bpicm7_img_write_sd8.jpg]
 image::/bpi_cm7/bananapi_bpicm7_img_write_sd9.jpg[bananapi_bpicm7_img_write_sd9.jpg]
 
-> 方式 2：Balena CLI 命令行（Windows/Linux/macOS）
+> 方式 2：**Balena CLI** 命令行（Windows/Linux/macOS）
 
 Balena CLI 是 balenaCloud/openBalena 的命令行工具，也可用于写入 Linux 镜像。
 
@@ -117,35 +117,35 @@ sudo armbian-config #BPI-CM7 上电登录进系统后，在终端输入这条命
 . 按照以下步骤将 Linux 系统镜像安装到 eMMC。
 
 +
-选择 System。
+选择 **System**。
 
 +
 image::/bpi_cm7/bananapi_bpicm7_img_write_emmc1.jpg[bananapi_bpicm7_img_write_emmc1.jpg]
-选择 Storage。
+选择 **Storage**。
 
 +
 image::/bpi_cm7/bananapi_bpicm7_img_write_emmc2.jpg[bananapi_bpicm7_img_write_emmc2.jpg]
-选择 ST0001。
+选择 **ST0001**。
 
 +
 image::/bpi_cm7/bananapi_bpicm7_img_write_emmc3.jpg[bananapi_bpicm7_img_write_emmc3.jpg]
-选择 install。
+选择 **install**。
 
 +
 image::/bpi_cm7/bananapi_bpicm7_img_write_emmc4.jpg[bananapi_bpicm7_img_write_emmc4.jpg]
-选择 mmcbLk0。
+选择 **mmcbLk0**。
 
 +
 image::/bpi_cm7/bananapi_bpicm7_img_write_emmc5.jpg[bananapi_bpicm7_img_write_emmc5.jpg]
-选择 emmc。
+选择 **emmc**。
 
 +
 image::/bpi_cm7/bananapi_bpicm7_img_write_emmc6.jpg[bananapi_bpicm7_img_write_emmc6.jpg]
-选择 ext4。
+选择 **ext4**。
 
 +
 image::/bpi_cm7/bananapi_bpicm7_img_write_emmc7.jpg[bananapi_bpicm7_img_write_emmc7.jpg]
-选择 Erase and install。
+选择 **Erase and install**。
 
 +
 image::/bpi_cm7/bananapi_bpicm7_img_write_emmc8.jpg[bananapi_bpicm7_img_write_emmc8.jpg]
