@@ -323,7 +323,12 @@ image::/bpi_cm7/bananapi_bpicm7_nomachine3.jpg[bananapi_bpicm7_nomachine3.jpg]
 +
 image::/bpi_cm7/bananapi_bpicm7_nomachine4.jpg[bananapi_bpicm7_nomachine4.jpg]
 
+== armbian-config
+无需额外安装，直接运行以下命令即可进入 armbian-config。
 
+```bash
+sudo armbian-config  #进入 Armbian 自带的系统配置工具
+```
 
 
 使用以下命令确认开发板型号、操作系统、CPU、内存和启动存储设备。
