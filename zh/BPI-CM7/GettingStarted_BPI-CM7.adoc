@@ -616,6 +616,9 @@ Wired connection 1  77edb523-eb38-3d59-86fe-02697b55705e  ethernet  eth0
 AP1                 da1663cc-eb74-4f86-98e4-49166cb408f9  wifi      --
 R4Pro-5G            2c28502c-4ae1-4b64-b25d-792b9bc2e165  wifi      --
 
+# 如果想重新启动 AP1
+nmcli connection up AP1
+
 # 彻底删除 AP1 的配置（一定要先停止 AP1 再删除 AP1 的配置，否则直接删除 AP1 的配置会连同 wlan0 一起删除！）
 nmcli connection delete AP1
 # 日志
@@ -627,32 +630,10 @@ nmcli device wifi list # List available Wi-Fi access points
 rfkill list # Check whether Wi-Fi is blocked
 ```
 
-使用以下命令连接、断开连接或创建 Wi-Fi 热点。
 
-```bash
-nmcli device wifi connect [SSID] password [PASSWORD]
-nmcli connection up [SSID]
-nmcli device disconnect [device name]
 
-nmcli device wifi hotspot con-name [NAME] ifname [device name] ssid [SSID] password [PASSWORD]
 
-nmcli connection show
-nmcli connection down [NAME]
-nmcli connection up [NAME]
-nmcli connection delete [SSID]
 
-nmcli radio wifi off
-nmcli radio wifi on
-```
-
-测试结果：
-
-```text
-Interface: wlan0
-rfkill soft blocked: no
-rfkill hard blocked: no
-Wi-Fi scan: successful
-```
 
 == 设置静态 IP 和 DNS
 
