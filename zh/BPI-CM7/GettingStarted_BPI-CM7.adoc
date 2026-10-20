@@ -446,15 +446,6 @@ SESSION  UID USER     SEAT  TTY
 4 sessions listed.
 ```
 
-测试结果：
-
-```text
-graphical.target
-active
-```
-
-== 调试 UART
-
 == SSH
 
 . 准备好网线和路由器。
