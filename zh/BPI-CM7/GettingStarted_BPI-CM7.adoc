@@ -598,6 +598,10 @@ ip neigh show dev wlan0
 # 日志
 10.42.0.100 lladdr a2:93:80:fe:59:9c REACHABLE
 
+# 连通性验证
+# 1.手机 ping 网关：ping 10.42.0.1，能通代表手机到板子 WiFi 链路正常
+# 2.手机 ping 外网：ping 223.5.5.5，通则上网正常
+
 # 断开创建的 AP 热点
 # 停止热点
 nmcli connection down AP1
