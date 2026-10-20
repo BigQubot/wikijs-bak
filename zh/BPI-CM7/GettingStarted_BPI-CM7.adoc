@@ -332,7 +332,7 @@ sudo armbian-config  #进入 Armbian 自带的系统配置工具
 image::/bpi_cm7/bananapi_bpicm7_armbian_config.jpg[bananapi_bpicm7_armbian_config.jpg]
 
 == 查看 BPI-CM7 开发板硬件与系统信息
-使用以下命令确认开发板型号、操作系统、CPU、内存和启动存储设备。
+这一组命令用来**一次性读取开发板的系统版本、硬件型号、CPU、内存、存储分区、根文件系统挂载信息**，方便确认板子硬件、内核、启动介质（SD 卡 /eMMC）。
 ```bash
 #查看操作系统版本、主机名、内核版本、架构
 hostnamectl
