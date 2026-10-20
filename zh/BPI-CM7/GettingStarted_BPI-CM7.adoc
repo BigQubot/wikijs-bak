@@ -278,12 +278,9 @@ NoMachine 从 v10 这个版本开始，官方不再提供免费个人版，这�
 . 在 BPI-CM7 下载 **NoMachine(arm64)**。
 +
 ```bash
+#下载 NoMachine DEB 包
 wget -O nomachine_8.2.3_3_arm64.deb \
 'https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fcommon_tools%2Fnomachine_8.2.3_3_arm64.deb&dl=1'
-```
-. 也可以直接在 PC 下载再通过 SSH 或 U 盘将其复制到 BPI-CM7： link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fcommon_tools%2Fnomachine_8.2.3_3_arm64.deb&dl=1[nomachine_8.2.3_3_arm64]
-+
-```bash
 #安装 nomachine
 sudo dpkg -i nomachine_8.2.3_3_arm64.deb
 #日志-NX 服务监听端口 **4000**，版本 8.2.3，服务已经部署完成
@@ -304,6 +301,8 @@ NX> 700 Installation completed at: Tue, 20 Oct 2026 07:03:48.
 NX> 700 NoMachine was configured to run the following services:
 NX> 700 NX service on port: 4000
 ```
+. 也可以直接在 PC 下载，再通过 SSH 或 U 盘将其复制到 BPI-CM7： link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fcommon_tools%2Fnomachine_8.2.3_3_arm64.deb&dl=1[nomachine_8.2.3_3_arm64]
+
 
 
 
