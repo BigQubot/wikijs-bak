@@ -331,10 +331,26 @@ sudo armbian-config  #进入 Armbian 自带的系统配置工具
 ```
 image::/bpi_cm7/bananapi_bpicm7_armbian_config.jpg[bananapi_bpicm7_armbian_config.jpg]
 
+== 查看 BPI-CM7 开发板硬件与系统信息
 使用以下命令确认开发板型号、操作系统、CPU、内存和启动存储设备。
 ```bash
+#查看操作系统版本、主机名、内核版本、架构
 hostnamectl
+#日志
+bpi-cm7:~:% hostnamectl
+ Static hostname: bpi-cm7
+       Icon name: computer
+      Machine ID: 3be43d6d67bb4a5c997f7e107ad26ed9
+         Boot ID: df8aa4a30d8a43c0ac687203a61125b5
+Operating System: Bananapi-Armbian 24.11.1 jammy
+          Kernel: Linux 5.4.125-legacy-sunxi64
+    Architecture: arm64
+
+#读取设备树里的硬件型号，输出**板子型号**
 tr '\0' '\n' < /proc/device-tree/model
+#日志
+Bananapi BPI-CM7
+
 tr '\0' '\n' < /proc/device-tree/compatible
 uname -a
 lscpu
