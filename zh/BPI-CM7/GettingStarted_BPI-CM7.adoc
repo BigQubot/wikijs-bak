@@ -221,6 +221,22 @@ image::/bpi_cm7/bananapi_bpicm7_uart5.jpg[bananapi_bpicm7_uart5.jpg]
 . 用网线将路由器的一个 LAN 口连接到 BPI-CM7，并将 PC 连接到另一个 LAN 口，保持在同一局域网下。
 . 在路由器管理界面中查看 BPI-CM7 的 IP 地址，或在 BPI-CM7 的 UART 终端中使用以下命令查看 IP 地址。
 
+···bach
+ip a #查看 ip 地址
+#日志
+12: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 8e:43:99:3f:bf:00 brd ff:ff:ff:ff:ff:ff
+    inet 10.0.35.168/24 brd 10.0.35.255 scope global dynamic noprefixroute eth0
+       valid_lft 43014sec preferred_lft 43014sec
+    inet6 fd05:af69:dc21::c15/128 scope global dynamic noprefixroute
+       valid_lft 43036sec preferred_lft 43036sec
+    inet6 fd05:af69:dc21:0:e8bf:9fc8:d2ab:ee23/64 scope global temporary dynamic
+       valid_lft 604636sec preferred_lft 85846sec
+    inet6 fd05:af69:dc21:0:d4a9:a3f0:6f1a:67e3/64 scope global mngtmpaddr noprefixroute
+       valid_lft forever preferred_lft 604637sec
+    inet6 fe80::7255:dcd2:80c7:b33c/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever
+···
 
 
 
