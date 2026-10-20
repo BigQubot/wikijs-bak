@@ -7,6 +7,15 @@ your board and installed hardware.
 
 ## Choose your hardware
 
+support boards:
+
+TIP: MediaTek MT7988 (Filogic 880): link:/en/BPI-R4_Pro/BananaPi_BPI-R4_Pro[Banana Pi BPI-R4 Pro] Router development board [8X and 4E ] +
+MediaTek MT7988 (Filogic 880): link:/en/BPI-R4/BananaPi_BPI-R4[Banana Pi BPI-R4] Router development board +
+MediaTek MT7987 (Filogic 860): link:/en/BPI-R4_Lite/BananaPi_BPI-R4_Lite[Banana Pi BPI-R4 Lite]  Router board +
+MediaTek MT7986(Filogic 830): link:/en/BPI-R3_Mini/BananaPi_BPI-R3_Mini[Banana Pi BPI-R3 Mini] Mini size Router development board +
+MediaTek MT7986(Filogic 830): link:/en/BPI-R3/BananaPi_BPI-R3[Banana Pi BPI-R3] Router development board  +
+MediaTek MT7981(Filogic 820): link:/en/OpenWRT-One/BananaPi_OpenWRT-One[Banana Pi Openwrt One] Router development board  
+
 Images are provided for BPI-R4, BPI-R3, BPI-R4-Lite, BPI-R3-Mini, OpenWrt One,
 BPI-R4-Pro 8X and BPI-R4-Pro 4E. Always use the exact model's download.
 R4-Pro 4E is experimental; do not use an 8X image on it. On 4E, the WAN copper
