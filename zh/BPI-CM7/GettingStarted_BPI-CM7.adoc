@@ -600,6 +600,17 @@ ip neigh show dev wlan0
 
 # 断开创建的 AP 热点
 # 停止热点
+nmcli connection down AP1
+# 日志
+Connection 'AP1' successfully deactivated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/3)
+
+# 查看当前所有连接
+nmcli connection show
+# 日志（AP1 已经停止）
+NAME                UUID                                  TYPE      DEVICE
+Wired connection 1  77edb523-eb38-3d59-86fe-02697b55705e  ethernet  eth0
+AP1                 da1663cc-eb74-4f86-98e4-49166cb408f9  wifi      --
+R4Pro-5G            2c28502c-4ae1-4b64-b25d-792b9bc2e165  wifi      --
 
 
 
