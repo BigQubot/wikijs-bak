@@ -591,7 +591,7 @@ Chain POSTROUTING (policy ACCEPT 0 packets, 0 bytes)
  pkts bytes target     prot opt in     out     source               destination
     2   123 MASQUERADE  all  --  *      *       10.42.0.0/24        !10.42.0.0/24         /* nm-shared-wlan0 */
 
-# 把手机的 ipv4 地址配置为固定 IP，还要配置 DNS
+# 连接热点 Annick，把手机的 ipv4 地址配置为固定 IP：10.42.0.100（网段：10.42.0.x），还要配置 DNS:223.5.5.5
 
 
 ```bash
