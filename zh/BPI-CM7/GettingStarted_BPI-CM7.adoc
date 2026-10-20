@@ -55,6 +55,7 @@ Balena Etcher 是 Balena 提供的开源图形化镜像写入工具，可将操�
 
 . 在 Ubuntu 等 Linux 桌面系统中，可能需要先授予 AppImage 文件执行权限。
 +
+
 image::/bpi_cm7/bananapi_bpicm7_img_write_sd1.jpg[bananapi_bpicm7_img_write_sd1.jpg]
 image::/bpi_cm7/bananapi_bpicm7_img_write_sd2.jpg[bananapi_bpicm7_img_write_sd2.jpg]
 
@@ -147,11 +148,10 @@ image::/bpi_cm7/bananapi_bpicm7_img_write_emmc7.jpg[bananapi_bpicm7_img_write_em
 选择 Erase and install。
 
 +
-image::/bpi_cm7/bananapi_bpicm7_img20.jpg[bananapi_bpicm7_img20.jpg]
+image::/bpi_cm7/bananapi_bpicm7_img_write_emmc8.jpg[bananapi_bpicm7_img_write_emmc8.jpg]
 等待十几分钟，此时请勿关闭或重新启动开发板。
 
-+
-image::/bpi_cm7/bananapi_bpicm7_img21.jpg[bananapi_bpicm7_img21.jpg]
++image::/bpi_cm7/bananapi_bpicm7_img_write_emmc9.jpg[bananapi_bpicm7_img_write_emmc9.jpg]
 安装成功，选择 OK，关闭开发板并断开电源，取出 SD 卡后重新接通电源，开发板即可从 eMMC 启动。
 
 +
