@@ -199,7 +199,10 @@ dd: writing to '/dev/mmcblk0': No space left on device
 --
 
 == 调试 UART
-
+. 准备 3.3V USB 转 TTL 模块。
+. 将 USB 转 TTL 模块连接至 PC 的 USB 接口与开发板调试 UART 端口。
+. 在 PC 端打开串口终端工具，如 MobaXterm、PuTTY。
+. 以 MobaXterm 为例，配置串口号与 115200 波特率，即可接入 BPI-M4 Berry 的 UART 调试终端。
 
 
 
