@@ -425,8 +425,25 @@ findmnt -no SOURCE,FSTYPE,SIZE,USED,AVAIL,USE%,TARGET /
 ```bash
 # 查询systemd默认启动目标，graphical.target代表默认启动图形界面
 systemctl get-default
+# 日志
+graphical.target
+
+# 查 display-manager（图形登录管理器）服务是否正在运行，active 为正常
 systemctl is-active display-manager
+#日志
+active
+
+#列出系统所有登录会话，查看本地、远程（NoMachine）会话是否创建成功
 loginctl list-sessions
+# 日志
+bpi-cm7:~:% loginctl list-sessions
+SESSION  UID USER     SEAT  TTY
+      6 1000 wangshui       ttyAS0
+     c3 1000 wangshui
+     c4 1000 wangshui seat0
+     c5 1000 wangshui
+
+4 sessions listed.
 ```
 
 测试结果：
