@@ -584,13 +584,14 @@ cat /proc/sys/net/ipv4/ip_forward
 1
 
 # 查看 nat 表中 POSTROUTING 链的规则（用来确认IP转发/共享上网的SNAT规则）
-sudo iptables -t nat -L POSTROUTING
+sudo iptables -t nat -L POSTROUTING -nv
 # 日志
 # Warning: iptables-legacy tables present, use iptables-legacy to see them
-Chain POSTROUTING (policy ACCEPT)
-target     prot opt source               destination
-MASQUERADE  all  --  10.42.0.0/24        !10.42.0.0/24         /* nm-shared-wlan0 */
+Chain POSTROUTING (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination
+    2   123 MASQUERADE  all  --  *      *       10.42.0.0/24        !10.42.0.0/24         /* nm-shared-wlan0 */
 
+# 把手机的 ipv4 地址配置为固定 IP，还要配置 DNS
 
 
 ```bash
