@@ -519,7 +519,26 @@ SESSION  UID USER     SEAT  TTY
 == 无线网络
 
 === WiFi 连接
+```bash
+# 查看网口硬件状态
+nmcli device
+# 日志
+DEVICE         TYPE      STATE         CONNECTION
+eth0           ethernet  connected     Wired connection 1
+wlan0          wifi      disconnected  --
+p2p-dev-wlan0  wifi-p2p  disconnected  --
+dummy0         dummy     unmanaged     --
+erspan0        erspan    unmanaged     --
+gre0           iptunnel  unmanaged     --
+gretap0        iptunnel  unmanaged     --
+ip6gre0        iptunnel  unmanaged     --
+ip6tnl0        iptunnel  unmanaged     --
+sit0           iptunnel  unmanaged     --
+tunl0          iptunnel  unmanaged     --
+lo             loopback  unmanaged     --
+ip_vti0        vti       unmanaged     --
 
+```
 
 
 
