@@ -562,6 +562,7 @@ Device 'wlan0' successfully disconnected.
 ```
 
 === 创建 AP 热点
+```bash
 # 建立 AP
 nmcli device wifi hotspot con-name AP1 ifname wlan0 ssid Annick password 88888888
 # 日志
@@ -624,10 +625,6 @@ nmcli connection delete AP1
 # 日志
 Connection 'AP1' (da1663cc-eb74-4f86-98e4-49166cb408f9) successfully deleted.
 
-```bash
-nmcli device # List devices
-nmcli device wifi list # List available Wi-Fi access points
-rfkill list # Check whether Wi-Fi is blocked
 ```
 
 
