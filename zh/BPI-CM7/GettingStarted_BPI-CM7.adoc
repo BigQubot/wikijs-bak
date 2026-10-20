@@ -273,19 +273,14 @@ wangshui@10.0.35.168's password:
 
 == NoMachine 远程桌面
 . NoMachine 从 v10 这个版本开始，服务器端不再提供免费个人版，这里提供 v8 版本下载链接。有条件的可以区官网下载最新版本 link:https://download.nomachine.com/[nomachine 下载] 。
-. PC 下载 NoMachine(x64)： link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fcommon_tools%2Fnomachine_8.2.3_4_x64.exe&dl=1[nomachine_8.2.3_4_x64.exe]
-. BPI-CM7 下载 NoMachine(arm64)
+. 在 PC 下载 **NoMachine(x64)**： link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fcommon_tools%2Fnomachine_8.2.3_4_x64.exe&dl=1[nomachine_8.2.3_4_x64.exe]
+. 在 BPI-CM7 下载 **NoMachine(arm64)**。
 ```bash
 wget -O nomachine_8.2.3_3_arm64.deb \
 'https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fcommon_tools%2Fnomachine_8.2.3_3_arm64.deb&dl=1'
 ```
 
 
-
-+
-```bash
-wget https://download.nomachine.com/download/8.9/Arm/nomachine_8.13.1_1_arm64.deb
-```
 
 . 也可以在 PC 浏览器中打开 link:https://download.nomachine.com/[NoMachine 下载页面] 下载 DEB 安装包后，通过 SSH 或 U 盘将其复制到 BPI-CM7 的用户目录。
 . 下载完成后，使用以下命令安装。文件名以实际下载的文件为准。
