@@ -519,7 +519,6 @@ SESSION  UID USER     SEAT  TTY
 == 无线网络
 
 === WiFi 连接
-
 ```bash
 # 查看网口硬件状态
 nmcli device
@@ -538,6 +537,28 @@ sit0           iptunnel  unmanaged     --
 tunl0          iptunnel  unmanaged     --
 lo             loopback  unmanaged     --
 ip_vti0        vti       unmanaged     --
+
+# 列出可用的无线网络接入点
+nmcli device wifi list
+# 日志
+IN-USE  BSSID              SSID                         MODE   CHAN  RATE        SIGNAL  BAR>
+        00:0C:43:26:60:11  R4Pro-2G                     Infra  1     270 Mbit/s  100     ▂▄▆>
+        00:0C:43:26:60:10  MT76_AP_MLD                  Infra  1     270 Mbit/s  100     ▂▄▆>
+        02:0C:43:26:62:10  OpenWrt-2g                   Infra  1     270 Mbit/s  100     ▂▄▆>
+        02:0C:43:26:61:10  MT76_AP_MLD                  Infra  1     270 Mbit/s  100     ▂▄▆>
+        46:2F:D0:0F:21:0C  --                           Infra  6     540 Mbit/s  100     ▂▄▆>
+        24:2F:D0:0F:21:0C  TP-Link_210A_2G              Infra  6     540 Mbit/s  100     ▂▄▆>
+        24:2F:D0:0F:21:0D  TP-Link_210A_5G              Infra  36    540 Mbit/s  100     ▂▄▆>
+
+# 连接 WiFi
+nmcli device wifi connection R4Pro-5G password ******
+# 日志
+Device 'wlan0' successfully activated with '2c28502c-4ae1-4b64-b25d-792b9bc2e165'.
+
+# 断开WiFi
+nmcli device disconnect wlan0
+# 日志
+Device 'wlan0' successfully disconnected.
 
 ```
 
