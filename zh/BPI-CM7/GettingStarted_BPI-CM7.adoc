@@ -203,11 +203,17 @@ dd: writing to '/dev/mmcblk0': No space left on device
 . 将 USB 转 TTL 模块连接至 PC 的 USB 接口与开发板调试 UART 端口。
 . 在 PC 端打开串口终端工具，如 MobaXterm、PuTTY。
 . 以 MobaXterm 为例，打开 MobaXterm，点击顶部菜单栏 **Sessions → User sessions**，新建会话。
-
 +
 image::/bpi_cm7/bananapi_bpicm7_uart1.jpg[bananapi_bpicm7_uart1.jpg]
 
-. 选择 **Serial（串口）** 会话类型
+. 选择 **Serial（串口）** 会话类型，选择设备对应的 **COM 端口**，波特率设置为 **115200**。
++
+image::/bpi_cm7/bananapi_bpicm7_uart2.jpg[bananapi_bpicm7_uart2.jpg]
+点击 **OK** 后会弹出串口终端会话窗口，如果没有反应，可以把它关掉，重新打开，再按板子的 **复位键 RST**。
+
++
+image::/bpi_cm7/bananapi_bpicm7_uart3.jpg[bananapi_bpicm7_uart3.jpg]
+
 
 使用以下命令确认开发板型号、操作系统、CPU、内存和启动存储设备。
 ```bash
