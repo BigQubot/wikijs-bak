@@ -258,8 +258,20 @@ wangshui@10.0.35.168's password:
 1.wav                                                                                 100%   37MB  11.3MB/s   00:03
 ```
 
++
+```bash
+#从 BPI-CM7 发送 1.txt 文件到 Windows
+```
+
 == NoMachine 远程桌面
-. 确保 BPI-M4 Berry 已连接互联网，然后使用以下命令在系统中下载 NoMachine DEB 安装包。
+. 确保 BPI-M4 Berry 已连接互联网，然后使用以下命令在系统中下载 NoMachine DEB 安装包。NoMachine 从
+
+
+
+
+
+
+
 
 
 使用以下命令确认开发板型号、操作系统、CPU、内存和启动存储设备。
