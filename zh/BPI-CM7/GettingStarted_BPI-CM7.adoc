@@ -195,7 +195,8 @@ dd: writing to '/dev/mmcblk0': No space left on device
 . 连接 BPI-CM7 和显示器，切换显示器信号源；开发板上电，等待加载完成后出现桌面。
 --
 * Linux 桌面环境
-
++
+image::/bpi_cm7/bananapi_bpicm7_desktop_hdmi.jpg[bananapi_bpicm7_desktop_hdmi.jpg]
 --
 
 == 调试 UART
