@@ -261,6 +261,14 @@ wangshui@10.0.35.168's password:
 +
 ```bash
 #从 BPI-CM7 发送 1.txt 文件到 Windows
+PS C:\BPI> scp wangshui@10.0.35.168:~/Documents/1.txt .\
+The authenticity of host '10.0.35.168 (10.0.35.168)' can't be established.
+ED25519 key fingerprint is SHA256:HGwdAdNVf6rXcEP3eZleVo/SoCj8HsezHXHMDIKfTfw.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
+Warning: Permanently added '10.0.35.168' (ED25519) to the list of known hosts.
+wangshui@10.0.35.168's password:
+1.txt                                                                                 100%    6     3.1KB/s   00:00
 ```
 
 == NoMachine 远程桌面
