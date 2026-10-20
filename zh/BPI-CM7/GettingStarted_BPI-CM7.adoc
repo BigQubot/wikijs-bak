@@ -162,7 +162,7 @@ image::/bpi_cm7/bananapi_bpicm7_img_write_emmc10.jpg[bananapi_bpicm7_img_write_e
 . 确保 Linux 镜像已烧录到 SD 卡中并插入 SD 卡。插入 SD 卡默认优先 SD 卡启动。
 . 终端执行`lsblk`，列出系统中的硬盘、分区等块设备信息。
 +
-```bach
+```bash
 wangshui@bpi-cm7:~$ lsblk
 NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
 mmcblk0      179:0    0  29.3G  0 disk
@@ -178,7 +178,7 @@ zram1        254:1    0    50M  0 disk /var/log
 . mmcblk0 是 eMMC，mmcblk1 是 SD 卡。在终端中输入以下命令擦除 eMMC。此过程需要二十多分钟且不可逆，请事先备份重要数据。
 
 +
-```bach
+```bash
 sudo dd if=/dev/zero of=/dev/mmcblk0 #向 eMMC 全盘持续写入 0，覆盖所有分区与数据
 #日志
 wangshui@bpi-cm7:~$ sudo dd if=/dev/zero of=/dev/mmcblk0 status=progress
