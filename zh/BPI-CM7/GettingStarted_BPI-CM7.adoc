@@ -606,13 +606,16 @@ Connection 'AP1' successfully deactivated (D-Bus active path: /org/freedesktop/N
 
 # 查看当前所有连接
 nmcli connection show
-# 日志（AP1 已经停止）
+# 日志（-- 代表 AP1 已经停止）
 NAME                UUID                                  TYPE      DEVICE
 Wired connection 1  77edb523-eb38-3d59-86fe-02697b55705e  ethernet  eth0
 AP1                 da1663cc-eb74-4f86-98e4-49166cb408f9  wifi      --
 R4Pro-5G            2c28502c-4ae1-4b64-b25d-792b9bc2e165  wifi      --
 
-
+# 彻底删除 AP1 的配置（一定要先停止 AP1 再删除 AP1 的配置，否则直接删除 AP1 的配置会连同 wlan0 一起删除！）
+nmcli connection delete AP1
+# 日志
+Connection 'AP1' (da1663cc-eb74-4f86-98e4-49166cb408f9) successfully deleted.
 
 ```bash
 nmcli device # List devices
