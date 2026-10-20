@@ -238,7 +238,15 @@ ip a #查看 ip 地址
        valid_lft forever preferred_lft forever
 ```
 
+== 传输文件
+**SCP（secure copy，安全复制）**是 Linux 系统中用于在服务器之间安全复制文件的命令。
 
+. 在 Windows 安装 **OpenSSH**。
+. 安装成功后，以管理员身份运行 **PowerShell**。
+
+
+== NoMachine 远程桌面
+. 确保 BPI-M4 Berry 已连接互联网，然后使用以下命令在系统中下载 NoMachine DEB 安装包。
 
 
 使用以下命令确认开发板型号、操作系统、CPU、内存和启动存储设备。
