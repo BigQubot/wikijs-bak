@@ -276,19 +276,33 @@ NoMachine 从 v10 这个版本开始，官方不再提供免费个人版，这�
 
 . 在 PC 下载 **NoMachine(x64)**： link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fcommon_tools%2Fnomachine_8.2.3_4_x64.exe&dl=1[nomachine_8.2.3_4_x64.exe]
 . 在 BPI-CM7 下载 **NoMachine(arm64)**。
++
 ```bash
 wget -O nomachine_8.2.3_3_arm64.deb \
 'https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fcommon_tools%2Fnomachine_8.2.3_3_arm64.deb&dl=1'
 ```
-
-
-
-. 也可以在 PC 浏览器中打开 link:https://download.nomachine.com/[NoMachine 下载页面] 下载 DEB 安装包后，通过 SSH 或 U 盘将其复制到 BPI-CM7 的用户目录。
-. 下载完成后，使用以下命令安装。文件名以实际下载的文件为准。
+. 也可以直接在 PC 下载再通过 SSH 或 U 盘将其复制到 BPI-CM7： link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fcommon_tools%2Fnomachine_8.2.3_3_arm64.deb&dl=1[nomachine_8.2.3_3_arm64]
 +
 ```bash
 #安装 nomachine
-sudo dpkg -i nomachine_8.13.1_1_arm64.deb 
+sudo dpkg -i nomachine_8.2.3_3_arm64.deb
+#日志-NX 服务监听端口 **4000**，版本 8.2.3，服务已经部署完成
+[sudo] password for wangshui:
+Selecting previously unselected package nomachine.
+(Reading database ... 169865 files and directories currently installed.)
+Preparing to unpack nomachine_8.2.3_3_arm64.deb ...
+Unpacking nomachine (8.2.3-3) ...
+Setting up nomachine (8.2.3-3) ...
+NX> 700 Starting installation at: Tue, 20 Oct 2026 07:02:36.
+NX> 700 Using installation profile: Ubuntu.
+NX> 700 Installation log is: /usr/NX/var/log/nxinstall.log.
+NX> 700 Installing nxrunner version: 8.2.3.
+NX> 700 Installing nxplayer version: 8.2.3.
+NX> 700 Installing nxnode version: 8.2.3.
+NX> 700 Installing nxserver version: 8.2.3.
+NX> 700 Installation completed at: Tue, 20 Oct 2026 07:03:48.
+NX> 700 NoMachine was configured to run the following services:
+NX> 700 NX service on port: 4000
 ```
 
 
