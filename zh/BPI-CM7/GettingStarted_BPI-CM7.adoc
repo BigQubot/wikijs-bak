@@ -189,6 +189,11 @@ dd: writing to '/dev/mmcblk0': No space left on device
 31474057216 bytes (31 GB, 29 GiB) copied, 1502.02 s, 21.0 MB/s
 ```
 
+== 桌面
+. 烧录 Ubuntu/Debian 桌面版镜像，即可启用图形桌面环境。
+. 准备一台带有 HDMI 接口的显示器以及 HDMI 连接线。
+. 连接 BPI-CM7 和显示器，切换显示器信号源；开发板上电，等待加载完成后出现桌面。
+
 
 
 使用以下命令确认开发板型号、操作系统、CPU、内存和启动存储设备。
