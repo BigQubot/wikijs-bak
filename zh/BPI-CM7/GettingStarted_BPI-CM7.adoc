@@ -86,16 +86,16 @@ image::/bpi_cm7/bananapi_bpicm7_img_write_sd10.jpg[bananapi_bpicm7_img_write_sd1
 
 +
 ```bash
-#列出可用于写入操作系统镜像的存储设备
+# 列出可用于写入操作系统镜像的存储设备
 balena util available-drives
-#日志
+# 日志
 PS C:\WINDOWS\system32> balena util available-drives
 DEVICE             SIZE    DESCRIPTION
 \\.\PhysicalDrive2 15.9 GB Generic STORAGE DEVICE USB Device
 
-#写入镜像（如果没有反应，按一次 Ctrl+C 就可以出现进度条）
+# 写入镜像（如果没有反应，按一次 Ctrl+C 就可以出现进度条）
 PS C:\WINDOWS\system32> balena local flash C:\BPI\Bananapi-Armbian_24.11.1_Bpi-cm7_jammy_legacy_5.4.125_xfce_desktop.img.zip --drive \\.\PhysicalDrive2 --yes
-#日志
+# 日志
 Flashing [========================] 100% eta 0s
 Validating [========================] 100% eta 0s
 ```
@@ -103,7 +103,7 @@ Validating [========================] 100% eta 0s
 
 +
 ```bash
-#写入镜像
+# 写入镜像
 sudo balena local flash path/to/xxx-bpi-m4-berry-xxx.img.zip --drive /dev/disk2
 ```
 
@@ -180,7 +180,7 @@ zram1        254:1    0    50M  0 disk /var/log
 +
 ```bash
 sudo dd if=/dev/zero of=/dev/mmcblk0 #向 eMMC 全盘持续写入 0，覆盖所有分区与数据
-#日志
+# 日志
 wangshui@bpi-cm7:~$ sudo dd if=/dev/zero of=/dev/mmcblk0 status=progress
 31452194304 bytes (31 GB, 29 GiB) copied, 1498 s, 21.0 MB/s
 dd: writing to '/dev/mmcblk0': No space left on device
@@ -225,8 +225,8 @@ image::/bpi_cm7/bananapi_bpicm7_uart5.jpg[bananapi_bpicm7_uart5.jpg]
 . 在路由器管理界面中查看 BPI-CM7 的 IP 地址，或在 BPI-CM7 的 UART 终端中使用以下命令查看 IP 地址。
 +
 ```bash
-ip a #查看 ip 地址
-#日志
+ip a # 查看 ip 地址
+# 日志
 12: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
     link/ether 8e:43:99:3f:bf:00 brd ff:ff:ff:ff:ff:ff
     inet 10.0.35.168/24 brd 10.0.35.255 scope global dynamic noprefixroute eth0
@@ -249,9 +249,9 @@ ip a #查看 ip 地址
 . 输入被控设备的 **用户名** 和 **IP**。
 +
 ```bash
-#从 Windows 发送 1.wav 文件到 BPI-CM7
+# 从 Windows 发送 1.wav 文件到 BPI-CM7
 PS C:\BPI> scp C:\BPI\1.wav wangshui@10.0.35.168:~/Music
-#日志
+# 日志
 The authenticity of host '10.0.35.168 (10.0.35.168)' can't be established.
 ED25519 key fingerprint is SHA256:HGwdAdNVf6rXcEP3eZleVo/SoCj8HsezHXHMDIKfTfw.
 This key is not known by any other names.
@@ -263,7 +263,7 @@ wangshui@10.0.35.168's password:
 
 +
 ```bash
-#从 BPI-CM7 发送 1.txt 文件到 Windows
+# 从 BPI-CM7 发送 1.txt 文件到 Windows
 PS C:\BPI> scp wangshui@10.0.35.168:~/Documents/1.txt .\
 The authenticity of host '10.0.35.168 (10.0.35.168)' can't be established.
 ED25519 key fingerprint is SHA256:HGwdAdNVf6rXcEP3eZleVo/SoCj8HsezHXHMDIKfTfw.
@@ -281,12 +281,12 @@ NoMachine 从 v10 这个版本开始，官方不再提供免费个人版，这�
 . 在 BPI-CM7 下载 **NoMachine(arm64)**。
 +
 ```bash
-#下载 NoMachine DEB 包
+# 下载 NoMachine DEB 包
 wget -O nomachine_8.2.3_3_arm64.deb \
 'https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fcommon_tools%2Fnomachine_8.2.3_3_arm64.deb&dl=1'
-#安装 nomachine
+# 安装 nomachine
 sudo dpkg -i nomachine_8.2.3_3_arm64.deb
-#日志-NX 服务监听端口 **4000**，版本 8.2.3，服务已经部署完成
+# 日志-NX 服务监听端口 **4000**，版本 8.2.3，服务已经部署完成
 [sudo] password for wangshui:
 Selecting previously unselected package nomachine.
 (Reading database ... 169865 files and directories currently installed.)
@@ -334,9 +334,9 @@ image::/bpi_cm7/bananapi_bpicm7_armbian_config.jpg[bananapi_bpicm7_armbian_confi
 == 查看 BPI-CM7 开发板硬件与系统信息
 这一组命令用来**一次性读取开发板的系统版本、硬件型号、CPU、内存、存储分区、根文件系统挂载信息**，方便确认板子硬件、内核、启动介质（SD 卡 /eMMC）。
 ```bash
-#查看操作系统版本、主机名、内核版本、架构
+# 查看操作系统版本、主机名、内核版本、架构
 hostnamectl
-#日志
+# 日志
 bpi-cm7:~:% hostnamectl
  Static hostname: bpi-cm7
        Icon name: computer
@@ -346,26 +346,26 @@ Operating System: Bananapi-Armbian 24.11.1 jammy
           Kernel: Linux 5.4.125-legacy-sunxi64
     Architecture: arm64
 
-#读取设备树里的硬件型号，输出**板子型号**
+# 读取设备树里的硬件型号，输出**板子型号**
 tr '\0' '\n' < /proc/device-tree/model
-#日志
+# 日志
 Bananapi BPI-CM7
 
-#查看设备树兼容型号，用于确认芯片平台
+# 查看设备树兼容型号，用于确认芯片平台
 tr '\0' '\n' < /proc/device-tree/compatible
-#日志
+# 日志
 bananapi,bpi-cm7
 allwinner,sun50i-h618
 arm,sun50iw9p1
 
-#查看完整内核信息、架构、编译时间
+# 查看完整内核信息、架构、编译时间
 uname -a
-#日志
+# 日志
 Linux bpi-cm7 5.4.125-legacy-sunxi64 #1 SMP Tue Oct 13 07:48:35 UTC 2026 aarch64 aarch64 aarch64 GNU/Linux
 
-#CPU 核心数、架构、频率等处理器信息
+# CPU 核心数、架构、频率等处理器信息
 lscpu
-#日志
+# 日志
 Architecture:            aarch64
   CPU op-mode(s):        32-bit, 64-bit
   Byte Order:            Little Endian
@@ -394,16 +394,16 @@ Vulnerabilities:
   Srbds:                 Not affected
   Tsx async abort:       Not affected
 
-#查看内存与 swap 大小，`-h` 自动用 GB/MB 友好单位展示
+# 查看内存与 swap 大小，`-h` 自动用 GB/MB 友好单位展示
 free -h
-#日志
+# 日志
                total        used        free      shared  buff/cache   available
 Mem:           1.9Gi       816Mi       213Mi        94Mi       935Mi       1.0Gi
 Swap:          982Mi          0B       982Mi
 
-#**列出块存储设备**（eMMC、SD 卡、U 盘等）
+# **列出块存储设备**（eMMC、SD 卡、U 盘等）
 lsblk
-#日志
+# 日志
 NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
 mmcblk0      179:0    0  29.3G  0 disk
 mmcblk0boot0 179:16   0     4M  1 disk
@@ -414,33 +414,16 @@ mmcblk1      179:48   0  14.8G  0 disk
 zram0        254:0    0 982.5M  0 disk [SWAP]
 zram1        254:1    0    50M  0 disk /var/log
 
-#查看**根分区 /**：磁盘来源、文件系统、总容量、已用 / 剩余空间、占用率
+# 查看**根分区 /**：磁盘来源、文件系统、总容量、已用 / 剩余空间、占用率
 findmnt -no SOURCE,FSTYPE,SIZE,USED,AVAIL,USE%,TARGET /
-#日志
+# 日志
 /dev/mmcblk1p1 ext4   14.4G  6.9G  7.3G  48% /
 ```
 
-测试结果：
-
-* 开发板：Banana Pi BPI-CM7 + BPI-CM7IO
-* 操作系统：Armbian 24.11.1 Jammy / Ubuntu 22.04.5 LTS
-* 内核： Linux 5.4.125-legacy-sunxi64
-* 架构：arm64
-* CPU：4 个 Cortex-A53，高达 1512 MHz
-* 内存：Linux 可用 1.9 GiB
-* 启动设备：microSD， `/dev/mmcblk1p1`
-* eMMC: `/dev/mmcblk0`, 29.3 GiB
-* 用于测试的登录用户： `pi`
-
-
-
-
-
-== 桌面
-
-使用以下命令检查系统是否已启动到 graphical target，以及显示管理器是否正在运行。
+== 图形会话状态检查命令
 
 ```bash
+# 查询systemd默认启动目标，graphical.target代表默认启动图形界面
 systemctl get-default
 systemctl is-active display-manager
 loginctl list-sessions
