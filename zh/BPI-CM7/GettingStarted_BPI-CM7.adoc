@@ -562,7 +562,34 @@ Device 'wlan0' successfully disconnected.
 ```
 
 === 创建 AP 热点
+# 建立 AP
+nmcli device wifi hotspot con-name AP1 ifname wlan0 ssid Annick password 88888888
+# 日志
+Device 'wlan0' successfully activated with 'da1663cc-eb74-4f86-98e4-49166cb408f9'.
+Hint: "nmcli dev wifi show-password" shows the Wi-Fi name and password.
 
+# 手机静态 IP 连接
+# 查看 wlan0 的地址
+ip a show wlan0
+# 日志
+13: wlan0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether ac:6a:a3:41:31:31 brd ff:ff:ff:ff:ff:ff
+    inet 10.42.0.1/24 brd 10.42.0.255 scope global noprefixroute wlan0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::ae6a:a3ff:fe41:3131/64 scope link
+       valid_lft forever preferred_lft forever
+# 确认 IP 转发开启
+cat /proc/sys/net/ipv4/ip_forward
+# 日志（如果是0，临时开启 sudo sysctl -w net.ipv4.ip_forward=1）
+1
+
+# 查看 nat 表中 POSTROUTING 链的规则（用来确认IP转发/共享上网的SNAT规则）
+sudo iptables -t nat -L POSTROUTING
+# 日志
+# Warning: iptables-legacy tables present, use iptables-legacy to see them
+Chain POSTROUTING (policy ACCEPT)
+target     prot opt source               destination
+MASQUERADE  all  --  10.42.0.0/24        !10.42.0.0/24         /* nm-shared-wlan0 */
 
 
 
