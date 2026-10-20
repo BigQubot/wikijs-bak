@@ -351,12 +351,73 @@ tr '\0' '\n' < /proc/device-tree/model
 #日志
 Bananapi BPI-CM7
 
+#查看设备树兼容型号，用于确认芯片平台
 tr '\0' '\n' < /proc/device-tree/compatible
+#日志
+bananapi,bpi-cm7
+allwinner,sun50i-h618
+arm,sun50iw9p1
+
+#查看完整内核信息、架构、编译时间
 uname -a
+#日志
+Linux bpi-cm7 5.4.125-legacy-sunxi64 #1 SMP Tue Oct 13 07:48:35 UTC 2026 aarch64 aarch64 aarch64 GNU/Linux
+
+#CPU 核心数、架构、频率等处理器信息
 lscpu
+#日志
+Architecture:            aarch64
+  CPU op-mode(s):        32-bit, 64-bit
+  Byte Order:            Little Endian
+CPU(s):                  4
+  On-line CPU(s) list:   0-3
+Vendor ID:               ARM
+  Model name:            Cortex-A53
+    Model:               4
+    Thread(s) per core:  1
+    Core(s) per cluster: 4
+    Socket(s):           -
+    Cluster(s):          1
+    Stepping:            r0p4
+    CPU max MHz:         1512.0000
+    CPU min MHz:         480.0000
+    BogoMIPS:            48.00
+    Flags:               fp asimd aes pmull sha1 sha2 crc32 cpuid
+Vulnerabilities:
+  Itlb multihit:         Not affected
+  L1tf:                  Not affected
+  Mds:                   Not affected
+  Meltdown:              Not affected
+  Spec store bypass:     Not affected
+  Spectre v1:            Mitigation; __user pointer sanitization
+  Spectre v2:            Not affected
+  Srbds:                 Not affected
+  Tsx async abort:       Not affected
+
+#查看内存与 swap 大小，`-h` 自动用 GB/MB 友好单位展示
 free -h
-lsblk -o NAME,MAJ:MIN,RM,SIZE,RO,TYPE,FSTYPE,MOUNTPOINTS
+#日志
+               total        used        free      shared  buff/cache   available
+Mem:           1.9Gi       816Mi       213Mi        94Mi       935Mi       1.0Gi
+Swap:          982Mi          0B       982Mi
+
+#**列出块存储设备**（eMMC、SD 卡、U 盘等）
+lsblk
+#日志
+NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+mmcblk0      179:0    0  29.3G  0 disk
+mmcblk0boot0 179:16   0     4M  1 disk
+mmcblk0boot1 179:32   0     4M  1 disk
+mmcblk1      179:48   0  14.8G  0 disk
+└─mmcblk1p1  179:49   0  14.7G  0 part /var/log.hdd
+                                       /
+zram0        254:0    0 982.5M  0 disk [SWAP]
+zram1        254:1    0    50M  0 disk /var/log
+
+#查看**根分区 /**：磁盘来源、文件系统、总容量、已用 / 剩余空间、占用率
 findmnt -no SOURCE,FSTYPE,SIZE,USED,AVAIL,USE%,TARGET /
+#日志
+/dev/mmcblk1p1 ext4   14.4G  6.9G  7.3G  48% /
 ```
 
 测试结果：
