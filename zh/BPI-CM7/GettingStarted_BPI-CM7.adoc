@@ -272,7 +272,13 @@ wangshui@10.0.35.168's password:
 ```
 
 == NoMachine 远程桌面
-. 确保 BPI-M4 Berry 已连接互联网，然后使用以下命令在系统中下载 NoMachine DEB 安装包。NoMachine 从
+. 确保 BPI-M4 Berry 已连接互联网，然后使用以下命令在系统中下载 NoMachine DEB 安装包。NoMachine 从 v10 这个版本开始，服务器端不再提供免费个人版，这里提供 v8 版本下载地址。
++
+```bash
+wget https://download.nomachine.com/download/8.9/Arm/nomachine_8.13.1_1_arm64.deb
+```
+
+. 也可以在 PC 浏览器中打开 link:https://download.nomachine.com/[NoMachine 下载页面] 下载 DEB 安装包后，通过 SSH 或 U 盘将其复制到 BPI-CM7 的用户目录。
 
 
 
