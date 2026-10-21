@@ -491,11 +491,26 @@ ve_thermal_zone: 50.8 °C
 
 image::/bpi_cm7/bananapi_bpicm7_usb_flash_driver1.jpg[bananapi_bpicm7_usb_flash_driver1.jpg]
 在用户的主目录下创建一个单独的目录用于挂载，以便于管理。
-
-+
 ```bash
 mkdir test_u
 ```
+内核导出的块设备分区表
+```bash
+cat /proc/partitions | grep "sd*"
+```
+将/dev/sda1设备挂载到~/test_u/目录下,如果在你挂载的目录下看不到文件，那就退出目录，再重新进入。
+```bash
+sudo mount /dev/sda1 ~/test_u/
+ls
+```
+移除 U 盘。
+```bash
+sudo umount -v /dev/sda1
+```
+注意： U 盘挂载后，如果没有 umount 卸载就直接拔掉。 再次插入，内核就会给新编号 sdb。 卸载完成之后，才可以物理拔掉 U 盘，防止文件损坏。
+
+
+
 
 
 == 使用音频设备
