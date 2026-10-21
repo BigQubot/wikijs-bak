@@ -365,12 +365,23 @@ nmcli connection up AP1
 nmcli connection delete AP1
 ```
 
+=== WiFi 射频模块开关
+. 关闭 WiFi 射频模块，wlan0 直接断电，创建的 AP 热点立刻消失，所有 WiFi 功能全部停用，如果没删除 AP1 的配置文件，就还保留在系统里。
++
+```bash
+nmcli radio wifi off
+nmcli radio # 查看无线射频开关
+```
 
-
-
-
+. 打开 WiFi 射频模块，WiFi 硬件恢复供电
++
+```bash
+nmcli radio wifi on   # 打开 WiFi 射频模块
+nmcli radio # 查看无线射频开关
+```
 
 == 设置静态 IP 和 DNS
+
 
 == 网络时间同步
 
