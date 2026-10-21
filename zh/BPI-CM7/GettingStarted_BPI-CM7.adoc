@@ -388,7 +388,24 @@ nmcli connection show "Wired connection 1"  # 显示指定连接的全部属性
 nmcli connection modify "Wired connection 1" ipv4.addresses 10.0.35.4/24  # 设置静态 ip 和子网掩码
 nmcli connection modify "Wired connection 1" ipv4.dns8.8.8.8              # 设置 dns
 ```
+测试连通性。
 
+. ping 网关：板子和路由器之间物理 / 内网链路正常，IP 配置没问题。
++
+```bash
+ping 10.35.1
+```
+
+. ping 公网 IP：内网正常，路由器已经可以访问互联网，路由没问题。
++
+```bash
+ping 223.5.5.5
+```
+
+. ping 域名：DNS 解析工作正常。
+```bash
+ping baidu.com
+```
 
 == 网络时间同步
 
