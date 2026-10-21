@@ -282,13 +282,8 @@ image::/bpi_cm7/bananapi_bpicm7_nomachine4.jpg[bananapi_bpicm7_nomachine4.jpg]
 Armbian 自带的系统配置工具。
 
 ```bash
-# 检查 armbian-config 命令是否存在、输出它的完整路径
-command -v armbian-config
-# 日志
-/usr/bin/armbian-config
-
-# 启动Armbian配置工具
-sudo armbian-config
+command -v armbian-config  # 检查 armbian-config 命令是否存在、输出它的完整路径
+sudo armbian-config        # 启动Armbian配置工具
 ```
 image::/bpi_cm7/bananapi_bpicm7_armbian_config.jpg[bananapi_bpicm7_armbian_config.jpg]
 
