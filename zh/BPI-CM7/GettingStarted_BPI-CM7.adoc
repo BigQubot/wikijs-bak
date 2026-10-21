@@ -518,7 +518,7 @@ card 1: ahubhdmi [ahubhdmi], device 0: ahub_plat-snd-soc-dummy-dai snd-soc-dummy
 
 
 
-=== scp
+== scp
 
 SCP 使用 SSH 协议，在 PC 与 BPI-CM7 之间安全复制文件。请先确认 PC 和开发板已连接到同一局域网，且 SSH 可以正常登录。
 
