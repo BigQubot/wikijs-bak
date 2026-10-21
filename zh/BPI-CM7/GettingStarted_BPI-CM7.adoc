@@ -248,6 +248,12 @@ scp C:\BPI\1.wav pi@10.0.35.168:~/Music  # 从 Windows 发送 1.wav 文件到 BP
 pi@10.0.35.168:~/Documents/1.txt .\      # 从 BPI-CM7 发送 1.txt 文件到 Windows
 ```
 
+. 如果板子重刷系统、重装 ssh、换了同 IP 的另一块开发板，远程主机密钥变更，Windows OpenSSH 的 `known_hosts` 里还存着这台 `10.0.35.168` 旧的指纹，校验失败，scp 直接断开连接。
++
+```bash
+ssh-keygen -R 10.0.35.168  # 删除 ip 的旧记录
+```
+
 == NoMachine 远程桌面
 NoMachine 从 v10 这个版本开始，官方不再提供免费个人版，这里提供 v8 版本下载链接。有条件的可以区官网下载最新版本 link:https://download.nomachine.com/[NoMachine 下载] 。
 
