@@ -393,7 +393,7 @@ nmcli connection modify "Wired connection 1" ipv4.dns8.8.8.8              # 设�
 . ping 网关：板子和路由器之间物理 / 内网链路正常，IP 配置没问题。
 +
 ```bash
-ping 10.35.1
+ping 10.35.0.1
 ```
 
 . ping 公网 IP：内网正常，路由器已经可以访问互联网，路由没问题。
