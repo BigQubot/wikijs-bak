@@ -320,6 +320,7 @@ nmcli device disconnect wlan0  # 断开WiFi
 
 === 创建 AP 热点
 . 建立 AP
++
 ```bash
 nmcli device wifi hotspot con-name AP1 ifname wlan0 ssid Annick password 88888888
 ```
