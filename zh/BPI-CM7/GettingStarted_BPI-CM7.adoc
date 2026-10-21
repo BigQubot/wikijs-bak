@@ -203,17 +203,17 @@ image::/bpi_cm7/bananapi_bpicm7_uart5.jpg[bananapi_bpicm7_uart5.jpg]
 . 在 BPI-CM7 上打开终端
 +
 ```bash
-ip a  # 查看 ip 地址
+ip a                     # 查看 ip 地址
 systemctl is-active ssh  # 查看 ssh 服务当前运行状态
 ```
 
 . 在 PC 上打开终端
 +
 ```bash
-ssh pi@10.0.35.168  # 使用 BPI-CM7 的用户，通过 ssh 连接 IP 为 10.0.35.168 的开发板
-whoami  # 确认远程用户名
+ssh pi@10.0.35.168    # 使用 BPI-CM7 的用户，通过 ssh 连接 IP 为 10.0.35.168 的开发板
+whoami                # 确认远程用户名
 hostnamectl --static  # 查看系统静态主机名
-uname -r  # 查看内核版本号
+uname -r              # 查看内核版本号
 ```
 
 . 也可以用 **MobaXterm** 连接。
