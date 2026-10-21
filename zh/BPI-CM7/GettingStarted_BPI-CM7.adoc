@@ -511,7 +511,14 @@ sudo umount -v /dev/sda1
 
 == 使用蓝牙
 === 板子和蓝牙耳机配对（图形界面配置）
-点击 armbian 桌面右上角的**蓝牙图标**，再点击 **devices**。
+. 点击 armbian 桌面右上角的 **蓝牙图标**，再点击 **devices**。
+. 打开蓝牙耳机的配对模式，然后点击 **Search**，就可以出现目标设备。
++
+image::/bpi_cm7/bananapi_bpicm7_bluetooth1.jpg[bananapi_bpicm7_bluetooth1.jpg]
+
+. 点击目标设备，再点 **钥匙** 连接。
++
+image::/bpi_cm7/bananapi_bpicm7_bluetooth2.jpg[bananapi_bpicm7_bluetooth2.jpg]
 
 
 === 板子和蓝牙耳机配对（shell 命令配置）
