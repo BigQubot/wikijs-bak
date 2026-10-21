@@ -547,7 +547,7 @@ aplay 1.wav               # 打开终端，播放音乐
 ```
 
 == nano 文本编辑器
-https://www.nano-editor.org/[GNU nano] 是命令行文本编辑器，测试所用镜像已预装该工具。
+link:https://www.nano-editor.org/[GNU nano] 是命令行文本编辑器，测试所用镜像已预装该工具。
 
 . 使用 `nano [file path]` 打开文件。
 . 编辑文件。
@@ -557,13 +557,6 @@ https://www.nano-editor.org/[GNU nano] 是命令行文本编辑器，测试所�
 
 * https://www.nano-editor.org/dist/latest/cheatsheet.html[nano 快捷键]
 * https://www.nano-editor.org/dist/latest/nano.html[nano 文档]
-
-测试结果：
-
-```text
-/usr/bin/nano
-```
-
 
 == 使用音频设备
 
