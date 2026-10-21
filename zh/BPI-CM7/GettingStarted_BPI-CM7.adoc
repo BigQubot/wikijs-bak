@@ -494,7 +494,7 @@ image::/bpi_cm7/bananapi_bpicm7_usb_flash_driver1.jpg[bananapi_bpicm7_usb_flash_
 ```bash
 mkdir test_u
 ```
-内核导出的块设备分区表
+内核导出的块设备分区表。
 ```bash
 cat /proc/partitions | grep "sd*"
 ```
