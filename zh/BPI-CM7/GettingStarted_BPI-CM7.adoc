@@ -520,16 +520,19 @@ image::/bpi_cm7/bananapi_bpicm7_bluetooth1.jpg[bananapi_bpicm7_bluetooth1.jpg]
 +
 image::/bpi_cm7/bananapi_bpicm7_bluetooth2.jpg[bananapi_bpicm7_bluetooth2.jpg]
 
+. 如果要移除设备，先点击 **蓝牙设备**，再点击 **-**。
++
+image::/bpi_cm7/bananapi_bpicm7_bluetooth3.jpg[bananapi_bpicm7_bluetooth3.jpg]
 
 === 板子和蓝牙耳机配对（shell 命令配置）
 ```bash
-bluetoothctl  # 启动蓝牙控制工具
-power on  # 打开蓝牙控制器电源
-agent on  # 启用配对代理
-default-agent  # 将当前代理设置为默认配对代理
-pairable on  # 开启【可被配对】
+bluetoothctl     # 启动蓝牙控制工具
+power on         # 打开蓝牙控制器电源
+agent on         # 启用配对代理
+default-agent    # 将当前代理设置为默认配对代理
+pairable on      # 开启【可被配对】
 discoverable on  # 开启【可被发现】
-paired-devices  # 查看已连接设备 MAC
+paired-devices   # 查看已连接设备 MAC
 
 ```
 
