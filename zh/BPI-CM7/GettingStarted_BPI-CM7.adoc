@@ -490,7 +490,13 @@ ve_thermal_zone: 50.8 °C
 准备一个已正常分区的 U 盘，并将其插入 BPI-CM7 的 USB 接口。系统识别 U 盘之后，可以在桌面双击打开 U 盘。 
 
 image::/bpi_cm7/bananapi_bpicm7_usb_flash_driver1.jpg[bananapi_bpicm7_usb_flash_driver1.jpg]
-在终端中，将 U 盘挂载到本地目录。
+在用户的主目录下创建一个单独的目录用于挂载，以便于管理。
+
++
+```bash
+mkdir test_u
+```
+
 
 == 使用音频设备
 
