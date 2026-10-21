@@ -244,7 +244,7 @@ ssh pi@10.0.35.168                        # 连接
 
 +
 ```bash
-scp C:\BPI\1.wav pi@10.0.35.168:~/Music  #从 Windows 发送 1.wav 文件到 BPI-CM7
+scp C:\BPI\1.wav pi@10.0.35.168:~/Music  # 从 Windows 发送 1.wav 文件到 BPI-CM7
 pi@10.0.35.168:~/Documents/1.txt .\      # 从 BPI-CM7 发送 1.txt 文件到 Windows
 ```
 
@@ -481,6 +481,7 @@ ve_thermal_zone: 50.8 °C
 ```
 
 == 使用 U 盘
+
 
 == 使用音频设备
 
