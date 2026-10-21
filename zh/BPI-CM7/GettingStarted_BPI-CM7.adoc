@@ -381,6 +381,13 @@ nmcli radio  # 查看无线射频开关
 ```
 
 == 设置静态 IP 和 DNS
+设置静态 IP 前，需要先建立并保持相应的网络连接。
+```bash
+nmcli connection show  # 显示所有连接
+nmcli connection show "Wired connection 1"  # 显示指定连接的全部属性
+nmcli connection modify "Wired connection 1" ipv4.addresses 10.0.35.4/24  # 设置静态 ip 和子网掩码
+nmcli connection modify "Wired connection 1" ipv4.dns8.8.8.8  # 设置 dns
+```
 
 
 == 网络时间同步
