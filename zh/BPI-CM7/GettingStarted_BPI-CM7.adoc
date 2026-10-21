@@ -55,7 +55,6 @@ Balena Etcher 是 Balena 提供的开源图形化镜像写入工具，可将操�
 
 . 在 Ubuntu 等 Linux 桌面系统中，可能需要先授予 AppImage 文件执行权限。
 +
-
 image::/bpi_cm7/bananapi_bpicm7_img_write_sd1.jpg[bananapi_bpicm7_img_write_sd1.jpg]
 image::/bpi_cm7/bananapi_bpicm7_img_write_sd2.jpg[bananapi_bpicm7_img_write_sd2.jpg]
 
@@ -82,28 +81,24 @@ Balena CLI 是 balenaCloud/openBalena 的命令行工具，也可用于写入 Li
 . 下载适用的安装程序或独立软件包（以 Windows 为例）: link:https://github.com/balena-io/balena-cli/releases[balena-cli-v25.2.6-windows-x64-installer.exe] 。
 +
 image::/bpi_cm7/bananapi_bpicm7_img_write_sd10.jpg[bananapi_bpicm7_img_write_sd10.jpg]
-在 Windows 下以管理员身份打开 PowerShell。
 
+. 在 Windows 下以管理员身份打开 PowerShell。
+
+. 列出可用于写入操作系统镜像的存储设备
 +
 ```bash
-# 列出可用于写入操作系统镜像的存储设备
 balena util available-drives
-# 日志
-PS C:\WINDOWS\system32> balena util available-drives
-DEVICE             SIZE    DESCRIPTION
-\\.\PhysicalDrive2 15.9 GB Generic STORAGE DEVICE USB Device
-
-# 写入镜像（如果没有反应，按一次 Ctrl+C 就可以出现进度条）
-PS C:\WINDOWS\system32> balena local flash C:\BPI\Bananapi-Armbian_24.11.1_Bpi-cm7_jammy_legacy_5.4.125_xfce_desktop.img.zip --drive \\.\PhysicalDrive2 --yes
-# 日志
-Flashing [========================] 100% eta 0s
-Validating [========================] 100% eta 0s
 ```
-. 在 Linux 中可能需要使用 sudo 获取 root 权限后执行。
 
+. 写入镜像（如果没有反应，按一次 Ctrl+C 就可以出现进度条）
 +
 ```bash
-# 写入镜像
+balena local flash C:\BPI\Bananapi-Armbian_24.11.1_Bpi-cm7_jammy_legacy_5.4.125_xfce_desktop.img.zip --drive \\.\PhysicalDrive2 --yes
+```
+
+. 在 Linux 中可能需要使用 sudo 获取 root 权限后才写入镜像。
++
+```bash
 sudo balena local flash path/to/xxx-bpi-m4-berry-xxx.img.zip --drive /dev/disk2
 ```
 
