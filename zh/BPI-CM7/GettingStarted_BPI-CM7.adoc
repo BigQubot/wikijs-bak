@@ -96,7 +96,7 @@ balena util available-drives
 balena local flash C:\BPI\Bananapi-Armbian_24.11.1_Bpi-cm7_jammy_legacy_5.4.125_xfce_desktop.img.zip --drive \\.\PhysicalDrive2 --yes
 ```
 
-. 在 Linux 中可能需要使用 sudo 获取 root 权限后才写入镜像。
+. 在 Linux 中可能需要使用 sudo 获取 root 权限后才能写入镜像。
 +
 ```bash
 sudo balena local flash path/to/xxx-bpi-m4-berry-xxx.img.zip --drive /dev/disk2
@@ -104,10 +104,10 @@ sudo balena local flash path/to/xxx-bpi-m4-berry-xxx.img.zip --drive /dev/disk2
 
 == 将镜像安装到 eMMC
 . 确保 Linux 镜像已烧录到 SD 卡，开发板可以正常 SD 卡启动。
-. 在终端中输入以下命令。
+. BPI-CM7 上电登录进系统后，在终端输入这条命令，打开图形化配置菜单。
 +
 ```bash
-sudo armbian-config #BPI-CM7 上电登录进系统后，在终端输入这条命令，打开图形化配置菜单
+sudo armbian-config
 ```
 . 按照以下步骤将 Linux 系统镜像安装到 eMMC。
 
