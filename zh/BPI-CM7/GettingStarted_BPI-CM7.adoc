@@ -226,37 +226,19 @@ image::/bpi_cm7/bananapi_bpicm7_ssh_mobaxterm3.jpg[bananapi_bpicm7_ssh_mobaxterm
 +
 image::/bpi_cm7/bananapi_bpicm7_ssh_mobaxterm4.jpg[bananapi_bpicm7_ssh_mobaxterm4.jpg]
 
+. 如果客户没有串口线，没有屏幕的情况下，无法进到终端，可以进同一个网络，使用 portscan 扫描设备。
+
 == 传输文件
 **SCP（secure copy，安全复制）**是 Linux 系统中用于在服务器之间安全复制文件的命令。
 
 . 在 Windows 安装 **OpenSSH**。
 . 安装成功后，以管理员身份运行 **PowerShell**。
 . 输入被控设备的 **用户名** 和 **IP**。
-+
-```bash
-# 从 Windows 发送 1.wav 文件到 BPI-CM7
-PS C:\BPI> scp C:\BPI\1.wav wangshui@10.0.35.168:~/Music
-# 日志
-The authenticity of host '10.0.35.168 (10.0.35.168)' can't be established.
-ED25519 key fingerprint is SHA256:HGwdAdNVf6rXcEP3eZleVo/SoCj8HsezHXHMDIKfTfw.
-This key is not known by any other names.
-Are you sure you want to continue connecting (yes/no/[fingerprint])?
-Warning: Permanently added '10.0.35.168' (ED25519) to the list of known hosts.
-wangshui@10.0.35.168's password:
-1.wav                                                                                 100%   37MB  11.3MB/s   00:03
-```
 
 +
 ```bash
-# 从 BPI-CM7 发送 1.txt 文件到 Windows
-PS C:\BPI> scp wangshui@10.0.35.168:~/Documents/1.txt .\
-The authenticity of host '10.0.35.168 (10.0.35.168)' can't be established.
-ED25519 key fingerprint is SHA256:HGwdAdNVf6rXcEP3eZleVo/SoCj8HsezHXHMDIKfTfw.
-This key is not known by any other names.
-Are you sure you want to continue connecting (yes/no/[fingerprint])?
-Warning: Permanently added '10.0.35.168' (ED25519) to the list of known hosts.
-wangshui@10.0.35.168's password:
-1.txt                                                                                 100%    6     3.1KB/s   00:00
+scp C:\BPI\1.wav pi@10.0.35.168:~/Music  #从 Windows 发送 1.wav 文件到 BPI-CM7
+pi@10.0.35.168:~/Documents/1.txt .\      # 从 BPI-CM7 发送 1.txt 文件到 Windows
 ```
 
 == NoMachine 远程桌面
