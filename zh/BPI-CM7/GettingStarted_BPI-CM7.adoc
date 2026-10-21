@@ -41,7 +41,7 @@ TIP: 更多信息：link:/zh/BPI-CM7/BananaPi_BPI-CM7[Banana Pi BPI-CM7 主页]
 . SD 卡推荐：容量≥8GB，A1 等级存储卡。
 . 若从 SD 卡启动：建议提前格式化 eMMC，清除原有系统。
 . 若从 eMMC 启动，SD 卡仅作存储使用：SD 卡需提前格式化，不要写入系统镜像。
-. 下载最新的 link:https://docs.banana-pi.org/zh/BPI-CM7/BananaPi_BPI-CM7#_android[Linux 镜像] 。下载后务必校验 MD5 值，保证镜像完整。
+. 下载最新的 link:/zh/BPI-CM7/BananaPi_BPI-CM7#_android[Linux 镜像] 。下载后务必校验 MD5 值，保证镜像完整。
 . 镜像烧录工具： link:https://etcher.balena.io/[balenaEtcher] 。
 . 默认账号密码： pi/bananapi 或 root/1234。
 . 本 Wiki 指南仅适用于 Ubuntu/Debian 类镜像。
