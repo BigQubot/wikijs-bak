@@ -376,8 +376,8 @@ nmcli radio # 查看无线射频开关
 . 打开 WiFi 射频模块，WiFi 硬件恢复供电
 +
 ```bash
-nmcli radio wifi on   # 打开 WiFi 射频模块
-nmcli radio # 查看无线射频开关
+nmcli radio wifi on
+nmcli radio  # 查看无线射频开关
 ```
 
 == 设置静态 IP 和 DNS
