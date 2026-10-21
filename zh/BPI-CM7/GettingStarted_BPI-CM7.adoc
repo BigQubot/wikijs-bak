@@ -164,7 +164,7 @@ lsblk
 . mmcblk0 是 eMMC，mmcblk1 是 SD 卡。在终端中输入以下命令擦除 eMMC。此过程需要二十多分钟且不可逆，请事先备份重要数据。
 +
 ```bash
-sudo dd if=/dev/zero of=/dev/mmcblk0 #向 eMMC 全盘持续写入 0，覆盖所有分区与数据
+sudo dd if=/dev/zero of=/dev/mmcblk0  #向 eMMC 全盘持续写入 0，覆盖所有分区与数据
 ```
 
 == 桌面
