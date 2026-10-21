@@ -314,74 +314,54 @@ loginctl list-sessions  # 列出系统所有登录会话，查看本地、远程
 ```bash
 nmcli device  # 查看网口硬件状态
 nmcli device wifi list  # 列出可用的无线网络接入点
-
 nmcli device wifi connection R4Pro-5G password ****** # 连接 WiFi
 nmcli device disconnect wlan0  # 断开WiFi
 ```
 
 === 创建 AP 热点
+. 建立 AP
 ```bash
-# 建立 AP
 nmcli device wifi hotspot con-name AP1 ifname wlan0 ssid Annick password 88888888
-# 日志
-Device 'wlan0' successfully activated with 'da1663cc-eb74-4f86-98e4-49166cb408f9'.
-Hint: "nmcli dev wifi show-password" shows the Wi-Fi name and password.
+```
 
-# 手机静态 IP 连接
-# 查看 wlan0 的地址
-ip a show wlan0
-# 日志
-13: wlan0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
-    link/ether ac:6a:a3:41:31:31 brd ff:ff:ff:ff:ff:ff
-    inet 10.42.0.1/24 brd 10.42.0.255 scope global noprefixroute wlan0
-       valid_lft forever preferred_lft forever
-    inet6 fe80::ae6a:a3ff:fe41:3131/64 scope link
-       valid_lft forever preferred_lft forever
-# 确认 IP 转发开启
-cat /proc/sys/net/ipv4/ip_forward
-# 日志（如果是0，临时开启 sudo sysctl -w net.ipv4.ip_forward=1）
-1
+. 确认主机热点转发与 NAT 规则。
++
+```bash
+ip a show wlan0  # 查看 wlan0 的地址（10.42.0.1）
+cat /proc/sys/net/ipv4/ip_forward  # 确认 IP 转发开启（如果是0，临时开启 sudo sysctl -w net.ipv4.ip_forward=1）
+sudo iptables -t nat -L POSTROUTING -nv  # 查看 nat 表中 POSTROUTING 链的规则
+```
 
-# 查看 nat 表中 POSTROUTING 链的规则（用来确认IP转发/共享上网的SNAT规则）
-sudo iptables -t nat -L POSTROUTING -nv
-# 日志
-# Warning: iptables-legacy tables present, use iptables-legacy to see them
-Chain POSTROUTING (policy ACCEPT 0 packets, 0 bytes)
- pkts bytes target     prot opt in     out     source               destination
-    2   123 MASQUERADE  all  --  *      *       10.42.0.0/24        !10.42.0.0/24         /* nm-shared-wlan0 */
+. 连接热点 Annick，把手机的 ipv4 地址配置为固定 IP：10.42.0.100（网段：10.42.0.x），还要配置 DNS：223.5.5.5
++
+```bash
+ip neigh show dev wlan0  # 确认是否连接上热点
+```
 
-# 连接热点 Annick，把手机的 ipv4 地址配置为固定 IP：10.42.0.100（网段：10.42.0.x），还要配置 DNS:223.5.5.5
+. 连通性验证
++
+（1）手机 ping 网关：ping 10.42.0.1，能通代表手机到板子 WiFi 链路正常。
 
-# 确认是否连接上热点
-ip neigh show dev wlan0
-# 日志
-10.42.0.100 lladdr a2:93:80:fe:59:9c REACHABLE
++
+（2）手机 ping 外网：ping 223.5.5.5，通则上网正常。
 
-# 连通性验证
-# 1.手机 ping 网关：ping 10.42.0.1，能通代表手机到板子 WiFi 链路正常
-# 2.手机 ping 外网：ping 223.5.5.5，通则上网正常
+. 断开创建的 AP 热点
++
+```bash
+nmcli connection down AP1  # 停止热点
+nmcli connection show  # 查看当前所有连接（-- 代表已经停止）
+```
 
-# 断开创建的 AP 热点
-# 停止热点
-nmcli connection down AP1
-# 日志
-Connection 'AP1' successfully deactivated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/3)
-
-# 查看当前所有连接
-nmcli connection show
-# 日志（-- 代表 AP1 已经停止）
-NAME                UUID                                  TYPE      DEVICE
-Wired connection 1  77edb523-eb38-3d59-86fe-02697b55705e  ethernet  eth0
-AP1                 da1663cc-eb74-4f86-98e4-49166cb408f9  wifi      --
-R4Pro-5G            2c28502c-4ae1-4b64-b25d-792b9bc2e165  wifi      --
-
-# 如果想重新启动 AP1
+. 如果想重新启动 AP1
++
+```bash
 nmcli connection up AP1
+```
 
-# 彻底删除 AP1 的配置（一定要先停止 AP1 再删除 AP1 的配置，否则直接删除 AP1 的配置会连同 wlan0 一起删除！）
+. 彻底删除 AP1 的配置（一定要先停止 AP1 再删除 AP1 的配置，否则直接删除 AP1 的配置会连同 wlan0 一起删除！）
++
+```bash
 nmcli connection delete AP1
-# 日志
-Connection 'AP1' (da1663cc-eb74-4f86-98e4-49166cb408f9) successfully deleted.
 ```
 
 
