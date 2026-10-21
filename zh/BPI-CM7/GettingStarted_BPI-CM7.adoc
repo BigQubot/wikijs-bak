@@ -19,7 +19,7 @@ TIP: 更多信息：link:/zh/BPI-CM7/BananaPi_BPI-CM7[Banana Pi BPI-CM7 主页]
 = Android
 
 == 准备
-. 下载最新的 link:/zh/BPI-CM7/BananaPi_BPI-CM7#_android_12_2[Android 镜像]。
+. 下载最新的 link:https://docs.banana-pi.org/zh/BPI-CM7/BananaPi_BPI-CM7#_android[Android 镜像]。
 . 获取全志刷机工具 PhoenixSuit： link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2Fphoenixsuit_V1.1.0_20150325.rar[phoenixsuit] （Windows 平台）。
 . Type‑C 数据线（支持数据传输）、5V 电源。
 
@@ -509,7 +509,11 @@ sudo umount -v /dev/sda1
 ```
 **注意**： U 盘挂载后，如果没有 umount 卸载就直接拔掉。 再次插入，内核就会给新编号 sdb。 卸载完成之后，才可以物理拔掉 U 盘，防止文件损坏。
 
+== 使用蓝牙
+=== 板子和蓝牙耳机配对（图形界面配置）
 
+
+=== 板子和蓝牙耳机配对（shell 命令配置）
 
 
 
@@ -519,33 +523,14 @@ sudo umount -v /dev/sda1
 
 === 3.5 mm 音频插孔
 
-=== 播放音频文件的终端命令
-
-使用以下命令列出音频播放设备。
-
-```bash
-aplay -l # List playback devices
-```
-
-测试结果：
-
-```
-**** List of PLAYBACK Hardware Devices ****
-card 0: audiocodec [audiocodec], device 0: soc@3000000:codec_plat-5096000.codec 5096000.codec-0 []
-  Subdevices: 1/1
-  Subdevice #0: subdevice #0
-card 1: ahubhdmi [ahubhdmi], device 0: ahub_plat-snd-soc-dummy-dai snd-soc-dummy-dai-0 []
-  Subdevices: 1/1
-  Subdevice #0: subdevice #0
-```
-
 ==== 通过 3.5 mm 音频插孔播放
 
 ==== 通过 HDMI 播放音频
 
-== 使用蓝牙
 
-== 使用红外接收器
+
+
+
 
 
 
