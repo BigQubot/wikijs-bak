@@ -7,6 +7,20 @@ content
 
 TIP: More Infomation: link:/en/BPI-M8/BananaPi_BPI-M8[Banana Pi BPI-M8]
 
+==  Specifications
+* Dual-Core Arm Cortex-A76 + Hexa-Core Arm Cortex-A55, up to 2.0GHz
+* 4GB LPDDR5 RAM
+* 32GB eMMC flash（BPI-M8A）
+* 16MB SPI NOR（BPI-M8B）
+* 1x MIPI DSI Display interface
+* 2x MIPI CSI Camera interface
+* 1x PCIE/DP interface
+* 1x HDMI 2.0b TX Slot
+* 4x USB-A Slot
+* 1x GbE RJ45（POE support with POE HAT）
+* 1x Wi-Fi6/BT5 module
+* 1x 40PIN GPIO Header
+
 = Development
 
 == Andriod
