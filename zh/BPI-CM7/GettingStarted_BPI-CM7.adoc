@@ -283,97 +283,21 @@ Armbian 自带的系统配置工具。
 
 ```bash
 command -v armbian-config  # 检查 armbian-config 命令是否存在、输出它的完整路径
-sudo armbian-config        # 启动Armbian配置工具
+sudo armbian-config        # 启动 Armbian 配置工具
 ```
 image::/bpi_cm7/bananapi_bpicm7_armbian_config.jpg[bananapi_bpicm7_armbian_config.jpg]
 
 == 查看 BPI-CM7 开发板硬件与系统信息
 这一组命令用来**一次性读取开发板的系统版本、硬件型号、CPU、内存、存储分区、根文件系统挂载信息**，方便确认板子硬件、内核、启动介质（SD 卡 /eMMC）。
 ```bash
-# 查看操作系统版本、主机名、内核版本、架构
-hostnamectl
-# 日志
-bpi-cm7:~:% hostnamectl
- Static hostname: bpi-cm7
-       Icon name: computer
-      Machine ID: 3be43d6d67bb4a5c997f7e107ad26ed9
-         Boot ID: df8aa4a30d8a43c0ac687203a61125b5
-Operating System: Bananapi-Armbian 24.11.1 jammy
-          Kernel: Linux 5.4.125-legacy-sunxi64
-    Architecture: arm64
-
-# 读取设备树里的硬件型号，输出**板子型号**
-tr '\0' '\n' < /proc/device-tree/model
-# 日志
-Bananapi BPI-CM7
-
-# 查看设备树兼容型号，用于确认芯片平台
-tr '\0' '\n' < /proc/device-tree/compatible
-# 日志
-bananapi,bpi-cm7
-allwinner,sun50i-h618
-arm,sun50iw9p1
-
-# 查看完整内核信息、架构、编译时间
-uname -a
-# 日志
-Linux bpi-cm7 5.4.125-legacy-sunxi64 #1 SMP Tue Oct 13 07:48:35 UTC 2026 aarch64 aarch64 aarch64 GNU/Linux
-
-# CPU 核心数、架构、频率等处理器信息
-lscpu
-# 日志
-Architecture:            aarch64
-  CPU op-mode(s):        32-bit, 64-bit
-  Byte Order:            Little Endian
-CPU(s):                  4
-  On-line CPU(s) list:   0-3
-Vendor ID:               ARM
-  Model name:            Cortex-A53
-    Model:               4
-    Thread(s) per core:  1
-    Core(s) per cluster: 4
-    Socket(s):           -
-    Cluster(s):          1
-    Stepping:            r0p4
-    CPU max MHz:         1512.0000
-    CPU min MHz:         480.0000
-    BogoMIPS:            48.00
-    Flags:               fp asimd aes pmull sha1 sha2 crc32 cpuid
-Vulnerabilities:
-  Itlb multihit:         Not affected
-  L1tf:                  Not affected
-  Mds:                   Not affected
-  Meltdown:              Not affected
-  Spec store bypass:     Not affected
-  Spectre v1:            Mitigation; __user pointer sanitization
-  Spectre v2:            Not affected
-  Srbds:                 Not affected
-  Tsx async abort:       Not affected
-
-# 查看内存与 swap 大小，`-h` 自动用 GB/MB 友好单位展示
-free -h
-# 日志
-               total        used        free      shared  buff/cache   available
-Mem:           1.9Gi       816Mi       213Mi        94Mi       935Mi       1.0Gi
-Swap:          982Mi          0B       982Mi
-
-# **列出块存储设备**（eMMC、SD 卡、U 盘等）
-lsblk
-# 日志
-NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
-mmcblk0      179:0    0  29.3G  0 disk
-mmcblk0boot0 179:16   0     4M  1 disk
-mmcblk0boot1 179:32   0     4M  1 disk
-mmcblk1      179:48   0  14.8G  0 disk
-└─mmcblk1p1  179:49   0  14.7G  0 part /var/log.hdd
-                                       /
-zram0        254:0    0 982.5M  0 disk [SWAP]
-zram1        254:1    0    50M  0 disk /var/log
-
-# 查看**根分区 /**：磁盘来源、文件系统、总容量、已用 / 剩余空间、占用率
-findmnt -no SOURCE,FSTYPE,SIZE,USED,AVAIL,USE%,TARGET /
-# 日志
-/dev/mmcblk1p1 ext4   14.4G  6.9G  7.3G  48% /
+hostnamectl                                  # 查看操作系统版本、主机名、内核版本、架构
+tr '\0' '\n' < /proc/device-tree/model       # 读取设备树里的硬件型号，输出**板子型号**
+tr '\0' '\n' < /proc/device-tree/compatible  # 查看设备树兼容型号，用于确认芯片平台
+uname -a                                     # 查看完整内核信息、架构、编译时间
+lscpu                                        # 查看CPU 核心数、架构、频率等处理器信息
+free -h  # 查看内存与 swap 大小，`-h` 自动用 GB/MB 友好单位展示
+lsblk    # **列出块存储设备**（eMMC、SD 卡、U 盘等）
+findmnt -no SOURCE,FSTYPE,SIZE,USED,AVAIL,USE%,TARGET /  # 查看**根分区 /**：磁盘来源、文件系统、总容量、已用 / 剩余空间、占用率
 ```
 
 == 图形会话状态检查命令
