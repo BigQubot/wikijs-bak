@@ -518,30 +518,6 @@ card 1: ahubhdmi [ahubhdmi], device 0: ahub_plat-snd-soc-dummy-dai snd-soc-dummy
 
 
 
-== scp
-
-SCP 使用 SSH 协议，在 PC 与 BPI-CM7 之间安全复制文件。请先确认 PC 和开发板已连接到同一局域网，且 SSH 可以正常登录。
-
-SCP 命令格式如下：
-
-```bash
-scp [options] file_source file_target
-```
-
-使用 `-r` 递归复制目录。
-
-将本地文件从 PC 复制到 BPI-CM7：
-
-```bash
-scp local-file pi@<board-ip>:/home/pi/
-```
-
-将文件从 BPI-CM7 复制到 PC：
-
-```bash
-scp pi@<board-ip>:/home/pi/remote-file ./
-```
-
 测试结果：
 
 ```text
