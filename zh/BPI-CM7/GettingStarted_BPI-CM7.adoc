@@ -167,7 +167,7 @@ lsblk
 sudo dd if=/dev/zero of=/dev/mmcblk0  #向 eMMC 全盘持续写入 0，覆盖所有分区与数据
 ```
 
-== 桌面
+== HDMI 显示桌面
 . 烧录 Ubuntu/Debian 桌面版镜像，即可启用图形桌面环境。
 . 准备一台带有 HDMI 接口的显示器以及 HDMI 连接线。
 . 连接 BPI-CM7 和显示器，切换显示器信号源；开发板上电，等待加载完成后出现桌面。
