@@ -416,26 +416,26 @@ ping baidu.com
 使用以下命令检查系统时钟、同步状态、Chrony 服务和时间源。
 
 ```bash
-timedatectl status
-systemctl status chrony
-chronyc tracking
-chronyc sources -v
-date
+timedatectl status       # 查看系统全局时间、时区、RTC 硬件时钟、NTP 自动同步开关状态
+systemctl status chrony  # 查看 chrony 服务本身
+chronyc tracking         # 查看时间同步跟踪详情
+chronyc sources -v       # 列出所有 NTP 时间源
+date                     # 打印系统当前日期时间
 ```
 
 使用以下命令管理 Chrony 服务。
 
 ```bash
-sudo systemctl start chrony
-sudo systemctl enable chrony
-sudo systemctl restart chrony
+sudo systemctl start chrony    # 启动 chrony 服务
+sudo systemctl enable chrony   # 设置 chrony **开机自启动**
+sudo systemctl restart chrony  # 重启 chrony 服务
 ```
 
 使用以下命令列出或更改时区。
 
 ```bash
 timedatectl list-timezones
-sudo timedatectl set-timezone Asia/Shanghai
+sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 ```
 
 测试结果：
