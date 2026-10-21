@@ -578,25 +578,6 @@ Temporary test file removal: successful
 ```
 
 
-== nano 文本编辑器
-
-https://www.nano-editor.org/[GNU nano] 是命令行文本编辑器，测试所用镜像已预装该工具。
-
-. 使用 `nano [file path]` 打开文件。
-. 编辑文件。
-. 按 `Ctrl+O` 写入文件。
-. 编辑或确认文件路径，然后按 `Enter`。
-. 按 `Ctrl+X` 退出 nano。
-
-* https://www.nano-editor.org/dist/latest/cheatsheet.html[nano 快捷键]
-* https://www.nano-editor.org/dist/latest/nano.html[nano 文档]
-
-测试结果：
-
-```text
-/usr/bin/nano
-```
-
 == 设置开机 Logo
 
 === 开启/关闭开机 Logo
