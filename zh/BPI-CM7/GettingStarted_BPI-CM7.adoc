@@ -585,17 +585,6 @@ speaker-test -D plughw:1,0 -c 2 -r 48000 -t sine      # 没有音乐也可以直
 pactl set-sink-volume 0 100%                          # 控制音量
 ```
 
-
-
-测试结果：
-
-```text
-Upload to /tmp: successful
-Remote file size and SHA-256 verification: successful
-Temporary test file removal: successful
-```
-
-
 == 设置开机 Logo
 
 === 开启/关闭开机 Logo
