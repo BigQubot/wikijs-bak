@@ -7,6 +7,21 @@ BPI-M8 提供丰富的外设接口，包括 USB、DP、UFS、HDMI、MIPI CSI、M
 
 TIP: 更多信息：link:/zh/BPI-M8/BananaPi_BPI-M8[Banana Pi BPI-M8]
 
+== 主要特性
+* 双核 Arm Cortex-A76 + 六核 Arm Cortex-A55，主频最高 2.0GHz
+* 4GB LPDDR5 内存
+* 64GB eMMC 闪存(BPI-M8A)
+* 16MB SPI NOR 存储（BPI-M8B）
+* 1 个 MIPI DSI 显示接口
+* 2 个 MIPI CSI 摄像头接口
+* 1 个 PCIe/DP 接口
+* 1 个 HDMI 2.0b 输出接口
+* 4 个 USB-A 接口
+* 1 个千兆以太网 (GbE) RJ45 接口（通过 PoE 扩展板支持 PoE 供电）
+* 1 个 Wi-Fi 6/蓝牙 5 模块
+* 1 组 40-pin GPIO 引脚
+
+
 = 开发
 
 == Android
