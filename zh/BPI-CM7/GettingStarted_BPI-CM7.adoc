@@ -444,15 +444,6 @@ timedatectl list-timezones
 sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 ```
 
-测试结果：
-
-```text
-System clock synchronized: yes
-NTP service: active
-Chrony service: active
-Time zone during test: Etc/UTC
-```
-
 * link:https://chrony-project.org/documentation.html[Chrony 参考文档]
 
 == 查看硬件温度
