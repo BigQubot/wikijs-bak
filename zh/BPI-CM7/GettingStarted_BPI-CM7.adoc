@@ -584,6 +584,7 @@ aplay 1.wav                       # 播放音乐（如果设置好了还是不�
 speaker-test -D plughw:1,0 -c 2 -r 48000 -t sine      # 没有音乐也可以直接播放正弦波
 pactl set-sink-volume 0 100%                          # 控制音量
 ```
+**注意**：硬件线路连接完成后，显示会比较模糊，因为是 720P 的输出。
 
 == 设置开机 Logo
 
