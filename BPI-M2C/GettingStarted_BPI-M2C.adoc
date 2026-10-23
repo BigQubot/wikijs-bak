@@ -18,17 +18,24 @@ TIP: More Infomation: link:/en/BPI-M2C/BananaPi_BPI-M2C[Banana Pi BPI-M2C]
 
 == Install Image with SD-1
 
-. xxx
-. xxx
-. xxx
-. xxx
+Use the balenaEtcher tool to flash the SD image.
+
+. Download the SD image. (Formats such as .zip, .xz, .gz, and .bz2 can be selected directly; however, compound archives like .tar.gz or .tar.xz must be extracted first.)
+. Format the TF card using the SDFormatter tool.
+. Open balenaEtcher, select the image file you wish to flash, choose your TF card, and click to begin the flashing process. (Be careful to ensure you have selected the correct TF card.)
+
+image::/picture/etcher.jpg[etcher.jpg]
 
 == Install Image with SD-2
 
-. xxx
-. xxx
-. xxx
-. xxx
+Use the ResearchDownload tool to flash the PAC package.
+
+. Download the SD image. (If it is a compressed archive, please extract it beforehand.)
+. Set the SD DIP switch on the back of the development board to the ON position.
+. Open the tool and click "Load packet," then select the PAC package you wish to flash.
++
+
+. Click "Settings," then click "Options," and check the boxes for "Repartition," "Keep Charge," and "Power Off."
 
 == Install Image with eMMC
 
