@@ -10,8 +10,10 @@ TIP: More Infomation: link:/en/BPI-M2C/BananaPi_BPI-M2C[Banana Pi BPI-M2C]
 - Prepare 8G/above TF card, USB-Serial cable, Ubuntu System.
 -  5V3A type-c adapter power supply
 - Download tool:
--- windows: ResearchDownload
--- Linux: Yunji
+* Windows: ResearchDownload
+* Linux: Yunji
+* Or an open-source flashing tool: link:https://etcher.balena.io/[balenaEtcher]
+- link:/en/BPI-M2C/BananaPi_BPI-M2C#_system_image[Download the image] to be burned
 - Using your USB-Serial cable(3.3V TTL,Baud=921600) Connect to debug console on BPI-M2C G=GND; RX=BPI-M2C input; TX=BPI-M2C output0
 
 == Install Image with SD-1
