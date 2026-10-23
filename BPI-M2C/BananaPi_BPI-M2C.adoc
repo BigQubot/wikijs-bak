@@ -27,7 +27,7 @@ TIP: link:/en/BPI-M2C/GettingStarted_BPI-M2C[Getting Started BPI-M2C]
 
 [options="header",cols="1,3"]
 |=====
-2+| **HardWare Specification of Banana Pi M2+(Plus)**
+2+| **HardWare Specification of Banana Pi M2C**
 | CPU           | xxxx
 | GPU           | xxxx
 | Memory        | xxxx
@@ -46,12 +46,12 @@ TIP: link:/en/BPI-M2C/GettingStarted_BPI-M2C[Getting Started BPI-M2C]
 
 == GPIO Pin Define
 
-=== BPI-xx 40PIN GPIO
+=== BPI-M2C 40PIN GPIO
 
 
 [options="header",cols="2,1,1"]
 |=====
-3+| **40 PIN GPIO of Banana pi BPI-M**
+3+| **40 PIN GPIO of Banana pi BPI-M2C**
 | CSI GPIO Pin | Pin Name | GPIO
 | CONx P01 | xxxx         | xxxx
 | CONx P02 | xxxx         | xxxx
@@ -113,6 +113,7 @@ TIP: Linux BSP source code
 
 = System Image
 == Linux
+=== Ubuntu
 
 === Yocto
 
@@ -122,10 +123,10 @@ TIP: Linux BSP source code
 
 = Easy to buy
 
-WARNING: SINOVOIP Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M1/1100417230_40000003426518.html
+WARNING: SINOVOIP Aliexpress Shop: 
 
-WARNING: Bipai Aliexpress Shop: https://www.aliexpress.com/store/group/BPI-M1/1101951077_40000003418620.html
+WARNING: Bipai Aliexpress Shop: 
 
-WARNING: Taobao Shop: https://shop108780008.taobao.com/category-1694930629.htm
+WARNING: Taobao Shop: 
 
 WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
