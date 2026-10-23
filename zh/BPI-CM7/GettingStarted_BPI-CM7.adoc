@@ -181,6 +181,7 @@ image::/bpi_cm7/bananapi_bpicm7_desktop_hdmi.jpg[bananapi_bpicm7_desktop_hdmi.jp
 . 准备 3.3V USB 转 TTL 模块。
 . 将 USB 转 TTL 模块连接至 PC 的 USB 接口与开发板调试 UART 端口。
 . 在 PC 端打开串口终端工具，如 MobaXterm、PuTTY。
+. 下载 link:https://mobaxterm.mobatek.net/[MobaXterm]。
 . 以 MobaXterm 为例，打开 MobaXterm，点击顶部菜单栏 **Sessions → User sessions**，新建会话。
 +
 image::/bpi_cm7/bananapi_bpicm7_uart1.jpg[bananapi_bpicm7_uart1.jpg]
