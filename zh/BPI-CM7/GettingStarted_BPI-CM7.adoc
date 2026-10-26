@@ -617,8 +617,18 @@ image::/bpi_cm7/bananapi_bpicm7_logo_watermark1.jpg[bananapi_bpicm7_logo_waterma
 
 == 40-pin 接口 GPIO、I2C、UART、SPI 和 PWM 测试
 
-=== GPIO
+=== 40-pin 接口硬件原理图
+image::/bpi_cm7/bananapi_bpicm7_gpio_interface.jpg[bananapi_bpicm7_gpio_interface.jpg]
 
+=== GPIO
+. GPIO 基础 IO 测试(以 GPIO33 为例)：通过 GPIO 端口控制 LED 灯亮灭。
+. 字母 **A、B、C、D、E、F、G、H、I** 分别对应数字 **1、2、3、4、5、6、7、8**。GPIO33 对应的是 PH10，则有 7x32+10=234。
++
+```bash
+sudo apt  # 更新软件源索引
+sudo apt install gpiod  # 安装 GPIO 用户态工具库
+
+```
 
 === I2C
 
