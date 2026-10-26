@@ -424,10 +424,55 @@ Check the PCIe devices
 ```sh
 root@bananapim8:~# lspci
 ```
++
+image::/bpi-m8/bananapi-pi_m8_m_.2_keym_4.png[bananapi-pi_m8_m_.2_keym_4.png]
++
+Check the block devices
++
+```sh
+root@bananapim8:~# lsblk
+```
++
+image::/bpi-m8/bananapi-pi_m8_m_.2_keym_5.png[bananapi-pi_m8_m_.2_keym_5.png]
 
-. 
+. Create a mount point and mount the partition
++
+```sh
+root@bananapim8:~# sudo mkdir -p /mnt/nvme
+root@bananapim8:~# sudo mount /dev/nvme0n1p2 /mnt/nvme
+```
++
+Verify the mount status
++
+```sh
+root@bananapim8:~# lsblk
+```
++
+image::/bpi-m8/bananapi-pi_m8_m_.2_keym_6.png[bananapi-pi_m8_m_.2_keym_6.png]
 
+. Test the Write Speed
++
+```sh
+root@bananapim8:~# sudo dd if=/dev/zero of=/mnt/nvme/testfile bs=4M count=512 oflag=direct status=progress
+```
++
+image::/bpi-m8/bananapi-pi_m8_m_.2_keym_7.png[bananapi-pi_m8_m_.2_keym_7.png]
++
+Before testing the read speed, clear the system cache to ensure accurate physical disk performance.
++
+```sh
+root@bananapim8:~# sudo sync # Sync data to disk 
+root@bananapim8:~# echo 3 | sudo tee /proc/sys/vm/drop_caches # Clear the page cache, dentries, and inodes
+root@bananapim8:~# sudo dd if=/mnt/nvme/testfile of=/dev/null bs=4M iflag=direct status=progress # Test read speed (2GB file)
+```
++
+image::/bpi-m8/bananapi-pi_m8_m_.2_keym_8.png[bananapi-pi_m8_m_.2_keym_8.png]
 
+. Clean up the test environment
+```sh
+root@bananapim8:~# sudo rm /mnt/nvme/testfile # Remove the test file
+root@bananapim8:~# sudo umount /mnt/nvme # Unmount the partition
+```
 
 
 = Pin Define
