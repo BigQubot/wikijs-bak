@@ -386,25 +386,37 @@ image::/bpi-m8/bananapi-pi_m8_m_.2_keym_1.jpg[bananapi-pi_m8_m_.2_keym_1.jpg]
 
 . Query M.2 Devices in the System
 
++
 ```sh
 root@bananapim8:~# ls /boot/dtb/sunxi/overlay/bpi-m8/ | grep -i pcie
 ```
 
-
++
 image::/bpi-m8/bananapi-pi_m8_m_.2_keym_2.png[bananapi-pi_m8_m_.2_keym_2.png]
 
 
 
 . Add the overlays configuration.
 
-+
-`sudo nano /boot/armbianEnv.txt` Add `overlays=bpi-m8-expansion-pcie-m2` to the file.
 
-+
+Open the file using nano
+```sh
+sudo nano /boot/armbianEnv.txt` 
+```
+
+
+Add the following line to the file
+```sh
+overlays=bpi-m8-expansion-pcie-m2
+```
+
+Save and exit: Ctrl+O -> Enter -> Ctrl+X
 
 image::/bpi-m8/bananapi-pi_m8_m_.2_keym_3.png[bananapi-pi_m8_m_.2_keym_3.png]
 
-. 
+
+
+
 
 
 
