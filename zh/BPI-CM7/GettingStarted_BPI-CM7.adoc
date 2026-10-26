@@ -636,11 +636,14 @@ gpioget gpiochip1 234         # 读取 GPIO33 电平
 ```
 
 === I2C
+根据原理图，可用的 **I2C** 接口为 **PIN3、PIN5** 和 **PIN13、PIN15** 和 **PIN27、PIN28**。
 
 === UART
+根据原理图，可用的 **UART** 接口为 **PIN11、PIN13** 和 **PIN8、PIN10**。
 
 === SPI
+根据原理图，可用的 **SPI** 接口为 **PIN19、PIN21、PIN23、PIN24、PIN26**。
 
 === PWM
-
+根据原理图，可用的 **PWM** 接口为 **PIN7**。
 
