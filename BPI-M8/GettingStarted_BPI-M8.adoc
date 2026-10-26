@@ -372,7 +372,9 @@ root@bananapim8:~# echo 0 > /sys/class/hwmon/hwmon0/pwm1
 
 Connect the PoE expansion board to the board, and power the board via the Ethernet port
 
+
 image::/bpi-m8.jpg[bpi-m8.jpg]
+
 
 = Pin Define
 
