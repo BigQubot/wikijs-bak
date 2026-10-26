@@ -627,7 +627,7 @@ image::/bpi_cm7/bananapi_bpicm7_gpio_interface.jpg[bananapi_bpicm7_gpio_interfac
 . y：字母 **A、B、C、D、E、F、G、H、I** 分别对应数字 **1、2、3、4、5、6、7、8**。GPIO33 对应的是 PH10，则有 7*32+10=234。
 +
 ```bash
-sudo apt                      # 更新软件源索引
+sudo apt update               # 更新软件源索引
 sudo apt install gpiod        # 安装 GPIO 用户态工具库
 sudo gpiodetect               # 扫描系统里所有的 GPIO 控制器
 sudo gpioinfo gpiochip1       # 打印 `gpiochip1`（H618 主 PIO，PA~PI，共 288 路）全部引脚状态
