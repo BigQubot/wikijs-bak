@@ -379,6 +379,16 @@ image::/bpi-m8/bananapi-pi_m8_poe_1.jpg[bananapi-pi_m8_poe_1.jpg]
 == M.2 KEYM
 
 
+. Connect the adapter board using an FPC cable, and insert the M.2 SSD into the adapter board.
++
+image::/bpi-m8/bananapi-pi_m8_m_.2_keym_1.jpg[bananapi-pi_m8_m_.2_keym_1.jpg]
+
+. Query M.2 Devices in the System
+
+```sh
+root@bananapim8:~# s /boot/dtb/sunxi/overlay/bpi-m8/ | grep -i pcie
+```
+
 
 
 = Pin Define
