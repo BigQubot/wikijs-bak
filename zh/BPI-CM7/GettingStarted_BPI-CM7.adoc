@@ -627,6 +627,8 @@ image::/bpi_cm7/bananapi_bpicm7_gpio_interface.jpg[bananapi_bpicm7_gpio_interfac
 ```bash
 sudo apt  # 更新软件源索引
 sudo apt install gpiod  # 安装 GPIO 用户态工具库
+sudo gpiodetect  # 查看所有 gpio 引脚信息
+sudo 
 
 ```
 
