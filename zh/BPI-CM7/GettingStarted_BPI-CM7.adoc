@@ -622,14 +622,17 @@ image::/bpi_cm7/bananapi_bpicm7_gpio_interface.jpg[bananapi_bpicm7_gpio_interfac
 
 === GPIO
 . GPIO 基础 IO 测试(以 GPIO33 为例)：通过 GPIO 端口控制 LED 灯亮灭。
-. 字母 **A、B、C、D、E、F、G、H、I** 分别对应数字 **1、2、3、4、5、6、7、8**。GPIO33 对应的是 PH10，则有 7x32+10=234。
+. LED 阳极接入 GPIO33、阴极接 GND。
+. 全志 H618 GPIO 编号公式：Pyx: y*32 + x
+. y：字母 **A、B、C、D、E、F、G、H、I** 分别对应数字 **1、2、3、4、5、6、7、8**。GPIO33 对应的是 PH10，则有 7*32+10=234。
 +
 ```bash
-sudo apt  # 更新软件源索引
+sudo apt                # 更新软件源索引
 sudo apt install gpiod  # 安装 GPIO 用户态工具库
-sudo gpiodetect  # 查看所有 gpio 引脚信息
-sudo 
-
+sudo gpiodetect         # 查看所有 gpio 引脚信息
+sudo gpioset gpiochip1 234=1  # 把 GPIO33 设置为高电平
+sudo gpioset gpiochip1 234=0  # 把 GPIO33 设置为低电平
+gpioget gpiochip1 234         # 读取 GPIO33 电平
 ```
 
 === I2C
