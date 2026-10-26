@@ -382,7 +382,7 @@ image::/bpi-m8/bananapi-pi_m8_poe_1.jpg[bananapi-pi_m8_poe_1.jpg]
 . Connect the adapter board using an FPC cable, and insert the M.2 SSD into the adapter board.
 +
 
-image::/bpi-m8/bananapi-pi_m8_m_.2_keym_1.png[bananapi-pi_m8_m_.2_keym_1.png]
+image::/bpi-m8/bananapi-pi_m8_m_.2_keym_1.jpg[bananapi-pi_m8_m_.2_keym_1.jpg]
 
 . Query M.2 Devices in the System
 
@@ -396,6 +396,16 @@ image::/bpi-m8/bananapi-pi_m8_m_.2_keym_2.png[bananapi-pi_m8_m_.2_keym_2.png]
 
 
 . Add the overlays configuration.
+
++
+`sudo nano /boot/armbianEnv.txt` Add `overlays=bpi-m8-expansion-pcie-m2` to the file.
+
++
+
+image::/bpi-m8/bananapi-pi_m8_m_.2_keym_3.png[bananapi-pi_m8_m_.2_keym_3.png]
+
+. 
+
 
 
 = Pin Define
