@@ -387,10 +387,9 @@ image::/bpi-m8/bananapi-pi_m8_m_.2_keym_1.png[bananapi-pi_m8_m_.2_keym_1.png]
 . Query M.2 Devices in the System
 
 ```sh
-root@bananapim8:~# s /boot/dtb/sunxi/overlay/bpi-m8/ | grep -i pcie
+root@bananapim8:~# ls /boot/dtb/sunxi/overlay/bpi-m8/ | grep -i pcie
 ```
 
-+
 
 image::/bpi-m8/bananapi-pi_m8_m_.2_keym_2.png[bananapi-pi_m8_m_.2_keym_2.png]
 
