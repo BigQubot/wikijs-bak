@@ -422,7 +422,7 @@ After rebooting, run the following commands to verify the M.2 SSD
 Check the PCIe devices
 +
 ```sh
-root@bananapim8:~# lspci
+root@bananapim8:~# lsblk
 ```
 +
 image::/bpi-m8/bananapi-pi_m8_m_.2_keym_4.png[bananapi-pi_m8_m_.2_keym_4.png]
@@ -430,7 +430,7 @@ image::/bpi-m8/bananapi-pi_m8_m_.2_keym_4.png[bananapi-pi_m8_m_.2_keym_4.png]
 Check the block devices
 +
 ```sh
-root@bananapim8:~# lsblk
+root@bananapim8:~# lspci
 ```
 +
 image::/bpi-m8/bananapi-pi_m8_m_.2_keym_5.png[bananapi-pi_m8_m_.2_keym_5.png]
