@@ -594,7 +594,7 @@ pactl set-sink-volume 0 100%                          # 控制音量
 打开启动环境配置文件，将 bootlogo=true 改为 bootlogo=false。
 +
 ```bash
-sudo nano "/boot/armbianEnv.txt" # 打开启动环境配置文件
+sudo nano "/boot/armbianEnv.txt"  # 打开启动环境配置文件
 ```
 
 . 执行 sudo reboot，重新启动后将不再显示启动徽标。
@@ -602,6 +602,8 @@ sudo nano "/boot/armbianEnv.txt" # 打开启动环境配置文件
 . 开启开机 Logo，将 bootlogo=false 改为 bootlogo=true。
 
 === 更换开机 Logo
+. 保持 bootlogo=true。
+. 启动徽标文件的保存路径为：/usr/share/plymouth/themes/armbian/watermark.png。
 
 == 40-pin 接口 GPIO、I2C、UART、SPI 和 PWM 测试
 
