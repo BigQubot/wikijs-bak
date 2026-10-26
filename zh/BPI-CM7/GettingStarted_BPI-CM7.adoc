@@ -577,11 +577,11 @@ aplay 1.wav
 . 打开终端播放音频，仅支持 `.wav` 格式文件。
 +
 ```bash
-pactl list short sinks            # 查看 PulseAudio 所有音频输出设备
-pactl set-default-sink 0          # 设置默认音频输出设备为编号0 (HDMI Audio)
-pactl info I grep "Default Sink"  # 查看当前 PulseAudio 信息
+pactl list short sinks                                # 查看 PulseAudio 所有音频输出设备
+pactl set-default-sink 0                              # 设置默认音频输出设备为编号0 (HDMI Audio)
+pactl info I grep "Default Sink"                      # 查看当前 PulseAudio 信息
 ffmpəg -i 1.ogg -c:a pcm_s16le -ar 48000 -ac 2 1.wav  # 如果音乐文件后缀是.ogg. 需要转换为.wav 才能播放
-aplay 1.wav                       # 播放音乐（如果设置好了还是不能听见声音，可以重启一下板子）
+aplay 1.wav                                           # 播放音乐（如果设置好了还是不能听见声音，可以重启一下板子）
 speaker-test -D plughw:1,0 -c 2 -r 48000 -t sine      # 没有音乐也可以直接播放正弦波
 pactl set-sink-volume 0 100%                          # 控制音量
 ```
