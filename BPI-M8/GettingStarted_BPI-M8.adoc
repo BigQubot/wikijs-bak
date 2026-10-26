@@ -398,24 +398,22 @@ image::/bpi-m8/bananapi-pi_m8_m_.2_keym_2.png[bananapi-pi_m8_m_.2_keym_2.png]
 
 . Add the overlays configuration.
 
-
 Open the file using nano
-```sh
-sudo nano /boot/armbianEnv.txt` 
-```
 
+`sudo nano /boot/armbianEnv.txt` 
 
 Add the following line to the file
-```sh
-overlays=bpi-m8-expansion-pcie-m2
-```
+
+`overlays=bpi-m8-expansion-pcie-m2`
 
 Save and exit: Ctrl+O -> Enter -> Ctrl+X
+
+
 
 image::/bpi-m8/bananapi-pi_m8_m_.2_keym_3.png[bananapi-pi_m8_m_.2_keym_3.png]
 
 
-
+. 
 
 
 
