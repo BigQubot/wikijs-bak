@@ -599,9 +599,7 @@ sudo nano "/boot/armbianEnv.txt" # 打开启动环境配置文件
 
 . 执行 sudo reboot，重新启动后将不再显示启动徽标。
 
-. 开启开机 Logo
-+
-将 bootlogo=false 改为 bootlogo=true。
+. 开启开机 Logo，将 bootlogo=false 改为 bootlogo=true。
 
 === 更换开机 Logo
 
