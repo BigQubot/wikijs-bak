@@ -633,7 +633,7 @@ sudo gpiodetect               # 扫描系统里所有的 GPIO 控制器
 sudo gpioinfo gpiochip1       # 打印 `gpiochip1`（H618 主 PIO，PA~PI，共 288 路）全部引脚状态
 sudo gpioset gpiochip1 234=1  # 把 GPIO33 设置为高电平
 sudo gpioset gpiochip1 234=0  # 把 GPIO33 设置为低电平
-gpioget gpiochip1 234         # 读取 GPIO33 电平
+sudo gpioget gpiochip1 234    # 读取 GPIO33 电平
 ```
 
 === I2C
