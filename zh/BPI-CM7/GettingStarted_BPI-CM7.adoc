@@ -557,8 +557,11 @@ link:https://www.nano-editor.org/[GNU nano] 是命令行文本编辑器，测试
 . 一条 **3.5一分三音视频AV线**。
 . 一条 **双头 HDMI 接口** 的线。
 . 一个 **AV 转 HDMI 高清转换器**。
-. 一台 **带有音频插孔和 HDMI 接口的显示器**。
+. 一台 **带有音频插孔 和 HDMI 接口的显示器**。
 . 板子上的 4pin 引脚从 **+ ** 开始，定义依次为 **TV_OUT、GND、R、L**。**3.5一分三音视频AV线** 的引脚定义为 **R、L、TV_OUT、GND**。
++
+image::/bpi_cm7/bananapi_bpicm7_audio1.jpg[bananapi_bpicm7_audio1.jpg]
+image::/bpi_cm7/bananapi_bpicm7_audio2.jpg[bananapi_bpicm7_audio2.jpg]
 
 === 3.5 mm 音频插孔
 . 把 **2mm-4p-直针座** 焊接到板子上。
