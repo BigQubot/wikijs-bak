@@ -302,8 +302,8 @@ tr '\0' '\n' < /proc/device-tree/model       # 读取设备树里的硬件型号
 tr '\0' '\n' < /proc/device-tree/compatible  # 查看设备树兼容型号，用于确认芯片平台
 uname -a                                     # 查看完整内核信息、架构、编译时间
 lscpu                                        # 查看CPU 核心数、架构、频率等处理器信息
-free -h  # 查看内存与 swap 大小，`-h` 自动用 GB/MB 友好单位展示
-lsblk    # **列出块存储设备**（eMMC、SD 卡、U 盘等）
+free -h                                      # 查看内存与 swap 大小，`-h` 自动用 GB/MB 友好单位展示
+lsblk                                        # **列出块存储设备**（eMMC、SD 卡、U 盘等）
 findmnt -no SOURCE,FSTYPE,SIZE,USED,AVAIL,USE%,TARGET /  # 查看**根分区 /**：磁盘来源、文件系统、总容量、已用 / 剩余空间、占用率
 ```
 
