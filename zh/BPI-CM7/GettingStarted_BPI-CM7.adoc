@@ -612,7 +612,8 @@ sudo update-initramfs -u  # 必须更新 initramfs
 sudo reboot               # 重启
 ```
 
-
++
+image::/bpi_cm7/bananapi_bpicm7_logo_watermark1.jpg[bananapi_bpicm7_logo_watermark1.jpg]
 
 == 40-pin 接口 GPIO、I2C、UART、SPI 和 PWM 测试
 
