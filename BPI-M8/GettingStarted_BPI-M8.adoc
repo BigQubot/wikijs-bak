@@ -412,6 +412,7 @@ Save and exit: Ctrl+O -> Enter -> Ctrl+X
 image::/bpi-m8/bananapi-pi_m8_m_.2_keym_3.png[bananapi-pi_m8_m_.2_keym_3.png]
 
 . Reboot the system 
++
 ```sh
 root@bananapim8:~# sudo reboot
 ``` 
@@ -419,6 +420,7 @@ root@bananapim8:~# sudo reboot
 After rebooting, run the following commands to verify the M.2 SSD
 +
 Check the PCIe devices
++
 ```sh
 root@bananapim8:~# lspci
 ```
