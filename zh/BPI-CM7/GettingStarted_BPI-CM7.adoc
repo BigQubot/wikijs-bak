@@ -590,9 +590,16 @@ pactl set-sink-volume 0 100%                          # 控制音量
 == 设置开机 Logo
 
 === 开启/关闭开机 Logo
+. 关闭开机 Logo。
+打开启动环境配置文件，将 bootlogo=true 改为 bootlogo=false。
++
 ```bash
 sudo nano "/boot/armbianEnv.txt" # 打开启动环境配置文件
 ```
+
+. 开启开机 Logo
++
+将 bootlogo=false 改为 bootlogo=true。
 
 === 更换开机 Logo
 
