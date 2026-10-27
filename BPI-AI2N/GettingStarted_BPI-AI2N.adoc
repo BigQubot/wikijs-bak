@@ -1393,6 +1393,8 @@ image::/picture/ai2n-omxh264enc-pad-temp.png[ai2n-omxh264enc-pad-temp.png]
 
 image::/picture/ai2n-omxh264enc-exp-prop.png[ai2n-omxh264enc-exp-prop.png]
 
+Example Pipeline:
+
 ```sh
 gst-launch-1.0 -e v4l2src device=/dev/video0fr ! \
 		video/x-raw, format=UYVY, width=1920, height=1080 ! \
@@ -1409,6 +1411,19 @@ gst-launch-1.0 -e v4l2src device=/dev/video0fr ! \
 image::/picture/ai2n-omxh265enc-pad-temp.png[ai2n-omxh265enc-pad-temp.png]
 
 image::/picture/ai2n-omxh265enc-exp-prop.png[ai2n-omxh265enc-exp-prop.png]
+
+Example Pipeline:
+
+```sh
+gst-launch-1.0 -e v4l2src device=/dev/video0fr ! \
+		video/x-raw, format=UYVY, width=3840, height=2160 ! \
+    vspmfilter dmabuf-use=true ! video/x-raw, format=NV12 ! \
+    omxh265enc control-rate=2 target-bitrate=10485760 interval_intraframes=14 \
+    periodicity-idr=2 use-dmabuf=true ! \
+    video/x-h265, profile=\(string\)main, level=\(string\)5 ! h265parse ! \
+    video/x-h265, alignment=au ! qtmux ! \
+    filesink location=MP4_H265_file.mp4
+```
 
 - Source Element: v4l2src
 
