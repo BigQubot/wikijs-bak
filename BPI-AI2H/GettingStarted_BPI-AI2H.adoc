@@ -1351,6 +1351,136 @@ link:https://github.com/renesas-rz/rzv_ai_sdk[Renesas AI Applications]
 
 link:https://github.com/renesas-rz/rzv_drp-ai_tvm[Renesas DRP-AI TVM]
 
+== gstreamer
+
+The main elements customized by Renesas are explained below.
+
+- Video H.264 Decode Element: omxh264dec
+
+image::/picture/ai2n-omxh264dec-pad-temp.png[ai2n-omxh264dec-pad-temp.png]
+
+image::/picture/ai2n-omxh264dec-exp-prop.png[ai2n-omxh264dec-exp-prop.png]
+
+Note: omxh264dec for RZ/V2H cannot be used on the same time with OpenCV Accelerator
+
+Example Pipeline:
+
+```sh
+gst-launch-1.0 filesrc location=bbb_sunflower_1080p_30fps_normal.mp4 ! \
+		qtdemux ! h264parse ! omxh264dec ! vspmfilter dmabuf-use=true ! \
+    waylandsink fullscreen=true
+```
+
+- Video H.265 Decode Element: omxh265dec
+
+image::/picture/ai2n-omxh265dec-pad-temp.png[ai2n-omxh265dec-pad-temp.png]
+
+image::/picture/ai2n-omxh265dec-exp-prop.png[ai2n-omxh265dec-exp-prop.png]
+
+Note: omxh265dec for RZ/V2H cannot be used on the same time with OpenCV Accelerator
+
+Example Pipeline:
+
+```sh
+gst-launch-1.0 filesrc location=Jellyfish_h265_1080_10s_30MB.mp4 ! \
+		qtdemux ! h265parse ! omxh265dec ! videoconvert ! \
+    waylandsink fullscreen=true
+```
+
+- Video H.264 Encode Element: omxh264enc
+
+image::/picture/ai2n-omxh264enc-pad-temp.png[ai2n-omxh264enc-pad-temp.png]
+
+image::/picture/ai2n-omxh264enc-exp-prop.png[ai2n-omxh264enc-exp-prop.png]
+
+Example Pipeline:
+
+```sh
+gst-launch-1.0 -e v4l2src device=/dev/video0fr ! \
+		video/x-raw, format=UYVY, width=1920, height=1080 ! \
+    vspmfilter dmabuf-use=true ! video/x-raw, format=NV12 ! \
+    omxh264enc control-rate=2 target-bitrate=10485760 interval_intraframes=14 \
+    periodicty-idr=2 use-dmabuf=true ! \
+    video/x-h264, profile=\(string\)high, level=\(string\)4 ! h264parse ! \
+    video/x-h264, stream-format=avc, alignment=au ! qtmux ! \
+    filesink location=MP4_H264_file.mp4
+```
+
+- Video H.265 Encode Element: omxh265enc
+
+image::/picture/ai2n-omxh265enc-pad-temp.png[ai2n-omxh265enc-pad-temp.png]
+
+image::/picture/ai2n-omxh265enc-exp-prop.png[ai2n-omxh265enc-exp-prop.png]
+
+Example Pipeline:
+
+```sh
+gst-launch-1.0 -e v4l2src device=/dev/video0fr ! \
+		video/x-raw, format=UYVY, width=3840, height=2160 ! \
+    vspmfilter dmabuf-use=true ! video/x-raw, format=NV12 ! \
+    omxh265enc control-rate=2 target-bitrate=10485760 interval_intraframes=14 \
+    periodicity-idr=2 use-dmabuf=true ! \
+    video/x-h265, profile=\(string\)main, level=\(string\)5 ! h265parse ! \
+    video/x-h265, alignment=au ! qtmux ! \
+    filesink location=MP4_H265_file.mp4
+```
+
+- Source Element: v4l2src
+
+image::/picture/ai2n-v4l2src.png[ai2n-v4l2src.png]
+
+image::/picture/ai2n-v4l2src-exp-prop.png[ai2n-v4l2src-exp-prop.png]
+
+- Video Conversion Element: vspmfilter
+
+image::/picture/ai2n-vspmfilter-pad-temp.png[ai2n-vspmfilter-pad-temp.png]
+
+image::/picture/ai2n-vspmfilter-exp-prop.png[ai2n-vspmfilter-exp-prop.png]
+
+Note: To use vspmfilter with USB cameras, you need to add option allocators=1 to uvcvideo driver module
+
+```sh
+$ sudo rmmod uvcvideo
+$ sudo insmod /lib/modules/6.1*yocto*/kernel/drivers/media/usb/uvc/uvcvideo.ko allocators=1
+```
+
+== Camera
+
+Connect Bananapi AI2H/AI2N imx415 module to carrier board csi interface. Edit /boot/env.txt to enable camera device-tree overlays, then reboot the board.
+
+- Enable Cam-A
+```sh
+overlays=camA-imx415-74M
+```
+
+- Enable Cam-B
+```sh
+overlays=camB-imx415-74M
+```
+
+- Enable Dual Cam
+```sh
+overlays=camAB-imx415-74M-dual-master
+```
+
+Example Pipeline:
+```sh
+# down scaling and format conversion video capture
+gst-launch-1.0 -e v4l2src device=/dev/video0fr io-mode=mmap ! \
+		video/x-raw, width=3840, height=2160, format=UYVY ! \
+    vspmfilter dmabuf-use=true ! \
+    video/x-raw, width=1920, height=1080, format=NV12 ! \
+    waylandsink
+```
+
+Note: Default sensor output format is 3840x2160, if you want output 1920x1080, edit /etc/default/rz-v4l2-init as follow, then reboot.
+
+```sh
+# Camera modes: 4k, 2k.
+CAMERA0_MODE=4k
+CAMERA1_MODE=4k
+```
+
 = Other Development
 
 == Flash Spi Bootloader
