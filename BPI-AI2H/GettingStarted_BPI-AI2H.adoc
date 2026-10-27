@@ -1474,9 +1474,7 @@ SpiFlashMemory End Address  : H'0011C2EE
 +
 image::/picture/ai2n-boot-spiboot.png[ai2n-boot-spiboot.png]
 
-- Flash bootloader via the serial port on Linux PC
-
-- Flash bootloader on AI2H board
+- Other spi flash methods, please refer to link:https://github.com/BPI-SINOVOIP/renesas-spi-flash[renesas-spi-flash]
 
 == Erase emmc
 Bootup the board with sdcard, erase the emmc with dd command as follows.
