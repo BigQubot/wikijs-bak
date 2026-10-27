@@ -1473,7 +1473,7 @@ gst-launch-1.0 -e v4l2src device=/dev/video0fr io-mode=mmap ! \
     waylandsink
 ```
 
-Default sensor output format is 3840x2160, if you want output 1920x1080, edit /etc/default/rz-v4l2-init as follow
+Default sensor output format is 3840x2160, if you want output 1920x1080, edit /etc/default/rz-v4l2-init as follow, then reboot.
 
 ```sh
 # Camera modes: 4k, 2k.
