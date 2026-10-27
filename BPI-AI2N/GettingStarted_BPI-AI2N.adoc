@@ -496,24 +496,9 @@ overlays=camA-imx415-74M
 overlays=camB-imx415-74M
 ```
 
-- Enable Cam-C
-```sh
-overlays=camC-imx415-74M
-```
-
-- Enable Cam-D
-```sh
-overlays=camD-imx415-74M
-```
-
 - Enable Dual CamAB
 ```sh
 overlays=camAB-imx415-74M-dual-master
-```
-
-- Enable Dual CamCD
-```sh
-overlays=camCD-imx415-74M-dual-master
 ```
 
 Example Pipeline:
