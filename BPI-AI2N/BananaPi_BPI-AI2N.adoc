@@ -97,34 +97,36 @@ Google: https://drive.google.com/file/d/1qzXm5ewjoLi1XCA6IGpTQ08pZScMkjhc/view?u
 = Software
 == Source Code
 
-TIP: Yocto: https://github.com/BPI-SINOVOIP/renesas-yocto 
+Yocto: https://github.com/BPI-SINOVOIP/renesas-yocto 
 
-TIP: Yocto oss package:  
+Yocto oss package:  
 
-TIP: Armbian:
+Armbian:
 
-Note: An NDA is required for ISP access. Please contact our sales team.
+NOTE: Note: An NDA is required for ISP access. Please contact our sales team.
 
 == Linux Image
 
 === Spi flash bootloader
 
-NOTE: Flash-tool: https://github.com/BPI-SINOVOIP/renesas-spi-flash
+Flash-tool: https://github.com/BPI-SINOVOIP/renesas-spi-flash
 
-NOTE: Bootloader: https://github.com/BPI-SINOVOIP/renesas-spi-flash/tree/main/bootloader/ai2n/sdk8.0
+Bootloader: https://github.com/BPI-SINOVOIP/renesas-spi-flash/tree/main/bootloader/ai2n/sdk8.0
+
+NOTE: Note: The bootloader binaries are built from the Yocto source code.
 
 === Yocto
 
-NOTE: Baidu: 
+Baidu: 
 
-NOTE: Google drive: 
+Google drive: 
 
 
 === Armbian
 
-NOTE: Baidu: 
+Baidu: 
 
-NOTE: Google drive: 
+Google drive: 
 
 = Easy to buy
 
