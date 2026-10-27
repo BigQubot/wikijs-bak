@@ -1363,6 +1363,12 @@ image::/picture/ai2n-omxh264dec-exp-prop.png[ai2n-omxh264dec-exp-prop.png]
 
 Note: omxh264dec for RZ/V2N cannot be used on the same time with OpenCV Accelerator and DRP-AI TVM
 
+Example Pipeline:
+
+```sh
+gst-launch-1.0 filesrc location=bbb_sunflower_1080p_30fps_normal.mp4 ! qtdemux ! h264parse ! omxh264dec ! vspmfilter dmabuf-use=true ! waylandsink fullscreen=true
+```
+
 - Video H.265 Decode Element: omxh265dec
 
 image::/picture/ai2n-omxh265dec-pad-temp.png[ai2n-omxh265dec-pad-temp.png]
@@ -1377,6 +1383,8 @@ image::/picture/ai2n-omxh264enc-pad-temp.png[ai2n-omxh264enc-pad-temp.png]
 
 image::/picture/ai2n-omxh264enc-exp-prop.png[ai2n-omxh264enc-exp-prop.png]
 
+
+
 - Video H.265 Encode Element: omxh265enc
 
 image::/picture/ai2n-omxh265enc-pad-temp.png[ai2n-omxh265enc-pad-temp.png]
@@ -1390,6 +1398,17 @@ image::/picture/ai2n-v4l2src.png[ai2n-v4l2src.png]
 image::/picture/ai2n-v4l2src-exp-prop.png[ai2n-v4l2src-exp-prop.png]
 
 - Video Conversion Element: vspmfilter
+
+image::/picture/ai2n-vspmfilter-pad-temp.png[ai2n-vspmfilter-pad-temp.png]
+
+image::/picture/ai2n-vspmfilter-exp-prop.png[ai2n-vspmfilter-exp-prop.png]
+
+Note: To use vspmfilter with USB cameras, you need to add option allocators=1 to uvcvideo driver module
+
+```sh
+$ sudo rmmod uvcvideo
+$ sudo insmod /lib/modules/6.1*yocto*/kernel/drivers/media/usb/uvc/uvcvideo.ko allocators=1
+```
 
 = Other Development
 
