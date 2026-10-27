@@ -1444,6 +1444,25 @@ $ sudo rmmod uvcvideo
 $ sudo insmod /lib/modules/6.1*yocto*/kernel/drivers/media/usb/uvc/uvcvideo.ko allocators=1
 ```
 
+== Camera
+
+Connect Bananapi AI2H/AI2N imx415 module to carrier board csi interface. Edit /boot/env.txt to enable camera device-tree overlays, then reboot the board.
+
+- Enable Cam-A
+```sh
+overlays=camA-imx415-74M
+```
+
+- Enable Cam-B
+```sh
+overlays=camB-imx415-74M
+```
+
+- Enable Dual Cam
+```sh
+overlays=camAB-imx415-74M-dual-master
+```
+
 = Other Development
 
 == Flash Spi Bootloader
