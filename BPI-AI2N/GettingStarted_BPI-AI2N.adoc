@@ -1463,6 +1463,16 @@ overlays=camB-imx415-74M
 overlays=camAB-imx415-74M-dual-master
 ```
 
+Example Pipeline:
+```sh
+# down scaling and format conversion video capture
+gst-launch-1.0 -e v4l2src device=/dev/video0fr io-mode=mmap ! \
+		video/x-raw, width=3840, height=2160, format=UYVY ! \
+    vspmfilter dmabuf-use=true ! \
+    video/x-raw, width=1920, height=1080, format=NV12 ! \
+    waylandsink
+```
+
 = Other Development
 
 == Flash Spi Bootloader
