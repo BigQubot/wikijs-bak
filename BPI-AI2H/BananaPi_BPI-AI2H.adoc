@@ -91,8 +91,6 @@ NOTE: Note: An NDA is required for ISP access. Please contact our sales team.
 
 === Spi flash bootloader
 
-Flash-tool: https://github.com/BPI-SINOVOIP/renesas-spi-flash
-
 Bootloader: https://github.com/BPI-SINOVOIP/renesas-spi-flash/tree/main/bootloader/ai2n/sdk8.0
 
 NOTE: Note: The bootloader binaries are built from the Yocto source code.
