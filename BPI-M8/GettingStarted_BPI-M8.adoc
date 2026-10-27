@@ -423,9 +423,10 @@ Check the PCIe devices
 +
 ```sh
 root@bananapim8:~# lspci
+00:00.0 PCI bridge: Device 1f6d:abcd (rev 01)
+e1:00.0 Non-Volatile memory controller: Solid State Storage Technology Corporation CL1-
+3D256-Q11 NVMe SSD M.2 (rev 03)
 ```
-+
-image::/bpi-m8/bananapi-pi_m8_m_.2_keym_4.png[bananapi-pi_m8_m_.2_keym_4.png]
 +
 Check the block devices
 +
