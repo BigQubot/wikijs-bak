@@ -1351,6 +1351,46 @@ link:https://github.com/renesas-rz/rzv_ai_sdk[Renesas AI Applications]
 
 link:https://github.com/renesas-rz/rzv_drp-ai_tvm[Renesas DRP-AI TVM]
 
+== gstreamer
+
+The main elements customized by Renesas are explained below.
+
+- Video H.264 Decode Element: omxh264dec
+
+image::/picture/ai2n-omxh264dec-pad-temp.png[ai2n-omxh264dec-pad-temp.png]
+
+image::/picture/ai2n-omxh264dec-exp-prop.png[ai2n-omxh264dec-exp-prop.png]
+
+Note: omxh264dec for RZ/V2N cannot be used on the same time with OpenCV Accelerator and DRP-AI TVM
+
+- Video H.265 Decode Element: omxh265dec
+
+image::/picture/ai2n-omxh265dec-pad-temp.png[ai2n-omxh265dec-pad-temp.png]
+
+image::/picture/ai2n-omxh265dec-exp-prop.png[ai2n-omxh265dec-exp-prop.png]
+
+Note: omxh265dec for RZ/V2N cannot be used on the same time with OpenCV Accelerator and DRP-AI TVM
+
+- Video H.264 Encode Element: omxh264enc
+
+image::/picture/ai2n-omxh264enc-pad-temp.png[ai2n-omxh264enc-pad-temp.png]
+
+image::/picture/ai2n-omxh264enc-exp-prop.png[ai2n-omxh264enc-exp-prop.png]
+
+- Video H.265 Encode Element: omxh265enc
+
+image::/picture/ai2n-omxh265enc-pad-temp.png[ai2n-omxh265enc-pad-temp.png]
+
+image::/picture/ai2n-omxh265enc-exp-prop.png[ai2n-omxh265enc-exp-prop.png]
+
+- Source Element: v4l2src
+
+image::/picture/ai2n-v4l2src.png[ai2n-v4l2src.png]
+
+image::/picture/ai2n-v4l2src-exp-prop.png[ai2n-v4l2src-exp-prop.png]
+
+- Video Conversion Element: vspmfilter
+
 = Other Development
 
 == Flash Spi Bootloader
