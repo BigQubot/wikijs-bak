@@ -496,9 +496,24 @@ overlays=camA-imx415-74M
 overlays=camB-imx415-74M
 ```
 
-- Enable Dual Cam
+- Enable Cam-C
+```sh
+overlays=camC-imx415-74M
+```
+
+- Enable Cam-D
+```sh
+overlays=camD-imx415-74M
+```
+
+- Enable Dual CamAB
 ```sh
 overlays=camAB-imx415-74M-dual-master
+```
+
+- Enable Dual CamCD
+```sh
+overlays=camCD-imx415-74M-dual-master
 ```
 
 Example Pipeline:
@@ -1512,8 +1527,8 @@ Default sensor output format is 3840x2160, if you want output 1920x1080, edit /e
 
 ```sh
 # Camera modes: 4k, 2k.
-CAMERA0_MODE=4k
-CAMERA1_MODE=4k
+CAMERA0_MODE=2k
+CAMERA1_MODE=2k
 ```
 
 = Other Development
