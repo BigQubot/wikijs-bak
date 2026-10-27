@@ -425,7 +425,7 @@ Check the PCIe devices
 root@bananapim8:~# lspci
 ```
 +
-image::/bpi-m8/bananapi-pi_m8_m_.2_keym_5.png[bananapi-pi_m8_m_.2_keym_5.png]
+image::/bpi-m8/bananapi-pi_m8_m_.2_keym_4.png[bananapi-pi_m8_m_.2_keym_4.png]
 +
 Check the block devices
 +
@@ -433,7 +433,7 @@ Check the block devices
 root@bananapim8:~# lsblk
 ```
 +
-image::/bpi-m8/bananapi-pi_m8_m_.2_keym_4.png[bananapi-pi_m8_m_.2_keym_4.png]
+image::/bpi-m8/bananapi-pi_m8_m_.2_keym_5.png[bananapi-pi_m8_m_.2_keym_5.png]
 
 . Create a mount point and mount the partition
 +
