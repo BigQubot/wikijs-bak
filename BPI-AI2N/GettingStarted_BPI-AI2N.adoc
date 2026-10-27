@@ -1474,6 +1474,8 @@ SpiFlashMemory End Address  : H'0011C2EE
 +
 image::/picture/ai2n-boot-spiboot.png[ai2n-boot-spiboot.png]
 
+- Other spi flash methods, please refer to link:https://github.com/BPI-SINOVOIP/renesas-spi-flash[renesas-spi-flash]
+
 == Erase emmc
 Bootup the board with sdcard, erase the emmc with dd command as follows.
 ```sh
@@ -1494,4 +1496,3 @@ Note:
 1. HDMI and DP are not support by AI2N hardware. 
 2. JETSON-IO-BASE-A use 5V DC, not 12V.
 
-== Boot from NVME SSD
