@@ -1339,13 +1339,17 @@ umount SDcard device /dev/sdX partition if mounted automatically.
  $ sudo sh -c 'gunzip -c core-image-weston-bananapi-ai2n-xxx.rootfs.wic.gz | pv | dd of=/dev/sdX bs=1M status=progress && sync'
 ```
 
-== Build Yocoto AI SDK Source Code
+== Build Yocto AI SDK Source Code
 
-link:https://github.com/BPI-SINOVOIP/meta-bananapi/blob/bpi-ai2n/README.md[Build Guide]
+link:https://github.com/BPI-SINOVOIP/renesas-yocto/blob/main/meta-bananapi/README.md[Build Yocto SDK Source Guide]
 
 == Yocto AI SDK and AI Application
 
-link:https://renesas-rz.github.io/rzv_ai_sdk/6.00/ai-sdk.html[Renesas Wiki]
+link:https://renesas-rz.github.io/rzv_ai_sdk/8.10/ai-sdk.html[Renesas AI SDK Guide]
+
+link:https://github.com/renesas-rz/rzv_ai_sdk[Renesas AI Applications]
+
+link:https://github.com/renesas-rz/rzv_drp-ai_tvm[Renesas DRP-AI TVM]
 
 = Other Development
 
