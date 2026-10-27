@@ -461,7 +461,7 @@ image::/bpi-m8/bananapi-pi_m8_m_.2_keym_7.png[bananapi-pi_m8_m_.2_keym_7.png]
 Before testing the read speed, clear the system cache to ensure accurate physical disk performance.
 +
 ```sh
-root@bananapim8:~# sudo sync # Sync data to disk 
+root@bananapim8:~# sudo sync #Sync data to disk 
 root@bananapim8:~# echo 3 | sudo tee /proc/sys/vm/drop_caches # Clear the page cache, dentries, and inodes
 root@bananapim8:~# sudo dd if=/mnt/nvme/testfile of=/dev/null bs=4M iflag=direct status=progress # Test read speed (2GB file)
 ```
