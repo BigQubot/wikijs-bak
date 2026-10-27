@@ -1382,7 +1382,9 @@ Note: omxh265dec for RZ/V2N cannot be used on the same time with OpenCV Accelera
 Example Pipeline:
 
 ```sh
-gst-launch-1.0 filesrc location=Jellyfish_h265_1080_10s_30MB.mp4 ! qtdemux ! h265parse ! omxh265dec ! videoconvert ! waylandsink fullscreen=true
+gst-launch-1.0 filesrc location=Jellyfish_h265_1080_10s_30MB.mp4 ! \
+		qtdemux ! h265parse ! omxh265dec ! videoconvert ! \
+    waylandsink fullscreen=true
 ```
 
 - Video H.264 Encode Element: omxh264enc
