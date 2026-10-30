@@ -117,6 +117,10 @@ lsblk
 +
 image::/bpi-m8/bananapi_bpim8_img_write_emmc4.jpg[bananapi_bpim8_img_write_emmc4.jpg]
 
+== 擦除eMMC
+. 确保 Linux 镜像已烧录到 SD 卡中并插入 SD 卡。插入 SD 卡默认优先 SD 卡启动。
+. 终端执行下列命令，列出系统中的硬盘、分区等块设备信息。
+
 
 = 其他开发
 
