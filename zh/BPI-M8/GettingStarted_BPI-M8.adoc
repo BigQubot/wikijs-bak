@@ -26,6 +26,18 @@ TIP: 更多信息：link:/zh/BPI-M8/BananaPi_BPI-M8[Banana Pi BPI-M8]
 == 准备
 . 下载最新的 link:/zh/BPI-M8/BananaPi_BPI-M8#_android[Android 镜像]。
 . 获取全志刷机工具 PhoenixSuit： link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2Fphoenixsuit_V1.1.0_20150325.rar[phoenixsuit] （Windows 平台）。
+. Type‑C 数据线（支持数据传输）、5V电源。
+
+== USB刷机步骤
+. 打开**PhoenixSuit**，单击 **一键刷机** 图标切换到固件下载面板。
+
+. 单击 **浏览** 选择 **Android 镜像文件**。
+
+. 长按 **FEL 按钮**，同时使用 **Type-C **接口将 M8 连接到电脑，后几秒松开**FEL 按钮**，弹出警告对话框后，单击 **是**。
+
+. 自动开始固件下载，等待刷机完成。
+
+. 下载完成(**Android 版本只能下载到 eMMC**)。
 
 
 = Linux
