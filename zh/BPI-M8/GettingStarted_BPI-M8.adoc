@@ -120,6 +120,16 @@ image::/bpi-m8/bananapi_bpim8_img_write_emmc4.jpg[bananapi_bpim8_img_write_emmc4
 == 擦除eMMC
 . 确保 Linux 镜像已烧录到 SD 卡中并插入 SD 卡。插入 SD 卡默认优先 SD 卡启动。
 . 终端执行下列命令，列出系统中的硬盘、分区等块设备信息。
++
+```
+lsblk
+```
+
+. mmcblk1 是 eMMC，mmcblk0 是 SD 卡。在终端中输入以下命令擦除 eMMC。此过程需要二十多分钟且不可逆，请事先备份重要数据。
++
+```
+sudo dd if=/dev/zero of=/dev/mmcblk1  #向 eMMC 全盘持续写入 0，覆盖所有分区与数据
+```
 
 
 = 其他开发
@@ -129,29 +139,10 @@ image::/bpi-m8/bananapi_bpim8_img_write_emmc4.jpg[bananapi_bpim8_img_write_emmc4
 将需要使用的 USB 设备连接到 M8。
 
 ```sh
-root@bananapim8:~# lsblk
-NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
-sda           8:0    1    0B  0 disk
-sdb           8:16   1    0B  0 disk
-sdc           8:32   1 59.5G  0 disk
-└─sdc1        8:33   1 59.5G  0 part
-sdd           8:48   1    0B  0 disk
-mmcblk1     179:0    0 29.1G  0 disk
-mmcblk0     179:8    0  7.4G  0 disk
-├─mmcblk0p1 179:9    0  256M  0 part /boot
-└─mmcblk0p2 179:10   0    7G  0 part /var/log.hdd
-                                     /
-zram0       254:0    0  1.9G  0 disk [SWAP]
-zram1       254:1    0   50M  0 disk /var/log
-zram2       254:2    0    0B  0 disk
-root@bananapim8:~# lsusb
-Bus 004 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
-Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
-Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
-Bus 001 Device 003: ID 0bda:0301 Realtek Semiconductor Corp. multicard reader
-Bus 001 Device 002: ID 1a86:8091 QinHeng Electronics USB HUB
-Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+lsblk
+lsusb
 ```
+image::/bpi-m8/bananapi_bpim8_img_write_usb1.jpg[bananapi_bpim8_img_write_usb1.jpg]
 
 == 网络
 
