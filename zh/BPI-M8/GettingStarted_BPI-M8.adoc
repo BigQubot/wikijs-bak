@@ -40,36 +40,50 @@ TIP: 更多信息：link:/zh/BPI-M8/BananaPi_BPI-M8[Banana Pi BPI-M8]
 . 下载完成(**Android 版本只能下载到 eMMC**)。
 
 
-= Linux
+= Linux开发
 
-=== 将镜像安装到 SD 卡
-**Windows PC**
+== 将镜像安装到 SD 卡
+. Linux 镜像支持 SD 卡或 eMMC 两种启动方式；插入 SD 卡时，板子优先从 SD 卡启动。
+. SD 卡推荐：容量≥8GB，A1 等级存储卡。
+. 若从 SD 卡启动：建议提前格式化 eMMC，清除原有系统。
+. 若从 eMMC 启动，SD 卡仅作存储使用：SD 卡需提前格式化，不要写入系统镜像。
+. 下载最新的 link:/zh/BPI-M8/BananaPi_BPI-M8#_linux[Linux镜像] 。
+. 镜像烧录工具： link:https://etcher.balena.io/[balenaEtcher] 。
+. 默认账号密码： pi/bananapi 或 root/1234。
+. 本 Wiki 指南仅适用于 Ubuntu/Debian 类镜像。
 
-使用 balenaEtcher 安装镜像。 +
-link:https://balena.io/etcher[balenaEtcher] 是 Balena 开发的开源图形化烧录工具，可将操作系统镜像写入 SD 卡或 USB 存储设备。
+== 将镜像写入SD卡
+两种方法任选其一：
 
-. 单击“**Flash from file**”选择镜像。 
-. 单击“**Select target**”选择目标设备。 
-. 单击“**Flash!**”开始烧录。
+> 方法一： **Balena Etcher** 图形工具烧录
 
-image::/picture/etcher.jpg[etcher.jpg]
+Balena Etcher 是 Balena 提供的开源图形化镜像写入工具，可将操作系统镜像写入 SD 卡或 U 盘。
 
-**Linux PC**
-
-**有两种方法供您选择。**
-
-. 在 Linux 上使用 dd 命令写入镜像。如果系统自动挂载了 SD 卡设备 /dev/sdX 的分区，请先卸载。bpi-copy 实际执行的操作与此 dd 命令相同。
+. 运行 Balena Etcher，选择 **从文件烧录**，导入镜像文件。
 +
-```sh
- $ sudo apt-get install pv unzip
- $ sudo unzip -p xxx-bpi-m2-ultra-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxfer
-```
-. 在 Linux 上使用 bpi-tools 安装镜像：将 SD 卡插入 Linux PC，然后执行以下命令。
+image::/bpi-m8/bananapi_bpim8_img_write_sd1.jpg[bananapi_bpim8_img_write_sd1.jpg]
 +
-```sh
- $ sudo apt-get install pv unzip
- $ sudo bpi-copy xxx-bpi-m2-ultra-xxx.img.zip /dev/sdX
-```
+image::/bpi-m8/bananapi_bpim8_img_write_sd2.jpg[bananapi_bpim8_img_write_sd2.jpg]
++
+WARNING: 选中目标 SD 卡设备，**注意仔细核对设备，防止选错盘**。
++
+image::/bpi-m8/bananapi_bpim8_img_write_sd3.jpg[bananapi_bpim8_img_write_sd3.jpg]
++
+image::/bpi-m8/bananapi_bpim8_img_write_sd4.jpg[bananapi_bpim8_img_write_sd4.jpg]
++
+开始烧录，等待写入 + 校验完成。
++
+image::/bpi-m8/bananapi_bpim8_img_write_sd5.jpg[bananapi_bpim8_img_write_sd5.jpg]
++
+image::/bpi-m8/bananapi_bpim8_img_write_sd6.jpg[bananapi_bpim8_img_write_sd6.jpg]
++
+image::/bpi-m8/bananapi_bpim8_img_write_sd7.jpg[bananapi_bpim8_img_write_sd7.jpg]
++
+
+
+
+
+
 
 === 将镜像安装到 eMMC
 
