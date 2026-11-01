@@ -156,10 +156,13 @@ image::/bpi-m8/bananapi_bpim8_img_write_wlan1.jpg[bananapi_bpim8_img_write_wlan1
 
 使用 iperf3 测试时，网口速率通常约为 1 Gbps。
 
+查看路由设备的ip地址
 ```sh
 ip a
 ```
+
 image::/bpi-m8/bnanapi_bpim8_img_write_wlan2.jpg[bnanapi_bpim8_img_write_wlan2.jpg]
+
 
 ```sh
 iperf3 -s
@@ -199,15 +202,8 @@ image::/bpi-m8/bananapi-pi_m8_hdmi_1.jpg[bananapi-pi_m8_hdmi_1.jpg]
 短按 PWR 按钮即可关闭电源。 
 
 关闭时会出现如下日志：
-```sh
-root@bananapim8:~#
-[ 2010.090118][    T1] npu[1][1] unregister cooling
-[ 2010.095369][    T1] npu[1][1] remove opp freq: 492000000
-[ 2010.101349][    T1] npu[1][1] remove opp freq: 852000000
-[ 2010.107323][    T1] npu[1][1] remove opp freq: 1008000000
-[ 2010.113401][    T1] sunxi:vin:[WARN]: video0 device have been closed!
-[ 2010.193946][    T1] reboot: Power down
-```
+
+image::/bpi-m8/bnanapi_bpim8_img_write_pwr1.jpg[bnanapi_bpim8_img_write_pwr1.jpg]
 
 长按 PWR 按钮开机。
 
@@ -219,14 +215,7 @@ root@bananapim8:~#
 . HDMI 输出
 
 ```sh
-root@bananapim8:~# aplay -l
-**** List of PLAYBACK Hardware Devices ****
-card 0: sndi2s0 [sndi2s0], device 0: sunxi-snd-plat-i2s-ac101-codec sunxi-ac101.15-001a-0 []
-  Subdevices: 0/1
-  Subdevice #0: subdevice #0
-card 1: allwinnerhdmi [allwinner-hdmi], device 0: sunxi-snd-plat-i2s-sunxi-snd-codec-hdmi soc@3000000:hdmi_codec- []
-  Subdevices: 1/1
-  Subdevice #0: subdevice #0
+aplay -l
 ```
 
 == RTC
@@ -236,17 +225,10 @@ card 1: allwinnerhdmi [allwinner-hdmi], device 0: sunxi-snd-plat-i2s-sunxi-snd-c
 查看系统 RTC 配置
 
 ```sh
-root@bananapim8:~# dmesg | grep -Ei "rtc|sunxi-rtc"
-[    0.054099] sunxi:ccu-ng:[INFO]: sunxi rtc-ccu version: 0.5.5
-[    0.065807] sunxi:ccu-ng:[INFO]: rtc_ccu: sunxi ccu init OK
-[    0.201736] axp8191-rtcldo: supplied by regulator-dummy
-[    2.838689] sunxi-rtc 7090000.rtc: errata__fix_alarm_day_reg_default_value(): ALARM0_DAY_REG=0, set it to 1
-[    2.850795] sunxi-rtc 7090000.rtc: registered as rtc0
-[    2.857255] sunxi-rtc 7090000.rtc: sunxi rtc probed
-[    5.509982] [drm] sunxi_de_bind crtc init for de 0 ok
-[    5.517001] [drm] sunxi_de_bind crtc init for de 1 ok
-[   21.530070] [drm] [SUNXI-CRTC]sunxi_crtc_atomic_enable
+dmesg | grep -Ei "rtc|sunxi-rtc"
 ```
+
+image::/bpi-m8/bnanapi_bpim8_img_write_rtc1.jpg[bnanapi_bpim8_img_write_rtc1.jpg]
 
 设置 RTC 时间
 
@@ -261,6 +243,7 @@ root@bananapim8:~# date  //Query system time
 root@bananapim8:~# hwclock -r -f /dev/rtc0
 2026-08-20 16:30:52.447590+08:00
 ```
+
 
 关闭电源以验证 RTC 是否工作
 
