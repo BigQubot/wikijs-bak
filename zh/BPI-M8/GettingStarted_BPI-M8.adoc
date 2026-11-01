@@ -157,24 +157,21 @@ image::/bpi-m8/bananapi_bpim8_img_write_wlan1.jpg[bananapi_bpim8_img_write_wlan1
 使用 iperf3 测试时，网口速率通常约为 1 Gbps。
 
 ```sh
-[ ID] Interval           Transfer     Bitrate
-[  5]   0.00-1.00   sec   111 MBytes   928 Mbits/sec
-[  5]   1.00-2.00   sec   110 MBytes   921 Mbits/sec
-[  5]   2.00-3.00   sec   111 MBytes   933 Mbits/sec
-[  5]   3.00-4.00   sec   112 MBytes   938 Mbits/sec
-[  5]   4.00-5.00   sec   112 MBytes   938 Mbits/sec
-[  5]   5.00-6.00   sec   112 MBytes   938 Mbits/sec
-[  5]   6.00-7.00   sec   112 MBytes   938 Mbits/sec
-[  5]   7.00-8.00   sec   112 MBytes   938 Mbits/sec
-[  5]   8.00-9.00   sec   112 MBytes   936 Mbits/sec
-[  5]   9.00-10.00  sec   112 MBytes   938 Mbits/sec
-- - - - - - - - - - - - - - - - - - - - - - - - -
-[ ID] Interval           Transfer     Bitrate
-[  5]   0.00-10.00  sec  1.09 GBytes   934 Mbits/sec                  sender
-[  5]   0.00-10.00  sec  1.09 GBytes   934 Mbits/sec                  receiver
-
-iperf Done.
+ip a
 ```
+image::/bpi-m8/bnanapi_bpim8_img_write_wlan2.jpg[bnanapi_bpim8_img_write_wlan2.jpg]
+
+```sh
+iperf3 -s
+```
+
+image::/bpi-m8/bnanapi_bpim8_img_write_wlan3.jpg[bnanapi_bpim8_img_write_wlan3.jpg]
+
+```sh
+iperf3 -c (iperf3 -s 的地址)
+```
+
+image::/bpi-m8/bnanapi_bpim8_img_write_wlan4.jpg[bnanapi_bpim8_img_write_wlan4.jpg]
 
 == WiFi
 
