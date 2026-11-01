@@ -233,40 +233,22 @@ image::/bpi-m8/bnanapi_bpim8_img_write_rtc1.jpg[bnanapi_bpim8_img_write_rtc1.jpg
 设置 RTC 时间
 
 ```sh
-root@bananapim8:~# date -s "2026-08-20 16:30:00" //Set system time
-2026年 08月 20日 星期四 16:30:00 CST  
-root@bananapim8:~# hwclock -w -f /dev/rtc0 //RTC writing time
-root@bananapim8:~# hwclock -r -f /dev/rtc0 //RTC reading time
-2026-08-20 16:30:28.460504+08:00
-root@bananapim8:~# date  //Query system time
-2026年 08月 20日 星期四 16:30:42 CST
-root@bananapim8:~# hwclock -r -f /dev/rtc0
-2026-08-20 16:30:52.447590+08:00
+date -s "2026-08-20 16:30:00" //Set system time
+hwclock -w -f /dev/rtc0 //RTC writing time
+hwclock -r -f /dev/rtc0 //RTC reading time
 ```
+image::/bpi-m8/bnanapi_bpim8_img_write_rtc2.jpg[bnanapi_bpim8_img_write_rtc2.jpg]
 
 
-关闭电源以验证 RTC 是否工作
-
-```sh
-root@bananapim8:~# date -s "2026-08-20 16:30:00" //Set system time
-2026年 08月 20日 星期四 16:30:00 CST  
-root@bananapim8:~# hwclock -w -f /dev/rtc0 //RTC writing time
-root@bananapim8:~# hwclock -r -f /dev/rtc0 //RTC reading time
-2026-08-20 16:30:28.460504+08:00
-root@bananapim8:~# date  //Query system time
-2026年 08月 20日 星期四 16:30:42 CST
-root@bananapim8:~# hwclock -r -f /dev/rtc0
-2026-08-20 16:30:52.447590+08:00
-```
 
 断电数分钟后，RTC 时钟仍在运行，而系统时钟已经停止了数分钟。
 
 ```sh
-root@bananapim8:~# date
-2026年 08月 20日 星期四 16:41:54 CST
-root@bananapim8:~# hwclock -r -f /dev/rtc0
-2026-08-20 16:43:04.558201+08:00
+hwclock -r -f /dev/rtc0
+date
 ```
+
+image::/bpi-m8/bnanapi_bpim8_img_write_rtc3.jpg[bnanapi_bpim8_img_write_rtc3.jpg]
 
 == 风扇
 
