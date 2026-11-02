@@ -23,10 +23,14 @@ TIP: 更多信息：link:/zh/BPI-CM7/BananaPi_BPI-CM7[Banana Pi BPI-CM7 主页]
 . 获取全志刷机工具 PhoenixSuit： link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2Fphoenixsuit_V1.1.0_20150325.rar[phoenixsuit] （Windows 平台）。
 . Type‑C 数据线（支持数据传输）、5V 电源。
 
-== USB 工具刷机步骤 ==
+== USB 工具刷机步骤
 . 打开 **PhoenixSuit**，单击 **一键刷机** 图标切换到固件下载面板。
++
+image::/bpi_cm7/bananapi_bpicm7_phonenixsuit1.jpg[bananapi_bpicm7_phonenixsuit1.jpg]
 
 . 单击 **浏览** 选择 **Android 镜像文件**。
++
+image::/bpi_cm7/bananapi_bpicm7_phonenixsuit2.jpg[bananapi_bpicm7_phonenixsuit2.jpg]
 
 . 持续按压 **FEL 按钮**，同时使用 **Type-C(带有data线) **接口将 CM7 连接到电脑。弹出警告对话框后，单击 **是**。
 
