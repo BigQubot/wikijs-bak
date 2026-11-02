@@ -236,6 +236,27 @@ image::/bpi-m8/bnanapi_bpim8_img_write_pwr1.jpg[bnanapi_bpim8_img_write_pwr1.jpg
 
 长按 PWR 按钮开机。
 
+== SSH
+
+. 准备一个wifi.
+. 把M8链接WiFi后查看ip地址。
++
+```sh
+ip a
+```
++
+image::/bpi-m8/bananapi_bpim8_img_write_shh1.jpg[bananapi_bpim8_img_write_shh1.jpg]
+
+. 用 MobaXterm 连接。
++
+image::/bpi-m8/bananapi_bpim8_img_write_shh2.jpg[bananapi_bpim8_img_write_shh2.jpg]
++
+image::/bpi-m8/bananapi_bpim8_img_write_shh3.jpg[bananapi_bpim8_img_write_shh3.jpg]
++
+image::/bpi-m8/bananapi_bpim8_img_write_shh4.jpg[bananapi_bpim8_img_write_shh4.jpg]
++
+image::/bpi-m8/bananapi_bpim8_img_write_shh5.jpg[bananapi_bpim8_img_write_shh5.jpg]
+
 == 音频
 
 使用 aplay 命令可看到 M8 声卡提供两个输出：
