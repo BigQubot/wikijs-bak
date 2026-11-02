@@ -175,32 +175,34 @@ image::/bpi-m8/bananapi_bpim8_img_write_usb2.jpg[bananapi_bpim8_img_write_usb2.j
 
 == 网口
 
-准备好网线，将网线连接到RJ45。
+. 准备网线,路由器，pc。
 
+. 将网线连接到RJ45。
+
+
+. 查看链接路由器的pc的ip地址
++
 ```sh
-ip a
+ipconfig
 ```
-image::/bpi-m8/bananapi_bpim8_img_write_wlan1.jpg[bananapi_bpim8_img_write_wlan1.jpg]
++
+image::/bpi-m8/bananapi_bpim8_img_write_iperf3_1.jpg[bananapi_bpim8_img_write_iperf3_1.jpg]
 
-查看路由设备的ip地址
-```sh
-ip a
-```
-
-image::/bpi-m8/bnanapi_bpim8_img_write_wlan2.jpg[bnanapi_bpim8_img_write_wlan2.jpg]
-
-
+. 在电脑或者路由器上启动 iperf3 服务端
++
 ```sh
 iperf3 -s
 ```
++
+image::/bpi-m8/bananapi_bpim8_img_write_iperf3_2.jpg[bananapi_bpim8_img_write_iperf3_2.jpg]
 
-image::/bpi-m8/bnanapi_bpim8_img_write_wlan3.jpg[bnanapi_bpim8_img_write_wlan3.jpg]
-
+. 在开发板端启动客户端
++
 ```sh
 iperf3 -c (iperf3 -s 的地址)
 ```
-
-image::/bpi-m8/bnanapi_bpim8_img_write_wlan4.jpg[bnanapi_bpim8_img_write_wlan4.jpg]
++
+image::/bpi-m8/bananapi_bpim8_img_write_iperf3_3.jpg[bananapi_bpim8_img_write_iperf3_3.jpg]
 
 使用 iperf3 测试时，网口速率通常约为 1 Gbps。
 
