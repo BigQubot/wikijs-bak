@@ -270,6 +270,25 @@ aplay -l
 
 image::/bpi-m8/bnanapi_bpim8_img_write_yinpin1.jpg[bnanapi_bpim8_img_write_yinpin1.jpg]
 
+=== hp 耳机输出
+. 准备一个带音频文件的U盘，一个有线耳机。
+. 将U盘接入usb接口,查看U盘挂载情况，使用cd命令进入U盘。
++
+```sh
+lsblk
+cd /mnt/usb
+```
++
+image::/bpi-m8/bananapi_bpim8_img_write_hp2.jpg[bananapi_bpim8_img_write_hp2.jpg]
+
+. 播放音频
++
+```sh
+cvlc --aout alsa --alsa-audio-device plughw:0,0 "音频文件名"
+```
++
+image::/bpi-m8/bananapi_bpim8_img_write_hp3.jpg[bananapi_bpim8_img_write_hp3.jpg]
+
 == RTC
 
 连接间距为 2 mm 的电池，为 RTC 供电。
