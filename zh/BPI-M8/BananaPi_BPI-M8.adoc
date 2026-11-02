@@ -77,6 +77,30 @@ BPI-M8B 采用 16MB SPI NOR 闪存。
 = 开发 
 
 == 源代码
+=== Android
+TIP: BPI-A733-Android13-Code
+
+Baidu Cloud: 
+
+Google Drive: 
+
+Android source code https://github.com/BPI-SINOVOIP/BPI-A733-Android13
+
+=== Linux
+
+TIP: Linux BSP source code
+
+u-boot for A733 : https://github.com/BPI-SINOVOIP/pi-u-boot/tree/sun60iw2p1-2018.07
+
+kernel for A733 : https://github.com/BPI-SINOVOIP/pi-linux/tree/sun60iw2p1-5.15
+
+* Bananapi Armbian build source code https://github.com/BPI-SINOVOIP/armbian-build/tree/bpi-v26.05
+
+* WringPi source code 
+
+* RPi.GPIO source code 
+
+* WiringPi-Python source code 
 
 == 资源
 
