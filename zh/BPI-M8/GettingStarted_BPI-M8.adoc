@@ -213,7 +213,7 @@ image::/bpi-m8/bnanapi_bpim8_img_write_wlan4.jpg[bnanapi_bpim8_img_write_wlan4.j
 nmcli device                                                      # 查看网口硬件状态
 nmcli device wifi list                                            # 列出可用的无线网络接入点
 sudo nmcli device wifi connection “WiFi名称” password “WiFi密码”   # 链接WiFi
-nmcli device disconnect wlan0                                     #断开WiFi
+sudo nmcli device disconnect wlan0                                #断开WiFi
 ```
 
 
