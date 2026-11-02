@@ -188,7 +188,7 @@ ipconfig
 +
 image::/bpi-m8/bananapi_bpim8_img_write_iperf3_1.jpg[bananapi_bpim8_img_write_iperf3_1.jpg]
 
-. 在电脑或者路由器上启动 iperf3 服务端
+. 在电脑或者路由器上启动 link:https://iperf.fr/iperf-download.php[iperf3] 服务端  
 +
 ```sh
 iperf3 -s
