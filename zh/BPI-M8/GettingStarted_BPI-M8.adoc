@@ -183,8 +183,6 @@ ip a
 ```
 image::/bpi-m8/bananapi_bpim8_img_write_wlan1.jpg[bananapi_bpim8_img_write_wlan1.jpg]
 
-使用 iperf3 测试时，网口速率通常约为 1 Gbps。
-
 查看路由设备的ip地址
 ```sh
 ip a
@@ -204,6 +202,8 @@ iperf3 -c (iperf3 -s 的地址)
 ```
 
 image::/bpi-m8/bnanapi_bpim8_img_write_wlan4.jpg[bnanapi_bpim8_img_write_wlan4.jpg]
+
+使用 iperf3 测试时，网口速率通常约为 1 Gbps。
 
 == WiFi
 
