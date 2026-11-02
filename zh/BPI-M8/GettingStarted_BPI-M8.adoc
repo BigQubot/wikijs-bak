@@ -136,14 +136,43 @@ sudo dd if=/dev/zero of=/dev/mmcblk1  #向 eMMC 全盘持续写入 0，覆盖所
 
 == USB
 
-将需要使用的 USB 设备连接到 M8的USBA口。
-
+. 将需要使用的 USB 设备连接到 M8的USBA口。
++
 可以使用下面命令查询。查询板上所有磁盘结构、挂载状态、文件系统和查询板上所有的USB设备。
++
 ```sh
 lsblk
 lsusb
 ```
++
 image::/bpi-m8/bananapi_bpim8_img_write_usb1.jpg[bananapi_bpim8_img_write_usb1.jpg]
+
+. 挂载U盘设备
++
+创建挂载点
++
+```sh 
+sudo mkdir -p /mnt/usb
+```
++
+把U盘挂载上去后查看
++
+```sh
+sudo mount /dev/sda1 /mnt/usb
+lsblk
+```
++
+image::/bpi-m8/bananapi_bpim8_img_write_usb1.jpg[bananapi_bpim8_img_write_usb1.jpg]
+
+. 取消挂载后查看
++
+```sh
+sudo umount /mnt/usb
+lsblk
+```
++
+image::/bpi-m8/bananapi_bpim8_img_write_usb2.jpg[bananapi_bpim8_img_write_usb2.jpg]
+
 
 == 网口
 
@@ -268,6 +297,8 @@ hwmon0
 root@bananapim8:~# echo 1 > /sys/class/hwmon/hwmon0/pwm1
 root@bananapim8:~# echo 0 > /sys/class/hwmon/hwmon0/pwm1
 ```     
+
+
 
 == 引脚定义
 
