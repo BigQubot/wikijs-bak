@@ -235,6 +235,7 @@ devices                    # 查看设备列表
 pair MAC地址                # 向指定 MAC 地址的耳机发起配对请求，弹出确认提示时输入 
 connect MAC地址             # 和耳机建立正式蓝牙音频连接（连接成功终端会出现设备名字）
 disconnect MAC地址          # 断开指定 MAC 地址的蓝牙设备
+exit                       # 退出
 ```
 
 
