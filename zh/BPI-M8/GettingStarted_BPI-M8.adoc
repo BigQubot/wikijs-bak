@@ -216,7 +216,7 @@ sudo nmcli device wifi connection “WiFi名称” password “WiFi密码”   #
 sudo nmcli device disconnect wlan0                                #断开WiFi
 ```
 
-
+image::/bpi-m8/bananapi_bpim8_img_write_wifi1.jpg[bananapi_bpim8_img_write_wifi1.jpg]
 
 == HDMI 输出
 
