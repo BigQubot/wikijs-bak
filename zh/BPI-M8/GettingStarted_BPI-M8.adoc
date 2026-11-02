@@ -292,12 +292,13 @@ image::/bpi-m8/bananapi_bpim8_img_write_shh5.jpg[bananapi_bpim8_img_write_shh5.j
 
 . HP 耳机输出
 . HDMI 输出
-
++
 ```sh
 aplay -l
 ```
++
+image::/bpi-m8/bnanapi_bpim8_img_write_hp1.jpg[bnanapi_bpim8_img_write_hp1.jpg]
 
-image::/bpi-m8/bnanapi_bpim8_img_write_yinpin1.jpg[bnanapi_bpim8_img_write_yinpin1.jpg]
 
 === HP 耳机输出
 . 准备一个带音频文件的U盘，一个有线耳机。
