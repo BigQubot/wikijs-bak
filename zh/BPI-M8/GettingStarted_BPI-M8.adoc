@@ -210,11 +210,12 @@ image::/bpi-m8/bnanapi_bpim8_img_write_wlan4.jpg[bnanapi_bpim8_img_write_wlan4.j
 使用 nmcli 命令连接 WiFi，完成后即可使用 WiFi。
 
 ```sh
-nmcli device                                                # 查看网口硬件状态
-nmcli device wifi list                                      # 列出可用的无线网络接入点
-nmcli device wifi connection “WiFi名称” password “WiFi密码”  # 链接WiFi
-nmcli device disconnect wlan0                               #断开WiFi
+nmcli device                                                      # 查看网口硬件状态
+nmcli device wifi list                                            # 列出可用的无线网络接入点
+sudo nmcli device wifi connection “WiFi名称” password “WiFi密码”   # 链接WiFi
+nmcli device disconnect wlan0                                     #断开WiFi
 ```
+
 
 
 == HDMI 输出
