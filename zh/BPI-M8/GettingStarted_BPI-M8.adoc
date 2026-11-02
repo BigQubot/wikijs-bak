@@ -214,7 +214,6 @@ nmcli device                                                # 查看网口硬件
 nmcli device wifi list                                      # 列出可用的无线网络接入点
 nmcli device wifi connection “WiFi名称” password “WiFi密码”  # 链接WiFi
 nmcli device disconnect wlan0                               #断开WiFi
-创建 AP 热点
 ```
 
 
