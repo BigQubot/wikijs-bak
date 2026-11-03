@@ -46,7 +46,7 @@ TIP:  1
 == 硬件规格
 [options="header",cols="1,3"]
 |====
-| 项目 | BPI-M2C 规格 
+2+| BPI-M2C 规格 
 | SoC | 紫光展锐 T820（UIS7885），6 nm 
 | CPU | 1 × Cortex-A76 @ 2.7 GHz + 3 × Cortex-A76 @ 2.3 GHz + 4 × Cortex-A55 @ 2.1 GHz，64 位 
 | GPU | Arm Mali-G57，最高 850 MHz 
@@ -60,17 +60,35 @@ TIP:  1
 | 蜂窝网络 | SoC支持 2G/3G/4G/5G
 | 定位 | GNSS 驱动与软件支持 
 | HDMI | HDMI out  1920 × 1080 
-| MIPI DSI |  800 × 1280 RGB888 
+| MIPI DSI |  800 × 1280
 | 摄像头 | MIPI-CSI、硬件 ISP； 
 | USB | USB 2.0 x 4 
 | 音频 | 3.5mm耳机接口、扬声器 
 | GPIO | 40-pin 排针，支持 GPIO、I²C、SPI、UART、PWM、PCM/I²S 
 | 按键 | 电源键、烧录按键 
 | 供电 | 支持 Type-C 5V供电 
-| 尺寸 |  
-| 重量 | 
+| 尺寸 |  85 x 56 mm
+| 重量 | 60g
 |====
+
+= Development
+== Source Code
+
+TIP: Linux BSP source code
+
+
+== Resources
 
 = 系统镜像
 
 == Yocto Linux
+
+= Easy to buy
+
+WARNING: SINOVOIP Aliexpress Shop: 
+
+WARNING: Bipai Aliexpress Shop: 
+
+WARNING: Taobao Shop: 
+
+WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
