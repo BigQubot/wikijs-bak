@@ -368,7 +368,7 @@ root@bananapim8:~# echo 0 > /sys/class/hwmon/hwmon0/pwm1
 == POE
 
 . 准备一个POE交换机，一个POE扩展板，一根网线。
-. 将网线连接POE交换机和BPI-M8。
+. 将网线连接POE交换机和BPI-M8，POE交换机即可给BPI-M8进行正常供电使用。
 
 image::/bpi-m8/bananapi_bpim8_img_write_poe1.jpg[bananapi_bpim8_img_write_poe1.jpg]
 
