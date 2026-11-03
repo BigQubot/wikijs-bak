@@ -393,7 +393,7 @@ image::/bpi-m8/bananapi_bpim8_img_write_kzb2.jpg[bananapi_bpim8_img_write_kzb2.j
 +
 image::/bpi-m8/bananapi_bpim8_img_write_m.2_.jpg[bananapi_bpim8_img_write_m.2_.jpg]
 
-. 确认系统内包含 M.2 扩展板的设备树文件
+. 确认系统内包含BPI-M8扩展板M.2接口的设备树文件
 +
 ```sh
 ls /boot/dtb/sunxi/overlay/bpi-m8/ | grep -i pcie
