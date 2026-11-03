@@ -196,7 +196,7 @@ iperf3 -s
 +
 image::/bpi-m8/bananapi_bpim8_img_write_iperf3_2.jpg[bananapi_bpim8_img_write_iperf3_2.jpg]
 
-. 在开发板端启动客户端
+. 在BPI-M8上启动客户端
 +
 ```sh
 iperf3 -c (iperf3 -s 的地址)
