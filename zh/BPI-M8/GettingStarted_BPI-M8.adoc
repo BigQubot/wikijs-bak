@@ -323,7 +323,7 @@ image::/bpi-m8/bananapi_bpim8_img_write_hp3.jpg[bananapi_bpim8_img_write_hp3.jpg
 查看系统 RTC 配置
 
 ```sh
-dmesg | grep -Ei "rtc|sunxi-rtc"
+sudo dmesg | grep -Ei "rtc|sunxi-rtc"
 ```
 image::/bpi-m8/bananapi_bpim8_img_write_rtc1.jpg[bananapi_bpim8_img_write_rtc1.jpg]
 
