@@ -332,8 +332,8 @@ image::/bpi-m8/bnanapi_bpim8_img_write_rtc1.jpg[bnanapi_bpim8_img_write_rtc1.jpg
 
 ```sh
 sudo date -s "2026-11-03 11:52:00" 
-hwclock -w -f /dev/rtc0 
-hwclock -r -f /dev/rtc0 
+sudo hwclock -w -f /dev/rtc0 
+sudo hwclock -r -f /dev/rtc0 
 ```
 
 image::/bpi-m8/bnanapi_bpim8_img_write_rtc2.jpg[bnanapi_bpim8_img_write_rtc2.jpg]
