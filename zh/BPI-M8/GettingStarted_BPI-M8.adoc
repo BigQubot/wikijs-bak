@@ -325,7 +325,7 @@ image::/bpi-m8/bananapi_bpim8_img_write_hp3.jpg[bananapi_bpim8_img_write_hp3.jpg
 ```sh
 dmesg | grep -Ei "rtc|sunxi-rtc"
 ```
-
+image::/bpi-m8/bananapi_bpim8_img_write_rtc1.jpg[bananapi_bpim8_img_write_rtc1.jpg]
 
 
 设置 RTC 时间
@@ -336,7 +336,7 @@ sudo hwclock -w -f /dev/rtc0
 sudo hwclock -r -f /dev/rtc0 
 ```
 
-
+image::/bpi-m8/bananapi_bpim8_img_write_rtc2.jpg[bananapi_bpim8_img_write_rtc2.jpg]
 
 
 断电数分钟后，RTC 时钟仍在运行，而系统时钟已经停止了数分钟。
@@ -345,8 +345,7 @@ sudo hwclock -r -f /dev/rtc0
 sudo hwclock -r -f /dev/rtc0
 date
 ```
-
-
+image::/bpi-m8/bananapi_bpim8_img_write_rtc3.jpg[bananapi_bpim8_img_write_rtc3.jpg]
 
 == 风扇
 
