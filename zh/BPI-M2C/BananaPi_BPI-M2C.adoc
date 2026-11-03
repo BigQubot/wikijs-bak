@@ -2,18 +2,13 @@
 
 BPI-M2C 是香蕉派推出的一款高性能 ARM 单板计算机（SBC），采用紫光展锐UIS7885 SoC，面向 5G 通信、边缘计算、人工智能、机器视觉、智能终端和嵌入式人机界面等应用。
 
-UIS7885 采用 6 nm 工艺，集成 4 个 Arm Cortex-A76 性能核心和 4 个 Arm Cortex-A55 能效核心，并集成 Mali-G57 GPU、IMG AX3596 NPU、VDSP、ISP 及硬件视频编解码单元。BPI-M2C 当前配备 4 GiB LPDDR4X 内存和 128 GB eMMC，板级软件支持 MicroSD、PCIe 千兆以太网、Wi-Fi、蓝牙、GNSS、HDMI、MIPI-DSI、MIPI-CSI、USB 和 40-pin 扩展接口。
+UIS7885 采用 6 nm 工艺，集成 4 个 Arm Cortex-A76 性能核心和 4 个 Arm Cortex-A55 能效核心，共享 3 MB L3 缓存，支持 Arm Neon SIMD/VFP，并集成 Mali-G57 GPU、IMG AX3596 NPU、VDSP、ISP 及硬件视频编解码单元。BPI-M2C 当前配备 4 GiB LPDDR4X 内存和 128 GB eMMC，板级软件支持 MicroSD、PCIe 千兆以太网、Wi-Fi、蓝牙、GNSS、HDMI、MIPI-DSI、MIPI-CSI、USB 和 40-pin 扩展接口。
 
 与普通入门级开发板相比，BPI-M2C 更强调高性能计算、5G 平台能力、端侧 AI、摄像头 ISP 和多媒体处理，适合需要“计算、连接、显示、视觉”一体化能力的开发项目。
 
 == 关键特性
 
-- 紫光展锐 UIS7885，6 nm 工艺
-- 八核 64 位 CPU：
-  - 1 × Arm Cortex-A76，最高 2.7 GHz
-  - 3 × Arm Cortex-A76，最高 2.3 GHz
-  - 4 × Arm Cortex-A55，最高 2.1 GHz
-- 共享 3 MB L3 缓存，支持 Arm Neon SIMD/VFP
+- 1 × Arm Cortex-A76，最高 2.7 GHz + 3 × Arm Cortex-A76，最高 2.3 GHz + 4 × Arm Cortex-A55，最高 2.1 GHz
 - Arm Mali-G57 GPU，最高 850 MHz
 - IMG AX3596 NPU，最高 988 MHz
 - VDSP 视觉/信号处理单元，最高 1014 MHz
@@ -23,13 +18,9 @@ UIS7885 采用 6 nm 工艺，集成 4 个 Arm Cortex-A76 性能核心和 4 个 A
 - Wi-Fi/蓝牙
 - GNSS 和 FM 软件/驱动支持
 - SoC 集成 2G/3G/4G/5G Modem
-- HDMI out 1920 × 1080
-- MIPI-DSI 800 × 1280
-- MIPI-CSI 摄像头接口
-- USB 2.0 x 4 
-- type-c接口，5V power supply
-- 3.5音频接口和扬声器接口
-- 40-pin 扩展排针
+- HDMI out
+- MIPI-DSI
+- MIPI-CSI
 
 == 应用方向
 
@@ -42,15 +33,6 @@ UIS7885 采用 6 nm 工艺，集成 4 个 Arm Cortex-A76 性能核心和 4 个 A
 - 机器人主控和视觉处理
 - GNSS 移动数据采集终端
 - 高校 ARM/Linux、AI 和通信教学平台
-
-== 适合人群
-
-- 嵌入式 Linux、BSP 和驱动开发者
-- AI、机器视觉和摄像头算法团队
-- 5G 行业终端和网关开发团队
-- Qt/Wayland HMI 应用开发者
-- 工业控制、机器人和物联网开发者
-- 高校、研究机构及高级创客
 
 = 快速入门
 
