@@ -264,8 +264,8 @@ image::/bpi-m8/bnanapi_bpim8_img_write_pwr1.jpg[bnanapi_bpim8_img_write_pwr1.jpg
 
 == SSH
 
-. 连接wifi.
-. 把M8链接WiFi后查看ip地址。
+. BPI-M8连接wifi.
+. 查看M8链接WiFi后的ip地址。
 +
 ```sh
 ip a
