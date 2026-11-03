@@ -375,10 +375,37 @@ image::/bpi-m8/bananapi_bpim8_img_write_poe1.jpg[bananapi_bpim8_img_write_poe1.j
 == M.2固态硬盘
 
 . 准备一个pcle扩展板，一个M.2固态硬盘。
+. 使用 31-pin 的 FPC 软排线，将 BPI-M8 主板的 PCIe/DP 接口与扩展板的对应接口相连。
 +
 image::/bpi-m8/bananapi_bpim8_img_write_m.2_1.jpg[bananapi_bpim8_img_write_m.2_1.jpg]
 
-. 
+. 确认系统内包含 M.2 扩展板的设备树文件
++
+```sh
+ls /boot/dtb/sunxi/overlay/bpi-m8/ | grep -i pcie
+```
++
+image::/bpi-m8/bananapi_bpim8_img_write_m.2_3.jpg[bananapi_bpim8_img_write_m.2_3.jpg]
+
+. 使用 nano 编辑器打开启动配置文件,在文件末尾添加配置.
++
+```sh
+sudo nano /boot/armbianEnv.txt
+overlays=bpi-m8-expansion-pcie-m2
+```
++
+image::/bpi-m8/bananapi_bpim8_img_write_m.2_2.jpg[bananapi_bpim8_img_write_m.2_2.jpg]
++
+保存并退出：按 Ctrl+O 写入，按 Enter 确认，按 Ctrl+X 退出，重启系统使配置生效.
+
+. 检查 PCIe 设备枚举状态，检查系统块设备.
++
+```sh
+lspci
+lsblk
+```
++
+image::/bpi-m8/bananapi_bpim8_img_write_m.2_4.jpg[bananapi_bpim8_img_write_m.2_4.jpg]
 
 
 == 引脚定义
