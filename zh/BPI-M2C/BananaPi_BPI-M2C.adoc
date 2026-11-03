@@ -15,7 +15,7 @@ UIS7885 采用 6 nm 工艺，集成 4 个 Arm Cortex-A76 性能核心和 4 个 A
 - 4 GiB LPDDR4X 内存
 - 128 GB eMMC，并支持 MicroSD
 - 千兆以太网
-- Wi-Fi/蓝牙
+- Wi-Fi5 双频(2.4G,5G)/蓝牙 5
 - GNSS 和 FM 软件/驱动支持
 - SoC 集成 2G/3G/4G/5G Modem
 - HDMI out
@@ -55,8 +55,8 @@ TIP:  1
 | 内存 | 4 GiB LPDDR4X； 
 | 存储 | 128 GB eMMC；支持 MicroSD；SoC 支持 eMMC 5.1 HS400/UFS 3.1 
 | 有线网络 | 1 x 千兆以太网；接POE模块后支持POE供电 
-| 无线 | Wi-Fi 
-| 蓝牙 | 蓝牙 
+| 无线 | Wi-Fi 5 双频(2.4G,5G)
+| 蓝牙 | 蓝牙 5
 | 蜂窝网络 | SoC支持 2G/3G/4G/5G
 | 定位 | GNSS 驱动与软件支持 
 | HDMI | HDMI out  1920 × 1080 
