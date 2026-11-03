@@ -316,6 +316,18 @@ cvlc --aout alsa --alsa-audio-device plughw:0,0 "音频文件名"
 +
 image::/bpi-m8/bananapi_bpim8_img_write_hp3.jpg[bananapi_bpim8_img_write_hp3.jpg]
 
+=== HDMI 输出
+
+. 准备一个HDMI屏幕，一根HDMI线。
+. 把HDMI屏幕和BPI-M8通过HDMI线连接。
+. 直接播放正弦波测试音频。
++
+```sh
+speaker-test -D plughw:1,0 -t sine -f 1000 -l 1
+```
+
+
+
 == RTC
 
 连接间距为 2 mm 的电池，为 RTC 供电。
