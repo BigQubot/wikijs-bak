@@ -175,26 +175,26 @@ image::/bpi-m8/bananapi_bpim8_img_write_usb2.jpg[bananapi_bpim8_img_write_usb2.j
 
 == 网口
 
-. 准备网线,路由器，pc。
+. 准备网线,路由器。
 
-. 将网线连接到RJ45。
+. 使用网线连接路由器和BPI-M8。
 
 
-. 查看链接路由器的pc的ip地址
+. 查看路由器ip地址
 +
 ```sh
-ipconfig
+ip a
 ```
 +
-image::/bpi-m8/bananapi_bpim8_img_write_iperf3_1.jpg[bananapi_bpim8_img_write_iperf3_1.jpg]
+image::/bpi-m8/bananapi_bpim8_img_write_iperf_1.jpg[bananapi_bpim8_img_write_iperf_1.jpg]
 
-. 在电脑或者路由器上启动 link:https://iperf.fr/iperf-download.php[iperf3] 服务端  
+. 在路由器上启动 iperf3 服务端  
 +
 ```sh
 iperf3 -s
 ```
 +
-image::/bpi-m8/bananapi_bpim8_img_write_iperf3_2.jpg[bananapi_bpim8_img_write_iperf3_2.jpg]
+image::/bpi-m8/bananapi_bpim8_img_write_iperf_2.jpg[bananapi_bpim8_img_write_iperf_2.jpg]
 
 . 在BPI-M8上启动客户端
 +
@@ -202,7 +202,7 @@ image::/bpi-m8/bananapi_bpim8_img_write_iperf3_2.jpg[bananapi_bpim8_img_write_ip
 iperf3 -c (iperf3 -s 的地址)
 ```
 +
-image::/bpi-m8/bananapi_bpim8_img_write_iperf3_3.jpg[bananapi_bpim8_img_write_iperf3_3.jpg]
+image::/bpi-m8/bananapi_bpim8_img_write_iperf_3.jpg[bananapi_bpim8_img_write_iperf_3.jpg]
 
 使用 iperf3 测试时，网口速率通常约为 1 Gbps。
 
