@@ -264,7 +264,7 @@ image::/bpi-m8/bnanapi_bpim8_img_write_pwr1.jpg[bnanapi_bpim8_img_write_pwr1.jpg
 
 == SSH
 
-. 准备一个wifi.
+. 连接wifi.
 . 把M8链接WiFi后查看ip地址。
 +
 ```sh
@@ -371,6 +371,15 @@ root@bananapim8:~# echo 0 > /sys/class/hwmon/hwmon0/pwm1
 . 将网线连接POE交换机和BPI-M8。
 
 image::/bpi-m8/bananapi_bpim8_img_write_poe1.jpg[bananapi_bpim8_img_write_poe1.jpg]
+
+== M.2固态硬盘
+
+. 准备一个pcle扩展板，一个M.2固态硬盘。
++
+image::/bpi-m8/bananapi_bpim8_img_write_m.2_1.jpg[bananapi_bpim8_img_write_m.2_1.jpg]
+
+. 
+
 
 == 引脚定义
 
