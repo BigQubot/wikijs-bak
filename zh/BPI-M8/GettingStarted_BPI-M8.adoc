@@ -361,16 +361,16 @@ date
 查询系统中的风扇控制 PWM 设备
 
 ```sh
-root@bananapim8:~# cat /sys/class/hwmon/hwmon0/name
-pwmfan
-root@bananapim8:~# ls /sys/class/hwmon/
-hwmon0
+cat /sys/class/hwmon/hwmon0/name
+
+ls /sys/class/hwmon/
+
 ```     
 使用命令控制风扇开关
 
 ```sh
-root@bananapim8:~# echo 1 > /sys/class/hwmon/hwmon0/pwm1
-root@bananapim8:~# echo 0 > /sys/class/hwmon/hwmon0/pwm1
+echo 1 > /sys/class/hwmon/hwmon0/pwm1
+echo 0 > /sys/class/hwmon/hwmon0/pwm1
 ```     
 
 == POE
