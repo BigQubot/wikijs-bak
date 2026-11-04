@@ -348,7 +348,7 @@ sudo hwclock -r -f /dev/rtc0
 
 
 
-断电数分钟后，RTC 时钟仍在运行，而系统时钟已经停止了数分钟。
+BPI-M8 断电数分钟后，RTC 时钟仍在运行，而系统时钟已经停止了数分钟。
 
 ```sh
 sudo hwclock -r -f /dev/rtc0
