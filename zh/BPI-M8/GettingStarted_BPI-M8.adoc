@@ -695,7 +695,6 @@ mkdir -p "$M8_DEMO_DIR/lib"
 cp -a "$M8_MODEL_ZOO/common/npuruntime/lib_linux_aarch64/A733/"*.so \
     "$M8_DEMO_DIR/lib/"
 
-file "$M8_DEMO_DIR/yolov5_demo_a733"
 ls -lh "$M8_DEMO_DIR/lib/"
 ----
 
