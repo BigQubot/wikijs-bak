@@ -88,44 +88,49 @@ WARNING: 写入会清除 eMMC 中的数据。以下以 `/dev/mmcblk1` 为例，�
 
 . 查看磁盘和当前系统分区，确认 SD 卡、eMMC 和 U 盘。
 +
-```bash
+[source,bash]
+----
 lsblk -o NAME,SIZE,TYPE,FSTYPE,MOUNTPOINT
 findmnt /
-```
+----
 +
 image::/bpi-m8/bananapi_bpim8_img_write_emmc1.jpg[查看存储设备]
 
 . 挂载 U 盘。以下以 `/dev/sda1` 为例，已挂载的 U 盘可直接使用原挂载路径。
 +
-```bash
+[source,bash]
+----
 sudo mkdir -p /mnt/usb
 sudo mount /dev/sda1 /mnt/usb
 ls /mnt/usb
-```
+----
 +
 image::/bpi-m8/bananapi_bpim8_img_write_emmc2.jpg[挂载 U 盘]
 
 . 确认 eMMC 分区均未挂载，将下方 `bpi-m8.img` 替换为实际镜像文件名，执行写入。
 +
-```bash
+[source,bash]
+----
 sudo dd if=/mnt/usb/bpi-m8.img of=/dev/mmcblk1 bs=4M status=progress conv=fsync
 sync
-```
+----
 +
 image::/bpi-m8/bananapi_bpim8_img_write_emmc3.jpg[写入 eMMC]
 
 . 写入完成后关闭系统，断电取出 SD 卡，再重新上电。
 +
-```bash
+[source,bash]
+----
 sudo poweroff
-```
+----
 
 . 启动后确认系统分区位于 eMMC。
 +
-```bash
+[source,bash]
+----
 findmnt /
 lsblk
-```
+----
 +
 image::/bpi-m8/bananapi_bpim8_img_write_emmc4.jpg[确认 eMMC 启动]
 
@@ -135,17 +140,19 @@ WARNING: 此操作会清除 eMMC 用户区的全部数据，无法恢复。仅�
 
 . 查看设备和系统分区，确认 eMMC 的设备名。
 +
-```bash
+[source,bash]
+----
 lsblk -o NAME,SIZE,TYPE,FSTYPE,MOUNTPOINT
 findmnt /
-```
+----
 
 . 以下以 `/dev/mmcblk1` 为例，向 eMMC 用户区写入零。
 +
-```bash
+[source,bash]
+----
 sudo dd if=/dev/zero of=/dev/mmcblk1 bs=4M status=progress conv=fsync
 sync
-```
+----
 
 写满设备后会提示“设备上没有空间”。此操作不擦除独立的 eMMC boot0 / boot1 启动区。
 
@@ -153,26 +160,29 @@ sync
 
 . 将 U 盘或其他 USB 设备插入开发板的 USB Type-A 接口，查看设备是否识别。
 +
-```bash
+[source,bash]
+----
 lsusb
 lsblk
-```
+----
 +
 image::/bpi-m8/bananapi_bpim8_img_write_usb1.jpg[查看 USB 设备]
 
 . 挂载 U 盘。以下以 `/dev/sda1` 为例。
 +
-```bash
+[source,bash]
+----
 sudo mkdir -p /mnt/usb
 sudo mount /dev/sda1 /mnt/usb
 ls /mnt/usb
-```
+----
 
 . 使用完成后卸载 U 盘，再拔出设备。
 +
-```bash
+[source,bash]
+----
 sudo umount /mnt/usb
-```
+----
 +
 image::/bpi-m8/bananapi_bpim8_img_write_usb2.jpg[卸载 U 盘]
 
@@ -180,25 +190,28 @@ image::/bpi-m8/bananapi_bpim8_img_write_usb2.jpg[卸载 U 盘]
 
 . 使用网线将 M8 连接到路由器的 LAN 口，查看 M8 的 IP 地址。
 +
-```bash
+[source,bash]
+----
 ip -4 addr
-```
+----
 +
 image::/bpi-m8/bananapi_bpim8_img_write_iperf_1.jpg[查看 M8 的 IP 地址]
 
 . 在同一局域网内的另一台电脑上启动 iperf3 服务端。
 +
-```bash
+[source,bash]
+----
 iperf3 -s
-```
+----
 +
 image::/bpi-m8/bananapi_bpim8_img_write_iperf_2.jpg[启动 iperf3 服务端]
 
 . 在 M8 上启动客户端，将示例地址改为服务端电脑的 IP。
 +
-```bash
+[source,bash]
+----
 iperf3 -c 192.168.1.200
-```
+----
 +
 image::/bpi-m8/bananapi_bpim8_img_write_iperf_3.jpg[测试以太网速度]
 
@@ -206,59 +219,66 @@ image::/bpi-m8/bananapi_bpim8_img_write_iperf_3.jpg[测试以太网速度]
 
 . 查看网络设备和可用热点。
 +
-```bash
+[source,bash]
+----
 nmcli device
 nmcli device wifi list
-```
+----
 
 . 连接 Wi-Fi，将“WiFi名称”改为实际热点名称，按提示输入密码。
 +
-```bash
+[source,bash]
+----
 sudo nmcli --ask device wifi connect "WiFi名称"
 nmcli connection show --active
-```
+----
 +
 image::/bpi-m8/bananapi_bpim8_img_write_wifi1.jpg[连接 Wi-Fi]
 
 . 需要断开连接时，执行以下命令。无线接口名以 `nmcli device` 的输出为准。
 +
-```bash
+[source,bash]
+----
 sudo nmcli device disconnect wlan0
-```
+----
 
 === 蓝牙
 
 . 打开目标蓝牙设备并进入配对模式，在 M8 上启动蓝牙管理工具。
 +
-```bash
+[source,bash]
+----
 bluetoothctl
-```
+----
 
 . 在 `bluetoothctl` 中打开蓝牙并开始扫描。
 +
-```text
+[source,text]
+----
 power on
 agent on
 default-agent
 scan on
-```
+----
 
 . 找到目标设备后停止扫描，配对并连接。将示例 MAC 地址改为实际地址，并按提示确认配对。
 +
-```text
+[source,text]
+----
 scan off
 devices
 pair AA:BB:CC:DD:EE:FF
 trust AA:BB:CC:DD:EE:FF
 connect AA:BB:CC:DD:EE:FF
-```
+----
 
 . 需要断开连接或退出时，在 `bluetoothctl` 中执行：
 +
-```text
+[source,text]
+----
 disconnect AA:BB:CC:DD:EE:FF
 exit
-```
+----
 
 === HDMI 显示
 
@@ -282,9 +302,10 @@ image::/bpi-m8/bnanapi_bpim8_img_write_pwr.jpg[PWR 按钮响应]
 
 . 将 M8 和电脑连接到同一局域网，在 M8 上查看 IP 地址。
 +
-```bash
+[source,bash]
+----
 ip -4 addr
-```
+----
 +
 image::/bpi-m8/bananapi_bpim8_img_write_shh1.jpg[查看 SSH 连接地址]
 
@@ -296,9 +317,10 @@ image::/bpi-m8/bananapi_bpim8_img_write_ssh3.jpg[填写连接信息]
 
 . 连接后输入账号密码。也可以使用终端命令连接，将示例 IP 改为实际地址。
 +
-```bash
+[source,bash]
+----
 ssh pi@192.168.1.100
-```
+----
 +
 image::/bpi-m8/bananapi_bpim8_img_write_ssh4.jpg[登录 M8]
 +
@@ -308,25 +330,28 @@ image::/bpi-m8/bananapi_bpim8_img_write_ssh5.jpg[SSH 终端]
 
 . 插入耳机，或连接支持 HDMI 音频的显示器，查看系统声卡。
 +
-```bash
+[source,bash]
+----
 aplay -l
-```
+----
 +
 image::/bpi-m8/bnanapi_bpim8_img_write_hp1.jpg[查看声卡]
 
 . 将音频文件复制到 U 盘，按“USB”章节挂载后查看文件。
 +
-```bash
+[source,bash]
+----
 ls /mnt/usb
-```
+----
 +
 image::/bpi-m8/bananapi_bpim8_img_write_hp2.jpg[查看音频文件]
 
 . 使用 VLC 播放音频。以下以声卡 `0`、设备 `0` 为例，按 `aplay -l` 的输出修改编号和文件名。
 +
-```bash
+[source,bash]
+----
 cvlc --aout alsa --alsa-audio-device plughw:0,0 "/mnt/usb/音频文件名"
-```
+----
 +
 image::/bpi-m8/bananapi_bpim8_img_write_hp3.jpg[播放音频]
 
@@ -342,31 +367,35 @@ image::/bpi-m8/bananapi_bpim8_img_write_rtc0.jpg[RTC 备用电源接口]
 
 . 上电后检查 RTC 驱动并读取硬件时间。
 +
-```bash
+[source,bash]
+----
 sudo dmesg | grep -Ei 'rtc|sunxi-rtc'
 sudo hwclock -r -f /dev/rtc0
-```
+----
 
 . 确认系统时间正确后，将系统时间写入 RTC。
 +
-```bash
+[source,bash]
+----
 date
 sudo hwclock -w -f /dev/rtc0
 sudo hwclock -r -f /dev/rtc0
-```
+----
 
 . 关闭系统并断开主电源，保留 RTC 备用电源。数分钟后重新上电，检查 RTC 时间是否持续运行。
 +
-```bash
+[source,bash]
+----
 sudo hwclock -r -f /dev/rtc0
 date
-```
+----
 
 === 风扇
 
 风扇由系统温控策略调速。查看风扇设备和当前 PWM 输出：
 
-```bash
+[source,bash]
+----
 for m8_hwmon in /sys/class/hwmon/hwmon*; do
     echo "$m8_hwmon"
     cat "$m8_hwmon/name"
@@ -374,7 +403,7 @@ for m8_hwmon in /sys/class/hwmon/hwmon*; do
         cat "$m8_hwmon/pwm1"
     fi
 done
-```
+----
 
 NOTE: `hwmon` 编号可能变化，请根据 `name` 确认风扇设备。压力测试时不要关闭自动温控。
 
@@ -404,39 +433,44 @@ image::/bpi-m8/bananapi_bpim8_img_write_m.2_.jpg[安装 NVMe 固态硬盘]
 
 . 启动系统，确认 M.2 对应的设备树 overlay 已安装。
 +
-```bash
+[source,bash]
+----
 ls /boot/dtb/sunxi/overlay/bpi-m8/ | grep -i pcie
-```
+----
 +
 image::/bpi-m8/bananapi_bpim8_img_write_m.2_3.jpg[查看 PCIe overlay]
 
 . 备份并编辑启动配置。
 +
-```bash
+[source,bash]
+----
 sudo cp -an /boot/armbianEnv.txt /boot/armbianEnv.txt.before-pcie
 sudo nano /boot/armbianEnv.txt
-```
+----
 
 . 在已有的 `overlays=` 行中追加 `bpi-m8-expansion-pcie-m2`，多个 overlay 用空格分隔。没有该行时，添加：
 +
-```text
+[source,text]
+----
 overlays=bpi-m8-expansion-pcie-m2
-```
+----
 +
 image::/bpi-m8/bananapi_bpim8_img_write_m.2_2.jpg[启用 PCIe overlay]
 
 . 按 `Ctrl+O` 保存、`Enter` 确认、`Ctrl+X` 退出，再重启系统。
 +
-```bash
+[source,bash]
+----
 sudo reboot
-```
+----
 
 . 重启后检查 PCIe 设备和硬盘。
 +
-```bash
+[source,bash]
+----
 lspci
 lsblk
-```
+----
 +
 image::/bpi-m8/bananapi_bpim8_img_write_m.2_4.jpg[查看 NVMe 固态硬盘]
 
@@ -458,10 +492,11 @@ NOTE: 模型转换和编译在开发电脑上进行，推理程序在 M8 上运�
 
 . 在 M8 上检查 NPU 设备。
 +
-```bash
+[source,bash]
+----
 uname -m
 ls -l /dev/vipcore
-```
+----
 
 系统架构应为 `aarch64`，并存在 `/dev/vipcore`。
 
@@ -469,16 +504,18 @@ ls -l /dev/vipcore
 
 . 在开发电脑上安装 Docker 和基础工具。已安装可跳过。
 +
-```bash
+[source,bash]
+----
 sudo apt-get update
 sudo apt-get install -y docker.io unzip tar cmake build-essential file openssh-client
 sudo systemctl start docker
 sudo docker version
-```
+----
 
 . 设置软件包路径和工作目录。将 `M8_PACKAGE_DIR` 改为实际存放路径。
 +
-```bash
+[source,bash]
+----
 export M8_PACKAGE_DIR="$HOME/Downloads"
 export M8_AI_ROOT="$HOME/m8-ai"
 export M8_MODEL_ZOO="$M8_AI_ROOT/awnpu_model_zoo-v1.0.0-20260423-f562dd16"
@@ -486,50 +523,55 @@ export M8_MODEL_ZOO="$M8_AI_ROOT/awnpu_model_zoo-v1.0.0-20260423-f562dd16"
 mkdir -p "$M8_AI_ROOT/docker"
 unzip -t "$M8_PACKAGE_DIR/AWNPU_Docker_cp38.zip"
 gzip -t "$M8_PACKAGE_DIR/AWNPU_ModelZoo.gz"
-```
+----
 
 . 校验通过后，解压软件包。
 +
-```bash
+[source,bash]
+----
 unzip -n "$M8_PACKAGE_DIR/AWNPU_Docker_cp38.zip" -d "$M8_AI_ROOT/docker"
 tar -xzf "$M8_PACKAGE_DIR/AWNPU_ModelZoo.gz" -C "$M8_AI_ROOT"
 cat "$M8_MODEL_ZOO/version"
-```
+----
 
 . 解压并导入 Docker 镜像。
 +
-```bash
+[source,bash]
+----
 unzip -n \
-  "$M8_AI_ROOT/docker/docker_images_v2.0.x/ubuntu-npu_v2.0.10.2.tar.zip" \
-  -d "$M8_AI_ROOT/docker"
+"$M8_AI_ROOT/docker/docker_images_v2.0.x/ubuntu-npu_v2.0.10.2.tar.zip" \
+-d "$M8_AI_ROOT/docker"
 
 sudo docker load -i "$M8_AI_ROOT/docker/ubuntu-npu_v2.0.10.2.tar"
 sudo docker images
-```
+----
 
 . 创建并进入容器。
 +
-```bash
+[source,bash]
+----
 sudo docker run -it --name m8-npu-a733 \
-  --shm-size=1g \
-  --mount "type=bind,source=$M8_AI_ROOT,target=/workspace" \
-  ubuntu-npu:v2.0.10.2 /bin/bash
-```
+--shm-size=1g \
+--mount "type=bind,source=$M8_AI_ROOT,target=/workspace" \
+ubuntu-npu:v2.0.10.2 /bin/bash
+----
 
 开发电脑的 `$M8_AI_ROOT` 映射到容器内 `/workspace`。退出后，使用以下命令重新进入：
 
-```bash
+[source,bash]
+----
 sudo docker start -ai m8-npu-a733
-```
+----
 
 . 在容器内设置 ModelZoo 路径，检查转换工具。
 +
-```bash
+[source,bash]
+----
 export M8_MODEL_ZOO=/workspace/awnpu_model_zoo-v1.0.0-20260423-f562dd16
 
 printf 'ACUITY_PATH=%s\nVIV_SDK=%s\n' "$ACUITY_PATH" "$VIV_SDK"
 pegasus --help
-```
+----
 
 `ACUITY_PATH`、`VIV_SDK` 应已配置，`pegasus --help` 应显示帮助信息。
 
@@ -539,37 +581,50 @@ pegasus --help
 
 NOTE: 包内预置的 `yolov5s_rt_uint8_t527.nb` 用于 T527，M8 需要重新导出为 A733，不能直接改名使用。
 
-. 导入、量化并导出模型。
+. 进入模型转换目录，检查 ONNX 模型、量化数据集和工具链环境。
 +
-```bash
-(
-  set -e
-  cd "$M8_MODEL_ZOO/examples/yolov5/convert_model"
-  test -s yolov5s_rt.onnx
-  test -s ../../dataset/coco_12/dataset.txt
-  test -n "$ACUITY_PATH"
-  test -d "$VIV_SDK"
+[source,bash]
+----
+cd "$M8_MODEL_ZOO/examples/yolov5/convert_model"
+test -s yolov5s_rt.onnx
+test -s ../../dataset/coco_12/dataset.txt
+test -n "$ACUITY_PATH"
+test -d "$VIV_SDK"
+pwd
+ls -lh yolov5s_rt.onnx ../../dataset/coco_12/dataset.txt
+----
 
-  # 导入模型
-  pegasus import onnx \
+. 导入 ONNX 模型。
++
+[source,bash]
+----
+pegasus import onnx \
     --model yolov5s_rt.onnx \
     --output-model yolov5s_rt.json \
     --output-data yolov5s_rt.data
+----
 
-  # 配置输入、输出和预处理
-  pegasus generate inputmeta \
+. 生成并配置输入、输出和预处理文件。
++
+[source,bash]
+----
+pegasus generate inputmeta \
     --model yolov5s_rt.json \
     --separated-database \
     --input-meta-output yolov5s_rt_inputmeta.yml
 
-  pegasus generate postprocess-file \
+pegasus generate postprocess-file \
     --model yolov5s_rt.json \
     --postprocess-file-output yolov5s_rt_postprocess_file.yml
 
-  python3 ./config_yml.py yolov5s_rt
+python3 ./config_yml.py yolov5s_rt
+----
 
-  # 量化模型
-  pegasus quantize \
+. 使用 COCO 示例数据量化模型。
++
+[source,bash]
+----
+pegasus quantize \
     --model yolov5s_rt.json \
     --model-data yolov5s_rt.data \
     --device CPU \
@@ -577,9 +632,13 @@ NOTE: 包内预置的 `yolov5s_rt_uint8_t527.nb` 用于 T527，M8 需要重新�
     --iterations 12 --rebuild \
     --model-quantize yolov5s_rt_uint8.quantize \
     --quantizer asymmetric_affine --qtype uint8
+----
 
-  # 导出 A733 模型
-  pegasus export ovxlib \
+. 导出 A733 模型，并复制到示例程序的模型目录。
++
+[source,bash]
+----
+pegasus export ovxlib \
     --pack-nbg-unify \
     --optimize VIP9000NANODI_PLUS_PID0X1000003B \
     --viv-sdk "$VIV_SDK" \
@@ -592,12 +651,11 @@ NOTE: 包内预置的 `yolov5s_rt_uint8_t527.nb` 用于 T527，M8 需要重新�
     --postprocess-file yolov5s_rt_postprocess_file.yml \
     --output-path ./wksp/yolov5s_rt_uint8/yolov5s_rt_uint8
 
-  test -s ./wksp/yolov5s_rt_uint8_nbg_unify/network_binary.nb
-  cp ./wksp/yolov5s_rt_uint8_nbg_unify/network_binary.nb \
+test -s ./wksp/yolov5s_rt_uint8_nbg_unify/network_binary.nb
+cp ./wksp/yolov5s_rt_uint8_nbg_unify/network_binary.nb \
     ../model/yolov5s_rt_uint8_a733.nb
-  ls -lh ../model/yolov5s_rt_uint8_a733.nb
-)
-```
+ls -lh ../model/yolov5s_rt_uint8_a733.nb
+----
 
 生成的模型位于 `examples/yolov5/model/yolov5s_rt_uint8_a733.nb`。
 
@@ -607,40 +665,36 @@ NOTE: 包内预置的 `yolov5s_rt_uint8_t527.nb` 用于 T527，M8 需要重新�
 
 . 在容器内解压工具链和 OpenCV。
 +
-```bash
-(
-  set -e
-  cd "$M8_MODEL_ZOO/0-toolchains"
-  tar -xf gcc-arm-10.3-2021.07-x86_64-aarch64-none-linux-gnu.tar.xz
-  ./gcc-arm-10.3-2021.07-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu-gcc --version
+[source,bash]
+----
+cd "$M8_MODEL_ZOO/0-toolchains"
+tar -xf gcc-arm-10.3-2021.07-x86_64-aarch64-none-linux-gnu.tar.xz
+./gcc-arm-10.3-2021.07-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu-gcc --version
 
-  cd "$M8_MODEL_ZOO/3rdparty/opencv"
-  unzip -n opencv-4.9.0-aarch64-linux-sunxi-glibc.zip
-)
-```
+cd "$M8_MODEL_ZOO/3rdparty/opencv"
+unzip -n opencv-4.9.0-aarch64-linux-sunxi-glibc.zip
+----
 
 . 编译 YOLOv5，并复制 A733 运行库。
 +
-```bash
-(
-  set -e
-  cd "$M8_MODEL_ZOO/examples"
-  test -s yolov5/model/yolov5s_rt_uint8_a733.nb
+[source,bash]
+----
+cd "$M8_MODEL_ZOO/examples"
+test -s yolov5/model/yolov5s_rt_uint8_a733.nb
 
-  bash ./build_linux.sh -t a733 -p yolov5 -s linux
+bash ./build_linux.sh -t a733 -p yolov5 -s linux
 
-  M8_DEMO_DIR="$M8_MODEL_ZOO/examples/yolov5/install/yolov5_demo_linux_a733"
-  test -x "$M8_DEMO_DIR/yolov5_demo_a733"
-  test -s "$M8_DEMO_DIR/model/yolov5s_rt_uint8_a733.nb"
+M8_DEMO_DIR="$M8_MODEL_ZOO/examples/yolov5/install/yolov5_demo_linux_a733"
+test -x "$M8_DEMO_DIR/yolov5_demo_a733"
+test -s "$M8_DEMO_DIR/model/yolov5s_rt_uint8_a733.nb"
 
-  mkdir -p "$M8_DEMO_DIR/lib"
-  cp -a "$M8_MODEL_ZOO/common/npuruntime/lib_linux_aarch64/A733/"*.so \
+mkdir -p "$M8_DEMO_DIR/lib"
+cp -a "$M8_MODEL_ZOO/common/npuruntime/lib_linux_aarch64/A733/"*.so \
     "$M8_DEMO_DIR/lib/"
 
-  file "$M8_DEMO_DIR/yolov5_demo_a733"
-  ls -lh "$M8_DEMO_DIR/lib/"
-)
-```
+file "$M8_DEMO_DIR/yolov5_demo_a733"
+ls -lh "$M8_DEMO_DIR/lib/"
+----
 
 NOTE: Bullseye 使用 GCC 10.2，下载说明见 `0-toolchains/gcc-arm-10.2-aarch64-none-linux-gnu.tar.xz.txt`。解压后，将编译参数 `-s linux` 改为 `-s debian11`。
 
@@ -648,43 +702,47 @@ NOTE: Bullseye 使用 GCC 10.2，下载说明见 `0-toolchains/gcc-arm-10.2-aarc
 
 . 在开发电脑上，将程序传到 M8。将 IP 地址改为 M8 的实际地址。
 +
-```bash
+[source,bash]
+----
 export M8_MODEL_ZOO="$HOME/m8-ai/awnpu_model_zoo-v1.0.0-20260423-f562dd16"
 export M8_TARGET=pi@192.168.1.100
 
 ssh "$M8_TARGET" 'mkdir -p ~/m8-ai'
 scp -r "$M8_MODEL_ZOO/examples/yolov5/install/yolov5_demo_linux_a733" \
-  "$M8_TARGET:~/m8-ai/"
-```
+"$M8_TARGET:~/m8-ai/"
+----
 
 . 在 M8 上检查运行库。输出中不应出现 `not found`。
 +
-```bash
+[source,bash]
+----
 cd "$HOME/m8-ai/yolov5_demo_linux_a733"
-LD_LIBRARY_PATH="$PWD/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}" \
-  ldd ./yolov5_demo_a733
-```
+LD_LIBRARY_PATH="$PWD/lib" \
+ldd ./yolov5_demo_a733
+----
 
 . 执行目标检测。
 +
-```bash
-sudo env LD_LIBRARY_PATH="$PWD/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}" \
-  timeout 120 ./yolov5_demo_a733 \
-  -nb model/yolov5s_rt_uint8_a733.nb \
-  -i model/dog.jpg -l 1 -m 128
+[source,bash]
+----
+sudo env LD_LIBRARY_PATH="$PWD/lib" \
+timeout 120 ./yolov5_demo_a733 \
+-nb model/yolov5s_rt_uint8_a733.nb \
+-i model/dog.jpg -l 1 -m 128
 
 m8_demo_rc=$?
 printf '程序退出码：%s\n' "$m8_demo_rc"
 test "$m8_demo_rc" -eq 0 && test -s output_yolov5.png
-```
+----
 
 `-l` 设置运行次数，`-m` 设置 NPU 初始化内存大小（MiB）。运行成功后，当前目录生成检测结果图片 `output_yolov5.png`。
 
 . 在开发电脑上获取结果图片。
 +
-```bash
+[source,bash]
+----
 scp "$M8_TARGET:~/m8-ai/yolov5_demo_linux_a733/output_yolov5.png" ./
-```
+----
 
 使用自己的图片时，将 `-i model/dog.jpg` 改为对应的 JPG 路径。
 
