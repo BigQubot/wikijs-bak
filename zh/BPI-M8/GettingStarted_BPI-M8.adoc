@@ -348,7 +348,7 @@ sudo hwclock -r -f /dev/rtc0          # 读取 RTC 硬件时间，验证是否�
 
 
 
-BPI-M8 断电数分钟后，RTC 时钟仍在运行，而系统时钟已经停止了数分钟。
+BPI-M8 断电数分钟后，RTC 时钟应保持连续运行，而系统时间若未联网同步，则表现为停止状态。
 
 ```sh
 sudo hwclock -r -f /dev/rtc0
