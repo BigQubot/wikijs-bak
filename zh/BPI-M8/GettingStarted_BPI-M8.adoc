@@ -348,31 +348,7 @@ sudo hwclock -r -f /dev/rtc0         # 读取 RTC 硬件时间，验证是否写
 date                                 # 查看当前系统时间
 ```
 
-== 同步网络时间
 
-. 测试所用镜像通过 Chrony 进行网络时间同步。
-
-. 使用以下命令检查系统时钟、同步状态、Chrony 服务和时间源。
-+
-```sh
-timedatectl status             # 查看系统全局时间、时区、RTC 硬件时钟、NTP 自动同步开关状态
-systemctl status chrony        # 查看 chrony 服务本身
-chronyc tracking               # 查看时间同步跟踪详情
-chronyc sources -v             # 列出所有 NTP 时间源
-date                           # 打印系统当前日期时间
-使用以下命令管理 Chrony 服务。
-
-sudo systemctl start chrony    # 启动 chrony 服务
-sudo systemctl enable chrony   # 设置 chrony 开机自启动
-sudo systemctl restart chrony  # 重启 chrony 服务
-```
-
-. 使用以下命令列出或更改时区。
-+
-```sh
-timedatectl list-timezones
-sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-```
 
 == 风扇
 
