@@ -340,9 +340,9 @@ sudo dmesg | grep -Ei "rtc|sunxi-rtc"
 验证 RTC 芯片的读写功能，需手动将系统时间同步至硬件。
 
 ```sh
-sudo date -s "2026-11-03 11:52:00" 
-sudo hwclock -w -f /dev/rtc0 
-sudo hwclock -r -f /dev/rtc0 
+sudo date -s "2026-11-03 11:52:00"    # 设置系统时间
+sudo hwclock -w -f /dev/rtc0          # 将系统时间写入 RTC 硬件
+sudo hwclock -r -f /dev/rtc0          # 读取 RTC 硬件时间，验证是否写入成功
 ```
 
 
