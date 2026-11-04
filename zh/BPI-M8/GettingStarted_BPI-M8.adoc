@@ -672,8 +672,11 @@ tar -xf gcc-arm-10.3-2021.07-x86_64-aarch64-none-linux-gnu.tar.xz
 ./gcc-arm-10.3-2021.07-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu-gcc --version
 
 cd "$M8_MODEL_ZOO/3rdparty/opencv"
-unzip -n opencv-4.9.0-aarch64-linux-sunxi-glibc.zip
+python3 -m zipfile -e opencv-4.9.0-aarch64-linux-sunxi-glibc.zip .
+test -d opencv-4.9.0-aarch64-linux-sunxi-glibc
 ----
+
+NOTE: NPU 容器未预装 `unzip`。以上命令使用 Python 标准库解压，不需要通过容器内的 Allwinner APT 源安装额外软件。
 
 . 编译 YOLOv5，并复制 A733 运行库。
 +
