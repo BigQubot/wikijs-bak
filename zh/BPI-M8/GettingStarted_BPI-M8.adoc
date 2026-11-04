@@ -323,33 +323,30 @@ image::/bpi-m8/bananapi_bpim8_img_write_hp3.jpg[bananapi_bpim8_img_write_hp3.jpg
 
 == RTC
 
-连接间距为 2 mm 的电池座，为 RTC 供电。
-
+. 连接间距为 2 mm 的电池座，为 RTC 供电。
++
 WARNING: 注意：RTC供电电压不能超过2V
-
++
 image::/bpi-m8/bananapi_bpim8_img_write_rtc0.jpg[bananapi_bpim8_img_write_rtc0.jpg]
 
-认系统内核已正确识别并加载 RTC 硬件驱动。
-
+. 认系统内核已正确识别并加载 RTC 硬件驱动。
++
 ```sh
 sudo dmesg | grep -Ei "rtc|sunxi-rtc"
 ```
 
 
 
-验证 RTC 芯片的读写功能，需手动将系统时间同步至硬件。
-
+. 验证 RTC 芯片的读写功能，需手动将系统时间同步至硬件。
++
 ```sh
 sudo date -s "2026-11-03 11:52:00"    # 设置系统时间
 sudo hwclock -w -f /dev/rtc0          # 将系统时间写入 RTC 硬件
 sudo hwclock -r -f /dev/rtc0          # 读取 RTC 硬件时间，验证是否写入成功
 ```
 
-
-
-
-BPI-M8 断电数分钟后，RTC 时钟应保持连续运行，而系统时间若未联网同步，则表现为停止状态。
-
+. BPI-M8 断电数分钟后，RTC 时钟应保持连续运行，而系统时间若未联网同步，则表现为停止状态。
++
 ```sh
 sudo hwclock -r -f /dev/rtc0         # 读取 RTC 硬件时间，验证是否写入成功
 date                                 # 查看当前系统时间
