@@ -1,494 +1,777 @@
-= 简介
+= BPI-M8 入门指南
 
-BPI-M8 搭载高性能八核 AI 平台芯片 A733，集成 2 个 Arm® Cortex®-A76 核心和 6 个 Arm Cortex-A55 核心。该平台支持 Imagination PowerVR BXM-4-64 MC1 GPU、3 TOPS NPU、LPDDR4/LPDDR4x/LPDDR5 DRAM，以及 UFS/eMMC 存储。
+== 简介
 
-BPI-M8 提供丰富的外设接口，包括 USB、DP、UFS、HDMI、MIPI CSI、MIPI DSI、风扇、RTC，以及 1 个支持 PoE 的千兆以太网口。开发板支持从 SD 卡启动，板载 KEIIOT K038 WiFi/蓝牙芯片，并配备 4 GB LPDDR5 RAM、32 GB eMMC 存储和两个 12 mm × 12 mm 单天线模块。
-目录
+BPI-M8 搭载全志 A733 八核处理器，集成双核 Arm Cortex-A76、六核 Arm Cortex-A55、PowerVR GPU 和 3 TOPS NPU，配备 4 GB LPDDR5 内存。
 
-TIP: 更多信息：link:/zh/BPI-M8/BananaPi_BPI-M8[Banana Pi BPI-M8]
+开发板提供 HDMI、MIPI DSI、双路 MIPI CSI、USB、千兆以太网和 40 针 GPIO 等接口，支持 SD 卡启动，可通过扩展板连接 M.2 固态硬盘和 eDP 显示屏。
+
+TIP: 更多信息：link:/zh/BPI-M8/BananaPi_BPI-M8[Banana Pi BPI-M8]。
 
 == 主要特性
-* 双核 Arm Cortex-A76 + 六核 Arm Cortex-A55，主频最高 2.0GHz
-* 4GB LPDDR5 内存
-* 64GB eMMC 闪存(BPI-M8A)
-* 16MB SPI NOR 存储（BPI-M8B）
-* 1 个 MIPI DSI 显示接口
-* 2 个 MIPI CSI 摄像头接口
-* 1 个 PCIe/DP 接口
-* 1 个 HDMI 2.0b 输出接口
-* 4 个 USB-A 接口
-* 1 个千兆以太网 (GbE) RJ45 接口（通过 PoE 扩展板支持 PoE 供电）
-* 1 个 Wi-Fi 6/蓝牙 5 模块
-* 1 组 40-pin GPIO 引脚
-* 1 个 UFS 接口
 
-= Android
-== 准备
-. 下载最新的 link:/zh/BPI-M8/BananaPi_BPI-M8#_android_2[Android 镜像]。
-. 获取全志刷机工具 PhoenixSuit： link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2Fphoenixsuit_V1.1.0_20150325.rar[phoenixsuit] （Windows 平台）。
-. Type‑C 数据线（支持数据传输）、5V电源。
+* 双核 Arm Cortex-A76 + 六核 Arm Cortex-A55，主频最高 2.0 GHz。
+* 4 GB LPDDR5 内存。
+* 64 GB eMMC（BPI-M8A）或 16 MB SPI NOR（BPI-M8B）。
+* 3 TOPS NPU。
+* 1 个 HDMI 2.0b 输出接口。
+* 1 个 MIPI DSI 显示接口。
+* 2 个 MIPI CSI 摄像头接口。
+* 1 个 PCIe/DP 扩展接口。
+* 4 个 USB Type-A 接口。
+* 1 个千兆以太网接口，支持通过 PoE 扩展板供电。
+* Wi-Fi 6 和蓝牙 5。
+* 1 组 40 针 GPIO。
+* 1 个 UFS 接口。
 
-== USB刷机步骤
-. 打开**PhoenixSuit**，单击 **一键刷机** 图标切换到固件下载面板。
+== Android
 
-. 单击 **浏览** 选择 **Android 镜像文件**。
+=== 准备
 
-. 长按 **FEL 按钮**，同时使用 **Type-C **接口将 M8 连接到电脑，后几秒松开**FEL 按钮**，弹出警告对话框后，单击 **是**。
+* 下载 link:/zh/BPI-M8/BananaPi_BPI-M8#_android_2[Android 镜像]。
+* 在 Windows 电脑上安装 link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2Fphoenixsuit_V1.1.0_20150325.rar[PhoenixSuit]。
+* 准备支持数据传输的 Type-C 数据线和符合主板要求的 5 V 电源。
 
-. 自动开始固件下载，等待刷机完成。
+=== 烧录镜像
 
-. 下载完成(**Android 版本只能下载到 eMMC**)。
+WARNING: 烧录会清除 eMMC 中的数据，请先备份。
 
+. 打开 PhoenixSuit，进入“一键刷机”页面，单击“浏览”选择 Android 镜像。
+. 按住开发板上的 FEL 按钮，通过 USB OTG Type-C 接口连接电脑，设备识别后松开按钮。
+. 按提示确认烧录，等待下载完成。烧录期间不要断电或拔出数据线。
+. 烧录完成后重新上电，等待 Android 启动。
 
-= Linux开发
+NOTE: 本指南的 Android 镜像烧录到 eMMC。
 
-== 将镜像安装到 SD 卡
-. Linux 镜像支持 SD 卡或 eMMC 两种启动方式；插入 SD 卡时，板子优先从 SD 卡启动。
-. SD 卡推荐：容量≥8GB，A1 等级存储卡。
-. 若从 SD 卡启动：建议提前格式化 eMMC，清除原有系统。
-. 若从 eMMC 启动，SD 卡仅作存储使用：SD 卡需提前格式化，不要写入系统镜像。
-. 下载最新的 link:/zh/BPI-M8/BananaPi_BPI-M8#_linux_2[Linux镜像] 。
-. 镜像烧录工具： link:https://etcher.balena.io/[balenaEtcher] 。
-. 默认账号密码： pi/bananapi 或 root/1234。
-. 本 Wiki 指南仅适用于 Ubuntu/Debian 类镜像。
+== Linux 开发
 
-=== 将镜像写入SD卡
+=== 准备
 
+* 下载 link:/zh/BPI-M8/BananaPi_BPI-M8#_linux_2[Linux 镜像]。桌面版提供图形界面，Minimal 版使用终端。
+* 准备 SD 卡和读卡器。SD 卡容量需大于解压后的镜像大小，推荐使用 A1 等级存储卡。
+* 下载 link:https://etcher.balena.io/[balenaEtcher] 烧录工具，支持 Windows、Linux 和 macOS。
+* 默认登录信息以镜像说明为准，常见账号为 `pi/bananapi` 或 `root/1234`。首次启动时，按向导设置密码和用户。
 
-> 方法： **Balena Etcher** 图形工具烧录
+本节适用于 BPI-M8 的 Ubuntu / Debian 镜像。从 SD 卡启动无需预先擦除 eMMC。
 
-Balena Etcher 是 Balena 提供的开源图形化镜像写入工具，可将操作系统镜像写入 SD 卡或 U 盘。
+=== 将镜像写入 SD 卡
 
-. 运行 Balena Etcher，选择 **从文件烧录**，导入镜像文件。
+WARNING: 烧录会清除目标设备中的数据，请确认选择的是 SD 卡。
+
+. 将 SD 卡插入读卡器并连接电脑，打开 balenaEtcher，单击“从文件烧录”选择镜像。
 +
-image::/bpi-m8/bananapi_bpim8_img_write_sd1.jpg[bananapi_bpim8_img_write_sd1.jpg]
+image::/bpi-m8/bananapi_bpim8_img_write_sd1.jpg[选择镜像]
 +
-image::/bpi-m8/bananapi_bpim8_img_write_sd2.jpg[bananapi_bpim8_img_write_sd2.jpg]
-+
-WARNING: 选中目标 SD 卡设备，**注意仔细核对设备，防止选错盘**。
-+
-image::/bpi-m8/bananapi_bpim8_img_write_sd3.jpg[bananapi_bpim8_img_write_sd3.jpg]
-+
-image::/bpi-m8/bananapi_bpim8_img_write_sd4.jpg[bananapi_bpim8_img_write_sd4.jpg]
-+
-开始烧录，等待写入 + 校验完成。
-+
-image::/bpi-m8/bananapi_bpim8_img_write_sd5.jpg[bananapi_bpim8_img_write_sd5.jpg]
-+
-image::/bpi-m8/bananapi_bpim8_img_write_sd6.jpg[bananapi_bpim8_img_write_sd6.jpg]
-+
-image::/bpi-m8/bananapi_bpim8_img_write_sd7.jpg[bananapi_bpim8_img_write_sd7.jpg]
+image::/bpi-m8/bananapi_bpim8_img_write_sd2.jpg[打开镜像文件]
 
-
-== 将镜像安装到 eMMC
-
-. 将 SD 卡插入 M8 并启动。
-
-. 将待烧录镜像保存到 U 盘，然后将 U 盘连接到 M8。
-
-. 使用 lsblk 命令查询 USB 设备。
+. 单击“选择目标”，选择 SD 卡并核对容量。
 +
-```sh
-lsblk
+image::/bpi-m8/bananapi_bpim8_img_write_sd3.jpg[选择目标设备]
++
+image::/bpi-m8/bananapi_bpim8_img_write_sd4.jpg[确认 SD 卡]
+
+. 单击“烧录”，等待写入和校验完成。
++
+image::/bpi-m8/bananapi_bpim8_img_write_sd5.jpg[开始烧录]
++
+image::/bpi-m8/bananapi_bpim8_img_write_sd6.jpg[写入镜像]
++
+image::/bpi-m8/bananapi_bpim8_img_write_sd7.jpg[烧录完成]
+
+. 安全移除 SD 卡，插入 BPI-M8，连接显示器、键盘和电源，等待系统启动。
+
+=== 将镜像写入 eMMC
+
+WARNING: 写入会清除 eMMC 中的数据。以下以 `/dev/mmcblk1` 为例，设备名以实际输出为准，不要写入当前运行系统所在的磁盘。
+
+. 从 SD 卡启动 M8，将已解压的 `.img` 镜像复制到 U 盘，再将 U 盘接入 M8。
+
+. 查看磁盘和当前系统分区，确认 SD 卡、eMMC 和 U 盘。
++
+```bash
+lsblk -o NAME,SIZE,TYPE,FSTYPE,MOUNTPOINT
+findmnt /
 ```
 +
-image::/bpi-m8/bananapi_bpim8_img_write_emmc1.jpg[bananapi_bpim8_img_write_emmc1.jpg]
-. 使用 mount 命令挂载 U 盘，并进入存放镜像的目录。
+image::/bpi-m8/bananapi_bpim8_img_write_emmc1.jpg[查看存储设备]
+
+. 挂载 U 盘。以下以 `/dev/sda1` 为例，已挂载的 U 盘可直接使用原挂载路径。
 +
-```sh
+```bash
 sudo mkdir -p /mnt/usb
 sudo mount /dev/sda1 /mnt/usb
+ls /mnt/usb
+```
++
+image::/bpi-m8/bananapi_bpim8_img_write_emmc2.jpg[挂载 U 盘]
+
+. 确认 eMMC 分区均未挂载，将下方 `bpi-m8.img` 替换为实际镜像文件名，执行写入。
++
+```bash
+sudo dd if=/mnt/usb/bpi-m8.img of=/dev/mmcblk1 bs=4M status=progress conv=fsync
+sync
+```
++
+image::/bpi-m8/bananapi_bpim8_img_write_emmc3.jpg[写入 eMMC]
+
+. 写入完成后关闭系统，断电取出 SD 卡，再重新上电。
++
+```bash
+sudo poweroff
+```
+
+. 启动后确认系统分区位于 eMMC。
++
+```bash
+findmnt /
 lsblk
 ```
 +
-image::/bpi-m8/bananapi_bpim8_img_write_emmc2.jpg[bananapi_bpim8_img_write_emmc2.jpg]
-. 使用 dd 命令烧录镜像。
-+
-```sh
-sudo dd if=Bananpi-Armbian_26.05.0_Bananapim8_noble_legacy_5.15.147_xfce_desktop.img of=/dev/mmcblk1 bs=4M status=progress conv=fdatasync
-```
-+
-image::/bpi-m8/bananapi_bpim8_img_write_emmc3.jpg[bananapi_bpim8_img_write_emmc3.jpg]
-. 取出 SD 卡，再次为 M8 上电，即可从 eMMC 启动。
-+
-```
-lsblk
-```
-+
-image::/bpi-m8/bananapi_bpim8_img_write_emmc4.jpg[bananapi_bpim8_img_write_emmc4.jpg]
+image::/bpi-m8/bananapi_bpim8_img_write_emmc4.jpg[确认 eMMC 启动]
 
-== 擦除eMMC
-. 确保 Linux 镜像已烧录到 SD 卡中并插入 SD 卡。插入 SD 卡默认优先 SD 卡启动。
-. 终端执行下列命令，列出系统中的硬盘、分区等块设备信息。
+=== 擦除 eMMC（可选）
+
+WARNING: 此操作会清除 eMMC 用户区的全部数据，无法恢复。仅在从 SD 卡启动、确认目标不是当前系统磁盘且目标分区均未挂载时执行。
+
+. 查看设备和系统分区，确认 eMMC 的设备名。
 +
-```
-lsblk
+```bash
+lsblk -o NAME,SIZE,TYPE,FSTYPE,MOUNTPOINT
+findmnt /
 ```
 
-. mmcblk1 是 eMMC，mmcblk0 是 SD 卡。在终端中输入以下命令擦除 eMMC。此过程需要二十多分钟且不可逆，请事先备份重要数据。
+. 以下以 `/dev/mmcblk1` 为例，向 eMMC 用户区写入零。
 +
+```bash
+sudo dd if=/dev/zero of=/dev/mmcblk1 bs=4M status=progress conv=fsync
+sync
 ```
-sudo dd if=/dev/zero of=/dev/mmcblk1  #向 eMMC 全盘持续写入 0，覆盖所有分区与数据
-```
 
+写满设备后会提示“设备上没有空间”。此操作不擦除独立的 eMMC boot0 / boot1 启动区。
 
+=== USB
 
-== USB
-
-. 将需要使用的 USB 设备连接到 M8的USBA口。
+. 将 U 盘或其他 USB 设备插入开发板的 USB Type-A 接口，查看设备是否识别。
 +
-可以使用下面命令查询。查询板上所有磁盘结构、挂载状态、文件系统和查询板上所有的USB设备。
-+
-```sh
-lsblk
+```bash
 lsusb
+lsblk
 ```
 +
-image::/bpi-m8/bananapi_bpim8_img_write_usb1.jpg[bananapi_bpim8_img_write_usb1.jpg]
+image::/bpi-m8/bananapi_bpim8_img_write_usb1.jpg[查看 USB 设备]
 
-. 挂载U盘设备
+. 挂载 U 盘。以下以 `/dev/sda1` 为例。
 +
-创建挂载点
-+
-```sh 
+```bash
 sudo mkdir -p /mnt/usb
-```
-+
-把U盘挂载上去后查看
-+
-```sh
 sudo mount /dev/sda1 /mnt/usb
-lsblk
+ls /mnt/usb
 ```
-+
-image::/bpi-m8/bananapi_bpim8_img_write_usb1.jpg[bananapi_bpim8_img_write_usb1.jpg]
 
-. 取消挂载后查看
+. 使用完成后卸载 U 盘，再拔出设备。
 +
-```sh
+```bash
 sudo umount /mnt/usb
-lsblk
 ```
 +
-image::/bpi-m8/bananapi_bpim8_img_write_usb2.jpg[bananapi_bpim8_img_write_usb2.jpg]
+image::/bpi-m8/bananapi_bpim8_img_write_usb2.jpg[卸载 U 盘]
 
+=== 以太网
 
-== 网口
-
-. 准备网线,路由器。
-
-. 使用网线连接路由器和BPI-M8。
-
-
-. 查看路由器ip地址
+. 使用网线将 M8 连接到路由器的 LAN 口，查看 M8 的 IP 地址。
 +
-```sh
-ip a
+```bash
+ip -4 addr
 ```
 +
-image::/bpi-m8/bananapi_bpim8_img_write_iperf_1.jpg[bananapi_bpim8_img_write_iperf_1.jpg]
+image::/bpi-m8/bananapi_bpim8_img_write_iperf_1.jpg[查看 M8 的 IP 地址]
 
-. 在路由器上启动 iperf3 服务端  
+. 在同一局域网内的另一台电脑上启动 iperf3 服务端。
 +
-```sh
+```bash
 iperf3 -s
 ```
 +
-image::/bpi-m8/bananapi_bpim8_img_write_iperf_2.jpg[bananapi_bpim8_img_write_iperf_2.jpg]
+image::/bpi-m8/bananapi_bpim8_img_write_iperf_2.jpg[启动 iperf3 服务端]
 
-. 在BPI-M8上启动客户端
+. 在 M8 上启动客户端，将示例地址改为服务端电脑的 IP。
 +
-```sh
-iperf3 -c (iperf3 -s 的地址)
+```bash
+iperf3 -c 192.168.1.200
 ```
 +
-image::/bpi-m8/bananapi_bpim8_img_write_iperf_3.jpg[bananapi_bpim8_img_write_iperf_3.jpg]
+image::/bpi-m8/bananapi_bpim8_img_write_iperf_3.jpg[测试以太网速度]
 
-使用 iperf3 测试时，网口速率通常约为 1 Gbps。
+=== Wi-Fi
 
-== WiFi
-
-使用 nmcli 命令连接 WiFi，完成后即可使用 WiFi。
-
-```sh
-nmcli device                                                      # 查看网口硬件状态
-nmcli device wifi list                                            # 列出可用的无线网络接入点
-sudo nmcli device wifi connection “WiFi名称” password “WiFi密码”   # 链接WiFi
-sudo nmcli device disconnect wlan0                                #断开WiFi
+. 查看网络设备和可用热点。
++
+```bash
+nmcli device
+nmcli device wifi list
 ```
 
-image::/bpi-m8/bananapi_bpim8_img_write_wifi1.jpg[bananapi_bpim8_img_write_wifi1.jpg]
-
-== 使用蓝牙
-
-. 板子和手机蓝牙配对（shell 命令配置）
-```sh
-hciconfig                  # 查看本机的蓝牙适配器
-bluetoothctl               # 启动蓝牙控制工具
-power on                   # 打开蓝牙控制器电源
-agent on                   # 启用配对代理
-pairable on                # 开启【可被配对】
-discoverable on            # 开启【可被发现】
-scan on                    # 开启扫描周围蓝牙设备
-scan off                   # 关闭扫描周围蓝牙设备
-devices                    # 查看设备列表
-pair MAC地址                # 向指定 MAC 地址的耳机发起配对请求，弹出确认提示时输入 
-connect MAC地址             # 和耳机建立正式蓝牙音频连接（连接成功终端会出现设备名字）
-disconnect MAC地址          # 断开指定 MAC 地址的蓝牙设备
-exit                       # 退出
-```
-
-
-
-== HDMI 输出
-
-通过 HDMI 线连接到显示器。
-
-image::/bpi-m8/bananapi-pi_m8_hdmi_1.jpg[bananapi-pi_m8_hdmi_1.jpg]
-
-== 按钮
-
-=== PWR
-
-短按 PWR 按钮即可关闭电源。 
-
-关闭时会出现如下日志：
-
-image::/bpi-m8/bnanapi_bpim8_img_write_pwr.jpg[bnanapi_bpim8_img_write_pwr.jpg]
-
-长按 PWR 按钮开机。
-
-=== RST
-短按RST按键BPI-M8重启
-
-
-== SSH
-
-. BPI-M8连接wifi.
-. 查看M8链接WiFi后的ip地址。
+. 连接 Wi-Fi，将“WiFi名称”改为实际热点名称，按提示输入密码。
 +
-```sh
-ip a
+```bash
+sudo nmcli --ask device wifi connect "WiFi名称"
+nmcli connection show --active
 ```
 +
-image::/bpi-m8/bananapi_bpim8_img_write_shh1.jpg[bananapi_bpim8_img_write_shh1.jpg]
+image::/bpi-m8/bananapi_bpim8_img_write_wifi1.jpg[连接 Wi-Fi]
 
-. 用 MobaXterm 连接。
+. 需要断开连接时，执行以下命令。无线接口名以 `nmcli device` 的输出为准。
 +
-image::/bpi-m8/bananapi_bpim8_img_write_ssh2.jpg[bananapi_bpim8_img_write_ssh2.jpg]
-+
-image::/bpi-m8/bananapi_bpim8_img_write_ssh3.jpg[bananapi_bpim8_img_write_ssh3.jpg]
-+
-image::/bpi-m8/bananapi_bpim8_img_write_ssh4.jpg[bananapi_bpim8_img_write_ssh4.jpg]
-+
-image::/bpi-m8/bananapi_bpim8_img_write_ssh5.jpg[bananapi_bpim8_img_write_ssh5.jpg]
+```bash
+sudo nmcli device disconnect wlan0
+```
 
-== 音频
+=== 蓝牙
 
-使用 aplay 命令可看到 M8 声卡提供两个输出：
-
-. HP 耳机输出
-. HDMI 输出
+. 打开目标蓝牙设备并进入配对模式，在 M8 上启动蓝牙管理工具。
 +
-```sh
+```bash
+bluetoothctl
+```
+
+. 在 `bluetoothctl` 中打开蓝牙并开始扫描。
++
+```text
+power on
+agent on
+default-agent
+scan on
+```
+
+. 找到目标设备后停止扫描，配对并连接。将示例 MAC 地址改为实际地址，并按提示确认配对。
++
+```text
+scan off
+devices
+pair AA:BB:CC:DD:EE:FF
+trust AA:BB:CC:DD:EE:FF
+connect AA:BB:CC:DD:EE:FF
+```
+
+. 需要断开连接或退出时，在 `bluetoothctl` 中执行：
++
+```text
+disconnect AA:BB:CC:DD:EE:FF
+exit
+```
+
+=== HDMI 显示
+
+通过 HDMI 线连接显示器，选择对应的输入源，再为 M8 上电。桌面版进入图形界面，Minimal 版进入终端。
+
+image::/bpi-m8/bananapi-pi_m8_hdmi_1.jpg[HDMI 显示]
+
+=== 按钮
+
+==== PWR
+
+关机状态下，长按 PWR 开机。开机状态下，短按触发系统电源操作，具体响应由当前镜像设置决定。
+
+image::/bpi-m8/bnanapi_bpim8_img_write_pwr.jpg[PWR 按钮响应]
+
+==== RST
+
+短按 RST 立即重启开发板，请先保存数据。
+
+=== SSH
+
+. 将 M8 和电脑连接到同一局域网，在 M8 上查看 IP 地址。
++
+```bash
+ip -4 addr
+```
++
+image::/bpi-m8/bananapi_bpim8_img_write_shh1.jpg[查看 SSH 连接地址]
+
+. 在电脑上打开 MobaXterm，新建 SSH 会话，填写 M8 的 IP 地址、用户名和端口 `22`。
++
+image::/bpi-m8/bananapi_bpim8_img_write_ssh2.jpg[新建 SSH 会话]
++
+image::/bpi-m8/bananapi_bpim8_img_write_ssh3.jpg[填写连接信息]
+
+. 连接后输入账号密码。也可以使用终端命令连接，将示例 IP 改为实际地址。
++
+```bash
+ssh pi@192.168.1.100
+```
++
+image::/bpi-m8/bananapi_bpim8_img_write_ssh4.jpg[登录 M8]
++
+image::/bpi-m8/bananapi_bpim8_img_write_ssh5.jpg[SSH 终端]
+
+=== 音频
+
+. 插入耳机，或连接支持 HDMI 音频的显示器，查看系统声卡。
++
+```bash
 aplay -l
 ```
 +
-image::/bpi-m8/bnanapi_bpim8_img_write_hp1.jpg[bnanapi_bpim8_img_write_hp1.jpg]
+image::/bpi-m8/bnanapi_bpim8_img_write_hp1.jpg[查看声卡]
 
-
-=== HP 耳机音频输出
-. 准备一个带音频文件的U盘，一个有线耳机。
-. 将U盘接入usb接口,查看U盘挂载情况，使用cd命令进入U盘。
+. 将音频文件复制到 U 盘，按“USB”章节挂载后查看文件。
 +
-```sh
-lsblk
-cd /mnt/usb
+```bash
+ls /mnt/usb
 ```
 +
-image::/bpi-m8/bananapi_bpim8_img_write_hp2.jpg[bananapi_bpim8_img_write_hp2.jpg]
+image::/bpi-m8/bananapi_bpim8_img_write_hp2.jpg[查看音频文件]
 
-. 播放音频
+. 使用 VLC 播放音频。以下以声卡 `0`、设备 `0` 为例，按 `aplay -l` 的输出修改编号和文件名。
 +
-```sh
-cvlc --aout alsa --alsa-audio-device plughw:0,0 "音频文件名"
+```bash
+cvlc --aout alsa --alsa-audio-device plughw:0,0 "/mnt/usb/音频文件名"
 ```
 +
-image::/bpi-m8/bananapi_bpim8_img_write_hp3.jpg[bananapi_bpim8_img_write_hp3.jpg]
+image::/bpi-m8/bananapi_bpim8_img_write_hp3.jpg[播放音频]
 
+NOTE: 播放 HDMI 音频时，选择 HDMI 对应的声卡，并确认显示器未静音。未安装 VLC 时，可使用 `aplay -D plughw:0,0 /mnt/usb/test.wav` 播放 WAV 文件。
 
-== RTC
+=== RTC
 
-. 连接间距为 2 mm 的电池座，为 RTC 供电。
+. 断电后连接 RTC 备用电源，核对接口极性。
 +
-WARNING: 注意：RTC供电电压不能超过2V
+WARNING: RTC 备用电源电压不能超过 2 V。
 +
-image::/bpi-m8/bananapi_bpim8_img_write_rtc0.jpg[bananapi_bpim8_img_write_rtc0.jpg]
+image::/bpi-m8/bananapi_bpim8_img_write_rtc0.jpg[RTC 备用电源接口]
 
-. 认系统内核已正确识别并加载 RTC 硬件驱动。
+. 上电后检查 RTC 驱动并读取硬件时间。
 +
-```sh
-sudo dmesg | grep -Ei "rtc|sunxi-rtc"
+```bash
+sudo dmesg | grep -Ei 'rtc|sunxi-rtc'
+sudo hwclock -r -f /dev/rtc0
 ```
 
-
-
-. 验证 RTC 芯片的读写功能，需手动将系统时间同步至硬件。
+. 确认系统时间正确后，将系统时间写入 RTC。
 +
-```sh
-sudo date -s "2026-11-03 11:52:00"    # 设置系统时间
-sudo hwclock -w -f /dev/rtc0          # 将系统时间写入 RTC 硬件
-sudo hwclock -r -f /dev/rtc0          # 读取 RTC 硬件时间，验证是否写入成功
+```bash
+date
+sudo hwclock -w -f /dev/rtc0
+sudo hwclock -r -f /dev/rtc0
 ```
 
-. BPI-M8 断电数分钟后，RTC 时钟应保持连续运行，而系统时间若未联网同步，则表现为停止状态。
+. 关闭系统并断开主电源，保留 RTC 备用电源。数分钟后重新上电，检查 RTC 时间是否持续运行。
 +
-```sh
-sudo hwclock -r -f /dev/rtc0         # 读取 RTC 硬件时间，验证是否写入成功
-date                                 # 查看当前系统时间
+```bash
+sudo hwclock -r -f /dev/rtc0
+date
 ```
 
+=== 风扇
 
+风扇由系统温控策略调速。查看风扇设备和当前 PWM 输出：
 
-== 风扇
+```bash
+for m8_hwmon in /sys/class/hwmon/hwmon*; do
+    echo "$m8_hwmon"
+    cat "$m8_hwmon/name"
+    if [ -f "$m8_hwmon/pwm1" ]; then
+        cat "$m8_hwmon/pwm1"
+    fi
+done
+```
 
-查询系统中的风扇控制 PWM 设备
+NOTE: `hwmon` 编号可能变化，请根据 `name` 确认风扇设备。压力测试时不要关闭自动温控。
 
-```sh
-cat /sys/class/hwmon/hwmon0/name
+=== PoE 供电
 
-ls /sys/class/hwmon/
+. 准备兼容的 PoE 交换机、BPI-M8 PoE 扩展板和网线。
+. 断电连接 PoE 扩展板，再通过网线连接 PoE 交换机。
+. 接通交换机电源，确认开发板正常启动。
 
-```     
-使用命令控制风扇开关
+image::/bpi-m8/bananapi_bpim8_img_write_poe1.jpg[PoE 供电]
 
-```sh
-echo 1 > /sys/class/hwmon/hwmon0/pwm1
-echo 0 > /sys/class/hwmon/hwmon0/pwm1
-```     
+=== BPI-M8 扩展板
 
-== POE
+. 准备扩展板、1 根 31 针 FPC 排线和 2 根 35 针 FPC 排线。
+. 断电后，将主板的 PCIe/DP、MIPI 接口连接到扩展板对应接口。
+. 对齐 40 针 GPIO 的方向，将主板与扩展板连接。
 
-. 准备一个POE交换机，一个POE扩展板，一根网线。
-. 将网线连接POE交换机和BPI-M8，POE交换机即可给BPI-M8进行正常供电使用。
+image::/bpi-m8/bananapi_bpim8_img_write_kzb1.jpg[连接扩展板排线]
 
-image::/bpi-m8/bananapi_bpim8_img_write_poe1.jpg[bananapi_bpim8_img_write_poe1.jpg]
+image::/bpi-m8/bananapi_bpim8_img_write_kzb2.jpg[安装扩展板]
 
-== BPI-M8扩展板
-. 准备一个BPI-M8扩展板，一根 31-pin 的 FPC 软排线，两跟 35-pin 的FPC 软排线。
-. 将 BPI-M8 主板的 PCIe/DP 和 MIPI 接口与扩展板的对应接口相连.
-. 将 BPI-M8 主板的 40ping公头与 BPI-M8 扩展板的母头连接。
+==== M.2 固态硬盘
 
-image::/bpi-m8/bananapi_bpim8_img_write_kzb1.jpg[bananapi_bpim8_img_write_kzb1.jpg]
-
-image::/bpi-m8/bananapi_bpim8_img_write_kzb2.jpg[bananapi_bpim8_img_write_kzb2.jpg]
-
-=== M.2固态硬盘
-
-. 准备一个M.2固态硬盘，将M.2固态硬盘连接到BPI-M8扩展板上。
+. 断电后，将 NVMe 固态硬盘插入扩展板的 M.2 接口并固定。
 +
-image::/bpi-m8/bananapi_bpim8_img_write_m.2_.jpg[bananapi_bpim8_img_write_m.2_.jpg]
+image::/bpi-m8/bananapi_bpim8_img_write_m.2_.jpg[安装 NVMe 固态硬盘]
 
-. 确认系统内包含BPI-M8扩展板M.2接口的设备树文件
+. 启动系统，确认 M.2 对应的设备树 overlay 已安装。
 +
-```sh
+```bash
 ls /boot/dtb/sunxi/overlay/bpi-m8/ | grep -i pcie
 ```
 +
-image::/bpi-m8/bananapi_bpim8_img_write_m.2_3.jpg[bananapi_bpim8_img_write_m.2_3.jpg]
+image::/bpi-m8/bananapi_bpim8_img_write_m.2_3.jpg[查看 PCIe overlay]
 
-. 使用 nano 编辑器打开启动配置文件,在文件末尾添加配置.
+. 备份并编辑启动配置。
 +
-```sh
+```bash
+sudo cp -an /boot/armbianEnv.txt /boot/armbianEnv.txt.before-pcie
 sudo nano /boot/armbianEnv.txt
+```
+
+. 在已有的 `overlays=` 行中追加 `bpi-m8-expansion-pcie-m2`，多个 overlay 用空格分隔。没有该行时，添加：
++
+```text
 overlays=bpi-m8-expansion-pcie-m2
 ```
 +
-image::/bpi-m8/bananapi_bpim8_img_write_m.2_2.jpg[bananapi_bpim8_img_write_m.2_2.jpg]
-+
-保存并退出：按 Ctrl+O 写入，按 Enter 确认，按 Ctrl+X 退出，重启系统使配置生效.
+image::/bpi-m8/bananapi_bpim8_img_write_m.2_2.jpg[启用 PCIe overlay]
 
-. 检查 PCIe 设备枚举状态，检查系统块设备.
+. 按 `Ctrl+O` 保存、`Enter` 确认、`Ctrl+X` 退出，再重启系统。
 +
-```sh
+```bash
+sudo reboot
+```
+
+. 重启后检查 PCIe 设备和硬盘。
++
+```bash
 lspci
 lsblk
 ```
 +
-image::/bpi-m8/bananapi_bpim8_img_write_m.2_4.jpg[bananapi_bpim8_img_write_m.2_4.jpg]
+image::/bpi-m8/bananapi_bpim8_img_write_m.2_4.jpg[查看 NVMe 固态硬盘]
+
+NOTE: 不要重复添加 `overlays=` 行，也不要覆盖已有的其他 overlay 配置。
+
+=== NPU
+
+BPI-M8 支持使用 AWNPU Model Zoo 运行 AI 示例。以下以 YOLOv5 图片目标检测为例，介绍模型转换、编译和运行方法。
+
+==== 准备
+
+* 一台 x86_64 Ubuntu 开发电脑。
+* BPI-M8，运行 64 位 Armbian 系统，并连接网络。
+* `AWNPU_Docker_cp38.zip`：A733 版本 `v2.0.10.2`。
+* `AWNPU_ModelZoo.gz`：版本 `v1.0.0`。
+* AArch64 GCC 交叉编译工具链，下载说明位于 ModelZoo 的 `0-toolchains` 目录。
+
+NOTE: 模型转换和编译在开发电脑上进行，推理程序在 M8 上运行。
+
+. 在 M8 上检查 NPU 设备。
++
+```bash
+uname -m
+ls -l /dev/vipcore
+```
+
+系统架构应为 `aarch64`，并存在 `/dev/vipcore`。
+
+==== 配置开发环境
+
+. 在开发电脑上安装 Docker 和基础工具。已安装可跳过。
++
+```bash
+sudo apt-get update
+sudo apt-get install -y docker.io unzip tar cmake build-essential file openssh-client
+sudo systemctl start docker
+sudo docker version
+```
+
+. 设置软件包路径和工作目录。将 `M8_PACKAGE_DIR` 改为实际存放路径。
++
+```bash
+export M8_PACKAGE_DIR="$HOME/Downloads"
+export M8_AI_ROOT="$HOME/m8-ai"
+export M8_MODEL_ZOO="$M8_AI_ROOT/awnpu_model_zoo-v1.0.0-20260423-f562dd16"
+
+mkdir -p "$M8_AI_ROOT/docker"
+unzip -t "$M8_PACKAGE_DIR/AWNPU_Docker_cp38.zip"
+gzip -t "$M8_PACKAGE_DIR/AWNPU_ModelZoo.gz"
+```
+
+. 校验通过后，解压软件包。
++
+```bash
+unzip -n "$M8_PACKAGE_DIR/AWNPU_Docker_cp38.zip" -d "$M8_AI_ROOT/docker"
+tar -xzf "$M8_PACKAGE_DIR/AWNPU_ModelZoo.gz" -C "$M8_AI_ROOT"
+cat "$M8_MODEL_ZOO/version"
+```
+
+. 解压并导入 Docker 镜像。
++
+```bash
+unzip -n \
+  "$M8_AI_ROOT/docker/docker_images_v2.0.x/ubuntu-npu_v2.0.10.2.tar.zip" \
+  -d "$M8_AI_ROOT/docker"
+
+sudo docker load -i "$M8_AI_ROOT/docker/ubuntu-npu_v2.0.10.2.tar"
+sudo docker images
+```
+
+. 创建并进入容器。
++
+```bash
+sudo docker run -it --name m8-npu-a733 \
+  --shm-size=1g \
+  --mount "type=bind,source=$M8_AI_ROOT,target=/workspace" \
+  ubuntu-npu:v2.0.10.2 /bin/bash
+```
+
+开发电脑的 `$M8_AI_ROOT` 映射到容器内 `/workspace`。退出后，使用以下命令重新进入：
+
+```bash
+sudo docker start -ai m8-npu-a733
+```
+
+. 在容器内设置 ModelZoo 路径，检查转换工具。
++
+```bash
+export M8_MODEL_ZOO=/workspace/awnpu_model_zoo-v1.0.0-20260423-f562dd16
+
+printf 'ACUITY_PATH=%s\nVIV_SDK=%s\n' "$ACUITY_PATH" "$VIV_SDK"
+pegasus --help
+```
+
+`ACUITY_PATH`、`VIV_SDK` 应已配置，`pegasus --help` 应显示帮助信息。
+
+==== 转换 YOLOv5 模型
+
+在容器内执行，将包内 ONNX 模型转换为 A733 模型。
+
+NOTE: 包内预置的 `yolov5s_rt_uint8_t527.nb` 用于 T527，M8 需要重新导出为 A733，不能直接改名使用。
+
+. 导入、量化并导出模型。
++
+```bash
+(
+  set -e
+  cd "$M8_MODEL_ZOO/examples/yolov5/convert_model"
+  test -s yolov5s_rt.onnx
+  test -s ../../dataset/coco_12/dataset.txt
+  test -n "$ACUITY_PATH"
+  test -d "$VIV_SDK"
+
+  # 导入模型
+  pegasus import onnx \
+    --model yolov5s_rt.onnx \
+    --output-model yolov5s_rt.json \
+    --output-data yolov5s_rt.data
+
+  # 配置输入、输出和预处理
+  pegasus generate inputmeta \
+    --model yolov5s_rt.json \
+    --separated-database \
+    --input-meta-output yolov5s_rt_inputmeta.yml
+
+  pegasus generate postprocess-file \
+    --model yolov5s_rt.json \
+    --postprocess-file-output yolov5s_rt_postprocess_file.yml
+
+  python3 ./config_yml.py yolov5s_rt
+
+  # 量化模型
+  pegasus quantize \
+    --model yolov5s_rt.json \
+    --model-data yolov5s_rt.data \
+    --device CPU \
+    --with-input-meta yolov5s_rt_inputmeta.yml \
+    --iterations 12 --rebuild \
+    --model-quantize yolov5s_rt_uint8.quantize \
+    --quantizer asymmetric_affine --qtype uint8
+
+  # 导出 A733 模型
+  pegasus export ovxlib \
+    --pack-nbg-unify \
+    --optimize VIP9000NANODI_PLUS_PID0X1000003B \
+    --viv-sdk "$VIV_SDK" \
+    --model yolov5s_rt.json \
+    --model-data yolov5s_rt.data \
+    --dtype quantized \
+    --model-quantize yolov5s_rt_uint8.quantize \
+    --target-ide-project linux64 \
+    --with-input-meta yolov5s_rt_inputmeta.yml \
+    --postprocess-file yolov5s_rt_postprocess_file.yml \
+    --output-path ./wksp/yolov5s_rt_uint8/yolov5s_rt_uint8
+
+  test -s ./wksp/yolov5s_rt_uint8_nbg_unify/network_binary.nb
+  cp ./wksp/yolov5s_rt_uint8_nbg_unify/network_binary.nb \
+    ../model/yolov5s_rt_uint8_a733.nb
+  ls -lh ../model/yolov5s_rt_uint8_a733.nb
+)
+```
+
+生成的模型位于 `examples/yolov5/model/yolov5s_rt_uint8_a733.nb`。
+
+==== 编译示例
+
+. 根据 `0-toolchains/gcc-arm-10.3-aarch64-none-linux-gnu.tar.txt` 下载 GCC 10.3，放入 `0-toolchains` 目录。
+
+. 在容器内解压工具链和 OpenCV。
++
+```bash
+(
+  set -e
+  cd "$M8_MODEL_ZOO/0-toolchains"
+  tar -xf gcc-arm-10.3-2021.07-x86_64-aarch64-none-linux-gnu.tar.xz
+  ./gcc-arm-10.3-2021.07-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu-gcc --version
+
+  cd "$M8_MODEL_ZOO/3rdparty/opencv"
+  unzip -n opencv-4.9.0-aarch64-linux-sunxi-glibc.zip
+)
+```
+
+. 编译 YOLOv5，并复制 A733 运行库。
++
+```bash
+(
+  set -e
+  cd "$M8_MODEL_ZOO/examples"
+  test -s yolov5/model/yolov5s_rt_uint8_a733.nb
+
+  bash ./build_linux.sh -t a733 -p yolov5 -s linux
+
+  M8_DEMO_DIR="$M8_MODEL_ZOO/examples/yolov5/install/yolov5_demo_linux_a733"
+  test -x "$M8_DEMO_DIR/yolov5_demo_a733"
+  test -s "$M8_DEMO_DIR/model/yolov5s_rt_uint8_a733.nb"
+
+  mkdir -p "$M8_DEMO_DIR/lib"
+  cp -a "$M8_MODEL_ZOO/common/npuruntime/lib_linux_aarch64/A733/"*.so \
+    "$M8_DEMO_DIR/lib/"
+
+  file "$M8_DEMO_DIR/yolov5_demo_a733"
+  ls -lh "$M8_DEMO_DIR/lib/"
+)
+```
+
+NOTE: Bullseye 使用 GCC 10.2，下载说明见 `0-toolchains/gcc-arm-10.2-aarch64-none-linux-gnu.tar.xz.txt`。解压后，将编译参数 `-s linux` 改为 `-s debian11`。
+
+==== 运行示例
+
+. 在开发电脑上，将程序传到 M8。将 IP 地址改为 M8 的实际地址。
++
+```bash
+export M8_MODEL_ZOO="$HOME/m8-ai/awnpu_model_zoo-v1.0.0-20260423-f562dd16"
+export M8_TARGET=pi@192.168.1.100
+
+ssh "$M8_TARGET" 'mkdir -p ~/m8-ai'
+scp -r "$M8_MODEL_ZOO/examples/yolov5/install/yolov5_demo_linux_a733" \
+  "$M8_TARGET:~/m8-ai/"
+```
+
+. 在 M8 上检查运行库。输出中不应出现 `not found`。
++
+```bash
+cd "$HOME/m8-ai/yolov5_demo_linux_a733"
+LD_LIBRARY_PATH="$PWD/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}" \
+  ldd ./yolov5_demo_a733
+```
+
+. 执行目标检测。
++
+```bash
+sudo env LD_LIBRARY_PATH="$PWD/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}" \
+  timeout 120 ./yolov5_demo_a733 \
+  -nb model/yolov5s_rt_uint8_a733.nb \
+  -i model/dog.jpg -l 1 -m 128
+
+m8_demo_rc=$?
+printf '程序退出码：%s\n' "$m8_demo_rc"
+test "$m8_demo_rc" -eq 0 && test -s output_yolov5.png
+```
+
+`-l` 设置运行次数，`-m` 设置 NPU 初始化内存大小（MiB）。运行成功后，当前目录生成检测结果图片 `output_yolov5.png`。
+
+. 在开发电脑上获取结果图片。
++
+```bash
+scp "$M8_TARGET:~/m8-ai/yolov5_demo_linux_a733/output_yolov5.png" ./
+```
+
+使用自己的图片时，将 `-i model/dog.jpg` 改为对应的 JPG 路径。
+
+==== 其他示例
+
+其他示例的使用方法见对应目录的 `README.md`：
+
+* 图像分类：`examples/mobilenetv2`、`examples/resnet50v2`。
+* 目标检测：`examples/yolov8`、`examples/yolo11`。
+* 图像分割：`examples/yolov8_seg`、`examples/ppseg`。
+* 人体关键点：`examples/yolov8_pose`。
+* 文字检测与识别：`examples/ppocr`；车牌识别：`examples/LPRNet`。
+
+M8 编译平台选择 `a733`。更多说明见包内 `docs/NPU_快速入门_开发指南.pdf`。
 
 
 == 引脚定义
 
-.BPI-M8 40 针 GPIO
+NOTE: 连接排线或扩展板前请断电，并核对接口的 1 脚位置。
+
+.40 针 GPIO
 [%collapsible]
 ====
 [options="header",cols="1,2",width="70%"]
-|=====
-2+| **Banana Pi BPI-M8 的 40 针 GPIO**
-| 引脚号 | 引脚名称 
-| 1  | DCDC1 
-| 2  | VBUS-AXP318 
+|===
+| 引脚号 | 引脚名称
+| 1  | DCDC1
+| 2  | VBUS-AXP318
 | 3  | PJ23/TWI7-SDA
 | 4  | VBUS-AXP318
 | 5  | PJ22/TWI7-SCK
-| 6  | GND 
+| 6  | GND
 | 7  | PL05/PWM0-3
-| 8  | PB00/UART2-TX 
-| 9  | GND 
+| 8  | PB00/UART2-TX
+| 9  | GND
 | 10 | PB01/UART2-RX
 | 11 | PL12/S-UART1-TX
-| 12 | HD-PIN12 
-| 13 | PL13/S-UART1-RX 
-| 14 | GND 
-| 15 | PL06/S-UART0-TX 
-| 16 | PB02/UART2-RTS 
+| 12 | HD-PIN12
+| 13 | PL13/S-UART1-RX
+| 14 | GND
+| 15 | PL06/S-UART0-TX
+| 16 | PB02/UART2-RTS
 | 17 | DCDC1
 | 18 | PB03/UART2-CTS
 | 19 | PJ25/SPI3-MOSI
-| 20 | GND  
-| 21 | PJ26/SPI3-MISO 
-| 22 | HD-PIN22 
-| 23 | PJ24/SPI3-CLK 
+| 20 | GND
+| 21 | PJ26/SPI3-MISO
+| 22 | HD-PIN22
+| 23 | PJ24/SPI3-CLK
 | 24 | HD-PIN24
-| 25 | GND 
-| 26 | PJ27/SPI3-CS0 
+| 25 | GND
+| 26 | PJ27/SPI3-CS0
 | 27 | HD-PIN27
-| 28 | HD-PIN28 
+| 28 | HD-PIN28
 | 29 | PL07/S-UART0-RX
-| 30 | GND 
-| 31 | HD-PIN31 
+| 30 | GND
+| 31 | HD-PIN31
 | 32 | HD-PIN32
-| 33 | HD-PIN33 
-| 34 | GND 
-| 35 | HD-PIN35 
+| 33 | HD-PIN33
+| 34 | GND
+| 35 | HD-PIN35
 | 36 | HD-PIN36
-| 37 | HD-PIN37 
+| 37 | HD-PIN37
 | 38 | HD-PIN38
-| 39 | GND 
+| 39 | GND
 | 40 | HD-PIN40
-|=====
+|===
 ====
 
-.BPI-M8 MIPI CSIA
+.MIPI CSI-A
 [%collapsible]
 ====
 [options="header",cols="1,2",width="70%"]
-|=====
-2+| **Banana Pi BPI-M8 的 MIPI CSIA**
-| 引脚号 | 引脚名称 
-| 1  | MCSIA-D3N 
+|===
+| 引脚号 | 引脚名称
+| 1  | MCSIA-D3N
 | 2  | MCSIA-D3P
 | 3  | GND
 | 4  | MCSIA-D2N
 | 5  | MCSIA-D2P
-| 6  | GND 
+| 6  | GND
 | 7  | NC
 | 8  | NC
-| 9  | GND 
+| 9  | GND
 | 10 | MCSIA-D1N
 | 11 | MCSIA-D1P
-| 12 | GND 
+| 12 | GND
 | 13 | MCSIA-D0N
 | 14 | MCSIA-D0P
 | 15 | GND
@@ -509,33 +792,32 @@ image::/bpi-m8/bananapi_bpim8_img_write_m.2_4.jpg[bananapi_bpim8_img_write_m.2_4
 | 30 | VCC1V8_CSI0
 | 31 | GND
 | 32 | GND
-| 33 | VCC3V3_CSI0 
+| 33 | VCC3V3_CSI0
 | 34 | VCC3V3_CSI0
 | 35 | VCC3V3_CSI0
 | 36 | GND
 | 37 | GND
-|=====
+|===
 ====
 
-.BPI-M8 MIPI CSIB
+.MIPI CSI-B
 [%collapsible]
 ====
 [options="header",cols="1,2",width="70%"]
-|=====
-2+| **Banana Pi BPI-M8 的 MIPI CSIB**
-| 引脚号 | 引脚名称 
+|===
+| 引脚号 | 引脚名称
 | 1  | MCSIB-D3N
 | 2  | MCSIB-D3P
 | 3  | GND
 | 4  | MCSIB-D2N
 | 5  | MCSIB-D2P
-| 6  | GND 
+| 6  | GND
 | 7  | NC
 | 8  | NC
-| 9  | GND 
+| 9  | GND
 | 10 | MCSIB-D1N
 | 11 | MCSIB-D1P
-| 12 | GND 
+| 12 | GND
 | 13 | MCSIB-D0N
 | 14 | MCSIB-D0P
 | 15 | GND
@@ -556,33 +838,32 @@ image::/bpi-m8/bananapi_bpim8_img_write_m.2_4.jpg[bananapi_bpim8_img_write_m.2_4
 | 30 | VCC1V8_CSI1
 | 31 | GND
 | 32 | GND
-| 33 | VCC3V3_CSI1 
+| 33 | VCC3V3_CSI1
 | 34 | VCC3V3_CSI1
 | 35 | VCC3V3_CSI1
 | 36 | GND
 | 37 | GND
-|=====
+|===
 ====
 
-.BPI-M8 PCIe+DP
+.PCIe/DP
 [%collapsible]
 ====
 [options="header",cols="1,2",width="70%"]
-|=====
-2+| **Banana Pi BPI-M8 的 PCIe+DP**
-| 引脚号 | 引脚名称 
+|===
+| 引脚号 | 引脚名称
 | 1  | COMB1-TX0P
 | 2  | COMB1-TX0N
 | 3  | GND
 | 4  | COMB1-RX0P
 | 5  | COMB1-RX0N
-| 6  | GND 
+| 6  | GND
 | 7  | COMB1-REFP
 | 8  | COMB1-REFN
-| 9  | GND 
+| 9  | GND
 | 10 | DP_TX0P
 | 11 | DP_TX0N
-| 12 | GND 
+| 12 | GND
 | 13 | DP_TX1P
 | 14 | DP_TX1N
 | 15 | GND
@@ -604,28 +885,27 @@ image::/bpi-m8/bananapi_bpim8_img_write_m.2_4.jpg[bananapi_bpim8_img_write_m.2_4
 | 31 | VDD5P0V-PCIe
 | 32 | GND
 | 33 | GND
-|=====
+|===
 ====
 
-.BPI-M8 MIPI DSI0
+.MIPI DSI0
 [%collapsible]
 ====
 [options="header",cols="1,2",width="70%"]
-|=====
-2+| **Banana Pi BPI-M8 的 MIPI DSI0**
-| 引脚号 | 引脚名称 
+|===
+| 引脚号 | 引脚名称
 | 1  | MIPI-DSI0-D0N
 | 2  | MIPI-DSI0-D0P
 | 3  | GND
-| 4  | MIPI-DSI0-D0P
+| 4  | MIPI-DSI0-D1N
 | 5  | MIPI-DSI0-D1P
-| 6  | GND 
+| 6  | GND
 | 7  | MIPI-DSI0-CKN
 | 8  | MIPI-DSI0-CKP
-| 9  | GND 
+| 9  | GND
 | 10 | MIPI-DSI0-D2N
 | 11 | MIPI-DSI0-D2P
-| 12 | GND 
+| 12 | GND
 | 13 | MIPI-DSI0-D3N
 | 14 | MIPI-DSI0-D3P
 | 15 | GND
@@ -647,5 +927,5 @@ image::/bpi-m8/bananapi_bpim8_img_write_m.2_4.jpg[bananapi_bpim8_img_write_m.2_4
 | 31 | VDD5P0V-DSI0
 | 32 | GND
 | 33 | GND
-|=====
+|===
 ====
