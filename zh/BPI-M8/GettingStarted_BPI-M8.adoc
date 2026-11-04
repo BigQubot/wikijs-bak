@@ -730,14 +730,16 @@ ldd ./yolov5_demo_a733
 sudo env LD_LIBRARY_PATH="$PWD/lib" \
 timeout 120 ./yolov5_demo_a733 \
 -nb model/yolov5s_rt_uint8_a733.nb \
--i model/dog.jpg -l 1 -m 128
+-i model/dog.jpg -l 50 -m 128
 
 m8_demo_rc=$?
-printf '程序退出码：%s\n' "$m8_demo_rc"
+printf 'exit code: %s\n' "$m8_demo_rc"
 test "$m8_demo_rc" -eq 0 && test -s output_yolov5.png
 ----
 
 `-l` 设置运行次数，`-m` 设置 NPU 初始化内存大小（MiB）。运行成功后，当前目录生成检测结果图片 `output_yolov5.png`。
+
+image::/bpi-m8/bananapi_bpim8_npu_yolov5_run.png[bananapi_bpim8_npu_yolov5_run.png]
 
 . 在开发电脑上获取结果图片。
 +
@@ -745,6 +747,8 @@ test "$m8_demo_rc" -eq 0 && test -s output_yolov5.png
 ----
 scp "$M8_TARGET:~/m8-ai/yolov5_demo_linux_a733/output_yolov5.png" ./
 ----
+
+image::/bpi-m8/output_yolov5.png[output_yolov5.png]
 
 使用自己的图片时，将 `-i model/dog.jpg` 改为对应的 JPG 路径。
 
