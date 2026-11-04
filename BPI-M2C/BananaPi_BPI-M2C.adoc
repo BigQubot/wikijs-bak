@@ -1,18 +1,37 @@
 = BPI-M2C Introduction
 
-Banana Pi BPI-M2C is Banana Pi's new generation single board computer, equipped with Unisoc uis7885 processor. It has 4GB LPDDR4 memory and 128GB EMMC storage onboard, and supports 4 USB 2.0 interfaces, 1 Gigabit network port, headphone interface, speaker interface, onboard 5G and WCN functions.
+The BPI-M2C is a high-performance ARM single-board computer (SBC) from Banana Pi, powered by the UNISOC UIS7885 SoC. It is designed for applications such as 5G communications, edge computing, artificial intelligence, machine vision, smart terminals, and embedded human-machine interfaces (HMI).
 
+Built on a 6nm process, the UIS7885 features an octa-core architecture—comprising four high-performance Arm Cortex-A76 cores and four energy-efficient Arm Cortex-A55 cores—with a shared 3MB L3 cache. It supports Arm Neon SIMD/VFP instructions and integrates a Mali-G57 GPU, an IMG AX3596 NPU, a VDSP, an ISP, and hardware-based video encoding/decoding units. The BPI-M2C comes equipped with 4 GiB of LPDDR4X RAM and 128 GB of eMMC storage. Its interface suite includes support for MicroSD, PCIe Gigabit Ethernet, Wi-Fi, Bluetooth, GNSS, HDMI, MIPI-DSI, MIPI-CSI, USB, and a 40-pin expansion header.
+
+Compared to typical entry-level development boards, the BPI-M2C places a greater emphasis on high-performance computing, 5G platform capabilities, on-device AI, camera ISP, and multimedia processing. It is well-suited for development projects that require an integrated solution for computing, connectivity, display, and vision-based tasks. 
 
 == Key Features
 
-- Unisoc uis7885
-- 4GB LPDDR4
-- 128GB eMMC flash
-- 4 USB 2.0
-- 1 GbE ethernet
+- 1 × Arm Cortex-A76 (up to 2.7 GHz) + 3 × Arm Cortex-A76 (up to 2.3 GHz) + 4 × Arm Cortex-A55 (up to 2.1 GHz)
+- Arm Mali-G57 GPU (up to 850 MHz)
+- IMG AX3596 NPU (up to 988 MHz)
+- VDSP (Vision/Signal Processing Unit) (up to 1014 MHz)
+- 4 GiB LPDDR4X RAM
+- 128 GB eMMC, with support for MicroSD
+- Gigabit Ethernet
+- Wi-Fi 5 (dual-band: 2.4 GHz, 5 GHz) / Bluetooth 5
+- Software/driver support for GNSS and FM
+- Integrated 2G/3G/4G/5G modem within the SoC
 - HDMI output
-- MIPI DSI
-- 5G onboard
+- MIPI-DSI
+- MIPI-CSI
+
+== Target Applications
+- 5G edge computing gateways
+- Machine vision and AI-enabled cameras
+- Smart retail, self-service terminals, and digital signage
+- Facial recognition and smart access control
+- Industrial HMI and all-in-one touch terminals
+- Video conferencing, remote monitoring, and video transmission
+- Robot main control and vision processing
+- GNSS-based mobile data collection terminals
+- Educational platforms for ARM/Linux, AI, and telecommunications (for universities/colleges)
 
 == Getting Start
 
@@ -28,80 +47,52 @@ TIP: link:/en/BPI-M2C/GettingStarted_BPI-M2C[Getting Started BPI-M2C]
 [options="header",cols="1,3"]
 |=====
 2+| **HardWare Specification of Banana Pi M2C**
-| CPU           | xxxx
-| GPU           | xxxx
-| Memory        | xxxx
-| Flash         | xxxx
-| Network       | xxxx
-| WIFI&BT       | xxxx
-| Video Input   | xxxx
-| Video Outputs | xxxx
-| Audio Outputs | xxxx
-| Power         | xxxx
-| USB 2.0 ports | xxxx
-| GPIO          | xxxx
-| LED           | xxxx
-| Storage       | xxxx
+|SoC |Unisoc T820 (UIS7885), 6 nm
+
+|CPU |1 × Cortex-A76 @ 2.7 GHz + 3 × Cortex-A76 @ 2.3 GHz + 4 × Cortex-A55 @ 2.1 GHz, 64-bit
+
+|GPU |Arm Mali-G57, up to 850 MHz
+
+|NPU |IMG AX3596, up to 988 MHz
+
+|VDSP |VQ7, up to 1014 MHz
+
+|Memory |4 GiB LPDDR4X
+
+|Storage |128 GB eMMC; supports MicroSD; SoC supports eMMC 5.1 HS400/UFS 3.1
+
+|Wired Network |1 × Gigabit Ethernet; supports PoE (Power over Ethernet) via an external PoE module
+
+|Wireless |Wi-Fi 5, dual-band (2.4 GHz, 5 GHz)
+
+|Bluetooth |Bluetooth 5
+
+|Cellular Network |SoC supports 2G/3G/4G/5G
+
+|Positioning |GNSS (supported via drivers and software)
+
+|HDMI |HDMI output, 1920 × 1080
+
+|MIPI DSI |800 × 1280
+
+|Camera |MIPI-CSI, hardware ISP
+
+|USB |4 × USB 2.0
+
+|Audio |3.5mm headphone jack, speaker
+
+|GPIO |40-pin header; supports GPIO, I²C, SPI, UART, PWM, and PCM/I²S
+
+|Buttons |Power button, flash (bootloader) button
+
+|Power Supply |Supports 5V power input via Type-C
+
+|Dimensions |85 × 56 mm
+
+|Weight |60g
 |=====
 
-== GPIO Pin Define
 
-=== BPI-M2C 40PIN GPIO
-
-
-[options="header",cols="2,1,1"]
-|=====
-3+| **40 PIN GPIO of Banana pi BPI-M2C**
-| CSI GPIO Pin | Pin Name | GPIO
-| CONx P01 | xxxx         | xxxx
-| CONx P02 | xxxx         | xxxx
-| CONx P03 | xxxx         | xxxx
-| CONx P04 | xxxx         | xxxx
-| CONx P05 | xxxx         | xxxx
-| CONx P06 | xxxx         | xxxx
-| CONx P07 | xxxx         | xxxx
-| CONx P08 | xxxx         | xxxx
-| CONx P09 | xxxx         | xxxx
-| CONx P10 | xxxx         | xxxx
-| CONx P11 | xxxx         | xxxx
-| CONx P12 | xxxx         | xxxx
-| CONx P13 | xxxx         | xxxx
-| CONx P14 | xxxx         | xxxx 
-| CONx P15 | xxxx         | xxxx 
-| CONx P16 | xxxx         | xxxx 
-| CONx P17 | xxxx         | xxxx 
-| CONx P18 | xxxx         | xxxx 
-| CONx P19 | xxxx         | xxxx 
-| CONx P20 | xxxx         | xxxx 
-| CONx P21 | xxxx         | xxxx 
-| CONx P22 | xxxx         | xxxx 
-| CONx P23 | xxxx         | xxxx 
-| CONx P24 | xxxx         | xxxx 
-| CONx P25 | xxxx         | xxxx 
-| CONx P26 | xxxx         | xxxx 
-| CONx P27 | xxxx         | xxxx 
-| CONx P28 | xxxx         | xxxx 
-| CONx P29 | xxxx         | xxxx 
-| CONx P30 | xxxx         | xxxx 
-| CONx P31 | xxxx         | xxxx 
-| CONx P32 | xxxx         | xxxx 
-| CONx P33 | xxxx         | xxxx 
-| CONx P34 | xxxx         | xxxx 
-| CONx P35 | xxxx         | xxxx 
-| CONx P36 | xxxx         | xxxx 
-| CONx P37 | xxxx         | xxxx 
-| CONx P38 | xxxx         | xxxx 
-| CONx P39 | xxxx         | xxxx
-| CONx P40 | xxxx         | xxxx
-|=====
-
-=== BPI- Debug UART
-
-|=====
-|CONx-P1  | GND
-|CONx-P2  | UART0-RX
-|CONx-P3  | UART0-TX
-|=====
 
 = Development
 == Source Code
