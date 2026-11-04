@@ -329,7 +329,7 @@ WARNING: 注意：RTC供电电压不能超过2V
 
 image::/bpi-m8/bananapi_bpim8_img_write_rtc0.jpg[bananapi_bpim8_img_write_rtc0.jpg]
 
-查看系统 RTC 配置
+认系统内核已正确识别并加载 RTC 硬件驱动。
 
 ```sh
 sudo dmesg | grep -Ei "rtc|sunxi-rtc"
@@ -337,7 +337,7 @@ sudo dmesg | grep -Ei "rtc|sunxi-rtc"
 
 
 
-设置 RTC 时间
+验证 RTC 芯片的读写功能，需手动将系统时间同步至硬件。
 
 ```sh
 sudo date -s "2026-11-03 11:52:00" 
