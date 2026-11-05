@@ -1,7 +1,4 @@
-= BPI-M8 入门指南
-:toclevels: 3
-
-== 简介
+= 简介
 
 BPI-M8 搭载全志 A733 八核处理器，集成双核 Arm Cortex-A76、六核 Arm Cortex-A55、PowerVR GPU 和 3 TOPS NPU，配备 4 GB LPDDR5 内存。
 
@@ -9,7 +6,7 @@ BPI-M8 搭载全志 A733 八核处理器，集成双核 Arm Cortex-A76、六核 
 
 TIP: 更多信息：link:/zh/BPI-M8/BananaPi_BPI-M8[Banana Pi BPI-M8]。
 
-== 主要特性
+= 主要特性
 
 * 双核 Arm Cortex-A76 + 六核 Arm Cortex-A55，主频最高 2.0 GHz。
 * 4 GB LPDDR5 内存。
@@ -25,15 +22,15 @@ TIP: 更多信息：link:/zh/BPI-M8/BananaPi_BPI-M8[Banana Pi BPI-M8]。
 * 1 组 40 针 GPIO。
 * 1 个 UFS 接口。
 
-== Android
+= Android
 
-=== 准备
+== 准备
 
 * 下载 link:/zh/BPI-M8/BananaPi_BPI-M8#_android_2[Android 镜像]。
 * 在 Windows 电脑上安装 link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2Fphoenixsuit_V1.1.0_20150325.rar[PhoenixSuit]。
 * 准备支持数据传输的 Type-C 数据线和符合主板要求的 5 V 电源。
 
-=== 烧录镜像
+== 烧录镜像
 
 WARNING: 烧录会清除 eMMC 中的数据，请先备份。
 
@@ -44,9 +41,9 @@ WARNING: 烧录会清除 eMMC 中的数据，请先备份。
 
 NOTE: 本指南的 Android 镜像烧录到 eMMC。
 
-== Linux 开发
+= Linux 开发
 
-=== 准备
+== 准备
 
 * 下载 link:/zh/BPI-M8/BananaPi_BPI-M8#_linux_2[Linux 镜像]。桌面版提供图形界面，Minimal 版使用终端。
 * 准备 SD 卡和读卡器。SD 卡容量需大于解压后的镜像大小，推荐使用 A1 等级存储卡。
@@ -55,7 +52,7 @@ NOTE: 本指南的 Android 镜像烧录到 eMMC。
 
 本节适用于 BPI-M8 的 Ubuntu / Debian 镜像。从 SD 卡启动无需预先擦除 eMMC。
 
-=== 将镜像写入 SD 卡
+== 将镜像写入 SD 卡
 
 WARNING: 烧录会清除目标设备中的数据，请确认选择的是 SD 卡。
 
@@ -81,7 +78,7 @@ image::/bpi-m8/bananapi_bpim8_img_write_sd7.jpg[烧录完成]
 
 . 安全移除 SD 卡，插入 BPI-M8，连接显示器、键盘和电源，等待系统启动。
 
-=== 将镜像写入 eMMC
+== 将镜像写入 eMMC
 
 WARNING: 写入会清除 eMMC 中的数据。以下以 `/dev/mmcblk1` 为例，设备名以实际输出为准，不要写入当前运行系统所在的磁盘。
 
@@ -135,7 +132,7 @@ lsblk
 +
 image::/bpi-m8/bananapi_bpim8_img_write_emmc4.jpg[确认 eMMC 启动]
 
-=== 擦除 eMMC（可选）
+== 擦除 eMMC（可选）
 
 WARNING: 此操作会清除 eMMC 用户区的全部数据，无法恢复。仅在从 SD 卡启动、确认目标不是当前系统磁盘且目标分区均未挂载时执行。
 
@@ -157,7 +154,7 @@ sync
 
 写满设备后会提示“设备上没有空间”。此操作不擦除独立的 eMMC boot0 / boot1 启动区。
 
-=== USB
+== USB
 
 . 将 U 盘或其他 USB 设备插入开发板的 USB Type-A 接口，查看设备是否识别。
 +
@@ -187,7 +184,7 @@ sudo umount /mnt/usb
 +
 image::/bpi-m8/bananapi_bpim8_img_write_usb2.jpg[卸载 U 盘]
 
-=== 以太网
+== 以太网
 
 . 使用网线将 M8 连接到路由器的 LAN 口，查看 M8 的 IP 地址。
 +
@@ -216,7 +213,7 @@ iperf3 -c 192.168.1.200
 +
 image::/bpi-m8/bananapi_bpim8_img_write_iperf_3.jpg[测试以太网速度]
 
-=== Wi-Fi
+== Wi-Fi
 
 . 查看网络设备和可用热点。
 +
@@ -243,7 +240,7 @@ image::/bpi-m8/bananapi_bpim8_img_write_wifi1.jpg[连接 Wi-Fi]
 sudo nmcli device disconnect wlan0
 ----
 
-=== 蓝牙
+== 蓝牙
 
 . 打开目标蓝牙设备并进入配对模式，在 M8 上启动蓝牙管理工具。
 +
@@ -281,25 +278,25 @@ disconnect AA:BB:CC:DD:EE:FF
 exit
 ----
 
-=== HDMI 显示
+== HDMI 显示
 
 通过 HDMI 线连接显示器，选择对应的输入源，再为 M8 上电。桌面版进入图形界面，Minimal 版进入终端。
 
 image::/bpi-m8/bananapi-pi_m8_hdmi_1.jpg[HDMI 显示]
 
-=== 按钮
+== 按钮
 
-==== PWR
+=== PWR
 
 关机状态下，长按 PWR 开机。开机状态下，短按触发系统电源操作，具体响应由当前镜像设置决定。
 
 image::/bpi-m8/bnanapi_bpim8_img_write_pwr.jpg[PWR 按钮响应]
 
-==== RST
+=== RST
 
 短按 RST 立即重启开发板，请先保存数据。
 
-=== SSH
+== SSH
 
 . 将 M8 和电脑连接到同一局域网，在 M8 上查看 IP 地址。
 +
@@ -327,7 +324,7 @@ image::/bpi-m8/bananapi_bpim8_img_write_ssh4.jpg[登录 M8]
 +
 image::/bpi-m8/bananapi_bpim8_img_write_ssh5.jpg[SSH 终端]
 
-=== 音频
+== 音频
 
 . 插入耳机，或连接支持 HDMI 音频的显示器，查看系统声卡。
 +
@@ -358,7 +355,7 @@ image::/bpi-m8/bananapi_bpim8_img_write_hp3.jpg[播放音频]
 
 NOTE: 播放 HDMI 音频时，选择 HDMI 对应的声卡，并确认显示器未静音。未安装 VLC 时，可使用 `aplay -D plughw:0,0 /mnt/usb/test.wav` 播放 WAV 文件。
 
-=== RTC
+== RTC
 
 . 断电后连接 RTC 备用电源，核对接口极性。
 +
@@ -391,7 +388,7 @@ sudo hwclock -r -f /dev/rtc0
 date
 ----
 
-=== 风扇
+== 风扇
 
 风扇由系统温控策略调速。查看风扇设备和当前 PWM 输出：
 
@@ -408,7 +405,7 @@ done
 
 NOTE: `hwmon` 编号可能变化，请根据 `name` 确认风扇设备。压力测试时不要关闭自动温控。
 
-=== PoE 供电
+== PoE 供电
 
 . 准备兼容的 PoE 交换机、BPI-M8 PoE 扩展板和网线。
 . 断电连接 PoE 扩展板，再通过网线连接 PoE 交换机。
@@ -416,7 +413,7 @@ NOTE: `hwmon` 编号可能变化，请根据 `name` 确认风扇设备。压力�
 
 image::/bpi-m8/bananapi_bpim8_img_write_poe1.jpg[PoE 供电]
 
-=== BPI-M8 扩展板
+== BPI-M8 扩展板
 
 . 准备扩展板、1 根 31 针 FPC 排线和 2 根 35 针 FPC 排线。
 . 断电后，将主板的 PCIe/DP、MIPI 接口连接到扩展板对应接口。
@@ -426,7 +423,7 @@ image::/bpi-m8/bananapi_bpim8_img_write_kzb1.jpg[连接扩展板排线]
 
 image::/bpi-m8/bananapi_bpim8_img_write_kzb2.jpg[安装扩展板]
 
-==== M.2 固态硬盘
+=== M.2 固态硬盘
 
 . 断电后，将 NVMe 固态硬盘插入扩展板的 M.2 接口并固定。
 +
@@ -477,11 +474,11 @@ image::/bpi-m8/bananapi_bpim8_img_write_m.2_4.jpg[查看 NVMe 固态硬盘]
 
 NOTE: 不要重复添加 `overlays=` 行，也不要覆盖已有的其他 overlay 配置。
 
-=== NPU
+== NPU
 
 BPI-M8 支持使用 AWNPU Model Zoo 运行 AI 示例。以下以 YOLOv5 图片目标检测为例，介绍模型转换、编译和运行方法。
 
-==== 准备
+=== 准备
 
 * 一台 x86_64 Ubuntu 开发电脑。
 * BPI-M8，运行 64 位 Armbian 系统，并连接网络。
@@ -501,7 +498,7 @@ ls -l /dev/vipcore
 
 系统架构应为 `aarch64`，并存在 `/dev/vipcore`。
 
-==== 配置开发环境
+=== 配置开发环境
 
 . 在开发电脑上安装 Docker 和基础工具。已安装可跳过。
 +
@@ -576,7 +573,7 @@ pegasus --help
 
 `ACUITY_PATH`、`VIV_SDK` 应已配置，`pegasus --help` 应显示帮助信息。
 
-==== 转换 YOLOv5 模型
+=== 转换 YOLOv5 模型
 
 在容器内执行，将包内 ONNX 模型转换为 A733 模型。
 
@@ -660,7 +657,7 @@ ls -lh ../model/yolov5s_rt_uint8_a733.nb
 
 生成的模型位于 `examples/yolov5/model/yolov5s_rt_uint8_a733.nb`。
 
-==== 编译示例
+=== 编译示例
 
 . 根据 `0-toolchains/gcc-arm-10.3-aarch64-none-linux-gnu.tar.txt` 下载 GCC 10.3，放入 `0-toolchains` 目录。
 
@@ -701,7 +698,7 @@ ls -lh "$M8_DEMO_DIR/lib/"
 
 NOTE: Bullseye 使用 GCC 10.2，下载说明见 `0-toolchains/gcc-arm-10.2-aarch64-none-linux-gnu.tar.xz.txt`。解压后，将编译参数 `-s linux` 改为 `-s debian11`。
 
-==== 运行示例
+=== 运行示例
 
 . 在开发电脑上，将程序传到 M8。将 IP 地址改为 M8 的实际地址。
 +
@@ -753,7 +750,7 @@ image::/bpi-m8/output_yolov5.png[output_yolov5.png]
 
 使用自己的图片时，将 `-i model/dog.jpg` 改为对应的 JPG 路径。
 
-==== 其他示例
+=== 其他示例
 
 其他示例的使用方法见对应目录的 `README.md`：
 
@@ -766,7 +763,7 @@ image::/bpi-m8/output_yolov5.png[output_yolov5.png]
 M8 编译平台选择 `a733`。更多说明见包内 `docs/NPU_快速入门_开发指南.pdf`。
 
 
-== 引脚定义
+= 引脚定义
 
 NOTE: 连接排线或扩展板前请断电，并核对接口的 1 脚位置。
 
