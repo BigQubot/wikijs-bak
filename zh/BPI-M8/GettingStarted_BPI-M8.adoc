@@ -1,4 +1,5 @@
 = BPI-M8 入门指南
+:toclevels: 3
 
 == 简介
 
@@ -288,13 +289,13 @@ image::/bpi-m8/bananapi-pi_m8_hdmi_1.jpg[HDMI 显示]
 
 === 按钮
 
-=== PWR
+==== PWR
 
 关机状态下，长按 PWR 开机。开机状态下，短按触发系统电源操作，具体响应由当前镜像设置决定。
 
 image::/bpi-m8/bnanapi_bpim8_img_write_pwr.jpg[PWR 按钮响应]
 
-=== RST
+==== RST
 
 短按 RST 立即重启开发板，请先保存数据。
 
@@ -425,7 +426,7 @@ image::/bpi-m8/bananapi_bpim8_img_write_kzb1.jpg[连接扩展板排线]
 
 image::/bpi-m8/bananapi_bpim8_img_write_kzb2.jpg[安装扩展板]
 
-=== M.2 固态硬盘
+==== M.2 固态硬盘
 
 . 断电后，将 NVMe 固态硬盘插入扩展板的 M.2 接口并固定。
 +
@@ -480,7 +481,7 @@ NOTE: 不要重复添加 `overlays=` 行，也不要覆盖已有的其他 overla
 
 BPI-M8 支持使用 AWNPU Model Zoo 运行 AI 示例。以下以 YOLOv5 图片目标检测为例，介绍模型转换、编译和运行方法。
 
-=== 准备
+==== 准备
 
 * 一台 x86_64 Ubuntu 开发电脑。
 * BPI-M8，运行 64 位 Armbian 系统，并连接网络。
@@ -500,7 +501,7 @@ ls -l /dev/vipcore
 
 系统架构应为 `aarch64`，并存在 `/dev/vipcore`。
 
-=== 配置开发环境
+==== 配置开发环境
 
 . 在开发电脑上安装 Docker 和基础工具。已安装可跳过。
 +
@@ -575,7 +576,7 @@ pegasus --help
 
 `ACUITY_PATH`、`VIV_SDK` 应已配置，`pegasus --help` 应显示帮助信息。
 
-=== 转换 YOLOv5 模型
+==== 转换 YOLOv5 模型
 
 在容器内执行，将包内 ONNX 模型转换为 A733 模型。
 
@@ -659,7 +660,7 @@ ls -lh ../model/yolov5s_rt_uint8_a733.nb
 
 生成的模型位于 `examples/yolov5/model/yolov5s_rt_uint8_a733.nb`。
 
-=== 编译示例
+==== 编译示例
 
 . 根据 `0-toolchains/gcc-arm-10.3-aarch64-none-linux-gnu.tar.txt` 下载 GCC 10.3，放入 `0-toolchains` 目录。
 
@@ -700,7 +701,7 @@ ls -lh "$M8_DEMO_DIR/lib/"
 
 NOTE: Bullseye 使用 GCC 10.2，下载说明见 `0-toolchains/gcc-arm-10.2-aarch64-none-linux-gnu.tar.xz.txt`。解压后，将编译参数 `-s linux` 改为 `-s debian11`。
 
-=== 运行示例
+==== 运行示例
 
 . 在开发电脑上，将程序传到 M8。将 IP 地址改为 M8 的实际地址。
 +
@@ -752,7 +753,7 @@ image::/bpi-m8/output_yolov5.png[output_yolov5.png]
 
 使用自己的图片时，将 `-i model/dog.jpg` 改为对应的 JPG 路径。
 
-=== 其他示例
+==== 其他示例
 
 其他示例的使用方法见对应目录的 `README.md`：
 
