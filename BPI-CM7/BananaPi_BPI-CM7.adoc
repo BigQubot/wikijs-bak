@@ -1,10 +1,10 @@
 = BPI-CM7 Introduction
 
-Banana Pi BPI-CM7 is an Allwinner H618 compute module with LPDDR4 memory, eMMC storage, K019 Wi-Fi 5 and Bluetooth 5.0, and two 100-pin board-to-board connectors.
+Banana Pi BPI-CM7 is an Allwinner H618 compute module with LPDDR4 memory, eMMC storage, a K019 Wi-Fi 5/Bluetooth 5.0 module, and two 100-pin board-to-board connectors.
 
-TIP: Allwinner H618 design : link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry[Banana Pi BPI-M4 Berry] Same size as Raspberry Pi 4B +
-Allwinner H618 design : link:/en/BPI-M4_Zero/BananaPi_BPI-M4_Zero[Banana Pi BPI-M4 Zero] single board computer +
-Allwinner H618 design : link:/en/BPI-CM7/BananaPi_BPI-CM7[Banana Pi BPI-CM7] computer module
+TIP: Allwinner H618 design: link:/en/BPI-M4_Berry/BananaPi_BPI-M4_Berry[Banana Pi BPI-M4 Berry] single-board computer +
+Allwinner H618 design: link:/en/BPI-M4_Zero/BananaPi_BPI-M4_Zero[Banana Pi BPI-M4 Zero] single-board computer +
+Allwinner H618 design: link:/en/BPI-CM7/BananaPi_BPI-CM7[Banana Pi BPI-CM7] compute module
 
 == Key Features
 
@@ -15,13 +15,13 @@ Allwinner H618 design : link:/en/BPI-CM7/BananaPi_BPI-CM7[Banana Pi BPI-CM7] com
 * K019 Wi-Fi 5 and Bluetooth 5.0 module
 * HDMI output
 * 10/100M Ethernet
-* 1 x USB 2.0 OTG and 3 x USB 2.0 host
+* 1x USB 2.0 OTG and 3x USB 2.0 Host interfaces
 * microSD interface
-* 2 x 100-pin board-to-board connectors
+* 2x 100-pin board-to-board connectors
 * GPIO, UART, TWI/I2C, SPI, PWM, I2S/PCM, DMIC, SPDIF, and IR
 * 5 V power input
 
-== Getting Start
+== Getting Started
 
 TIP: link:/en/BPI-CM7/GettingStarted_BPI-CM7[Getting Started BPI-CM7]
 
@@ -31,7 +31,7 @@ TIP: link:/en/BPI-CM7/GettingStarted_BPI-CM7[Getting Started BPI-CM7]
 
 image::/bpi_cm7/banana_pi_bpi-cm7_interface.jpg[banana_pi_bpi-cm7_interface.jpg]
 
-== Hardware Spec
+== Hardware Specifications
 
 [options="header",cols="1,3"]
 |===
@@ -53,7 +53,7 @@ image::/bpi_cm7/banana_pi_bpi-cm7_interface.jpg[banana_pi_bpi-cm7_interface.jpg]
 | Onboard eMMC; capacity depends on the product model
 
 | Wireless
-| K019 Wi-Fi 5 and Bluetooth 5.0 module with U.FL/IPEX antenna connector
+| K019 Wi-Fi 5 and Bluetooth 5.0 module with a U.FL/IPEX antenna connector
 
 | Display
 | HDMI output
@@ -62,20 +62,20 @@ image::/bpi_cm7/banana_pi_bpi-cm7_interface.jpg[banana_pi_bpi-cm7_interface.jpg]
 | 10/100M Ethernet
 
 | USB
-| 1 x USB 2.0 OTG and 3 x USB 2.0 host
+| 1x USB 2.0 OTG and 3x USB 2.0 Host interfaces
 
 | Expansion
-| 2 x 100-pin board-to-board connectors
+| 2x 100-pin board-to-board connectors
 
 | Power
 | 5 V input
 |===
 
-== BPI-CM7 Module PIN Out define
+== BPI-CM7 Module Pin Definitions
 
 🟥 Power · ⬛ Ground · 🟧 Ethernet · 🟦 USB · 🟪 HDMI / Analog A/V · 🟨 microSD · 🟩 GPIO / Control · ⬜ NC
 
-[options="header",cols="1,4,1,4"]
+[options="header",cols="1,3,1,3"]
 |===
 4+| **Connector 1**
 | Pin | Signal | Pin | Signal
@@ -116,9 +116,9 @@ image::/bpi_cm7/banana_pi_bpi-cm7_interface.jpg[banana_pi_bpi-cm7_interface.jpg]
 | 67 | 🟨 SD_DAT1 | 68 | ⬜ NC
 | 69 | 🟨 SD_DAT2 | 70 | ⬜ NC
 | 71 | ⬛ GND | 72 | ⬜ NC
-| 73 | 🟨 NC(SD_VDD_OVERRIDE) | 74 | ⬛ GND
-| 75 | 🟨 NC | 76 | 🟨 SD_DET
-| 77 | 🟥 5V_INPUT | 78 | 🟨 NC/(GPIO_VREF (3.3 V))
+| 73 | 🟨 SD_VDD_OVERRIDE (R86 NC) | 74 | ⬛ GND
+| 75 | 🟨 SD_PWR_ON | 76 | 🟨 SD_DET
+| 77 | 🟥 5V_INPUT | 78 | 🟥 GPIO_VREF (3.3 V)
 | 79 | 🟥 5V_INPUT | 80 | 🟩 IO_EEPROM_SCL
 | 81 | 🟥 5V_INPUT | 82 | 🟩 IO_EEPROM_SDA
 | 83 | 🟥 5V_INPUT | 84 | 🟥 3.3V_OUTPUT
@@ -126,7 +126,7 @@ image::/bpi_cm7/banana_pi_bpi-cm7_interface.jpg[banana_pi_bpi-cm7_interface.jpg]
 | 87 | 🟥 5V_INPUT | 88 | 🟥 1.8V_OUTPUT
 | 89 | 🟩 WL_DISn (R147 NC) | 90 | 🟥 1.8V_OUTPUT
 | 91 | 🟩 BT_DISn (R148 NC) | 92 | 🟩 SYS_RESET
-| 93 | 🟩 FEL / MASKROM | 94 | 🟩 NC(ADC_IOID)
+| 93 | 🟩 FEL / MASKROM | 94 | 🟩 ADC_IOID (R146 NC)
 | 95 | 🟩 LED_nPWR | 96 | ⬜ NC
 | 97 | ⬜ NC | 98 | ⬛ GND
 | 99 | 🟩 GLOBAL_EN (R145 NC) | 100 | ⬜ NC
@@ -134,7 +134,7 @@ image::/bpi_cm7/banana_pi_bpi-cm7_interface.jpg[banana_pi_bpi-cm7_interface.jpg]
 4+| **Connector 2**
 | Pin | Signal | Pin | Signal
 
-| 101 | 🟦 NC(USB_OTG_ID) | 102 | ⬜ NC
+| 101 | 🟦 USB_OTG_ID | 102 | ⬜ NC
 | 103 | 🟦 USB_OTG_DM | 104 | 🟦 USB_HOST3_DP (USB 2.0)
 | 105 | 🟦 USB_OTG_DP | 106 | 🟦 USB_HOST3_DM (USB 2.0)
 | 107 | ⬛ GND | 108 | ⬛ GND
@@ -186,9 +186,9 @@ image::/bpi_cm7/banana_pi_bpi-cm7_interface.jpg[banana_pi_bpi-cm7_interface.jpg]
 | 199 | 🟪 HDMI0_SDA | 200 | 🟪 HDMI0_SCL
 |===
 
-== BPI-CM7 IO board
+== BPI-CM7 IO Board
 
-link:/en/BPI-CM7IO/BananaPi_BPI-CM7IO[Banana Pi BPI-CM7IO board]
+link:/en/BPI-CM7IO/BananaPi_BPI-CM7IO[Banana Pi BPI-CM7IO Expansion Board]
 
 = Development
 
@@ -204,8 +204,25 @@ NOTE: https://github.com/BPI-SINOVOIP/armbian-build/tree/bpi-v24.11.01
 
 == Resources
 
-* Discuss on forum: https://forum.banana-pi.org/c/bpi-sbc/bpi-m4berry/110
-
-NOTE: link:/en/BPI-CM7IO/BananaPi_BPI-CM7IO[Banana Pi BPI-CM7IO board]
+NOTE: link:/en/BPI-CM7IO/BananaPi_BPI-CM7IO[Banana Pi BPI-CM7IO Expansion Board]
 
 NOTE: link:/en/BPI-M4_Zero/BananaPi_BPI-M4_Zero[Banana Pi BPI-M4 Zero]
+
+= System Images
+
+== Android
+NOTE: 2026-10-19-bananapi-cm7-android12.img
+
+Baidu cloud: https://pan.baidu.com/s/10CyF5D5vNBJfR-KoXMyMHw?pwd=8888 (Access code: 8888)
+
+Google drive: https://drive.google.com/file/d/1EcKliKVlpU_EKsi5vfFXBXw9AOvlJyAX/view?usp=sharing
+
+== Linux
+NOTE: Bananapi-Armbian_24.11.1_Bpi-cm7_jammy_legacy_5.4.125_xfce_desktop.img.xz
+
+Baidu cloud: https://pan.baidu.com/s/1d7Ic8uTNZIDl26J2F4F-0Q?pwd=8888 (Access code: 8888)
+
+Google drive: https://drive.google.com/file/d/18CrBgRDMTZfu47roedXy5rOc5B9YUUFs/view?usp=sharing
+
+= Easy to Buy Samples
+WARNING: OEM&ODM, please contact: judyhuang@banana-pi.com
