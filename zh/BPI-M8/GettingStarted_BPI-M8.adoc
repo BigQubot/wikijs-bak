@@ -186,32 +186,33 @@ image::/bpi-m8/bananapi_bpim8_img_write_usb2.jpg[卸载 U 盘]
 
 == 以太网
 
-. 使用网线将 M8 连接到路由器的 LAN 口，查看 M8 的 IP 地址。
+. 使用网线将 M8 连接到路由器的 LAN 口，查看 路由器 的 IP 地址。
 +
 [source,bash]
 ----
 ip -4 addr
 ----
 +
-image::/bpi-m8/bananapi_bpim8_img_write_iperf_1.jpg[查看 M8 的 IP 地址]
+image::/bpi-m8/bananapi_bpim8_img_write_iperf_1.jpg[查看 路由器 的 IP 地址]
 
-. 在同一局域网内的另一台电脑上启动 iperf3 服务端。
+. 在同一以太网内的路由器上启动 iperf3 服务端。
 +
 [source,bash]
 ----
 iperf3 -s
 ----
 +
-image::/bpi-m8/bananapi_bpim8_img_write_iperf_2.jpg[启动 iperf3 服务端]
+image::/bpi-m8/bananapi_bpim8_img_write_iperf_3.jpg[测试以太网速度]
 
-. 在 M8 上启动客户端，将示例地址改为服务端电脑的 IP。
+. 在 M8 上启动客户端，将示例地址改为路由器的 IP。
 +
 [source,bash]
 ----
-iperf3 -c 192.168.1.200
+iperf3 -c 192.168.1.1
 ----
 +
-image::/bpi-m8/bananapi_bpim8_img_write_iperf_3.jpg[测试以太网速度]
+image::/bpi-m8/bananapi_bpim8_img_write_iperf_2.jpg[启动 iperf3 服务端]
+
 
 == Wi-Fi
 
