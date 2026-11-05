@@ -1,6 +1,4 @@
-= Getting Started BPI-M8
-
-== Introduction
+= Introduction
 
 The BPI-M8 is powered by the Allwinner A733 octa-core processor, integrating a dual-core Arm Cortex-A76, a hexa-core Arm Cortex-A55, a PowerVR GPU, and a 3 TOPS NPU, with 4 GB of LPDDR5 memory.
 
@@ -8,7 +6,7 @@ The board provides HDMI, MIPI DSI, dual MIPI CSI, USB, Gigabit Ethernet, and 40-
 
 TIP: More information: link:/en/BPI-M8/BananaPi_BPI-M8[Banana Pi BPI-M8].
 
-== Key Features
+= Key Features
 
 * Dual-core Arm Cortex-A76 + hexa-core Arm Cortex-A55, up to 2.0 GHz.
 * 4 GB LPDDR5 memory.
@@ -24,15 +22,15 @@ TIP: More information: link:/en/BPI-M8/BananaPi_BPI-M8[Banana Pi BPI-M8].
 * 1x 40-pin GPIO header.
 * 1x UFS interface.
 
-== Android
+= Android
 
-=== Preparation
+== Preparation
 
 * Download the link:/en/BPI-M8/BananaPi_BPI-M8#_android_2[Android image].
 * Install link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2Fphoenixsuit_V1.1.0_20150325.rar[PhoenixSuit] on a Windows PC.
 * Prepare a Type-C cable that supports data transfer and a 5 V power supply that meets the board's requirements.
 
-=== Flash the Image
+== Flash the Image
 
 WARNING: Flashing will erase the data on the eMMC. Back up your data first.
 
@@ -43,9 +41,9 @@ WARNING: Flashing will erase the data on the eMMC. Back up your data first.
 
 NOTE: The Android image in this guide is flashed to the eMMC.
 
-== Linux Development
+= Linux Development
 
-=== Preparation
+== Preparation
 
 * Download the link:/en/BPI-M8/BananaPi_BPI-M8#_linux_2[Linux image]. The desktop version provides a graphical interface, while the Minimal version uses a terminal.
 * Prepare an SD card and a card reader. The SD card capacity must be larger than the extracted image size. An A1-rated card is recommended.
@@ -54,7 +52,7 @@ NOTE: The Android image in this guide is flashed to the eMMC.
 
 This section applies to Ubuntu / Debian images for BPI-M8. You do not need to erase the eMMC before booting from an SD card.
 
-=== Install the Image to an SD Card
+== Install the Image to an SD Card
 
 WARNING: Flashing will erase the data on the target device. Make sure you have selected the SD card.
 
@@ -80,7 +78,7 @@ image::/bpi-m8/bananapi_bpim8_img_write_sd7.jpg[Flashing complete]
 
 . Safely remove the SD card, insert it into BPI-M8, connect the display, keyboard, and power supply, and wait for the system to boot.
 
-=== Install the Image to eMMC
+== Install the Image to eMMC
 
 WARNING: Writing will erase the data on the eMMC. The following example uses `/dev/mmcblk1`; use the device name shown in your actual output. Do not write to the disk containing the currently running system.
 
@@ -134,7 +132,7 @@ lsblk
 +
 image::/bpi-m8/bananapi_bpim8_img_write_emmc4.jpg[Confirm booting from eMMC]
 
-=== Erase eMMC (Optional)
+== Erase eMMC (Optional)
 
 WARNING: This operation erases all data in the eMMC user area and cannot be undone. Only perform it while booted from an SD card, after confirming that the target is not the current system disk and that all target partitions are unmounted.
 
@@ -156,7 +154,7 @@ sync
 
 Once the device is full, a "No space left on device" message appears. This operation does not erase the separate eMMC boot0 / boot1 boot areas.
 
-=== USB
+== USB
 
 . Connect a USB drive or another USB device to a USB Type-A port on the board and check whether it is detected.
 +
@@ -186,7 +184,7 @@ sudo umount /mnt/usb
 +
 image::/bpi-m8/bananapi_bpim8_img_write_usb2.jpg[Unmount the USB drive]
 
-=== Ethernet
+== Ethernet
 
 . Connect M8 to a LAN port on the router using an Ethernet cable, then check the IP address of M8.
 +
@@ -215,7 +213,7 @@ iperf3 -c 192.168.1.200
 +
 image::/bpi-m8/bananapi_bpim8_img_write_iperf_3.jpg[Test Ethernet speed]
 
-=== Wi-Fi
+== Wi-Fi
 
 . Check the network devices and available access points.
 +
@@ -242,7 +240,7 @@ image::/bpi-m8/bananapi_bpim8_img_write_wifi1.jpg[Connect to Wi-Fi]
 sudo nmcli device disconnect wlan0
 ----
 
-=== Bluetooth
+== Bluetooth
 
 . Turn on the target Bluetooth device and put it in pairing mode, then start the Bluetooth management tool on M8.
 +
@@ -280,25 +278,25 @@ disconnect AA:BB:CC:DD:EE:FF
 exit
 ----
 
-=== HDMI Display
+== HDMI Display
 
 Connect the display using an HDMI cable, select the corresponding input source, and power on M8. The desktop version opens a graphical interface, while the Minimal version opens a terminal.
 
 image::/bpi-m8/bananapi-pi_m8_hdmi_1.jpg[HDMI display]
 
-=== Buttons
+== Buttons
 
-==== PWR
+=== PWR
 
 When the board is off, press and hold PWR to turn it on. When the board is on, a short press triggers the system power action; the exact response depends on the current image settings.
 
 image::/bpi-m8/bnanapi_bpim8_img_write_pwr.jpg[PWR button response]
 
-==== RST
+=== RST
 
 A short press of RST immediately restarts the board. Save your data first.
 
-=== SSH
+== SSH
 
 . Connect M8 and the PC to the same local network, then check the IP address on M8.
 +
@@ -326,7 +324,7 @@ image::/bpi-m8/bananapi_bpim8_img_write_ssh4.jpg[Log in to M8]
 +
 image::/bpi-m8/bananapi_bpim8_img_write_ssh5.jpg[SSH terminal]
 
-=== Audio
+== Audio
 
 . Plug in headphones or connect a display that supports HDMI audio, then check the system sound cards.
 +
@@ -357,7 +355,7 @@ image::/bpi-m8/bananapi_bpim8_img_write_hp3.jpg[Play audio]
 
 NOTE: To play HDMI audio, select the corresponding HDMI sound card and make sure the display is not muted. If VLC is not installed, use `aplay -D plughw:0,0 /mnt/usb/test.wav` to play a WAV file.
 
-=== RTC
+== RTC
 
 . Disconnect the power, connect the RTC backup power supply, and check the connector polarity.
 +
@@ -390,7 +388,7 @@ sudo hwclock -r -f /dev/rtc0
 date
 ----
 
-=== Fan
+== Fan
 
 The system thermal policy controls the fan speed. Check the fan device and the current PWM output:
 
@@ -407,7 +405,7 @@ done
 
 NOTE: The `hwmon` number may change. Use `name` to identify the fan device. Do not disable automatic thermal control during stress testing.
 
-=== PoE Power
+== PoE Power
 
 . Prepare a compatible PoE switch, a BPI-M8 PoE HAT, and an Ethernet cable.
 . With the power disconnected, attach the PoE HAT, then connect it to the PoE switch using the Ethernet cable.
@@ -415,7 +413,7 @@ NOTE: The `hwmon` number may change. Use `name` to identify the fan device. Do n
 
 image::/bpi-m8/bananapi_bpim8_img_write_poe1.jpg[PoE power]
 
-=== BPI-M8 Expansion Board
+== BPI-M8 Expansion Board
 
 . Prepare the expansion board, one 31-pin FPC cable, and two 35-pin FPC cables.
 . With the power disconnected, connect the PCIe/DP and MIPI interfaces on the main board to the corresponding interfaces on the expansion board.
@@ -425,7 +423,7 @@ image::/bpi-m8/bananapi_bpim8_img_write_kzb1.jpg[Connect the expansion board cab
 
 image::/bpi-m8/bananapi_bpim8_img_write_kzb2.jpg[Install the expansion board]
 
-==== M.2 SSD
+=== M.2 SSD
 
 . With the power disconnected, insert the NVMe SSD into the M.2 slot on the expansion board and secure it.
 +
@@ -476,11 +474,11 @@ image::/bpi-m8/bananapi_bpim8_img_write_m.2_4.jpg[Check the NVMe SSD]
 
 NOTE: Do not add duplicate `overlays=` lines or overwrite other existing overlay settings.
 
-=== NPU
+== NPU
 
 BPI-M8 supports running AI examples with AWNPU Model Zoo. The following YOLOv5 image object detection example shows how to convert the model, build the program, and run it.
 
-==== Preparation
+=== Preparation
 
 * An x86_64 Ubuntu development PC.
 * A BPI-M8 running 64-bit Armbian with a network connection.
@@ -500,7 +498,7 @@ ls -l /dev/vipcore
 
 The system architecture should be `aarch64`, and `/dev/vipcore` should exist.
 
-==== Set Up the Development Environment
+=== Set Up the Development Environment
 
 . Install Docker and the basic tools on the development PC. Skip this step if they are already installed.
 +
@@ -575,7 +573,7 @@ pegasus --help
 
 `ACUITY_PATH` and `VIV_SDK` should already be configured, and `pegasus --help` should display help information.
 
-==== Convert the YOLOv5 Model
+=== Convert the YOLOv5 Model
 
 Run the following commands inside the container to convert the included ONNX model to an A733 model.
 
@@ -659,7 +657,7 @@ ls -lh ../model/yolov5s_rt_uint8_a733.nb
 
 The generated model is located at `examples/yolov5/model/yolov5s_rt_uint8_a733.nb`.
 
-==== Build the Example
+=== Build the Example
 
 . Follow `0-toolchains/gcc-arm-10.3-aarch64-none-linux-gnu.tar.txt` to download GCC 10.3 and place it in the `0-toolchains` directory.
 
@@ -700,7 +698,7 @@ ls -lh "$M8_DEMO_DIR/lib/"
 
 NOTE: Bullseye uses GCC 10.2. Download instructions are in `0-toolchains/gcc-arm-10.2-aarch64-none-linux-gnu.tar.xz.txt`. After extraction, change the build option `-s linux` to `-s debian11`.
 
-==== Run the Example
+=== Run the Example
 
 . On the development PC, transfer the program to M8. Replace the IP address with the actual address of M8.
 +
@@ -752,7 +750,7 @@ image::/bpi-m8/output_yolov5.png[output_yolov5.png]
 
 To use your own image, replace `-i model/dog.jpg` with the corresponding JPG path.
 
-==== Other Examples
+=== Other Examples
 
 See the `README.md` in each directory for instructions on the other examples:
 
@@ -765,7 +763,7 @@ See the `README.md` in each directory for instructions on the other examples:
 Select `a733` as the build platform for M8. For more information, see `docs/NPU_快速入门_开发指南.pdf` in the package.
 
 
-== Pin Definitions
+= Pin Definitions
 
 NOTE: Disconnect the power before connecting cables or expansion boards, and check the pin 1 position of each connector.
 
