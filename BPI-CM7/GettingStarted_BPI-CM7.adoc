@@ -2,294 +2,456 @@
 
 Banana Pi BPI-CM7 is an Allwinner H618 compute module designed for use with the BPI-CM7IO carrier board.
 
-TIP: More Infomation: link:/en/BPI-CM7/BananaPi_BPI-CM7[Banana Pi BPI-CM7 Main Page]
+TIP: More information: link:/en/BPI-CM7/BananaPi_BPI-CM7[Banana Pi BPI-CM7 Main Page]
 
 == Specifications
 
-* Allwinner H618, Quad-core ARM Cortex™-A53 processor, up to 1.5 GHz
-* ARM Mali G31 GPU
-* Onboard LPDDR4 memory
-* Onboard eMMC storage
-* K019-CW43-Dw Wi-Fi 5 and Bluetooth 5.0 module
-* 1x USB 2.0 OTG
-* 3x USB 2.0 Host
-* 1x HDMI output
-* 1x 10/100M Ethernet
-* 1x microSD interface
-* 2x 100-pin board-to-board connectors
+* SoC: Allwinner H618, quad-core Cortex-A53, up to 1.5GHz
+* GPU: ARM Mali G31
+* Memory: Onboard LPDDR4
+* Storage: Onboard eMMC
+* Wireless: K019-CW43-Dw Wi-Fi 5 and Bluetooth 5.0
+* USB: 1x USB 2.0 OTG and 3x USB 2.0 Host
+* Display: HDMI output and CVBS composite video output
+* Ethernet: 1x 10/100M Ethernet
+* Expansion: microSD card slot and 2x 100-pin board-to-board connectors
 
-= Andriod
+= Android
 
-== Prepare
+== Preparation
+. Download the latest link:/en/BPI-CM7/BananaPi_BPI-CM7#_android[Android image].
+. Download the Allwinner flashing tool PhoenixSuit: link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2Fphoenixsuit_V1.1.0_20150325.rar[phoenixsuit] (Windows).
+. Prepare a Type-C cable that supports data transfer and a 5V power supply.
 
-. Download latest link:/en/BPI-M4_Zero/BananaPi_BPI-M4_Zero#_android_2[Android image].
-
-. Download and Install link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2Fphoenixsuit_V1.1.0_20150325.rar[Allwinner Image Download Tools], PhoenixSuit is for window. 
-
-. Type-C cable, 5V power supply.
-
-== Install Image with USB tool ==
-
-////
-
-. Open PhoenixSuit, click the Firmware icon to switching to firmware download panel, then click Image button and choose the Android Image file.
+== Install the Image with the USB Tool
+. Open **PhoenixSuit** and click the **Firmware** icon to switch to the firmware download panel.
 +
-image::/picture/m4-zero_android_1.jpg[m4-zero_android_1.jpg]
-image::/picture/m4-zero_android_2.jpg[m4-zero_android_2.jpg]
+image::/bpi_cm7/bananapi_bpicm7_phonenixsuit1.jpg[bananapi_bpicm7_phonenixsuit1.jpg]
 
-. Press and hold the FEL button on CM7 IO board while connecting to the computer using type-c, pop up a warning dialog.Press Yes.
+. Click **Image** to select the **Android image file**.
 +
-image::/picture/m4-zero_android_3.jpg[m4-zero_android_3.jpg]
+image::/bpi_cm7/bananapi_bpicm7_phonenixsuit2.jpg[bananapi_bpicm7_phonenixsuit2.jpg]
 
-. Download
+. Press and hold the **FEL button** while connecting CM7 to the PC through the **Type-C port using a data cable**. When the warning dialog appears, click **Yes**.
+
+. The firmware download starts automatically. Wait for flashing to complete.
+
+. Download complete (**the Android version can only be installed to eMMC**).
+
+= Linux Development
+
+== Preparation
+. Linux images support booting from either an SD card or eMMC. When an SD card is inserted, the board boots from the SD card first.
+. Recommended SD card: an A1-rated card with a capacity of at least 8GB.
+. To boot from an SD card, it is recommended to format the eMMC beforehand to remove the existing system.
+. To boot from eMMC and use the SD card only for storage, format the SD card beforehand and do not write a system image to it.
+. Download the latest link:/en/BPI-CM7/BananaPi_BPI-CM7#_linux_2[Linux image]. After downloading, verify the MD5 checksum to ensure the image is intact.
+. Image flashing tool: link:https://etcher.balena.io/[balenaEtcher].
+. Default login credentials: pi/bananapi or root/1234.
+. This Wiki guide applies only to Ubuntu/Debian images.
+
+== Install the Image to an SD Card
+Choose either of the following methods:
+
+> Method 1: **Balena Etcher** graphical tool (Windows/Linux/macOS)
+
+Balena Etcher is an open-source graphical flashing tool from Balena for writing operating system images to SD cards or USB drives.
+
+. On Linux desktop systems such as Ubuntu, you may need to grant the AppImage file execute permission first.
 +
-image::/picture/m4-zero_android_4.jpg[m4-zero_android_4.jpg]
+image::/bpi_cm7/bananapi_bpicm7_img_write_sd1.jpg[bananapi_bpicm7_img_write_sd1.jpg]
+image::/bpi_cm7/bananapi_bpicm7_img_write_sd2.jpg[bananapi_bpicm7_img_write_sd2.jpg]
 
-. Download finish
+. Run Balena Etcher, select **Flash from file**, and load the image file.
 +
-image::/picture/m4-zero_android_5.jpg[m4-zero_android_5.jpg]
+image::/bpi_cm7/bananapi_bpicm7_img_write_sd3.jpg[bananapi_bpicm7_img_write_sd3.jpg]
+image::/bpi_cm7/bananapi_bpicm7_img_write_sd4.jpg[bananapi_bpicm7_img_write_sd4.jpg]
+WARNING: Select the target SD card. **Check the device carefully to avoid selecting the wrong disk**.
 
-////
++
+image::/bpi_cm7/bananapi_bpicm7_img_write_sd5.jpg[bananapi_bpicm7_img_write_sd5.jpg]
+image::/bpi_cm7/bananapi_bpicm7_img_write_sd6.jpg[bananapi_bpicm7_img_write_sd6.jpg]
+Start flashing and wait for writing and validation to complete.
 
-= Linux development
++
+image::/bpi_cm7/bananapi_bpicm7_img_write_sd7.jpg[bananapi_bpicm7_img_write_sd7.jpg]
+image::/bpi_cm7/bananapi_bpicm7_img_write_sd8.jpg[bananapi_bpicm7_img_write_sd8.jpg]
+image::/bpi_cm7/bananapi_bpicm7_img_write_sd9.jpg[bananapi_bpicm7_img_write_sd9.jpg]
 
-== Prepare
+> Method 2: **Balena CLI** command-line tool (Windows/Linux/macOS)
 
-Use the following commands to confirm the board model, operating system, CPU, memory, and boot storage.
+Balena CLI is a command-line tool for balenaCloud/openBalena that can also write Linux images.
 
-```bash
-hostnamectl
-tr '\0' '\n' < /proc/device-tree/model
-tr '\0' '\n' < /proc/device-tree/compatible
-uname -a
-lscpu
-free -h
-lsblk -o NAME,MAJ:MIN,RM,SIZE,RO,TYPE,FSTYPE,MOUNTPOINTS
-findmnt -no SOURCE,FSTYPE,SIZE,USED,AVAIL,USE%,TARGET /
-```
+. Download the appropriate installer or standalone package (Windows example): link:https://github.com/balena-io/balena-cli/releases[balena-cli-v25.2.6-windows-x64-installer.exe].
++
+image::/bpi_cm7/bananapi_bpicm7_img_write_sd10.jpg[bananapi_bpicm7_img_write_sd10.jpg]
 
-Test result:
+. On Windows, open PowerShell as an administrator.
 
-* Board: Banana Pi BPI-CM7 with BPI-CM7IO
-* OS: Armbian 24.11.1 jammy / Ubuntu 22.04.5 LTS
-* Kernel: Linux 5.4.125-legacy-sunxi64
-* Architecture: arm64
-* CPU: 4 x Cortex-A53, up to 1512 MHz
-* Memory: 1.9 GiB available to Linux
-* Boot device: microSD, `/dev/mmcblk1p1`
-* eMMC: `/dev/mmcblk0`, 29.3 GiB
-* Login user used for the test: `pi`
-
-== Install Image to SDcard
-
-link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
-
-- Click on "**Flash from file**" to select image. 
-- Click on "**Select target**" to select USB device. 
-- Click on "**Flash!**" Start burning.
-
-image::/bpi_cm7/bananapi_bpicm7_burnimage1.jpg[bananapi_bpicm7_burnimage1.jpg]
-
-== Install the image to eMMC
-
-. Power on and boot using SD card.
-
-. Copy the Linux image to be burned to the USB drive.
-
-. Connect the USB flash drive to the USB port and mount it using the mount command.
+. List the storage devices available for writing operating system images.
 +
 ```bash
-root@bpi-cm7:~# mount /dev/sda1 /mnt
-root@bpi-cm7:~# lsblk
-NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
-sda            8:0    1  59.5G  0 disk
-└─sda1         8:1    1  59.5G  0 part /mnt
-mmcblk0      179:0    0  29.3G  0 disk
-mmcblk0boot0 179:16   0     4M  1 disk
-mmcblk0boot1 179:32   0     4M  1 disk
-mmcblk1      179:48   0  59.5G  0 disk
-└─mmcblk1p1  179:49   0  58.9G  0 part /var/log.hdd
-                                       /
-zram0        254:0    0 982.5M  0 disk [SWAP]
-zram1        254:1    0    50M  0 disk /var/log
+balena util available-drives
 ```
 
-. Use the cd tool to navigate to the storage image directory of the USB drive.Use the dd command to burn it into the EMMC.
+. Write the image (if there is no response, press Ctrl+C once to display the progress bar).
 +
 ```bash
-root@bpi-cm7:/mnt# dd if=“image.name” of=/dev/mmcblk0
-17547264+0 records in
-17547264+0 records out
-8984199168 bytes (9.0 GB, 8.4 GiB) copied, 427.645 s, 21.0 MB/s
+balena local flash C:\BPI\Bananapi-Armbian_24.11.1_Bpi-cm7_jammy_legacy_5.4.125_xfce_desktop.img.zip --drive \\.\PhysicalDrive2 --yes
 ```
 
-. Then power off, remove the SD card, and you can boot using eMMC.
-
-
-== Erase eMMC
-
-== Desktop
-
-Use the following commands to check whether the system boots to the graphical target and whether the display manager is running.
-
-```bash
-systemctl get-default
-systemctl is-active display-manager
-loginctl list-sessions
-```
-
-Test result:
-
-```text
-graphical.target
-active
-```
-
-== Debug UART
-
-== SSH
-
-. Prepare a network cable and a router.
-. Connect the BPI-CM7IO Ethernet port and the PC to the same LAN.
-. Check the board IP address from the router management page, or run the following command from a local terminal on the board.
+. On Linux, you may need to use sudo to obtain root privileges before writing the image.
 +
 ```bash
-ip -brief address show eth0
-hostname -I
+sudo balena local flash path/to/xxx-bpi-m4-berry-xxx.img.zip --drive /dev/disk2
 ```
 
-. Check the SSH service status on the board.
+== Install the Image to eMMC
+. Make sure the Linux image has been flashed to the SD card and the board can boot from it normally.
+. Power on BPI-CM7 and log in to the system. Enter this command in the terminal to open the graphical configuration menu.
 +
-```bash
-systemctl is-active ssh
-```
-
-. Open a terminal on the PC and connect to the board. Replace `<board-ip>` with the actual address assigned by the router.
-+
-```bash
-ssh pi@<board-ip>
-```
-
-. After login, use the following commands to confirm the remote user, board name, and kernel.
-+
-```bash
-whoami
-hostnamectl --static
-uname -r
-```
-
-Test result:
-
-```text
-SSH service: active
-Remote login: successful
-User: pi
-Hostname: bpi-cm7
-Kernel: 5.4.125-legacy-sunxi64
-```
-
-== NoMachine Remote Desktop
-
-== armbian-config
-
-Check whether `armbian-config` is installed.
-
-```bash
-command -v armbian-config
-```
-
-Enter the Armbian configuration utility with the following command.
-
 ```bash
 sudo armbian-config
 ```
+. Follow the steps below to install the Linux system image to eMMC.
 
-Test result:
++
+Select **System**.
 
-```text
-/usr/bin/armbian-config
++
+image::/bpi_cm7/bananapi_bpicm7_img_write_emmc1.jpg[bananapi_bpicm7_img_write_emmc1.jpg]
+Select **Storage**.
+
++
+image::/bpi_cm7/bananapi_bpicm7_img_write_emmc2.jpg[bananapi_bpicm7_img_write_emmc2.jpg]
+Select **ST0001**.
+
++
+image::/bpi_cm7/bananapi_bpicm7_img_write_emmc3.jpg[bananapi_bpicm7_img_write_emmc3.jpg]
+Select **install**.
+
++
+image::/bpi_cm7/bananapi_bpicm7_img_write_emmc4.jpg[bananapi_bpicm7_img_write_emmc4.jpg]
+Select **mmcbLk0**.
+
++
+image::/bpi_cm7/bananapi_bpicm7_img_write_emmc5.jpg[bananapi_bpicm7_img_write_emmc5.jpg]
+Select **emmc**.
+
++
+image::/bpi_cm7/bananapi_bpicm7_img_write_emmc6.jpg[bananapi_bpicm7_img_write_emmc6.jpg]
+Select **ext4**.
+
++
+image::/bpi_cm7/bananapi_bpicm7_img_write_emmc7.jpg[bananapi_bpicm7_img_write_emmc7.jpg]
+Select **Erase and install**.
+
++
+image::/bpi_cm7/bananapi_bpicm7_img_write_emmc8.jpg[bananapi_bpicm7_img_write_emmc8.jpg]
+Wait for ten to twenty minutes. Do not shut down or restart the board during this time.
+
++
+image::/bpi_cm7/bananapi_bpicm7_img_write_emmc9.jpg[bananapi_bpicm7_img_write_emmc9.jpg]
+Once installation succeeds, select OK, shut down the board, and disconnect the power. Remove the SD card and reconnect the power. The board will boot from eMMC.
+
++
+image::/bpi_cm7/bananapi_bpicm7_img_write_emmc10.jpg[bananapi_bpicm7_img_write_emmc10.jpg]
+
+== Erase eMMC
+. Make sure a Linux image has been flashed to the SD card, then insert the card. By default, an inserted SD card has boot priority.
+. Run the following command in the terminal to list block devices such as disks and partitions.
++
+```bash
+lsblk
 ```
 
-== WiFi
-
-Use the `nmcli` command to list network devices and scan Wi-Fi access points.
-
+. mmcblk0 is the eMMC, and mmcblk1 is the SD card. Enter the following command in the terminal to erase the eMMC. This takes more than twenty minutes and cannot be undone. Back up important data beforehand.
++
 ```bash
-nmcli device # List devices
-nmcli device wifi list # List available Wi-Fi access points
-rfkill list # Check whether Wi-Fi is blocked
+sudo dd if=/dev/zero of=/dev/mmcblk0  # Continuously write zeros across the entire eMMC, overwriting all partitions and data
 ```
 
-Use the following commands to connect, disconnect, or create a Wi-Fi hotspot.
+== Display the Desktop over HDMI
+. Flash an Ubuntu/Debian desktop image to enable the graphical desktop environment.
+. Prepare a display with an HDMI port and an HDMI cable.
+. Connect BPI-CM7 to the display and select the display input source. Power on the board and wait for the desktop to load.
+--
+* Linux desktop environment
++
+image::/bpi_cm7/bananapi_bpicm7_desktop_hdmi.jpg[bananapi_bpicm7_desktop_hdmi.jpg]
+--
+
+== Debug UART
+. Prepare a 3.3V USB-to-TTL adapter.
+. Connect the USB-to-TTL adapter to the PC's USB port and the board's debug UART port.
+. Open a serial terminal tool on the PC, such as MobaXterm or PuTTY.
+. Download link:https://mobaxterm.mobatek.net/[MobaXterm].
+. Using MobaXterm as an example, open MobaXterm and click **Sessions → User sessions** in the top menu bar to create a new session.
++
+image::/bpi_cm7/bananapi_bpicm7_uart1.jpg[bananapi_bpicm7_uart1.jpg]
+
++
+Select the **Serial** session type, choose the device's **COM port**, and set the baud rate to **115200**.
+
++
+image::/bpi_cm7/bananapi_bpicm7_uart2.jpg[bananapi_bpicm7_uart2.jpg]
+Click **OK** to open the serial terminal session window. If there is no response, close and reopen it, then press the board's **RST reset button**.
+
++
+image::/bpi_cm7/bananapi_bpicm7_uart3.jpg[bananapi_bpicm7_uart3.jpg]
+image::/bpi_cm7/bananapi_bpicm7_uart4.jpg[bananapi_bpicm7_uart4.jpg]
+image::/bpi_cm7/bananapi_bpicm7_uart5.jpg[bananapi_bpicm7_uart5.jpg]
+
+== SSH
+. Prepare Ethernet cables and a router.
+. Connect one LAN port of the router to BPI-CM7 using an Ethernet cable, and connect the PC to another LAN port so that both are on the same local network.
+. Open a terminal on BPI-CM7.
++
+```bash
+ip a                     # Check the IP address
+systemctl is-active ssh  # Check the current status of the SSH service
+```
+
+. Open a terminal on the PC.
++
+```bash
+ssh pi@10.0.35.168    # Connect to the board at 10.0.35.168 over SSH using the BPI-CM7 user account
+whoami                # Confirm the remote username
+hostnamectl --static  # Check the static system hostname
+uname -r              # Check the kernel version
+```
+
+. You can also connect using **MobaXterm**.
++
+image::/bpi_cm7/bananapi_bpicm7_ssh_mobaxterm1.jpg[bananapi_bpicm7_ssh_mobaxterm1.jpg]
+image::/bpi_cm7/bananapi_bpicm7_ssh_mobaxterm2.jpg[bananapi_bpicm7_ssh_mobaxterm2.jpg]
+image::/bpi_cm7/bananapi_bpicm7_ssh_mobaxterm3.jpg[bananapi_bpicm7_ssh_mobaxterm3.jpg]
+Enter the password for the board's user account to connect successfully.
+
++
+image::/bpi_cm7/bananapi_bpicm7_ssh_mobaxterm4.jpg[bananapi_bpicm7_ssh_mobaxterm4.jpg]
+
+. You can also connect from a terminal on Ubuntu.
++
+```bash
+sudo apt update
+sudo apt install nmap                     # Install the network discovery tool
+sudo nmap -p22 --open -sV 10.0.35.168/24  # Scan for SSH devices with port 22 open
+ssh pi@10.0.35.168                        # Connect
+```
+
+== Transfer Files
+**SCP (secure copy)** is a Linux command for securely copying files between servers.
+
+. Install **OpenSSH** on Windows.
+. After installation, run **PowerShell** as an administrator.
+. Enter the **username** and **IP address** of the remote device.
+
++
+```bash
+scp C:\BPI\1.wav pi@10.0.35.168:~/Music  # Send 1.wav from Windows to BPI-CM7
+pi@10.0.35.168:~/Documents/1.txt .\      # Send 1.txt from BPI-CM7 to Windows
+```
+
+. If you reflash the board, reinstall SSH, or replace it with another board at the same IP address, the remote host key changes. If Windows OpenSSH's `known_hosts` still contains the old fingerprint for `10.0.35.168`, verification fails and scp disconnects immediately.
++
+```bash
+ssh-keygen -R 10.0.35.168  # Remove the old record for this IP address
+```
+
+== NoMachine Remote Desktop
+Starting with v10, NoMachine no longer officially provides a free personal edition. Download links for v8 are provided here. If suitable for your needs, you can download the latest version from the official website: link:https://download.nomachine.com/[NoMachine Download].
+
+. Download **NoMachine (x64)** on the PC: link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fcommon_tools%2Fnomachine_8.2.3_4_x64.exe&dl=1[nomachine_8.2.3_4_x64.exe]
+. Download **NoMachine (arm64)** on BPI-CM7.
++
+```bash
+wget -O nomachine_8.2.3_3_arm64.deb \
+'https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fcommon_tools%2Fnomachine_8.2.3_3_arm64.deb&dl=1'
+sudo dpkg -i nomachine_8.2.3_3_arm64.deb  # Install NoMachine
+```
+
+. You can also download it directly on the PC and copy it to BPI-CM7 over SSH or with a USB drive: link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fcommon_tools%2Fnomachine_8.2.3_3_arm64.deb&dl=1[nomachine_8.2.3_3_arm64]
+. Make sure the PC and BPI-CM7 are on the same local network.
+. Open NoMachine on the PC. Once the NoMachine client discovers the BPI-CM7 board successfully, double-click it.
++
+image::/bpi_cm7/bananapi_bpicm7_nomachine1.jpg[bananapi_bpicm7_nomachine1.jpg]
+
+. Enter the **board username** and **password**.
++
+image::/bpi_cm7/bananapi_bpicm7_nomachine2.jpg[bananapi_bpicm7_nomachine2.jpg]
+
+. The NoMachine welcome dialog appears, indicating a **successful connection**.
++
+image::/bpi_cm7/bananapi_bpicm7_nomachine3.jpg[bananapi_bpicm7_nomachine3.jpg]
+
+. Keep clicking **OK** until the **Armbian desktop** appears.
++
+image::/bpi_cm7/bananapi_bpicm7_nomachine4.jpg[bananapi_bpicm7_nomachine4.jpg]
+
+== armbian-config
+The system configuration tool included with Armbian.
 
 ```bash
-nmcli device wifi connect [SSID] password [PASSWORD]
-nmcli connection up [SSID]
-nmcli device disconnect [device name]
+command -v armbian-config  # Check whether armbian-config exists and display its full path
+sudo armbian-config        # Start the Armbian configuration tool
+```
+image::/bpi_cm7/bananapi_bpicm7_armbian_config.jpg[bananapi_bpicm7_armbian_config.jpg]
 
-nmcli device wifi hotspot con-name [NAME] ifname [device name] ssid [SSID] password [PASSWORD]
+== Check BPI-CM7 Hardware and System Information
+These commands read the board's **system version, hardware model, CPU, memory, storage partitions, and root filesystem mount information in one pass**, making it easier to confirm the board hardware, kernel, and boot medium (SD card / eMMC).
+```bash
+hostnamectl                                  # Check the operating system version, hostname, kernel version, and architecture
+tr '\0' '\n' < /proc/device-tree/model       # Read the hardware model from the device tree and display the board model
+tr '\0' '\n' < /proc/device-tree/compatible  # Check compatible device tree models to confirm the chip platform
+uname -a                                     # Check the full kernel information, architecture, and build time
+lscpu                                        # Check CPU details such as core count, architecture, and frequency
+free -h                                      # Check memory and swap sizes; `-h` displays readable units such as GB/MB
+lsblk                                        # List block storage devices, including eMMC, SD cards, and USB drives
+findmnt -no SOURCE,FSTYPE,SIZE,USED,AVAIL,USE%,TARGET /  # Check the root partition /: source disk, filesystem, total capacity, used/available space, and usage percentage
+```
 
-nmcli connection show
-nmcli connection down [NAME]
-nmcli connection up [NAME]
-nmcli connection delete [SSID]
+== Check Graphical Session Status
 
+```bash
+systemctl get-default                # Check the default systemd boot target; graphical.target means the graphical interface starts by default
+systemctl is-active display-manager  # Check whether the display-manager (graphical login manager) service is running; active indicates normal operation
+loginctl list-sessions               # List all system login sessions to check whether local and remote (NoMachine) sessions were created successfully
+```
+
+== Wireless Network
+
+=== Connect to Wi-Fi
+```bash
+nmcli device                                           # Check network interface hardware status
+nmcli device wifi list                                 # List available wireless access points
+nmcli device wifi connection R4Pro-5G password ******  # Connect to Wi-Fi
+nmcli device disconnect wlan0                          # Disconnect Wi-Fi
+```
+
+=== Create an AP Hotspot
+. Create an AP.
++
+```bash
+nmcli device wifi hotspot con-name AP1 ifname wlan0 ssid Annick password 88888888
+```
+
+. Check the host's hotspot forwarding and NAT rules.
++
+```bash
+ip a show wlan0                          # Check the wlan0 address (10.42.0.1)
+cat /proc/sys/net/ipv4/ip_forward        # Confirm IP forwarding is enabled; if the value is 0, enable it temporarily with sudo sysctl -w net.ipv4.ip_forward=1
+sudo iptables -t nat -L POSTROUTING -nv  # Check the POSTROUTING chain rules in the NAT table
+```
+
+. Connect to the Annick hotspot and configure the phone with the static IPv4 address 10.42.0.100 (subnet: 10.42.0.x). Also set DNS to 223.5.5.5.
++
+```bash
+ip neigh show dev wlan0  # Check whether the device is connected to the hotspot
+```
+
+. Verify connectivity.
++
+(1) Ping the gateway from the phone: ping 10.42.0.1. A successful response indicates that the Wi-Fi link between the phone and the board is working.
+
++
+(2) Ping an external address from the phone: ping 223.5.5.5. A successful response indicates that Internet access is working.
+
+. Disconnect the AP hotspot you created.
++
+```bash
+nmcli connection down AP1  # Stop the hotspot
+nmcli connection show      # Show all current connections; -- indicates a stopped connection
+```
+
+. To restart AP1:
++
+```bash
+nmcli connection up AP1
+```
+
+. Completely remove the AP1 configuration (make sure you stop AP1 before deleting its configuration; otherwise, deleting the AP1 configuration directly will also remove wlan0!).
++
+```bash
+nmcli connection delete AP1
+```
+
+=== Turn the Wi-Fi Radio On or Off
+. Turn off the Wi-Fi radio. Power to wlan0 is cut, the AP hotspot disappears immediately, and all Wi-Fi functions are disabled. If you have not deleted the AP1 configuration file, it remains in the system.
++
+```bash
 nmcli radio wifi off
+nmcli radio # Check the wireless radio state
+```
+
+. Turn on the Wi-Fi radio to restore power to the Wi-Fi hardware.
++
+```bash
 nmcli radio wifi on
+nmcli radio  # Check the wireless radio state
 ```
 
-Test result:
+== Set a Static IP Address and DNS
+Before setting a static IP address, establish and maintain the corresponding network connection. The following example sets a static IP address for Ethernet.
+```bash
+nmcli connection show                                                     # Show all connections
+nmcli connection show "Wired connection 1"                                # Show all properties of the specified connection
+nmcli connection modify "Wired connection 1" ipv4.addresses 10.0.35.4/24  # Set the static IP address and subnet mask
+nmcli connection modify "Wired connection 1" ipv4.dns8.8.8.8              # Set DNS
+reboot                                                                    # Reboot
+```
+Test connectivity.
 
-```text
-Interface: wlan0
-rfkill soft blocked: no
-rfkill hard blocked: no
-Wi-Fi scan: successful
+. Ping the gateway: a successful response indicates that the physical/local network link between the board and router is working and the IP configuration is correct.
++
+```bash
+ping 10.35.0.1
 ```
 
-== Set static IP, DNS
+. Ping a public IP address: a successful response indicates that the local network is working, the router can access the Internet, and routing is correct.
++
+```bash
+ping 223.5.5.5
+```
 
-== Network time synchronization
+. Ping a domain name: a successful response indicates that DNS resolution is working.
++
+```bash
+ping baidu.com
+```
 
-Chrony is used in the tested image for network time synchronization.
+== Network Time Synchronization
+
+The image used for testing synchronizes network time through Chrony.
 
 Use the following commands to check the system clock, synchronization status, Chrony service, and time sources.
 
 ```bash
-timedatectl status
-systemctl status chrony
-chronyc tracking
-chronyc sources -v
-date
+timedatectl status       # Check the system time, time zone, RTC hardware clock, and automatic NTP synchronization state
+systemctl status chrony  # Check the Chrony service itself
+chronyc tracking         # Check time synchronization tracking details
+chronyc sources -v       # List all NTP time sources
+date                     # Print the current system date and time
 ```
 
 Use the following commands to manage the Chrony service.
 
 ```bash
-sudo systemctl start chrony
-sudo systemctl enable chrony
-sudo systemctl restart chrony
+sudo systemctl start chrony    # Start the Chrony service
+sudo systemctl enable chrony   # Enable Chrony at boot
+sudo systemctl restart chrony  # Restart the Chrony service
 ```
 
 Use the following commands to list or change the time zone.
 
 ```bash
 timedatectl list-timezones
-sudo timedatectl set-timezone Asia/Shanghai
+sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 ```
 
-Test result:
+* link:https://chrony-project.org/documentation.html[Chrony Reference Documentation]
 
-```text
-System clock synchronized: yes
-NTP service: active
-Chrony service: active
-Time zone during test: Etc/UTC
-```
-
-* link:https://chrony-project.org/documentation.html[Chrony reference documentation]
-
-== View hardware temperature
+== Check Hardware Temperatures
 
 Use the following commands to identify the four thermal zones.
 
@@ -311,7 +473,7 @@ cat /sys/class/thermal/thermal_zone3/temp
 
 Divide each returned value by 1000 to obtain the temperature in degrees Celsius.
 
-Test result:
+Test results:
 
 ```text
 cpu_thermal_zone: 50.2 °C
@@ -320,81 +482,68 @@ gpu_thermal_zone: 53.4 °C
 ve_thermal_zone: 50.8 °C
 ```
 
-== Use USB disk
+== Use a USB Drive
+Prepare a properly partitioned USB drive and insert it into a USB port on BPI-CM7. Once the system detects the USB drive, you can double-click it on the desktop to open it.
 
-== Use Audio Devices
-
-=== HDMI audio
-
-=== 3.5mm audio jack
-
-=== Terminal command to play audio files
-
-Use the following command to list the audio playback devices.
-
+image::/bpi_cm7/bananapi_bpicm7_usb_flash_driver1.jpg[bananapi_bpicm7_usb_flash_driver1.jpg]
+Create a separate mount directory in the user's home directory for easier management.
 ```bash
-aplay -l # List playback devices
+mkdir test_u
 ```
-
-Test result:
-
+The block device partition table exported by the kernel.
+```bash
+cat /proc/partitions | grep "sd*"
 ```
-**** List of PLAYBACK Hardware Devices ****
-card 0: audiocodec [audiocodec], device 0: soc@3000000:codec_plat-5096000.codec 5096000.codec-0 []
-  Subdevices: 1/1
-  Subdevice #0: subdevice #0
-card 1: ahubhdmi [ahubhdmi], device 0: ahub_plat-snd-soc-dummy-dai snd-soc-dummy-dai-0 []
-  Subdevices: 1/1
-  Subdevice #0: subdevice #0
+Mount /dev/sda1 at ~/test_u/. If you do not see the files in the mount directory, leave the directory and enter it again.
+```bash
+sudo mount /dev/sda1 ~/test_u/
+ls
 ```
-
-==== Play through the 3.5mm audio jack
-
-==== Audio playback via HDMI
+Remove the USB drive.
+```bash
+sudo umount -v /dev/sda1
+```
+**Note**: If you unplug a mounted USB drive without unmounting it with umount, the kernel will assign it a new name, sdb, when it is inserted again. Only physically unplug the USB drive after unmounting it to prevent file corruption.
 
 == Use Bluetooth
+=== Pair the Board with Bluetooth Headphones (Graphical Interface)
+. Click the **Bluetooth icon** in the upper-right corner of the Armbian desktop, then click **devices**.
+. Put the Bluetooth headphones in pairing mode, then click **Search** to find the target device.
++
+image::/bpi_cm7/bananapi_bpicm7_bluetooth1.jpg[bananapi_bpicm7_bluetooth1.jpg]
 
-== Use IR Receiver
+. Click the target device, then click the **key icon** to connect. A dialog appears in the upper-right corner; click **Confirm** to establish the connection.
++
+image::/bpi_cm7/bananapi_bpicm7_bluetooth2.jpg[bananapi_bpicm7_bluetooth2.jpg]
 
-== Transfer files
+. On the **Armbian desktop**, right-click and select **Open in New Window**, then click **Music** and **double-click 1.wav** to play music.
++
+image::/bpi_cm7/bananapi_bpicm7_bluetooth4.jpg[bananapi_bpicm7_bluetooth4.jpg]
 
-=== scp
+. To disconnect, click the **Bluetooth device**, then click **-**.
++
+image::/bpi_cm7/bananapi_bpicm7_bluetooth3.jpg[bananapi_bpicm7_bluetooth3.jpg]
 
-SCP uses the SSH protocol to copy files securely between the PC and BPI-CM7. Make sure the PC and board are connected to the same LAN and that SSH login works first.
-
-The SCP command format is:
-
+=== Pair the Board with Bluetooth Headphones (Shell Commands)
 ```bash
-scp [options] file_source file_target
+bluetoothctl               # Start the Bluetooth control tool
+power on                   # Power on the Bluetooth controller
+agent on                   # Enable the pairing agent
+default-agent              # Set the current agent as the default pairing agent
+pairable on                # Make the device pairable
+discoverable on            # Make the device discoverable
+paired-devices             # Check the MAC addresses of connected devices
+remove A8:37:59:EF:B2:A1   # Remove the Bluetooth device
+scan on                    # Scan for devices
+pair A8:37:59:EF:B2:A1     # Request pairing with the headphones at this MAC address; enter yes when prompted to confirm
+trust A8:37:59:EF:B2:A1    # Mark the headphones as trusted so they reconnect automatically after boot or a Bluetooth restart
+connect A8:37:59:EF:B2:A1  # Establish the Bluetooth audio connection; the device name appears in the terminal when connected
+quit                       # Exit the BlueZ interactive Bluetooth terminal
+aplay 1.wav                # Open a terminal and play music
 ```
 
-Use `-r` to copy a directory recursively.
-
-Copy a local file from the PC to BPI-CM7:
-
-```bash
-scp local-file pi@<board-ip>:/home/pi/
-```
-
-Copy a file from BPI-CM7 to the PC:
-
-```bash
-scp pi@<board-ip>:/home/pi/remote-file ./
-```
-
-Test result:
-
-```text
-Upload to /tmp: successful
-Remote file size and SHA-256 verification: successful
-Temporary test file removal: successful
-```
-
-=== mobaxterm
-
-== nano - text editor
-
-https://www.nano-editor.org/[GNU nano] is a command-line text editor and is installed in the tested image.
+== nano Text Editor
+link:https://www.nano-editor.org/[GNU nano] is a command-line text editor. It is preinstalled in the image used for testing.
 
 . Open a file with `nano [file path]`.
 . Edit the file.
@@ -402,31 +551,107 @@ https://www.nano-editor.org/[GNU nano] is a command-line text editor and is inst
 . Edit or confirm the file path, then press `Enter`.
 . Press `Ctrl+X` to exit nano.
 
-* https://www.nano-editor.org/dist/latest/cheatsheet.html[nano shortcuts]
-* https://www.nano-editor.org/dist/latest/nano.html[nano documentation]
+* https://www.nano-editor.org/dist/latest/cheatsheet.html[nano Keyboard Shortcuts]
+* https://www.nano-editor.org/dist/latest/nano.html[nano Documentation]
 
-Test result:
+== Onboard Audio
+=== Preparation
+. One **2mm-pitch 4-pin straight header**.
+. One **3.5mm 4-pole female audio jack to PH2.0 connector cable**.
+. One **3.5mm-to-three-plug audio/video AV cable**.
+. One cable with **HDMI connectors at both ends**.
+. One **AV-to-HDMI HD converter**.
+. One **display with an audio jack and an HDMI port**.
+. Starting from the **+** mark, the board's 4-pin header is defined as **TV_OUT, GND, R, L**. The **3.5mm-to-three-plug audio/video AV cable** pin order is **R, L, TV_OUT, GND**.
++
+image::/bpi_cm7/bananapi_bpicm7_audio1.jpg[bananapi_bpicm7_audio1.jpg]
+image::/bpi_cm7/bananapi_bpicm7_audio2.jpg[bananapi_bpicm7_audio2.jpg]
 
-```text
-/usr/bin/nano
+=== 3.5mm Audio Jack
+. Solder the **2mm-pitch 4-pin straight header** onto the board.
+. Connect the **PH2.0 connector** of the **3.5mm 4-pole female audio jack to PH2.0 connector cable** to the board according to the pin definitions. Plug the headphone cable directly into the **3.5mm 4-pole female audio jack** at the other end.
+. Open a terminal to play audio.
++
+```bash
+aplay 1.wav
 ```
 
-== Set boot logo
+=== HDMI Audio
+. Solder the **2mm-pitch 4-pin straight header** onto the main board.
+. Connect the **PH2.0 connector** of the **3.5mm 4-pole female audio jack to PH2.0 connector cable** to the main board according to the pin definitions. Plug the **3.5mm 4-pole male plug** of the **3.5mm-to-three-plug audio/video AV cable** directly into the **3.5mm 4-pole female audio jack** at the other end.
+. Connect the red, white, and yellow signal plugs of the **3.5mm-to-three-plug audio/video AV cable** to the **AV-to-HDMI HD converter**. The **AV-to-HDMI HD converter** requires a separate power supply.
+. Connect one end of the HDMI cable to the **AV-to-HDMI HD converter** and the other end to the display.
+. Open a terminal to play audio. Only `.wav` files are supported.
++
+```bash
+pactl list short sinks                                # List all PulseAudio audio output devices
+pactl set-default-sink 0                              # Set device 0 (HDMI Audio) as the default audio output
+pactl info I grep "Default Sink"                      # Check the current PulseAudio information
+ffmpəg -i 1.ogg -c:a pcm_s16le -ar 48000 -ac 2 1.wav  # Convert an .ogg music file to .wav before playback
+aplay 1.wav                                           # Play music; if there is still no sound after configuration, try rebooting the board
+speaker-test -D plughw:1,0 -c 2 -r 48000 -t sine      # Play a sine wave directly if no music file is available
+pactl set-sink-volume 0 100%                          # Control the volume
+```
+**Note**: Image clarity is limited with this hardware connection. The output resolution is 720P.
 
-=== on/off boot logo
+== Configure the Boot Logo
 
-=== Replace boot logo
+=== Enable or Disable the Boot Logo
+. Disable the boot logo.
+Open the boot environment configuration file and change bootlogo=true to bootlogo=false.
++
+```bash
+sudo nano "/boot/armbianEnv.txt"  # Open the boot environment configuration file
+```
 
-== 40 pin interface GPIO, I2C, UART, SPI, and PWM testing
+. Run sudo reboot. The boot logo will no longer appear after restarting.
+
+. To enable the boot logo, change bootlogo=false to bootlogo=true.
+
+=== Replace the Boot Logo
+. Keep bootlogo=true.
+. Preferably use an image with a resolution of 1920x1080 and a transparent background.
+. The boot logo is stored at /usr/share/plymouth/themes/armbian/watermark.png. Copy and save the file to this path.
+. Finally, run:
++
+```bash
+sudo update-initramfs -u  # Updating initramfs is required
+sudo reboot               # Reboot
+```
+
++
+image::/bpi_cm7/bananapi_bpicm7_logo_watermark1.jpg[bananapi_bpicm7_logo_watermark1.jpg]
+
+== Test GPIO, I2C, UART, SPI, and PWM on the 40-pin Header
+
+=== 40-pin Header Schematic
+image::/bpi_cm7/bananapi_bpicm7_gpio_interface.jpg[bananapi_bpicm7_gpio_interface.jpg]
 
 === GPIO
+. Basic GPIO I/O test (using GPIO33 as an example): control an LED through the GPIO port.
+. Connect the LED anode to GPIO33 and the cathode to GND.
+. Allwinner H618 GPIO numbering formula: **Pyx: y*32 + x**.
+. y: the letters **A, B, C, D, E, F, G, H, I** correspond to the numbers **1, 2, 3, 4, 5, 6, 7, 8**, respectively. GPIO33 corresponds to PH10, giving 7*32+10=234.
++
+```bash
+sudo apt update               # Update the package index
+sudo apt install gpiod        # Install the GPIO userspace tools
+sudo gpiodetect               # Scan all GPIO controllers in the system
+sudo gpioinfo gpiochip1       # Print the status of all pins on `gpiochip1` (H618 main PIO, PA to PI, 288 lines in total)
+sudo gpioset gpiochip1 234=1  # Set GPIO33 high
+sudo gpioset gpiochip1 234=0  # Set GPIO33 low
+sudo gpioget gpiochip1 234    # Read the GPIO33 level
+```
 
 === I2C
+According to the schematic, the available **I2C** interfaces are **PIN3, PIN5**, **PIN13, PIN15**, and **PIN27, PIN28**.
 
 === UART
+According to the schematic, the available **UART** interfaces are **PIN11, PIN13** and **PIN8, PIN10**.
 
 === SPI
+According to the schematic, the available **SPI** interface uses **PIN19, PIN21, PIN23, PIN24, PIN26**.
 
 === PWM
+According to the schematic, the available **PWM** interface is **PIN7**.
 
-== HDMI
