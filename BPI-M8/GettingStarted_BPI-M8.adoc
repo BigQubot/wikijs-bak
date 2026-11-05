@@ -1,552 +1,841 @@
-= Introduction
+= Getting Started BPI-M8
 
-The BPI-M8 is built on the high-performance octa-core AI platform chip A733, which combines a dual-core Arm® Cortex®-A76 and a hexa-core Arm Cortex-A55. It supports an Imagination PowerVR BXM-4-64 MC1 GPU, a 3TOPS NPU, and LPDDR4, LPDDR4x, LPDDR5 DRAM and UFS/eMMC memory.
+== Introduction
 
-The BPI-M8 boasts a rich array of peripherals, including USB, DP, UFS, HDMI, MIPI CSI, MIPI DSI, FAN, RTC, and one Gigabit Ethernet port (supporting PoE). It also supports SD card booting and features an onboard KEIIOT K038 WiFi/Bluetooth chip. It is equipped with 4GB of LPDDR5 RAM, 32GB of eMMC storage, and two 12x12mm single-antenna modules.
-content
+The BPI-M8 is powered by the Allwinner A733 octa-core processor, integrating a dual-core Arm Cortex-A76, a hexa-core Arm Cortex-A55, a PowerVR GPU, and a 3 TOPS NPU, with 4 GB of LPDDR5 memory.
 
-TIP: More Infomation: link:/en/BPI-M8/BananaPi_BPI-M8[Banana Pi BPI-M8]
+The board provides HDMI, MIPI DSI, dual MIPI CSI, USB, Gigabit Ethernet, and 40-pin GPIO interfaces. It supports booting from an SD card and can connect to an M.2 SSD and an eDP display through an expansion board.
 
-==  Specifications
-* Dual-Core Arm Cortex-A76 + Hexa-Core Arm Cortex-A55, up to 2.0GHz
-* 4GB LPDDR5 RAM
-* 32GB eMMC flash（BPI-M8A）
-* 16MB SPI NOR（BPI-M8B）
-* 1x MIPI DSI Display interface
-* 2x MIPI CSI Camera interface
-* 1x PCIE/DP interface
-* 1x HDMI 2.0b TX Slot
-* 4x USB-A Slot（1x USB3.0 + 3x USB2.0）
-* 1x GbE RJ45（POE support with POE HAT）
-* 1x Wi-Fi6/BT5 module
-* 1x 40PIN GPIO Header
-* 1x UFS Connector
+TIP: More information: link:/en/BPI-M8/BananaPi_BPI-M8[Banana Pi BPI-M8].
 
-= Development
+== Key Features
 
-== Andriod
+* Dual-core Arm Cortex-A76 + hexa-core Arm Cortex-A55, up to 2.0 GHz.
+* 4 GB LPDDR5 memory.
+* 64 GB eMMC (BPI-M8A) or 16 MB SPI NOR (BPI-M8B).
+* 3 TOPS NPU.
+* 1x HDMI 2.0b output interface.
+* 1x MIPI DSI display interface.
+* 2x MIPI CSI camera interfaces.
+* 1x PCIe/DP expansion interface.
+* 4x USB Type-A ports.
+* 1x Gigabit Ethernet port, with power supported through a PoE HAT.
+* Wi-Fi 6 and Bluetooth 5.
+* 1x 40-pin GPIO header.
+* 1x UFS interface.
 
-== Linux
+== Android
 
-=== Install Image to SDcard
-**Windows PC**
+=== Preparation
 
-Install Image with Balena Etcher. +
-link:https://balena.io/etcher[Balena Etcher] is an opensource GUI flash tool by Balena, Flash OS images to SDcard or USB drive.
+* Download the link:/en/BPI-M8/BananaPi_BPI-M8#_android_2[Android image].
+* Install link:https://download.banana-pi.dev/d/ca025d76afd448aabc63/files/?p=%2FTools%2Fimage_download_tools%2Fphoenixsuit_V1.1.0_20150325.rar[PhoenixSuit] on a Windows PC.
+* Prepare a Type-C cable that supports data transfer and a 5 V power supply that meets the board's requirements.
 
-. Click on "**Flash from file**" to select image. 
-. Click on "**Select target**" to select USB device. 
-. Click on "**Flash!**" Start burning.
+=== Flash the Image
 
-image::/picture/etcher.jpg[etcher.jpg]
+WARNING: Flashing will erase the data on the eMMC. Back up your data first.
 
-**Linux PC**
+. Open PhoenixSuit, go to the "Firmware" page, and click "Image" to select the Android image.
+. Press and hold the FEL button on the board, connect it to the PC through the USB OTG Type-C port, and release the button once the device is detected.
+. Confirm flashing when prompted and wait for the download to complete. Do not disconnect the power or data cable during flashing.
+. Once flashing is complete, power the board on again and wait for Android to start.
 
-**There are two methods for you to choose from.**
+NOTE: The Android image in this guide is flashed to the eMMC.
 
-. Install Image with dd command on Linux, umount SDcard device /dev/sdX partition if mounted automatically. Actually bpi-copy is the same as this dd command.
+== Linux Development
+
+=== Preparation
+
+* Download the link:/en/BPI-M8/BananaPi_BPI-M8#_linux_2[Linux image]. The desktop version provides a graphical interface, while the Minimal version uses a terminal.
+* Prepare an SD card and a card reader. The SD card capacity must be larger than the extracted image size. An A1-rated card is recommended.
+* Download link:https://etcher.balena.io/[balenaEtcher], a flashing tool for Windows, Linux, and macOS.
+* Refer to the image documentation for the default login details. Common credentials are `pi/bananapi` or `root/1234`. On first boot, follow the setup wizard to configure the password and user account.
+
+This section applies to Ubuntu / Debian images for BPI-M8. You do not need to erase the eMMC before booting from an SD card.
+
+=== Install the Image to an SD Card
+
+WARNING: Flashing will erase the data on the target device. Make sure you have selected the SD card.
+
+. Insert the SD card into a card reader and connect it to the PC. Open balenaEtcher and click "Flash from file" to select the image.
 +
-```sh
- $ sudo apt-get install pv unzip
- $ sudo unzip -p xxx-bpi-m2-ultra-xxx.img.zip | pv | dd of=/dev/sdX bs=10M status=noxfer
-```
-. Install image with bpi-tools on Linux, plug SDcard to Linux PC and run
+image::/bpi-m8/bananapi_bpim8_img_write_sd1.jpg[Select the image]
 +
-```sh
- $ sudo apt-get install pv unzip
- $ sudo bpi-copy xxx-bpi-m2-ultra-xxx.img.zip /dev/sdX
-```
+image::/bpi-m8/bananapi_bpim8_img_write_sd2.jpg[Open the image file]
 
-=== Install Image to EMMC
-
-. Insert the SD card into the M8 and boot it up.
-
-. Store the image to be burned into a USB memory and connect the USB device to the M8.
-
-. Use the lsblk command to query USB devices.
+. Click "Select target", select the SD card, and check its capacity.
 +
-```sh
-root@bananapim8:~# lsblk
-NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
-sda           8:0    1    0B  0 disk
-sdb           8:16   1    0B  0 disk
-mmcblk1     179:0    0 29.1G  0 disk
-mmcblk0     179:8    0  7.4G  0 disk
-├─mmcblk0p1 179:9    0  256M  0 part /boot
-└─mmcblk0p2 179:10   0    7G  0 part /var/log.hdd
-                                     /
-zram0       254:0    0  1.9G  0 disk [SWAP]
-zram1       254:1    0   50M  0 disk /var/log
-zram2       254:2    0    0B  0 disk
-```
-
-. Use the mount command to mount the USB drive and navigate to the directory where the image is stored.
+image::/bpi-m8/bananapi_bpim8_img_write_sd3.jpg[Select the target device]
 +
-```sh
-root@bananapim8:/mnt/M8# lsblk
-NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
-sda           8:0    1    0B  0 disk
-sdb           8:16   1    0B  0 disk
-sdc           8:32   1 59.5G  0 disk
-└─sdc1        8:33   1 59.5G  0 part /mnt
-sdd           8:48   1    0B  0 disk
-mmcblk1     179:0    0 29.1G  0 disk
-mmcblk0     179:8    0  7.4G  0 disk
-├─mmcblk0p1 179:9    0  256M  0 part /boot
-└─mmcblk0p2 179:10   0    7G  0 part /var/log.hdd
-                                     /
-zram0       254:0    0  1.9G  0 disk [SWAP]
-zram1       254:1    0   50M  0 disk /var/log
-zram2       254:2    0    0B  0 disk
-root@bananapim8:/mnt/M8# ls
-Bananapi-Armbian_26.05.0-trunk_Bananapim8_bookworm_legacy_5.15.147_xfce_desktop.img
-```
+image::/bpi-m8/bananapi_bpim8_img_write_sd4.jpg[Confirm the SD card]
 
-. Use the dd command to burn the image.
+. Click "Flash!" and wait for writing and validation to complete.
 +
-```sh
-root@bananapim8:/mnt/M8# ls
-Bananapi-Armbian_26.05.0-trunk_Bananapim8_bookworm_legacy_5.15.147_xfce_desktop.img
-root@bananapim8:/mnt/M8# dd if=Bananapi-Armbian_26.05.0-trunk_Bananapim8_bookworm_legacy_5.15.147_xfce_desktop.img of=/dev/mmcblk1
-输入了 10723328+0 块记录
-输出了 10723328+0 块记录
-5490343936 字节 (5.5 GB, 5.1 GiB) 已复制，240.847 s，22.8 MB/s
-```
-
-. Remove the SD card and power on the M8 again to boot using eMMC.
-
-= Other Development
-
-== USB
-
-Connect the USB device you want to use to the M8.
-
-```sh
-root@bananapim8:~# lsblk
-NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
-sda           8:0    1    0B  0 disk
-sdb           8:16   1    0B  0 disk
-sdc           8:32   1 59.5G  0 disk
-└─sdc1        8:33   1 59.5G  0 part
-sdd           8:48   1    0B  0 disk
-mmcblk1     179:0    0 29.1G  0 disk
-mmcblk0     179:8    0  7.4G  0 disk
-├─mmcblk0p1 179:9    0  256M  0 part /boot
-└─mmcblk0p2 179:10   0    7G  0 part /var/log.hdd
-                                     /
-zram0       254:0    0  1.9G  0 disk [SWAP]
-zram1       254:1    0   50M  0 disk /var/log
-zram2       254:2    0    0B  0 disk
-root@bananapim8:~# lsusb
-Bus 004 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
-Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
-Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
-Bus 001 Device 003: ID 0bda:0301 Realtek Semiconductor Corp. multicard reader
-Bus 001 Device 002: ID 1a86:8091 QinHeng Electronics USB HUB
-Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
-```
-
-== network
-
-Connect the network cable to the network port.
-
-```sh
-root@bananapim8:~# ip a
-1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-    inet 127.0.0.1/8 scope host lo
-       valid_lft forever preferred_lft forever
-    inet6 ::1/128 scope host noprefixroute
-       valid_lft forever preferred_lft forever
-2: ip_vti0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN group default qlen 1000
-    link/ipip 0.0.0.0 brd 0.0.0.0
-3: ip6_vti0@NONE: <NOARP> mtu 1364 qdisc noop state DOWN group default qlen 1000
-    link/tunnel6 :: brd :: permaddr 96a4:9905:4718::
-4: sit0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN group default qlen 1000
-    link/sit 0.0.0.0 brd 0.0.0.0
-5: ip6tnl0@NONE: <NOARP> mtu 1452 qdisc noop state DOWN group default qlen 1000
-    link/tunnel6 :: brd :: permaddr c660:9fcf:33dc::
-6: end0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
-    link/ether d0:96:16:de:fa:97 brd ff:ff:ff:ff:ff:ff
-    inet 10.168.1.199/24 brd 10.168.1.255 scope global dynamic noprefixroute end0
-       valid_lft 43022sec preferred_lft 43022sec
-    inet6 fd0b:9aaf:b1a:0:5525:fc96:c1bb:9b64/64 scope global noprefixroute
-       valid_lft forever preferred_lft forever
-    inet6 fe80::289c:25a6:4957:e0d9/64 scope link noprefixroute
-       valid_lft forever preferred_lft forever
-root@bananapim8:~# ping baidu.com
-PING baidu.com (124.237.177.164) 56(84) bytes of data.
-64 bytes from 124.237.177.164 (124.237.177.164): icmp_seq=1 ttl=52 time=35.0 ms
-64 bytes from 124.237.177.164 (124.237.177.164): icmp_seq=2 ttl=52 time=34.6 ms
-64 bytes from 124.237.177.164 (124.237.177.164): icmp_seq=3 ttl=52 time=34.6 ms
-^C64 bytes from 124.237.177.164: icmp_seq=4 ttl=52 time=34.4 ms
-
---- baidu.com ping statistics ---
-4 packets transmitted, 4 received, 0% packet loss, time 15651ms
-rtt min/avg/max/mdev = 34.434/34.657/34.988/0.203 ms
-```
-
-The network port speed, tested with the iperf3 tool, is normally around 1Gbps.
-
-```sh
-[ ID] Interval           Transfer     Bitrate
-[  5]   0.00-1.00   sec   111 MBytes   928 Mbits/sec
-[  5]   1.00-2.00   sec   110 MBytes   921 Mbits/sec
-[  5]   2.00-3.00   sec   111 MBytes   933 Mbits/sec
-[  5]   3.00-4.00   sec   112 MBytes   938 Mbits/sec
-[  5]   4.00-5.00   sec   112 MBytes   938 Mbits/sec
-[  5]   5.00-6.00   sec   112 MBytes   938 Mbits/sec
-[  5]   6.00-7.00   sec   112 MBytes   938 Mbits/sec
-[  5]   7.00-8.00   sec   112 MBytes   938 Mbits/sec
-[  5]   8.00-9.00   sec   112 MBytes   936 Mbits/sec
-[  5]   9.00-10.00  sec   112 MBytes   938 Mbits/sec
-- - - - - - - - - - - - - - - - - - - - - - - - -
-[ ID] Interval           Transfer     Bitrate
-[  5]   0.00-10.00  sec  1.09 GBytes   934 Mbits/sec                  sender
-[  5]   0.00-10.00  sec  1.09 GBytes   934 Mbits/sec                  receiver
-
-iperf Done.
-```
-
-== WiFi
-
-Use the nmcli command to connect to WiFi.
-
-```sh
-sudo nmcli dev wifi connect "<SSID>" password "<password>" //connect WiFi
-sudo nmcli connection down "SSID" //disconnect WiFi
-```
-Then you can use WiFi.
-```sh
-root@bananapim8:~# ip a
-1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-    inet 127.0.0.1/8 scope host lo
-       valid_lft forever preferred_lft forever
-    inet6 ::1/128 scope host noprefixroute
-       valid_lft forever preferred_lft forever
-2: ip_vti0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN group default qlen 1000
-    link/ipip 0.0.0.0 brd 0.0.0.0
-3: ip6_vti0@NONE: <NOARP> mtu 1364 qdisc noop state DOWN group default qlen 1000
-    link/tunnel6 :: brd :: permaddr b621:40ef:3118::
-4: sit0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN group default qlen 1000
-    link/sit 0.0.0.0 brd 0.0.0.0
-5: ip6tnl0@NONE: <NOARP> mtu 1452 qdisc noop state DOWN group default qlen 1000
-    link/tunnel6 :: brd :: permaddr 2af0:cf62:c68a::
-6: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN group default qlen 1000
-    link/ether 88:49:2d:60:20:3e brd ff:ff:ff:ff:ff:ff
-7: p2p0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
-    link/ether 8a:49:2d:60:20:3e brd ff:ff:ff:ff:ff:ff
-    inet 10.168.1.160/24 brd 10.168.1.255 scope global dynamic noprefixroute p2p0
-       valid_lft 43193sec preferred_lft 43193sec
-    inet6 fe80::e2d8:3f6a:f09d:f52b/64 scope link noprefixroute
-       valid_lft forever preferred_lft forever
-8: wlan1: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN group default qlen 1000
-    link/ether 82:49:2d:60:20:3e brd ff:ff:ff:ff:ff:ff
-9: end0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN group default qlen 1000
-    link/ether b4:7a:5c:89:ac:59 brd ff:ff:ff:ff:ff:ff
-root@bananapim8:~# ping baidu.com
-PING baidu.com (124.237.177.164) 56(84) bytes of data.
-64 bytes from 124.237.177.164 (124.237.177.164): icmp_seq=1 ttl=52 time=146 ms
-64 bytes from 124.237.177.164 (124.237.177.164): icmp_seq=2 ttl=52 time=98.4 ms
-64 bytes from 124.237.177.164 (124.237.177.164): icmp_seq=3 ttl=52 time=97.8 ms
-^C64 bytes from 124.237.177.164: icmp_seq=4 ttl=52 time=99.5 ms
-```
-
-== HDMI out
-
-Connect to the display via HDMI cable.
-
-image::/bpi-m8/bananapi-pi_m8_hdmi_1.jpg[bananapi-pi_m8_hdmi_1.jpg]
-
-== Button
-
-=== PWR
-
-Power off by short pressing the PWR button. 
-
-The following log will appear when shutting down:
-```sh
-root@bananapim8:~#
-[ 2010.090118][    T1] npu[1][1] unregister cooling
-[ 2010.095369][    T1] npu[1][1] remove opp freq: 492000000
-[ 2010.101349][    T1] npu[1][1] remove opp freq: 852000000
-[ 2010.107323][    T1] npu[1][1] remove opp freq: 1008000000
-[ 2010.113401][    T1] sunxi:vin:[WARN]: video0 device have been closed!
-[ 2010.193946][    T1] reboot: Power down
-```
-
-Power on by long pressing the PWR button.
-
-== Audio
-
-Using aplay commands, you can find that the M8's sound card has two outputs:
-
-. HP headphone output
-. HDMI output
-
-```sh
-root@bananapim8:~# aplay -l
-**** List of PLAYBACK Hardware Devices ****
-card 0: sndi2s0 [sndi2s0], device 0: sunxi-snd-plat-i2s-ac101-codec sunxi-ac101.15-001a-0 []
-  Subdevices: 0/1
-  Subdevice #0: subdevice #0
-card 1: allwinnerhdmi [allwinner-hdmi], device 0: sunxi-snd-plat-i2s-sunxi-snd-codec-hdmi soc@3000000:hdmi_codec- []
-  Subdevices: 1/1
-  Subdevice #0: subdevice #0
-```
-
-== RTC
-
-Connect batteries with a 2mm spacing to power the RTC.
-
-View system RTC configuration
-
-```sh
-root@bananapim8:~# dmesg | grep -Ei "rtc|sunxi-rtc"
-[    0.054099] sunxi:ccu-ng:[INFO]: sunxi rtc-ccu version: 0.5.5
-[    0.065807] sunxi:ccu-ng:[INFO]: rtc_ccu: sunxi ccu init OK
-[    0.201736] axp8191-rtcldo: supplied by regulator-dummy
-[    2.838689] sunxi-rtc 7090000.rtc: errata__fix_alarm_day_reg_default_value(): ALARM0_DAY_REG=0, set it to 1
-[    2.850795] sunxi-rtc 7090000.rtc: registered as rtc0
-[    2.857255] sunxi-rtc 7090000.rtc: sunxi rtc probed
-[    5.509982] [drm] sunxi_de_bind crtc init for de 0 ok
-[    5.517001] [drm] sunxi_de_bind crtc init for de 1 ok
-[   21.530070] [drm] [SUNXI-CRTC]sunxi_crtc_atomic_enable
-```
-
-Set RTC time
-
-```sh
-root@bananapim8:~# date -s "2026-08-20 16:30:00" //Set system time
-2026年 08月 20日 星期四 16:30:00 CST  
-root@bananapim8:~# hwclock -w -f /dev/rtc0 //RTC writing time
-root@bananapim8:~# hwclock -r -f /dev/rtc0 //RTC reading time
-2026-08-20 16:30:28.460504+08:00
-root@bananapim8:~# date  //Query system time
-2026年 08月 20日 星期四 16:30:42 CST
-root@bananapim8:~# hwclock -r -f /dev/rtc0
-2026-08-20 16:30:52.447590+08:00
-```
-
-Power off to verify if RTC is working
-
-```sh
-root@bananapim8:~# date -s "2026-08-20 16:30:00" //Set system time
-2026年 08月 20日 星期四 16:30:00 CST  
-root@bananapim8:~# hwclock -w -f /dev/rtc0 //RTC writing time
-root@bananapim8:~# hwclock -r -f /dev/rtc0 //RTC reading time
-2026-08-20 16:30:28.460504+08:00
-root@bananapim8:~# date  //Query system time
-2026年 08月 20日 星期四 16:30:42 CST
-root@bananapim8:~# hwclock -r -f /dev/rtc0
-2026-08-20 16:30:52.447590+08:00
-```
-
-A few minutes after a power outage, the RTC clock is still active, but the system clock has been stopped for several minutes.
-
-```sh
-root@bananapim8:~# date
-2026年 08月 20日 星期四 16:41:54 CST
-root@bananapim8:~# hwclock -r -f /dev/rtc0
-2026-08-20 16:43:04.558201+08:00
-```
-
-== FAN
-
-Query system fan control PWM device
-
-```sh
-root@bananapim8:~# cat /sys/class/hwmon/hwmon0/name
-pwmfan
-root@bananapim8:~# ls /sys/class/hwmon/
-hwmon0
-```     
-Use commands to control the fan switch
-
-```sh
-root@bananapim8:~# echo 1 > /sys/class/hwmon/hwmon0/pwm1
-root@bananapim8:~# echo 0 > /sys/class/hwmon/hwmon0/pwm1
-```     
-== POE
-
-Connect the PoE expansion board to the board, and power the board via the Ethernet port
-
-
-image::/bpi-m8/bananapi-pi_m8_poe_1.jpg[bananapi-pi_m8_poe_1.jpg]
-
-
-== M.2 KEYM
-
-
-. Connect the adapter board using an FPC cable, and insert the M.2 SSD into the adapter board.
+image::/bpi-m8/bananapi_bpim8_img_write_sd5.jpg[Start flashing]
 +
-image::/bpi-m8/bananapi-pi_m8_m_.2_keym_1.jpg[bananapi-pi_m8_m_.2_keym_1.jpg]
-
-. Query M.2 Devices in the System
+image::/bpi-m8/bananapi_bpim8_img_write_sd6.jpg[Write the image]
 +
-```sh
-root@bananapim8:~# ls /boot/dtb/sunxi/overlay/bpi-m8/ | grep -i pcie
-sun60i-a733-bpi-m8-expansion-pcie-m2.dtbo
-```
+image::/bpi-m8/bananapi_bpim8_img_write_sd7.jpg[Flashing complete]
 
+. Safely remove the SD card, insert it into BPI-M8, connect the display, keyboard, and power supply, and wait for the system to boot.
 
+=== Install the Image to eMMC
 
+WARNING: Writing will erase the data on the eMMC. The following example uses `/dev/mmcblk1`; use the device name shown in your actual output. Do not write to the disk containing the currently running system.
 
-. Add the overlays configuration.
+. Boot M8 from the SD card, copy the extracted `.img` image to a USB drive, and connect the USB drive to M8.
+
+. Check the disks and the current system partition to identify the SD card, eMMC, and USB drive.
 +
-Open the file using nano
+[source,bash]
+----
+lsblk -o NAME,SIZE,TYPE,FSTYPE,MOUNTPOINT
+findmnt /
+----
 +
-```sh
-root@bananapim8:~# sudo nano /boot/armbianEnv.txt
-``` 
+image::/bpi-m8/bananapi_bpim8_img_write_emmc1.jpg[Check storage devices]
+
+. Mount the USB drive. The following example uses `/dev/sda1`. If the USB drive is already mounted, use its existing mount path.
 +
-Add the following line to the file
+[source,bash]
+----
+sudo mkdir -p /mnt/usb
+sudo mount /dev/sda1 /mnt/usb
+ls /mnt/usb
+----
 +
-```sh
+image::/bpi-m8/bananapi_bpim8_img_write_emmc2.jpg[Mount the USB drive]
+
+. Make sure all eMMC partitions are unmounted. Replace `bpi-m8.img` below with the actual image filename, then write the image.
++
+[source,bash]
+----
+sudo dd if=/mnt/usb/bpi-m8.img of=/dev/mmcblk1 bs=4M status=progress conv=fsync
+sync
+----
++
+image::/bpi-m8/bananapi_bpim8_img_write_emmc3.jpg[Write to eMMC]
+
+. Once writing is complete, shut down the system, disconnect the power, remove the SD card, and power the board on again.
++
+[source,bash]
+----
+sudo poweroff
+----
+
+. After booting, confirm that the system partition is on the eMMC.
++
+[source,bash]
+----
+findmnt /
+lsblk
+----
++
+image::/bpi-m8/bananapi_bpim8_img_write_emmc4.jpg[Confirm booting from eMMC]
+
+=== Erase eMMC (Optional)
+
+WARNING: This operation erases all data in the eMMC user area and cannot be undone. Only perform it while booted from an SD card, after confirming that the target is not the current system disk and that all target partitions are unmounted.
+
+. Check the devices and system partition to confirm the eMMC device name.
++
+[source,bash]
+----
+lsblk -o NAME,SIZE,TYPE,FSTYPE,MOUNTPOINT
+findmnt /
+----
+
+. The following example uses `/dev/mmcblk1` and writes zeros to the eMMC user area.
++
+[source,bash]
+----
+sudo dd if=/dev/zero of=/dev/mmcblk1 bs=4M status=progress conv=fsync
+sync
+----
+
+Once the device is full, a "No space left on device" message appears. This operation does not erase the separate eMMC boot0 / boot1 boot areas.
+
+=== USB
+
+. Connect a USB drive or another USB device to a USB Type-A port on the board and check whether it is detected.
++
+[source,bash]
+----
+lsusb
+lsblk
+----
++
+image::/bpi-m8/bananapi_bpim8_img_write_usb1.jpg[Check USB devices]
+
+. Mount the USB drive. The following example uses `/dev/sda1`.
++
+[source,bash]
+----
+sudo mkdir -p /mnt/usb
+sudo mount /dev/sda1 /mnt/usb
+ls /mnt/usb
+----
+
+. Unmount the USB drive after use, then unplug it.
++
+[source,bash]
+----
+sudo umount /mnt/usb
+----
++
+image::/bpi-m8/bananapi_bpim8_img_write_usb2.jpg[Unmount the USB drive]
+
+=== Ethernet
+
+. Connect M8 to a LAN port on the router using an Ethernet cable, then check the IP address of M8.
++
+[source,bash]
+----
+ip -4 addr
+----
++
+image::/bpi-m8/bananapi_bpim8_img_write_iperf_1.jpg[Check the IP address of M8]
+
+. Start the iperf3 server on another PC on the same local network.
++
+[source,bash]
+----
+iperf3 -s
+----
++
+image::/bpi-m8/bananapi_bpim8_img_write_iperf_2.jpg[Start the iperf3 server]
+
+. Start the client on M8, replacing the example address with the IP address of the server PC.
++
+[source,bash]
+----
+iperf3 -c 192.168.1.200
+----
++
+image::/bpi-m8/bananapi_bpim8_img_write_iperf_3.jpg[Test Ethernet speed]
+
+=== Wi-Fi
+
+. Check the network devices and available access points.
++
+[source,bash]
+----
+nmcli device
+nmcli device wifi list
+----
+
+. Connect to Wi-Fi. Replace "WiFi_Name" with the actual access point name and enter the password when prompted.
++
+[source,bash]
+----
+sudo nmcli --ask device wifi connect "WiFi_Name"
+nmcli connection show --active
+----
++
+image::/bpi-m8/bananapi_bpim8_img_write_wifi1.jpg[Connect to Wi-Fi]
+
+. To disconnect, run the following command. Use the wireless interface name shown by `nmcli device`.
++
+[source,bash]
+----
+sudo nmcli device disconnect wlan0
+----
+
+=== Bluetooth
+
+. Turn on the target Bluetooth device and put it in pairing mode, then start the Bluetooth management tool on M8.
++
+[source,bash]
+----
+bluetoothctl
+----
+
+. In `bluetoothctl`, turn on Bluetooth and start scanning.
++
+[source,text]
+----
+power on
+agent on
+default-agent
+scan on
+----
+
+. Once you find the target device, stop scanning, pair, and connect. Replace the example MAC address with the actual address and confirm pairing when prompted.
++
+[source,text]
+----
+scan off
+devices
+pair AA:BB:CC:DD:EE:FF
+trust AA:BB:CC:DD:EE:FF
+connect AA:BB:CC:DD:EE:FF
+----
+
+. To disconnect or exit, run the following commands in `bluetoothctl`:
++
+[source,text]
+----
+disconnect AA:BB:CC:DD:EE:FF
+exit
+----
+
+=== HDMI Display
+
+Connect the display using an HDMI cable, select the corresponding input source, and power on M8. The desktop version opens a graphical interface, while the Minimal version opens a terminal.
+
+image::/bpi-m8/bananapi-pi_m8_hdmi_1.jpg[HDMI display]
+
+=== Buttons
+
+==== PWR
+
+When the board is off, press and hold PWR to turn it on. When the board is on, a short press triggers the system power action; the exact response depends on the current image settings.
+
+image::/bpi-m8/bnanapi_bpim8_img_write_pwr.jpg[PWR button response]
+
+==== RST
+
+A short press of RST immediately restarts the board. Save your data first.
+
+=== SSH
+
+. Connect M8 and the PC to the same local network, then check the IP address on M8.
++
+[source,bash]
+----
+ip -4 addr
+----
++
+image::/bpi-m8/bananapi_bpim8_img_write_shh1.jpg[Check the SSH connection address]
+
+. Open MobaXterm on the PC, create an SSH session, and enter the IP address of M8, the username, and port `22`.
++
+image::/bpi-m8/bananapi_bpim8_img_write_ssh2.jpg[Create an SSH session]
++
+image::/bpi-m8/bananapi_bpim8_img_write_ssh3.jpg[Enter connection details]
+
+. Enter the account password after connecting. You can also connect using a terminal command; replace the example IP with the actual address.
++
+[source,bash]
+----
+ssh pi@192.168.1.100
+----
++
+image::/bpi-m8/bananapi_bpim8_img_write_ssh4.jpg[Log in to M8]
++
+image::/bpi-m8/bananapi_bpim8_img_write_ssh5.jpg[SSH terminal]
+
+=== Audio
+
+. Plug in headphones or connect a display that supports HDMI audio, then check the system sound cards.
++
+[source,bash]
+----
+aplay -l
+----
++
+image::/bpi-m8/bnanapi_bpim8_img_write_hp1.jpg[Check sound cards]
+
+. Copy the audio file to a USB drive, mount it as described in the "USB" section, and check the files.
++
+[source,bash]
+----
+ls /mnt/usb
+----
++
+image::/bpi-m8/bananapi_bpim8_img_write_hp2.jpg[Check audio files]
+
+. Play the audio using VLC. The following example uses sound card `0`, device `0`. Adjust the numbers according to the output of `aplay -l` and replace the filename.
++
+[source,bash]
+----
+cvlc --aout alsa --alsa-audio-device plughw:0,0 "/mnt/usb/audio_filename"
+----
++
+image::/bpi-m8/bananapi_bpim8_img_write_hp3.jpg[Play audio]
+
+NOTE: To play HDMI audio, select the corresponding HDMI sound card and make sure the display is not muted. If VLC is not installed, use `aplay -D plughw:0,0 /mnt/usb/test.wav` to play a WAV file.
+
+=== RTC
+
+. Disconnect the power, connect the RTC backup power supply, and check the connector polarity.
++
+WARNING: The RTC backup supply voltage must not exceed 2 V.
++
+image::/bpi-m8/bananapi_bpim8_img_write_rtc0.jpg[RTC backup power connector]
+
+. Power on the board, check the RTC driver, and read the hardware clock.
++
+[source,bash]
+----
+sudo dmesg | grep -Ei 'rtc|sunxi-rtc'
+sudo hwclock -r -f /dev/rtc0
+----
+
+. After confirming that the system time is correct, write it to the RTC.
++
+[source,bash]
+----
+date
+sudo hwclock -w -f /dev/rtc0
+sudo hwclock -r -f /dev/rtc0
+----
+
+. Shut down the system and disconnect the main power supply, leaving the RTC backup supply connected. Power the board on again after a few minutes and check whether the RTC has continued keeping time.
++
+[source,bash]
+----
+sudo hwclock -r -f /dev/rtc0
+date
+----
+
+=== Fan
+
+The system thermal policy controls the fan speed. Check the fan device and the current PWM output:
+
+[source,bash]
+----
+for m8_hwmon in /sys/class/hwmon/hwmon*; do
+    echo "$m8_hwmon"
+    cat "$m8_hwmon/name"
+    if [ -f "$m8_hwmon/pwm1" ]; then
+        cat "$m8_hwmon/pwm1"
+    fi
+done
+----
+
+NOTE: The `hwmon` number may change. Use `name` to identify the fan device. Do not disable automatic thermal control during stress testing.
+
+=== PoE Power
+
+. Prepare a compatible PoE switch, a BPI-M8 PoE HAT, and an Ethernet cable.
+. With the power disconnected, attach the PoE HAT, then connect it to the PoE switch using the Ethernet cable.
+. Power on the switch and confirm that the board boots normally.
+
+image::/bpi-m8/bananapi_bpim8_img_write_poe1.jpg[PoE power]
+
+=== BPI-M8 Expansion Board
+
+. Prepare the expansion board, one 31-pin FPC cable, and two 35-pin FPC cables.
+. With the power disconnected, connect the PCIe/DP and MIPI interfaces on the main board to the corresponding interfaces on the expansion board.
+. Align the 40-pin GPIO header in the correct orientation and connect the main board to the expansion board.
+
+image::/bpi-m8/bananapi_bpim8_img_write_kzb1.jpg[Connect the expansion board cables]
+
+image::/bpi-m8/bananapi_bpim8_img_write_kzb2.jpg[Install the expansion board]
+
+==== M.2 SSD
+
+. With the power disconnected, insert the NVMe SSD into the M.2 slot on the expansion board and secure it.
++
+image::/bpi-m8/bananapi_bpim8_img_write_m.2_.jpg[Install the NVMe SSD]
+
+. Boot the system and confirm that the device tree overlay for M.2 is installed.
++
+[source,bash]
+----
+ls /boot/dtb/sunxi/overlay/bpi-m8/ | grep -i pcie
+----
++
+image::/bpi-m8/bananapi_bpim8_img_write_m.2_3.jpg[Check the PCIe overlay]
+
+. Back up and edit the boot configuration.
++
+[source,bash]
+----
+sudo cp -an /boot/armbianEnv.txt /boot/armbianEnv.txt.before-pcie
+sudo nano /boot/armbianEnv.txt
+----
+
+. Append `bpi-m8-expansion-pcie-m2` to the existing `overlays=` line, separating multiple overlays with spaces. If the line does not exist, add:
++
+[source,text]
+----
 overlays=bpi-m8-expansion-pcie-m2
-```
+----
 +
-Save and exit: Ctrl+O -> Enter -> Ctrl+X
-+
-image::/bpi-m8/bananapi-pi_m8_m_.2_keym_3.png[bananapi-pi_m8_m_.2_keym_3.png]
+image::/bpi-m8/bananapi_bpim8_img_write_m.2_2.jpg[Enable the PCIe overlay]
 
-. Reboot the system 
+. Press `Ctrl+O` to save, `Enter` to confirm, and `Ctrl+X` to exit, then reboot the system.
 +
-```sh
-root@bananapim8:~# sudo reboot
-``` 
-+
-After rebooting, run the following commands to verify the M.2 SSD
-+
-Check the PCIe devices
-+
-```sh
-root@bananapim8:~# lspci
-00:00.0 PCI bridge: Device 1f6d:abcd (rev 01)
-e1:00.0 Non-Volatile memory controller: Solid State Storage Technology Corporation CL1-
-3D256-Q11 NVMe SSD M.2 (rev 03)
-```
-+
-Check the block devices
-+
-```sh
-root@bananapim8:~# lsblk
-```
-+
-image::/bpi-m8/bananapi-pi_m8_m_.2_keym_5.png[bananapi-pi_m8_m_.2_keym_5.png]
+[source,bash]
+----
+sudo reboot
+----
 
-. Create a mount point and mount the partition
+. After rebooting, check the PCIe devices and disks.
 +
-```sh
-root@bananapim8:~# sudo mkdir -p /mnt/nvme
-root@bananapim8:~# sudo mount /dev/nvme0n1p2 /mnt/nvme
-```
+[source,bash]
+----
+lspci
+lsblk
+----
 +
-Verify the mount status
-+
-```sh
-root@bananapim8:~# lsblk
-```
-+
-image::/bpi-m8/bananapi-pi_m8_m_.2_keym_6.png[bananapi-pi_m8_m_.2_keym_6.png]
+image::/bpi-m8/bananapi_bpim8_img_write_m.2_4.jpg[Check the NVMe SSD]
 
-. Test the Write Speed
-+
-```sh
-root@bananapim8:~# sudo dd if=/dev/zero of=/mnt/nvme/testfile bs=4M count=512 oflag=direct status=progress
-```
-+
-image::/bpi-m8/bananapi-pi_m8_m_.2_keym_7.png[bananapi-pi_m8_m_.2_keym_7.png]
-+
-Before testing the read speed, clear the system cache to ensure accurate physical disk performance.
-+
-```sh
-root@bananapim8:~# sudo sync 
-root@bananapim8:~# echo 3 | sudo tee /proc/sys/vm/drop_caches 
-root@bananapim8:~# sudo dd if=/mnt/nvme/testfile of=/dev/null bs=4M iflag=direct status=progress 
-```
-+
-image::/bpi-m8/bananapi-pi_m8_m_.2_keym_8.png[bananapi-pi_m8_m_.2_keym_8.png]
+NOTE: Do not add duplicate `overlays=` lines or overwrite other existing overlay settings.
 
-. Clean up the test environment
-```sh
-root@bananapim8:~# sudo rm /mnt/nvme/testfile 
-root@bananapim8:~# sudo umount /mnt/nvme 
-```
+=== NPU
+
+BPI-M8 supports running AI examples with AWNPU Model Zoo. The following YOLOv5 image object detection example shows how to convert the model, build the program, and run it.
+
+==== Preparation
+
+* An x86_64 Ubuntu development PC.
+* A BPI-M8 running 64-bit Armbian with a network connection.
+* `AWNPU_Docker_cp38.zip`: A733 version `v2.0.10.2`.
+* `AWNPU_ModelZoo.gz`: version `v1.0.0`.
+* An AArch64 GCC cross-compilation toolchain. Download instructions are in the `0-toolchains` directory of ModelZoo.
+
+NOTE: Model conversion and compilation take place on the development PC. The inference program runs on M8.
+
+. Check the NPU device on M8.
++
+[source,bash]
+----
+uname -m
+ls -l /dev/vipcore
+----
+
+The system architecture should be `aarch64`, and `/dev/vipcore` should exist.
+
+==== Set Up the Development Environment
+
+. Install Docker and the basic tools on the development PC. Skip this step if they are already installed.
++
+[source,bash]
+----
+sudo apt-get update
+sudo apt-get install -y docker.io unzip tar cmake build-essential file openssh-client
+sudo systemctl start docker
+sudo docker version
+----
+
+. Set the package path and working directory. Replace `M8_PACKAGE_DIR` with the actual storage path.
++
+[source,bash]
+----
+export M8_PACKAGE_DIR="$HOME/Downloads"
+export M8_AI_ROOT="$HOME/m8-ai"
+export M8_MODEL_ZOO="$M8_AI_ROOT/awnpu_model_zoo-v1.0.0-20260423-f562dd16"
+
+mkdir -p "$M8_AI_ROOT/docker"
+unzip -t "$M8_PACKAGE_DIR/AWNPU_Docker_cp38.zip"
+gzip -t "$M8_PACKAGE_DIR/AWNPU_ModelZoo.gz"
+----
+
+. After verification passes, extract the packages.
++
+[source,bash]
+----
+unzip -n "$M8_PACKAGE_DIR/AWNPU_Docker_cp38.zip" -d "$M8_AI_ROOT/docker"
+tar -xzf "$M8_PACKAGE_DIR/AWNPU_ModelZoo.gz" -C "$M8_AI_ROOT"
+cat "$M8_MODEL_ZOO/version"
+----
+
+. Extract and load the Docker image.
++
+[source,bash]
+----
+unzip -n \
+"$M8_AI_ROOT/docker/docker_images_v2.0.x/ubuntu-npu_v2.0.10.2.tar.zip" \
+-d "$M8_AI_ROOT/docker"
+
+sudo docker load -i "$M8_AI_ROOT/docker/ubuntu-npu_v2.0.10.2.tar"
+sudo docker images
+----
+
+. Create and enter the container.
++
+[source,bash]
+----
+sudo docker run -it --name m8-npu-a733 \
+--shm-size=1g \
+--mount "type=bind,source=$M8_AI_ROOT,target=/workspace" \
+ubuntu-npu:v2.0.10.2 /bin/bash
+----
+
+The `$M8_AI_ROOT` directory on the development PC is mapped to `/workspace` inside the container. After exiting, use the following command to enter it again:
+
+[source,bash]
+----
+sudo docker start -ai m8-npu-a733
+----
+
+. Set the ModelZoo path inside the container and check the conversion tools.
++
+[source,bash]
+----
+export M8_MODEL_ZOO=/workspace/awnpu_model_zoo-v1.0.0-20260423-f562dd16
+
+printf 'ACUITY_PATH=%s\nVIV_SDK=%s\n' "$ACUITY_PATH" "$VIV_SDK"
+pegasus --help
+----
+
+`ACUITY_PATH` and `VIV_SDK` should already be configured, and `pegasus --help` should display help information.
+
+==== Convert the YOLOv5 Model
+
+Run the following commands inside the container to convert the included ONNX model to an A733 model.
+
+NOTE: The bundled `yolov5s_rt_uint8_t527.nb` is for T527. For M8, you must export the model again for A733; simply renaming it will not work.
+
+. Enter the model conversion directory and check the ONNX model, quantization dataset, and toolchain environment.
++
+[source,bash]
+----
+cd "$M8_MODEL_ZOO/examples/yolov5/convert_model"
+test -s yolov5s_rt.onnx
+test -s ../../dataset/coco_12/dataset.txt
+test -n "$ACUITY_PATH"
+test -d "$VIV_SDK"
+pwd
+ls -lh yolov5s_rt.onnx ../../dataset/coco_12/dataset.txt
+----
+
+. Import the ONNX model.
++
+[source,bash]
+----
+pegasus import onnx \
+    --model yolov5s_rt.onnx \
+    --output-model yolov5s_rt.json \
+    --output-data yolov5s_rt.data
+----
+
+. Generate and configure the input, output, and preprocessing files.
++
+[source,bash]
+----
+pegasus generate inputmeta \
+    --model yolov5s_rt.json \
+    --separated-database \
+    --input-meta-output yolov5s_rt_inputmeta.yml
+
+pegasus generate postprocess-file \
+    --model yolov5s_rt.json \
+    --postprocess-file-output yolov5s_rt_postprocess_file.yml
+
+python3 ./config_yml.py yolov5s_rt
+----
+
+. Quantize the model using the COCO sample data.
++
+[source,bash]
+----
+pegasus quantize \
+    --model yolov5s_rt.json \
+    --model-data yolov5s_rt.data \
+    --device CPU \
+    --with-input-meta yolov5s_rt_inputmeta.yml \
+    --iterations 12 --rebuild \
+    --model-quantize yolov5s_rt_uint8.quantize \
+    --quantizer asymmetric_affine --qtype uint8
+----
+
+. Export the A733 model and copy it to the example program's model directory.
++
+[source,bash]
+----
+pegasus export ovxlib \
+    --pack-nbg-unify \
+    --optimize VIP9000NANODI_PLUS_PID0X1000003B \
+    --viv-sdk "$VIV_SDK" \
+    --model yolov5s_rt.json \
+    --model-data yolov5s_rt.data \
+    --dtype quantized \
+    --model-quantize yolov5s_rt_uint8.quantize \
+    --target-ide-project linux64 \
+    --with-input-meta yolov5s_rt_inputmeta.yml \
+    --postprocess-file yolov5s_rt_postprocess_file.yml \
+    --output-path ./wksp/yolov5s_rt_uint8/yolov5s_rt_uint8
+
+test -s ./wksp/yolov5s_rt_uint8_nbg_unify/network_binary.nb
+cp ./wksp/yolov5s_rt_uint8_nbg_unify/network_binary.nb \
+    ../model/yolov5s_rt_uint8_a733.nb
+ls -lh ../model/yolov5s_rt_uint8_a733.nb
+----
+
+The generated model is located at `examples/yolov5/model/yolov5s_rt_uint8_a733.nb`.
+
+==== Build the Example
+
+. Follow `0-toolchains/gcc-arm-10.3-aarch64-none-linux-gnu.tar.txt` to download GCC 10.3 and place it in the `0-toolchains` directory.
+
+. Extract the toolchain and OpenCV inside the container.
++
+[source,bash]
+----
+cd "$M8_MODEL_ZOO/0-toolchains"
+tar -xf gcc-arm-10.3-2021.07-x86_64-aarch64-none-linux-gnu.tar.xz
+./gcc-arm-10.3-2021.07-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu-gcc --version
+
+cd "$M8_MODEL_ZOO/3rdparty/opencv"
+python3 -m zipfile -e opencv-4.9.0-aarch64-linux-sunxi-glibc.zip .
+test -d opencv-4.9.0-aarch64-linux-sunxi-glibc
+----
+
+NOTE: The NPU container does not have `unzip` preinstalled. The commands above use the Python standard library for extraction, so no additional software needs to be installed from the Allwinner APT source inside the container.
+
+. Build YOLOv5 and copy the A733 runtime libraries.
++
+[source,bash]
+----
+cd "$M8_MODEL_ZOO/examples"
+test -s yolov5/model/yolov5s_rt_uint8_a733.nb
+
+bash ./build_linux.sh -t a733 -p yolov5 -s linux
+
+M8_DEMO_DIR="$M8_MODEL_ZOO/examples/yolov5/install/yolov5_demo_linux_a733"
+test -x "$M8_DEMO_DIR/yolov5_demo_a733"
+test -s "$M8_DEMO_DIR/model/yolov5s_rt_uint8_a733.nb"
+
+mkdir -p "$M8_DEMO_DIR/lib"
+cp -a "$M8_MODEL_ZOO/common/npuruntime/lib_linux_aarch64/A733/"*.so \
+    "$M8_DEMO_DIR/lib/"
+
+ls -lh "$M8_DEMO_DIR/lib/"
+----
+
+NOTE: Bullseye uses GCC 10.2. Download instructions are in `0-toolchains/gcc-arm-10.2-aarch64-none-linux-gnu.tar.xz.txt`. After extraction, change the build option `-s linux` to `-s debian11`.
+
+==== Run the Example
+
+. On the development PC, transfer the program to M8. Replace the IP address with the actual address of M8.
++
+[source,bash]
+----
+export M8_MODEL_ZOO="$HOME/m8-ai/awnpu_model_zoo-v1.0.0-20260423-f562dd16"
+export M8_TARGET=pi@192.168.1.100
+
+ssh "$M8_TARGET" 'mkdir -p ~/m8-ai'
+scp -r "$M8_MODEL_ZOO/examples/yolov5/install/yolov5_demo_linux_a733" \
+"$M8_TARGET:~/m8-ai/"
+----
+
+. Check the runtime libraries on M8. The output should not contain `not found`.
++
+[source,bash]
+----
+cd "$HOME/m8-ai/yolov5_demo_linux_a733"
+LD_LIBRARY_PATH="$PWD/lib" \
+ldd ./yolov5_demo_a733
+----
+
+. Run object detection.
++
+[source,bash]
+----
+sudo env LD_LIBRARY_PATH="$PWD/lib" \
+timeout 120 ./yolov5_demo_a733 \
+-nb model/yolov5s_rt_uint8_a733.nb \
+-i model/dog.jpg -l 50 -m 128
+
+m8_demo_rc=$?
+printf 'exit code: %s\n' "$m8_demo_rc"
+test "$m8_demo_rc" -eq 0 && test -s output_yolov5.png
+----
+
+`-l` sets the number of runs, and `-m` sets the NPU initialization memory size in MiB. After a successful run, the detection result image `output_yolov5.png` is generated in the current directory.
+
+image::/bpi-m8/bananapi_bpim8_npu_yolov5_run.png[bananapi_bpim8_npu_yolov5_run.png]
+
+. Retrieve the result image on the development PC.
++
+[source,bash]
+----
+scp "$M8_TARGET:~/m8-ai/yolov5_demo_linux_a733/output_yolov5.png" ./
+----
+
+image::/bpi-m8/output_yolov5.png[output_yolov5.png]
+
+To use your own image, replace `-i model/dog.jpg` with the corresponding JPG path.
+
+==== Other Examples
+
+See the `README.md` in each directory for instructions on the other examples:
+
+* Image classification: `examples/mobilenetv2` and `examples/resnet50v2`.
+* Object detection: `examples/yolov8` and `examples/yolo11`.
+* Image segmentation: `examples/yolov8_seg` and `examples/ppseg`.
+* Human pose estimation: `examples/yolov8_pose`.
+* Text detection and recognition: `examples/ppocr`; license plate recognition: `examples/LPRNet`.
+
+Select `a733` as the build platform for M8. For more information, see `docs/NPU_快速入门_开发指南.pdf` in the package.
 
 
-= Pin Define
+== Pin Definitions
 
-.BPI-M8 40PIN GPIO
+NOTE: Disconnect the power before connecting cables or expansion boards, and check the pin 1 position of each connector.
+
+.40-pin GPIO
 [%collapsible]
 ====
 [options="header",cols="1,2",width="70%"]
-|=====
-2+| **40 PIN GPIO of Banana pi BPI-M8**
-| Pin Num | Pin Name 
-| 1  | DCDC1 
-| 2  | VBUS-AXP318 
+|===
+| Pin Number | Pin Name
+| 1  | DCDC1
+| 2  | VBUS-AXP318
 | 3  | PJ23/TWI7-SDA
 | 4  | VBUS-AXP318
 | 5  | PJ22/TWI7-SCK
-| 6  | GND 
+| 6  | GND
 | 7  | PL05/PWM0-3
-| 8  | PB00/UART2-TX 
-| 9  | GND 
+| 8  | PB00/UART2-TX
+| 9  | GND
 | 10 | PB01/UART2-RX
 | 11 | PL12/S-UART1-TX
-| 12 | HD-PIN12 
-| 13 | PL13/S-UART1-RX 
-| 14 | GND 
-| 15 | PL06/S-UART0-TX 
-| 16 | PB02/UART2-RTS 
+| 12 | HD-PIN12
+| 13 | PL13/S-UART1-RX
+| 14 | GND
+| 15 | PL06/S-UART0-TX
+| 16 | PB02/UART2-RTS
 | 17 | DCDC1
 | 18 | PB03/UART2-CTS
 | 19 | PJ25/SPI3-MOSI
-| 20 | GND  
-| 21 | PJ26/SPI3-MISO 
-| 22 | HD-PIN22 
-| 23 | PJ24/SPI3-CLK 
+| 20 | GND
+| 21 | PJ26/SPI3-MISO
+| 22 | HD-PIN22
+| 23 | PJ24/SPI3-CLK
 | 24 | HD-PIN24
-| 25 | GND 
-| 26 | PJ27/SPI3-CS0 
+| 25 | GND
+| 26 | PJ27/SPI3-CS0
 | 27 | HD-PIN27
-| 28 | HD-PIN28 
+| 28 | HD-PIN28
 | 29 | PL07/S-UART0-RX
-| 30 | GND 
-| 31 | HD-PIN31 
+| 30 | GND
+| 31 | HD-PIN31
 | 32 | HD-PIN32
-| 33 | HD-PIN33 
-| 34 | GND 
-| 35 | HD-PIN35 
+| 33 | HD-PIN33
+| 34 | GND
+| 35 | HD-PIN35
 | 36 | HD-PIN36
-| 37 | HD-PIN37 
+| 37 | HD-PIN37
 | 38 | HD-PIN38
-| 39 | GND 
+| 39 | GND
 | 40 | HD-PIN40
-|=====
+|===
 ====
 
-.BPI-M8 MIPI CSIA
+.MIPI CSI-A
 [%collapsible]
 ====
 [options="header",cols="1,2",width="70%"]
-|=====
-2+| **MIPI CSIA of Banana pi BPI-M8**
-| Pin Num | Pin Name 
-| 1  | MCSIA-D3N 
+|===
+| Pin Number | Pin Name
+| 1  | MCSIA-D3N
 | 2  | MCSIA-D3P
 | 3  | GND
 | 4  | MCSIA-D2N
 | 5  | MCSIA-D2P
-| 6  | GND 
+| 6  | GND
 | 7  | NC
 | 8  | NC
-| 9  | GND 
+| 9  | GND
 | 10 | MCSIA-D1N
 | 11 | MCSIA-D1P
-| 12 | GND 
+| 12 | GND
 | 13 | MCSIA-D0N
 | 14 | MCSIA-D0P
 | 15 | GND
@@ -567,33 +856,32 @@ root@bananapim8:~# sudo umount /mnt/nvme
 | 30 | VCC1V8_CSI0
 | 31 | GND
 | 32 | GND
-| 33 | VCC3V3_CSI0 
+| 33 | VCC3V3_CSI0
 | 34 | VCC3V3_CSI0
 | 35 | VCC3V3_CSI0
 | 36 | GND
 | 37 | GND
-|=====
+|===
 ====
 
-.BPI-M8 MIPI CSIB
+.MIPI CSI-B
 [%collapsible]
 ====
 [options="header",cols="1,2",width="70%"]
-|=====
-2+| **MIPI CSIB of Banana pi BPI-M8**
-| Pin Num | Pin Name 
+|===
+| Pin Number | Pin Name
 | 1  | MCSIB-D3N
 | 2  | MCSIB-D3P
 | 3  | GND
 | 4  | MCSIB-D2N
 | 5  | MCSIB-D2P
-| 6  | GND 
+| 6  | GND
 | 7  | NC
 | 8  | NC
-| 9  | GND 
+| 9  | GND
 | 10 | MCSIB-D1N
 | 11 | MCSIB-D1P
-| 12 | GND 
+| 12 | GND
 | 13 | MCSIB-D0N
 | 14 | MCSIB-D0P
 | 15 | GND
@@ -614,33 +902,32 @@ root@bananapim8:~# sudo umount /mnt/nvme
 | 30 | VCC1V8_CSI1
 | 31 | GND
 | 32 | GND
-| 33 | VCC3V3_CSI1 
+| 33 | VCC3V3_CSI1
 | 34 | VCC3V3_CSI1
 | 35 | VCC3V3_CSI1
 | 36 | GND
 | 37 | GND
-|=====
+|===
 ====
 
-.BPI-M8 PCIe+DP
+.PCIe/DP
 [%collapsible]
 ====
 [options="header",cols="1,2",width="70%"]
-|=====
-2+| **PCIe+DP of Banana pi BPI-M8**
-| Pin Num | Pin Name 
+|===
+| Pin Number | Pin Name
 | 1  | COMB1-TX0P
 | 2  | COMB1-TX0N
 | 3  | GND
 | 4  | COMB1-RX0P
 | 5  | COMB1-RX0N
-| 6  | GND 
+| 6  | GND
 | 7  | COMB1-REFP
 | 8  | COMB1-REFN
-| 9  | GND 
+| 9  | GND
 | 10 | DP_TX0P
 | 11 | DP_TX0N
-| 12 | GND 
+| 12 | GND
 | 13 | DP_TX1P
 | 14 | DP_TX1N
 | 15 | GND
@@ -662,28 +949,27 @@ root@bananapim8:~# sudo umount /mnt/nvme
 | 31 | VDD5P0V-PCIe
 | 32 | GND
 | 33 | GND
-|=====
+|===
 ====
 
-.BPI-M8 MIPI DSI0
+.MIPI DSI0
 [%collapsible]
 ====
 [options="header",cols="1,2",width="70%"]
-|=====
-2+| **MIPI DSI0 of Banana pi BPI-M8**
-| Pin Num | Pin Name 
+|===
+| Pin Number | Pin Name
 | 1  | MIPI-DSI0-D0N
 | 2  | MIPI-DSI0-D0P
 | 3  | GND
-| 4  | MIPI-DSI0-D0P
+| 4  | MIPI-DSI0-D1N
 | 5  | MIPI-DSI0-D1P
-| 6  | GND 
+| 6  | GND
 | 7  | MIPI-DSI0-CKN
 | 8  | MIPI-DSI0-CKP
-| 9  | GND 
+| 9  | GND
 | 10 | MIPI-DSI0-D2N
 | 11 | MIPI-DSI0-D2P
-| 12 | GND 
+| 12 | GND
 | 13 | MIPI-DSI0-D3N
 | 14 | MIPI-DSI0-D3P
 | 15 | GND
@@ -705,6 +991,5 @@ root@bananapim8:~# sudo umount /mnt/nvme
 | 31 | VDD5P0V-DSI0
 | 32 | GND
 | 33 | GND
-|=====
+|===
 ====
-
