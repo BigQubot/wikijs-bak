@@ -40,7 +40,7 @@ image::/bpi_cm7/bananapi_bpicm7_phonenixsuit3.jpg[bananapi_bpicm7_phonenixsuit3.
 +
 image::/bpi_cm7/bananapi_bpicm7_phonenixsuit4.jpg[bananapi_bpicm7_phonenixsuit4.jpg]
 
-WARNING: 请勿在开机前插 **TF** 卡，以免系统无法启动。若需将 **TF** 卡作为存储设备，请成功开机后再插入 **TF** 卡，且 **TF** 卡要格式化，不能存储系统。
+WARNING: 请勿在开机前插 **TF** 卡，以免系统无法启动。若需将 **TF** 卡作为存储设备，请成功开机后再插入 **TF** 卡，且 **TF** 卡要格式化，不要写入系统镜像。
 
 = Linux 开发
 
