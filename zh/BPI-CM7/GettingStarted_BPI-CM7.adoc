@@ -24,7 +24,7 @@ TIP: 更多信息：link:/zh/BPI-CM7/BananaPi_BPI-CM7[Banana Pi BPI-CM7 主页]
 . Type‑C 数据线（支持数据传输）、5V 电源。
 
 == USB 工具刷机步骤
-. 打开 **PhoenixSuit**，单击 **一键刷机** 图标切换到固件下载面板。
+. 打开 **PhoenixSuit**，选择 **一键刷机** 图标切换到固件下载面板。
 +
 image::/bpi_cm7/bananapi_bpicm7_phonenixsuit1.jpg[bananapi_bpicm7_phonenixsuit1.jpg]
 
@@ -32,11 +32,13 @@ image::/bpi_cm7/bananapi_bpicm7_phonenixsuit1.jpg[bananapi_bpicm7_phonenixsuit1.
 +
 image::/bpi_cm7/bananapi_bpicm7_phonenixsuit2.jpg[bananapi_bpicm7_phonenixsuit2.jpg]
 
-. 持续按压 **FEL 按钮**，同时使用 **Type-C(带有data线) **接口将 CM7 连接到电脑。弹出警告对话框后，单击 **是**。
+. 持续按压 **FEL 按钮**，同时使用 **Type-C(带有data线) **接口将 CM7 连接到电脑，随后自动烧写固件。
++
+image::/bpi_cm7/bananapi_bpicm7_phonenixsuit3.jpg[bananapi_bpicm7_phonenixsuit3.jpg]
 
-. 自动开始固件下载，等待刷机完成。
-
-. 下载完成(**Android 版本只能下载到 eMMC**)。
+. 下载完成（**Android 版本只能下载到 eMMC**）。
++
+image::/bpi_cm7/bananapi_bpicm7_phonenixsuit4.jpg[bananapi_bpicm7_phonenixsuit4.jpg]
 
 = Linux 开发
 
