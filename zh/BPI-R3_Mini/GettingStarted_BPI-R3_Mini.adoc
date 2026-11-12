@@ -125,8 +125,6 @@ dd if=/dev/zero of=/dev/mmcblk0
 
 === 将镜像烧录到板载 eMMC
 
-==== 准备
-
 向 eMMC 烧录镜像前，请准备一个 U 盘，需要下载link:https://firmware-selector.openwrt.org/[OpenWrt]中的五个文件，将这5个文件拷贝到U盘中。
 
 image::/bpi-r3mini/bpi-r3-mini_emmc_openwrt_1.jpg[bpi-r3-mini_emmc_openwrt_1.jpg]
