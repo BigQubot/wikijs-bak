@@ -41,6 +41,14 @@ The seamless collaboration between the two ensures sufficient capacity to handle
   
 * Gear ratio: 7.75:1
 
+== Application direction
+
+* Dual-encoder, fully closed-loop position control: high precision with no loss of position upon power loss.
+* Native CAN FD support + MIT control mode: designed for high-frequency dynamic control.
+* 40A peak current: ensures stable closed-loop performance under high-dynamic loads, with overload protection to prevent loss of control.
+* Integrated servo, motor, and gearbox: compact, smaller, and lighter design.
+* Professional servo configuration software with a graphical interface for debugging.
+
 = Getting Start 
 
 TIP: link:/en/BPI-JC10/GettingStarted_BPI-JC10[Quick Start Debugging Guide]
