@@ -41,4 +41,59 @@ The seamless collaboration between the two ensures sufficient capacity to handle
   
 * Gear ratio: 7.75:1
 
+= Getting Start 
+
+TIP: link:/en/BPI-JC10/GettingStarted_BPI-JC10[Quick Start Debugging Guide]
+
+= Hardware
+
+== Hardware Interface Diagrams
+
+== BPI-JC10 Photo
+
+
+== Hardware Specifications
+
+[cols="1,3", options="header" ]
+|====
+| Item                          | Description                                                                                                                              
+| MCU-FU7512L                   | FU7512L, Fortior Technology self-developed dual-core MCU (32-bit RISC-V core + motor control engine ME2 core)                            
+| Pre-driver FD6288             | FD6288, Fortior Technology self-developed pre-driver, integrates three independent half-bridge gate drivers 
+
+|Magnetic Encoders              | KTH7112,Encoder position feedback
+
+| MOS                           | ZMS026N10HNC                                                                                                                                        
+| Code download interface       | For downloading code to the MCU for debugging                                                                                            
+| CANFD interface               | For connecting to the servo PC for tuning and external CAN/CAN FD control                                                                
+| U/V/W                         | Joint motor power lines (U/V/W)                                                               
+| Power interface               |  Joint module power input
+
+| Indicator LEDs                | LED1: steady on indicates power-on; LED2: blinking indicates fault                                                                                                                 
+|====
+
+== CANFD/Power Interface Definition
+
+image::/bpi_jc10/banana_pi_bpi-jc10_canfdpower1.jpg[banana_pi_bpi-jc10_canfdpower1.jpg]
+
+[cols="2*", options="header"]
+|================
+| Pin | Function 
+| 1   | CAN_H    
+| 2   | CAN_L  
+| 3   | GND    
+| 4   | 48V           
+|================
+
+
+= Development
+
+== **Source Code**
+
+== **Reference**
+
+
+= Easy to buy sample
+
+
+
 
