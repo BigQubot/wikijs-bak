@@ -140,7 +140,10 @@ image::/bpi-r3mini/bpi-r3-mini_emmc_openwrt_1.jpg[bpi-r3-mini_emmc_openwrt_1.jpg
 . 将U盘里的 OpenWrt 的5个文件，上传到root文件里。
 +
 ```sh
-
+mkdir -p /root/emmc-install                              # 在root文件夹里创建一个文件夹
+cp /mnt/sda1/emm* /root/emmc-install                     # 把U盘里的开头emm的文件拷贝到root文件夹里
+cp /mnt/sda1/sysupgrade.itb /root/emmc-install           # 把U盘里的文件拷贝到root文件夹里
+cp /mnt/sda1/initramfs-recovery.itb /root/emmc-install   # 把U盘里的文件拷贝到root文件夹里
 
 ```
 
