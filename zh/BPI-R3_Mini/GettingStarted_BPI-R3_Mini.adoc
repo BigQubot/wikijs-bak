@@ -321,10 +321,10 @@ IMG=/tmp/openwrt-25.12.6-mediatek-filogic-bananapi_bpi-r3-mini-snand-factory.bin
 IMG_SIZE=$(wc -c < "$IMG")
 IMG_BLOCKS=$(( (IMG_SIZE + 511) / 512 ))
 
-printf 'IMG_SIZE_DEC=%u\n' "$IMG_SIZE"
-printf 'IMG_SIZE_HEX=0x%x\n' "$IMG_SIZE"
-printf 'IMG_BLOCKS_DEC=%u\n' "$IMG_BLOCKS"
-printf 'IMG_BLOCKS_HEX=0x%x\n' "$IMG_BLOCKS"
+printf 'IMG_SIZE_DEC=%u\n' "$IMG_SIZE"         # 输出10进制
+printf 'IMG_SIZE_HEX=0x%x\n' "$IMG_SIZE"       # 输出16进制
+printf 'IMG_BLOCKS_DEC=%u\n' "$IMG_BLOCKS"     # 输出10进制
+printf 'IMG_BLOCKS_HEX=0x%x\n' "$IMG_BLOCKS"   # 输出16进制
 sha256sum "$IMG"
 ```
 +
