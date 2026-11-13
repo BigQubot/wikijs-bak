@@ -374,6 +374,20 @@ dd if="$IMG" \
 
 sync                           # 全局缓存落盘
 ```
++
+
+. 进入 eMMC U-Boot 
+从串口重启进入 eMMC U-Boot
++
+当屏幕上出现类似以下提示时，敲击ESC键进入U-Boot。
++
+```sh
+Hit any key to stop autoboot: 3
+```
++
+
+
+
 
 
 == 网络配置
