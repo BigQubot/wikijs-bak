@@ -243,6 +243,8 @@ dd if=/root/emmc-install/emmc-preloader.bin \
 sync                                           # 确保数据安全落盘
 echo 1 > /sys/block/mmcblk0boot0/force_ro      # 恢复 boot0 分区的只读保护
 ```
++
+
 
 
 == 网络配置
