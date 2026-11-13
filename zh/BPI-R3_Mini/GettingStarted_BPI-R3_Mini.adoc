@@ -166,7 +166,7 @@ dd if=/dev/mmcblk0boot0 of=/root/emmc-backup/mmcblk0boot0.bin    #备份 eMMC Bo
 
 dd if=/dev/mmcblk0boot1 of=/root/emmc-backup/mmcblk0boot1.bin    #备份 eMMC Boot 分区
 
-dd if=/dev/mmcblk0p3 of=/root/emmc-backup/factory-old.bin        #备份 eMMC Boot 分区
+dd if=/dev/mmcblk0p3 of=/root/emmc-backup/factory-old.bin        #备份 eMMC 指定用户分区
 
 sync                                                             # 在完成刷机或文件拷贝后执行，确保数据安全落盘
 ```
