@@ -129,6 +129,21 @@ dd if=/dev/zero of=/dev/mmcblk0
 
 image::/bpi-r3mini/bpi-r3-mini_emmc_openwrt_1.jpg[bpi-r3-mini_emmc_openwrt_1.jpg]
 
+. 将 OpenWrt 的5个文件，统一命名为:
+* sysupgrade.itb
+* emmc-bl31-uboot.fip
+* emmc-gpt.bin
+* emmc-preloader.bin
+* initramfs-recovery.itb
+
+
+. 将U盘里的 OpenWrt 的5个文件，上传到root文件里。
++
+```sh
+
+
+```
+
 
 
 
