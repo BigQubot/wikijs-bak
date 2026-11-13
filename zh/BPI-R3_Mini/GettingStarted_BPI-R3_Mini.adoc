@@ -325,7 +325,7 @@ printf 'IMG_SIZE_DEC=%u\n' "$IMG_SIZE"         # 输出10进制
 printf 'IMG_SIZE_HEX=0x%x\n' "$IMG_SIZE"       # 输出16进制
 printf 'IMG_BLOCKS_DEC=%u\n' "$IMG_BLOCKS"     # 输出10进制
 printf 'IMG_BLOCKS_HEX=0x%x\n' "$IMG_BLOCKS"   # 输出16进制
-sha256sum "$IMG"
+sha256sum "$IMG"                               # 校验文件完整性
 ```
 +
 image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_9.jpg[bpi-r3-mini_nand_openwrt_9.jpg]
