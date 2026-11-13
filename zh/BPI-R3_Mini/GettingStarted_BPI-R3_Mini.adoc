@@ -246,7 +246,7 @@ echo 1 > /sys/block/mmcblk0boot0/force_ro      # 恢复 boot0 分区的只读保
 +
 image::/bpi-r3mini/bpi-r3-mini_emmc_openwrt_9.jpg[bpi-r3-mini_emmc_openwrt_9.jpg]
 
-. 启用 boot0
+. 配置 eMMC 从 Boot0 分区启动
 从串口重启进入 NAND U-Boot
 +
 当屏幕上出现类似以下提示时，敲击ESC键进入U-Boot。
