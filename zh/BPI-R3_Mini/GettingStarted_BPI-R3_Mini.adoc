@@ -177,6 +177,19 @@ dd if=/root/emmc-install/emmc-gpt.bin of=/dev/mmcblk0 bs=512 conv=notrunc,fsync 
 sync                       # 在完成刷机或文件拷贝后执行，确保数据安全落盘
 reboot                     # 重启
 ```
++
+image::/bpi-r3mini/bpi-r3-mini_emmc_openwrt_6.jpg[bpi-r3-mini_emmc_openwrt_6.jpg]
+
+. 重启后确认新分区
++
+```sh
+for p in /sys/class/block/mmcblk0p*; do
+    printf '%s: ' "${p##*/}"
+    grep PARTNAME "$p/uevent"
+    cat "$p/size"
+done                                     
+```
+
 
 
 == 网络配置
