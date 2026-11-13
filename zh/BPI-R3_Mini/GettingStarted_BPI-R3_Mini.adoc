@@ -255,11 +255,11 @@ image::/bpi-r3mini/bpi-r3-mini_emmc_openwrt_9.jpg[bpi-r3-mini_emmc_openwrt_9.jpg
 Hit any key to stop autoboot: 3
 ```
 +
-U-Boot 下查看 eMMC 设备与启动配置
+切换并查看 eMMC 当前配置
 +
 ```sh
-mmc dev 0
-mmc partconf 0
+mmc dev 0               # 将当前操作设备切换为 0 号设备
+mmc partconf 0          # 读取该 eMMC 当前的启动分区配置状态
 ```
 +
 
