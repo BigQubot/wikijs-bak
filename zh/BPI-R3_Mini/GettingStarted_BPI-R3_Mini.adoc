@@ -144,7 +144,7 @@ mkdir -p /root/emmc-install                              # 在root里创建一�
 cp /mnt/sda1/emm* /root/emmc-install                     # 把U盘里的开头emm的文件拷贝到root里
 cp /mnt/sda1/sysupgrade.itb /root/emmc-install           # 把U盘里的文件拷贝到root里
 cp /mnt/sda1/initramfs-recovery.itb /root/emmc-install   # 把U盘里的文件拷贝到root里
-cd /root/emmc-install                                    # 进入/root/emmc-install
+cd /root/emmc-install                                    # 进入root目录下的emmc-install文件夹
 ```
 
 
