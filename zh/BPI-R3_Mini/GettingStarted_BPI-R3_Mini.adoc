@@ -262,13 +262,24 @@ mmc dev 0               # 将当前操作设备切换为 0 号设备
 mmc partconf 0          # 读取该 eMMC 当前的启动分区配置状态
 ```
 +
+image::/bpi-r3mini/bpi-r3-mini_emmc_openwrt_10.jpg[bpi-r3-mini_emmc_openwrt_10.jpg]
++
 ```sh
 mmc partconf 0 1 1 0    # 强制设置 eMMC 从 Boot0 启动
 ```
 +
+image::/bpi-r3mini/bpi-r3-mini_emmc_openwrt_11.jpg[bpi-r3-mini_emmc_openwrt_11.jpg]
++
 ```sh
 mmc partconf 0          # 验证配置是否生效
 ```
++
+image::/bpi-r3mini/bpi-r3-mini_emmc_openwrt_12.jpg[bpi-r3-mini_emmc_openwrt_12.jpg]
+
+. 断电切换 eMMC ,首次启动会初始化新的 U-Boot 环境和 rootfs_data。
+
+
+
 
 
 == 网络配置
