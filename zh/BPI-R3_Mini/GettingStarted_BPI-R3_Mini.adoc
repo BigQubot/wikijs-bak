@@ -223,7 +223,26 @@ dd if=/root/emmc-install/sysupgrade.itb \
    
 sync                     # 确保数据安全落盘
 ```
++
+image::/bpi-r3mini/bpi-r3-mini_emmc_openwrt_8.jpg[bpi-r3-mini_emmc_openwrt_8.jpg]
 
+. 写入 eMMC Preloader
++
+```sh
+echo 0 > /sys/block/mmcblk0boot0/force_ro      # 解除 boot0 分区的只读保护
+```
++
+```sh
+dd if=/root/emmc-install/emmc-preloader.bin \
+   of=/dev/mmcblk0boot0 \
+   bs=512 \
+   conv=notrunc,fsync                          # 将预引导镜像写入 boot0 分区
+```
++
+```sh
+sync                                           # 确保数据安全落盘
+echo 1 > /sys/block/mmcblk0boot0/force_ro      # 恢复 boot0 分区的只读保护
+```
 
 
 == 网络配置
