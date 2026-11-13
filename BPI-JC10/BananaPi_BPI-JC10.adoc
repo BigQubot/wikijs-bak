@@ -92,6 +92,46 @@ image::/bpi_jc10/banana_pi_bpi-jc10_canfdpower1.jpg[banana_pi_bpi-jc10_canfdpowe
 | 4   | 48V           
 |================
 
+= Accessories
+
+== Power Supply
+
+image::/bpi_jc10/banana_pi_bpi-jc10_power1.jpg[banana_pi_bpi-jc10_power1.jpg]
+
+Specification:
+Output voltage 0-60 V, output current 0-5 A, output power 300 W
+
+== Power Supply + CAN Debug Cable
+
+image::/bpi_jc10/banana_pi_bpi_jc10_debug_cable.jpg[banana_pi_bpi_jc10_debug_cable.jpg]
+
+Specification:
+Cable length 20 cm, power wire 18 AWG, signal wire 26 AWG
+
+== CAN Debug Adapter
+
+image::/bpi_jc10/banana_pi_bpi-jc10_pcanfd1.jpg[banana_pi_bpi-jc10_pcanfd1.jpg]
+
+Specification:
+PCAN-FD
+
+image::/bpi_jc10/banana_pi_bpi-jc10_usbtocan.jpg[banana_pi_bpi-jc10_usbtocan.jpg]
+
+Specification:
+Single-channel CAN FD
+
+image::/bpi_jc10/banana_pi_bpi-jc10_pcanfd2.jpg[banana_pi_bpi-jc10_pcanfd2.jpg]
+
+Specification:
+Single-channel CAN FD
+
+== Emulator
+
+image::/bpi_jc10/banana_pi_bpi-jc10_emulator.jpg[banana_pi_bpi-jc10_emulator.jpg]
+
+Specification:
+MCU USB Debug Adapter V1.1
+
 
 = Development
 
