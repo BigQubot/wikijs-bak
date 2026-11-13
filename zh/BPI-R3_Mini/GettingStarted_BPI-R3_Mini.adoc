@@ -278,6 +278,57 @@ image::/bpi-r3mini/bpi-r3-mini_emmc_openwrt_12.jpg[bpi-r3-mini_emmc_openwrt_12.j
 
 . 断电切换 eMMC ,首次启动会初始化新的 U-Boot 环境和 rootfs_data。
 
+=== 将镜像烧录到板载 NAND
+
+向 NAND 烧录镜像前，需要下载 link:https://firmware-selector.openwrt.org/[OpenWrt]中的镜像。
+
+image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_1.jpg[bpi-r3-mini_nand_openwrt_1.jpg]
+
+. 准备一根网线,连接R3-mini的lan口和电脑上的网口，查看R3-mini分配的IP地址。
++
+```sh
+ip a
+```
++
+image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_2.jpg[bpi-r3-mini_nand_openwrt_2.jpg]
+
+. ssh连接R3-mini后把镜像拖入tmp文件夹。
++
+image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_3.jpg[bpi-r3-mini_nand_openwrt_3.jpg]
++
+image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_4.jpg[bpi-r3-mini_nand_openwrt_4.jpg]
++
+image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_5.jpg[bpi-r3-mini_nand_openwrt_5.jpg]
++
+image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_6.jpg[bpi-r3-mini_nand_openwrt_6.jpg]
++
+image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_7.jpg[bpi-r3-mini_nand_openwrt_7.jpg]
+
+. 刷机镜像校验流程
++
+```sh
+ls -l /tmp/openwrt-25.12.6-mediatek-filogic-bananapi_bpi-r3-mini-snand-factory.bin      # 查看镜像文件的基本信息
+sha256sum /tmp/openwrt-25.12.6-mediatek-filogic-bananapi_bpi-r3-mini-snand-factory.bin  #计算镜像文件的 SHA-256 哈希校验值
+```
++
+image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_8.jpg[bpi-r3-mini_nand_openwrt_8.jpg]
+
+. 自动计算新镜像参数
++
+```sh
+IMG=/tmp/openwrt-25.12.6-mediatek-filogic-bananapi_bpi-r3-mini-snand-factory.bin
+
+IMG_SIZE=$(wc -c < "$IMG")
+IMG_BLOCKS=$(( (IMG_SIZE + 511) / 512 ))
+
+printf 'IMG_SIZE_DEC=%u\n' "$IMG_SIZE"
+printf 'IMG_SIZE_HEX=0x%x\n' "$IMG_SIZE"
+printf 'IMG_BLOCKS_DEC=%u\n' "$IMG_BLOCKS"
+printf 'IMG_BLOCKS_HEX=0x%x\n' "$IMG_BLOCKS"
+sha256sum "$IMG"
+```
++
+image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_9.jpg[bpi-r3-mini_nand_openwrt_9.jpg]
 
 
 
