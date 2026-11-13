@@ -152,12 +152,13 @@ cp /mnt/emm* /root/emmc-install                     # 把U盘里的开头emm的�
 cp /mnt/sysupgrade.itb /root/emmc-install           # 把U盘里的文件拷贝到root里
 cp /mnt/initramfs-recovery.itb /root/emmc-install   # 把U盘里的文件拷贝到root里
 cd /root/emmc-install                               # 进入root目录下的emmc-install文件夹
-ls                                                   # 查看
+ls                                                  # 查看
+sha256sum *                                         #计算当前目录下所有文件的哈希值
 ```
 +
-image::/bpi-r3mini/bpi-r3-mini_emmc_openwrt_3.jpg[bpi-r3-mini_emmc_openwrt_3.jpg]
 
 
+. 
 
 
 
