@@ -244,6 +244,24 @@ sync                                           # 确保数据安全落盘
 echo 1 > /sys/block/mmcblk0boot0/force_ro      # 恢复 boot0 分区的只读保护
 ```
 +
+image::/bpi-r3mini/bpi-r3-mini_emmc_openwrt_9.jpg[bpi-r3-mini_emmc_openwrt_9.jpg]
+
+. 启用 boot0
+从串口重启进入 NAND U-Boot
++
+当屏幕上出现类似以下提示时，敲击ESC键进入U-Boot。
++
+```sh
+Hit any key to stop autoboot: 3
+```
++
+U-Boot 下查看 eMMC 设备与启动配置
++
+```sh
+mmc dev 0
+mmc partconf 0
+```
++
 
 
 
