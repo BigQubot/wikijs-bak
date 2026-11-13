@@ -178,7 +178,7 @@ image::/bpi-rt2/bpi-rt2-ssid2.png[bpi-rt2-ssid2.png]
 [options="header",cols="3,1,1,4",width="70%"]
 |====
 4+| **BPI-RT2 5 针排针 GPIO 定义**
-|BPI-RT2-CON6	|PIN		|PIN	|BPI-RT2-CON5
+|BPI-RT2-CON5	|PIN		|PIN	|BPI-RT2-CON5
 |GPIO28	|1		|2	| GPIO36
 |VDD33	|3	|	4|	GND
 |GPIO25	|5	|	|
@@ -188,7 +188,7 @@ image::/bpi-rt2/bpi-rt2-ssid2.png[bpi-rt2-ssid2.png]
 [options="header",cols="3,1,1,4",width="70%"]
 |====
 4+| **BPI-RT2 9 针排针 GPIO 定义**
-|BPI-RT2-CON6	|PIN		|PIN	|BPI-RT2-CON6
+|BPI-RT2-CON2	|PIN		|PIN	|BPI-RT2-CON2
 |	I2C0_SCL|1		|2	|GPIO30
 | I2C0_SDA	|3	|	4|	GPIO5
 |GND	|5	| 6	|	GPIO3
