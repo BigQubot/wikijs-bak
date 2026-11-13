@@ -165,7 +165,7 @@ mkdir -p /root/emmc-backup                                       # 在root里创
 dd if=/dev/mmcblk0boot0 of=/root/emmc-backup/mmcblk0boot0.bin    #备份 eMMC Boot 分区
 dd if=/dev/mmcblk0boot1 of=/root/emmc-backup/mmcblk0boot1.bin    #备份 eMMC Boot 分区
 dd if=/dev/mmcblk0p3 of=/root/emmc-backup/factory-old.bin        #备份 eMMC 指定用户分区
-sync                                                             # 确保数据安全落盘
+sync                                                             # 全局缓存落盘
 ```
 +
 image::/bpi-r3mini/bpi-r3-mini_emmc_openwrt_5.jpg[bpi-r3-mini_emmc_openwrt_5.jpg]
@@ -174,7 +174,7 @@ image::/bpi-r3mini/bpi-r3-mini_emmc_openwrt_5.jpg[bpi-r3-mini_emmc_openwrt_5.jpg
 +
 ```sh
 dd if=/root/emmc-install/emmc-gpt.bin of=/dev/mmcblk0 bs=512 conv=notrunc,fsync         # 底层写入 eMMC 分区表
-sync                       # 确保数据安全落盘
+sync                       # 全局缓存落盘
 reboot                     # 重启
 ```
 +
@@ -221,7 +221,7 @@ dd if=/root/emmc-install/sysupgrade.itb \
    bs=512 \
    conv=notrunc,fsync    # 写入正式系统
    
-sync                     # 确保数据安全落盘
+sync                     # 全局缓存落盘
 ```
 +
 image::/bpi-r3mini/bpi-r3-mini_emmc_openwrt_8.jpg[bpi-r3-mini_emmc_openwrt_8.jpg]
@@ -240,7 +240,7 @@ dd if=/root/emmc-install/emmc-preloader.bin \
 ```
 +
 ```sh
-sync                                           # 确保数据安全落盘
+sync                                           # 全局缓存落盘
 echo 1 > /sys/block/mmcblk0boot0/force_ro      # 恢复 boot0 分区的只读保护
 ```
 +
