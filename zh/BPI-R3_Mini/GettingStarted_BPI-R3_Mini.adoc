@@ -330,6 +330,33 @@ sha256sum "$IMG"                               # 校验文件完整性
 +
 image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_9.jpg[bpi-r3-mini_nand_openwrt_9.jpg]
 
+. 固件大小计算与 eMMC 尾部暂存区定位
++
+```sh
+IMG=/tmp/openwrt-25.12.6-mediatek-filogic-bananapi_bpi-r3-mini-snand-factory.bin                                  # 变量定义与镜像路径
+
+# 计算 eMMC 暂存起始扇区
+P_START=$(cat /sys/class/block/mmcblk0p5/start) 
+P_SIZE=$(cat /sys/class/block/mmcblk0p5/size)
+EMMC_START=$((P_START + P_SIZE))                   # 计算 eMMC 尾部空闲扇区起始地址
+
+# 计算镜像实际字节数和占用的512字节扇区数
+IMG_SIZE=$(wc -c < "$IMG")
+IMG_BLOCKS=$(( (IMG_SIZE + 511) / 512 ))          # 计算固件实际大小与占用扇区
+
+# 格式化输出10进制与16进制
+printf 'EMMC_START_DEC=%u\n' "$EMMC_START"
+printf 'EMMC_START_HEX=0x%x\n' "$EMMC_START"
+
+printf 'IMG_SIZE_DEC=%u\n' "$IMG_SIZE"
+printf 'IMG_SIZE_HEX=0x%x\n' "$IMG_SIZE"
+
+printf 'IMG_BLOCKS_DEC=%u\n' "$IMG_BLOCKS"
+printf 'IMG_BLOCKS_HEX=0x%x\n' "$IMG_BLOCKS"
+
+# 完整性校验
+sha256sum "$IMG"
+```
 
 
 
