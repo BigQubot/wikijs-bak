@@ -1,9 +1,12 @@
 = User Manual for BPI-VP10 Servo Module
 
+TIP: Fortior FU7512L design : link:/en/BPI-VP10/BananaPi_BPI-VP10[Banana Pi BPI-VP10] Servo motor controller for industrial control
+
 == 1	Wiring Instructions
 Connect the power, motor, encoder, and RS485 cables in the specified order. A 24V DC power supply is required. Important: Before applying main power, verify that the power cable polarity is correct to prevent damage.
 
 image::/bp-en-bj2303n/bj2404n-gs-1-1.png[bj2404n-gs-1-1.png]
+
 == 2	Trial Run and Test
 Please use the **FortiorTechServoStudio** PC software for commissioning and test running.
 
