@@ -405,6 +405,16 @@ mtd write spi-nand0 0x46000000 0 0x1000000
 ```
 +
 image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_13.jpg[bpi-r3-mini_nand_openwrt_13.jpg]
++
+NAND 固件读回与 CRC32 快速校验
++
+```sh
+mtd read spi-nand0 0x50000000 0 0x1000000
+crc32 0x50000000 0x1000000
+```
+
+
+
 
 == 网络配置
 网络配置参考： http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:network:start
