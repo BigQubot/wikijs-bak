@@ -412,8 +412,10 @@ NAND 固件读回与 CRC32 快速校验
 mtd read spi-nand0 0x50000000 0 0x1000000
 crc32 0x50000000 0x1000000
 ```
++
+image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_14.jpg[bpi-r3-mini_nand_openwrt_14.jpg]
 
-
+. 校验成功后，彻底断电，将拨码切换到 NAND 启动。
 
 
 == 网络配置
