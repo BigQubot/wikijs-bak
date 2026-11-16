@@ -1,5 +1,8 @@
 = Wiring Instructions
 
+TIP: Fortior FU7512L design : link:/en/BPI-JC10/BananaPi_BPI-JC10[Banana Pi BPI-JC10] Servo motor controller for robotic joint motor applications
+
+
 Following the figure below, connect the power cable first and then the CAN debug cable. Use a 48 V DC power supply: connect the red power-cable wire to 48 V and the black wire to 0 V. For the CAN debug cable, connect the red wire to CAN_H and the black wire to CAN_L.
 
 Before switching on the main power supply, double-check that the power-cable polarity is connected correctly.
