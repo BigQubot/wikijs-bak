@@ -414,6 +414,8 @@ crc32 0x50000000 0x1000000
 ```
 +
 image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_14.jpg[bpi-r3-mini_nand_openwrt_14.jpg]
++
+WARNING: 请将终端输出的 CRC32 校验值与原始镜像的基准值进行比对。若完全一致，说明 NAND 写入完美；若不一致，请绝对不要重启，必须重新执行擦除和写入操作。
 
 . 校验成功后，彻底断电，将拨码切换到 NAND 启动。
 
