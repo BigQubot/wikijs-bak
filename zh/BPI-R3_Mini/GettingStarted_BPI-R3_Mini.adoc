@@ -321,10 +321,10 @@ IMG=/tmp/openwrt-25.12.6-mediatek-filogic-bananapi_bpi-r3-mini-snand-factory.bin
 IMG_SIZE=$(wc -c < "$IMG")                     # 获取文件大小
 IMG_BLOCKS=$(( (IMG_SIZE + 511) / 512 ))       # 计算扇区数量
 
-printf 'IMG_SIZE_DEC=%u\n' "$IMG_SIZE"         # 输出10进制
-printf 'IMG_SIZE_HEX=0x%x\n' "$IMG_SIZE"       # 输出16进制
-printf 'IMG_BLOCKS_DEC=%u\n' "$IMG_BLOCKS"     # 输出10进制
-printf 'IMG_BLOCKS_HEX=0x%x\n' "$IMG_BLOCKS"   # 输出16进制
+printf 'IMG_SIZE_DEC=%u\n' "$IMG_SIZE"         
+printf 'IMG_SIZE_HEX=0x%x\n' "$IMG_SIZE"       
+printf 'IMG_BLOCKS_DEC=%u\n' "$IMG_BLOCKS"     
+printf 'IMG_BLOCKS_HEX=0x%x\n' "$IMG_BLOCKS"  
 sha256sum "$IMG"                               # 校验文件完整性
 ```
 +
@@ -358,7 +358,7 @@ printf 'IMG_BLOCKS_HEX=0x%x\n' "$IMG_BLOCKS"
 sha256sum "$IMG"
 ```
 +
-
+image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_10.jpg[bpi-r3-mini_nand_openwrt_10.jpg]
 +
 带偏移量的底层镜像写入
 +
@@ -375,6 +375,7 @@ dd if="$IMG" \
 sync                           # 全局缓存落盘
 ```
 +
+image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_11.jpg[bpi-r3-mini_nand_openwrt_11.jpg]
 
 . 进入 eMMC U-Boot 
 从串口重启进入 eMMC U-Boot
@@ -385,9 +386,23 @@ sync                           # 全局缓存落盘
 Hit any key to stop autoboot: 3
 ```
 +
-
-
-
+读取 eMMC 暂存区镜像并校验
++
+```sh
+mmc dev 0
+mmc read 0x46000000 0x100000 0x8000
+crc32 0x46000000 0x1000000
+```
++
+image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_12.jpg[bpi-r3-mini_nand_openwrt_12.jpg]
++
+U-Boot 环境下 NAND 闪存擦除与固件写入
++
+```sh
+mtd list
+mtd erase spi-nand0
+mtd write spi-nand0 0x46000000 0 0x1000000
+```
 
 
 == 网络配置
