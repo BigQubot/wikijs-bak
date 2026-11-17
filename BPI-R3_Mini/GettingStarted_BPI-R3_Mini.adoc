@@ -290,7 +290,7 @@ Before flashing the image to NAND, you need to download the image from the OpenW
 
 image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_1.jpg[bpi-r3-mini_nand_openwrt_1.jpg]
 
-. Method 1: Import Image via USB (Serial Connection)
+. Import Image via USB (Serial Connection)
 +
 Prepare a USB drive with the OpenWrt image stored inside. Import the image from the USB drive to the board's /tmp partition.
 +
@@ -306,27 +306,7 @@ image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_15.jpg[bpi-r3-mini_nand_openwrt_15.j
 +
 image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_16.jpg[bpi-r3-mini_nand_openwrt_16.jpg]
 +
-Method 2: Import Image via SSH
-+
-Prepare an Ethernet cable. Connect the LAN port of the R3-mini to the network port on your computer, and check the IP address assigned by the R3-mini.
-+
-```sh
-ip a
-```
-+
-image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_2.jpg[bpi-r3-mini_nand_openwrt_2.jpg]
-+
-After connecting to the R3-mini via SSH, drag the image into the /tmp folder.
-+
-image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_3.jpg[bpi-r3-mini_nand_openwrt_3.jpg]
-+
-image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_4.jpg[bpi-r3-mini_nand_openwrt_4.jpg]
-+
-image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_5.jpg[bpi-r3-mini_nand_openwrt_5.jpg]
-+
-image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_6.jpg[bpi-r3-mini_nand_openwrt_6.jpg]
-+
-image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_7.jpg[bpi-r3-mini_nand_openwrt_7.jpg]
+
 
 . Flashing Image Verification Process
 +
