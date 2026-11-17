@@ -284,8 +284,52 @@ image::/bpi-r3mini/bpi-r3-mini_emmc_openwrt_12.jpg[bpi-r3-mini_emmc_openwrt_12.j
 
 . Power off and switch to eMMC. The first boot will initialize the new U-Boot environment and rootfs_data.
 
+=== Flashing OpenWrt Image to Onboard NAND
 
+Before flashing the image to NAND, you need to download the image from the OpenWrt firmware selector.
 
+image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_1.jpg[bpi-r3-mini_nand_openwrt_1.jpg]
+
+. Method 1: Import Image via USB (Serial Connection)
++
+Prepare a USB drive with the OpenWrt image stored inside. Import the image from the USB drive to the board's /tmp partition.
++
+```sh
+lsblk                             # Check USB mount points
+cd /mnt/sda1                      # Enter the USB drive directory
+ls                                # Check contents of the current folder
+cp /mnt/sda1/openwrt-25.12.6-mediatek-filogic-bananapi_bpi-r3-mini-snand-factory.bin /tmp       # Copy the image to the /tmp folder
+ls /tmp                           # Check contents of the /tmp folder
+```
++
+image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_15.jpg[bpi-r3-mini_nand_openwrt_15.jpg]
++
+image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_16.jpg[bpi-r3-mini_nand_openwrt_16.jpg]
++
+Method 2: Import Image via SSH
++
+Prepare an Ethernet cable. Connect the LAN port of the R3-mini to the network port on your computer, and check the IP address assigned by the R3-mini.
++
+```sh
+ip a
+```
++
+image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_2.jpg[bpi-r3-mini_nand_openwrt_2.jpg]
++
+After connecting to the R3-mini via SSH, drag the image into the /tmp folder.
++
+image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_3.jpg[bpi-r3-mini_nand_openwrt_3.jpg]
++
+image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_4.jpg[bpi-r3-mini_nand_openwrt_4.jpg]
++
+image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_5.jpg[bpi-r3-mini_nand_openwrt_5.jpg]
++
+image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_6.jpg[bpi-r3-mini_nand_openwrt_6.jpg]
++
+image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_7.jpg[bpi-r3-mini_nand_openwrt_7.jpg]
+
+. Flashing Image Verification Process
++
 
 
 
