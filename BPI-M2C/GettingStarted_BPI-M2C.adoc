@@ -471,3 +471,14 @@ arecord -D hw:0,4 -f S16_LE -r 48000 -c 1 -d 10 \
 ====
 Direct access to `hw:0,4` will not automatically complete all input routing. Prefer using `parec` for daily recording; use bare ALSA PCM for diagnostics only if microphone routing has been configured via PulseAudio, UCM or `tinymix`.
 ====
+
+== Display and Graphical Interface
+
+Uses Wayland/Weston. Check the relevant processes:
+
+```
+ps | grep -E '[w]eston|[w]ayland'
+ls -l /dev/dri/ 2>/dev/null
+```
+
+The current software configuration includes an 800 × 1280 MIPI-DSI display and a 1920 × 1080 HDMI output.
