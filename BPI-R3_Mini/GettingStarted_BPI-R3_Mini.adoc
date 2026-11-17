@@ -124,6 +124,170 @@ dd if=/dev/zero of=/dev/mmcblk0
 . Then re-burn the emmc according to the link:/en/BPI-R3_Mini/GettingStarted_BPI-R3_Mini#_install_image_to_onboard_emmc[document].
 
 
+=== Flashing OpenWrt Image to Onboard eMMC
+
+Before flashing the image to the eMMC, please prepare a USB flash drive. You need to download five specific files from the OpenWrt firmware selector and copy them to the USB drive.
+
+image::/bpi-r3mini/bpi-r3-mini_emmc_openwrt_1.jpg[bpi-r3-mini_emmc_openwrt_1.jpg]
+
+. Rename the 5 OpenWrt files uniformly as follows:
+
+* sysupgrade.itb
+
+* emmc-bl31-uboot.fip
+
+* emmc-gpt.bin
+
+* emmc-preloader.bin
+
+* initramfs-recovery.itb
+
+. Mount the USB drive to the /mnt directory
++
+```sh
+mount /dev/sda1 /mnt
+```
++
+image::/bpi-r3mini/bpi-r3-mini_emmc_openwrt_2.jpg[bpi-r3-mini_emmc_openwrt_2.jpg]
+
+. Upload the 5 OpenWrt files from the USB drive to the /root/emmc-install directory.
++
+```sh
+mkdir -p /root/emmc-install                         # Create a folder in /root
+cp /mnt/emm* /root/emmc-install                     # Copy files starting with "emm" from USB to /root
+cp /mnt/sysupgrade.itb /root/emmc-install           # Copy sysupgrade.itb to /root
+cp /mnt/initramfs-recovery.itb /root/emmc-install   # Copy initramfs-recovery.itb to /root
+cd /root/emmc-install                               # Enter the emmc-install directory
+ls                                                  # List contents
+sha256sum *                                         # Calculate hash values for all files in the current directory
+```
++
+image::/bpi-r3mini/bpi-r3-mini_emmc_openwrt_4.jpg[bpi-r3-mini_emmc_openwrt_4.jpg]
+
+. Backup eMMC Special Areas
++
+```sh
+mkdir -p /root/emmc-backup                                       # Create a folder in /root
+dd if=/dev/mmcblk0boot0 of=/root/emmc-backup/mmcblk0boot0.bin    # Backup eMMC Boot partition (boot0)
+dd if=/dev/mmcblk0boot1 of=/root/emmc-backup/mmcblk0boot1.bin    # Backup eMMC Boot partition (boot1)
+dd if=/dev/mmcblk0p3 of=/root/emmc-backup/factory-old.bin        # Backup specific eMMC user partition
+sync                                                             # Flush filesystem buffers globally
+```
++
+image::/bpi-r3mini/bpi-r3-mini_emmc_openwrt_5.jpg[bpi-r3-mini_emmc_openwrt_5.jpg]
+
+. Write new GPT and Reboot
++
+```sh
+dd if=/root/emmc-install/emmc-gpt.bin of=/dev/mmcblk0 bs=512 conv=notrunc,fsync         # Write eMMC partition table at the bottom layer
+sync                       # Flush filesystem buffers globally
+reboot                     # Reboot
+```
++
+image::/bpi-r3mini/bpi-r3-mini_emmc_openwrt_6.jpg[bpi-r3-mini_emmc_openwrt_6.jpg]
+
+. Verify New Partitions After Reboot
++
+```sh
+for p in /sys/class/block/mmcblk0p*; do
+    printf '%s: ' "${p##*/}"
+    grep PARTNAME "$p/uevent"
+    cat "$p/size"
+done                                     
+```
++
+image::/bpi-r3mini/bpi-r3-mini_emmc_openwrt_7.jpg[bpi-r3-mini_emmc_openwrt_7.jpg]
+
+. Reset Environment and Write to Three Partitions
++
+```sh
+dd if=/dev/zero \
+   of=/dev/mmcblk0p1 \
+   bs=4096 count=128 \
+   conv=fsync             # Reset old U-Boot environment
+```
++
+```sh
+dd if=/root/emmc-install/emmc-bl31-uboot.fip \
+   of=/dev/mmcblk0p3 \
+   bs=512 \
+   conv=notrunc,fsync     # Write FIP
+```
++
+```sh
+dd if=/root/emmc-install/initramfs-recovery.itb \
+   of=/dev/mmcblk0p4 \
+   bs=512 \
+   conv=notrunc,fsync    # Write Recovery
+```
++
+```sh
+dd if=/root/emmc-install/sysupgrade.itb \
+   of=/dev/mmcblk0p5 \
+   bs=512 \
+   conv=notrunc,fsync    # Write Production System
+   
+sync                     # Flush filesystem buffers globally
+```
++
+image::/bpi-r3mini/bpi-r3-mini_emmc_openwrt_8.jpg[bpi-r3-mini_emmc_openwrt_8.jpg]
+
+. Write eMMC Preloader
++
+```sh
+echo 0 > /sys/block/mmcblk0boot0/force_ro      # Remove read-only protection from boot0 partition
+```
++
+```sh
+dd if=/root/emmc-install/emmc-preloader.bin \
+   of=/dev/mmcblk0boot0 \
+   bs=512 \
+   conv=notrunc,fsync                          # Write preloader image to boot0 partition
+```
++
+```sh
+sync                                           # Flush filesystem buffers globally
+echo 1 > /sys/block/mmcblk0boot0/force_ro      # Restore read-only protection to boot0 partition
+```
++
+image::/bpi-r3mini/bpi-r3-mini_emmc_openwrt_9.jpg[bpi-r3-mini_emmc_openwrt_9.jpg]
+
+. Configure eMMC to Boot from Boot0 Partition
+Restart from the serial console to enter NAND U-Boot
++
+When a prompt similar to the following appears on the screen, press the ESC key to enter U-Boot.
++
+```sh
+Hit any key to stop autoboot: 3
+```
++
+Switch and check the current eMMC configuration
++
+```sh
+mmc dev 0               # Switch the current operating device to device 0
+mmc partconf 0          # Read the current boot partition configuration status of the eMMC
+```
++
+image::/bpi-r3mini/bpi-r3-mini_emmc_openwrt_10.jpg[bpi-r3-mini_emmc_openwrt_10.jpg]
++
+```sh
+mmc partconf 0 1 1 0    # Force eMMC to boot from the Boot0 partition
+```
++
+image::/bpi-r3mini/bpi-r3-mini_emmc_openwrt_11.jpg[bpi-r3-mini_emmc_openwrt_11.jpg]
++
+```sh
+mmc partconf 0          # Verify if the configuration took effect
+```
++
+image::/bpi-r3mini/bpi-r3-mini_emmc_openwrt_12.jpg[bpi-r3-mini_emmc_openwrt_12.jpg]
+
+. Power off and switch to eMMC. The first boot will initialize the new U-Boot environment and rootfs_data.
+
+
+
+
+
 
 == Network-Configuration
 Network-Configuration refer to: http://www.fw-web.de/dokuwiki/doku.php?id=en:bpi-r2:network:start
