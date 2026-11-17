@@ -284,7 +284,9 @@ image::/bpi-r3mini/bpi-r3-mini_emmc_openwrt_12.jpg[bpi-r3-mini_emmc_openwrt_12.j
 
 image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_1.jpg[bpi-r3-mini_nand_openwrt_1.jpg]
 
-. 准备一个u盘里面存入 OpenWrt 的镜像将u盘里的镜像导入板子的tmp分区。
+. 方法一：连接串口u盘导入镜像
++
+准备一个u盘里面存入 OpenWrt 的镜像将u盘里的镜像导入板子的tmp分区。
 +
 ```sh
 lsblk                             # 查看U盘挂载
@@ -297,8 +299,10 @@ ls /tmp                           # 查看tmp文件夹里的内容
 image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_15.jpg[bpi-r3-mini_nand_openwrt_15.jpg]
 +
 image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_16.jpg[bpi-r3-mini_nand_openwrt_16.jpg]
-
-. 准备一根网线,连接R3-mini的lan口和电脑上的网口，查看R3-mini分配的IP地址。
++
+方法二：连接ssh导入镜像
++
+准备一根网线,连接R3-mini的lan口和电脑上的网口，查看R3-mini分配的IP地址。
 +
 ```sh
 ip a
