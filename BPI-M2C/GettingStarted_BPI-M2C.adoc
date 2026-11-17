@@ -592,3 +592,124 @@ The video will be saved at `/mnt/data/video/camera.mp4`. Verification after reco
 ls -lh /mnt/data/video/camera.mp4
 gst-launch-1.0 -q playbin uri=file:///mnt/data/video/camera.mp4
 ```
+
+== Cellular Network
+
+The BPI-M2C features an integrated cellular modem. It currently utilizes ChannelManager, oFono, and `app_demo` to manage SIM cards, registration status, and packet data.
+
+[IMPORTANT]
+====
+Before powering on the board, ensure that a SIM card is inserted and the appropriate cellular antenna (for the relevant frequency band) is connected. Never operate the modem without an antenna while it is transmitting. The specific supported frequency bands, SIM card slots, carrier certifications, and service plan capabilities depend on the hardware SKU, the RF front-end, the firmware, and the local network operator.
+====
+
+=== Checking Services and the Modem
+
+```
+ps | grep -E '[o]fonod|[c]hannelmanager|[t]eleservice'
+app_demo test_get_modems
+app_demo test_modem_get_info
+app_demo test_modem_get_powered
+app_demo test_modem_get_online
+```
+
+If the modem is not powered on or is offline:
+
+```
+app_demo test_modem_set_powered 1
+app_demo test_modem_set_online 1
+```
+
+=== Querying the SIM Card
+
+```
+app_demo test_sim_get_info
+```
+
+This command displays the SIM power status, SIM state, whether a PIN is required, the IMSI, ICCID, MCC/MNC, and the number of remaining retry attempts.
+
+If the SIM requires a PIN:
+
+```
+app_demo test_sim_enter_pin 1234
+```
+
+[CAUTION]
+====
+Replace `1234` with your actual PIN. Please note that the PIN may appear in your terminal output and shell history. Entering an incorrect PIN repeatedly may lock the SIM card and require a PUK (PIN Unblocking Key) to unlock it; do not make repeated attempts if you do not know the correct PIN.
+====
+
+=== Querying Operator, Network Mode, and Signal Strength
+
+```
+app_demo test_network_get_registration_info
+app_demo test_network_get_operator_name
+app_demo test_network_get_signal_strength
+app_demo test_network_get_mode
+app_demo test_network_get_network_selection_mode
+```
+
+Register to the network automatically:
+
+```
+app_demo test_network_auto_register
+```
+
+Scanning for available operators may take several minutes:
+
+```
+app_demo test_network_scan_operators
+```
+
+The primary status codes for `test_network_get_registration_info` are: `0` (not registered), `1` (registered to home network), `2` (searching), `3` (registration denied), and `5` (roaming).
+
+=== Accessing the Internet via Cellular Data
+
+First, check the existing PDP contexts:
+
+```
+app_demo test_connman_get_contexts
+```
+
+If no Internet context exists, create one:
+
+```
+app_demo test_connman_add_context 2
+```
+
+Query the contexts again and copy the actual path. In the example below, the path is assumed to be `/unc_0/context1`, the APN is `cmnet`, and the protocol `2` indicates an IPv4/IPv6 dual-stack configuration:
+
+```
+app_demo test_connman_set_context /unc_0/context1 cmnet 2
+app_demo test_connman_set_powered 1
+app_demo test_connman_activate_context /unc_0/context1
+app_demo test_connman_get_context_info /unc_0/context1
+```
+
+Ensure that `/unc_0/context1` and `cmnet` are replaced with the actual context path on your device and the APN provided by your carrier, respectively. Once activation is successful, `test_connman_get_context_info` will display the interface name, IP address, gateway, and DNS. On the current platform, the data interface is typically named something like `sipa_eth0`; please refer to the actual command output for confirmation:
+
+```
+ip addr show sipa_eth0
+ip route
+ping -I sipa_eth0 -c 4 8.8.8.8
+```
+
+To stop cellular data:
+
+```
+app_demo test_connman_deactivate_context /unc_0/context1
+```
+
+=== Sending Read-Only AT Queries
+
+`app_demo` can also be used to send AT commands via oFono. The following commands are used solely to retrieve basic information:
+
+```
+app_demo test_modem_send_at_sync AT+CGMI
+app_demo test_modem_send_at_sync AT+CGMM
+app_demo test_modem_send_at_sync AT+CGSN
+```
+
+[CAUTION]
+====
+Do not execute AT commands from unknown sources that perform write operations, calibration, or RF testing. Such commands may alter NV parameters, the IMEI, frequency bands, or transmission status, and could even prevent the modem from registering on the network.
+====
