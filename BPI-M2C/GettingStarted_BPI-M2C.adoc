@@ -349,127 +349,167 @@ umount /mnt/usb
 
 == Audio
 
-The M2C currently provides an onboard speaker interface and a 3.5 mm headphone jack. The default sound card is `sprdphone-sc2730`. Media playback uses PCM `hw:0,5`, while standard recording uses PCM `hw:0,4`.
+The M2C board features an onboard speaker interface and a 3.5 mm headphone jack; the default sound card is `sprdphone-sc2730`. Media playback uses PCM `hw:0,5`, while standard recording uses PCM `hw:0,4`.
 
-=== Default output and automatic switching
+=== Default Output and Automatic Switching
 
-The default behavior for the current configuration is:
+The current configuration behaves as follows:
 
-- When 3.5 mm headphones are not plugged in, sound is output from the speaker connected to the speaker jack.
-- After inserting a 3.5 mm headset, the kernel reports the `Headset Jack` event and PulseAudio automatically switches to the headset.
-- After unplugging the headphones, PulseAudio automatically resumes speaker interface output.
-- The four-stage headphone plug can provide headphone playback and headphone microphone at the same time; the three-stage plug only has the playback function.
+* When no 3.5 mm headphones are plugged in, audio is routed to the speaker connected to the speaker interface.
+* When 3.5 mm headphones are plugged in, the kernel reports a "Headset Jack" event, and PulseAudio automatically switches the output to the headphones.
+* When the headphones are unplugged, PulseAudio automatically reverts the output to the speaker interface.
+* A four-segment (TRRS) headphone plug supports both playback and a microphone; a three-segment (TRS) plug supports playback only.
 
-View the sound card, PulseAudio output and current port:
+To check the sound card, PulseAudio outputs, and headphone connection status, use the following commands:
 
 ```
 cat /proc/asound/cards
 aplay -l
 pactl list short sinks
-pactl list sinks | grep -E 'Name:|Active Port:|Ports:'
+cat /sys/class/extcon/extcon1/state
 ```
 
-The `Active Port` in the output should show `speaker_output` or `headphone_output`.
+When no headphones are connected, it displays `HEADPHONE=0`; once headphones are plugged in, this should change to `HEADPHONE=1`.
 
-=== Mandatory to use speaker jack or 3.5 mm headphones
-
-Force switching to the speaker interface:
+With PulseAudio 15.0 and `module-unisoc-card`, the `speaker_output` and `headphone_output` ports are not explicitly listed in the output of `pactl list sinks`. Executing the following commands on the actual hardware will result in the error `Failure: No such entity`; therefore, do not use these commands to switch outputs:
 
 ```
+# Not available on M2C
 pactl set-sink-port @DEFAULT_SINK@ speaker_output
+pactl set-sink-port @DEFAULT_SINK@ headphone_output
+```
+
+=== Forcing Output to the Speaker Interface or 3.5 mm Headphones
+
+The following methods involve directly configuring the ALSA mixer, which is useful for debugging or forcing a specific audio route. Playback must be started before executing these routing commands. If you configure your headphones before starting playback, PulseAudio—upon waking from a suspended state—will re-enable the default speaker path, resulting in both the headphones and the speakers being active simultaneously. For example, first play a long audio file in the background:
+
+```
+gst-launch-1.0 -q playbin uri=file:///mnt/data/music.mp3 &
+audio_pid=$!
+sleep 1
 ```
 
 Force switch to 3.5 mm headphones:
 
 ```
-pactl set-sink-port @DEFAULT_SINK@ headphone_output
+tinymix 'Speaker Function' 0
+tinymix 'AOL EAR Sel' EAR
+tinymix 'DA AOR Switch' 0
+tinymix 'AO Mixer AOL Switch' 0
+tinymix 'AO Mixer AOR Switch' 0
+
+tinymix 'HP mix mode' 0
+tinymix 'DAC LRCLK Select' invert
+tinymix 'HPL Mixer DACLHPL Switch' 1
+tinymix 'HPR Mixer DACRHPR Switch' 1
+tinymix 'HPL EAR Sel' HPL
+tinymix 'HP Virt Switch' 1
+tinymix 'HeadPhone Function' 1
+tinymix 'HP_CROSSTALK_EN' 1
+tinymix 'HP_CROSSTALK_GAIN' 16400 16400
 ```
 
-Adjust volume or mute:
+Force switching to the speaker interface:
+
+```
+tinymix 'DAC LRCLK Select' normal
+tinymix 'HeadPhone Function' 0
+tinymix 'HP Virt Switch' 0
+tinymix 'HPL Mixer DACLHPL Switch' 0
+tinymix 'HPR Mixer DACRHPR Switch' 0
+tinymix 'HPL EAR Sel' EAR
+tinymix 'HP mix mode' 1
+tinymix 'HP_CROSSTALK_EN' 0
+tinymix 'HP_CROSSTALK_GAIN' 0 0
+
+tinymix 'DAC LRCLK Select' invert
+tinymix 'AO Mixer AOL Switch' 1
+tinymix 'AO Mixer AOR Switch' 1
+tinymix 'DA AOR Switch' 1
+tinymix 'AOL EAR Sel' AOL
+tinymix 'AO Gain AO Playback Volume' 2
+tinymix 'Speaker Function' 1
+```
+
+To stop playback that was started in the background:
+
+```
+kill "$audio_pid"
+wait "$audio_pid" 2>/dev/null
+```
+
+Once all playback streams have stopped and the PulseAudio sink has entered the `SUSPENDED` state, the current firmware will disable the hardware paths for the speakers and headphones. During subsequent playback, the system will automatically determine the routing based on whether or not headphones are plugged in.
+
+To adjust the volume or unmute:
 
 ```
 pactl set-sink-volume @DEFAULT_SINK@ 60%
 pactl set-sink-mute @DEFAULT_SINK@ 0
 ```
 
-[NOTE]
-====
-When the headphone port is forced to be selected, no sound will come from the speakers even if no headphones are plugged in. After re-plugging and unplugging the headphones or restarting PulseAudio, automatic routing may take effect again.
-====
+=== Playing Music
 
-If PulseAudio is not available, you can use `tinymix` to view the underlying controls, but it is not recommended to modify only the `Speaker Function` switch, because the complete routing also involves DAC, Mixer, amplifier and depop settings:
-
-```
-tinymix | grep -E 'Speaker Function|HeadPhone Function|HP Virt Switch'
-```
-
-=== Play music
-
-Play WAV files:
+To play a WAV file:
 
 ```
 paplay /mnt/data/test.wav
 ```
 
-You can also use ALSA to play WAV:
+Alternatively, you can use ALSA to play WAV files:
 
 ```
 aplay -D default /mnt/data/test.wav
 ```
 
-Play MP3, AAC, FLAC, or other GStreamer-supported media files:
+To play MP3, AAC, FLAC, or other media files supported by GStreamer:
 
 ```
 gst-launch-1.0 -q playbin uri=file:///mnt/data/music.mp3
 ```
 
-Press kbd:[Ctrl+C] to stop playback. Before playing, you can use the aforementioned `pactl set-sink-port` command to specify speakers or headphones.
+Press kbd:[Ctrl+C] to stop playback. Under normal usage, the system automatically handles routing based on the headphone connection status; the `tinymix` routing commands mentioned above should only be used for manual switching during debugging. === Audio Input and Switching
 
-=== Recording input and switching
-
-Check the recording source and current port:
+To view available audio input sources:
 
 ```
 arecord -l
 pactl list short sources
-pactl list sources | grep -E 'Name:|Active Port:|Ports:'
 ```
 
-To force use of the onboard main microphone:
+PulseAudio sources do not expose ports; executing the following commands on the board will result in the error `Failure: No such entity`. Do not use these commands to force a specific audio input path:
 
 ```
+# Not supported on M2C
 pactl set-source-port @DEFAULT_SOURCE@ sprd-input-internal-mic
-```
-
-Mandatory use of four-piece headset microphones:
-
-```
 pactl set-source-port @DEFAULT_SOURCE@ sprd-input-headphone-mic
 ```
 
-Record 48 kHz, 16-bit, mono WAV, stop with kbd:[Ctrl+C]:
+For standard audio recording, `module-unisoc-card` automatically selects either the onboard microphone or the microphone on a 4-pole (TRRS) headset, based on the headset detection status. If a 3-pole (TRS) headset—which lacks a microphone contact—is connected, the system will continue to use the onboard microphone for recording.
+
+To record a 48 kHz, 16-bit, mono WAV file (press kbd:[Ctrl+C] to stop):
 
 ```
 mkdir -p /mnt/data/audio
-parec --file-format=wav --format=s16le --rate=48000 --channels=1 \ 
+parec --file-format=wav --format=s16le --rate=48000 --channels=1 \
 /mnt/data/audio/record.wav
 ```
 
-Play the previous recording:
+To play back the recording:
 
 ```
 paplay /mnt/data/audio/record.wav
 ```
-The diagnostic command to directly use ordinary recording PCM without going through PulseAudio is:
+
+To perform a diagnostic recording by accessing the PCM device directly (bypassing PulseAudio):
 
 ```
-arecord -D hw:0,4 -f S16_LE -r 48000 -c 1 -d 10 \ 
+arecord -D hw:0,4 -f S16_LE -r 48000 -c 1 -d 10 \
 /mnt/data/audio/record-10s.wav
 ```
 
 [IMPORTANT]
 ====
-Direct access to `hw:0,4` will not automatically complete all input routing. Prefer using `parec` for daily recording; use bare ALSA PCM for diagnostics only if microphone routing has been configured via PulseAudio, UCM or `tinymix`.
+Directly accessing `hw:0,4` does not automatically configure all necessary input routing paths. For routine recording, prioritize the use of `parec`; only use raw ALSA PCM for diagnostic purposes, and then only when microphone routing has already been configured via PulseAudio, UCM, or `tinymix`.
 ====
 
 == Display and Graphical Interface
