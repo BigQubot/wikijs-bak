@@ -1,5 +1,7 @@
 = 介绍
 
+image::/bpi_jc10/banana_pi_bpi-jc10_kit_zh.jpg[banana_pi_bpi-jc10_kit_zh.jpg]
+
 BPI-JC10是一个面向机器人关节电机应用的全开源驱动板项目。核心采用峰岹科技FU7512L双核电机控制MCU与FD6288Q三相栅极驱动芯片，原生支持CAN/CAN FD，板载双编码器，支持全闭环控制与MIT模式，专为协作机器人关节、一体化伺服电机、外骨骼及轮足机器人等场景打造。
 
 TIP: 峰岹科技 FU7512L 芯片方案设计: link:/zh/BPI-JC10/BananaPi_BPI-JC10[香蕉派 BPI-JC10] 机器人关节电机应用场景的伺服电机控制器 + 
