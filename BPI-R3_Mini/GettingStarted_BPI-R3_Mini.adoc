@@ -330,7 +330,118 @@ image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_7.jpg[bpi-r3-mini_nand_openwrt_7.jpg
 
 . Flashing Image Verification Process
 +
+```sh
+ls -l /tmp/openwrt-25.12.6-mediatek-filogic-bananapi_bpi-r3-mini-snand-factory.bin      # View basic information of the image file
+sha256sum /tmp/openwrt-25.12.6-mediatek-filogic-bananapi_bpi-r3-mini-snand-factory.bin  # Calculate the SHA-256 hash checksum of the image file
+```
++
+image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_8.jpg[bpi-r3-mini_nand_openwrt_8.jpg]
 
+. Pre-flash Firmware Verification
++
+```sh
+IMG=/tmp/openwrt-25.12.6-mediatek-filogic-bananapi_bpi-r3-mini-snand-factory.bin                              # Variable definition
+
+IMG_SIZE=$(wc -c < "$IMG")                     # Get file size
+IMG_BLOCKS=$(( (IMG_SIZE + 511) / 512 ))       # Calculate number of sectors
+
+printf 'IMG_SIZE_DEC=%u\n' "$IMG_SIZE"         
+printf 'IMG_SIZE_HEX=0x%x\n' "$IMG_SIZE"       
+printf 'IMG_BLOCKS_DEC=%u\n' "$IMG_BLOCKS"     
+printf 'IMG_BLOCKS_HEX=0x%x\n' "$IMG_BLOCKS"  
+sha256sum "$IMG"                               # Verify file integrity
+```
++
+image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_9.jpg[bpi-r3-mini_nand_openwrt_9.jpg]
+
+. Firmware Size Calculation and eMMC Tail Staging Area Location
++
+```sh
+IMG=/tmp/openwrt-25.12.6-mediatek-filogic-bananapi_bpi-r3-mini-snand-factory.bin                                  # Variable definition and image path
+
+# Calculate eMMC staging start sector
+P_START=$(cat /sys/class/block/mmcblk0p5/start) 
+P_SIZE=$(cat /sys/class/block/mmcblk0p5/size)
+EMMC_START=$((P_START + P_SIZE))                   # Calculate the starting address of the free sector at the end of the eMMC
+
+# Calculate actual image bytes and occupied 512-byte sectors
+IMG_SIZE=$(wc -c < "$IMG")
+IMG_BLOCKS=$(( (IMG_SIZE + 511) / 512 ))          # Calculate actual firmware size and occupied sectors
+
+# Format output to decimal and hexadecimal
+printf 'EMMC_START_DEC=%u\n' "$EMMC_START"
+printf 'EMMC_START_HEX=0x%x\n' "$EMMC_START"
+
+printf 'IMG_SIZE_DEC=%u\n' "$IMG_SIZE"
+printf 'IMG_SIZE_HEX=0x%x\n' "$IMG_SIZE"
+
+printf 'IMG_BLOCKS_DEC=%u\n' "$IMG_BLOCKS"
+printf 'IMG_BLOCKS_HEX=0x%x\n' "$IMG_BLOCKS"
+
+# Integrity verification
+sha256sum "$IMG"
+```
++
+image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_10.jpg[bpi-r3-mini_nand_openwrt_10.jpg]
++
+Bottom-layer Image Write with Offset
++
+```sh
+IMG=/tmp/openwrt-25.12.6-mediatek-filogic-bananapi_bpi-r3-mini-snand-factory.bin              # Define variable
+
+# Use the dd command to write directly to the bottom-layer raw device
+dd if="$IMG" \
+   of=/dev/mmcblk0 \
+   bs=512 \
+   seek="$EMMC_START" \
+   conv=notrunc,fsync
+
+sync                           # Flush filesystem buffers globally
+```
++
+image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_11.jpg[bpi-r3-mini_nand_openwrt_11.jpg]
+
+. Enter eMMC U-Boot
+Restart from the serial console to enter eMMC U-Boot
++
+When a prompt similar to the following appears on the screen, press the ESC key to enter U-Boot.
++
+```sh
+Hit any key to stop autoboot: 3
+```
++
+Read the image from the eMMC staging area and verify
++
+```sh
+mmc dev 0
+mmc read 0x46000000 0x100000 <IMG_BLOCKS_HEX>
+crc32 0x46000000 <IMG_SIZE_HEX>
+```
++
+image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_12.jpg[bpi-r3-mini_nand_openwrt_12.jpg]
++
+NAND Flash Erase and Firmware Write in U-Boot Environment
++
+```sh
+mtd list
+mtd erase spi-nand0
+mtd write spi-nand0 0x46000000 0 <IMG_SIZE_HEX>
+```
++
+image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_13.jpg[bpi-r3-mini_nand_openwrt_13.jpg]
++
+NAND Firmware Read-back and CRC32 Quick Verification
++
+```sh
+mtd read spi-nand0 0x50000000 0 <IMG_SIZE_HEX>
+crc32 0x50000000 <IMG_SIZE_HEX>
+```
++
+image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_14.jpg[bpi-r3-mini_nand_openwrt_14.jpg]
++
+WARNING: Please compare the CRC32 checksum output by the terminal with the baseline value of the original image. If they are exactly identical, it means the NAND write is perfect; if they are inconsistent, do not reboot under any circumstances. You must re-execute the erase and write operations.
+
+. After successful verification, completely power off the device and switch the dial switch to NAND boot.
 
 
 == Network-Configuration
