@@ -85,7 +85,7 @@ sudo picocom -b 921600 /dev/ttyUSB0
 
 Alternatively, you can use `minicom`, PuTTY, or MobaXterm; in each case, configure the settings to `921600 8N1` and ensure that hardware flow control is disabled.
 
-== Network port
+== Gigabit Ethernet
 
 Connect an Ethernet cable to the BPI-M2C. The current system will initialize `eth0` and attempt to obtain an IP address via DHCP.
 
@@ -103,6 +103,12 @@ To manually request a new DHCP address, run the following commands:
 ```
 ip link set eth0 up
 udhcpc -i eth0
+```
+
+```
+cat /sys/class/net/eth0/operstate
+cat /sys/class/net/eth0/speed
+cat /sys/class/net/eth0/duplex
 ```
 
 == Wi-Fi
@@ -255,13 +261,11 @@ ssh root@xxx.xxx.xxx.xxx
 
 Upon your first connection, the host fingerprint will be displayed. After verifying that the address is correct, type `yes`.
 
-[WARNING]
+[IMPORTANT]
 ====
 The fact that the serial console allows login with an empty password does not mean that SSH will also allow it.
-If SSH returns a `Permission denied` error, please set a password for the user account via the serial console and try again:
-```
-passwd
-```
+If SSH returns a `Permission denied` error, please set a password for the user account via the serial console and try again: **passwd**
+
 Do not use empty or weak passwords on networks accessible by untrusted devices.
 ====
 
@@ -278,3 +282,192 @@ If the SSH service is not running, you can attempt to start it from the serial c
 ```
 /etc/init.d/sshd start
 ```
+
+== Transferring Files Using SCP
+
+Copying files from the development computer to the board:
+
+```
+scp example.bin root@xxx.xxx.xxx.xxx:/tmp/
+```
+
+Copying files from the board to the development computer:
+
+```
+scp root@xxx.xxx.xxx.xxx:/var/log/messages ./
+```
+
+Use the `-r` flag when copying directories.
+
+== Checking CPU, Memory, and Storage
+
+```
+cat /proc/cpuinfo
+cat /proc/meminfo | head
+lsblk
+df -h
+mount
+```
+
+== Checking Temperature
+
+List temperature sensors:
+
+```
+for zone in /sys/class/thermal/thermal_zone*; do
+printf '%s: ' "$(cat "$zone/type" 2>/dev/null)"
+cat "$zone/temp" 2>/dev/null
+done
+```
+
+For most nodes, the value is in thousandths of a degree Celsius (e.g., `45000` represents approximately 45 °C); refer to the `type` associated with each node for the specific meaning.
+
+== USB
+
+After inserting a USB device, run the following commands:
+
+```
+dmesg | tail -n 30
+lsusb
+lsblk
+```
+
+Example of mounting a USB flash drive:
+
+```
+mkdir -p /mnt/usb
+mount /dev/sda1 /mnt/usb
+ls -la /mnt/usb
+sync
+umount /mnt/usb
+```
+
+[CAUTION]
+====
+`/dev/sda1` is just an example. Before mounting, you must verify the actual device name using `lsblk` or `dmesg`. Ensure the device is unmounted before unplugging it.
+====
+
+== Audio
+
+The M2C currently provides an onboard speaker interface and a 3.5 mm headphone jack. The default sound card is `sprdphone-sc2730`. Media playback uses PCM `hw:0,5`, while standard recording uses PCM `hw:0,4`.
+
+=== Default output and automatic switching
+
+The default behavior for the current configuration is:
+
+- When 3.5 mm headphones are not plugged in, sound is output from the speaker connected to the speaker jack.
+- After inserting a 3.5 mm headset, the kernel reports the `Headset Jack` event and PulseAudio automatically switches to the headset.
+- After unplugging the headphones, PulseAudio automatically resumes speaker interface output.
+- The four-stage headphone plug can provide headphone playback and headphone microphone at the same time; the three-stage plug only has the playback function.
+
+View the sound card, PulseAudio output and current port:
+
+```
+cat /proc/asound/cards
+aplay -l
+pactl list short sinks
+pactl list sinks | grep -E 'Name:|Active Port:|Ports:'
+```
+
+The `Active Port` in the output should show `speaker_output` or `headphone_output`.
+
+=== Mandatory to use speaker jack or 3.5 mm headphones
+
+Force switching to the speaker interface:
+
+```
+pactl set-sink-port @DEFAULT_SINK@ speaker_output
+```
+
+Force switch to 3.5 mm headphones:
+
+```
+pactl set-sink-port @DEFAULT_SINK@ headphone_output
+```
+
+Adjust volume or mute:
+
+```
+pactl set-sink-volume @DEFAULT_SINK@ 60%
+pactl set-sink-mute @DEFAULT_SINK@ 0
+```
+
+[NOTE]
+====
+When the headphone port is forced to be selected, no sound will come from the speakers even if no headphones are plugged in. After re-plugging and unplugging the headphones or restarting PulseAudio, automatic routing may take effect again.
+====
+
+If PulseAudio is not available, you can use `tinymix` to view the underlying controls, but it is not recommended to modify only the `Speaker Function` switch, because the complete routing also involves DAC, Mixer, amplifier and depop settings:
+
+```
+tinymix | grep -E 'Speaker Function|HeadPhone Function|HP Virt Switch'
+```
+
+=== Play music
+
+Play WAV files:
+
+```
+paplay /mnt/data/test.wav
+```
+
+You can also use ALSA to play WAV:
+
+```
+aplay -D default /mnt/data/test.wav
+```
+
+Play MP3, AAC, FLAC, or other GStreamer-supported media files:
+
+```
+gst-launch-1.0 -q playbin uri=file:///mnt/data/music.mp3
+```
+
+Press kbd:[Ctrl+C] to stop playback. Before playing, you can use the aforementioned `pactl set-sink-port` command to specify speakers or headphones.
+
+=== Recording input and switching
+
+Check the recording source and current port:
+
+```
+arecord -l
+pactl list short sources
+pactl list sources | grep -E 'Name:|Active Port:|Ports:'
+```
+
+To force use of the onboard main microphone:
+
+```
+pactl set-source-port @DEFAULT_SOURCE@ sprd-input-internal-mic
+```
+
+Mandatory use of four-piece headset microphones:
+
+```
+pactl set-source-port @DEFAULT_SOURCE@ sprd-input-headphone-mic
+```
+
+Record 48 kHz, 16-bit, mono WAV, stop with kbd:[Ctrl+C]:
+
+```
+mkdir -p /mnt/data/audio
+parec --file-format=wav --format=s16le --rate=48000 --channels=1 \ 
+/mnt/data/audio/record.wav
+```
+
+Play the previous recording:
+
+```
+paplay /mnt/data/audio/record.wav
+```
+The diagnostic command to directly use ordinary recording PCM without going through PulseAudio is:
+
+```
+arecord -D hw:0,4 -f S16_LE -r 48000 -c 1 -d 10 \ 
+/mnt/data/audio/record-10s.wav
+```
+
+[IMPORTANT]
+====
+Direct access to `hw:0,4` will not automatically complete all input routing. Prefer using `parec` for daily recording; use bare ALSA PCM for diagnostics only if microphone routing has been configured via PulseAudio, UCM or `tinymix`.
+====
