@@ -482,3 +482,113 @@ ls -l /dev/dri/ 2>/dev/null
 ```
 
 The current software configuration includes an 800 × 1280 MIPI-DSI display and a 1920 × 1080 HDMI output.
+
+== Camera
+
+The current M2C software supports the IMX258 sensor and includes a UniSoc V4L2 adaptation layer, the `unisv4l2src` GStreamer plugin, and a graphical application called `UnisocCameraApp`. For other camera modules—even those with the same connector type—you must verify the pinout, voltage, clock settings, device tree configuration, and drivers.
+
+=== Checking the Camera
+
+```
+ls -l /dev/video* 2>/dev/null
+v4l2-ctl --list-devices
+gst-inspect-1.0 unisv4l2src
+```
+
+The onboard camera is mapped to `/dev/video0` by default. Do not rely solely on the device number to identify the camera; verify it by checking the output of `v4l2-ctl --list-devices`.
+
+=== Taking Photos and Recording Video via the Graphical Interface
+
+First, create directories for photos and videos:
+
+```
+mkdir -p /mnt/data/pic /home/user
+export XDG_RUNTIME_DIR=/run/user/0
+```
+
+Launch the camera preview and enable the recording button:
+
+```
+/usr/share/UnisocCameraApp -b 0 -W 640 -H 480 --video 1 \
+-p /mnt/data/pic -platform wayland &
+```
+
+Once the interface is open:
+
+. Click the photo button to save a JPEG image.
+. Click the record button to start recording; click it again to stop and finalize the MP4 file.
+. Do not cut the power while recording; you must stop the recording first. Otherwise, the MP4 file may lack an index and become unplayable. Storage locations are as follows:
+
+[cols="1,2,2",options="header"]
+|===
+|Content |Default Directory |Example Filename
+
+|Standard Photos
+|`/mnt/data/pic/`
+|`<timestamp>.jpeg`
+
+|HD Video Snapshots
+|`/mnt/data/pic/`
+|`HD<timestamp>.jpeg`
+
+|Standard Videos
+|`/home/user/`
+|`video<timestamp>-00.mp4`
+
+|HD Videos
+|`/home/user/`
+|`HDvideo<timestamp>-00.mp4`
+|===
+
+To view the most recently generated files:
+
+```
+ls -lht /mnt/data/pic | head
+ls -lht /home/user/*.mp4 2>/dev/null | head
+```
+
+To take photos at 3264 × 2448 resolution with a 640 × 480 preview:
+
+```
+/usr/share/UnisocCameraApp -b 0 -W 640 -H 480 \
+--cw 3264 --ch 2448 --ct 2 --jpeg 1 \
+-p /mnt/data/pic -platform wayland &
+```
+
+Here, `--jpeg 1` indicates the use of hardware-accelerated JPEG encoding. If hardware encoding is unavailable in the current firmware, you can change this to `--jpeg 0` to use software-based encoding. === Taking Photos via Command Line
+
+You can use GStreamer to capture a 640 × 480 JPEG image without opening the CameraApp:
+
+```
+mkdir -p /mnt/data/pic
+gst-launch-1.0 -e unisv4l2src device=/dev/video0 num-buffers=1 \
+! 'video/x-raw,width=640,height=480,framerate=15/1' \
+! jpegenc ! filesink location=/mnt/data/pic/photo.jpg
+```
+
+The photo will be saved at `/mnt/data/pic/photo.jpg`. If format negotiation fails, run the following commands to check the formats and resolutions actually supported by the camera, then adjust the `caps` accordingly:
+
+```
+gst-inspect-1.0 unisv4l2src
+v4l2-ctl -d /dev/video0 --list-formats-ext
+```
+
+=== Recording Video via Command Line
+
+The following command records video in H.264 MP4 format. Pressing kbd:[Ctrl+C] triggers the `-e` flag, which sends an EOS (End-of-Stream) signal to finalize the file container:
+
+```
+mkdir -p /mnt/data/video
+gst-launch-1.0 -e unisv4l2src device=/dev/video0 \
+! 'video/x-raw,width=640,height=480,framerate=30/1' \
+! autovideoconvert ! omxh264enc \
+! h264parse ! mp4mux \
+! filesink location=/mnt/data/video/camera.mp4
+```
+
+The video will be saved at `/mnt/data/video/camera.mp4`. Verification after recording:
+
+```
+ls -lh /mnt/data/video/camera.mp4
+gst-launch-1.0 -q playbin uri=file:///mnt/data/video/camera.mp4
+```
