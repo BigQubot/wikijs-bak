@@ -390,8 +390,8 @@ Hit any key to stop autoboot: 3
 +
 ```sh
 mmc dev 0
-mmc read 0x46000000 0x100000 0x8000
-crc32 0x46000000 0x1000000
+mmc read 0x46000000 0x100000 <IMG_BLOCKS_HEX>
+crc32 0x46000000 <IMG_SIZE_HEX>
 ```
 +
 image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_12.jpg[bpi-r3-mini_nand_openwrt_12.jpg]
