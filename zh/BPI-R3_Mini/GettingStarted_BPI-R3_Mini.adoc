@@ -123,7 +123,7 @@ dd if=/dev/zero of=/dev/mmcblk0
 ```
 . 然后按照 link:/zh/BPI-R3_Mini/GettingStarted_BPI-R3_Mini#_将镜像烧录到板载_emmc[文档]重新烧录 eMMC。
 
-=== 将镜像烧录到板载 eMMC
+=== 将 OpenWrt 镜像烧录到板载 eMMC
 
 向 eMMC 烧录镜像前，请准备一个 U 盘，需要下载link:https://firmware-selector.openwrt.org/[OpenWrt]中的五个文件，将这5个文件拷贝到U盘中。
 
@@ -278,7 +278,7 @@ image::/bpi-r3mini/bpi-r3-mini_emmc_openwrt_12.jpg[bpi-r3-mini_emmc_openwrt_12.j
 
 . 断电切换 eMMC ,首次启动会初始化新的 U-Boot 环境和 rootfs_data。
 
-=== 将镜像烧录到板载 NAND
+=== 将 OpenWrt 镜像烧录到板载 NAND
 
 向 NAND 烧录镜像前，需要下载 link:https://firmware-selector.openwrt.org/[OpenWrt]中的镜像。
 
