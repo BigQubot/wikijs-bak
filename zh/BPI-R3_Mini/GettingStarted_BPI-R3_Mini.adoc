@@ -300,27 +300,7 @@ image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_15.jpg[bpi-r3-mini_nand_openwrt_15.j
 +
 image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_16.jpg[bpi-r3-mini_nand_openwrt_16.jpg]
 +
-方法二：连接ssh导入镜像
-+
-准备一根网线,连接R3-mini的lan口和电脑上的网口，查看R3-mini分配的IP地址。
-+
-```sh
-ip a
-```
-+
-image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_2.jpg[bpi-r3-mini_nand_openwrt_2.jpg]
-+
-ssh连接R3-mini后把镜像拖入tmp文件夹。
-+
-image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_3.jpg[bpi-r3-mini_nand_openwrt_3.jpg]
-+
-image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_4.jpg[bpi-r3-mini_nand_openwrt_4.jpg]
-+
-image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_5.jpg[bpi-r3-mini_nand_openwrt_5.jpg]
-+
-image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_6.jpg[bpi-r3-mini_nand_openwrt_6.jpg]
-+
-image::/bpi-r3mini/bpi-r3-mini_nand_openwrt_7.jpg[bpi-r3-mini_nand_openwrt_7.jpg]
+
 
 . 刷机镜像校验流程
 +
