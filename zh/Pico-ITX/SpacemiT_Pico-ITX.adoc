@@ -1,5 +1,7 @@
 = K3 Pico-ITX 简介
 
+image::/k3pico-itx/banana_pi_pico-itx_banner_1.jpg[banana_pi_pico-itx_banner_1.jpg]
+
 K3 Pico-ITX 是一款超集成迷你 AI 单板计算机。它采用紧凑的 2.5 英寸尺寸，集成了 60 TOPS 的通用 AI 计算能力、一颗 8 核 RVA23 处理器和 8 个智能计算核心。其统一的内存架构可流畅部署拥有 300 亿个参数的大型模型。板载 UFS 存储（速度比 eMMC 快 3.4 倍）和功能齐全的 Type-C 接口（支持 65W PD 供电和 4K DP 显示）可实现“一线即用”的体验。双 M.2 扩展插槽（包括 PCIe Gen3 x4）和 10Gb 光纤端口支持高速存储和集群部署。EtherCAT 和 CAN-FD 等灵活 I/O 的实时核心间输出可满足微秒级运动控制要求。其工业级架构与 eDP 显示接口相结合，可帮助行业客户快速评估和集成系统，加速 AI 边缘计算和机器人技术的商业化。
 
 == 关于 SpacemiT K3
