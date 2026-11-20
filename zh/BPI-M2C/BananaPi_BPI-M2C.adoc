@@ -1,6 +1,6 @@
 = 介绍
 
-BPI-M2C 是香蕉派推出的一款高性能 ARM 单板计算机（SBC），采用紫光展锐UIS7885 SoC，面向 5G 通信、边缘计算、人工智能、机器视觉、智能终端和嵌入式人机界面等应用。
+BPI-M2C 是由香蕉派与展锐官方联系合作推出的推出的一款带5G LTE通信的高性能 ARM 单板计算机（SBC），采用紫光展锐UIS7885 SoC，面向 5G 通信、边缘计算、人工智能、机器视觉、智能终端和嵌入式人机界面等应用。
 
 UIS7885 采用 6 nm 工艺，集成 4 个 Arm Cortex-A76 性能核心和 4 个 Arm Cortex-A55 能效核心，共享 3 MB L3 缓存，支持 Arm Neon SIMD/VFP，并集成 Mali-G57 GPU、IMG AX3596 NPU、VDSP、ISP 及硬件视频编解码单元。BPI-M2C 当前配备 4 GiB LPDDR4X 内存和 128 GB eMMC，板级软件支持 MicroSD、PCIe 千兆以太网、Wi-Fi、蓝牙、GNSS、HDMI、MIPI-DSI、MIPI-CSI、USB 和 40-pin 扩展接口。
 
