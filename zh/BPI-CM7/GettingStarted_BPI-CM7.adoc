@@ -579,6 +579,7 @@ image::/bpi_cm7/bananapi_bpicm7_audio2.jpg[bananapi_bpicm7_audio2.jpg]
 ```bash
 aplay 1.wav
 ```
+WARNING: **注意：**测试 codec 的时候，tv 口不能接到耳机上面，否则会有底噪。
 
 === HDMI 音频
 . 把 **2mm-4p-直针座** 焊接至主板。
@@ -596,7 +597,7 @@ aplay 1.wav                                           # 播放音乐（如果设
 speaker-test -D plughw:1,0 -c 2 -r 48000 -t sine      # 没有音乐也可以直接播放正弦波
 pactl set-sink-volume 0 100%                          # 控制音量
 ```
-**注意**：硬件链路搭建完成后画面清晰度有限，输出分辨率为 720P。
+WARNING: **注意**：硬件链路搭建完成后画面清晰度有限，输出分辨率为 720P。
 
 == 设置开机 Logo
 
