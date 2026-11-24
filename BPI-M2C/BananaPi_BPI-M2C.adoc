@@ -1,5 +1,7 @@
 = BPI-M2C Introduction
 
+image::/bpi-m2c/banana_pi_bpi-2c_banner_en_1.jpg[banana_pi_bpi-2c_banner_en_1.jpg]
+
 The BPI-M2C is a high-performance ARM single-board computer (SBC) from Banana Pi, powered by the UNISOC UIS7885 SoC. It is designed for applications such as 5G communications, edge computing, artificial intelligence, machine vision, smart terminals, and embedded human-machine interfaces (HMI).
 
 Built on a 6nm process, the UIS7885 features an octa-core architecture—comprising four high-performance Arm Cortex-A76 cores and four energy-efficient Arm Cortex-A55 cores—with a shared 3MB L3 cache. It supports Arm Neon SIMD/VFP instructions and integrates a Mali-G57 GPU, an IMG AX3596 NPU, a VDSP, an ISP, and hardware-based video encoding/decoding units. The BPI-M2C comes equipped with 4 GiB of LPDDR4X RAM and 128 GB of eMMC storage. Its interface suite includes support for MicroSD, PCIe Gigabit Ethernet, Wi-Fi, Bluetooth, GNSS, HDMI, MIPI-DSI, MIPI-CSI, USB, and a 40-pin expansion header.
@@ -40,7 +42,7 @@ TIP: link:/en/BPI-M2C/GettingStarted_BPI-M2C[Getting Started BPI-M2C]
 = Hardware
 == Hardware Interface
 
-
+image::/bpi-m2c/bpi-m2c_interface_en.jpg[bpi-m2c_interface_en.jpg]
 
 == Hardware Spec
 
