@@ -7,7 +7,7 @@ BPI-JC10是一个面向机器人关节电机应用的全开源驱动板项目。
 TIP: 峰岹科技 FU7512L 芯片方案设计: link:/zh/BPI-JC10/BananaPi_BPI-JC10[香蕉派 BPI-JC10] 机器人关节电机应用场景的伺服电机控制器 + 
 峰岹科技 FU7512L 芯片方案设计: link:/zh/BPI-VP10/BananaPi_BPI-VP10[香蕉派 BPI-VP10] 工业伺服电机控制器
 
-== 关于FU7512L
+== 关于FU75xx
 峰岹科技的FU75xx系列业界首款基于32位RISC-V双核架构的电机驱动专用MCU，这款芯片不仅融合了高性能计算与实时控制能力，更通过自主研发的第2代ME内核，解决了复杂应用场景中的诸多挑战。无论是工业伺服驱动器、机器人关节，还是智能家电、新能源汽车，它都将为电机控制带来前所未有的新体验！ 
 
 FU75xx系列MCU融合了第二代电机控制引擎（ME2）与32位RISC-V内核，通过创新的异构架构，为高性能电机应用提供理想解决方案。
@@ -98,45 +98,21 @@ image::/bpi_jc10/banana_pi_bpi-jc10_canfdpower1.jpg[banana_pi_bpi-jc10_canfdpowe
 
 = 配件
 
-== 电源
-
-image::/bpi_jc10/banana_pi_bpi-jc10_power1.jpg[banana_pi_bpi-jc10_power1.jpg, width=300px]
-
-规格：
-输出电压0-60V，输出电流0-5A，输出功率300W
-
-== 电源+CAN调试线
-
-image::/bpi_jc10/banana_pi_bpi_jc10_debug_cable.jpg[banana_pi_bpi_jc10_debug_cable.jpg, width=300px]
-
-规格：
-线长20cm，电源线18AWG，信号线26AWG
-
-== CAN调试器
-
-TIP: 你可以从中选择一款CAN调试器进行使用
-
-image::/bpi_jc10/banana_pi_bpi-jc10_pcanfd1.jpg[banana_pi_bpi-jc10_pcanfd1.jpg, width=300px]
-
-规格：
-PCAN-FD
-
-image::/bpi_jc10/banana_pi_bpi-jc10_usbtocan.jpg[banana_pi_bpi-jc10_usbtocan.jpg, width=300px]
-
-规格：
-USBCAN-2C
-
-image::/bpi_jc10/banana_pi_bpi-jc10_pcanfd2.jpg[banana_pi_bpi-jc10_pcanfd2.jpg, width=300px]
-
-规格：
-单通道CANFD
+[cols="2*", options="header"]
+|================
+| 产品名称 | 规格 
+| 电源   | 输出电压 0-60 V，输出电流 0-5 A，输出功率 300 W   
+| 电源线 + CAN 调试线   | XT30(2+2)-M 接口，线长 20 cm，电源线规 18 AWG，信号线规 26 AWG  
+.3+| CAN 调试适配器   | PCAN-FD    
+| Chuangxin Technology USBCAN-2C   | ZQWL-UCANFD-100E 单通道 CAN FD           
+|================
 
 == 仿真器
 
 image::/bpi_jc10/banana_pi_bpi-jc10_emulator.jpg[banana_pi_bpi-jc10_emulator.jpg, width=300px]
 
 规格：
-MCU USB Debug Adapter V1.1
+FortiorTech MCU USB 调试适配器 V1.1
 
 
 = 开发
