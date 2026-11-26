@@ -1,4 +1,8 @@
-= 接线说明
+= BPI-JC10 关节模块用户手册
+
+TIP: 邵峰科技 FU7512L 设计 : link:/en/BPI-JC10/BananaPi_BPI-JC10[Banana Pi BPI-JC10] 伺服电机控制器，适用于机器人关节电机
+
+== 接线说明
 
 参考下面依次接上电源线、CAN调试线。48V直流电源，电源线红色接48V，黑色接0V。CAN调试线，红色接CAN_H，黑色接CAN_L。
 
