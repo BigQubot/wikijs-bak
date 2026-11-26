@@ -4,10 +4,10 @@ image::/bpi_jc10/jc10_banner_top_2_261112.jpg[jc10_banner_top_2_261112.jpg, widt
 
 Banana Pi BPI-JC10 is a fully open-source driver board platform for robotic joint motor applications. At its core are Fortior Technology's FU7512L dual-core motor control MCU and FD6288Q three-phase gate driver IC, delivering native CAN/CAN FD support, dual onboard encoders, full closed-loop control, and MIT mode. The platform is specifically engineered for collaborative robot joints, integrated servo motors, exoskeletons, and wheel-legged robots.
 
-TIP: Fortior FU7512L design : link:/en/BPI-JC10/BananaPi_BPI-JC10[Banana Pi BPI-JC10] Servo motor controller for robotic joint motor applications + 
+TIP: Fortior FU7512L design : link:/en/BPI-JC10/BananaPi_BPI-JC10[Banana Pi BPI-JC10] Servo motor controller for robotic joint motor  + 
 Fortior FU7512L design : link:/en/BPI-VP10/BananaPi_BPI-VP10[Banana Pi BPI-VP10] Servo motor controller for industrial control
 
-== About the FU7512L
+== About the FU75xx
 
 The FU75xx series from Fortior Technology is the industry’s first motor control-specific MCU based on a 32-bit RISC-V dual-core architecture. This chip integrates high-performance computing with real-time control capabilities. Leveraging the proprietary 2nd generation ME (Motor Engine) core, it effectively addresses the challenges of complex application scenarios. Whether for industrial servo drives, robotic joints, smart home appliances, or new energy vehicles, it provides an unprecedented motor control experience.
 
@@ -104,45 +104,24 @@ image::/bpi_jc10/banana_pi_bpi-jc10_canfdpower1.jpg[banana_pi_bpi-jc10_canfdpowe
 
 = Accessories
 
-== Power Supply
 
-image::/bpi_jc10/banana_pi_bpi-jc10_power1.jpg[banana_pi_bpi-jc10_power1.jpg, width=300px]
+[cols="2*", options="header"]
+|================
+| Product Name | Specification 
+| Power Supply   | Output voltage 0-60 V, output current 0-5 A, output power 300 W   
+| Power Cable + CAN Debug Cable   | XT30(2+2)-M, Cable length 20 cm, power wire 18 AWG, signal wire 26 AWG  
+.3+| CAN Debug Adapter   | PCAN-FD   
+| Chuangxin Technology USBCAN-2C   | ZQWL-UCANFD-100E Single-channel CAN FD          
+|================
 
-Specification:
-Output voltage 0-60 V, output current 0-5 A, output power 300 W
 
-== Power Supply + CAN Debug Cable
-
-image::/bpi_jc10/banana_pi_bpi_jc10_debug_cable.jpg[banana_pi_bpi_jc10_debug_cable.jpg, width=300px]
-
-Specification:
-Cable length 20 cm, power wire 18 AWG, signal wire 26 AWG
-
-== CAN Debug Adapter
-
-TIP: You can choose one of the three CAN Debug Adapters below, depending on your needs.
-
-image::/bpi_jc10/banana_pi_bpi-jc10_pcanfd1.jpg[banana_pi_bpi-jc10_pcanfd1.jpg, width=300px]
-
-Specification:
-PCAN-FD
-
-image::/bpi_jc10/banana_pi_bpi-jc10_usbtocan.jpg[banana_pi_bpi-jc10_usbtocan.jpg, width=300px]
-
-Specification:
-USBCAN-2C
-
-image::/bpi_jc10/banana_pi_bpi-jc10_pcanfd2.jpg[banana_pi_bpi-jc10_pcanfd2.jpg, width=300px]
-
-Specification:
-Single-channel CAN FD
 
 == Emulator
 
 image::/bpi_jc10/banana_pi_bpi-jc10_emulator.jpg[banana_pi_bpi-jc10_emulator.jpg, width=300px]
 
 Specification:
-MCU USB Debug Adapter V1.1
+FortiorTech MCU USB Debug Adapter V1.1
 
 
 = Development
