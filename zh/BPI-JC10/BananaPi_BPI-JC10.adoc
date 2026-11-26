@@ -4,7 +4,7 @@ image::/bpi_jc10/banana_pi_bpi-jc10_kit_zh.jpg[banana_pi_bpi-jc10_kit_zh.jpg]
 
 BPI-JC10是一个面向机器人关节电机应用的全开源驱动板项目。核心采用峰岹科技FU7512L双核电机控制MCU与FD6288Q三相栅极驱动芯片，原生支持CAN/CAN FD，板载双编码器，支持全闭环控制与MIT模式，专为协作机器人关节、一体化伺服电机、外骨骼及轮足机器人等场景打造。
 
-TIP: 峰岹科技 FU7512L 芯片方案设计: link:/zh/BPI-JC10/BananaPi_BPI-JC10[香蕉派 BPI-JC10] 机器人关节电机应用场景的伺服电机控制器 + 
+TIP: 峰岹科技 FU7512L 芯片方案设计: link:/zh/BPI-JC10/BananaPi_BPI-JC10[香蕉派 BPI-JC10] 机器人关节模组驱动器 + 
 峰岹科技 FU7512L 芯片方案设计: link:/zh/BPI-VP10/BananaPi_BPI-VP10[香蕉派 BPI-VP10] 工业伺服电机控制器
 
 == 关于FU75xx
@@ -42,7 +42,7 @@ FU75xx系列MCU融合了第二代电机控制引擎（ME2）与32位RISC-V内核
 * 额定扭矩6Nm，峰值扭矩18Nm
 * 减速比7.75 : 1
 
-== 主要应用
+== 关键特性
 
 . 双编码器全闭环位置控制 · 高精度 · 断电不丢位；
 . 原生 CAN FD + MIT 模式 · 为高频动态控制而生；
@@ -104,7 +104,7 @@ image::/bpi_jc10/banana_pi_bpi-jc10_canfdpower1.jpg[banana_pi_bpi-jc10_canfdpowe
 | 电源   | 输出电压 0-60 V，输出电流 0-5 A，输出功率 300 W   
 | 电源线 + CAN 调试线   | XT30(2+2)-M 接口，线长 20 cm，电源线规 18 AWG，信号线规 26 AWG  
 .3+| CAN 调试适配器   | PCAN-FD    
-| Chuangxin Technology USBCAN-2C   | ZQWL-UCANFD-100E 单通道 CAN FD           
+| 创芯科技USBCAN-2C   | ZQWL-UCANFD-100E 单通道 CAN FD           
 |================
 
 == 仿真器
@@ -112,17 +112,27 @@ image::/bpi_jc10/banana_pi_bpi-jc10_canfdpower1.jpg[banana_pi_bpi-jc10_canfdpowe
 image::/bpi_jc10/banana_pi_bpi-jc10_emulator.jpg[banana_pi_bpi-jc10_emulator.jpg, width=300px]
 
 规格：
-FortiorTech MCU USB 调试适配器 V1.1
+峰岹科技 MCU USB 调试适配器 V1.1
 
 
 = 开发
 == 软件源代码
 
-TIP: 源代码资料
+TIP: 软件工具
 
-Baidu: https://pan.baidu.com/s/1RTxAbzsjUespYF1Xwv623g?pwd=8888 提取码: 8888 
+Baidu: https://pan.baidu.com/s/1on9siD2XyrZQaJ-bMSemwA?pwd=8888 提取码: 8888 
 
-Google: https://drive.google.com/file/d/1AXtoTrkhnPiAd39uZgGm4-1lux_l6DcM/view?usp=sharing
+Google: https://drive.google.com/file/d/1dPegDN62Rk7xdiP7Abyj9cyU84u7ypW_/view?usp=sharing
+
+TIP: 集成开发环境 (IDE):
+
+https://fortiortech.com/download/FTM32ForgeIDE
+
+
+TIP: 固件源码
+
+
+TIP: 源码描述
 
 
 == 参考资料
@@ -139,11 +149,10 @@ Baidu: https://pan.baidu.com/s/1aBJj6CIO0J3W32UtE8pczA?pwd=8888 提取码: 8888
 
 Google: https://drive.google.com/file/d/1ttI71wRvINfQiq17CmFQkxKmrhbiCzij/view?usp=sharing
 
-TIP: 软件工具
+TIP: 结构
 
-Baidu: https://pan.baidu.com/s/1on9siD2XyrZQaJ-bMSemwA?pwd=8888 提取码: 8888 
 
-Google: https://drive.google.com/file/d/1dPegDN62Rk7xdiP7Abyj9cyU84u7ypW_/view?usp=sharing
+TIP: 论坛讨论 : https://forum.banana-pi.org/c/servodrive/bpi-jc10/148
 
 
 
