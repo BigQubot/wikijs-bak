@@ -8,13 +8,13 @@ Following the figure below, connect the power cable first and then the CAN debug
 
 Before switching on the main power supply, double-check that the power-cable polarity is connected correctly.
 
-image::/bpi_jc10/gettingstart/banana_pi_bpi_jc10_gettingstart_connect1.jpg[banana_pi_bpi_jc10_gettingstart_connect1.jpg]
+image::/bpi_jc10/jc_connecting_261127.png[jc_connecting_261127.png, width=1000px]
 
 = Test Run and Commissioning
 
 The test run is performed with the host software FortiorTechServoStudio.
 
-image::/bpi_jc10/gettingstart/banana_pi_bpi_jc10_gettingstart_servostudio1.jpg[banana_pi_bpi_jc10_gettingstart_servostudio1.jpg]
+image::/bpi_jc10/jc10_2_261127.png[jc10_2_261127.png, width=1000px]
 
 == Communication Connection
 
@@ -23,11 +23,11 @@ image::/bpi_jc10/gettingstart/banana_pi_bpi_jc10_gettingstart_servostudio1.jpg[b
 . Double-click FortiorTechServoStudio.exe to open it, then in the navigation sidebar click the “Connect” submenu;
 . Set the connection type to CAN and select the corresponding CAN device, set the communication protocol to CAN FD, the arbitration-phase bit rate to 1 Mbit/s and the data-phase bit rate to 5 Mbit/s; (Note: the host software supports CAN devices from PCAN, VCICAN, ZLGCAN and so on, of which PCAN and ZLGCAN support CAN FD)
 +
-image::/bpi_jc10/gettingstart/banana_pi_bpi_jc10_gettingstart_servostudio2.jpg[banana_pi_bpi_jc10_gettingstart_servostudio2.jpg]
+
 
 . Click the “Connect” button to establish the communication link.
 +
-image::/bpi_jc10/gettingstart/banana_pi_bpi_jc10_gettingstart_servostudio3.jpg[banana_pi_bpi_jc10_gettingstart_servostudio3.jpg]
+image::/bpi_jc10/jc10_3_261127.png[jc10_3_261127.png, width=1000px]
 
 == Importing Parameters
 
@@ -36,11 +36,11 @@ When using the servo drive module for the first time, import the parameter file 
 . In the navigation sidebar, click the “Backup & Restore” submenu;
 . Click “Import Parameters” and select the .rpc file provided with this document. After a short wait, the “Parameters imported successfully” dialog box appears;
 +
-image::/bpi_jc10/gettingstart/banana_pi_bpi_jc10_gettingstart_servostudio4.jpg[banana_pi_bpi_jc10_gettingstart_servostudio4.jpg]
+image::/bpi_jc10/jc10_4_261127.png[jc10_4_261127.png, width=1000px]
 
 . In the toolbar at the top, click the “Save” button to save the parameters to the drive Flash.
 +
-image::/bpi_jc10/gettingstart/banana_pi_bpi_jc10_gettingstart_servostudio5.jpg[banana_pi_bpi_jc10_gettingstart_servostudio5.jpg]
+image::/bpi_jc10/jc10_5_261127.png[jc10_5_261127.png, width=1000px]
 
 == Finding the Phase Angle
 
@@ -54,7 +54,7 @@ Procedure for finding the phase angle:
 
 . When the phase search finishes, a dialog box reports that it succeeded. If it fails, increase the phase search current and try again, then check whether the motor and feedback parameters are set correctly and whether the encoder reading is normal.
 
-image::/bpi_jc10/gettingstart/banana_pi_bpi_jc10_gettingstart_servostudio6.jpg[banana_pi_bpi_jc10_gettingstart_servostudio6.jpg]
+image::/bpi_jc10/jc10_6_261127.png[jc10_6_261127.png]
 
 == Running the Motor
 
@@ -77,7 +77,7 @@ Procedure for running the position loop:
 
 . Click “Start”, and the motor begins to run.
 
-image::/bpi_jc10/gettingstart/banana_pi_bpi_jc10_gettingstart_servostudio7.jpg[banana_pi_bpi_jc10_gettingstart_servostudio7.jpg]
+image::/bpi_jc10/jc10_7_261127.png[jc10_7_261127.png, width=1000px]
 
 == MIT Control
 
@@ -101,7 +101,7 @@ Mode selection: on the oscilloscope screen, set the operation mode of the motion
 
 . Click “Start”, and the motor begins to run.
 
-image::/bpi_jc10/gettingstart/banana_pi_bpi_jc10_gettingstart_servostudio8.jpg[banana_pi_bpi_jc10_gettingstart_servostudio8.jpg]
+image::/bpi_jc10/jc10_8_261127.png[jc10_8_261127.png, width=1000px]
 
 === MIT Velocity Control
 
@@ -113,7 +113,7 @@ image::/bpi_jc10/gettingstart/banana_pi_bpi_jc10_gettingstart_servostudio8.jpg[b
 . Click “Enable” in the toolbar at the top to enable the drive;
 . Click “Start”, and the motor begins to run.
 
-image::/bpi_jc10/gettingstart/banana_pi_bpi_jc10_gettingstart_servostudio9.jpg[banana_pi_bpi_jc10_gettingstart_servostudio9.jpg]
+image::/bpi_jc10/jc10_9_261127.png[jc10_9_261127.png, width=1000px]
 
 === MIT Current Control
 
@@ -125,7 +125,7 @@ image::/bpi_jc10/gettingstart/banana_pi_bpi_jc10_gettingstart_servostudio9.jpg[b
 . Click “Enable” in the toolbar at the top to enable the drive;
 . Click “Start”, and the motor begins to run.
 
-image::/bpi_jc10/gettingstart/banana_pi_bpi_jc10_gettingstart_servostudio10.jpg[banana_pi_bpi_jc10_gettingstart_servostudio10.jpg]
+image::/bpi_jc10/jc10_10_261127.png[jc10_10_261127.png, width=1000px]
 
 = Updating the Firmware
 
