@@ -79,7 +79,7 @@ a| image::/bpi_jc10/bananapi-jc10_motor2.jpg[bananapi-jc10_motor2.jpg,width=100%
 | MCU-FU7512L     | FU7512L，峰岹科技自研双核MCU，基于 32位RISC-V核和电机控制引擎ME2核
 | 预驱芯片FD6288Q       | FD6288Q，峰岹科技自研预驱，集成三个独立半桥栅极驱动
 | 磁编码器          | KHT3934，编码器位置反馈
-| MOS      | ZMS026N10HNC                                             
+| MOS      | ZMS026N10HNCP                                             
 | 代码下载接口   | 代码下载到MCU完成调试                      
 | CANFD接口  | 用于连接关节模组上位机调试及外部CAN/CANFD控制                   
 | U/V/W      | 关节电机动力线U/V/W焊点                
