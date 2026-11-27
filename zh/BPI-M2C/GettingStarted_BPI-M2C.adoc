@@ -35,14 +35,7 @@ image::/picture/etcher.jpg[etcher.jpg]
 
 == 使用 SD 卡安装镜像（方法二）
 
-使用 ResearchDownload 工具烧录 PAC 包。
 
-. 下载 SD 卡镜像。（如果是压缩包，请提前解压。）
-. 将开发板背面的 SD 拨码开关拨到 ON 的位置。
-. 打开工具，点击 "Load packet"（加载包），选择你要烧录的 PAC 包。
-+
-
-. 点击 "Settings"，然后点击 "Options"，勾选 "Repartition"（重新分区）、"Keep Charge"（保持充电）和 "Power Off"（关机）。
 
 == 安装镜像到 eMMC
 
