@@ -109,7 +109,7 @@ image::/bpi_jc10/banana_pi_bpi-jc10_canfdpower1.jpg[banana_pi_bpi-jc10_canfdpowe
 | 电源   | 输出电压 0-60 V，输出电流 0-5 A，输出功率 300 W   
 | 电源线 + CAN 调试线   | XT30(2+2)-M 接口，线长 20 cm，电源线规 18 AWG，信号线规 26 AWG  
 .3+| CAN 调试适配器   | PCAN-FD    
-| 创芯科技USBCAN-2C   | ZQWL-UCANFD-100E 单通道 CAN FD           
+| 创芯科技USBCAN-2C   | ZQWL-UCANFD-100E 单通道 CAN FD 兼容CAN          
 |================
 
 == 仿真器
