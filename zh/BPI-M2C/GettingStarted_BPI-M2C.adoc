@@ -21,7 +21,7 @@ TIP: 更多信息请访问： link:/zh/BPI-M2C/BananaPi_BPI-M2C[Banana Pi BPI-M2
 
 - link:/zh/BPI-M2C/BananaPi_BPI-M2C#_yocto_linux[下载需要烧录的系统镜像]
 
-- 使用 USB 转串口线（3.3V TTL，波特率=921600）连接到 BPI-M2C 的调试控制台。接线：G=GND；RX=接 BPI-M2C 的输入（TX）；TX=接 BPI-M2C 的输出（RX）。
+- 使用 USB 转串口线（3.3V TTL，波特率=921600）连接到 BPI-M2C 的调试控制台。接线：G=GND；RX 接 BPI-M2C 的 TX ；TX 接 BPI-M2C 的 RX 。
 
 == 使用 SD 卡安装镜像（方法一）
 
