@@ -74,11 +74,12 @@ image::/bpi_jc10/banana_pi_bpi-jc10_2.jpg[banana_pi_bpi-jc10_2.jpg]
 
 [cols="1,3", options="header" ]
 |====
+2+|  BPI-JC10 Hardware Specifications
 | Item                          | Description                                                                                                                              
 | MCU-FU7512L                   | FU7512L, Fortior Technology self-developed dual-core MCU (32-bit RISC-V core + motor control engine ME2 core)                            
 | Pre-driver FD6288Q             | FD6288Q, Fortior Technology self-developed pre-driver, integrates three independent half-bridge gate drivers 
 
-|Magnetic Encoders              | KTH7112,Encoder position feedback
+|Magnetic Encoders              | KHT3934,Encoder position feedback
 
 | MOS                           | ZMS026N10HNC                                                                                                                                        
 | Code download interface       | For downloading code to the MCU for debugging                                                                                            
