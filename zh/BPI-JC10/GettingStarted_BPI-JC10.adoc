@@ -52,7 +52,7 @@ image::/bpi_jc10/jc10_6_261127.png[jc10_6_261127.png]
 . 点击“寻找相位角”按钮。
 . 寻相结束后会弹出框提示寻相成功，如果寻相失败，可以提高寻相电流再试试，检查一下电机及反馈参数设置是否正确，编码器读数是否正常。
 +
-image::/bpi_jc10/gettingstart/banana_pi_bpi_jc10_gettingstart_servostudio6.jpg[banana_pi_bpi_jc10_gettingstart_servostudio6.jpg]
+image::/bpi_jc10/jc10_7_261127.png[jc10_7_261127.png, width=1000px]
 
 == 跑电机
 
@@ -68,7 +68,7 @@ image::/bpi_jc10/gettingstart/banana_pi_bpi_jc10_gettingstart_servostudio6.jpg[b
 . 点击上方工具栏“Enable”，使能位置环；
 . 点击“开始”，电机开始运行。
 
-image::/bpi_jc10/gettingstart/banana_pi_bpi_jc10_gettingstart_servostudio7.jpg[banana_pi_bpi_jc10_gettingstart_servostudio7.jpg]
+image::/bpi_jc10/jc10_8_261127.png[jc10_8_261127.png, width=1000px]
 
 == MIT控制
 
@@ -85,7 +85,7 @@ image::/bpi_jc10/gettingstart/banana_pi_bpi_jc10_gettingstart_servostudio7.jpg[b
 . 点击上方工具栏“Enable”，使能；
 . 点击“开始”，电机开始运行。
 
-image::/bpi_jc10/gettingstart/banana_pi_bpi_jc10_gettingstart_servostudio8.jpg[banana_pi_bpi_jc10_gettingstart_servostudio8.jpg]
+image::/bpi_jc10/jc10_9_261127.png[jc10_9_261127.png, width=1000px]
 
 === MIT速度控制
 
@@ -97,7 +97,7 @@ image::/bpi_jc10/gettingstart/banana_pi_bpi_jc10_gettingstart_servostudio8.jpg[b
 . 点击上方工具栏“Enable”，使能；
 . 点击“开始”，电机开始运行。
 
-image::/bpi_jc10/gettingstart/banana_pi_bpi_jc10_gettingstart_servostudio9.jpg[banana_pi_bpi_jc10_gettingstart_servostudio9.jpg]
+image::/bpi_jc10/jc10_9_261127.png[jc10_9_261127.png, width=1000px]
 
 === MIT电流控制
 
@@ -109,7 +109,7 @@ image::/bpi_jc10/gettingstart/banana_pi_bpi_jc10_gettingstart_servostudio9.jpg[b
 . 点击上方工具栏“Enable”，使能；
 . 点击“开始”，电机开始运行。
 
-image::/bpi_jc10/gettingstart/banana_pi_bpi_jc10_gettingstart_servostudio10.jpg[banana_pi_bpi_jc10_gettingstart_servostudio10.jpg]
+image::/bpi_jc10/jc10_10_261127.png[jc10_10_261127.png, width=1000px]
 
 = 更新程序
 
