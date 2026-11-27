@@ -24,11 +24,11 @@ image::/bpi_jc10/jc10_software_261127.png[jc10_software_261127.png, width=1000px
 . 连接类型选择CAN，选择相应的CAN设备，通信协议选择CANFD,仲裁域波特率选择1MBit/s，数据域波特率选择5MBit/s；(注：上位机支持PCAN、VCICAN、ZLGCAN等CAN连接设备，其中PCAN 、ZLGCAN 支持CANFD
 )
 +
-image::/bpi_jc10/gettingstart/banana_pi_bpi_jc10_gettingstart_servostudio2.jpg[banana_pi_bpi_jc10_gettingstart_servostudio2.jpg]
+image::/bpi_jc10/jc10_communication_261127.png[jc10_communication_261127.png, width=1000px]
 
 . 点击“连接”按钮，实现通信连接。
 +
-image::/bpi_jc10/gettingstart/banana_pi_bpi_jc10_gettingstart_servostudio3.jpg[banana_pi_bpi_jc10_gettingstart_servostudio3.jpg]
+image::/bpi_jc10/jc10_communication1_261127.png[jc10_communication1_261127.png, width=1000px]
 
 == 导入参数
 
@@ -37,12 +37,12 @@ image::/bpi_jc10/gettingstart/banana_pi_bpi_jc10_gettingstart_servostudio3.jpg[b
 . 在侧边导航栏，点击 “备份与恢复”子菜单；
 . 点击“导入参数”，选择附件中的.rpc文件，稍等片刻，弹出“导入参数成功”的提示框；
 +
-image::/bpi_jc10/gettingstart/banana_pi_bpi_jc10_gettingstart_servostudio4.jpg[banana_pi_bpi_jc10_gettingstart_servostudio4.jpg]
+
+image::/bpi_jc10/jc10_5_261127.png[jc10_5_261127.png, width=1000px]
 
 . 在上方工具栏，点击 “Save”按钮，保存参数到驱动器Flash。
 + 
-image::/bpi_jc10/gettingstart/banana_pi_bpi_jc10_gettingstart_servostudio5.jpg[banana_pi_bpi_jc10_gettingstart_servostudio5.jpg]
-
+image::/bpi_jc10/jc10_6_261127.png[jc10_6_261127.png]
 == 寻找相位角
 
 寻找相位角步骤：
