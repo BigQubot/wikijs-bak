@@ -1,6 +1,6 @@
 = Introduction
 
-image::/bpi_jc10/jc10_banner_top_2_261112.jpg[jc10_banner_top_2_261112.jpg, width=1000px]
+image::/bpi_jc10/bannapi_jc10_introduction1.jpg[bannapi_jc10_introduction1.jpg,width=1000px]
 
 Banana Pi BPI-JC10 is a fully open-source driver board platform for robotic joint motor applications. At its core are Fortior Technology's FU7512L dual-core motor control MCU and FD6288Q three-phase gate driver IC, delivering native CAN/CAN FD support, dual onboard encoders, full closed-loop control, and MIT mode. The platform is specifically engineered for collaborative robot joints, integrated servo motors, exoskeletons, and wheel-legged robots.
 
@@ -63,9 +63,6 @@ TIP: link:/en/BPI-JC10/GettingStarted_BPI-JC10[Quick Start Debugging Guide]
 == PCBA Interface Diagrams
 
 image::/bpi_jc10/jc10_interface_en(2000)_261116.jpg[jc10_interface_en(2000)_261116.jpg，width=1000px]
-== BPI-JC10 Kit
-
-image::/bpi_jc10/banana_pi_bpi-jc10_2.jpg[banana_pi_bpi-jc10_2.jpg]
 
 == BPI-JC10 Photo
 
