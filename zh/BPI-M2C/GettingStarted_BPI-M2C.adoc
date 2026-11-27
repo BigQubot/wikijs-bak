@@ -125,7 +125,7 @@ iw dev wlan0 info
 wpa_cli -i wlan0 status 2>/dev/null
 ```
 
-要将 wlan0 配置为无线热点——或者在切换到标准 Wi-Fi 客户端模式之前——你应该首先停止任何当前正在使用该接口的 hostapd 实例:
+要将 wlan0 配置为无线热点—或者在切换到标准 Wi-Fi 客户端模式之前—你应该首先停止任何当前正在使用该接口的 hostapd 实例:
 
 ```
 /etc/init.d/hostapd stop 2>/dev/null || true
@@ -530,7 +530,7 @@ ls -l /dev/dri/ 2>/dev/null
 
 == 摄像头
 
-当前 M2C 软件支持 IMX258 传感器，并包含 UniSoc V4L2 适配层、unisv4l2src GStreamer 插件以及名为 UnisocCameraApp 的图形界面应用。对于其他摄像头模块——即使是具有相同连接器类型的模块——你也必须验证引脚定义、电压、时钟设置、设备树配置和驱动程序。
+当前 M2C 软件支持 IMX258 传感器，并包含 UniSoc V4L2 适配层、unisv4l2src GStreamer 插件以及名为 UnisocCameraApp 的图形界面应用。对于其他摄像头模块—即使是具有相同连接器类型的模块—你也必须验证引脚定义、电压、时钟设置、设备树配置和驱动程序。
 
 === 检查摄像头
 
