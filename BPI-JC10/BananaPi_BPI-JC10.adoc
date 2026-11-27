@@ -84,7 +84,7 @@ a| image::/bpi_jc10/jc10-2000_2.1jpg.jpg[jc10-2000_2.1jpg.jpg]
 
 |Magnetic Encoders              | KHT3934,Encoder position feedback
 
-| MOS                           | ZMS026N10HNC                                                                                                                                        
+| MOS                           | ZMS026N10HNCP                                                                                                                                       
 | Code download interface       | For downloading code to the MCU for debugging                                                                                            
 | CANFD interface               | For connecting to the servo PC for tuning and external CAN/CAN FD control                                                                
 | U/V/W                         | Joint motor power lines (U/V/W)                                                               
